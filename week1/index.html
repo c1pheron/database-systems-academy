@@ -156,7 +156,7 @@
                   <span class="cat-title">Entitiy Aloqalari (ER & Relyatsion Sxema)</span>
                 </div>
                 <div class="shape-grid" id="shapeGridER">
-                  <!-- 1. Jadval (Table) -->
+                  <!-- 1. Jadval (Table PK) -->
                   <div class="shape-card" data-shape="table" title="Jadval (PK va ustunlar bilan)">
                     <div class="shape-preview shape-table-preview">
                       <div class="shp-hdr"></div>
@@ -166,100 +166,166 @@
                     <span class="shape-label">Jadval</span>
                   </div>
 
-                  <!-- 2. Oddiy Entitiy (Rectangle) -->
+                  <!-- 2. 2-Ustunli Jadval -->
+                  <div class="shape-card" data-shape="table-2col" title="2-Ustunli Relyatsion Jadval">
+                    <div class="shape-preview shape-2col-preview">
+                      <div class="shp-c1"></div>
+                      <div class="shp-c2"></div>
+                    </div>
+                    <span class="shape-label">2-Ustun</span>
+                  </div>
+
+                  <!-- 3. Dumaloq Jadval (Rounded Table) -->
+                  <div class="shape-card" data-shape="table-rounded" title="Yumaloq Boshli Jadval">
+                    <div class="shape-preview shape-rect-rounded">Jadval</div>
+                    <span class="shape-label">Yumaloq Jadval</span>
+                  </div>
+
+                  <!-- 4. Element (Item Box) -->
+                  <div class="shape-card" data-shape="item-box" title="Alohida Element Bloki">
+                    <div class="shape-preview shape-item-preview">Item</div>
+                    <span class="shape-label">Element</span>
+                  </div>
+
+                  <!-- 5. Oddiy Entitiy (Rectangle) -->
                   <div class="shape-card" data-shape="entity" title="Oddiy Entitiy">
                     <div class="shape-preview shape-rect-preview">Entitiy</div>
                     <span class="shape-label">Entitiy</span>
                   </div>
 
-                  <!-- 3. Zaif Entitiy (Double Rectangle) -->
+                  <!-- 6. Yumaloq Entitiy -->
+                  <div class="shape-card" data-shape="entity-rounded" title="Yumaloq Burchakli Entitiy">
+                    <div class="shape-preview shape-rect-rounded">Entitiy</div>
+                    <span class="shape-label">Yumaloq Ent.</span>
+                  </div>
+
+                  <!-- 7. Zaif Entitiy (Double Rectangle) -->
                   <div class="shape-card" data-shape="weak-entity" title="Zaif Entitiy">
                     <div class="shape-preview shape-weak-preview">Zaif</div>
                     <span class="shape-label">Zaif Entitiy</span>
                   </div>
 
-                  <!-- 4. Assotsiativ Entitiy (Diamond in box) -->
+                  <!-- 8. Assotsiativ Entitiy (Diamond in box) -->
                   <div class="shape-card" data-shape="assoc-entity" title="Assotsiativ Entitiy">
                     <div class="shape-preview shape-assoc-preview">◇</div>
                     <span class="shape-label">Assotsiativ</span>
                   </div>
 
-                  <!-- 5. Oddiy Atribut (Oval) -->
+                  <!-- 9. Oddiy Atribut (Oval) -->
                   <div class="shape-card" data-shape="attr-plain" title="Oddiy Atribut (Ellips)">
                     <div class="shape-preview shape-oval-preview">Atribut</div>
                     <span class="shape-label">Atribut</span>
                   </div>
 
-                  <!-- 6. PK Atribut (Underlined Oval) -->
+                  <!-- 10. PK Atribut (Underlined Oval) -->
                   <div class="shape-card" data-shape="attr-pk" title="Birlamchi Kalit Atribut">
                     <div class="shape-preview shape-oval-preview pk"><u>PK_id</u></div>
                     <span class="shape-label">PK Kalit</span>
                   </div>
 
-                  <!-- 7. Ko'p Qiymatli Atribut (Double Oval) -->
+                  <!-- 11. Ko'p Qiymatli Atribut (Double Oval) -->
                   <div class="shape-card" data-shape="attr-multi" title="Ko'p Qiymatli Atribut">
                     <div class="shape-preview shape-oval-double">Ko'p</div>
                     <span class="shape-label">Ko'p Qiymat</span>
                   </div>
 
-                  <!-- 8. Hosilaviy Atribut (Dashed Oval) -->
+                  <!-- 12. Hosilaviy Atribut (Dashed Oval) -->
                   <div class="shape-card" data-shape="attr-derived" title="Hosilaviy Atribut">
                     <div class="shape-preview shape-oval-dashed">Hosilaviy</div>
                     <span class="shape-label">Hosilaviy</span>
                   </div>
 
-                  <!-- 9. Kompozit Atribut -->
+                  <!-- 13. Qisman Kalit (PPK Oval) -->
+                  <div class="shape-card" data-shape="attr-partial" title="Qisman Kalit (Zaif Entitiy Uchun)">
+                    <div class="shape-preview shape-oval-dotted">PPK</div>
+                    <span class="shape-label">Qisman (PPK)</span>
+                  </div>
+
+                  <!-- 14. Kompozit Atribut -->
                   <div class="shape-card" data-shape="attr-composite" title="Kompozit Atribut">
                     <div class="shape-preview shape-composite-preview">Tarmoq</div>
                     <span class="shape-label">Kompozit</span>
                   </div>
 
-                  <!-- 10. Aloqa / Romb (Relationship) -->
+                  <!-- 15. Aloqa / Romb (Relationship) -->
                   <div class="shape-card" data-shape="rel-diamond" title="Aloqa (Romb)">
                     <div class="shape-preview shape-diamond-preview">◇</div>
                     <span class="shape-label">Aloqa Romb</span>
                   </div>
 
-                  <!-- 11. Aniqlashtiruvchi Aloqa (Double Diamond) -->
+                  <!-- 16. Aniqlashtiruvchi Aloqa (Double Diamond) -->
                   <div class="shape-card" data-shape="rel-identifying" title="Aniqlashtiruvchi Aloqa">
                     <div class="shape-preview shape-diamond-double">◈</div>
                     <span class="shape-label">Aniqlash</span>
                   </div>
 
-                  <!-- 12. Meros / ISA Doirasi -->
+                  <!-- 17. Tashqi Tizim (Cloud / Domain) -->
+                  <div class="shape-card" data-shape="domain-cloud" title="Tashqi Domen / Bulut">
+                    <div class="shape-preview shape-cloud-preview">☁️</div>
+                    <span class="shape-label">Bulut (Cloud)</span>
+                  </div>
+
+                  <!-- 18. Bo'lim / Modul (Partition Box) -->
+                  <div class="shape-card" data-shape="partition-box" title="Bo'lim / 2-Qismli Modul">
+                    <div class="shape-preview shape-2col-preview">
+                      <div class="shp-c1"></div>
+                      <div class="shp-c2"></div>
+                    </div>
+                    <span class="shape-label">Bo'lim</span>
+                  </div>
+
+                  <!-- 19. Meros / ISA Doirasi -->
                   <div class="shape-card" data-shape="isa-circle" title="Meros / ISA (d/o)">
                     <div class="shape-preview shape-isa-preview">(d)</div>
                     <span class="shape-label">Meros (ISA)</span>
                   </div>
 
-                  <!-- 13. Eslatma Qog'ozi (Note) -->
+                  <!-- 20. Eslatma Qog'ozi (Note) -->
                   <div class="shape-card" data-shape="note-box" title="Eslatma / Izoh Qog'ozi">
                     <div class="shape-preview shape-note-preview">📝</div>
                     <span class="shape-label">Eslatma</span>
                   </div>
 
-                  <!-- 14. 1..1 Bog'lanish (||) -->
-                  <div class="shape-card" data-shape="conn-11" title="1..1 Bog'lanish Chizig'i">
+                  <!-- 21. Oddiy To'g'ri Chiziq -->
+                  <div class="shape-card" data-shape="conn-plain" title="2 Uchli Magnit To'g'ri Chiziq">
+                    <div class="shape-preview shape-line-preview">━━━━━━</div>
+                    <span class="shape-label">To'g'ri Chiziq</span>
+                  </div>
+
+                  <!-- 22. Uzuk-uzuk Chiziq -->
+                  <div class="shape-card" data-shape="conn-dashed" title="2 Uchli Magnit Uzuk Chiziq">
+                    <div class="shape-preview shape-line-preview">┄┄┄┄┄┄</div>
+                    <span class="shape-label">Uzuk Chiziq</span>
+                  </div>
+
+                  <!-- 23. 1..1 Bog'lanish (||) -->
+                  <div class="shape-card" data-shape="conn-11" title="2 Uchli Magnit 1..1 Bog'lanish">
                     <div class="shape-preview shape-line-preview">━━||━━</div>
                     <span class="shape-label">1..1 (||)</span>
                   </div>
 
-                  <!-- 15. 0..1 Bog'lanish (O|) -->
-                  <div class="shape-card" data-shape="conn-01" title="0..1 Bog'lanish Chizig'i">
+                  <!-- 24. 0..1 Bog'lanish (O|) -->
+                  <div class="shape-card" data-shape="conn-01" title="2 Uchli Magnit 0..1 Bog'lanish">
                     <div class="shape-preview shape-line-preview">━━○|━━</div>
                     <span class="shape-label">0..1 (O|)</span>
                   </div>
 
-                  <!-- 16. 1..* Bog'lanish (|<) -->
-                  <div class="shape-card" data-shape="conn-1n" title="1..* Bog'lanish Chizig'i">
+                  <!-- 25. 1..* Bog'lanish (|<) -->
+                  <div class="shape-card" data-shape="conn-1n" title="2 Uchli Magnit 1..* Bog'lanish">
                     <div class="shape-preview shape-line-preview">━━|<━━</div>
                     <span class="shape-label">1..* (|<)</span>
                   </div>
 
-                  <!-- 17. 0..* Bog'lanish (O<) -->
-                  <div class="shape-card" data-shape="conn-0n" title="0..* Bog'lanish Chizig'i">
+                  <!-- 26. 0..* Bog'lanish (O<) -->
+                  <div class="shape-card" data-shape="conn-0n" title="2 Uchli Magnit 0..* Bog'lanish">
                     <div class="shape-preview shape-line-preview">━━○<━━</div>
                     <span class="shape-label">0..* (O<)</span>
+                  </div>
+
+                  <!-- 27. Pog'onali Bog'lanish (Zigzag) -->
+                  <div class="shape-card" data-shape="conn-zigzag" title="2 Uchli Magnit Pog'onali Bog'lanish">
+                    <div class="shape-preview shape-line-preview">━┓┗━</div>
+                    <span class="shape-label">Pog'onali</span>
                   </div>
                 </div>
               </div>

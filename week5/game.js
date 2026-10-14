@@ -181,7 +181,24 @@
     document.getElementById("qTitle").textContent = `${q.id}. ${q.title}`;
 
     document.getElementById("qStory").innerHTML = formatInlineMarkdown(q.story);
-    document.getElementById("qTaskUz").innerHTML = formatInlineMarkdown(q.taskUz);
+    const taskEl = document.getElementById("qTaskUz");
+    if (taskEl) {
+      taskEl.innerHTML = formatInlineMarkdown(q.taskUz);
+      let btnDetail = document.getElementById('btnChallengeDetail');
+      if (!btnDetail) {
+        btnDetail = document.createElement('button');
+        btnDetail.id = 'btnChallengeDetail';
+        btnDetail.className = 'btn-challenge-detail';
+        btnDetail.type = 'button';
+        taskEl.parentNode.appendChild(btnDetail);
+      }
+      btnDetail.innerHTML = `<span>📖 Batafsil</span> <small style="opacity:0.85;">(Komandani o'rganish)</small>`;
+      btnDetail.onclick = () => {
+        if (window.databaseEncyclopedia) {
+          window.databaseEncyclopedia.openForQuestion(q, 5);
+        }
+      };
+    }
 
     // SQL Editor value
     const saved = state.savedQueries[q.id];

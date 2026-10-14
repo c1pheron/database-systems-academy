@@ -267,7 +267,21 @@
     // Title & scenario
     dossierTitle.textContent = q.title;
     dossierStory.innerHTML = `<strong>Tizim holati:</strong> ${q.story}`;
-    dossierTask.innerHTML = `<strong>Architectural Task:</strong> ${q.taskUz}`;
+    dossierTask.innerHTML = `<strong>Me'moriy Vazifa:</strong> ${q.taskUz}`;
+    let btnDetail = document.getElementById('btnChallengeDetail');
+    if (!btnDetail) {
+      btnDetail = document.createElement('button');
+      btnDetail.id = 'btnChallengeDetail';
+      btnDetail.className = 'btn-challenge-detail';
+      btnDetail.type = 'button';
+      dossierTask.parentNode.insertBefore(btnDetail, dossierTask.nextSibling);
+    }
+    btnDetail.innerHTML = `<span>📖 Batafsil</span> <small style="opacity:0.85;">(Komandani o'rganish)</small>`;
+    btnDetail.onclick = () => {
+      if (window.databaseEncyclopedia) {
+        window.databaseEncyclopedia.openForQuestion(q, 3);
+      }
+    };
 
     // Editor content
     if (state.userCodes[q.id] !== undefined) {

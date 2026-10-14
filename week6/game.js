@@ -204,7 +204,23 @@
     if (qSourceEl) qSourceEl.textContent = q.source || "Academy W6";
     if (qTitleEl) qTitleEl.textContent = q.title;
     if (qStoryEl) qStoryEl.innerHTML = formatInlineMarkdown(q.story);
-    if (qTaskEl) qTaskEl.innerHTML = formatInlineMarkdown(q.taskUz);
+    if (qTaskEl) {
+      qTaskEl.innerHTML = formatInlineMarkdown(q.taskUz);
+      let btnDetail = document.getElementById('btnChallengeDetail');
+      if (!btnDetail) {
+        btnDetail = document.createElement('button');
+        btnDetail.id = 'btnChallengeDetail';
+        btnDetail.className = 'btn-challenge-detail';
+        btnDetail.type = 'button';
+        qTaskEl.parentNode.appendChild(btnDetail);
+      }
+      btnDetail.innerHTML = `<span>📖 Batafsil</span> <small style="opacity:0.85;">(Komandani o'rganish)</small>`;
+      btnDetail.onclick = () => {
+        if (window.databaseEncyclopedia) {
+          window.databaseEncyclopedia.openForQuestion(q, 6);
+        }
+      };
+    }
 
     if (qTagsEl) {
       qTagsEl.innerHTML = "";

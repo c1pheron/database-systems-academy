@@ -185,18 +185,41 @@ module.exports = [
   },
   {
     id: 'like-operator',
-    name: 'LIKE & ILIKE (Shablon Bo\'yicha Qidiruv: %, _)',
+    name: 'LIKE & ILIKE (Shablon Qidiruvi: Barcha Wildcard Kombinatsiyalari)',
     category: '3-Hafta • SQL DDL & DML Asoslari',
     week: 3,
-    summary: "Matnli ustunlar ichidan qisman moslik yoki shablon asosida qidirish operatori.",
-    whatItDoes: "`%` belgisi — ixtiyoriy sondagi (0 ta yoki undan ko'p) ixtiyoriy belgilarni bildiradi. `_` (pastki chiziq) — aynan 1 ta ixtiyoriy belgini bildiradi. `ILIKE` — katta-kichik harfni ajratmaydigan (Case-Insensitive) qidiruv.",
-    whenToUse: "Qidiruv qatoriga foydalanuvchi so'z yozganda: 'Ismi Al... bilan boshlanuvchilar' yoki 'Gmail pochtasiga ega bo'lganlar'.",
-    syntax: "-- 'Ali' bilan boshlanadiganlar:\nWHERE ism LIKE 'Ali%'\n\n-- Ichida 'phone' so'zi borlar:\nWHERE mahsulot_nomi ILIKE '%phone%'\n\n-- Aniq 5 ta harfdan iborat bo'lganlar:\nWHERE kod LIKE '_____'",
-    combinations: "`NOT LIKE` orqali mos kelmaydiganlarni topish mumkin. ESCAPE orqali `%` ning o'zini qidirish mumkin.",
-    example: "-- O'zbekiston telefon raqamlarini topish:\nSELECT fio, telefon FROM mijozlar\nWHERE telefon LIKE '+99890%' OR telefon LIKE '+99891%';",
-    gotchas: "Indeks tuzog'i! Agar qidiruvni foiz bilan boshlasangiz (`WHERE ism LIKE '%bek'`), B-Tree indeks umuman ishlamaydi va Full Table Scan (million qatorni ko'rib chiqish) yuz beradi! B-Tree faqat boshidan qidirganda (`'bek%'`) ishlaydi.",
-    related: ['where-clause', 'upper-lower', 'create-index'],
-    keywords: ['like', 'ilike', 'shablon', 'wildcard', 'foiz', 'qidiruv']
+    summary: "Matnli ustunlar ichidan qisman moslik yoki shablon asosida qidirish operatori. Barcha wildcard kombinatsiyalari (% va _), ESCAPE va ILIKE.",
+    whatItDoes: "LIKE operatori matn ustunlarini ko'rsatilgan shablonga (pattern) solishtiradi. Unda 2 ta maxsus belgi (wildcard) bor:\n1. `%` — 0 ta, 1 ta yoki istalgancha ixtiyoriy belgi o'rniga o'tadi.\n2. `_` (pastki chiziq) — qat'iy bitta ixtiyoriy belgi o'rniga o'tadi.\n`ILIKE` — PostgreSQL da katta-kichik harflarni farqlamaydigan (Case-Insensitive) qidiruv.",
+    whenToUse: "Foydalanuvchi qidiruv maydonchasiga so'z kiritganda, email domenini aniqlashda, telefon raqam prefiksini tekshirishda yoki kod formatini tekshirishda.",
+    syntax: "-- 1. 'L' bilan boshlanuvchilar:\nWHERE shahar LIKE 'L%'\n\n-- 2. 'n' bilan tugovchilar:\nWHERE shahar LIKE '%n'\n\n-- 3. Ichida 'L' harfi bo'lganlar:\nWHERE shahar LIKE '%L%'\n\n-- 4. 2-harfi 'L' bo'lganlar:\nWHERE ism LIKE '_L%'\n\n-- 5. 3-harfi 'L' bo'lganlar:\nWHERE kod LIKE '__L%'\n\n-- 6. 'L' bilan boshlanib 'n' bilan tugovchilar:\nWHERE shahar LIKE 'L%n'\n\n-- 7. 'L' bilan boshlanib 'n' bilan tugaydigan aniq 4 ta harfli so'zlar:\nWHERE kod LIKE 'L__n'\n\n-- 8. Aniq 5 ta belgidan iborat barcha qatorlar:\nWHERE parol LIKE '_____'\n\n-- 9. Matn ichidagi haqiqiy '%' (foiz) belgisining o'zini qidirish (ESCAPE):\nWHERE chegirma LIKE '%!%%' ESCAPE '!'\n\n-- 10. Matn ichidagi haqiqiy '_' (pastki chiziq) belgisini qidirish:\nWHERE fayl_nomi LIKE '%!_%' ESCAPE '!'\n\n-- 11. Mos kelmaydiganlarni qidirish (NOT LIKE):\nWHERE email NOT LIKE '%@spam.com'\n\n-- 12. Katta-kichik harfni ajratmasdan qidirish (ILIKE):\nWHERE qidiruv ILIKE '%toshkent%'",
+    combinations: `Barcha Asosiy Kombinatsiyalar Ro'yxati:
+• 'L%' — 'L' bilan boshlanadigan istalgan so'z ('London', 'Lola')
+• '%L' — 'L' bilan tugaydigan istalgan so'z ('Aral', 'Hotel')
+• '%L%' — Tarkibida 'L' harfi mavjud barcha so'zlar ('Alisher', 'Qalam')
+• '_L%' — 1-harfi ixtiyoriy, 2-harfi aynan 'L' bo'lgan so'zlar ('Ali', 'Ulughbek')
+• '__L%' — Dastlabki 2 ta harfi ixtiyoriy, 3-harfi aynan 'L' bo'lgan so'zlar ('Salom', 'Polvon')
+• 'L%n' — 'L' bilan boshlanib, 'n' bilan tugaydigan so'zlar ('London', 'Lion')
+• 'L__n' — 'L' bilan boshlanib, 'n' bilan tugaydigan va JAMI AYNAN 4 ta belgidan iborat so'zlar ('Lean', 'Loan')
+• '____' — Aynan 4 ta ixtiyoriy belgidan iborat so'zlar
+• LIKE '%!%%' ESCAPE '!' — Haqiqiy '%' belgisini qidirish ('100%' so'zini topadi)
+• LIKE '%!_%' ESCAPE '!' — Haqiqiy '_' belgisini qidirish ('user_id' so'zini topadi)
+• NOT LIKE '%@gmail.com' — Gmail pochtasidan FOYDALANMAYDIGAN foydalanuvchilar
+• ILIKE '%apple%' — Katta-kichik harf farqsiz ('Apple', 'APPLE', 'apple')
+• SIMILAR TO '%(A|B)%' — SQL standarti bo'yicha Regex shablon qidiruvi`,
+    example: `-- 1. Toshkent shahridagi yoki telefon raqami +99890 bilan boshlangan mijozlar:
+SELECT fio, shahar, telefon FROM mijozlar
+WHERE shahar ILIKE 'toshkent%' OR telefon LIKE '+99890%';
+
+-- 2. Matnda haqiqiy 50% chegirma yozilgan mahsulotlarni topish:
+SELECT tovar_nomi, izoh FROM mahsulotlar
+WHERE izoh LIKE '%50!%%' ESCAPE '!';
+
+-- 3. Davlat raqami 01 A 777 AA kabi 2-harfi aniq bo'lgan mashinalarni topish:
+SELECT avto_raqam FROM avtomobillar
+WHERE avto_raqam LIKE '__!_%' ESCAPE '!';`,
+    gotchas: "Indeks tuzog'i (Performance Gotcha)! Agar shablon foiz bilan boshlansa (`'%bek'`), relyatsion bazalardagi an'anaviy B-Tree indeksi ishlamaydi va Full Table Scan (millionlab qatorni qarab chiqish) yuz beradi! B-Tree faqat prefiksli qidiruvda (`'bek%'`) ishlaydi. '%soz%' kabi to'liq matnli qidiruvlar uchun GIN / GiST Trigram indeksi (`pg_trgm`) ishlatilishi shart.",
+    related: ['where-clause', 'upper-lower', 'create-index', 'gin-gist-index'],
+    keywords: ['like', 'ilike', 'wildcard', 'foiz', 'pastki chiziq', 'escape', 'not like', 'similar to', 'shablon', 'qidiruv']
   },
   {
     id: 'between-operator',

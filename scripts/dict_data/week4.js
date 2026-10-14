@@ -218,15 +218,28 @@ module.exports = [
     name: 'COALESCE(val1, val2, ..., val_n)',
     category: '4-Hafta • JOIN & Funksiyalar',
     week: 4,
-    summary: "Berilgan parametrlar ro'yxatidan birinchi bo'lib uchragan NULL bo'lmagan qiymatni qaytaradi.",
-    whatItDoes: "Chapdan o'ngga qarab tekshiradi. Birinchi uchragan tirik ma'lumotni oladi. Agar barcha berilgan qiymatlar NULL bo'lsa, natija ham NULL bo'ladi. Standart ANSI SQL funksiyasi bo'lib, barcha ma'lumotlar bazalarida ishlaydi.",
+    summary: "Berilgan parametrlar ro'yxatidan birinchi bo'lib uchragan NULL bo'lmagan qiymatni qaytaruvchi eng universal SQL funksiyasi.",
+    whatItDoes: "Parametrlarni chapdan o'ngga qarab birma-bir tekshiradi. Birinchi uchragan tirik (NULL bo'lmagan) ma'lumotni darhol qaytaradi. Agar barcha berilgan parametrlar NULL bo'lsa, natija NULL bo'ladi. Standart ANSI SQL funksiyasi bo'lib, PostgreSQL, Oracle, MySQL, SQL Server, SQLite larda 100% bir xil ishlaydi.",
     whenToUse: "Hayotiy misol: Foydalanuvchiga xabar yuborish kerak. Agar `mobil_telefon` bo'lsa telefonga, bo'lmasa `uy_telefoni`ga, u ham bo'lmasa `elektron_pochta`ga, hech biri bo'lmasa `'Mavjud emas'` yozuviga almashtirishda.",
-    syntax: "COALESCE(ustun1, ustun2, ustun3, 'Standart Qiymat')",
-    combinations: "Arifmetik amallarda NULL dan himoyalanish uchun juda qo'l keladi: `narx * (1 - COALESCE(chegirma, 0))`.",
-    example: "-- Xodimning jami daromadi (agar komissiya NULL bo'lsa 0 deb olinsin):\nSELECT ename, sal + COALESCE(comm, 0) AS jami_daromad\nFROM emp;",
-    gotchas: "Barcha parametrlar ma'lumotlar turi bo'yicha bir-biriga mos (yoki avtomatik o'giriladigan) bo'lishi shart! Sonli ustun bilan matnni aralashtirib yuborsangiz type mismatch xatosi chiqadi.",
+    syntax: "-- 1. Standart almashtirish:\nCOALESCE(ustun, 0)\n\n-- 2. Ketma-ket zaxira ustunlar zanjiri (Fallback chain):\nCOALESCE(telefon_mobil, telefon_uy, email, 'Kontakt yo''q')\n\n-- 3. Hisob-kitoblarda NULL dan himoya:\nSELECT narx * (1 - COALESCE(chegirma, 0))\n\n-- 4. LEFT JOIN aggregatsiyalarida bo'shlarni nol qilish:\nSELECT d.nomi, COALESCE(SUM(x.oylik), 0.00) AS jami_xarajat",
+    combinations: `Barcha Asosiy Kombinatsiyalari:
+• Arifmetik amallarda: narx * COALESCE(chegirma_foizi, 0) — NULL qiymat arifmetikani yo'q qilishining oldini oladi.
+• Kontaktlar zanjirida: COALESCE(mobil, uy, ish_telefoni, 'Bog'lanib bo'lmadi') — birinchi mavjud aloqa vositasini topadi.
+• LEFT JOIN va GROUP BY da: COALESCE(SUM(b.summa), 0.00) — hali birorta ham buyurtma bermagan yangi mijozlar uchun NULL o'rniga chiroyli 0.00 chiqaradi.
+• Matnlarni ulashda (Concat): 'Manzil: ' || COALESCE(shahar, 'Aniqlanmagan') — butun matn NULL bo'lib ketishini to'xtatadi.
+• CASE WHEN o'rniga ixchamlashtirish: 4 qatorlik 'CASE WHEN u IS NOT NULL THEN u ELSE 0 END' ifodasini 1 ta 'COALESCE(u, 0)' ga aylantiradi.`,
+    example: `-- 1. Xodimning to'liq daromadi (agar komissiya NULL bo'lsa 0 olinsin):
+SELECT ename, sal, comm, sal + COALESCE(comm, 0) AS jami_maosh
+FROM emp;
+
+-- 2. Bo'limlar va ularning umumiy xarajatlari (bo'sh bo'limlar 0 chiqaradi):
+SELECT d.dname, COALESCE(SUM(e.sal), 0) AS jami_byudjet
+FROM dept d
+LEFT JOIN emp e ON d.deptno = e.deptno
+GROUP BY d.dname;`,
+    gotchas: "Ma'lumotlar turi (Data Type) xatosi! COALESCE ichidagi barcha parametrlar bir xil ma'lumot turida bo'lishi shart. Agar `COALESCE(son_ustuni, 'Noma''lum')` deb yozsangiz, baza son va matnni aralashtira olmay 'invalid input syntax for type numeric' xatosini tashlaydi! Matn chiqarish uchun sonni `son::TEXT` deb o'girish kerak.",
     related: ['nvl', 'nullif', 'is-null', 'three-valued-logic'],
-    keywords: ['coalesce', 'null almashtirish', 'birinchi not null', 'standart qiymat']
+    keywords: ['coalesce', 'null almashtirish', 'birinchi not null', 'standart qiymat', 'null himoyasi']
   },
   {
     id: 'nvl',

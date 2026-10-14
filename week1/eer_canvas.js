@@ -44,6 +44,8 @@ class EERCanvasEngine {
 
     // Free-Standing Connection Lines
     this.freeLines = [];
+    this.standaloneLines = [];
+    this.draggingHandle = null; // { line, handle: 'start'|'end' }
 
     // Node Resizing
     this.isResizing = false;
@@ -225,6 +227,46 @@ class EERCanvasEngine {
       return;
     }
 
+    // Handle Standalone Connector Handles
+    if (this.draggingHandle) {
+      const world = this.screenToWorld(e.clientX, e.clientY);
+      const line = this.draggingHandle.line;
+      if (this.draggingHandle.handle === 'start') {
+        line.startX = Math.round(world.x);
+        line.startY = Math.round(world.y);
+        line.startSnapped = null;
+      } else {
+        line.endX = Math.round(world.x);
+        line.endY = Math.round(world.y);
+        line.endSnapped = null;
+      }
+
+      this.snapCandidate = null;
+      for (const ent of this.entities) {
+        const cx = ent.x + (ent.width || 170) / 2;
+        const cy = ent.y + (ent.height || 100) / 2;
+        const dist = Math.hypot(world.x - cx, world.y - cy);
+        if (dist < 100) {
+          this.snapCandidate = { target: ent, type: 'entity', handle: this.draggingHandle.handle, line };
+          break;
+        }
+      }
+      if (!this.snapCandidate) {
+        for (const rel of this.relationships) {
+          const cx = rel.x + 45;
+          const cy = rel.y + 45;
+          const dist = Math.hypot(world.x - cx, world.y - cy);
+          if (dist < 85) {
+            this.snapCandidate = { target: rel, type: 'diamond', handle: this.draggingHandle.handle, line };
+            break;
+          }
+        }
+      }
+
+      this.renderLinks();
+      return;
+    }
+
     // D. Resizing Node (draw.io corner drag)
     if (this.isResizing && this.resizingNode) {
       const dx = (e.clientX - this.resizeStartX) / this.zoom;
@@ -247,8 +289,47 @@ class EERCanvasEngine {
       this.container.style.cursor = 'default';
     }
 
+    if (this.draggingHandle) {
+      const line = this.draggingHandle.line;
+      const handleName = this.draggingHandle.handle;
+      if (this.snapCandidate && this.snapCandidate.line === line && this.snapCandidate.handle === handleName) {
+        const node = this.snapCandidate.target;
+        const type = this.snapCandidate.type;
+        const isDia = type === 'diamond';
+        if (handleName === 'start') {
+          line.startSnapped = { node, type };
+          const border = this.getNodeBorderPoint(node, line.endX, line.endY, isDia);
+          line.startX = Math.round(border.x);
+          line.startY = Math.round(border.y);
+        } else {
+          line.endSnapped = { node, type };
+          const border = this.getNodeBorderPoint(node, line.startX, line.startY, isDia);
+          line.endX = Math.round(border.x);
+          line.endY = Math.round(border.y);
+        }
+
+        if (line.startSnapped && line.endSnapped) {
+          const sNode = line.startSnapped.node;
+          const sType = line.startSnapped.type;
+          const eNode = line.endSnapped.node;
+          const eType = line.endSnapped.type;
+          if (sNode.domId !== eNode.domId) {
+            this.completeConnection(sNode, sType, eNode, eType);
+            this.showToast(`🧲 Ikkala uchi ulandi: ${sNode.name} va ${eNode.name} to'liq bog'landi!`);
+            this.standaloneLines = this.standaloneLines.filter(l => l.id !== line.id);
+          }
+        } else {
+          this.showToast(`🧲 Bitta uchi '${node.name}' ga ulandi! Ikkinchi uchini boshqa entitiyga ulang.`);
+        }
+        this.snapCandidate = null;
+      }
+      this.draggingHandle = null;
+      this.renderLinks();
+      return;
+    }
+
     // Magnetic snap execution
-    if (this.isDraggingNode && this.draggedNode && this.snapCandidate) {
+    if (this.isDraggingNode && this.draggedNode && this.snapCandidate && this.snapCandidate.freeLine) {
       const fl = this.snapCandidate.freeLine;
       const targetNode = this.snapCandidate.node;
       this.completeConnection(fl.node, fl.type, targetNode, this.snapCandidate.type);
@@ -824,6 +905,47 @@ class EERCanvasEngine {
   // ==========================================================================
   // RENDERING CONNECTIONS & MULTIPLICITY PILLS
   // ==========================================================================
+  getNodeBorderPoint(node, targetX, targetY, isDiamond = false) {
+    if (!node) return { x: targetX, y: targetY, dirX: 1, dirY: 0 };
+    if (isDiamond) {
+      const cx = node.x + 45;
+      const cy = node.y + 45;
+      const dx = targetX - cx;
+      const dy = targetY - cy;
+      const dist = Math.hypot(dx, dy) || 1;
+      const ux = dx / dist;
+      const uy = dy / dist;
+      const scale = 45 / (Math.abs(ux) + Math.abs(uy) || 1);
+      return {
+        x: cx + ux * scale,
+        y: cy + uy * scale,
+        dirX: ux,
+        dirY: uy
+      };
+    }
+
+    const w = node.width || 170;
+    const h = node.height || 100;
+    const cx = node.x + w / 2;
+    const cy = node.y + h / 2;
+    const dx = targetX - cx;
+    const dy = targetY - cy;
+    const dist = Math.hypot(dx, dy) || 1;
+    const ux = dx / dist;
+    const uy = dy / dist;
+
+    const scaleX = (w / 2) / Math.max(0.001, Math.abs(ux));
+    const scaleY = (h / 2) / Math.max(0.001, Math.abs(uy));
+    const scale = Math.min(scaleX, scaleY);
+
+    return {
+      x: cx + ux * scale,
+      y: cy + uy * scale,
+      dirX: ux,
+      dirY: uy
+    };
+  }
+
   renderLinks() {
     this.svg.innerHTML = '';
     document.querySelectorAll('.mult-pill').forEach(p => p.remove());
@@ -839,10 +961,22 @@ class EERCanvasEngine {
         const fCenterX = fromEnt.x + (fromEnt.width || 170) / 2;
         const fCenterY = fromEnt.y + (fromEnt.height || 100) / 2;
 
-        this.drawLine(fCenterX, fCenterY, rCenterX, rCenterY);
+        const borderF = this.getNodeBorderPoint(fromEnt, rCenterX, rCenterY, false);
+        const borderR1 = this.getNodeBorderPoint(rel, fCenterX, fCenterY, true);
 
-        const mx1 = fCenterX * 0.7 + rCenterX * 0.3;
-        const my1 = fCenterY * 0.7 + rCenterY * 0.3;
+        const onDblClickFrom = () => {
+          if (confirm(`'${fromEnt.name}' va '${rel.name}' o'rtasidagi bog'lanish chizig'ini o'chirishni xohlaysizmi?`)) {
+            rel.fromEntityName = '';
+            this.renderLinks();
+            if (window.playSfx) window.playSfx('click');
+          }
+        };
+
+        this.drawLine(borderF.x, borderF.y, borderR1.x, borderR1.y, onDblClickFrom);
+
+        // Position pill strictly OUTSIDE the entity box along the connection line
+        const mx1 = borderF.x + borderF.dirX * 36;
+        const my1 = borderF.y + borderF.dirY * 36;
         this.createMultiplicityPill(mx1, my1, rel, 'mult1', fromEnt.name);
       }
 
@@ -850,12 +984,78 @@ class EERCanvasEngine {
         const tCenterX = toEnt.x + (toEnt.width || 170) / 2;
         const tCenterY = toEnt.y + (toEnt.height || 100) / 2;
 
-        this.drawLine(rCenterX, rCenterY, tCenterX, tCenterY);
+        const borderT = this.getNodeBorderPoint(toEnt, rCenterX, rCenterY, false);
+        const borderR2 = this.getNodeBorderPoint(rel, tCenterX, tCenterY, true);
 
-        const mx2 = tCenterX * 0.7 + rCenterX * 0.3;
-        const my2 = tCenterY * 0.7 + rCenterY * 0.3;
+        const onDblClickTo = () => {
+          if (confirm(`'${rel.name}' va '${toEnt.name}' o'rtasidagi bog'lanish chizig'ini o'chirishni xohlaysizmi?`)) {
+            rel.toEntityName = '';
+            this.renderLinks();
+            if (window.playSfx) window.playSfx('click');
+          }
+        };
+
+        this.drawLine(borderR2.x, borderR2.y, borderT.x, borderT.y, onDblClickTo);
+
+        // Position pill strictly OUTSIDE the entity box along the connection line
+        const mx2 = borderT.x + borderT.dirX * 36;
+        const my2 = borderT.y + borderT.dirY * 36;
         this.createMultiplicityPill(mx2, my2, rel, 'mult2', toEnt.name);
       }
+    });
+
+    // Render Standalone 2-ended Magnetic Lines
+    this.standaloneLines.forEach(line => {
+      if (line.startSnapped && line.startSnapped.node) {
+        const node = line.startSnapped.node;
+        const isDia = line.startSnapped.type === 'diamond';
+        const border = this.getNodeBorderPoint(node, line.endX, line.endY, isDia);
+        line.startX = Math.round(border.x);
+        line.startY = Math.round(border.y);
+      }
+      if (line.endSnapped && line.endSnapped.node) {
+        const node = line.endSnapped.node;
+        const isDia = line.endSnapped.type === 'diamond';
+        const border = this.getNodeBorderPoint(node, line.startX, line.startY, isDia);
+        line.endX = Math.round(border.x);
+        line.endY = Math.round(border.y);
+      }
+
+      const onLineDblClick = () => {
+        if (confirm("Ushbu magnit chiziqni o'chirishni xohlaysizmi?")) {
+          this.standaloneLines = this.standaloneLines.filter(l => l.id !== line.id);
+          this.renderLinks();
+          if (window.playSfx) window.playSfx('click');
+        }
+      };
+
+      this.drawLine(line.startX, line.startY, line.endX, line.endY, onLineDblClick, line.isDashed);
+
+      // Midpoint multiplicity pill
+      const midX = (line.startX + line.endX) / 2;
+      const midY = (line.startY + line.endY) / 2;
+
+      const midPill = document.createElement('div');
+      midPill.className = 'mult-pill';
+      midPill.textContent = `${line.mult1 || '1..1'} ↔ ${line.mult2 || '1..*'}`;
+      midPill.style.position = 'absolute';
+      midPill.style.left = midX + 'px';
+      midPill.style.top = midY + 'px';
+      midPill.style.transform = 'translate(-50%, -50%)';
+      midPill.title = "Multiplicity o'zgartirish uchun bosing (Double-click: o'chirish)";
+      midPill.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.openMultiplicitySelector(line, 'mult1', e);
+      });
+      midPill.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        onLineDblClick();
+      });
+      this.nodesLayer.appendChild(midPill);
+
+      // Render Magnetic Handles at both ends
+      this.renderMagneticHandle(line, 'start', line.startX, line.startY, onLineDblClick);
+      this.renderMagneticHandle(line, 'end', line.endX, line.endY, onLineDblClick);
     });
 
     // Render Free-Standing Connection Lines
@@ -865,7 +1065,11 @@ class EERCanvasEngine {
 
     this.freeLines.forEach((fl, idx) => {
       const start = this.getPortCoords(fl.node, fl.port);
-      this.drawLine(start.x, start.y, fl.endX, fl.endY);
+      const onFreeDblClick = () => {
+        this.freeLines.splice(idx, 1);
+        this.renderLinks();
+      };
+      this.drawLine(start.x, start.y, fl.endX, fl.endY, onFreeDblClick);
 
       const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       circle.setAttribute('cx', fl.endX);
@@ -897,15 +1101,73 @@ class EERCanvasEngine {
 
       circle.addEventListener('dblclick', (e) => {
         e.stopPropagation();
-        this.freeLines.splice(idx, 1);
-        this.renderLinks();
+        onFreeDblClick();
       });
 
       this.svg.appendChild(circle);
     });
   }
 
-  drawLine(x1, y1, x2, y2) {
+  renderMagneticHandle(line, handleName, x, y, onDblClick) {
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', x);
+    circle.setAttribute('cy', y);
+    circle.setAttribute('r', '9');
+    circle.setAttribute('fill', '#ffd166');
+    circle.setAttribute('stroke', '#1e1916');
+    circle.setAttribute('stroke-width', '2');
+    circle.style.cursor = 'grab';
+    circle.style.pointerEvents = 'auto';
+
+    if (this.snapCandidate && this.snapCandidate.line === line && this.snapCandidate.handle === handleName) {
+      circle.setAttribute('stroke', '#06d6a0');
+      circle.setAttribute('stroke-width', '3.5');
+      circle.setAttribute('r', '11');
+    }
+
+    const startDragHandle = (e) => {
+      e.stopPropagation();
+      if (e.cancelable) e.preventDefault();
+      this.draggingHandle = { line, handle: handleName };
+    };
+
+    circle.addEventListener('mousedown', startDragHandle);
+    circle.addEventListener('touchstart', startDragHandle, { passive: false });
+
+    if (onDblClick) {
+      circle.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        onDblClick();
+      });
+      let lastTap = 0;
+      circle.addEventListener('touchend', (e) => {
+        const now = new Date().getTime();
+        if (now - lastTap < 350 && now - lastTap > 0) {
+          e.stopPropagation();
+          onDblClick();
+        }
+        lastTap = now;
+      }, { passive: false });
+    }
+
+    this.svg.appendChild(circle);
+  }
+
+  drawLine(x1, y1, x2, y2, onDblClick = null, isDashed = false) {
+    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+    // Invisible thick hitbox for touch & mouse
+    const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    hitbox.setAttribute('x1', x1);
+    hitbox.setAttribute('y1', y1);
+    hitbox.setAttribute('x2', x2);
+    hitbox.setAttribute('y2', y2);
+    hitbox.setAttribute('stroke', 'transparent');
+    hitbox.setAttribute('stroke-width', '24');
+    hitbox.style.cursor = 'pointer';
+    hitbox.style.pointerEvents = 'stroke';
+
+    // Visible line
     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     line.setAttribute('x1', x1);
     line.setAttribute('y1', y1);
@@ -914,16 +1176,52 @@ class EERCanvasEngine {
     line.setAttribute('stroke', '#c8a96e');
     line.setAttribute('stroke-width', '2.5');
     line.setAttribute('stroke-linecap', 'round');
-    this.svg.appendChild(line);
+    if (isDashed) {
+      line.setAttribute('stroke-dasharray', '6,4');
+    }
+    line.style.cursor = 'pointer';
+    line.style.pointerEvents = 'stroke';
+
+    if (onDblClick) {
+      hitbox.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        onDblClick(e);
+      });
+      line.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        onDblClick(e);
+      });
+
+      let lastTap = 0;
+      const handleTap = (e) => {
+        const curTime = new Date().getTime();
+        const tapInterval = curTime - lastTap;
+        if (tapInterval < 350 && tapInterval > 0) {
+          e.stopPropagation();
+          if (e.cancelable) e.preventDefault();
+          onDblClick(e);
+        }
+        lastTap = curTime;
+      };
+      hitbox.addEventListener('touchend', handleTap, { passive: false });
+      line.addEventListener('touchend', handleTap, { passive: false });
+    }
+
+    group.appendChild(hitbox);
+    group.appendChild(line);
+    this.svg.appendChild(group);
+    return group;
   }
 
   createMultiplicityPill(x, y, rel, multKey, entityName) {
     const pill = document.createElement('div');
     pill.className = 'mult-pill';
     pill.textContent = (rel[multKey] && rel[multKey] !== '?') ? rel[multKey] : '?';
+    pill.style.position = 'absolute';
     pill.style.left = x + 'px';
     pill.style.top = y + 'px';
-    pill.title = `${entityName} tomonidagi multiplisitiyani tanlash uchun bosing`;
+    pill.style.transform = 'translate(-50%, -50%)';
+    pill.title = `${entityName} tomonidagi multiplisitiyani o'zgartirish uchun bosing (Hozir: ${rel[multKey] || '?'})`;
 
     pill.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -1038,14 +1336,30 @@ class EERCanvasEngine {
     const centerX = Math.round(-this.panX / this.zoom + (this.container.offsetWidth / 2) / this.zoom - 85);
     const centerY = Math.round(-this.panY / this.zoom + (this.container.offsetHeight / 2) / this.zoom - 50);
 
-    if (type === 'entity' || type === 'table') {
+    if (type === 'entity' || type === 'entity-plain') {
       this.addEntity({ name: 'Entitiy', x: centerX, y: centerY, attributes: [{ name: 'id', isPK: true }, { name: 'nomi', isPK: false }] });
+    } else if (type === 'table' || type === 'table-key') {
+      this.addEntity({ name: 'Jadval', x: centerX, y: centerY, attributes: [{ name: 'id', isPK: true }, { name: 'ustun1', isPK: false }, { name: 'ustun2', isPK: false }] });
+    } else if (type === 'table-2col') {
+      this.addEntity({ name: 'Jadval_2Ustun', x: centerX, y: centerY, attributes: [{ name: 'pk_id', isPK: true }, { name: 'qiymat', isPK: false }] });
+    } else if (type === 'table-rounded') {
+      this.addEntity({ name: 'YumaloqJadval', x: centerX, y: centerY, attributes: [{ name: 'id', isPK: true }, { name: 'nomi', isPK: false }] });
+    } else if (type === 'item-box') {
+      this.addEntity({ name: 'Element', x: centerX, y: centerY, attributes: [{ name: 'qiymat', isPK: false }] });
+    } else if (type === 'entity-rounded') {
+      this.addEntity({ name: 'YumaloqEntitiy', x: centerX, y: centerY, attributes: [{ name: 'id', isPK: true }, { name: 'tavsif', isPK: false }] });
     } else if (type === 'weak-entity') {
-      this.addEntity({ name: 'ZaifEntitiy', isWeak: true, x: centerX, y: centerY, attributes: [{ name: 'qisman_id', isPK: true }, { name: 'tavsif', isPK: false }] });
-    } else if (type === 'assoc-entity' || type === 'rel-diamond') {
+      this.addEntity({ name: 'ZaifEntitiy', isWeak: true, x: centerX, y: centerY, attributes: [{ name: 'qisman_id', isPPK: true }, { name: 'tavsif', isPK: false }] });
+    } else if (type === 'assoc-entity') {
+      this.addEntity({ name: 'AssotsiativEntitiy', x: centerX, y: centerY, attributes: [{ name: 'ota1_id', isPK: true }, { name: 'ota2_id', isPK: true }, { name: 'sana', isPK: false }] });
+    } else if (type === 'rel-diamond') {
       this.addRelationship({ name: 'Aloqa', x: centerX, y: centerY });
     } else if (type === 'rel-identifying') {
       this.addRelationship({ name: 'Aniqlash', isIdentifying: true, x: centerX, y: centerY });
+    } else if (type === 'domain-cloud') {
+      this.addEntity({ name: 'Tashqi Domen (Cloud)', x: centerX, y: centerY, attributes: [{ name: 'api_boglam', isPK: false }] });
+    } else if (type === 'partition-box') {
+      this.addEntity({ name: 'Qism / Modul', x: centerX, y: centerY, attributes: [{ name: 'bolim_a', isPK: false }, { name: 'bolim_b', isPK: false }] });
     } else if (type === 'isa-circle') {
       this.addEntity({ name: 'Subklass (d)', x: centerX, y: centerY, attributes: [{ name: 'id', isPK: true }, { name: 'xususiyat', isPK: false }] });
     } else if (type === 'attr-plain') {
@@ -1062,24 +1376,58 @@ class EERCanvasEngine {
       } else {
         this.addEntity({ name: 'KalitGuruhi', x: centerX, y: centerY, attributes: [{ name: 'pk_id', isPK: true }] });
       }
+    } else if (type === 'attr-multi') {
+      if (this.selectedNode && this.selectedType === 'entity') {
+        this.selectedNode.attributes.push({ name: 'kop_qiymat', isPK: false });
+        this.renderEntityAttributes(this.selectedNode, document.getElementById(this.selectedNode.domId + '_attrs'));
+      } else {
+        this.addEntity({ name: 'KopQiymatli', x: centerX, y: centerY, attributes: [{ name: 'telefonlar', isPK: false }] });
+      }
+    } else if (type === 'attr-derived') {
+      if (this.selectedNode && this.selectedType === 'entity') {
+        this.selectedNode.attributes.push({ name: 'hosilaviy_yosh', isPK: false });
+        this.renderEntityAttributes(this.selectedNode, document.getElementById(this.selectedNode.domId + '_attrs'));
+      } else {
+        this.addEntity({ name: 'HosilaviyGuruh', x: centerX, y: centerY, attributes: [{ name: 'yosh', isPK: false }] });
+      }
+    } else if (type === 'attr-partial') {
+      if (this.selectedNode && this.selectedType === 'entity') {
+        this.selectedNode.attributes.push({ name: 'qisman_kalit', isPPK: true });
+        this.renderEntityAttributes(this.selectedNode, document.getElementById(this.selectedNode.domId + '_attrs'));
+      } else {
+        this.addEntity({ name: 'QismanGuruh', x: centerX, y: centerY, attributes: [{ name: 'qisman_kalit', isPPK: true }] });
+      }
+    } else if (type === 'attr-composite') {
+      if (this.selectedNode && this.selectedType === 'entity') {
+        this.selectedNode.attributes.push({ name: 'manzil_shahar', isPK: false });
+        this.selectedNode.attributes.push({ name: 'manzil_kocha', isPK: false });
+        this.renderEntityAttributes(this.selectedNode, document.getElementById(this.selectedNode.domId + '_attrs'));
+      } else {
+        this.addEntity({ name: 'KompozitManzil', x: centerX, y: centerY, attributes: [{ name: 'shahar', isPK: false }, { name: 'kocha', isPK: false }] });
+      }
     } else if (type === 'note-box') {
       this.addEntity({ name: '📝 Eslatma', x: centerX, y: centerY, attributes: [{ name: 'izoh_matni', isPK: false }] });
     } else if (type.startsWith('conn-')) {
-      const mult = type === 'conn-11' ? '1..1' : type === 'conn-01' ? '0..1' : type === 'conn-1n' ? '1..*' : '0..*';
-      if (this.entities.length > 0) {
-        const src = this.selectedNode || this.entities[0];
-        this.freeLines.push({
-          id: 'free_' + Math.random().toString(36).substr(2, 9),
-          node: src,
-          type: 'entity',
-          port: 'right',
-          mult: mult,
-          endX: Math.round(src.x + (src.width || 170) + 120),
-          endY: Math.round(src.y + (src.height || 100) / 2)
-        });
-        this.renderLinks();
-        this.showToast(`Chiziq yaratildi (${mult}). Entitiyga yaqin olib borsangiz magnit kabi ulanadi!`);
-      }
+      const mult1 = type === 'conn-11' ? '1..1' : type === 'conn-01' ? '0..1' : type === 'conn-1n' ? '1..*' : type === 'conn-0n' ? '0..*' : '1..1';
+      const mult2 = type === 'conn-11' ? '1..1' : '1..*';
+      const isDashed = type === 'conn-dashed';
+      const isZigzag = type === 'conn-zigzag';
+
+      this.standaloneLines.push({
+        id: 'sline_' + Math.random().toString(36).substr(2, 9),
+        startX: Math.round(centerX - 90),
+        startY: Math.round(centerY),
+        endX: Math.round(centerX + 90),
+        endY: Math.round(centerY),
+        mult1: mult1,
+        mult2: mult2,
+        isDashed: isDashed,
+        isZigzag: isZigzag,
+        startSnapped: null,
+        endSnapped: null
+      });
+      this.renderLinks();
+      this.showToast(`2 ta magnit uchli chiziq tushirildi (${mult1}). Har ikkala chetini kerakli entitiyga ulab oling!`);
     }
     if (window.playSfx) window.playSfx('click');
   }
@@ -1169,6 +1517,7 @@ class EERCanvasEngine {
     this.relationships = [];
     this.subclasses = [];
     this.freeLines = [];
+    this.standaloneLines = [];
     this.nodesLayer.innerHTML = '';
     this.svg.innerHTML = '';
     this.selectedNode = null;

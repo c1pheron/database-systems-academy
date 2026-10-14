@@ -288,7 +288,23 @@
       elClientDialogue.innerHTML = `<strong>${q.clientName || 'Mijoz'} (${q.clientRole || 'Buyurtmachi'}):</strong> "${q.story || ''}"`;
     }
 
-    if (elTask) elTask.textContent = q.taskUz || "Entitiylarni chizing va to'g'ri bog'lang.";
+    if (elTask) {
+      elTask.textContent = q.taskUz || "Entitiylarni chizing va to'g'ri bog'lang.";
+      let btnDetail = document.getElementById('btnChallengeDetail');
+      if (!btnDetail) {
+        btnDetail = document.createElement('button');
+        btnDetail.id = 'btnChallengeDetail';
+        btnDetail.className = 'btn-challenge-detail';
+        btnDetail.type = 'button';
+        elTask.parentNode.appendChild(btnDetail);
+      }
+      btnDetail.innerHTML = `<span>📖 Batafsil</span> <small style="opacity:0.85;">(Komandani o'rganish)</small>`;
+      btnDetail.onclick = () => {
+        if (window.databaseEncyclopedia) {
+          window.databaseEncyclopedia.openForQuestion(q, 1);
+        }
+      };
+    }
 
     // Hide hints and feedback initially
     if (elHint) {

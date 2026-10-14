@@ -42,6 +42,9 @@ class RelationalCanvasEngine {
 
     // Free-standing connection lines & Resizing
     this.freeLines = [];
+    this.standaloneLines = [];
+    this.draggingHandle = null; // { line, handle: 'start'|'end' }
+
     this.isResizing = false;
     this.resizingNode = null;
     this.resizeStartX = 0;
@@ -220,6 +223,35 @@ class RelationalCanvasEngine {
       return;
     }
 
+    // Standalone Connector Line Handles
+    if (this.draggingHandle) {
+      const world = this.screenToWorld(e.clientX, e.clientY);
+      const line = this.draggingHandle.line;
+      if (this.draggingHandle.handle === 'start') {
+        line.startX = Math.round(world.x);
+        line.startY = Math.round(world.y);
+        line.startSnapped = null;
+      } else {
+        line.endX = Math.round(world.x);
+        line.endY = Math.round(world.y);
+        line.endSnapped = null;
+      }
+
+      this.snapCandidate = null;
+      for (const tbl of this.tables) {
+        const cx = tbl.x + (tbl.width || 200) / 2;
+        const cy = tbl.y + (tbl.height || 120) / 2;
+        const dist = Math.hypot(world.x - cx, world.y - cy);
+        if (dist < 110) {
+          this.snapCandidate = { target: tbl, handle: this.draggingHandle.handle, line };
+          break;
+        }
+      }
+
+      this.renderCrowFootLinks();
+      return;
+    }
+
     // Resizing Table (draw.io corner drag)
     if (this.isResizing && this.resizingNode) {
       const dx = (e.clientX - this.resizeStartX) / this.zoom;
@@ -242,8 +274,43 @@ class RelationalCanvasEngine {
       this.container.style.cursor = 'default';
     }
 
+    if (this.draggingHandle) {
+      const line = this.draggingHandle.line;
+      const handleName = this.draggingHandle.handle;
+      if (this.snapCandidate && this.snapCandidate.line === line && this.snapCandidate.handle === handleName) {
+        const tbl = this.snapCandidate.target;
+        if (handleName === 'start') {
+          line.startSnapped = { table: tbl };
+          const border = this.getTableBorderPoint(tbl, line.endX, line.endY);
+          line.startX = Math.round(border.x);
+          line.startY = Math.round(border.y);
+        } else {
+          line.endSnapped = { table: tbl };
+          const border = this.getTableBorderPoint(tbl, line.startX, line.startY);
+          line.endX = Math.round(border.x);
+          line.endY = Math.round(border.y);
+        }
+
+        if (line.startSnapped && line.endSnapped) {
+          const t1 = line.startSnapped.table;
+          const t2 = line.endSnapped.table;
+          if (t1.domId !== t2.domId) {
+            this.completeTableConnection(t1, t2);
+            this.showToast(`🧲 Ikkala uchi ulandi: ${t1.name} va ${t2.name} to'liq bog'landi!`);
+            this.standaloneLines = this.standaloneLines.filter(l => l.id !== line.id);
+          }
+        } else {
+          this.showToast(`🧲 Bitta uchi '${tbl.name}' ga ulandi! Ikkinchi uchini boshqa jadvalga ulang.`);
+        }
+        this.snapCandidate = null;
+      }
+      this.draggingHandle = null;
+      this.renderCrowFootLinks();
+      return;
+    }
+
     // Magnetic snap when table is dropped near a free-line end
-    if (this.isDraggingNode && this.draggedTable && this.snapCandidate) {
+    if (this.isDraggingNode && this.draggedTable && this.snapCandidate && this.snapCandidate.freeLine) {
       const fl = this.snapCandidate.freeLine;
       const tbl = this.snapCandidate.table;
       this.completeTableConnection(fl.table, tbl);
@@ -704,6 +771,30 @@ class RelationalCanvasEngine {
   // ==========================================================================
   // RENDERING CROW'S FOOT CONNECTOR LINES & MULTIPLICITY CONTROLS
   // ==========================================================================
+  getTableBorderPoint(tbl, targetX, targetY) {
+    if (!tbl) return { x: targetX, y: targetY, dirX: 1, dirY: 0 };
+    const w = tbl.width || 200;
+    const h = tbl.height || 120;
+    const cx = tbl.x + w / 2;
+    const cy = tbl.y + h / 2;
+    const dx = targetX - cx;
+    const dy = targetY - cy;
+    const dist = Math.hypot(dx, dy) || 1;
+    const ux = dx / dist;
+    const uy = dy / dist;
+
+    const scaleX = (w / 2) / Math.max(0.001, Math.abs(ux));
+    const scaleY = (h / 2) / Math.max(0.001, Math.abs(uy));
+    const scale = Math.min(scaleX, scaleY);
+
+    return {
+      x: cx + ux * scale,
+      y: cy + uy * scale,
+      dirX: ux,
+      dirY: uy
+    };
+  }
+
   renderCrowFootLinks() {
     this.svg.innerHTML = '';
 
@@ -715,6 +806,62 @@ class RelationalCanvasEngine {
       }
     });
 
+    // Render Standalone 2-ended Magnetic Lines
+    this.standaloneLines.forEach(line => {
+      if (line.startSnapped && line.startSnapped.table) {
+        const tbl = line.startSnapped.table;
+        const border = this.getTableBorderPoint(tbl, line.endX, line.endY);
+        line.startX = Math.round(border.x);
+        line.startY = Math.round(border.y);
+      }
+      if (line.endSnapped && line.endSnapped.table) {
+        const tbl = line.endSnapped.table;
+        const border = this.getTableBorderPoint(tbl, line.startX, line.startY);
+        line.endX = Math.round(border.x);
+        line.endY = Math.round(border.y);
+      }
+
+      const onLineDblClick = () => {
+        if (confirm("Ushbu magnit chiziqni o'chirishni xohlaysizmi?")) {
+          this.standaloneLines = this.standaloneLines.filter(l => l.id !== line.id);
+          this.renderCrowFootLinks();
+          if (window.playSfx) window.playSfx('click');
+        }
+      };
+
+      const midX = (line.startX + line.endX) / 2;
+      const midY = (line.startY + line.endY) / 2;
+      const pathD = `M ${line.startX} ${line.startY} C ${midX} ${line.startY}, ${midX} ${line.endY}, ${line.endX} ${line.endY}`;
+
+      const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      hitbox.setAttribute('d', pathD);
+      hitbox.setAttribute('stroke', 'transparent');
+      hitbox.setAttribute('stroke-width', '24');
+      hitbox.setAttribute('fill', 'none');
+      hitbox.style.cursor = 'pointer';
+      hitbox.style.pointerEvents = 'stroke';
+      hitbox.addEventListener('dblclick', onLineDblClick);
+      this.svg.appendChild(hitbox);
+
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', pathD);
+      path.setAttribute('stroke', '#d19a52');
+      path.setAttribute('stroke-width', '2.5');
+      path.setAttribute('fill', 'none');
+      if (line.isDashed) path.setAttribute('stroke-dasharray', '6,4');
+      path.style.cursor = 'pointer';
+      path.style.pointerEvents = 'stroke';
+      path.addEventListener('dblclick', onLineDblClick);
+      this.svg.appendChild(path);
+
+      // Midpoint pill
+      this.renderMultiplicityPill(`${line.fromMult || '0..*'} ↔ ${line.toMult || '1..1'}`, midX, midY, (ev) => this.openMultiplicityPopover(line, ev), onLineDblClick);
+
+      // Magnetic Handles at both ends
+      this.renderMagneticHandle(line, 'start', line.startX, line.startY, onLineDblClick);
+      this.renderMagneticHandle(line, 'end', line.endX, line.endY, onLineDblClick);
+    });
+
     // Render Free-Standing Connection Lines
     this.freeLines = this.freeLines.filter(fl => {
       return this.tables.some(t => t.domId === fl.table.domId);
@@ -722,6 +869,11 @@ class RelationalCanvasEngine {
 
     this.freeLines.forEach((fl, idx) => {
       const start = this.getPortCoords(fl.table, fl.port);
+      const onFreeDblClick = () => {
+        this.freeLines.splice(idx, 1);
+        this.renderCrowFootLinks();
+      };
+
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
       line.setAttribute('x1', start.x);
       line.setAttribute('y1', start.y);
@@ -730,6 +882,8 @@ class RelationalCanvasEngine {
       line.setAttribute('stroke', '#dfc288');
       line.setAttribute('stroke-width', '2.5');
       line.setAttribute('stroke-linecap', 'round');
+      line.style.cursor = 'pointer';
+      line.addEventListener('dblclick', onFreeDblClick);
       this.svg.appendChild(line);
 
       // Endpoint circle handle with magnetic attraction
@@ -763,12 +917,56 @@ class RelationalCanvasEngine {
 
       circle.addEventListener('dblclick', (e) => {
         e.stopPropagation();
-        this.freeLines.splice(idx, 1);
-        this.renderCrowFootLinks();
+        onFreeDblClick();
       });
 
       this.svg.appendChild(circle);
     });
+  }
+
+  renderMagneticHandle(line, handleName, x, y, onDblClick) {
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', x);
+    circle.setAttribute('cy', y);
+    circle.setAttribute('r', '9');
+    circle.setAttribute('fill', '#ffd166');
+    circle.setAttribute('stroke', '#1e1916');
+    circle.setAttribute('stroke-width', '2');
+    circle.style.cursor = 'grab';
+    circle.style.pointerEvents = 'auto';
+
+    if (this.snapCandidate && this.snapCandidate.line === line && this.snapCandidate.handle === handleName) {
+      circle.setAttribute('stroke', '#06d6a0');
+      circle.setAttribute('stroke-width', '3.5');
+      circle.setAttribute('r', '11');
+    }
+
+    const startDragHandle = (e) => {
+      e.stopPropagation();
+      if (e.cancelable) e.preventDefault();
+      this.draggingHandle = { line, handle: handleName };
+    };
+
+    circle.addEventListener('mousedown', startDragHandle);
+    circle.addEventListener('touchstart', startDragHandle, { passive: false });
+
+    if (onDblClick) {
+      circle.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        onDblClick();
+      });
+      let lastTap = 0;
+      circle.addEventListener('touchend', (e) => {
+        const now = new Date().getTime();
+        if (now - lastTap < 350 && now - lastTap > 0) {
+          e.stopPropagation();
+          onDblClick();
+        }
+        lastTap = now;
+      }, { passive: false });
+    }
+
+    this.svg.appendChild(circle);
   }
 
   drawTableConnection(ref, t1, t2) {
@@ -798,11 +996,20 @@ class RelationalCanvasEngine {
     const midY = (startY + endY) / 2;
     const pathD = `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`;
 
+    const deleteConn = (e) => {
+      e.stopPropagation();
+      if (confirm(`'${t1.name}' va '${t2.name}' o'rtasidagi bog'lanish chizig'ini o'chirishni xohlaysizmi?`)) {
+        this.references = this.references.filter(r => r !== ref);
+        this.renderCrowFootLinks();
+        if (window.playSfx) window.playSfx('click');
+      }
+    };
+
     // Invisible thick hitbox for easy clicking on touch & mouse
     const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     hitbox.setAttribute('d', pathD);
     hitbox.setAttribute('stroke', 'transparent');
-    hitbox.setAttribute('stroke-width', '20');
+    hitbox.setAttribute('stroke-width', '24');
     hitbox.setAttribute('fill', 'none');
     hitbox.style.cursor = 'pointer';
     hitbox.style.pointerEvents = 'stroke';
@@ -810,6 +1017,7 @@ class RelationalCanvasEngine {
       e.stopPropagation();
       this.openMultiplicityPopover(ref, e);
     });
+    hitbox.addEventListener('dblclick', deleteConn);
     this.svg.appendChild(hitbox);
 
     // Visible Connection Path
@@ -827,7 +1035,22 @@ class RelationalCanvasEngine {
       e.stopPropagation();
       this.openMultiplicityPopover(ref, e);
     });
+    path.addEventListener('dblclick', deleteConn);
     this.svg.appendChild(path);
+
+    // Touch double-tap detection on lines
+    let lastTap = 0;
+    const handleTap = (e) => {
+      const now = new Date().getTime();
+      if (now - lastTap < 350 && now - lastTap > 0) {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        deleteConn(e);
+      }
+      lastTap = now;
+    };
+    hitbox.addEventListener('touchend', handleTap, { passive: false });
+    path.addEventListener('touchend', handleTap, { passive: false });
 
     // Draw multiplicity symbols on From side (startX, startY)
     const sign = startX < endX ? 1 : -1;
@@ -837,9 +1060,10 @@ class RelationalCanvasEngine {
     const pSign = startX < endX ? -1 : 1;
     this.drawMultiplicitySymbol(toMult, endX, endY, pSign);
 
-    // Clickable interactive pills on From & To sides and midpoint
-    this.renderMultiplicityPill(fromMult, startX + sign * 28, startY - 14, (ev) => this.openMultiplicityPopover(ref, ev));
-    this.renderMultiplicityPill(toMult, endX + pSign * 28, endY - 14, (ev) => this.openMultiplicityPopover(ref, ev));
+    // Clickable interactive pills on From & To sides with safe spacing outside table
+    const offset = Math.min(38, Math.max(26, Math.abs(endX - startX) * 0.2));
+    this.renderMultiplicityPill(fromMult, startX + sign * offset, startY - 14, (ev) => this.openMultiplicityPopover(ref, ev), deleteConn);
+    this.renderMultiplicityPill(toMult, endX + pSign * offset, endY - 14, (ev) => this.openMultiplicityPopover(ref, ev), deleteConn);
 
     // Midpoint link pill
     const midGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
@@ -850,6 +1074,8 @@ class RelationalCanvasEngine {
       e.stopPropagation();
       this.openMultiplicityPopover(ref, e);
     });
+    midGroup.addEventListener('dblclick', deleteConn);
+    midGroup.addEventListener('touchend', handleTap, { passive: false });
 
     const midRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     midRect.setAttribute('x', '-40');
@@ -1136,14 +1362,26 @@ class RelationalCanvasEngine {
     const centerX = Math.round(-this.panX / this.zoom + (this.container.offsetWidth / 2) / this.zoom - 100);
     const centerY = Math.round(-this.panY / this.zoom + (this.container.offsetHeight / 2) / this.zoom - 60);
 
-    if (type === 'table') {
+    if (type === 'table' || type === 'table-key') {
       this.addTable({ x: centerX, y: centerY });
-    } else if (type === 'entity') {
+    } else if (type === 'table-2col') {
+      this.addTable({ tableName: 'Jadval_2Ustun', x: centerX, y: centerY, columns: [{ name: 'pk_id', isPK: true }, { name: 'qiymat', isPK: false }] });
+    } else if (type === 'table-rounded') {
+      this.addTable({ tableName: 'YumaloqJadval', x: centerX, y: centerY, columns: [{ name: 'id', isPK: true }, { name: 'nomi', isPK: false }] });
+    } else if (type === 'item-box') {
+      this.addTable({ tableName: 'Element', x: centerX, y: centerY, columns: [{ name: 'qiymat', isPK: false }] });
+    } else if (type === 'entity' || type === 'entity-plain') {
       this.addTable({ tableName: 'Entitiy', x: centerX, y: centerY, columns: [{ name: 'id', isPK: true }, { name: 'nomi', isPK: false }] });
+    } else if (type === 'entity-rounded') {
+      this.addTable({ tableName: 'YumaloqEntitiy', x: centerX, y: centerY, columns: [{ name: 'id', isPK: true }, { name: 'tavsif', isPK: false }] });
     } else if (type === 'weak-entity') {
-      this.addTable({ tableName: 'ZaifEntitiy', x: centerX, y: centerY, columns: [{ name: 'qisman_id', isPK: true }, { name: 'tavsif', isPK: false }] });
+      this.addTable({ tableName: 'ZaifEntitiy', x: centerX, y: centerY, columns: [{ name: 'qisman_id', isPK: true, isFK: true }, { name: 'tavsif', isPK: false }] });
     } else if (type === 'assoc-entity') {
       this.addTable({ tableName: 'BoglovchiJadval', x: centerX, y: centerY, columns: [{ name: 'id1_fk', isPK: true, isFK: true }, { name: 'id2_fk', isPK: true, isFK: true }, { name: 'sana', isPK: false }] });
+    } else if (type === 'domain-cloud') {
+      this.addTable({ tableName: 'Tashqi Domen (Cloud)', x: centerX, y: centerY, columns: [{ name: 'api_boglam', isPK: false }] });
+    } else if (type === 'partition-box') {
+      this.addTable({ tableName: 'Qism / Modul', x: centerX, y: centerY, columns: [{ name: 'bolim_a', isPK: false }, { name: 'bolim_b', isPK: false }] });
     } else if (type === 'attr-plain') {
       if (this.selectedTable) {
         this.selectedTable.columns.push({ name: 'yangi_atribut', isPK: false });
@@ -1172,6 +1410,13 @@ class RelationalCanvasEngine {
       } else {
         this.addTable({ tableName: 'Hisoblangan', x: centerX, y: centerY, columns: [{ name: 'jami_summa', isPK: false }] });
       }
+    } else if (type === 'attr-partial') {
+      if (this.selectedTable) {
+        this.selectedTable.columns.push({ name: 'qisman_kalit', isPK: true, isFK: true });
+        this.renderTableColumns(this.selectedTable, document.getElementById(this.selectedTable.domId + '_body'));
+      } else {
+        this.addTable({ tableName: 'QismanGuruh', x: centerX, y: centerY, columns: [{ name: 'qisman_kalit', isPK: true, isFK: true }] });
+      }
     } else if (type === 'attr-composite') {
       this.addTable({ tableName: 'ManzilKompozit', x: centerX, y: centerY, columns: [{ name: 'shahar', isPK: false }, { name: 'tuman', isPK: false }, { name: 'kucha', isPK: false }] });
     } else if (type === 'rel-diamond' || type === 'rel-identifying') {
@@ -1181,20 +1426,26 @@ class RelationalCanvasEngine {
     } else if (type === 'note-box') {
       this.addTable({ tableName: '📝 Eslatma', x: centerX, y: centerY, columns: [{ name: 'izoh_matni', isPK: false }] });
     } else if (type.startsWith('conn-')) {
-      const mult = type === 'conn-11' ? '1..1' : type === 'conn-01' ? '0..1' : type === 'conn-1n' ? '1..*' : '0..*';
-      if (this.tables.length > 0) {
-        const src = this.selectedTable || this.tables[0];
-        this.freeLines.push({
-          id: 'free_' + Math.random().toString(36).substr(2, 9),
-          table: src,
-          port: 'right',
-          mult: mult,
-          endX: Math.round(src.x + (src.width || 200) + 120),
-          endY: Math.round(src.y + (src.height || 120) / 2)
-        });
-        this.renderCrowFootLinks();
-        this.showToast(`Chiziq yaratildi (${mult}). Entitiyga yaqin olib borsangiz magnit kabi ulanadi!`);
-      }
+      const mult1 = type === 'conn-11' ? '1..1' : type === 'conn-01' ? '0..1' : type === 'conn-1n' ? '1..*' : type === 'conn-0n' ? '0..*' : '0..*';
+      const mult2 = type === 'conn-11' ? '1..1' : '1..1';
+      const isDashed = type === 'conn-dashed';
+      const isZigzag = type === 'conn-zigzag';
+
+      this.standaloneLines.push({
+        id: 'sline_' + Math.random().toString(36).substr(2, 9),
+        startX: Math.round(centerX - 90),
+        startY: Math.round(centerY),
+        endX: Math.round(centerX + 90),
+        endY: Math.round(centerY),
+        fromMult: mult1,
+        toMult: mult2,
+        isDashed: isDashed,
+        isZigzag: isZigzag,
+        startSnapped: null,
+        endSnapped: null
+      });
+      this.renderCrowFootLinks();
+      this.showToast(`2 ta magnit uchli chiziq tushirildi (${mult1}). Har ikkala chetini kerakli jadvalga ulab oling!`);
     }
     if (window.playSfx) window.playSfx('click');
   }
@@ -1266,6 +1517,7 @@ class RelationalCanvasEngine {
     this.tables = [];
     this.references = [];
     this.freeLines = [];
+    this.standaloneLines = [];
     this.nodesLayer.innerHTML = '';
     this.svg.innerHTML = '';
   }

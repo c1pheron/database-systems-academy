@@ -278,7 +278,23 @@
       elClientDialogue.innerHTML = `<strong>Tizimlar Rahbari:</strong> "${q.story || ''}"`;
     }
 
-    if (elTask) elTask.textContent = q.taskUz || "Jadvalni belgilangan ustunlar va PK/FK bilan loyihalang.";
+    if (elTask) {
+      elTask.textContent = q.taskUz || "Jadvalni belgilangan ustunlar va PK/FK bilan loyihalang.";
+      let btnDetail = document.getElementById('btnChallengeDetail');
+      if (!btnDetail) {
+        btnDetail = document.createElement('button');
+        btnDetail.id = 'btnChallengeDetail';
+        btnDetail.className = 'btn-challenge-detail';
+        btnDetail.type = 'button';
+        elTask.parentNode.appendChild(btnDetail);
+      }
+      btnDetail.innerHTML = `<span>📖 Batafsil</span> <small style="opacity:0.85;">(Komandani o'rganish)</small>`;
+      btnDetail.onclick = () => {
+        if (window.databaseEncyclopedia) {
+          window.databaseEncyclopedia.openForQuestion(q, 2);
+        }
+      };
+    }
 
     if (elHint) {
       elHint.style.display = 'none';

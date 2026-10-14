@@ -1536,27 +1536,32 @@
   },
   {
     "id": "like-operator",
-    "name": "LIKE & ILIKE (Shablon Bo'yicha Qidiruv: %, _)",
+    "name": "LIKE & ILIKE (Shablon Qidiruvi: Barcha Wildcard Kombinatsiyalari)",
     "category": "3-Hafta • SQL DDL & DML Asoslari",
     "week": 3,
-    "summary": "Matnli ustunlar ichidan qisman moslik yoki shablon asosida qidirish operatori.",
-    "whatItDoes": "`%` belgisi — ixtiyoriy sondagi (0 ta yoki undan ko'p) ixtiyoriy belgilarni bildiradi. `_` (pastki chiziq) — aynan 1 ta ixtiyoriy belgini bildiradi. `ILIKE` — katta-kichik harfni ajratmaydigan (Case-Insensitive) qidiruv.",
-    "whenToUse": "Qidiruv qatoriga foydalanuvchi so'z yozganda: 'Ismi Al... bilan boshlanuvchilar' yoki 'Gmail pochtasiga ega bo'lganlar'.",
-    "syntax": "-- 'Ali' bilan boshlanadiganlar:\nWHERE ism LIKE 'Ali%'\n\n-- Ichida 'phone' so'zi borlar:\nWHERE mahsulot_nomi ILIKE '%phone%'\n\n-- Aniq 5 ta harfdan iborat bo'lganlar:\nWHERE kod LIKE '_____'",
-    "combinations": "`NOT LIKE` orqali mos kelmaydiganlarni topish mumkin. ESCAPE orqali `%` ning o'zini qidirish mumkin.",
-    "example": "-- O'zbekiston telefon raqamlarini topish:\nSELECT fio, telefon FROM mijozlar\nWHERE telefon LIKE '+99890%' OR telefon LIKE '+99891%';",
-    "gotchas": "Indeks tuzog'i! Agar qidiruvni foiz bilan boshlasangiz (`WHERE ism LIKE '%bek'`), B-Tree indeks umuman ishlamaydi va Full Table Scan (million qatorni ko'rib chiqish) yuz beradi! B-Tree faqat boshidan qidirganda (`'bek%'`) ishlaydi.",
+    "summary": "Matnli ustunlar ichidan qisman moslik yoki shablon asosida qidirish operatori. Barcha wildcard kombinatsiyalari (% va _), ESCAPE va ILIKE.",
+    "whatItDoes": "LIKE operatori matn ustunlarini ko'rsatilgan shablonga (pattern) solishtiradi. Unda 2 ta maxsus belgi (wildcard) bor:\n1. `%` — 0 ta, 1 ta yoki istalgancha ixtiyoriy belgi o'rniga o'tadi.\n2. `_` (pastki chiziq) — qat'iy bitta ixtiyoriy belgi o'rniga o'tadi.\n`ILIKE` — PostgreSQL da katta-kichik harflarni farqlamaydigan (Case-Insensitive) qidiruv.",
+    "whenToUse": "Foydalanuvchi qidiruv maydonchasiga so'z kiritganda, email domenini aniqlashda, telefon raqam prefiksini tekshirishda yoki kod formatini tekshirishda.",
+    "syntax": "-- 1. 'L' bilan boshlanuvchilar:\nWHERE shahar LIKE 'L%'\n\n-- 2. 'n' bilan tugovchilar:\nWHERE shahar LIKE '%n'\n\n-- 3. Ichida 'L' harfi bo'lganlar:\nWHERE shahar LIKE '%L%'\n\n-- 4. 2-harfi 'L' bo'lganlar:\nWHERE ism LIKE '_L%'\n\n-- 5. 3-harfi 'L' bo'lganlar:\nWHERE kod LIKE '__L%'\n\n-- 6. 'L' bilan boshlanib 'n' bilan tugovchilar:\nWHERE shahar LIKE 'L%n'\n\n-- 7. 'L' bilan boshlanib 'n' bilan tugaydigan aniq 4 ta harfli so'zlar:\nWHERE kod LIKE 'L__n'\n\n-- 8. Aniq 5 ta belgidan iborat barcha qatorlar:\nWHERE parol LIKE '_____'\n\n-- 9. Matn ichidagi haqiqiy '%' (foiz) belgisining o'zini qidirish (ESCAPE):\nWHERE chegirma LIKE '%!%%' ESCAPE '!'\n\n-- 10. Matn ichidagi haqiqiy '_' (pastki chiziq) belgisini qidirish:\nWHERE fayl_nomi LIKE '%!_%' ESCAPE '!'\n\n-- 11. Mos kelmaydiganlarni qidirish (NOT LIKE):\nWHERE email NOT LIKE '%@spam.com'\n\n-- 12. Katta-kichik harfni ajratmasdan qidirish (ILIKE):\nWHERE qidiruv ILIKE '%toshkent%'",
+    "combinations": "Barcha Asosiy Kombinatsiyalar Ro'yxati:\n• 'L%' — 'L' bilan boshlanadigan istalgan so'z ('London', 'Lola')\n• '%L' — 'L' bilan tugaydigan istalgan so'z ('Aral', 'Hotel')\n• '%L%' — Tarkibida 'L' harfi mavjud barcha so'zlar ('Alisher', 'Qalam')\n• '_L%' — 1-harfi ixtiyoriy, 2-harfi aynan 'L' bo'lgan so'zlar ('Ali', 'Ulughbek')\n• '__L%' — Dastlabki 2 ta harfi ixtiyoriy, 3-harfi aynan 'L' bo'lgan so'zlar ('Salom', 'Polvon')\n• 'L%n' — 'L' bilan boshlanib, 'n' bilan tugaydigan so'zlar ('London', 'Lion')\n• 'L__n' — 'L' bilan boshlanib, 'n' bilan tugaydigan va JAMI AYNAN 4 ta belgidan iborat so'zlar ('Lean', 'Loan')\n• '____' — Aynan 4 ta ixtiyoriy belgidan iborat so'zlar\n• LIKE '%!%%' ESCAPE '!' — Haqiqiy '%' belgisini qidirish ('100%' so'zini topadi)\n• LIKE '%!_%' ESCAPE '!' — Haqiqiy '_' belgisini qidirish ('user_id' so'zini topadi)\n• NOT LIKE '%@gmail.com' — Gmail pochtasidan FOYDALANMAYDIGAN foydalanuvchilar\n• ILIKE '%apple%' — Katta-kichik harf farqsiz ('Apple', 'APPLE', 'apple')\n• SIMILAR TO '%(A|B)%' — SQL standarti bo'yicha Regex shablon qidiruvi",
+    "example": "-- 1. Toshkent shahridagi yoki telefon raqami +99890 bilan boshlangan mijozlar:\nSELECT fio, shahar, telefon FROM mijozlar\nWHERE shahar ILIKE 'toshkent%' OR telefon LIKE '+99890%';\n\n-- 2. Matnda haqiqiy 50% chegirma yozilgan mahsulotlarni topish:\nSELECT tovar_nomi, izoh FROM mahsulotlar\nWHERE izoh LIKE '%50!%%' ESCAPE '!';\n\n-- 3. Davlat raqami 01 A 777 AA kabi 2-harfi aniq bo'lgan mashinalarni topish:\nSELECT avto_raqam FROM avtomobillar\nWHERE avto_raqam LIKE '__!_%' ESCAPE '!';",
+    "gotchas": "Indeks tuzog'i (Performance Gotcha)! Agar shablon foiz bilan boshlansa (`'%bek'`), relyatsion bazalardagi an'anaviy B-Tree indeksi ishlamaydi va Full Table Scan (millionlab qatorni qarab chiqish) yuz beradi! B-Tree faqat prefiksli qidiruvda (`'bek%'`) ishlaydi. '%soz%' kabi to'liq matnli qidiruvlar uchun GIN / GiST Trigram indeksi (`pg_trgm`) ishlatilishi shart.",
     "related": [
       "where-clause",
       "upper-lower",
-      "create-index"
+      "create-index",
+      "gin-gist-index"
     ],
     "keywords": [
       "like",
       "ilike",
-      "shablon",
       "wildcard",
       "foiz",
+      "pastki chiziq",
+      "escape",
+      "not like",
+      "similar to",
+      "shablon",
       "qidiruv"
     ]
   },
@@ -2144,13 +2149,13 @@
     "name": "COALESCE(val1, val2, ..., val_n)",
     "category": "4-Hafta • JOIN & Funksiyalar",
     "week": 4,
-    "summary": "Berilgan parametrlar ro'yxatidan birinchi bo'lib uchragan NULL bo'lmagan qiymatni qaytaradi.",
-    "whatItDoes": "Chapdan o'ngga qarab tekshiradi. Birinchi uchragan tirik ma'lumotni oladi. Agar barcha berilgan qiymatlar NULL bo'lsa, natija ham NULL bo'ladi. Standart ANSI SQL funksiyasi bo'lib, barcha ma'lumotlar bazalarida ishlaydi.",
+    "summary": "Berilgan parametrlar ro'yxatidan birinchi bo'lib uchragan NULL bo'lmagan qiymatni qaytaruvchi eng universal SQL funksiyasi.",
+    "whatItDoes": "Parametrlarni chapdan o'ngga qarab birma-bir tekshiradi. Birinchi uchragan tirik (NULL bo'lmagan) ma'lumotni darhol qaytaradi. Agar barcha berilgan parametrlar NULL bo'lsa, natija NULL bo'ladi. Standart ANSI SQL funksiyasi bo'lib, PostgreSQL, Oracle, MySQL, SQL Server, SQLite larda 100% bir xil ishlaydi.",
     "whenToUse": "Hayotiy misol: Foydalanuvchiga xabar yuborish kerak. Agar `mobil_telefon` bo'lsa telefonga, bo'lmasa `uy_telefoni`ga, u ham bo'lmasa `elektron_pochta`ga, hech biri bo'lmasa `'Mavjud emas'` yozuviga almashtirishda.",
-    "syntax": "COALESCE(ustun1, ustun2, ustun3, 'Standart Qiymat')",
-    "combinations": "Arifmetik amallarda NULL dan himoyalanish uchun juda qo'l keladi: `narx * (1 - COALESCE(chegirma, 0))`.",
-    "example": "-- Xodimning jami daromadi (agar komissiya NULL bo'lsa 0 deb olinsin):\nSELECT ename, sal + COALESCE(comm, 0) AS jami_daromad\nFROM emp;",
-    "gotchas": "Barcha parametrlar ma'lumotlar turi bo'yicha bir-biriga mos (yoki avtomatik o'giriladigan) bo'lishi shart! Sonli ustun bilan matnni aralashtirib yuborsangiz type mismatch xatosi chiqadi.",
+    "syntax": "-- 1. Standart almashtirish:\nCOALESCE(ustun, 0)\n\n-- 2. Ketma-ket zaxira ustunlar zanjiri (Fallback chain):\nCOALESCE(telefon_mobil, telefon_uy, email, 'Kontakt yo''q')\n\n-- 3. Hisob-kitoblarda NULL dan himoya:\nSELECT narx * (1 - COALESCE(chegirma, 0))\n\n-- 4. LEFT JOIN aggregatsiyalarida bo'shlarni nol qilish:\nSELECT d.nomi, COALESCE(SUM(x.oylik), 0.00) AS jami_xarajat",
+    "combinations": "Barcha Asosiy Kombinatsiyalari:\n• Arifmetik amallarda: narx * COALESCE(chegirma_foizi, 0) — NULL qiymat arifmetikani yo'q qilishining oldini oladi.\n• Kontaktlar zanjirida: COALESCE(mobil, uy, ish_telefoni, 'Bog'lanib bo'lmadi') — birinchi mavjud aloqa vositasini topadi.\n• LEFT JOIN va GROUP BY da: COALESCE(SUM(b.summa), 0.00) — hali birorta ham buyurtma bermagan yangi mijozlar uchun NULL o'rniga chiroyli 0.00 chiqaradi.\n• Matnlarni ulashda (Concat): 'Manzil: ' || COALESCE(shahar, 'Aniqlanmagan') — butun matn NULL bo'lib ketishini to'xtatadi.\n• CASE WHEN o'rniga ixchamlashtirish: 4 qatorlik 'CASE WHEN u IS NOT NULL THEN u ELSE 0 END' ifodasini 1 ta 'COALESCE(u, 0)' ga aylantiradi.",
+    "example": "-- 1. Xodimning to'liq daromadi (agar komissiya NULL bo'lsa 0 olinsin):\nSELECT ename, sal, comm, sal + COALESCE(comm, 0) AS jami_maosh\nFROM emp;\n\n-- 2. Bo'limlar va ularning umumiy xarajatlari (bo'sh bo'limlar 0 chiqaradi):\nSELECT d.dname, COALESCE(SUM(e.sal), 0) AS jami_byudjet\nFROM dept d\nLEFT JOIN emp e ON d.deptno = e.deptno\nGROUP BY d.dname;",
+    "gotchas": "Ma'lumotlar turi (Data Type) xatosi! COALESCE ichidagi barcha parametrlar bir xil ma'lumot turida bo'lishi shart. Agar `COALESCE(son_ustuni, 'Noma''lum')` deb yozsangiz, baza son va matnni aralashtira olmay 'invalid input syntax for type numeric' xatosini tashlaydi! Matn chiqarish uchun sonni `son::TEXT` deb o'girish kerak.",
     "related": [
       "nvl",
       "nullif",
@@ -2161,7 +2166,8 @@
       "coalesce",
       "null almashtirish",
       "birinchi not null",
-      "standart qiymat"
+      "standart qiymat",
+      "null himoyasi"
     ]
   },
   {
@@ -3745,6 +3751,151 @@
         this.searchInput?.focus();
         this.searchInput?.select();
       }, 50);
+    }
+
+    openForQuestion(question, weekNum = 1) {
+      if (!this.modalEl) this.initModal();
+      this.open();
+
+      const item = this.findMatchingEntry(question, weekNum);
+      if (item) {
+        this.selectedItem = item;
+        const cleanName = item.name.split('(')[0].replace(/[^a-zA-Z0-9_\s]/g, '').trim();
+        this.searchInput.value = cleanName;
+        this.searchQuery = cleanName.toLowerCase();
+        if (this.clearBtn) this.clearBtn.style.display = 'block';
+
+        const chip = document.querySelector(`.dict-chip[data-cat="${item.week}"]`);
+        if (chip) {
+          document.querySelectorAll('.dict-chip').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          this.currentCategory = String(item.week);
+        }
+
+        this.renderList();
+        this.renderDetail(item);
+        if (this.bodyEl && window.innerWidth <= 840) {
+          this.bodyEl.classList.add('mobile-view-detail');
+        }
+      } else {
+        const query = question?.title || '';
+        this.open(query);
+      }
+    }
+
+    findMatchingEntry(q, weekNum = 1) {
+      if (!q) return this.data.find(d => d.week === weekNum) || this.data[0];
+
+      const corpus = `${q.title || ''} ${q.taskUz || ''} ${q.story || ''} ${q.starterCode || ''} ${q.solutionSQL || ''} ${q.expectedCode || ''} ${(q.tags || []).join(' ')}`.toLowerCase();
+
+      const priorityPatterns = [
+        { id: 'weak-entity', test: /zaif|weak entity|qaramog/i },
+        { id: 'associative-entity', test: /assotsiativ|ko'pga-ko'p|m:n|oraliq jadval/i },
+        { id: 'multivalued-attribute', test: /ko'p qiymat|multivalued|telefonlar|double oval/i },
+        { id: 'derived-attribute', test: /hosilaviy|derived|yosh|hisoblangan/i },
+        { id: 'composite-attribute', test: /kompozit|composite|manzil.*shahar/i },
+        { id: 'candidate-key', test: /candidate key|nomzod kalit/i },
+        { id: 'alternate-key', test: /alternate key|muqobil kalit/i },
+        { id: 'super-key', test: /super key/i },
+        { id: 'isa-hierarchy', test: /isa|meros|subklass|disjoint|overlap/i },
+        { id: 'multiplicity', test: /multiplicity|1\.\.1|0\.\.1|1\.\.\*|0\.\.\*/i },
+        { id: 'cardinality', test: /kardinallik|cardinality/i },
+        { id: 'participation', test: /ishtirok|participation|total|partial/i },
+        { id: 'primary-key', test: /birlamchi kalit|primary key/i },
+        { id: 'entity', test: /entitiy|entity/i },
+
+        { id: 'bcnf', test: /bcnf|boyce-codd/i },
+        { id: '3nf', test: /3nf|uchinchi normal/i },
+        { id: '2nf', test: /2nf|ikkinchi normal/i },
+        { id: '1nf', test: /1nf|birinchi normal/i },
+        { id: 'transitive-dependency', test: /tranzitiv|transitive/i },
+        { id: 'partial-dependency', test: /qisman bog'liqlik|partial dependency/i },
+        { id: 'functional-dependency', test: /funksional bog'liqlik|functional dependency/i },
+        { id: 'foreign-key', test: /tashqi kalit|foreign key|references/i },
+        { id: 'on-delete-cascade', test: /on delete cascade|cascade/i },
+        { id: 'on-delete-set-null', test: /on delete set null/i },
+        { id: 'lossless-join', test: /lossless|yo'qotishsiz/i },
+        { id: 'dependency-preservation', test: /bog'liqlikni saqlash|dependency preservation/i },
+
+        { id: 'like-operator', test: /like|ilike|wildcard|%|_/i },
+        { id: 'between-operator', test: /between/i },
+        { id: 'in-operator', test: /\bin\b|not in/i },
+        { id: 'is-null', test: /is null|is not null/i },
+        { id: 'order-by', test: /order by|saralash|asc|desc/i },
+        { id: 'limit-offset', test: /limit|offset|fetch first/i },
+        { id: 'distinct', test: /distinct/i },
+        { id: 'create-table', test: /create table/i },
+        { id: 'alter-table', test: /alter table/i },
+        { id: 'drop-table', test: /drop table/i },
+        { id: 'truncate-table', test: /truncate/i },
+        { id: 'insert-into', test: /insert into/i },
+        { id: 'update-set', test: /update.*set/i },
+        { id: 'delete-from', test: /delete from/i },
+        { id: 'check-constraint', test: /check/i },
+        { id: 'unique-constraint', test: /unique/i },
+        { id: 'default-constraint', test: /default/i },
+
+        { id: 'coalesce', test: /coalesce/i },
+        { id: 'nvl', test: /nvl|ifnull/i },
+        { id: 'nullif', test: /nullif/i },
+        { id: 'case-when', test: /case\s+when/i },
+        { id: 'full-outer-join', test: /full outer join|full join/i },
+        { id: 'right-outer-join', test: /right outer join|right join/i },
+        { id: 'left-outer-join', test: /left outer join|left join/i },
+        { id: 'inner-join', test: /inner join|join/i },
+        { id: 'cross-join', test: /cross join/i },
+        { id: 'self-join', test: /self join/i },
+        { id: 'group-by', test: /group by/i },
+        { id: 'having-clause', test: /having/i },
+        { id: 'count-func', test: /count\(/i },
+        { id: 'sum-func', test: /sum\(/i },
+        { id: 'avg-func', test: /avg\(/i },
+        { id: 'concat-func', test: /concat|\|\|/i },
+
+        { id: 'row-number', test: /row_number/i },
+        { id: 'rank-dense-rank', test: /dense_rank|rank\(/i },
+        { id: 'lead-lag', test: /lead\(|lag\(/i },
+        { id: 'partition-by-over', test: /over\s*\(|partition by/i },
+        { id: 'cte-with', test: /with\s+\w+\s+as/i },
+        { id: 'recursive-cte', test: /recursive/i },
+        { id: 'exists-operator', test: /exists|not exists/i },
+        { id: 'correlated-subquery', test: /korrelyatsiyalangan|correlated subquery/i },
+        { id: 'scalar-subquery', test: /skalyar|scalar subquery/i },
+        { id: 'union-operator', test: /union|union all/i },
+        { id: 'intersect-operator', test: /intersect/i },
+        { id: 'except-minus', test: /except|minus/i },
+
+        { id: 'acid-properties', test: /acid|atomicity|consistency|isolation|durability/i },
+        { id: 'transactions', test: /begin|commit|rollback|savepoint/i },
+        { id: 'isolation-levels', test: /isolation level|read committed|serializable|repeatable read/i },
+        { id: 'dirty-read', test: /dirty read|iflos o'qish/i },
+        { id: 'phantom-read', test: /phantom read/i },
+        { id: 'deadlock', test: /deadlock/i },
+        { id: 'explain-analyze', test: /explain|explain analyze/i },
+        { id: 'btree-index', test: /b-tree|b tree/i },
+        { id: 'create-index', test: /create index|index/i },
+        { id: 'views', test: /create view|view/i },
+        { id: 'triggers', test: /trigger/i },
+        { id: 'stored-procedures', test: /procedure|function/i },
+        { id: 'mongodb-crud', test: /mongodb|nosql|json|document/i },
+        { id: 'redis-cache', test: /redis|key-value|cache/i }
+      ];
+
+      for (const p of priorityPatterns) {
+        if (p.test.test(corpus)) {
+          const match = this.data.find(d => d.id === p.id);
+          if (match) return match;
+        }
+      }
+
+      const weekEntries = this.data.filter(d => d.week === weekNum);
+      for (const entry of weekEntries) {
+        for (const kw of entry.keywords) {
+          if (corpus.includes(kw.toLowerCase())) return entry;
+        }
+      }
+
+      return weekEntries[0] || this.data[0];
     }
 
     close() {
