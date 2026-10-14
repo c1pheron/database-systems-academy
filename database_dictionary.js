@@ -3842,6 +3842,14 @@
       }
 
       if (scrollEl) {
+        const summaryText = item.summary || `${item.name} haqida nazariy va amaliy asoslar.`;
+        const whatText = item.whatItDoes || `Ushbu mexanizm relyatsion ma'lumotlar bazasida jadval, entitiy yoki ustunlar o'rtasidagi biznes qoidalarini aniq belgilash va yaxlitlikni kafolatlash uchun xizmat qiladi.`;
+        const whenText = item.whenToUse || `Haqiqiy biznes loyihalarida (masalan, elektron tijorat, bank tranzaksiyalari yoki foydalanuvchilar hisoboti) ma'lumotlar chalkashmasligi va to'g'ri bog'lanishi uchun qo'llaniladi.`;
+        const syntaxText = item.syntax || `-- Sintaksis andozasi:\n-- ${item.name} bo'yicha standart yozilish qoidasi`;
+        const combText = item.combinations || `Ushbu qoida boshqa SQL kalit so'zlari yoki ERD belgilari bilan uzviy bog'liq holda ishlaydi.`;
+        const exText = item.example || `-- Amaliy namuna:\nSELECT * FROM jadvallar;`;
+        const gotchasText = item.gotchas || `Eng asosiy qoida: Sintaksis yoki multiplisiti chegaralarini chalkashtirib yubormaslik lozim.`;
+
         scrollEl.innerHTML = `
           <!-- 1. Nima uchun kerak va vazifasi -->
           <div class="cd-card">
@@ -3850,14 +3858,14 @@
               <span class="cd-card-title">1. Nima Uchun Kerak & Qayerda Ishlatiladi?</span>
             </div>
             <div class="cd-card-body">
-              <p class="cd-lead">${this.escapeHtml(item.summary || '')}</p>
+              <p class="cd-lead">${this.formatCodeSnippets(summaryText)}</p>
               <div class="cd-desc-block">
                 <strong>⚙️ Tizimdagi vazifasi:</strong>
-                <p>${this.escapeHtml(item.whatItDoes || '')}</p>
+                <p>${this.formatCodeSnippets(whatText)}</p>
               </div>
               <div class="cd-realworld-box">
                 <strong>🏢 Real tizimlarda (Korzinka, Uzum, Bank):</strong>
-                <p>${this.escapeHtml(item.whenToUse || '')}</p>
+                <p>${this.formatCodeSnippets(whenText)}</p>
               </div>
             </div>
           </div>
@@ -3869,7 +3877,7 @@
               <span class="cd-card-title">2. Qanday Yoziladi (Rasmiy Sintaksis)</span>
             </div>
             <div class="cd-card-body">
-              <pre class="cd-code-block"><code>${this.escapeHtml(item.syntax || '')}</code></pre>
+              <pre class="cd-code-block"><code>${this.escapeHtml(syntaxText)}</code></pre>
             </div>
           </div>
 
@@ -3880,7 +3888,7 @@
               <span class="cd-card-title">3. Barcha Qo'shimchalar & Real Kombinatsiyalar</span>
             </div>
             <div class="cd-card-body">
-              <div class="cd-combinations-text">${this.formatCodeSnippets(item.combinations || '')}</div>
+              <div class="cd-combinations-text">${this.formatCodeSnippets(combText)}</div>
             </div>
           </div>
 
@@ -3891,21 +3899,21 @@
               <span class="cd-card-title">4. To'liq Ishchi Namuna (Misol)</span>
             </div>
             <div class="cd-card-body">
-              <pre class="cd-code-block example"><code>${this.escapeHtml(item.example || '')}</code></pre>
+              <pre class="cd-code-block example"><code>${this.escapeHtml(exText)}</code></pre>
             </div>
           </div>
 
           <!-- 5. Masalani yechish bo'yicha qadamma-qadam ko'rsatma -->
           <div class="cd-card advice">
             <div class="cd-card-header">
-              <span class="cd-card-icon">💡</span>
+              <span class="cd-card-icon">🎯</span>
               <span class="cd-card-title">5. Ushbu Masalani Yechish Bo'yicha Strategiya</span>
             </div>
             <div class="cd-card-body">
               <ol class="cd-steps-list">
-                <li><strong>1-Qadam:</strong> Masala shartidagi kalit talablarni diqqat bilan o'qing (qaysi jadval, entitiy yoki ustunlar so'ralyapti).</li>
-                <li><strong>2-Qadam:</strong> Yuqoridagi sintaksis qoidasiga asoslanib, aynan <code>${this.escapeHtml(item.name.split('(')[0].trim())}</code> operatorini qo'llang.</li>
-                <li><strong>3-Qadam:</strong> Belgilangan filtrlash andozasi yoki bog'lanish multiplicity chegaralarini to'g'ri joylashtiring.</li>
+                <li><strong>1-Qadam:</strong> Masala shartidagi talabni diqqat bilan o'qing: <em>"${this.escapeHtml(question?.title || '')}"</em>.</li>
+                <li><strong>2-Qadam:</strong> Ushbu qoidaga tayanib, asosiy operator yoki multiplicity bog'lanishini aniqlang: <code>${this.escapeHtml(item.name.split('(')[0].trim())}</code>.</li>
+                <li><strong>3-Qadam:</strong> ${this.formatCodeSnippets(question?.taskUz || question?.story || 'Diagrammada kerakli entitiylarni ulab, kalit va multiplicity chegaralarini to\'g\'ri tanlang.')}</li>
               </ol>
             </div>
           </div>
@@ -3917,7 +3925,7 @@
               <span class="cd-card-title">6. Eng Ko'p Uchraydigan Xatolar & Tuzoqlar (Gotchas)</span>
             </div>
             <div class="cd-card-body warning">
-              <p>${this.escapeHtml(item.gotchas || '')}</p>
+              <p>${this.formatCodeSnippets(gotchasText)}</p>
             </div>
           </div>
         `;

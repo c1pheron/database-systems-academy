@@ -152,9 +152,8 @@ class EERCanvasEngine {
         if (target === this.container || target === this.svg || target === this.nodesLayer || target === this.viewport) {
           this.deselectAll();
           this.cancelConnecting();
-          this.isPanning = true;
-          this.startPanX = touch.clientX - this.panX;
-          this.startPanY = touch.clientY - this.panY;
+          // 1 barmoq bilan diagramma aslo surilmaydi - faqat 2 barmoq bilan!
+          this.isPanning = false;
         }
       }
     }, { passive: false });
@@ -185,6 +184,9 @@ class EERCanvasEngine {
         this.touchPinchMid = currentMid;
         this.updateViewportTransform();
       } else if (e.touches.length === 1 && !this.touchPinchDist) {
+        if (this.isDraggingNode || this.draggingHandle || this.isConnecting || this.isResizing) {
+          if (e.cancelable) e.preventDefault();
+        }
         const touch = e.touches[0];
         this.lastTouchPoint = { clientX: touch.clientX, clientY: touch.clientY };
         this.onPointerMove(touch);
@@ -812,18 +814,23 @@ class EERCanvasEngine {
 
       // Toggle PK / PPK / none (Works on touch and click)
       const badgeBtn = row.querySelector('.btn-attr-badge');
+      let lastToggleTime = 0;
       const toggleBadge = (e) => {
         e.stopPropagation();
-        if (e.cancelable && e.type === 'touchstart') e.preventDefault();
-        if (!attr.isPK && !attr.isPPK) {
-          attr.isPK = true;
-          attr.isPPK = false;
-        } else if (attr.isPK) {
+        if (e.cancelable) e.preventDefault();
+        const now = Date.now();
+        if (now - lastToggleTime < 300) return; // Prevent double trigger from touchend + click
+        lastToggleTime = now;
+
+        if (attr.isPK) {
           attr.isPK = false;
           attr.isPPK = true;
+        } else if (attr.isPPK) {
+          attr.isPK = false;
+          attr.isPPK = false;
         } else {
-          attr.isPK = false;
-          attr.isPK = false;
+          attr.isPK = true;
+          attr.isPPK = false;
         }
         this.renderEntityAttributes(entity, containerEl);
         this.renderLinks();
@@ -1019,15 +1026,59 @@ class EERCanvasEngine {
         const borderF = this.getNodeBorderPoint(fromEnt, tCenterX, tCenterY, false);
         const borderT = this.getNodeBorderPoint(toEnt, fCenterX, fCenterY, false);
 
-        const onDblClickRel = () => {
-          if (confirm(`'${fromEnt.name}' va '${toEnt.name}' o'rtasidagi aloqa chizig'ini o'chirishni xohlaysizmi?`)) {
-            this.relationships = this.relationships.filter(r => r !== rel);
-            this.renderLinks();
-            if (window.playSfx) window.playSfx('click');
-          }
+        const onDblClickRel = (e) => {
+          e?.stopPropagation();
+          this.relationships = this.relationships.filter(r => r !== rel);
+          this.renderLinks();
+          this.showToast(`🗑️ '${fromEnt.name}' va '${toEnt.name}' aloqa chizig'i o'chirildi!`);
+          if (window.playSfx) window.playSfx('click');
         };
 
         this.drawLine(borderF.x, borderF.y, borderT.x, borderT.y, onDblClickRel);
+
+        // Handles at both ends to allow grabbing and re-attaching
+        const onStartHandleDrag = (e) => {
+          e.stopPropagation();
+          if (e.cancelable) e.preventDefault();
+          this.relationships = this.relationships.filter(r => r !== rel);
+          const newLine = {
+            id: 'sline_' + Math.random().toString(36).substr(2, 9),
+            startX: Math.round(borderF.x),
+            startY: Math.round(borderF.y),
+            endX: Math.round(borderT.x),
+            endY: Math.round(borderT.y),
+            mult1: rel.mult1 || '1..1',
+            mult2: rel.mult2 || '1..*',
+            startSnapped: null,
+            endSnapped: { node: toEnt, type: 'entity' }
+          };
+          this.standaloneLines.push(newLine);
+          this.draggingHandle = { line: newLine, handle: 'start' };
+          this.renderLinks();
+        };
+
+        const onEndHandleDrag = (e) => {
+          e.stopPropagation();
+          if (e.cancelable) e.preventDefault();
+          this.relationships = this.relationships.filter(r => r !== rel);
+          const newLine = {
+            id: 'sline_' + Math.random().toString(36).substr(2, 9),
+            startX: Math.round(borderF.x),
+            startY: Math.round(borderF.y),
+            endX: Math.round(borderT.x),
+            endY: Math.round(borderT.y),
+            mult1: rel.mult1 || '1..1',
+            mult2: rel.mult2 || '1..*',
+            startSnapped: { node: fromEnt, type: 'entity' },
+            endSnapped: null
+          };
+          this.standaloneLines.push(newLine);
+          this.draggingHandle = { line: newLine, handle: 'end' };
+          this.renderLinks();
+        };
+
+        this.renderConnectionPortHandle(borderF.x, borderF.y, onStartHandleDrag, onDblClickRel);
+        this.renderConnectionPortHandle(borderT.x, borderT.y, onEndHandleDrag, onDblClickRel);
 
         // 1. Multiplicity for fromEnt (strictly outside entity box)
         const mx1 = borderF.x + borderF.dirX * 32;
@@ -1122,12 +1173,12 @@ class EERCanvasEngine {
         line.endY = Math.round(border.y);
       }
 
-      const onLineDblClick = () => {
-        if (confirm("Ushbu magnit chiziqni o'chirishni xohlaysizmi?")) {
-          this.standaloneLines = this.standaloneLines.filter(l => l.id !== line.id);
-          this.renderLinks();
-          if (window.playSfx) window.playSfx('click');
-        }
+      const onLineDblClick = (e) => {
+        e?.stopPropagation();
+        this.standaloneLines = this.standaloneLines.filter(l => l.id !== line.id);
+        this.renderLinks();
+        this.showToast("🗑️ Magnit chiziq o'chirildi!");
+        if (window.playSfx) window.playSfx('click');
       };
 
       this.drawLine(line.startX, line.startY, line.endX, line.endY, onLineDblClick, line.isDashed);
@@ -1150,7 +1201,7 @@ class EERCanvasEngine {
       });
       midPill.addEventListener('dblclick', (e) => {
         e.stopPropagation();
-        onLineDblClick();
+        onLineDblClick(e);
       });
       this.nodesLayer.appendChild(midPill);
 
@@ -1166,21 +1217,36 @@ class EERCanvasEngine {
 
     this.freeLines.forEach((fl, idx) => {
       const start = this.getPortCoords(fl.node, fl.port);
-      const onFreeDblClick = () => {
+      const onFreeDblClick = (e) => {
+        e?.stopPropagation();
         this.freeLines.splice(idx, 1);
         this.renderLinks();
+        this.showToast("🗑️ Erkin chiziq o'chirildi!");
+        if (window.playSfx) window.playSfx('click');
       };
       this.drawLine(start.x, start.y, fl.endX, fl.endY, onFreeDblClick);
+
+      const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+      // Invisible large hitbox for touch
+      const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      hitbox.setAttribute('cx', fl.endX);
+      hitbox.setAttribute('cy', fl.endY);
+      hitbox.setAttribute('r', '24');
+      hitbox.setAttribute('fill', 'transparent');
+      hitbox.setAttribute('stroke', 'transparent');
+      hitbox.style.cursor = 'grab';
+      hitbox.style.pointerEvents = 'all';
 
       const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       circle.setAttribute('cx', fl.endX);
       circle.setAttribute('cy', fl.endY);
-      circle.setAttribute('r', '8');
+      circle.setAttribute('r', '8.5');
       circle.setAttribute('fill', '#ffd166');
       circle.setAttribute('stroke', '#1e1916');
       circle.setAttribute('stroke-width', '2');
       circle.style.cursor = 'grab';
-      circle.style.pointerEvents = 'auto';
+      circle.style.pointerEvents = 'none';
 
       if (this.snapCandidate && this.snapCandidate.freeLine === fl) {
         circle.classList.add('snap-highlight');
@@ -1197,19 +1263,40 @@ class EERCanvasEngine {
         this.connectCurrentY = world.y;
         this.renderLinks();
       };
-      circle.addEventListener('mousedown', startDragHandle);
-      circle.addEventListener('touchstart', startDragHandle, { passive: false });
+      hitbox.addEventListener('mousedown', startDragHandle);
+      hitbox.addEventListener('touchstart', startDragHandle, { passive: false });
 
-      circle.addEventListener('dblclick', (e) => {
-        e.stopPropagation();
-        onFreeDblClick();
-      });
+      hitbox.addEventListener('dblclick', onFreeDblClick);
+      let lastTap = 0;
+      hitbox.addEventListener('touchend', (e) => {
+        const now = Date.now();
+        if (now - lastTap < 350 && now - lastTap > 0) {
+          e.stopPropagation();
+          if (e.cancelable) e.preventDefault();
+          onFreeDblClick(e);
+        }
+        lastTap = now;
+      }, { passive: false });
 
-      this.svg.appendChild(circle);
+      group.appendChild(hitbox);
+      group.appendChild(circle);
+      this.svg.appendChild(group);
     });
   }
 
   renderMagneticHandle(line, handleName, x, y, onDblClick) {
+    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+    // Invisible large touch hitbox (48px diameter)
+    const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    hitbox.setAttribute('cx', x);
+    hitbox.setAttribute('cy', y);
+    hitbox.setAttribute('r', '24');
+    hitbox.setAttribute('fill', 'transparent');
+    hitbox.setAttribute('stroke', 'transparent');
+    hitbox.style.cursor = 'grab';
+    hitbox.style.pointerEvents = 'all';
+
     const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circle.setAttribute('cx', x);
     circle.setAttribute('cy', y);
@@ -1218,12 +1305,13 @@ class EERCanvasEngine {
     circle.setAttribute('stroke', '#1e1916');
     circle.setAttribute('stroke-width', '2');
     circle.style.cursor = 'grab';
-    circle.style.pointerEvents = 'auto';
+    circle.style.pointerEvents = 'none';
 
     if (this.snapCandidate && this.snapCandidate.line === line && this.snapCandidate.handle === handleName) {
       circle.setAttribute('stroke', '#06d6a0');
       circle.setAttribute('stroke-width', '3.5');
-      circle.setAttribute('r', '11');
+      circle.setAttribute('r', '12');
+      circle.setAttribute('fill', '#06d6a0');
     }
 
     const startDragHandle = (e) => {
@@ -1232,26 +1320,76 @@ class EERCanvasEngine {
       this.draggingHandle = { line, handle: handleName };
     };
 
-    circle.addEventListener('mousedown', startDragHandle);
-    circle.addEventListener('touchstart', startDragHandle, { passive: false });
+    hitbox.addEventListener('mousedown', startDragHandle);
+    hitbox.addEventListener('touchstart', startDragHandle, { passive: false });
 
     if (onDblClick) {
-      circle.addEventListener('dblclick', (e) => {
+      hitbox.addEventListener('dblclick', (e) => {
         e.stopPropagation();
-        onDblClick();
+        onDblClick(e);
       });
       let lastTap = 0;
-      circle.addEventListener('touchend', (e) => {
-        const now = new Date().getTime();
+      hitbox.addEventListener('touchend', (e) => {
+        const now = Date.now();
         if (now - lastTap < 350 && now - lastTap > 0) {
           e.stopPropagation();
-          onDblClick();
+          if (e.cancelable) e.preventDefault();
+          onDblClick(e);
         }
         lastTap = now;
       }, { passive: false });
     }
 
-    this.svg.appendChild(circle);
+    group.appendChild(hitbox);
+    group.appendChild(circle);
+    this.svg.appendChild(group);
+  }
+
+  renderConnectionPortHandle(x, y, onDragStart, onDblClick) {
+    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+    const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    hitbox.setAttribute('cx', x);
+    hitbox.setAttribute('cy', y);
+    hitbox.setAttribute('r', '24');
+    hitbox.setAttribute('fill', 'transparent');
+    hitbox.setAttribute('stroke', 'transparent');
+    hitbox.style.cursor = 'grab';
+    hitbox.style.pointerEvents = 'all';
+
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', x);
+    circle.setAttribute('cy', y);
+    circle.setAttribute('r', '8.5');
+    circle.setAttribute('fill', '#ffd166');
+    circle.setAttribute('stroke', '#1e1916');
+    circle.setAttribute('stroke-width', '2');
+    circle.style.cursor = 'grab';
+    circle.style.pointerEvents = 'none';
+
+    hitbox.addEventListener('mousedown', onDragStart);
+    hitbox.addEventListener('touchstart', onDragStart, { passive: false });
+
+    if (onDblClick) {
+      hitbox.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        onDblClick(e);
+      });
+      let lastTap = 0;
+      hitbox.addEventListener('touchend', (e) => {
+        const now = Date.now();
+        if (now - lastTap < 350 && now - lastTap > 0) {
+          e.stopPropagation();
+          if (e.cancelable) e.preventDefault();
+          onDblClick(e);
+        }
+        lastTap = now;
+      }, { passive: false });
+    }
+
+    group.appendChild(hitbox);
+    group.appendChild(circle);
+    this.svg.appendChild(group);
   }
 
   drawLine(x1, y1, x2, y2, onDblClick = null, isDashed = false) {
