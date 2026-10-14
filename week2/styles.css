@@ -453,7 +453,7 @@ input, textarea, select, [contenteditable="true"] {
   height: 100%;
   overflow: visible;
   pointer-events: none;
-  z-index: 2;
+  z-index: 6;
 }
 
 .rel-nodes-layer {
@@ -463,6 +463,10 @@ input, textarea, select, [contenteditable="true"] {
   width: 100%;
   height: 100%;
   z-index: 5;
+  pointer-events: none !important;
+}
+
+.rel-nodes-layer > * {
   pointer-events: auto;
 }
 
@@ -1692,4 +1696,103 @@ input, textarea, select, [contenteditable="true"] {
 @keyframes magnetSnapPulse {
   from { filter: drop-shadow(0 0 4px #5c8d73); transform: scale(1); }
   to { filter: drop-shadow(0 0 14px #ffd166); transform: scale(1.3); }
+}
+
+/* MULTIPLICITY PILL */
+.mult-pill {
+  position: absolute;
+  background: #1e1915;
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold-bright);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  z-index: 45;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s ease;
+  pointer-events: auto !important;
+}
+
+.mult-pill:hover {
+  background: #352a20;
+  border-color: #f0d59e;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* INTERACTIVE LINE HANDLES & DELETE BUTTON */
+.free-line-end-handle,
+.magnetic-end-handle,
+.conn-port-dom-handle {
+  position: absolute;
+  border-radius: 50%;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  pointer-events: auto !important;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  z-index: 50;
+}
+
+.free-line-end-handle:hover,
+.magnetic-end-handle:hover,
+.conn-port-dom-handle:hover {
+  transform: translate(-50%, -50%) scale(1.25) !important;
+  box-shadow: 0 0 16px rgba(255, 209, 102, 1) !important;
+}
+
+.free-line-end-handle:active,
+.magnetic-end-handle:active,
+.conn-port-dom-handle:active {
+  cursor: grabbing !important;
+  transform: translate(-50%, -50%) scale(1.15) !important;
+}
+
+.free-line-end-handle.snap-highlight,
+.magnetic-end-handle.snap-highlight {
+  background: #06d6a0 !important;
+  border-color: #049f75 !important;
+  box-shadow: 0 0 18px rgba(6, 214, 160, 1) !important;
+  animation: snapPulse 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes snapPulse {
+  from { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 12px rgba(6, 214, 160, 0.8); }
+  to { transform: translate(-50%, -50%) scale(1.35); box-shadow: 0 0 22px rgba(6, 214, 160, 1); }
+}
+
+.line-del-btn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e63946;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
+  pointer-events: auto !important;
+  animation: popIn 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.12s ease, background 0.12s ease;
+  user-select: none;
+}
+
+.line-del-btn:hover {
+  background: #d90429;
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 0 0 14px rgba(230, 57, 70, 0.9);
+}
+
+@keyframes popIn {
+  from { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }

@@ -111,13 +111,27 @@ class RelationalCanvasEngine {
     }, { passive: false });
 
     // 2. Pan on background drag & cancel pending connection
+    this.lastTouchTime = 0;
+
     this.container.addEventListener('mousedown', (e) => {
+      // Ignore simulated mouse events from recent touch interactions
+      if (Date.now() - this.lastTouchTime < 600) {
+        return;
+      }
+
       // If user clicked on a table, port, button, handle, or line, NEVER pan!
       if (e.target.closest && (
         e.target.closest('.rel-table-box') || 
         e.target.closest('circle') || 
+        e.target.closest('line') || 
+        e.target.closest('path') || 
+        e.target.closest('g') || 
+        e.target.closest('.free-line-end-handle') || 
+        e.target.closest('.magnetic-end-handle') || 
+        e.target.closest('.conn-port-dom-handle') || 
         e.target.closest('.magnetic-handle-group') || 
         e.target.closest('.conn-port-handle-group') || 
+        e.target.closest('.line-del-btn') || 
         e.target.closest('.mult-pill') || 
         e.target.closest('.port-arrow') ||
         e.target.closest('button')
@@ -130,8 +144,10 @@ class RelationalCanvasEngine {
         this.deselectAll();
         this.cancelConnecting();
         this.isDraggingNode = false;
+        this.draggedTable = null;
         this.draggingHandle = null;
         this.draggingFreeLine = null;
+        this.draggingWholeLine = null;
         this.isPanning = true;
         this.startPanX = e.clientX - this.panX;
         this.startPanY = e.clientY - this.panY;
@@ -148,10 +164,12 @@ class RelationalCanvasEngine {
     this.touchPinchMid = null;
 
     this.container.addEventListener('touchstart', (e) => {
+      this.lastTouchTime = Date.now();
       if (e.touches.length === 2) {
         if (e.cancelable) e.preventDefault();
         this.isPanning = false;
         this.isDraggingNode = false;
+        this.draggedTable = null;
         const t1 = e.touches[0];
         const t2 = e.touches[1];
         this.touchPinchDist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
@@ -160,14 +178,14 @@ class RelationalCanvasEngine {
           y: (t1.clientY + t2.clientY) / 2
         };
       } else if (e.touches.length === 1) {
+        // 1 barmoq bilan diagramma aslo surilmaydi - faqat 2 barmoq bilan!
+        this.isPanning = false;
         const touch = e.touches[0];
         this.lastTouchPoint = { clientX: touch.clientX, clientY: touch.clientY };
         const target = e.target;
         if (target === this.container || target === this.svg || target === this.nodesLayer || target === this.viewport) {
           this.deselectAll();
           this.cancelConnecting();
-          // 1 barmoq bilan diagramma surilmaydi - faqat 2 barmoq bilan!
-          this.isPanning = false;
         }
       }
     }, { passive: false });
@@ -986,6 +1004,7 @@ class RelationalCanvasEngine {
 
   renderCrowFootLinks() {
     this.svg.innerHTML = '';
+    this.nodesLayer.querySelectorAll('.mult-pill, .rel-line-badge, .free-line-end-handle, .magnetic-end-handle, .conn-port-dom-handle').forEach(p => p.remove());
 
     this.references.forEach(ref => {
       const t1 = this.tables.find(t => t.name.toLowerCase() === ref.fromTable.toLowerCase());
@@ -1053,8 +1072,9 @@ class RelationalCanvasEngine {
 
       const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       hitbox.setAttribute('d', pathD);
-      hitbox.setAttribute('stroke', 'transparent');
-      hitbox.setAttribute('stroke-width', '24');
+      hitbox.setAttribute('stroke', '#000000');
+      hitbox.setAttribute('stroke-opacity', '0.001');
+      hitbox.setAttribute('stroke-width', '32');
       hitbox.setAttribute('fill', 'none');
       hitbox.style.cursor = 'grab';
       hitbox.style.pointerEvents = 'stroke';
@@ -1099,7 +1119,7 @@ class RelationalCanvasEngine {
       });
       this.svg.appendChild(path);
 
-      // Magnetic Handles at both ends cleanly without middle badge
+      // Magnetic Handles at both ends as interactive DOM handles
       this.renderMagneticHandle(line, 'start', line.startX, line.startY, onLineDblClick);
       this.renderMagneticHandle(line, 'end', line.endX, line.endY, onLineDblClick);
     });
@@ -1126,20 +1146,22 @@ class RelationalCanvasEngine {
         this.isDraggingNode = false;
         this.draggedTable = null;
         this.draggingHandle = null;
+        this.draggingWholeLine = null;
         this.draggingFreeLine = fl;
       };
 
       const midFreeX = (start.x + fl.endX) / 2;
       const midFreeY = (start.y + fl.endY) / 2;
 
-      // Invisible thick hitbox for touch & click
+      // Solid invisible-opacity thick hitbox for touch & click (32px wide)
       const freeHitbox = document.createElementNS('http://www.w3.org/2000/svg', 'line');
       freeHitbox.setAttribute('x1', start.x);
       freeHitbox.setAttribute('y1', start.y);
       freeHitbox.setAttribute('x2', fl.endX);
       freeHitbox.setAttribute('y2', fl.endY);
-      freeHitbox.setAttribute('stroke', 'transparent');
-      freeHitbox.setAttribute('stroke-width', '24');
+      freeHitbox.setAttribute('stroke', '#000000');
+      freeHitbox.setAttribute('stroke-opacity', '0.001');
+      freeHitbox.setAttribute('stroke-width', '32');
       freeHitbox.style.cursor = 'grab';
       freeHitbox.style.pointerEvents = 'stroke';
       freeHitbox.addEventListener('mousedown', onStartFreeLineDrag);
@@ -1191,167 +1213,203 @@ class RelationalCanvasEngine {
       });
       this.svg.appendChild(line);
 
-      const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-
-      // Invisible large hitbox for touch
-      const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      hitbox.setAttribute('cx', fl.endX);
-      hitbox.setAttribute('cy', fl.endY);
-      hitbox.setAttribute('r', '24');
-      hitbox.setAttribute('fill', 'transparent');
-      hitbox.setAttribute('stroke', 'transparent');
-      hitbox.style.cursor = 'grab';
-      hitbox.style.pointerEvents = 'all';
-
-      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circle.setAttribute('cx', fl.endX);
-      circle.setAttribute('cy', fl.endY);
-      circle.setAttribute('r', '8.5');
-      circle.setAttribute('fill', '#ffd166');
-      circle.setAttribute('stroke', '#1e1916');
-      circle.setAttribute('stroke-width', '2');
-      circle.style.cursor = 'grab';
-      circle.style.pointerEvents = 'none';
-
-      if (this.snapCandidate && this.snapCandidate.freeLine === fl) {
-        circle.classList.add('snap-highlight');
-      }
-
-      const startDragHandle = (e) => {
-        e.stopPropagation();
-        if (e.cancelable) e.preventDefault();
-        this.isPanning = false;
-        this.isDraggingNode = false;
-        this.draggingHandle = null;
-        this.draggingFreeLine = fl;
-      };
-      hitbox.addEventListener('mousedown', startDragHandle);
-      hitbox.addEventListener('touchstart', startDragHandle, { passive: false });
-
-      hitbox.addEventListener('dblclick', onFreeDblClick);
-      let lastTap = 0;
-      hitbox.addEventListener('touchend', (e) => {
-        const now = Date.now();
-        if (now - lastTap < 350 && now - lastTap > 0) {
-          e.stopPropagation();
-          if (e.cancelable) e.preventDefault();
-          onFreeDblClick(e);
-        }
-        lastTap = now;
-      }, { passive: false });
-
-      group.appendChild(hitbox);
-      group.appendChild(circle);
-      this.svg.appendChild(group);
+      this.renderFreeLineHandle(fl, onFreeDblClick);
     });
   }
 
-  renderMagneticHandle(line, handleName, x, y, onDblClick) {
-    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-
-    // Invisible large touch hitbox (48px diameter)
-    const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    hitbox.setAttribute('cx', x);
-    hitbox.setAttribute('cy', y);
-    hitbox.setAttribute('r', '24');
-    hitbox.setAttribute('fill', 'transparent');
-    hitbox.setAttribute('stroke', 'transparent');
-    hitbox.style.cursor = 'grab';
-    hitbox.style.pointerEvents = 'all';
-
-    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute('cx', x);
-    circle.setAttribute('cy', y);
-    circle.setAttribute('r', '9');
-    circle.setAttribute('fill', '#ffd166');
-    circle.setAttribute('stroke', '#1e1916');
-    circle.setAttribute('stroke-width', '2');
-    circle.style.cursor = 'grab';
-    circle.style.pointerEvents = 'none';
-
-    if (this.snapCandidate && this.snapCandidate.line === line && this.snapCandidate.handle === handleName) {
-      circle.setAttribute('stroke', '#06d6a0');
-      circle.setAttribute('stroke-width', '3.5');
-      circle.setAttribute('r', '12');
-      circle.setAttribute('fill', '#06d6a0');
-    }
+  renderFreeLineHandle(fl, onDelete) {
+    const isSnapped = this.snapCandidate && this.snapCandidate.freeLine === fl;
+    const handle = document.createElement('div');
+    handle.className = `free-line-end-handle ${isSnapped ? 'snap-highlight' : ''}`;
+    handle.style.position = 'absolute';
+    handle.style.left = `${fl.endX}px`;
+    handle.style.top = `${fl.endY}px`;
+    handle.style.transform = 'translate(-50%, -50%)';
+    handle.style.width = '30px';
+    handle.style.height = '30px';
+    handle.style.borderRadius = '50%';
+    handle.style.background = isSnapped ? '#06d6a0' : '#ffd166';
+    handle.style.border = isSnapped ? '3px solid #049f75' : '3px solid #1e1916';
+    handle.style.boxShadow = isSnapped ? '0 0 16px rgba(6,214,160,0.95)' : '0 0 10px rgba(255,209,102,0.85)';
+    handle.style.cursor = 'grab';
+    handle.style.zIndex = '50';
+    handle.style.pointerEvents = 'auto';
+    handle.style.touchAction = 'none';
+    handle.style.display = 'flex';
+    handle.style.alignItems = 'center';
+    handle.style.justifyContent = 'center';
+    handle.title = "Chiziq uchi: tortib jadvalga ulang, bosib '✕' orqali o'chiring";
+    handle.innerHTML = `<span style="font-size:14px; color:#1e1916; font-weight:bold; pointer-events:none; user-select:none;">●</span>`;
 
     const startDragHandle = (e) => {
       e.stopPropagation();
       if (e.cancelable) e.preventDefault();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedTable = null;
+      this.draggingHandle = null;
+      this.draggingWholeLine = null;
+      this.draggingFreeLine = fl;
+    };
+
+    handle.addEventListener('mousedown', startDragHandle);
+    handle.addEventListener('touchstart', startDragHandle, { passive: false });
+
+    handle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.showLineDeleteButton(fl.endX, fl.endY, onDelete);
+    });
+
+    handle.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      this.removeLineDeleteButton();
+      onDelete(e);
+    });
+
+    let lastTap = 0;
+    handle.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTap < 350 && now - lastTap > 0) {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        this.removeLineDeleteButton();
+        onDelete(e);
+      } else {
+        this.showLineDeleteButton(fl.endX, fl.endY, onDelete);
+      }
+      lastTap = now;
+    }, { passive: false });
+
+    this.nodesLayer.appendChild(handle);
+  }
+
+  renderMagneticHandle(line, handleName, x, y, onDelete) {
+    const isSnapped = this.snapCandidate && this.snapCandidate.line === line && this.snapCandidate.handle === handleName;
+    const handle = document.createElement('div');
+    handle.className = `magnetic-end-handle ${isSnapped ? 'snap-highlight' : ''}`;
+    handle.style.position = 'absolute';
+    handle.style.left = `${x}px`;
+    handle.style.top = `${y}px`;
+    handle.style.transform = 'translate(-50%, -50%)';
+    handle.style.width = '30px';
+    handle.style.height = '30px';
+    handle.style.borderRadius = '50%';
+    handle.style.background = isSnapped ? '#06d6a0' : '#ffd166';
+    handle.style.border = isSnapped ? '3px solid #049f75' : '3px solid #1e1916';
+    handle.style.boxShadow = isSnapped ? '0 0 16px rgba(6,214,160,0.95)' : '0 0 10px rgba(255,209,102,0.85)';
+    handle.style.cursor = 'grab';
+    handle.style.zIndex = '50';
+    handle.style.pointerEvents = 'auto';
+    handle.style.touchAction = 'none';
+    handle.style.display = 'flex';
+    handle.style.alignItems = 'center';
+    handle.style.justifyContent = 'center';
+    handle.title = "Magnit uchi: tortib jadvalga ulang, bosib '✕' orqali o'chiring";
+    handle.innerHTML = `<span style="font-size:14px; color:#1e1916; font-weight:bold; pointer-events:none; user-select:none;">●</span>`;
+
+    const startDragHandle = (e) => {
+      e.stopPropagation();
+      if (e.cancelable) e.preventDefault();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedTable = null;
+      this.draggingFreeLine = null;
+      this.draggingWholeLine = null;
       this.draggingHandle = { line, handle: handleName };
     };
 
-    hitbox.addEventListener('mousedown', startDragHandle);
-    hitbox.addEventListener('touchstart', startDragHandle, { passive: false });
+    handle.addEventListener('mousedown', startDragHandle);
+    handle.addEventListener('touchstart', startDragHandle, { passive: false });
 
-    if (onDblClick) {
-      hitbox.addEventListener('dblclick', (e) => {
+    handle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.showLineDeleteButton(x, y, onDelete);
+    });
+
+    handle.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      this.removeLineDeleteButton();
+      onDelete(e);
+    });
+
+    let lastTap = 0;
+    handle.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTap < 350 && now - lastTap > 0) {
         e.stopPropagation();
-        onDblClick(e);
-      });
-      let lastTap = 0;
-      hitbox.addEventListener('touchend', (e) => {
-        const now = Date.now();
-        if (now - lastTap < 350 && now - lastTap > 0) {
-          e.stopPropagation();
-          if (e.cancelable) e.preventDefault();
-          onDblClick(e);
-        }
-        lastTap = now;
-      }, { passive: false });
-    }
+        if (e.cancelable) e.preventDefault();
+        this.removeLineDeleteButton();
+        onDelete(e);
+      } else {
+        this.showLineDeleteButton(x, y, onDelete);
+      }
+      lastTap = now;
+    }, { passive: false });
 
-    group.appendChild(hitbox);
-    group.appendChild(circle);
-    this.svg.appendChild(group);
+    this.nodesLayer.appendChild(handle);
   }
 
-  renderConnectionPortHandle(x, y, onDragStart, onDblClick) {
-    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  renderConnectionPortHandle(x, y, onDragStart, onDelete) {
+    const handle = document.createElement('div');
+    handle.className = 'conn-port-dom-handle';
+    handle.style.position = 'absolute';
+    handle.style.left = `${Math.round(x)}px`;
+    handle.style.top = `${Math.round(y)}px`;
+    handle.style.transform = 'translate(-50%, -50%)';
+    handle.style.width = '24px';
+    handle.style.height = '24px';
+    handle.style.borderRadius = '50%';
+    handle.style.background = '#ffd166';
+    handle.style.border = '2.5px solid #1e1916';
+    handle.style.boxShadow = '0 0 8px rgba(255,209,102,0.8)';
+    handle.style.cursor = 'grab';
+    handle.style.zIndex = '45';
+    handle.style.pointerEvents = 'auto';
+    handle.style.touchAction = 'none';
+    handle.style.display = 'flex';
+    handle.style.alignItems = 'center';
+    handle.style.justifyContent = 'center';
+    handle.title = "Ulanish nuqtasi: tortib boshqa jadvalga ko'chiring, 2 marta bosib o'chiring";
+    handle.innerHTML = `<span style="font-size:11px; color:#1e1916; font-weight:bold; pointer-events:none; user-select:none;">●</span>`;
 
-    const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    hitbox.setAttribute('cx', x);
-    hitbox.setAttribute('cy', y);
-    hitbox.setAttribute('r', '24');
-    hitbox.setAttribute('fill', 'transparent');
-    hitbox.setAttribute('stroke', 'transparent');
-    hitbox.style.cursor = 'grab';
-    hitbox.style.pointerEvents = 'all';
+    const handleStartDrag = (e) => {
+      e.stopPropagation();
+      if (e.cancelable) e.preventDefault();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedTable = null;
+      if (onDragStart) onDragStart(e);
+    };
 
-    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute('cx', x);
-    circle.setAttribute('cy', y);
-    circle.setAttribute('r', '8.5');
-    circle.setAttribute('fill', '#ffd166');
-    circle.setAttribute('stroke', '#1e1916');
-    circle.setAttribute('stroke-width', '2');
-    circle.style.cursor = 'grab';
-    circle.style.pointerEvents = 'none';
+    handle.addEventListener('mousedown', handleStartDrag);
+    handle.addEventListener('touchstart', handleStartDrag, { passive: false });
 
-    hitbox.addEventListener('mousedown', onDragStart);
-    hitbox.addEventListener('touchstart', onDragStart, { passive: false });
+    handle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.showLineDeleteButton(x, y, onDelete);
+    });
 
-    if (onDblClick) {
-      hitbox.addEventListener('dblclick', (e) => {
+    handle.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      this.removeLineDeleteButton();
+      if (onDelete) onDelete(e);
+    });
+
+    let lastTap = 0;
+    handle.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTap < 350 && now - lastTap > 0) {
         e.stopPropagation();
-        onDblClick(e);
-      });
-      let lastTap = 0;
-      hitbox.addEventListener('touchend', (e) => {
-        const now = Date.now();
-        if (now - lastTap < 350 && now - lastTap > 0) {
-          e.stopPropagation();
-          if (e.cancelable) e.preventDefault();
-          onDblClick(e);
-        }
-        lastTap = now;
-      }, { passive: false });
-    }
+        if (e.cancelable) e.preventDefault();
+        this.removeLineDeleteButton();
+        if (onDelete) onDelete(e);
+      } else {
+        this.showLineDeleteButton(x, y, onDelete);
+      }
+      lastTap = now;
+    }, { passive: false });
 
-    group.appendChild(hitbox);
-    group.appendChild(circle);
-    this.svg.appendChild(group);
+    this.nodesLayer.appendChild(handle);
   }
 
   showLineDeleteButton(midX, midY, onDelete) {
@@ -1365,20 +1423,20 @@ class RelationalCanvasEngine {
     btn.style.left = `${Math.round(midX)}px`;
     btn.style.top = `${Math.round(midY)}px`;
     btn.style.transform = 'translate(-50%, -50%)';
-    btn.style.width = '28px';
-    btn.style.height = '28px';
+    btn.style.width = '30px';
+    btn.style.height = '30px';
     btn.style.borderRadius = '50%';
     btn.style.background = '#e63946';
     btn.style.color = '#ffffff';
-    btn.style.fontSize = '14px';
+    btn.style.fontSize = '15px';
     btn.style.fontWeight = 'bold';
     btn.style.display = 'flex';
     btn.style.alignItems = 'center';
     btn.style.justifyContent = 'center';
     btn.style.cursor = 'pointer';
-    btn.style.zIndex = '999';
-    btn.style.border = '2px solid #ffffff';
-    btn.style.boxShadow = '0 3px 10px rgba(0,0,0,0.5)';
+    btn.style.zIndex = '1000';
+    btn.style.border = '2.5px solid #ffffff';
+    btn.style.boxShadow = '0 3px 12px rgba(0,0,0,0.6)';
     btn.style.pointerEvents = 'auto';
 
     const handleDelete = (e) => {
@@ -1403,7 +1461,7 @@ class RelationalCanvasEngine {
     setTimeout(() => {
       window.addEventListener('mousedown', outsideListener);
       window.addEventListener('touchstart', outsideListener);
-    }, 50);
+    }, 150);
   }
 
   removeLineDeleteButton() {
@@ -1444,11 +1502,12 @@ class RelationalCanvasEngine {
       if (window.playSfx) window.playSfx('click');
     };
 
-    // Invisible thick hitbox for easy clicking on touch & mouse
+    // Solid invisible-opacity thick hitbox for touch & mouse (32px wide)
     const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     hitbox.setAttribute('d', pathD);
-    hitbox.setAttribute('stroke', 'transparent');
-    hitbox.setAttribute('stroke-width', '24');
+    hitbox.setAttribute('stroke', '#000000');
+    hitbox.setAttribute('stroke-opacity', '0.001');
+    hitbox.setAttribute('stroke-width', '32');
     hitbox.setAttribute('fill', 'none');
     hitbox.style.cursor = 'pointer';
     hitbox.style.pointerEvents = 'stroke';
@@ -1460,6 +1519,9 @@ class RelationalCanvasEngine {
 
     const stopBubbling = (e) => {
       e.stopPropagation();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedTable = null;
     };
 
     // Prevent dragging underlying table
@@ -1512,10 +1574,13 @@ class RelationalCanvasEngine {
     hitbox.addEventListener('touchend', handleTap, { passive: false });
     path.addEventListener('touchend', handleTap, { passive: false });
 
-    // Draggable start and end handles: allows grabbing either end to re-attach to another table
+    // Draggable start and end handles in DOM layer: allows grabbing either end to re-attach to another table
     const onStartHandleDrag = (e) => {
       e.stopPropagation();
       if (e.cancelable) e.preventDefault();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedTable = null;
       this.references = this.references.filter(r => r !== ref);
       const newLine = {
         id: 'sline_' + Math.random().toString(36).substr(2, 9),
@@ -1537,6 +1602,9 @@ class RelationalCanvasEngine {
     const onEndHandleDrag = (e) => {
       e.stopPropagation();
       if (e.cancelable) e.preventDefault();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedTable = null;
       this.references = this.references.filter(r => r !== ref);
       const newLine = {
         id: 'sline_' + Math.random().toString(36).substr(2, 9),
@@ -1566,122 +1634,35 @@ class RelationalCanvasEngine {
     const pSign = border2.dirX >= 0 ? 1 : -1;
     this.drawMultiplicitySymbol(toMult, endX, endY, pSign);
 
-    // Multiplicity badges positioned outside borders
+    // Multiplicity badges rendered in DOM layer positioned strictly outside borders
     const mx1 = startX + border1.dirX * 32;
     const my1 = startY + border1.dirY * 32;
     const mx2 = endX + border2.dirX * 32;
     const my2 = endY + border2.dirY * 32;
 
-    this.renderMultiplicityPill(fromMult, mx1, my1, (ev) => this.openMultiplicityPopover(ref, ev), deleteConn);
-    this.renderMultiplicityPill(toMult, mx2, my2, (ev) => this.openMultiplicityPopover(ref, ev), deleteConn);
-    // End multiplicities are rendered at both borders cleanly
-  }
-
-  drawMultiplicitySymbol(mult, x, y, dir) {
-    if (mult === '0..*') {
-      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circle.setAttribute('cx', x + dir * 18);
-      circle.setAttribute('cy', y);
-      circle.setAttribute('r', '4');
-      circle.setAttribute('fill', '#1e1916');
-      circle.setAttribute('stroke', '#dfc288');
-      circle.setAttribute('stroke-width', '1.8');
-      this.svg.appendChild(circle);
-
-      const cf = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      cf.setAttribute('d', `M ${x + dir * 12} ${y - 8} L ${x} ${y} L ${x + dir * 12} ${y + 8} M ${x + dir * 12} ${y} L ${x} ${y}`);
-      cf.setAttribute('stroke', '#dfc288');
-      cf.setAttribute('stroke-width', '1.8');
-      cf.setAttribute('fill', 'none');
-      this.svg.appendChild(cf);
-    } else if (mult === '1..*') {
-      const bar = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      bar.setAttribute('x1', x + dir * 18);
-      bar.setAttribute('y1', y - 7);
-      bar.setAttribute('x2', x + dir * 18);
-      bar.setAttribute('y2', y + 7);
-      bar.setAttribute('stroke', '#c8a96e');
-      bar.setAttribute('stroke-width', '1.8');
-      this.svg.appendChild(bar);
-
-      const cf = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      cf.setAttribute('d', `M ${x + dir * 12} ${y - 8} L ${x} ${y} L ${x + dir * 12} ${y + 8} M ${x + dir * 12} ${y} L ${x} ${y}`);
-      cf.setAttribute('stroke', '#dfc288');
-      cf.setAttribute('stroke-width', '1.8');
-      cf.setAttribute('fill', 'none');
-      this.svg.appendChild(cf);
-    } else if (mult === '0..1') {
-      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circle.setAttribute('cx', x + dir * 16);
-      circle.setAttribute('cy', y);
-      circle.setAttribute('r', '4');
-      circle.setAttribute('fill', '#1e1916');
-      circle.setAttribute('stroke', '#dfc288');
-      circle.setAttribute('stroke-width', '1.8');
-      this.svg.appendChild(circle);
-
-      const bar = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      bar.setAttribute('x1', x + dir * 7);
-      bar.setAttribute('y1', y - 8);
-      bar.setAttribute('x2', x + dir * 7);
-      bar.setAttribute('y2', y + 8);
-      bar.setAttribute('stroke', '#c8a96e');
-      bar.setAttribute('stroke-width', '1.8');
-      this.svg.appendChild(bar);
-    } else if (mult === '1..1') {
-      const bar1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      bar1.setAttribute('x1', x + dir * 6);
-      bar1.setAttribute('y1', y - 8);
-      bar1.setAttribute('x2', x + dir * 6);
-      bar1.setAttribute('y2', y + 8);
-      bar1.setAttribute('stroke', '#c8a96e');
-      bar1.setAttribute('stroke-width', '1.8');
-      this.svg.appendChild(bar1);
-
-      const bar2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      bar2.setAttribute('x1', x + dir * 13);
-      bar2.setAttribute('y1', y - 8);
-      bar2.setAttribute('x2', x + dir * 13);
-      bar2.setAttribute('y2', y + 8);
-      bar2.setAttribute('stroke', '#c8a96e');
-      bar2.setAttribute('stroke-width', '1.8');
-      this.svg.appendChild(bar2);
-    }
+    this.renderMultiplicityPill(fromMult, mx1, my1, (ev) => this.openMultiplicityPopover(ref, ev));
+    this.renderMultiplicityPill(toMult, mx2, my2, (ev) => this.openMultiplicityPopover(ref, ev));
   }
 
   renderMultiplicityPill(text, x, y, onClick) {
-    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    g.setAttribute('transform', `translate(${x}, ${y})`);
-    g.style.cursor = 'pointer';
-    g.style.pointerEvents = 'auto';
-    g.addEventListener('click', (e) => {
+    const pill = document.createElement('div');
+    pill.className = 'mult-pill';
+    pill.textContent = text || '?';
+    pill.style.position = 'absolute';
+    pill.style.left = `${Math.round(x)}px`;
+    pill.style.top = `${Math.round(y)}px`;
+    pill.style.transform = 'translate(-50%, -50%)';
+    pill.style.cursor = 'pointer';
+    pill.style.zIndex = '45';
+    pill.style.pointerEvents = 'auto';
+    pill.title = "Multiplicity o'zgartirish uchun bosing";
+
+    pill.addEventListener('click', (e) => {
       e.stopPropagation();
       onClick?.(e);
     });
 
-    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    rect.setAttribute('x', '-16');
-    rect.setAttribute('y', '-7');
-    rect.setAttribute('width', '32');
-    rect.setAttribute('height', '14');
-    rect.setAttribute('rx', '3');
-    rect.setAttribute('fill', '#1c1613');
-    rect.setAttribute('stroke', '#c8a96e');
-    rect.setAttribute('stroke-width', '1');
-    g.appendChild(rect);
-
-    const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    txt.setAttribute('x', '0');
-    txt.setAttribute('y', '3');
-    txt.setAttribute('text-anchor', 'middle');
-    txt.setAttribute('fill', '#dfc288');
-    txt.setAttribute('font-size', '8.5');
-    txt.setAttribute('font-family', 'JetBrains Mono, monospace');
-    txt.setAttribute('font-weight', '700');
-    txt.textContent = text;
-    g.appendChild(txt);
-
-    this.svg.appendChild(g);
+    this.nodesLayer.appendChild(pill);
   }
 
   openMultiplicityPopover(ref, e) {

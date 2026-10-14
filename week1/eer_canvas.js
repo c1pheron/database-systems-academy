@@ -114,14 +114,28 @@ class EERCanvasEngine {
     }, { passive: false });
 
     // 2. Pan on background drag & cancel pending connection
+    this.lastTouchTime = 0;
+
     this.container.addEventListener('mousedown', (e) => {
+      // Ignore simulated mouse events from recent touch interactions
+      if (Date.now() - this.lastTouchTime < 600) {
+        return;
+      }
+
       // If user clicked on a node, port, button, handle, or line, NEVER pan!
       if (e.target.closest && (
         e.target.closest('.eer-entity-box') || 
         e.target.closest('.eer-diamond-box') || 
         e.target.closest('circle') || 
+        e.target.closest('line') || 
+        e.target.closest('path') || 
+        e.target.closest('g') || 
+        e.target.closest('.free-line-end-handle') || 
+        e.target.closest('.magnetic-end-handle') || 
+        e.target.closest('.conn-port-dom-handle') || 
         e.target.closest('.magnetic-handle-group') || 
         e.target.closest('.conn-port-handle-group') || 
+        e.target.closest('.line-del-btn') || 
         e.target.closest('.mult-pill') || 
         e.target.closest('.port-arrow') ||
         e.target.closest('button')
@@ -134,8 +148,10 @@ class EERCanvasEngine {
         this.deselectAll();
         this.cancelConnecting();
         this.isDraggingNode = false;
+        this.draggedNode = null;
         this.draggingHandle = null;
         this.draggingFreeLine = null;
+        this.draggingWholeLine = null;
         this.isPanning = true;
         this.startPanX = e.clientX - this.panX;
         this.startPanY = e.clientY - this.panY;
@@ -152,10 +168,12 @@ class EERCanvasEngine {
     this.touchPinchMid = null;
 
     this.container.addEventListener('touchstart', (e) => {
+      this.lastTouchTime = Date.now();
       if (e.touches.length === 2) {
         if (e.cancelable) e.preventDefault();
         this.isPanning = false;
         this.isDraggingNode = false;
+        this.draggedNode = null;
         const t1 = e.touches[0];
         const t2 = e.touches[1];
         this.touchPinchDist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
@@ -164,14 +182,14 @@ class EERCanvasEngine {
           y: (t1.clientY + t2.clientY) / 2
         };
       } else if (e.touches.length === 1) {
+        // 1 barmoq bilan diagramma aslo surilmaydi - faqat 2 barmoq bilan!
+        this.isPanning = false;
         const touch = e.touches[0];
         this.lastTouchPoint = { clientX: touch.clientX, clientY: touch.clientY };
         const target = e.target;
         if (target === this.container || target === this.svg || target === this.nodesLayer || target === this.viewport) {
           this.deselectAll();
           this.cancelConnecting();
-          // 1 barmoq bilan diagramma aslo surilmaydi - faqat 2 barmoq bilan!
-          this.isPanning = false;
         }
       }
     }, { passive: false });
@@ -1139,7 +1157,7 @@ class EERCanvasEngine {
 
   renderLinks() {
     this.svg.innerHTML = '';
-    document.querySelectorAll('.mult-pill, .rel-line-badge').forEach(p => p.remove());
+    this.nodesLayer.querySelectorAll('.mult-pill, .rel-line-badge, .free-line-end-handle, .magnetic-end-handle, .conn-port-dom-handle').forEach(p => p.remove());
 
     this.relationships.forEach(rel => {
       const fromEnt = this.entities.find(e => e.name.toLowerCase() === (rel.fromEntityName || '').toLowerCase());
@@ -1172,6 +1190,9 @@ class EERCanvasEngine {
         const onStartHandleDrag = (e) => {
           e.stopPropagation();
           if (e.cancelable) e.preventDefault();
+          this.isPanning = false;
+          this.isDraggingNode = false;
+          this.draggedNode = null;
           this.relationships = this.relationships.filter(r => r !== rel);
           const newLine = {
             id: 'sline_' + Math.random().toString(36).substr(2, 9),
@@ -1192,6 +1213,9 @@ class EERCanvasEngine {
         const onEndHandleDrag = (e) => {
           e.stopPropagation();
           if (e.cancelable) e.preventDefault();
+          this.isPanning = false;
+          this.isDraggingNode = false;
+          this.draggedNode = null;
           this.relationships = this.relationships.filter(r => r !== rel);
           const newLine = {
             id: 'sline_' + Math.random().toString(36).substr(2, 9),
@@ -1221,8 +1245,6 @@ class EERCanvasEngine {
         const mx2 = borderT.x + borderT.dirX * 32;
         const my2 = borderT.y + borderT.dirY * 32;
         this.createMultiplicityPill(mx2, my2, rel, 'mult2', toEnt.name);
-
-        // End multiplicities are rendered at both borders cleanly
       } else {
         // Fallback for explicit diamond nodes placed on canvas
         const rCenterX = rel.x + 45;
@@ -1287,6 +1309,14 @@ class EERCanvasEngine {
         line.endY = Math.round(border.y);
       }
 
+      const onLineDblClick = (e) => {
+        e?.stopPropagation();
+        this.standaloneLines = this.standaloneLines.filter(l => l.id !== line.id);
+        this.renderLinks();
+        this.showToast("🗑️ Magnit chiziq o'chirildi!");
+        if (window.playSfx) window.playSfx('click');
+      };
+
       const onStartWholeLineDrag = (e) => {
         e.stopPropagation();
         if (e.cancelable) e.preventDefault();
@@ -1313,7 +1343,7 @@ class EERCanvasEngine {
 
       this.drawLine(line.startX, line.startY, line.endX, line.endY, onLineDblClick, line.isDashed, onStartWholeLineDrag);
 
-      // Render Magnetic Handles at both ends cleanly without middle badge
+      // Render Magnetic Handles at both ends as interactive DOM handles
       this.renderMagneticHandle(line, 'start', line.startX, line.startY, onLineDblClick);
       this.renderMagneticHandle(line, 'end', line.endX, line.endY, onLineDblClick);
     });
@@ -1340,172 +1370,208 @@ class EERCanvasEngine {
         this.isDraggingNode = false;
         this.draggedNode = null;
         this.draggingHandle = null;
+        this.draggingWholeLine = null;
         this.draggingFreeLine = fl;
       };
 
       this.drawLine(start.x, start.y, fl.endX, fl.endY, onFreeDblClick, false, onStartFreeLineDrag);
-
-      const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-
-      // Invisible large hitbox for touch
-      const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      hitbox.setAttribute('cx', fl.endX);
-      hitbox.setAttribute('cy', fl.endY);
-      hitbox.setAttribute('r', '24');
-      hitbox.setAttribute('fill', 'transparent');
-      hitbox.setAttribute('stroke', 'transparent');
-      hitbox.style.cursor = 'grab';
-      hitbox.style.pointerEvents = 'all';
-
-      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circle.setAttribute('cx', fl.endX);
-      circle.setAttribute('cy', fl.endY);
-      circle.setAttribute('r', '8.5');
-      circle.setAttribute('fill', '#ffd166');
-      circle.setAttribute('stroke', '#1e1916');
-      circle.setAttribute('stroke-width', '2');
-      circle.style.cursor = 'grab';
-      circle.style.pointerEvents = 'none';
-
-      if (this.snapCandidate && this.snapCandidate.freeLine === fl) {
-        circle.classList.add('snap-highlight');
-      }
-
-      const startDragHandle = (e) => {
-        e.stopPropagation();
-        if (e.cancelable) e.preventDefault();
-        this.isPanning = false;
-        this.isDraggingNode = false;
-        this.draggingHandle = null;
-        this.draggingFreeLine = fl;
-      };
-      hitbox.addEventListener('mousedown', startDragHandle);
-      hitbox.addEventListener('touchstart', startDragHandle, { passive: false });
-
-      hitbox.addEventListener('dblclick', onFreeDblClick);
-      let lastTap = 0;
-      hitbox.addEventListener('touchend', (e) => {
-        const now = Date.now();
-        if (now - lastTap < 350 && now - lastTap > 0) {
-          e.stopPropagation();
-          if (e.cancelable) e.preventDefault();
-          onFreeDblClick(e);
-        }
-        lastTap = now;
-      }, { passive: false });
-
-      group.appendChild(hitbox);
-      group.appendChild(circle);
-      this.svg.appendChild(group);
+      this.renderFreeLineHandle(fl, onFreeDblClick);
     });
   }
 
-  renderMagneticHandle(line, handleName, x, y, onDblClick) {
-    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-
-    // Invisible large touch hitbox (48px diameter)
-    const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    hitbox.setAttribute('cx', x);
-    hitbox.setAttribute('cy', y);
-    hitbox.setAttribute('r', '24');
-    hitbox.setAttribute('fill', 'transparent');
-    hitbox.setAttribute('stroke', 'transparent');
-    hitbox.style.cursor = 'grab';
-    hitbox.style.pointerEvents = 'all';
-
-    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute('cx', x);
-    circle.setAttribute('cy', y);
-    circle.setAttribute('r', '9');
-    circle.setAttribute('fill', '#ffd166');
-    circle.setAttribute('stroke', '#1e1916');
-    circle.setAttribute('stroke-width', '2');
-    circle.style.cursor = 'grab';
-    circle.style.pointerEvents = 'none';
-
-    if (this.snapCandidate && this.snapCandidate.line === line && this.snapCandidate.handle === handleName) {
-      circle.setAttribute('stroke', '#06d6a0');
-      circle.setAttribute('stroke-width', '3.5');
-      circle.setAttribute('r', '12');
-      circle.setAttribute('fill', '#06d6a0');
-    }
+  renderFreeLineHandle(fl, onDelete) {
+    const isSnapped = this.snapCandidate && this.snapCandidate.freeLine === fl;
+    const handle = document.createElement('div');
+    handle.className = `free-line-end-handle ${isSnapped ? 'snap-highlight' : ''}`;
+    handle.style.position = 'absolute';
+    handle.style.left = `${fl.endX}px`;
+    handle.style.top = `${fl.endY}px`;
+    handle.style.transform = 'translate(-50%, -50%)';
+    handle.style.width = '30px';
+    handle.style.height = '30px';
+    handle.style.borderRadius = '50%';
+    handle.style.background = isSnapped ? '#06d6a0' : '#ffd166';
+    handle.style.border = isSnapped ? '3px solid #049f75' : '3px solid #1e1916';
+    handle.style.boxShadow = isSnapped ? '0 0 16px rgba(6,214,160,0.95)' : '0 0 10px rgba(255,209,102,0.85)';
+    handle.style.cursor = 'grab';
+    handle.style.zIndex = '50';
+    handle.style.pointerEvents = 'auto';
+    handle.style.touchAction = 'none';
+    handle.style.display = 'flex';
+    handle.style.alignItems = 'center';
+    handle.style.justifyContent = 'center';
+    handle.title = "Chiziq uchi: tortib entitiyga ulang, bosib '✕' orqali o'chiring";
+    handle.innerHTML = `<span style="font-size:14px; color:#1e1916; font-weight:bold; pointer-events:none; user-select:none;">●</span>`;
 
     const startDragHandle = (e) => {
       e.stopPropagation();
       if (e.cancelable) e.preventDefault();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedNode = null;
+      this.draggingHandle = null;
+      this.draggingWholeLine = null;
+      this.draggingFreeLine = fl;
+    };
+
+    handle.addEventListener('mousedown', startDragHandle);
+    handle.addEventListener('touchstart', startDragHandle, { passive: false });
+
+    handle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.showLineDeleteButton(fl.endX, fl.endY, onDelete);
+    });
+
+    handle.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      this.removeLineDeleteButton();
+      onDelete(e);
+    });
+
+    let lastTap = 0;
+    handle.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTap < 350 && now - lastTap > 0) {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        this.removeLineDeleteButton();
+        onDelete(e);
+      } else {
+        this.showLineDeleteButton(fl.endX, fl.endY, onDelete);
+      }
+      lastTap = now;
+    }, { passive: false });
+
+    this.nodesLayer.appendChild(handle);
+  }
+
+  renderMagneticHandle(line, handleName, x, y, onDelete) {
+    const isSnapped = this.snapCandidate && this.snapCandidate.line === line && this.snapCandidate.handle === handleName;
+    const handle = document.createElement('div');
+    handle.className = `magnetic-end-handle ${isSnapped ? 'snap-highlight' : ''}`;
+    handle.style.position = 'absolute';
+    handle.style.left = `${x}px`;
+    handle.style.top = `${y}px`;
+    handle.style.transform = 'translate(-50%, -50%)';
+    handle.style.width = '30px';
+    handle.style.height = '30px';
+    handle.style.borderRadius = '50%';
+    handle.style.background = isSnapped ? '#06d6a0' : '#ffd166';
+    handle.style.border = isSnapped ? '3px solid #049f75' : '3px solid #1e1916';
+    handle.style.boxShadow = isSnapped ? '0 0 16px rgba(6,214,160,0.95)' : '0 0 10px rgba(255,209,102,0.85)';
+    handle.style.cursor = 'grab';
+    handle.style.zIndex = '50';
+    handle.style.pointerEvents = 'auto';
+    handle.style.touchAction = 'none';
+    handle.style.display = 'flex';
+    handle.style.alignItems = 'center';
+    handle.style.justifyContent = 'center';
+    handle.title = "Magnit uchi: tortib entitiyga ulang, bosib '✕' orqali o'chiring";
+    handle.innerHTML = `<span style="font-size:14px; color:#1e1916; font-weight:bold; pointer-events:none; user-select:none;">●</span>`;
+
+    const startDragHandle = (e) => {
+      e.stopPropagation();
+      if (e.cancelable) e.preventDefault();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedNode = null;
+      this.draggingFreeLine = null;
+      this.draggingWholeLine = null;
       this.draggingHandle = { line, handle: handleName };
     };
 
-    hitbox.addEventListener('mousedown', startDragHandle);
-    hitbox.addEventListener('touchstart', startDragHandle, { passive: false });
+    handle.addEventListener('mousedown', startDragHandle);
+    handle.addEventListener('touchstart', startDragHandle, { passive: false });
 
-    if (onDblClick) {
-      hitbox.addEventListener('dblclick', (e) => {
+    handle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.showLineDeleteButton(x, y, onDelete);
+    });
+
+    handle.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      this.removeLineDeleteButton();
+      onDelete(e);
+    });
+
+    let lastTap = 0;
+    handle.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTap < 350 && now - lastTap > 0) {
         e.stopPropagation();
-        onDblClick(e);
-      });
-      let lastTap = 0;
-      hitbox.addEventListener('touchend', (e) => {
-        const now = Date.now();
-        if (now - lastTap < 350 && now - lastTap > 0) {
-          e.stopPropagation();
-          if (e.cancelable) e.preventDefault();
-          onDblClick(e);
-        }
-        lastTap = now;
-      }, { passive: false });
-    }
+        if (e.cancelable) e.preventDefault();
+        this.removeLineDeleteButton();
+        onDelete(e);
+      } else {
+        this.showLineDeleteButton(x, y, onDelete);
+      }
+      lastTap = now;
+    }, { passive: false });
 
-    group.appendChild(hitbox);
-    group.appendChild(circle);
-    this.svg.appendChild(group);
+    this.nodesLayer.appendChild(handle);
   }
 
-  renderConnectionPortHandle(x, y, onDragStart, onDblClick) {
-    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  renderConnectionPortHandle(x, y, onDragStart, onDelete) {
+    const handle = document.createElement('div');
+    handle.className = 'conn-port-dom-handle';
+    handle.style.position = 'absolute';
+    handle.style.left = `${Math.round(x)}px`;
+    handle.style.top = `${Math.round(y)}px`;
+    handle.style.transform = 'translate(-50%, -50%)';
+    handle.style.width = '24px';
+    handle.style.height = '24px';
+    handle.style.borderRadius = '50%';
+    handle.style.background = '#ffd166';
+    handle.style.border = '2.5px solid #1e1916';
+    handle.style.boxShadow = '0 0 8px rgba(255,209,102,0.8)';
+    handle.style.cursor = 'grab';
+    handle.style.zIndex = '45';
+    handle.style.pointerEvents = 'auto';
+    handle.style.touchAction = 'none';
+    handle.style.display = 'flex';
+    handle.style.alignItems = 'center';
+    handle.style.justifyContent = 'center';
+    handle.title = "Ulanish nuqtasi: tortib boshqa entitiyga ko'chiring, 2 marta bosib o'chiring";
+    handle.innerHTML = `<span style="font-size:11px; color:#1e1916; font-weight:bold; pointer-events:none; user-select:none;">●</span>`;
 
-    const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    hitbox.setAttribute('cx', x);
-    hitbox.setAttribute('cy', y);
-    hitbox.setAttribute('r', '24');
-    hitbox.setAttribute('fill', 'transparent');
-    hitbox.setAttribute('stroke', 'transparent');
-    hitbox.style.cursor = 'grab';
-    hitbox.style.pointerEvents = 'all';
+    const handleStartDrag = (e) => {
+      e.stopPropagation();
+      if (e.cancelable) e.preventDefault();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedNode = null;
+      if (onDragStart) onDragStart(e);
+    };
 
-    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle.setAttribute('cx', x);
-    circle.setAttribute('cy', y);
-    circle.setAttribute('r', '8.5');
-    circle.setAttribute('fill', '#ffd166');
-    circle.setAttribute('stroke', '#1e1916');
-    circle.setAttribute('stroke-width', '2');
-    circle.style.cursor = 'grab';
-    circle.style.pointerEvents = 'none';
+    handle.addEventListener('mousedown', handleStartDrag);
+    handle.addEventListener('touchstart', handleStartDrag, { passive: false });
 
-    hitbox.addEventListener('mousedown', onDragStart);
-    hitbox.addEventListener('touchstart', onDragStart, { passive: false });
+    handle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.showLineDeleteButton(x, y, onDelete);
+    });
 
-    if (onDblClick) {
-      hitbox.addEventListener('dblclick', (e) => {
+    handle.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      this.removeLineDeleteButton();
+      if (onDelete) onDelete(e);
+    });
+
+    let lastTap = 0;
+    handle.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTap < 350 && now - lastTap > 0) {
         e.stopPropagation();
-        onDblClick(e);
-      });
-      let lastTap = 0;
-      hitbox.addEventListener('touchend', (e) => {
-        const now = Date.now();
-        if (now - lastTap < 350 && now - lastTap > 0) {
-          e.stopPropagation();
-          if (e.cancelable) e.preventDefault();
-          onDblClick(e);
-        }
-        lastTap = now;
-      }, { passive: false });
-    }
+        if (e.cancelable) e.preventDefault();
+        this.removeLineDeleteButton();
+        if (onDelete) onDelete(e);
+      } else {
+        this.showLineDeleteButton(x, y, onDelete);
+      }
+      lastTap = now;
+    }, { passive: false });
 
-    group.appendChild(hitbox);
-    group.appendChild(circle);
-    this.svg.appendChild(group);
+    this.nodesLayer.appendChild(handle);
   }
 
   showLineDeleteButton(midX, midY, onDelete) {
@@ -1519,20 +1585,20 @@ class EERCanvasEngine {
     btn.style.left = `${Math.round(midX)}px`;
     btn.style.top = `${Math.round(midY)}px`;
     btn.style.transform = 'translate(-50%, -50%)';
-    btn.style.width = '28px';
-    btn.style.height = '28px';
+    btn.style.width = '30px';
+    btn.style.height = '30px';
     btn.style.borderRadius = '50%';
     btn.style.background = '#e63946';
     btn.style.color = '#ffffff';
-    btn.style.fontSize = '14px';
+    btn.style.fontSize = '15px';
     btn.style.fontWeight = 'bold';
     btn.style.display = 'flex';
     btn.style.alignItems = 'center';
     btn.style.justifyContent = 'center';
     btn.style.cursor = 'pointer';
-    btn.style.zIndex = '999';
-    btn.style.border = '2px solid #ffffff';
-    btn.style.boxShadow = '0 3px 10px rgba(0,0,0,0.5)';
+    btn.style.zIndex = '1000';
+    btn.style.border = '2.5px solid #ffffff';
+    btn.style.boxShadow = '0 3px 12px rgba(0,0,0,0.6)';
     btn.style.pointerEvents = 'auto';
 
     const handleDelete = (e) => {
@@ -1557,7 +1623,7 @@ class EERCanvasEngine {
     setTimeout(() => {
       window.addEventListener('mousedown', outsideListener);
       window.addEventListener('touchstart', outsideListener);
-    }, 50);
+    }, 150);
   }
 
   removeLineDeleteButton() {
@@ -1568,14 +1634,15 @@ class EERCanvasEngine {
   drawLine(x1, y1, x2, y2, onDelete = null, isDashed = false, onStartDrag = null) {
     const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
-    // Invisible thick hitbox for touch & mouse
+    // Solid invisible-opacity thick hitbox for touch & mouse (32px wide)
     const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     hitbox.setAttribute('x1', x1);
     hitbox.setAttribute('y1', y1);
     hitbox.setAttribute('x2', x2);
     hitbox.setAttribute('y2', y2);
-    hitbox.setAttribute('stroke', 'transparent');
-    hitbox.setAttribute('stroke-width', '24');
+    hitbox.setAttribute('stroke', '#000000');
+    hitbox.setAttribute('stroke-opacity', '0.001');
+    hitbox.setAttribute('stroke-width', '32');
     hitbox.style.cursor = onStartDrag ? 'grab' : 'pointer';
     hitbox.style.pointerEvents = 'stroke';
 
@@ -1597,16 +1664,19 @@ class EERCanvasEngine {
     const midX = (x1 + x2) / 2;
     const midY = (y1 + y2) / 2;
 
+    const stopBubblingAndPreventDrag = (e) => {
+      e.stopPropagation();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedNode = null;
+    };
+
     if (onStartDrag) {
       hitbox.addEventListener('mousedown', onStartDrag);
       hitbox.addEventListener('touchstart', onStartDrag, { passive: false });
     } else {
-      // Prevent bubbling to canvas pan or entity drag
-      const stopBubbling = (e) => {
-        e.stopPropagation();
-      };
-      hitbox.addEventListener('mousedown', stopBubbling);
-      hitbox.addEventListener('touchstart', stopBubbling, { passive: false });
+      hitbox.addEventListener('mousedown', stopBubblingAndPreventDrag);
+      hitbox.addEventListener('touchstart', stopBubblingAndPreventDrag, { passive: false });
     }
 
     if (onDelete) {
@@ -1633,7 +1703,7 @@ class EERCanvasEngine {
 
       let lastTap = 0;
       const handleTap = (e) => {
-        const curTime = new Date().getTime();
+        const curTime = Date.now();
         const tapInterval = curTime - lastTap;
         if (tapInterval < 350 && tapInterval > 0) {
           e.stopPropagation();
@@ -1653,7 +1723,6 @@ class EERCanvasEngine {
     group.appendChild(hitbox);
     group.appendChild(line);
     this.svg.appendChild(group);
-    return group;
   }
 
   createMultiplicityPill(x, y, rel, multKey, entityName) {

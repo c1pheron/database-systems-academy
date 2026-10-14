@@ -272,5 +272,43 @@ module.exports = [
     gotchas: "Viva imtihonida eng ko'p qulatadigan savol: 'Non-repeatable read bilan Phantom read ning farqi nima?'. Non-repeatable mavjud qatorning UPDATE bo'lishidan kelib chiqadi, Phantom esa yangi qatorning INSERT bo'lishidan kelib chiqadi!",
     related: ['isolation-levels', 'transactions-acid'],
     keywords: ['dirty read', 'non repeatable read', 'phantom read', 'anomaliya', 'poyga', 'viva']
+  },
+  {
+    id: 'bplus-tree-structure',
+    name: 'B+ TREE INDEKS TUZILISHI & ALGORITMLARI (B-Tree vs B+ Tree)',
+    category: '5-Hafta • Subquery & Analitik',
+    week: 5,
+    summary: "Dinamik, o'z-o'zini muvozanatlovchi ko'p tarmoqli B+ daraxt indeksi. Barcha ma'lumotlar yaproqlarda saqlanadi va bog'langan ro'yxat (sibling links) orqali diapazonli qidiruvni O(log N) da ta'minlaydi.",
+    whatItDoes: "1. Muvozanatli (Balanced): Barcha yaproq tugunlar (Leaf nodes) aynan bir xil chuqurlikda joylashadi.\n2. Faqat yaproqlarda ma'lumot (Leaves hold records/RIDs): Ichki tugunlar faqat yo'naltiruvchi separator kalitlarni saqlaydi, yozuv ko'rsatkichlari (RID) faqat yaproqlarda bo'ladi.\n3. Fan-out va Balandlik: 8 KB li disk sahifasida 200-400 ta kalit sig'adi (Fan-out $f$). 1 000 000 ta qatorli jadval uchun daraxt balandligi atigi 3 ta darajani tashkil etadi ($h \\approx \\lceil \\log_f N \\rceil$).\n4. Bog'langan yaproqlar (Sibling links): Yaproqlar gorizontal zanjir bilan bir-biriga ulangan, shu sababli `BETWEEN 35 AND 65` kabi diapazonli qidiruvlarda bitta yaproq topiladi va o'ngga qarab zanjir bo'ylab o'qib ketiladi (yuqoriga qaytib chiqish shart emas).\n5. Tugun bo'linishi (Node Split): Tugun to'lganda u teng ikkiga bo'linadi va o'rtadagi kalit ota tugunga ko'tariladi.",
+    whenToUse: "Tenglik (`=`), oraliq (`BETWEEN`, `<`, `>`), prefiks qidiruvi (`LIKE 'abc%'`) va `ORDER BY` saralash amallarini diskka bormasdan xotiradagi kesh orqali 1-2 ta I/O amali bilan bajarishda.",
+    syntax: "-- PostgreSQL da standart B-Tree (Lehman-Yao B+ tree) yaratish:\nCREATE INDEX idx_mijoz_sana ON mijozlar (created_at);\n\n-- Teskari tartibda saralash uchun:\nCREATE INDEX idx_mijoz_sana_desc ON mijozlar (created_at DESC);",
+    combinations: `B+ Tree Barcha Imkoniyatlari:
+• Tenglik qidiruvi: WHERE id = 42 -> Ildizdan yaproqqacha 3 ta o'qish (Root -> Internal -> Leaf).
+• Oraliq qidiruvi: WHERE sana BETWEEN '2026-01-01' AND '2026-03-31' -> 1 marta tushiladi va yaproq zanjiri bo'ylab yuriladi.
+• ORDER BY va LIMIT: B-Tree saralangan tartibda saqlangani uchun 'ORDER BY created_at DESC LIMIT 5' amali 'Index Scan Backward' orqali diskdagi qatorlarni saralamasdan darhol qaytaradi.
+• MIN() va MAX(): Daraxtning eng chap yoki eng o'ng yaprog'idan O(1) vaqtda olinadi.`,
+    example: `-- EXPLAIN tahlilida B+ Tree ishlatilishi:
+EXPLAIN SELECT * FROM customer WHERE created_at BETWEEN '2026-09-28' AND '2026-10-04';
+-- Natija:
+-- Index Scan using idx_created on customer (cost=0.42..94.67 rows=2212)
+-- Index Cond: (created_at >= '2026-09-28' AND created_at <= '2026-10-04')`,
+    gotchas: "B-Tree vs B+ Tree farqi (VIVA klassik savoli): Oddiy B-Tree da yozuv ko'rsatkichlari (RID) har bir ichki tugunda ham saqlanadi, shu sababli ichki tugunga kam kalit sig'adi (Fan-out past, daraxt baland bo'ladi). B+ Tree da esa barcha ko'rsatkichlar FAQAT yaproqda turadi, ichki tugunlar yuqori fan-out ga ega bo'lib, daraxt pakana (3-4 daraja) bo'ladi va barcha yaproqlar o'zaro bog'langan bo'ladi!",
+    related: ['create-index', 'index-types-ordered', 'index-pitfalls', 'explain-plan'],
+    keywords: ['b+ tree', 'b-tree', 'fan-out', 'daraxt balandligi', 'node split', 'leaf nodes', 'sibling links', 'lehman-yao']
+  },
+  {
+    id: 'index-types-ordered',
+    name: 'PRIMARY, CLUSTERING & SECONDARY INDEXES (Tartiblangan Indeks Turlari)',
+    category: '5-Hafta • Subquery & Analitik',
+    week: 5,
+    summary: "Fizik fayl tartibiga bog'liq bo'lgan indeks turlari: Primary Index (asosiy), Clustering Index (klasterlangan) va Secondary Index (ikkilamchi).",
+    whatItDoes: "1. Primary Index: Asosiy ma'lumot fayli kalit ustun (Primary Key) bo'yicha fizik saralangan bo'ladi. Sparse (siyrak) indeks bo'lib, har bir disk bloki uchun atigi 1 ta yozuv saqlaydi. Har bir jadvalda ko'pi bilan 1 ta bo'ladi.\n2. Clustering Index: Ma'lumot fayli kalit bo'lmagan (takrorlanuvchi, masalan 'davlat' yoki 'bo'lim') ustun bo'yicha saralangan. Sparse indeks bo'lib, har bir noyob qiymat uchun 1 ta yozuv saqlaydi. Jadvalda ko'pi bilan 1 ta bo'ladi.\n3. Secondary Index: Ma'lumot fayli boshqa tartibda turgan ustun ustiga quriladi. Dense (zich) indeks bo'lib, jadvaldagi HAR BIR qator uchun bittadan indeks yozuvi saqlaydi. Jadvalda istalgancha ko'p bo'lishi mumkin.",
+    whenToUse: "Relyatsion baza arxitekturasida disk xotirasini tejash va so'rov qidiruv xarajatlarini (I/O block reads) aniq hisoblashda.",
+    syntax: "-- Jadval fizik tartibi va indekslar:\n-- Primary Index: Jadval PK bo'yicha tartiblangan\n-- Clustering Index: Masalan PostgreSQL da CLUSTER jadval USING idx_nomi;\n-- Secondary Index: CREATE INDEX idx_email ON xodimlar (email);",
+    combinations: "Jadval fizik jihatdan xotirada faqat bitta tartibda turishi mumkinligi sababli, jadvalda yoki 1 ta Primary Index, yoki 1 ta Clustering Index bo'lishi mumkin — ikkalasi bir vaqtda bo'la olmaydi! Lekin Secondary Index lar soni cheklanmagan.",
+    example: "-- Taqoslash Matritsasi:\n-- 1. Primary: Fayl tartiblangan? HA. Kalitmi? HA (noyob). Siyrakmi? Sparse (1 yozuv/blok). Nechta? Ko'pi bilan 1 ta.\n-- 2. Clustering: Fayl tartiblangan? HA. Kalitmi? YO'Q (dublikat). Siyrakmi? Sparse (1 yozuv/qiymat). Nechta? Ko'pi bilan 1 ta.\n-- 3. Secondary: Fayl tartiblangan? YO'Q. Kalitmi? Ixtiyoriy. Siyrakmi? Dense (har qatorga 1 ta). Nechta? Istalgancha ko'p.",
+    gotchas: "Secondary indeks xarajati! Secondary indeks yordamida qidirganda ko'rsatkichlar disk bo'ylab sochilib ketgan bo'ladi (Random I/O). Agar qidirilayotgan qatorlar soni jadvalning 15-20% dan ortiq bo'lsa, Secondary indeksdan ko'ra to'liq jadvalni ketma-ket o'qish (Sequential Scan) tezroq bo'ladi!",
+    related: ['bplus-tree-structure', 'create-index', 'seq-vs-index-scan'],
+    keywords: ['primary index', 'clustering index', 'secondary index', 'dense index', 'sparse index', 'fizik tartib', 'random io']
   }
 ];

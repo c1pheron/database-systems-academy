@@ -302,5 +302,56 @@ module.exports = [
     gotchas: "Premature Optimization (Erta optimallashtirish) qilmang! Avval so'rovni to'g'ri va toza yozing. So'ngra EXPLAIN orqali qayeri sekinligini ko'rib, aynan o'sha joyiga aniq indeks qo'ying.",
     related: ['explain-plan', 'create-index', 'index-pitfalls'],
     keywords: ['query tuning', 'optimizatsiya', 'tezlashtirish', 'oltin qoidalar', 'viva tayyorgarlik']
+  },
+  {
+    id: 'heuristic-optimization',
+    name: 'HEURISTIC QUERY OPTIMIZATION (Evristik So\'rov Daraxti & Selections Push-Down)',
+    category: '6-Hafta • Optimizatsiya & CTE',
+    week: 6,
+    summary: "Relyatsion algebra daraxtini (Query Tree) evristik qoidalar yordamida qayta tartiblash va oraliq natijalar hajmini keskin qisqartirish.",
+    whatItDoes: "1. Selections Push-down (Kaskadli filtrlash): `WHERE` shartlarini ajratib, daraxtning eng quyi qismiga (to'g'ridan-to'g'ri jadvallar ustiga) tushiradi (Push-down $\\sigma$). Bu orqali JOIN ga kam qator kirib boradi.\n2. Projections Push-down: Faqat yuqorida kerak bo'ladigan ustunlarnigina saqlab qoladi (Push-down $\\pi$). Oraliq qatorlar eni ingichka bo'lib, disk I/O tejaladi.\n3. Dekart ko'paytmasini yo'qotish: Dekart ko'paytmasi (Cartesian $\\times$) va uning ustidagi tenglik shartini darhol Theta Join ($\\bowtie$) ga aylantiradi.\n4. Qat'iy filtrlangan jadvallarni birinchi ulash: Eng kam qator qoldiruvchi (most restrictive) jadval birinchi navbatda ulanadi.\n5. Left-Deep Join Trees: Odatda chap tomoni zanjirli daraxtlar quriladi, chunki unda ichki qism doimo asosiy jadval bo'lib Pipelined usulda xotirada tez aylanadi.",
+    whenToUse: "Relyatsion so'rovlar qanday kompilyatsiya bo'lishini va VIVA imtihonida Query Tree qadamlarini chizib berishda.",
+    syntax: "-- Kanonik daraxtdan optimallashtirilgan daraxtga o'tish:\n-- 1. Kanonik: $\\pi_{Lname} (\\sigma_{Pname='A' \\land Pno=Pnum \\land Essn=Ssn} (Employee \\times Works\\_on \\times Project))$\n-- 2. Optimallashtirilgan: $\\pi_{Lname} (Employee \\bowtie_{Essn=Ssn} (Works\\_on \\bowtie_{Pno=Pnumber} (\\sigma_{Pname='A'}(Project))))$",
+    combinations: "Push-down Selections -> Reorder Leaves by Selectivity -> Push-down Projections -> Choose Join Algorithms.",
+    example: "-- So'rov:\nSELECT e.lname FROM employee e, works_on w, project p\nWHERE p.pname = 'Aquarius' AND p.pnumber = w.pno AND w.essn = e.ssn;\n-- Optimizator p.pname = 'Aquarius' ni darhol Project jadvalining o'ziga tushiradi!",
+    gotchas: "Evristik optimizator xom ma'lumotlar sonini hisobga ololmaydi, faqat qoidalarga asoslanadi. To'liq aniqlik uchun baza statistikalariga tayanadigan Cost-Based Optimizer (CBO) bilan birga ishlaydi.",
+    related: ['cost-based-optimization', 'explain-plan', 'hash-join', 'nested-loop-join'],
+    keywords: ['heuristic optimization', 'query tree', 'push selections down', 'push projections down', 'left deep tree', 'evristik optimizatsiya']
+  },
+  {
+    id: 'cost-based-optimization',
+    name: 'COST-BASED OPTIMIZATION (CBO & Baza Statistikasi: bfr, s = r/d, I/O Formula)',
+    category: '6-Hafta • Optimizatsiya & CTE',
+    week: 6,
+    summary: "Ma'lumotlar bazasi katalogidagi statistikalar asosida har bir mumkin bo'lgan fizik ijro rejasining narxini (Cost) hisoblash va eng arzonini tanlash.",
+    whatItDoes: "1. Baza Statistikasi Parametrlari:\n  • $r$ — Jadvaldagi jami qatorlar soni (Number of records)\n  • $b$ — Jadval egallagan jami disk bloklari soni (Blocks)\n  • $bfr$ — Bitta disk blokiga sig'uvchi qatorlar soni (Blocking Factor, $bfr = \\lfloor B / R \\rfloor$)\n  • $d$ — Ustundagi takrorlanmas noyob qiymatlar soni (Distinct values)\n  • $s$ — Selektivlik kardinalligi: $s = r / d$ (bitta qiymatga o'rtacha to'g'ri keluvchi qatorlar soni)\n2. Disk Bloklarini O'qish Narxlari (Block Access Cost):\n  • Chiziqli skan (Linear Table Scan): $b$ ta blok o'qiladi (o'rtacha $b / 2$)\n  • Primary Index (PK tenglik): $x + 1$ ta blok ($x$ — indeks darajalari soni)\n  • Clustering Index (Dublikatli tartiblangan): $x + \\lceil s / bfr \\rceil$ ta blok\n  • Secondary B+ Tree Index: $x + 1 + s$ ta blok (har bir mos qator uchun 1 ta disk I/O)\n3. Pipelined vs Materialized: Pipelined usulda har bir qator chiqqan zahoti keyingi operatorga uzatiladi, Materialized usulda esa oraliq natija diskka yoziladi va qayta o'qiladi.",
+    whenToUse: "Nega baza ba'zida indeksni tashlab to'liq jadvalni o'qib chiqishini (Seq Scan) ilmiy jihatdan tushuntirish va VIVA savollariga to'liq javob berishda.",
+    syntax: "-- PostgreSQL da statistikani yangilash va rentgen ko'rish:\nANALYZE customer;\nEXPLAIN (ANALYZE, BUFFERS) SELECT ... ;",
+    combinations: "Selektivlik formulalari: $A = c \\implies 1 / d$, $A > c \\implies (\\max - c) / (\\max - \\min)$, $c1 \\land c2 \\implies sel(c1) \\times sel(c2)$.",
+    example: `-- Misol: staff jadvalida r = 1000 qator va d = 20 xil lavozim bor.
+-- 'position = Manager' shartiga nechta qator mos keladi?
+-- s = r / d = 1000 / 20 = 50 qator kutiladi.`,
+    gotchas: "Nega Secondary Index har doim ham foydali emas? Agar $s$ (mos keluvchi qatorlar) katta bo'lsa, Secondary indeks xarajati ($x + 1 + s$) jadvalning jami bloklari soni $b$ dan oshib ketadi! Aynan shu sababli baza optimizatori indeksingizni rad etib, oddiy Table Scan (Seq Scan) ni tanlaydi!",
+    related: ['heuristic-optimization', 'explain-plan', 'seq-vs-index-scan', 'bplus-tree-structure'],
+    keywords: ['cost based optimization', 'cbo', 'bfr', 'blocking factor', 'selectivity', 'cardinality', 'r/d', 'disk io', 'pipelined']
+  },
+  {
+    id: 'explain-analyze-buffers',
+    name: 'EXPLAIN (ANALYZE, BUFFERS) (Disk I/O va Kesh Rentgeni)',
+    category: '6-Hafta • Optimizatsiya & CTE',
+    week: 6,
+    summary: "So'rov aynan nechta disk blokini o'qiganini (Shared Read) va nechta blokni xotira keshidan olganini (Shared Hit) ko'rsatuvchi eng chuqur diagnostika vositasi.",
+    whatItDoes: "1. `Shared Hit` — Ma'lumot PostgreSQL xotira keshidan (Buffer Cache / RAM) olindi (0.001 ms, chaqmoqdek tez).\n2. `Shared Read` — Ma'lumot keshda topilmadi va jismoniy qattiq diskdan (HDD/SSD) o'qildi (100x sekinroq).\n3. `Dirtied / Written` — Tranzaksiya davomida diskka yozilgan yoki o'zgartirilgan disk bloklari soni.\n4. `Planning Time vs Execution Time` — Optimizator reja tuzishga qancha vaqt sarfladi va so'rov CPU da qancha vaqt aylandi.",
+    whenToUse: "Katta yuklamali (High-Load) backend va ma'lumotlar bazasi tizimlarida disk I/O ni minimallashtirish va xotira parametrlarini sozlashda.",
+    syntax: "EXPLAIN (ANALYZE, BUFFERS, VERBOSE, TIMING)\nSELECT * FROM buyurtmalar WHERE sana >= '2026-01-01';",
+    combinations: "PostgreSQL `shared_buffers`, `work_mem` va `maintenance_work_mem` parametrlarini kalibrlashda ishlatiladi.",
+    example: `-- Diagnostika natijasi:
+-- -> Index Scan using idx_sana on buyurtmalar (cost=0.42..8.44 rows=1)
+--    Buffers: shared hit=4 read=1
+-- Planning Time: 0.120 ms
+-- Execution Time: 0.045 ms`,
+    gotchas: "Agar EXPLAIN da `Buffers: temp read=... written=...` paydo bo'lsa, bu degani saralash yoki hash-jadval `work_mem` ga sig'may diskka to'kilgan (Spill to Disk)! So'rov darhol sekinlashadi. `SET work_mem = '64MB'` qilib kengaytirish zarur.",
+    related: ['explain-plan', 'cost-based-optimization', 'query-tuning'],
+    keywords: ['buffers', 'shared hit', 'shared read', 'explain buffers', 'work_mem', 'kesh', 'disk io']
   }
 ];

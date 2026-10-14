@@ -2902,6 +2902,62 @@
     ]
   },
   {
+    "id": "bplus-tree-structure",
+    "name": "B+ TREE INDEKS TUZILISHI & ALGORITMLARI (B-Tree vs B+ Tree)",
+    "category": "5-Hafta • Subquery & Analitik",
+    "week": 5,
+    "summary": "Dinamik, o'z-o'zini muvozanatlovchi ko'p tarmoqli B+ daraxt indeksi. Barcha ma'lumotlar yaproqlarda saqlanadi va bog'langan ro'yxat (sibling links) orqali diapazonli qidiruvni O(log N) da ta'minlaydi.",
+    "whatItDoes": "1. Muvozanatli (Balanced): Barcha yaproq tugunlar (Leaf nodes) aynan bir xil chuqurlikda joylashadi.\n2. Faqat yaproqlarda ma'lumot (Leaves hold records/RIDs): Ichki tugunlar faqat yo'naltiruvchi separator kalitlarni saqlaydi, yozuv ko'rsatkichlari (RID) faqat yaproqlarda bo'ladi.\n3. Fan-out va Balandlik: 8 KB li disk sahifasida 200-400 ta kalit sig'adi (Fan-out $f$). 1 000 000 ta qatorli jadval uchun daraxt balandligi atigi 3 ta darajani tashkil etadi ($h \\approx \\lceil \\log_f N \\rceil$).\n4. Bog'langan yaproqlar (Sibling links): Yaproqlar gorizontal zanjir bilan bir-biriga ulangan, shu sababli `BETWEEN 35 AND 65` kabi diapazonli qidiruvlarda bitta yaproq topiladi va o'ngga qarab zanjir bo'ylab o'qib ketiladi (yuqoriga qaytib chiqish shart emas).\n5. Tugun bo'linishi (Node Split): Tugun to'lganda u teng ikkiga bo'linadi va o'rtadagi kalit ota tugunga ko'tariladi.",
+    "whenToUse": "Tenglik (`=`), oraliq (`BETWEEN`, `<`, `>`), prefiks qidiruvi (`LIKE 'abc%'`) va `ORDER BY` saralash amallarini diskka bormasdan xotiradagi kesh orqali 1-2 ta I/O amali bilan bajarishda.",
+    "syntax": "-- PostgreSQL da standart B-Tree (Lehman-Yao B+ tree) yaratish:\nCREATE INDEX idx_mijoz_sana ON mijozlar (created_at);\n\n-- Teskari tartibda saralash uchun:\nCREATE INDEX idx_mijoz_sana_desc ON mijozlar (created_at DESC);",
+    "combinations": "B+ Tree Barcha Imkoniyatlari:\n• Tenglik qidiruvi: WHERE id = 42 -> Ildizdan yaproqqacha 3 ta o'qish (Root -> Internal -> Leaf).\n• Oraliq qidiruvi: WHERE sana BETWEEN '2026-01-01' AND '2026-03-31' -> 1 marta tushiladi va yaproq zanjiri bo'ylab yuriladi.\n• ORDER BY va LIMIT: B-Tree saralangan tartibda saqlangani uchun 'ORDER BY created_at DESC LIMIT 5' amali 'Index Scan Backward' orqali diskdagi qatorlarni saralamasdan darhol qaytaradi.\n• MIN() va MAX(): Daraxtning eng chap yoki eng o'ng yaprog'idan O(1) vaqtda olinadi.",
+    "example": "-- EXPLAIN tahlilida B+ Tree ishlatilishi:\nEXPLAIN SELECT * FROM customer WHERE created_at BETWEEN '2026-09-28' AND '2026-10-04';\n-- Natija:\n-- Index Scan using idx_created on customer (cost=0.42..94.67 rows=2212)\n-- Index Cond: (created_at >= '2026-09-28' AND created_at <= '2026-10-04')",
+    "gotchas": "B-Tree vs B+ Tree farqi (VIVA klassik savoli): Oddiy B-Tree da yozuv ko'rsatkichlari (RID) har bir ichki tugunda ham saqlanadi, shu sababli ichki tugunga kam kalit sig'adi (Fan-out past, daraxt baland bo'ladi). B+ Tree da esa barcha ko'rsatkichlar FAQAT yaproqda turadi, ichki tugunlar yuqori fan-out ga ega bo'lib, daraxt pakana (3-4 daraja) bo'ladi va barcha yaproqlar o'zaro bog'langan bo'ladi!",
+    "related": [
+      "create-index",
+      "index-types-ordered",
+      "index-pitfalls",
+      "explain-plan"
+    ],
+    "keywords": [
+      "b+ tree",
+      "b-tree",
+      "fan-out",
+      "daraxt balandligi",
+      "node split",
+      "leaf nodes",
+      "sibling links",
+      "lehman-yao"
+    ]
+  },
+  {
+    "id": "index-types-ordered",
+    "name": "PRIMARY, CLUSTERING & SECONDARY INDEXES (Tartiblangan Indeks Turlari)",
+    "category": "5-Hafta • Subquery & Analitik",
+    "week": 5,
+    "summary": "Fizik fayl tartibiga bog'liq bo'lgan indeks turlari: Primary Index (asosiy), Clustering Index (klasterlangan) va Secondary Index (ikkilamchi).",
+    "whatItDoes": "1. Primary Index: Asosiy ma'lumot fayli kalit ustun (Primary Key) bo'yicha fizik saralangan bo'ladi. Sparse (siyrak) indeks bo'lib, har bir disk bloki uchun atigi 1 ta yozuv saqlaydi. Har bir jadvalda ko'pi bilan 1 ta bo'ladi.\n2. Clustering Index: Ma'lumot fayli kalit bo'lmagan (takrorlanuvchi, masalan 'davlat' yoki 'bo'lim') ustun bo'yicha saralangan. Sparse indeks bo'lib, har bir noyob qiymat uchun 1 ta yozuv saqlaydi. Jadvalda ko'pi bilan 1 ta bo'ladi.\n3. Secondary Index: Ma'lumot fayli boshqa tartibda turgan ustun ustiga quriladi. Dense (zich) indeks bo'lib, jadvaldagi HAR BIR qator uchun bittadan indeks yozuvi saqlaydi. Jadvalda istalgancha ko'p bo'lishi mumkin.",
+    "whenToUse": "Relyatsion baza arxitekturasida disk xotirasini tejash va so'rov qidiruv xarajatlarini (I/O block reads) aniq hisoblashda.",
+    "syntax": "-- Jadval fizik tartibi va indekslar:\n-- Primary Index: Jadval PK bo'yicha tartiblangan\n-- Clustering Index: Masalan PostgreSQL da CLUSTER jadval USING idx_nomi;\n-- Secondary Index: CREATE INDEX idx_email ON xodimlar (email);",
+    "combinations": "Jadval fizik jihatdan xotirada faqat bitta tartibda turishi mumkinligi sababli, jadvalda yoki 1 ta Primary Index, yoki 1 ta Clustering Index bo'lishi mumkin — ikkalasi bir vaqtda bo'la olmaydi! Lekin Secondary Index lar soni cheklanmagan.",
+    "example": "-- Taqoslash Matritsasi:\n-- 1. Primary: Fayl tartiblangan? HA. Kalitmi? HA (noyob). Siyrakmi? Sparse (1 yozuv/blok). Nechta? Ko'pi bilan 1 ta.\n-- 2. Clustering: Fayl tartiblangan? HA. Kalitmi? YO'Q (dublikat). Siyrakmi? Sparse (1 yozuv/qiymat). Nechta? Ko'pi bilan 1 ta.\n-- 3. Secondary: Fayl tartiblangan? YO'Q. Kalitmi? Ixtiyoriy. Siyrakmi? Dense (har qatorga 1 ta). Nechta? Istalgancha ko'p.",
+    "gotchas": "Secondary indeks xarajati! Secondary indeks yordamida qidirganda ko'rsatkichlar disk bo'ylab sochilib ketgan bo'ladi (Random I/O). Agar qidirilayotgan qatorlar soni jadvalning 15-20% dan ortiq bo'lsa, Secondary indeksdan ko'ra to'liq jadvalni ketma-ket o'qish (Sequential Scan) tezroq bo'ladi!",
+    "related": [
+      "bplus-tree-structure",
+      "create-index",
+      "seq-vs-index-scan"
+    ],
+    "keywords": [
+      "primary index",
+      "clustering index",
+      "secondary index",
+      "dense index",
+      "sparse index",
+      "fizik tartib",
+      "random io"
+    ]
+  },
+  {
     "id": "union-all",
     "name": "UNION vs UNION ALL (Natijalarni Birlashtirish)",
     "category": "6-Hafta • Optimizatsiya & CTE",
@@ -3402,6 +3458,90 @@
       "tezlashtirish",
       "oltin qoidalar",
       "viva tayyorgarlik"
+    ]
+  },
+  {
+    "id": "heuristic-optimization",
+    "name": "HEURISTIC QUERY OPTIMIZATION (Evristik So'rov Daraxti & Selections Push-Down)",
+    "category": "6-Hafta • Optimizatsiya & CTE",
+    "week": 6,
+    "summary": "Relyatsion algebra daraxtini (Query Tree) evristik qoidalar yordamida qayta tartiblash va oraliq natijalar hajmini keskin qisqartirish.",
+    "whatItDoes": "1. Selections Push-down (Kaskadli filtrlash): `WHERE` shartlarini ajratib, daraxtning eng quyi qismiga (to'g'ridan-to'g'ri jadvallar ustiga) tushiradi (Push-down $\\sigma$). Bu orqali JOIN ga kam qator kirib boradi.\n2. Projections Push-down: Faqat yuqorida kerak bo'ladigan ustunlarnigina saqlab qoladi (Push-down $\\pi$). Oraliq qatorlar eni ingichka bo'lib, disk I/O tejaladi.\n3. Dekart ko'paytmasini yo'qotish: Dekart ko'paytmasi (Cartesian $\\times$) va uning ustidagi tenglik shartini darhol Theta Join ($\\bowtie$) ga aylantiradi.\n4. Qat'iy filtrlangan jadvallarni birinchi ulash: Eng kam qator qoldiruvchi (most restrictive) jadval birinchi navbatda ulanadi.\n5. Left-Deep Join Trees: Odatda chap tomoni zanjirli daraxtlar quriladi, chunki unda ichki qism doimo asosiy jadval bo'lib Pipelined usulda xotirada tez aylanadi.",
+    "whenToUse": "Relyatsion so'rovlar qanday kompilyatsiya bo'lishini va VIVA imtihonida Query Tree qadamlarini chizib berishda.",
+    "syntax": "-- Kanonik daraxtdan optimallashtirilgan daraxtga o'tish:\n-- 1. Kanonik: $\\pi_{Lname} (\\sigma_{Pname='A' \\land Pno=Pnum \\land Essn=Ssn} (Employee \\times Works\\_on \\times Project))$\n-- 2. Optimallashtirilgan: $\\pi_{Lname} (Employee \\bowtie_{Essn=Ssn} (Works\\_on \\bowtie_{Pno=Pnumber} (\\sigma_{Pname='A'}(Project))))$",
+    "combinations": "Push-down Selections -> Reorder Leaves by Selectivity -> Push-down Projections -> Choose Join Algorithms.",
+    "example": "-- So'rov:\nSELECT e.lname FROM employee e, works_on w, project p\nWHERE p.pname = 'Aquarius' AND p.pnumber = w.pno AND w.essn = e.ssn;\n-- Optimizator p.pname = 'Aquarius' ni darhol Project jadvalining o'ziga tushiradi!",
+    "gotchas": "Evristik optimizator xom ma'lumotlar sonini hisobga ololmaydi, faqat qoidalarga asoslanadi. To'liq aniqlik uchun baza statistikalariga tayanadigan Cost-Based Optimizer (CBO) bilan birga ishlaydi.",
+    "related": [
+      "cost-based-optimization",
+      "explain-plan",
+      "hash-join",
+      "nested-loop-join"
+    ],
+    "keywords": [
+      "heuristic optimization",
+      "query tree",
+      "push selections down",
+      "push projections down",
+      "left deep tree",
+      "evristik optimizatsiya"
+    ]
+  },
+  {
+    "id": "cost-based-optimization",
+    "name": "COST-BASED OPTIMIZATION (CBO & Baza Statistikasi: bfr, s = r/d, I/O Formula)",
+    "category": "6-Hafta • Optimizatsiya & CTE",
+    "week": 6,
+    "summary": "Ma'lumotlar bazasi katalogidagi statistikalar asosida har bir mumkin bo'lgan fizik ijro rejasining narxini (Cost) hisoblash va eng arzonini tanlash.",
+    "whatItDoes": "1. Baza Statistikasi Parametrlari:\n  • $r$ — Jadvaldagi jami qatorlar soni (Number of records)\n  • $b$ — Jadval egallagan jami disk bloklari soni (Blocks)\n  • $bfr$ — Bitta disk blokiga sig'uvchi qatorlar soni (Blocking Factor, $bfr = \\lfloor B / R \\rfloor$)\n  • $d$ — Ustundagi takrorlanmas noyob qiymatlar soni (Distinct values)\n  • $s$ — Selektivlik kardinalligi: $s = r / d$ (bitta qiymatga o'rtacha to'g'ri keluvchi qatorlar soni)\n2. Disk Bloklarini O'qish Narxlari (Block Access Cost):\n  • Chiziqli skan (Linear Table Scan): $b$ ta blok o'qiladi (o'rtacha $b / 2$)\n  • Primary Index (PK tenglik): $x + 1$ ta blok ($x$ — indeks darajalari soni)\n  • Clustering Index (Dublikatli tartiblangan): $x + \\lceil s / bfr \\rceil$ ta blok\n  • Secondary B+ Tree Index: $x + 1 + s$ ta blok (har bir mos qator uchun 1 ta disk I/O)\n3. Pipelined vs Materialized: Pipelined usulda har bir qator chiqqan zahoti keyingi operatorga uzatiladi, Materialized usulda esa oraliq natija diskka yoziladi va qayta o'qiladi.",
+    "whenToUse": "Nega baza ba'zida indeksni tashlab to'liq jadvalni o'qib chiqishini (Seq Scan) ilmiy jihatdan tushuntirish va VIVA savollariga to'liq javob berishda.",
+    "syntax": "-- PostgreSQL da statistikani yangilash va rentgen ko'rish:\nANALYZE customer;\nEXPLAIN (ANALYZE, BUFFERS) SELECT ... ;",
+    "combinations": "Selektivlik formulalari: $A = c \\implies 1 / d$, $A > c \\implies (\\max - c) / (\\max - \\min)$, $c1 \\land c2 \\implies sel(c1) \\times sel(c2)$.",
+    "example": "-- Misol: staff jadvalida r = 1000 qator va d = 20 xil lavozim bor.\n-- 'position = Manager' shartiga nechta qator mos keladi?\n-- s = r / d = 1000 / 20 = 50 qator kutiladi.",
+    "gotchas": "Nega Secondary Index har doim ham foydali emas? Agar $s$ (mos keluvchi qatorlar) katta bo'lsa, Secondary indeks xarajati ($x + 1 + s$) jadvalning jami bloklari soni $b$ dan oshib ketadi! Aynan shu sababli baza optimizatori indeksingizni rad etib, oddiy Table Scan (Seq Scan) ni tanlaydi!",
+    "related": [
+      "heuristic-optimization",
+      "explain-plan",
+      "seq-vs-index-scan",
+      "bplus-tree-structure"
+    ],
+    "keywords": [
+      "cost based optimization",
+      "cbo",
+      "bfr",
+      "blocking factor",
+      "selectivity",
+      "cardinality",
+      "r/d",
+      "disk io",
+      "pipelined"
+    ]
+  },
+  {
+    "id": "explain-analyze-buffers",
+    "name": "EXPLAIN (ANALYZE, BUFFERS) (Disk I/O va Kesh Rentgeni)",
+    "category": "6-Hafta • Optimizatsiya & CTE",
+    "week": 6,
+    "summary": "So'rov aynan nechta disk blokini o'qiganini (Shared Read) va nechta blokni xotira keshidan olganini (Shared Hit) ko'rsatuvchi eng chuqur diagnostika vositasi.",
+    "whatItDoes": "1. `Shared Hit` — Ma'lumot PostgreSQL xotira keshidan (Buffer Cache / RAM) olindi (0.001 ms, chaqmoqdek tez).\n2. `Shared Read` — Ma'lumot keshda topilmadi va jismoniy qattiq diskdan (HDD/SSD) o'qildi (100x sekinroq).\n3. `Dirtied / Written` — Tranzaksiya davomida diskka yozilgan yoki o'zgartirilgan disk bloklari soni.\n4. `Planning Time vs Execution Time` — Optimizator reja tuzishga qancha vaqt sarfladi va so'rov CPU da qancha vaqt aylandi.",
+    "whenToUse": "Katta yuklamali (High-Load) backend va ma'lumotlar bazasi tizimlarida disk I/O ni minimallashtirish va xotira parametrlarini sozlashda.",
+    "syntax": "EXPLAIN (ANALYZE, BUFFERS, VERBOSE, TIMING)\nSELECT * FROM buyurtmalar WHERE sana >= '2026-01-01';",
+    "combinations": "PostgreSQL `shared_buffers`, `work_mem` va `maintenance_work_mem` parametrlarini kalibrlashda ishlatiladi.",
+    "example": "-- Diagnostika natijasi:\n-- -> Index Scan using idx_sana on buyurtmalar (cost=0.42..8.44 rows=1)\n--    Buffers: shared hit=4 read=1\n-- Planning Time: 0.120 ms\n-- Execution Time: 0.045 ms",
+    "gotchas": "Agar EXPLAIN da `Buffers: temp read=... written=...` paydo bo'lsa, bu degani saralash yoki hash-jadval `work_mem` ga sig'may diskka to'kilgan (Spill to Disk)! So'rov darhol sekinlashadi. `SET work_mem = '64MB'` qilib kengaytirish zarur.",
+    "related": [
+      "explain-plan",
+      "cost-based-optimization",
+      "query-tuning"
+    ],
+    "keywords": [
+      "buffers",
+      "shared hit",
+      "shared read",
+      "explain buffers",
+      "work_mem",
+      "kesh",
+      "disk io"
     ]
   }
 ];
