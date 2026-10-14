@@ -432,6 +432,7 @@ input, textarea, select, [contenteditable="true"] {
   background-size: 20px 20px;
   overflow: hidden;
   user-select: none;
+  touch-action: none;
 }
 
 .canvas-viewport {
@@ -468,8 +469,8 @@ input, textarea, select, [contenteditable="true"] {
 /* DRAW.IO CONNECTION PORTS (TOP, RIGHT, BOTTOM, LEFT) */
 .port-arrow {
   position: absolute;
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   background: #2b221a;
   border: 1px solid var(--accent-gold);
   color: var(--accent-gold-bright);
@@ -477,13 +478,14 @@ input, textarea, select, [contenteditable="true"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 8px;
+  font-size: 9px;
   cursor: crosshair;
   opacity: 0;
   transition: opacity 0.18s ease, transform 0.18s ease, background 0.18s ease;
   z-index: 25;
   pointer-events: auto;
   user-select: none;
+  touch-action: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
@@ -491,18 +493,26 @@ input, textarea, select, [contenteditable="true"] {
   opacity: 0.85;
 }
 
-.port-arrow:hover {
+/* On mobile phones and touch screens, port arrows are ALWAYS visible! */
+@media (hover: none), (max-width: 900px) {
+  .port-arrow {
+    opacity: 0.9 !important;
+  }
+}
+
+.port-arrow:hover,
+.port-arrow:active {
   opacity: 1 !important;
   background: var(--accent-gold);
   color: #14110e;
-  transform: scale(1.25);
+  transform: scale(1.2);
   box-shadow: 0 0 8px var(--accent-gold-bright);
 }
 
-.port-arrow.top { top: -9px; left: calc(50% - 9px); }
-.port-arrow.right { right: -9px; top: calc(50% - 9px); }
-.port-arrow.bottom { bottom: -9px; left: calc(50% - 9px); }
-.port-arrow.left { left: -9px; top: calc(50% - 9px); }
+.port-arrow.top { top: -11px; left: calc(50% - 11px); }
+.port-arrow.right { right: -11px; top: calc(50% - 11px); }
+.port-arrow.bottom { bottom: -11px; left: calc(50% - 11px); }
+.port-arrow.left { left: -11px; top: calc(50% - 11px); }
 
 /* ZOOM CONTROLS (DRAW.IO CONTROLS) */
 .zoom-controls {
@@ -576,6 +586,17 @@ input, textarea, select, [contenteditable="true"] {
 .rel-table-box.selected {
   border-color: var(--accent-gold-bright);
   outline: 2px solid rgba(200, 169, 110, 0.4);
+}
+
+.rel-table-box.connecting-source {
+  border-color: #ffd166 !important;
+  box-shadow: 0 0 16px rgba(255, 209, 102, 0.7) !important;
+  animation: pulseGoldTable 1.2s infinite alternate;
+}
+
+@keyframes pulseGoldTable {
+  from { box-shadow: 0 0 6px rgba(200, 169, 110, 0.4); }
+  to { box-shadow: 0 0 20px rgba(255, 209, 102, 0.9); }
 }
 
 .rel-table-header {

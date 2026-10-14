@@ -95,10 +95,11 @@ class EERCanvasEngine {
       this.updateViewportTransform();
     }, { passive: false });
 
-    // 2. Pan on background drag
+    // 2. Pan on background drag & cancel pending connection
     this.container.addEventListener('mousedown', (e) => {
       if (e.target === this.container || e.target === this.svg || e.target === this.nodesLayer || e.target === this.viewport) {
         this.deselectAll();
+        this.cancelConnecting();
         this.isPanning = true;
         this.startPanX = e.clientX - this.panX;
         this.startPanY = e.clientY - this.panY;
@@ -110,10 +111,11 @@ class EERCanvasEngine {
     window.addEventListener('mousemove', (e) => this.onPointerMove(e));
     window.addEventListener('mouseup', (e) => this.onPointerUp(e));
 
-    // Touch support
+    // Touch support (Mobile phones & tablets)
     this.container.addEventListener('touchstart', (e) => {
-      if (e.touches.length === 1 && (e.target === this.container || e.target === this.svg || e.target === this.nodesLayer)) {
+      if (e.touches.length === 1 && (e.target === this.container || e.target === this.svg || e.target === this.nodesLayer || e.target === this.viewport)) {
         this.deselectAll();
+        this.cancelConnecting();
         this.isPanning = true;
         this.startPanX = e.touches[0].clientX - this.panX;
         this.startPanY = e.touches[0].clientY - this.panY;
@@ -121,12 +123,22 @@ class EERCanvasEngine {
     }, { passive: true });
 
     window.addEventListener('touchmove', (e) => {
-      if (e.touches && e.touches.length > 0) {
-        this.onPointerMove(e.touches[0]);
+      if (this.isPanning || this.isDraggingNode || this.isConnecting) {
+        if (e.cancelable) e.preventDefault();
+        if (e.touches && e.touches.length > 0) {
+          this.lastTouchPoint = { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY };
+          this.onPointerMove(e.touches[0]);
+        }
       }
     }, { passive: false });
 
-    window.addEventListener('touchend', (e) => this.onPointerUp(e));
+    window.addEventListener('touchend', (e) => {
+      const point = (e.changedTouches && e.changedTouches[0]) || this.lastTouchPoint || {};
+      this.onPointerUp(point);
+    });
+    window.addEventListener('touchcancel', (e) => {
+      this.onPointerUp(e);
+    });
 
     // Zoom Buttons
     document.getElementById('btnZoomIn')?.addEventListener('click', () => {
@@ -179,6 +191,7 @@ class EERCanvasEngine {
     // C. Dragging Connection Port Line (draw.io live arrow drag)
     if (this.isConnecting && this.connectSource) {
       const world = this.screenToWorld(e.clientX, e.clientY);
+      this.connectMovedDist = (this.connectMovedDist || 0) + Math.hypot(world.x - this.connectCurrentX, world.y - this.connectCurrentY);
       this.connectCurrentX = world.x;
       this.connectCurrentY = world.y;
       this.renderTemporaryConnectingLine();
@@ -205,16 +218,29 @@ class EERCanvasEngine {
   // ==========================================================================
   // CONNECTION PORTS & DRAW.IO DRAG-TO-CONNECT
   // ==========================================================================
-  startPortConnection(node, type, port, e) {
-    e.stopPropagation();
+  startPortConnection(node, type, port) {
     this.isConnecting = true;
     this.connectSource = { node, type, port };
 
     const portPos = this.getPortCoords(node, port);
     this.connectCurrentX = portPos.x;
     this.connectCurrentY = portPos.y;
+    this.connectMovedDist = 0;
+
+    // Visual feedback on source node
+    this.deselectAll();
+    const el = document.getElementById(node.domId);
+    if (el) el.classList.add('connecting-source');
 
     if (window.playSfx) window.playSfx('click');
+  }
+
+  cancelConnecting() {
+    this.isConnecting = false;
+    this.connectSource = null;
+    const tempLine = document.getElementById('eerTempDragLine');
+    if (tempLine) tempLine.remove();
+    document.querySelectorAll('.eer-entity-box, .eer-diamond-box').forEach(el => el.classList.remove('connecting-source'));
   }
 
   getPortCoords(node, port) {
@@ -236,6 +262,8 @@ class EERCanvasEngine {
       tempLine.setAttribute('stroke-width', '2.5');
       tempLine.setAttribute('stroke-dasharray', '5,5');
       tempLine.setAttribute('stroke-linecap', 'round');
+      tempLine.setAttribute('pointer-events', 'none');
+      tempLine.style.pointerEvents = 'none';
       this.svg.appendChild(tempLine);
     }
 
@@ -246,78 +274,106 @@ class EERCanvasEngine {
     tempLine.setAttribute('y2', this.connectCurrentY);
   }
 
+  completeConnection(sourceNode, sourceType, targetNode, targetType) {
+    if (sourceType === 'entity' && targetType === 'diamond') {
+      // Link Entity to Diamond
+      if (!targetNode.fromEntityName) {
+        targetNode.fromEntityName = sourceNode.name;
+      } else if (!targetNode.toEntityName && targetNode.fromEntityName !== sourceNode.name) {
+        targetNode.toEntityName = sourceNode.name;
+      }
+      if (window.playSfx) window.playSfx('success');
+    } else if (sourceType === 'diamond' && targetType === 'entity') {
+      // Link Diamond to Entity
+      if (!sourceNode.fromEntityName) {
+        sourceNode.fromEntityName = targetNode.name;
+      } else if (!sourceNode.toEntityName && sourceNode.fromEntityName !== targetNode.name) {
+        sourceNode.toEntityName = targetNode.name;
+      }
+      if (window.playSfx) window.playSfx('success');
+    } else if (sourceType === 'entity' && targetType === 'entity') {
+      // Connect Entity to Entity directly via a clean relationship diamond!
+      // Shunchaki oddiy ulanadi: modal promptlarsiz, multiplisitiyani o'quvchi o'zi tanlaydi!
+      const midX = Math.round((sourceNode.x + targetNode.x) / 2);
+      const midY = Math.round((sourceNode.y + targetNode.y) / 2);
+
+      this.addRelationship({
+        name: 'Aloqa',
+        fromEntityName: sourceNode.name,
+        toEntityName: targetNode.name,
+        mult1: '?',
+        mult2: '?',
+        x: midX,
+        y: midY
+      });
+      if (window.playSfx) window.playSfx('success');
+    }
+    this.renderLinks();
+  }
+
   finishConnection(e) {
     const tempLine = document.getElementById('eerTempDragLine');
     if (tempLine) tempLine.remove();
 
-    this.isConnecting = false;
-    const clientX = e.clientX || (e.changedTouches && e.changedTouches[0]?.clientX);
-    const clientY = e.clientY || (e.changedTouches && e.changedTouches[0]?.clientY);
-    if (!clientX || !clientY) {
-      this.connectSource = null;
-      return;
+    let clientX = e?.clientX;
+    let clientY = e?.clientY;
+
+    if (clientX === undefined && e?.changedTouches && e.changedTouches.length > 0) {
+      clientX = e.changedTouches[0].clientX;
+      clientY = e.changedTouches[0].clientY;
+    }
+    if (clientX === undefined && this.lastTouchPoint) {
+      clientX = this.lastTouchPoint.clientX;
+      clientY = this.lastTouchPoint.clientY;
     }
 
-    const targetEl = document.elementFromPoint(clientX, clientY);
-    const targetBox = targetEl ? targetEl.closest('.eer-entity-box, .eer-diamond-box') : null;
+    if (clientX !== undefined && clientY !== undefined && this.connectSource) {
+      const targetEl = document.elementFromPoint(clientX, clientY);
+      const targetBox = targetEl ? targetEl.closest('.eer-entity-box, .eer-diamond-box') : null;
 
-    if (targetBox && targetBox.id !== this.connectSource.node.domId) {
-      // Find target node
-      const targetEntity = this.entities.find(en => en.domId === targetBox.id);
-      const targetDiamond = this.relationships.find(r => r.domId === targetBox.id);
+      if (targetBox && targetBox.id !== this.connectSource.node.domId) {
+        const targetEntity = this.entities.find(en => en.domId === targetBox.id);
+        const targetDiamond = this.relationships.find(r => r.domId === targetBox.id);
+        const targetNode = targetEntity || targetDiamond;
+        const targetType = targetEntity ? 'entity' : 'diamond';
 
-      const sourceNode = this.connectSource.node;
-      const sourceType = this.connectSource.type;
-
-      if (sourceType === 'entity' && targetDiamond) {
-        // Link Entity to Diamond
-        if (!targetDiamond.fromEntityName) {
-          targetDiamond.fromEntityName = sourceNode.name;
-        } else if (!targetDiamond.toEntityName && targetDiamond.fromEntityName !== sourceNode.name) {
-          targetDiamond.toEntityName = sourceNode.name;
+        if (targetNode) {
+          this.completeConnection(this.connectSource.node, this.connectSource.type, targetNode, targetType);
+          this.cancelConnecting();
+          return;
         }
-        if (window.playSfx) window.playSfx('success');
-      } else if (sourceType === 'diamond' && targetEntity) {
-        // Link Diamond to Entity
-        if (!sourceNode.fromEntityName) {
-          sourceNode.fromEntityName = targetEntity.name;
-        } else if (!sourceNode.toEntityName && sourceNode.fromEntityName !== targetEntity.name) {
-          sourceNode.toEntityName = targetEntity.name;
-        }
-        if (window.playSfx) window.playSfx('success');
-      } else if (sourceType === 'entity' && targetEntity) {
-        // Connect Entity to Entity directly via a new relationship diamond!
-        const relName = prompt("Ushbu ikki entitiy orasidagi munosabat nomini kiriting:", "Aloqa") || "Aloqa";
-        const midX = Math.round((sourceNode.x + targetEntity.x) / 2);
-        const midY = Math.round((sourceNode.y + targetEntity.y) / 2);
-
-        this.addRelationship({
-          name: relName.trim(),
-          fromEntityName: sourceNode.name,
-          toEntityName: targetEntity.name,
-          mult1: '1..1',
-          mult2: '1..*',
-          x: midX,
-          y: midY
-        });
-        if (window.playSfx) window.playSfx('success');
       }
     }
 
-    this.connectSource = null;
-    this.renderLinks();
+    // Agar o'quvchi bo'sh maydonga tortgan bo'lsa (masofa > 20px), aloqani bekor qilamiz
+    if (this.connectMovedDist > 20) {
+      this.cancelConnecting();
+    }
+    // Agar kamroq harakat qilgan bo'lsa (mobil telefonda portga tegingan bo'lsa),
+    // ikkinchi entitiyni bosish (Tap-to-Connect) orqali ulash imkoniyati ochiq qoladi!
   }
 
   // ==========================================================================
   // NODE DRAGGING & SELECTION
   // ==========================================================================
-  onNodePointerDown(e, node, type) {
-    e.stopPropagation();
+  onNodePointerDown(point, node, type) {
+    // Agar port tanlangan bo'lsa (Tap-to-Connect), to'g'ridan-to'g'ri ulaymiz
+    if (this.isConnecting && this.connectSource) {
+      if (this.connectSource.node.domId !== node.domId) {
+        this.completeConnection(this.connectSource.node, this.connectSource.type, node, type);
+      }
+      this.cancelConnecting();
+      return;
+    }
+
     this.selectNode(node, type);
     this.isDraggingNode = true;
     this.draggedNode = { node, type };
 
-    const world = this.screenToWorld(e.clientX || (e.touches && e.touches[0].clientX), e.clientY || (e.touches && e.touches[0].clientY));
+    const clientX = point.clientX !== undefined ? point.clientX : 0;
+    const clientY = point.clientY !== undefined ? point.clientY : 0;
+
+    const world = this.screenToWorld(clientX, clientY);
     this.dragOffsetX = world.x - node.x;
     this.dragOffsetY = world.y - node.y;
   }
@@ -403,18 +459,28 @@ class EERCanvasEngine {
     // Render attribute rows
     this.renderEntityAttributes(entity, el.querySelector('.entity-attributes'));
 
-    // Drag events
-    el.addEventListener('mousedown', (e) => {
-      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.attr-item')) return;
-      this.onNodePointerDown(e, entity, 'entity');
-    });
+    // Drag events (Mouse + Touch)
+    const onEntityStart = (e) => {
+      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.attr-pill') || e.target.closest('.btn-attr-del') || e.target.closest('[contenteditable="true"]')) return;
+      if (e.touches && e.touches.length > 1) return;
+      e.stopPropagation();
+      if (e.cancelable && e.type === 'touchstart') e.preventDefault();
+      const point = e.touches ? e.touches[0] : e;
+      this.onNodePointerDown(point, entity, 'entity');
+    };
+    el.addEventListener('mousedown', onEntityStart);
+    el.addEventListener('touchstart', onEntityStart, { passive: false });
 
-    // Connection port events
+    // Connection port events (Mouse + Touch)
     el.querySelectorAll('.port-arrow').forEach(p => {
-      p.addEventListener('mousedown', (e) => {
+      const onPortStart = (e) => {
+        if (e.cancelable) e.preventDefault();
+        e.stopPropagation();
         const portName = p.getAttribute('data-port');
-        this.startPortConnection(entity, 'entity', portName, e);
-      });
+        this.startPortConnection(entity, 'entity', portName);
+      };
+      p.addEventListener('mousedown', onPortStart);
+      p.addEventListener('touchstart', onPortStart, { passive: false });
     });
 
     // Header Action Buttons
@@ -599,16 +665,28 @@ class EERCanvasEngine {
       <button class="btn-node-act del" data-action="del-rel" style="position:absolute; top:-6px; right:-6px; width:16px; height:16px;" title="Aloqani o'chirish">✕</button>
     `;
 
-    el.addEventListener('mousedown', (e) => {
+    // Drag events (Mouse + Touch)
+    const onDiamondStart = (e) => {
       if (e.target.closest('.port-arrow') || e.target.closest('button')) return;
-      this.onNodePointerDown(e, rel, 'diamond');
-    });
+      if (e.touches && e.touches.length > 1) return;
+      e.stopPropagation();
+      if (e.cancelable && e.type === 'touchstart') e.preventDefault();
+      const point = e.touches ? e.touches[0] : e;
+      this.onNodePointerDown(point, rel, 'diamond');
+    };
+    el.addEventListener('mousedown', onDiamondStart);
+    el.addEventListener('touchstart', onDiamondStart, { passive: false });
 
+    // Port arrow events (Mouse + Touch)
     el.querySelectorAll('.port-arrow').forEach(p => {
-      p.addEventListener('mousedown', (e) => {
+      const onDiamondPortStart = (e) => {
+        if (e.cancelable) e.preventDefault();
+        e.stopPropagation();
         const portName = p.getAttribute('data-port');
-        this.startPortConnection(rel, 'diamond', portName, e);
-      });
+        this.startPortConnection(rel, 'diamond', portName);
+      };
+      p.addEventListener('mousedown', onDiamondPortStart);
+      p.addEventListener('touchstart', onDiamondPortStart, { passive: false });
     });
 
     el.querySelector('.diamond-text')?.addEventListener('dblclick', (e) => {
@@ -689,7 +767,7 @@ class EERCanvasEngine {
   createMultiplicityPill(x, y, rel, multKey, entityName) {
     const pill = document.createElement('div');
     pill.className = 'mult-pill';
-    pill.textContent = rel[multKey] || '1..1';
+    pill.textContent = (rel[multKey] && rel[multKey] !== '?') ? rel[multKey] : '?';
     pill.style.left = x + 'px';
     pill.style.top = y + 'px';
     pill.title = `${entityName} tomonidagi multiplisitiyani o'zgartirish`;
@@ -759,8 +837,8 @@ class EERCanvasEngine {
         name: r.name || 'Aloqa',
         fromEntityName: r.fromEntityName || r.entity1 || '',
         toEntityName: r.toEntityName || r.entity2 || '',
-        mult1: r.mult1 || '1..1',
-        mult2: r.mult2 || '1..*',
+        mult1: r.mult1 || '?',
+        mult2: r.mult2 || '?',
         isIdentifying: !!r.isIdentifying,
         x: r.x || w / 2 - 45,
         y: r.y || h / 2 - 45

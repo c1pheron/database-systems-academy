@@ -187,11 +187,11 @@
         </div>
       </div>
 
-      <!-- 2. Schema Code Editor & Workbench -->
+      <!-- 2. Relational Workbench & Diagram Verification -->
       <div class="panel-card">
         <div class="panel-header">
           <div class="panel-title">
-            <span>⚙️ Relyatsion Sxema Muharriri & Tekshiruv</span>
+            <span>⚙️ Sxema Tekshiruvi & draw.io Boshqaruvi</span>
           </div>
         </div>
 
@@ -200,29 +200,17 @@
             <div style="font-weight:600; color:var(--accent-gold); margin-bottom:4px; display:flex; align-items:center; gap:6px;">
               <span>📊 draw.io Relyatsion Boshqaruv</span>
             </div>
-            <div>• <strong>Crow's Foot Bog'lash:</strong> Bolalar jadvalidan strelkani (<span style="color:var(--accent-gold);">▲ ▶ ▼ ◀</span>) sudrab ota jadvalga ulang — Crow's Foot chizig'i hosil bo'ladi.</div>
+            <div>• <strong>Bog'lash:</strong> Jadval ustiga boring, paydo bo'lgan port strelkasini (<span style="color:var(--accent-gold);">▲ ▶ ▼ ◀</span>) sudrab ikkinchi jadvalga ulang — avtomatik aloqa chizig'i hosil bo'ladi.</div>
             <div>• <strong>Kalitlar:</strong> <span style="color:var(--accent-gold); font-weight:700;">[Oddiy]</span> katagini bosib <strong>[PK]</strong>, <strong>[FK1]</strong> yoki <strong>[PK,FK1]</strong> holatiga o'tkazing.</div>
+            <div>• <strong>Crow's Foot:</strong> Tashqi kalitli jadval tomonda <strong>Crow's Foot (|<)</strong> va ota jadval tomonda <strong>(||)</strong> avtomatik aks etadi.</div>
             <div>• <strong>Masshtab:</strong> Sichqoncha g'ildiragini aylantirib yaqinlashtiring / uzoqlashtiring yoki burchakdagi <strong>+ / - / 1:1</strong> tugmalaridan foydalaning.</div>
             <div>• <strong>Ustunlar:</strong> Sarlavhadagi <span style="color:var(--accent-gold);">+</span> orqali yangi ustun qo'shing, nomini to'g'ridan-to'g'ri yozib tahrirlang.</div>
           </div>
 
-          <div style="font-size:11.5px; color:var(--text-muted);">Tezkor Sintaksis Tokenlari:</div>
-          <div class="quick-tokens-bar">
-            <button type="button" class="token-chip" data-token="Table Name {\n  id int [pk]\n}">Table</button>
-            <button type="button" class="token-chip" data-token="[pk]">[pk]</button>
-            <button type="button" class="token-chip" data-token="[ref: > Other.id]">[ref: > Table.pk]</button>
-            <button type="button" class="token-chip" data-token="varchar">varchar</button>
-            <button type="button" class="token-chip" data-token="int">int</button>
-          </div>
-
-          <!-- Textarea Editor -->
-          <textarea id="schemaInput" placeholder="Table Name { column type [pk] ... }" spellcheck="false"></textarea>
-
           <div class="action-bar">
             <div class="action-left">
               <button id="btnVerifySchema" class="btn btn-primary">✅ Sxemani Tekshirish</button>
-              <button id="btnResetCode" class="btn">📋 Qayta Tiklash</button>
-              <button id="btnToggleHint" class="btn">💡 Maslahat</button>
+              <button id="btnToggleHint" class="btn">💡 Maslahat Olish</button>
             </div>
           </div>
 

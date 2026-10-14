@@ -92,10 +92,11 @@ class RelationalCanvasEngine {
       this.updateViewportTransform();
     }, { passive: false });
 
-    // 2. Pan on background drag
+    // 2. Pan on background drag & cancel pending connection
     this.container.addEventListener('mousedown', (e) => {
       if (e.target === this.container || e.target === this.svg || e.target === this.nodesLayer || e.target === this.viewport) {
         this.deselectAll();
+        this.cancelConnecting();
         this.isPanning = true;
         this.startPanX = e.clientX - this.panX;
         this.startPanY = e.clientY - this.panY;
@@ -107,10 +108,11 @@ class RelationalCanvasEngine {
     window.addEventListener('mousemove', (e) => this.onPointerMove(e));
     window.addEventListener('mouseup', (e) => this.onPointerUp(e));
 
-    // Touch support
+    // Touch support (Mobile phones & tablets)
     this.container.addEventListener('touchstart', (e) => {
-      if (e.touches.length === 1 && (e.target === this.container || e.target === this.svg || e.target === this.nodesLayer)) {
+      if (e.touches.length === 1 && (e.target === this.container || e.target === this.svg || e.target === this.nodesLayer || e.target === this.viewport)) {
         this.deselectAll();
+        this.cancelConnecting();
         this.isPanning = true;
         this.startPanX = e.touches[0].clientX - this.panX;
         this.startPanY = e.touches[0].clientY - this.panY;
@@ -118,12 +120,22 @@ class RelationalCanvasEngine {
     }, { passive: true });
 
     window.addEventListener('touchmove', (e) => {
-      if (e.touches && e.touches.length > 0) {
-        this.onPointerMove(e.touches[0]);
+      if (this.isPanning || this.isDraggingNode || this.isConnecting) {
+        if (e.cancelable) e.preventDefault();
+        if (e.touches && e.touches.length > 0) {
+          this.lastTouchPoint = { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY };
+          this.onPointerMove(e.touches[0]);
+        }
       }
     }, { passive: false });
 
-    window.addEventListener('touchend', (e) => this.onPointerUp(e));
+    window.addEventListener('touchend', (e) => {
+      const point = (e.changedTouches && e.changedTouches[0]) || this.lastTouchPoint || {};
+      this.onPointerUp(point);
+    });
+    window.addEventListener('touchcancel', (e) => {
+      this.onPointerUp(e);
+    });
 
     // Zoom Buttons
     document.getElementById('btnZoomIn')?.addEventListener('click', () => {
@@ -172,6 +184,7 @@ class RelationalCanvasEngine {
 
     if (this.isConnecting && this.connectSource) {
       const world = this.screenToWorld(e.clientX, e.clientY);
+      this.connectMovedDist = (this.connectMovedDist || 0) + Math.hypot(world.x - this.connectCurrentX, world.y - this.connectCurrentY);
       this.connectCurrentX = world.x;
       this.connectCurrentY = world.y;
       this.renderTemporaryConnectingLine();
@@ -197,16 +210,28 @@ class RelationalCanvasEngine {
   // ==========================================================================
   // CONNECTION PORTS & DRAW.IO CROW'S FOOT DRAG-TO-CONNECT
   // ==========================================================================
-  startPortConnection(table, port, e) {
-    e.stopPropagation();
+  startPortConnection(table, port) {
     this.isConnecting = true;
     this.connectSource = { table, port };
 
     const portPos = this.getPortCoords(table, port);
     this.connectCurrentX = portPos.x;
     this.connectCurrentY = portPos.y;
+    this.connectMovedDist = 0;
+
+    this.deselectAll();
+    const el = document.getElementById(table.domId);
+    if (el) el.classList.add('connecting-source');
 
     if (window.playSfx) window.playSfx('click');
+  }
+
+  cancelConnecting() {
+    this.isConnecting = false;
+    this.connectSource = null;
+    const tempLine = document.getElementById('relTempDragLine');
+    if (tempLine) tempLine.remove();
+    document.querySelectorAll('.rel-table-box').forEach(el => el.classList.remove('connecting-source'));
   }
 
   getPortCoords(table, port) {
@@ -228,6 +253,8 @@ class RelationalCanvasEngine {
       tempLine.setAttribute('stroke-width', '2.5');
       tempLine.setAttribute('stroke-dasharray', '5,5');
       tempLine.setAttribute('stroke-linecap', 'round');
+      tempLine.setAttribute('pointer-events', 'none');
+      tempLine.style.pointerEvents = 'none';
       this.svg.appendChild(tempLine);
     }
 
@@ -238,73 +265,84 @@ class RelationalCanvasEngine {
     tempLine.setAttribute('y2', this.connectCurrentY);
   }
 
+  completeTableConnection(childTable, targetTable) {
+    // Shunchaki ikki jadval o'rtasiga bog'lanish chizig'ini tortadi.
+    // Avtomatik tarzda FK ustuni yoki PK yaratilmaydi!
+    // O'quvchining o'zi qaysi tomonda PK yoki FK ekanligini mustaqil hal qiladi.
+    const alreadyExists = this.references.some(r => 
+      (r.fromTable === childTable.name && r.toTable === targetTable.name) ||
+      (r.fromTable === targetTable.name && r.toTable === childTable.name)
+    );
+    if (!alreadyExists) {
+      this.references.push({
+        fromTable: childTable.name,
+        toTable: targetTable.name
+      });
+      if (window.playSfx) window.playSfx('success');
+    }
+    this.renderCrowFootLinks();
+  }
+
   finishConnection(e) {
     const tempLine = document.getElementById('relTempDragLine');
     if (tempLine) tempLine.remove();
 
-    this.isConnecting = false;
-    const clientX = e.clientX || (e.changedTouches && e.changedTouches[0]?.clientX);
-    const clientY = e.clientY || (e.changedTouches && e.changedTouches[0]?.clientY);
-    if (!clientX || !clientY) {
-      this.connectSource = null;
-      return;
+    let clientX = e?.clientX;
+    let clientY = e?.clientY;
+
+    if (clientX === undefined && e?.changedTouches && e.changedTouches.length > 0) {
+      clientX = e.changedTouches[0].clientX;
+      clientY = e.changedTouches[0].clientY;
+    }
+    if (clientX === undefined && this.lastTouchPoint) {
+      clientX = this.lastTouchPoint.clientX;
+      clientY = this.lastTouchPoint.clientY;
     }
 
-    const targetEl = document.elementFromPoint(clientX, clientY);
-    const targetBox = targetEl ? targetEl.closest('.rel-table-box') : null;
+    if (clientX !== undefined && clientY !== undefined && this.connectSource) {
+      const targetEl = document.elementFromPoint(clientX, clientY);
+      const targetBox = targetEl ? targetEl.closest('.rel-table-box') : null;
 
-    if (targetBox && targetBox.id !== this.connectSource.table.domId) {
-      const targetTable = this.tables.find(t => t.domId === targetBox.id);
-      const childTable = this.connectSource.table;
+      if (targetBox && targetBox.id !== this.connectSource.table.domId) {
+        const targetTable = this.tables.find(t => t.domId === targetBox.id);
+        const childTable = this.connectSource.table;
 
-      if (childTable && targetTable) {
-        // Find or create FK in child table pointing to targetTable PK
-        const parentPK = targetTable.columns.find(c => c.isPK) || { name: 'id' };
-        let fkCol = childTable.columns.find(c => c.isFK && c.references?.table === targetTable.name);
-
-        if (!fkCol) {
-          const colName = prompt(`'${childTable.name}' jadvalidagi Tashqi Kalit (FK) ustun nomini kiriting:`, `${targetTable.name.toLowerCase()}_${parentPK.name}`);
-          if (colName) {
-            fkCol = {
-              name: colName.trim(),
-              isPK: false,
-              isFK: true,
-              fkTag: 'FK1',
-              references: {
-                table: targetTable.name,
-                column: parentPK.name
-              }
-            };
-            childTable.columns.push(fkCol);
-            this.renderTableColumns(childTable, document.getElementById(`${childTable.domId}_body`));
-          }
+        if (childTable && targetTable) {
+          this.completeTableConnection(childTable, targetTable);
+          this.cancelConnecting();
+          return;
         }
-
-        this.references.push({
-          fromTable: childTable.name,
-          fromCol: fkCol ? fkCol.name : parentPK.name,
-          toTable: targetTable.name,
-          toCol: parentPK.name
-        });
-
-        if (window.playSfx) window.playSfx('success');
       }
     }
 
-    this.connectSource = null;
-    this.renderCrowFootLinks();
+    // Agar o'quvchi bo'sh sohaga masofa tortgan bo'lsa (> 20px), bekor qilamiz
+    if (this.connectMovedDist > 20) {
+      this.cancelConnecting();
+    }
+    // Agar kamroq harakat bo'lsa (portga tegingan bo'lsa), Tap-to-Connect uchun kutamiz
   }
 
   // ==========================================================================
   // TABLE SELECTION & DRAGGING
   // ==========================================================================
-  onTablePointerDown(e, table) {
-    e.stopPropagation();
+  onTablePointerDown(point, table) {
+    // Tap-to-connect destination reached
+    if (this.isConnecting && this.connectSource) {
+      if (this.connectSource.table.domId !== table.domId) {
+        this.completeTableConnection(this.connectSource.table, table);
+      }
+      this.cancelConnecting();
+      return;
+    }
+
     this.selectTable(table);
     this.isDraggingNode = true;
     this.draggedTable = table;
 
-    const world = this.screenToWorld(e.clientX || (e.touches && e.touches[0].clientX), e.clientY || (e.touches && e.touches[0].clientY));
+    const clientX = point.clientX !== undefined ? point.clientX : 0;
+    const clientY = point.clientY !== undefined ? point.clientY : 0;
+
+    const world = this.screenToWorld(clientX, clientY);
     this.dragOffsetX = world.x - table.x;
     this.dragOffsetY = world.y - table.y;
   }
@@ -383,16 +421,28 @@ class RelationalCanvasEngine {
 
     this.renderTableColumns(table, el.querySelector('.rel-table-body'));
 
-    el.addEventListener('mousedown', (e) => {
-      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.rel-row')) return;
-      this.onTablePointerDown(e, table);
-    });
+    // Drag events (Mouse + Touch)
+    const onTableStart = (e) => {
+      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.pk-badge') || e.target.closest('.fk-badge') || e.target.closest('.type-badge') || e.target.closest('.btn-row-del') || e.target.closest('[contenteditable="true"]')) return;
+      if (e.touches && e.touches.length > 1) return;
+      e.stopPropagation();
+      if (e.cancelable && e.type === 'touchstart') e.preventDefault();
+      const point = e.touches ? e.touches[0] : e;
+      this.onTablePointerDown(point, table);
+    };
+    el.addEventListener('mousedown', onTableStart);
+    el.addEventListener('touchstart', onTableStart, { passive: false });
 
+    // Connection port events (Mouse + Touch)
     el.querySelectorAll('.port-arrow').forEach(p => {
-      p.addEventListener('mousedown', (e) => {
+      const onPortStart = (e) => {
+        if (e.cancelable) e.preventDefault();
+        e.stopPropagation();
         const portName = p.getAttribute('data-port');
-        this.startPortConnection(table, portName, e);
-      });
+        this.startPortConnection(table, portName);
+      };
+      p.addEventListener('mousedown', onPortStart);
+      p.addEventListener('touchstart', onPortStart, { passive: false });
     });
 
     el.querySelector('[data-action="add-col"]')?.addEventListener('click', (e) => {
@@ -539,30 +589,41 @@ class RelationalCanvasEngine {
   renderCrowFootLinks() {
     this.svg.innerHTML = '';
 
-    this.tables.forEach(childTable => {
-      (childTable.columns || []).forEach(col => {
-        if (col.isFK && col.references) {
-          const parentTable = this.tables.find(t => t.name.toLowerCase() === col.references.table.toLowerCase());
-          if (parentTable) {
-            this.drawCrowFootConnection(childTable, col.name, parentTable, col.references.column);
-          }
-        }
-      });
-    });
-
     this.references.forEach(ref => {
-      const childTable = this.tables.find(t => t.name.toLowerCase() === ref.fromTable.toLowerCase());
-      const parentTable = this.tables.find(t => t.name.toLowerCase() === ref.toTable.toLowerCase());
-      if (childTable && parentTable) {
-        this.drawCrowFootConnection(childTable, ref.fromCol, parentTable, ref.toCol);
+      const t1 = this.tables.find(t => t.name.toLowerCase() === ref.fromTable.toLowerCase());
+      const t2 = this.tables.find(t => t.name.toLowerCase() === ref.toTable.toLowerCase());
+      if (t1 && t2) {
+        this.drawTableConnection(t1, t2);
       }
     });
   }
 
-  drawCrowFootConnection(childTable, childCol, parentTable, parentCol) {
-    const childEl = document.getElementById(childTable.domId);
-    const parentEl = document.getElementById(parentTable.domId);
-    if (!childEl || !parentEl) return;
+  drawTableConnection(t1, t2) {
+    const el1 = document.getElementById(t1.domId);
+    const el2 = document.getElementById(t2.domId);
+    if (!el1 || !el2) return;
+
+    // Check which table has FK column
+    const t1HasFK = (t1.columns || []).some(c => c.isFK);
+    const t2HasFK = (t2.columns || []).some(c => c.isFK);
+
+    let childTable = t1;
+    let parentTable = t2;
+    let showSymbols = false;
+
+    if (t1HasFK && !t2HasFK) {
+      childTable = t1;
+      parentTable = t2;
+      showSymbols = true;
+    } else if (t2HasFK && !t1HasFK) {
+      childTable = t2;
+      parentTable = t1;
+      showSymbols = true;
+    } else if (t1HasFK && t2HasFK) {
+      childTable = t1;
+      parentTable = t2;
+      showSymbols = true;
+    }
 
     const cX = childTable.x + (childTable.width || 200) / 2;
     const cY = childTable.y + (childTable.height || 120) / 2;
@@ -589,38 +650,40 @@ class RelationalCanvasEngine {
     path.setAttribute('fill', 'none');
     this.svg.appendChild(path);
 
-    // Crow's foot symbol on child side (FK side)
-    const sign = startX < endX ? 1 : -1;
-    const cf = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    const cfD = `
-      M ${startX + sign * 14} ${startY - 8} L ${startX} ${startY} L ${startX + sign * 14} ${startY + 8}
-      M ${startX + sign * 14} ${startY} L ${startX} ${startY}
-    `;
-    cf.setAttribute('d', cfD);
-    cf.setAttribute('stroke', '#dfc288');
-    cf.setAttribute('stroke-width', '2');
-    cf.setAttribute('fill', 'none');
-    this.svg.appendChild(cf);
+    if (showSymbols) {
+      // Crow's foot symbol on child side (FK side)
+      const sign = startX < endX ? 1 : -1;
+      const cf = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      const cfD = `
+        M ${startX + sign * 14} ${startY - 8} L ${startX} ${startY} L ${startX + sign * 14} ${startY + 8}
+        M ${startX + sign * 14} ${startY} L ${startX} ${startY}
+      `;
+      cf.setAttribute('d', cfD);
+      cf.setAttribute('stroke', '#dfc288');
+      cf.setAttribute('stroke-width', '2');
+      cf.setAttribute('fill', 'none');
+      this.svg.appendChild(cf);
 
-    // Double bars (||) on parent side (PK side)
-    const pSign = startX < endX ? -1 : 1;
-    const bar1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    bar1.setAttribute('x1', endX + pSign * 6);
-    bar1.setAttribute('y1', endY - 8);
-    bar1.setAttribute('x2', endX + pSign * 6);
-    bar1.setAttribute('y2', endY + 8);
-    bar1.setAttribute('stroke', '#c8a96e');
-    bar1.setAttribute('stroke-width', '2');
-    this.svg.appendChild(bar1);
+      // Double bars (||) on parent side (PK side)
+      const pSign = startX < endX ? -1 : 1;
+      const bar1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      bar1.setAttribute('x1', endX + pSign * 6);
+      bar1.setAttribute('y1', endY - 8);
+      bar1.setAttribute('x2', endX + pSign * 6);
+      bar1.setAttribute('y2', endY + 8);
+      bar1.setAttribute('stroke', '#c8a96e');
+      bar1.setAttribute('stroke-width', '2');
+      this.svg.appendChild(bar1);
 
-    const bar2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    bar2.setAttribute('x1', endX + pSign * 11);
-    bar2.setAttribute('y1', endY - 8);
-    bar2.setAttribute('x2', endX + pSign * 11);
-    bar2.setAttribute('y2', endY + 8);
-    bar2.setAttribute('stroke', '#c8a96e');
-    bar2.setAttribute('stroke-width', '2');
-    this.svg.appendChild(bar2);
+      const bar2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      bar2.setAttribute('x1', endX + pSign * 11);
+      bar2.setAttribute('y1', endY - 8);
+      bar2.setAttribute('x2', endX + pSign * 11);
+      bar2.setAttribute('y2', endY + 8);
+      bar2.setAttribute('stroke', '#c8a96e');
+      bar2.setAttribute('stroke-width', '2');
+      this.svg.appendChild(bar2);
+    }
   }
 
   // ==========================================================================

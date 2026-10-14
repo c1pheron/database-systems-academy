@@ -264,7 +264,6 @@
     const elTitle = document.getElementById('qTitle');
     const elClientDialogue = document.getElementById('clientDialogue');
     const elTask = document.getElementById('qTask');
-    const elInput = document.getElementById('schemaInput');
     const elHint = document.getElementById('qHintBox');
     const elFeedback = document.getElementById('feedbackBox');
 
@@ -280,10 +279,6 @@
     }
 
     if (elTask) elTask.textContent = q.taskUz || "Jadvalni belgilangan ustunlar va PK/FK bilan loyihalang.";
-
-    if (elInput) {
-      elInput.value = q.starterCode || "";
-    }
 
     if (elHint) {
       elHint.style.display = 'none';
@@ -413,40 +408,10 @@
       });
     }
 
-    // Token insertion into textarea
-    document.querySelectorAll('.token-chip[data-token]').forEach(chip => {
-      chip.addEventListener('click', () => {
-        const token = chip.getAttribute('data-token');
-        const input = document.getElementById('schemaInput');
-        if (token && input) {
-          window.playSfx('click');
-          const start = input.selectionStart;
-          const end = input.selectionEnd;
-          const text = input.value;
-          input.value = text.substring(0, start) + token + text.substring(end);
-          input.focus();
-          input.selectionStart = input.selectionEnd = start + token.length;
-        }
-      });
-    });
-
     // Verification Button
     const btnVerify = document.getElementById('btnVerifySchema');
     if (btnVerify) {
       btnVerify.addEventListener('click', verifySchema);
-    }
-
-    // Reset Starter Code
-    const btnResetCode = document.getElementById('btnResetCode');
-    if (btnResetCode) {
-      btnResetCode.addEventListener('click', () => {
-        window.playSfx('click');
-        const q = allQuestions.find(item => item.id === STATE.currentQId);
-        const input = document.getElementById('schemaInput');
-        if (q && input) {
-          input.value = q.starterCode || "";
-        }
-      });
     }
 
     // Sound toggle
@@ -478,37 +443,20 @@
   }
 
   // ==========================================================================
-  // 8. SCHEMA VERIFICATION & GRADING
+  // 8. SCHEMA VERIFICATION & GRADING (DIAGRAM ONLY)
   // ==========================================================================
   function verifySchema() {
-    const input = document.getElementById('schemaInput');
     if (!window.RELATIONAL_GRADER) return;
 
     const q = allQuestions.find(item => item.id === STATE.currentQId);
     if (!q) return;
 
     let result = null;
-    const userText = input ? input.value.trim() : "";
-
-    // 1. If user typed in editor and it's not the default starter, grade text
-    if (userText && userText !== q.starterCode?.trim()) {
-      result = window.RELATIONAL_GRADER.grade(userText, q);
-    }
-
-    // 2. If not passed or text was empty/starter, grade the interactive canvas tables!
-    if ((!result || !result.passed) && relCanvas) {
-      const canvasSchema = relCanvas.exportCurrentSchema();
-      if (canvasSchema && canvasSchema.tables && canvasSchema.tables.length > 0) {
-        const canvasResult = window.RELATIONAL_GRADER.grade(canvasSchema, q);
-        if (canvasResult.passed || !result) {
-          result = canvasResult;
-        }
-      }
-    }
-
-    // Fallback if neither was evaluated
-    if (!result) {
-      result = window.RELATIONAL_GRADER.grade(userText || "", q);
+    if (relCanvas) {
+      const userSchema = relCanvas.exportCurrentSchema();
+      result = window.RELATIONAL_GRADER.grade(userSchema, q);
+    } else {
+      result = window.RELATIONAL_GRADER.grade({ tables: [], references: [] }, q);
     }
 
     const elFeedback = document.getElementById('feedbackBox');
