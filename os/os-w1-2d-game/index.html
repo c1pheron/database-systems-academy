@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="../os_dictionary.css" />
 </head>
 <body>
 
@@ -16,32 +17,21 @@
        ========================================================================= -->
   <header class="top-hud">
     <div class="brand-box">
+      <a href="../index.html" class="btn btn-back" id="btnBackHub" title="OS Boshqaruv Xabiga Qaytish">← Ortga</a>
       <div class="brand-emblem">🐧</div>
       <div>
         <div class="brand-title">
-          <span>WIUT OPERATING SYSTEMS • NOC &amp; LINUX SERVER LAB</span>
-          <span class="badge-os">5COSC041C</span>
+          <span>Operating Systems • 1-Modul</span>
+          <span class="badge-os">Debian 12</span>
         </div>
-        <div class="brand-sub">Week 1: Linux Essential Commands, Inodes, Links &amp; Find (150 Bosqichli Amaliy Simulyator)</div>
+        <div class="brand-sub">Linux Essential Commands, Inodes, Links &amp; Find (150 Bosqich)</div>
       </div>
     </div>
 
     <div class="hud-stats">
-      <div class="stat-pill" title="Sizning joriy lavozimingiz">
-        <span class="stat-label">Lavozim:</span>
-        <span class="stat-val emerald" id="hudRankTitle">Junior Helpdesk Operator</span>
-      </div>
-      <div class="stat-pill" title="Kompaniya sizga to'laydigan oylik maosh">
-        <span class="stat-label">Oylik Maosh:</span>
-        <span class="stat-val cyan" id="hudSalary">$1,200/oy</span>
-      </div>
-      <div class="stat-pill" title="Topshiriqlar uchun to'plangan bonus kapital">
-        <span class="stat-label">Bonus Kapital:</span>
-        <span class="stat-val gold" id="hudCapital">$0</span>
-      </div>
       <div class="stat-pill" title="Bajarilgan topshiriqlar soni (150 tadan)">
         <span class="stat-label">Bajarildi:</span>
-        <span class="stat-val" id="hudSolved">0 / 150</span>
+        <span class="stat-val emerald" id="hudSolved">0 / 150</span>
         <div class="progress-wrap">
           <div class="progress-fill" id="hudProgressFill"></div>
         </div>
@@ -49,16 +39,9 @@
     </div>
 
     <div class="hud-actions">
-      <div class="terminal-mode-switch">
-        <button class="btn mode-btn active" id="btnModeSplit" title="Standart 2 ustunli rejim">🖥️ Split</button>
-        <button class="btn mode-btn" id="btnModeCli" title="Kengaytirilgan haqiqiy Linux CLI rejimi">🐧 Katta CLI</button>
-        <button class="btn mode-btn" id="btnModeFull" title="To'liq ekran Debian konsoli (F11)">⛶ To'liq Ekran</button>
-      </div>
-      <button class="btn btn-event" id="btnTriggerEvent" title="Server xonasi va tizim hodisalari">
-        ⚡ Server Hodisasi (<span id="eventBadgeCount">Yangi</span>)
-      </button>
-      <button class="btn" id="btnOpenMap">🗺️ 150 Savol Xaritasi</button>
-      <button class="btn" id="btnResetProgress" title="Natijalarni noldan boshlash">🔄</button>
+      <button id="btnOpenDictionary" class="btn btn-dictionary" title="Barcha Linux buyruqlari qidiruvi (Ctrl+K)"><span>🔍</span> <span>Qidiruv</span></button>
+      <button class="btn" id="btnOpenMap" title="150 ta savollar xaritasi">🗺️ Xarita</button>
+      <button class="btn" id="btnResetProgress" title="Natijalarni qayta o'rnatish">🔄</button>
     </div>
   </header>
 
@@ -102,26 +85,38 @@
         </div>
       </div>
 
-      <!-- 2. KALI LINUX TERMINAL & INODE WORKBENCH (Where Diagram Sits in Database Systems) -->
+      <!-- 2-MODE SEGMENTED BAR: MASALA YECHISH VS ERKIN CLI -->
+      <div class="cli-mode-segmented-bar">
+        <button type="button" class="cli-mode-pill active" id="btnModeQuest" title="Topshiriqlar rejimi: 150 ta savolni ketma-ket yechish">
+          <span class="mode-icon">🎯</span>
+          <span class="mode-text">
+            <span class="mode-title">Masala Yechish Rejimi</span>
+            <span class="mode-sub">150 ta vazifani ketma-ket yechish</span>
+          </span>
+        </button>
+        <button type="button" class="cli-mode-pill" id="btnModeSandbox" title="Erkin CLI rejimi: Istalgan Linux buyrug'ini sinash">
+          <span class="mode-icon">💻</span>
+          <span class="mode-text">
+            <span class="mode-title">Erkin CLI Rejimi</span>
+            <span class="mode-sub">Istalgan buyruqni erkin sinash (Sandbox)</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- 2. KALI LINUX TERMINAL & INODE WORKBENCH -->
       <div class="panel-card terminal-card" id="terminalWorkbenchCard">
-        <div class="panel-header">
+        <!-- Floating high-contrast exit button for mobile/desktop when fullscreen -->
+        <button type="button" class="btn-floating-exit-fs" id="btnFloatingExitFs" title="Oddiy rejimga qaytish">✕ Chiqish</button>
+
+        <div class="panel-header terminal-panel-header">
           <div class="panel-title">
             <span>🐧</span>
-            <span id="terminalHeaderTitle">Kali Linux Terminal (UserLAnd • Debian 12)</span>
-          </div>
-          <div class="terminal-mode-switch-group">
-            <button class="terminal-mode-btn active" id="btnModeQuest" type="button" title="Topshiriqlar rejimi: Savollarni ketma-ket yechish">🎯 Topshiriqlar</button>
-            <button class="terminal-mode-btn" id="btnModeSandbox" type="button" title="Erkin CLI rejimi: Istalgan Linux buyrug'ini erkin ishlatish">💻 Erkin CLI</button>
-          </div>
-          <div class="terminal-card-tabs">
-            <button class="schema-tab active" id="tabTerminalMode" type="button">🐧 Terminal (CLI)</button>
-            <button class="schema-tab" id="tabFsMode" type="button">📂 Fayl Tizimi &amp; Inodelar</button>
+            <span id="terminalHeaderTitle">Kali Linux Terminal (Debian 12)</span>
+            <span class="terminal-active-mode-badge" id="terminalActiveModeBadge">🎯 Masalalar</span>
           </div>
           <div class="terminal-card-actions">
-            <button class="btn btn-xs" id="btnCardBatafsil" type="button" title="Buyruq va bayroqlar batafsil tahlili">📖 Batafsil</button>
-            <button class="btn btn-xs" id="btnCardHint" type="button" title="Yordamchi maslahat">💡 Maslahat</button>
             <button class="btn btn-xs" id="btnClearTerminal" type="button" title="Terminalni tozalash">🧹 Tozalash</button>
-            <button class="btn btn-xs btn-expand-terminal" id="btnToggleFullscreen" type="button" title="To'liq ekranga yoyish (F11)">⛶ To'liq Ekran</button>
+            <button class="btn btn-xs btn-expand-terminal" id="btnToggleFullscreen" type="button" title="Katta ekranga yoyish">⛶ Katta Ekran</button>
           </div>
         </div>
 
@@ -131,16 +126,13 @@
             <span class="kt-fs-logo">🐧</span>
             <span class="kt-fs-brand">KALI LINUX</span>
             <span class="kt-fs-task-badge" id="ktFsTaskBadge">#1: pwd</span>
-            <span class="kt-fs-progress" id="ktFsProgress">0 / 150</span>
           </div>
           <div class="kt-fs-right">
-            <button class="btn btn-xs" id="btnFsToggleMode" type="button">🎯 Rejim: Topshiriqlar</button>
+            <button class="btn btn-xs" id="btnFsToggleMode" type="button">🎯 Masala Rejimi</button>
             <button class="btn btn-xs" id="btnFsTask" type="button">📋 Vazifa</button>
             <button class="btn btn-xs" id="btnFsBatafsil" type="button">📖 Batafsil</button>
             <button class="btn btn-xs" id="btnFsHint" type="button">💡 Maslahat</button>
-            <button class="btn btn-xs" id="btnFsPreview" type="button">👁 Natija</button>
-            <button class="btn btn-xs" id="btnFsMap" type="button">🗺️ Xarita</button>
-            <button class="btn btn-xs btn-exit-fs" id="btnExitFullscreen" type="button" title="Oddiy rejimga qaytish (Esc)">✕ Oddiy Ko'rinish (Esc)</button>
+            <button class="btn btn-xs btn-exit-fs" id="btnExitFullscreen" type="button" title="Oddiy rejimga qaytish (Esc)">✕ Chiqish</button>
           </div>
         </div>
 
@@ -252,46 +244,12 @@
           <!-- Tags list -->
           <div class="token-bar" id="qTagsList" style="margin-bottom: 4px;"></div>
 
-          <!-- COMMAND & FLAG ANATOMY CARD (INTERACTIVE ACCORDION - BATAFSIL) -->
-          <div class="cmd-info-card" id="cmdInfoCard">
-            <button type="button" class="cmd-card-toggle" id="btnToggleCmdCard" onclick="window.toggleCmdInfoCard()">
-              <div class="cmd-card-toggle-left">
-                <span class="cmd-badge-icon">📖</span>
-                <span class="cmd-badge-title">BUYRUQ &amp; BAYROQLAR TAHLILI</span>
-                <code class="cmd-badge-code" id="cmdCardCode">pwd</code>
-              </div>
-              <div class="cmd-card-toggle-right">
-                <span class="cmd-toggle-hint" id="cmdCardToggleHint">Batafsil ko'rish</span>
-                <span class="cmd-toggle-arrow" id="cmdCardToggleArrow">▾</span>
-              </div>
+          <!-- BATAFSIL (ANATOMIYA & NAZARIYA) PROMINENT BUTTON -->
+          <div class="batafsil-btn-wrap">
+            <button type="button" class="btn btn-batafsil" id="btnOpenBatafsil">
+              <span class="btn-icon">📖</span>
+              <span class="btn-label">Batafsil: Buyruq va Bayroqlar Tahlili (5 Qadam)</span>
             </button>
-            <div class="cmd-card-body" id="cmdCardBody" style="display: none;"></div>
-          </div>
-
-          <!-- Token Quick-Bar for Linux commands -->
-          <div class="token-bar" id="tokenBar" style="margin-bottom: 8px;">
-            <button class="token-btn" type="button" onclick="insertBashToken('pwd')">pwd</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('whoami')">whoami</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('hostname')">hostname</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('cd ')">cd</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('cd ~')">cd ~</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('ls -la')">ls -la</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('ls -lh')">ls -lh</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('mkdir -p ')">mkdir -p</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('touch -d ')">touch -d</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('cat > ')">cat ></button>
-            <button class="token-btn" type="button" onclick="insertBashToken('cat >> ')">cat >></button>
-            <button class="token-btn" type="button" onclick="insertBashToken('head -n 5 ')">head -n</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('tail -n 10 ')">tail -n</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('wc -l ')">wc -l</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('cp -r ')">cp -r</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('mv ')">mv</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('rm -r ')">rm -r</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('ln ')">ln (hard)</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('ln -s ')">ln -s (soft)</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('find . -name ')">find -name</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('find . -mtime -7')">find -mtime</button>
-            <button class="token-btn" type="button" onclick="insertBashToken('stat ')">stat</button>
           </div>
 
           <!-- Action Buttons -->
@@ -479,6 +437,7 @@
   <script src="data/questions_51_100.js"></script>
   <script src="data/questions_101_150.js"></script>
   <script src="engine2d.js"></script>
+  <script src="../os_dictionary.js"></script>
   <script src="game.js"></script>
 
 </body>

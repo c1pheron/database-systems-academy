@@ -284,6 +284,10 @@
     el.btnFsPreview = document.getElementById("btnFsPreview");
     el.btnFsMap = document.getElementById("btnFsMap");
     el.btnExitFullscreen = document.getElementById("btnExitFullscreen");
+    el.btnFloatingExitFs = document.getElementById("btnFloatingExitFs");
+    el.btnOpenBatafsil = document.getElementById("btnOpenBatafsil");
+    el.terminalActiveModeBadge = document.getElementById("terminalActiveModeBadge");
+    el.btnOpenDictionary = document.getElementById("btnOpenDictionary");
 
     el.kaliScreen = document.getElementById("kaliScreen");
     el.kaliStream = document.getElementById("kaliStream");
@@ -1003,12 +1007,14 @@
     if (mode === "sandbox") {
       if (el.btnModeQuest) el.btnModeQuest.classList.remove("active");
       if (el.btnModeSandbox) el.btnModeSandbox.classList.add("active");
+      if (el.terminalActiveModeBadge) el.terminalActiveModeBadge.textContent = "💻 Erkin CLI";
       if (el.btnFsToggleMode) el.btnFsToggleMode.textContent = "💻 Rejim: Erkin CLI";
-      printKaliInfo("┌──[ 💻 ERKIN SANDBOX REJIMI FAOL ]──────────────────────────────────\n│ Istalgan Linux buyrug'ini erkin sinab ko'rishingiz mumkin (pwd, ls, mkdir, ...)\n│ Savollarga qaytish uchun 'quest' deb yozing yoki [🎯 Topshiriqlar] tugmasini bosing.\n└──────────────────────────────────────────────────────────────────");
+      printKaliInfo("┌──[ 💻 ERKIN LINUX SANDBOX REJIMI FAOL ]──────────────────────────────\n│ Istalgan Linux buyrug'ini cheklovsiz sinab ko'rishingiz mumkin (pwd, ls, mkdir, ...)\n│ Savollarga qaytish uchun 'quest' deb yozing yoki [🎯 Masala Yechish] tugmasini bosing.\n└──────────────────────────────────────────────────────────────────");
     } else {
       if (el.btnModeQuest) el.btnModeQuest.classList.add("active");
       if (el.btnModeSandbox) el.btnModeSandbox.classList.remove("active");
-      if (el.btnFsToggleMode) el.btnFsToggleMode.textContent = "🎯 Rejim: Topshiriqlar";
+      if (el.terminalActiveModeBadge) el.terminalActiveModeBadge.textContent = "🎯 Masalalar";
+      if (el.btnFsToggleMode) el.btnFsToggleMode.textContent = "🎯 Rejim: Masala";
       printKaliInfo(`[🎯 TOPSHIRIQLAR REJIMI]: Joriy vazifa #${state.currentQuestionId} tekshiriladi.`);
     }
     focusKaliInput();
@@ -1361,6 +1367,17 @@ permitted by applicable law.
     if (el.btnExitFullscreen) {
       el.btnExitFullscreen.addEventListener("click", () => {
         toggleTerminalFullscreen(false);
+      });
+    }
+    if (el.btnFloatingExitFs) {
+      el.btnFloatingExitFs.addEventListener("click", () => {
+        toggleTerminalFullscreen(false);
+      });
+    }
+    if (el.btnOpenBatafsil && el.modalKtBatafsil) {
+      el.btnOpenBatafsil.addEventListener("click", () => {
+        SoundFX.playKey();
+        el.modalKtBatafsil.classList.add("active");
       });
     }
 
