@@ -498,9 +498,83 @@ _scope.RELATIONAL_GRADER = {
   }
 };
 
+// ============================================================================
+// RELATIONAL SCHEMA DRAW.IO XML EXPORTER
+// ============================================================================
+_scope.RELATIONAL_DRAWIO_EXPORTER = {
+  exportToXml(schema) {
+    const tables = schema.tables || [];
+    const references = schema.references || [];
+
+    let cells = '';
+    let cellId = 2;
+    const idMap = {};
+
+    tables.forEach(tbl => {
+      const tId = `tbl_${cellId++}`;
+      idMap[tbl.tableName || tbl.name] = tId;
+      const x = tbl.x || 100;
+      const y = tbl.y || 100;
+      const w = tbl.width || 200;
+      const h = Math.max(90, 40 + (tbl.columns || []).length * 22);
+
+      let colLines = (tbl.columns || []).map(c => {
+        let label = c.name;
+        if (c.isPK && c.isFK) label = `[PK,FK] ${label}`;
+        else if (c.isPK) label = `[PK] ${label}`;
+        else if (c.isFK) label = `[FK] ${label}`;
+        if (c.type) label += ` : ${c.type}`;
+        return label;
+      }).join('&#10;');
+
+      const label = `&lt;b&gt;${tbl.tableName || tbl.name}&lt;/b&gt;&#10;--------------------------------&#10;${colLines}`;
+      const style = "shape=rectangle;whiteSpace=wrap;html=1;fontFamily=Helvetica;strokeWidth=1.5;strokeColor=#c8a96e;fillColor=#251e18;fontColor=#f2ede4;align=left;spacingLeft=8;";
+
+      cells += `<mxCell id="${tId}" value="${label}" style="${style}" vertex="1" parent="1"><mxGeometry x="${x}" y="${y}" width="${w}" height="${h}" as="geometry"/></mxCell>\n`;
+    });
+
+    // Foreign Key Crow's Foot edges
+    tables.forEach(childTable => {
+      (childTable.columns || []).forEach(col => {
+        if (col.isFK && col.references) {
+          const rId = `edge_${cellId++}`;
+          const childId = idMap[childTable.tableName || childTable.name] || '1';
+          const parentId = idMap[col.references.table] || '1';
+          cells += `<mxCell id="${rId}" value="${col.name} → ${col.references.column || 'id'}" style="endArrow=ERmany;startArrow=ERmandOne;html=1;strokeColor=#d19a52;strokeWidth=2;" edge="1" parent="1" source="${parentId}" target="${childId}">
+            <mxGeometry relative="1" as="geometry"/>
+          </mxCell>\n`;
+        }
+      });
+    });
+
+    references.forEach(ref => {
+      const rId = `edge_${cellId++}`;
+      const childId = idMap[ref.fromTable] || '1';
+      const parentId = idMap[ref.toTable] || '1';
+      cells += `<mxCell id="${rId}" value="${ref.fromCol} → ${ref.toCol}" style="endArrow=ERmany;startArrow=ERmandOne;html=1;strokeColor=#d19a52;strokeWidth=2;" edge="1" parent="1" source="${parentId}" target="${childId}">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>\n`;
+    });
+
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram name="Relational Schema">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        ${cells}
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>`;
+  }
+};
+
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     RELATIONAL_CATALOG: _scope.RELATIONAL_CATALOG,
-    RELATIONAL_GRADER: _scope.RELATIONAL_GRADER
+    RELATIONAL_GRADER: _scope.RELATIONAL_GRADER,
+    RELATIONAL_DRAWIO_EXPORTER: _scope.RELATIONAL_DRAWIO_EXPORTER
   };
 }

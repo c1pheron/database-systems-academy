@@ -379,7 +379,8 @@ input, textarea, select, [contenteditable="true"] {
 /* ============================================================================
    RELATIONAL SCHEMA CANVAS (DRAW.IO TABLE BOXES & CROW'S FOOT CONNECTORS)
    ============================================================================ */
-.rel-toolbar {
+.rel-toolbar,
+.eer-toolbar {
   background: #1f1a16;
   border-bottom: 1px solid var(--border-subtle);
   padding: 8px 12px;
@@ -390,14 +391,16 @@ input, textarea, select, [contenteditable="true"] {
   flex-wrap: wrap;
 }
 
-.rel-tool-group {
+.rel-tool-group,
+.eer-tool-group {
   display: flex;
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
 }
 
-.rel-chip-btn {
+.rel-chip-btn,
+.eer-chip-btn {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
@@ -412,7 +415,8 @@ input, textarea, select, [contenteditable="true"] {
   gap: 4px;
 }
 
-.rel-chip-btn:hover {
+.rel-chip-btn:hover,
+.eer-chip-btn:hover {
   background: var(--bg-card-hover);
   border-color: var(--accent-gold);
   color: var(--text-primary);
@@ -430,12 +434,23 @@ input, textarea, select, [contenteditable="true"] {
   user-select: none;
 }
 
+.canvas-viewport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
 #relCanvasSvg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: visible;
   pointer-events: none;
   z-index: 2;
 }
@@ -447,12 +462,102 @@ input, textarea, select, [contenteditable="true"] {
   width: 100%;
   height: 100%;
   z-index: 5;
+  pointer-events: auto;
+}
+
+/* DRAW.IO CONNECTION PORTS (TOP, RIGHT, BOTTOM, LEFT) */
+.port-arrow {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #2b221a;
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold-bright);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  cursor: crosshair;
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease, background 0.18s ease;
+  z-index: 25;
+  pointer-events: auto;
+  user-select: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.rel-table-box:hover .port-arrow {
+  opacity: 0.85;
+}
+
+.port-arrow:hover {
+  opacity: 1 !important;
+  background: var(--accent-gold);
+  color: #14110e;
+  transform: scale(1.25);
+  box-shadow: 0 0 8px var(--accent-gold-bright);
+}
+
+.port-arrow.top { top: -9px; left: calc(50% - 9px); }
+.port-arrow.right { right: -9px; top: calc(50% - 9px); }
+.port-arrow.bottom { bottom: -9px; left: calc(50% - 9px); }
+.port-arrow.left { left: -9px; top: calc(50% - 9px); }
+
+/* ZOOM CONTROLS (DRAW.IO CONTROLS) */
+.zoom-controls {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(26, 22, 19, 0.92);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-sm);
+  padding: 3px 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  backdrop-filter: blur(6px);
+  pointer-events: auto;
+}
+
+.btn-zoom {
+  background: #251e18;
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  color: var(--text-primary);
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.btn-zoom:hover {
+  background: var(--accent-gold);
+  color: #14110e;
+  border-color: var(--accent-gold-bright);
+}
+
+.zoom-level-text {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-gold);
+  min-width: 38px;
+  text-align: center;
+  user-select: none;
 }
 
 /* RELATIONAL TABLE BOX (DRAW.IO STYLE) */
 .rel-table-box {
   position: absolute;
-  min-width: 180px;
+  min-width: 190px;
   background: #251e18;
   border: 1.5px solid var(--border-gold);
   border-radius: 6px;
@@ -461,7 +566,6 @@ input, textarea, select, [contenteditable="true"] {
   user-select: none;
   transition: box-shadow 0.15s ease, border-color 0.15s ease;
   touch-action: none;
-  overflow: hidden;
 }
 
 .rel-table-box:hover {
@@ -483,6 +587,54 @@ input, textarea, select, [contenteditable="true"] {
   color: var(--accent-gold-bright);
   text-align: center;
   letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.table-title-text {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entity-actions {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.btn-node-act {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(200, 169, 110, 0.28);
+  color: var(--text-secondary);
+  border-radius: 3px;
+  width: 19px;
+  height: 19px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.btn-node-act:hover {
+  background: var(--accent-gold);
+  color: #14110e;
+  border-color: var(--accent-gold-bright);
+}
+
+.btn-node-act.del:hover {
+  background: #a84242;
+  color: #fff;
+  border-color: #e57373;
 }
 
 .rel-table-body {
@@ -492,7 +644,7 @@ input, textarea, select, [contenteditable="true"] {
 
 .rel-row {
   display: grid;
-  grid-template-columns: 52px 1fr;
+  grid-template-columns: 56px 1fr;
   border-bottom: 1px solid rgba(200, 169, 110, 0.12);
   font-size: 11px;
 }
@@ -532,6 +684,49 @@ input, textarea, select, [contenteditable="true"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 4px;
+}
+
+.attr-name {
+  outline: none;
+  cursor: text;
+  padding: 1px 4px;
+  border-radius: 2px;
+  border-bottom: 1px dashed transparent;
+  flex: 1;
+  font-family: inherit;
+  color: var(--text-primary);
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+
+.attr-name:focus {
+  border-bottom-color: var(--accent-gold);
+  background: rgba(200, 169, 110, 0.15);
+}
+
+.btn-attr-badge {
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-attr-del {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 10px;
+  padding: 0 3px;
+  opacity: 0.4;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.rel-row:hover .btn-attr-del {
+  opacity: 1;
+}
+
+.btn-attr-del:hover {
+  color: #e57373;
 }
 
 .rel-tag-pill {

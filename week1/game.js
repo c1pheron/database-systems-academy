@@ -117,13 +117,21 @@
     // 6. Bind User Controls
     bindControls();
 
-    // 7. Telegram WebApp Integration
+    // 7. Telegram WebApp Integration & Input Focus Fix
     if (window.Telegram && window.Telegram.WebApp) {
       try {
         window.Telegram.WebApp.ready();
         window.Telegram.WebApp.expand();
       } catch (e) {}
     }
+
+    // Explicit focus for inputs/textarea/contenteditable on Telegram WebApp
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target && (target.tagName === 'TEXTAREA' || target.tagName === 'INPUT' || target.getAttribute('contenteditable') === 'true')) {
+        target.focus();
+      }
+    });
   });
 
   // ==========================================================================

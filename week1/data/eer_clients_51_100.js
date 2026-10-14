@@ -1,6 +1,6 @@
 // ============================================================================
 // DATABASE SYSTEMS ACADEMY — 1-HAFTA: KONSEPTUAL EER MODEL VA DIAGRAMMALAR
-// O'zgaruvchi: EER_CLIENTS_51_100 (50 ta Amaliy Vizual EER Keyslari)
+// O'zgaruvchi: EER_CLIENTS_51_100 (50 ta Amaliy Vizual EER Keyslari - Jumboq Rejimi)
 // ============================================================================
 
 var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
@@ -16,7 +16,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "retailer",
     "title": "Aktyor va Film: 'ActsIn' Aloqasi (Role Atributi)",
     "story": "'Actor' va 'Movie' o'rtasida ko'pdan-ko'pga 'ActsIn' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
-    "taskUz": "'Actor' va 'Movie' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "taskUz": "'Actor' va 'Movie' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -72,7 +72,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Actor' (0..*) va 'Movie' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Actor' (0..*) va 'Movie' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Actor' va 'Movie' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
   },
@@ -86,7 +86,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "retailer",
     "title": "Foydalanuvchi va Guruh: 'MemberOf' Aloqasi (JoinedDate Atributi)",
     "story": "'User' va 'UserGroup' o'rtasida ko'pdan-ko'pga 'MemberOf' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
-    "taskUz": "'User' va 'UserGroup' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "taskUz": "'User' va 'UserGroup' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -142,7 +142,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'User' (0..*) va 'UserGroup' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'User' (0..*) va 'UserGroup' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'User' va 'UserGroup' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
   },
@@ -156,7 +156,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "retailer",
     "title": "Avtomobil va Xizmat Safari: 'Drives' Aloqasi (Mileage Atributi)",
     "story": "'Driver' va 'Route' o'rtasida ko'pdan-ko'pga 'Drives' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
-    "taskUz": "'Driver' va 'Route' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "taskUz": "'Driver' va 'Route' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -212,7 +212,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Driver' (0..*) va 'Route' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Driver' (0..*) va 'Route' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Driver' va 'Route' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
   },
@@ -226,7 +226,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "retailer",
     "title": "Dasturchi va Repozitoriy: 'Contributes' Aloqasi (Commits Atributi)",
     "story": "'Developer' va 'Repository' o'rtasida ko'pdan-ko'pga 'Contributes' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
-    "taskUz": "'Developer' va 'Repository' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "taskUz": "'Developer' va 'Repository' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -282,7 +282,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Developer' (0..*) va 'Repository' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Developer' (0..*) va 'Repository' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Developer' va 'Repository' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
   },
@@ -296,7 +296,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "retailer",
     "title": "Sayyoh va Mehmonxona: 'StaysAt' Aloqasi (CheckIn Atributi)",
     "story": "'Tourist' va 'Hotel' o'rtasida ko'pdan-ko'pga 'StaysAt' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
-    "taskUz": "'Tourist' va 'Hotel' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "taskUz": "'Tourist' va 'Hotel' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -352,7 +352,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Tourist' (0..*) va 'Hotel' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Tourist' (0..*) va 'Hotel' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Tourist' va 'Hotel' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
   },
@@ -366,7 +366,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "retailer",
     "title": "Xaridor va Do'kon Cheki: 'Purchases' Aloqasi (Discount Atributi)",
     "story": "'Buyer' va 'Receipt' o'rtasida ko'pdan-ko'pga 'Purchases' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
-    "taskUz": "'Buyer' va 'Receipt' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "taskUz": "'Buyer' va 'Receipt' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -422,7 +422,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Buyer' (0..*) va 'Receipt' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Buyer' (0..*) va 'Receipt' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Buyer' va 'Receipt' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
   },
@@ -436,7 +436,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "retailer",
     "title": "Dori va Kasallik: 'Treats' Aloqasi (Dosage Atributi)",
     "story": "'Drug' va 'Disease' o'rtasida ko'pdan-ko'pga 'Treats' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
-    "taskUz": "'Drug' va 'Disease' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "taskUz": "'Drug' va 'Disease' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -492,7 +492,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Drug' (0..*) va 'Disease' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Drug' (0..*) va 'Disease' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Drug' va 'Disease' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
   },
@@ -506,7 +506,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "retailer",
     "title": "O'qituvchi va Sinf: 'Supervises' Aloqasi (AcademicYear Atributi)",
     "story": "'Teacher' va 'ClassRoom' o'rtasida ko'pdan-ko'pga 'Supervises' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
-    "taskUz": "'Teacher' va 'ClassRoom' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "taskUz": "'Teacher' va 'ClassRoom' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -562,7 +562,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Teacher' (0..*) va 'ClassRoom' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Teacher' (0..*) va 'ClassRoom' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Teacher' va 'ClassRoom' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
   },
@@ -576,7 +576,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "retailer",
     "title": "Kompaniya va Homiylik: 'Sponsors' Aloqasi (Amount Atributi)",
     "story": "'Company' va 'Event' o'rtasida ko'pdan-ko'pga 'Sponsors' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
-    "taskUz": "'Company' va 'Event' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "taskUz": "'Company' va 'Event' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -632,7 +632,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Company' (0..*) va 'Event' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Company' (0..*) va 'Event' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Company' va 'Event' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
   },
@@ -646,7 +646,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "retailer",
     "title": "4-Qavat Final Bossi: Xalqaro Logistika Tranziti ('Transits' - FreightCost)",
     "story": "'Carrier' va 'CargoHub' o'rtasida ko'pdan-ko'pga 'Transits' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
-    "taskUz": "'Carrier' va 'CargoHub' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "taskUz": "'Carrier' va 'CargoHub' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -702,7 +702,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Carrier' (0..*) va 'CargoHub' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Carrier' (0..*) va 'CargoHub' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Carrier' va 'CargoHub' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
   },
@@ -716,7 +716,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Xodim va Rahbar Rekursiv Aloqasi (Supervises)",
     "story": "'Employee' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Supervises' munosabati mavjud. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
-    "taskUz": "'Employee' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'Employee' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -753,7 +753,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Employee' (0..1) va 'Employee' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Employee' (0..1) va 'Employee' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Employee' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -767,7 +767,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Ierarxik Katalog Daraxti Rekursiv Aloqasi (SubCategoryOf)",
     "story": "'Category' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'SubCategoryOf' munosabati mavjud. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
-    "taskUz": "'Category' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'Category' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -804,7 +804,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Category' (0..1) va 'Category' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Category' (0..1) va 'Category' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Category' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -818,7 +818,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Zavod Detallari Rekursiv *:* Yig'masi (BOM - Contains)",
     "story": "'Part' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Contains' munosabati mavjud: bir tomon, ikkinchi tomon esa.",
-    "taskUz": "'Part' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'Part' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -855,7 +855,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Part' (0..*) va 'Part' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Part' (0..*) va 'Part' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Part' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -869,7 +869,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Universitet Fani Prerekvizitlari Rekursiv Aloqasi (Prerequisite)",
     "story": "'Course' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Prerequisite' munosabati mavjud: bir tomon, ikkinchi tomon esa.",
-    "taskUz": "'Course' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'Course' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -906,7 +906,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Course' (0..*) va 'Course' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Course' (0..*) va 'Course' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Course' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -920,7 +920,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Ijtimoiy Tarmoq Do'stlik Rekursiv Aloqasi (FriendOf)",
     "story": "'User' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'FriendOf' munosabati mavjud: bir tomon, ikkinchi tomon esa.",
-    "taskUz": "'User' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'User' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -957,7 +957,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'User' (0..*) va 'User' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'User' (0..*) va 'User' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'User' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -971,7 +971,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Korxona Tashkiliy Bo'linmalar Daraxti (SubDivisionOf)",
     "story": "'Division' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'SubDivisionOf' munosabati mavjud. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
-    "taskUz": "'Division' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'Division' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1008,7 +1008,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Division' (0..1) va 'Division' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Division' (0..1) va 'Division' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Division' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -1022,7 +1022,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Tarixiy Voqealar Sabab-Oqibat Rekursiv Aloqasi (LeadsTo)",
     "story": "'HistoricalEvent' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'LeadsTo' munosabati mavjud: bir tomon, ikkinchi tomon esa.",
-    "taskUz": "'HistoricalEvent' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'HistoricalEvent' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1059,7 +1059,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'HistoricalEvent' (0..*) va 'HistoricalEvent' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'HistoricalEvent' (0..*) va 'HistoricalEvent' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'HistoricalEvent' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -1073,7 +1073,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Moliya Balans Moddalari Ierarxiyasi (SubAccountOf)",
     "story": "'Account' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'SubAccountOf' munosabati mavjud. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
-    "taskUz": "'Account' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'Account' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1110,7 +1110,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Account' (0..1) va 'Account' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Account' (0..1) va 'Account' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Account' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -1124,7 +1124,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Dasturiy Komponentlar Paketlar Daraxti (DependsOn)",
     "story": "'Component' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'DependsOn' munosabati mavjud: bir tomon, ikkinchi tomon esa.",
-    "taskUz": "'Component' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'Component' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1161,7 +1161,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Component' (0..*) va 'Component' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Component' (0..*) va 'Component' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Component' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -1175,7 +1175,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Avtomobil Ehtiyot Qismlari O'rnini Bosish (Replaces)",
     "story": "'SparePart' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Replaces' munosabati mavjud. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
-    "taskUz": "'SparePart' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'SparePart' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1212,7 +1212,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'SparePart' (0..1) va 'SparePart' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'SparePart' (0..1) va 'SparePart' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'SparePart' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -1226,7 +1226,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Xizmat Vazifalari Ketma-ketligi Rekursiv Aloqasi (Follows)",
     "story": "'Task' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Follows' munosabati mavjud. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
-    "taskUz": "'Task' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'Task' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1263,7 +1263,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Task' (0..1) va 'Task' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Task' (0..1) va 'Task' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Task' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -1277,7 +1277,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Kadrlar Almashinuvi Merosxo'rlik Tizimi (Succeeds)",
     "story": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Succeeds' munosabati mavjud. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
-    "taskUz": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'Staff' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1314,7 +1314,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Staff' (0..1) va 'Staff' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Staff' (0..1) va 'Staff' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -1328,7 +1328,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Geografik Hududlar Ma'muriy Daraxti (BelongsToRegion)",
     "story": "'Region' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'BelongsToRegion' munosabati mavjud. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
-    "taskUz": "'Region' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'Region' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1365,7 +1365,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Region' (0..1) va 'Region' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Region' (0..1) va 'Region' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Region' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -1379,7 +1379,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "Elektron Pochta Xatlari Zanjiri (ReplyToThread)",
     "story": "'EmailMessage' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'ReplyToThread' munosabati mavjud. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
-    "taskUz": "'EmailMessage' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'EmailMessage' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1416,7 +1416,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'EmailMessage' (0..1) va 'EmailMessage' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'EmailMessage' (0..1) va 'EmailMessage' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'EmailMessage' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -1430,7 +1430,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "ceo",
     "title": "5-Qavat Bossi: Mentorlik va Jamoa Rahbarligi Rekursiv Tizimi",
     "story": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Mentors' munosabati mavjud. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
-    "taskUz": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "taskUz": "'Staff' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1467,7 +1467,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Staff' (0..1) va 'Staff' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Staff' (0..1) va 'Staff' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
   },
@@ -1481,7 +1481,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "O'qitish Taqsimoti Ternary Rombi (Teaches: Course, Instructor, Semester)",
     "story": "'Course', 'Instructor' va 'Semester' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Course', 'Instructor', 'Semester' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1550,7 +1550,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Course' (0..*) va 'Instructor' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Course' (0..*) va 'Instructor' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Course', 'Instructor', 'Semester' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -1564,7 +1564,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Ta'minot Shartnomasi Ternary Rombi (Supplies: Supplier, Part, Project)",
     "story": "'Supplier', 'Part' va 'Project' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Supplier', 'Part', 'Project' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1633,7 +1633,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Supplier' (0..*) va 'Part' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Supplier' (0..*) va 'Part' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Supplier', 'Part', 'Project' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -1647,7 +1647,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Tibbiy Davolash Rejasi (Prescribes: Doctor, Patient, Drug)",
     "story": "'Doctor', 'Patient' va 'Drug' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Doctor', 'Patient', 'Drug' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1716,7 +1716,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Doctor' (0..*) va 'Patient' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Doctor' (0..*) va 'Patient' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Doctor', 'Patient', 'Drug' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -1730,7 +1730,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Sug'urta Da'vosi Ko'rib Chiqilishi (Assesses: Policy, Claim, Agent)",
     "story": "'Policy', 'Claim' va 'Agent' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Policy', 'Claim', 'Agent' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1799,7 +1799,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Policy' (0..*) va 'Claim' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Policy' (0..*) va 'Claim' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Policy', 'Claim', 'Agent' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -1813,7 +1813,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Avtomobil Ijarasi Shartnomasi (Rents: Customer, Vehicle, AgencyBranch)",
     "story": "'Customer', 'Vehicle' va 'AgencyBranch' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Customer', 'Vehicle', 'AgencyBranch' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1882,7 +1882,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Customer' (0..*) va 'Vehicle' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Customer' (0..*) va 'Vehicle' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Customer', 'Vehicle', 'AgencyBranch' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -1896,7 +1896,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Qurilish Obyekti Mashina Taqsimoti (Deploys: Site, Machinery, Operator)",
     "story": "'Site', 'Machinery' va 'Operator' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Site', 'Machinery', 'Operator' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1965,7 +1965,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Site' (0..*) va 'Machinery' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Site' (0..*) va 'Machinery' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Site', 'Machinery', 'Operator' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -1979,7 +1979,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Sport Musobaqasi Hakamligi (Officiates: Referee, Match, Tournament)",
     "story": "'Referee', 'Match' va 'Tournament' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Referee', 'Match', 'Tournament' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2048,7 +2048,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Referee' (0..*) va 'Match' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Referee' (0..*) va 'Match' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Referee', 'Match', 'Tournament' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -2062,7 +2062,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Bank Kredit Komissiyasi (Evaluates: LoanApp, Officer, Committee)",
     "story": "'LoanApp', 'Officer' va 'Committee' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'LoanApp', 'Officer', 'Committee' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2131,7 +2131,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'LoanApp' (0..*) va 'Officer' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'LoanApp' (0..*) va 'Officer' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'LoanApp', 'Officer', 'Committee' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -2145,7 +2145,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Yuk Bojxona Tekshiruvi (Inspects: Cargo, Inspector, CustomsPost)",
     "story": "'Cargo', 'Inspector' va 'CustomsPost' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Cargo', 'Inspector', 'CustomsPost' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2214,7 +2214,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Cargo' (0..*) va 'Inspector' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Cargo' (0..*) va 'Inspector' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Cargo', 'Inspector', 'CustomsPost' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -2228,7 +2228,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Laboratoriya Namunasi Tahlili (Tests: Sample, Chemist, Equipment)",
     "story": "'Sample', 'Chemist' va 'Equipment' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Sample', 'Chemist', 'Equipment' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2297,7 +2297,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Sample' (0..*) va 'Chemist' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Sample' (0..*) va 'Chemist' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Sample', 'Chemist', 'Equipment' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -2311,7 +2311,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Mehmonxona Xona Bandligi (Books: Guest, Room, BookingAgent)",
     "story": "'Guest', 'Room' va 'BookingAgent' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Guest', 'Room', 'BookingAgent' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2380,7 +2380,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Guest' (0..*) va 'Room' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Guest' (0..*) va 'Room' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Guest', 'Room', 'BookingAgent' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -2394,7 +2394,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Xalqaro Parvoz Ekipaji (Assigns: Flight, Pilot, Aircraft)",
     "story": "'Flight', 'Pilot' va 'Aircraft' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Flight', 'Pilot', 'Aircraft' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2463,7 +2463,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Flight' (0..*) va 'Pilot' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Flight' (0..*) va 'Pilot' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Flight', 'Pilot', 'Aircraft' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -2477,7 +2477,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Kinofilm Kasting Taqsimoti (Casts: Movie, Role, Actor)",
     "story": "'Movie', 'Role' va 'Actor' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Movie', 'Role', 'Actor' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2546,7 +2546,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Movie' (0..*) va 'Role' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Movie' (0..*) va 'Role' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Movie', 'Role', 'Actor' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -2560,7 +2560,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "Zavod Mahsulotini Qadoqlash (Packs: Product, PackagingLine, Operator)",
     "story": "'Product', 'PackagingLine' va 'Operator' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Product', 'PackagingLine', 'Operator' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2629,7 +2629,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Product' (0..*) va 'PackagingLine' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Product' (0..*) va 'PackagingLine' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Product', 'PackagingLine', 'Operator' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -2643,7 +2643,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "vicechancellor",
     "title": "6-Qavat Bossi: Festival Chiqishlari Ternary Tizimi (Artist, Stage, FestivalDay)",
     "story": "'Artist', 'Stage' va 'FestivalDay' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
-    "taskUz": "'Artist', 'Stage', 'FestivalDay' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2712,7 +2712,7 @@ _scope.EER_CLIENTS_51_100 = [
         }
       ]
     },
-    "hint": "'Artist' (0..*) va 'Stage' (0..*) ni 'Aloqa Bog'lash' orqali ulang va {PK} kalitini bosishni unutmang.",
+    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Artist' (0..*) va 'Stage' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
     "task": "'Artist', 'Stage', 'FestivalDay' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   },
@@ -2726,7 +2726,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "architect",
     "title": "Xodimlar Ixtisoslashuvi: Soatbay va Oylik ({Mandatory, Or})",
     "story": "'Employee' superklassi ostida 'HourlyEmp' va 'SalariedEmp' subklasslari mavjud. Cheklov turi: '{Mandatory, Or}'.",
-    "taskUz": "'Employee' superklassi va uning subklasslarini ('HourlyEmp', 'SalariedEmp') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "taskUz": "'Employee' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
     "starterDiagram": {
       "entities": [
         {
@@ -2764,7 +2764,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2782,7 +2783,7 @@ _scope.EER_CLIENTS_51_100 = [
         ]
       }
     },
-    "hint": "Subklass oynasini oching: superklass qilib 'Employee'ni tanlang, '{Mandatory, Or}' cheklovini tanlang va pastdagi subklasslarni belgilang.",
+    "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Employee' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
     "task": "'Employee' superklassi va uning subklasslarini ('HourlyEmp', 'SalariedEmp') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
   },
@@ -2796,7 +2797,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "architect",
     "title": "Transport Vositalari Ierarxiyasi ({Mandatory, Or})",
     "story": "'Vehicle' superklassi ostida 'Car' va 'Truck' subklasslari mavjud. Cheklov turi: '{Mandatory, Or}'.",
-    "taskUz": "'Vehicle' superklassi va uning subklasslarini ('Car', 'Truck') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "taskUz": "'Vehicle' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
     "starterDiagram": {
       "entities": [
         {
@@ -2834,7 +2835,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2852,7 +2854,7 @@ _scope.EER_CLIENTS_51_100 = [
         ]
       }
     },
-    "hint": "Subklass oynasini oching: superklass qilib 'Vehicle'ni tanlang, '{Mandatory, Or}' cheklovini tanlang va pastdagi subklasslarni belgilang.",
+    "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Vehicle' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
     "task": "'Vehicle' superklassi va uning subklasslarini ('Car', 'Truck') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
   },
@@ -2866,7 +2868,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "architect",
     "title": "Universitet Xodimlari Qisman Ixtisoslashuvi ({Optional, Or})",
     "story": "'Person' superklassi ostida 'Staff' va 'Student' subklasslari mavjud. Cheklov turi: '{Optional, Or}'.",
-    "taskUz": "'Person' superklassi va uning subklasslarini ('Staff', 'Student') doskada chizing hamda '{Optional, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "taskUz": "'Person' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
     "starterDiagram": {
       "entities": [
         {
@@ -2904,7 +2906,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2922,7 +2925,7 @@ _scope.EER_CLIENTS_51_100 = [
         ]
       }
     },
-    "hint": "Subklass oynasini oching: superklass qilib 'Person'ni tanlang, '{Optional, Or}' cheklovini tanlang va pastdagi subklasslarni belgilang.",
+    "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Person' ostidagi '{Optional, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
     "task": "'Person' superklassi va uning subklasslarini ('Staff', 'Student') doskada chizing hamda '{Optional, Or}' ixtisoslashuv cheklovini o'rnating."
   },
@@ -2936,7 +2939,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "architect",
     "title": "Bank Hisob Varaqlari: Omonat va Joriy ({Mandatory, Or})",
     "story": "'Account' superklassi ostida 'SavingsAcc' va 'CurrentAcc' subklasslari mavjud. Cheklov turi: '{Mandatory, Or}'.",
-    "taskUz": "'Account' superklassi va uning subklasslarini ('SavingsAcc', 'CurrentAcc') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "taskUz": "'Account' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
     "starterDiagram": {
       "entities": [
         {
@@ -2974,7 +2977,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2992,7 +2996,7 @@ _scope.EER_CLIENTS_51_100 = [
         ]
       }
     },
-    "hint": "Subklass oynasini oching: superklass qilib 'Account'ni tanlang, '{Mandatory, Or}' cheklovini tanlang va pastdagi subklasslarni belgilang.",
+    "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Account' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
     "task": "'Account' superklassi va uning subklasslarini ('SavingsAcc', 'CurrentAcc') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
   },
@@ -3006,7 +3010,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "architect",
     "title": "Kutubxona Resurslari: Kitob va Jurnal ({Mandatory, Or})",
     "story": "'LibraryItem' superklassi ostida 'Book' va 'Journal' subklasslari mavjud. Cheklov turi: '{Mandatory, Or}'.",
-    "taskUz": "'LibraryItem' superklassi va uning subklasslarini ('Book', 'Journal') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "taskUz": "'LibraryItem' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
     "starterDiagram": {
       "entities": [
         {
@@ -3044,7 +3048,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3062,7 +3067,7 @@ _scope.EER_CLIENTS_51_100 = [
         ]
       }
     },
-    "hint": "Subklass oynasini oching: superklass qilib 'LibraryItem'ni tanlang, '{Mandatory, Or}' cheklovini tanlang va pastdagi subklasslarni belgilang.",
+    "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'LibraryItem' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
     "task": "'LibraryItem' superklassi va uning subklasslarini ('Book', 'Journal') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
   },
@@ -3076,7 +3081,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "architect",
     "title": "Mulk Turlari: Turarjoy va Tijorat Mulki ({Mandatory, Or})",
     "story": "'Property' superklassi ostida 'Residential' va 'Commercial' subklasslari mavjud. Cheklov turi: '{Mandatory, Or}'.",
-    "taskUz": "'Property' superklassi va uning subklasslarini ('Residential', 'Commercial') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "taskUz": "'Property' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
     "starterDiagram": {
       "entities": [
         {
@@ -3114,7 +3119,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3132,7 +3138,7 @@ _scope.EER_CLIENTS_51_100 = [
         ]
       }
     },
-    "hint": "Subklass oynasini oching: superklass qilib 'Property'ni tanlang, '{Mandatory, Or}' cheklovini tanlang va pastdagi subklasslarni belgilang.",
+    "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Property' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
     "task": "'Property' superklassi va uning subklasslarini ('Residential', 'Commercial') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
   },
@@ -3146,7 +3152,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "architect",
     "title": "Kompaniya Mijozlari: Jismoniy va Yuridik Shaxs ({Mandatory, Or})",
     "story": "'Customer' superklassi ostida 'Individual' va 'Corporate' subklasslari mavjud. Cheklov turi: '{Mandatory, Or}'.",
-    "taskUz": "'Customer' superklassi va uning subklasslarini ('Individual', 'Corporate') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "taskUz": "'Customer' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
     "starterDiagram": {
       "entities": [
         {
@@ -3184,7 +3190,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3202,7 +3209,7 @@ _scope.EER_CLIENTS_51_100 = [
         ]
       }
     },
-    "hint": "Subklass oynasini oching: superklass qilib 'Customer'ni tanlang, '{Mandatory, Or}' cheklovini tanlang va pastdagi subklasslarni belgilang.",
+    "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Customer' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
     "task": "'Customer' superklassi va uning subklasslarini ('Individual', 'Corporate') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
   },
@@ -3216,7 +3223,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "architect",
     "title": "Dasturiy Foydalanuvchilar: Admin va Mehmon ({Optional, Or})",
     "story": "'User' superklassi ostida 'Admin' va 'Guest' subklasslari mavjud. Cheklov turi: '{Optional, Or}'.",
-    "taskUz": "'User' superklassi va uning subklasslarini ('Admin', 'Guest') doskada chizing hamda '{Optional, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "taskUz": "'User' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
     "starterDiagram": {
       "entities": [
         {
@@ -3254,7 +3261,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3272,7 +3280,7 @@ _scope.EER_CLIENTS_51_100 = [
         ]
       }
     },
-    "hint": "Subklass oynasini oching: superklass qilib 'User'ni tanlang, '{Optional, Or}' cheklovini tanlang va pastdagi subklasslarni belgilang.",
+    "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'User' ostidagi '{Optional, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
     "task": "'User' superklassi va uning subklasslarini ('Admin', 'Guest') doskada chizing hamda '{Optional, Or}' ixtisoslashuv cheklovini o'rnating."
   },
@@ -3286,7 +3294,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "architect",
     "title": "Tibbiy Sug'urta Rejalari: Baza va Premium ({Mandatory, Or})",
     "story": "'InsurancePlan' superklassi ostida 'BasicPlan' va 'PremiumPlan' subklasslari mavjud. Cheklov turi: '{Mandatory, Or}'.",
-    "taskUz": "'InsurancePlan' superklassi va uning subklasslarini ('BasicPlan', 'PremiumPlan') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "taskUz": "'InsurancePlan' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
     "starterDiagram": {
       "entities": [
         {
@@ -3324,7 +3332,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3342,7 +3351,7 @@ _scope.EER_CLIENTS_51_100 = [
         ]
       }
     },
-    "hint": "Subklass oynasini oching: superklass qilib 'InsurancePlan'ni tanlang, '{Mandatory, Or}' cheklovini tanlang va pastdagi subklasslarni belgilang.",
+    "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'InsurancePlan' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
     "task": "'InsurancePlan' superklassi va uning subklasslarini ('BasicPlan', 'PremiumPlan') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
   },
@@ -3356,7 +3365,7 @@ _scope.EER_CLIENTS_51_100 = [
     "clientAvatar": "architect",
     "title": "7-Qavat Bossi: Bemorlar Ixtisoslashuvi ({Mandatory, Or})",
     "story": "'Patient' superklassi ostida 'InPatient' va 'OutPatient' subklasslari mavjud. Cheklov turi: '{Mandatory, Or}'.",
-    "taskUz": "'Patient' superklassi va uning subklasslarini ('InPatient', 'OutPatient') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "taskUz": "'Patient' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
     "starterDiagram": {
       "entities": [
         {
@@ -3394,7 +3403,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3412,7 +3422,7 @@ _scope.EER_CLIENTS_51_100 = [
         ]
       }
     },
-    "hint": "Subklass oynasini oching: superklass qilib 'Patient'ni tanlang, '{Mandatory, Or}' cheklovini tanlang va pastdagi subklasslarni belgilang.",
+    "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Patient' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
     "task": "'Patient' superklassi va uning subklasslarini ('InPatient', 'OutPatient') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
   }

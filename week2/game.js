@@ -114,13 +114,21 @@
     // 6. Bind Controls
     bindControls();
 
-    // 7. Telegram WebApp Integration
+    // 7. Telegram WebApp Integration & Input Focus Fix
     if (window.Telegram && window.Telegram.WebApp) {
       try {
         window.Telegram.WebApp.ready();
         window.Telegram.WebApp.expand();
       } catch (e) {}
     }
+
+    // Explicit focus for inputs/textarea/contenteditable on Telegram WebApp
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target && (target.tagName === 'TEXTAREA' || target.tagName === 'INPUT' || target.getAttribute('contenteditable') === 'true')) {
+        target.focus();
+      }
+    });
   });
 
   // ==========================================================================
@@ -292,11 +300,20 @@
     const tickerMessage = document.getElementById('tickerMessage');
     if (tickerMessage) tickerMessage.textContent = q.story || "Relyatsion sxemani shakllantiring.";
 
-    // Render tables on canvas
+    // Render starter puzzle tables on canvas (No answers leaked!)
     if (relCanvas) {
-      if (q.expectedSchema) {
-        relCanvas.renderSchema(q.expectedSchema);
-      }
+      const exp = q.expectedSchema || {};
+      const expTables = exp.tables || (exp.tableName ? [exp] : []);
+      const count = expTables.length;
+      const starterTables = expTables.map((t, idx) => ({
+        tableName: t.tableName || t.name || `Jadval${idx + 1}`,
+        columns: [
+          { name: 'id', isPK: false }
+        ],
+        x: count === 1 ? 260 : (idx === 0 ? 80 : 420),
+        y: 120
+      }));
+      relCanvas.renderSchema({ tables: starterTables, references: [] });
     }
   }
 
@@ -329,6 +346,70 @@
         if (box) {
           box.style.display = box.style.display === 'none' ? 'block' : 'none';
         }
+      });
+    }
+
+    // Toolbar buttons for draw.io Relational Studio
+    const btnAddTable = document.getElementById('relBtnAddTable');
+    if (btnAddTable) {
+      btnAddTable.addEventListener('click', () => {
+        window.playSfx('click');
+        const name = prompt("Yangi jadval nomini kiriting:", "Kompaniya");
+        if (name && relCanvas) {
+          relCanvas.addTable({ tableName: name.trim() });
+        }
+      });
+    }
+
+    const btnResetTpl = document.getElementById('relBtnResetTemplate');
+    if (btnResetTpl) {
+      btnResetTpl.addEventListener('click', () => {
+        window.playSfx('click');
+        const q = allQuestions.find(item => item.id === STATE.currentQId);
+        if (q && relCanvas) {
+          const exp = q.expectedSchema || {};
+          const expTables = exp.tables || (exp.tableName ? [exp] : []);
+          const count = expTables.length;
+          const starterTables = expTables.map((t, idx) => ({
+            tableName: t.tableName || t.name || `Jadval${idx + 1}`,
+            columns: [
+              { name: 'id', isPK: false }
+            ],
+            x: count === 1 ? 260 : (idx === 0 ? 80 : 420),
+            y: 120
+          }));
+          relCanvas.renderSchema({ tables: starterTables, references: [] });
+        }
+      });
+    }
+
+    const btnClearCanvas = document.getElementById('relBtnClearCanvas');
+    if (btnClearCanvas) {
+      btnClearCanvas.addEventListener('click', () => {
+        window.playSfx('click');
+        if (confirm("Chizilgan jadvallarni tozalashni xohlaysizmi?") && relCanvas) {
+          relCanvas.clearCanvas();
+        }
+      });
+    }
+
+    const btnExportDrawio = document.getElementById('btnExportDrawio');
+    if (btnExportDrawio) {
+      btnExportDrawio.addEventListener('click', () => {
+        window.playSfx('click');
+        if (!relCanvas || !window.RELATIONAL_DRAWIO_EXPORTER) return;
+        const currentSchema = relCanvas.exportCurrentSchema();
+        const xml = window.RELATIONAL_DRAWIO_EXPORTER.exportToXml(currentSchema);
+
+        const blob = new Blob([xml], { type: 'application/xml' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `Relational_Schema_${STATE.currentQId}.drawio`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
       });
     }
 
@@ -401,13 +482,34 @@
   // ==========================================================================
   function verifySchema() {
     const input = document.getElementById('schemaInput');
-    if (!input || !window.RELATIONAL_GRADER) return;
+    if (!window.RELATIONAL_GRADER) return;
 
     const q = allQuestions.find(item => item.id === STATE.currentQId);
     if (!q) return;
 
-    const userText = input.value.trim();
-    const result = window.RELATIONAL_GRADER.grade(userText, q);
+    let result = null;
+    const userText = input ? input.value.trim() : "";
+
+    // 1. If user typed in editor and it's not the default starter, grade text
+    if (userText && userText !== q.starterCode?.trim()) {
+      result = window.RELATIONAL_GRADER.grade(userText, q);
+    }
+
+    // 2. If not passed or text was empty/starter, grade the interactive canvas tables!
+    if ((!result || !result.passed) && relCanvas) {
+      const canvasSchema = relCanvas.exportCurrentSchema();
+      if (canvasSchema && canvasSchema.tables && canvasSchema.tables.length > 0) {
+        const canvasResult = window.RELATIONAL_GRADER.grade(canvasSchema, q);
+        if (canvasResult.passed || !result) {
+          result = canvasResult;
+        }
+      }
+    }
+
+    // Fallback if neither was evaluated
+    if (!result) {
+      result = window.RELATIONAL_GRADER.grade(userText || "", q);
+    }
 
     const elFeedback = document.getElementById('feedbackBox');
     if (!elFeedback) return;

@@ -1,13 +1,12 @@
 /**
- * DATABASE SYSTEMS ACADEMY — 2-HAFTA: RELATSION SXEMA DRAFTING POLOTNOSI
- * draw.io uslubidagi Relatsion Jadvallar va Crow's Foot Bog'lanish Chiziqlari Dvigateli
- * 
- * Imkoniyatlar:
- * - TableName sarlavhali relyatsion jadval qutilari
- * - PK, FK1, FK2, PK,FK1 ustun katakchalari
- * - Crow's Foot aloqa chiziqlari (Tashqi Kalitdan Birlamchi Kalitga)
- * - Drag-and-drop orqali jadvallarni qulay joylashtirish
- * - DBML va Relyatsion matnli notatsiya bilan ikki tomonlama sinxronizatsiya
+ * DATABASE SYSTEMS ACADEMY — 2-HAFTA: DRAW.IO RELATIONAL SCHEMA CANVAS ENGINE
+ * draw.io uslubidagi barcha professional imkoniyatlar bilan jihozlangan:
+ * 1. Port strelkalari (Yuqori, O'ng, Past, Chap) & Strelkani sudrab ikkinchi jadvalga ulash (Drag-to-Connect)
+ * 2. Crow's Foot (|| va o<) bog'lanish chiziqlarini avtomatik chizish
+ * 3. Sichqoncha g'ildiragi bilan masshtablash (Mouse Wheel Zoom) & Polotnoni surish (Pan)
+ * 4. Jadval boshqaruvlari: (+) Ustun qo'shish, (✎) Jadval nomini tahrirlash, (✕) O'chirish
+ * 5. Har bir ustunda: [PK] / [FK1] / [PK,FK1] / [Oddiy] aylantirish, {U} va {null} teglari, nomini o'zgartirish va (✕) o'chirish
+ * 6. draw.io XML va Relyatsion modelga to'g'ridan-to'g'ri eksport
  */
 
 class RelationalCanvasEngine {
@@ -16,12 +15,28 @@ class RelationalCanvasEngine {
     if (!this.container) return;
 
     this.tables = [];
-    this.references = []; // { fromTable, fromCol, toTable, toCol }
+    this.references = [];
 
-    this.isDragging = false;
-    this.dragTarget = null;
+    // Zoom & Pan
+    this.zoom = 1;
+    this.panX = 0;
+    this.panY = 0;
+    this.isPanning = false;
+    this.startPanX = 0;
+    this.startPanY = 0;
+
+    // Selection & Dragging
+    this.selectedTable = null;
+    this.isDraggingNode = false;
+    this.draggedTable = null;
     this.dragOffsetX = 0;
     this.dragOffsetY = 0;
+
+    // Port Connection Drag
+    this.isConnecting = false;
+    this.connectSource = null; // { table, port: 'top'|'right'|'bottom'|'left' }
+    this.connectCurrentX = 0;
+    this.connectCurrentY = 0;
 
     this.initDOM();
     this.attachEvents();
@@ -29,138 +44,304 @@ class RelationalCanvasEngine {
 
   initDOM() {
     this.container.innerHTML = `
-      <svg id="relCanvasSvg"></svg>
-      <div class="rel-nodes-layer" id="relNodesLayer"></div>
+      <div class="canvas-viewport" id="canvasViewport">
+        <svg id="relCanvasSvg"></svg>
+        <div class="rel-nodes-layer" id="relNodesLayer"></div>
+      </div>
+      <!-- Zoom Controls -->
+      <div class="zoom-controls">
+        <button class="btn-zoom" id="btnZoomOut" title="Kichraytirish">-</button>
+        <span class="zoom-level-text" id="zoomLevelText">100%</span>
+        <button class="btn-zoom" id="btnZoomIn" title="Kattalashtirish">+</button>
+        <button class="btn-zoom" id="btnZoomReset" title="Asliga qaytarish" style="font-size:10px;">1:1</button>
+      </div>
     `;
 
+    this.viewport = document.getElementById('canvasViewport');
     this.svg = document.getElementById('relCanvasSvg');
     this.nodesLayer = document.getElementById('relNodesLayer');
+    this.zoomText = document.getElementById('zoomLevelText');
+
+    this.updateViewportTransform();
+  }
+
+  updateViewportTransform() {
+    if (this.viewport) {
+      this.viewport.style.transform = `translate(${this.panX}px, ${this.panY}px) scale(${this.zoom})`;
+    }
+    if (this.zoomText) {
+      this.zoomText.textContent = `${Math.round(this.zoom * 100)}%`;
+    }
   }
 
   attachEvents() {
+    // 1. Mouse Wheel Zoom
+    this.container.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const rect = this.container.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      const delta = e.deltaY < 0 ? 1.1 : 0.9;
+      const newZoom = Math.min(2.5, Math.max(0.4, this.zoom * delta));
+
+      this.panX = mouseX - (mouseX - this.panX) * (newZoom / this.zoom);
+      this.panY = mouseY - (mouseY - this.panY) * (newZoom / this.zoom);
+      this.zoom = newZoom;
+
+      this.updateViewportTransform();
+    }, { passive: false });
+
+    // 2. Pan on background drag
+    this.container.addEventListener('mousedown', (e) => {
+      if (e.target === this.container || e.target === this.svg || e.target === this.nodesLayer || e.target === this.viewport) {
+        this.deselectAll();
+        this.isPanning = true;
+        this.startPanX = e.clientX - this.panX;
+        this.startPanY = e.clientY - this.panY;
+        this.container.style.cursor = 'grabbing';
+      }
+    });
+
+    // 3. Pointer move for dragging table, panning, or connection line
     window.addEventListener('mousemove', (e) => this.onPointerMove(e));
-    window.addEventListener('mouseup', () => this.onPointerUp());
+    window.addEventListener('mouseup', (e) => this.onPointerUp(e));
+
+    // Touch support
+    this.container.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1 && (e.target === this.container || e.target === this.svg || e.target === this.nodesLayer)) {
+        this.deselectAll();
+        this.isPanning = true;
+        this.startPanX = e.touches[0].clientX - this.panX;
+        this.startPanY = e.touches[0].clientY - this.panY;
+      }
+    }, { passive: true });
 
     window.addEventListener('touchmove', (e) => {
       if (e.touches && e.touches.length > 0) {
         this.onPointerMove(e.touches[0]);
       }
     }, { passive: false });
-    window.addEventListener('touchend', () => this.onPointerUp());
+
+    window.addEventListener('touchend', (e) => this.onPointerUp(e));
+
+    // Zoom Buttons
+    document.getElementById('btnZoomIn')?.addEventListener('click', () => {
+      this.zoom = Math.min(2.5, this.zoom * 1.2);
+      this.updateViewportTransform();
+    });
+    document.getElementById('btnZoomOut')?.addEventListener('click', () => {
+      this.zoom = Math.max(0.4, this.zoom / 1.2);
+      this.updateViewportTransform();
+    });
+    document.getElementById('btnZoomReset')?.addEventListener('click', () => {
+      this.zoom = 1;
+      this.panX = 0;
+      this.panY = 0;
+      this.updateViewportTransform();
+    });
   }
 
-  onPointerDown(e, table) {
-    e.stopPropagation();
-    this.isDragging = true;
-    this.dragTarget = table;
-
+  screenToWorld(clientX, clientY) {
     const rect = this.container.getBoundingClientRect();
-    const pageX = e.clientX || (e.touches && e.touches[0].clientX);
-    const pageY = e.clientY || (e.touches && e.touches[0].clientY);
-
-    this.dragOffsetX = (pageX - rect.left) - table.x;
-    this.dragOffsetY = (pageY - rect.top) - table.y;
-
-    this.selectTable(table);
+    const cx = clientX - rect.left;
+    const cy = clientY - rect.top;
+    return {
+      x: (cx - this.panX) / this.zoom,
+      y: (cy - this.panY) / this.zoom
+    };
   }
 
   onPointerMove(e) {
-    if (!this.isDragging || !this.dragTarget) return;
+    if (this.isPanning) {
+      this.panX = e.clientX - this.startPanX;
+      this.panY = e.clientY - this.startPanY;
+      this.updateViewportTransform();
+      return;
+    }
 
-    const rect = this.container.getBoundingClientRect();
-    const pageX = e.clientX || (e.touches && e.touches[0].clientX);
-    const pageY = e.clientY || (e.touches && e.touches[0].clientY);
+    if (this.isDraggingNode && this.draggedTable) {
+      const world = this.screenToWorld(e.clientX, e.clientY);
+      this.draggedTable.x = Math.round(world.x - this.dragOffsetX);
+      this.draggedTable.y = Math.round(world.y - this.dragOffsetY);
 
-    let newX = (pageX - rect.left) - this.dragOffsetX;
-    let newY = (pageY - rect.top) - this.dragOffsetY;
+      this.updateTableDOMPosition(this.draggedTable);
+      this.renderCrowFootLinks();
+      return;
+    }
 
-    newX = Math.max(10, Math.min(newX, rect.width - 200));
-    newY = Math.max(10, Math.min(newY, rect.height - 140));
+    if (this.isConnecting && this.connectSource) {
+      const world = this.screenToWorld(e.clientX, e.clientY);
+      this.connectCurrentX = world.x;
+      this.connectCurrentY = world.y;
+      this.renderTemporaryConnectingLine();
+    }
+  }
 
-    this.dragTarget.x = newX;
-    this.dragTarget.y = newY;
+  onPointerUp(e) {
+    if (this.isPanning) {
+      this.isPanning = false;
+      this.container.style.cursor = 'default';
+    }
 
-    this.updateTablePosition(this.dragTarget);
+    if (this.isDraggingNode) {
+      this.isDraggingNode = false;
+      this.draggedTable = null;
+    }
+
+    if (this.isConnecting) {
+      this.finishConnection(e);
+    }
+  }
+
+  // ==========================================================================
+  // CONNECTION PORTS & DRAW.IO CROW'S FOOT DRAG-TO-CONNECT
+  // ==========================================================================
+  startPortConnection(table, port, e) {
+    e.stopPropagation();
+    this.isConnecting = true;
+    this.connectSource = { table, port };
+
+    const portPos = this.getPortCoords(table, port);
+    this.connectCurrentX = portPos.x;
+    this.connectCurrentY = portPos.y;
+
+    if (window.playSfx) window.playSfx('click');
+  }
+
+  getPortCoords(table, port) {
+    const w = table.width || 200;
+    const h = table.height || 120;
+    if (port === 'top') return { x: table.x + w / 2, y: table.y };
+    if (port === 'right') return { x: table.x + w, y: table.y + h / 2 };
+    if (port === 'bottom') return { x: table.x + w / 2, y: table.y + h };
+    if (port === 'left') return { x: table.x, y: table.y + h / 2 };
+    return { x: table.x + w / 2, y: table.y + h / 2 };
+  }
+
+  renderTemporaryConnectingLine() {
+    let tempLine = document.getElementById('relTempDragLine');
+    if (!tempLine) {
+      tempLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      tempLine.id = 'relTempDragLine';
+      tempLine.setAttribute('stroke', '#dfc288');
+      tempLine.setAttribute('stroke-width', '2.5');
+      tempLine.setAttribute('stroke-dasharray', '5,5');
+      tempLine.setAttribute('stroke-linecap', 'round');
+      this.svg.appendChild(tempLine);
+    }
+
+    const start = this.getPortCoords(this.connectSource.table, this.connectSource.port);
+    tempLine.setAttribute('x1', start.x);
+    tempLine.setAttribute('y1', start.y);
+    tempLine.setAttribute('x2', this.connectCurrentX);
+    tempLine.setAttribute('y2', this.connectCurrentY);
+  }
+
+  finishConnection(e) {
+    const tempLine = document.getElementById('relTempDragLine');
+    if (tempLine) tempLine.remove();
+
+    this.isConnecting = false;
+    const clientX = e.clientX || (e.changedTouches && e.changedTouches[0]?.clientX);
+    const clientY = e.clientY || (e.changedTouches && e.changedTouches[0]?.clientY);
+    if (!clientX || !clientY) {
+      this.connectSource = null;
+      return;
+    }
+
+    const targetEl = document.elementFromPoint(clientX, clientY);
+    const targetBox = targetEl ? targetEl.closest('.rel-table-box') : null;
+
+    if (targetBox && targetBox.id !== this.connectSource.table.domId) {
+      const targetTable = this.tables.find(t => t.domId === targetBox.id);
+      const childTable = this.connectSource.table;
+
+      if (childTable && targetTable) {
+        // Find or create FK in child table pointing to targetTable PK
+        const parentPK = targetTable.columns.find(c => c.isPK) || { name: 'id' };
+        let fkCol = childTable.columns.find(c => c.isFK && c.references?.table === targetTable.name);
+
+        if (!fkCol) {
+          const colName = prompt(`'${childTable.name}' jadvalidagi Tashqi Kalit (FK) ustun nomini kiriting:`, `${targetTable.name.toLowerCase()}_${parentPK.name}`);
+          if (colName) {
+            fkCol = {
+              name: colName.trim(),
+              isPK: false,
+              isFK: true,
+              fkTag: 'FK1',
+              references: {
+                table: targetTable.name,
+                column: parentPK.name
+              }
+            };
+            childTable.columns.push(fkCol);
+            this.renderTableColumns(childTable, document.getElementById(`${childTable.domId}_body`));
+          }
+        }
+
+        this.references.push({
+          fromTable: childTable.name,
+          fromCol: fkCol ? fkCol.name : parentPK.name,
+          toTable: targetTable.name,
+          toCol: parentPK.name
+        });
+
+        if (window.playSfx) window.playSfx('success');
+      }
+    }
+
+    this.connectSource = null;
     this.renderCrowFootLinks();
   }
 
-  onPointerUp() {
-    this.isDragging = false;
-    this.dragTarget = null;
+  // ==========================================================================
+  // TABLE SELECTION & DRAGGING
+  // ==========================================================================
+  onTablePointerDown(e, table) {
+    e.stopPropagation();
+    this.selectTable(table);
+    this.isDraggingNode = true;
+    this.draggedTable = table;
+
+    const world = this.screenToWorld(e.clientX || (e.touches && e.touches[0].clientX), e.clientY || (e.touches && e.touches[0].clientY));
+    this.dragOffsetX = world.x - table.x;
+    this.dragOffsetY = world.y - table.y;
   }
 
   selectTable(table) {
-    document.querySelectorAll('.rel-table-box').forEach(el => el.classList.remove('selected'));
+    this.deselectAll();
+    this.selectedTable = table;
     const el = document.getElementById(table.domId);
     if (el) el.classList.add('selected');
   }
 
-  updateTablePosition(table) {
+  deselectAll() {
+    this.selectedTable = null;
+    document.querySelectorAll('.rel-table-box').forEach(el => el.classList.remove('selected'));
+  }
+
+  updateTableDOMPosition(table) {
     const el = document.getElementById(table.domId);
-    if (!el) return;
-    el.style.left = table.x + 'px';
-    el.style.top = table.y + 'px';
-  }
-
-  renderSchema(schemaData) {
-    this.tables = [];
-    this.references = [];
-    this.nodesLayer.innerHTML = '';
-    this.svg.innerHTML = '';
-
-    if (!schemaData) return;
-
-    const containerRect = this.container.getBoundingClientRect();
-    const w = containerRect.width || 800;
-    const h = containerRect.height || 460;
-
-    const tableList = schemaData.tables || (schemaData.tableName ? [schemaData] : []);
-    const count = tableList.length;
-
-    tableList.forEach((tbl, idx) => {
-      let x = tbl.x;
-      let y = tbl.y;
-
-      if (x === undefined || y === undefined) {
-        if (count === 1) {
-          x = w / 2 - 110;
-          y = h / 2 - 70;
-        } else if (count === 2) {
-          x = idx === 0 ? w * 0.12 : w * 0.58;
-          y = h * 0.28;
-        } else if (count === 3) {
-          x = idx === 0 ? w * 0.08 : (idx === 1 ? w * 0.65 : w * 0.38);
-          y = idx === 2 ? h * 0.58 : h * 0.18;
-        } else {
-          const colIdx = idx % 2;
-          const rowIdx = Math.floor(idx / 2);
-          x = 40 + colIdx * (w * 0.48);
-          y = 30 + rowIdx * 180;
-        }
-      }
-
-      this.addTable({
-        tableName: tbl.tableName || tbl.name || `Table${idx + 1}`,
-        columns: tbl.columns || [],
-        x: Math.round(x),
-        y: Math.round(y)
-      });
-    });
-
-    if (schemaData.references) {
-      this.references = JSON.parse(JSON.stringify(schemaData.references));
+    if (el) {
+      el.style.left = table.x + 'px';
+      el.style.top = table.y + 'px';
     }
-
-    this.renderCrowFootLinks();
   }
 
-  addTable(data) {
+  // ==========================================================================
+  // TABLE CRUD & COLUMNS MANAGEMENT
+  // ==========================================================================
+  addTable(data = {}) {
     const id = 'tbl_' + Math.random().toString(36).substr(2, 9);
     const table = {
       id: id,
       domId: id,
-      name: data.tableName || 'YangiJadval',
-      columns: data.columns || [],
+      name: data.tableName || data.name || 'YangiJadval',
+      columns: data.columns ? JSON.parse(JSON.stringify(data.columns)) : [
+        { name: 'id', isPK: true },
+        { name: 'nomi', isPK: false }
+      ],
       x: data.x !== undefined ? data.x : 100,
       y: data.y !== undefined ? data.y : 100,
       width: 200,
@@ -180,9 +361,90 @@ class RelationalCanvasEngine {
     el.style.left = table.x + 'px';
     el.style.top = table.y + 'px';
 
-    const rowsHtml = (table.columns || []).map(col => {
+    const portsHtml = `
+      <div class="port-arrow top" data-port="top" title="Yuqoridan ulash">▲</div>
+      <div class="port-arrow right" data-port="right" title="O'ngdan ulash">▶</div>
+      <div class="port-arrow bottom" data-port="bottom" title="Pastdan ulash">▼</div>
+      <div class="port-arrow left" data-port="left" title="Chapdan ulash">◀</div>
+    `;
+
+    el.innerHTML = `
+      ${portsHtml}
+      <div class="rel-table-header">
+        <span class="table-title-text" title="Tahrirlash uchun bosing">${table.name}</span>
+        <div class="entity-actions">
+          <button class="btn-node-act" data-action="add-col" title="Ustun qo'shish">+</button>
+          <button class="btn-node-act" data-action="edit-name" title="Nomini o'zgartirish">✎</button>
+          <button class="btn-node-act del" data-action="del-table" title="Jadvalni o'chirish">✕</button>
+        </div>
+      </div>
+      <div class="rel-table-body" id="${table.domId}_body"></div>
+    `;
+
+    this.renderTableColumns(table, el.querySelector('.rel-table-body'));
+
+    el.addEventListener('mousedown', (e) => {
+      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.rel-row')) return;
+      this.onTablePointerDown(e, table);
+    });
+
+    el.querySelectorAll('.port-arrow').forEach(p => {
+      p.addEventListener('mousedown', (e) => {
+        const portName = p.getAttribute('data-port');
+        this.startPortConnection(table, portName, e);
+      });
+    });
+
+    el.querySelector('[data-action="add-col"]')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const colName = prompt("Yangi ustun nomini kiriting:", "yangi_ustun");
+      if (colName) {
+        table.columns.push({ name: colName.trim(), isPK: false });
+        this.renderTableColumns(table, el.querySelector('.rel-table-body'));
+        this.renderCrowFootLinks();
+      }
+    });
+
+    el.querySelector('[data-action="edit-name"]')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const newName = prompt("Jadval nomini o'zgartiring:", table.name);
+      if (newName) {
+        const oldName = table.name;
+        table.name = newName.trim();
+        el.querySelector('.table-title-text').textContent = table.name;
+        this.references.forEach(r => {
+          if (r.fromTable === oldName) r.fromTable = table.name;
+          if (r.toTable === oldName) r.toTable = table.name;
+        });
+        this.renderCrowFootLinks();
+      }
+    });
+
+    el.querySelector('[data-action="del-table"]')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (confirm(`'${table.name}' jadvalini o'chirishni xohlaysizmi?`)) {
+        this.deleteTable(table);
+      }
+    });
+
+    this.nodesLayer.appendChild(el);
+
+    setTimeout(() => {
+      table.height = el.offsetHeight || 120;
+      table.width = el.offsetWidth || 200;
+    }, 10);
+  }
+
+  renderTableColumns(table, containerEl) {
+    if (!containerEl) return;
+    containerEl.innerHTML = '';
+
+    table.columns.forEach((col, idx) => {
+      const row = document.createElement('div');
+      row.className = 'rel-row';
+
       let keyClass = '';
-      let keyLabel = '';
+      let keyLabel = 'Oddiy';
 
       if (col.isPK && col.isFK) {
         keyClass = 'pkfk';
@@ -199,39 +461,84 @@ class RelationalCanvasEngine {
       if (col.isUnique) tagsHtml += '<span class="rel-tag-pill">{U}</span>';
       if (col.isNullable) tagsHtml += '<span class="rel-tag-pill">{null}</span>';
 
-      return `
-        <div class="rel-row" data-col="${col.name}">
-          <div class="rel-key-cell ${keyClass}">${keyLabel}</div>
-          <div class="rel-name-cell">
-            <span>${col.name}</span>
+      row.innerHTML = `
+        <div class="rel-key-cell ${keyClass} btn-attr-badge" title="Kalit turini o'zgartirish (PK / FK1 / PK,FK1 / Oddiy)">${keyLabel}</div>
+        <div class="rel-name-cell">
+          <span class="attr-name" contenteditable="true" spellcheck="false">${col.name}</span>
+          <div style="display:flex; align-items:center; gap:3px;">
             <span>${tagsHtml}</span>
+            <button class="btn-attr-del" title="Ustunni o'chirish">✕</button>
           </div>
         </div>
       `;
-    }).join('');
 
-    el.innerHTML = `
-      <div class="rel-table-header">${table.name}</div>
-      <div class="rel-table-body">
-        ${rowsHtml}
-      </div>
-    `;
+      // Inline rename
+      const nameEl = row.querySelector('.attr-name');
+      nameEl.addEventListener('blur', () => {
+        col.name = nameEl.textContent.trim() || col.name;
+      });
+      nameEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          nameEl.blur();
+        }
+      });
 
-    el.addEventListener('mousedown', (e) => this.onPointerDown(e, table));
-    el.addEventListener('touchstart', (e) => this.onPointerDown(e, table), { passive: false });
+      // Cycle key badge: PK -> FK1 -> PK,FK1 -> None
+      row.querySelector('.btn-attr-badge')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (!col.isPK && !col.isFK) {
+          col.isPK = true;
+          col.isFK = false;
+        } else if (col.isPK && !col.isFK) {
+          col.isPK = false;
+          col.isFK = true;
+          col.fkTag = 'FK1';
+        } else if (!col.isPK && col.isFK) {
+          col.isPK = true;
+          col.isFK = true;
+        } else {
+          col.isPK = false;
+          col.isFK = false;
+        }
+        this.renderTableColumns(table, containerEl);
+        this.renderCrowFootLinks();
+        if (window.playSfx) window.playSfx('click');
+      });
 
-    this.nodesLayer.appendChild(el);
+      // Delete column
+      row.querySelector('.btn-attr-del')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        table.columns.splice(idx, 1);
+        this.renderTableColumns(table, containerEl);
+        this.renderCrowFootLinks();
+      });
 
-    setTimeout(() => {
-      table.height = el.offsetHeight || 120;
-      table.width = el.offsetWidth || 200;
-    }, 10);
+      containerEl.appendChild(row);
+    });
+
+    const boxEl = document.getElementById(table.domId);
+    if (boxEl) {
+      setTimeout(() => {
+        table.height = boxEl.offsetHeight || 120;
+      }, 10);
+    }
   }
 
+  deleteTable(table) {
+    this.tables = this.tables.filter(t => t.id !== table.id);
+    document.getElementById(table.domId)?.remove();
+
+    this.references = this.references.filter(r => r.fromTable !== table.name && r.toTable !== table.name);
+    this.renderCrowFootLinks();
+  }
+
+  // ==========================================================================
+  // RENDERING CROW'S FOOT CONNECTOR LINES
+  // ==========================================================================
   renderCrowFootLinks() {
     this.svg.innerHTML = '';
 
-    // Draw Crow's Foot links for FK references
     this.tables.forEach(childTable => {
       (childTable.columns || []).forEach(col => {
         if (col.isFK && col.references) {
@@ -243,7 +550,6 @@ class RelationalCanvasEngine {
       });
     });
 
-    // Also draw explicit references
     this.references.forEach(ref => {
       const childTable = this.tables.find(t => t.name.toLowerCase() === ref.fromTable.toLowerCase());
       const parentTable = this.tables.find(t => t.name.toLowerCase() === ref.toTable.toLowerCase());
@@ -258,13 +564,11 @@ class RelationalCanvasEngine {
     const parentEl = document.getElementById(parentTable.domId);
     if (!childEl || !parentEl) return;
 
-    // Center coordinates
     const cX = childTable.x + (childTable.width || 200) / 2;
     const cY = childTable.y + (childTable.height || 120) / 2;
     const pX = parentTable.x + (parentTable.width || 200) / 2;
     const pY = parentTable.y + (parentTable.height || 120) / 2;
 
-    // Connect from edge to edge
     let startX = childTable.x + (childTable.width || 200);
     let startY = cY;
     let endX = parentTable.x;
@@ -275,7 +579,6 @@ class RelationalCanvasEngine {
       endX = parentTable.x + (parentTable.width || 200);
     }
 
-    // Bezier path
     const midX = (startX + endX) / 2;
     const pathD = `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`;
 
@@ -287,9 +590,8 @@ class RelationalCanvasEngine {
     this.svg.appendChild(path);
 
     // Crow's foot symbol on child side (FK side)
-    const angle = startX < endX ? 0 : Math.PI;
-    const cf = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     const sign = startX < endX ? 1 : -1;
+    const cf = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     const cfD = `
       M ${startX + sign * 14} ${startY - 8} L ${startX} ${startY} L ${startX + sign * 14} ${startY + 8}
       M ${startX + sign * 14} ${startY} L ${startX} ${startY}
@@ -321,11 +623,68 @@ class RelationalCanvasEngine {
     this.svg.appendChild(bar2);
   }
 
+  // ==========================================================================
+  // SCHEMA PARSING & RENDERING
+  // ==========================================================================
+  renderSchema(schemaData) {
+    this.clearCanvas();
+    if (!schemaData) return;
+
+    const w = 800;
+    const h = 460;
+    const tableList = schemaData.tables || (schemaData.tableName ? [schemaData] : []);
+    const count = tableList.length;
+
+    tableList.forEach((tbl, idx) => {
+      let x = tbl.x;
+      let y = tbl.y;
+
+      if (x === undefined || y === undefined) {
+        if (count === 1) {
+          x = w / 2 - 100;
+          y = h / 2 - 60;
+        } else if (count === 2) {
+          x = idx === 0 ? w * 0.12 : w * 0.6;
+          y = h * 0.3;
+        } else {
+          const colIdx = idx % 2;
+          const rowIdx = Math.floor(idx / 2);
+          x = 40 + colIdx * (w * 0.48);
+          y = 30 + rowIdx * 180;
+        }
+      }
+
+      this.addTable({
+        tableName: tbl.tableName || tbl.name || `Table${idx + 1}`,
+        columns: tbl.columns || [],
+        x: Math.round(x),
+        y: Math.round(y)
+      });
+    });
+
+    if (schemaData.references) {
+      this.references = JSON.parse(JSON.stringify(schemaData.references));
+    }
+
+    this.renderCrowFootLinks();
+  }
+
   clearCanvas() {
     this.tables = [];
     this.references = [];
     this.nodesLayer.innerHTML = '';
     this.svg.innerHTML = '';
+  }
+
+  exportCurrentSchema() {
+    return {
+      tables: this.tables.map(t => ({
+        tableName: t.name,
+        name: t.name,
+        columns: t.columns
+      })),
+      references: this.references
+    };
   }
 }
 

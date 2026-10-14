@@ -104,13 +104,33 @@
           </div>
         </div>
 
+        <!-- Studio Toolbar -->
+        <div class="eer-toolbar">
+          <div class="eer-tool-group">
+            <button class="eer-chip-btn" id="relBtnAddTable" title="Yangi jadval qo'shish">
+              <span>➕ Jadval</span>
+            </button>
+            <button class="eer-chip-btn" id="relBtnResetTemplate" title="Dastlabki sxemani tiklash">
+              <span>📋 Shablon</span>
+            </button>
+            <button class="eer-chip-btn" id="relBtnClearCanvas" title="Polotnoni tozalash">
+              <span>🗑 Tozalash</span>
+            </button>
+          </div>
+          <div class="eer-tool-group">
+            <button class="eer-chip-btn" id="btnExportDrawio" title="draw.io formatida yuklab olish">
+              <span>💾 .drawio</span>
+            </button>
+          </div>
+        </div>
+
         <!-- Interactive Table Board -->
         <div class="canvas-container" id="relCanvasContainer">
           <!-- SVG Crow's Foot lines and HTML Table Boxes rendered dynamically -->
         </div>
 
         <div style="padding:7px 12px; background:#1b1612; border-top:1px solid var(--border-subtle); font-size:11px; color:var(--text-muted); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
-          <span>💡 <em>Eslatma:</em> Jadvallarni surib qulay joylashtirishingiz mumkin. Tashqi kalitlar (FK) ota jadvallarga avtomatik bog'lanadi.</span>
+          <span>💡 <em>Eslatma:</em> Port strelkalaridan sudrab Crow's Foot aloqalarini o'rnating. G'ildirak orqali masshtablang.</span>
           <span style="color:var(--accent-gold);">draw.io Relational Schema Standard</span>
         </div>
       </div>
@@ -176,6 +196,16 @@
         </div>
 
         <div class="action-box">
+          <div class="drawio-quick-guide" style="padding:10px 12px; background:rgba(200, 169, 110, 0.06); border:1px solid var(--border-subtle); border-radius:6px; margin-bottom:12px; font-size:11.5px; line-height:1.6; color:var(--text-secondary);">
+            <div style="font-weight:600; color:var(--accent-gold); margin-bottom:4px; display:flex; align-items:center; gap:6px;">
+              <span>📊 draw.io Relyatsion Boshqaruv</span>
+            </div>
+            <div>• <strong>Crow's Foot Bog'lash:</strong> Bolalar jadvalidan strelkani (<span style="color:var(--accent-gold);">▲ ▶ ▼ ◀</span>) sudrab ota jadvalga ulang — Crow's Foot chizig'i hosil bo'ladi.</div>
+            <div>• <strong>Kalitlar:</strong> <span style="color:var(--accent-gold); font-weight:700;">[Oddiy]</span> katagini bosib <strong>[PK]</strong>, <strong>[FK1]</strong> yoki <strong>[PK,FK1]</strong> holatiga o'tkazing.</div>
+            <div>• <strong>Masshtab:</strong> Sichqoncha g'ildiragini aylantirib yaqinlashtiring / uzoqlashtiring yoki burchakdagi <strong>+ / - / 1:1</strong> tugmalaridan foydalaning.</div>
+            <div>• <strong>Ustunlar:</strong> Sarlavhadagi <span style="color:var(--accent-gold);">+</span> orqali yangi ustun qo'shing, nomini to'g'ridan-to'g'ri yozib tahrirlang.</div>
+          </div>
+
           <div style="font-size:11.5px; color:var(--text-muted);">Tezkor Sintaksis Tokenlari:</div>
           <div class="quick-tokens-bar">
             <button type="button" class="token-chip" data-token="Table Name {\n  id int [pk]\n}">Table</button>
