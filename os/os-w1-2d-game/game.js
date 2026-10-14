@@ -1156,11 +1156,34 @@
     const loaderText = el.wasmLoaderText || document.getElementById("wasmLoaderText");
     if (!box) return;
 
-    if (loader) loader.style.display = "flex";
-
-    if (typeof Terminal === "undefined" || typeof V86Starter === "undefined") {
+    if (loader) {
+      loader.style.display = "flex";
       if (loaderText) {
-        loaderText.innerHTML = `⚠️ WebAssembly kutubxonasi yuklanmadi.<br><span style="font-size:11px; color:#cbd5e1;">Internet aloqasini tekshiring yoki <b>⚡ Tezkor Shell</b> rejimiga o'ting.</span>`;
+        loaderText.innerHTML = `
+          <div class="wasm-spinner"></div>
+          <div style="font-weight:700; color:#38bdf8; margin-top:10px;">🐧 WebAssembly Real Linux Kernel yuklanmoqda...</div>
+          <div style="font-size:11.5px; color:#94a3b8; margin: 8px 0 12px; max-width:300px; line-height:1.5;">
+            x86 Linux tizimi fon rejimida tayyorlanmoqda. Kutmasdan ishlash uchun quyidagi tugmani bosing:
+          </div>
+          <button type="button" class="btn btn-primary" onclick="window.setTerminalEngine('shell')" style="padding:6px 14px; font-size:12px; font-weight:700;">
+            ⚡ Tezkor Shellga O'tish (Darhol Boshlash)
+          </button>
+        `;
+      }
+    }
+
+    const V86Constructor = window.V86 || window.V86Starter;
+    if (typeof Terminal === "undefined" || !V86Constructor) {
+      if (loaderText) {
+        loaderText.innerHTML = `
+          <div style="font-weight:700; color:#fbbf24; margin-bottom:6px;">⚠️ WebAssembly kutubxonasi kutilmoqda</div>
+          <div style="font-size:12px; color:#cbd5e1; margin-bottom:12px; max-width:320px; line-height:1.5;">
+            Internet tezligi past bo'lsa yoki kutishni istamasangiz, <b>0 soniyada</b> ochiluvchi va ichida <b>haqiqiy vim/nano</b> bor Tezkor Shelldan foydalaning:
+          </div>
+          <button type="button" class="btn btn-primary" onclick="window.setTerminalEngine('shell')" style="padding:7px 16px; font-weight:700;">
+            ⚡ Tezkor Shellga O'tish
+          </button>
+        `;
       }
       return;
     }
@@ -1183,7 +1206,7 @@
       wasmXtermInstance.open(box);
       wasmXtermInstance.writeln("\x1b[1;36m🐧 WebAssembly x86 Real Linux yuklanmoqda... (SeaBIOS & Kernel)\x1b[0m\r\n");
 
-      wasmEmulatorInstance = new V86Starter({
+      wasmEmulatorInstance = new V86Constructor({
         wasm_path: "https://cdn.jsdelivr.net/npm/v86@latest/build/v86.wasm",
         memory_size: 64 * 1024 * 1024,
         vga_memory_size: 2 * 1024 * 1024,
@@ -1222,7 +1245,7 @@
     } catch (err) {
       console.error("WASM boot error:", err);
       if (loaderText) {
-        loaderText.innerHTML = `⚠️ Xatolik: ${err.message}<br><button class="btn btn-xs btn-primary" onclick="setTerminalEngine('shell')">Tezkor Shellga Qaytish</button>`;
+        loaderText.innerHTML = `⚠️ Xatolik: ${err.message}<br><button class="btn btn-xs btn-primary" onclick="window.setTerminalEngine('shell')" style="margin-top:8px;">⚡ Tezkor Shellga O'tish</button>`;
       }
     }
   }
