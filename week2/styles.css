@@ -1194,8 +1194,13 @@ input, textarea, select, [contenteditable="true"] {
     gap: 12px;
   }
 
+  .drawio-workbench {
+    height: 540px;
+  }
+
   .canvas-container {
-    height: 380px;
+    height: 480px;
+    min-height: 440px;
   }
 }
 
@@ -1226,8 +1231,13 @@ input, textarea, select, [contenteditable="true"] {
     font-size: 11px;
   }
 
+  .drawio-workbench {
+    height: 520px;
+  }
+
   .canvas-container {
-    height: 320px;
+    height: 460px;
+    min-height: 420px;
   }
 }
 
@@ -1238,7 +1248,7 @@ input, textarea, select, [contenteditable="true"] {
   position: relative;
   display: flex;
   width: 100%;
-  height: 520px;
+  height: 540px;
   background: #171311;
   border-top: 1px solid var(--border-subtle);
   overflow: hidden;
@@ -1525,12 +1535,12 @@ input, textarea, select, [contenteditable="true"] {
    MULTIPLICITY PICKER POPOVER & CONNECTOR CLICKING
    ============================================================================ */
 .multiplicity-picker-popover {
-  position: absolute;
-  z-index: 100;
+  position: fixed;
+  z-index: 99999;
   background: #231c17;
   border: 1.5px solid var(--accent-gold);
   border-radius: 8px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.8);
   width: 280px;
   display: none;
   flex-direction: column;

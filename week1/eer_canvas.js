@@ -129,9 +129,23 @@ class EERCanvasEngine {
     window.addEventListener('mousemove', (e) => this.onPointerMove(e));
     window.addEventListener('mouseup', (e) => this.onPointerUp(e));
 
-    // Touch support (Mobile phones & tablets)
+    // Touch support (Mobile phones & tablets): 1-finger pan/drag, 2-finger pinch-to-zoom
+    this.touchPinchDist = 0;
+    this.touchPinchMid = null;
+
     this.container.addEventListener('touchstart', (e) => {
-      if (e.touches.length === 1) {
+      if (e.touches.length === 2) {
+        if (e.cancelable) e.preventDefault();
+        this.isPanning = false;
+        this.isDraggingNode = false;
+        const t1 = e.touches[0];
+        const t2 = e.touches[1];
+        this.touchPinchDist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+        this.touchPinchMid = {
+          x: (t1.clientX + t2.clientX) / 2,
+          y: (t1.clientY + t2.clientY) / 2
+        };
+      } else if (e.touches.length === 1) {
         const touch = e.touches[0];
         this.lastTouchPoint = { clientX: touch.clientX, clientY: touch.clientY };
         const target = e.target;
@@ -143,17 +157,45 @@ class EERCanvasEngine {
           this.startPanY = touch.clientY - this.panY;
         }
       }
-    }, { passive: true });
+    }, { passive: false });
 
     window.addEventListener('touchmove', (e) => {
-      if (e.touches.length === 1) {
+      if (e.touches.length === 2 && this.touchPinchDist > 0) {
+        if (e.cancelable) e.preventDefault();
+        const t1 = e.touches[0];
+        const t2 = e.touches[1];
+        const currentDist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+        const currentMid = {
+          x: (t1.clientX + t2.clientX) / 2,
+          y: (t1.clientY + t2.clientY) / 2
+        };
+
+        const zoomFactor = currentDist / this.touchPinchDist;
+        const newZoom = Math.min(2.5, Math.max(0.35, this.zoom * zoomFactor));
+
+        const rect = this.container.getBoundingClientRect();
+        const originX = currentMid.x - rect.left;
+        const originY = currentMid.y - rect.top;
+
+        this.panX = originX - (originX - this.panX) * (newZoom / this.zoom) + (currentMid.x - this.touchPinchMid.x);
+        this.panY = originY - (originY - this.panY) * (newZoom / this.zoom) + (currentMid.y - this.touchPinchMid.y);
+        this.zoom = newZoom;
+
+        this.touchPinchDist = currentDist;
+        this.touchPinchMid = currentMid;
+        this.updateViewportTransform();
+      } else if (e.touches.length === 1 && !this.touchPinchDist) {
         const touch = e.touches[0];
         this.lastTouchPoint = { clientX: touch.clientX, clientY: touch.clientY };
         this.onPointerMove(touch);
       }
-    }, { passive: true });
+    }, { passive: false });
 
     window.addEventListener('touchend', (e) => {
+      if (e.touches.length < 2) {
+        this.touchPinchDist = 0;
+        this.touchPinchMid = null;
+      }
       this.onPointerUp(e);
     });
 
@@ -415,18 +457,25 @@ class EERCanvasEngine {
 
   completeConnection(sourceNode, sourceType, targetNode, targetType) {
     if (sourceType === 'entity' && targetType === 'entity') {
-      const midX = (sourceNode.x + targetNode.x) / 2;
-      const midY = (sourceNode.y + targetNode.y) / 2;
-      this.addRelationship({
+      const existing = this.relationships.find(r => 
+        (r.fromEntityName.toLowerCase() === sourceNode.name.toLowerCase() && r.toEntityName.toLowerCase() === targetNode.name.toLowerCase()) ||
+        (r.fromEntityName.toLowerCase() === targetNode.name.toLowerCase() && r.toEntityName.toLowerCase() === sourceNode.name.toLowerCase())
+      );
+      if (existing) {
+        this.showToast(`'${sourceNode.name}' va '${targetNode.name}' allaqachon bog'langan!`);
+        return;
+      }
+      this.relationships.push({
+        id: 'rel_' + Math.random().toString(36).substr(2, 9),
         name: 'Aloqa',
         fromEntityName: sourceNode.name,
         toEntityName: targetNode.name,
         mult1: '1..1',
         mult2: '1..*',
-        x: Math.round(midX - 45),
-        y: Math.round(midY - 45)
+        isDirect: true
       });
       if (window.playSfx) window.playSfx('success');
+      this.showToast(`'${sourceNode.name}' va '${targetNode.name}' to'g'ridan-to'g'ri bog'landi. Chiziq o'rtasidagi so'zni bosib aloqa nomini o'zgartirishingiz mumkin.`);
     } else if (sourceType === 'entity' && targetType === 'diamond') {
       const rel = targetNode;
       if (!rel.fromEntityName || rel.fromEntityName === sourceNode.name) {
@@ -638,7 +687,7 @@ class EERCanvasEngine {
 
     // Drag events
     const onEntityStart = (e) => {
-      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.attr-pill') || e.target.closest('.btn-attr-del') || e.target.closest('.btn-attr-edit') || e.target.closest('.node-resize-handle') || e.target.closest('[contenteditable="true"]')) return;
+      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.btn-attr-badge') || e.target.closest('.pk-pill') || e.target.closest('.ppk-pill') || e.target.closest('.attr-pill') || e.target.closest('.btn-attr-del') || e.target.closest('.btn-attr-edit') || e.target.closest('.node-resize-handle') || e.target.closest('[contenteditable="true"]')) return;
       if (e.touches && e.touches.length > 1) return;
       e.stopPropagation();
       if (e.cancelable && e.type === 'touchstart') e.preventDefault();
@@ -728,7 +777,7 @@ class EERCanvasEngine {
       row.innerHTML = `
         <span class="attr-name" contenteditable="true" spellcheck="false" title="Nomini o'zgartirish">${attr.name}</span>
         <div style="display:flex; align-items:center; gap:4px;">
-          <span class="btn-attr-badge ${badgeClass}" title="Kalit turini o'zgartirish (PK/PPK/Oddiy)">${badgeLabel}</span>
+          <button type="button" class="btn-attr-badge ${badgeClass}" title="Kalit turini o'zgartirish (PK/PPK/Oddiy)">${badgeLabel}</button>
           <button class="btn-attr-edit" title="Nomini o'zgartirish">✎</button>
           <button class="btn-attr-del" title="Atributni o'chirish">✕</button>
         </div>
@@ -761,9 +810,11 @@ class EERCanvasEngine {
         }
       });
 
-      // Toggle PK / PPK / none
-      row.querySelector('.btn-attr-badge')?.addEventListener('click', (e) => {
+      // Toggle PK / PPK / none (Works on touch and click)
+      const badgeBtn = row.querySelector('.btn-attr-badge');
+      const toggleBadge = (e) => {
         e.stopPropagation();
+        if (e.cancelable && e.type === 'touchstart') e.preventDefault();
         if (!attr.isPK && !attr.isPPK) {
           attr.isPK = true;
           attr.isPPK = false;
@@ -772,11 +823,15 @@ class EERCanvasEngine {
           attr.isPPK = true;
         } else {
           attr.isPK = false;
-          attr.isPPK = false;
+          attr.isPK = false;
         }
         this.renderEntityAttributes(entity, containerEl);
+        this.renderLinks();
         if (window.playSfx) window.playSfx('click');
-      });
+      };
+
+      badgeBtn?.addEventListener('click', toggleBadge);
+      badgeBtn?.addEventListener('touchend', toggleBadge);
 
       row.querySelector('.btn-attr-del')?.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -907,25 +962,12 @@ class EERCanvasEngine {
   // ==========================================================================
   getNodeBorderPoint(node, targetX, targetY, isDiamond = false) {
     if (!node) return { x: targetX, y: targetY, dirX: 1, dirY: 0 };
-    if (isDiamond) {
-      const cx = node.x + 45;
-      const cy = node.y + 45;
-      const dx = targetX - cx;
-      const dy = targetY - cy;
-      const dist = Math.hypot(dx, dy) || 1;
-      const ux = dx / dist;
-      const uy = dy / dist;
-      const scale = 45 / (Math.abs(ux) + Math.abs(uy) || 1);
-      return {
-        x: cx + ux * scale,
-        y: cy + uy * scale,
-        dirX: ux,
-        dirY: uy
-      };
-    }
+    const el = document.getElementById(node.domId);
+    const w = (el && el.offsetWidth > 40) ? el.offsetWidth : (node.width || (isDiamond ? 90 : 200));
+    const h = (el && el.offsetHeight > 30) ? el.offsetHeight : (node.height || (isDiamond ? 90 : 120));
+    node.width = w;
+    node.height = h;
 
-    const w = node.width || 170;
-    const h = node.height || 100;
     const cx = node.x + w / 2;
     const cy = node.y + h / 2;
     const dx = targetX - cx;
@@ -934,8 +976,18 @@ class EERCanvasEngine {
     const ux = dx / dist;
     const uy = dy / dist;
 
-    const scaleX = (w / 2) / Math.max(0.001, Math.abs(ux));
-    const scaleY = (h / 2) / Math.max(0.001, Math.abs(uy));
+    if (isDiamond) {
+      const scale = (w / 2) / (Math.abs(ux) + Math.abs(uy) || 1);
+      return {
+        x: cx + ux * scale,
+        y: cy + uy * scale,
+        dirX: ux,
+        dirY: uy
+      };
+    }
+
+    const scaleX = (w / 2) / Math.max(0.0001, Math.abs(ux));
+    const scaleY = (h / 2) / Math.max(0.0001, Math.abs(uy));
     const scale = Math.min(scaleX, scaleY);
 
     return {
@@ -948,59 +1000,108 @@ class EERCanvasEngine {
 
   renderLinks() {
     this.svg.innerHTML = '';
-    document.querySelectorAll('.mult-pill').forEach(p => p.remove());
+    document.querySelectorAll('.mult-pill, .rel-line-badge').forEach(p => p.remove());
 
     this.relationships.forEach(rel => {
       const fromEnt = this.entities.find(e => e.name.toLowerCase() === (rel.fromEntityName || '').toLowerCase());
       const toEnt = this.entities.find(e => e.name.toLowerCase() === (rel.toEntityName || '').toLowerCase());
 
-      const rCenterX = rel.x + 45;
-      const rCenterY = rel.y + 45;
+      const diamondEl = document.getElementById(rel.domId);
+      const isDirectLine = rel.isDirect || !diamondEl;
 
-      if (fromEnt) {
-        const fCenterX = fromEnt.x + (fromEnt.width || 170) / 2;
-        const fCenterY = fromEnt.y + (fromEnt.height || 100) / 2;
+      if (isDirectLine && fromEnt && toEnt) {
+        // Direct Entity-to-Entity relationship line (No diamond)
+        const fCenterX = fromEnt.x + (fromEnt.width || 200) / 2;
+        const fCenterY = fromEnt.y + (fromEnt.height || 120) / 2;
+        const tCenterX = toEnt.x + (toEnt.width || 200) / 2;
+        const tCenterY = toEnt.y + (toEnt.height || 120) / 2;
 
-        const borderF = this.getNodeBorderPoint(fromEnt, rCenterX, rCenterY, false);
-        const borderR1 = this.getNodeBorderPoint(rel, fCenterX, fCenterY, true);
+        const borderF = this.getNodeBorderPoint(fromEnt, tCenterX, tCenterY, false);
+        const borderT = this.getNodeBorderPoint(toEnt, fCenterX, fCenterY, false);
 
-        const onDblClickFrom = () => {
-          if (confirm(`'${fromEnt.name}' va '${rel.name}' o'rtasidagi bog'lanish chizig'ini o'chirishni xohlaysizmi?`)) {
-            rel.fromEntityName = '';
+        const onDblClickRel = () => {
+          if (confirm(`'${fromEnt.name}' va '${toEnt.name}' o'rtasidagi aloqa chizig'ini o'chirishni xohlaysizmi?`)) {
+            this.relationships = this.relationships.filter(r => r !== rel);
             this.renderLinks();
             if (window.playSfx) window.playSfx('click');
           }
         };
 
-        this.drawLine(borderF.x, borderF.y, borderR1.x, borderR1.y, onDblClickFrom);
+        this.drawLine(borderF.x, borderF.y, borderT.x, borderT.y, onDblClickRel);
 
-        // Position pill strictly OUTSIDE the entity box along the connection line
-        const mx1 = borderF.x + borderF.dirX * 36;
-        const my1 = borderF.y + borderF.dirY * 36;
+        // 1. Multiplicity for fromEnt (strictly outside entity box)
+        const mx1 = borderF.x + borderF.dirX * 32;
+        const my1 = borderF.y + borderF.dirY * 32;
         this.createMultiplicityPill(mx1, my1, rel, 'mult1', fromEnt.name);
-      }
 
-      if (toEnt) {
-        const tCenterX = toEnt.x + (toEnt.width || 170) / 2;
-        const tCenterY = toEnt.y + (toEnt.height || 100) / 2;
-
-        const borderT = this.getNodeBorderPoint(toEnt, rCenterX, rCenterY, false);
-        const borderR2 = this.getNodeBorderPoint(rel, tCenterX, tCenterY, true);
-
-        const onDblClickTo = () => {
-          if (confirm(`'${rel.name}' va '${toEnt.name}' o'rtasidagi bog'lanish chizig'ini o'chirishni xohlaysizmi?`)) {
-            rel.toEntityName = '';
-            this.renderLinks();
-            if (window.playSfx) window.playSfx('click');
-          }
-        };
-
-        this.drawLine(borderR2.x, borderR2.y, borderT.x, borderT.y, onDblClickTo);
-
-        // Position pill strictly OUTSIDE the entity box along the connection line
-        const mx2 = borderT.x + borderT.dirX * 36;
-        const my2 = borderT.y + borderT.dirY * 36;
+        // 2. Multiplicity for toEnt (strictly outside entity box)
+        const mx2 = borderT.x + borderT.dirX * 32;
+        const my2 = borderT.y + borderT.dirY * 32;
         this.createMultiplicityPill(mx2, my2, rel, 'mult2', toEnt.name);
+
+        // 3. Clickable relationship name badge right in the center of the line
+        const midX = (borderF.x + borderT.x) / 2;
+        const midY = (borderF.y + borderT.y) / 2;
+        const namePill = document.createElement('div');
+        namePill.className = 'rel-line-badge';
+        namePill.textContent = rel.name || 'Aloqa';
+        namePill.style.left = midX + 'px';
+        namePill.style.top = midY + 'px';
+        namePill.style.transform = 'translate(-50%, -50%)';
+        namePill.title = "Aloqa nomini o'zgartirish uchun bosing";
+        namePill.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const val = prompt("Aloqa nomini kiriting:", rel.name || 'Aloqa');
+          if (val && val.trim()) {
+            rel.name = val.trim();
+            this.renderLinks();
+          }
+        });
+        this.nodesLayer.appendChild(namePill);
+      } else {
+        // Fallback for explicit diamond nodes placed on canvas
+        const rCenterX = rel.x + 45;
+        const rCenterY = rel.y + 45;
+
+        if (fromEnt) {
+          const fCenterX = fromEnt.x + (fromEnt.width || 200) / 2;
+          const fCenterY = fromEnt.y + (fromEnt.height || 120) / 2;
+          const borderF = this.getNodeBorderPoint(fromEnt, rCenterX, rCenterY, false);
+          const borderR1 = this.getNodeBorderPoint(rel, fCenterX, fCenterY, true);
+
+          const onDblClickFrom = () => {
+            if (confirm(`'${fromEnt.name}' va '${rel.name}' o'rtasidagi bog'lanish chizig'ini o'chirishni xohlaysizmi?`)) {
+              rel.fromEntityName = '';
+              this.renderLinks();
+              if (window.playSfx) window.playSfx('click');
+            }
+          };
+
+          this.drawLine(borderF.x, borderF.y, borderR1.x, borderR1.y, onDblClickFrom);
+          const mx1 = borderF.x + borderF.dirX * 32;
+          const my1 = borderF.y + borderF.dirY * 32;
+          this.createMultiplicityPill(mx1, my1, rel, 'mult1', fromEnt.name);
+        }
+
+        if (toEnt) {
+          const tCenterX = toEnt.x + (toEnt.width || 200) / 2;
+          const tCenterY = toEnt.y + (toEnt.height || 120) / 2;
+          const borderT = this.getNodeBorderPoint(toEnt, rCenterX, rCenterY, false);
+          const borderR2 = this.getNodeBorderPoint(rel, tCenterX, tCenterY, true);
+
+          const onDblClickTo = () => {
+            if (confirm(`'${rel.name}' va '${toEnt.name}' o'rtasidagi bog'lanish chizig'ini o'chirishni xohlaysizmi?`)) {
+              rel.toEntityName = '';
+              this.renderLinks();
+              if (window.playSfx) window.playSfx('click');
+            }
+          };
+
+          this.drawLine(borderR2.x, borderR2.y, borderT.x, borderT.y, onDblClickTo);
+          const mx2 = borderT.x + borderT.dirX * 32;
+          const my2 = borderT.y + borderT.dirY * 32;
+          this.createMultiplicityPill(mx2, my2, rel, 'mult2', toEnt.name);
+        }
       }
     });
 
@@ -1256,13 +1357,30 @@ class EERCanvasEngine {
       </div>
     `;
 
-    const clientX = e?.clientX !== undefined ? e.clientX : window.innerWidth / 2;
-    const clientY = e?.clientY !== undefined ? e.clientY : window.innerHeight / 2;
-    const posX = Math.max(10, Math.min(window.innerWidth - 300, clientX - 140));
-    const posY = Math.max(10, Math.min(window.innerHeight - 200, clientY - 50));
+    const target = e?.currentTarget || e?.target;
+    const rect = target?.getBoundingClientRect ? target.getBoundingClientRect() : null;
 
+    let posX = window.innerWidth / 2 - 140;
+    let posY = window.innerHeight / 2 - 60;
+
+    if (rect) {
+      posX = rect.left + rect.width / 2 - 140;
+      posY = rect.bottom + 8;
+      if (posY + 160 > window.innerHeight) {
+        posY = rect.top - 160;
+      }
+    } else if (e?.clientX !== undefined) {
+      posX = e.clientX - 140;
+      posY = e.clientY + 10;
+    }
+
+    posX = Math.max(10, Math.min(window.innerWidth - 290, posX));
+    posY = Math.max(10, Math.min(window.innerHeight - 170, posY));
+
+    popover.style.position = 'fixed';
     popover.style.left = posX + 'px';
     popover.style.top = posY + 'px';
+    popover.style.zIndex = '99999';
     popover.style.display = 'flex';
 
     popover.querySelector('#btnCloseEerMultPop')?.addEventListener('click', () => {
@@ -1493,15 +1611,17 @@ class EERCanvasEngine {
 
     const relList = diagram.relationships || [];
     relList.forEach(r => {
-      this.addRelationship({
+      const fromName = r.fromEntityName || r.entity1 || '';
+      const toName = r.toEntityName || r.entity2 || '';
+      this.relationships.push({
+        id: 'rel_' + Math.random().toString(36).substr(2, 9),
         name: r.name || 'Aloqa',
-        fromEntityName: r.fromEntityName || r.entity1 || '',
-        toEntityName: r.toEntityName || r.entity2 || '',
+        fromEntityName: fromName,
+        toEntityName: toName,
         mult1: r.mult1 || '?',
         mult2: r.mult2 || '?',
         isIdentifying: !!r.isIdentifying,
-        x: r.x || w / 2 - 45,
-        y: r.y || h / 2 - 45
+        isDirect: true
       });
     });
 
@@ -1510,6 +1630,33 @@ class EERCanvasEngine {
     }
 
     this.renderLinks();
+
+    // Auto-fit to viewport on mobile screens so bottom of diagram is never cut off
+    if (this.container && this.entities.length > 0) {
+      setTimeout(() => {
+        const containerW = this.container.clientWidth || 360;
+        const containerH = this.container.clientHeight || 440;
+        if (containerW < 768) {
+          let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+          this.entities.forEach(e => {
+            minX = Math.min(minX, e.x);
+            minY = Math.min(minY, e.y);
+            maxX = Math.max(maxX, e.x + (e.width || 200));
+            maxY = Math.max(maxY, e.y + (e.height || 120));
+          });
+          const contentW = Math.max(200, maxX - minX + 50);
+          const contentH = Math.max(160, maxY - minY + 50);
+          const sX = containerW / contentW;
+          const sY = containerH / contentH;
+          this.zoom = Math.min(1.0, Math.max(0.55, Math.min(sX, sY)));
+          const midWorldX = (minX + maxX) / 2;
+          const midWorldY = (minY + maxY) / 2;
+          this.panX = Math.round(containerW / 2 - midWorldX * this.zoom);
+          this.panY = Math.round(containerH / 2 - midWorldY * this.zoom);
+          this.updateViewportTransform();
+        }
+      }, 50);
+    }
   }
 
   clearCanvas() {

@@ -126,9 +126,23 @@ class RelationalCanvasEngine {
     window.addEventListener('mousemove', (e) => this.onPointerMove(e));
     window.addEventListener('mouseup', (e) => this.onPointerUp(e));
 
-    // Touch support (Mobile phones & tablets)
+    // Touch support (Mobile phones & tablets): 1-finger pan/drag, 2-finger pinch-to-zoom
+    this.touchPinchDist = 0;
+    this.touchPinchMid = null;
+
     this.container.addEventListener('touchstart', (e) => {
-      if (e.touches.length === 1) {
+      if (e.touches.length === 2) {
+        if (e.cancelable) e.preventDefault();
+        this.isPanning = false;
+        this.isDraggingNode = false;
+        const t1 = e.touches[0];
+        const t2 = e.touches[1];
+        this.touchPinchDist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+        this.touchPinchMid = {
+          x: (t1.clientX + t2.clientX) / 2,
+          y: (t1.clientY + t2.clientY) / 2
+        };
+      } else if (e.touches.length === 1) {
         const touch = e.touches[0];
         this.lastTouchPoint = { clientX: touch.clientX, clientY: touch.clientY };
         const target = e.target;
@@ -140,17 +154,45 @@ class RelationalCanvasEngine {
           this.startPanY = touch.clientY - this.panY;
         }
       }
-    }, { passive: true });
+    }, { passive: false });
 
     window.addEventListener('touchmove', (e) => {
-      if (e.touches.length === 1) {
+      if (e.touches.length === 2 && this.touchPinchDist > 0) {
+        if (e.cancelable) e.preventDefault();
+        const t1 = e.touches[0];
+        const t2 = e.touches[1];
+        const currentDist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+        const currentMid = {
+          x: (t1.clientX + t2.clientX) / 2,
+          y: (t1.clientY + t2.clientY) / 2
+        };
+
+        const zoomFactor = currentDist / this.touchPinchDist;
+        const newZoom = Math.min(2.5, Math.max(0.35, this.zoom * zoomFactor));
+
+        const rect = this.container.getBoundingClientRect();
+        const originX = currentMid.x - rect.left;
+        const originY = currentMid.y - rect.top;
+
+        this.panX = originX - (originX - this.panX) * (newZoom / this.zoom) + (currentMid.x - this.touchPinchMid.x);
+        this.panY = originY - (originY - this.panY) * (newZoom / this.zoom) + (currentMid.y - this.touchPinchMid.y);
+        this.zoom = newZoom;
+
+        this.touchPinchDist = currentDist;
+        this.touchPinchMid = currentMid;
+        this.updateViewportTransform();
+      } else if (e.touches.length === 1 && !this.touchPinchDist) {
         const touch = e.touches[0];
         this.lastTouchPoint = { clientX: touch.clientX, clientY: touch.clientY };
         this.onPointerMove(touch);
       }
-    }, { passive: true });
+    }, { passive: false });
 
     window.addEventListener('touchend', (e) => {
+      if (e.touches.length < 2) {
+        this.touchPinchDist = 0;
+        this.touchPinchMid = null;
+      }
       this.onPointerUp(e);
     });
 
@@ -575,7 +617,7 @@ class RelationalCanvasEngine {
 
     // Drag events (Mouse + Touch)
     const onTableStart = (e) => {
-      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.node-resize-handle') || e.target.closest('.pk-badge') || e.target.closest('.fk-badge') || e.target.closest('.type-badge') || e.target.closest('.btn-row-del') || e.target.closest('.btn-attr-edit') || e.target.closest('[contenteditable="true"]')) return;
+      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.btn-attr-badge') || e.target.closest('.rel-key-cell') || e.target.closest('.node-resize-handle') || e.target.closest('.pk-badge') || e.target.closest('.fk-badge') || e.target.closest('.type-badge') || e.target.closest('.btn-row-del') || e.target.closest('.btn-attr-edit') || e.target.closest('[contenteditable="true"]')) return;
       if (e.touches && e.touches.length > 1) return;
       e.stopPropagation();
       if (e.cancelable && e.type === 'touchstart') e.preventDefault();
@@ -720,9 +762,11 @@ class RelationalCanvasEngine {
         }
       });
 
-      // Cycle key badge: PK -> FK1 -> PK,FK1 -> None
-      row.querySelector('.btn-attr-badge')?.addEventListener('click', (e) => {
+      // Cycle key badge: PK -> FK1 -> PK,FK1 -> None (Works on touch and click)
+      const badgeBtn = row.querySelector('.btn-attr-badge');
+      const toggleKey = (e) => {
         e.stopPropagation();
+        if (e.cancelable && e.type === 'touchstart') e.preventDefault();
         if (!col.isPK && !col.isFK) {
           col.isPK = true;
           col.isFK = false;
@@ -740,7 +784,10 @@ class RelationalCanvasEngine {
         }
         this.renderTableColumns(table, containerEl);
         this.renderCrowFootLinks();
-      });
+        if (window.playSfx) window.playSfx('click');
+      };
+      badgeBtn?.addEventListener('click', toggleKey);
+      badgeBtn?.addEventListener('touchend', toggleKey);
 
       row.querySelector('.btn-attr-del')?.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -773,8 +820,12 @@ class RelationalCanvasEngine {
   // ==========================================================================
   getTableBorderPoint(tbl, targetX, targetY) {
     if (!tbl) return { x: targetX, y: targetY, dirX: 1, dirY: 0 };
-    const w = tbl.width || 200;
-    const h = tbl.height || 120;
+    const el = document.getElementById(tbl.domId);
+    const w = (el && el.offsetWidth > 40) ? el.offsetWidth : (tbl.width || 200);
+    const h = (el && el.offsetHeight > 30) ? el.offsetHeight : (tbl.height || 120);
+    tbl.width = w;
+    tbl.height = h;
+
     const cx = tbl.x + w / 2;
     const cy = tbl.y + h / 2;
     const dx = targetX - cx;
@@ -783,8 +834,8 @@ class RelationalCanvasEngine {
     const ux = dx / dist;
     const uy = dy / dist;
 
-    const scaleX = (w / 2) / Math.max(0.001, Math.abs(ux));
-    const scaleY = (h / 2) / Math.max(0.001, Math.abs(uy));
+    const scaleX = (w / 2) / Math.max(0.0001, Math.abs(ux));
+    const scaleY = (h / 2) / Math.max(0.0001, Math.abs(uy));
     const scale = Math.min(scaleX, scaleY);
 
     return {
@@ -1258,14 +1309,31 @@ class RelationalCanvasEngine {
       </div>
     `;
 
-    // Position popover near click
-    const clientX = e?.clientX !== undefined ? e.clientX : window.innerWidth / 2;
-    const clientY = e?.clientY !== undefined ? e.clientY : window.innerHeight / 2;
-    const posX = Math.max(10, Math.min(window.innerWidth - 300, clientX - 140));
-    const posY = Math.max(10, Math.min(window.innerHeight - 340, clientY - 80));
+    // Position popover right adjacent to the clicked element
+    const target = e?.currentTarget || e?.target;
+    const rect = target?.getBoundingClientRect ? target.getBoundingClientRect() : null;
 
+    let posX = window.innerWidth / 2 - 140;
+    let posY = window.innerHeight / 2 - 100;
+
+    if (rect) {
+      posX = rect.left + rect.width / 2 - 140;
+      posY = rect.bottom + 8;
+      if (posY + 320 > window.innerHeight) {
+        posY = rect.top - 320;
+      }
+    } else if (e?.clientX !== undefined) {
+      posX = e.clientX - 140;
+      posY = e.clientY + 10;
+    }
+
+    posX = Math.max(10, Math.min(window.innerWidth - 290, posX));
+    posY = Math.max(10, Math.min(window.innerHeight - 340, posY));
+
+    popover.style.position = 'fixed';
     popover.style.left = posX + 'px';
     popover.style.top = posY + 'px';
+    popover.style.zIndex = '99999';
     popover.style.display = 'flex';
 
     // Event listeners
@@ -1511,6 +1579,33 @@ class RelationalCanvasEngine {
     }
 
     this.renderCrowFootLinks();
+
+    // Auto-fit to viewport on mobile screens so bottom of diagram is never cut off
+    if (this.container && this.tables.length > 0) {
+      setTimeout(() => {
+        const containerW = this.container.clientWidth || 360;
+        const containerH = this.container.clientHeight || 440;
+        if (containerW < 768) {
+          let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+          this.tables.forEach(t => {
+            minX = Math.min(minX, t.x);
+            minY = Math.min(minY, t.y);
+            maxX = Math.max(maxX, t.x + (t.width || 200));
+            maxY = Math.max(maxY, t.y + (t.height || 120));
+          });
+          const contentW = Math.max(200, maxX - minX + 50);
+          const contentH = Math.max(160, maxY - minY + 50);
+          const sX = containerW / contentW;
+          const sY = containerH / contentH;
+          this.zoom = Math.min(1.0, Math.max(0.55, Math.min(sX, sY)));
+          const midWorldX = (minX + maxX) / 2;
+          const midWorldY = (minY + maxY) / 2;
+          this.panX = Math.round(containerW / 2 - midWorldX * this.zoom);
+          this.panY = Math.round(containerH / 2 - midWorldY * this.zoom);
+          this.updateViewportTransform();
+        }
+      }, 50);
+    }
   }
 
   clearCanvas() {

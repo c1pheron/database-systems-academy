@@ -3753,34 +3753,182 @@
       }, 50);
     }
 
-    openForQuestion(question, weekNum = 1) {
-      if (!this.modalEl) this.initModal();
-      this.open();
+    initChallengeDetailModal() {
+      if (document.getElementById('challengeDetailModal')) return;
+
+      const modal = document.createElement('div');
+      modal.id = 'challengeDetailModal';
+      modal.className = 'challenge-detail-backdrop';
+      modal.innerHTML = `
+        <div class="challenge-detail-card" role="dialog" aria-modal="true">
+          <div class="challenge-detail-header">
+            <div class="challenge-detail-header-left">
+              <span class="cd-badge" id="cdBadge">Hafta 1 • Konseptual EER</span>
+              <h2 class="cd-title" id="cdTitle">📖 Mavzu Bo'yicha Batafsil Qo'llanma</h2>
+              <div class="cd-task-hint" id="cdTaskHint"></div>
+            </div>
+            <button class="cd-close-btn" id="btnCloseChallengeDetail" title="Yopish">✕</button>
+          </div>
+          <div class="challenge-detail-scroll" id="cdContentScroll">
+            <!-- Rendered dynamically -->
+          </div>
+          <div class="challenge-detail-footer">
+            <button type="button" class="btn-cd-secondary" id="btnCdOpenFullDict">🔍 Boshqa buyruqlarni qidirish (Lug'at)</button>
+            <button type="button" class="btn-cd-primary" id="btnCdConfirm">✓ Tushundim, masalani yechishga kirishaman</button>
+          </div>
+        </div>
+      `;
+
+      document.body.appendChild(modal);
+
+      modal.querySelector('#btnCloseChallengeDetail')?.addEventListener('click', () => {
+        modal.classList.remove('open');
+      });
+
+      modal.querySelector('#btnCdConfirm')?.addEventListener('click', () => {
+        modal.classList.remove('open');
+      });
+
+      modal.querySelector('#btnCdOpenFullDict')?.addEventListener('click', () => {
+        modal.classList.remove('open');
+        this.open();
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('open');
+        }
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) {
+          modal.classList.remove('open');
+        }
+      });
+    }
+
+    formatCodeSnippets(text) {
+      if (!text) return '';
+      let escaped = this.escapeHtml(text);
+      escaped = escaped.replace(/`([^`]+)`/g, '<code class="cd-inline-code">$1</code>');
+      return escaped.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
+    }
+
+    openDetailForChallenge(question, weekNum = 1) {
+      this.initChallengeDetailModal();
+      const modal = document.getElementById('challengeDetailModal');
+      if (!modal) return;
 
       const item = this.findMatchingEntry(question, weekNum);
-      if (item) {
-        this.selectedItem = item;
-        const cleanName = item.name.split('(')[0].replace(/[^a-zA-Z0-9_\s]/g, '').trim();
-        this.searchInput.value = cleanName;
-        this.searchQuery = cleanName.toLowerCase();
-        if (this.clearBtn) this.clearBtn.style.display = 'block';
+      if (!item) return;
 
-        const chip = document.querySelector(`.dict-chip[data-cat="${item.week}"]`);
-        if (chip) {
-          document.querySelectorAll('.dict-chip').forEach(c => c.classList.remove('active'));
-          chip.classList.add('active');
-          this.currentCategory = String(item.week);
-        }
+      const cdBadge = document.getElementById('cdBadge');
+      const cdTitle = document.getElementById('cdTitle');
+      const cdTaskHint = document.getElementById('cdTaskHint');
+      const scrollEl = document.getElementById('cdContentScroll');
 
-        this.renderList();
-        this.renderDetail(item);
-        if (this.bodyEl && window.innerWidth <= 840) {
-          this.bodyEl.classList.add('mobile-view-detail');
-        }
-      } else {
-        const query = question?.title || '';
-        this.open(query);
+      if (cdBadge) cdBadge.textContent = `${weekNum}-Hafta • ${item.category}`;
+      if (cdTitle) cdTitle.innerHTML = `📖 ${item.name} — Texnik Qo'llanma`;
+      if (cdTaskHint) {
+        cdTaskHint.innerHTML = `
+          <div class="cd-task-bar">
+            <span class="cd-task-icon">🎯</span>
+            <div class="cd-task-text">
+              <strong>Joriy Mashq:</strong> "${this.escapeHtml(question?.title || '')}"<br>
+              <span class="cd-task-desc">${this.escapeHtml(question?.taskUz || question?.story || '')}</span>
+            </div>
+          </div>
+        `;
       }
+
+      if (scrollEl) {
+        scrollEl.innerHTML = `
+          <!-- 1. Nima uchun kerak va vazifasi -->
+          <div class="cd-card">
+            <div class="cd-card-header">
+              <span class="cd-card-icon">📌</span>
+              <span class="cd-card-title">1. Nima Uchun Kerak & Qayerda Ishlatiladi?</span>
+            </div>
+            <div class="cd-card-body">
+              <p class="cd-lead">${this.escapeHtml(item.summary || '')}</p>
+              <div class="cd-desc-block">
+                <strong>⚙️ Tizimdagi vazifasi:</strong>
+                <p>${this.escapeHtml(item.whatItDoes || '')}</p>
+              </div>
+              <div class="cd-realworld-box">
+                <strong>🏢 Real tizimlarda (Korzinka, Uzum, Bank):</strong>
+                <p>${this.escapeHtml(item.whenToUse || '')}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Qanday yoziladi & Sintaksis -->
+          <div class="cd-card">
+            <div class="cd-card-header">
+              <span class="cd-card-icon">🛠️</span>
+              <span class="cd-card-title">2. Qanday Yoziladi (Rasmiy Sintaksis)</span>
+            </div>
+            <div class="cd-card-body">
+              <pre class="cd-code-block"><code>${this.escapeHtml(item.syntax || '')}</code></pre>
+            </div>
+          </div>
+
+          <!-- 3. Barcha kombinatsiyalar va qo'shimchalar -->
+          <div class="cd-card highlight">
+            <div class="cd-card-header">
+              <span class="cd-card-icon">⚡</span>
+              <span class="cd-card-title">3. Barcha Qo'shimchalar & Real Kombinatsiyalar</span>
+            </div>
+            <div class="cd-card-body">
+              <div class="cd-combinations-text">${this.formatCodeSnippets(item.combinations || '')}</div>
+            </div>
+          </div>
+
+          <!-- 4. Production misol -->
+          <div class="cd-card">
+            <div class="cd-card-header">
+              <span class="cd-card-icon">💻</span>
+              <span class="cd-card-title">4. To'liq Ishchi Namuna (Misol)</span>
+            </div>
+            <div class="cd-card-body">
+              <pre class="cd-code-block example"><code>${this.escapeHtml(item.example || '')}</code></pre>
+            </div>
+          </div>
+
+          <!-- 5. Masalani yechish bo'yicha qadamma-qadam ko'rsatma -->
+          <div class="cd-card advice">
+            <div class="cd-card-header">
+              <span class="cd-card-icon">💡</span>
+              <span class="cd-card-title">5. Ushbu Masalani Yechish Bo'yicha Strategiya</span>
+            </div>
+            <div class="cd-card-body">
+              <ol class="cd-steps-list">
+                <li><strong>1-Qadam:</strong> Masala shartidagi kalit talablarni diqqat bilan o'qing (qaysi jadval, entitiy yoki ustunlar so'ralyapti).</li>
+                <li><strong>2-Qadam:</strong> Yuqoridagi sintaksis qoidasiga asoslanib, aynan <code>${this.escapeHtml(item.name.split('(')[0].trim())}</code> operatorini qo'llang.</li>
+                <li><strong>3-Qadam:</strong> Belgilangan filtrlash andozasi yoki bog'lanish multiplicity chegaralarini to'g'ri joylashtiring.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- 6. Tuzoqlar va xatolar -->
+          <div class="cd-card warning">
+            <div class="cd-card-header warning">
+              <span class="cd-card-icon">⚠️</span>
+              <span class="cd-card-title">6. Eng Ko'p Uchraydigan Xatolar & Tuzoqlar (Gotchas)</span>
+            </div>
+            <div class="cd-card-body warning">
+              <p>${this.escapeHtml(item.gotchas || '')}</p>
+            </div>
+          </div>
+        `;
+        scrollEl.scrollTop = 0;
+      }
+
+      modal.classList.add('open');
+    }
+
+    openForQuestion(question, weekNum = 1) {
+      this.openDetailForChallenge(question, weekNum);
     }
 
     findMatchingEntry(q, weekNum = 1) {
