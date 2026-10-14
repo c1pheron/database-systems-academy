@@ -236,11 +236,17 @@ input, textarea, select, [contenteditable="true"] {
   background: #191411;
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border-subtle) transparent;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   padding: 6px 14px;
   gap: 6px;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.sector-bar::-webkit-scrollbar {
+  display: none;
 }
 
 .sector-tab {
@@ -252,6 +258,7 @@ input, textarea, select, [contenteditable="true"] {
   font-size: 11.5px;
   font-weight: 600;
   white-space: nowrap;
+  flex-shrink: 0;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
@@ -294,18 +301,19 @@ input, textarea, select, [contenteditable="true"] {
    ============================================================================ */
 .main-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 14px;
   padding: 14px;
   flex: 1;
   max-width: 1780px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1180px) {
   .main-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 }
 
@@ -313,6 +321,9 @@ input, textarea, select, [contenteditable="true"] {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .panel-card {
@@ -323,6 +334,8 @@ input, textarea, select, [contenteditable="true"] {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .panel-header {
@@ -333,6 +346,7 @@ input, textarea, select, [contenteditable="true"] {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .panel-title {
@@ -400,8 +414,15 @@ input, textarea, select, [contenteditable="true"] {
 .schema-tabs {
   display: flex;
   gap: 4px;
-  overflow-x: auto;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  max-width: 100%;
+  padding-bottom: 2px;
+}
+
+.schema-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .schema-tab {
@@ -414,6 +435,7 @@ input, textarea, select, [contenteditable="true"] {
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;
   transition: all 0.2s ease;
 }
 
@@ -430,10 +452,15 @@ input, textarea, select, [contenteditable="true"] {
 
 .table-scroll {
   max-height: 290px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: var(--border-subtle) transparent;
   background: #14110f;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .data-table {
@@ -850,7 +877,7 @@ input, textarea, select, [contenteditable="true"] {
    ============================================================================ */
 @media (max-width: 1180px) {
   .main-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 }
 
@@ -865,12 +892,21 @@ input, textarea, select, [contenteditable="true"] {
     justify-content: space-between;
   }
   .main-grid {
-    padding: 10px;
+    padding: 10px 8px;
     gap: 12px;
+  }
+  .canvas-wrap {
+    max-width: 100%;
+    overflow: hidden;
   }
   canvas {
     max-width: 100%;
     height: auto;
+  }
+  .office-ticker {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
 
@@ -878,12 +914,58 @@ input, textarea, select, [contenteditable="true"] {
   .top-hud {
     flex-direction: column;
     align-items: flex-start;
+    padding: 8px 10px;
+  }
+  .brand-box {
+    width: 100%;
+  }
+  .hud-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 6px;
   }
   .hud-actions {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+  }
+  .hud-actions .btn {
+    flex: 1 1 calc(50% - 6px);
+    justify-content: center;
+  }
+  .main-grid {
+    padding: 8px 4px;
+    gap: 10px;
+  }
+  .panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .panel-title {
+    width: 100%;
+  }
+  .schema-tabs {
+    width: 100%;
+  }
+  .action-bar,
+  .action-left,
+  .action-right {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .action-left .btn,
+  .action-right .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .modal-card {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    margin: 10px auto;
   }
 }
 

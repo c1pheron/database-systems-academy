@@ -40,6 +40,17 @@ class EERCanvasEngine {
     this.connectCurrentX = 0;
     this.connectCurrentY = 0;
 
+    // Free-Standing Connection Lines ("enitiydan chiqadigan chiziq esa enityga ulanmasdan ham tura olishi kerak")
+    this.freeLines = [];
+
+    // Node Resizing ("entity chetini tortganda entity kattalashishi kerak")
+    this.isResizing = false;
+    this.resizingNode = null;
+    this.resizeStartWidth = 0;
+    this.resizeStartHeight = 0;
+    this.resizeStartX = 0;
+    this.resizeStartY = 0;
+
     this.initDOM();
     this.attachEvents();
   }
@@ -123,7 +134,7 @@ class EERCanvasEngine {
     }, { passive: true });
 
     window.addEventListener('touchmove', (e) => {
-      if (this.isPanning || this.isDraggingNode || this.isConnecting) {
+      if (this.isPanning || this.isDraggingNode || this.isConnecting || this.isResizing) {
         if (e.cancelable) e.preventDefault();
         if (e.touches && e.touches.length > 0) {
           this.lastTouchPoint = { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY };
@@ -195,6 +206,22 @@ class EERCanvasEngine {
       this.connectCurrentX = world.x;
       this.connectCurrentY = world.y;
       this.renderTemporaryConnectingLine();
+      return;
+    }
+
+    // D. Resizing Node (draw.io corner drag)
+    if (this.isResizing && this.resizingNode) {
+      const dx = (e.clientX - this.resizeStartX) / this.zoom;
+      const dy = (e.clientY - this.resizeStartY) / this.zoom;
+      this.resizingNode.width = Math.max(140, Math.round(this.resizeStartWidth + dx));
+      this.resizingNode.height = Math.max(80, Math.round(this.resizeStartHeight + dy));
+      const el = document.getElementById(this.resizingNode.domId);
+      if (el) {
+        el.style.width = this.resizingNode.width + 'px';
+        el.style.minHeight = this.resizingNode.height + 'px';
+      }
+      this.renderLinks();
+      return;
     }
   }
 
@@ -207,6 +234,11 @@ class EERCanvasEngine {
     if (this.isDraggingNode) {
       this.isDraggingNode = false;
       this.draggedNode = null;
+    }
+
+    if (this.isResizing) {
+      this.isResizing = false;
+      this.resizingNode = null;
     }
 
     // Finish connection line if dropped onto another entity / diamond
@@ -343,13 +375,28 @@ class EERCanvasEngine {
           return;
         }
       }
+
+      // Agar o'quvchi bo'sh maydonga tortgan bo'lsa (masofa > 20px):
+      // "enitiydan chiqadigan chiziq esa enityga ulanmasdan ham tura olishi kerak"
+      // Chiziq polotnoda erkin saqlanib turadi!
+      if (this.connectMovedDist > 20) {
+        const world = this.screenToWorld(clientX, clientY);
+        this.freeLines.push({
+          id: 'free_' + Math.random().toString(36).substr(2, 9),
+          node: this.connectSource.node,
+          type: this.connectSource.type,
+          port: this.connectSource.port,
+          endX: Math.round(world.x),
+          endY: Math.round(world.y)
+        });
+        if (window.playSfx) window.playSfx('click');
+        this.cancelConnecting();
+        this.renderLinks();
+        return;
+      }
     }
 
-    // Agar o'quvchi bo'sh maydonga tortgan bo'lsa (masofa > 20px), aloqani bekor qilamiz
-    if (this.connectMovedDist > 20) {
-      this.cancelConnecting();
-    }
-    // Agar kamroq harakat qilgan bo'lsa (mobil telefonda portga tegingan bo'lsa),
+    // Agar kamroq harakat qilgan bo'lsa (mobil telefonda portga bir marta tegingan bo'lsa),
     // ikkinchi entitiyni bosish (Tap-to-Connect) orqali ulash imkoniyati ochiq qoladi!
   }
 
@@ -433,6 +480,8 @@ class EERCanvasEngine {
     el.className = 'eer-entity-box' + (entity.isWeak ? ' weak-entity' : '');
     el.style.left = entity.x + 'px';
     el.style.top = entity.y + 'px';
+    el.style.width = (entity.width || 170) + 'px';
+    if (entity.height) el.style.minHeight = entity.height + 'px';
 
     // 4 Connection Ports (Draw.io style)
     const portsHtml = `
@@ -454,14 +503,33 @@ class EERCanvasEngine {
         </div>
       </div>
       <div class="entity-attributes" id="${entity.domId}_attrs"></div>
+      <div class="node-resize-handle" data-action="resize" title="O'lchamni o'zgartirish (sudrang)">⤡</div>
     `;
 
     // Render attribute rows
     this.renderEntityAttributes(entity, el.querySelector('.entity-attributes'));
 
+    // Resize Handle (Draw.io style corner drag)
+    const resizeBtn = el.querySelector('.node-resize-handle');
+    if (resizeBtn) {
+      const onResizeStart = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        const point = e.touches ? e.touches[0] : e;
+        this.isResizing = true;
+        this.resizingNode = entity;
+        this.resizeStartWidth = entity.width || el.offsetWidth || 170;
+        this.resizeStartHeight = entity.height || el.offsetHeight || 100;
+        this.resizeStartX = point.clientX;
+        this.resizeStartY = point.clientY;
+      };
+      resizeBtn.addEventListener('mousedown', onResizeStart);
+      resizeBtn.addEventListener('touchstart', onResizeStart, { passive: false });
+    }
+
     // Drag events (Mouse + Touch)
     const onEntityStart = (e) => {
-      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.attr-pill') || e.target.closest('.btn-attr-del') || e.target.closest('[contenteditable="true"]')) return;
+      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.attr-pill') || e.target.closest('.btn-attr-del') || e.target.closest('.node-resize-handle') || e.target.closest('[contenteditable="true"]')) return;
       if (e.touches && e.touches.length > 1) return;
       e.stopPropagation();
       if (e.cancelable && e.type === 'touchstart') e.preventDefault();
@@ -750,6 +818,49 @@ class EERCanvasEngine {
         this.createMultiplicityPill(mx2, my2, rel, 'mult2', toEnt.name);
       }
     });
+
+    // Render Free-Standing Connection Lines ("enitiydan chiqadigan chiziq esa enityga ulanmasdan ham tura olishi kerak")
+    this.freeLines = this.freeLines.filter(fl => {
+      return this.entities.some(e => e.domId === fl.node.domId) || this.relationships.some(r => r.domId === fl.node.domId);
+    });
+
+    this.freeLines.forEach((fl, idx) => {
+      const start = this.getPortCoords(fl.node, fl.port);
+      this.drawLine(start.x, start.y, fl.endX, fl.endY);
+
+      // Endpoint circle handle (draw.io style dangling handle)
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', fl.endX);
+      circle.setAttribute('cy', fl.endY);
+      circle.setAttribute('r', '7');
+      circle.setAttribute('fill', '#ffd166');
+      circle.setAttribute('stroke', '#1e1916');
+      circle.setAttribute('stroke-width', '2');
+      circle.style.cursor = 'grab';
+      circle.style.pointerEvents = 'auto';
+
+      const startDragHandle = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        this.freeLines.splice(idx, 1);
+        this.startPortConnection(fl.node, fl.type, fl.port);
+        const point = e.touches ? e.touches[0] : e;
+        const world = this.screenToWorld(point.clientX, point.clientY);
+        this.connectCurrentX = world.x;
+        this.connectCurrentY = world.y;
+        this.renderLinks();
+      };
+      circle.addEventListener('mousedown', startDragHandle);
+      circle.addEventListener('touchstart', startDragHandle, { passive: false });
+
+      circle.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        this.freeLines.splice(idx, 1);
+        this.renderLinks();
+      });
+
+      this.svg.appendChild(circle);
+    });
   }
 
   drawLine(x1, y1, x2, y2) {
@@ -856,6 +967,7 @@ class EERCanvasEngine {
     this.entities = [];
     this.relationships = [];
     this.subclasses = [];
+    this.freeLines = [];
     this.nodesLayer.innerHTML = '';
     this.svg.innerHTML = '';
     this.selectedNode = null;

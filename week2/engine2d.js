@@ -12,8 +12,6 @@ class Relational2DEngine {
 
     this.width = 860;
     this.height = 180;
-    this.canvas.width = this.width;
-    this.canvas.height = this.height;
 
     this.tick = 0;
     this.particles = [];
@@ -47,7 +45,28 @@ class Relational2DEngine {
       speechTimer: 180
     };
 
+    this.resize();
+    window.addEventListener('resize', () => this.resize());
+
     this.startLoop();
+  }
+
+  resize() {
+    if (!this.canvas) return;
+    const rect = this.canvas.getBoundingClientRect();
+    const newWidth = Math.max(320, Math.round(rect.width || this.canvas.offsetWidth || 860));
+    this.width = this.canvas.width = newWidth;
+    this.height = this.canvas.height = 180;
+
+    const centerX = this.width / 2;
+    this.student.x = centerX;
+    this.student.y = 115;
+
+    const sideDist = Math.min(260, Math.max(100, this.width * 0.32));
+    this.mentor.x = Math.max(65, Math.round(centerX - sideDist));
+    this.mentor.y = 110;
+    this.client.x = Math.min(this.width - 65, Math.round(centerX + sideDist));
+    this.client.y = 110;
   }
 
   setClient(name, role, quote) {
@@ -70,7 +89,7 @@ class Relational2DEngine {
 
     for (let i = 0; i < 40; i++) {
       this.particles.push({
-        x: 430 + (Math.random() - 0.5) * 160,
+        x: this.student.x + (Math.random() - 0.5) * 160,
         y: 80 + (Math.random() - 0.5) * 40,
         vx: (Math.random() - 0.5) * 5,
         vy: -1.5 - Math.random() * 3,
@@ -148,33 +167,45 @@ class Relational2DEngine {
       ctx.stroke();
     }
 
-    // Conference Table
+    const centerX = this.student.x || this.width / 2;
+
+    // Center Conference Table (Proportionate, NOT Stretched!)
+    const deskW = Math.min(240, Math.max(160, this.width * 0.42));
+    const deskH = 48;
+    const deskX = Math.round(centerX - deskW / 2);
+    const deskY = 112;
+
     ctx.save();
     ctx.fillStyle = "#2c221a";
     ctx.strokeStyle = "#c8a96e";
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.roundRect(240, 105, 380, 55, [12, 12, 8, 8]);
+    ctx.roundRect(deskX, deskY, deskW, deskH, [10, 10, 6, 6]);
     ctx.fill();
     ctx.stroke();
 
     // Table schema draft paper on desk
+    const bpW = Math.min(150, deskW - 32);
+    const bpH = 28;
+    const bpX = Math.round(centerX - bpW / 2);
+    const bpY = deskY + 9;
+
     ctx.fillStyle = "#1e293b";
     ctx.strokeStyle = "rgba(200, 169, 110, 0.4)";
     ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.roundRect(310, 115, 240, 36, 4);
+    ctx.roundRect(bpX, bpY, bpW, bpH, 4);
     ctx.fill();
     ctx.stroke();
 
     // Miniature draw.io table marks
     ctx.strokeStyle = "#dfc288";
     ctx.lineWidth = 1;
-    ctx.strokeRect(325, 120, 95, 26);
-    ctx.strokeRect(435, 120, 95, 26);
+    ctx.strokeRect(bpX + 8, bpY + 5, 50, 18);
+    ctx.strokeRect(bpX + bpW - 58, bpY + 5, 50, 18);
     ctx.beginPath();
-    ctx.moveTo(420, 133);
-    ctx.lineTo(435, 133);
+    ctx.moveTo(bpX + 58, bpY + 14);
+    ctx.lineTo(bpX + bpW - 58, bpY + 14);
     ctx.stroke();
 
     ctx.restore();
@@ -190,7 +221,7 @@ class Relational2DEngine {
     }
 
     if (this.client.speech && this.client.speechTimer > 0) {
-      this.drawSpeechBubble(ctx, this.client.x - 30, this.client.y - 48, this.client.speech, "#d97706", "#1c1511");
+      this.drawSpeechBubble(ctx, this.client.x, this.client.y - 48, this.client.speech, "#d97706", "#1c1511");
     }
 
     // Active Alert

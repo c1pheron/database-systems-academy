@@ -565,6 +565,31 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 /* RELATIONAL TABLE BOX (DRAW.IO STYLE) */
+.node-resize-handle {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 14px;
+  height: 14px;
+  cursor: se-resize;
+  color: var(--accent-gold);
+  font-size: 11px;
+  line-height: 14px;
+  text-align: center;
+  opacity: 0.6;
+  user-select: none;
+  touch-action: none;
+  z-index: 10;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.node-resize-handle:hover,
+.node-resize-handle:active {
+  opacity: 1;
+  transform: scale(1.25);
+  color: var(--accent-gold-bright);
+}
+
 .rel-table-box {
   position: absolute;
   min-width: 190px;

@@ -77,7 +77,7 @@ class CyberArena2D {
   }
 
   initLayout() {
-    // 3 Department Executive Zones (Obsidian Slate + Sapphire Borders)
+    // 3 Department Executive Zones (Walnut + Gold/Sage Borders)
     this.deptDesks = [
       {
         deptno: 10,
@@ -86,9 +86,9 @@ class CyberArena2D {
         y: 65,
         w: 180,
         h: 270,
-        rugColor: "#131c2e",
-        borderColor: "#3b82f6",
-        woodColor: "#1e293b"
+        rugColor: "#332924",
+        borderColor: "#c8a96e",
+        woodColor: "#4a3525"
       },
       {
         deptno: 20,
@@ -97,9 +97,9 @@ class CyberArena2D {
         y: 65,
         w: 180,
         h: 270,
-        rugColor: "#0f232e",
-        borderColor: "#06b6d4",
-        woodColor: "#1e293b"
+        rugColor: "#25302b",
+        borderColor: "#7c9a82",
+        woodColor: "#463224"
       },
       {
         deptno: 30,
@@ -108,9 +108,9 @@ class CyberArena2D {
         y: 65,
         w: 180,
         h: 270,
-        rugColor: "#1c1d2e",
-        borderColor: "#8b5cf6",
-        woodColor: "#1e293b"
+        rugColor: "#2d2830",
+        borderColor: "#b89778",
+        woodColor: "#4d3728"
       }
     ];
 
@@ -515,16 +515,16 @@ class CyberArena2D {
   }
 
   renderFloor(ctx) {
-    // Deep Obsidian Slate base
+    // Deep warm walnut parquet base
     const grad = ctx.createLinearGradient(0, 0, 0, this.height);
-    grad.addColorStop(0, "#090d16");
-    grad.addColorStop(0.5, "#0d131f");
-    grad.addColorStop(1, "#070a12");
+    grad.addColorStop(0, "#261f19");
+    grad.addColorStop(0.5, "#2b231c");
+    grad.addColorStop(1, "#1c1612");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, this.width, this.height);
 
-    // Subtle executive high-tech grid tiles
-    ctx.strokeStyle = "rgba(56, 189, 248, 0.04)";
+    // Subtle warm wood plank lines
+    ctx.strokeStyle = "rgba(200, 169, 110, 0.06)";
     ctx.lineWidth = 1;
     const tileSize = 38;
     for (let x = 0; x < this.width; x += tileSize) {
@@ -540,28 +540,28 @@ class CyberArena2D {
       ctx.stroke();
     }
 
-    // Platinum border with cyan tint
-    ctx.strokeStyle = "rgba(56, 189, 248, 0.25)";
+    // Warm champagne gold border
+    ctx.strokeStyle = "rgba(200, 169, 110, 0.35)";
     ctx.lineWidth = 2;
     ctx.strokeRect(10, 10, this.width - 20, this.height - 20);
   }
 
   renderWindows(ctx) {
-    // Panoramic Skyline Windows along top
-    ctx.fillStyle = "#050811";
+    // Upper mahogany/walnut wall
+    ctx.fillStyle = "#211a15";
     ctx.fillRect(18, 14, this.width - 36, 32);
 
     // Distant skyscraper lights
     for (let i = 30; i < this.width - 40; i += 42) {
       const h = 14 + ((i * 13) % 14);
-      ctx.fillStyle = "rgba(30, 41, 59, 0.8)";
+      ctx.fillStyle = "rgba(42, 32, 26, 0.85)";
       ctx.fillRect(i, 46 - h, 28, h);
 
-      // Yellow/blue window specks
+      // Warm window specks
       for (let r = 0; r < 3; r++) {
         for (let c = 0; c < 3; c++) {
           if ((i + r + c) % 3 === 0) {
-            ctx.fillStyle = (i + r) % 2 === 0 ? "rgba(245, 158, 11, 0.7)" : "rgba(56, 189, 248, 0.7)";
+            ctx.fillStyle = (i + r) % 2 === 0 ? "rgba(200, 169, 110, 0.75)" : "rgba(92, 141, 115, 0.75)";
             ctx.fillRect(i + 4 + c * 8, 48 - h + 2 + r * 4, 3, 2);
           }
         }
@@ -569,11 +569,11 @@ class CyberArena2D {
     }
 
     // Top Header Banner
-    ctx.fillStyle = "#f8fafc";
+    ctx.fillStyle = "#f2ede4";
     ctx.font = "bold 11px Inter, sans-serif";
     ctx.fillText("🏛 KORPORATIV BOSH OFIS • W6 ADVANCED SQL & QUERY OPTIMIZER COMMAND CENTER", 28, 34);
 
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "#c8a96e";
     ctx.font = "10px Inter, sans-serif";
     ctx.fillText(`SEKTOR ${this.currentSector} / 10 • RELATIONAL ALGEBRA TREE`, this.width - 320, 34);
   }
@@ -589,9 +589,9 @@ class CyberArena2D {
       ctx.strokeRect(d.x, d.y, d.w, d.h);
 
       // Dept Title Tag
-      ctx.fillStyle = "rgba(15, 23, 42, 0.85)";
+      ctx.fillStyle = "rgba(33, 26, 20, 0.9)";
       ctx.fillRect(d.x + 8, d.y + 6, d.w - 16, 20);
-      ctx.fillStyle = "#f8fafc";
+      ctx.fillStyle = "#f2ede4";
       ctx.font = "bold 9.5px Inter, sans-serif";
       ctx.fillText(d.title, d.x + 14, d.y + 20);
 
@@ -601,28 +601,28 @@ class CyberArena2D {
           const dx = d.x + 14 + c * 80;
           const dy = d.y + 44 + r * 95;
 
-          // Polished slate desk
+          // Polished walnut desk
           ctx.fillStyle = d.woodColor;
           ctx.fillRect(dx, dy, 70, 42);
-          ctx.strokeStyle = "rgba(56, 189, 248, 0.2)";
+          ctx.strokeStyle = "rgba(200, 169, 110, 0.25)";
           ctx.strokeRect(dx, dy, 70, 42);
 
           // Dual Monitors
-          ctx.fillStyle = "#020617";
+          ctx.fillStyle = "#14110f";
           ctx.fillRect(dx + 12, dy + 6, 22, 14);
           ctx.fillRect(dx + 38, dy + 6, 22, 14);
 
-          // Screen Glow (Cyan code lines)
-          ctx.fillStyle = "rgba(56, 189, 248, 0.85)";
+          // Screen Glow
+          ctx.fillStyle = "rgba(200, 169, 110, 0.85)";
           ctx.fillRect(dx + 14, dy + 8, 18, 2);
           ctx.fillRect(dx + 14, dy + 12, 14, 2);
 
-          ctx.fillStyle = "rgba(245, 158, 11, 0.85)";
+          ctx.fillStyle = "rgba(92, 141, 115, 0.85)";
           ctx.fillRect(dx + 40, dy + 8, 18, 2);
           ctx.fillRect(dx + 40, dy + 12, 12, 2);
 
           // Keyboard
-          ctx.fillStyle = "#334155";
+          ctx.fillStyle = "#2d241d";
           ctx.fillRect(dx + 22, dy + 24, 26, 8);
         }
       }
@@ -630,11 +630,11 @@ class CyberArena2D {
 
     // Plants
     for (const p of this.plants) {
-      ctx.fillStyle = "#1e293b";
+      ctx.fillStyle = "#2e231c";
       ctx.beginPath();
       ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
       ctx.fill();
-      ctx.fillStyle = "#10b981";
+      ctx.fillStyle = "#5c8d73";
       ctx.beginPath();
       ctx.arc(p.x, p.y - 4, 6, 0, Math.PI * 2);
       ctx.fill();
@@ -644,55 +644,55 @@ class CyberArena2D {
   renderProps(ctx) {
     // 1. Espresso Bar
     const coffee = this.props[0];
-    ctx.fillStyle = "#1e293b";
+    ctx.fillStyle = "#2c231c";
     ctx.fillRect(coffee.x, coffee.y, coffee.w, coffee.h);
-    ctx.strokeStyle = "#f59e0b";
+    ctx.strokeStyle = "#c8a96e";
     ctx.lineWidth = 1.5;
     ctx.strokeRect(coffee.x, coffee.y, coffee.w, coffee.h);
 
-    ctx.fillStyle = "#f59e0b";
+    ctx.fillStyle = "#c8a96e";
     ctx.font = "bold 9px Inter, sans-serif";
     ctx.fillText("☕ BAR", coffee.x + 8, coffee.y + 16);
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#c4bbb0";
     ctx.font = "8px Inter, sans-serif";
     ctx.fillText("Espresso", coffee.x + 8, coffee.y + 28);
 
     // 2. HR & Applicant Desk
     const hr = this.props[1];
-    ctx.fillStyle = "#1e293b";
+    ctx.fillStyle = "#251e18";
     ctx.fillRect(hr.x, hr.y, hr.w, hr.h);
-    ctx.strokeStyle = "#38bdf8";
+    ctx.strokeStyle = "#7c9a82";
     ctx.lineWidth = 1.5;
     ctx.strokeRect(hr.x, hr.y, hr.w, hr.h);
 
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "#9ec4a5";
     ctx.font = "bold 9px Inter, sans-serif";
     ctx.fillText("📋 HR APPLICANT", hr.x + 4, hr.y + 15);
-    ctx.fillStyle = "#cbd5e1";
+    ctx.fillStyle = "#c4bbb0";
     ctx.font = "8px Inter, sans-serif";
     ctx.fillText("13 Nomzod", hr.x + 8, hr.y + 27);
 
     // 3. Server Rack (Relational Algebra & Optimizer)
     const srv = this.props[2];
-    ctx.fillStyle = "#0f172a";
+    ctx.fillStyle = "#1e1916";
     ctx.fillRect(srv.x, srv.y, srv.w, srv.h);
-    ctx.strokeStyle = "#3b82f6";
+    ctx.strokeStyle = "#c8a96e";
     ctx.lineWidth = 1.5;
     ctx.strokeRect(srv.x, srv.y, srv.w, srv.h);
 
     // Blinking server LEDs
     for (let i = 0; i < 5; i++) {
       const sy = srv.y + 8 + i * 14;
-      ctx.fillStyle = "#1e293b";
+      ctx.fillStyle = "#2a211b";
       ctx.fillRect(srv.x + 4, sy, srv.w - 8, 10);
 
       const ledOn = (Math.floor(this.time / 15) + i) % 2 === 0;
-      ctx.fillStyle = ledOn ? "#38bdf8" : "#f59e0b";
+      ctx.fillStyle = ledOn ? "#c8a96e" : "#5c8d73";
       ctx.beginPath();
       ctx.arc(srv.x + 10, sy + 5, 2.5, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.fillStyle = !ledOn ? "#10b981" : "#6366f1";
+      ctx.fillStyle = !ledOn ? "#7c9a82" : "#d19a52";
       ctx.beginPath();
       ctx.arc(srv.x + 18, sy + 5, 2.5, 0, Math.PI * 2);
       ctx.fill();
@@ -702,32 +702,32 @@ class CyberArena2D {
   renderElevator(ctx) {
     const p = this.portal;
     // Outer Frame
-    ctx.fillStyle = "#0f172a";
+    ctx.fillStyle = "#231c17";
     ctx.fillRect(p.x - 22, p.y - 36, 44, 72);
 
-    ctx.strokeStyle = p.open ? "#10b981" : "#3b82f6";
+    ctx.strokeStyle = p.open ? "#5c8d73" : "#c8a96e";
     ctx.lineWidth = 2.5;
     ctx.strokeRect(p.x - 22, p.y - 36, 44, 72);
 
     // Door interior
-    ctx.fillStyle = p.open ? "rgba(16, 185, 129, 0.25)" : "#020617";
+    ctx.fillStyle = p.open ? "rgba(92, 141, 115, 0.3)" : "#14110f";
     ctx.fillRect(p.x - 18, p.y - 32, 36, 64);
 
     // Sliding Doors
     const doorW = 18 * (1 - p.doorOpenRatio);
-    ctx.fillStyle = "#1e293b";
+    ctx.fillStyle = "#332922";
     // Left door
     ctx.fillRect(p.x - 18, p.y - 32, doorW, 64);
     // Right door
     ctx.fillRect(p.x + 18 - doorW, p.y - 32, doorW, 64);
 
     // Indicator Light
-    ctx.fillStyle = p.open ? "#10b981" : "#ef4444";
+    ctx.fillStyle = p.open ? "#5c8d73" : "#c46d58";
     ctx.beginPath();
     ctx.arc(p.x, p.y - 42, 4, 0, Math.PI * 2);
     ctx.fill();
 
-    ctx.fillStyle = "#f8fafc";
+    ctx.fillStyle = "#f2ede4";
     ctx.font = "bold 8.5px Inter, sans-serif";
     ctx.fillText("LIFT", p.x - 10, p.y + 44);
   }
@@ -744,14 +744,14 @@ class CyberArena2D {
     ctx.ellipse(0, 18, 12, 5, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    // Body (Midnight Navy Professor Suit)
-    ctx.fillStyle = "#1e3a5f";
+    // Body (Walnut Executive Suit)
+    ctx.fillStyle = "#382c21";
     ctx.fillRect(-8, 2, 16, 16);
 
     // White shirt & Gold bow
-    ctx.fillStyle = "#f8fafc";
+    ctx.fillStyle = "#f2ede4";
     ctx.fillRect(-3, 2, 6, 6);
-    ctx.fillStyle = "#f59e0b";
+    ctx.fillStyle = "#c8a96e";
     ctx.fillRect(-2, 4, 4, 2);
 
     // Head
@@ -767,13 +767,13 @@ class CyberArena2D {
     ctx.fill();
 
     // Spectacles
-    ctx.strokeStyle = "#f59e0b";
+    ctx.strokeStyle = "#c8a96e";
     ctx.lineWidth = 1;
     ctx.strokeRect(-5, -7, 4, 3);
     ctx.strokeRect(1, -7, 4, 3);
 
     // Label
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "#c8a96e";
     ctx.font = "bold 9px Inter, sans-serif";
     ctx.textAlign = "center";
     ctx.fillText(m.name, 0, -18);
@@ -791,7 +791,7 @@ class CyberArena2D {
 
       // Highlight Ring
       if (isHighlighted) {
-        ctx.strokeStyle = "#38bdf8";
+        ctx.strokeStyle = "#c8a96e";
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(0, 4, 18, 0, Math.PI * 2);
@@ -825,12 +825,12 @@ class CyberArena2D {
       ctx.fill();
 
       // Name & Salary Tag
-      ctx.fillStyle = isHighlighted ? "#38bdf8" : "#cbd5e1";
+      ctx.fillStyle = isHighlighted ? "#c8a96e" : "#f2ede4";
       ctx.font = isHighlighted ? "bold 9px Inter, sans-serif" : "8.5px Inter, sans-serif";
       ctx.textAlign = "center";
       ctx.fillText(npc.ename, 0, -14);
 
-      ctx.fillStyle = "#94a3b8";
+      ctx.fillStyle = "#c4bbb0";
       ctx.font = "7.5px Inter, sans-serif";
       ctx.fillText(`$${npc.sal}`, 0, 26);
 
@@ -853,16 +853,16 @@ class CyberArena2D {
     const legSwing = Math.sin(p.walkFrame) * 4;
 
     // Legs
-    ctx.fillStyle = "#0f172a";
+    ctx.fillStyle = "#14110f";
     ctx.fillRect(-5, 14, 4, 8 + legSwing);
     ctx.fillRect(1, 14, 4, 8 - legSwing);
 
-    // Executive Navy Suit Body
-    ctx.fillStyle = "#1e3a5f";
+    // Executive Walnut Suit Body
+    ctx.fillStyle = "#2b231c";
     ctx.fillRect(-8, 0, 16, 16);
 
-    // Cyan Silk Tie
-    ctx.fillStyle = "#38bdf8";
+    // Champagne Gold Silk Tie
+    ctx.fillStyle = "#c8a96e";
     ctx.fillRect(-2, 2, 4, 9);
 
     // Head
@@ -872,19 +872,19 @@ class CyberArena2D {
     ctx.fill();
 
     // Hair
-    ctx.fillStyle = "#1e293b";
+    ctx.fillStyle = "#2c221a";
     ctx.beginPath();
     ctx.arc(0, -10, 8, Math.PI, Math.PI * 2);
     ctx.fill();
 
     // Eyes
-    ctx.fillStyle = "#0f172a";
+    ctx.fillStyle = "#14110f";
     const dirOffset = p.facing === "left" ? -2 : 2;
     ctx.fillRect(-2 + dirOffset, -9, 2, 2);
     ctx.fillRect(2 + dirOffset, -9, 2, 2);
 
     // Player Badge Tag
-    ctx.fillStyle = "#38bdf8";
+    ctx.fillStyle = "#c8a96e";
     ctx.font = "bold 9px Inter, sans-serif";
     ctx.textAlign = "center";
     ctx.fillText("Siz (Data Me'mori)", 0, -20);
@@ -919,18 +919,18 @@ class CyberArena2D {
   renderSpeechBubbles(ctx) {
     // 1. Player speech
     if (this.player.speech && this.player.speechTimer > 0) {
-      this.drawBubble(ctx, this.player.x, this.player.y - 32, this.player.speech, "#0f172a", "#38bdf8");
+      this.drawBubble(ctx, this.player.x, this.player.y - 32, this.player.speech, "#241e19", "#7c9a82");
     }
 
     // 2. Mentor speech
     if (this.mentor.speech && this.mentor.speechTimer > 0) {
-      this.drawBubble(ctx, this.mentor.x, this.mentor.y - 30, this.mentor.speech, "#0f172a", "#f59e0b");
+      this.drawBubble(ctx, this.mentor.x, this.mentor.y - 30, this.mentor.speech, "#241e19", "#c8a96e");
     }
 
     // 3. Colleagues speech
     for (const npc of this.npcNodes) {
       if (npc.speech && npc.speechTimer > 0) {
-        this.drawBubble(ctx, npc.x, npc.y - 28, npc.speech, "#0f172a", "#cbd5e1");
+        this.drawBubble(ctx, npc.x, npc.y - 28, npc.speech, "#241e19", "#c8a96e");
       }
     }
   }

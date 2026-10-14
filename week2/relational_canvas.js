@@ -38,6 +38,15 @@ class RelationalCanvasEngine {
     this.connectCurrentX = 0;
     this.connectCurrentY = 0;
 
+    // Free-standing connection lines & Resizing
+    this.freeLines = [];
+    this.isResizing = false;
+    this.resizingNode = null;
+    this.resizeStartX = 0;
+    this.resizeStartY = 0;
+    this.resizeStartWidth = 0;
+    this.resizeStartHeight = 0;
+
     this.initDOM();
     this.attachEvents();
   }
@@ -120,7 +129,7 @@ class RelationalCanvasEngine {
     }, { passive: true });
 
     window.addEventListener('touchmove', (e) => {
-      if (this.isPanning || this.isDraggingNode || this.isConnecting) {
+      if (this.isPanning || this.isDraggingNode || this.isConnecting || this.isResizing) {
         if (e.cancelable) e.preventDefault();
         if (e.touches && e.touches.length > 0) {
           this.lastTouchPoint = { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY };
@@ -188,6 +197,22 @@ class RelationalCanvasEngine {
       this.connectCurrentX = world.x;
       this.connectCurrentY = world.y;
       this.renderTemporaryConnectingLine();
+      return;
+    }
+
+    // Resizing Table (draw.io corner drag)
+    if (this.isResizing && this.resizingNode) {
+      const dx = (e.clientX - this.resizeStartX) / this.zoom;
+      const dy = (e.clientY - this.resizeStartY) / this.zoom;
+      this.resizingNode.width = Math.max(160, Math.round(this.resizeStartWidth + dx));
+      this.resizingNode.height = Math.max(90, Math.round(this.resizeStartHeight + dy));
+      const el = document.getElementById(this.resizingNode.domId);
+      if (el) {
+        el.style.width = this.resizingNode.width + 'px';
+        el.style.minHeight = this.resizingNode.height + 'px';
+      }
+      this.renderCrowFootLinks();
+      return;
     }
   }
 
@@ -200,6 +225,11 @@ class RelationalCanvasEngine {
     if (this.isDraggingNode) {
       this.isDraggingNode = false;
       this.draggedTable = null;
+    }
+
+    if (this.isResizing) {
+      this.isResizing = false;
+      this.resizingNode = null;
     }
 
     if (this.isConnecting) {
@@ -315,12 +345,23 @@ class RelationalCanvasEngine {
       }
     }
 
-    // Agar o'quvchi bo'sh sohaga masofa tortgan bo'lsa (> 20px), bekor qilamiz
-    if (this.connectMovedDist > 20) {
-      this.cancelConnecting();
+      // Agar o'quvchi bo'sh maydonga tortgan bo'lsa (masofa > 20px):
+      // "enitiydan chiqadigan chiziq esa enityga ulanmasdan ham tura olishi kerak"
+      if (this.connectMovedDist > 20) {
+        const world = this.screenToWorld(clientX, clientY);
+        this.freeLines.push({
+          id: 'free_' + Math.random().toString(36).substr(2, 9),
+          table: this.connectSource.table,
+          port: this.connectSource.port,
+          endX: Math.round(world.x),
+          endY: Math.round(world.y)
+        });
+        if (window.playSfx) window.playSfx('click');
+        this.cancelConnecting();
+        this.renderCrowFootLinks();
+        return;
+      }
     }
-    // Agar kamroq harakat bo'lsa (portga tegingan bo'lsa), Tap-to-Connect uchun kutamiz
-  }
 
   // ==========================================================================
   // TABLE SELECTION & DRAGGING
@@ -417,13 +458,14 @@ class RelationalCanvasEngine {
         </div>
       </div>
       <div class="rel-table-body" id="${table.domId}_body"></div>
+      <div class="node-resize-handle" title="O'lchamni o'zgartirish"></div>
     `;
 
     this.renderTableColumns(table, el.querySelector('.rel-table-body'));
 
     // Drag events (Mouse + Touch)
     const onTableStart = (e) => {
-      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.pk-badge') || e.target.closest('.fk-badge') || e.target.closest('.type-badge') || e.target.closest('.btn-row-del') || e.target.closest('[contenteditable="true"]')) return;
+      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.node-resize-handle') || e.target.closest('.pk-badge') || e.target.closest('.fk-badge') || e.target.closest('.type-badge') || e.target.closest('.btn-row-del') || e.target.closest('[contenteditable="true"]')) return;
       if (e.touches && e.touches.length > 1) return;
       e.stopPropagation();
       if (e.cancelable && e.type === 'touchstart') e.preventDefault();
@@ -432,6 +474,24 @@ class RelationalCanvasEngine {
     };
     el.addEventListener('mousedown', onTableStart);
     el.addEventListener('touchstart', onTableStart, { passive: false });
+
+    // Resize Handle (draw.io corner drag)
+    const resizeHandle = el.querySelector('.node-resize-handle');
+    if (resizeHandle) {
+      const onResizeStart = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        const pt = e.touches ? e.touches[0] : e;
+        this.isResizing = true;
+        this.resizingNode = table;
+        this.resizeStartX = pt.clientX;
+        this.resizeStartY = pt.clientY;
+        this.resizeStartWidth = table.width || el.offsetWidth || 200;
+        this.resizeStartHeight = table.height || el.offsetHeight || 120;
+      };
+      resizeHandle.addEventListener('mousedown', onResizeStart);
+      resizeHandle.addEventListener('touchstart', onResizeStart, { passive: false });
+    }
 
     // Connection port events (Mouse + Touch)
     el.querySelectorAll('.port-arrow').forEach(p => {
@@ -596,6 +656,57 @@ class RelationalCanvasEngine {
         this.drawTableConnection(t1, t2);
       }
     });
+
+    // Render Free-Standing Connection Lines ("enitiydan chiqadigan chiziq esa enityga ulanmasdan ham tura olishi kerak")
+    this.freeLines = this.freeLines.filter(fl => {
+      return this.tables.some(t => t.domId === fl.table.domId);
+    });
+
+    this.freeLines.forEach((fl, idx) => {
+      const start = this.getPortCoords(fl.table, fl.port);
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', start.x);
+      line.setAttribute('y1', start.y);
+      line.setAttribute('x2', fl.endX);
+      line.setAttribute('y2', fl.endY);
+      line.setAttribute('stroke', '#dfc288');
+      line.setAttribute('stroke-width', '2');
+      line.setAttribute('stroke-linecap', 'round');
+      this.svg.appendChild(line);
+
+      // Endpoint circle handle (draw.io style dangling handle)
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', fl.endX);
+      circle.setAttribute('cy', fl.endY);
+      circle.setAttribute('r', '7');
+      circle.setAttribute('fill', '#ffd166');
+      circle.setAttribute('stroke', '#1e1916');
+      circle.setAttribute('stroke-width', '2');
+      circle.style.cursor = 'grab';
+      circle.style.pointerEvents = 'auto';
+
+      const startDragHandle = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        this.freeLines.splice(idx, 1);
+        this.startPortConnection(fl.table, fl.port);
+        const point = e.touches ? e.touches[0] : e;
+        const world = this.screenToWorld(point.clientX, point.clientY);
+        this.connectCurrentX = world.x;
+        this.connectCurrentY = world.y;
+        this.renderCrowFootLinks();
+      };
+      circle.addEventListener('mousedown', startDragHandle);
+      circle.addEventListener('touchstart', startDragHandle, { passive: false });
+
+      circle.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        this.freeLines.splice(idx, 1);
+        this.renderCrowFootLinks();
+      });
+
+      this.svg.appendChild(circle);
+    });
   }
 
   drawTableConnection(t1, t2) {
@@ -735,6 +846,7 @@ class RelationalCanvasEngine {
   clearCanvas() {
     this.tables = [];
     this.references = [];
+    this.freeLines = [];
     this.nodesLayer.innerHTML = '';
     this.svg.innerHTML = '';
   }
