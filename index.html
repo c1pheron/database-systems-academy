@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Database Systems Academy — Bosh Boshqaruv Markazi (Master Hub)</title>
+  <title>SeventyPlus — WIUT Academic Master Portal (70+ First Class)</title>
   
   <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -11,10 +11,428 @@
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="database_dictionary.css">
+  <style>
+    :root {
+      --bg-deep: #060913;
+      --bg-panel: #0a1122;
+      --bg-card: #0f172a;
+      --bg-card-hover: #162238;
+      --bg-hud: rgba(10, 17, 34, 0.94);
+
+      --border-cyan: rgba(56, 189, 248, 0.35);
+      --border-gold: rgba(200, 169, 110, 0.4);
+      --border-purple: rgba(192, 132, 252, 0.4);
+
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #64748b;
+
+      --accent-cyan-bright: #38bdf8;
+      --accent-emerald-bright: #34d399;
+      --accent-gold-bright: #dfc288;
+      --accent-purple-bright: #c084fc;
+
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+
+      --shadow-cyber: 0 12px 32px rgba(0, 0, 0, 0.6);
+      --shadow-card-hover: 0 20px 45px rgba(0, 0, 0, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: var(--bg-deep);
+      background-image: radial-gradient(circle at 50% 0%, #0d1a33 0%, #060913 85%);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
+    }
+
+    /* Header */
+    .master-header {
+      background: var(--bg-hud);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 12px 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-emblem {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #0284c7, #7c3aed);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 0 16px rgba(124, 58, 237, 0.4);
+    }
+
+    .brand-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      font-size: 10.5px;
+      background: rgba(124, 58, 237, 0.2);
+      color: #c084fc;
+      border: 1px solid rgba(192, 132, 252, 0.4);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hud-profile-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 5px 14px;
+      border-radius: 30px;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .profile-rank {
+      font-size: 10.5px;
+      color: var(--accent-cyan-bright);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .header-stats {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stat-chip {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+    }
+
+    .stat-chip .val {
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Main */
+    .main-wrapper {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 30px 24px 60px;
+      width: 100%;
+      flex: 1;
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(6, 9, 19, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-cyber);
+      position: relative;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 960px;
+      margin-bottom: 24px;
+    }
+
+    .grand-progress-box {
+      background: rgba(6, 9, 19, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 14px 20px;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      height: 10px;
+      background: #0f172a;
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #c8a96e, #38bdf8, #c084fc, #34d399);
+      transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* 3 Main Module Gateways */
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .gateways-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .gateway-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .gateway-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    /* Database Systems specific card */
+    .card-ds::before {
+      background: linear-gradient(90deg, #c8a96e, #dfc288);
+    }
+    .card-ds:hover {
+      border-color: var(--accent-gold-bright);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(200, 169, 110, 0.2);
+      transform: translateY(-4px);
+    }
+
+    /* Operating Systems specific card */
+    .card-os::before {
+      background: linear-gradient(90deg, #0284c7, #38bdf8);
+    }
+    .card-os:hover {
+      border-color: var(--accent-cyan-bright);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(56, 189, 248, 0.25);
+      transform: translateY(-4px);
+    }
+
+    /* OOP specific card */
+    .card-oop::before {
+      background: linear-gradient(90deg, #7c3aed, #c084fc);
+    }
+    .card-oop:hover {
+      border-color: var(--accent-purple-bright);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(192, 132, 252, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .gateway-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .gateway-emblem {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      background: #060913;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .mentor-tag {
+      font-size: 11.5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+
+    .tag-ds { background: rgba(200, 169, 110, 0.15); color: #dfc288; border: 1px solid rgba(200, 169, 110, 0.3); }
+    .tag-os { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .tag-oop { background: rgba(192, 132, 252, 0.15); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.3); }
+
+    .gateway-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .gateway-code {
+      font-size: 11.5px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .gateway-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      min-height: 60px;
+    }
+
+    .gateway-stats-box {
+      background: #060913;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-gateway {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 11px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-gateway-ds {
+      background: linear-gradient(135deg, #a17f46, #c8a96e);
+      color: #151210;
+      border: 1px solid #dfc288;
+    }
+    .btn-gateway-ds:hover {
+      background: #dfc288;
+      box-shadow: 0 0 16px rgba(200, 169, 110, 0.5);
+    }
+
+    .btn-gateway-os {
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      color: #fff;
+      border: 1px solid #7dd3fc;
+    }
+    .btn-gateway-os:hover {
+      background: #38bdf8;
+      color: #060913;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.5);
+    }
+
+    .btn-gateway-oop {
+      background: linear-gradient(135deg, #7c3aed, #c084fc);
+      color: #fff;
+      border: 1px solid #d8b4fe;
+    }
+    .btn-gateway-oop:hover {
+      background: #c084fc;
+      color: #1e1b4b;
+      box-shadow: 0 0 16px rgba(192, 132, 252, 0.5);
+    }
+
+    @media (max-width: 1024px) {
+      .gateways-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -26,40 +444,36 @@
       
       <!-- Brand Identity -->
       <div class="brand-box">
-        <div class="brand-emblem">🏛️</div>
+        <div class="brand-emblem">🎓</div>
         <div>
           <div class="brand-title">
-            Database Systems Academy
-            <span class="brand-badge">2D Simulyator</span>
+            SEVENTYPLUS
+            <span class="brand-badge">WIUT Academy Portal</span>
           </div>
-          <div class="brand-sub">Konseptual EER, Relyatsion Sxema, Normalizatsiya, SQL & NoSQL</div>
+          <div class="brand-sub">Westminster 70+ First Class Ekotizimi • 3 Modul • 2,700 ta Amaliy Keys</div>
         </div>
       </div>
 
       <!-- User Profile & Stats -->
       <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
         <div class="hud-profile-pill">
-          <div class="profile-avatar">👨‍💻</div>
+          <div style="font-size:18px;">👨‍💻</div>
           <div class="profile-info">
-            <span id="hudUserName" class="profile-name">Ma'lumotlar Me'mori</span>
-            <span id="hudUserRank" class="profile-rank">Kichik Modeler</span>
+            <span id="grandUserName" class="profile-name">WIUT Talabasi</span>
+            <span id="grandUserRank" class="profile-rank">⭐ Cyber Intern</span>
           </div>
         </div>
 
         <div class="header-stats">
           <div class="stat-chip">
-            <span class="label">Bajarildi:</span>
-            <span id="hudSolvedTotal" class="val gold">0 / 900</span>
+            <span style="color:var(--text-muted);">Jami Bajarildi:</span>
+            <span id="grandSolvedTotal" class="val" style="color:var(--accent-cyan-bright);">0 / 2,700</span>
           </div>
           <div class="stat-chip">
-            <span class="label">Umumiy Kapital:</span>
-            <span id="hudXpTotal" class="val sage">$0</span>
+            <span style="color:var(--text-muted);">Jami Kapital:</span>
+            <span id="grandCapitalTotal" class="val" style="color:var(--accent-emerald-bright);">$0</span>
           </div>
         </div>
-
-        <button id="btnOpenDictionary" class="btn btn-dictionary" title="Barcha 6 haftalik komandalar lug'ati (Ctrl+K)">
-          <span>🔍</span> <span>Lug'at</span> <span class="kbd-shortcut">Ctrl+K</span>
-        </button>
       </div>
 
     </div>
@@ -72,250 +486,195 @@
 
     <!-- Hero / Progress Section -->
     <section class="hero-banner">
-      <h2 class="hero-title">Zamonaviy Ma'lumotlar Bazasi Arxitekturasini Egallang</h2>
+      <h2 class="hero-title">
+        <span>⚡</span> Westminster Xalqaro Universiteti IT Modullari Simulyatori
+      </h2>
       <p class="hero-desc">
-        Xush kelibsiz! Konseptual EER modellashtirish va normalizatsiyadan tortib, korporativ SQL so'rovlar muhandisligi, tranzaksiyalar (ACID) va NoSQL klasterlarigacha bo'lgan 6 ta professional modul va 900 ta amaliy topshiriqni o'z ichiga olgan 2D interaktiv simulyator.
+        Xush kelibsiz! Ushbu platforma WIUT talabalari uchun quruq nazariyadan holi, 100% amaliy va Sokratik ta'lim tizimi asosida ishlab chiqilgan. Quyidagi 3 ta asosiy akademik yo'nalishdan birini tanlang va 1-dan 6-haftagacha bo'lgan chuqur amaliy simulyatorlarga sho'ng'ing:
       </p>
 
-      <div class="hero-progress-box">
+      <div class="grand-progress-box">
         <div class="progress-header">
-          <span>O'quv Dasturining Umumiy O'zlashtirilishi</span>
-          <span id="overallProgressPercent" style="color:var(--accent-gold-bright); font-family:'JetBrains Mono', monospace;">0% Bajarildi</span>
+          <span>Platformaning Umumiy O'zlashtirilishi</span>
+          <span id="grandProgressPercent" style="color:var(--accent-cyan-bright); font-family:'JetBrains Mono', monospace;">0% Bajarildi</span>
         </div>
         <div class="progress-track">
-          <div id="overallProgressBar" class="progress-bar-fill"></div>
+          <div id="grandProgressBar" class="progress-bar-fill"></div>
         </div>
       </div>
     </section>
 
-    <!-- 6 Modules Quest Map -->
-    <div class="section-headline">
-      <h3 class="section-title">🗺️ O'quv Yo'nalishi & 6 ta Korporativ Modul</h3>
-      <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">6 Modul • 900 ta Amaliy Keys</span>
+    <!-- 3 Grand Module Gateways -->
+    <div class="section-title">
+      <span>🏛️</span> O'quv Modullari (3 ta Yo'nalish)
     </div>
 
-    <div class="modules-grid">
+    <div class="gateways-grid">
 
-      <!-- Week 1 Card -->
-      <article class="module-card">
+      <!-- 1. DATABASE SYSTEMS -->
+      <article class="gateway-card card-ds">
         <div>
-          <div class="module-topbar">
-            <div class="module-icon-wrap">📐</div>
-            <div class="module-badges">
-              <span class="badge-tag badge-week">1-Modul</span>
-              <span class="badge-tag badge-count">150 Keys</span>
-            </div>
+          <div class="gateway-topbar">
+            <div class="gateway-emblem">🏛️</div>
+            <span class="mentor-tag tag-ds">Prof. Atlas • 5BUIS009C</span>
           </div>
-          <h4 class="module-card-title">Konseptual EER Modellashtirish</h4>
-          <p class="module-desc">
-            draw.io uslubidagi vizual polotnoda entitiylar, UML multiplisitiyalari (0..1, 1..*, M:N), zaif entitiylar, romb aloqalar va bog'lanish tuzoqlarini (Fan & Chasm) tahlil qilish.
+          <h3 class="gateway-title">Database Systems</h3>
+          <div class="gateway-code">CW1 (70%) • Majburiy VIVA Imtihoni</div>
+          <p class="gateway-desc">
+            Konseptual EER modellashtirish, relyatsion sxemaga o'tkazish, normalizatsiya (1NF-BCNF), ilg'or SQL so'rovlar, ACID tranzaksiyalari hamda NoSQL (MongoDB, Redis) klasterlari.
           </p>
-          <div class="module-topics-list">
-            <span class="topic-chip">Entities & PK</span>
-            <span class="topic-chip">Multiplicity 1..*</span>
-            <span class="topic-chip">Weak Entities</span>
-            <span class="topic-chip">Connection Traps</span>
+
+          <div class="gateway-stats-box">
+            <span style="font-size:12px; color:var(--text-muted);">O'zlashtirish:</span>
+            <span id="dsGrandStat" style="font-weight:700; color:var(--accent-gold-bright); font-family:'JetBrains Mono', monospace;">0 / 900</span>
           </div>
         </div>
-        <div class="module-card-footer">
-          <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
-            <span id="w1ProgressVal" class="module-stat-val">0 / 150</span>
-          </div>
-          <a href="week1/index.html" class="btn-launch">1-Modulga Kirish →</a>
-        </div>
+
+        <a href="ds-hub.html" class="btn-gateway btn-gateway-ds">
+          🏛️ Database Systemsga Kirish →
+        </a>
       </article>
 
-      <!-- Week 2 Card -->
-      <article class="module-card">
+      <!-- 2. OPERATING SYSTEMS -->
+      <article class="gateway-card card-os">
         <div>
-          <div class="module-topbar">
-            <div class="module-icon-wrap">📊</div>
-            <div class="module-badges">
-              <span class="badge-tag badge-week">2-Modul</span>
-              <span class="badge-tag badge-count">150 Keys</span>
-            </div>
+          <div class="gateway-topbar">
+            <div class="gateway-emblem">🐧</div>
+            <span class="mentor-tag tag-os">Prof. Turing • 5COSC041C</span>
           </div>
-          <h4 class="module-card-title">Relatsion Sxemaga O'tkazish</h4>
-          <p class="module-desc">
-            EER modelni relyatsion jadvallar ko'rinishiga o'tkazish (Step 1–8), Birlamchi Kalitlar (PK), Tashqi Kalitlar (FK), Crow's Foot notatsiyasi va Vorislik ({Mandatory, Or}).
+          <h3 class="gateway-title">Operating Systems</h3>
+          <div class="gateway-code">CW1 (40%) • Individual Case Study &amp; Bash</div>
+          <p class="gateway-desc">
+            Linux Debian 12 arxitekturasi, Inodelar va fayl tizimi, professional Bash avtomatlashtirish, jarayonlar hayoti (Signals), Python fork(), CPU Scheduling, virtual xotira va Docker.
           </p>
-          <div class="module-topics-list">
-            <span class="topic-chip">Tables & Columns</span>
-            <span class="topic-chip">Foreign Keys (FK)</span>
-            <span class="topic-chip">Crow's Foot (||, o<)</span>
-            <span class="topic-chip">Subclass Options</span>
+
+          <div class="gateway-stats-box">
+            <span style="font-size:12px; color:var(--text-muted);">O'zlashtirish:</span>
+            <span id="osGrandStat" style="font-weight:700; color:var(--accent-cyan-bright); font-family:'JetBrains Mono', monospace;">0 / 900</span>
           </div>
         </div>
-        <div class="module-card-footer">
-          <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
-            <span id="w2ProgressVal" class="module-stat-val">0 / 150</span>
-          </div>
-          <a href="week2/index.html" class="btn-launch">2-Modulga Kirish →</a>
-        </div>
+
+        <a href="os/index.html" class="btn-gateway btn-gateway-os">
+          🐧 Operating Systemsga Kirish →
+        </a>
       </article>
 
-      <!-- Week 3 Card -->
-      <article class="module-card">
+      <!-- 3. OBJECT-ORIENTED PROGRAMMING -->
+      <article class="gateway-card card-oop">
         <div>
-          <div class="module-topbar">
-            <div class="module-icon-wrap">🧮</div>
-            <div class="module-badges">
-              <span class="badge-tag badge-week">3-Modul</span>
-              <span class="badge-tag badge-count">150 Keys</span>
-            </div>
+          <div class="gateway-topbar">
+            <div class="gateway-emblem">☕</div>
+            <span class="mentor-tag tag-oop">Prof. Ada • 5COSC018C</span>
           </div>
-          <h4 class="module-card-title">Relyatsion Algebra & Normalizatsiya</h4>
-          <p class="module-desc">
-            Relyatsion algebra amallari (σ, π, ⨝, ⟕), funksional bog'liqliklar (FD), anomaliyalarni yo'qotish va 1NF, 2NF, 3NF hamda BCNF normal formalariga bosqichma-bosqich yoyish.
+          <h3 class="gateway-title">OOP (Java Architecture)</h3>
+          <div class="gateway-code">CW2 (50%) • Guruh Ishi (Console Order App)</div>
+          <p class="gateway-desc">
+            Java Core, Clean Code, SOLID tamoyillari, GoF Design Patterns (Factory, Builder, Singleton, Decorator, Strategy, Observer), UML sinflar diagrammasi va korporativ arxitektura.
           </p>
-          <div class="module-topics-list">
-            <span class="topic-chip">Selection σ</span>
-            <span class="topic-chip">Natural Join ⨝</span>
-            <span class="topic-chip">1NF, 2NF, 3NF</span>
-            <span class="topic-chip">BCNF Decomp</span>
-          </div>
-        </div>
-        <div class="module-card-footer">
-          <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
-            <span id="w3ProgressVal" class="module-stat-val">0 / 150</span>
-          </div>
-          <a href="week3/index.html" class="btn-launch">3-Modulga Kirish →</a>
-        </div>
-      </article>
 
-      <!-- Week 4 Card -->
-      <article class="module-card">
-        <div>
-          <div class="module-topbar">
-            <div class="module-icon-wrap">💻</div>
-            <div class="module-badges">
-              <span class="badge-tag badge-week">4-Modul</span>
-              <span class="badge-tag badge-count">150 Keys</span>
-            </div>
-          </div>
-          <h4 class="module-card-title">Kengaytirilgan SQL & Query Engineering</h4>
-          <p class="module-desc">
-            Haqiqiy SQLite bazasida murakkab DDL, DML, ko'p jadvalli JOINlar, Subquerylar (korrelyatsiyalangan), GROUP BY, HAVING agregatsiyasi va indekslar orqali so'rovlarni tezlashtirish.
-          </p>
-          <div class="module-topics-list">
-            <span class="topic-chip">SELECT & WHERE</span>
-            <span class="topic-chip">INNER/LEFT JOIN</span>
-            <span class="topic-chip">GROUP BY & HAVING</span>
-            <span class="topic-chip">EXPLAIN QUERY PLAN</span>
+          <div class="gateway-stats-box">
+            <span style="font-size:12px; color:var(--text-muted);">O'zlashtirish:</span>
+            <span id="oopGrandStat" style="font-weight:700; color:var(--accent-purple-bright); font-family:'JetBrains Mono', monospace;">0 / 900</span>
           </div>
         </div>
-        <div class="module-card-footer">
-          <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
-            <span id="w4ProgressVal" class="module-stat-val">0 / 150</span>
-          </div>
-          <a href="week4/index.html" class="btn-launch">4-Modulga Kirish →</a>
-        </div>
-      </article>
 
-      <!-- Week 5 Card -->
-      <article class="module-card">
-        <div>
-          <div class="module-topbar">
-            <div class="module-icon-wrap">🔒</div>
-            <div class="module-badges">
-              <span class="badge-tag badge-week">5-Modul</span>
-              <span class="badge-tag badge-count">150 Keys</span>
-            </div>
-          </div>
-          <h4 class="module-card-title">Tranzaksiyalar, Triggers & Views</h4>
-          <p class="module-desc">
-            ACID tamoyillari, BEGIN TRANSACTION, COMMIT, ROLLBACK boshqaruvi, avtomatlashtirilgan TRIGGER lar, xavfsiz VIEW larni loyihalash va kesh blokirovkalarini bartaraf qilish.
-          </p>
-          <div class="module-topics-list">
-            <span class="topic-chip">ACID Properties</span>
-            <span class="topic-chip">COMMIT & ROLLBACK</span>
-            <span class="topic-chip">AFTER INSERT Trigger</span>
-            <span class="topic-chip">Secure VIEW</span>
-          </div>
-        </div>
-        <div class="module-card-footer">
-          <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
-            <span id="w5ProgressVal" class="module-stat-val">0 / 150</span>
-          </div>
-          <a href="week5/index.html" class="btn-launch">5-Modulga Kirish →</a>
-        </div>
-      </article>
-
-      <!-- Week 6 Card -->
-      <article class="module-card">
-        <div>
-          <div class="module-topbar">
-            <div class="module-icon-wrap">⚡</div>
-            <div class="module-badges">
-              <span class="badge-tag badge-week">6-Modul</span>
-              <span class="badge-tag badge-count">150 Keys</span>
-            </div>
-          </div>
-          <h4 class="module-card-title">NoSQL Klasterlari & Kesh Tizimlari</h4>
-          <p class="module-desc">
-            MongoDB hujjatlar bazasi (JSON/BSON), Aggregation Pipeline, Redis kesh klasterlari, CAP teoremasi, gorizontal Sharding va Katta Ma'lumotlarni taqsimlangan tahlil qilish.
-          </p>
-          <div class="module-topics-list">
-            <span class="topic-chip">MongoDB find()</span>
-            <span class="topic-chip">Aggregation Pipeline</span>
-            <span class="topic-chip">Redis Key-Value</span>
-            <span class="topic-chip">Sharding & CAP</span>
-          </div>
-        </div>
-        <div class="module-card-footer">
-          <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
-            <span id="w6ProgressVal" class="module-stat-val">0 / 150</span>
-          </div>
-          <a href="week6/index.html" class="btn-launch">6-Modulga Kirish →</a>
-        </div>
+        <a href="oop/index.html" class="btn-gateway btn-gateway-oop">
+          ☕ OOP Moduliga Kirish →
+        </a>
       </article>
 
     </div>
-
-    <!-- Career Milestones Panel -->
-    <section class="career-panel">
-      <div class="section-headline" style="margin-top:0;">
-        <h3 class="section-title">🎖️ Korporativ Karyera Bosqichlari & Me'moriy Darajalar</h3>
-        <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">10 ta Lavozim Pog'onasi</span>
-      </div>
-
-      <div class="career-grid">
-        <div class="career-card current" id="careerCard1">
-          <span class="career-rank-title">1. Kichik Modeler (Junior Modeler)</span>
-          <span class="career-perks">Boshlang'ich daraja • $2,500/oy maosh</span>
-        </div>
-        <div class="career-card" id="careerCard2">
-          <span class="career-rank-title">2. Kichik Tizim Muhandisi</span>
-          <span class="career-perks">75+ Vazifa • $3,500/oy maosh</span>
-        </div>
-        <div class="career-card" id="careerCard3">
-          <span class="career-rank-title">3. O'rta Relyatsion Modeler</span>
-          <span class="career-perks">150+ Vazifa • $5,000/oy maosh</span>
-        </div>
-        <div class="career-card" id="careerCard4">
-          <span class="career-rank-title">4. Katta SQL Muhandisi</span>
-          <span class="career-perks">300+ Vazifa • $7,500/oy maosh</span>
-        </div>
-        <div class="career-card" id="careerCard5">
-          <span class="career-rank-title">5. Yetakchi Ma'lumotlar Me'mori</span>
-          <span class="career-perks">500+ Vazifa • $10,000/oy maosh</span>
-        </div>
-        <div class="career-card" id="careerCard6">
-          <span class="career-rank-title">6. Bosh Arxitektor & Hamkor (Penthouse)</span>
-          <span class="career-perks">900 ta To'liq Keys • $15,000/oy + Aksiyalar</span>
-        </div>
-      </div>
-    </section>
 
   </main>
 
-  <script src="app.js"></script>
-  <script src="database_dictionary.js"></script>
+  <!-- Sync Script -->
+  <script>
+    (function () {
+      "use strict";
+
+      // Telegram WebApp Init
+      if (window.Telegram && window.Telegram.WebApp) {
+        const tg = window.Telegram.WebApp;
+        try {
+          tg.ready();
+          tg.expand();
+          if (tg.setHeaderColor) tg.setHeaderColor("#0a1122");
+          if (tg.setBackgroundColor) tg.setBackgroundColor("#060913");
+          const user = tg.initDataUnsafe && tg.initDataUnsafe.user;
+          if (user) {
+            const nameEl = document.getElementById("grandUserName");
+            if (nameEl) nameEl.textContent = user.first_name + (user.last_name ? " " + user.last_name : "");
+          }
+        } catch (e) {
+          console.warn("Telegram init warning:", e);
+        }
+      }
+
+      // Sync All 3 Modules Progress
+      let dsTotal = 0;
+      let osTotal = 0;
+      let oopTotal = 0;
+      let totalCapital = 0;
+
+      // 1. DS (1-6)
+      for (let w = 1; w <= 6; w++) {
+        try {
+          const raw = localStorage.getItem(`DS_W${w}_PROGRESS`);
+          if (raw) {
+            const p = JSON.parse(raw);
+            const count = Array.isArray(p.solvedIds) ? p.solvedIds.length : (p.solvedCount || 0);
+            dsTotal += count;
+            totalCapital += (p.score || p.capital || count * 100);
+          }
+        } catch (e) {}
+      }
+
+      // 2. OS (1-6)
+      for (let w = 1; w <= 6; w++) {
+        try {
+          const raw = localStorage.getItem(`WIUT_OS_W${w}_PROGRESS`);
+          if (raw) {
+            const p = JSON.parse(raw);
+            const count = Array.isArray(p.solvedIds) ? p.solvedIds.length : (p.solvedCount || 0);
+            osTotal += count;
+            totalCapital += (p.bonusCapital || p.capital || count * 100);
+          }
+        } catch (e) {}
+      }
+
+      // 3. OOP
+      try {
+        const raw = localStorage.getItem("WIUT_OOP_PROGRESS");
+        if (raw) {
+          const p = JSON.parse(raw);
+          oopTotal = Array.isArray(p.solvedIds) ? p.solvedIds.length : (p.solvedCount || 0);
+          totalCapital += (p.capital || oopTotal * 100);
+        }
+      } catch (e) {}
+
+      // Render
+      const grandTotal = dsTotal + osTotal + oopTotal;
+      const grandTotalPossible = 2700;
+
+      const dsEl = document.getElementById("dsGrandStat");
+      const osEl = document.getElementById("osGrandStat");
+      const oopEl = document.getElementById("oopGrandStat");
+      const grandSolvedEl = document.getElementById("grandSolvedTotal");
+      const grandCapitalEl = document.getElementById("grandCapitalTotal");
+      const progressBar = document.getElementById("grandProgressBar");
+      const progressPercent = document.getElementById("grandProgressPercent");
+
+      if (dsEl) dsEl.textContent = `${dsTotal} / 900`;
+      if (osEl) osEl.textContent = `${osTotal} / 900`;
+      if (oopEl) oopEl.textContent = `${oopTotal} / 900`;
+      if (grandSolvedEl) grandSolvedEl.textContent = `${grandTotal} / ${grandTotalPossible}`;
+      if (grandCapitalEl) grandCapitalEl.textContent = `$${totalCapital.toLocaleString()}`;
+
+      const pct = Math.min(100, Math.round((grandTotal / grandTotalPossible) * 100));
+      if (progressBar) progressBar.style.width = `${pct}%`;
+      if (progressPercent) progressPercent.textContent = `${pct}% Bajarildi`;
+    })();
+  </script>
+
 </body>
 </html>

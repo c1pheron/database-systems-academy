@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Database Systems Academy — Bosh Boshqaruv Markazi (Master Hub)</title>
+  
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="database_dictionary.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       TOP EXECUTIVE HUD / NAVBAR
+       ========================================================================= -->
+  <header class="master-header">
+    <div class="header-container">
+      
+      <!-- Brand Identity -->
+      <div class="brand-box">
+        <a href="index.html" class="btn-back-hub" title="SeventyPlus Asosiy Portaliga Qaytish" style="background:rgba(39,33,28,0.85); border:1px solid var(--border-subtle); color:var(--text-secondary); font-size:12px; font-weight:600; padding:6px 12px; border-radius:var(--radius-sm); text-decoration:none; display:inline-flex; align-items:center; gap:6px;">← SeventyPlus Portali</a>
+        <div class="brand-emblem">🏛️</div>
+        <div>
+          <div class="brand-title">
+            Database Systems Academy
+            <span class="brand-badge">2D Simulyator</span>
+          </div>
+          <div class="brand-sub">Konseptual EER, Relyatsion Sxema, Normalizatsiya, SQL & NoSQL</div>
+        </div>
+      </div>
+
+      <!-- User Profile & Stats -->
+      <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div class="hud-profile-pill">
+          <div class="profile-avatar">👨‍💻</div>
+          <div class="profile-info">
+            <span id="hudUserName" class="profile-name">Ma'lumotlar Me'mori</span>
+            <span id="hudUserRank" class="profile-rank">Kichik Modeler</span>
+          </div>
+        </div>
+
+        <div class="header-stats">
+          <div class="stat-chip">
+            <span class="label">Bajarildi:</span>
+            <span id="hudSolvedTotal" class="val gold">0 / 900</span>
+          </div>
+          <div class="stat-chip">
+            <span class="label">Umumiy Kapital:</span>
+            <span id="hudXpTotal" class="val sage">$0</span>
+          </div>
+        </div>
+
+        <button id="btnOpenDictionary" class="btn btn-dictionary" title="Barcha 6 haftalik komandalar lug'ati (Ctrl+K)">
+          <span>🔍</span> <span>Lug'at</span> <span class="kbd-shortcut">Ctrl+K</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN WORKSPACE CONTAINER
+       ========================================================================= -->
+  <main class="main-wrapper">
+
+    <!-- Hero / Progress Section -->
+    <section class="hero-banner">
+      <h2 class="hero-title">Zamonaviy Ma'lumotlar Bazasi Arxitekturasini Egallang</h2>
+      <p class="hero-desc">
+        Xush kelibsiz! Konseptual EER modellashtirish va normalizatsiyadan tortib, korporativ SQL so'rovlar muhandisligi, tranzaksiyalar (ACID) va NoSQL klasterlarigacha bo'lgan 6 ta professional modul va 900 ta amaliy topshiriqni o'z ichiga olgan 2D interaktiv simulyator.
+      </p>
+
+      <div class="hero-progress-box">
+        <div class="progress-header">
+          <span>O'quv Dasturining Umumiy O'zlashtirilishi</span>
+          <span id="overallProgressPercent" style="color:var(--accent-gold-bright); font-family:'JetBrains Mono', monospace;">0% Bajarildi</span>
+        </div>
+        <div class="progress-track">
+          <div id="overallProgressBar" class="progress-bar-fill"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 Modules Quest Map -->
+    <div class="section-headline">
+      <h3 class="section-title">🗺️ O'quv Yo'nalishi & 6 ta Korporativ Modul</h3>
+      <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">6 Modul • 900 ta Amaliy Keys</span>
+    </div>
+
+    <div class="modules-grid">
+
+      <!-- Week 1 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">📐</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">1-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Konseptual EER Modellashtirish</h4>
+          <p class="module-desc">
+            draw.io uslubidagi vizual polotnoda entitiylar, UML multiplisitiyalari (0..1, 1..*, M:N), zaif entitiylar, romb aloqalar va bog'lanish tuzoqlarini (Fan & Chasm) tahlil qilish.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">Entities & PK</span>
+            <span class="topic-chip">Multiplicity 1..*</span>
+            <span class="topic-chip">Weak Entities</span>
+            <span class="topic-chip">Connection Traps</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w1ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="week1/index.html" class="btn-launch">1-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 2 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">📊</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">2-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Relatsion Sxemaga O'tkazish</h4>
+          <p class="module-desc">
+            EER modelni relyatsion jadvallar ko'rinishiga o'tkazish (Step 1–8), Birlamchi Kalitlar (PK), Tashqi Kalitlar (FK), Crow's Foot notatsiyasi va Vorislik ({Mandatory, Or}).
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">Tables & Columns</span>
+            <span class="topic-chip">Foreign Keys (FK)</span>
+            <span class="topic-chip">Crow's Foot (||, o<)</span>
+            <span class="topic-chip">Subclass Options</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w2ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="week2/index.html" class="btn-launch">2-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 3 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">🧮</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">3-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Relyatsion Algebra & Normalizatsiya</h4>
+          <p class="module-desc">
+            Relyatsion algebra amallari (σ, π, ⨝, ⟕), funksional bog'liqliklar (FD), anomaliyalarni yo'qotish va 1NF, 2NF, 3NF hamda BCNF normal formalariga bosqichma-bosqich yoyish.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">Selection σ</span>
+            <span class="topic-chip">Natural Join ⨝</span>
+            <span class="topic-chip">1NF, 2NF, 3NF</span>
+            <span class="topic-chip">BCNF Decomp</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w3ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="week3/index.html" class="btn-launch">3-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 4 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">💻</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">4-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Kengaytirilgan SQL & Query Engineering</h4>
+          <p class="module-desc">
+            Haqiqiy SQLite bazasida murakkab DDL, DML, ko'p jadvalli JOINlar, Subquerylar (korrelyatsiyalangan), GROUP BY, HAVING agregatsiyasi va indekslar orqali so'rovlarni tezlashtirish.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">SELECT & WHERE</span>
+            <span class="topic-chip">INNER/LEFT JOIN</span>
+            <span class="topic-chip">GROUP BY & HAVING</span>
+            <span class="topic-chip">EXPLAIN QUERY PLAN</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w4ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="week4/index.html" class="btn-launch">4-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 5 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">🔒</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">5-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Tranzaksiyalar, Triggers & Views</h4>
+          <p class="module-desc">
+            ACID tamoyillari, BEGIN TRANSACTION, COMMIT, ROLLBACK boshqaruvi, avtomatlashtirilgan TRIGGER lar, xavfsiz VIEW larni loyihalash va kesh blokirovkalarini bartaraf qilish.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">ACID Properties</span>
+            <span class="topic-chip">COMMIT & ROLLBACK</span>
+            <span class="topic-chip">AFTER INSERT Trigger</span>
+            <span class="topic-chip">Secure VIEW</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w5ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="week5/index.html" class="btn-launch">5-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 6 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">⚡</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">6-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">NoSQL Klasterlari & Kesh Tizimlari</h4>
+          <p class="module-desc">
+            MongoDB hujjatlar bazasi (JSON/BSON), Aggregation Pipeline, Redis kesh klasterlari, CAP teoremasi, gorizontal Sharding va Katta Ma'lumotlarni taqsimlangan tahlil qilish.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">MongoDB find()</span>
+            <span class="topic-chip">Aggregation Pipeline</span>
+            <span class="topic-chip">Redis Key-Value</span>
+            <span class="topic-chip">Sharding & CAP</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w6ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="week6/index.html" class="btn-launch">6-Modulga Kirish →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Career Milestones Panel -->
+    <section class="career-panel">
+      <div class="section-headline" style="margin-top:0;">
+        <h3 class="section-title">🎖️ Korporativ Karyera Bosqichlari & Me'moriy Darajalar</h3>
+        <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">10 ta Lavozim Pog'onasi</span>
+      </div>
+
+      <div class="career-grid">
+        <div class="career-card current" id="careerCard1">
+          <span class="career-rank-title">1. Kichik Modeler (Junior Modeler)</span>
+          <span class="career-perks">Boshlang'ich daraja • $2,500/oy maosh</span>
+        </div>
+        <div class="career-card" id="careerCard2">
+          <span class="career-rank-title">2. Kichik Tizim Muhandisi</span>
+          <span class="career-perks">75+ Vazifa • $3,500/oy maosh</span>
+        </div>
+        <div class="career-card" id="careerCard3">
+          <span class="career-rank-title">3. O'rta Relyatsion Modeler</span>
+          <span class="career-perks">150+ Vazifa • $5,000/oy maosh</span>
+        </div>
+        <div class="career-card" id="careerCard4">
+          <span class="career-rank-title">4. Katta SQL Muhandisi</span>
+          <span class="career-perks">300+ Vazifa • $7,500/oy maosh</span>
+        </div>
+        <div class="career-card" id="careerCard5">
+          <span class="career-rank-title">5. Yetakchi Ma'lumotlar Me'mori</span>
+          <span class="career-perks">500+ Vazifa • $10,000/oy maosh</span>
+        </div>
+        <div class="career-card" id="careerCard6">
+          <span class="career-rank-title">6. Bosh Arxitektor & Hamkor (Penthouse)</span>
+          <span class="career-perks">900 ta To'liq Keys • $15,000/oy + Aksiyalar</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+  <script src="database_dictionary.js"></script>
+</body>
+</html>

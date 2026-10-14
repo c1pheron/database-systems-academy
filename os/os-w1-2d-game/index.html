@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Linux NOC & Server Laboratoriyasi — 150 Buyruq & Inode Simulyatori (WIUT OS W1)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       TOP EXECUTIVE HUD (WIUT ACADEMY FAMILY HEADER)
+       ========================================================================= -->
+  <header class="top-hud">
+    <div class="brand-box">
+      <div class="brand-emblem">🐧</div>
+      <div>
+        <div class="brand-title">
+          <span>WIUT OPERATING SYSTEMS • NOC &amp; LINUX SERVER LAB</span>
+          <span class="badge-os">5COSC041C</span>
+        </div>
+        <div class="brand-sub">Week 1: Linux Essential Commands, Inodes, Links &amp; Find (150 Bosqichli Amaliy Simulyator)</div>
+      </div>
+    </div>
+
+    <div class="hud-stats">
+      <div class="stat-pill" title="Sizning joriy lavozimingiz">
+        <span class="stat-label">Lavozim:</span>
+        <span class="stat-val emerald" id="hudRankTitle">Junior Helpdesk Operator</span>
+      </div>
+      <div class="stat-pill" title="Kompaniya sizga to'laydigan oylik maosh">
+        <span class="stat-label">Oylik Maosh:</span>
+        <span class="stat-val cyan" id="hudSalary">$1,200/oy</span>
+      </div>
+      <div class="stat-pill" title="Topshiriqlar uchun to'plangan bonus kapital">
+        <span class="stat-label">Bonus Kapital:</span>
+        <span class="stat-val gold" id="hudCapital">$0</span>
+      </div>
+      <div class="stat-pill" title="Bajarilgan topshiriqlar soni (150 tadan)">
+        <span class="stat-label">Bajarildi:</span>
+        <span class="stat-val" id="hudSolved">0 / 150</span>
+        <div class="progress-wrap">
+          <div class="progress-fill" id="hudProgressFill"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hud-actions">
+      <div class="terminal-mode-switch">
+        <button class="btn mode-btn active" id="btnModeSplit" title="Standart 2 ustunli rejim">🖥️ Split</button>
+        <button class="btn mode-btn" id="btnModeCli" title="Kengaytirilgan haqiqiy Linux CLI rejimi">🐧 Katta CLI</button>
+        <button class="btn mode-btn" id="btnModeFull" title="To'liq ekran Debian konsoli (F11)">⛶ To'liq Ekran</button>
+      </div>
+      <button class="btn btn-event" id="btnTriggerEvent" title="Server xonasi va tizim hodisalari">
+        ⚡ Server Hodisasi (<span id="eventBadgeCount">Yangi</span>)
+      </button>
+      <button class="btn" id="btnOpenMap">🗺️ 150 Savol Xaritasi</button>
+      <button class="btn" id="btnResetProgress" title="Natijalarni noldan boshlash">🔄</button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       10 SECTORS NAVIGATION BAR
+       ========================================================================= -->
+  <nav class="sector-bar" id="sectorNavList"></nav>
+
+  <!-- =========================================================================
+       MAIN 2-COLUMN WORKSPACE (DATABASE SYSTEMS FAMILY ARCHITECTURE)
+       ========================================================================= -->
+  <main class="main-grid">
+
+    <!-- LEFT COLUMN: 2D NOC SERVER HALL & AUTHENTIC KALI LINUX WORKBENCH -->
+    <section class="left-col">
+
+      <!-- 1. 2D NOC Server Hall Animation Card (Operating Systems Cyber Lab) -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🖥️</span>
+            <span id="floorHeaderTitle">Sektor 1: Kirish va Navigatsiya (Debian 12 NOC Hall)</span>
+          </div>
+          <div style="font-size: 11.5px; color: var(--text-muted);">
+            Server yoki hamkasb ustiga bosing yoki <b>WASD</b> orqali yuring
+          </div>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="gameCanvas" width="860" height="380"></canvas>
+        </div>
+
+        <div class="office-ticker">
+          <div class="ticker-text">
+            <span class="ticker-badge" id="tickerSpeaker">🔔 NOC Monitor</span>
+            <span id="tickerMessage">Debian 12 serveri faol. Inode jadvali va VFS kesh tekshirildi.</span>
+          </div>
+          <button class="btn" id="btnQuickEvent" style="padding: 4px 10px; font-size: 11.5px;">
+            💬 Professor Turing bilan suhbat
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. KALI LINUX TERMINAL & INODE WORKBENCH (Where Diagram Sits in Database Systems) -->
+      <div class="panel-card terminal-card" id="terminalWorkbenchCard">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🐧</span>
+            <span id="terminalHeaderTitle">Kali Linux Terminal (UserLAnd • Debian 12)</span>
+          </div>
+          <div class="terminal-mode-switch-group">
+            <button class="terminal-mode-btn active" id="btnModeQuest" type="button" title="Topshiriqlar rejimi: Savollarni ketma-ket yechish">🎯 Topshiriqlar</button>
+            <button class="terminal-mode-btn" id="btnModeSandbox" type="button" title="Erkin CLI rejimi: Istalgan Linux buyrug'ini erkin ishlatish">💻 Erkin CLI</button>
+          </div>
+          <div class="terminal-card-tabs">
+            <button class="schema-tab active" id="tabTerminalMode" type="button">🐧 Terminal (CLI)</button>
+            <button class="schema-tab" id="tabFsMode" type="button">📂 Fayl Tizimi &amp; Inodelar</button>
+          </div>
+          <div class="terminal-card-actions">
+            <button class="btn btn-xs" id="btnCardBatafsil" type="button" title="Buyruq va bayroqlar batafsil tahlili">📖 Batafsil</button>
+            <button class="btn btn-xs" id="btnCardHint" type="button" title="Yordamchi maslahat">💡 Maslahat</button>
+            <button class="btn btn-xs" id="btnClearTerminal" type="button" title="Terminalni tozalash">🧹 Tozalash</button>
+            <button class="btn btn-xs btn-expand-terminal" id="btnToggleFullscreen" type="button" title="To'liq ekranga yoyish (F11)">⛶ To'liq Ekran</button>
+          </div>
+        </div>
+
+        <!-- FULLSCREEN FLOATING TOP BAR (Only active when .is-fullscreen is active) -->
+        <div class="kali-fullscreen-bar" id="kaliFullscreenBar" style="display: none;">
+          <div class="kt-fs-left">
+            <span class="kt-fs-logo">🐧</span>
+            <span class="kt-fs-brand">KALI LINUX</span>
+            <span class="kt-fs-task-badge" id="ktFsTaskBadge">#1: pwd</span>
+            <span class="kt-fs-progress" id="ktFsProgress">0 / 150</span>
+          </div>
+          <div class="kt-fs-right">
+            <button class="btn btn-xs" id="btnFsToggleMode" type="button">🎯 Rejim: Topshiriqlar</button>
+            <button class="btn btn-xs" id="btnFsTask" type="button">📋 Vazifa</button>
+            <button class="btn btn-xs" id="btnFsBatafsil" type="button">📖 Batafsil</button>
+            <button class="btn btn-xs" id="btnFsHint" type="button">💡 Maslahat</button>
+            <button class="btn btn-xs" id="btnFsPreview" type="button">👁 Natija</button>
+            <button class="btn btn-xs" id="btnFsMap" type="button">🗺️ Xarita</button>
+            <button class="btn btn-xs btn-exit-fs" id="btnExitFullscreen" type="button" title="Oddiy rejimga qaytish (Esc)">✕ Oddiy Ko'rinish (Esc)</button>
+          </div>
+        </div>
+
+        <!-- PANE A: AUTHENTIC KALI LINUX TERMINAL (ACTIVE BY DEFAULT) -->
+        <div class="workbench-pane" id="paneKaliTerminal">
+          <div class="kali-screen" id="kaliScreen" tabindex="0">
+            <!-- Historical output & banner stream -->
+            <div class="kali-stream" id="kaliStream"></div>
+
+            <!-- Active Prompt with INLINE typing cursor -->
+            <div class="kali-active-prompt" id="kaliActivePrompt">
+              <div class="kali-p-row1">
+                <span class="k-green">┌──(</span><span class="k-blue">userland</span><span class="k-white">㉿</span><span class="k-blue">localhost</span><span class="k-green">)-[</span><span class="k-white" id="kaliPromptPath">~</span><span class="k-green">]</span>
+              </div>
+              <div class="kali-p-row2">
+                <span class="k-green">└─$ </span><span class="kali-typed-text" id="kaliTypedText"></span><span class="kali-cursor" id="kaliCursor">█</span>
+              </div>
+            </div>
+
+            <!-- Hidden transparent input to capture typing on mobile & desktop -->
+            <input
+              type="text"
+              id="kaliHiddenInput"
+              class="kali-hidden-input"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              aria-label="Linux buyrug'ini yozing"
+            />
+          </div>
+
+          <!-- Mobile Quick Touch Bar -->
+          <div class="kali-touch-bar" id="kaliTouchBar">
+            <button type="button" class="kt-key-btn" data-key="Tab">Tab ⇥</button>
+            <button type="button" class="kt-key-btn" data-token="|">|</button>
+            <button type="button" class="kt-key-btn" data-token=">">&gt;</button>
+            <button type="button" class="kt-key-btn" data-token=">>">&gt;&gt;</button>
+            <button type="button" class="kt-key-btn" data-token="~">~</button>
+            <button type="button" class="kt-key-btn" data-token="/">/</button>
+            <button type="button" class="kt-key-btn" data-token="-">-</button>
+            <button type="button" class="kt-key-btn" data-token="..">..</button>
+            <button type="button" class="kt-key-btn" data-token="*">*</button>
+            <button type="button" class="kt-key-btn" data-token="echo $?">$?</button>
+            <button type="button" class="kt-key-btn" data-key="CtrlC">Ctrl+C</button>
+            <button type="button" class="kt-key-btn" data-key="clear">clear</button>
+            <button type="button" class="kt-key-btn kt-key-nav" id="btnTouchPrev">◀ Oldingi</button>
+            <button type="button" class="kt-key-btn kt-key-nav" id="btnTouchNext">Keyingi ▶</button>
+          </div>
+        </div>
+
+        <!-- PANE B: LIVE VIRTUAL LINUX FILE SYSTEM EXPLORER -->
+        <div class="workbench-pane" id="paneFsExplorer" style="display: none;">
+          <div class="schema-tabs" style="padding: 6px 10px; background: #080d19; border-bottom: 1px solid var(--border-cyan);">
+            <button class="schema-tab active" data-tab="home" type="button">📂 /home/student</button>
+            <button class="schema-tab" data-tab="etc" type="button">📁 /etc</button>
+            <button class="schema-tab" data-tab="log" type="button">📁 /var/log</button>
+            <button class="schema-tab" data-tab="tmp" type="button">📁 /tmp</button>
+            <button class="schema-tab" data-tab="dev" type="button">📁 /dev &amp; /proc</button>
+            <button class="schema-tab" data-tab="inode" type="button">📜 Inode Jadvali</button>
+            <button class="schema-tab" data-tab="terminal" type="button">🖥️ Bash Tarixi</button>
+            <button class="schema-tab" data-tab="result" type="button">📊 Natija</button>
+          </div>
+          <div class="table-scroll" id="schemaTableDisplay"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT COLUMN: MISSION DOSSIER & TECHNICAL WORKBENCH -->
+    <section class="right-col">
+
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>📋</span>
+            <span id="sectorSubTitle">Sektor Topshiriqlari (15 ta bosqich)</span>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <button class="btn" id="btnPrevQ" style="padding:4px 10px;">◀ Oldingi</button>
+            <button class="btn" id="btnNextQ" style="padding:4px 10px;">Keyingi ▶</button>
+          </div>
+        </div>
+
+        <!-- 15 Question Dots for current sector -->
+        <div class="q-strip" id="floorQuestionStrip"></div>
+
+        <!-- Dossier Briefing -->
+        <div class="mission-body">
+          <div class="mission-meta">
+            <span class="badge-diff" id="qNumberBadge">Vazifa #1 / 150</span>
+            <span class="badge-diff" id="qDifficultyBadge">1-Qavat • Oson</span>
+            <span class="badge-source" id="qSourceBadge">S01 Task 1 • Navigatsiya</span>
+          </div>
+
+          <h2 class="mission-title" id="qTitle">1. Joriy Ishchi Katalogni Aniqlash</h2>
+
+          <div class="story-box" id="qStory">
+            Debian 12 serveriga SSH orqali kirdingiz. Qaysi papkada turganingizni aniqlash zarur.
+          </div>
+
+          <div class="task-box">
+            <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:var(--accent-cyan-bright); font-weight:700; margin-bottom:4px;">
+              📌 Texnik Topshiriq (Kodni o'zingiz yozing):
+            </div>
+            <div id="qTask">Joriy ishchi katalogning to'liq manzilini ekranga chiqaruvchi buyruqni bering.</div>
+          </div>
+
+          <!-- Tags list -->
+          <div class="token-bar" id="qTagsList" style="margin-bottom: 4px;"></div>
+
+          <!-- COMMAND & FLAG ANATOMY CARD (INTERACTIVE ACCORDION - BATAFSIL) -->
+          <div class="cmd-info-card" id="cmdInfoCard">
+            <button type="button" class="cmd-card-toggle" id="btnToggleCmdCard" onclick="window.toggleCmdInfoCard()">
+              <div class="cmd-card-toggle-left">
+                <span class="cmd-badge-icon">📖</span>
+                <span class="cmd-badge-title">BUYRUQ &amp; BAYROQLAR TAHLILI</span>
+                <code class="cmd-badge-code" id="cmdCardCode">pwd</code>
+              </div>
+              <div class="cmd-card-toggle-right">
+                <span class="cmd-toggle-hint" id="cmdCardToggleHint">Batafsil ko'rish</span>
+                <span class="cmd-toggle-arrow" id="cmdCardToggleArrow">▾</span>
+              </div>
+            </button>
+            <div class="cmd-card-body" id="cmdCardBody" style="display: none;"></div>
+          </div>
+
+          <!-- Token Quick-Bar for Linux commands -->
+          <div class="token-bar" id="tokenBar" style="margin-bottom: 8px;">
+            <button class="token-btn" type="button" onclick="insertBashToken('pwd')">pwd</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('whoami')">whoami</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('hostname')">hostname</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('cd ')">cd</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('cd ~')">cd ~</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('ls -la')">ls -la</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('ls -lh')">ls -lh</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('mkdir -p ')">mkdir -p</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('touch -d ')">touch -d</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('cat > ')">cat ></button>
+            <button class="token-btn" type="button" onclick="insertBashToken('cat >> ')">cat >></button>
+            <button class="token-btn" type="button" onclick="insertBashToken('head -n 5 ')">head -n</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('tail -n 10 ')">tail -n</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('wc -l ')">wc -l</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('cp -r ')">cp -r</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('mv ')">mv</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('rm -r ')">rm -r</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('ln ')">ln (hard)</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('ln -s ')">ln -s (soft)</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('find . -name ')">find -name</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('find . -mtime -7')">find -mtime</button>
+            <button class="token-btn" type="button" onclick="insertBashToken('stat ')">stat</button>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-bar" style="margin-top: 10px;">
+            <div class="action-left">
+              <button class="btn btn-primary" id="btnRunBash">
+                ▶ Buyruqni Bajarish &amp; Tekshirish (Enter)
+              </button>
+              <button class="btn" id="btnShowHint">💡 Maslahat (Hint)</button>
+              <button class="btn" id="btnPreviewExpected">👁 Kutilayotgan Chiqish</button>
+            </div>
+            <div class="action-right">
+              <button class="btn" id="btnRevealAnswer" title="Favqulodda holatda namuna yechimni ko'rish">
+                🔑 Namuna Yechim
+              </button>
+            </div>
+          </div>
+
+          <!-- Hint & Feedback Boxes -->
+          <div class="hint-box" id="hintBox"></div>
+          <div class="feedback-box" id="feedbackBox"></div>
+
+          <!-- Legacy Verification DOM Compatibility Layer (Hidden, Kept in 100% Sync) -->
+          <div id="terminalWindow" style="display:none;" aria-hidden="true">
+            <div id="terminalFullscreenBar">
+              <span id="fsQuestionTitle"></span>
+            </div>
+            <div id="terminalOutput"></div>
+            <div class="terminal-prompt">
+              <span class="user" id="terminalPromptUser">student@debian-server</span>:<span class="path" id="terminalPromptPath">~$ </span>
+            </div>
+            <input type="text" id="bashInput" />
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       MODALS: TASK DOSSIER & BATAFSIL ANATOMY FOR FULLSCREEN MODE
+       ========================================================================= -->
+  <div class="kali-modal" id="modalKtTask">
+    <div class="kali-modal-content">
+      <div class="kali-modal-header">
+        <div class="kali-modal-title">
+          <span>📋</span>
+          <span id="ktModalTaskHeading">Vazifa #1: Joriy Ishchi Katalogni Aniqlash</span>
+        </div>
+        <button class="kali-modal-close" id="btnCloseKtTask">✕</button>
+      </div>
+      <div class="kali-modal-body">
+        <div class="kt-meta-badges">
+          <span class="kt-badge" id="ktModalDiffBadge">1-Qavat • Oson</span>
+          <span class="kt-badge" id="ktModalSourceBadge">S01 Task 1 • Navigatsiya</span>
+        </div>
+        <div class="kt-task-story" id="ktModalStory">Debian 12 serveriga SSH orqali kirdingiz...</div>
+        <div class="kt-task-req">
+          <div class="kt-req-label">📌 TEXNIK TOPSHIRIQ:</div>
+          <div class="kt-req-text" id="ktModalTaskText">Joriy ishchi katalogning to'liq manzilini ekranga chiqaruvchi buyruqni bering.</div>
+        </div>
+        <div class="kt-tags-container" id="ktModalTags"></div>
+        <div class="kt-modal-actions">
+          <button class="btn btn-primary" id="btnKtModalDone">Tushundim, Terminalga Yozaman</button>
+          <button class="btn" id="btnKtModalHint">💡 Maslahat</button>
+          <button class="btn" id="btnKtModalSol">🔑 Namuna Yechim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kali-modal" id="modalKtBatafsil">
+    <div class="kali-modal-content kt-modal-lg">
+      <div class="kali-modal-header">
+        <div class="kali-modal-title">
+          <span>📖</span>
+          <span>BUYRUQ VA BAYROQLAR TAHLILI</span>
+          <code class="kt-title-code" id="ktBatafsilCode">pwd</code>
+        </div>
+        <button class="kali-modal-close" id="btnCloseKtBatafsil">✕</button>
+      </div>
+      <div class="kali-modal-body" id="ktBatafsilContent">
+        <!-- Rendered from command_anatomy.js -->
+      </div>
+      <div class="kali-modal-footer">
+        <button class="btn btn-primary" id="btnOkKtBatafsil">Yopish va Terminalga Qaytish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: 150 QUESTIONS MAP -->
+  <div class="modal-overlay" id="modalMap">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🗺️</span>
+          <span>150 Linux Topshiriqlar Xaritasi &amp; Rejasi</span>
+        </div>
+        <button class="btn" id="btnCloseMap" style="padding:3px 8px;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:flex; gap:10px; margin-bottom:12px; flex-wrap:wrap; align-items:center;">
+          <input
+            type="text"
+            id="mapSearch"
+            placeholder="Topshiriq nomi, buyruq yoki teg bo'yicha qidiring..."
+            style="flex:1; background:#080d19; border:1px solid var(--border-cyan); border-radius:6px; color:#fff; padding:7px 12px; font-size:12.5px; outline:none;"
+          />
+        </div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;">
+          <button class="btn map-filter-pill active" data-filter="all">Hammasi (150)</button>
+          <button class="btn map-filter-pill" data-filter="solved">✓ Bajarilgan</button>
+          <button class="btn map-filter-pill" data-filter="unsolved">Kutilmoqda</button>
+          <button class="btn map-filter-pill" data-filter="sector_1">Sektor 1</button>
+          <button class="btn map-filter-pill" data-filter="sector_2">Sektor 2</button>
+          <button class="btn map-filter-pill" data-filter="sector_3">Sektor 3</button>
+          <button class="btn map-filter-pill" data-filter="sector_4">Sektor 4</button>
+          <button class="btn map-filter-pill" data-filter="sector_5">Sektor 5</button>
+          <button class="btn map-filter-pill" data-filter="sector_6">Sektor 6</button>
+          <button class="btn map-filter-pill" data-filter="sector_7">Sektor 7</button>
+          <button class="btn map-filter-pill" data-filter="sector_8">Sektor 8</button>
+          <button class="btn map-filter-pill" data-filter="sector_9">Sektor 9</button>
+          <button class="btn map-filter-pill" data-filter="sector_10">Sektor 10</button>
+        </div>
+        <div class="map-grid" id="mapQuestionsGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: SERVER INCIDENT & OFFICE EVENT -->
+  <div class="modal-overlay" id="modalEvent">
+    <div class="modal-dialog" style="max-width:680px;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span id="eventAvatar">🐧</span>
+          <span id="eventTitle">Server Xonasida Favqulodda Hodisa</span>
+        </div>
+        <button class="btn" id="btnCloseEvent" style="padding:3px 8px;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div>
+            <div style="font-weight:700; color:var(--accent-cyan-bright);" id="eventSpeaker">Professor Turing</div>
+            <div style="font-size:11.5px; color:var(--text-muted);" id="eventRole">WIUT Tizim Guruhi</div>
+          </div>
+        </div>
+        <div id="eventNarrative" style="background:#090f1e; border:1px solid rgba(6,182,212,0.3); border-radius:6px; padding:12px 14px; margin-bottom:14px; font-size:13px; line-height:1.55;"></div>
+        <div style="font-weight:600; color:#fff; margin-bottom:6px;">Sizning qaroringiz:</div>
+        <div id="eventChoicesContainer"></div>
+        <div class="feedback-box" id="eventFeedback" style="margin-top:12px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: SAMPLE SOLUTION REVEAL -->
+  <div class="modal-overlay" id="modalSolution">
+    <div class="modal-dialog" style="max-width:620px;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span>🔑</span>
+          <span>Namuna Yechim (Linux Bash Shell)</span>
+        </div>
+        <button class="btn" id="btnCloseSolution" style="padding:3px 8px;">✕</button>
+      </div>
+      <div class="modal-body">
+        <h3 id="solQuestionTitle" style="color:var(--accent-cyan-bright); margin-bottom:12px;">Topshiriq #1</h3>
+        <div style="background:#050811; border:1px solid var(--border-cyan); border-radius:6px; padding:12px 16px; margin-bottom:14px;">
+          <div style="font-size:11px; color:#64748b; margin-bottom:4px; text-transform:uppercase;">Kutilgan buyruq:</div>
+          <code id="solCode" style="color:#34d399; font-size:14px; font-family:'JetBrains Mono', monospace; font-weight:700;"></code>
+        </div>
+        <div id="solExplanation"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="document.getElementById('modalSolution').classList.remove('active')">Tushundim</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS LOAD IN ORDER -->
+  <script src="data/command_anatomy.js"></script>
+  <script src="data/virtual_fs.js"></script>
+  <script src="data/questions_1_50.js"></script>
+  <script src="data/questions_51_100.js"></script>
+  <script src="data/questions_101_150.js"></script>
+  <script src="engine2d.js"></script>
+  <script src="game.js"></script>
+
+</body>
+</html>

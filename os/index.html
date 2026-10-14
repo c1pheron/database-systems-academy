@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Operating Systems Academy — Bosh Boshqaruv Markazi (Master Hub)</title>
+  
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="os_dictionary.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       TOP EXECUTIVE HUD / NAVBAR
+       ========================================================================= -->
+  <header class="master-header">
+    <div class="header-container">
+      
+      <!-- Brand Identity -->
+      <div class="brand-box">
+        <a href="../index.html" class="btn-back-hub" title="SeventyPlus Asosiy Portaliga Qaytish">← SeventyPlus Portali</a>
+        <div class="brand-emblem">🐧</div>
+        <div>
+          <div class="brand-title">
+            Operating Systems Academy
+            <span class="brand-badge">Debian 12 • 2D Simulyator</span>
+          </div>
+          <div class="brand-sub">Linux Asoslari, Inodelar, Bash, fork(), Xotira va Docker Klasteri</div>
+        </div>
+      </div>
+
+      <!-- User Profile & Stats -->
+      <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div class="hud-profile-pill">
+          <div class="profile-avatar">👨‍💻</div>
+          <div class="profile-info">
+            <span id="hudUserName" class="profile-name">Linux Administrator</span>
+            <span id="hudUserRank" class="profile-rank">🐧 Linux Junior Operator</span>
+          </div>
+        </div>
+
+        <div class="header-stats">
+          <div class="stat-chip">
+            <span class="label">Bajarildi:</span>
+            <span id="hudSolvedTotal" class="val cyan">0 / 900</span>
+          </div>
+          <div class="stat-chip">
+            <span class="label">Kapital:</span>
+            <span id="hudXpTotal" class="val emerald">$0</span>
+          </div>
+        </div>
+
+        <button id="btnOpenDictionary" class="btn-dictionary" title="Barcha 6 haftalik Linux buyruqlari ensiklopediyasi (Ctrl+K)">
+          <span>🔍</span> <span>Lug'at &amp; Qidiruv</span> <span class="kbd-shortcut">Ctrl+K</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN WORKSPACE CONTAINER
+       ========================================================================= -->
+  <main class="main-wrapper">
+
+    <!-- Hero / Progress Section -->
+    <section class="hero-banner">
+      <h2 class="hero-title">
+        <span>🐧</span> Debian 12 &amp; Linux Operatsion Tizimi Arxitekturasini Egallang
+      </h2>
+      <p class="hero-desc">
+        Xush kelibsiz! Linux yadrosi (Kernel) "kapot ostida" qanday ishlashini o'rganing: fayl tizimi va inodelardan tortib, professional Bash avtomatlashtirish, jarayonlar hayot sikli (Signals &amp; fork), CPU rejalashtirish, virtual xotira sahifalari (Paging) va Docker konteynerlarigacha bo'lgan 6 ta korporativ modul va 900 ta amaliy topshiriq!
+      </p>
+
+      <div class="hero-progress-box">
+        <div class="progress-header">
+          <span>Operatsion Tizimlar Modulining Umumiy O'zlashtirilishi</span>
+          <span id="overallProgressPercent" style="color:var(--accent-cyan-bright); font-family:'JetBrains Mono', monospace;">0% Bajarildi</span>
+        </div>
+        <div class="progress-track">
+          <div id="overallProgressBar" class="progress-bar-fill"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 Modules Quest Map -->
+    <div class="section-headline">
+      <h3 class="section-title">🗺️ O'quv Yo'nalishi &amp; 6 ta Korporativ Modul</h3>
+      <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">6 Modul • 900 ta Amaliy Keys • Haqiqiy Kali CLI</span>
+    </div>
+
+    <div class="modules-grid">
+
+      <!-- Week 1 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">📁</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">1-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Linux Asosiy Buyruqlari &amp; Inodelar</h4>
+          <p class="module-desc">
+            Debian 12 serveriga kirish, fayl tizimi ierarxiyasi (/home, /etc, /var/log), Inodelar tahlili (stat, ln hard/soft links), kiritish-chiqarish oqimlari (&gt;, &gt;&gt;, |) va find qidiruvi.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">pwd &amp; ls -la</span>
+            <span class="topic-chip">Inodelar &amp; stat</span>
+            <span class="topic-chip">Hard vs Soft Links</span>
+            <span class="topic-chip">Pipes &amp; Redirection</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w1ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="os-w1-2d-game/index.html" class="btn-launch">1-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 2 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">⚡</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">2-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Bash Skriptlash &amp; Tizim Boshqaruvi</h4>
+          <p class="module-desc">
+            Foydalanuvchilar va guruhlar (/etc/passwd, useradd, usermod), maxsus ruxsatlar (chmod, Sticky Bit +t, umask), matn filtratsiyasi (grep, sed, awk, cut, sort) va avtomatlashtirish skriptlari.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">useradd &amp; usermod</span>
+            <span class="topic-chip">chmod &amp; Sticky Bit</span>
+            <span class="topic-chip">grep, awk, sed, cut</span>
+            <span class="topic-chip">Bash Sikllari &amp; $?</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w2ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="os-w2-2d-game/index.html" class="btn-launch">2-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 3 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">⚙️</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">3-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Jarayonlar, Signallar &amp; IPC</h4>
+          <p class="module-desc">
+            Linuxda jarayonlar arxitekturasi (PID, PPID, ps aux, top), jarayonlarni boshqarish (kill -15 SIGTERM, kill -9 SIGKILL), fon va oldingi plan rejimlari (&amp;, bg, fg, jobs) hamda IPC.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">ps aux &amp; top</span>
+            <span class="topic-chip">kill, SIGTERM, SIGKILL</span>
+            <span class="topic-chip">Jobs, bg, fg &amp; nohup</span>
+            <span class="topic-chip">IPC &amp; FIFO Pipes</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w3ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="os-w3-2d-game/index.html" class="btn-launch">3-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 4 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">🧬</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">4-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Python fork() &amp; Ko'p Oqimli Tizimlar</h4>
+          <p class="module-desc">
+            Tizim chaqiriqlari (System Calls): os.fork() mexanizmi, ota va bola jarayonlar differensiatsiyasi, Zombi (Zombie) va Orfan (Orphan) jarayonlar patologiyasi, os.waitpid() va IPC.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">os.fork() &amp; PID/PPID</span>
+            <span class="topic-chip">Zombie &amp; Orphan Process</span>
+            <span class="topic-chip">os.wait() &amp; Exit Status</span>
+            <span class="topic-chip">Python Multiprocessing</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w4ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="os-w4-2d-game/index.html" class="btn-launch">4-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 5 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">🐳</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">5-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">CPU Scheduling, Docker &amp; Cron</h4>
+          <p class="module-desc">
+            Protsessor vaqtini taqsimlash algoritmlari (FCFS, Round Robin, SJF), Cron orqali xizmatlarni avtomatik rejalashtirish (crontab -e) hamda Docker konteynerlarida ilovalarni izolyatsiyalash.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">FCFS &amp; Round Robin</span>
+            <span class="topic-chip">Cron &amp; crontab -e</span>
+            <span class="topic-chip">Docker Run, PS &amp; Images</span>
+            <span class="topic-chip">Container Isolation</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w5ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="os-w5-2d-game/index.html" class="btn-launch">5-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 6 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">🧠</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">6-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Virtual Xotira &amp; Paging Arxitekturasi</h4>
+          <p class="module-desc">
+            Xotira boshqaruvi: Virtual manzilni fizik manzilga tarjima qilish (MMU), Sahifalar (Pages &amp; Frames), Page Tables, TLB kesh, Sahifa xatosi (Page Fault), Swap bo'limi va almashtirish (LRU).
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">Virtual vs Physical RAM</span>
+            <span class="topic-chip">Page Table &amp; TLB</span>
+            <span class="topic-chip">Page Fault &amp; Swap</span>
+            <span class="topic-chip">LRU &amp; Optimal Policies</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w6ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="os-w6-2d-game/index.html" class="btn-launch">6-Modulga Kirish →</a>
+        </div>
+      </article>
+
+    </div>
+
+  </main>
+
+  <!-- Application Logic & Dictionary Scripts -->
+  <script src="os_dictionary.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
