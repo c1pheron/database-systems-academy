@@ -305,6 +305,22 @@
     el.btnTouchPrev = document.getElementById("btnTouchPrev");
     el.btnTouchNext = document.getElementById("btnTouchNext");
 
+    // Engine switch & WASM
+    el.btnEngineShell = document.getElementById("btnEngineShell");
+    el.btnEngineWasm = document.getElementById("btnEngineWasm");
+    el.wasmTerminalContainer = document.getElementById("wasmTerminalContainer");
+    el.wasmLoader = document.getElementById("wasmLoader");
+    el.wasmLoaderText = document.getElementById("wasmLoaderText");
+    el.wasmXtermBox = document.getElementById("wasmXtermBox");
+
+    // In-terminal interactive editor (nano / vim)
+    el.terminalEditorOverlay = document.getElementById("terminalEditorOverlay");
+    el.editorTitle = document.getElementById("editorTitle");
+    el.editorTextarea = document.getElementById("editorTextarea");
+    el.btnEditorSave = document.getElementById("btnEditorSave");
+    el.btnEditorExit = document.getElementById("btnEditorExit");
+    el.editorStatus = document.getElementById("editorStatus");
+
     // Modals
     el.modalKtTask = document.getElementById("modalKtTask");
     el.btnCloseKtTask = document.getElementById("btnCloseKtTask");
@@ -1061,6 +1077,175 @@
     }
   }
 
+  // --- In-Terminal Interactive Editor (nano / vim) ---
+  function openTerminalEditor(action) {
+    if (!el.terminalEditorOverlay || !el.editorTextarea) return;
+    state.activeEditor = action;
+    if (el.editorTitle) el.editorTitle.textContent = `${action.prog.toUpperCase()} • ${action.filename}`;
+    el.editorTextarea.value = action.content || "";
+    el.terminalEditorOverlay.style.display = "flex";
+    setTimeout(() => {
+      el.editorTextarea.focus();
+    }, 60);
+  }
+
+  function saveAndCloseTerminalEditor() {
+    if (!state.activeEditor || !el.editorTextarea) return;
+    const content = el.editorTextarea.value;
+    const p = state.activeEditor.path;
+    const dirPath = p.substring(0, p.lastIndexOf("/")) || "/";
+    const filename = p.substring(p.lastIndexOf("/") + 1);
+
+    let dirNode = state.liveShell ? state.liveShell.getNode(dirPath) : null;
+    if (!dirNode && state.liveShell) {
+      state.liveShell.execute(`mkdir -p "${dirPath}"`);
+      dirNode = state.liveShell.getNode(dirPath);
+    }
+
+    if (dirNode && dirNode.children) {
+      let fileNode = dirNode.children[filename];
+      if (!fileNode) {
+        fileNode = {
+          name: filename,
+          type: "file",
+          inode: Math.floor(Math.random() * 500000 + 1000000),
+          permissions: "-rw-r--r--",
+          owner: state.liveShell.user || "student",
+          group: state.liveShell.user || "student",
+          links: 1,
+          mtime: new Date().toISOString().replace("T", " ").substring(0, 19),
+          content: content,
+          size: content.length
+        };
+        dirNode.children[filename] = fileNode;
+      } else {
+        fileNode.content = content;
+        fileNode.size = content.length;
+        fileNode.mtime = new Date().toISOString().replace("T", " ").substring(0, 19);
+      }
+    }
+
+    const savedProg = state.activeEditor.prog.toUpperCase();
+    const savedFile = state.activeEditor.filename;
+    closeTerminalEditor();
+    printKaliInfo(`[✓ ${savedProg}: '${savedFile}' muvaffaqiyatli saqlandi (${content.length} bayt)]`);
+    renderFsExplorer();
+  }
+
+  function closeTerminalEditor() {
+    if (el.terminalEditorOverlay) {
+      el.terminalEditorOverlay.style.display = "none";
+    }
+    state.activeEditor = null;
+    focusKaliInput();
+    if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+  }
+
+  // --- Real Linux WebAssembly (v86 + xterm.js) ---
+  let wasmEmulatorInstance = null;
+  let wasmXtermInstance = null;
+
+  function initWasmRealLinux() {
+    if (wasmEmulatorInstance) {
+      if (wasmXtermInstance) wasmXtermInstance.focus();
+      return;
+    }
+
+    const box = el.wasmXtermBox || document.getElementById("wasmXtermBox");
+    const loader = el.wasmLoader || document.getElementById("wasmLoader");
+    const loaderText = el.wasmLoaderText || document.getElementById("wasmLoaderText");
+    if (!box) return;
+
+    if (loader) loader.style.display = "flex";
+
+    if (typeof Terminal === "undefined" || typeof V86Starter === "undefined") {
+      if (loaderText) {
+        loaderText.innerHTML = `⚠️ WebAssembly kutubxonasi yuklanmadi.<br><span style="font-size:11px; color:#cbd5e1;">Internet aloqasini tekshiring yoki <b>⚡ Tezkor Shell</b> rejimiga o'ting.</span>`;
+      }
+      return;
+    }
+
+    try {
+      wasmXtermInstance = new Terminal({
+        cols: 80,
+        rows: 24,
+        theme: {
+          background: "#000000",
+          foreground: "#f8fafc",
+          cursor: "#22d3ee",
+          selectionBackground: "rgba(56, 189, 248, 0.3)"
+        },
+        fontFamily: "'JetBrains Mono', monospace",
+        fontSize: 13,
+        cursorBlink: true
+      });
+
+      wasmXtermInstance.open(box);
+      wasmXtermInstance.writeln("\x1b[1;36m🐧 WebAssembly x86 Real Linux yuklanmoqda... (SeaBIOS & Kernel)\x1b[0m\r\n");
+
+      wasmEmulatorInstance = new V86Starter({
+        wasm_path: "https://cdn.jsdelivr.net/npm/v86@latest/build/v86.wasm",
+        memory_size: 64 * 1024 * 1024,
+        vga_memory_size: 2 * 1024 * 1024,
+        screen_container: null,
+        bios: {
+          url: "https://cdn.jsdelivr.net/gh/copy/v86@master/bios/seabios.bin"
+        },
+        vga_bios: {
+          url: "https://cdn.jsdelivr.net/gh/copy/v86@master/bios/vgabios.bin"
+        },
+        bzimage: {
+          url: "https://copy.sh/v86/images/buildroot-bzimage.bin"
+        },
+        cmdline: "console=ttyS0 root=/dev/ram0 rw quiet",
+        autoboot: true
+      });
+
+      wasmEmulatorInstance.add_listener("serial0-output", function(byte) {
+        if (typeof byte === "string") {
+          wasmXtermInstance.write(byte);
+        } else {
+          wasmXtermInstance.write(String.fromCharCode(byte));
+        }
+      });
+
+      wasmXtermInstance.onData(function(data) {
+        if (wasmEmulatorInstance) wasmEmulatorInstance.serial0_send(data);
+      });
+
+      wasmEmulatorInstance.add_listener("ready", function() {
+        if (loader) loader.style.display = "none";
+        wasmXtermInstance.writeln("\r\n\x1b[1;32m✓ Real Linux x86 Kernel faol! Tizimga xush kelibsiz.\x1b[0m\r\n");
+        wasmXtermInstance.focus();
+      });
+
+    } catch (err) {
+      console.error("WASM boot error:", err);
+      if (loaderText) {
+        loaderText.innerHTML = `⚠️ Xatolik: ${err.message}<br><button class="btn btn-xs btn-primary" onclick="setTerminalEngine('shell')">Tezkor Shellga Qaytish</button>`;
+      }
+    }
+  }
+
+  function setTerminalEngine(engine) {
+    state.activeEngine = engine;
+    SoundFX.playKey();
+    if (engine === "wasm") {
+      if (el.btnEngineWasm) el.btnEngineWasm.classList.add("active");
+      if (el.btnEngineShell) el.btnEngineShell.classList.remove("active");
+      if (el.wasmTerminalContainer) el.wasmTerminalContainer.style.display = "block";
+      if (el.kaliScreen) el.kaliScreen.style.display = "none";
+      initWasmRealLinux();
+    } else {
+      if (el.btnEngineShell) el.btnEngineShell.classList.add("active");
+      if (el.btnEngineWasm) el.btnEngineWasm.classList.remove("active");
+      if (el.wasmTerminalContainer) el.wasmTerminalContainer.style.display = "none";
+      if (el.kaliScreen) el.kaliScreen.style.display = "block";
+      focusKaliInput();
+    }
+  }
+  window.setTerminalEngine = setTerminalEngine;
+
   // Toggle Command & Flag Anatomy Card (Batafsil)
   window.toggleCmdInfoCard = function () {
     const cardBody = document.getElementById("cmdCardBody");
@@ -1202,22 +1387,23 @@ permitted by applicable law.
     el.kaliStream.innerHTML = getKaliBannerHtml();
     updateTerminalPrompt();
 
-    // Clicking or tapping anywhere in the black terminal screen focuses the hidden input without scrolling jumps
+    // Clicking or tapping anywhere in the black terminal screen focuses the inline input without scrolling jumps
     if (el.kaliScreen && el.kaliHiddenInput) {
-      el.kaliScreen.addEventListener("click", () => {
-        focusKaliInput();
+      el.kaliScreen.addEventListener("click", (e) => {
+        if (!state.activeEditor && e.target !== el.kaliHiddenInput) {
+          focusKaliInput();
+        }
       });
-      el.kaliScreen.addEventListener("touchstart", () => {
-        focusKaliInput();
+      el.kaliScreen.addEventListener("touchstart", (e) => {
+        if (!state.activeEditor && e.target !== el.kaliHiddenInput) {
+          focusKaliInput();
+        }
       }, { passive: true });
     }
 
-    // Input sync: whatever user types appears inline right next to └─$
+    // Input handling on inline input directly in prompt
     if (el.kaliHiddenInput) {
       el.kaliHiddenInput.addEventListener("input", () => {
-        if (el.kaliTypedText) {
-          el.kaliTypedText.textContent = el.kaliHiddenInput.value;
-        }
         if (el.kaliScreen) {
           el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
         }
@@ -1232,18 +1418,15 @@ permitted by applicable law.
           if (state.historyIndex > 0) {
             state.historyIndex--;
             el.kaliHiddenInput.value = state.commandHistory[state.historyIndex] || "";
-            if (el.kaliTypedText) el.kaliTypedText.textContent = el.kaliHiddenInput.value;
           }
         } else if (e.key === "ArrowDown") {
           e.preventDefault();
           if (state.historyIndex < state.commandHistory.length - 1) {
             state.historyIndex++;
             el.kaliHiddenInput.value = state.commandHistory[state.historyIndex] || "";
-            if (el.kaliTypedText) el.kaliTypedText.textContent = el.kaliHiddenInput.value;
           } else {
             state.historyIndex = state.commandHistory.length;
             el.kaliHiddenInput.value = "";
-            if (el.kaliTypedText) el.kaliTypedText.textContent = "";
           }
         } else if (e.key === "Tab") {
           e.preventDefault();
@@ -1338,6 +1521,33 @@ permitted by applicable law.
     if (el.btnToggleFullscreen) {
       el.btnToggleFullscreen.addEventListener("click", () => {
         toggleTerminalFullscreen();
+      });
+    }
+
+    // Engine switcher (Tezkor Shell vs Real Linux WASM)
+    if (el.btnEngineShell) {
+      el.btnEngineShell.addEventListener("click", () => setTerminalEngine("shell"));
+    }
+    if (el.btnEngineWasm) {
+      el.btnEngineWasm.addEventListener("click", () => setTerminalEngine("wasm"));
+    }
+
+    // Interactive Terminal Editor (nano / vim)
+    if (el.btnEditorSave) {
+      el.btnEditorSave.addEventListener("click", () => saveAndCloseTerminalEditor());
+    }
+    if (el.btnEditorExit) {
+      el.btnEditorExit.addEventListener("click", () => closeTerminalEditor());
+    }
+    if (el.editorTextarea) {
+      el.editorTextarea.addEventListener("keydown", (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s") {
+          e.preventDefault();
+          saveAndCloseTerminalEditor();
+        } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "x") {
+          e.preventDefault();
+          closeTerminalEditor();
+        }
       });
     }
 
@@ -1750,6 +1960,11 @@ permitted by applicable law.
     // Execute in live shell
     const res = state.liveShell.execute(rawCmd);
     state.lastExitCode = (res && typeof res.code === "number") ? res.code : 0;
+
+    if (res && res.editorAction) {
+      openTerminalEditor(res.editorAction);
+      return;
+    }
 
     if (res.stdout) {
       const outDiv = document.createElement("div");

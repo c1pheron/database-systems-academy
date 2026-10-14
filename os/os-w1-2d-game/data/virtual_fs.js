@@ -276,16 +276,18 @@
       let combinedStdout = "";
       let combinedStderr = "";
       let lastCode = 0;
+      let lastEditorAction = null;
 
       for (const single of commands) {
         const res = this.executeSingle(single);
         if (res.stdout) combinedStdout += (combinedStdout ? "\n" : "") + res.stdout;
         if (res.stderr) combinedStderr += (combinedStderr ? "\n" : "") + res.stderr;
         lastCode = res.code;
+        if (res.editorAction) lastEditorAction = res.editorAction;
         if (res.code !== 0 && raw.includes("&&")) break;
       }
 
-      return { stdout: combinedStdout, stderr: combinedStderr, code: lastCode };
+      return { stdout: combinedStdout, stderr: combinedStderr, code: lastCode, editorAction: lastEditorAction };
     }
 
     executeSingle(cmd) {
@@ -667,6 +669,106 @@
           node.owner = parts[0] || node.owner;
           if (parts.length > 1) node.group = parts[1] || node.group;
           return { stdout: "", stderr: "", code: 0 };
+        }
+
+        case "tree": {
+          const rootTarget = args[0] ? this.resolvePath(args[0]) : this.cwd;
+          const rootNode = this.getNode(rootTarget);
+          if (!rootNode) return { stdout: "", stderr: `tree: ${args[0] || "."}: No such file or directory`, code: 1 };
+          let outLines = [args[0] || "."];
+          let dirCount = 0;
+          let fileCount = 0;
+          const walk = (node, prefix) => {
+            if (!node || !node.children) return;
+            const keys = Object.keys(node.children).sort();
+            keys.forEach((k, idx) => {
+              const child = node.children[k];
+              const isLast = idx === keys.length - 1;
+              const branch = isLast ? "└── " : "├── ";
+              outLines.push(prefix + branch + child.name);
+              if (child.type === "dir") {
+                dirCount++;
+                walk(child, prefix + (isLast ? "    " : "│   "));
+              } else {
+                fileCount++;
+              }
+            });
+          };
+          walk(rootNode, "");
+          outLines.push(`\n${dirCount} directories, ${fileCount} files`);
+          return { stdout: outLines.join("\n"), stderr: "", code: 0 };
+        }
+
+        case "nano":
+        case "vim":
+        case "vi": {
+          const targetFile = args[0] || "untitled.txt";
+          const p = this.resolvePath(targetFile);
+          let node = this.getNode(p);
+          let initialContent = "";
+          if (node) {
+            if (node.type === "dir") {
+              return { stdout: "", stderr: `${prog}: ${targetFile} is a directory`, code: 1 };
+            }
+            initialContent = node.content || "";
+          }
+          return {
+            stdout: "",
+            stderr: "",
+            code: 0,
+            editorAction: {
+              prog: prog,
+              filename: targetFile,
+              path: p,
+              content: initialContent
+            }
+          };
+        }
+
+        case "python":
+        case "python3": {
+          if (args.length > 0) {
+            const p = this.resolvePath(args[0]);
+            const node = this.getNode(p);
+            if (!node) return { stdout: "", stderr: `python3: can't open file '${args[0]}': [Errno 2] No such file or directory`, code: 2 };
+            const lines = (node.content || "").split("\n");
+            let pOut = [];
+            lines.forEach(l => {
+              const m = l.trim().match(/^print\((.*)\)$/);
+              if (m) {
+                let val = m[1].trim();
+                if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+                  pOut.push(val.slice(1, -1));
+                } else {
+                  try { pOut.push(eval(val)); } catch (e) { pOut.push(val); }
+                }
+              }
+            });
+            return { stdout: pOut.join("\n") || "Process finished with exit code 0", stderr: "", code: 0 };
+          }
+          return {
+            stdout: "Python 3.11.2 (main, Mar 13 2024, 12:18:29) [GCC 12.2.0] on linux\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n>>> Use 'python3 script.py' to run a script file.",
+            stderr: "",
+            code: 0
+          };
+        }
+
+        case "top":
+        case "htop": {
+          const topArt = [
+            "top - 10:24:02 up 14 days,  3:30,  1 user,  load average: 0.08, 0.03, 0.01",
+            "Tasks:  94 total,   1 running,  93 sleeping,   0 stopped,   0 zombie",
+            "%Cpu(s):  1.2 us,  0.8 sy,  0.0 ni, 97.8 id,  0.2 wa,  0.0 hi,  0.0 si",
+            "MiB Mem :   3920.4 total,   2412.1 free,    684.2 used,    824.1 buff/cache",
+            "MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   3010.5 avail Mem",
+            "",
+            "  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND",
+            " 1420 student   20   0   14288   4120   3200 S   0.0   0.1   0:00.12 bash",
+            "    1 root      20   0  168420  11240   8120 S   0.0   0.3   0:04.18 systemd",
+            "  412 root      20   0   18420   3100   2800 S   0.0   0.1   0:00.45 sshd",
+            "  820 root      20   0   12400   2100   1900 S   0.0   0.1   0:00.08 cron"
+          ].join("\n");
+          return { stdout: topArt, stderr: "", code: 0 };
         }
 
         default:

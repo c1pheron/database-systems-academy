@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="../os_dictionary.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.css" />
 
   <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -125,6 +126,10 @@
             <span id="terminalHeaderTitle">Kali Linux Terminal (Debian 12)</span>
             <span class="terminal-active-mode-badge" id="terminalActiveModeBadge">🎯 Masalalar</span>
           </div>
+          <div class="terminal-engine-switch">
+            <button type="button" class="btn-engine-pill active" id="btnEngineShell" title="Tezkor virtual shell (0MB yuklanish)">⚡ Tezkor Shell</button>
+            <button type="button" class="btn-engine-pill" id="btnEngineWasm" title="WebAssembly orqali haqiqiy x86 Linux Kernel">🐧 Real Linux (WASM)</button>
+          </div>
           <div class="terminal-card-actions">
             <button class="btn btn-xs" id="btnClearTerminal" type="button" title="Terminalni tozalash">🧹 Tozalash</button>
             <button class="btn btn-xs btn-expand-terminal" id="btnToggleFullscreen" type="button" title="Katta ekranga yoyish">⛶ Katta Ekran</button>
@@ -159,31 +164,57 @@
 
         <!-- PANE A: AUTHENTIC KALI LINUX TERMINAL (ACTIVE BY DEFAULT) -->
         <div class="workbench-pane" id="paneKaliTerminal">
+          <!-- WASM Real Linux Screen (v86 + xterm.js) -->
+          <div id="wasmTerminalContainer" class="wasm-term-screen" style="display: none;">
+            <div id="wasmLoader" class="wasm-loader" style="display: none;">
+              <div class="wasm-spinner"></div>
+              <div id="wasmLoaderText">🐧 WebAssembly Real Linux Kernel yuklanmoqda... (SeaBIOS &amp; x86 Linux)</div>
+            </div>
+            <div id="wasmXtermBox" class="wasm-xterm-box"></div>
+          </div>
+
+          <!-- Virtual Kali Screen (Tezkor Shell) -->
           <div class="kali-screen" id="kaliScreen" tabindex="0">
             <!-- Historical output & banner stream -->
             <div class="kali-stream" id="kaliStream"></div>
 
-            <!-- Active Prompt with INLINE typing cursor -->
+            <!-- Active Prompt with INLINE typing cursor & direct input -->
             <div class="kali-active-prompt" id="kaliActivePrompt">
               <div class="kali-p-row1">
                 <span class="k-green">┌──(</span><span class="k-blue">userland</span><span class="k-white">㉿</span><span class="k-blue">localhost</span><span class="k-green">)-[</span><span class="k-white" id="kaliPromptPath">~</span><span class="k-green">]</span>
               </div>
-              <div class="kali-p-row2">
-                <span class="k-green">└─$ </span><span class="kali-typed-text" id="kaliTypedText"></span><span class="kali-cursor" id="kaliCursor">█</span>
+              <div class="kali-p-row2" id="kaliPromptRow2">
+                <span class="k-green">└─$ </span>
+                <input
+                  type="text"
+                  id="kaliHiddenInput"
+                  class="kali-inline-cmd-input"
+                  autocomplete="off"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  aria-label="Linux buyrug'ini yozing"
+                  placeholder=""
+                />
               </div>
             </div>
 
-            <!-- Hidden transparent input to capture typing on mobile & desktop -->
-            <input
-              type="text"
-              id="kaliHiddenInput"
-              class="kali-hidden-input"
-              autocomplete="off"
-              autocorrect="off"
-              autocapitalize="off"
-              spellcheck="false"
-              aria-label="Linux buyrug'ini yozing"
-            />
+            <!-- Interactive Nano/Vim Editor In-Terminal Overlay -->
+            <div class="terminal-editor-overlay" id="terminalEditorOverlay" style="display: none;">
+              <div class="editor-header">
+                <div class="editor-title" id="editorTitle">GNU nano 7.2 • file.txt</div>
+                <div class="editor-actions">
+                  <button type="button" class="btn btn-xs btn-primary" id="btnEditorSave">💾 Saqlash</button>
+                  <button type="button" class="btn btn-xs" id="btnEditorExit">✕ Chiqish</button>
+                </div>
+              </div>
+              <textarea id="editorTextarea" class="editor-textarea" spellcheck="false" placeholder="Matnni bu yerga yozing..."></textarea>
+              <div class="editor-footer">
+                <span class="editor-shortcut"><b>Ctrl+S</b> Saqlash</span>
+                <span class="editor-shortcut"><b>Ctrl+X</b> Chiqish</span>
+                <span class="editor-status" id="editorStatus">Yozish rejimi (UTF-8)</span>
+              </div>
+            </div>
           </div>
 
           <!-- Mobile Quick Touch Bar -->
@@ -459,6 +490,8 @@
   <script src="data/questions_101_150.js"></script>
   <script src="engine2d.js"></script>
   <script src="../os_dictionary.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/v86@latest/build/libv86.js"></script>
   <script src="game.js"></script>
 
 </body>
