@@ -1,12 +1,13 @@
 /**
  * DATABASE SYSTEMS ACADEMY — WEEK 1: DRAW.IO FULL INTERACTIVE EER CANVAS ENGINE
- * Haqiqiy draw.io uslubidagi barcha professional imkoniyatlar:
+ * draw.io uslubidagi barcha professional imkoniyatlar:
  * 1. Port strelkalari (Yuqori, O'ng, Past, Chap) & Strelkani sudrab ikkinchi entitiyga ulash (Drag-to-Connect)
- * 2. Sichqoncha g'ildiragi bilan masshtablash (Mouse Wheel Zoom) & Polotnoni surish (Pan)
- * 3. Entitiy boshqaruvlari: (+) Atribut qo'shish, (✎) Nomini tahrirlash, (✕) O'chirish, (📦) Zaif entitiyga aylantirish
- * 4. Har bir atributda: PK / PPK / Oddiy kalit aylantirish, nomini o'zgartirish va (✕) o'chirish
- * 5. Multiplicity teglari (1..1, 1..*, 0..1, 0..*) o'quvchining o'zi tanlashi uchun
- * 6. draw.io XML formatiga to'g'ridan-to'g'ri eksport
+ * 2. Chiziq ustiga bosilganda Multiplicity variantlarini tanlash (1..1, 0..1, 1..*, 0..*)
+ * 3. Atribut nomini bosganda yoki ✎ tugmasi orqali to'g'ridan-to'g'ri o'zgartirish
+ * 4. Magnit (Magnetic Snap): chiziq yaqiniga ob'yekt kelganda avtomatik ushlab olish
+ * 5. Draw.io Shakllar Palitrasi (Chap panel, yig'ib qo'yiladigan, barcha 17 ta ER shakllari)
+ * 6. Sichqoncha g'ildiragi bilan masshtablash (Zoom) & Polotnoni surish (Pan)
+ * 7. draw.io XML formatiga to'g'ridan-to'g'ri eksport
  */
 
 class EERCanvasEngine {
@@ -39,11 +40,12 @@ class EERCanvasEngine {
     this.connectSource = null; // { node, type, port: 'top'|'right'|'bottom'|'left' }
     this.connectCurrentX = 0;
     this.connectCurrentY = 0;
+    this.connectMovedDist = 0;
 
-    // Free-Standing Connection Lines ("enitiydan chiqadigan chiziq esa enityga ulanmasdan ham tura olishi kerak")
+    // Free-Standing Connection Lines
     this.freeLines = [];
 
-    // Node Resizing ("entity chetini tortganda entity kattalashishi kerak")
+    // Node Resizing
     this.isResizing = false;
     this.resizingNode = null;
     this.resizeStartWidth = 0;
@@ -51,8 +53,12 @@ class EERCanvasEngine {
     this.resizeStartX = 0;
     this.resizeStartY = 0;
 
+    // Magnetic snap target candidate
+    this.snapCandidate = null;
+
     this.initDOM();
     this.attachEvents();
+    this.initSidebar();
   }
 
   initDOM() {
@@ -98,7 +104,6 @@ class EERCanvasEngine {
       const delta = e.deltaY < 0 ? 1.1 : 0.9;
       const newZoom = Math.min(2.5, Math.max(0.4, this.zoom * delta));
 
-      // Zoom towards mouse pointer
       this.panX = mouseX - (mouseX - this.panX) * (newZoom / this.zoom);
       this.panY = mouseY - (mouseY - this.panY) * (newZoom / this.zoom);
       this.zoom = newZoom;
@@ -124,30 +129,29 @@ class EERCanvasEngine {
 
     // Touch support (Mobile phones & tablets)
     this.container.addEventListener('touchstart', (e) => {
-      if (e.touches.length === 1 && (e.target === this.container || e.target === this.svg || e.target === this.nodesLayer || e.target === this.viewport)) {
-        this.deselectAll();
-        this.cancelConnecting();
-        this.isPanning = true;
-        this.startPanX = e.touches[0].clientX - this.panX;
-        this.startPanY = e.touches[0].clientY - this.panY;
+      if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        this.lastTouchPoint = { clientX: touch.clientX, clientY: touch.clientY };
+        const target = e.target;
+        if (target === this.container || target === this.svg || target === this.nodesLayer || target === this.viewport) {
+          this.deselectAll();
+          this.cancelConnecting();
+          this.isPanning = true;
+          this.startPanX = touch.clientX - this.panX;
+          this.startPanY = touch.clientY - this.panY;
+        }
       }
     }, { passive: true });
 
     window.addEventListener('touchmove', (e) => {
-      if (this.isPanning || this.isDraggingNode || this.isConnecting || this.isResizing) {
-        if (e.cancelable) e.preventDefault();
-        if (e.touches && e.touches.length > 0) {
-          this.lastTouchPoint = { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY };
-          this.onPointerMove(e.touches[0]);
-        }
+      if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        this.lastTouchPoint = { clientX: touch.clientX, clientY: touch.clientY };
+        this.onPointerMove(touch);
       }
-    }, { passive: false });
+    }, { passive: true });
 
     window.addEventListener('touchend', (e) => {
-      const point = (e.changedTouches && e.changedTouches[0]) || this.lastTouchPoint || {};
-      this.onPointerUp(point);
-    });
-    window.addEventListener('touchcancel', (e) => {
       this.onPointerUp(e);
     });
 
@@ -156,10 +160,12 @@ class EERCanvasEngine {
       this.zoom = Math.min(2.5, this.zoom * 1.2);
       this.updateViewportTransform();
     });
+
     document.getElementById('btnZoomOut')?.addEventListener('click', () => {
       this.zoom = Math.max(0.4, this.zoom / 1.2);
       this.updateViewportTransform();
     });
+
     document.getElementById('btnZoomReset')?.addEventListener('click', () => {
       this.zoom = 1;
       this.panX = 0;
@@ -168,19 +174,15 @@ class EERCanvasEngine {
     });
   }
 
-  // Convert Screen Client Coordinates to Canvas World Coordinates
   screenToWorld(clientX, clientY) {
     const rect = this.container.getBoundingClientRect();
-    const cx = clientX - rect.left;
-    const cy = clientY - rect.top;
-    return {
-      x: (cx - this.panX) / this.zoom,
-      y: (cy - this.panY) / this.zoom
-    };
+    const x = (clientX - rect.left - this.panX) / this.zoom;
+    const y = (clientY - rect.top - this.panY) / this.zoom;
+    return { x, y };
   }
 
   onPointerMove(e) {
-    // A. Panning
+    // A. Panning canvas
     if (this.isPanning) {
       this.panX = e.clientX - this.startPanX;
       this.panY = e.clientY - this.startPanY;
@@ -195,6 +197,20 @@ class EERCanvasEngine {
       this.draggedNode.node.y = Math.round(world.y - this.dragOffsetY);
 
       this.updateNodeDOMPosition(this.draggedNode.node);
+
+      // Check Magnetic Snap with free-standing lines
+      this.snapCandidate = null;
+      for (const fl of this.freeLines) {
+        if (fl.node.domId === this.draggedNode.node.domId) continue;
+        const nodeCenterX = this.draggedNode.node.x + (this.draggedNode.node.width || 170) / 2;
+        const nodeCenterY = this.draggedNode.node.y + (this.draggedNode.node.height || 100) / 2;
+        const dist = Math.hypot(fl.endX - nodeCenterX, fl.endY - nodeCenterY);
+        if (dist < 140) {
+          this.snapCandidate = { freeLine: fl, node: this.draggedNode.node, type: this.draggedNode.type };
+          break;
+        }
+      }
+
       this.renderLinks();
       return;
     }
@@ -231,6 +247,17 @@ class EERCanvasEngine {
       this.container.style.cursor = 'default';
     }
 
+    // Magnetic snap execution
+    if (this.isDraggingNode && this.draggedNode && this.snapCandidate) {
+      const fl = this.snapCandidate.freeLine;
+      const targetNode = this.snapCandidate.node;
+      this.completeConnection(fl.node, fl.type, targetNode, this.snapCandidate.type);
+      this.freeLines = this.freeLines.filter(item => item !== fl);
+      this.showToast(`🧲 Magnit: ${fl.node.name} va ${targetNode.name} muvaffaqiyatli bog'landi!`);
+      this.snapCandidate = null;
+      this.renderLinks();
+    }
+
     if (this.isDraggingNode) {
       this.isDraggingNode = false;
       this.draggedNode = null;
@@ -241,7 +268,6 @@ class EERCanvasEngine {
       this.resizingNode = null;
     }
 
-    // Finish connection line if dropped onto another entity / diamond
     if (this.isConnecting) {
       this.finishConnection(e);
     }
@@ -259,7 +285,6 @@ class EERCanvasEngine {
     this.connectCurrentY = portPos.y;
     this.connectMovedDist = 0;
 
-    // Visual feedback on source node
     this.deselectAll();
     const el = document.getElementById(node.domId);
     if (el) el.classList.add('connecting-source');
@@ -276,8 +301,9 @@ class EERCanvasEngine {
   }
 
   getPortCoords(node, port) {
-    const w = node.width || 160;
-    const h = node.height || 100;
+    const w = node.width || (node.isRelationship ? 90 : 170);
+    const h = node.height || (node.isRelationship ? 90 : 100);
+
     if (port === 'top') return { x: node.x + w / 2, y: node.y };
     if (port === 'right') return { x: node.x + w, y: node.y + h / 2 };
     if (port === 'bottom') return { x: node.x + w / 2, y: node.y + h };
@@ -290,7 +316,7 @@ class EERCanvasEngine {
     if (!tempLine) {
       tempLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
       tempLine.id = 'eerTempDragLine';
-      tempLine.setAttribute('stroke', '#dfc288');
+      tempLine.setAttribute('stroke', '#ffd166');
       tempLine.setAttribute('stroke-width', '2.5');
       tempLine.setAttribute('stroke-dasharray', '5,5');
       tempLine.setAttribute('stroke-linecap', 'round');
@@ -307,37 +333,34 @@ class EERCanvasEngine {
   }
 
   completeConnection(sourceNode, sourceType, targetNode, targetType) {
-    if (sourceType === 'entity' && targetType === 'diamond') {
-      // Link Entity to Diamond
-      if (!targetNode.fromEntityName) {
-        targetNode.fromEntityName = sourceNode.name;
-      } else if (!targetNode.toEntityName && targetNode.fromEntityName !== sourceNode.name) {
-        targetNode.toEntityName = sourceNode.name;
-      }
-      if (window.playSfx) window.playSfx('success');
-    } else if (sourceType === 'diamond' && targetType === 'entity') {
-      // Link Diamond to Entity
-      if (!sourceNode.fromEntityName) {
-        sourceNode.fromEntityName = targetNode.name;
-      } else if (!sourceNode.toEntityName && sourceNode.fromEntityName !== targetNode.name) {
-        sourceNode.toEntityName = targetNode.name;
-      }
-      if (window.playSfx) window.playSfx('success');
-    } else if (sourceType === 'entity' && targetType === 'entity') {
-      // Connect Entity to Entity directly via a clean relationship diamond!
-      // Shunchaki oddiy ulanadi: modal promptlarsiz, multiplisitiyani o'quvchi o'zi tanlaydi!
-      const midX = Math.round((sourceNode.x + targetNode.x) / 2);
-      const midY = Math.round((sourceNode.y + targetNode.y) / 2);
-
+    if (sourceType === 'entity' && targetType === 'entity') {
+      const midX = (sourceNode.x + targetNode.x) / 2;
+      const midY = (sourceNode.y + targetNode.y) / 2;
       this.addRelationship({
         name: 'Aloqa',
         fromEntityName: sourceNode.name,
         toEntityName: targetNode.name,
-        mult1: '?',
-        mult2: '?',
-        x: midX,
-        y: midY
+        mult1: '1..1',
+        mult2: '1..*',
+        x: Math.round(midX - 45),
+        y: Math.round(midY - 45)
       });
+      if (window.playSfx) window.playSfx('success');
+    } else if (sourceType === 'entity' && targetType === 'diamond') {
+      const rel = targetNode;
+      if (!rel.fromEntityName || rel.fromEntityName === sourceNode.name) {
+        rel.fromEntityName = sourceNode.name;
+      } else {
+        rel.toEntityName = sourceNode.name;
+      }
+      if (window.playSfx) window.playSfx('success');
+    } else if (sourceType === 'diamond' && targetType === 'entity') {
+      const rel = sourceNode;
+      if (!rel.fromEntityName) {
+        rel.fromEntityName = targetNode.name;
+      } else {
+        rel.toEntityName = targetNode.name;
+      }
       if (window.playSfx) window.playSfx('success');
     }
     this.renderLinks();
@@ -364,21 +387,32 @@ class EERCanvasEngine {
       const targetBox = targetEl ? targetEl.closest('.eer-entity-box, .eer-diamond-box') : null;
 
       if (targetBox && targetBox.id !== this.connectSource.node.domId) {
-        const targetEntity = this.entities.find(en => en.domId === targetBox.id);
-        const targetDiamond = this.relationships.find(r => r.domId === targetBox.id);
-        const targetNode = targetEntity || targetDiamond;
-        const targetType = targetEntity ? 'entity' : 'diamond';
+        const isTargetEntity = targetBox.classList.contains('eer-entity-box');
+        const targetType = isTargetEntity ? 'entity' : 'diamond';
+        const targetNode = isTargetEntity
+          ? this.entities.find(ent => ent.domId === targetBox.id)
+          : this.relationships.find(rel => rel.domId === targetBox.id);
 
         if (targetNode) {
           this.completeConnection(this.connectSource.node, this.connectSource.type, targetNode, targetType);
           this.cancelConnecting();
           return;
         }
+      } else {
+        const world = this.screenToWorld(clientX, clientY);
+        for (const ent of this.entities) {
+          if (ent.domId === this.connectSource.node.domId) continue;
+          const cx = ent.x + (ent.width || 170) / 2;
+          const cy = ent.y + (ent.height || 100) / 2;
+          if (Math.hypot(world.x - cx, world.y - cy) < 140) {
+            this.completeConnection(this.connectSource.node, this.connectSource.type, ent, 'entity');
+            this.showToast(`🧲 Magnit: ${this.connectSource.node.name} va ${ent.name} bog'landi!`);
+            this.cancelConnecting();
+            return;
+          }
+        }
       }
 
-      // Agar o'quvchi bo'sh maydonga tortgan bo'lsa (masofa > 20px):
-      // "enitiydan chiqadigan chiziq esa enityga ulanmasdan ham tura olishi kerak"
-      // Chiziq polotnoda erkin saqlanib turadi!
       if (this.connectMovedDist > 20) {
         const world = this.screenToWorld(clientX, clientY);
         this.freeLines.push({
@@ -386,6 +420,7 @@ class EERCanvasEngine {
           node: this.connectSource.node,
           type: this.connectSource.type,
           port: this.connectSource.port,
+          mult: '1..1',
           endX: Math.round(world.x),
           endY: Math.round(world.y)
         });
@@ -396,15 +431,13 @@ class EERCanvasEngine {
       }
     }
 
-    // Agar kamroq harakat qilgan bo'lsa (mobil telefonda portga bir marta tegingan bo'lsa),
-    // ikkinchi entitiyni bosish (Tap-to-Connect) orqali ulash imkoniyati ochiq qoladi!
+    this.cancelConnecting();
   }
 
   // ==========================================================================
-  // NODE DRAGGING & SELECTION
+  // NODE SELECTION & DRAGGING
   // ==========================================================================
   onNodePointerDown(point, node, type) {
-    // Agar port tanlangan bo'lsa (Tap-to-Connect), to'g'ridan-to'g'ri ulaymiz
     if (this.isConnecting && this.connectSource) {
       if (this.connectSource.node.domId !== node.domId) {
         this.completeConnection(this.connectSource.node, this.connectSource.type, node, type);
@@ -429,7 +462,6 @@ class EERCanvasEngine {
     this.deselectAll();
     this.selectedNode = node;
     this.selectedType = type;
-
     const el = document.getElementById(node.domId);
     if (el) el.classList.add('selected');
   }
@@ -459,8 +491,8 @@ class EERCanvasEngine {
       name: data.name || 'YangiEntitiy',
       isWeak: !!data.isWeak,
       attributes: data.attributes ? JSON.parse(JSON.stringify(data.attributes)) : [
-        { name: 'id', isPK: true },
-        { name: 'nomi', isPK: false }
+        { name: 'id', isPK: true, isPPK: false },
+        { name: 'nomi', isPK: false, isPPK: false }
       ],
       x: data.x !== undefined ? data.x : 100,
       y: data.y !== undefined ? data.y : 100,
@@ -477,13 +509,10 @@ class EERCanvasEngine {
   createEntityDOM(entity) {
     const el = document.createElement('div');
     el.id = entity.domId;
-    el.className = 'eer-entity-box' + (entity.isWeak ? ' weak-entity' : '');
+    el.className = `eer-entity-box ${entity.isWeak ? 'weak-entity' : ''}`;
     el.style.left = entity.x + 'px';
     el.style.top = entity.y + 'px';
-    el.style.width = (entity.width || 170) + 'px';
-    if (entity.height) el.style.minHeight = entity.height + 'px';
 
-    // 4 Connection Ports (Draw.io style)
     const portsHtml = `
       <div class="port-arrow top" data-port="top" title="Yuqoridan ulash">▲</div>
       <div class="port-arrow right" data-port="right" title="O'ngdan ulash">▶</div>
@@ -503,13 +532,12 @@ class EERCanvasEngine {
         </div>
       </div>
       <div class="entity-attributes" id="${entity.domId}_attrs"></div>
-      <div class="node-resize-handle" data-action="resize" title="O'lchamni o'zgartirish (sudrang)">⤡</div>
+      <div class="node-resize-handle" data-action="resize" title="O'lchamni o'zgartirish">⤡</div>
     `;
 
-    // Render attribute rows
     this.renderEntityAttributes(entity, el.querySelector('.entity-attributes'));
 
-    // Resize Handle (Draw.io style corner drag)
+    // Resize Handle
     const resizeBtn = el.querySelector('.node-resize-handle');
     if (resizeBtn) {
       const onResizeStart = (e) => {
@@ -527,9 +555,9 @@ class EERCanvasEngine {
       resizeBtn.addEventListener('touchstart', onResizeStart, { passive: false });
     }
 
-    // Drag events (Mouse + Touch)
+    // Drag events
     const onEntityStart = (e) => {
-      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.attr-pill') || e.target.closest('.btn-attr-del') || e.target.closest('.node-resize-handle') || e.target.closest('[contenteditable="true"]')) return;
+      if (e.target.closest('.port-arrow') || e.target.closest('button') || e.target.closest('.attr-pill') || e.target.closest('.btn-attr-del') || e.target.closest('.btn-attr-edit') || e.target.closest('.node-resize-handle') || e.target.closest('[contenteditable="true"]')) return;
       if (e.touches && e.touches.length > 1) return;
       e.stopPropagation();
       if (e.cancelable && e.type === 'touchstart') e.preventDefault();
@@ -539,7 +567,7 @@ class EERCanvasEngine {
     el.addEventListener('mousedown', onEntityStart);
     el.addEventListener('touchstart', onEntityStart, { passive: false });
 
-    // Connection port events (Mouse + Touch)
+    // Connection ports
     el.querySelectorAll('.port-arrow').forEach(p => {
       const onPortStart = (e) => {
         if (e.cancelable) e.preventDefault();
@@ -551,7 +579,6 @@ class EERCanvasEngine {
       p.addEventListener('touchstart', onPortStart, { passive: false });
     });
 
-    // Header Action Buttons
     el.querySelector('[data-action="add-attr"]')?.addEventListener('click', (e) => {
       e.stopPropagation();
       const attrName = prompt("Yangi atribut nomini kiriting:", "yangi_atribut");
@@ -569,7 +596,6 @@ class EERCanvasEngine {
         const oldName = entity.name;
         entity.name = newName.trim();
         el.querySelector('.entity-title-text').textContent = entity.name;
-        // Update connected relationships
         this.relationships.forEach(r => {
           if (r.fromEntityName === oldName) r.fromEntityName = entity.name;
           if (r.toEntityName === oldName) r.toEntityName = entity.name;
@@ -619,15 +645,31 @@ class EERCanvasEngine {
       }
 
       row.innerHTML = `
-        <span class="attr-name" contenteditable="true" spellcheck="false">${attr.name}</span>
+        <span class="attr-name" contenteditable="true" spellcheck="false" title="Nomini o'zgartirish">${attr.name}</span>
         <div style="display:flex; align-items:center; gap:4px;">
           <span class="btn-attr-badge ${badgeClass}" title="Kalit turini o'zgartirish (PK/PPK/Oddiy)">${badgeLabel}</span>
+          <button class="btn-attr-edit" title="Nomini o'zgartirish">✎</button>
           <button class="btn-attr-del" title="Atributni o'chirish">✕</button>
         </div>
       `;
 
-      // Inline rename attribute
       const nameEl = row.querySelector('.attr-name');
+      const editBtn = row.querySelector('.btn-attr-edit');
+
+      const triggerRename = (e) => {
+        e?.stopPropagation();
+        const newName = prompt("Atribut nomini kiriting:", attr.name);
+        if (newName && newName.trim()) {
+          attr.name = newName.trim();
+          nameEl.textContent = attr.name;
+          this.renderLinks();
+        }
+      };
+
+      editBtn?.addEventListener('click', triggerRename);
+      nameEl.addEventListener('click', triggerRename);
+      nameEl.addEventListener('dblclick', triggerRename);
+
       nameEl.addEventListener('blur', () => {
         attr.name = nameEl.textContent.trim() || attr.name;
       });
@@ -638,7 +680,7 @@ class EERCanvasEngine {
         }
       });
 
-      // Toggle PK / PPK / none on badge click
+      // Toggle PK / PPK / none
       row.querySelector('.btn-attr-badge')?.addEventListener('click', (e) => {
         e.stopPropagation();
         if (!attr.isPK && !attr.isPPK) {
@@ -655,7 +697,6 @@ class EERCanvasEngine {
         if (window.playSfx) window.playSfx('click');
       });
 
-      // Delete attribute
       row.querySelector('.btn-attr-del')?.addEventListener('click', (e) => {
         e.stopPropagation();
         entity.attributes.splice(idx, 1);
@@ -678,7 +719,6 @@ class EERCanvasEngine {
     this.entities = this.entities.filter(e => e.id !== entity.id);
     document.getElementById(entity.domId)?.remove();
 
-    // Clean up relationships referencing this entity
     this.relationships.forEach(r => {
       if (r.fromEntityName === entity.name) r.fromEntityName = '';
       if (r.toEntityName === entity.name) r.toEntityName = '';
@@ -729,11 +769,11 @@ class EERCanvasEngine {
     el.innerHTML = `
       ${portsHtml}
       <div class="diamond-inner ${rel.isIdentifying ? 'identifying' : ''}"></div>
-      <div class="diamond-text" title="Nomini o'zgartirish uchun ikki marta bosing">${rel.name}</div>
+      <div class="diamond-text" title="Nomini o'zgartirish uchun bosing">${rel.name}</div>
       <button class="btn-node-act del" data-action="del-rel" style="position:absolute; top:-6px; right:-6px; width:16px; height:16px;" title="Aloqani o'chirish">✕</button>
     `;
 
-    // Drag events (Mouse + Touch)
+    // Drag events
     const onDiamondStart = (e) => {
       if (e.target.closest('.port-arrow') || e.target.closest('button')) return;
       if (e.touches && e.touches.length > 1) return;
@@ -745,7 +785,7 @@ class EERCanvasEngine {
     el.addEventListener('mousedown', onDiamondStart);
     el.addEventListener('touchstart', onDiamondStart, { passive: false });
 
-    // Port arrow events (Mouse + Touch)
+    // Port arrow events
     el.querySelectorAll('.port-arrow').forEach(p => {
       const onDiamondPortStart = (e) => {
         if (e.cancelable) e.preventDefault();
@@ -757,14 +797,15 @@ class EERCanvasEngine {
       p.addEventListener('touchstart', onDiamondPortStart, { passive: false });
     });
 
-    el.querySelector('.diamond-text')?.addEventListener('dblclick', (e) => {
+    const triggerRelRename = (e) => {
       e.stopPropagation();
       const newName = prompt("Aloqa nomini o'zgartiring:", rel.name);
       if (newName) {
         rel.name = newName.trim();
         el.querySelector('.diamond-text').textContent = rel.name;
       }
-    });
+    };
+    el.querySelector('.diamond-text')?.addEventListener('click', triggerRelRename);
 
     el.querySelector('[data-action="del-rel"]')?.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -800,7 +841,6 @@ class EERCanvasEngine {
 
         this.drawLine(fCenterX, fCenterY, rCenterX, rCenterY);
 
-        // Multiplicity Pill 1
         const mx1 = fCenterX * 0.7 + rCenterX * 0.3;
         const my1 = fCenterY * 0.7 + rCenterY * 0.3;
         this.createMultiplicityPill(mx1, my1, rel, 'mult1', fromEnt.name);
@@ -812,14 +852,13 @@ class EERCanvasEngine {
 
         this.drawLine(rCenterX, rCenterY, tCenterX, tCenterY);
 
-        // Multiplicity Pill 2
         const mx2 = tCenterX * 0.7 + rCenterX * 0.3;
         const my2 = tCenterY * 0.7 + rCenterY * 0.3;
         this.createMultiplicityPill(mx2, my2, rel, 'mult2', toEnt.name);
       }
     });
 
-    // Render Free-Standing Connection Lines ("enitiydan chiqadigan chiziq esa enityga ulanmasdan ham tura olishi kerak")
+    // Render Free-Standing Connection Lines
     this.freeLines = this.freeLines.filter(fl => {
       return this.entities.some(e => e.domId === fl.node.domId) || this.relationships.some(r => r.domId === fl.node.domId);
     });
@@ -828,16 +867,19 @@ class EERCanvasEngine {
       const start = this.getPortCoords(fl.node, fl.port);
       this.drawLine(start.x, start.y, fl.endX, fl.endY);
 
-      // Endpoint circle handle (draw.io style dangling handle)
       const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       circle.setAttribute('cx', fl.endX);
       circle.setAttribute('cy', fl.endY);
-      circle.setAttribute('r', '7');
+      circle.setAttribute('r', '8');
       circle.setAttribute('fill', '#ffd166');
       circle.setAttribute('stroke', '#1e1916');
       circle.setAttribute('stroke-width', '2');
       circle.style.cursor = 'grab';
       circle.style.pointerEvents = 'auto';
+
+      if (this.snapCandidate && this.snapCandidate.freeLine === fl) {
+        circle.classList.add('snap-highlight');
+      }
 
       const startDragHandle = (e) => {
         e.stopPropagation();
@@ -870,7 +912,7 @@ class EERCanvasEngine {
     line.setAttribute('x2', x2);
     line.setAttribute('y2', y2);
     line.setAttribute('stroke', '#c8a96e');
-    line.setAttribute('stroke-width', '2');
+    line.setAttribute('stroke-width', '2.5');
     line.setAttribute('stroke-linecap', 'round');
     this.svg.appendChild(line);
   }
@@ -881,22 +923,182 @@ class EERCanvasEngine {
     pill.textContent = (rel[multKey] && rel[multKey] !== '?') ? rel[multKey] : '?';
     pill.style.left = x + 'px';
     pill.style.top = y + 'px';
-    pill.title = `${entityName} tomonidagi multiplisitiyani o'zgartirish`;
+    pill.title = `${entityName} tomonidagi multiplisitiyani tanlash uchun bosing`;
 
-    // Click to cycle through bounds
     pill.addEventListener('click', (e) => {
       e.stopPropagation();
-      const current = rel[multKey];
-      const cycle = ['1..1', '1..*', '0..1', '0..*'];
-      let nextIdx = cycle.indexOf(current) + 1;
-      if (nextIdx >= cycle.length || nextIdx < 0) nextIdx = 0;
-      rel[multKey] = cycle[nextIdx];
-      pill.textContent = rel[multKey];
-
-      if (window.playSfx) window.playSfx('click');
+      this.openMultiplicitySelector(rel, multKey, e);
     });
 
     this.nodesLayer.appendChild(pill);
+  }
+
+  openMultiplicitySelector(rel, multKey, e) {
+    let popover = document.getElementById('eerMultiplicityPopover');
+    if (!popover) {
+      popover = document.createElement('div');
+      popover.id = 'eerMultiplicityPopover';
+      popover.className = 'multiplicity-picker-popover';
+      document.body.appendChild(popover);
+    }
+
+    const current = rel[multKey] || '1..1';
+    popover.innerHTML = `
+      <div class="mult-pop-header">
+        <span class="mult-pop-title">Multiplicity Tanlash</span>
+        <button class="mult-pop-close" id="btnCloseEerMultPop">✕</button>
+      </div>
+      <div class="mult-pop-body">
+        <div class="mult-options-grid">
+          <button class="btn-mult-opt ${current === '1..1' ? 'active' : ''}" data-val="1..1"><span>1..1</span> Majburiy bitta</button>
+          <button class="btn-mult-opt ${current === '0..1' ? 'active' : ''}" data-val="0..1"><span>0..1</span> Ixtiyoriy bitta</button>
+          <button class="btn-mult-opt ${current === '1..*' ? 'active' : ''}" data-val="1..*"><span>1..*</span> Kamida bitta</button>
+          <button class="btn-mult-opt ${current === '0..*' ? 'active' : ''}" data-val="0..*"><span>0..*</span> Ixtiyoriy ko'p</button>
+        </div>
+      </div>
+    `;
+
+    const clientX = e?.clientX !== undefined ? e.clientX : window.innerWidth / 2;
+    const clientY = e?.clientY !== undefined ? e.clientY : window.innerHeight / 2;
+    const posX = Math.max(10, Math.min(window.innerWidth - 300, clientX - 140));
+    const posY = Math.max(10, Math.min(window.innerHeight - 200, clientY - 50));
+
+    popover.style.left = posX + 'px';
+    popover.style.top = posY + 'px';
+    popover.style.display = 'flex';
+
+    popover.querySelector('#btnCloseEerMultPop')?.addEventListener('click', () => {
+      popover.style.display = 'none';
+    });
+
+    popover.querySelectorAll('.btn-mult-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        rel[multKey] = btn.getAttribute('data-val');
+        popover.style.display = 'none';
+        this.renderLinks();
+        if (window.playSfx) window.playSfx('click');
+      });
+    });
+
+    const closeOnOutside = (evt) => {
+      if (!popover.contains(evt.target) && !evt.target.closest('.mult-pill')) {
+        popover.style.display = 'none';
+        window.removeEventListener('click', closeOnOutside);
+      }
+    };
+    setTimeout(() => {
+      window.addEventListener('click', closeOnOutside);
+    }, 50);
+  }
+
+  // ==========================================================================
+  // DRAW.IO SHAPES SIDEBAR & PALETTE
+  // ==========================================================================
+  initSidebar() {
+    const sidebar = document.getElementById('drawioSidebar');
+    const toggleBtn = document.getElementById('btnToggleSidebar');
+    const toolbarBtn = document.getElementById('btnToggleShapesSidebar');
+    const unfoldBtn = document.getElementById('btnUnfoldSidebar');
+    const searchInput = document.getElementById('shapeSearchInput');
+
+    const toggle = () => {
+      sidebar?.classList.toggle('collapsed');
+      const isCollapsed = sidebar?.classList.contains('collapsed');
+      if (unfoldBtn) unfoldBtn.style.display = isCollapsed ? 'flex' : 'none';
+    };
+
+    toggleBtn?.addEventListener('click', toggle);
+    toolbarBtn?.addEventListener('click', toggle);
+    unfoldBtn?.addEventListener('click', () => {
+      sidebar?.classList.remove('collapsed');
+      if (unfoldBtn) unfoldBtn.style.display = 'none';
+    });
+
+    searchInput?.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('#shapeGridER .shape-card').forEach(card => {
+        const text = (card.textContent + ' ' + (card.getAttribute('title') || '')).toLowerCase();
+        card.style.display = !q || text.includes(q) ? 'flex' : 'none';
+      });
+    });
+
+    document.querySelectorAll('#shapeGridER .shape-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const shapeType = card.getAttribute('data-shape');
+        this.addShapeFromPalette(shapeType);
+      });
+    });
+
+    document.getElementById('btnMoreShapes')?.addEventListener('click', () => {
+      this.showToast("Barcha rasmiy Draw.io relyatsion va EER shakllari yuklangan!");
+    });
+  }
+
+  addShapeFromPalette(type) {
+    const centerX = Math.round(-this.panX / this.zoom + (this.container.offsetWidth / 2) / this.zoom - 85);
+    const centerY = Math.round(-this.panY / this.zoom + (this.container.offsetHeight / 2) / this.zoom - 50);
+
+    if (type === 'entity' || type === 'table') {
+      this.addEntity({ name: 'Entitiy', x: centerX, y: centerY, attributes: [{ name: 'id', isPK: true }, { name: 'nomi', isPK: false }] });
+    } else if (type === 'weak-entity') {
+      this.addEntity({ name: 'ZaifEntitiy', isWeak: true, x: centerX, y: centerY, attributes: [{ name: 'qisman_id', isPK: true }, { name: 'tavsif', isPK: false }] });
+    } else if (type === 'assoc-entity' || type === 'rel-diamond') {
+      this.addRelationship({ name: 'Aloqa', x: centerX, y: centerY });
+    } else if (type === 'rel-identifying') {
+      this.addRelationship({ name: 'Aniqlash', isIdentifying: true, x: centerX, y: centerY });
+    } else if (type === 'isa-circle') {
+      this.addEntity({ name: 'Subklass (d)', x: centerX, y: centerY, attributes: [{ name: 'id', isPK: true }, { name: 'xususiyat', isPK: false }] });
+    } else if (type === 'attr-plain') {
+      if (this.selectedNode && this.selectedType === 'entity') {
+        this.selectedNode.attributes.push({ name: 'yangi_atribut', isPK: false });
+        this.renderEntityAttributes(this.selectedNode, document.getElementById(this.selectedNode.domId + '_attrs'));
+      } else {
+        this.addEntity({ name: 'AtributGuruhi', x: centerX, y: centerY, attributes: [{ name: 'atribut_nomi', isPK: false }] });
+      }
+    } else if (type === 'attr-pk') {
+      if (this.selectedNode && this.selectedType === 'entity') {
+        this.selectedNode.attributes.push({ name: 'pk_id', isPK: true });
+        this.renderEntityAttributes(this.selectedNode, document.getElementById(this.selectedNode.domId + '_attrs'));
+      } else {
+        this.addEntity({ name: 'KalitGuruhi', x: centerX, y: centerY, attributes: [{ name: 'pk_id', isPK: true }] });
+      }
+    } else if (type === 'note-box') {
+      this.addEntity({ name: '📝 Eslatma', x: centerX, y: centerY, attributes: [{ name: 'izoh_matni', isPK: false }] });
+    } else if (type.startsWith('conn-')) {
+      const mult = type === 'conn-11' ? '1..1' : type === 'conn-01' ? '0..1' : type === 'conn-1n' ? '1..*' : '0..*';
+      if (this.entities.length > 0) {
+        const src = this.selectedNode || this.entities[0];
+        this.freeLines.push({
+          id: 'free_' + Math.random().toString(36).substr(2, 9),
+          node: src,
+          type: 'entity',
+          port: 'right',
+          mult: mult,
+          endX: Math.round(src.x + (src.width || 170) + 120),
+          endY: Math.round(src.y + (src.height || 100) / 2)
+        });
+        this.renderLinks();
+        this.showToast(`Chiziq yaratildi (${mult}). Entitiyga yaqin olib borsangiz magnit kabi ulanadi!`);
+      }
+    }
+    if (window.playSfx) window.playSfx('click');
+  }
+
+  showToast(msg) {
+    let toast = document.getElementById('toastNotice');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'toastNotice';
+      toast.className = 'toast-notice';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.style.display = 'block';
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => { toast.style.display = 'none'; }, 300);
+    }, 2500);
   }
 
   // ==========================================================================
@@ -941,7 +1143,6 @@ class EERCanvasEngine {
       });
     });
 
-    // In puzzle mode, starterDiagram relationships are left for the student to connect!
     const relList = diagram.relationships || [];
     relList.forEach(r => {
       this.addRelationship({
