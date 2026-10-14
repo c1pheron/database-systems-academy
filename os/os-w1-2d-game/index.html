@@ -9,6 +9,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="../os_dictionary.css" />
+
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    try {
+      if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
 
@@ -71,7 +82,7 @@
         </div>
 
         <div class="canvas-wrap">
-          <canvas id="gameCanvas" width="860" height="380"></canvas>
+          <canvas id="gameCanvas" width="860" height="340"></canvas>
         </div>
 
         <div class="office-ticker">
@@ -117,6 +128,16 @@
           <div class="terminal-card-actions">
             <button class="btn btn-xs" id="btnClearTerminal" type="button" title="Terminalni tozalash">🧹 Tozalash</button>
             <button class="btn btn-xs btn-expand-terminal" id="btnToggleFullscreen" type="button" title="Katta ekranga yoyish">⛶ Katta Ekran</button>
+          </div>
+        </div>
+
+        <!-- In-Terminal Quick Task & Action Bar (Zero-Scroll on Mobile) -->
+        <div class="terminal-task-bar" id="terminalTaskBar">
+          <div class="tt-text" id="terminalTaskText">📌 #1: Joriy ishchi katalogning to'liq manzilini ekranga chiqaruvchi buyruqni bering.</div>
+          <div class="tt-actions">
+            <button type="button" class="tt-btn" id="btnTtBatafsil" title="Buyruq va bayroqlar batafsil tahlili">📖 Batafsil</button>
+            <button type="button" class="tt-btn" id="btnTtHint" title="Maslahat">💡</button>
+            <button type="button" class="tt-btn" id="btnTtExpected" title="Kutilgan natija">👁</button>
           </div>
         </div>
 

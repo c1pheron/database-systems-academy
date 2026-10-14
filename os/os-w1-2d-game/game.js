@@ -288,6 +288,11 @@
     el.btnOpenBatafsil = document.getElementById("btnOpenBatafsil");
     el.terminalActiveModeBadge = document.getElementById("terminalActiveModeBadge");
     el.btnOpenDictionary = document.getElementById("btnOpenDictionary");
+    el.terminalTaskBar = document.getElementById("terminalTaskBar");
+    el.terminalTaskText = document.getElementById("terminalTaskText");
+    el.btnTtBatafsil = document.getElementById("btnTtBatafsil");
+    el.btnTtHint = document.getElementById("btnTtHint");
+    el.btnTtExpected = document.getElementById("btnTtExpected");
 
     el.kaliScreen = document.getElementById("kaliScreen");
     el.kaliStream = document.getElementById("kaliStream");
@@ -473,6 +478,11 @@
     if (el.qTitle) el.qTitle.textContent = `${q.id}. ${q.title}`;
     if (el.qStory) el.qStory.textContent = q.story || "";
     if (el.qTask) el.qTask.innerHTML = q.taskUz || "";
+
+    if (el.terminalTaskText && state.terminalMode !== "sandbox") {
+      const cleanTask = q.taskUz ? q.taskUz.replace(/<[^>]*>/g, "") : q.title;
+      el.terminalTaskText.textContent = `📌 #${q.id}: ${cleanTask}`;
+    }
 
     // Tags
     if (el.qTagsList) {
@@ -1009,12 +1019,18 @@
       if (el.btnModeSandbox) el.btnModeSandbox.classList.add("active");
       if (el.terminalActiveModeBadge) el.terminalActiveModeBadge.textContent = "💻 Erkin CLI";
       if (el.btnFsToggleMode) el.btnFsToggleMode.textContent = "💻 Rejim: Erkin CLI";
+      if (el.terminalTaskText) el.terminalTaskText.textContent = "💻 Erkin Sandbox: Istalgan buyruqni sinang (pwd, ls /bin, sudo apt update, cat, mkdir...)";
       printKaliInfo("┌──[ 💻 ERKIN LINUX SANDBOX REJIMI FAOL ]──────────────────────────────\n│ Istalgan Linux buyrug'ini cheklovsiz sinab ko'rishingiz mumkin (pwd, ls, mkdir, ...)\n│ Savollarga qaytish uchun 'quest' deb yozing yoki [🎯 Masala Yechish] tugmasini bosing.\n└──────────────────────────────────────────────────────────────────");
     } else {
       if (el.btnModeQuest) el.btnModeQuest.classList.add("active");
       if (el.btnModeSandbox) el.btnModeSandbox.classList.remove("active");
       if (el.terminalActiveModeBadge) el.terminalActiveModeBadge.textContent = "🎯 Masalalar";
       if (el.btnFsToggleMode) el.btnFsToggleMode.textContent = "🎯 Rejim: Masala";
+      const currentQ = allQuestions.find(item => item.id === state.currentQuestionId);
+      if (el.terminalTaskText && currentQ) {
+        const cleanTask = currentQ.taskUz ? currentQ.taskUz.replace(/<[^>]*>/g, "") : currentQ.title;
+        el.terminalTaskText.textContent = `📌 #${currentQ.id}: ${cleanTask}`;
+      }
       printKaliInfo(`[🎯 TOPSHIRIQLAR REJIMI]: Joriy vazifa #${state.currentQuestionId} tekshiriladi.`);
     }
     focusKaliInput();
@@ -1378,6 +1394,30 @@ permitted by applicable law.
       el.btnOpenBatafsil.addEventListener("click", () => {
         SoundFX.playKey();
         el.modalKtBatafsil.classList.add("active");
+      });
+    }
+    if (el.btnTtBatafsil && el.modalKtBatafsil) {
+      el.btnTtBatafsil.addEventListener("click", () => {
+        SoundFX.playKey();
+        el.modalKtBatafsil.classList.add("active");
+      });
+    }
+    if (el.btnTtHint) {
+      el.btnTtHint.addEventListener("click", () => {
+        SoundFX.playKey();
+        const q = allQuestions.find(item => item.id === state.currentQuestionId);
+        if (q) printKaliInfo(`[💡 MASLAHAT]: ${q.hint || "Topshiriq talablarini diqqat bilan o'rganing."}`);
+      });
+    }
+    if (el.btnTtExpected) {
+      el.btnTtExpected.addEventListener("click", () => {
+        SoundFX.playKey();
+        const q = allQuestions.find(item => item.id === state.currentQuestionId);
+        if (q) {
+          const expShell = new window.VIRTUAL_LINUX.VirtualLinuxShell();
+          const res = expShell.execute(q.expectedSql || q.expectedBash || "");
+          printKaliInfo(`[👁 KUTILGAN NATIJA]:\n${res.stdout || "(Fayl tizimida o'zgarish sodir bo'ladi)"}`);
+        }
       });
     }
 
@@ -2023,6 +2063,14 @@ permitted by applicable law.
   function init() {
     cacheElements();
     loadProgress();
+
+    // Telegram WebApp Integration & Fullscreen Expand
+    if (window.Telegram && window.Telegram.WebApp) {
+      try {
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+      } catch (e) {}
+    }
 
     // Initialize Virtual Linux Shell
     state.liveShell = new window.VIRTUAL_LINUX.VirtualLinuxShell();

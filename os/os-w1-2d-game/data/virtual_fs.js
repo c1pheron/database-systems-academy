@@ -57,18 +57,68 @@
     }
 
     // Top-level Linux Hierarchy
-    addDir(root, "bin");
+    const bin = addDir(root, "bin");
     addDir(root, "boot");
-    addDir(root, "dev");
+    const dev = addDir(root, "dev");
     const etc = addDir(root, "etc");
     const home = addDir(root, "home");
     addDir(root, "lib");
-    addDir(root, "proc");
+    addDir(root, "lib64");
+    const proc = addDir(root, "proc");
     addDir(root, "root", "drwx------", "root", "root");
     addDir(root, "tmp", "drwxrwxrwt", "root", "root");
-    addDir(root, "usr");
+    const usr = addDir(root, "usr");
+    const usrBin = addDir(usr, "bin");
+    const sbin = addDir(root, "sbin");
+    const usrSbin = addDir(usr, "sbin");
     const varDir = addDir(root, "var");
     const varLog = addDir(varDir, "log");
+    const etcApt = addDir(etc, "apt");
+
+    // Core Debian GNU/Linux binaries in /bin
+    const coreBinaries = [
+      "bash", "sh", "ls", "pwd", "cd", "mkdir", "rmdir", "touch", "cat", "head", "tail", "wc",
+      "cp", "mv", "rm", "ln", "echo", "clear", "uname", "hostname", "date", "whoami", "id",
+      "ps", "kill", "df", "free", "grep", "sed", "awk", "find", "stat", "tree", "tar", "gzip",
+      "chmod", "chown", "su", "ping", "sleep", "more", "less", "true", "false", "test", "sync"
+    ];
+    coreBinaries.forEach(b => {
+      addFile(bin, b, `#!/bin/bash\n# ELF 64-bit LSB executable, x86-64, for GNU/Linux 6.1.0\n`, "-rwxr-xr-x", "root", "root");
+    });
+
+    // /usr/bin Debian packages and developer tools
+    const usrBinaries = [
+      "apt", "apt-get", "dpkg", "sudo", "curl", "wget", "nano", "vim", "python3", "python",
+      "git", "ssh", "top", "htop", "uptime", "which", "whereis", "man", "file", "env",
+      "neofetch", "zip", "unzip", "base64", "cut", "sort", "uniq", "tr", "tee", "diff"
+    ];
+    usrBinaries.forEach(b => {
+      addFile(usrBin, b, `#!/usr/bin/env\n# ELF 64-bit LSB pie executable, x86-64, for GNU/Linux 6.1.0\n`, "-rwxr-xr-x", "root", "root");
+    });
+
+    // /sbin System administration binaries
+    const sbinBinaries = [
+      "useradd", "usermod", "userdel", "groupadd", "ifconfig", "ip", "reboot", "shutdown",
+      "fdisk", "systemctl", "service", "init", "iptables", "route", "sysctl"
+    ];
+    sbinBinaries.forEach(b => {
+      addFile(sbin, b, `#!/sbin/bash\n# ELF 64-bit LSB executable, x86-64\n`, "-rwxr-xr-x", "root", "root");
+    });
+
+    // /etc/apt/sources.list
+    addFile(etcApt, "sources.list", "deb http://deb.debian.org/debian bookworm main contrib non-free\ndeb http://deb.debian.org/debian bookworm-updates main contrib non-free\ndeb http://security.debian.org/debian-security bookworm-security main contrib non-free\n", "-rw-r--r--", "root", "root");
+
+    // /dev virtual devices
+    addFile(dev, "null", "", "crw-rw-rw-", "root", "root");
+    addFile(dev, "zero", "", "crw-rw-rw-", "root", "root");
+    addFile(dev, "urandom", "", "crw-rw-rw-", "root", "root");
+    addFile(dev, "sda1", "", "brw-rw----", "root", "disk");
+    addFile(dev, "tty", "", "crw-rw-rw-", "root", "tty");
+
+    // /proc virtual info files
+    addFile(proc, "version", "Linux version 6.1.0-18-amd64 (debian-kernel@lists.debian.org) (gcc-12) #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01)\n", "-r--r--r--", "root", "root");
+    addFile(proc, "cpuinfo", "processor\t: 0\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel name\t: Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz\ncpu MHz\t\t: 2793.438\ncache size\t: 49152 KB\n\nprocessor\t: 1\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel name\t: Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz\ncpu MHz\t\t: 2793.438\ncache size\t: 49152 KB\n", "-r--r--r--", "root", "root");
+    addFile(proc, "meminfo", "MemTotal:        4015684 kB\nMemFree:         2464188 kB\nMemAvailable:    3084320 kB\nBuffers:          142104 kB\nCached:           688320 kB\nSwapTotal:       2097148 kB\nSwapFree:        2097148 kB\n", "-r--r--r--", "root", "root");
 
     // /etc files
     addFile(etc, "hostname", "debian-server\n");
@@ -471,6 +521,152 @@
           const lines = targetText.split("\n");
           const matched = lines.filter(l => l.includes(pattern));
           return { stdout: matched.join("\n"), stderr: "", code: matched.length > 0 ? 0 : 1 };
+        }
+
+        case "sudo": {
+          if (args.length === 0) {
+            return { stdout: "usage: sudo -h | -K | -k | -V\nusage: sudo [command [arg ...]]", stderr: "", code: 1 };
+          }
+          const oldUser = this.user;
+          this.user = "root";
+          const subCmd = args.join(" ");
+          const subRes = this.runSinglePiped(subCmd, pipeStdin);
+          this.user = oldUser;
+          return subRes;
+        }
+
+        case "apt":
+        case "apt-get": {
+          const subAction = (args[0] || "").toLowerCase();
+          if (subAction === "update") {
+            const updateOutput = [
+              "Hit:1 http://deb.debian.org/debian bookworm InRelease",
+              "Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]",
+              "Get:3 http://security.debian.org/debian-security bookworm-security InRelease [48.0 kB]",
+              "Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8,780 kB]",
+              "Fetched 8,883 kB in 1s (7,402 kB/s)",
+              "Reading package lists... Done",
+              "Building dependency tree... Done",
+              "Reading state information... Done",
+              "All packages are up to date."
+            ].join("\n");
+            return { stdout: updateOutput, stderr: "", code: 0 };
+          }
+          if (subAction === "install") {
+            const pkg = args[1] || "";
+            if (!pkg) {
+              return { stdout: "", stderr: "apt: no package specified to install", code: 1 };
+            }
+            const usrBin = this.getNode("/usr/bin");
+            if (usrBin && usrBin.children && !usrBin.children[pkg]) {
+              usrBin.children[pkg] = {
+                name: pkg,
+                type: "file",
+                inode: nextInode++,
+                permissions: "-rwxr-xr-x",
+                owner: "root",
+                group: "root",
+                links: 1,
+                mtime: new Date().toISOString().replace("T", " ").substring(0, 19),
+                content: `#!/usr/bin/${pkg}\n# Debian GNU/Linux binary executable\n`,
+                size: 40960
+              };
+            }
+            const installOutput = [
+              "Reading package lists... Done",
+              "Building dependency tree... Done",
+              "Reading state information... Done",
+              "The following NEW packages will be installed:",
+              `  ${pkg}`,
+              "0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.",
+              "Need to get 1,420 kB of archives.",
+              "After this operation, 4,096 kB of additional disk space will be used.",
+              `Get:1 http://deb.debian.org/debian bookworm/main amd64 ${pkg} amd64 [1,420 kB]`,
+              "Fetched 1,420 kB in 0s (4,820 kB/s)",
+              `Selecting previously unselected package ${pkg}.`,
+              "(Reading database ... 42104 files and directories currently installed.)",
+              `Preparing to unpack .../${pkg}_amd64.deb ...`,
+              `Unpacking ${pkg} (1.0.4-1) ...`,
+              `Setting up ${pkg} (1.0.4-1) ...`,
+              "Processing triggers for man-db (2.11.2-2) ..."
+            ].join("\n");
+            return { stdout: installOutput, stderr: "", code: 0 };
+          }
+          if (subAction === "upgrade") {
+            return { stdout: "Reading package lists... Done\nBuilding dependency tree... Done\nReading state information... Done\nCalculating upgrade... Done\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.", stderr: "", code: 0 };
+          }
+          if (subAction === "search") {
+            const query = args[1] || "";
+            return { stdout: `Sorting... Done\nFull Text Search... Done\n${query}/bookworm 2.1-1 amd64\n  Official Debian package for ${query}`, stderr: "", code: 0 };
+          }
+          return { stdout: `apt 2.6.1 (amd64)\nUsage: apt [options] command\n\nCommands: update, upgrade, install, remove, search, show, list`, stderr: "", code: 0 };
+        }
+
+        case "which": {
+          if (args.length === 0) return { stdout: "", stderr: "", code: 1 };
+          const target = args[0];
+          const paths = ["/bin", "/usr/bin", "/sbin", "/usr/sbin"];
+          for (const p of paths) {
+            const dir = this.getNode(p);
+            if (dir && dir.children && dir.children[target]) {
+              return { stdout: `${p}/${target}`, stderr: "", code: 0 };
+            }
+          }
+          return { stdout: "", stderr: `${target} not found`, code: 1 };
+        }
+
+        case "whereis": {
+          if (args.length === 0) return { stdout: "", stderr: "", code: 1 };
+          const target = args[0];
+          return { stdout: `${target}: /bin/${target} /usr/bin/${target} /usr/share/man/man1/${target}.1.gz`, stderr: "", code: 0 };
+        }
+
+        case "neofetch": {
+          const art = [
+            "       _,met$$$$$gg.          student@debian-server",
+            "    ,g$$$$$$$$$$$$$$$P.       ---------------------",
+            "  ,g$$P\"\"       \"\"\"Y$$.\".     OS: Debian GNU/Linux 12 (bookworm) x86_64",
+            " ,$$P'              `$$$.     Host: KVM/QEMU Cloud VPS",
+            "',$$P       ,ggs.     `$$b:   Kernel: 6.1.0-18-amd64",
+            "`d$$'     ,$P\"'   .    $$$    Uptime: 14 days, 3 hours, 30 mins",
+            " $$P      d$'     ,    $$P    Packages: 428 (dpkg)",
+            " $$:      $$.   -    ,d$$'    Shell: bash 5.2.15",
+            " $$;      Y$b._   _,d$P'      Terminal: kali-pty-ws",
+            " Y$$.    `.`\"Y$$$$P\"'         CPU: Intel Xeon Platinum 8370C (2) @ 2.80GHz",
+            " `$$b      \"-.__              Memory: 684MiB / 3920MiB",
+            "  `Y$$b                       Disk (/): 4.1G / 39G (11%)",
+            "   `Y$$.                      Locale: uz_UZ.UTF-8"
+          ].join("\n");
+          return { stdout: art, stderr: "", code: 0 };
+        }
+
+        case "chmod": {
+          if (args.length < 2) return { stdout: "", stderr: "chmod: missing operand", code: 1 };
+          const mode = args[0];
+          const fileTarget = args[1];
+          const p = this.resolvePath(fileTarget);
+          const node = this.getNode(p);
+          if (!node) return { stdout: "", stderr: `chmod: cannot access '${fileTarget}': No such file or directory`, code: 1 };
+          if (/^[0-7]{3,4}$/.test(mode)) {
+            const oct = mode.slice(-3);
+            const rwx = ["---", "--x", "-w-", "-wx", "r--", "r-x", "rw-", "rwx"];
+            const prefix = node.type === "dir" ? "d" : "-";
+            node.permissions = prefix + rwx[+oct[0]] + rwx[+oct[1]] + rwx[+oct[2]];
+          }
+          return { stdout: "", stderr: "", code: 0 };
+        }
+
+        case "chown": {
+          if (args.length < 2) return { stdout: "", stderr: "chown: missing operand", code: 1 };
+          const ownership = args[0];
+          const fileTarget = args[1];
+          const p = this.resolvePath(fileTarget);
+          const node = this.getNode(p);
+          if (!node) return { stdout: "", stderr: `chown: cannot access '${fileTarget}': No such file or directory`, code: 1 };
+          const parts = ownership.split(":");
+          node.owner = parts[0] || node.owner;
+          if (parts.length > 1) node.group = parts[1] || node.group;
+          return { stdout: "", stderr: "", code: 0 };
         }
 
         default:

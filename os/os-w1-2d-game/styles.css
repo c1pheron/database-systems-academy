@@ -36,13 +36,17 @@
   --radius-sm: 6px;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  min-width: 0;
 }
 
-body {
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
   background-color: var(--bg-deep);
   background-image: radial-gradient(circle at 50% 0%, #111a2f 0%, #080c14 80%);
   color: var(--text-primary);
@@ -52,7 +56,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
 }
 
 /* ============================================================================
@@ -397,20 +400,26 @@ body {
    ============================================================================ */
 .canvas-wrap {
   position: relative;
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
   background: #050811;
   border-bottom: 1px solid var(--border-subtle);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
 }
 
 #gameCanvas {
-  display: block;
-  width: 100%;
-  max-height: 380px;
-  object-fit: contain;
-  cursor: crosshair;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  max-height: 240px !important;
+  aspect-ratio: 860 / 340;
+  object-fit: cover !important;
+  cursor: default;
 }
 
 .office-ticker {
@@ -1816,6 +1825,55 @@ body.mode-cli-master #bashInput {
   padding: 2px 7px;
   border-radius: 4px;
   margin-left: 6px;
+}
+
+/* In-Terminal Quick Task & Action Bar */
+.terminal-task-bar {
+  background: #060a14;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.25);
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.tt-text {
+  color: var(--accent-cyan-bright);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tt-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.tt-btn {
+  background: #142036;
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  color: #e2e8f0;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.tt-btn:hover {
+  background: var(--accent-cyan);
+  color: #080c14;
+  border-color: var(--accent-cyan-bright);
 }
 
 /* Floating High-Contrast Fullscreen Exit Button */
