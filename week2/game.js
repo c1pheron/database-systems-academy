@@ -1,520 +1,612 @@
 /**
- * ACADEMY DATABASE SYSTEMS (MODULE) — WEEK 1 & 2
- * Main Game Controller: State Management, EER Canvas Linking, Audio SFX, 150-Question Flow
+ * DATABASE SYSTEMS ACADEMY — 2-HAFTA: RELATSION SXEMA BOSHQARUVCHI (GAME CONTROLLER)
+ * 150 ta Relyatsion Sxema Keyslari, draw.io Jadvallar Atelesi, 10 ta Qavat va Grader
  */
 
 (function () {
-  'use strict';
+  "use strict";
 
-  // 1. DATA INITIALIZATION
-  const q1 = window.EER_CLIENTS_1_50 || [];
-  const q2 = window.EER_CLIENTS_51_100 || [];
-  const q3 = window.EER_CLIENTS_101_150 || [];
-  const allQuestions = [...q1, ...q2, ...q3];
-
-  if (allQuestions.length === 0) {
-    console.error("EER Savollar to'plami topilmadi!");
-    return;
-  }
-
-  const catalog = window.EER_CATALOG || {};
-  const grader = window.EER_GRADER || {};
-
-  // 2. STATE MANAGEMENT & LOCAL STORAGE
-  const STORAGE_KEY = 'DS_W2_PROGRESS';
-
-  let state = {
-    currentIndex: 0,
-    solvedIds: [],
-    xp: 0
+  // Master State
+  const STATE = {
+    currentQId: 1,
+    solvedIds: new Set(),
+    score: 0,
+    salary: 3000,
+    soundEnabled: true
   };
 
-  function loadState() {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('ACADEMY_DS_W2_EER_PROGRESS_V2');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        state = {
-          currentIndex: typeof parsed.currentIndex === 'number' ? parsed.currentIndex : 0,
-          solvedIds: Array.isArray(parsed.solvedIds) ? parsed.solvedIds : [],
-          xp: typeof parsed.xp === 'number' ? parsed.xp : 0
-        };
-      }
-    } catch (e) {
-      console.warn("Progressni yuklashda xatolik:", e);
+  let allQuestions = [];
+  let relCanvas = null;
+  let atelier2D = null;
+
+  // ==========================================================================
+  // 1. AUDIO SYNTHESIZER (WEB AUDIO API)
+  // ==========================================================================
+  let audioCtx = null;
+  function getAudioCtx() {
+    if (!audioCtx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) audioCtx = new AudioContext();
     }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    return audioCtx;
+  }
+
+  window.playSfx = function (type) {
+    if (!STATE.soundEnabled) return;
+    try {
+      const ctx = getAudioCtx();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+
+      if (type === 'click') {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(480, now);
+        osc.frequency.exponentialRampToValueAtTime(240, now + 0.05);
+        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.linearRampToValueAtTime(0.01, now + 0.05);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.05);
+      } else if (type === 'success') {
+        [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, now + i * 0.07);
+          gain.gain.setValueAtTime(0, now + i * 0.07);
+          gain.gain.linearRampToValueAtTime(0.18, now + i * 0.07 + 0.03);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.07 + 0.45);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + i * 0.07);
+          osc.stop(now + i * 0.07 + 0.5);
+        });
+      } else if (type === 'error') {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(150, now);
+        osc.frequency.linearRampToValueAtTime(90, now + 0.18);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.linearRampToValueAtTime(0.01, now + 0.18);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.18);
+      }
+    } catch (e) {}
+  };
+
+  // ==========================================================================
+  // 2. INITIALIZATION
+  // ==========================================================================
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Gather all 150 questions
+    const q1 = window.QUESTIONS_1_50 || [];
+    const q2 = window.QUESTIONS_51_100 || [];
+    const q3 = window.QUESTIONS_101_150 || [];
+    allQuestions = [...q1, ...q2, ...q3];
+
+    // 2. Load LocalStorage
+    loadSavedState();
+
+    // 3. Initialize 2D Atelier Banner & Relational Canvas Engine
+    if (window.Relational2DEngine) {
+      atelier2D = new window.Relational2DEngine('consultCanvas');
+    }
+    if (window.RelationalCanvasEngine) {
+      relCanvas = new window.RelationalCanvasEngine('relCanvasContainer');
+    }
+
+    // 4. Render 10 Floors & HUD
+    renderSectorTabs();
+    updateHUD();
+
+    // 5. Load Current Question
+    loadQuestion(STATE.currentQId);
+
+    // 6. Bind Controls
+    bindControls();
+
+    // 7. Telegram WebApp Integration
+    if (window.Telegram && window.Telegram.WebApp) {
+      try {
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+      } catch (e) {}
+    }
+  });
+
+  // ==========================================================================
+  // 3. STATE PERSISTENCE
+  // ==========================================================================
+  function loadSavedState() {
+    try {
+      const saved = localStorage.getItem('DS_W2_PROGRESS');
+      if (saved) {
+        const data = JSON.parse(saved);
+        if (data.solvedIds && Array.isArray(data.solvedIds)) {
+          STATE.solvedIds = new Set(data.solvedIds);
+        }
+        if (data.currentQId) STATE.currentQId = data.currentQId;
+        if (data.score) STATE.score = data.score;
+        if (data.salary) STATE.salary = data.salary;
+      }
+    } catch (e) {}
   }
 
   function saveState() {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    } catch (e) {
-      console.warn("Progressni saqlashda xatolik:", e);
+      const data = {
+        solvedIds: Array.from(STATE.solvedIds),
+        currentQId: STATE.currentQId,
+        score: STATE.score,
+        salary: STATE.salary
+      };
+      localStorage.setItem('DS_W2_PROGRESS', JSON.stringify(data));
+    } catch (e) {}
+  }
+
+  // ==========================================================================
+  // 4. TOP EXECUTIVE HUD
+  // ==========================================================================
+  function updateHUD() {
+    const solved = STATE.solvedIds.size;
+    const total = 150;
+    const pct = Math.round((solved / total) * 100);
+
+    let rank = "Kichik Sxema Me'mori";
+    if (solved >= 135) rank = "Bosh Mantiqiy Arxitektor (Penthouse)";
+    else if (solved >= 105) rank = "Katta Relyatsion Sxema Muhandisi";
+    else if (solved >= 75) rank = "Yetakchi Jadvallar Modeleri";
+    else if (solved >= 45) rank = "O'rta Relyatsion Modeler";
+    else if (solved >= 15) rank = "Kichik Muhandis-Modeler";
+
+    const elRank = document.getElementById('hudRankTitle');
+    const elSalary = document.getElementById('hudSalary');
+    const elCapital = document.getElementById('hudCapital');
+    const elSolved = document.getElementById('hudSolved');
+    const elProgress = document.getElementById('hudProgressFill');
+
+    if (elRank) elRank.textContent = rank;
+    if (elSalary) elSalary.textContent = `$${STATE.salary.toLocaleString()}/oy`;
+    if (elCapital) elCapital.textContent = `$${STATE.score.toLocaleString()}`;
+    if (elSolved) elSolved.textContent = `${solved} / ${total}`;
+    if (elProgress) elProgress.style.width = `${pct}%`;
+  }
+
+  // ==========================================================================
+  // 5. 10 SECTOR NAVIGATION TABS
+  // ==========================================================================
+  function renderSectorTabs() {
+    const nav = document.getElementById('sectorNavList');
+    if (!nav || !window.RELATIONAL_CATALOG) return;
+
+    nav.innerHTML = '';
+    const sectors = window.RELATIONAL_CATALOG.sectors || [];
+    const currentQ = allQuestions.find(q => q.id === STATE.currentQId) || allQuestions[0];
+    const currentSectorId = currentQ ? (currentQ.sector || Math.ceil(currentQ.id / 15)) : 1;
+
+    sectors.forEach(sec => {
+      const tab = document.createElement('button');
+      tab.className = 'sector-tab' + (sec.id === currentSectorId ? ' active' : '');
+
+      let allSolved = true;
+      for (let i = sec.range[0]; i <= sec.range[1]; i++) {
+        if (!STATE.solvedIds.has(i)) {
+          allSolved = false;
+          break;
+        }
+      }
+      if (allSolved) tab.classList.add('completed');
+
+      tab.innerHTML = `<span>${sec.badge || `${sec.id}F`}</span> <span>${sec.name.split(':')[1] || sec.name}</span>`;
+
+      tab.addEventListener('click', () => {
+        window.playSfx('click');
+        loadQuestion(sec.range[0]);
+      });
+
+      nav.appendChild(tab);
+    });
+  }
+
+  // ==========================================================================
+  // 6. QUESTION STRIP & DOSSIER
+  // ==========================================================================
+  function loadQuestion(qId) {
+    const q = allQuestions.find(item => item.id === qId);
+    if (!q) return;
+
+    STATE.currentQId = qId;
+    saveState();
+
+    renderSectorTabs();
+
+    const secId = q.sector || Math.ceil(q.id / 15);
+    const startQ = (secId - 1) * 15 + 1;
+    const endQ = secId * 15;
+
+    const strip = document.getElementById('floorQuestionStrip');
+    if (strip) {
+      strip.innerHTML = '';
+      for (let i = startQ; i <= endQ; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'q-dot' + (i === qId ? ' active' : '') + (STATE.solvedIds.has(i) ? ' completed' : '');
+        dot.title = `Topshiriq #${i}`;
+        dot.addEventListener('click', () => {
+          window.playSfx('click');
+          loadQuestion(i);
+        });
+        strip.appendChild(dot);
+      }
+    }
+
+    const elFloor = document.getElementById('floorHeaderTitle');
+    const elSub = document.getElementById('sectorSubTitle');
+    const elQNum = document.getElementById('qNumberBadge');
+    const elDiff = document.getElementById('qDifficultyBadge');
+    const elSource = document.getElementById('qSourceBadge');
+    const elTitle = document.getElementById('qTitle');
+    const elClientDialogue = document.getElementById('clientDialogue');
+    const elTask = document.getElementById('qTask');
+    const elInput = document.getElementById('schemaInput');
+    const elHint = document.getElementById('qHintBox');
+    const elFeedback = document.getElementById('feedbackBox');
+
+    if (elFloor) elFloor.textContent = `${secId}-Qavat: Relatsion Sxemaga O'tkazish`;
+    if (elSub) elSub.textContent = q.difficulty || "Amaliy Keys";
+    if (elQNum) elQNum.textContent = `Keys #${q.id} / 150`;
+    if (elDiff) elDiff.textContent = q.difficulty || "O'rta";
+    if (elSource) elSource.textContent = q.source || "L02 Relational Model";
+    if (elTitle) elTitle.textContent = q.title || "Jadval Loyihalash";
+
+    if (elClientDialogue) {
+      elClientDialogue.innerHTML = `<strong>Tizimlar Rahbari:</strong> "${q.story || ''}"`;
+    }
+
+    if (elTask) elTask.textContent = q.taskUz || "Jadvalni belgilangan ustunlar va PK/FK bilan loyihalang.";
+
+    if (elInput) {
+      elInput.value = q.starterCode || "";
+    }
+
+    if (elHint) {
+      elHint.style.display = 'none';
+      elHint.textContent = `💡 Maslahat: ${q.hint || "Birlamchi kalit [PK] va Tashqi kalit [FK] larni to'g'ri ko'rsating."}`;
+    }
+    if (elFeedback) {
+      elFeedback.style.display = 'none';
+      elFeedback.className = 'feedback-box';
+    }
+
+    if (atelier2D) {
+      atelier2D.setClient("Tizimlar Rahbari", "Mijoz", q.story);
+    }
+    const tickerMessage = document.getElementById('tickerMessage');
+    if (tickerMessage) tickerMessage.textContent = q.story || "Relyatsion sxemani shakllantiring.";
+
+    // Render tables on canvas
+    if (relCanvas) {
+      if (q.expectedSchema) {
+        relCanvas.renderSchema(q.expectedSchema);
+      }
     }
   }
 
-  // 3. AUDIO SYNTHESIZER (Web Audio API)
-  class AudioEngine {
-    constructor() {
-      this.ctx = null;
-    }
+  // ==========================================================================
+  // 7. BIND USER CONTROLS & WORKBENCH
+  // ==========================================================================
+  function bindControls() {
+    const btnPrev = document.getElementById('btnPrevQ');
+    const btnNext = document.getElementById('btnNextQ');
 
-    init() {
-      if (!this.ctx) {
-        const AudioCtx = window.AudioContext || window.webkitAudioContext;
-        if (AudioCtx) this.ctx = new AudioCtx();
-      }
-      if (this.ctx && this.ctx.state === 'suspended') {
-        this.ctx.resume();
-      }
-    }
-
-    playSuccess() {
-      this.init();
-      if (!this.ctx) return;
-      const now = this.ctx.currentTime;
-      const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6 (Major architectural chord)
-      notes.forEach((freq, idx) => {
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(freq, now + idx * 0.08);
-
-        gain.gain.setValueAtTime(0.001, now + idx * 0.08);
-        gain.gain.exponentialRampToValueAtTime(0.15, now + idx * 0.08 + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.08 + 0.35);
-
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-
-        osc.start(now + idx * 0.08);
-        osc.stop(now + idx * 0.08 + 0.36);
+    if (btnPrev) {
+      btnPrev.addEventListener('click', () => {
+        window.playSfx('click');
+        if (STATE.currentQId > 1) loadQuestion(STATE.currentQId - 1);
       });
     }
 
-    playError() {
-      this.init();
-      if (!this.ctx) return;
-      const now = this.ctx.currentTime;
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(220, now);
-      osc.frequency.linearRampToValueAtTime(140, now + 0.25);
-
-      gain.gain.setValueAtTime(0.12, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
-
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-
-      osc.start(now);
-      osc.stop(now + 0.26);
+    if (btnNext) {
+      btnNext.addEventListener('click', () => {
+        window.playSfx('click');
+        if (STATE.currentQId < 150) loadQuestion(STATE.currentQId + 1);
+      });
     }
 
-    playClick() {
-      this.init();
-      if (!this.ctx) return;
-      const now = this.ctx.currentTime;
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, now);
-      gain.gain.setValueAtTime(0.05, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start(now);
-      osc.stop(now + 0.05);
+    const btnHint = document.getElementById('btnToggleHint');
+    if (btnHint) {
+      btnHint.addEventListener('click', () => {
+        window.playSfx('click');
+        const box = document.getElementById('qHintBox');
+        if (box) {
+          box.style.display = box.style.display === 'none' ? 'block' : 'none';
+        }
+      });
     }
-  }
 
-  const audio = new AudioEngine();
-
-  // 4. INSTANTIATE ENGINES
-  loadState();
-
-  const officeEngine = new window.ModelingBureauEngine2D('officeCanvas');
-  const eerCanvas = new window.EERCanvas('eerBoardContainer');
-
-  // Connect live drafting board actions directly to 2D consultation desk dialogue!
-  eerCanvas.onLiveDialogue = (speechText) => {
-    if (officeEngine) {
-      officeEngine.setLiveSpeech(speechText);
-    }
-  };
-
-  // Handle canvas reset request to reload question's starterDiagram
-  eerCanvas.onResetRequest = () => {
-    const q = allQuestions[state.currentIndex];
-    if (q && q.starterDiagram) {
-      eerCanvas.loadDiagram(q.starterDiagram);
-      eerCanvas.setStatus("Dastlabki diagramma tiklandi.");
-    }
-  };
-
-  // 5. DOM ELEMENTS
-  const hudProgressText = document.getElementById('hudProgressText');
-  const hudProgressBar = document.getElementById('hudProgressBar');
-  const hudXpText = document.getElementById('hudXpText');
-
-  const floorRail = document.getElementById('floorRail');
-
-  const qFloorBadge = document.getElementById('qFloorBadge');
-  const qNumberBadge = document.getElementById('qNumberBadge');
-  const qDifficultyBadge = document.getElementById('qDifficultyBadge');
-  const qTitle = document.getElementById('qTitle');
-
-  const clientName = document.getElementById('clientName');
-  const clientRole = document.getElementById('clientRole');
-  const clientStory = document.getElementById('clientStory');
-  const taskText = document.getElementById('taskText');
-
-  const btnSubmit = document.getElementById('btnSubmitDiagram');
-  const btnPrev = document.getElementById('btnPrevQuestion');
-  const btnNext = document.getElementById('btnNextQuestion');
-  const btnHint = document.getElementById('btnShowHint');
-  const hintBox = document.getElementById('hintBox');
-  const feedbackBox = document.getElementById('feedbackBox');
-
-  const btnOpenMap = document.getElementById('btnOpenMap');
-  const btnResetProgress = document.getElementById('btnResetProgress');
-
-  const mapModal = document.getElementById('mapModal');
-  const mapGrid = document.getElementById('mapGrid');
-  const mapModalClose = document.getElementById('mapModalClose');
-
-  // 6. RENDER FLOORS NAVIGATION RAIL
-  function renderFloorRail() {
-    if (!floorRail) return;
-    floorRail.innerHTML = '';
-
-    const sectors = catalog.sectors || [];
-    sectors.forEach(sec => {
-      const btn = document.createElement('button');
-      btn.className = 'floor-pill';
-      btn.id = `floorBtn_${sec.id}`;
-
-      // Calculate progress in this floor
-      const [start, end] = sec.range;
-      let solvedInSector = 0;
-      for (let i = start; i <= end; i++) {
-        if (state.solvedIds.includes(i)) solvedInSector++;
-      }
-      const totalInSector = (end - start + 1);
-
-      btn.innerHTML = `
-        <span class="floor-num">${sec.badge}</span>
-        <span class="floor-name">${sec.name.split(':')[1] || sec.name}</span>
-        <span class="floor-count">${solvedInSector}/${totalInSector}</span>
-      `;
-
-      btn.onclick = () => {
-        audio.playClick();
-        jumpToQuestionId(start);
-      };
-
-      floorRail.appendChild(btn);
+    // Token insertion into textarea
+    document.querySelectorAll('.token-chip[data-token]').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const token = chip.getAttribute('data-token');
+        const input = document.getElementById('schemaInput');
+        if (token && input) {
+          window.playSfx('click');
+          const start = input.selectionStart;
+          const end = input.selectionEnd;
+          const text = input.value;
+          input.value = text.substring(0, start) + token + text.substring(end);
+          input.focus();
+          input.selectionStart = input.selectionEnd = start + token.length;
+        }
+      });
     });
 
-    updateFloorRailActive();
+    // Verification Button
+    const btnVerify = document.getElementById('btnVerifySchema');
+    if (btnVerify) {
+      btnVerify.addEventListener('click', verifySchema);
+    }
+
+    // Reset Starter Code
+    const btnResetCode = document.getElementById('btnResetCode');
+    if (btnResetCode) {
+      btnResetCode.addEventListener('click', () => {
+        window.playSfx('click');
+        const q = allQuestions.find(item => item.id === STATE.currentQId);
+        const input = document.getElementById('schemaInput');
+        if (q && input) {
+          input.value = q.starterCode || "";
+        }
+      });
+    }
+
+    // Sound toggle
+    const btnSound = document.getElementById('btnToggleSound');
+    if (btnSound) {
+      btnSound.addEventListener('click', () => {
+        STATE.soundEnabled = !STATE.soundEnabled;
+        btnSound.textContent = STATE.soundEnabled ? '🔊' : '🔇';
+      });
+    }
+
+    // Reset Progress
+    const btnReset = document.getElementById('btnResetProgress');
+    if (btnReset) {
+      btnReset.addEventListener('click', () => {
+        if (confirm("Haqiqatan ham 2-moduldagi barcha natijalaringizni qayta o'rnatmoqchimisiz?")) {
+          STATE.solvedIds.clear();
+          STATE.score = 0;
+          STATE.salary = 3000;
+          saveState();
+          updateHUD();
+          loadQuestion(1);
+        }
+      });
+    }
+
+    // Modals
+    setupModals();
   }
 
-  function updateFloorRailActive() {
-    const q = allQuestions[state.currentIndex];
+  // ==========================================================================
+  // 8. SCHEMA VERIFICATION & GRADING
+  // ==========================================================================
+  function verifySchema() {
+    const input = document.getElementById('schemaInput');
+    if (!input || !window.RELATIONAL_GRADER) return;
+
+    const q = allQuestions.find(item => item.id === STATE.currentQId);
     if (!q) return;
 
-    document.querySelectorAll('.floor-pill').forEach(btn => btn.classList.remove('active'));
-    const curBtn = document.getElementById(`floorBtn_${q.sector}`);
-    if (curBtn) {
-      curBtn.classList.add('active');
-      curBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
-  }
+    const userText = input.value.trim();
+    const result = window.RELATIONAL_GRADER.grade(userText, q);
 
-  function formatTaskSpec(q) {
-    const exp = q.expectedDiagram || {};
-    
-    let entList = (exp.entities || []).map(e => {
-      let name = typeof e === 'string' ? e : e.name;
-      let pkStr = (typeof e === 'object' && e.pk) ? ` &nbsp;•&nbsp; Birlamchi Kalit: <code style="color:#ffffff; background:#1c1c22; padding:1px 5px; border-radius:2px;">{PK} ${e.pk}</code>` : '';
-      let weakStr = (typeof e === 'object' && e.isWeak) ? ` &nbsp;•&nbsp; <i style="color:#ffffff;">(Zaif Entitiy / Weak Entity — qo'sh hoshiya)</i>` : '';
-      return `<li><b style="color:#ffffff;">${name}</b>${pkStr}${weakStr}</li>`;
-    }).join('');
-
-    let relList = (exp.relationships || []).map(r => {
-      let rName = r.name ? ` &nbsp;•&nbsp; Ulam nomi: <i>'${r.name}'</i>` : '';
-      let acStr = r.associationClass ? ` &nbsp;•&nbsp; <i style="color:#d0d0d8;">(Association Class — ulam atributi)</i>` : '';
-      return `
-        <li style="margin-bottom: 6px;">
-          <b style="color:#ffffff;">${r.entity1}</b> &nbsp;<span class="mystery-mult">[ ?.. ? ]</span> &nbsp;↔&nbsp; <span class="mystery-mult">[ ?.. ? ]</span>&nbsp; <b style="color:#ffffff;">${r.entity2}</b>${rName}${acStr}
-          <div style="font-size:11px; color:#9999a4; margin-top:2px;">↳ Multiplicity (kardinallik) chegarasini mijoz hikoyasidagi biznes qoidasidan mantiqiy toping</div>
-        </li>
-      `;
-    }).join('');
-
-    let subHtml = '';
-    if (exp.subclasses) {
-      const sub = exp.subclasses;
-      subHtml = `
-        <div class="task-spec-section" style="margin-top:6px;">
-          <strong style="color:#ffffff;">⛛ Subklass Ierarxiyasi ({Constraint}):</strong>
-          <p>Superklass: <b>${sub.superclass}</b> &nbsp;➔&nbsp; Quyi Subklasslar: <b>${(sub.subclasses || []).join(', ')}</b></p>
-          <p>Cheklov turi: <span class="mystery-mult">[ ? Cheklov ? ]</span> &nbsp;•&nbsp; <span style="font-size:11px; color:#9999a4;">({Mandatory/Optional, Or/And} turini biznes qoidasidan aniqlang)</span></p>
-        </div>
-      `;
-    }
-
-    return `
-      <div class="task-spec-section">
-        <strong>1. Yaratilishi lozim bo'lgan Entitiylar va Kalitlar:</strong>
-        <ul style="margin:4px 0 8px 16px;">${entList || '<li>Mijoz talabidan entitiyni aniqlang</li>'}</ul>
-      </div>
-      <div class="task-spec-section">
-        <strong>2. Mantiqiy Ulamlar (Kardinallik / Multiplicity):</strong>
-        <ul style="margin:4px 0 8px 16px;">${relList || '<li>Munosabat chizig\'ini torting</li>'}</ul>
-      </div>
-      ${subHtml}
-      <div class="task-spec-section" style="margin-top:6px; border-top:1px solid #282830; padding-top:6px;">
-        <strong>3. Asosiy Vazifa:</strong>
-        <p style="color:#e2e2e8;">${q.taskUz || "Mijozning yuqoridagi hikoyasini diqqat bilan o'qing va har bir tomon uchun minimal/maksimal ishtirok kardinalligini toping."}</p>
-      </div>
-    `;
-  }
-
-  // 7. QUESTION LOADER & DISPLAY
-  function loadCurrentQuestion() {
-    const q = allQuestions[state.currentIndex];
-    if (!q) return;
-
-    // Badges & Header
-    if (qFloorBadge) qFloorBadge.textContent = `${q.sector}-Qavat`;
-    if (qNumberBadge) qNumberBadge.textContent = `Savol ${q.id} / 150`;
-    if (qDifficultyBadge) qDifficultyBadge.textContent = q.difficulty || "O'rta";
-    if (qTitle) qTitle.textContent = q.title;
-
-    // Client Info
-    if (clientName) clientName.textContent = q.clientName;
-    if (clientRole) clientRole.textContent = q.clientRole;
-    if (clientStory) clientStory.textContent = `"${q.story}"`;
-    if (taskText) taskText.innerHTML = formatTaskSpec(q);
-
-    // Set client in 2D Office Atelier
-    if (officeEngine) {
-      officeEngine.setClient(q);
-    }
-
-    // Always start with 100% BLANK EMPTY CANVAS! (User draws everything from scratch)
-    if (eerCanvas) {
-      eerCanvas.clear();
-      eerCanvas.setStatus(`Savol ${q.id}: Canvas is empty. Start with "+ Entity" button.`);
-    }
-
-    // Reset feedback and hint
-    if (feedbackBox) {
-      const isSolved = state.solvedIds.includes(q.id);
-      if (isSolved) {
-        feedbackBox.className = 'feedback-box solved';
-        feedbackBox.innerHTML = `
-          <div class="feedback-icon">✓</div>
-          <div class="feedback-content">
-            <h4>Approved by Client</h4>
-            <p>${q.explanation || "This conceptual EER model has been successfully approved."}</p>
-          </div>
-        `;
-      } else {
-        feedbackBox.className = 'feedback-box idle';
-        feedbackBox.innerHTML = `
-          <div class="feedback-icon">📐</div>
-          <div class="feedback-content">
-            <h4>Drafting Mode</h4>
-            <p>Draft the EER diagram according to client requirements and click "Submit to Client".</p>
-          </div>
-        `;
-      }
-    }
-
-    if (hintBox) {
-      hintBox.style.display = 'none';
-      hintBox.textContent = `Architect Advice: ${q.hint || "Mijoz talablaridagi multiplisitiy va birlamchi kalitlarni tekshiring."}`;
-    }
-
-    // Prev / Next button states
-    if (btnPrev) btnPrev.disabled = (state.currentIndex === 0);
-    if (btnNext) btnNext.disabled = (state.currentIndex === allQuestions.length - 1);
-
-    updateHUD();
-    updateFloorRailActive();
-    saveState();
-  }
-
-  function updateHUD() {
-    const solvedCount = state.solvedIds.length;
-    const total = allQuestions.length;
-    const percent = Math.round((solvedCount / total) * 100);
-
-    if (hudProgressText) hudProgressText.textContent = `${solvedCount} / ${total} (${percent}%)`;
-    if (hudProgressBar) hudProgressBar.style.width = `${percent}%`;
-    if (hudXpText) hudXpText.textContent = `${state.xp} XP`;
-  }
-
-  // 8. VERIFICATION / SUBMISSION TO CLIENT
-  function handleSubmit() {
-    audio.playClick();
-    const q = allQuestions[state.currentIndex];
-    if (!q) return;
-
-    const userDiagram = eerCanvas.getDiagram();
-    const result = grader.grade(userDiagram, q);
+    const elFeedback = document.getElementById('feedbackBox');
+    if (!elFeedback) return;
 
     if (result.passed) {
-      audio.playSuccess();
-      const isNewSolve = !state.solvedIds.includes(q.id);
-      if (isNewSolve) {
-        state.solvedIds.push(q.id);
-        const gainXp = q.difficulty.includes("Boss") ? 300 : 100;
-        state.xp += gainXp;
-      }
+      window.playSfx('success');
+      if (atelier2D) atelier2D.triggerSuccess("Relyatsion Jadval Tasdiqlandi!");
 
-      // Office animation
-      officeEngine.triggerDeploySuccess(q.title);
-      officeEngine.setLiveSpeech("Mijoz: 'Ajoyib me\\'moriy yechim! EER sxemani tasdiqlayman!'", 220);
-
-      // Feedback display
-      if (feedbackBox) {
-        feedbackBox.className = 'feedback-box success';
-        feedbackBox.innerHTML = `
-          <div class="feedback-icon">🎉</div>
-          <div class="feedback-content">
-            <h4>EXCELLENT! SCHEMA APPROVED!</h4>
-            <p>${result.feedback}</p>
-            <p class="explanation-note">${q.explanation || ""}</p>
-          </div>
-        `;
-      }
-
-      updateHUD();
-      renderFloorRail();
-      saveState();
-
-    } else {
-      audio.playError();
-      officeEngine.triggerErrorAlert(result.feedback);
-      officeEngine.setLiveSpeech("Mijoz: 'Me\\'moriy xatolik! Sxemani qayta ko\\'rib chiqing.'", 180);
-
-      if (feedbackBox) {
-        feedbackBox.className = 'feedback-box error';
-        feedbackBox.innerHTML = `
-          <div class="feedback-icon">⚠️</div>
-          <div class="feedback-content">
-            <h4>DIAGNOSTIC: SCHEMA MISMATCH</h4>
-            <p>${result.feedback}</p>
-          </div>
-        `;
-      }
-    }
-  }
-
-  // 9. NAVIGATION
-  function jumpToQuestionId(id) {
-    const idx = allQuestions.findIndex(q => q.id === id);
-    if (idx !== -1) {
-      state.currentIndex = idx;
-      loadCurrentQuestion();
-      closeMapModal();
-    }
-  }
-
-  function nextQuestion() {
-    audio.playClick();
-    if (state.currentIndex < allQuestions.length - 1) {
-      state.currentIndex++;
-      loadCurrentQuestion();
-    }
-  }
-
-  function prevQuestion() {
-    audio.playClick();
-    if (state.currentIndex > 0) {
-      state.currentIndex--;
-      loadCurrentQuestion();
-    }
-  }
-
-  // 10. MAP MODAL
-  function openMapModal() {
-    audio.playClick();
-    if (!mapModal || !mapGrid) return;
-    mapGrid.innerHTML = '';
-
-    allQuestions.forEach((q, idx) => {
-      const isSolved = state.solvedIds.includes(q.id);
-      const isCurrent = (idx === state.currentIndex);
-
-      const cell = document.createElement('button');
-      cell.className = `map-cell ${isSolved ? 'solved' : ''} ${isCurrent ? 'current' : ''}`;
-      cell.title = `${q.id}. ${q.title}`;
-      cell.innerHTML = `
-        <span class="cell-num">${q.id}</span>
-        <span class="cell-status">${isSolved ? '✓' : ''}</span>
+      elFeedback.className = 'feedback-box success';
+      elFeedback.innerHTML = `
+        <strong>🎉 A'lo Natija!</strong> ${result.feedback || "Sxema relyatsion qoidalar va kalitlar bo'yicha to'g'ri loyihalandi."}
+        <div style="margin-top:8px;">
+          <button id="btnNextChallenge" class="btn btn-primary" style="padding:4px 12px;">Keyingi Topshiriqqa O'tish ▶</button>
+        </div>
       `;
+      elFeedback.style.display = 'block';
 
-      cell.onclick = () => {
-        state.currentIndex = idx;
-        loadCurrentQuestion();
-        closeMapModal();
-      };
-
-      mapGrid.appendChild(cell);
-    });
-
-    mapModal.style.display = 'flex';
-  }
-
-  function closeMapModal() {
-    if (mapModal) mapModal.style.display = 'none';
-  }
-
-  // 11. BIND EVENTS
-  if (btnSubmit) btnSubmit.onclick = handleSubmit;
-  if (btnNext) btnNext.onclick = nextQuestion;
-  if (btnPrev) btnPrev.onclick = prevQuestion;
-
-  if (btnHint) {
-    btnHint.onclick = () => {
-      audio.playClick();
-      if (hintBox) {
-        hintBox.style.display = (hintBox.style.display === 'none') ? 'block' : 'none';
-      }
-    };
-  }
-
-  if (btnOpenMap) btnOpenMap.onclick = openMapModal;
-  if (mapModalClose) mapModalClose.onclick = closeMapModal;
-
-  if (btnResetProgress) {
-    btnResetProgress.onclick = () => {
-      if (confirm("Haqiqatan ham barcha 150 ta savol natijalarini tozalab qaytadan boshlamoqchimisiz?")) {
-        state.solvedIds = [];
-        state.xp = 0;
-        state.currentIndex = 0;
+      if (!STATE.solvedIds.has(q.id)) {
+        STATE.solvedIds.add(q.id);
+        STATE.score += 100;
+        STATE.salary += 150;
         saveState();
-        renderFloorRail();
-        loadCurrentQuestion();
-        alert("Progress has been reset!");
+        updateHUD();
+        renderSectorTabs();
       }
-    };
+
+      const nextBtn = document.getElementById('btnNextChallenge');
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          window.playSfx('click');
+          if (STATE.currentQId < 150) {
+            loadQuestion(STATE.currentQId + 1);
+          }
+        });
+      }
+    } else {
+      window.playSfx('error');
+      if (atelier2D) atelier2D.triggerError("Sxemada xatolik bor!");
+
+      elFeedback.className = 'feedback-box error';
+      elFeedback.innerHTML = `<strong>⚠️ Diqqat:</strong> ${result.feedback || "Jadval nomlari, Birlamchi Kalit [PK] yoki Tashqi Kalit [FK] larni qaytadan tekshiring."}`;
+      elFeedback.style.display = 'block';
+    }
   }
 
-  // Keyboard Shortcuts (Ctrl+Enter to submit, Arrow keys to navigate)
-  window.addEventListener('keydown', (e) => {
-    if (e.ctrlKey && e.key === 'Enter') {
-      handleSubmit();
-    }
-  });
+  // ==========================================================================
+  // 9. MODALS: 150 MAP & OFFICE INCIDENT
+  // ==========================================================================
+  function setupModals() {
+    const btnMap = document.getElementById('btnOpenMap');
+    const mapModal = document.getElementById('mapModal');
+    const btnCloseMap = document.getElementById('btnCloseMap');
 
-  // INITIAL BOOT
-  renderFloorRail();
-  loadCurrentQuestion();
+    if (btnMap && mapModal) {
+      btnMap.addEventListener('click', () => {
+        window.playSfx('click');
+        renderMapModal();
+        mapModal.classList.add('open');
+      });
+    }
+    if (btnCloseMap && mapModal) {
+      btnCloseMap.addEventListener('click', () => mapModal.classList.remove('open'));
+    }
+
+    const btnIncident = document.getElementById('btnTriggerEvent');
+    const incidentModal = document.getElementById('eventModal');
+    const btnCloseIncident = document.getElementById('btnCloseEvent');
+
+    if (btnIncident && incidentModal) {
+      btnIncident.addEventListener('click', () => {
+        window.playSfx('click');
+        renderIncidentModal();
+        incidentModal.classList.add('open');
+      });
+    }
+    if (btnCloseIncident && incidentModal) {
+      btnCloseIncident.addEventListener('click', () => incidentModal.classList.remove('open'));
+    }
+  }
+
+  function renderMapModal() {
+    const body = document.getElementById('mapModalBody');
+    if (!body || !window.RELATIONAL_CATALOG) return;
+
+    body.innerHTML = '';
+    const sectors = window.RELATIONAL_CATALOG.sectors || [];
+
+    sectors.forEach(sec => {
+      const secBox = document.createElement('div');
+      secBox.style.marginBottom = '14px';
+
+      const secTitle = document.createElement('div');
+      secTitle.style.fontWeight = '700';
+      secTitle.style.fontSize = '12.5px';
+      secTitle.style.color = '#c8a96e';
+      secTitle.style.marginBottom = '6px';
+      secTitle.textContent = `${sec.badge}: ${sec.name}`;
+      secBox.appendChild(secTitle);
+
+      const grid = document.createElement('div');
+      grid.className = 'map-grid';
+
+      for (let i = sec.range[0]; i <= sec.range[1]; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.style.padding = '6px 8px';
+        btn.style.textAlign = 'center';
+        btn.style.fontSize = '11px';
+        btn.textContent = `#${i}`;
+
+        if (STATE.solvedIds.has(i)) {
+          btn.classList.add('correct-choice');
+        }
+        if (i === STATE.currentQId) {
+          btn.style.borderColor = '#c8a96e';
+          btn.style.fontWeight = 'bold';
+        }
+
+        btn.addEventListener('click', () => {
+          window.playSfx('click');
+          document.getElementById('mapModal').classList.remove('open');
+          loadQuestion(i);
+        });
+
+        grid.appendChild(btn);
+      }
+
+      secBox.appendChild(grid);
+      body.appendChild(secBox);
+    });
+  }
+
+  function renderIncidentModal() {
+    const body = document.getElementById('eventModalBody');
+    if (!body) return;
+
+    const events = [
+      {
+        speaker: "Katta Me'mor Atlas",
+        title: "Subklasslarni Mapp Qilish Bahsi",
+        avatar: "🏛️",
+        desc: "Kompaniyada `Employee` superklassi ostida `Manager` va `Engineer` subklasslari mavjud. Cheklov: {Mandatory, Or}. Agar tashqi jadvallardan subklasslarga to'g'ridan-to'g'ri Tashqi Kalit (FK) yo'nalmagan bo'lsa, qaysi variant jadval sonini kamaytiradi?",
+        choices: [
+          { text: "Option 8A: 3 ta jadval ochish (Employee, Manager, Engineer)", correct: false },
+          { text: "Option 8C: Faqat 1 ta umumiy Employee jadvali ochib, 'role' diskriminator ustunini qo'shish", correct: true },
+          { text: "Option 8D: Subklasslarni umuman hisobga olmaslik", correct: false }
+        ]
+      },
+      {
+        speaker: "Ma'lumotlar Bazasi Administratori",
+        title: "Crow's Foot da NULL Tashqi Kalit",
+        avatar: "👨‍💻",
+        desc: "Xodimlar jadvalida `deptNo` tashqi kaliti mavjud, lekin yangi ishga olingan xodimlar hali bo'limga biriktirilmagan bo'lishi mumkin. Crow's Foot chizig'ida qaysi belgi qo'yiladi?",
+        choices: [
+          { text: "Ikkita parallel chiziq (||) — majburiy NOT NULL", correct: false },
+          { text: "Aylana va chiziq (o|) — ixtiyoriy, NULL bo'lishi mumkin", correct: true },
+          { text: "Faqat qarg'a oyog'i", correct: false }
+        ]
+      }
+    ];
+
+    const ev = events[Math.floor(Math.random() * events.length)];
+
+    body.innerHTML = `
+      <div class="event-speaker-row">
+        <div class="event-avatar">${ev.avatar}</div>
+        <div>
+          <div style="font-weight:700; color:#f2ede4; font-size:14px;">${ev.title}</div>
+          <div style="font-size:11.5px; color:#c8a96e;">${ev.speaker}</div>
+        </div>
+      </div>
+      <p style="font-size:13px; color:#c4bbb0; line-height:1.5;">${ev.desc}</p>
+      <div class="event-choices" id="incidentChoices"></div>
+    `;
+
+    const choicesBox = document.getElementById('incidentChoices');
+    ev.choices.forEach(ch => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.textContent = ch.text;
+
+      btn.addEventListener('click', () => {
+        if (ch.correct) {
+          window.playSfx('success');
+          btn.classList.add('correct-choice');
+          STATE.score += 250;
+          STATE.salary += 100;
+          saveState();
+          updateHUD();
+          btn.textContent += " ✓ (To'g'ri! +$250 Kapital & +$100 Maosh)";
+        } else {
+          window.playSfx('error');
+          btn.classList.add('wrong-choice');
+          btn.textContent += " ✗ (Noto'g'ri yondashuv)";
+        }
+      });
+
+      choicesBox.appendChild(btn);
+    });
+  }
 
 })();

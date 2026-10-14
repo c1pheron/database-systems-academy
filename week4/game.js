@@ -658,7 +658,20 @@
         msgEl.textContent = item.text;
       }
     }, 8000);
+
+    // Telegram WebApp Integration & Desktop Focus Fix
+    if (window.Telegram && window.Telegram.WebApp) {
+      try {
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+      } catch (e) {}
+    }
+    document.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('click', () => { el.focus(); });
+    });
   }
 
   window.addEventListener("DOMContentLoaded", init);
 })();
+
+

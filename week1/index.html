@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Week 1: Conceptual Design & ER Modeling | Database Systems Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>1-Hafta: Konseptual Ma'lumotlar Bazasi & EER Modellashtirish Atelesi | Database Systems Academy</title>
   
   <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -25,31 +25,31 @@
       <div class="brand-emblem">🏛️</div>
       <div>
         <div class="brand-title">
-          Database Systems • Module 1 <span class="badge-module">ER Modeling</span>
+          Database Systems • 1-Modul <span class="badge-module">EER Modellashtirish</span>
         </div>
-        <div class="brand-sub">Conceptual Design, Multiplicities, Weak Entities & Connection Traps</div>
+        <div class="brand-sub">Konseptual ERD, Multiplicity (0..1, 1..*, M:N), Zaif Entitiylar va Tuzoqlar</div>
       </div>
     </div>
 
     <div class="hud-stats">
-      <div class="stat-pill" title="Current Architectural Title">
-        <span class="stat-label">Role:</span>
-        <span id="hudRankTitle" class="stat-val cyan">Junior Data Modeler</span>
+      <div class="stat-pill" title="Sizning joriy kasbiy unvoningiz">
+        <span class="stat-label">Lavozim:</span>
+        <span id="hudRankTitle" class="stat-val cyan">Kichik Modeler</span>
       </div>
 
-      <div class="stat-pill" title="Project Compensation">
-        <span class="stat-label">Salary:</span>
-        <span id="hudSalary" class="stat-val emerald">$2,500/mo</span>
+      <div class="stat-pill" title="Kompaniya sizga to'laydigan oylik maosh">
+        <span class="stat-label">Maosh:</span>
+        <span id="hudSalary" class="stat-val sage">$2,500/oy</span>
       </div>
 
-      <div class="stat-pill" title="Accumulated Architectural Capital">
-        <span class="stat-label">Score:</span>
+      <div class="stat-pill" title="To'plangan umumiy me'moriy kapital">
+        <span class="stat-label">Kapital:</span>
         <span id="hudCapital" class="stat-val gold">$0</span>
       </div>
 
-      <div class="stat-pill" title="Solved Challenges (150 Total)">
-        <span class="stat-label">Completed:</span>
-        <span id="hudSolved" class="stat-val violet">0 / 150</span>
+      <div class="stat-pill" title="Bajarilgan topshiriqlar soni (150 tadan)">
+        <span class="stat-label">Bajarildi:</span>
+        <span id="hudSolved" class="stat-val gold">0 / 150</span>
         <div class="progress-wrap">
           <div id="hudProgressFill" class="progress-fill"></div>
         </div>
@@ -57,11 +57,11 @@
     </div>
 
     <div class="hud-actions">
-      <a href="../index.html" class="btn btn-hub" title="Return to Master Academy Hub">← Academy Hub</a>
-      <button id="btnTriggerEvent" class="btn btn-event" title="Simulate Emergency Modeling Conflict">⚡ Incident</button>
-      <button id="btnOpenMap" class="btn" title="View 150 Challenges Map">🗺️ Map</button>
-      <button id="btnResetProgress" class="btn" title="Reset Progress">🔄</button>
-      <button id="btnToggleSound" class="btn" title="Toggle Audio FX">🔊</button>
+      <a href="../index.html" class="btn" title="Asosiy Xabga qaytish">← Asosiy Xab</a>
+      <button id="btnTriggerEvent" class="btn btn-event" title="Korporativ kutilmagan vaziyat">⚡ Insident</button>
+      <button id="btnOpenMap" class="btn" title="150 ta savollar xaritasi">🗺️ Xarita</button>
+      <button id="btnResetProgress" class="btn" title="Natijalarni qayta o'rnatish">🔄</button>
+      <button id="btnToggleSound" class="btn" title="Ovozni yoqish / o'chirish">🔊</button>
     </div>
   </header>
 
@@ -73,152 +73,169 @@
   </nav>
 
   <!-- =========================================================================
-       MAIN 2-COLUMN WORKSPACE (STRICTLY BOUNDED WITH SYMMETRICAL GUTTERS)
+       MAIN 2-COLUMN WORKSPACE
        ========================================================================= -->
   <main class="main-grid">
 
-    <!-- LEFT COLUMN: 2D ATELIER & CONCEPT INSPECTOR -->
+    <!-- LEFT COLUMN: 2D ATELIER & VISUAL EER CANVAS -->
     <section class="left-col">
 
-      <!-- 1. 2D Drafting Atelier Canvas & Ticker -->
+      <!-- 1. 2D Consultation Board Banner -->
       <div class="panel-card">
         <div class="panel-header">
           <div class="panel-title">
-            <span>🎨 2D Conceptual Modeling Atelier & Blueprint Board</span>
+            <span>🎨 Bosh Me'mor Atlas Konsultatsiya Zali</span>
           </div>
         </div>
-        <div class="canvas-wrap">
-          <canvas id="gameCanvas" width="860" height="360"></canvas>
+        <div class="consultation-wrap">
+          <canvas id="consultCanvas"></canvas>
         </div>
         <div class="office-ticker">
-          <span class="ticker-badge" id="tickerSpeaker">CHIEF ARCHITECT</span>
-          <span id="tickerMessage">Welcome to the atelier! Master entities, multiplicity constraints, and connection traps.</span>
+          <span class="ticker-badge" id="tickerSpeaker">BOSH ME'MOR ATLAS</span>
+          <span id="tickerMessage">Assalomu alaykum! Biznes talablarini tahlil qiling va konseptual diagrammani chizing.</span>
         </div>
       </div>
 
-      <!-- 2. Concept & Multiplicity Inspector Tabs -->
+      <!-- 2. Visual EER Diagram Studio (draw.io Canvas) -->
       <div class="panel-card" style="flex:1;">
         <div class="panel-header">
           <div class="panel-title">
-            <span>🔍 Conceptual ER & Notation Inspector</span>
-          </div>
-          <div class="schema-tabs">
-            <button class="schema-tab active" data-tab="concepts">📖 Concepts Dictionary</button>
-            <button class="schema-tab" data-tab="multiplicities">📐 Multiplicities</button>
-            <button class="schema-tab" data-tab="traps">⚠️ Connection Traps</button>
-            <button class="schema-tab" data-tab="weak_entities">🔗 Weak Entities</button>
-            <button class="schema-tab" data-tab="result">🏆 Analytics</button>
+            <span>📐 Vizual EER Diagramma Atelesi (draw.io Uslubida)</span>
           </div>
         </div>
-        <div class="table-scroll">
-          <div id="schemaTableDisplay">
-            <!-- Rendered dynamically by game.js -->
+
+        <!-- Studio Toolbar -->
+        <div class="eer-toolbar">
+          <div class="eer-tool-group">
+            <button class="eer-chip-btn" id="eerBtnAddEntity" title="Yangi to'rtburchak entitiy qo'shish">
+              <span>➕ Entitiy</span>
+            </button>
+            <button class="eer-chip-btn" id="eerBtnAddRel" title="Yangi aloqa rombi qo'shish">
+              <span>🔷 Romb</span>
+            </button>
+            <button class="eer-chip-btn" id="eerBtnToggleWeak" title="Tanlangan ob'ektni zaif (Weak) qilish">
+              <span>📦 Zaif Entitiy</span>
+            </button>
           </div>
+
+          <div class="eer-tool-group">
+            <button class="eer-chip-btn" id="eerBtnResetTemplate" title="Dastlabki shablonni tiklash">
+              <span>📋 Shablon</span>
+            </button>
+            <button class="eer-chip-btn" id="eerBtnClearCanvas" title="Polotnoni tozalash">
+              <span>🧹 Tozalash</span>
+            </button>
+            <button class="eer-chip-btn" id="btnExportDrawio" style="border-color:var(--accent-gold); color:var(--accent-gold-bright);" title="Draw.io XML faylni yuklab olish">
+              <span>💾 .drawio XML</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Diagram Board -->
+        <div class="canvas-container" id="eerCanvasContainer">
+          <!-- SVG lines and HTML Entity Boxes rendered dynamically -->
+        </div>
+
+        <div style="padding:7px 12px; background:#1b1612; border-top:1px solid var(--border-subtle); font-size:11px; color:var(--text-muted); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
+          <span>💡 <em>Maslahat:</em> Entitiy yoki romblarni sichqoncha / barmog'ingiz bilan surishingiz va chiziqdagi multiplisitiyani bosing!</span>
+          <span style="color:var(--accent-gold);">UML min..max Notation (0..1, 1..1, 0..*, 1..*)</span>
         </div>
       </div>
 
     </section>
 
-    <!-- RIGHT COLUMN: MISSION DOSSIER & TERMINAL WORKBENCH -->
+    <!-- RIGHT COLUMN: MISSION DOSSIER & EVALUATOR WORKBENCH -->
     <section class="right-col">
 
-      <!-- 1. Mission Dossier & 5-Point Concept Anatomy Card -->
+      <!-- 1. Mission Dossier Card -->
       <div class="panel-card">
         <div class="panel-header">
           <div class="panel-title">
-            <span id="floorHeaderTitle">Sector 1: Entity Types, Attributes & Primary Keys</span>
+            <span id="floorHeaderTitle">1-Qavat: Entitiylar va Birlamchi Kalitlar</span>
           </div>
           <div style="display:flex; gap:6px; align-items:center;">
-            <button id="btnPrevQ" class="btn" style="padding:3px 8px;">◀ Prev</button>
-            <button id="btnNextQ" class="btn" style="padding:3px 8px;">Next ▶</button>
+            <button id="btnPrevQ" class="btn" style="padding:3px 8px;">◀ Oldingi</button>
+            <button id="btnNextQ" class="btn" style="padding:3px 8px;">Keyingi ▶</button>
           </div>
         </div>
 
+        <!-- 15 Dots Strip -->
         <div class="q-strip" id="floorQuestionStrip">
-          <!-- 15 Dots populated dynamically -->
+          <!-- Injected dynamically -->
         </div>
 
         <div class="mission-body">
           <div id="sectorSubTitle" style="font-size:11px; color:var(--text-muted); font-weight:600;"></div>
 
           <div class="mission-meta">
-            <span id="qNumberBadge" class="badge-diff">Challenge #1 / 150</span>
-            <span id="qDifficultyBadge" class="badge-diff">Basic</span>
-            <span id="qSourceBadge" class="badge-source">Seminar 01</span>
+            <span id="qNumberBadge" class="badge-diff">Topshiriq #1 / 150</span>
+            <span id="qDifficultyBadge" class="badge-diff">Boshlang'ich</span>
+            <span id="qSourceBadge" class="badge-source">Seminar 01 • ERD</span>
           </div>
 
-          <h3 id="qTitle" class="mission-title">Loading Challenge Title...</h3>
+          <h3 id="qTitle" class="mission-title">Yuklanmoqda...</h3>
 
-          <div id="qStory" class="mission-story">
-            Loading business case narrative...
-          </div>
-
-          <div class="mission-task">
-            <span class="task-label">🎯 MODELING TASK SPECIFICATION:</span>
-            <div id="qTask" class="task-code">
-              <code>...</code>
+          <!-- Client Dialogue Box -->
+          <div class="client-dialogue-box">
+            <div class="client-avatar" id="clientAvatar">🏦</div>
+            <div class="client-text" id="clientDialogue">
+              Mijozning biznes talablari yuklanmoqda...
             </div>
           </div>
 
-          <!-- 5-POINT CONCEPT ANATOMY ACCORDION CARD -->
+          <!-- Mission Task -->
+          <div class="mission-task">
+            <span class="task-label">🎯 TALAB ETILGAN MODEL:</span>
+            <div id="qTask" class="task-desc">...</div>
+          </div>
+
+          <!-- 5-Point Concept Anatomy Card -->
           <div class="cmd-info-card" id="cmdInfoCard">
-            <button type="button" class="cmd-card-toggle" id="btnToggleCmdCard" onclick="window.toggleCmdInfoCard()">
+            <button type="button" class="cmd-card-toggle" id="btnToggleCmdCard">
               <div class="cmd-card-toggle-left">
-                <span class="cmd-badge-icon">📖</span>
-                <span class="cmd-badge-title">CONCEPT & NOTATION ANATOMY</span>
-                <code class="cmd-badge-code" id="cmdCardCode">...</code>
+                <span>📖</span>
+                <span>EER NAZARIYASI & UML QOIDALARI</span>
+                <code style="color:var(--accent-gold-bright);" id="cmdCardCode">UML_RULES</code>
               </div>
-              <div class="cmd-card-toggle-right">
-                <span class="cmd-toggle-hint" id="cmdCardToggleHint" style="font-size:11px; color:var(--text-muted);">View Details</span>
-                <span class="cmd-toggle-arrow" id="cmdCardToggleArrow">▾</span>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span style="font-size:11px; color:var(--text-muted);">Tafsilotlar</span>
+                <span id="cmdCardToggleArrow">▾</span>
               </div>
             </button>
             <div class="cmd-card-body" id="cmdCardBody" style="display: none;"></div>
           </div>
 
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:2px;">
-            <button id="btnToggleHint" class="btn" style="font-size:11.5px; padding:4px 10px;">💡 View Design Hint</button>
-          </div>
-
-          <div id="qHintBox" class="mission-story" style="display:none; border-left-color:var(--accent-amber);">
-            Hint text will appear here.
-          </div>
+          <!-- Hint Accordion -->
+          <div id="qHintBox" class="hint-box"></div>
         </div>
       </div>
 
-      <!-- 2. Modeling Workbench & Terminal Screen -->
-      <div class="term-window">
-        <div class="term-topbar">
-          <div class="term-controls">
-            <div class="term-dot red"></div>
-            <div class="term-dot yellow"></div>
-            <div class="term-dot green"></div>
+      <!-- 2. Workbench & Diagram Evaluation -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>⚙️ Diagramma Tekshiruvi & Tezkor Multiplisitiya</span>
           </div>
-          <div class="term-info">student@modeler: ~/conceptual-design (uml-v2)</div>
         </div>
 
-        <!-- Smart Tokens Bar -->
-        <div id="tokenToolbar" class="term-toolbar">
-          <!-- Dynamically populated tokens -->
-        </div>
+        <div class="action-box">
+          <div style="font-size:11.5px; color:var(--text-muted);">Tezkor Multiplisitiya Qiymatlari (Tanlangan aloqaga o'rnatish):</div>
+          <div class="quick-tokens-bar">
+            <button type="button" class="token-chip" data-mult="1..1">[ 1..1 ] Qat'iy Yagona</button>
+            <button type="button" class="token-chip" data-mult="1..*">[ 1..* ] Kamida Bitta</button>
+            <button type="button" class="token-chip" data-mult="0..1">[ 0..1 ] Ixtiyoriy Yagona</button>
+            <button type="button" class="token-chip" data-mult="0..*">[ 0..* ] Ixtiyoriy Ko'p</button>
+          </div>
 
-        <!-- Screen Output -->
-        <div id="termScreen" class="term-screen">
-          <!-- Terminal lines -->
-        </div>
+          <div class="action-bar">
+            <div class="action-left">
+              <button id="btnVerifyDiagram" class="btn btn-primary">✅ Diagrammani Tekshirish</button>
+              <button id="btnToggleHint" class="btn">💡 Maslahat Olish</button>
+            </div>
+          </div>
 
-        <!-- Input Row -->
-        <div class="term-input-row">
-          <span class="term-lead">student@modeler:~$</span>
-          <input
-            type="text"
-            id="termInput"
-            class="term-input"
-            placeholder="Type your design specification or select a quick token... (Enter to submit)"
-            autocomplete="off"
-            spellcheck="false"
-          />
-          <button id="btnExecCmd" class="btn-exec">Submit ↵</button>
+          <!-- Feedback notification container -->
+          <div id="feedbackBox" class="feedback-box"></div>
         </div>
       </div>
 
@@ -231,11 +248,11 @@
        ========================================================================= -->
 
   <!-- 1. Question Map Modal -->
-  <div id="mapModal" class="modal-overlay">
-    <div class="modal-content">
+  <div id="mapModal" class="modal-backdrop">
+    <div class="modal-card">
       <div class="modal-header">
-        <div class="modal-title">🗺️ 150 Challenges Map (10 Sectors)</div>
-        <button class="modal-close">&times;</button>
+        <div class="modal-title">🗺️ 150 ta Amaliy EER Topshiriqlari Xaritasi (10 ta Qavat)</div>
+        <button class="modal-close" id="btnCloseMap">&times;</button>
       </div>
       <div class="modal-body" id="mapModalBody">
         <!-- Rendered dynamically -->
@@ -244,11 +261,11 @@
   </div>
 
   <!-- 2. Modeling Incident Modal -->
-  <div id="eventModal" class="modal-overlay">
-    <div class="modal-content">
+  <div id="eventModal" class="modal-backdrop">
+    <div class="modal-card">
       <div class="modal-header">
-        <div class="modal-title">⚡ Architectural Incident & Modeling Conflict</div>
-        <button class="modal-close">&times;</button>
+        <div class="modal-title">⚡ Korporativ Arxitektura Insidenti & Voqealik</div>
+        <button class="modal-close" id="btnCloseEvent">&times;</button>
       </div>
       <div class="modal-body" id="eventModalBody">
         <!-- Rendered dynamically -->
@@ -256,17 +273,15 @@
     </div>
   </div>
 
-  <!-- Toast Notification Container -->
-  <div id="toastContainer" class="toast-container"></div>
-
   <!-- =========================================================================
-       SCRIPTS
+       SCRIPTS (ORDERED ACCORDING TO ARCHITECTURAL DEPENDENCY)
        ========================================================================= -->
   <script src="data/er_catalog.js"></script>
-  <script src="data/questions_1_50.js"></script>
-  <script src="data/questions_51_100.js"></script>
-  <script src="data/questions_101_150.js"></script>
+  <script src="data/eer_clients_1_50.js"></script>
+  <script src="data/eer_clients_51_100.js"></script>
+  <script src="data/eer_clients_101_150.js"></script>
   <script src="engine2d.js"></script>
+  <script src="eer_canvas.js"></script>
   <script src="game.js"></script>
 
 </body>

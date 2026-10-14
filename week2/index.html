@@ -1,229 +1,249 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Database Systems Academy — Week 2: EER Modeling Studio (150 Challenges)</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>2-Hafta: Relatsion Sxemaga O'tkazish & draw.io Jadvallar Atelesi | Database Systems Academy</title>
+  
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ========================================================================
-       1. TOP EXECUTIVE HUD
-       ======================================================================== -->
-  <header class="exec-header">
-    <div class="brand-section">
-      <div class="brand-badge">DATABASE SYSTEMS • MODULE 02</div>
-      <div class="brand-title">
-        <h1>Conceptual Database & EER Modeling Studio</h1>
-        <p>Week 2: Binary, Multiplicity, Weak Entities, Association Classes, Recursive, Ternary & EER Hierarchies (150 Challenges)</p>
+  <!-- =========================================================================
+       TOP EXECUTIVE HUD
+       ========================================================================= -->
+  <header class="top-hud">
+    <div class="brand-box">
+      <div class="brand-emblem">🏛️</div>
+      <div>
+        <div class="brand-title">
+          Database Systems • 2-Modul <span class="badge-module">Relatsion Model</span>
+        </div>
+        <div class="brand-sub">Jadvallar (Tables), Birlamchi Kalit (PK), Tashqi Kalit (FK), Crow's Foot & Vorislik</div>
       </div>
     </div>
 
     <div class="hud-stats">
-      <div class="stat-box">
-        <span class="stat-label">Approved Schemas</span>
-        <span class="stat-value" id="hudProgressText">0 / 150 (0%)</span>
-        <div class="hud-progress-wrap">
-          <div class="hud-progress-bar" id="hudProgressBar"></div>
-        </div>
+      <div class="stat-pill" title="Sizning joriy kasbiy unvoningiz">
+        <span class="stat-label">Lavozim:</span>
+        <span id="hudRankTitle" class="stat-val cyan">Kichik Modeler</span>
       </div>
-      <div class="stat-box">
-        <span class="stat-label">Architect XP</span>
-        <span class="stat-value" id="hudXpText">0 XP</span>
+
+      <div class="stat-pill" title="Kompaniya sizga to'laydigan oylik maosh">
+        <span class="stat-label">Maosh:</span>
+        <span id="hudSalary" class="stat-val sage">$3,000/oy</span>
+      </div>
+
+      <div class="stat-pill" title="To'plangan umumiy me'moriy kapital">
+        <span class="stat-label">Kapital:</span>
+        <span id="hudCapital" class="stat-val gold">$0</span>
+      </div>
+
+      <div class="stat-pill" title="Bajarilgan topshiriqlar soni (150 tadan)">
+        <span class="stat-label">Bajarildi:</span>
+        <span id="hudSolved" class="stat-val gold">0 / 150</span>
+        <div class="progress-wrap">
+          <div id="hudProgressFill" class="progress-fill"></div>
+        </div>
       </div>
     </div>
 
     <div class="hud-actions">
-      <a href="../index.html" class="btn-hud" style="text-decoration:none;" title="Return to Academy Hub"><span>←</span> Academy Hub</a>
-      <button class="btn-hud primary" id="btnOpenMap" title="Interactive 150 Challenge Map">
-        <span>🗺</span> 150 Question Map
-      </button>
-      <button class="btn-hud danger" id="btnResetProgress" title="Clear Progress Data">
-        <span>🔄</span> Reset Progress
-      </button>
+      <a href="../index.html" class="btn" title="Asosiy Xabga qaytish">← Asosiy Xab</a>
+      <button id="btnTriggerEvent" class="btn btn-event" title="Korporativ kutilmagan vaziyat">⚡ Insident</button>
+      <button id="btnOpenMap" class="btn" title="150 ta savollar xaritasi">🗺️ Xarita</button>
+      <button id="btnResetProgress" class="btn" title="Natijalarni qayta o'rnatish">🔄</button>
+      <button id="btnToggleSound" class="btn" title="Ovozni yoqish / o'chirish">🔊</button>
     </div>
   </header>
 
-  <!-- ========================================================================
-       2. 10-FLOOR SECTOR RAIL
-       ======================================================================== -->
-  <nav class="floor-rail-wrap">
-    <div class="floor-rail" id="floorRail">
-      <!-- Injected dynamically by game.js -->
-    </div>
+  <!-- =========================================================================
+       10 SECTOR NAVIGATION BAR
+       ========================================================================= -->
+  <nav class="sector-bar" id="sectorNavList">
+    <!-- Injected dynamically by game.js -->
   </nav>
 
-  <!-- ========================================================================
-       3. MAIN WORKSPACE CONTAINER (TWO COLUMNS)
-       ======================================================================== -->
-  <main class="main-layout">
-    
-    <!-- LEFT COLUMN: 2D ATELIER SCENE & DRAW.IO-STYLE EER CANVAS -->
+  <!-- =========================================================================
+       MAIN 2-COLUMN WORKSPACE
+       ========================================================================= -->
+  <main class="main-grid">
+
+    <!-- LEFT COLUMN: 2D ATELIER & RELATIONAL SCHEMA CANVAS -->
     <section class="left-col">
-      
-      <!-- UNIFIED ARCHITECT WORKSTATION: CONSULTATION DESK + DRAFTING BOARD -->
-      <div class="atelier-workstation">
-        <!-- 2D Panoramic Consultation Desk (Atlas & Client & Live Dialogue) -->
-        <div class="atelier-consultation-banner">
-          <canvas id="officeCanvas" width="960" height="110"></canvas>
+
+      <!-- 1. 2D Consultation Board Banner -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🎨 Bosh Me'mor Atlas Relatsion Konsultatsiya Zali</span>
+          </div>
+        </div>
+        <div class="consultation-wrap">
+          <canvas id="consultCanvas"></canvas>
+        </div>
+        <div class="office-ticker">
+          <span class="ticker-badge" id="tickerSpeaker">BOSH ME'MOR ATLAS</span>
+          <span id="tickerMessage">Assalomu alaykum! Mantiqiy relyatsion jadvallarni va Crow's Foot aloqalarini shakllantiring.</span>
+        </div>
+      </div>
+
+      <!-- 2. Relational Schema Canvas (draw.io Table Boxes) -->
+      <div class="panel-card" style="flex:1;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>📊 draw.io Relyatsion Jadvallar & Crow's Foot Polotnosi</span>
+          </div>
         </div>
 
-        <!-- Built-in Draw.io-Style Interactive Visual EER Canvas -->
-        <div id="eerBoardContainer" class="eer-board-container"></div>
+        <!-- Interactive Table Board -->
+        <div class="canvas-container" id="relCanvasContainer">
+          <!-- SVG Crow's Foot lines and HTML Table Boxes rendered dynamically -->
+        </div>
+
+        <div style="padding:7px 12px; background:#1b1612; border-top:1px solid var(--border-subtle); font-size:11px; color:var(--text-muted); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
+          <span>💡 <em>Eslatma:</em> Jadvallarni surib qulay joylashtirishingiz mumkin. Tashqi kalitlar (FK) ota jadvallarga avtomatik bog'lanadi.</span>
+          <span style="color:var(--accent-gold);">draw.io Relational Schema Standard</span>
+        </div>
       </div>
 
     </section>
 
-    <!-- RIGHT COLUMN: CLIENT CONSULTATION, TASK & VERIFICATION CONSOLE -->
-    <aside class="right-col">
-      
-      <!-- Question Header & Badges -->
-      <div class="case-header-card">
-        <div class="case-badges">
-          <span class="badge floor" id="qFloorBadge">Floor 1</span>
-          <span class="badge number" id="qNumberBadge">Challenge 1 / 150</span>
-          <span class="badge diff" id="qDifficultyBadge">Beginner</span>
-        </div>
-        <h2 class="case-title" id="qTitle">Bank Filiallari va Xodimlar Tizimi</h2>
-      </div>
+    <!-- RIGHT COLUMN: MISSION DOSSIER & SCHEMA EDITOR WORKBENCH -->
+    <section class="right-col">
 
-      <!-- Client Briefing Card -->
-      <div class="client-brief-card">
-        <div class="client-profile">
-          <div class="client-avatar-frame">
-            <div class="client-avatar-icon">👤</div>
+      <!-- 1. Mission Dossier Card -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span id="floorHeaderTitle">1-Qavat: Yagona Mustaqil Jadvallar</span>
           </div>
-          <div class="client-meta">
-            <h3 id="clientName">Alisher Zokirov</h3>
-            <p id="clientRole">'Orient Bank' Boshqaruv Raisi</p>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <button id="btnPrevQ" class="btn" style="padding:3px 8px;">◀ Oldingi</button>
+            <button id="btnNextQ" class="btn" style="padding:3px 8px;">Keyingi ▶</button>
           </div>
-        </div>
-        
-        <div class="client-speech-wrap">
-          <span class="speech-quote-mark">“</span>
-          <p class="client-story-text" id="clientStory">
-            Assalomu alaykum, Me'mor! Bizning bankda filiallar (Branch) va ularda ishlovchi xodimlar (Staff) mavjud...
-          </p>
         </div>
 
-        <div class="task-spec-wrap">
-          <div class="task-spec-label">
-            <span>🎯</span> Architectural Task:
-          </div>
-          <div class="task-spec-content" id="taskText">
-            'Branch' va 'Staff' entitiylarini bog'lang. Branch tomoniga '1..1', Staff tomoniga '1..*' multiplisitiysini qo'ying.
-          </div>
+        <!-- 15 Dots Strip -->
+        <div class="q-strip" id="floorQuestionStrip">
+          <!-- Injected dynamically -->
         </div>
-      </div>
 
-      <!-- Professor Atlas Consultation Hint -->
-      <div class="atlas-hint-section">
-        <button class="btn-hint" id="btnShowHint">
-          <span>💡</span> Get Architect Hint
-        </button>
-        <div class="hint-box" id="hintBox" style="display: none;">
-          Professor Atlas maslahati: Filial tomonga 1..1, Xodim tomonga 1..* qo'yiladi.
-        </div>
-      </div>
+        <div class="mission-body">
+          <div id="sectorSubTitle" style="font-size:11px; color:var(--text-muted); font-weight:600;"></div>
 
-      <!-- Verification Diagnostic Feedback Console -->
-      <div class="feedback-container">
-        <div class="feedback-box idle" id="feedbackBox">
-          <div class="feedback-icon">📐</div>
-          <div class="feedback-content">
-            <h4>Drafting Mode</h4>
-            <p>Draft the EER diagram on the canvas according to client requirements, then click "Submit to Client".</p>
+          <div class="mission-meta">
+            <span id="qNumberBadge" class="badge-diff">Topshiriq #1 / 150</span>
+            <span id="qDifficultyBadge" class="badge-diff">Boshlang'ich</span>
+            <span id="qSourceBadge" class="badge-source">L02 Slide 34 • Schema</span>
           </div>
+
+          <h3 id="qTitle" class="mission-title">Yuklanmoqda...</h3>
+
+          <!-- Client Dialogue Box -->
+          <div class="client-dialogue-box">
+            <div class="client-avatar">💼</div>
+            <div class="client-text" id="clientDialogue">
+              Mijozning biznes talablari yuklanmoqda...
+            </div>
+          </div>
+
+          <!-- Mission Task -->
+          <div class="mission-task">
+            <span class="task-label">🎯 TALAB ETILGAN RELATSION JADVAL:</span>
+            <div id="qTask" class="task-desc">...</div>
+          </div>
+
+          <!-- Hint Accordion -->
+          <div id="qHintBox" class="hint-box"></div>
         </div>
       </div>
 
-      <!-- Submission & Navigation Controls -->
-      <div class="action-footer">
-        <button class="btn-submit-action" id="btnSubmitDiagram">
-          <span>🏛</span> Submit to Client
-        </button>
-        
-        <div class="nav-btn-group">
-          <button class="btn-nav" id="btnPrevQuestion" title="Previous Question (Ctrl+Left)">
-            <span>❮</span> Previous
-          </button>
-          <button class="btn-nav primary" id="btnNextQuestion" title="Next Question (Ctrl+Right)">
-            Next <span>❯</span>
-          </button>
+      <!-- 2. Schema Code Editor & Workbench -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>⚙️ Relyatsion Sxema Muharriri & Tekshiruv</span>
+          </div>
+        </div>
+
+        <div class="action-box">
+          <div style="font-size:11.5px; color:var(--text-muted);">Tezkor Sintaksis Tokenlari:</div>
+          <div class="quick-tokens-bar">
+            <button type="button" class="token-chip" data-token="Table Name {\n  id int [pk]\n}">Table</button>
+            <button type="button" class="token-chip" data-token="[pk]">[pk]</button>
+            <button type="button" class="token-chip" data-token="[ref: > Other.id]">[ref: > Table.pk]</button>
+            <button type="button" class="token-chip" data-token="varchar">varchar</button>
+            <button type="button" class="token-chip" data-token="int">int</button>
+          </div>
+
+          <!-- Textarea Editor -->
+          <textarea id="schemaInput" placeholder="Table Name { column type [pk] ... }" spellcheck="false"></textarea>
+
+          <div class="action-bar">
+            <div class="action-left">
+              <button id="btnVerifySchema" class="btn btn-primary">✅ Sxemani Tekshirish</button>
+              <button id="btnResetCode" class="btn">📋 Qayta Tiklash</button>
+              <button id="btnToggleHint" class="btn">💡 Maslahat</button>
+            </div>
+          </div>
+
+          <!-- Feedback notification container -->
+          <div id="feedbackBox" class="feedback-box"></div>
         </div>
       </div>
 
-    </aside>
+    </section>
 
   </main>
 
-  <!-- ========================================================================
-       4. 150 QUESTIONS GRID MAP MODAL
-       ======================================================================== -->
-  <div class="eer-modal-backdrop" id="mapModal" style="display: none;">
-    <div class="eer-modal-card map-modal-card">
+  <!-- =========================================================================
+       MODALS
+       ========================================================================= -->
+
+  <!-- 1. Question Map Modal -->
+  <div id="mapModal" class="modal-backdrop">
+    <div class="modal-card">
       <div class="modal-header">
-        <h3><span>🗺</span> 150 EER Challenge Map</h3>
-        <button class="modal-close-btn" id="mapModalClose">×</button>
+        <div class="modal-title">🗺️ 150 ta Relyatsion Sxema Topshiriqlari Xaritasi (10 ta Qavat)</div>
+        <button class="modal-close" id="btnCloseMap">&times;</button>
       </div>
-      <div class="modal-body">
-        <p class="map-modal-desc">
-          Select any challenge number to jump directly to its conceptual EER specification:
-        </p>
-        <div class="map-grid" id="mapGrid">
-          <!-- 150 cells injected by game.js -->
-        </div>
+      <div class="modal-body" id="mapModalBody">
+        <!-- Rendered dynamically -->
       </div>
     </div>
   </div>
 
-  <!-- EER Subclass Modal -->
-  <div class="eer-modal-backdrop" id="eerSubclassModal" style="display: none;">
-    <div class="eer-modal-card">
+  <!-- 2. Modeling Incident Modal -->
+  <div id="eventModal" class="modal-backdrop">
+    <div class="modal-card">
       <div class="modal-header">
-        <h3><span>⛛</span> Configure EER Subclass Hierarchy</h3>
-        <button class="modal-close-btn" id="eerModalClose">×</button>
+        <div class="modal-title">⚡ Korporativ Arxitektura Insidenti & Voqealik</div>
+        <button class="modal-close" id="btnCloseEvent">&times;</button>
       </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label>Superclass (Parent Entity):</label>
-          <select id="eerSuperclassSelect" class="eer-input"></select>
-        </div>
-        <div class="form-group">
-          <label>Specialization Constraint:</label>
-          <select id="eerConstraintSelect" class="eer-input">
-            <option value="{Mandatory, Or}">{Mandatory, Or} — Mandatory & Disjoint</option>
-            <option value="{Optional, Or}">{Optional, Or} — Optional & Disjoint</option>
-            <option value="{Mandatory, And}">{Mandatory, And} — Mandatory & Overlapping</option>
-            <option value="{Optional, And}">{Optional, And} — Optional & Overlapping</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Subclasses (Child Entities):</label>
-          <div id="eerSubclassList" class="subclass-checkboxes"></div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-modal cancel" id="eerModalCancel">Cancel</button>
-        <button class="btn-modal confirm" id="eerModalConfirm">Apply Hierarchy</button>
+      <div class="modal-body" id="eventModalBody">
+        <!-- Rendered dynamically -->
       </div>
     </div>
   </div>
 
-  <!-- ========================================================================
-       5. JAVASCRIPT DEPENDENCIES & ENGINES
-       ======================================================================== -->
-  <script src="data/eer_catalog.js"></script>
-  <script src="data/eer_clients_1_50.js"></script>
-  <script src="data/eer_clients_51_100.js"></script>
-  <script src="data/eer_clients_101_150.js"></script>
+  <!-- =========================================================================
+       SCRIPTS
+       ========================================================================= -->
+  <script src="data/relational_catalog.js"></script>
+  <script src="data/questions_1_50.js"></script>
+  <script src="data/questions_51_100.js"></script>
+  <script src="data/questions_101_150.js"></script>
   <script src="engine2d.js"></script>
-  <script src="eer_canvas.js"></script>
+  <script src="relational_canvas.js"></script>
   <script src="game.js"></script>
 
 </body>

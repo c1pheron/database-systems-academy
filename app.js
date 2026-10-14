@@ -1,21 +1,21 @@
 // ============================================================================
-// DATABASE SYSTEMS INTERACTIVE ACADEMY — MASTER HUB APPLICATION LOGIC
-// Telegram Mini App SDK Integration, Unified Progress Sync & Career Engine
+// DATABASE SYSTEMS ACADEMY — MASTER HUB APPLICATION LOGIC
+// Telegram Mini App SDK, 6 ta Modul Natijalarini Sinxronlash va Karyera Tizimi
 // ============================================================================
 
 (function () {
   "use strict";
 
-  // Career Titles by Challenge Threshold
+  // Korporativ Karyera Pog'onalari
   const CAREER_LADDER = [
-    { threshold: 0,   title: "Junior Data Modeler",       rank: "Novice" },
-    { threshold: 50,  title: "Conceptual ER Designer",     rank: "Apprentice" },
-    { threshold: 150, title: "Relational Schema Analyst",  rank: "Specialist" },
-    { threshold: 300, title: "EER & Hierarchy Engineer",   rank: "Engineer" },
-    { threshold: 450, title: "Normalization Strategist",   rank: "Senior" },
-    { threshold: 600, title: "SQL Query Master",           rank: "Lead" },
-    { threshold: 750, title: "Transaction & ACID Lead",    rank: "Expert" },
-    { threshold: 850, title: "Principal Database Architect", rank: "Master" }
+    { threshold: 0,   title: "Kichik Modeler (Junior Modeler)" },
+    { threshold: 50,  title: "Konseptual EER Me'mori" },
+    { threshold: 150, title: "Relyatsion Sxema Muhandisi" },
+    { threshold: 300, title: "Normalizatsiya & Algebra Mutaxassisi" },
+    { threshold: 450, title: "Katta SQL So'rovlar Me'mori" },
+    { threshold: 600, title: "Tranzaksiyalar & ACID Yetakchisi" },
+    { threshold: 750, title: "NoSQL & Taqsimlangan Klaster Eksperti" },
+    { threshold: 850, title: "Bosh Arxitektor & Hamkor (Penthouse)" }
   ];
 
   const MODULE_STORAGE_KEYS = {
@@ -29,11 +29,11 @@
 
   // State
   const state = {
-    userName: "Database Explorer",
+    userName: "Ma'lumotlar Me'mori",
     userHandle: "@explorer",
     totalSolved: 0,
     totalChallenges: 900,
-    totalXp: 0,
+    totalCapital: 0,
     moduleProgress: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }
   };
 
@@ -45,12 +45,11 @@
         tg.ready();
         tg.expand();
 
-        // Enable closing confirmation if supported
         if (tg.enableClosingConfirmation) tg.enableClosingConfirmation();
 
-        // Set theme colors
-        if (tg.setHeaderColor) tg.setHeaderColor("#080f1d");
-        if (tg.setBackgroundColor) tg.setBackgroundColor("#050914");
+        // Luxury Walnut Header & Background colors
+        if (tg.setHeaderColor) tg.setHeaderColor("#1b1713");
+        if (tg.setBackgroundColor) tg.setBackgroundColor("#151210");
 
         // Grab user profile
         const user = tg.initDataUnsafe && tg.initDataUnsafe.user;
@@ -67,7 +66,7 @@
   // 2. Load Local Storage Progress
   function loadUnifiedProgress() {
     let grandTotalSolved = 0;
-    let grandTotalXp = 0;
+    let grandTotalCapital = 0;
 
     for (let w = 1; w <= 6; w++) {
       const key = MODULE_STORAGE_KEYS[w];
@@ -78,7 +77,7 @@
           const solvedCount = Array.isArray(parsed.solvedIds) ? parsed.solvedIds.length : (parsed.solvedCount || 0);
           state.moduleProgress[w] = solvedCount;
           grandTotalSolved += solvedCount;
-          grandTotalXp += (parsed.xp || solvedCount * 25);
+          grandTotalCapital += (parsed.score || parsed.capital || solvedCount * 100);
         } else {
           state.moduleProgress[w] = 0;
         }
@@ -88,7 +87,7 @@
     }
 
     state.totalSolved = grandTotalSolved;
-    state.totalXp = grandTotalXp;
+    state.totalCapital = grandTotalCapital;
   }
 
   // 3. Compute Career Rank
@@ -104,7 +103,6 @@
 
   // 4. Update UI Elements
   function renderUI() {
-    // Player Info
     const elName = document.getElementById("hudUserName");
     const elRank = document.getElementById("hudUserRank");
     const elSolved = document.getElementById("hudSolvedTotal");
@@ -117,28 +115,21 @@
     if (elName) elName.textContent = state.userName;
     if (elRank) elRank.textContent = currentRank.title;
     if (elSolved) elSolved.textContent = `${state.totalSolved} / ${state.totalChallenges}`;
-    if (elXp) elXp.textContent = `${state.totalXp.toLocaleString()} XP`;
+    if (elXp) elXp.textContent = `$${state.totalCapital.toLocaleString()}`;
 
     const percentage = Math.round((state.totalSolved / state.totalChallenges) * 100);
     if (elProgressFill) elProgressFill.style.width = `${percentage}%`;
-    if (elProgressPercent) elProgressPercent.textContent = `${percentage}% Complete`;
+    if (elProgressPercent) elProgressPercent.textContent = `${percentage}% Bajarildi`;
 
     // Per-Module Card Progress
     for (let w = 1; w <= 6; w++) {
       const solved = state.moduleProgress[w] || 0;
-      const textEl = document.getElementById(`modProgressTextW${w}`);
-      const btnEl = document.getElementById(`btnLaunchW${w}`);
-
-      if (textEl) {
-        textEl.textContent = `${solved} / 150 Solved (${Math.round((solved / 150) * 100)}%)`;
-      }
-      if (btnEl) {
+      const valEl = document.getElementById(`w${w}ProgressVal`);
+      if (valEl) {
+        valEl.textContent = `${solved} / 150 (${Math.round((solved / 150) * 100)}%)`;
         if (solved >= 150) {
-          btnEl.innerHTML = `Completed ✓`;
-          btnEl.style.borderColor = "var(--accent-emerald)";
-          btnEl.style.background = "rgba(16, 185, 129, 0.2)";
-        } else if (solved > 0) {
-          btnEl.innerHTML = `Continue (${solved}/150) →`;
+          valEl.style.color = "#84b89c";
+          valEl.textContent = "Bajarildi ✓ (150/150)";
         }
       }
     }

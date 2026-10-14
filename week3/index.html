@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Database Systems Academy — Week 3: SQL DDL & Schema Foundry (150 Challenges)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>3-Hafta: SQL DDL, Cheklovlar & Relyatsion Algebra | Database Systems Academy</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,37 +17,37 @@
        ======================================================================== -->
   <header class="exec-header">
     <div class="brand-section">
-      <div class="brand-badge">DATABASE SYSTEMS • MODULE 03</div>
+      <div class="brand-badge">DATABASE SYSTEMS • 3-MODUL</div>
       <div class="brand-title">
-        <h1>Data Architecture & SQL DDL Foundry</h1>
-        <p>Week 3: DDL Fundamentals, Constraints, Referential Actions & Relational Algebra (150 Challenges)</p>
+        <h1>Ma'lumotlar Arxitekturasi & SQL DDL Foundry</h1>
+        <p>3-Modul: DDL Asoslari, Cheklovlar (Constraints), Relyatsion Algebra & Normalizatsiya (150 Keys)</p>
       </div>
     </div>
 
     <div class="hud-stats">
       <div class="stat-box">
-        <span class="stat-label">Solved</span>
+        <span class="stat-label">Bajarildi:</span>
         <span class="stat-value" id="hudProgressText">0 / 150 (0%)</span>
         <div class="hud-progress-wrap">
           <div class="hud-progress-bar" id="hudProgressBar"></div>
         </div>
       </div>
       <div class="stat-box">
-        <span class="stat-label">Engineering XP</span>
+        <span class="stat-label">Me'moriy Kapital:</span>
         <span class="stat-value" id="hudXpText">0 XP</span>
       </div>
     </div>
 
     <div class="hud-actions">
-      <a href="../index.html" class="btn-hud" style="text-decoration:none;" title="Return to Academy Hub"><span>←</span> Academy Hub</a>
-      <button class="btn-hud primary" id="btnOpenMap" title="Explore All 150 Challenges">
-        <span>🗺</span> 150 Question Map
+      <a href="../index.html" class="btn-hud" style="text-decoration:none;" title="Asosiy Xabga qaytish"><span>←</span> Asosiy Xab</a>
+      <button class="btn-hud primary" id="btnOpenMap" title="150 ta Keys Xaritasi">
+        <span>🗺</span> 150 ta Savol
       </button>
-      <button class="btn-hud" id="btnOpenEvents" title="Architecture Events & Real-World Dilemmas">
-        <span>⚡</span> System Events
+      <button class="btn-hud" id="btnOpenEvents" title="Korporativ Tizim Insidentlari">
+        <span>⚡</span> Insidentlar
       </button>
-      <button class="btn-hud" id="btnResetProgress" title="Clear Progress Data">
-        <span>🔄</span> Reset Progress
+      <button class="btn-hud" id="btnResetProgress" title="Natijalarni qayta o'rnatish">
+        <span>🔄</span> Qayta O'rnatish
       </button>
     </div>
   </header>
@@ -166,21 +166,21 @@
       <div class="action-bar">
         <div class="action-bar-left">
           <button class="btn-action run-btn" id="btnRun">
-            <span>▶</span> Run & Test
+            <span>▶</span> Bajarish & Tekshirish
           </button>
           <button class="btn-action hint-btn" id="btnHint">
-            <span>💡</span> Hint
+            <span>💡</span> Maslahat
           </button>
           <button class="btn-action" id="btnPreviewSchema">
-            <span>👁</span> Expected Schema
+            <span>👁</span> Kutilgan Sxema
           </button>
           <button class="btn-action" id="btnSampleSol">
-            <span>🔑</span> Sample Solution
+            <span>🔑</span> Namunaviy Yechim
           </button>
         </div>
         <div style="display: flex; gap: 6px;">
-          <button class="btn-action" id="btnPrev">◀ Prev</button>
-          <button class="btn-action" id="btnNext">Next ▶</button>
+          <button class="btn-action" id="btnPrev">◀ Oldingi</button>
+          <button class="btn-action" id="btnNext">Keyingi ▶</button>
         </div>
       </div>
 

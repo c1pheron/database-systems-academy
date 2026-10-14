@@ -698,5 +698,17 @@
     renderQuestionDossier();
     switchSchemaTab("emp");
     startTicker();
+
+    // Telegram WebApp Integration & Desktop Focus Fix
+    if (window.Telegram && window.Telegram.WebApp) {
+      try {
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+      } catch (e) {}
+    }
+    document.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('click', () => { el.focus(); });
+    });
   });
 })();
+
