@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Database Systems Academy — Week 5: Joins, Aggregation & Storage Architecture (150 Challenges)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+  <!-- TOP EXECUTIVE HUD -->
+  <header class="top-hud">
+    <div class="brand-box">
+      <div class="brand-emblem">🏛</div>
+      <div>
+        <div class="brand-title">DATABASE SYSTEMS ACADEMY • MODULE 05</div>
+        <div class="brand-sub">Corporate Headquarters • Week 5: 150-Stage Joins & Storage Simulator</div>
+      </div>
+    </div>
+
+    <div class="hud-stats">
+      <div class="stat-pill">
+        <span class="stat-label">Rank:</span>
+        <span class="stat-val gold" id="hudRankTitle">Stajyor Tahlilchi</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Salary:</span>
+        <span class="stat-val sage" id="hudSalary">$1,500/oy</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Bonus:</span>
+        <span class="stat-val gold" id="hudCapital">$0</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Solved:</span>
+        <span class="stat-val" id="hudSolved">0 / 150</span>
+        <div class="progress-wrap">
+          <div class="progress-fill" id="hudProgressFill"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hud-actions">
+      <a href="../index.html" class="btn" style="text-decoration:none;" title="Return to Academy Hub">← Academy Hub</a>
+      <button class="btn btn-event" id="btnTriggerEvent" title="Hamkasblar bilan ofis voqeasi va kofe-breyk">
+        ☕ Office Event (<span id="eventBadgeCount">New</span>)
+      </button>
+      <button class="btn" id="btnOpenMap">🗺 150 Question Map</button>
+      <button class="btn" id="btnResetProgress" title="Natijalarni noldan boshlash">↺</button>
+    </div>
+  </header>
+
+  <!-- 10 CORPORATE FLOORS NAVIGATION BAR -->
+  <nav class="sector-bar" id="sectorBar"></nav>
+
+  <!-- MAIN 2-COLUMN WORKSPACE -->
+  <main class="main-grid">
+
+    <!-- LEFT COLUMN: 2D REAL-LIFE CORPORATE OFFICE & LIVE TABLES -->
+    <section class="left-col">
+
+      <!-- 2D Corporate Office Canvas -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🏢</span>
+            <span id="floorHeaderTitle">1-Qavat: Korporativ Ofis & Baza Muhiti</span>
+          </div>
+          <div style="font-size: 11.5px; color: var(--text-muted);">
+            Xodim ustiga bosing yoki <b>WASD</b> orqali yuring
+          </div>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="gameCanvas" width="860" height="380"></canvas>
+        </div>
+
+        <div class="office-ticker">
+          <div class="ticker-text">
+            <span class="ticker-badge" id="tickerSpeaker">🔔 Ofis Xabari</span>
+            <span id="tickerMessage">Nyu-York, Dallas va Chikago bo'limlaridan jonli ma'lumotlar oqimi ulangan.</span>
+          </div>
+          <button class="btn" id="btnQuickEvent" style="padding: 4px 10px; font-size: 11.5px;">
+            💬 Hamkasb bilan suhbat
+          </button>
+        </div>
+      </div>
+
+      <!-- Corporate Database Reference Tables -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🗂</span>
+            <span>Korporativ Baza Jadvallari (Jonli Ma'lumotnoma)</span>
+          </div>
+          <div class="schema-tabs">
+            <button class="schema-tab active" data-table="emp">emp (14 xodim)</button>
+            <button class="schema-tab" data-table="dept">dept (4 bo'lim)</button>
+            <button class="schema-tab" data-table="salgrade">salgrade (5 razryad)</button>
+            <button class="schema-tab" data-table="project">project (5 loyiha)</button>
+            <button class="schema-tab" data-table="works_on">works_on (16 ta)</button>
+            <button class="schema-tab" data-table="customer">customer (Chinook)</button>
+            <button class="schema-tab" data-table="storage_pages">storage_pages (Pages)</button>
+            <button class="schema-tab" data-table="result">📊 So'rov Natijasi</button>
+          </div>
+        </div>
+        <div class="table-scroll" id="schemaTableContainer"></div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT COLUMN: EXECUTIVE MISSION DOSSIER & SQL ENGINE -->
+    <section class="right-col">
+
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>📋</span>
+            <span id="sectorSubTitle">Qavat Topshiriqlari (15 ta bosqich)</span>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <button class="btn" id="btnPrevQ" style="padding:4px 10px;">◀ Prev</button>
+            <button class="btn" id="btnNextQ" style="padding:4px 10px;">Next ▶</button>
+          </div>
+        </div>
+
+        <!-- 15 Question Dots for current floor -->
+        <div class="q-strip" id="floorQuestionStrip"></div>
+
+        <!-- Dossier Briefing -->
+        <div class="mission-body">
+          <div class="mission-meta">
+            <span class="badge-diff" id="qDifficultyBadge">1-Qavat • Oson</span>
+            <span class="badge-source" id="qSourceBadge">L05 & S05</span>
+          </div>
+
+          <h2 class="mission-title" id="qTitle">1. Dallas Bo'limidagi Xodimlar</h2>
+
+          <div class="story-box" id="qStory"></div>
+
+          <div class="task-box">
+            <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:#9ec4a5; font-weight:700; margin-bottom:4px;">
+              📌 Texnik Topshiriq (Kodni o'zingiz yozing):
+            </div>
+            <div id="qTaskUz"></div>
+          </div>
+
+          <!-- SQL Editor -->
+          <div class="editor-wrap">
+            <div class="token-bar" id="tokenBar"></div>
+            <textarea
+              id="sqlInput"
+              spellcheck="false"
+              placeholder="SQL so'rovingizni shu yerga yozing... (Masalan: SELECT ... FROM ... JOIN ... ON ...)"
+            ></textarea>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-bar">
+            <div class="action-left">
+              <button class="btn btn-primary" id="btnRunSql">
+                ✓ Hisobotni Tekshirish (Ctrl+Enter)
+              </button>
+              <button class="btn" id="btnShowHint">💡 Maslahat (Hint)</button>
+              <button class="btn" id="btnPreviewExpected">👁 Kutilayotgan Natija</button>
+            </div>
+            <div class="action-right">
+              <button class="btn" id="btnRevealAnswer" title="Favqulodda holatda namuna yechimni ko'rish">
+                🔑 Namuna Yechim
+              </button>
+            </div>
+          </div>
+
+          <!-- Hint & Feedback Boxes -->
+          <div class="hint-box" id="hintBox"></div>
+          <div class="feedback-box" id="feedbackBox"></div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- MODAL 1: REAL-LIFE OFFICE STORY EVENT ("VOQEALIK") -->
+  <div class="modal-backdrop" id="eventModal">
+    <div class="modal-card">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>☕</span>
+          <span id="eventModalTitle">Korporativ Voqea • Jonli Muloqot</span>
+        </div>
+        <button class="btn" id="btnCloseEventModal">✕ Yopish</button>
+      </div>
+      <div class="modal-body">
+        <div class="event-speaker-row">
+          <div class="event-avatar" id="eventAvatar">👔</div>
+          <div>
+            <div style="font-weight:700; color:var(--accent-gold-bright);" id="eventSpeakerName">CLARK</div>
+            <div style="font-size:12px; color:var(--text-muted);" id="eventSpeakerRole">10-Bo'lim Menejeri</div>
+          </div>
+        </div>
+        <div class="story-box" id="eventNarrative" style="font-size:13.5px;"></div>
+        <div style="font-size:12px; color:var(--text-secondary); font-weight:600;">
+          Qanday qaror qabul qilasiz?
+        </div>
+        <div class="event-choices" id="eventChoicesContainer"></div>
+        <div class="feedback-box" id="eventOutcomeBox"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: 150 QUESTIONS OVERVIEW MAP -->
+  <div class="modal-backdrop" id="mapModal">
+    <div class="modal-card">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>🗺</span>
+          <span>Bosh Ofisning Barcha 150 Ta SQL & Storage Sinovi Xaritasi (1–150)</span>
+        </div>
+        <button class="btn" id="btnCloseMapModal">✕ Yopish</button>
+      </div>
+      <div class="modal-body">
+        <div style="font-size:12.5px; color:var(--text-secondary);">
+          Istalgan savol raqamini bosib, o'sha qavat va topshiriqqa o'tishingiz mumkin:
+        </div>
+        <div class="map-grid" id="fullQuestionMapGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="data/company_db.js"></script>
+  <script src="data/questions_1_50.js"></script>
+  <script src="data/questions_51_100.js"></script>
+  <script src="data/questions_101_150.js"></script>
+  <script src="engine2d.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

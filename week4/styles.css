@@ -1,0 +1,736 @@
+/* ============================================================================
+   KORPORATIV BOSH OFIS: MA'LUMOTLAR ARXITEKTORI — LUXURY EXECUTIVE THEME
+   Tabiiy, jiddiy, ko'zga yoqimli ranglar: Yong'oq daraxti (Walnut),
+   To'q Konyak/Espresso, Shampan Oltini (#c8a96e), Tabiiy Mavrak Yashil (#5c8d73)
+   va Iliq Fil Suyagi (Warm Ivory #f2ede4). Hech qanday neon ranglar yo'q!
+   ============================================================================ */
+
+:root {
+  --bg-deep: #151210;
+  --bg-panel: #1e1916;
+  --bg-card: #27211c;
+  --bg-card-hover: #302822;
+  --bg-input: #171311;
+
+  --border-subtle: rgba(200, 169, 110, 0.18);
+  --border-gold: rgba(200, 169, 110, 0.45);
+
+  --text-primary: #f2ede4;
+  --text-secondary: #c4bbb0;
+  --text-muted: #8c8276;
+
+  --accent-gold: #c8a96e;
+  --accent-gold-bright: #dfc288;
+  --accent-sage: #5c8d73;
+  --accent-sage-soft: rgba(92, 141, 115, 0.18);
+  --accent-terracotta: #c46d58;
+  --accent-amber: #d19a52;
+
+  --shadow-luxury: 0 10px 28px rgba(0, 0, 0, 0.45);
+  --radius-md: 10px;
+  --radius-sm: 6px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-deep);
+  background-image: radial-gradient(circle at 50% 0%, #26201a 0%, #151210 75%);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ============================================================================
+   TOP EXECUTIVE HEADER
+   ============================================================================ */
+.top-hud {
+  background: linear-gradient(180deg, #241e19 0%, #1b1713 100%);
+  border-bottom: 1px solid var(--border-gold);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  z-index: 20;
+}
+
+.brand-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-emblem {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #382c21, #211a14);
+  border: 1px solid var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  color: var(--accent-gold);
+}
+
+.brand-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--text-primary);
+}
+
+.brand-sub {
+  font-size: 11.5px;
+  color: var(--accent-gold);
+}
+
+.hud-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stat-pill {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 13px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.stat-val {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.stat-val.gold {
+  color: var(--accent-gold-bright);
+}
+
+.stat-val.sage {
+  color: #84b89c;
+}
+
+.progress-wrap {
+  width: 120px;
+  height: 7px;
+  background: #14110f;
+  border-radius: 99px;
+  overflow: hidden;
+  border: 1px solid rgba(200, 169, 110, 0.2);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-sage));
+  width: 0%;
+  transition: width 0.35s ease;
+}
+
+.hud-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================================================
+   BUTTONS (WARM NATURAL EXECUTIVE BUTTONS)
+   ============================================================================ */
+.btn {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  padding: 7px 13px;
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+}
+
+.btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-gold);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #b89555 0%, #99783d 100%);
+  color: #14110e;
+  border: 1px solid #d4b67b;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(180deg, #c9a664 0%, #ab8849 100%);
+  color: #0f0c0a;
+}
+
+.btn-event {
+  background: rgba(92, 141, 115, 0.18);
+  border: 1px solid rgba(124, 154, 130, 0.55);
+  color: #cce3d4;
+}
+
+.btn-event:hover {
+  background: rgba(92, 141, 115, 0.3);
+  border-color: #8fb896;
+}
+
+/* ============================================================================
+   FLOOR (SECTOR) BAR — 10 CORPORATE FLOORS
+   ============================================================================ */
+.sector-bar {
+  background: #1a1613;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.sector-tab {
+  background: #231e1a;
+  border: 1px solid rgba(200, 169, 110, 0.14);
+  color: var(--text-secondary);
+  padding: 6px 11px;
+  border-radius: var(--radius-sm);
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sector-tab:hover {
+  background: #2c2520;
+  color: var(--text-primary);
+}
+
+.sector-tab.active {
+  background: linear-gradient(180deg, #332920 0%, #282019 100%);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold-bright);
+  font-weight: 600;
+}
+
+.sector-tab.completed {
+  border-color: rgba(92, 141, 115, 0.55);
+  color: #9ec4a5;
+}
+
+/* ============================================================================
+   MAIN 2-COLUMN WORKSPACE
+   ============================================================================ */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 1fr;
+  gap: 16px;
+  padding: 14px 20px;
+  flex: 1;
+  max-width: 1760px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1180px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.left-col,
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.panel-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-luxury);
+  overflow: hidden;
+}
+
+.panel-header {
+  background: linear-gradient(180deg, #27211c 0%, #211c17 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.panel-title {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--accent-gold);
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* ============================================================================
+   2D REAL-LIFE CORPORATE OFFICE CANVAS
+   ============================================================================ */
+.canvas-wrap {
+  position: relative;
+  background: #1f1915;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+#gameCanvas {
+  width: 100%;
+  height: auto;
+  max-height: 365px;
+  display: block;
+  cursor: pointer;
+}
+
+/* Office News / Live Event Banner under 2D canvas */
+.office-ticker {
+  background: #241e19;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.ticker-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ticker-badge {
+  background: rgba(200, 169, 110, 0.16);
+  color: var(--accent-gold-bright);
+  border: 1px solid rgba(200, 169, 110, 0.35);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ============================================================================
+   COMPANY DATABASE REFERENCE TABS (EMP, DEPT, SALGRADE)
+   ============================================================================ */
+.schema-tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.schema-tab {
+  background: #191512;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  cursor: pointer;
+}
+
+.schema-tab.active {
+  background: var(--accent-gold);
+  color: #14110e;
+  border-color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.table-scroll {
+  max-height: 215px;
+  overflow-y: auto;
+  padding: 8px 12px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.data-table th {
+  background: #26201b;
+  color: var(--accent-gold);
+  text-align: left;
+  padding: 6px 9px;
+  border-bottom: 1px solid var(--border-gold);
+  position: sticky;
+  top: 0;
+  font-weight: 600;
+}
+
+.data-table td {
+  padding: 5px 9px;
+  border-bottom: 1px solid rgba(200, 169, 110, 0.08);
+  color: var(--text-primary);
+}
+
+.data-table tr:hover td {
+  background: rgba(200, 169, 110, 0.07);
+}
+
+.data-table tr.row-matched td {
+  background: rgba(92, 141, 115, 0.22);
+  color: #d7f2e0;
+}
+
+.null-badge {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 11px;
+}
+
+/* ============================================================================
+   RIGHT COLUMN: QUESTION NAVIGATOR & BRIEFING DOSSIER
+   ============================================================================ */
+.q-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 10px 14px;
+  background: #191512;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.q-dot {
+  width: 30px;
+  height: 26px;
+  border-radius: 5px;
+  background: #251f1b;
+  border: 1px solid rgba(200, 169, 110, 0.16);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.q-dot:hover {
+  border-color: var(--accent-gold);
+  color: var(--text-primary);
+}
+
+.q-dot.active {
+  background: var(--accent-gold);
+  color: #14110e;
+  border-color: var(--accent-gold-bright);
+}
+
+.q-dot.solved {
+  background: rgba(92, 141, 115, 0.25);
+  border-color: var(--accent-sage);
+  color: #a8dbc0;
+}
+
+.q-dot.boss {
+  border-color: rgba(209, 154, 82, 0.5);
+}
+
+.mission-body {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.mission-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge-diff {
+  background: rgba(200, 169, 110, 0.14);
+  border: 1px solid rgba(200, 169, 110, 0.35);
+  color: var(--accent-gold-bright);
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-source {
+  color: var(--text-muted);
+  font-size: 11.5px;
+}
+
+.mission-title {
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.story-box {
+  background: #251f1a;
+  border-left: 3px solid var(--accent-gold);
+  padding: 9px 12px;
+  border-radius: 0 6px 6px 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.task-box {
+  background: rgba(92, 141, 115, 0.1);
+  border: 1px solid rgba(92, 141, 115, 0.35);
+  padding: 11px 13px;
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 13.5px;
+}
+
+.task-box code,
+.story-box code,
+.hint-box code,
+.feedback-box code {
+  background: rgba(200, 169, 110, 0.14);
+  color: var(--accent-gold-bright);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 12.5px;
+}
+
+/* ============================================================================
+   SQL EXECUTIVE TERMINAL
+   ============================================================================ */
+.editor-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.token-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.token-chip {
+  background: #26201b;
+  border: 1px solid rgba(200, 169, 110, 0.2);
+  color: var(--text-secondary);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.token-chip:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold-bright);
+}
+
+#sqlInput {
+  width: 100%;
+  min-height: 92px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-sm);
+  padding: 11px 13px;
+  color: #f5f0e6;
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 13.5px;
+  line-height: 1.5;
+  resize: vertical;
+  outline: none;
+}
+
+#sqlInput:focus {
+  border-color: var(--accent-gold-bright);
+  box-shadow: 0 0 0 2px rgba(200, 169, 110, 0.15);
+}
+
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action-left,
+.action-right {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.hint-box {
+  background: rgba(209, 154, 82, 0.12);
+  border: 1px solid rgba(209, 154, 82, 0.4);
+  color: #ebd6b7;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  display: none;
+}
+
+.feedback-box {
+  padding: 10px 13px;
+  border-radius: 6px;
+  font-size: 13px;
+  display: none;
+}
+
+.feedback-box.success {
+  display: block;
+  background: rgba(92, 141, 115, 0.18);
+  border: 1px solid var(--accent-sage);
+  color: #d4f0df;
+}
+
+.feedback-box.error {
+  display: block;
+  background: rgba(196, 109, 88, 0.16);
+  border: 1px solid var(--accent-terracotta);
+  color: #f2ccc4;
+}
+
+/* ============================================================================
+   MODALS (150 QUESTIONS MAP & REAL-LIFE OFFICE STORY EVENTS)
+   ============================================================================ */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 10, 8, 0.78);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  max-width: 780px;
+  width: 100%;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+}
+
+.modal-body {
+  padding: 18px 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Office Story Event Card */
+.event-speaker-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+}
+
+.event-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #332920;
+  border: 1.5px solid var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.event-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.choice-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 11px 14px;
+  border-radius: 7px;
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.choice-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-gold);
+}
+
+.choice-btn.correct-choice {
+  background: rgba(92, 141, 115, 0.22);
+  border-color: var(--accent-sage);
+}
+
+.choice-btn.wrong-choice {
+  background: rgba(196, 109, 88, 0.2);
+  border-color: var(--accent-terracotta);
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  gap: 6px;
+}

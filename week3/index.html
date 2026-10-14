@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Database Systems Academy — Week 3: SQL DDL & Schema Foundry (150 Challenges)</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. TOP EXECUTIVE HUD
+       ======================================================================== -->
+  <header class="exec-header">
+    <div class="brand-section">
+      <div class="brand-badge">DATABASE SYSTEMS • MODULE 03</div>
+      <div class="brand-title">
+        <h1>Data Architecture & SQL DDL Foundry</h1>
+        <p>Week 3: DDL Fundamentals, Constraints, Referential Actions & Relational Algebra (150 Challenges)</p>
+      </div>
+    </div>
+
+    <div class="hud-stats">
+      <div class="stat-box">
+        <span class="stat-label">Solved</span>
+        <span class="stat-value" id="hudProgressText">0 / 150 (0%)</span>
+        <div class="hud-progress-wrap">
+          <div class="hud-progress-bar" id="hudProgressBar"></div>
+        </div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Engineering XP</span>
+        <span class="stat-value" id="hudXpText">0 XP</span>
+      </div>
+    </div>
+
+    <div class="hud-actions">
+      <a href="../index.html" class="btn-hud" style="text-decoration:none;" title="Return to Academy Hub"><span>←</span> Academy Hub</a>
+      <button class="btn-hud primary" id="btnOpenMap" title="Explore All 150 Challenges">
+        <span>🗺</span> 150 Question Map
+      </button>
+      <button class="btn-hud" id="btnOpenEvents" title="Architecture Events & Real-World Dilemmas">
+        <span>⚡</span> System Events
+      </button>
+      <button class="btn-hud" id="btnResetProgress" title="Clear Progress Data">
+        <span>🔄</span> Reset Progress
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. 10-FLOOR SECTOR RAIL
+       ======================================================================== -->
+  <nav class="floor-rail-wrap">
+    <div class="floor-rail" id="floorRail">
+      <!-- Injected by JavaScript -->
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       3. MAIN WORKSPACE CONTAINER (2 COLUMNS)
+       ======================================================================== -->
+  <main class="main-layout">
+    
+    <!-- LEFT COLUMN: 2D FOUNDRY CANVAS & LIVE SCHEMA BLUEPRINT -->
+    <section class="left-col">
+      
+      <!-- 2D Canvas Panel -->
+      <div class="canvas-panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🏛</span> Data Architecture & Server Foundry
+          </div>
+          <div class="canvas-status-pill">
+            <span class="pulse-dot"></span> Servers Active • DDL Monitor
+          </div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="foundryCanvas" width="960" height="420"></canvas>
+        </div>
+      </div>
+
+      <!-- Live Interactive Schema Blueprint Visualizer -->
+      <div class="schema-panel">
+        <div class="schema-panel-header">
+          <div class="panel-title">
+            <span>📐</span> Schema Visualizer • PostgreSQL Relational Model
+          </div>
+          <span style="font-size: 11px; color: var(--text-muted);">
+            Live compiled tables & constraints
+          </span>
+        </div>
+        <div class="schema-grid" id="schemaGrid">
+          <!-- Dynamically populated with active schema tables -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT COLUMN: EXECUTIVE DOSSIER, SQL EDITOR & GRADER CONSOLE -->
+    <section class="right-col">
+      
+      <!-- Dossier Card -->
+      <div class="dossier-card">
+        <div class="dossier-meta">
+          <div class="meta-tags">
+            <span class="tag-sector" id="dossierSector">1-QAVAT</span>
+            <span class="tag-difficulty" id="dossierDiff">Boshlang'ich</span>
+            <span class="tag-source" id="dossierSource">L03 Slide 12</span>
+          </div>
+          <div class="question-nav-mini">
+            <button class="nav-btn-mini" id="btnPrevMini" title="Oldingi savol (Alt + Left)">◀</button>
+            <span class="nav-counter" id="navCounter">1 / 150</span>
+            <button class="nav-btn-mini" id="btnNextMini" title="Keyingi savol (Alt + Right)">▶</button>
+          </div>
+        </div>
+
+        <h2 class="dossier-title" id="dossierTitle">Ishchi Sxemani O'rnatish</h2>
+        <div class="dossier-story" id="dossierStory">
+          Laboratoriya serverida yangi DDL amaliyotini boshlayapmiz...
+        </div>
+        <div class="dossier-task" id="dossierTask">
+          Vazifa matni...
+        </div>
+      </div>
+
+      <!-- Quick SQL Token Chips -->
+      <div class="chips-wrap">
+        <span class="chips-label">Quick DDL Operators:</span>
+        <div class="chips-bar" id="chipsBar">
+          <!-- Inserted chips for fast keyboardless or rapid typing -->
+          <button class="chip-btn" data-sql="CREATE TABLE ">CREATE TABLE</button>
+          <button class="chip-btn" data-sql="PRIMARY KEY">PRIMARY KEY</button>
+          <button class="chip-btn" data-sql="FOREIGN KEY () REFERENCES ()">FOREIGN KEY</button>
+          <button class="chip-btn" data-sql="CONSTRAINT ">CONSTRAINT</button>
+          <button class="chip-btn" data-sql="CHECK ()">CHECK</button>
+          <button class="chip-btn" data-sql="UNIQUE">UNIQUE</button>
+          <button class="chip-btn" data-sql="NOT NULL">NOT NULL</button>
+          <button class="chip-btn" data-sql="DEFAULT ">DEFAULT</button>
+          <button class="chip-btn" data-sql="GENERATED ALWAYS AS IDENTITY">IDENTITY</button>
+          <button class="chip-btn" data-sql="ALTER TABLE ">ALTER TABLE</button>
+          <button class="chip-btn" data-sql="ADD COLUMN ">ADD COLUMN</button>
+          <button class="chip-btn" data-sql="ON DELETE CASCADE">ON DELETE CASCADE</button>
+        </div>
+      </div>
+
+      <!-- SQL DDL Editor -->
+      <div class="editor-card">
+        <div class="editor-head">
+          <div class="editor-head-left">
+            <span class="editor-dot"></span>
+            <span>PostgreSQL DDL Shell (Module 03)</span>
+          </div>
+          <span class="editor-shortcut">Shortcut: Ctrl + Enter (Run & Test)</span>
+        </div>
+        <div class="editor-wrap">
+          <textarea id="sqlEditor" spellcheck="false" placeholder="Type your SQL DDL code here..."></textarea>
+        </div>
+      </div>
+
+      <!-- Action Buttons Bar -->
+      <div class="action-bar">
+        <div class="action-bar-left">
+          <button class="btn-action run-btn" id="btnRun">
+            <span>▶</span> Run & Test
+          </button>
+          <button class="btn-action hint-btn" id="btnHint">
+            <span>💡</span> Hint
+          </button>
+          <button class="btn-action" id="btnPreviewSchema">
+            <span>👁</span> Expected Schema
+          </button>
+          <button class="btn-action" id="btnSampleSol">
+            <span>🔑</span> Sample Solution
+          </button>
+        </div>
+        <div style="display: flex; gap: 6px;">
+          <button class="btn-action" id="btnPrev">◀ Prev</button>
+          <button class="btn-action" id="btnNext">Next ▶</button>
+        </div>
+      </div>
+
+      <!-- Hint Box (Toggled) -->
+      <div class="hint-card" id="hintCard">
+        <!-- Injected hint text -->
+      </div>
+
+      <!-- Diagnostic Console Feedback -->
+      <div class="console-card" id="consoleCard">
+        <div class="console-icon" id="consoleIcon">ℹ️</div>
+        <div class="console-text" id="consoleText">
+          SQL DDL kodingizni yozib, "Tekshirish va Bajarish" tugmasini bosing yoki Ctrl+Enter tugmalarini bosing.
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       4. MODALS (150 QUESTIONS MAP & ARCHITECTURAL STORY EVENTS)
+       ======================================================================== -->
+  
+  <!-- Map Modal -->
+  <div class="modal-overlay" id="mapModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2>🗺 Barcha 150 Savollar Xaritasi (10 Qavat)</h2>
+        <button class="modal-close-btn" id="btnCloseMap">&times;</button>
+      </div>
+      <div class="modal-body" id="mapModalBody">
+        <!-- Rendered floors and 150 clickable question badges -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Events Modal -->
+  <div class="modal-overlay" id="eventsModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2>⚡ Arxitektura Voqealari & Tizim Auditlari</h2>
+        <button class="modal-close-btn" id="btnCloseEvents">&times;</button>
+      </div>
+      <div class="modal-body" id="eventsModalBody">
+        <!-- Rendered architectural events with choices -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Solution Confirmation Modal -->
+  <div class="modal-overlay" id="solutionModal">
+    <div class="modal-dialog" style="max-width: 620px;">
+      <div class="modal-header">
+        <h2>🔑 Namuna Yechim Kodi</h2>
+        <button class="modal-close-btn" id="btnCloseSolution">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">
+          Ushbu namuna yechim me'moriy standartlarga mos ravishda tuzilgan. Uni tahlil qiling va mustaqil yozib ko'rishga harakat qiling:
+        </p>
+        <pre style="background: #111419; border: 1px solid var(--border-brass-dim); padding: 14px; border-radius: 6px; font-family: var(--font-mono); color: var(--accent-gold); font-size: 13px; white-space: pre-wrap; line-height: 1.5;" id="solutionCodeText"></pre>
+        <div style="margin-top: 16px; display: flex; justify-content: flex-end; gap: 10px;">
+          <button class="btn-action" id="btnCopySolution">Nusxa Olish</button>
+          <button class="btn-action primary" id="btnApplySolution">Muharrirga Qo'yish</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toastNotice">
+    Muvaffaqiyatli saqlandi!
+  </div>
+
+  <!-- ========================================================================
+       5. DATA & APPLICATION SCRIPTS
+       ======================================================================== -->
+  <script src="data/ddl_catalog.js"></script>
+  <script src="data/questions_1_50.js"></script>
+  <script src="data/questions_51_100.js"></script>
+  <script src="data/questions_101_150.js"></script>
+  <script src="engine2d.js"></script>
+  <script src="game.js"></script>
+
+</body>
+</html>

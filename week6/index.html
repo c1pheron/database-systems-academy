@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Database Systems Academy — Week 6: Query Optimization, Transactions & Advanced DML (150 Challenges)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+  <!-- TOP EXECUTIVE HUD -->
+  <header class="top-hud">
+    <div class="brand-box">
+      <div class="brand-emblem">🏛</div>
+      <div>
+        <div class="brand-title">DATABASE SYSTEMS ACADEMY • MODULE 06</div>
+        <div class="brand-sub">Corporate Headquarters • Week 6: 150-Stage Query Optimization Simulator</div>
+      </div>
+    </div>
+
+    <div class="hud-stats">
+      <div class="stat-pill">
+        <span class="stat-label">Rank:</span>
+        <span class="stat-val gold" id="hudRankTitle">Stajyor Tahlilchi</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Salary:</span>
+        <span class="stat-val sage" id="hudSalary">$2,000/oy</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Bonus:</span>
+        <span class="stat-val gold" id="hudCapital">$0</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Solved:</span>
+        <span class="stat-val" id="hudSolved">0 / 150</span>
+        <div class="progress-wrap">
+          <div class="progress-fill" id="hudProgressFill"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hud-actions">
+      <a href="../index.html" class="btn" style="text-decoration:none;" title="Return to Academy Hub">← Academy Hub</a>
+      <button class="btn btn-event" id="btnTriggerEvent" title="Hamkasblar bilan ofis voqeasi va kofe-breyk">
+        ☕ Office Event (<span id="eventBadgeCount">New</span>)
+      </button>
+      <button class="btn" id="btnOpenMap">🗺 150 Question Map</button>
+      <button class="btn" id="btnResetProgress" title="Natijalarni noldan boshlash">↺</button>
+    </div>
+  </header>
+
+  <!-- 10 CORPORATE FLOORS NAVIGATION BAR -->
+  <nav class="sector-bar" id="sectorNavList"></nav>
+
+  <!-- MAIN 2-COLUMN WORKSPACE -->
+  <main class="main-grid">
+
+    <!-- LEFT COLUMN: 2D REAL-LIFE CORPORATE OFFICE & LIVE TABLES -->
+    <section class="left-col">
+
+      <!-- 2D Corporate Office Canvas -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🏢</span>
+            <span id="floorHeaderTitle">Query Optimization & Advanced Analytics Executive Studio</span>
+          </div>
+          <div style="font-size: 11.5px; color: var(--text-muted);">
+            Hamkasb ustiga bosing yoki <b>WASD</b> orqali yuring
+          </div>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="gameCanvas" width="860" height="380"></canvas>
+        </div>
+
+        <div class="office-ticker">
+          <div class="ticker-text">
+            <span class="ticker-badge" id="tickerSpeaker">🔔 Ofis Xabari</span>
+            <span id="tickerMessage">Nyu-York, Dallas va Chikago bo'limlaridan jonli ma'lumotlar oqimi ulangan.</span>
+          </div>
+          <button class="btn" id="btnQuickEvent" style="padding: 4px 10px; font-size: 11.5px;">
+            💬 Hamkasb bilan suhbat
+          </button>
+        </div>
+      </div>
+
+      <!-- Corporate Database Reference Tables -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🗂</span>
+            <span>Korporativ Baza Jadvallari & Relyatsion Ko'rinishlar</span>
+          </div>
+          <div class="schema-tabs">
+            <button class="schema-tab active" data-table="emp">emp (14)</button>
+            <button class="schema-tab" data-table="dept">dept (4)</button>
+            <button class="schema-tab" data-table="applicant">applicant (13)</button>
+            <button class="schema-tab" data-table="salgrade">salgrade (5)</button>
+            <button class="schema-tab" data-table="project">project (5)</button>
+            <button class="schema-tab" data-table="works_on">works_on (16)</button>
+            <button class="schema-tab" data-table="query_plans">query_plans (L06)</button>
+            <button class="schema-tab" data-table="optimizer_stats">stats (Postgres)</button>
+            <button class="schema-tab" data-table="views">views (VIEW)</button>
+            <button class="schema-tab" data-table="result">📊 Natija</button>
+          </div>
+        </div>
+        <div class="table-scroll" id="schemaTableDisplay"></div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT COLUMN: EXECUTIVE MISSION DOSSIER & SQL ENGINE -->
+    <section class="right-col">
+
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>📋</span>
+            <span id="sectorSubTitle">Qavat Topshiriqlari (15 ta bosqich)</span>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <button class="btn" id="btnPrevQ" style="padding:4px 10px;">◀ Prev</button>
+            <button class="btn" id="btnNextQ" style="padding:4px 10px;">Next ▶</button>
+          </div>
+        </div>
+
+        <!-- 15 Question Dots for current floor -->
+        <div class="q-strip" id="floorQuestionStrip"></div>
+
+        <!-- Dossier Briefing -->
+        <div class="mission-body">
+          <div class="mission-meta">
+            <span class="badge-diff" id="qNumberBadge">Vazifa #1</span>
+            <span class="badge-diff" id="qDifficultyBadge">1-Qavat • Oson</span>
+            <span class="badge-source" id="qSourceBadge">ACADEMY W6</span>
+          </div>
+
+          <h2 class="mission-title" id="qTitle">1. CLARK Bilan Bir Xil Bo'limdagi Hamkasblar</h2>
+
+          <div class="story-box" id="qStory"></div>
+
+          <div class="task-box">
+            <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:#38bdf8; font-weight:700; margin-bottom:4px;">
+              📌 Texnik Topshiriq (Kodni o'zingiz yozing):
+            </div>
+            <div id="qTask"></div>
+          </div>
+
+          <div class="q-tags" id="qTagsList" style="margin-bottom: 12px; display: flex; gap: 6px; flex-wrap: wrap;"></div>
+
+          <!-- Quick Token Bar for SQL keywords -->
+          <div class="token-bar" id="tokenBar" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;">
+            <button class="btn" type="button" onclick="insertToken('SELECT ')" style="padding: 2px 7px; font-size: 11px;">SELECT</button>
+            <button class="btn" type="button" onclick="insertToken('FROM ')" style="padding: 2px 7px; font-size: 11px;">FROM</button>
+            <button class="btn" type="button" onclick="insertToken('WHERE ')" style="padding: 2px 7px; font-size: 11px;">WHERE</button>
+            <button class="btn" type="button" onclick="insertToken('IN (SELECT ')" style="padding: 2px 7px; font-size: 11px;">IN (SELECT...)</button>
+            <button class="btn" type="button" onclick="insertToken('NOT IN (SELECT ')" style="padding: 2px 7px; font-size: 11px;">NOT IN</button>
+            <button class="btn" type="button" onclick="insertToken('> ANY (SELECT ')" style="padding: 2px 7px; font-size: 11px;">> ANY</button>
+            <button class="btn" type="button" onclick="insertToken('> ALL (SELECT ')" style="padding: 2px 7px; font-size: 11px;">> ALL</button>
+            <button class="btn" type="button" onclick="insertToken('EXISTS (SELECT 1 FROM ')" style="padding: 2px 7px; font-size: 11px;">EXISTS</button>
+            <button class="btn" type="button" onclick="insertToken('NOT EXISTS (SELECT 1 FROM ')" style="padding: 2px 7px; font-size: 11px;">NOT EXISTS</button>
+            <button class="btn" type="button" onclick="insertToken('UNION ')" style="padding: 2px 7px; font-size: 11px;">UNION</button>
+            <button class="btn" type="button" onclick="insertToken('UNION ALL ')" style="padding: 2px 7px; font-size: 11px;">UNION ALL</button>
+            <button class="btn" type="button" onclick="insertToken('INTERSECT ')" style="padding: 2px 7px; font-size: 11px;">INTERSECT</button>
+            <button class="btn" type="button" onclick="insertToken('EXCEPT ')" style="padding: 2px 7px; font-size: 11px;">EXCEPT</button>
+            <button class="btn" type="button" onclick="insertToken('CREATE VIEW ')" style="padding: 2px 7px; font-size: 11px;">CREATE VIEW</button>
+            <button class="btn" type="button" onclick="insertToken('EXPLAIN ')" style="padding: 2px 7px; font-size: 11px;">EXPLAIN</button>
+          </div>
+
+          <!-- SQL Editor -->
+          <div class="editor-wrap">
+            <textarea
+              id="sqlInput"
+              spellcheck="false"
+              placeholder="SQL so'rovingizni shu yerga yozing... (Masalan: SELECT ename, job FROM emp WHERE deptno = (SELECT deptno FROM emp WHERE ename = 'CLARK'))"
+            ></textarea>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-bar">
+            <div class="action-left">
+              <button class="btn btn-primary" id="btnRunSql">
+                ✓ Hisobotni Tekshirish (Ctrl+Enter)
+              </button>
+              <button class="btn" id="btnShowHint">💡 Maslahat (Hint)</button>
+              <button class="btn" id="btnPreviewExpected">👁 Kutilayotgan Natija</button>
+            </div>
+            <div class="action-right">
+              <button class="btn" id="btnRevealAnswer" title="Favqulodda holatda namuna yechimni ko'rish">
+                🔑 Namuna Yechim
+              </button>
+            </div>
+          </div>
+
+          <!-- Hint & Feedback Boxes -->
+          <div class="hint-box" id="hintBox"></div>
+          <div class="feedback-box" id="feedbackBox"></div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- MODAL 1: REAL-LIFE OFFICE STORY EVENT ("VOQEALIK") -->
+  <div class="modal-backdrop" id="eventModal">
+    <div class="modal-card">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>☕</span>
+          <span id="eventModalTitle">Korporativ Voqea • Jonli Muloqot</span>
+        </div>
+        <button class="btn" id="btnCloseEventModal">✕ Yopish</button>
+      </div>
+      <div class="modal-body">
+        <div class="event-speaker-row">
+          <div class="event-avatar" id="eventAvatar">👔</div>
+          <div>
+            <div style="font-weight:700; color:var(--accent-cyan);" id="eventSpeakerName">CLARK</div>
+            <div style="font-size:12px; color:var(--text-muted);" id="eventSpeakerRole">10-Bo'lim Menejeri</div>
+          </div>
+        </div>
+        <div class="story-box" id="eventNarrative" style="font-size:13.5px;"></div>
+        <div style="font-size:12px; color:var(--text-secondary); font-weight:600;">
+          Qanday qaror qabul qilasiz?
+        </div>
+        <div class="event-choices" id="eventChoicesContainer"></div>
+        <div class="feedback-box" id="eventOutcomeBox"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: 150 QUESTIONS OVERVIEW MAP -->
+  <div class="modal-backdrop" id="mapModal">
+    <div class="modal-card">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>🗺</span>
+          <span>Bosh Ofisning Barcha 150 Ta SQL & Optimization Sinovi Xaritasi (1–150)</span>
+        </div>
+        <button class="btn" id="btnCloseMapModal">✕ Yopish</button>
+      </div>
+      <div class="modal-body">
+        <div style="font-size:12.5px; color:var(--text-secondary);">
+          Istalgan savol raqamini bosib, o'sha qavat va topshiriqqa o'tishingiz mumkin:
+        </div>
+        <div class="map-grid" id="fullQuestionMapGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function insertToken(token) {
+      const textarea = document.getElementById("sqlInput");
+      if (!textarea) return;
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const val = textarea.value;
+      textarea.value = val.substring(0, start) + token + val.substring(end);
+      textarea.selectionStart = textarea.selectionEnd = start + token.length;
+      textarea.focus();
+    }
+  </script>
+
+  <!-- SCRIPTS -->
+  <script src="data/company_db.js"></script>
+  <script src="data/questions_1_50.js"></script>
+  <script src="data/questions_51_100.js"></script>
+  <script src="data/questions_101_150.js"></script>
+  <script src="engine2d.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

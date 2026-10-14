@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Database Systems Academy — Week 2: EER Modeling Studio (150 Challenges)</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. TOP EXECUTIVE HUD
+       ======================================================================== -->
+  <header class="exec-header">
+    <div class="brand-section">
+      <div class="brand-badge">DATABASE SYSTEMS • MODULE 02</div>
+      <div class="brand-title">
+        <h1>Conceptual Database & EER Modeling Studio</h1>
+        <p>Week 2: Binary, Multiplicity, Weak Entities, Association Classes, Recursive, Ternary & EER Hierarchies (150 Challenges)</p>
+      </div>
+    </div>
+
+    <div class="hud-stats">
+      <div class="stat-box">
+        <span class="stat-label">Approved Schemas</span>
+        <span class="stat-value" id="hudProgressText">0 / 150 (0%)</span>
+        <div class="hud-progress-wrap">
+          <div class="hud-progress-bar" id="hudProgressBar"></div>
+        </div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Architect XP</span>
+        <span class="stat-value" id="hudXpText">0 XP</span>
+      </div>
+    </div>
+
+    <div class="hud-actions">
+      <a href="../index.html" class="btn-hud" style="text-decoration:none;" title="Return to Academy Hub"><span>←</span> Academy Hub</a>
+      <button class="btn-hud primary" id="btnOpenMap" title="Interactive 150 Challenge Map">
+        <span>🗺</span> 150 Question Map
+      </button>
+      <button class="btn-hud danger" id="btnResetProgress" title="Clear Progress Data">
+        <span>🔄</span> Reset Progress
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. 10-FLOOR SECTOR RAIL
+       ======================================================================== -->
+  <nav class="floor-rail-wrap">
+    <div class="floor-rail" id="floorRail">
+      <!-- Injected dynamically by game.js -->
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       3. MAIN WORKSPACE CONTAINER (TWO COLUMNS)
+       ======================================================================== -->
+  <main class="main-layout">
+    
+    <!-- LEFT COLUMN: 2D ATELIER SCENE & DRAW.IO-STYLE EER CANVAS -->
+    <section class="left-col">
+      
+      <!-- UNIFIED ARCHITECT WORKSTATION: CONSULTATION DESK + DRAFTING BOARD -->
+      <div class="atelier-workstation">
+        <!-- 2D Panoramic Consultation Desk (Atlas & Client & Live Dialogue) -->
+        <div class="atelier-consultation-banner">
+          <canvas id="officeCanvas" width="960" height="110"></canvas>
+        </div>
+
+        <!-- Built-in Draw.io-Style Interactive Visual EER Canvas -->
+        <div id="eerBoardContainer" class="eer-board-container"></div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT COLUMN: CLIENT CONSULTATION, TASK & VERIFICATION CONSOLE -->
+    <aside class="right-col">
+      
+      <!-- Question Header & Badges -->
+      <div class="case-header-card">
+        <div class="case-badges">
+          <span class="badge floor" id="qFloorBadge">Floor 1</span>
+          <span class="badge number" id="qNumberBadge">Challenge 1 / 150</span>
+          <span class="badge diff" id="qDifficultyBadge">Beginner</span>
+        </div>
+        <h2 class="case-title" id="qTitle">Bank Filiallari va Xodimlar Tizimi</h2>
+      </div>
+
+      <!-- Client Briefing Card -->
+      <div class="client-brief-card">
+        <div class="client-profile">
+          <div class="client-avatar-frame">
+            <div class="client-avatar-icon">👤</div>
+          </div>
+          <div class="client-meta">
+            <h3 id="clientName">Alisher Zokirov</h3>
+            <p id="clientRole">'Orient Bank' Boshqaruv Raisi</p>
+          </div>
+        </div>
+        
+        <div class="client-speech-wrap">
+          <span class="speech-quote-mark">“</span>
+          <p class="client-story-text" id="clientStory">
+            Assalomu alaykum, Me'mor! Bizning bankda filiallar (Branch) va ularda ishlovchi xodimlar (Staff) mavjud...
+          </p>
+        </div>
+
+        <div class="task-spec-wrap">
+          <div class="task-spec-label">
+            <span>🎯</span> Architectural Task:
+          </div>
+          <div class="task-spec-content" id="taskText">
+            'Branch' va 'Staff' entitiylarini bog'lang. Branch tomoniga '1..1', Staff tomoniga '1..*' multiplisitiysini qo'ying.
+          </div>
+        </div>
+      </div>
+
+      <!-- Professor Atlas Consultation Hint -->
+      <div class="atlas-hint-section">
+        <button class="btn-hint" id="btnShowHint">
+          <span>💡</span> Get Architect Hint
+        </button>
+        <div class="hint-box" id="hintBox" style="display: none;">
+          Professor Atlas maslahati: Filial tomonga 1..1, Xodim tomonga 1..* qo'yiladi.
+        </div>
+      </div>
+
+      <!-- Verification Diagnostic Feedback Console -->
+      <div class="feedback-container">
+        <div class="feedback-box idle" id="feedbackBox">
+          <div class="feedback-icon">📐</div>
+          <div class="feedback-content">
+            <h4>Drafting Mode</h4>
+            <p>Draft the EER diagram on the canvas according to client requirements, then click "Submit to Client".</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submission & Navigation Controls -->
+      <div class="action-footer">
+        <button class="btn-submit-action" id="btnSubmitDiagram">
+          <span>🏛</span> Submit to Client
+        </button>
+        
+        <div class="nav-btn-group">
+          <button class="btn-nav" id="btnPrevQuestion" title="Previous Question (Ctrl+Left)">
+            <span>❮</span> Previous
+          </button>
+          <button class="btn-nav primary" id="btnNextQuestion" title="Next Question (Ctrl+Right)">
+            Next <span>❯</span>
+          </button>
+        </div>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- ========================================================================
+       4. 150 QUESTIONS GRID MAP MODAL
+       ======================================================================== -->
+  <div class="eer-modal-backdrop" id="mapModal" style="display: none;">
+    <div class="eer-modal-card map-modal-card">
+      <div class="modal-header">
+        <h3><span>🗺</span> 150 EER Challenge Map</h3>
+        <button class="modal-close-btn" id="mapModalClose">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="map-modal-desc">
+          Select any challenge number to jump directly to its conceptual EER specification:
+        </p>
+        <div class="map-grid" id="mapGrid">
+          <!-- 150 cells injected by game.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EER Subclass Modal -->
+  <div class="eer-modal-backdrop" id="eerSubclassModal" style="display: none;">
+    <div class="eer-modal-card">
+      <div class="modal-header">
+        <h3><span>⛛</span> Configure EER Subclass Hierarchy</h3>
+        <button class="modal-close-btn" id="eerModalClose">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Superclass (Parent Entity):</label>
+          <select id="eerSuperclassSelect" class="eer-input"></select>
+        </div>
+        <div class="form-group">
+          <label>Specialization Constraint:</label>
+          <select id="eerConstraintSelect" class="eer-input">
+            <option value="{Mandatory, Or}">{Mandatory, Or} — Mandatory & Disjoint</option>
+            <option value="{Optional, Or}">{Optional, Or} — Optional & Disjoint</option>
+            <option value="{Mandatory, And}">{Mandatory, And} — Mandatory & Overlapping</option>
+            <option value="{Optional, And}">{Optional, And} — Optional & Overlapping</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Subclasses (Child Entities):</label>
+          <div id="eerSubclassList" class="subclass-checkboxes"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-modal cancel" id="eerModalCancel">Cancel</button>
+        <button class="btn-modal confirm" id="eerModalConfirm">Apply Hierarchy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       5. JAVASCRIPT DEPENDENCIES & ENGINES
+       ======================================================================== -->
+  <script src="data/eer_catalog.js"></script>
+  <script src="data/eer_clients_1_50.js"></script>
+  <script src="data/eer_clients_51_100.js"></script>
+  <script src="data/eer_clients_101_150.js"></script>
+  <script src="engine2d.js"></script>
+  <script src="eer_canvas.js"></script>
+  <script src="game.js"></script>
+
+</body>
+</html>

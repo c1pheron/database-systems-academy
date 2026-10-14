@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Week 1: Conceptual Design & ER Modeling | Database Systems Academy</title>
+  
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       TOP EXECUTIVE HUD
+       ========================================================================= -->
+  <header class="top-hud">
+    <div class="brand-box">
+      <div class="brand-emblem">🏛️</div>
+      <div>
+        <div class="brand-title">
+          Database Systems • Module 1 <span class="badge-module">ER Modeling</span>
+        </div>
+        <div class="brand-sub">Conceptual Design, Multiplicities, Weak Entities & Connection Traps</div>
+      </div>
+    </div>
+
+    <div class="hud-stats">
+      <div class="stat-pill" title="Current Architectural Title">
+        <span class="stat-label">Role:</span>
+        <span id="hudRankTitle" class="stat-val cyan">Junior Data Modeler</span>
+      </div>
+
+      <div class="stat-pill" title="Project Compensation">
+        <span class="stat-label">Salary:</span>
+        <span id="hudSalary" class="stat-val emerald">$2,500/mo</span>
+      </div>
+
+      <div class="stat-pill" title="Accumulated Architectural Capital">
+        <span class="stat-label">Score:</span>
+        <span id="hudCapital" class="stat-val gold">$0</span>
+      </div>
+
+      <div class="stat-pill" title="Solved Challenges (150 Total)">
+        <span class="stat-label">Completed:</span>
+        <span id="hudSolved" class="stat-val violet">0 / 150</span>
+        <div class="progress-wrap">
+          <div id="hudProgressFill" class="progress-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hud-actions">
+      <a href="../index.html" class="btn btn-hub" title="Return to Master Academy Hub">← Academy Hub</a>
+      <button id="btnTriggerEvent" class="btn btn-event" title="Simulate Emergency Modeling Conflict">⚡ Incident</button>
+      <button id="btnOpenMap" class="btn" title="View 150 Challenges Map">🗺️ Map</button>
+      <button id="btnResetProgress" class="btn" title="Reset Progress">🔄</button>
+      <button id="btnToggleSound" class="btn" title="Toggle Audio FX">🔊</button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       10 SECTOR NAVIGATION BAR
+       ========================================================================= -->
+  <nav class="sector-bar" id="sectorNavList">
+    <!-- Injected dynamically by game.js -->
+  </nav>
+
+  <!-- =========================================================================
+       MAIN 2-COLUMN WORKSPACE (STRICTLY BOUNDED WITH SYMMETRICAL GUTTERS)
+       ========================================================================= -->
+  <main class="main-grid">
+
+    <!-- LEFT COLUMN: 2D ATELIER & CONCEPT INSPECTOR -->
+    <section class="left-col">
+
+      <!-- 1. 2D Drafting Atelier Canvas & Ticker -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🎨 2D Conceptual Modeling Atelier & Blueprint Board</span>
+          </div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="gameCanvas" width="860" height="360"></canvas>
+        </div>
+        <div class="office-ticker">
+          <span class="ticker-badge" id="tickerSpeaker">CHIEF ARCHITECT</span>
+          <span id="tickerMessage">Welcome to the atelier! Master entities, multiplicity constraints, and connection traps.</span>
+        </div>
+      </div>
+
+      <!-- 2. Concept & Multiplicity Inspector Tabs -->
+      <div class="panel-card" style="flex:1;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>🔍 Conceptual ER & Notation Inspector</span>
+          </div>
+          <div class="schema-tabs">
+            <button class="schema-tab active" data-tab="concepts">📖 Concepts Dictionary</button>
+            <button class="schema-tab" data-tab="multiplicities">📐 Multiplicities</button>
+            <button class="schema-tab" data-tab="traps">⚠️ Connection Traps</button>
+            <button class="schema-tab" data-tab="weak_entities">🔗 Weak Entities</button>
+            <button class="schema-tab" data-tab="result">🏆 Analytics</button>
+          </div>
+        </div>
+        <div class="table-scroll">
+          <div id="schemaTableDisplay">
+            <!-- Rendered dynamically by game.js -->
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT COLUMN: MISSION DOSSIER & TERMINAL WORKBENCH -->
+    <section class="right-col">
+
+      <!-- 1. Mission Dossier & 5-Point Concept Anatomy Card -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span id="floorHeaderTitle">Sector 1: Entity Types, Attributes & Primary Keys</span>
+          </div>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <button id="btnPrevQ" class="btn" style="padding:3px 8px;">◀ Prev</button>
+            <button id="btnNextQ" class="btn" style="padding:3px 8px;">Next ▶</button>
+          </div>
+        </div>
+
+        <div class="q-strip" id="floorQuestionStrip">
+          <!-- 15 Dots populated dynamically -->
+        </div>
+
+        <div class="mission-body">
+          <div id="sectorSubTitle" style="font-size:11px; color:var(--text-muted); font-weight:600;"></div>
+
+          <div class="mission-meta">
+            <span id="qNumberBadge" class="badge-diff">Challenge #1 / 150</span>
+            <span id="qDifficultyBadge" class="badge-diff">Basic</span>
+            <span id="qSourceBadge" class="badge-source">Seminar 01</span>
+          </div>
+
+          <h3 id="qTitle" class="mission-title">Loading Challenge Title...</h3>
+
+          <div id="qStory" class="mission-story">
+            Loading business case narrative...
+          </div>
+
+          <div class="mission-task">
+            <span class="task-label">🎯 MODELING TASK SPECIFICATION:</span>
+            <div id="qTask" class="task-code">
+              <code>...</code>
+            </div>
+          </div>
+
+          <!-- 5-POINT CONCEPT ANATOMY ACCORDION CARD -->
+          <div class="cmd-info-card" id="cmdInfoCard">
+            <button type="button" class="cmd-card-toggle" id="btnToggleCmdCard" onclick="window.toggleCmdInfoCard()">
+              <div class="cmd-card-toggle-left">
+                <span class="cmd-badge-icon">📖</span>
+                <span class="cmd-badge-title">CONCEPT & NOTATION ANATOMY</span>
+                <code class="cmd-badge-code" id="cmdCardCode">...</code>
+              </div>
+              <div class="cmd-card-toggle-right">
+                <span class="cmd-toggle-hint" id="cmdCardToggleHint" style="font-size:11px; color:var(--text-muted);">View Details</span>
+                <span class="cmd-toggle-arrow" id="cmdCardToggleArrow">▾</span>
+              </div>
+            </button>
+            <div class="cmd-card-body" id="cmdCardBody" style="display: none;"></div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:2px;">
+            <button id="btnToggleHint" class="btn" style="font-size:11.5px; padding:4px 10px;">💡 View Design Hint</button>
+          </div>
+
+          <div id="qHintBox" class="mission-story" style="display:none; border-left-color:var(--accent-amber);">
+            Hint text will appear here.
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Modeling Workbench & Terminal Screen -->
+      <div class="term-window">
+        <div class="term-topbar">
+          <div class="term-controls">
+            <div class="term-dot red"></div>
+            <div class="term-dot yellow"></div>
+            <div class="term-dot green"></div>
+          </div>
+          <div class="term-info">student@modeler: ~/conceptual-design (uml-v2)</div>
+        </div>
+
+        <!-- Smart Tokens Bar -->
+        <div id="tokenToolbar" class="term-toolbar">
+          <!-- Dynamically populated tokens -->
+        </div>
+
+        <!-- Screen Output -->
+        <div id="termScreen" class="term-screen">
+          <!-- Terminal lines -->
+        </div>
+
+        <!-- Input Row -->
+        <div class="term-input-row">
+          <span class="term-lead">student@modeler:~$</span>
+          <input
+            type="text"
+            id="termInput"
+            class="term-input"
+            placeholder="Type your design specification or select a quick token... (Enter to submit)"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button id="btnExecCmd" class="btn-exec">Submit ↵</button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       MODALS
+       ========================================================================= -->
+
+  <!-- 1. Question Map Modal -->
+  <div id="mapModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">🗺️ 150 Challenges Map (10 Sectors)</div>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="mapModalBody">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Modeling Incident Modal -->
+  <div id="eventModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">⚡ Architectural Incident & Modeling Conflict</div>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="eventModalBody">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- =========================================================================
+       SCRIPTS
+       ========================================================================= -->
+  <script src="data/er_catalog.js"></script>
+  <script src="data/questions_1_50.js"></script>
+  <script src="data/questions_51_100.js"></script>
+  <script src="data/questions_101_150.js"></script>
+  <script src="engine2d.js"></script>
+  <script src="game.js"></script>
+
+</body>
+</html>
