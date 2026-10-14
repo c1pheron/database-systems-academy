@@ -112,9 +112,26 @@ class RelationalCanvasEngine {
 
     // 2. Pan on background drag & cancel pending connection
     this.container.addEventListener('mousedown', (e) => {
+      // If user clicked on a table, port, button, handle, or line, NEVER pan!
+      if (e.target.closest && (
+        e.target.closest('.rel-table-box') || 
+        e.target.closest('circle') || 
+        e.target.closest('.magnetic-handle-group') || 
+        e.target.closest('.conn-port-handle-group') || 
+        e.target.closest('.mult-pill') || 
+        e.target.closest('.port-arrow') ||
+        e.target.closest('button')
+      )) {
+        this.isPanning = false;
+        return;
+      }
+
       if (e.target === this.container || e.target === this.svg || e.target === this.nodesLayer || e.target === this.viewport) {
         this.deselectAll();
         this.cancelConnecting();
+        this.isDraggingNode = false;
+        this.draggingHandle = null;
+        this.draggingFreeLine = null;
         this.isPanning = true;
         this.startPanX = e.clientX - this.panX;
         this.startPanY = e.clientY - this.panY;
@@ -181,7 +198,7 @@ class RelationalCanvasEngine {
         this.touchPinchMid = currentMid;
         this.updateViewportTransform();
       } else if (e.touches.length === 1 && !this.touchPinchDist) {
-        if (this.isDraggingNode || this.draggingHandle || this.isConnecting || this.isResizing) {
+        if (this.isDraggingNode || this.draggingHandle || this.draggingFreeLine || this.isConnecting || this.isResizing) {
           if (e.cancelable) e.preventDefault();
         }
         const touch = e.touches[0];
@@ -225,26 +242,9 @@ class RelationalCanvasEngine {
   }
 
   onPointerMove(e) {
-    // Panning canvas
-    if (this.isPanning) {
-      this.panX = e.clientX - this.startPanX;
-      this.panY = e.clientY - this.startPanY;
-      this.updateViewportTransform();
-      return;
-    }
-
-    // Dragging Connection Line from a port
-    if (this.isConnecting && this.connectSource) {
-      const world = this.screenToWorld(e.clientX, e.clientY);
-      this.connectCurrentX = world.x;
-      this.connectCurrentY = world.y;
-      this.connectMovedDist += 5;
-      this.renderTemporaryConnectingLine();
-      return;
-    }
-
-    // Dragging Table Node
+    // 1. Dragging Table Node - MUST BE FIRST! Moves ONLY this single table!
     if (this.isDraggingNode && this.draggedTable) {
+      this.isPanning = false;
       const world = this.screenToWorld(e.clientX, e.clientY);
       this.draggedTable.x = Math.round(world.x - this.dragOffsetX);
       this.draggedTable.y = Math.round(world.y - this.dragOffsetY);
@@ -267,8 +267,32 @@ class RelationalCanvasEngine {
       return;
     }
 
-    // Standalone Connector Line Handles
+    // 2. Dragging Free-Standing Line End Handle (draw.io hanging line drag)
+    if (this.draggingFreeLine) {
+      this.isPanning = false;
+      const world = this.screenToWorld(e.clientX, e.clientY);
+      this.draggingFreeLine.endX = Math.round(world.x);
+      this.draggingFreeLine.endY = Math.round(world.y);
+
+      // Check magnetic snap with any other table
+      this.snapCandidate = null;
+      for (const tbl of this.tables) {
+        if (tbl.domId === this.draggingFreeLine.table.domId) continue;
+        const cx = tbl.x + (tbl.width || 200) / 2;
+        const cy = tbl.y + (tbl.height || 120) / 2;
+        if (Math.hypot(world.x - cx, world.y - cy) < 130) {
+          this.snapCandidate = { freeLine: this.draggingFreeLine, table: tbl };
+          break;
+        }
+      }
+
+      this.renderCrowFootLinks();
+      return;
+    }
+
+    // 3. Standalone Connector Line Handles
     if (this.draggingHandle) {
+      this.isPanning = false;
       const world = this.screenToWorld(e.clientX, e.clientY);
       const line = this.draggingHandle.line;
       if (this.draggingHandle.handle === 'start') {
@@ -296,8 +320,20 @@ class RelationalCanvasEngine {
       return;
     }
 
-    // Resizing Table (draw.io corner drag)
+    // 4. Dragging Connection Line from a port
+    if (this.isConnecting && this.connectSource) {
+      this.isPanning = false;
+      const world = this.screenToWorld(e.clientX, e.clientY);
+      this.connectCurrentX = world.x;
+      this.connectCurrentY = world.y;
+      this.connectMovedDist += 5;
+      this.renderTemporaryConnectingLine();
+      return;
+    }
+
+    // 5. Resizing Table (draw.io corner drag)
     if (this.isResizing && this.resizingNode) {
+      this.isPanning = false;
       const dx = (e.clientX - this.resizeStartX) / this.zoom;
       const dy = (e.clientY - this.resizeStartY) / this.zoom;
       this.resizingNode.width = Math.max(160, Math.round(this.resizeStartWidth + dx));
@@ -310,12 +346,36 @@ class RelationalCanvasEngine {
       this.renderCrowFootLinks();
       return;
     }
+
+    // 6. Panning canvas - ONLY if isPanning is true and NO object is being dragged!
+    if (this.isPanning) {
+      this.panX = e.clientX - this.startPanX;
+      this.panY = e.clientY - this.startPanY;
+      this.updateViewportTransform();
+      return;
+    }
   }
 
   onPointerUp(e) {
     if (this.isPanning) {
       this.isPanning = false;
       this.container.style.cursor = 'default';
+    }
+
+    // Free-line end dragging release
+    if (this.draggingFreeLine) {
+      if (this.snapCandidate && this.snapCandidate.table) {
+        const targetTable = this.snapCandidate.table;
+        this.completeTableConnection(this.draggingFreeLine.table, targetTable);
+        this.freeLines = this.freeLines.filter(item => item !== this.draggingFreeLine);
+        this.showToast(`🧲 Magnit: ${this.draggingFreeLine.table.name} va ${targetTable.name} muvaffaqiyatli bog'landi!`);
+      } else {
+        this.showToast("📍 Chiziq uchi joylashtirildi. Uni istalgan paytda boshqa jadvalga ulab olishingiz mumkin.");
+      }
+      this.draggingFreeLine = null;
+      this.snapCandidate = null;
+      this.renderCrowFootLinks();
+      return;
     }
 
     if (this.draggingHandle) {
@@ -522,6 +582,10 @@ class RelationalCanvasEngine {
   // TABLE SELECTION & DRAGGING
   // ==========================================================================
   onTablePointerDown(point, table) {
+    this.isPanning = false;
+    this.draggingFreeLine = null;
+    this.draggingHandle = null;
+
     if (this.isConnecting && this.connectSource) {
       if (this.connectSource.table.domId !== table.domId) {
         this.completeTableConnection(this.connectSource.table, table);
@@ -922,10 +986,7 @@ class RelationalCanvasEngine {
       path.addEventListener('dblclick', onLineDblClick);
       this.svg.appendChild(path);
 
-      // Midpoint pill
-      this.renderMultiplicityPill(`${line.fromMult || '0..*'} ↔ ${line.toMult || '1..1'}`, midX, midY, (ev) => this.openMultiplicityPopover(line, ev), onLineDblClick);
-
-      // Magnetic Handles at both ends
+      // Magnetic Handles at both ends cleanly without middle badge
       this.renderMagneticHandle(line, 'start', line.startX, line.startY, onLineDblClick);
       this.renderMagneticHandle(line, 'end', line.endX, line.endY, onLineDblClick);
     });
@@ -986,13 +1047,10 @@ class RelationalCanvasEngine {
       const startDragHandle = (e) => {
         e.stopPropagation();
         if (e.cancelable) e.preventDefault();
-        this.freeLines.splice(idx, 1);
-        this.startPortConnection(fl.table, fl.port);
-        const point = e.touches ? e.touches[0] : e;
-        const world = this.screenToWorld(point.clientX, point.clientY);
-        this.connectCurrentX = world.x;
-        this.connectCurrentY = world.y;
-        this.renderCrowFootLinks();
+        this.isPanning = false;
+        this.isDraggingNode = false;
+        this.draggingHandle = null;
+        this.draggingFreeLine = fl;
       };
       hitbox.addEventListener('mousedown', startDragHandle);
       hitbox.addEventListener('touchstart', startDragHandle, { passive: false });
@@ -1265,42 +1323,7 @@ class RelationalCanvasEngine {
 
     this.renderMultiplicityPill(fromMult, mx1, my1, (ev) => this.openMultiplicityPopover(ref, ev), deleteConn);
     this.renderMultiplicityPill(toMult, mx2, my2, (ev) => this.openMultiplicityPopover(ref, ev), deleteConn);
-
-    // Midpoint link pill
-    const midGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    midGroup.setAttribute('transform', `translate(${midX}, ${midY})`);
-    midGroup.style.cursor = 'pointer';
-    midGroup.style.pointerEvents = 'auto';
-    midGroup.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.openMultiplicityPopover(ref, e);
-    });
-    midGroup.addEventListener('dblclick', deleteConn);
-    midGroup.addEventListener('touchend', handleTap, { passive: false });
-
-    const midRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    midRect.setAttribute('x', '-40');
-    midRect.setAttribute('y', '-11');
-    midRect.setAttribute('width', '80');
-    midRect.setAttribute('height', '22');
-    midRect.setAttribute('rx', '4');
-    midRect.setAttribute('fill', '#251e18');
-    midRect.setAttribute('stroke', '#c8a96e');
-    midRect.setAttribute('stroke-width', '1');
-    midGroup.appendChild(midRect);
-
-    const midText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    midText.setAttribute('x', '0');
-    midText.setAttribute('y', '4');
-    midText.setAttribute('text-anchor', 'middle');
-    midText.setAttribute('fill', '#dfc288');
-    midText.setAttribute('font-size', '9.5');
-    midText.setAttribute('font-family', 'JetBrains Mono, monospace');
-    midText.setAttribute('font-weight', '700');
-    midText.textContent = `${fromMult} ↔ ${toMult}`;
-    midGroup.appendChild(midText);
-
-    this.svg.appendChild(midGroup);
+    // End multiplicities are rendered at both borders cleanly
   }
 
   drawMultiplicitySymbol(mult, x, y, dir) {

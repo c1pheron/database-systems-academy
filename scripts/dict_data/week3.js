@@ -4,6 +4,41 @@
  */
 module.exports = [
   {
+    id: 'set-search-path',
+    name: 'SET search_path (Sxema Qidiruv Yo\'li)',
+    category: '3-Hafta • SQL DDL & DML Asoslari',
+    week: 3,
+    summary: "PostgreSQL sessiyasida SQL so'rovlari jadvallarni qaysi sxemalar ichidan qidirishi kerakligini belgilovchi qidiruv yo'lini o'rnatish.",
+    whatItDoes: "Foydalanuvchi SQL so'rovida jadval nomini sxemasiz yozganda (masalan, `SELECT * FROM branch`), PostgreSQL `search_path` ro'yxatidagi sxemalarni chapdan o'ngga qarab ketma-ket tekshiradi va birinchi uchragan joydan ochadi. Bu jadvallarni `sxema.jadval` deb uzun yozmasdan to'g'ridan-to'g'ri chaqirish imkonini beradi va ko'p foydalanuvchili tizimlarda ma'lumotlar aralashib ketishining oldini oladi.",
+    whenToUse: "Yangi laboratoriya muhitiga, filial bazasiga yoki maxsus modulga (masalan, `ddl_lab`, `company_lab`) ulanganda tizim jadvallarni to'g'ri topishi uchun.",
+    syntax: "-- 1. Standart o'rnatish:\nSET search_path TO sxema1, sxema2, public;\n\n-- 2. Tenglik belgisi bilan yozish:\nSET search_path = sxema1, sxema2;\n\n-- 3. Joriy qidiruv yo'lini ko'rish:\nSHOW search_path;",
+    combinations: `Barcha Asosiy Kombinatsiyalar:
+• SET search_path TO sxema1, public — Dastlab 'sxema1' dan, topilmasa umumiy 'public' dan qidiradi
+• SET search_path = sxema1, sxema2 — '=' belgisi orqali o'rnatish
+• SHOW search_path — Hozir qaysi sxemalar faol ekanligini konsolda ko'rsatadi
+• RESET search_path — Standart ("$user", public) qidiruv yo'liga qaytaradi
+• SET LOCAL search_path TO ... — Faqat bitta tranzaksiya (BEGIN...COMMIT) ichida amal qiluvchi vaqtinchalik yo'naltirish`,
+    example: "-- ddl_lab va public sxemalarini qidiruv yo'liga kiritish:\nSET search_path TO ddl_lab, public;\n\n-- Endi jadvallarni ddl_lab.branch emas, to'g'ridan-to'g'ri branch deb chaqirish mumkin:\nSELECT * FROM branch;",
+    gotchas: "Tuzoq! Agar `SET search_path` ro'yxatiga `public` sxemasini qo'shishni unutsangiz, standart funksiyalar va umumiy jadvallar 'relation does not exist' xatosi bilan ishlamay qolishi mumkin. Shuningdek, `SET` buyrug'i faqat joriy sessiya (ulanib turgan vaqt) uchun amal qiladi; yangi sessiya ochilganda standart holatga qaytadi.",
+    related: ['create-schema', 'create-table', 'sql-datatypes'],
+    keywords: ['search_path', 'set search_path', 'set', 'schema', 'sxema', 'qidiruv yoli', 'ddl_lab', 'company_lab', 'public', 'show search_path']
+  },
+  {
+    id: 'create-schema',
+    name: 'CREATE SCHEMA (Sxema / Modul Yaratish)',
+    category: '3-Hafta • SQL DDL & DML Asoslari',
+    week: 3,
+    summary: "Ma'lumotlar bazasida jadvallar, ko'rinishlar (view) va funksiyalarni mantiqiy guruhlash uchun yangi nomlar fazosi (namespace/sxema) yaratish.",
+    whatItDoes: "Xuddi operatsion tizimdagi papka (folder) kabi ishlaydi. Bitta ma'lumotlar bazasi ichida alohida bo'limlar (masalan: `buxgalteriya`, `ombor`, `kadrlar`) uchun alohida jadvallarni yaratish va huquqlarni boshqarish imkonini beradi.",
+    whenToUse: "Katta loyihalarda mikroxizmatlar yoki modullar jadvallarini bir-biriga aralashtirmasdan ajratishda.",
+    syntax: "CREATE SCHEMA sxema_nomi;\nCREATE SCHEMA IF NOT EXISTS sxema_nomi;\nDROP SCHEMA sxema_nomi CASCADE;",
+    combinations: "`IF NOT EXISTS` orqali sxema mavjud bo'lsa xatolik bermaslikni ta'minlash mumkin. `AUTHORIZATION` orqali sxemaga ega foydalanuvchi biriktiriladi.",
+    example: "CREATE SCHEMA IF NOT EXISTS company_lab;\nSET search_path TO company_lab, public;",
+    gotchas: "Sxema o'chirilganda (`DROP SCHEMA`) uning ichida jadvallar bor bo'lsa xatolik beradi. Agar barcha jadvallari bilan qo'shib yo'q qilish kerak bo'lsa, `CASCADE` qo'shilishi shart.",
+    related: ['set-search-path', 'create-table', 'drop-table'],
+    keywords: ['create schema', 'schema', 'sxema', 'namespace', 'modul', 'ddl']
+  },
+  {
     id: 'create-table',
     name: 'CREATE TABLE (Jadval Yaratish)',
     category: '3-Hafta • SQL DDL & DML Asoslari',

@@ -1227,6 +1227,62 @@
     ]
   },
   {
+    "id": "set-search-path",
+    "name": "SET search_path (Sxema Qidiruv Yo'li)",
+    "category": "3-Hafta • SQL DDL & DML Asoslari",
+    "week": 3,
+    "summary": "PostgreSQL sessiyasida SQL so'rovlari jadvallarni qaysi sxemalar ichidan qidirishi kerakligini belgilovchi qidiruv yo'lini o'rnatish.",
+    "whatItDoes": "Foydalanuvchi SQL so'rovida jadval nomini sxemasiz yozganda (masalan, `SELECT * FROM branch`), PostgreSQL `search_path` ro'yxatidagi sxemalarni chapdan o'ngga qarab ketma-ket tekshiradi va birinchi uchragan joydan ochadi. Bu jadvallarni `sxema.jadval` deb uzun yozmasdan to'g'ridan-to'g'ri chaqirish imkonini beradi va ko'p foydalanuvchili tizimlarda ma'lumotlar aralashib ketishining oldini oladi.",
+    "whenToUse": "Yangi laboratoriya muhitiga, filial bazasiga yoki maxsus modulga (masalan, `ddl_lab`, `company_lab`) ulanganda tizim jadvallarni to'g'ri topishi uchun.",
+    "syntax": "-- 1. Standart o'rnatish:\nSET search_path TO sxema1, sxema2, public;\n\n-- 2. Tenglik belgisi bilan yozish:\nSET search_path = sxema1, sxema2;\n\n-- 3. Joriy qidiruv yo'lini ko'rish:\nSHOW search_path;",
+    "combinations": "Barcha Asosiy Kombinatsiyalar:\n• SET search_path TO sxema1, public — Dastlab 'sxema1' dan, topilmasa umumiy 'public' dan qidiradi\n• SET search_path = sxema1, sxema2 — '=' belgisi orqali o'rnatish\n• SHOW search_path — Hozir qaysi sxemalar faol ekanligini konsolda ko'rsatadi\n• RESET search_path — Standart (\"$user\", public) qidiruv yo'liga qaytaradi\n• SET LOCAL search_path TO ... — Faqat bitta tranzaksiya (BEGIN...COMMIT) ichida amal qiluvchi vaqtinchalik yo'naltirish",
+    "example": "-- ddl_lab va public sxemalarini qidiruv yo'liga kiritish:\nSET search_path TO ddl_lab, public;\n\n-- Endi jadvallarni ddl_lab.branch emas, to'g'ridan-to'g'ri branch deb chaqirish mumkin:\nSELECT * FROM branch;",
+    "gotchas": "Tuzoq! Agar `SET search_path` ro'yxatiga `public` sxemasini qo'shishni unutsangiz, standart funksiyalar va umumiy jadvallar 'relation does not exist' xatosi bilan ishlamay qolishi mumkin. Shuningdek, `SET` buyrug'i faqat joriy sessiya (ulanib turgan vaqt) uchun amal qiladi; yangi sessiya ochilganda standart holatga qaytadi.",
+    "related": [
+      "create-schema",
+      "create-table",
+      "sql-datatypes"
+    ],
+    "keywords": [
+      "search_path",
+      "set search_path",
+      "set",
+      "schema",
+      "sxema",
+      "qidiruv yoli",
+      "ddl_lab",
+      "company_lab",
+      "public",
+      "show search_path"
+    ]
+  },
+  {
+    "id": "create-schema",
+    "name": "CREATE SCHEMA (Sxema / Modul Yaratish)",
+    "category": "3-Hafta • SQL DDL & DML Asoslari",
+    "week": 3,
+    "summary": "Ma'lumotlar bazasida jadvallar, ko'rinishlar (view) va funksiyalarni mantiqiy guruhlash uchun yangi nomlar fazosi (namespace/sxema) yaratish.",
+    "whatItDoes": "Xuddi operatsion tizimdagi papka (folder) kabi ishlaydi. Bitta ma'lumotlar bazasi ichida alohida bo'limlar (masalan: `buxgalteriya`, `ombor`, `kadrlar`) uchun alohida jadvallarni yaratish va huquqlarni boshqarish imkonini beradi.",
+    "whenToUse": "Katta loyihalarda mikroxizmatlar yoki modullar jadvallarini bir-biriga aralashtirmasdan ajratishda.",
+    "syntax": "CREATE SCHEMA sxema_nomi;\nCREATE SCHEMA IF NOT EXISTS sxema_nomi;\nDROP SCHEMA sxema_nomi CASCADE;",
+    "combinations": "`IF NOT EXISTS` orqali sxema mavjud bo'lsa xatolik bermaslikni ta'minlash mumkin. `AUTHORIZATION` orqali sxemaga ega foydalanuvchi biriktiriladi.",
+    "example": "CREATE SCHEMA IF NOT EXISTS company_lab;\nSET search_path TO company_lab, public;",
+    "gotchas": "Sxema o'chirilganda (`DROP SCHEMA`) uning ichida jadvallar bor bo'lsa xatolik beradi. Agar barcha jadvallari bilan qo'shib yo'q qilish kerak bo'lsa, `CASCADE` qo'shilishi shart.",
+    "related": [
+      "set-search-path",
+      "create-table",
+      "drop-table"
+    ],
+    "keywords": [
+      "create schema",
+      "schema",
+      "sxema",
+      "namespace",
+      "modul",
+      "ddl"
+    ]
+  },
+  {
     "id": "create-table",
     "name": "CREATE TABLE (Jadval Yaratish)",
     "category": "3-Hafta • SQL DDL & DML Asoslari",
@@ -3828,7 +3884,7 @@
       const scrollEl = document.getElementById('cdContentScroll');
 
       if (cdBadge) cdBadge.textContent = `${weekNum}-Hafta • ${item.category}`;
-      if (cdTitle) cdTitle.innerHTML = `📖 ${item.name} — Texnik Qo'llanma`;
+      if (cdTitle) cdTitle.innerHTML = `📖 ${item.name} — Texnik Qo'llanma & Master-Klass`;
       if (cdTaskHint) {
         cdTaskHint.innerHTML = `
           <div class="cd-task-bar">
@@ -3842,13 +3898,86 @@
       }
 
       if (scrollEl) {
+        const title = question?.title || item.name;
+        const story = question?.story || '';
+        const task = question?.taskUz || question?.task || '';
+        const hint = question?.hint || '';
+        const anatomy = question?.flagAnatomy || null;
+        const solutions = question?.solutions || [];
+        const expectedSchema = question?.expectedSchema || null;
+
         const summaryText = item.summary || `${item.name} haqida nazariy va amaliy asoslar.`;
         const whatText = item.whatItDoes || `Ushbu mexanizm relyatsion ma'lumotlar bazasida jadval, entitiy yoki ustunlar o'rtasidagi biznes qoidalarini aniq belgilash va yaxlitlikni kafolatlash uchun xizmat qiladi.`;
-        const whenText = item.whenToUse || `Haqiqiy biznes loyihalarida (masalan, elektron tijorat, bank tranzaksiyalari yoki foydalanuvchilar hisoboti) ma'lumotlar chalkashmasligi va to'g'ri bog'lanishi uchun qo'llaniladi.`;
+        const whenText = item.whenToUse || `Haqiqiy biznes loyihalarida (masalan, Korzinka, Uzum Market, Bank yoki Payme tranzaksiyalarida) ma'lumotlar chalkashmasligi va to'g'ri bog'lanishi uchun qo'llaniladi.`;
         const syntaxText = item.syntax || `-- Sintaksis andozasi:\n-- ${item.name} bo'yicha standart yozilish qoidasi`;
         const combText = item.combinations || `Ushbu qoida boshqa SQL kalit so'zlari yoki ERD belgilari bilan uzviy bog'liq holda ishlaydi.`;
-        const exText = item.example || `-- Amaliy namuna:\nSELECT * FROM jadvallar;`;
         const gotchasText = item.gotchas || `Eng asosiy qoida: Sintaksis yoki multiplisiti chegaralarini chalkashtirib yubormaslik lozim.`;
+
+        // Smart dynamic anatomy if question doesn't have custom flagAnatomy
+        const cmdPurposeText = anatomy?.commandPurpose || (
+          item.id === 'set-search-path' 
+            ? "Joriy PostgreSQL sessiyasida jadvallarni qaysi sxemalar ichidan qidirish tartibini (search_path) o'rnatish."
+            : item.id === 'create-schema'
+            ? "Loyihaning yangi moduli uchun mustaqil nomlar fazosini (schema) shakllantirish."
+            : item.id === 'like-operator'
+            ? "Matnli ustunlar ichidan wildcard (% va _) shablonlari yordamida qidirish."
+            : item.id === 'create-table'
+            ? (expectedSchema ? `'${expectedSchema.tableName}' jadvali va undagi ${expectedSchema.columns ? expectedSchema.columns.map(c=>c.name).join(', ') : 'ustunlar'}ni to'g'ri turlar bilan yaratish.` : "Jadval va uning ustunlarini DDL sintaksisi asosida yaratish.")
+            : item.id === 'alter-table'
+            ? "Mavjud jadval tarkibiga yangi ustun, cheklov yoki tashqi kalit biriktirish."
+            : item.id === 'inner-join' || item.id === 'left-outer-join'
+            ? "Jadvallar o'rtasidagi umumiy kalit ustunlari bo'yicha bog'lanish o'rnatish va natijalarni birlashtirish."
+            : item.id === 'coalesce'
+            ? "NULL qiymat uchraganda uni standart zaxira qiymatga almashtirish."
+            : `Ushbu masalada '${item.name}' mexanizmini to'g'ri qo'llab, relyatsion ma'lumotlar ustida aniq amal bajarish.`
+        );
+
+        const relImpactText = anatomy?.relationalImpact || (
+          item.id === 'set-search-path'
+            ? "Sxema nomini har bir so'rovda qo'lda yozmasdan to'g'ridan-to'g'ri jadvallar bilan ishlash imkonini beradi."
+            : item.id === 'create-table'
+            ? "Ma'lumotlar bazasida yangi relyatsion munosabat (jadval) va uning tizim katalogidagi yozuvini shakllantiradi."
+            : item.id === 'alter-table'
+            ? "Diskdagi jadval sxemasini yangilaydi va ma'lumotlar yaxlitligini kuchaytiradi."
+            : item.id === 'inner-join' || item.id === 'left-outer-join'
+            ? "Ikki yoki undan ortiq jadvallar orasida Dekart ko'paytmasidan filtrlab, faqat mos keluvchi qatorlarni qaytaradi."
+            : item.id === 'like-operator'
+            ? "Filtrlash operatori sifatida WHERE shartida qatorlarni saralab beradi."
+            : "Relyatsion baza jadvallari, kalitlari va qatorlari orasidagi aloqadorlikni ta'minlaydi."
+        );
+
+        const omissionRiskText = anatomy?.omissionRisk || (
+          item.id === 'set-search-path'
+            ? "Agar search_path o'rnatilmasa, PostgreSQL jadvallarni topa olmaydi va 'relation does not exist' xatosi chiqadi."
+            : item.id === 'create-table'
+            ? "Ustun turlari yoki cheklovlar noto'g'ri berilsa, kelajakda noto'g'ri ma'lumotlar yozilib baza yaxlitligi buziladi."
+            : item.id === 'like-operator'
+            ? "Katta-kichik harflar farqlanmasa (LIKE vs ILIKE) yoki wildcard o'rni almashsa, qidiruv natijasi bo'sh (0 qator) chiqadi."
+            : item.id === 'inner-join'
+            ? "ON bog'lash sharti yozilmasa yoki noto'g'ri ustunlar tenglashtirilsa, Dekart ko'paytmasi (Cross Join) yuzaga kelib xotira to'lib ketadi."
+            : item.gotchas || "Sintaksis yoki chegaralar chalkashsa so'rov xatolik beradi yoki kutilmagan natija qaytaradi."
+        );
+
+        const cmdPurposeHtml = `<div class="cd-desc-block"><strong>🎯 Ushbu Masaladagi Aniq Vazifa:</strong><p>${this.formatCodeSnippets(cmdPurposeText)}</p></div>`;
+        const relImpactHtml = `<div class="cd-desc-block"><strong>🗄️ Relyatsion Baza & Jadvalga Ta'siri:</strong><p>${this.formatCodeSnippets(relImpactText)}</p></div>`;
+        const omissionRiskHtml = `<div class="cd-warning-box"><strong>⚠️ E'tiborsizlik Qilsa Nima Bo'ladi (Xatolik Oqibati):</strong><p>${this.formatCodeSnippets(omissionRiskText)}</p></div>`;
+
+        const specificSyntaxHtml = (anatomy?.syntaxExample || (solutions.length > 0 ? solutions[0] : null))
+          ? `<div style="margin-top:12px;"><strong>📝 Ushbu Masalaga Mos Sintaksis:</strong><pre class="cd-code-block"><code>${this.escapeHtml(anatomy?.syntaxExample || solutions[0])}</code></pre></div>` 
+          : '';
+
+        const hintBoxHtml = hint 
+          ? `<div class="cd-hint-box"><strong>💡 Ustoz Ko'rsatmasi (Hint):</strong><p>${this.formatCodeSnippets(hint)}</p></div>` 
+          : '';
+
+        const schemaBoxHtml = expectedSchema 
+          ? `<div class="cd-schema-box"><strong>📋 Kutilayotgan Sxema:</strong><pre style="margin:4px 0 0 0; color:#dfc288; font-size:11.5px;"><code>${this.escapeHtml(JSON.stringify(expectedSchema, null, 2))}</code></pre></div>` 
+          : '';
+
+        const solutionCode = solutions.length > 0 ? solutions[0] : item.example;
+        const solutionExplanationHtml = solutions.length > 0 
+          ? `<div style="margin-top:10px; font-size:12.5px; color:#c4bbb0; line-height:1.5;"><strong>🔍 Yechim Tahlili:</strong> Ushbu SQL so'rovi masalaning barcha mezonlariga javob beradi. Undagi barcha kalit so'zlar relyatsion mantiq asosida tanlangan.</div>`
+          : '';
 
         scrollEl.innerHTML = `
           <!-- 1. Nima uchun kerak va vazifasi -->
@@ -3860,11 +3989,13 @@
             <div class="cd-card-body">
               <p class="cd-lead">${this.formatCodeSnippets(summaryText)}</p>
               <div class="cd-desc-block">
-                <strong>⚙️ Tizimdagi vazifasi:</strong>
+                <strong>⚙️ Tizimdagi vazifasi va mohiyati:</strong>
                 <p>${this.formatCodeSnippets(whatText)}</p>
               </div>
+              ${cmdPurposeHtml}
+              ${relImpactHtml}
               <div class="cd-realworld-box">
-                <strong>🏢 Real tizimlarda (Korzinka, Uzum, Bank):</strong>
+                <strong>🏢 Real tizimlarda (Korzinka, Uzum Market, Bank, Payme):</strong>
                 <p>${this.formatCodeSnippets(whenText)}</p>
               </div>
             </div>
@@ -3874,10 +4005,11 @@
           <div class="cd-card">
             <div class="cd-card-header">
               <span class="cd-card-icon">🛠️</span>
-              <span class="cd-card-title">2. Qanday Yoziladi (Rasmiy Sintaksis)</span>
+              <span class="cd-card-title">2. Qanday Yoziladi (Rasmiy Sintaksis & Standart)</span>
             </div>
             <div class="cd-card-body">
               <pre class="cd-code-block"><code>${this.escapeHtml(syntaxText)}</code></pre>
+              ${specificSyntaxHtml}
             </div>
           </div>
 
@@ -3885,7 +4017,7 @@
           <div class="cd-card highlight">
             <div class="cd-card-header">
               <span class="cd-card-icon">⚡</span>
-              <span class="cd-card-title">3. Barcha Qo'shimchalar & Real Kombinatsiyalar</span>
+              <span class="cd-card-title">3. Barcha Qo'shimchalar, Modifikatorlar & Kombinatsiyalar</span>
             </div>
             <div class="cd-card-body">
               <div class="cd-combinations-text">${this.formatCodeSnippets(combText)}</div>
@@ -3896,10 +4028,11 @@
           <div class="cd-card">
             <div class="cd-card-header">
               <span class="cd-card-icon">💻</span>
-              <span class="cd-card-title">4. To'liq Ishchi Namuna (Misol)</span>
+              <span class="cd-card-title">4. To'liq Ishchi Namuna (Masala Yechimi / Real Loyiha Misoli)</span>
             </div>
             <div class="cd-card-body">
-              <pre class="cd-code-block example"><code>${this.escapeHtml(exText)}</code></pre>
+              <pre class="cd-code-block example"><code>${this.escapeHtml(solutionCode)}</code></pre>
+              ${solutionExplanationHtml}
             </div>
           </div>
 
@@ -3907,13 +4040,15 @@
           <div class="cd-card advice">
             <div class="cd-card-header">
               <span class="cd-card-icon">🎯</span>
-              <span class="cd-card-title">5. Ushbu Masalani Yechish Bo'yicha Strategiya</span>
+              <span class="cd-card-title">5. Ushbu Masalani Yechish Bo'yicha Master-Klass</span>
             </div>
             <div class="cd-card-body">
+              ${hintBoxHtml}
+              ${schemaBoxHtml}
               <ol class="cd-steps-list">
-                <li><strong>1-Qadam:</strong> Masala shartidagi talabni diqqat bilan o'qing: <em>"${this.escapeHtml(question?.title || '')}"</em>.</li>
-                <li><strong>2-Qadam:</strong> Ushbu qoidaga tayanib, asosiy operator yoki multiplicity bog'lanishini aniqlang: <code>${this.escapeHtml(item.name.split('(')[0].trim())}</code>.</li>
-                <li><strong>3-Qadam:</strong> ${this.formatCodeSnippets(question?.taskUz || question?.story || 'Diagrammada kerakli entitiylarni ulab, kalit va multiplicity chegaralarini to\'g\'ri tanlang.')}</li>
+                <li><strong>1-Qadam (Shartni tahlil qilish):</strong> Masala talabini diqqat bilan o'qing: <em>"${this.escapeHtml(title)}"</em>.${story ? ` <br><span style="color:#c4bbb0; font-size:12.5px;">Kontekst: ${this.escapeHtml(story)}</span>` : ''}</li>
+                <li><strong>2-Qadam (Mexanizmni tanlash):</strong> Ushbu holatda <code>${this.escapeHtml(item.name.split('(')[0].trim())}</code> qoidasini qo'llash talab etiladi.</li>
+                <li><strong>3-Qadam (Amaliy bajarish):</strong> ${this.formatCodeSnippets(task || 'Diagrammada kerakli bog\'lanishni to\'g\'ri multiplicity chegaralari bilan shakllantiring.')}</li>
               </ol>
             </div>
           </div>
@@ -3922,10 +4057,11 @@
           <div class="cd-card warning">
             <div class="cd-card-header warning">
               <span class="cd-card-icon">⚠️</span>
-              <span class="cd-card-title">6. Eng Ko'p Uchraydigan Xatolar & Tuzoqlar (Gotchas)</span>
+              <span class="cd-card-title">6. Eng Ko'p Uchraydigan Xatolar, Tuzoqlar & Gotchas</span>
             </div>
             <div class="cd-card-body warning">
               <p>${this.formatCodeSnippets(gotchasText)}</p>
+              ${omissionRiskHtml}
             </div>
           </div>
         `;
@@ -3942,112 +4078,120 @@
     findMatchingEntry(q, weekNum = 1) {
       if (!q) return this.data.find(d => d.week === weekNum) || this.data[0];
 
-      const corpus = `${q.title || ''} ${q.taskUz || ''} ${q.story || ''} ${q.starterCode || ''} ${q.solutionSQL || ''} ${q.expectedCode || ''} ${(q.tags || []).join(' ')}`.toLowerCase();
+      const solText = Array.isArray(q.solutions) ? q.solutions.join(' ') : (q.solutions || '');
+      const rawCorpus = `${solText} ${q.title || ''} ${q.taskUz || ''} ${q.task || ''} ${q.story || ''} ${q.starterCode || ''} ${q.hint || ''} ${(q.tags || []).join(' ')}`.toLowerCase();
+      const find = (id) => this.data.find(d => d.id === id);
 
-      const priorityPatterns = [
-        { id: 'weak-entity', test: /zaif|weak entity|qaramog/i },
-        { id: 'associative-entity', test: /assotsiativ|ko'pga-ko'p|m:n|oraliq jadval/i },
-        { id: 'multivalued-attribute', test: /ko'p qiymat|multivalued|telefonlar|double oval/i },
-        { id: 'derived-attribute', test: /hosilaviy|derived|yosh|hisoblangan/i },
-        { id: 'composite-attribute', test: /kompozit|composite|manzil.*shahar/i },
-        { id: 'candidate-key', test: /candidate key|nomzod kalit/i },
-        { id: 'alternate-key', test: /alternate key|muqobil kalit/i },
-        { id: 'super-key', test: /super key/i },
-        { id: 'isa-hierarchy', test: /isa|meros|subklass|disjoint|overlap/i },
-        { id: 'multiplicity', test: /multiplicity|1\.\.1|0\.\.1|1\.\.\*|0\.\.\*/i },
-        { id: 'cardinality', test: /kardinallik|cardinality/i },
-        { id: 'participation', test: /ishtirok|participation|total|partial/i },
-        { id: 'primary-key', test: /birlamchi kalit|primary key/i },
-        { id: 'entity', test: /entitiy|entity/i },
-
-        { id: 'bcnf', test: /bcnf|boyce-codd/i },
-        { id: '3nf', test: /3nf|uchinchi normal/i },
-        { id: '2nf', test: /2nf|ikkinchi normal/i },
-        { id: '1nf', test: /1nf|birinchi normal/i },
-        { id: 'transitive-dependency', test: /tranzitiv|transitive/i },
-        { id: 'partial-dependency', test: /qisman bog'liqlik|partial dependency/i },
-        { id: 'functional-dependency', test: /funksional bog'liqlik|functional dependency/i },
-        { id: 'foreign-key', test: /tashqi kalit|foreign key|references/i },
-        { id: 'on-delete-cascade', test: /on delete cascade|cascade/i },
-        { id: 'on-delete-set-null', test: /on delete set null/i },
-        { id: 'lossless-join', test: /lossless|yo'qotishsiz/i },
-        { id: 'dependency-preservation', test: /bog'liqlikni saqlash|dependency preservation/i },
-
-        { id: 'like-operator', test: /like|ilike|wildcard|%|_/i },
-        { id: 'between-operator', test: /between/i },
-        { id: 'in-operator', test: /\bin\b|not in/i },
-        { id: 'is-null', test: /is null|is not null/i },
-        { id: 'order-by', test: /order by|saralash|asc|desc/i },
-        { id: 'limit-offset', test: /limit|offset|fetch first/i },
-        { id: 'distinct', test: /distinct/i },
-        { id: 'create-table', test: /create table/i },
-        { id: 'alter-table', test: /alter table/i },
-        { id: 'drop-table', test: /drop table/i },
-        { id: 'truncate-table', test: /truncate/i },
-        { id: 'insert-into', test: /insert into/i },
-        { id: 'update-set', test: /update.*set/i },
-        { id: 'delete-from', test: /delete from/i },
-        { id: 'check-constraint', test: /check/i },
-        { id: 'unique-constraint', test: /unique/i },
-        { id: 'default-constraint', test: /default/i },
-
-        { id: 'coalesce', test: /coalesce/i },
-        { id: 'nvl', test: /nvl|ifnull/i },
-        { id: 'nullif', test: /nullif/i },
-        { id: 'case-when', test: /case\s+when/i },
-        { id: 'full-outer-join', test: /full outer join|full join/i },
-        { id: 'right-outer-join', test: /right outer join|right join/i },
-        { id: 'left-outer-join', test: /left outer join|left join/i },
-        { id: 'inner-join', test: /inner join|join/i },
-        { id: 'cross-join', test: /cross join/i },
-        { id: 'self-join', test: /self join/i },
-        { id: 'group-by', test: /group by/i },
-        { id: 'having-clause', test: /having/i },
-        { id: 'count-func', test: /count\(/i },
-        { id: 'sum-func', test: /sum\(/i },
-        { id: 'avg-func', test: /avg\(/i },
-        { id: 'concat-func', test: /concat|\|\|/i },
-
-        { id: 'row-number', test: /row_number/i },
-        { id: 'rank-dense-rank', test: /dense_rank|rank\(/i },
-        { id: 'lead-lag', test: /lead\(|lag\(/i },
-        { id: 'partition-by-over', test: /over\s*\(|partition by/i },
-        { id: 'cte-with', test: /with\s+\w+\s+as/i },
-        { id: 'recursive-cte', test: /recursive/i },
-        { id: 'exists-operator', test: /exists|not exists/i },
-        { id: 'correlated-subquery', test: /korrelyatsiyalangan|correlated subquery/i },
-        { id: 'scalar-subquery', test: /skalyar|scalar subquery/i },
-        { id: 'union-operator', test: /union|union all/i },
-        { id: 'intersect-operator', test: /intersect/i },
-        { id: 'except-minus', test: /except|minus/i },
-
-        { id: 'acid-properties', test: /acid|atomicity|consistency|isolation|durability/i },
-        { id: 'transactions', test: /begin|commit|rollback|savepoint/i },
-        { id: 'isolation-levels', test: /isolation level|read committed|serializable|repeatable read/i },
-        { id: 'dirty-read', test: /dirty read|iflos o'qish/i },
-        { id: 'phantom-read', test: /phantom read/i },
-        { id: 'deadlock', test: /deadlock/i },
-        { id: 'explain-analyze', test: /explain|explain analyze/i },
-        { id: 'btree-index', test: /b-tree|b tree/i },
-        { id: 'create-index', test: /create index|index/i },
-        { id: 'views', test: /create view|view/i },
-        { id: 'triggers', test: /trigger/i },
-        { id: 'stored-procedures', test: /procedure|function/i },
-        { id: 'mongodb-crud', test: /mongodb|nosql|json|document/i },
-        { id: 'redis-cache', test: /redis|key-value|cache/i }
-      ];
-
-      for (const p of priorityPatterns) {
-        if (p.test.test(corpus)) {
-          const match = this.data.find(d => d.id === p.id);
-          if (match) return match;
-        }
+      // Week 1: Conceptual EER Modeling
+      if (weekNum === 1) {
+        if (/weak|zaif|qaramog/i.test(rawCorpus)) return find('weak-entity') || find('entity');
+        if (/assotsiativ|ko'pga-ko'p|m:n|junction/i.test(rawCorpus)) return find('associative-entity') || find('entity');
+        if (/multivalued|ko'p qiymat/i.test(rawCorpus)) return find('multivalued-attribute');
+        if (/derived|hosilaviy|hisoblangan/i.test(rawCorpus)) return find('derived-attribute');
+        if (/composite|kompozit/i.test(rawCorpus)) return find('composite-attribute');
+        if (/candidate key|nomzod kalit/i.test(rawCorpus)) return find('candidate-key');
+        if (/alternate key|muqobil kalit/i.test(rawCorpus)) return find('alternate-key');
+        if (/super key/i.test(rawCorpus)) return find('super-key');
+        if (/isa|subklass|disjoint|overlap/i.test(rawCorpus)) return find('isa-hierarchy');
+        if (/multiplicity|kardinallik|cardinality/i.test(rawCorpus)) return find('multiplicity');
+        if (/primary key|birlamchi kalit/i.test(rawCorpus)) return find('primary-key');
+        if (/entity|entitiy/i.test(rawCorpus)) return find('entity');
+        return this.data.find(d => d.week === 1) || this.data[0];
       }
 
+      // Week 2: Relational Schema & Normalization (1NF - BCNF)
+      if (weekNum === 2) {
+        if (/bcnf|boyce-codd/i.test(rawCorpus)) return find('bcnf');
+        if (/3nf|uchinchi normal/i.test(rawCorpus)) return find('3nf');
+        if (/2nf|ikkinchi normal/i.test(rawCorpus)) return find('2nf');
+        if (/1nf|birinchi normal/i.test(rawCorpus)) return find('1nf');
+        if (/transitive|tranzitiv/i.test(rawCorpus)) return find('transitive-dependency');
+        if (/partial dependency|qisman bog'liqlik/i.test(rawCorpus)) return find('partial-dependency');
+        if (/functional dependency|funksional bog'liqlik/i.test(rawCorpus)) return find('functional-dependency');
+        if (/cascade/i.test(rawCorpus)) return find('on-delete-cascade');
+        if (/set null/i.test(rawCorpus)) return find('on-delete-set-null');
+        if (/foreign key|tashqi kalit/i.test(rawCorpus)) return find('foreign-key');
+        if (/lossless|yo'qotishsiz/i.test(rawCorpus)) return find('lossless-join');
+        if (/dependency preservation|bog'liqlikni saqlash/i.test(rawCorpus)) return find('dependency-preservation');
+        return this.data.find(d => d.week === 2) || this.data[0];
+      }
+
+      // Weeks 3 - 6: SQL DDL, DML, JOINS, ADVANCED SQL & OPTIMIZATION
+      // 1. Exact Solution Syntax match (Highest accuracy)
+      if (/set\s+search_path/i.test(solText) || /search_path/i.test(rawCorpus)) return find('set-search-path');
+      if (/create\s+schema/i.test(solText) || /create schema/i.test(rawCorpus)) return find('create-schema');
+      if (/alter\s+table/i.test(solText)) return find('alter-table');
+      if (/drop\s+table/i.test(solText)) return find('drop-table');
+      if (/truncate/i.test(solText)) return find('truncate-table');
+      if (/create\s+table/i.test(solText)) return find('create-table');
+      if (/insert\s+into/i.test(solText)) return find('insert-into');
+      if (/update\s+\w+\s+set/i.test(solText)) return find('update-set');
+      if (/delete\s+from/i.test(solText)) return find('delete-from');
+
+      // Subqueries & CTE
+      if (/\bexists\s*\(/i.test(solText)) return find('exists-operator');
+      if (/(\bwhere\b|\bselect\b|\bfrom\b).*\(\s*select/i.test(solText) || /subquery|ichki so'rov/i.test(rawCorpus)) {
+        if (/\b(any|all)\s*\(|\bin\s*\(select/i.test(solText)) return find('subquery-in-any-all') || find('subquery-scalar');
+        if (/correlated|bog'langan ichki/i.test(rawCorpus)) return find('correlated-subquery') || find('subquery-scalar');
+        return find('subquery-scalar');
+      }
+
+      // Joins
+      if (/full\s+(outer\s+)?join/i.test(solText)) return find('full-outer-join');
+      if (/right\s+(outer\s+)?join/i.test(solText)) return find('right-outer-join');
+      if (/left\s+(outer\s+)?join/i.test(solText)) return find('left-outer-join');
+      if (/cross\s+join/i.test(solText)) return find('cross-join');
+      if (/natural\s+join/i.test(solText)) return find('natural-join') || find('inner-join');
+      if (/\busing\s*\(/i.test(solText)) return find('join-using') || find('inner-join');
+      if (/\b(inner\s+join|\bjoin\b)/i.test(solText)) return find('inner-join');
+
+      // Window functions
+      if (/\brow_number\s*\(/i.test(solText)) return find('row-number');
+      if (/\bdense_rank\s*\(/i.test(solText)) return find('dense-rank');
+      if (/\brank\s*\(/i.test(solText)) return find('rank-func');
+      if (/\b(lead|lag)\s*\(/i.test(solText)) return find('lag-lead');
+      if (/\bover\s*\(/i.test(solText)) return find('over-clause');
+
+      // CTE
+      if (/with\s+recursive/i.test(solText)) return find('recursive-cte');
+      if (/with\s+\w+\s+as/i.test(solText)) return find('cte-with');
+
+      // Set operations
+      if (/\bunion\b/i.test(solText)) return find('union-all');
+      if (/\bintersect\b/i.test(solText)) return find('intersect-operator');
+      if (/\bexcept\b/i.test(solText)) return find('except-operator');
+
+      // Views & Optimization
+      if (/create(\s+or\s+replace)?\s+view/i.test(solText)) return find('create-view');
+      if (/\bexplain/i.test(solText)) return find('explain-plan');
+      if (/create(\s+unique)?\s+index/i.test(solText)) return find('create-index');
+
+      // Aggregates & Grouping
+      if (/\bgroup\s+by/i.test(solText)) return find('group-by');
+      if (/\bhaving\b/i.test(solText)) return find('having-clause');
+      if (/\bcount\s*\(/i.test(solText)) return find('count-func');
+      if (/\b(sum|avg)\s*\(/i.test(solText)) return find('sum-avg');
+      if (/\b(min|max)\s*\(/i.test(solText)) return find('min-max');
+
+      // Functions & Nulls
+      if (/\bcoalesce\s*\(/i.test(solText)) return find('coalesce');
+      if (/\bnullif\s*\(/i.test(solText)) return find('nullif');
+      if (/case\s+when/i.test(solText)) return find('case-when');
+      if (/\b(like|ilike)\b/i.test(solText) || /shablon qidiruv|\blike\b|\bilike\b/i.test(q.title + ' ' + (q.taskUz||''))) return find('like-operator');
+      if (/\bbetween\b/i.test(solText)) return find('between-operator');
+      if (/\b(not\s+)?in\s*\(/i.test(solText)) return find('in-operator');
+      if (/\bis\s+(not\s+)?null\b/i.test(solText)) return find('is-null');
+      if (/\bdistinct\b/i.test(solText)) return find('distinct-clause');
+      if (/\border\s+by/i.test(solText)) return find('order-by');
+      if (/\b(limit|offset)\b/i.test(solText)) return find('limit-offset');
+      if (/\bwhere\b/i.test(solText)) return find('where-clause');
+      if (/^\s*select/i.test(solText)) return find('select-from');
+
+      // Fallback by week
       const weekEntries = this.data.filter(d => d.week === weekNum);
       for (const entry of weekEntries) {
         for (const kw of entry.keywords) {
-          if (corpus.includes(kw.toLowerCase())) return entry;
+          if (rawCorpus.includes(kw.toLowerCase())) return entry;
         }
       }
 

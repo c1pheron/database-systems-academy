@@ -115,9 +115,27 @@ class EERCanvasEngine {
 
     // 2. Pan on background drag & cancel pending connection
     this.container.addEventListener('mousedown', (e) => {
+      // If user clicked on a node, port, button, handle, or line, NEVER pan!
+      if (e.target.closest && (
+        e.target.closest('.eer-entity-box') || 
+        e.target.closest('.eer-diamond-box') || 
+        e.target.closest('circle') || 
+        e.target.closest('.magnetic-handle-group') || 
+        e.target.closest('.conn-port-handle-group') || 
+        e.target.closest('.mult-pill') || 
+        e.target.closest('.port-arrow') ||
+        e.target.closest('button')
+      )) {
+        this.isPanning = false;
+        return;
+      }
+
       if (e.target === this.container || e.target === this.svg || e.target === this.nodesLayer || e.target === this.viewport) {
         this.deselectAll();
         this.cancelConnecting();
+        this.isDraggingNode = false;
+        this.draggingHandle = null;
+        this.draggingFreeLine = null;
         this.isPanning = true;
         this.startPanX = e.clientX - this.panX;
         this.startPanY = e.clientY - this.panY;
@@ -184,7 +202,7 @@ class EERCanvasEngine {
         this.touchPinchMid = currentMid;
         this.updateViewportTransform();
       } else if (e.touches.length === 1 && !this.touchPinchDist) {
-        if (this.isDraggingNode || this.draggingHandle || this.isConnecting || this.isResizing) {
+        if (this.isDraggingNode || this.draggingHandle || this.draggingFreeLine || this.isConnecting || this.isResizing) {
           if (e.cancelable) e.preventDefault();
         }
         const touch = e.touches[0];
@@ -228,16 +246,9 @@ class EERCanvasEngine {
   }
 
   onPointerMove(e) {
-    // A. Panning canvas
-    if (this.isPanning) {
-      this.panX = e.clientX - this.startPanX;
-      this.panY = e.clientY - this.startPanY;
-      this.updateViewportTransform();
-      return;
-    }
-
-    // B. Dragging Node
+    // 1. Dragging Node (Entity) - MUST BE FIRST! Moves ONLY this single entity!
     if (this.isDraggingNode && this.draggedNode) {
+      this.isPanning = false;
       const world = this.screenToWorld(e.clientX, e.clientY);
       this.draggedNode.node.x = Math.round(world.x - this.dragOffsetX);
       this.draggedNode.node.y = Math.round(world.y - this.dragOffsetY);
@@ -261,18 +272,32 @@ class EERCanvasEngine {
       return;
     }
 
-    // C. Dragging Connection Port Line (draw.io live arrow drag)
-    if (this.isConnecting && this.connectSource) {
+    // 2. Dragging Free-Standing Line End Handle (draw.io hanging line drag)
+    if (this.draggingFreeLine) {
+      this.isPanning = false;
       const world = this.screenToWorld(e.clientX, e.clientY);
-      this.connectMovedDist = (this.connectMovedDist || 0) + Math.hypot(world.x - this.connectCurrentX, world.y - this.connectCurrentY);
-      this.connectCurrentX = world.x;
-      this.connectCurrentY = world.y;
-      this.renderTemporaryConnectingLine();
+      this.draggingFreeLine.endX = Math.round(world.x);
+      this.draggingFreeLine.endY = Math.round(world.y);
+
+      // Check magnetic snap with any other entity
+      this.snapCandidate = null;
+      for (const ent of this.entities) {
+        if (ent.domId === this.draggingFreeLine.node.domId) continue;
+        const cx = ent.x + (ent.width || 170) / 2;
+        const cy = ent.y + (ent.height || 100) / 2;
+        if (Math.hypot(world.x - cx, world.y - cy) < 130) {
+          this.snapCandidate = { freeLine: this.draggingFreeLine, node: ent, type: 'entity' };
+          break;
+        }
+      }
+
+      this.renderLinks();
       return;
     }
 
-    // Handle Standalone Connector Handles
+    // 3. Handle Standalone Connector Handles
     if (this.draggingHandle) {
+      this.isPanning = false;
       const world = this.screenToWorld(e.clientX, e.clientY);
       const line = this.draggingHandle.line;
       if (this.draggingHandle.handle === 'start') {
@@ -311,8 +336,20 @@ class EERCanvasEngine {
       return;
     }
 
-    // D. Resizing Node (draw.io corner drag)
+    // 4. Dragging Connection Port Line (draw.io live arrow drag)
+    if (this.isConnecting && this.connectSource) {
+      this.isPanning = false;
+      const world = this.screenToWorld(e.clientX, e.clientY);
+      this.connectMovedDist = (this.connectMovedDist || 0) + Math.hypot(world.x - this.connectCurrentX, world.y - this.connectCurrentY);
+      this.connectCurrentX = world.x;
+      this.connectCurrentY = world.y;
+      this.renderTemporaryConnectingLine();
+      return;
+    }
+
+    // 5. Resizing Node (draw.io corner drag)
     if (this.isResizing && this.resizingNode) {
+      this.isPanning = false;
       const dx = (e.clientX - this.resizeStartX) / this.zoom;
       const dy = (e.clientY - this.resizeStartY) / this.zoom;
       this.resizingNode.width = Math.max(140, Math.round(this.resizeStartWidth + dx));
@@ -325,12 +362,36 @@ class EERCanvasEngine {
       this.renderLinks();
       return;
     }
+
+    // 6. Panning canvas - ONLY if isPanning is true and NO object is being dragged!
+    if (this.isPanning) {
+      this.panX = e.clientX - this.startPanX;
+      this.panY = e.clientY - this.startPanY;
+      this.updateViewportTransform();
+      return;
+    }
   }
 
   onPointerUp(e) {
     if (this.isPanning) {
       this.isPanning = false;
       this.container.style.cursor = 'default';
+    }
+
+    // Free-line end dragging release
+    if (this.draggingFreeLine) {
+      if (this.snapCandidate && this.snapCandidate.node) {
+        const targetNode = this.snapCandidate.node;
+        this.completeConnection(this.draggingFreeLine.node, this.draggingFreeLine.type, targetNode, this.snapCandidate.type);
+        this.freeLines = this.freeLines.filter(item => item !== this.draggingFreeLine);
+        this.showToast(`🧲 Magnit: ${this.draggingFreeLine.node.name} va ${targetNode.name} muvaffaqiyatli bog'landi!`);
+      } else {
+        this.showToast("📍 Chiziq uchi joylashtirildi. Uni istalgan paytda boshqa entitiyga ulab olishingiz mumkin.");
+      }
+      this.draggingFreeLine = null;
+      this.snapCandidate = null;
+      this.renderLinks();
+      return;
     }
 
     if (this.draggingHandle) {
@@ -372,7 +433,7 @@ class EERCanvasEngine {
       return;
     }
 
-    // Magnetic snap execution
+    // Magnetic snap execution when dragging a node
     if (this.isDraggingNode && this.draggedNode && this.snapCandidate && this.snapCandidate.freeLine) {
       const fl = this.snapCandidate.freeLine;
       const targetNode = this.snapCandidate.node;
@@ -570,6 +631,10 @@ class EERCanvasEngine {
   // NODE SELECTION & DRAGGING
   // ==========================================================================
   onNodePointerDown(point, node, type) {
+    this.isPanning = false;
+    this.draggingFreeLine = null;
+    this.draggingHandle = null;
+
     if (this.isConnecting && this.connectSource) {
       if (this.connectSource.node.domId !== node.domId) {
         this.completeConnection(this.connectSource.node, this.connectSource.type, node, type);
@@ -1090,25 +1155,7 @@ class EERCanvasEngine {
         const my2 = borderT.y + borderT.dirY * 32;
         this.createMultiplicityPill(mx2, my2, rel, 'mult2', toEnt.name);
 
-        // 3. Clickable relationship name badge right in the center of the line
-        const midX = (borderF.x + borderT.x) / 2;
-        const midY = (borderF.y + borderT.y) / 2;
-        const namePill = document.createElement('div');
-        namePill.className = 'rel-line-badge';
-        namePill.textContent = rel.name || 'Aloqa';
-        namePill.style.left = midX + 'px';
-        namePill.style.top = midY + 'px';
-        namePill.style.transform = 'translate(-50%, -50%)';
-        namePill.title = "Aloqa nomini o'zgartirish uchun bosing";
-        namePill.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const val = prompt("Aloqa nomini kiriting:", rel.name || 'Aloqa');
-          if (val && val.trim()) {
-            rel.name = val.trim();
-            this.renderLinks();
-          }
-        });
-        this.nodesLayer.appendChild(namePill);
+        // End multiplicities are rendered at both borders cleanly
       } else {
         // Fallback for explicit diamond nodes placed on canvas
         const rCenterX = rel.x + 45;
@@ -1183,29 +1230,7 @@ class EERCanvasEngine {
 
       this.drawLine(line.startX, line.startY, line.endX, line.endY, onLineDblClick, line.isDashed);
 
-      // Midpoint multiplicity pill
-      const midX = (line.startX + line.endX) / 2;
-      const midY = (line.startY + line.endY) / 2;
-
-      const midPill = document.createElement('div');
-      midPill.className = 'mult-pill';
-      midPill.textContent = `${line.mult1 || '1..1'} ↔ ${line.mult2 || '1..*'}`;
-      midPill.style.position = 'absolute';
-      midPill.style.left = midX + 'px';
-      midPill.style.top = midY + 'px';
-      midPill.style.transform = 'translate(-50%, -50%)';
-      midPill.title = "Multiplicity o'zgartirish uchun bosing (Double-click: o'chirish)";
-      midPill.addEventListener('click', (e) => {
-        e.stopPropagation();
-        this.openMultiplicitySelector(line, 'mult1', e);
-      });
-      midPill.addEventListener('dblclick', (e) => {
-        e.stopPropagation();
-        onLineDblClick(e);
-      });
-      this.nodesLayer.appendChild(midPill);
-
-      // Render Magnetic Handles at both ends
+      // Render Magnetic Handles at both ends cleanly without middle badge
       this.renderMagneticHandle(line, 'start', line.startX, line.startY, onLineDblClick);
       this.renderMagneticHandle(line, 'end', line.endX, line.endY, onLineDblClick);
     });
@@ -1255,13 +1280,10 @@ class EERCanvasEngine {
       const startDragHandle = (e) => {
         e.stopPropagation();
         if (e.cancelable) e.preventDefault();
-        this.freeLines.splice(idx, 1);
-        this.startPortConnection(fl.node, fl.type, fl.port);
-        const point = e.touches ? e.touches[0] : e;
-        const world = this.screenToWorld(point.clientX, point.clientY);
-        this.connectCurrentX = world.x;
-        this.connectCurrentY = world.y;
-        this.renderLinks();
+        this.isPanning = false;
+        this.isDraggingNode = false;
+        this.draggingHandle = null;
+        this.draggingFreeLine = fl;
       };
       hitbox.addEventListener('mousedown', startDragHandle);
       hitbox.addEventListener('touchstart', startDragHandle, { passive: false });
