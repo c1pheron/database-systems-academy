@@ -1102,3 +1102,44 @@
     justify-content: center;
   }
 }
+
+/* FLOATING RED ✕ DELETE BUTTON ON CANVAS LINES */
+.line-del-btn {
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+  background: #e63946 !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 1000 !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6) !important;
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.15s ease !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.line-del-btn:hover {
+  transform: translate(-50%, -50%) scale(1.18) !important;
+  background: #d90429 !important;
+  box-shadow: 0 6px 18px rgba(230, 57, 70, 0.5) !important;
+}
+
+.line-del-btn:active {
+  transform: translate(-50%, -50%) scale(0.92) !important;
+}
+
+.cd-engine-steps {
+  line-height: 1.6;
+}
+
+.cd-engine-steps strong {
+  color: #7dd3fc;
+  font-size: 13.5px;
+}
+

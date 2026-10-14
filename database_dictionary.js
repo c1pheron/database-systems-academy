@@ -3870,6 +3870,96 @@
       return escaped.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
     }
 
+    getEngineAlgorithm(item) {
+      const id = item.id;
+      if (id === 'like-operator') {
+        return `
+          <div class="cd-engine-steps">
+            <p><strong>PostgreSQL & SQL RDBMS da LIKE / ILIKE qidiruvi quyidagi ichki bosqichlarda bajariladi:</strong></p>
+            <ol class="cd-steps-list">
+              <li><strong>1. Shablon Tahlili (Parser):</strong> Baza so'rovdagi shablonni tahlil qiladi. Agar shablon <code>'soz%'</code> kabi prefiks bilan boshlansa, dvigatel <strong>B-Tree Index Range Scan</strong> dan foydalanadi va indeks orqali sanoqli millisekundlarda qidiradi.</li>
+              <li><strong>2. Wildcard & Sequential Scan Tuzog'i:</strong> Agar shablon <code>'%soz%'</code> yoki <code>'%soz'</code> kabi foiz bilan boshlansa, an'anaviy B-Tree indeksi ishlamaydi. Dvigatel jadvaldagi barcha qatorlarni diskdan birma-bir o'qishga (<strong>Sequential Scan</strong>) majbur bo'ladi.</li>
+              <li><strong>3. Satrlarni Solishtirish (DFA Pattern Matcher):</strong> Har bir satr uchun matnli solishtirish algoritmi ishga tushadi: <code>_</code> belgisi aynan bitta ixtiyoriy UTF-8 belgiga, <code>%</code> esa 0 yoki undan ko'p belgiga moslanadi. <code>ILIKE</code> esa harflarni avval kichik holatga (lowercase) o'girib solishtiradi.</li>
+              <li><strong>4. Katta Bazalarda Optimizatsiya:</strong> Millionlab qatorlarda to'liq matnli qidiruv tez ishlashi uchun PostgreSQL da <code>pg_trgm</code> kengaytmasi va <strong>GIN (Trigram) indeksi</strong> yaratiladi.</li>
+            </ol>
+          </div>
+        `;
+      }
+      if (id === 'coalesce') {
+        return `
+          <div class="cd-engine-steps">
+            <p><strong>RDBMS Dvigatelida COALESCE Bajarilish Qoidalari & Algoritmi:</strong></p>
+            <ol class="cd-steps-list">
+              <li><strong>1. Chapdan-O'ngga Qisqa Tutashuv (Short-Circuit Evaluation):</strong> Argumentlar qat'iy chapdan o'ngga qarab tekshiriladi. Dvigatel birinchi NULL bo'lmagan tirik qiymatni topishi bilan qolgan argumentlarni hatto hisoblab ham o'tirmaydi va darhol natijani qaytaradi.</li>
+              <li><strong>2. Ma'lumotlar Turini Moslashtirish (Type Resolution):</strong> SQL Parser barcha argumentlarning turlarini tahlil qiladi va umumiy qabul qilingan bitta turga (masalan, NUMERIC yoki TEXT) keltirishga harakat qiladi. Agar bir-biriga mos kelmaydigan turlar berilsa (masalan, INT va DATE), so'rov bajarilmasdan avval 'invalid input syntax' xatosini beradi.</li>
+              <li><strong>3. Ichki CASE WHEN Konvertatsiyasi:</strong> Baza dvigatelining optimizatori (Query Optimizer) <code>COALESCE(a, b, c)</code> ifodasini reja daraxtida <code>CASE WHEN a IS NOT NULL THEN a WHEN b IS NOT NULL THEN b ELSE c END</code> shakliga keltiradi.</li>
+            </ol>
+          </div>
+        `;
+      }
+      if (id === 'set-search-path' || id === 'create-schema') {
+        return `
+          <div class="cd-engine-steps">
+            <p><strong>PostgreSQL da Nomlar Fazosi (Schema Resolution) Ishlash Tartibi:</strong></p>
+            <ol class="cd-steps-list">
+              <li><strong>1. Sessiya Xotirasi (GUC Variables):</strong> <code>SET search_path</code> buyrug'i joriy foydalanuvchi ulanishi (session) xotirasidagi qidiruv yo'li parametrini o'zgartiradi.</li>
+              <li><strong>2. Tizim Katalogidan Qidiruv (pg_namespace):</strong> Baza jadvallarni qidirishda ro'yxatda birinchi turgan sxemadan boshlaydi. Jadval birinchi qaysi sxemada topilsa, o'sha jadvalga murojaat qilinadi.</li>
+              <li><strong>3. Modullar Izolyatsiyasi:</strong> Bu har bir modul o'z sxemasida mustaqil yashashini va jadvallar nomlari to'qnashmasligini (namespace collision) ta'minlaydi.</li>
+            </ol>
+          </div>
+        `;
+      }
+      if (id === 'inner-join' || id === 'left-outer-join' || id === 'right-outer-join' || id === 'full-outer-join') {
+        return `
+          <div class="cd-engine-steps">
+            <p><strong>RDBMS So'rov Optimizatori (Query Optimizer) da JOIN Algoritmlari:</strong></p>
+            <ol class="cd-steps-list">
+              <li><strong>1. Bajarish Rejasi (Join Plan):</strong> Baza jadval hajmi va indekslarga qarab 3 ta algoritmning birini tanlaydi:
+                <br>• <strong>Nested Loop Join:</strong> Kichik yoki indekslangan jadvallar uchun.
+                <br>• <strong>Hash Join:</strong> Katta jadvallar uchun xotirada xesh-jadval qurib solishtiradi.
+                <br>• <strong>Merge Join:</strong> Ikkala jadval ham kalit bo'yicha tartiblangan (sorted) bo'lganda eng tez ishlaydi.</li>
+              <li><strong>2. ON Sharti Bo'yicha Filtr:</strong> Har ikki tomonning kalit ustunlari solishtirilib, faqat teng bo'lgan qatorlar juftlanadi.</li>
+              <li><strong>3. Tashqi Qatorlarni Qaytarish (Outer Join):</strong> LEFT JOIN da o'ng tomonda mos yozuv topilmasa, o'ng jadval ustunlari NULL bilan to'ldirilib chap qator saqlab qolinadi.</li>
+            </ol>
+          </div>
+        `;
+      }
+      if (id === 'group-by' || id === 'having-clause') {
+        return `
+          <div class="cd-engine-steps">
+            <p><strong>Guruhlash & Agregatsiya Dvigateli Algoritmi:</strong></p>
+            <ol class="cd-steps-list">
+              <li><strong>1. HashAggregate / GroupAggregate:</strong> Dvigatel GROUP BY ustunlari bo'yicha qatorlarni xesh-savatchalarga (buckets) ajratadi yoki avval tartiblab chiqadi.</li>
+              <li><strong>2. Agregat Akumulyatsiyasi:</strong> Har bir guruh ichidagi qatorlar bo'yicha SUM, COUNT, AVG, MIN, MAX kabi agregat funksiyalar hisoblanadi.</li>
+              <li><strong>3. HAVING Filtrlash Bosqichi:</strong> Barcha guruhlar to'liq hisoblangach, HAVING sharti bajariladi va talabga javob bermaydigan guruhlar yakuniy natijadan chiqarib tashlanadi.</li>
+            </ol>
+          </div>
+        `;
+      }
+      if (id === '1nf' || id === '2nf' || id === '3nf' || id === 'bcnf') {
+        return `
+          <div class="cd-engine-steps">
+            <p><strong>Normalizatsiya Qoidalari & Relyatsion Algebra Algoritmi:</strong></p>
+            <ol class="cd-steps-list">
+              <li><strong>1. Funksional Bog'liqliklar Matritsasi (FDs):</strong> Barcha ustunlarning Primary Key va Candidate Keylarga nisbatan bog'liqliklari aniqlanadi.</li>
+              <li><strong>2. Anomaliyalarni Tekshirish:</strong> Qisman bog'liqlik (Partial Dependency - 2NF) va Tranzitiv bog'liqlik (Transitive Dependency - 3NF) mavjudligi tekshiriladi.</li>
+              <li><strong>3. Yo'qotishsiz Bo'linish (Lossless Decomposition):</strong> Muammoli ustunlar alohida jadvallarga ajratilib, ular o'rtasida Foreign Key orqali bog'lanish o'rnatiladi.</li>
+            </ol>
+          </div>
+        `;
+      }
+      return `
+        <div class="cd-engine-steps">
+          <p><strong>Relyatsion Baza Dvigateli (RDBMS Execution Engine) Qoidalari:</strong></p>
+          <ol class="cd-steps-list">
+            <li><strong>1. Sintaktik & Semantik Tekshiruv:</strong> So'rov leksik analizatordan o'tkaziladi, barcha jadvallar, ustunlar va tiplar tizim katalogida (Data Dictionary) tekshiriladi.</li>
+            <li><strong>2. Baza Yaxlitligi Nazorati (Integrity Constraints):</strong> Primary Key, Foreign Key, NOT NULL, CHECK cheklovlari va relyatsion invariantlar qat'iy nazorat qilinadi.</li>
+            <li><strong>3. Fizik Bajarish Rejasi (Execution Plan):</strong> Optimizator disk I/O, xotira va protsessor yuklamasini hisoblab, eng tezkor fizik reja asosida natijani qaytaradi.</li>
+          </ol>
+        </div>
+      `;
+    }
+
     openDetailForChallenge(question, weekNum = 1) {
       this.initChallengeDetailModal();
       const modal = document.getElementById('challengeDetailModal');
@@ -3884,107 +3974,34 @@
       const scrollEl = document.getElementById('cdContentScroll');
 
       if (cdBadge) cdBadge.textContent = `${weekNum}-Hafta • ${item.category}`;
-      if (cdTitle) cdTitle.innerHTML = `📖 ${item.name} — Texnik Qo'llanma & Master-Klass`;
+      if (cdTitle) cdTitle.innerHTML = `📖 ${this.escapeHtml(item.name)} — Chuqurlashtirilgan Texnik Qo'llanma`;
       if (cdTaskHint) {
         cdTaskHint.innerHTML = `
           <div class="cd-task-bar">
             <span class="cd-task-icon">🎯</span>
             <div class="cd-task-text">
-              <strong>Joriy Mashq:</strong> "${this.escapeHtml(question?.title || '')}"<br>
-              <span class="cd-task-desc">${this.escapeHtml(question?.taskUz || question?.story || '')}</span>
+              <strong>O'rganilayotgan Asosiy Komanda / Tushuncha:</strong> "${this.escapeHtml(item.name)}"<br>
+              <span class="cd-task-desc">${this.escapeHtml(item.summary)}</span>
             </div>
           </div>
         `;
       }
 
       if (scrollEl) {
-        const title = question?.title || item.name;
-        const story = question?.story || '';
-        const task = question?.taskUz || question?.task || '';
-        const hint = question?.hint || '';
-        const anatomy = question?.flagAnatomy || null;
-        const solutions = question?.solutions || [];
-        const expectedSchema = question?.expectedSchema || null;
-
         const summaryText = item.summary || `${item.name} haqida nazariy va amaliy asoslar.`;
-        const whatText = item.whatItDoes || `Ushbu mexanizm relyatsion ma'lumotlar bazasida jadval, entitiy yoki ustunlar o'rtasidagi biznes qoidalarini aniq belgilash va yaxlitlikni kafolatlash uchun xizmat qiladi.`;
-        const whenText = item.whenToUse || `Haqiqiy biznes loyihalarida (masalan, Korzinka, Uzum Market, Bank yoki Payme tranzaksiyalarida) ma'lumotlar chalkashmasligi va to'g'ri bog'lanishi uchun qo'llaniladi.`;
+        const whatText = item.whatItDoes || `Ushbu mexanizm relyatsion ma'lumotlar bazasida biznes qoidalarini aniq belgilash va yaxlitlikni kafolatlash uchun xizmat qiladi.`;
+        const whenText = item.whenToUse || `Haqiqiy biznes loyihalarida (masalan, Korzinka, Uzum Market, Bank yoki Payme tranzaksiyalarida) ma'lumotlar to'g'ri ishlashi uchun qo'llaniladi.`;
         const syntaxText = item.syntax || `-- Sintaksis andozasi:\n-- ${item.name} bo'yicha standart yozilish qoidasi`;
-        const combText = item.combinations || `Ushbu qoida boshqa SQL kalit so'zlari yoki ERD belgilari bilan uzviy bog'liq holda ishlaydi.`;
-        const gotchasText = item.gotchas || `Eng asosiy qoida: Sintaksis yoki multiplisiti chegaralarini chalkashtirib yubormaslik lozim.`;
-
-        // Smart dynamic anatomy if question doesn't have custom flagAnatomy
-        const cmdPurposeText = anatomy?.commandPurpose || (
-          item.id === 'set-search-path' 
-            ? "Joriy PostgreSQL sessiyasida jadvallarni qaysi sxemalar ichidan qidirish tartibini (search_path) o'rnatish."
-            : item.id === 'create-schema'
-            ? "Loyihaning yangi moduli uchun mustaqil nomlar fazosini (schema) shakllantirish."
-            : item.id === 'like-operator'
-            ? "Matnli ustunlar ichidan wildcard (% va _) shablonlari yordamida qidirish."
-            : item.id === 'create-table'
-            ? (expectedSchema ? `'${expectedSchema.tableName}' jadvali va undagi ${expectedSchema.columns ? expectedSchema.columns.map(c=>c.name).join(', ') : 'ustunlar'}ni to'g'ri turlar bilan yaratish.` : "Jadval va uning ustunlarini DDL sintaksisi asosida yaratish.")
-            : item.id === 'alter-table'
-            ? "Mavjud jadval tarkibiga yangi ustun, cheklov yoki tashqi kalit biriktirish."
-            : item.id === 'inner-join' || item.id === 'left-outer-join'
-            ? "Jadvallar o'rtasidagi umumiy kalit ustunlari bo'yicha bog'lanish o'rnatish va natijalarni birlashtirish."
-            : item.id === 'coalesce'
-            ? "NULL qiymat uchraganda uni standart zaxira qiymatga almashtirish."
-            : `Ushbu masalada '${item.name}' mexanizmini to'g'ri qo'llab, relyatsion ma'lumotlar ustida aniq amal bajarish.`
-        );
-
-        const relImpactText = anatomy?.relationalImpact || (
-          item.id === 'set-search-path'
-            ? "Sxema nomini har bir so'rovda qo'lda yozmasdan to'g'ridan-to'g'ri jadvallar bilan ishlash imkonini beradi."
-            : item.id === 'create-table'
-            ? "Ma'lumotlar bazasida yangi relyatsion munosabat (jadval) va uning tizim katalogidagi yozuvini shakllantiradi."
-            : item.id === 'alter-table'
-            ? "Diskdagi jadval sxemasini yangilaydi va ma'lumotlar yaxlitligini kuchaytiradi."
-            : item.id === 'inner-join' || item.id === 'left-outer-join'
-            ? "Ikki yoki undan ortiq jadvallar orasida Dekart ko'paytmasidan filtrlab, faqat mos keluvchi qatorlarni qaytaradi."
-            : item.id === 'like-operator'
-            ? "Filtrlash operatori sifatida WHERE shartida qatorlarni saralab beradi."
-            : "Relyatsion baza jadvallari, kalitlari va qatorlari orasidagi aloqadorlikni ta'minlaydi."
-        );
-
-        const omissionRiskText = anatomy?.omissionRisk || (
-          item.id === 'set-search-path'
-            ? "Agar search_path o'rnatilmasa, PostgreSQL jadvallarni topa olmaydi va 'relation does not exist' xatosi chiqadi."
-            : item.id === 'create-table'
-            ? "Ustun turlari yoki cheklovlar noto'g'ri berilsa, kelajakda noto'g'ri ma'lumotlar yozilib baza yaxlitligi buziladi."
-            : item.id === 'like-operator'
-            ? "Katta-kichik harflar farqlanmasa (LIKE vs ILIKE) yoki wildcard o'rni almashsa, qidiruv natijasi bo'sh (0 qator) chiqadi."
-            : item.id === 'inner-join'
-            ? "ON bog'lash sharti yozilmasa yoki noto'g'ri ustunlar tenglashtirilsa, Dekart ko'paytmasi (Cross Join) yuzaga kelib xotira to'lib ketadi."
-            : item.gotchas || "Sintaksis yoki chegaralar chalkashsa so'rov xatolik beradi yoki kutilmagan natija qaytaradi."
-        );
-
-        const cmdPurposeHtml = `<div class="cd-desc-block"><strong>🎯 Ushbu Masaladagi Aniq Vazifa:</strong><p>${this.formatCodeSnippets(cmdPurposeText)}</p></div>`;
-        const relImpactHtml = `<div class="cd-desc-block"><strong>🗄️ Relyatsion Baza & Jadvalga Ta'siri:</strong><p>${this.formatCodeSnippets(relImpactText)}</p></div>`;
-        const omissionRiskHtml = `<div class="cd-warning-box"><strong>⚠️ E'tiborsizlik Qilsa Nima Bo'ladi (Xatolik Oqibati):</strong><p>${this.formatCodeSnippets(omissionRiskText)}</p></div>`;
-
-        const specificSyntaxHtml = (anatomy?.syntaxExample || (solutions.length > 0 ? solutions[0] : null))
-          ? `<div style="margin-top:12px;"><strong>📝 Ushbu Masalaga Mos Sintaksis:</strong><pre class="cd-code-block"><code>${this.escapeHtml(anatomy?.syntaxExample || solutions[0])}</code></pre></div>` 
-          : '';
-
-        const hintBoxHtml = hint 
-          ? `<div class="cd-hint-box"><strong>💡 Ustoz Ko'rsatmasi (Hint):</strong><p>${this.formatCodeSnippets(hint)}</p></div>` 
-          : '';
-
-        const schemaBoxHtml = expectedSchema 
-          ? `<div class="cd-schema-box"><strong>📋 Kutilayotgan Sxema:</strong><pre style="margin:4px 0 0 0; color:#dfc288; font-size:11.5px;"><code>${this.escapeHtml(JSON.stringify(expectedSchema, null, 2))}</code></pre></div>` 
-          : '';
-
-        const solutionCode = solutions.length > 0 ? solutions[0] : item.example;
-        const solutionExplanationHtml = solutions.length > 0 
-          ? `<div style="margin-top:10px; font-size:12.5px; color:#c4bbb0; line-height:1.5;"><strong>🔍 Yechim Tahlili:</strong> Ushbu SQL so'rovi masalaning barcha mezonlariga javob beradi. Undagi barcha kalit so'zlar relyatsion mantiq asosida tanlangan.</div>`
-          : '';
+        const combText = item.combinations || `Ushbu qoida boshqa SQL kalit so'zlari yoki relyatsion operatorlar bilan uzviy bog'liq holda ishlaydi.`;
+        const exampleText = item.example || `-- Misol:\nSELECT * FROM jadval;`;
+        const gotchasText = item.gotchas || `Eng asosiy qoida: Sintaksis yoki ma'lumotlar turlarini chalkashtirib yubormaslik lozim.`;
 
         scrollEl.innerHTML = `
           <!-- 1. Nima uchun kerak va vazifasi -->
           <div class="cd-card">
             <div class="cd-card-header">
               <span class="cd-card-icon">📌</span>
-              <span class="cd-card-title">1. Nima Uchun Kerak & Qayerda Ishlatiladi?</span>
+              <span class="cd-card-title">1. Nima Uchun Kerak & Qanday Muammoni Hal Qiladi?</span>
             </div>
             <div class="cd-card-body">
               <p class="cd-lead">${this.formatCodeSnippets(summaryText)}</p>
@@ -3992,10 +4009,8 @@
                 <strong>⚙️ Tizimdagi vazifasi va mohiyati:</strong>
                 <p>${this.formatCodeSnippets(whatText)}</p>
               </div>
-              ${cmdPurposeHtml}
-              ${relImpactHtml}
               <div class="cd-realworld-box">
-                <strong>🏢 Real tizimlarda (Korzinka, Uzum Market, Bank, Payme):</strong>
+                <strong>🏢 Real tizimlarda (Payme, Uzum Market, Korzinka, Click):</strong>
                 <p>${this.formatCodeSnippets(whenText)}</p>
               </div>
             </div>
@@ -4005,11 +4020,10 @@
           <div class="cd-card">
             <div class="cd-card-header">
               <span class="cd-card-icon">🛠️</span>
-              <span class="cd-card-title">2. Qanday Yoziladi (Rasmiy Sintaksis & Standart)</span>
+              <span class="cd-card-title">2. Qanday Yoziladi (Rasmiy Standart Sintaksis & Parametrlari)</span>
             </div>
             <div class="cd-card-body">
               <pre class="cd-code-block"><code>${this.escapeHtml(syntaxText)}</code></pre>
-              ${specificSyntaxHtml}
             </div>
           </div>
 
@@ -4017,7 +4031,7 @@
           <div class="cd-card highlight">
             <div class="cd-card-header">
               <span class="cd-card-icon">⚡</span>
-              <span class="cd-card-title">3. Barcha Qo'shimchalar, Modifikatorlar & Kombinatsiyalar</span>
+              <span class="cd-card-title">3. Barcha Qo'shimchalar, Modifikatorlar & Kombinatsiyalar (Cheat-Sheet)</span>
             </div>
             <div class="cd-card-body">
               <div class="cd-combinations-text">${this.formatCodeSnippets(combText)}</div>
@@ -4028,28 +4042,24 @@
           <div class="cd-card">
             <div class="cd-card-header">
               <span class="cd-card-icon">💻</span>
-              <span class="cd-card-title">4. To'liq Ishchi Namuna (Masala Yechimi / Real Loyiha Misoli)</span>
+              <span class="cd-card-title">4. Professional Ishchi Namunalar & Kod Misollari</span>
             </div>
             <div class="cd-card-body">
-              <pre class="cd-code-block example"><code>${this.escapeHtml(solutionCode)}</code></pre>
-              ${solutionExplanationHtml}
+              <pre class="cd-code-block example"><code>${this.escapeHtml(exampleText)}</code></pre>
+              <div style="margin-top:10px; font-size:12.5px; color:#c4bbb0; line-height:1.5;">
+                <strong>🔍 Kod Tahlili:</strong> Ushbu namuna <code>${this.escapeHtml(item.name.split('(')[0].trim())}</code> mexanizmini ishlab chiqarish (production) muhitida eng xavfsiz va to'g'ri qo'llash usulini ko'rsatadi. Har bir kalit so'z va argument relyatsion standartlar asosida yozilgan.
+              </div>
             </div>
           </div>
 
-          <!-- 5. Masalani yechish bo'yicha qadamma-qadam ko'rsatma -->
+          <!-- 5. Baza dvigateli algoritmi -->
           <div class="cd-card advice">
             <div class="cd-card-header">
-              <span class="cd-card-icon">🎯</span>
-              <span class="cd-card-title">5. Ushbu Masalani Yechish Bo'yicha Master-Klass</span>
+              <span class="cd-card-icon">⚙️</span>
+              <span class="cd-card-title">5. Baza Dvigateli (RDBMS Engine) Ichki Ishlash Algoritmi</span>
             </div>
             <div class="cd-card-body">
-              ${hintBoxHtml}
-              ${schemaBoxHtml}
-              <ol class="cd-steps-list">
-                <li><strong>1-Qadam (Shartni tahlil qilish):</strong> Masala talabini diqqat bilan o'qing: <em>"${this.escapeHtml(title)}"</em>.${story ? ` <br><span style="color:#c4bbb0; font-size:12.5px;">Kontekst: ${this.escapeHtml(story)}</span>` : ''}</li>
-                <li><strong>2-Qadam (Mexanizmni tanlash):</strong> Ushbu holatda <code>${this.escapeHtml(item.name.split('(')[0].trim())}</code> qoidasini qo'llash talab etiladi.</li>
-                <li><strong>3-Qadam (Amaliy bajarish):</strong> ${this.formatCodeSnippets(task || 'Diagrammada kerakli bog\'lanishni to\'g\'ri multiplicity chegaralari bilan shakllantiring.')}</li>
-              </ol>
+              ${this.getEngineAlgorithm(item)}
             </div>
           </div>
 
@@ -4061,7 +4071,6 @@
             </div>
             <div class="cd-card-body warning">
               <p>${this.formatCodeSnippets(gotchasText)}</p>
-              ${omissionRiskHtml}
             </div>
           </div>
         `;

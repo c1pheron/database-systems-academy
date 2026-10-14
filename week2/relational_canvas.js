@@ -198,7 +198,7 @@ class RelationalCanvasEngine {
         this.touchPinchMid = currentMid;
         this.updateViewportTransform();
       } else if (e.touches.length === 1 && !this.touchPinchDist) {
-        if (this.isDraggingNode || this.draggingHandle || this.draggingFreeLine || this.isConnecting || this.isResizing) {
+        if (this.isDraggingNode || this.draggingHandle || this.draggingFreeLine || this.draggingWholeLine || this.isConnecting || this.isResizing) {
           if (e.cancelable) e.preventDefault();
         }
         const touch = e.touches[0];
@@ -242,13 +242,62 @@ class RelationalCanvasEngine {
   }
 
   onPointerMove(e) {
-    // 1. Dragging Table Node - MUST BE FIRST! Moves ONLY this single table!
+    // 0. Dragging Whole Standalone Line Body (Line moves across canvas without dragging tables)
+    if (this.draggingWholeLine) {
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedTable = null;
+      const world = this.screenToWorld(e.clientX, e.clientY);
+      const dx = world.x - this.draggingWholeLine.grabX;
+      const dy = world.y - this.draggingWholeLine.grabY;
+
+      if (Math.hypot(dx, dy) > 4) {
+        this.draggingWholeLine.moved = true;
+        this.removeLineDeleteButton();
+      }
+
+      const l = this.draggingWholeLine.line;
+      l.startX = Math.round(this.draggingWholeLine.startX + dx);
+      l.startY = Math.round(this.draggingWholeLine.startY + dy);
+      l.endX = Math.round(this.draggingWholeLine.endX + dx);
+      l.endY = Math.round(this.draggingWholeLine.endY + dy);
+      l.startSnapped = null;
+      l.endSnapped = null;
+
+      this.renderCrowFootLinks();
+      return;
+    }
+
+    // 1. Dragging Table Node - MUST BE FIRST! Moves ONLY this single table & attached lines!
     if (this.isDraggingNode && this.draggedTable) {
       this.isPanning = false;
       const world = this.screenToWorld(e.clientX, e.clientY);
-      this.draggedTable.x = Math.round(world.x - this.dragOffsetX);
-      this.draggedTable.y = Math.round(world.y - this.dragOffsetY);
+      const newX = Math.round(world.x - this.dragOffsetX);
+      const newY = Math.round(world.y - this.dragOffsetY);
+      const dx = newX - this.draggedTable.x;
+      const dy = newY - this.draggedTable.y;
+      this.draggedTable.x = newX;
+      this.draggedTable.y = newY;
       this.updateTableDOMPosition(this.draggedTable);
+
+      // Smoothly travel attached free-hanging lines WITH the table
+      for (const fl of this.freeLines) {
+        if (fl.table && fl.table.domId === this.draggedTable.domId) {
+          fl.endX += dx;
+          fl.endY += dy;
+        }
+      }
+
+      // Smoothly travel attached standalone lines WITH the table
+      for (const sl of this.standaloneLines) {
+        if (sl.startSnapped?.table?.domId === this.draggedTable.domId && !sl.endSnapped) {
+          sl.endX += dx;
+          sl.endY += dy;
+        } else if (sl.endSnapped?.table?.domId === this.draggedTable.domId && !sl.startSnapped) {
+          sl.startX += dx;
+          sl.startY += dy;
+        }
+      }
 
       // Check Magnetic Snap with free-standing lines
       this.snapCandidate = null;
@@ -360,6 +409,24 @@ class RelationalCanvasEngine {
     if (this.isPanning) {
       this.isPanning = false;
       this.container.style.cursor = 'default';
+    }
+
+    // Whole Standalone Line Dragging Release
+    if (this.draggingWholeLine) {
+      if (!this.draggingWholeLine.moved) {
+        // Single tap/click on line shows the ✕ delete button
+        const midX = (this.draggingWholeLine.line.startX + this.draggingWholeLine.line.endX) / 2;
+        const midY = (this.draggingWholeLine.line.startY + this.draggingWholeLine.line.endY) / 2;
+        const lineToDelete = this.draggingWholeLine.line;
+        this.showLineDeleteButton(midX, midY, () => {
+          this.standaloneLines = this.standaloneLines.filter(l => l.id !== lineToDelete.id);
+          this.renderCrowFootLinks();
+          this.showToast("🗑️ Magnit chiziq o'chirildi!");
+          if (window.playSfx) window.playSfx('click');
+        });
+      }
+      this.draggingWholeLine = null;
+      return;
     }
 
     // Free-line end dragging release
@@ -955,21 +1022,60 @@ class RelationalCanvasEngine {
       const midY = (line.startY + line.endY) / 2;
       const pathD = `M ${line.startX} ${line.startY} C ${midX} ${line.startY}, ${midX} ${line.endY}, ${line.endX} ${line.endY}`;
 
+      const onStartWholeLineDrag = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        this.isPanning = false;
+        this.isDraggingNode = false;
+        this.draggedTable = null;
+        this.draggingHandle = null;
+        this.draggingFreeLine = null;
+
+        const pt = e.touches ? e.touches[0] : e;
+        const world = this.screenToWorld(pt.clientX, pt.clientY);
+
+        this.draggingWholeLine = {
+          line,
+          startX: line.startX,
+          startY: line.startY,
+          endX: line.endX,
+          endY: line.endY,
+          grabX: world.x,
+          grabY: world.y,
+          moved: false
+        };
+      };
+
+      const showDeleteBtn = (e) => {
+        e.stopPropagation();
+        this.showLineDeleteButton(midX, midY, onLineDblClick);
+      };
+
       const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       hitbox.setAttribute('d', pathD);
       hitbox.setAttribute('stroke', 'transparent');
       hitbox.setAttribute('stroke-width', '24');
       hitbox.setAttribute('fill', 'none');
-      hitbox.style.cursor = 'pointer';
+      hitbox.style.cursor = 'grab';
       hitbox.style.pointerEvents = 'stroke';
-      hitbox.addEventListener('dblclick', onLineDblClick);
+      hitbox.addEventListener('mousedown', onStartWholeLineDrag);
+      hitbox.addEventListener('touchstart', onStartWholeLineDrag, { passive: false });
+      hitbox.addEventListener('click', showDeleteBtn);
+      hitbox.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        this.removeLineDeleteButton();
+        onLineDblClick(e);
+      });
       let lastTap = 0;
       hitbox.addEventListener('touchend', (e) => {
         const now = Date.now();
         if (now - lastTap < 350 && now - lastTap > 0) {
           e.stopPropagation();
           if (e.cancelable) e.preventDefault();
+          this.removeLineDeleteButton();
           onLineDblClick(e);
+        } else {
+          this.showLineDeleteButton(midX, midY, onLineDblClick);
         }
         lastTap = now;
       }, { passive: false });
@@ -981,9 +1087,16 @@ class RelationalCanvasEngine {
       path.setAttribute('stroke-width', '2.5');
       path.setAttribute('fill', 'none');
       if (line.isDashed) path.setAttribute('stroke-dasharray', '6,4');
-      path.style.cursor = 'pointer';
+      path.style.cursor = 'grab';
       path.style.pointerEvents = 'stroke';
-      path.addEventListener('dblclick', onLineDblClick);
+      path.addEventListener('mousedown', onStartWholeLineDrag);
+      path.addEventListener('touchstart', onStartWholeLineDrag, { passive: false });
+      path.addEventListener('click', showDeleteBtn);
+      path.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        this.removeLineDeleteButton();
+        onLineDblClick(e);
+      });
       this.svg.appendChild(path);
 
       // Magnetic Handles at both ends cleanly without middle badge
@@ -1006,6 +1119,55 @@ class RelationalCanvasEngine {
         if (window.playSfx) window.playSfx('click');
       };
 
+      const onStartFreeLineDrag = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        this.isPanning = false;
+        this.isDraggingNode = false;
+        this.draggedTable = null;
+        this.draggingHandle = null;
+        this.draggingFreeLine = fl;
+      };
+
+      const midFreeX = (start.x + fl.endX) / 2;
+      const midFreeY = (start.y + fl.endY) / 2;
+
+      // Invisible thick hitbox for touch & click
+      const freeHitbox = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      freeHitbox.setAttribute('x1', start.x);
+      freeHitbox.setAttribute('y1', start.y);
+      freeHitbox.setAttribute('x2', fl.endX);
+      freeHitbox.setAttribute('y2', fl.endY);
+      freeHitbox.setAttribute('stroke', 'transparent');
+      freeHitbox.setAttribute('stroke-width', '24');
+      freeHitbox.style.cursor = 'grab';
+      freeHitbox.style.pointerEvents = 'stroke';
+      freeHitbox.addEventListener('mousedown', onStartFreeLineDrag);
+      freeHitbox.addEventListener('touchstart', onStartFreeLineDrag, { passive: false });
+      freeHitbox.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.showLineDeleteButton(midFreeX, midFreeY, onFreeDblClick);
+      });
+      freeHitbox.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        this.removeLineDeleteButton();
+        onFreeDblClick(e);
+      });
+      let lastFreeTap = 0;
+      freeHitbox.addEventListener('touchend', (e) => {
+        const now = Date.now();
+        if (now - lastFreeTap < 350 && now - lastFreeTap > 0) {
+          e.stopPropagation();
+          if (e.cancelable) e.preventDefault();
+          this.removeLineDeleteButton();
+          onFreeDblClick(e);
+        } else {
+          this.showLineDeleteButton(midFreeX, midFreeY, onFreeDblClick);
+        }
+        lastFreeTap = now;
+      }, { passive: false });
+      this.svg.appendChild(freeHitbox);
+
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
       line.setAttribute('x1', start.x);
       line.setAttribute('y1', start.y);
@@ -1014,8 +1176,19 @@ class RelationalCanvasEngine {
       line.setAttribute('stroke', '#dfc288');
       line.setAttribute('stroke-width', '2.5');
       line.setAttribute('stroke-linecap', 'round');
-      line.style.cursor = 'pointer';
-      line.addEventListener('dblclick', onFreeDblClick);
+      line.style.cursor = 'grab';
+      line.style.pointerEvents = 'stroke';
+      line.addEventListener('mousedown', onStartFreeLineDrag);
+      line.addEventListener('touchstart', onStartFreeLineDrag, { passive: false });
+      line.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.showLineDeleteButton(midFreeX, midFreeY, onFreeDblClick);
+      });
+      line.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        this.removeLineDeleteButton();
+        onFreeDblClick(e);
+      });
       this.svg.appendChild(line);
 
       const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
@@ -1181,6 +1354,63 @@ class RelationalCanvasEngine {
     this.svg.appendChild(group);
   }
 
+  showLineDeleteButton(midX, midY, onDelete) {
+    this.removeLineDeleteButton();
+
+    const btn = document.createElement('div');
+    btn.className = 'line-del-btn';
+    btn.innerHTML = '✕';
+    btn.title = "Chiziqni o'chirish";
+    btn.style.position = 'absolute';
+    btn.style.left = `${Math.round(midX)}px`;
+    btn.style.top = `${Math.round(midY)}px`;
+    btn.style.transform = 'translate(-50%, -50%)';
+    btn.style.width = '28px';
+    btn.style.height = '28px';
+    btn.style.borderRadius = '50%';
+    btn.style.background = '#e63946';
+    btn.style.color = '#ffffff';
+    btn.style.fontSize = '14px';
+    btn.style.fontWeight = 'bold';
+    btn.style.display = 'flex';
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
+    btn.style.cursor = 'pointer';
+    btn.style.zIndex = '999';
+    btn.style.border = '2px solid #ffffff';
+    btn.style.boxShadow = '0 3px 10px rgba(0,0,0,0.5)';
+    btn.style.pointerEvents = 'auto';
+
+    const handleDelete = (e) => {
+      e.stopPropagation();
+      if (e.cancelable) e.preventDefault();
+      btn.remove();
+      if (onDelete) onDelete(e);
+    };
+
+    btn.addEventListener('click', handleDelete);
+    btn.addEventListener('touchend', handleDelete, { passive: false });
+
+    this.nodesLayer.appendChild(btn);
+
+    const outsideListener = (e) => {
+      if (e.target !== btn && !btn.contains(e.target)) {
+        btn.remove();
+        window.removeEventListener('mousedown', outsideListener);
+        window.removeEventListener('touchstart', outsideListener);
+      }
+    };
+    setTimeout(() => {
+      window.addEventListener('mousedown', outsideListener);
+      window.addEventListener('touchstart', outsideListener);
+    }, 50);
+  }
+
+  removeLineDeleteButton() {
+    if (!this.nodesLayer) return;
+    this.nodesLayer.querySelectorAll('.line-del-btn').forEach(b => b.remove());
+  }
+
   drawTableConnection(ref, t1, t2) {
     const el1 = document.getElementById(t1.domId);
     const el2 = document.getElementById(t2.domId);
@@ -1222,11 +1452,25 @@ class RelationalCanvasEngine {
     hitbox.setAttribute('fill', 'none');
     hitbox.style.cursor = 'pointer';
     hitbox.style.pointerEvents = 'stroke';
-    hitbox.addEventListener('click', (e) => {
+
+    const showDeleteBtn = (e) => {
       e.stopPropagation();
-      this.openMultiplicityPopover(ref, e);
+      this.showLineDeleteButton(midX, midY, deleteConn);
+    };
+
+    const stopBubbling = (e) => {
+      e.stopPropagation();
+    };
+
+    // Prevent dragging underlying table
+    hitbox.addEventListener('mousedown', stopBubbling);
+    hitbox.addEventListener('touchstart', stopBubbling, { passive: false });
+    hitbox.addEventListener('click', showDeleteBtn);
+    hitbox.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      this.removeLineDeleteButton();
+      deleteConn(e);
     });
-    hitbox.addEventListener('dblclick', deleteConn);
     this.svg.appendChild(hitbox);
 
     // Visible Connection Path
@@ -1240,11 +1484,15 @@ class RelationalCanvasEngine {
     }
     path.style.cursor = 'pointer';
     path.style.pointerEvents = 'stroke';
-    path.addEventListener('click', (e) => {
+
+    path.addEventListener('mousedown', stopBubbling);
+    path.addEventListener('touchstart', stopBubbling, { passive: false });
+    path.addEventListener('click', showDeleteBtn);
+    path.addEventListener('dblclick', (e) => {
       e.stopPropagation();
-      this.openMultiplicityPopover(ref, e);
+      this.removeLineDeleteButton();
+      deleteConn(e);
     });
-    path.addEventListener('dblclick', deleteConn);
     this.svg.appendChild(path);
 
     // Touch double-tap detection on lines
@@ -1254,7 +1502,10 @@ class RelationalCanvasEngine {
       if (now - lastTap < 350 && now - lastTap > 0) {
         e.stopPropagation();
         if (e.cancelable) e.preventDefault();
+        this.removeLineDeleteButton();
         deleteConn(e);
+      } else {
+        this.showLineDeleteButton(midX, midY, deleteConn);
       }
       lastTap = now;
     };

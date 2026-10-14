@@ -202,7 +202,7 @@ class EERCanvasEngine {
         this.touchPinchMid = currentMid;
         this.updateViewportTransform();
       } else if (e.touches.length === 1 && !this.touchPinchDist) {
-        if (this.isDraggingNode || this.draggingHandle || this.draggingFreeLine || this.isConnecting || this.isResizing) {
+        if (this.isDraggingNode || this.draggingHandle || this.draggingFreeLine || this.draggingWholeLine || this.isConnecting || this.isResizing) {
           if (e.cancelable) e.preventDefault();
         }
         const touch = e.touches[0];
@@ -246,14 +246,63 @@ class EERCanvasEngine {
   }
 
   onPointerMove(e) {
-    // 1. Dragging Node (Entity) - MUST BE FIRST! Moves ONLY this single entity!
+    // 0. Dragging Whole Standalone Line Body (Line moves across canvas without dragging entities)
+    if (this.draggingWholeLine) {
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedNode = null;
+      const world = this.screenToWorld(e.clientX, e.clientY);
+      const dx = world.x - this.draggingWholeLine.grabX;
+      const dy = world.y - this.draggingWholeLine.grabY;
+
+      if (Math.hypot(dx, dy) > 4) {
+        this.draggingWholeLine.moved = true;
+        this.removeLineDeleteButton();
+      }
+
+      const l = this.draggingWholeLine.line;
+      l.startX = Math.round(this.draggingWholeLine.startX + dx);
+      l.startY = Math.round(this.draggingWholeLine.startY + dy);
+      l.endX = Math.round(this.draggingWholeLine.endX + dx);
+      l.endY = Math.round(this.draggingWholeLine.endY + dy);
+      l.startSnapped = null;
+      l.endSnapped = null;
+
+      this.renderLinks();
+      return;
+    }
+
+    // 1. Dragging Node (Entity) - MUST BE FIRST! Moves ONLY this single entity & attached lines!
     if (this.isDraggingNode && this.draggedNode) {
       this.isPanning = false;
       const world = this.screenToWorld(e.clientX, e.clientY);
-      this.draggedNode.node.x = Math.round(world.x - this.dragOffsetX);
-      this.draggedNode.node.y = Math.round(world.y - this.dragOffsetY);
+      const newX = Math.round(world.x - this.dragOffsetX);
+      const newY = Math.round(world.y - this.dragOffsetY);
+      const dx = newX - this.draggedNode.node.x;
+      const dy = newY - this.draggedNode.node.y;
+      this.draggedNode.node.x = newX;
+      this.draggedNode.node.y = newY;
 
       this.updateNodeDOMPosition(this.draggedNode.node);
+
+      // Smoothly travel attached free-hanging lines WITH the entity
+      for (const fl of this.freeLines) {
+        if (fl.node && fl.node.domId === this.draggedNode.node.domId) {
+          fl.endX += dx;
+          fl.endY += dy;
+        }
+      }
+
+      // Smoothly travel attached standalone lines WITH the entity
+      for (const sl of this.standaloneLines) {
+        if (sl.startSnapped?.node?.domId === this.draggedNode.node.domId && !sl.endSnapped) {
+          sl.endX += dx;
+          sl.endY += dy;
+        } else if (sl.endSnapped?.node?.domId === this.draggedNode.node.domId && !sl.startSnapped) {
+          sl.startX += dx;
+          sl.startY += dy;
+        }
+      }
 
       // Check Magnetic Snap with free-standing lines
       this.snapCandidate = null;
@@ -376,6 +425,24 @@ class EERCanvasEngine {
     if (this.isPanning) {
       this.isPanning = false;
       this.container.style.cursor = 'default';
+    }
+
+    // Whole Standalone Line Dragging Release
+    if (this.draggingWholeLine) {
+      if (!this.draggingWholeLine.moved) {
+        // Single tap/click on line shows the ✕ delete button
+        const midX = (this.draggingWholeLine.line.startX + this.draggingWholeLine.line.endX) / 2;
+        const midY = (this.draggingWholeLine.line.startY + this.draggingWholeLine.line.endY) / 2;
+        const lineToDelete = this.draggingWholeLine.line;
+        this.showLineDeleteButton(midX, midY, () => {
+          this.standaloneLines = this.standaloneLines.filter(l => l.id !== lineToDelete.id);
+          this.renderLinks();
+          this.showToast("🗑️ Magnit chiziq o'chirildi!");
+          if (window.playSfx) window.playSfx('click');
+        });
+      }
+      this.draggingWholeLine = null;
+      return;
     }
 
     // Free-line end dragging release
@@ -1220,15 +1287,31 @@ class EERCanvasEngine {
         line.endY = Math.round(border.y);
       }
 
-      const onLineDblClick = (e) => {
-        e?.stopPropagation();
-        this.standaloneLines = this.standaloneLines.filter(l => l.id !== line.id);
-        this.renderLinks();
-        this.showToast("🗑️ Magnit chiziq o'chirildi!");
-        if (window.playSfx) window.playSfx('click');
+      const onStartWholeLineDrag = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        this.isPanning = false;
+        this.isDraggingNode = false;
+        this.draggedNode = null;
+        this.draggingHandle = null;
+        this.draggingFreeLine = null;
+
+        const pt = e.touches ? e.touches[0] : e;
+        const world = this.screenToWorld(pt.clientX, pt.clientY);
+
+        this.draggingWholeLine = {
+          line,
+          startX: line.startX,
+          startY: line.startY,
+          endX: line.endX,
+          endY: line.endY,
+          grabX: world.x,
+          grabY: world.y,
+          moved: false
+        };
       };
 
-      this.drawLine(line.startX, line.startY, line.endX, line.endY, onLineDblClick, line.isDashed);
+      this.drawLine(line.startX, line.startY, line.endX, line.endY, onLineDblClick, line.isDashed, onStartWholeLineDrag);
 
       // Render Magnetic Handles at both ends cleanly without middle badge
       this.renderMagneticHandle(line, 'start', line.startX, line.startY, onLineDblClick);
@@ -1249,7 +1332,18 @@ class EERCanvasEngine {
         this.showToast("🗑️ Erkin chiziq o'chirildi!");
         if (window.playSfx) window.playSfx('click');
       };
-      this.drawLine(start.x, start.y, fl.endX, fl.endY, onFreeDblClick);
+
+      const onStartFreeLineDrag = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        this.isPanning = false;
+        this.isDraggingNode = false;
+        this.draggedNode = null;
+        this.draggingHandle = null;
+        this.draggingFreeLine = fl;
+      };
+
+      this.drawLine(start.x, start.y, fl.endX, fl.endY, onFreeDblClick, false, onStartFreeLineDrag);
 
       const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
@@ -1414,7 +1508,64 @@ class EERCanvasEngine {
     this.svg.appendChild(group);
   }
 
-  drawLine(x1, y1, x2, y2, onDblClick = null, isDashed = false) {
+  showLineDeleteButton(midX, midY, onDelete) {
+    this.removeLineDeleteButton();
+
+    const btn = document.createElement('div');
+    btn.className = 'line-del-btn';
+    btn.innerHTML = '✕';
+    btn.title = "Chiziqni o'chirish";
+    btn.style.position = 'absolute';
+    btn.style.left = `${Math.round(midX)}px`;
+    btn.style.top = `${Math.round(midY)}px`;
+    btn.style.transform = 'translate(-50%, -50%)';
+    btn.style.width = '28px';
+    btn.style.height = '28px';
+    btn.style.borderRadius = '50%';
+    btn.style.background = '#e63946';
+    btn.style.color = '#ffffff';
+    btn.style.fontSize = '14px';
+    btn.style.fontWeight = 'bold';
+    btn.style.display = 'flex';
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
+    btn.style.cursor = 'pointer';
+    btn.style.zIndex = '999';
+    btn.style.border = '2px solid #ffffff';
+    btn.style.boxShadow = '0 3px 10px rgba(0,0,0,0.5)';
+    btn.style.pointerEvents = 'auto';
+
+    const handleDelete = (e) => {
+      e.stopPropagation();
+      if (e.cancelable) e.preventDefault();
+      btn.remove();
+      if (onDelete) onDelete(e);
+    };
+
+    btn.addEventListener('click', handleDelete);
+    btn.addEventListener('touchend', handleDelete, { passive: false });
+
+    this.nodesLayer.appendChild(btn);
+
+    const outsideListener = (e) => {
+      if (e.target !== btn && !btn.contains(e.target)) {
+        btn.remove();
+        window.removeEventListener('mousedown', outsideListener);
+        window.removeEventListener('touchstart', outsideListener);
+      }
+    };
+    setTimeout(() => {
+      window.addEventListener('mousedown', outsideListener);
+      window.addEventListener('touchstart', outsideListener);
+    }, 50);
+  }
+
+  removeLineDeleteButton() {
+    if (!this.nodesLayer) return;
+    this.nodesLayer.querySelectorAll('.line-del-btn').forEach(b => b.remove());
+  }
+
+  drawLine(x1, y1, x2, y2, onDelete = null, isDashed = false, onStartDrag = null) {
     const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
     // Invisible thick hitbox for touch & mouse
@@ -1425,7 +1576,7 @@ class EERCanvasEngine {
     hitbox.setAttribute('y2', y2);
     hitbox.setAttribute('stroke', 'transparent');
     hitbox.setAttribute('stroke-width', '24');
-    hitbox.style.cursor = 'pointer';
+    hitbox.style.cursor = onStartDrag ? 'grab' : 'pointer';
     hitbox.style.pointerEvents = 'stroke';
 
     // Visible line
@@ -1440,17 +1591,44 @@ class EERCanvasEngine {
     if (isDashed) {
       line.setAttribute('stroke-dasharray', '6,4');
     }
-    line.style.cursor = 'pointer';
+    line.style.cursor = onStartDrag ? 'grab' : 'pointer';
     line.style.pointerEvents = 'stroke';
 
-    if (onDblClick) {
+    const midX = (x1 + x2) / 2;
+    const midY = (y1 + y2) / 2;
+
+    if (onStartDrag) {
+      hitbox.addEventListener('mousedown', onStartDrag);
+      hitbox.addEventListener('touchstart', onStartDrag, { passive: false });
+    } else {
+      // Prevent bubbling to canvas pan or entity drag
+      const stopBubbling = (e) => {
+        e.stopPropagation();
+      };
+      hitbox.addEventListener('mousedown', stopBubbling);
+      hitbox.addEventListener('touchstart', stopBubbling, { passive: false });
+    }
+
+    if (onDelete) {
+      // Single click / tap shows the red ✕ delete button
+      const handleClick = (e) => {
+        e.stopPropagation();
+        this.showLineDeleteButton(midX, midY, onDelete);
+      };
+
+      hitbox.addEventListener('click', handleClick);
+      line.addEventListener('click', handleClick);
+
+      // Double click immediately deletes the line
       hitbox.addEventListener('dblclick', (e) => {
         e.stopPropagation();
-        onDblClick(e);
+        this.removeLineDeleteButton();
+        onDelete(e);
       });
       line.addEventListener('dblclick', (e) => {
         e.stopPropagation();
-        onDblClick(e);
+        this.removeLineDeleteButton();
+        onDelete(e);
       });
 
       let lastTap = 0;
@@ -1460,7 +1638,11 @@ class EERCanvasEngine {
         if (tapInterval < 350 && tapInterval > 0) {
           e.stopPropagation();
           if (e.cancelable) e.preventDefault();
-          onDblClick(e);
+          this.removeLineDeleteButton();
+          onDelete(e);
+        } else {
+          // Single tap on mobile touch shows the delete button
+          this.showLineDeleteButton(midX, midY, onDelete);
         }
         lastTap = curTime;
       };
