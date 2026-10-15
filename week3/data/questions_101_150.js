@@ -17,7 +17,26 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "project_assignment kaskadli tashqi kaliti o'rnatildi.",
-    "task": "Create a table named `project_assignment`: `id` (integer PRIMARY KEY), `proj_id` (integer), and `CONSTRAINT fk_pa_proj FOREIGN KEY (proj_id) REFERENCES project(id) ON DELETE CASCADE` bilan."
+    "task": "Create a table named `project_assignment`: `id` (integer PRIMARY KEY), `proj_id` (integer), and `CONSTRAINT fk_pa_proj FOREIGN KEY (proj_id) REFERENCES project(id) ON DELETE CASCADE` bilan.",
+    "expectedSchema": {
+      "tableName": "project_assignment",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isNotNull": true,
+          "isUnique": false
+        },
+        {
+          "name": "proj_id",
+          "type": "integer",
+          "isPK": false,
+          "isNotNull": false,
+          "isUnique": false
+        }
+      ]
+    }
   },
   {
     "id": 102,
@@ -35,7 +54,26 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "client_order uchun RESTRICT himoyasi o'rnatildi.",
-    "task": "Create a table named `client_order`: `order_id` (integer PRIMARY KEY), `client_id` (integer NOT NULL), and `CONSTRAINT fk_co_client FOREIGN KEY (client_id) REFERENCES client(client_id) ON DELETE RESTRICT` bilan."
+    "task": "Create a table named `client_order`: `order_id` (integer PRIMARY KEY), `client_id` (integer NOT NULL), and `CONSTRAINT fk_co_client FOREIGN KEY (client_id) REFERENCES client(client_id) ON DELETE RESTRICT` bilan.",
+    "expectedSchema": {
+      "tableName": "client_order",
+      "columns": [
+        {
+          "name": "order_id",
+          "type": "integer",
+          "isPK": true,
+          "isNotNull": true,
+          "isUnique": false
+        },
+        {
+          "name": "client_id",
+          "type": "integer",
+          "isPK": false,
+          "isNotNull": true,
+          "isUnique": false
+        }
+      ]
+    }
   },
   {
     "id": 103,
@@ -53,7 +91,26 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "product_item uchun ON DELETE SET NULL o'rnatildi.",
-    "task": "Create a table named `product_item`: `item_id` (integer PRIMARY KEY), `cat_id` (integer), and `CONSTRAINT fk_pi_cat FOREIGN KEY (cat_id) REFERENCES category(cat_id) ON DELETE SET NULL` bilan."
+    "task": "Create a table named `product_item`: `item_id` (integer PRIMARY KEY), `cat_id` (integer), and `CONSTRAINT fk_pi_cat FOREIGN KEY (cat_id) REFERENCES category(cat_id) ON DELETE SET NULL` bilan.",
+    "expectedSchema": {
+      "tableName": "product_item",
+      "columns": [
+        {
+          "name": "item_id",
+          "type": "integer",
+          "isPK": true,
+          "isNotNull": true,
+          "isUnique": false
+        },
+        {
+          "name": "cat_id",
+          "type": "integer",
+          "isPK": false,
+          "isNotNull": false,
+          "isUnique": false
+        }
+      ]
+    }
   },
   {
     "id": 104,
@@ -71,7 +128,26 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "contract_dept da NO ACTION o'rnatildi.",
-    "task": "Create a table named `contract_dept`: `id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL), and `CONSTRAINT fk_cd_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION` bilan."
+    "task": "Create a table named `contract_dept`: `id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL), and `CONSTRAINT fk_cd_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION` bilan.",
+    "expectedSchema": {
+      "tableName": "contract_dept",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isNotNull": true,
+          "isUnique": false
+        },
+        {
+          "name": "dept_id",
+          "type": "integer",
+          "isPK": false,
+          "isNotNull": true,
+          "isUnique": false
+        }
+      ]
+    }
   },
   {
     "id": 105,
@@ -132,7 +208,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "employee table yangi nickname column qo'shildi.",
-    "task": "`employee` table `nickname` (varchar(30)) column qo'shing (`ALTER TABLE ... ADD COLUMN ...`)."
+    "task": "`employee` table `nickname` (varchar(30)) column qo'shing (`ALTER TABLE ... ADD COLUMN ...`).",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 107,
@@ -150,7 +241,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "nickname column display_name ga o'zgartirildi.",
-    "task": "`employee` jadvalidagi `nickname` column nomini `display_name` ga o'zgartiring."
+    "task": "`employee` jadvalidagi `nickname` column nomini `display_name` ga o'zgartiring.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 108,
@@ -169,7 +275,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "display_name column muvaffaqiyatli o'chirildi.",
-    "task": "`employee` from table `display_name` column o'chirib tashlang."
+    "task": "`employee` from table `display_name` column o'chirib tashlang.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 109,
@@ -188,7 +309,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "last_name column hajmi varchar(60) ga muvaffaqiyatli oshirildi.",
-    "task": "`employee` jadvalining `last_name` column turini `varchar(60)` ga o'zgartiring (`ALTER COLUMN ... TYPE ...`)."
+    "task": "`employee` jadvalining `last_name` column turini `varchar(60)` ga o'zgartiring (`ALTER COLUMN ... TYPE ...`).",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 110,
@@ -207,7 +343,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "dob ustuniga SET NOT NULL o'rnatildi.",
-    "task": "`employee` jadvalining `dob` ustuniga `NOT NULL` qoidasini o'rnating (`ALTER COLUMN ... SET NOT NULL`)."
+    "task": "`employee` jadvalining `dob` ustuniga `NOT NULL` qoidasini o'rnating (`ALTER COLUMN ... SET NOT NULL`).",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 111,
@@ -226,7 +377,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "dob ustunidan NOT NULL olib tashlandi and u yana nullable qilindi.",
-    "task": "`employee` jadvalining `dob` ustunidan `NOT NULL` qoidasini olib tashlang (`DROP NOT NULL`)."
+    "task": "`employee` jadvalining `dob` ustunidan `NOT NULL` qoidasini olib tashlang (`DROP NOT NULL`).",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 112,
@@ -245,7 +411,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "active ustuniga SET DEFAULT false o'rnatildi.",
-    "task": "`employee` jadvalining `active` ustuniga `SET DEFAULT false` qiymatini o'rnating."
+    "task": "`employee` jadvalining `active` ustuniga `SET DEFAULT false` qiymatini o'rnating.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 113,
@@ -264,7 +445,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "active ustunidan DROP DEFAULT bajarildi.",
-    "task": "`employee` jadvalining `active` ustunidan standart qiymatni o'chirib tashlang."
+    "task": "`employee` jadvalining `active` ustunidan standart qiymatni o'chirib tashlang.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 114,
@@ -283,7 +479,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "active ustuniga SET DEFAULT true qayta tiklandi.",
-    "task": "`employee` jadvalining `active` ustuniga `SET DEFAULT true` qiymatini qayta o'rnating."
+    "task": "`employee` jadvalining `active` ustuniga `SET DEFAULT true` qiymatini qayta o'rnating.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 115,
@@ -302,7 +513,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "department.budget ustuniga SET NOT NULL o'rnatildi.",
-    "task": "`department` jadvalining `budget` ustuniga `SET NOT NULL` o'rnating."
+    "task": "`department` jadvalining `budget` ustuniga `SET NOT NULL` o'rnating.",
+    "expectedSchema": {
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 116,
@@ -321,7 +547,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "employee.phone ustuniga SET NOT NULL o'rnatildi.",
-    "task": "`employee` jadvalining `phone` ustuniga `SET NOT NULL` o'rnating."
+    "task": "`employee` jadvalining `phone` ustuniga `SET NOT NULL` o'rnating.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 117,
@@ -340,7 +581,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "employee.phone column yana nullable holatga qaytdi.",
-    "task": "`employee` jadvalining `phone` ustunidan `NOT NULL` qoidasini bekor qiling."
+    "task": "`employee` jadvalining `phone` ustunidan `NOT NULL` qoidasini bekor qiling.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 118,
@@ -359,7 +615,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "department_id ustuniga SET NOT NULL o'rnatildi.",
-    "task": "`employee` jadvalining `department_id` ustuniga `SET NOT NULL` o'rnating."
+    "task": "`employee` jadvalining `department_id` ustuniga `SET NOT NULL` o'rnating.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 119,
@@ -378,7 +649,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "department.location column varchar(150) ga muvaffaqiyatli kengaytirildi.",
-    "task": "`department` jadvalining `location` column `varchar(150)` ga o'zgartiring."
+    "task": "`department` jadvalining `location` column `varchar(150)` ga o'zgartiring.",
+    "expectedSchema": {
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 120,
@@ -397,7 +683,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "8-Qavat Bossi tasdiqlandi! employee.salary ustuniga SET DEFAULT 1000 o'rnatildi.",
-    "task": "`employee` jadvalining `salary` ustuniga `SET DEFAULT 1000` qiymatini biriktiring."
+    "task": "`employee` jadvalining `salary` ustuniga `SET DEFAULT 1000` qiymatini biriktiring.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 121,
@@ -415,7 +716,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "fk_employee_department_id tashqi kaliti ALTER TABLE orqali muvaffaqiyatli qo'shildi.",
-    "task": "`employee` table `fk_employee_department_id` nomli foreign key add constraint: u `department_id` column `department(id)` ga bog'lasin."
+    "task": "`employee` table `fk_employee_department_id` nomli foreign key add constraint: u `department_id` column `department(id)` ga bog'lasin.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 122,
@@ -433,7 +749,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "fk_employee_dept tashqi kaliti to'liq referensial qoidalar bilan o'rnatildi.",
-    "task": "`employee` table `fk_employee_dept` foreign keyini qo'shing: `department_id` -> `department(id)`, `ON DELETE NO ACTION ON UPDATE NO ACTION` bilan."
+    "task": "`employee` table `fk_employee_dept` foreign keyini qo'shing: `department_id` -> `department(id)`, `ON DELETE NO ACTION ON UPDATE NO ACTION` bilan.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 123,
@@ -451,7 +782,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "ck_employee_salary cheklovi ALTER TABLE orqali o'rnatildi.",
-    "task": "`employee` table `ck_employee_salary` nomli cheklov qo'shing: `CHECK (salary > 0 AND salary <= 5000)`."
+    "task": "`employee` table `ck_employee_salary` nomli cheklov qo'shing: `CHECK (salary > 0 AND salary <= 5000)`.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 124,
@@ -469,7 +815,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "ck_employee_email cheklovi qo'shildi.",
-    "task": "`employee` table `ck_employee_email` add constraint: `CHECK (email LIKE '%@%')`."
+    "task": "`employee` table `ck_employee_email` add constraint: `CHECK (email LIKE '%@%')`.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 125,
@@ -487,7 +848,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "pk_employee_id cheklovi olib tashlandi.",
-    "task": "`employee` from table `pk_employee_id` primary key cheklovini o'chirib tashlang (`DROP CONSTRAINT`)."
+    "task": "`employee` from table `pk_employee_id` primary key cheklovini o'chirib tashlang (`DROP CONSTRAINT`).",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 126,
@@ -505,7 +881,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "pk_employee_id cheklovi qayta tiklandi.",
-    "task": "`employee` table `pk_employee_id` nomli primary key add constraint (`id` ustuniga)."
+    "task": "`employee` table `pk_employee_id` nomli primary key add constraint (`id` ustuniga).",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 127,
@@ -523,7 +914,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "uq_employee_email unikal cheklovi olib tashlandi.",
-    "task": "`employee` from table `uq_employee_email` cheklovini o'chirib tashlang."
+    "task": "`employee` from table `uq_employee_email` cheklovini o'chirib tashlang.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 128,
@@ -541,7 +947,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "uq_employee_email cheklovi qaytadan tiklandi.",
-    "task": "`employee` table `uq_employee_email` nomli unikal cheklovni qo'shing (`UNIQUE (email)`)."
+    "task": "`employee` table `uq_employee_email` nomli unikal cheklovni qo'shing (`UNIQUE (email)`).",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 129,
@@ -559,7 +980,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "ck_employee_salary cheklovi muvaffaqiyatli o'chirildi.",
-    "task": "`employee` from table `ck_employee_salary` cheklovini o'chirib tashlang."
+    "task": "`employee` from table `ck_employee_salary` cheklovini o'chirib tashlang.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 130,
@@ -577,7 +1013,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "Yangi maosh diapazoni cheklovi o'rnatildi.",
-    "task": "`employee` table `ck_employee_salary` add constraint: `CHECK (salary >= 500 AND salary <= 10000)`."
+    "task": "`employee` table `ck_employee_salary` add constraint: `CHECK (salary >= 500 AND salary <= 10000)`.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 131,
@@ -595,7 +1046,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "fk_employee_department_id tashqi kaliti olib tashlandi.",
-    "task": "`employee` from table `fk_employee_department_id` foreign key cheklovini o'chirib tashlang."
+    "task": "`employee` from table `fk_employee_department_id` foreign key cheklovini o'chirib tashlang.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 132,
@@ -613,7 +1079,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "Kaskadli yangi tashqi kalit muvaffaqiyatli o'rnatildi.",
-    "task": "`employee` table `fk_employee_department_id` add constraint: `department_id` -> `department(id)` ga `ON DELETE CASCADE ON UPDATE CASCADE` bilan."
+    "task": "`employee` table `fk_employee_department_id` add constraint: `department_id` -> `department(id)` ga `ON DELETE CASCADE ON UPDATE CASCADE` bilan.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 133,
@@ -631,7 +1112,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "ck_dept_budget_pos cheklovi o'rnatildi.",
-    "task": "`department` table `ck_dept_budget_pos` add constraint: `CHECK (budget >= 0)`."
+    "task": "`department` table `ck_dept_budget_pos` add constraint: `CHECK (budget >= 0)`.",
+    "expectedSchema": {
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 134,
@@ -649,7 +1145,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "uq_dept_name_unique cheklovi dinamik o'rnatildi.",
-    "task": "`department` table `uq_dept_name_unique` add constraint: `UNIQUE (title)`."
+    "task": "`department` table `uq_dept_name_unique` add constraint: `UNIQUE (title)`.",
+    "expectedSchema": {
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 135,
@@ -667,7 +1178,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "9-Qavat Bossi zabt etildi! Seminar 3 ning rasmiy tashqi kalit cheklovi to'liq barpo etildi.",
-    "task": "`employee` table `fk_employee_department_id` foreign keyini qo'shing: `department_id` -> `department(id)` ga `ON DELETE NO ACTION ON UPDATE NO ACTION` bilan."
+    "task": "`employee` table `fk_employee_department_id` foreign keyini qo'shing: `department_id` -> `department(id)` ga `ON DELETE NO ACTION ON UPDATE NO ACTION` bilan.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 136,
@@ -685,7 +1211,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "Relyatsion algebra Selection (σ) amali SQL WHERE orqali ifodalandi.",
-    "task": "Translate the relational algebra expression to SQL: `σ salary > 2000 (employee)` query in SQL (`SELECT * FROM employee WHERE salary > 2000`)."
+    "task": "Translate the relational algebra expression to SQL: `σ salary > 2000 (employee)` query in SQL (`SELECT * FROM employee WHERE salary > 2000`).",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "data_value",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 137,
@@ -703,7 +1244,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "Relyatsion algebra Projection (π) amali SQL SELECT ustunlar ro'yxati orqali bajarildi.",
-    "task": "Ushbu proyeksiyaning SQL ekvivalentini yozing: `π first_name, last_name (employee)` (`SELECT first_name, last_name FROM employee`)."
+    "task": "Ushbu proyeksiyaning SQL ekvivalentini yozing: `π first_name, last_name (employee)` (`SELECT first_name, last_name FROM employee`).",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "data_value",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 138,
@@ -721,7 +1277,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "π and σ amallari kombinatsiyasi SQL da executed successfully.",
-    "task": "Ushbu algebraik ifodani SQL da yozing: maoshi 3000 dan kam bo'lmagan xodimlarning `first_name` and `salary` ustunlarini chiqaring."
+    "task": "Ushbu algebraik ifodani SQL da yozing: maoshi 3000 dan kam bo'lmagan xodimlarning `first_name` and `salary` ustunlarini chiqaring.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "data_value",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 139,
@@ -739,7 +1310,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "Dekart ko'paytma (Cartesian Product) SQL CROSS JOIN orqali ifodalandi.",
-    "task": "`department` and `project` jadvallarining Dekart ko'paytmasini (`CROSS JOIN`) hosil qiluvchi SQL so'rovini yozing."
+    "task": "`department` and `project` jadvallarining Dekart ko'paytmasini (`CROSS JOIN`) hosil qiluvchi SQL so'rovini yozing.",
+    "expectedSchema": {
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "data_value",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 140,
@@ -757,7 +1343,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "Relyatsion algebra Join (⨝) amali SQL JOIN ON orqali bajarildi.",
-    "task": "`employee` and `department` jadvallarini `department_id = department.id` sharti bo'yicha bog'lab all columns chiqaring."
+    "task": "`employee` and `department` jadvallarini `department_id = department.id` sharti bo'yicha bog'lab all columns chiqaring.",
+    "expectedSchema": {
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "data_value",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 141,
@@ -775,7 +1376,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "To'plamlar birlashmasi (UNION) executed successfully.",
-    "task": "`staff` jadvalidagi `full_name` and `applicant` jadvalidagi `full_name` ustunlarini `UNION` orqali birlashtiring."
+    "task": "`staff` jadvalidagi `full_name` and `applicant` jadvalidagi `full_name` ustunlarini `UNION` orqali birlashtiring.",
+    "expectedSchema": {
+      "tableName": "staff",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "data_value",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 142,
@@ -793,7 +1409,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "Kesishma (INTERSECT) amali tasdiqlandi.",
-    "task": "`branch` jadvalidagi `name` and `department` jadvalidagi `title` ustunlarining umumiy kesishmasini (`INTERSECT`) chiqaring."
+    "task": "`branch` jadvalidagi `name` and `department` jadvalidagi `title` ustunlarining umumiy kesishmasini (`INTERSECT`) chiqaring.",
+    "expectedSchema": {
+      "tableName": "branch",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "data_value",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 143,
@@ -811,7 +1442,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "Relyatsion to'plam ayirmasi (EXCEPT) executed successfully.",
-    "task": "`department` jadvalidagi barcha `id` lardan `employee` jadvalidagi `department_id` larni ayirib tashlang (`EXCEPT`)."
+    "task": "`department` jadvalidagi barcha `id` lardan `employee` jadvalidagi `department_id` larni ayirib tashlang (`EXCEPT`).",
+    "expectedSchema": {
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "data_value",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 144,
@@ -829,7 +1475,17 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "company_lab yangi arxitektura sxemasi yaratildi.",
-    "task": "`company_lab` nomli yangi PostgreSQL sxemasini yarating (`CREATE SCHEMA company_lab`)."
+    "task": "`company_lab` nomli yangi PostgreSQL sxemasini yarating (`CREATE SCHEMA company_lab`).",
+    "expectedSchema": {
+      "tableName": "ddl_entity",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        }
+      ]
+    }
   },
   {
     "id": 145,
@@ -847,7 +1503,17 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "Qidiruv yo'li company_lab ga yo'naltirildi.",
-    "task": "PostgreSQL qidiruv yo'lini `company_lab, public` ga o'rnating."
+    "task": "PostgreSQL qidiruv yo'lini `company_lab, public` ga o'rnating.",
+    "expectedSchema": {
+      "tableName": "ddl_entity",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        }
+      ]
+    }
   },
   {
     "id": 146,
@@ -865,7 +1531,33 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "company_project korporativ jadvali yaratildi.",
-    "task": "Create a table named `company_project`: `id` (integer GENERATED ALWAYS AS IDENTITY), `title` (varchar(100) NOT NULL), `date_started` (date), and `CONSTRAINT pk_comp_proj PRIMARY KEY (id)` bilan."
+    "task": "Create a table named `company_project`: `id` (integer GENERATED ALWAYS AS IDENTITY), `title` (varchar(100) NOT NULL), `date_started` (date), and `CONSTRAINT pk_comp_proj PRIMARY KEY (id)` bilan.",
+    "expectedSchema": {
+      "tableName": "company_project",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": false,
+          "isNotNull": false,
+          "isUnique": false
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
+          "isPK": false,
+          "isNotNull": true,
+          "isUnique": false
+        },
+        {
+          "name": "date_started",
+          "type": "date",
+          "isPK": false,
+          "isNotNull": false,
+          "isUnique": false
+        }
+      ]
+    }
   },
   {
     "id": 147,
@@ -883,7 +1575,47 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "company_dept jadvali barcha korporativ talablar bilan barpo etildi.",
-    "task": "Create a table named `company_dept`: `id` (integer GENERATED ALWAYS AS IDENTITY), `title` (varchar(100) NOT NULL), `budget` (numeric(12,2) NOT NULL), `manager_passport_no` (varchar(20)), `CONSTRAINT pk_c_dept PRIMARY KEY (id)`, `CONSTRAINT uq_c_dept_mgr UNIQUE (manager_passport_no)`, `CONSTRAINT ck_c_dept_budget CHECK (budget >= 0)` bilan."
+    "task": "Create a table named `company_dept`: `id` (integer GENERATED ALWAYS AS IDENTITY), `title` (varchar(100) NOT NULL), `budget` (numeric(12,2) NOT NULL), `manager_passport_no` (varchar(20)), `CONSTRAINT pk_c_dept PRIMARY KEY (id)`, `CONSTRAINT uq_c_dept_mgr UNIQUE (manager_passport_no)`, `CONSTRAINT ck_c_dept_budget CHECK (budget >= 0)` bilan.",
+    "expectedSchema": {
+      "tableName": "company_dept",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": false,
+          "isNotNull": false,
+          "isUnique": false
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
+          "isPK": false,
+          "isNotNull": true,
+          "isUnique": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12",
+          "isPK": false,
+          "isNotNull": false,
+          "isUnique": false
+        },
+        {
+          "name": "2)",
+          "type": "NOT",
+          "isPK": false,
+          "isNotNull": true,
+          "isUnique": false
+        },
+        {
+          "name": "manager_passport_no",
+          "type": "varchar(20)",
+          "isPK": false,
+          "isNotNull": false,
+          "isUnique": false
+        }
+      ]
+    }
   },
   {
     "id": 148,
@@ -901,7 +1633,54 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "company_emp korporativ jadvali relyatsion yaxlitlik bilan yaratildi.",
-    "task": "Create a table named `company_emp`: `passport_no` (varchar(20)), `first_name` (varchar(50) NOT NULL), `last_name` (varchar(50) NOT NULL), `salary` (numeric(10,2) NOT NULL), `dept_id` (integer NOT NULL), `CONSTRAINT pk_c_emp PRIMARY KEY (passport_no)`, `CONSTRAINT ck_c_emp_sal CHECK (salary > 0)`, `CONSTRAINT fk_c_emp_dept FOREIGN KEY (dept_id) REFERENCES company_dept(id)` bilan."
+    "task": "Create a table named `company_emp`: `passport_no` (varchar(20)), `first_name` (varchar(50) NOT NULL), `last_name` (varchar(50) NOT NULL), `salary` (numeric(10,2) NOT NULL), `dept_id` (integer NOT NULL), `CONSTRAINT pk_c_emp PRIMARY KEY (passport_no)`, `CONSTRAINT ck_c_emp_sal CHECK (salary > 0)`, `CONSTRAINT fk_c_emp_dept FOREIGN KEY (dept_id) REFERENCES company_dept(id)` bilan.",
+    "expectedSchema": {
+      "tableName": "company_emp",
+      "columns": [
+        {
+          "name": "passport_no",
+          "type": "varchar(20)",
+          "isPK": false,
+          "isNotNull": false,
+          "isUnique": false
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(50)",
+          "isPK": false,
+          "isNotNull": true,
+          "isUnique": false
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(50)",
+          "isPK": false,
+          "isNotNull": true,
+          "isUnique": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10",
+          "isPK": false,
+          "isNotNull": false,
+          "isUnique": false
+        },
+        {
+          "name": "2)",
+          "type": "NOT",
+          "isPK": false,
+          "isNotNull": true,
+          "isUnique": false
+        },
+        {
+          "name": "dept_id",
+          "type": "integer",
+          "isPK": false,
+          "isNotNull": true,
+          "isUnique": false
+        }
+      ]
+    }
   },
   {
     "id": 149,
@@ -919,7 +1698,22 @@ _scope.QUESTIONS_101_150 = [
     ],
     "requiredPatterns": [],
     "explanation": "Menejer and bo'lim o'rtasidagi 1:1 siklik tashqi kalit muvaffaqiyatli bog'landi.",
-    "task": "`company_dept` table `fk_dept_mgr_emp` foreign keyini qo'shing: `manager_passport_no` -> `company_emp(passport_no)` ga."
+    "task": "`company_dept` table `fk_dept_mgr_emp` foreign keyini qo'shing: `manager_passport_no` -> `company_emp(passport_no)` ga.",
+    "expectedSchema": {
+      "tableName": "company_dept",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "mod_status",
+          "type": "varchar(50)",
+          "isNotNull": false
+        }
+      ]
+    }
   },
   {
     "id": 150,

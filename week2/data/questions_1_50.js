@@ -7,8 +7,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • Boshlang'ich",
     "source": "L02 Slide 34 • Strong Entity Step 1",
     "title": "Filial Jadvalini Loyihalash (Branch)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Branch**) berilgan bo'lib, uning birlamchi kaliti `branchNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Branch**\n  Ustunlar: `branchNo` [PK] (varchar(10)), `city` (varchar(50)), `postcode` (varchar(15))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Branch**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Branch {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -34,7 +34,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Branch jadvali branchNo birlamchi kaliti bilan loyihalandi."
+    "explanation": "Branch jadvali branchNo birlamchi kaliti bilan loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Branch**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 2,
@@ -42,8 +55,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • Boshlang'ich",
     "source": "L02 Slide 34 • Student Entity",
     "title": "Talaba Jadvalini Loyihalash (Student)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Student**) berilgan bo'lib, uning birlamchi kaliti `studentId` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Student**\n  Ustunlar: `studentId` [PK] (integer), `firstName` (varchar(50)), `lastName` (varchar(50)), `enrollDate` (date)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Student**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Student {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -73,7 +86,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Student jadvali loyihalandi."
+    "explanation": "Student jadvali loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Student**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 3,
@@ -81,8 +107,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • Boshlang'ich",
     "source": "L02 Slide 34 • Product Entity",
     "title": "Mahsulot Katalogi Jadvali (Product)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Product**) berilgan bo'lib, uning birlamchi kaliti `productCode` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Product**\n  Ustunlar: `productCode` [PK] (varchar(20)), `name` (varchar(100)), `price` (decimal), `stockQuantity` (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Product**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Product {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -111,7 +137,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Product jadvali muvaffaqiyatli chizildi."
+    "explanation": "Product jadvali muvaffaqiyatli chizildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Product**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 4,
@@ -119,8 +158,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • Boshlang'ich",
     "source": "L02 Slide 34 • Course Entity",
     "title": "O'quv Kursi Jadvali (Course)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Course**) berilgan bo'lib, uning birlamchi kaliti `courseCode` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Course**\n  Ustunlar: `courseCode` [PK] (varchar(10)), `title` (varchar(100)), `credits` (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Course**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Course {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -145,7 +184,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Course jadvali loyihalandi."
+    "explanation": "Course jadvali loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Course**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 5,
@@ -153,8 +205,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • Boshlang'ich",
     "source": "L02 Slide 34 • Patient Entity",
     "title": "Bemor Jadvali (Patient)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Patient**) berilgan bo'lib, uning birlamchi kaliti `patientId` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Patient**\n  Ustunlar: `patientId` [PK] (varchar(15)), `fullName` (varchar(80)), `dateOfBirth` (date), `bloodGroup` (varchar(5))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Patient**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Patient {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -183,7 +235,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Patient jadvali loyihalandi."
+    "explanation": "Patient jadvali loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Patient**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 6,
@@ -191,8 +256,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • O'rta",
     "source": "L02 Slide 34 & T02 Task 1 • Composite Name Mapping",
     "title": "Kompozit Atributni Yoyish: Xodim Jadvali (Employee)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Employee**) berilgan bo'lib, uning birlamchi kaliti `empNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Employee**\n  Ustunlar: `empNo` [PK] (integer), `fName` (varchar(50)), `lName` (varchar(50)), `salary` (decimal)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Employee**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Employee {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -221,7 +286,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Employee jadvalida Name kompozit atributi fName va lName ustunlariga yoyildi."
+    "explanation": "Employee jadvalida Name kompozit atributi fName va lName ustunlariga yoyildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Employee**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 7,
@@ -229,8 +307,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • O'rta",
     "source": "L02 Slide 34 • Composite Address Mapping",
     "title": "Kompozit Manzilni Yoyish: Yetkazib Beruvchi (Supplier)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Supplier**) berilgan bo'lib, uning birlamchi kaliti `suppId` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Supplier**\n  Ustunlar: `suppId` [PK] (varchar(10)), `companyName` (varchar(80)), `street` (varchar(100)), `city` (varchar(50)), `postcode` (varchar(15))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Supplier**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Supplier {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -263,7 +341,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Address kompozit atributi yoyilib Supplier jadvali tuzildi."
+    "explanation": "Address kompozit atributi yoyilib Supplier jadvali tuzildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Supplier**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 8,
@@ -271,8 +362,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • O'rta",
     "source": "L02 Slide 3 • Derived Attribute Exclusion",
     "title": "Hosilaviy Atributni Chiqarish: Klub A'zosi (Member)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Member**) berilgan bo'lib, uning birlamchi kaliti `memberId` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Member**\n  Ustunlar: `memberId` [PK] (integer), `fullName` (varchar(80)), `birthDate` (date)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Member**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Member {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -297,7 +388,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Hosilaviy age atributi chiqarib tashlandi."
+    "explanation": "Hosilaviy age atributi chiqarib tashlandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Member**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 9,
@@ -305,8 +409,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • O'rta",
     "source": "L02 Slide 54 • Alternate Key UQ Mapping",
     "title": "Unikal Muqobil Kalitli Foydalanuvchi Jadvali (AppUser)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**AppUser**) berilgan bo'lib, uning birlamchi kaliti `userId` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **AppUser**\n  Ustunlar: `userId` [PK] (integer), `username` (varchar(50)), `email` (varchar(100)), `regDate` (timestamp)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**AppUser**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table AppUser {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -337,7 +441,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "AppUser jadvali unikal [UQ] muqobil kalitlar bilan loyihalandi."
+    "explanation": "AppUser jadvali unikal [UQ] muqobil kalitlar bilan loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**AppUser**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 10,
@@ -345,8 +462,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • O'rta",
     "source": "L02 Slide 25 • Natural Key: ISBN",
     "title": "Tabiiy Kalitli Kitob Jadvali (Book)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Book**) berilgan bo'lib, uning birlamchi kaliti `isbn` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Book**\n  Ustunlar: `isbn` [PK] (varchar(20)), `title` (varchar(150)), `pageCount` (integer), `pubYear` (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Book**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Book {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -375,7 +492,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Book jadvali tabiiy kalit isbn bilan loyihalandi."
+    "explanation": "Book jadvali tabiiy kalit isbn bilan loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Book**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 11,
@@ -383,8 +513,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • O'rta",
     "source": "L02 Slide 25 • Natural Key: VIN",
     "title": "Tabiiy Kalitli Avtomobil Jadvali (Vehicle)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Vehicle**) berilgan bo'lib, uning birlamchi kaliti `vin` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Vehicle**\n  Ustunlar: `vin` [PK] (varchar(20)), `make` (varchar(50)), `model` (varchar(50)), `year` (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Vehicle**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Vehicle {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -413,7 +543,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Vehicle jadvali vin [PK] bilan yaratildi."
+    "explanation": "Vehicle jadvali vin [PK] bilan yaratildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Vehicle**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 12,
@@ -421,8 +564,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • O'rta",
     "source": "L02 Slide 25 • Natural Key: PINFL",
     "title": "Fuqarolik Reestri Jadvali (Citizen)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Citizen**) berilgan bo'lib, uning birlamchi kaliti `pinfl` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Citizen**\n  Ustunlar: `pinfl` [PK] (varchar(14)), `fullName` (varchar(100)), `issueDate` (date)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Citizen**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Citizen {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -447,7 +590,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Citizen jadvali pinfl kaliti bilan loyihalandi."
+    "explanation": "Citizen jadvali pinfl kaliti bilan loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Citizen**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 13,
@@ -455,8 +611,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • O'rta",
     "source": "L02 Slide 34 • Aircraft Entity",
     "title": "Aviatsiya Parki Jadvali (Aircraft)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Aircraft**) berilgan bo'lib, uning birlamchi kaliti `tailNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Aircraft**\n  Ustunlar: `tailNo` [PK] (varchar(10)), `manufacturer` (varchar(50)), `model` (varchar(50)), `capacity` (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Aircraft**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Aircraft {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -485,7 +641,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Aircraft jadvali loyihalandi."
+    "explanation": "Aircraft jadvali loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Aircraft**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 14,
@@ -493,8 +662,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • O'rta",
     "source": "T02 Task 1 • Department Strong Entity",
     "title": "Seminar 2 Task 1: Departament Jadvali (Department)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Department**) berilgan bo'lib, uning birlamchi kaliti `deptNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Department**\n  Ustunlar: `deptNo` [PK] (integer), `dName` (varchar(50)), `budget` (decimal)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Department**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Department {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -519,7 +688,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Department kuchli entitiyasi Step 1 asosida chizildi."
+    "explanation": "Department kuchli entitiyasi Step 1 asosida chizildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Department**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 15,
@@ -527,8 +709,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "1-Qavat • Qiyin (1-Qavat Bossi)",
     "source": "L02 Slide 34 • Floor 1 Strong Entity Boss",
     "title": "1-Qavat Bossi: Korporativ Xodim Yadro Jadvali (EmployeeCore)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**EmployeeCore**) berilgan bo'lib, uning birlamchi kaliti `empNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **EmployeeCore**\n  Ustunlar: `empNo` [PK] (integer), `fName` (varchar(50)), `lName` (varchar(50)), `street` (varchar(100)), `city` (varchar(50)), `postcode` (varchar(15)), `email` (varchar(100))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**EmployeeCore**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table EmployeeCore {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -570,7 +752,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "1-Qavat Bossi: barcha kompozit atributlar yoyildi va to'liq jadval loyihalandi."
+    "explanation": "1-Qavat Bossi: barcha kompozit atributlar yoyildi va to'liq jadval loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**EmployeeCore**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 16,
@@ -578,8 +773,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • Boshlang'ich",
     "source": "L02 Slide 25 & 54 • Composite Primary Key",
     "title": "Kurs Nashri Jadvali (CourseEdition)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**CourseEdition**) berilgan bo'lib, uning birlamchi kaliti `courseCode` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **CourseEdition**\n  Ustunlar: `courseCode` [PK] (varchar(10)), `editionYear` [PK] (integer), `syllabusVersion` (varchar(20))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**CourseEdition**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table CourseEdition {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -605,7 +800,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "CourseEdition kompozit PK bilan loyihalandi."
+    "explanation": "CourseEdition kompozit PK bilan loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**CourseEdition**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 17,
@@ -613,8 +821,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • Boshlang'ich",
     "source": "L02 Slide 25 • Warehouse Slot Composite Key",
     "title": "Omborxona Yacheykasi Jadvali (WarehouseSlot)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**WarehouseSlot**) berilgan bo'lib, uning birlamchi kaliti `aisle` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **WarehouseSlot**\n  Ustunlar: `aisle` [PK] (varchar(5)), `shelf` [PK] (integer), `bin` [PK] (integer), `capacityKg` (decimal)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**WarehouseSlot**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table WarehouseSlot {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -645,7 +853,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "WarehouseSlot 3 ustunli kompozit PK bilan yaratildi."
+    "explanation": "WarehouseSlot 3 ustunli kompozit PK bilan yaratildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**WarehouseSlot**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 18,
@@ -653,8 +874,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • Room Schedule Composite Key",
     "title": "Auditoriya Bandligi Jadvali (ClassSchedule)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**ClassSchedule**) berilgan bo'lib, uning birlamchi kaliti `roomNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **ClassSchedule**\n  Ustunlar: `roomNo` [PK] (varchar(10)), `periodNo` [PK] (integer), `dayOfWeek` [PK] (varchar(10)), `subjectTitle` (varchar(80))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**ClassSchedule**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table ClassSchedule {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -685,7 +906,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "ClassSchedule kompozit kalit bilan chizildi."
+    "explanation": "ClassSchedule kompozit kalit bilan chizildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**ClassSchedule**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 19,
@@ -693,8 +927,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • Flight Seat Composite Key",
     "title": "Aviaqatnov O'rindiqlari (FlightSeat)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**FlightSeat**) berilgan bo'lib, uning birlamchi kaliti `flightNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **FlightSeat**\n  Ustunlar: `flightNo` [PK] (varchar(10)), `seatNo` [PK] (varchar(5)), `classType` (varchar(20))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**FlightSeat**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table FlightSeat {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -720,7 +954,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "FlightSeat jadvali loyihalandi."
+    "explanation": "FlightSeat jadvali loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**FlightSeat**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 20,
@@ -728,8 +975,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • GeoPoint Composite Key",
     "title": "Geografik Nuqta Jadvali (GeoPoint)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**GeoPoint**) berilgan bo'lib, uning birlamchi kaliti `latitude` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **GeoPoint**\n  Ustunlar: `latitude` [PK] (decimal), `longitude` [PK] (decimal), `locationName` (varchar(100))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**GeoPoint**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table GeoPoint {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -755,7 +1002,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "GeoPoint kompozit koordinata kaliti bilan yaratildi."
+    "explanation": "GeoPoint kompozit koordinata kaliti bilan yaratildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**GeoPoint**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 21,
@@ -763,8 +1023,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • Passport Composite Authority",
     "title": "Pasport Seriyasi va Raqami Jadvali (PassportDoc)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**PassportDoc**) berilgan bo'lib, uning birlamchi kaliti `series` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **PassportDoc**\n  Ustunlar: `series` [PK] (varchar(5)), `docNumber` [PK] (varchar(15)), `holderName` (varchar(80)), `expiryDate` (date)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**PassportDoc**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table PassportDoc {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -794,7 +1054,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "PassportDoc jadvali kompozit PK bilan loyihalandi."
+    "explanation": "PassportDoc jadvali kompozit PK bilan loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**PassportDoc**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 22,
@@ -802,8 +1075,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • Metric Observation Composite Key",
     "title": "Server Metrikalari Kuzatuvi (ServerMetric)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**ServerMetric**) berilgan bo'lib, uning birlamchi kaliti `serverHost` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **ServerMetric**\n  Ustunlar: `serverHost` [PK] (varchar(50)), `metricName` [PK] (varchar(50)), `recordedAt` [PK] (timestamp), `metricValue` (decimal)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**ServerMetric**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table ServerMetric {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -834,7 +1107,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "ServerMetric 3 ustunli kompozit kalit bilan tuzildi."
+    "explanation": "ServerMetric 3 ustunli kompozit kalit bilan tuzildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**ServerMetric**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 23,
@@ -842,8 +1128,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • Tariff Composite Key",
     "title": "Zona Bo'yicha Tarif Jadvali (ZoneTariff)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**ZoneTariff**) berilgan bo'lib, uning birlamchi kaliti `fromZone` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **ZoneTariff**\n  Ustunlar: `fromZone` [PK] (integer), `toZone` [PK] (integer), `baseCost` (decimal)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**ZoneTariff**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table ZoneTariff {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -869,7 +1155,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "ZoneTariff jadvali loyihalandi."
+    "explanation": "ZoneTariff jadvali loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**ZoneTariff**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 24,
@@ -877,8 +1176,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • Subject Prerequisite Composite Key",
     "title": "Fan Prerekviziti Jadvali (Prerequisite)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Prerequisite**) berilgan bo'lib, uning birlamchi kaliti `courseCode` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Prerequisite**\n  Ustunlar: `courseCode` [PK] (varchar(10)), `prereqCourseCode` [PK] (varchar(10)), `minGradeRequired` (varchar(5))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Prerequisite**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table Prerequisite {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -904,7 +1203,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Prerequisite jadvali loyihalandi."
+    "explanation": "Prerequisite jadvali loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Prerequisite**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 25,
@@ -912,8 +1224,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • Account Card Composite Key",
     "title": "Hisob va Karta Bog'lanishi (AccountCard)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**AccountCard**) berilgan bo'lib, uning birlamchi kaliti `accountNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **AccountCard**\n  Ustunlar: `accountNo` [PK] (varchar(20)), `cardNumber` [PK] (varchar(16)), `cardholderName` (varchar(80))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**AccountCard**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table AccountCard {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -939,7 +1251,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "AccountCard jadvali yaratildi."
+    "explanation": "AccountCard jadvali yaratildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**AccountCard**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 26,
@@ -947,8 +1272,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • Sensor Log Composite Key",
     "title": "IoT Datchik Ko'rsatkichi Jadvali (SensorLog)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**SensorLog**) berilgan bo'lib, uning birlamchi kaliti `sensorId` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **SensorLog**\n  Ustunlar: `sensorId` [PK] (varchar(20)), `readTimestamp` [PK] (timestamp), `temperature` (decimal)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**SensorLog**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table SensorLog {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -974,7 +1299,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "SensorLog jadvali loyihalandi."
+    "explanation": "SensorLog jadvali loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**SensorLog**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 27,
@@ -982,8 +1320,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • Lab Test Composite Key",
     "title": "Laboratoriya Sinov Namunasi (LabSample)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**LabSample**) berilgan bo'lib, uning birlamchi kaliti `batchNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **LabSample**\n  Ustunlar: `batchNo` [PK] (varchar(15)), `sampleIndex` [PK] (integer), `purityLevel` (decimal)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**LabSample**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table LabSample {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -1009,7 +1347,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "LabSample jadvali kompozit PK bilan tuzildi."
+    "explanation": "LabSample jadvali kompozit PK bilan tuzildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**LabSample**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 28,
@@ -1017,8 +1368,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • Project Sprint Composite Key",
     "title": "Loyiha Sprinti Jadvali (ProjectSprint)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**ProjectSprint**) berilgan bo'lib, uning birlamchi kaliti `projectCode` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **ProjectSprint**\n  Ustunlar: `projectCode` [PK] (varchar(10)), `sprintNo` [PK] (integer), `startDate` (date), `endDate` (date)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**ProjectSprint**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table ProjectSprint {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -1048,7 +1399,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "ProjectSprint jadvali yaratildi."
+    "explanation": "ProjectSprint jadvali yaratildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**ProjectSprint**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 29,
@@ -1056,8 +1420,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • O'rta",
     "source": "L02 Slide 25 • Device Port Composite Key",
     "title": "Tarmoq Qurilmasi Porti (DevicePort)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**DevicePort**) berilgan bo'lib, uning birlamchi kaliti `deviceMac` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **DevicePort**\n  Ustunlar: `deviceMac` [PK] (varchar(17)), `portIndex` [PK] (integer), `speedMbps` (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**DevicePort**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table DevicePort {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -1083,7 +1447,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "DevicePort jadvali loyihalandi."
+    "explanation": "DevicePort jadvali loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**DevicePort**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 30,
@@ -1091,8 +1468,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "2-Qavat • Qiyin (2-Qavat Bossi)",
     "source": "L02 Slide 25 • Composite Key Boss",
     "title": "2-Qavat Bossi: Konteyner Logistika Kuzatuvi (ContainerLog)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**ContainerLog**) berilgan bo'lib, uning birlamchi kaliti `containerId` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **ContainerLog**\n  Ustunlar: `containerId` [PK] (varchar(20)), `voyageCode` [PK] (varchar(20)), `checkpointCode` [PK] (varchar(10)), `inspectionStatus` (varchar(30)), `weightTons` (decimal)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**ContainerLog**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "Table ContainerLog {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -1127,7 +1504,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "2-Qavat Bossi: 3 ustunli murakkab kompozit PK li ContainerLog jadvali loyihalandi."
+    "explanation": "2-Qavat Bossi: 3 ustunli murakkab kompozit PK li ContainerLog jadvali loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**ContainerLog**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 31,
@@ -1135,8 +1525,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • Boshlang'ich",
     "source": "L02 Slide 36 & T02 Task 1 • Department-Employee 1:*",
     "title": "Departament va Xodim 1:* Sxemasi (Department -> Employee)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Department**\n  Ustunlar: `deptNo` [PK] (integer), `dName` (varchar(50))\n• Jadval: **Employee**\n  Ustunlar: `empNo` [PK] (integer), `name` (varchar(80)), `deptNo` [FK] (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1181,7 +1571,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "1:* aloqa muvaffaqiyatli chizildi: deptNo tashqi kaliti bola jadvali Employee ga joylashtirildi."
+    "explanation": "1:* aloqa muvaffaqiyatli chizildi: deptNo tashqi kaliti bola jadvali Employee ga joylashtirildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 32,
@@ -1189,8 +1592,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • Boshlang'ich",
     "source": "L02 Slide 36 • Branch-Staff 1:*",
     "title": "Filial va Xodimlar 1:* Sxemasi (Branch -> Staff)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Branch**\n  Ustunlar: `branchNo` [PK] (varchar(10)), `city` (varchar(50))\n• Jadval: **Staff**\n  Ustunlar: `staffNo` [PK] (varchar(10)), `name` (varchar(80)), `branchNo` [FK] (varchar(10))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1235,7 +1638,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Branch va Staff jadvallari 1:* aloqasi bilan bog'landi."
+    "explanation": "Branch va Staff jadvallari 1:* aloqasi bilan bog'landi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 33,
@@ -1243,8 +1659,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 36 • Faculty-Student 1:*",
     "title": "Fakultet va Talabalar 1:* Sxemasi (Faculty -> Student)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Faculty**\n  Ustunlar: `facCode` [PK] (varchar(10)), `facultyName` (varchar(80))\n• Jadval: **Student**\n  Ustunlar: `studentId` [PK] (integer), `name` (varchar(80)), `facCode` [FK] (varchar(10))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1289,7 +1705,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Faculty va Student 1:* relyatsion sxemasi tuzildi."
+    "explanation": "Faculty va Student 1:* relyatsion sxemasi tuzildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 34,
@@ -1297,8 +1726,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 36 • Publisher-Book 1:*",
     "title": "Nashriyot va Kitoblar 1:* Sxemasi (Publisher -> Book)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Publisher**\n  Ustunlar: `pubId` [PK] (varchar(10)), `pubName` (varchar(80))\n• Jadval: **Book**\n  Ustunlar: `isbn` [PK] (varchar(20)), `title` (varchar(100)), `pubId` [FK] (varchar(10))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1343,7 +1772,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Publisher va Book 1:* relyatsion sxemasi yaratildi."
+    "explanation": "Publisher va Book 1:* relyatsion sxemasi yaratildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 35,
@@ -1351,8 +1793,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 36 • Category-Product 1:*",
     "title": "Kategoriya va Mahsulotlar 1:* Sxemasi (Category -> Product)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Category**\n  Ustunlar: `catId` [PK] (integer), `catTitle` (varchar(50))\n• Jadval: **Product**\n  Ustunlar: `prodId` [PK] (integer), `prodName` (varchar(80)), `catId` [FK] (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1397,7 +1839,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Category va Product 1:* sxemasi tuzildi."
+    "explanation": "Category va Product 1:* sxemasi tuzildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 36,
@@ -1405,8 +1860,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 36 • Customer-Order 1:*",
     "title": "Mijoz va Buyurtmalar 1:* Sxemasi (Customer -> Order)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Customer**\n  Ustunlar: `custId` [PK] (integer), `custName` (varchar(80))\n• Jadval: **CustomerOrder**\n  Ustunlar: `orderNo` [PK] (integer), `orderDate` (date), `custId` [FK] (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1451,7 +1906,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Customer va CustomerOrder 1:* aloqasi chizildi."
+    "explanation": "Customer va CustomerOrder 1:* aloqasi chizildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 37,
@@ -1459,8 +1927,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 36 • Hospital-Ward 1:*",
     "title": "Shifoxona va Palatalar 1:* Sxemasi (Hospital -> Ward)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Hospital**\n  Ustunlar: `hospCode` [PK] (varchar(10)), `hospName` (varchar(80))\n• Jadval: **Ward**\n  Ustunlar: `wardNo` [PK] (integer), `bedCount` (integer), `hospCode` [FK] (varchar(10))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1505,7 +1973,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Hospital va Ward 1:* sxemasi loyihalandi."
+    "explanation": "Hospital va Ward 1:* sxemasi loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 38,
@@ -1513,8 +1994,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 36 • Author-Article 1:*",
     "title": "Muallif va Maqolalar 1:* Sxemasi (Author -> Article)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Author**\n  Ustunlar: `authorId` [PK] (integer), `authorName` (varchar(80))\n• Jadval: **Article**\n  Ustunlar: `articleId` [PK] (integer), `title` (varchar(120)), `authorId` [FK] (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1559,7 +2040,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Author va Article 1:* sxemasi yaratildi."
+    "explanation": "Author va Article 1:* sxemasi yaratildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 39,
@@ -1567,8 +2061,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 36 • Country-City 1:*",
     "title": "Davlat va Shaharlar 1:* Sxemasi (Country -> City)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Country**\n  Ustunlar: `countryCode` [PK] (varchar(3)), `countryName` (varchar(60))\n• Jadval: **City**\n  Ustunlar: `cityId` [PK] (integer), `cityName` (varchar(60)), `countryCode` [FK] (varchar(3))",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1613,7 +2107,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Country va City 1:* sxemasi tuzildi."
+    "explanation": "Country va City 1:* sxemasi tuzildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 40,
@@ -1621,8 +2128,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 36 • Team-Player 1:*",
     "title": "Jamoa va O'yinchilar 1:* Sxemasi (Team -> Player)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Team**\n  Ustunlar: `teamId` [PK] (integer), `teamName` (varchar(50))\n• Jadval: **Player**\n  Ustunlar: `playerId` [PK] (integer), `playerName` (varchar(80)), `teamId` [FK] (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1667,7 +2174,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Team va Player 1:* aloqasi chizildi."
+    "explanation": "Team va Player 1:* aloqasi chizildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 41,
@@ -1675,8 +2195,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 54 • Mandatory FK (NOT NULL) Syntax",
     "title": "Majburiy Qatnashuvli Tashqi Kalit (NOT NULL)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Employee**) berilgan bo'lib, uning birlamchi kaliti `empNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Employee**\n  Ustunlar: `empNo` [PK] (integer), `name` (varchar(80)), `deptNo` [FK] (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Employee**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1704,7 +2224,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "deptNo ga NOT NULL majburiy qatnashuv cheklovi kiritildi."
+    "explanation": "deptNo ga NOT NULL majburiy qatnashuv cheklovi kiritildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Employee**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 42,
@@ -1712,8 +2245,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 36 • Recursive 1:* Supervisor",
     "title": "Rekursiv 1:* Rahbar Ierarxiyasi Jadvali (EmployeeWithBoss)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**EmployeeWithBoss**) berilgan bo'lib, uning birlamchi kaliti `empNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **EmployeeWithBoss**\n  Ustunlar: `empNo` [PK] (integer), `name` (varchar(80)), `supervisorId` [FK] (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**EmployeeWithBoss**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1740,7 +2273,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "O'z-o'ziga bog'lanuvchi rekursiv 1:* sxema loyihalandi."
+    "explanation": "O'z-o'ziga bog'lanuvchi rekursiv 1:* sxema loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**EmployeeWithBoss**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 43,
@@ -1748,8 +2294,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 36 • Recursive Category Tree",
     "title": "Rekursiv Kategoriya Daraxti (CategoryTree)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**CategoryTree**) berilgan bo'lib, uning birlamchi kaliti `catId` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **CategoryTree**\n  Ustunlar: `catId` [PK] (integer), `title` (varchar(60)), `parentCatId` [FK] (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**CategoryTree**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1776,7 +2322,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Kategoriya daraxti rekursiv bog'landi."
+    "explanation": "Kategoriya daraxti rekursiv bog'landi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**CategoryTree**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 44,
@@ -1784,8 +2343,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • O'rta",
     "source": "L02 Slide 36 • Warehouse-Pallet 1:*",
     "title": "Ombor va Palletlar 1:* Sxemasi (Warehouse -> Pallet)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Warehouse**\n  Ustunlar: `whId` [PK] (integer), `location` (varchar(50))\n• Jadval: **Pallet**\n  Ustunlar: `palletId` [PK] (integer), `weight` (decimal), `whId` [FK] (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1830,7 +2389,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Warehouse va Pallet 1:* sxemasi yaratildi."
+    "explanation": "Warehouse va Pallet 1:* sxemasi yaratildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 45,
@@ -1838,8 +2410,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "3-Qavat • Qiyin (3-Qavat Bossi)",
     "source": "T02 Task 1 • Floor 3 Boss",
     "title": "3-Qavat Bossi: Korporativ Bo'lim va Xodimlar Sxemasi",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Taqdim etilgan ER/EER model ixtisoslashuv (Subclass/Superclass) yoki alohida mantiqiy bloklarni o'z ichiga oladi. Tutorial 2 dagi Option 8A/8B/8C/8D xaritalash tamoyillaridan foydalanib, to'g'ri relyatsion jadvallar to'plamini tuzing.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Department**\n  Ustunlar: `deptNo` [PK] (integer), `dName` (varchar(50)), `budget` (decimal)\n• Jadval: **Employee**\n  Ustunlar: `empNo` [PK] (integer), `fName` (varchar(50)), `lName` (varchar(50)), `salary` (decimal), `deptNo` [FK] (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1897,7 +2469,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "3-Qavat Bossi: Department va Employee 1:* me'moriy relyatsion sxemasi mukammal loyihalandi."
+    "explanation": "3-Qavat Bossi: Department va Employee 1:* me'moriy relyatsion sxemasi mukammal loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 46,
@@ -1905,8 +2490,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "4-Qavat • Boshlang'ich",
     "source": "T02 Task 1 & L02 Slide 35 • Child Weak Entity",
     "title": "Farzand Zaif Entitiyasi Jadvali (Child)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Child**) berilgan bo'lib, uning birlamchi kaliti `empNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Child**\n  Ustunlar: `empNo` [PK] (integer), `name` [PK] (varchar(50)), `age` (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Child**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -1935,7 +2520,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Child zaif entitiyasi Step 2 qoidasiga binoan (empNo, name) kompozit kaliti bilan chizildi."
+    "explanation": "Child zaif entitiyasi Step 2 qoidasiga binoan (empNo, name) kompozit kaliti bilan chizildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Child**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 47,
@@ -1943,8 +2541,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "4-Qavat • O'rta",
     "source": "L02 Slide 35 • OrderLine Weak Entity",
     "title": "Buyurtma Qatori Zaif Entitiyasi (OrderLine)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**OrderLine**) berilgan bo'lib, uning birlamchi kaliti `orderNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **OrderLine**\n  Ustunlar: `orderNo` [PK] (integer), `lineNo` [PK] (integer), `itemCode` (varchar(20)), `quantity` (integer)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**OrderLine**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -1976,7 +2574,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "OrderLine zaif entitiyasi kompozit kalit bilan loyihalandi."
+    "explanation": "OrderLine zaif entitiyasi kompozit kalit bilan loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**OrderLine**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 48,
@@ -1984,8 +2595,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "4-Qavat • O'rta",
     "source": "L02 Slide 35 • Room Weak Entity",
     "title": "Mehmonxona Xonasi Zaif Entitiyasi (Room)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Room**) berilgan bo'lib, uning birlamchi kaliti `hotelNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Room**\n  Ustunlar: `hotelNo` [PK] (varchar(10)), `roomNo` [PK] (varchar(10)), `roomType` (varchar(30)), `pricePerNight` (decimal)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Room**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -2017,7 +2628,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Room zaif entitiyasi loyihalandi."
+    "explanation": "Room zaif entitiyasi loyihalandi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Room**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 49,
@@ -2025,8 +2649,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "4-Qavat • O'rta",
     "source": "L02 Slide 35 • Building Floor Weak Entity",
     "title": "Bino Qavati Zaif Entitiyasi (Floor)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Floor**) berilgan bo'lib, uning birlamchi kaliti `buildingId` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Floor**\n  Ustunlar: `buildingId` [PK] (varchar(10)), `floorNo` [PK] (integer), `usableArea` (decimal)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Floor**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -2054,7 +2678,20 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Floor zaif entitiyasi chizildi."
+    "explanation": "Floor zaif entitiyasi chizildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Floor**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   },
   {
     "id": 50,
@@ -2062,8 +2699,8 @@ _scope.QUESTIONS_1_50 = [
     "difficulty": "4-Qavat • O'rta",
     "source": "L02 Slide 35 • Client Preference Weak Entity",
     "title": "Darslikdagi Preference Zaif Entitiyasi (Preference)",
-    "story": "**Tutorial 2: Mapping ER / EER Diagram to Relational Schema**\n\nYuqoridagi **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** blokida keltirilgan UML modelini diqqat bilan o'rganing. Mazkur topshiriqda mustaqil kuchli entitiy (**Preference**) berilgan bo'lib, uning birlamchi kaliti `clientNo` {PK} hisoblanadi. Tutorial 2 qoidasiga ko'ra, har bir kuchli entitiy relyatsion modelda alohida jadvalga aylanadi va uning barcha oddiy atributlari jadval ustunlariga o'tkaziladi.",
-    "taskUz": "Tepada ko'rsatilgan Manba ER Diagrammasini Tutorial 2 qoidalari asosida relyatsion jadval(lar)ga o'tkazing:\n1. **Jadvallar va Ustunlar:** Kerakli jadvallarni yarating va ularga barcha talab etilgan ustunlarni qo'shing.\n2. **Kalitlar [PK] va [FK]:** Har bir jadvalning Birlamchi Kaliti [PK] va bog'lanishlar uchun Tashqi Kalit [FK] larini aniq ko'rsating.\n3. **Crow's Foot Aloqalari:** Jadvallar o'rtasida to'g'ri kardinallikka ega bo'lgan Crow's Foot bog'lanish chiziqlarini torting.\n\n📋 **Kutilayotgan Relyatsion Sxema (draw.io / DBML):**\n• Jadval: **Preference**\n  Ustunlar: `clientNo` [PK] (varchar(10)), `prefType` [PK] (varchar(30)), `maxRent` (decimal)",
+    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Preference**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
+    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -2091,6 +2728,19 @@ _scope.QUESTIONS_1_50 = [
         }
       ]
     },
-    "explanation": "Preference zaif entitiyasi Step 2 ga muvofiq chizildi."
+    "explanation": "Preference zaif entitiyasi Step 2 ga muvofiq chizildi.",
+    "caseStudy": {
+      "paragraphs": [
+        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
+        "Ushbu masalada kuchli mustaqil entitiy (**Preference**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
+        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+      ],
+      "tasks": [
+        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
+        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
+        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
+        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      ]
+    }
   }
 ];

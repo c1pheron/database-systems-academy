@@ -2067,3 +2067,69 @@ input, textarea, select, [contenteditable="true"] {
   border-radius: 4px;
 }
 
+/* ============================================================================
+   TUTORIAL 2: AUTHENTIC ACADEMIC CASE STUDY DOSSIER (DOCX Mirror)
+   ============================================================================ */
+.academic-case-dossier {
+  background: #181411;
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin: 10px 0 14px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.case-narrative-box {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #f2ede4;
+  margin-bottom: 16px;
+}
+
+.case-narrative-box p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.case-narrative-box p:last-child {
+  margin-bottom: 0;
+}
+
+.case-narrative-box strong {
+  color: #dfc288;
+  font-weight: 600;
+}
+
+.case-tasks-box {
+  border-top: 1px solid rgba(200, 169, 110, 0.25);
+  padding-top: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #c4bbb0;
+}
+
+.case-task-item {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.case-task-letter {
+  font-weight: 700;
+  color: #ffd166;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 22px;
+}
+
+.case-task-text {
+  flex: 1;
+}
+
+.case-task-text strong {
+  color: #f2ede4;
+}
+
+

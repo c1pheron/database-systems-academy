@@ -1350,11 +1350,33 @@ class EERCanvasEngine {
         };
       };
 
-      this.drawLine(line.startX, line.startY, line.endX, line.endY, onLineDblClick, line.isDashed, onStartWholeLineDrag);
+      const multLabel = `${line.mult1 || '1..1'} ↔ ${line.mult2 || '1..*'}`;
+      this.drawLine(line.startX, line.startY, line.endX, line.endY, onLineDblClick, line.isDashed, onStartWholeLineDrag, {
+        onDelete: onLineDblClick,
+        onMultiplicity: (e) => this.openMultiplicitySelector(line, 'mult1', e),
+        multText: multLabel
+      });
 
       // Render Magnetic Handles at both ends as interactive DOM handles
       this.renderMagneticHandle(line, 'start', line.startX, line.startY, onLineDblClick);
       this.renderMagneticHandle(line, 'end', line.endX, line.endY, onLineDblClick);
+
+      // Render Multiplicity Pills for standalone line ends
+      const dx = line.endX - line.startX;
+      const dy = line.endY - line.startY;
+      const dist = Math.hypot(dx, dy) || 1;
+      const dirX = dx / dist;
+      const dirY = dy / dist;
+
+      // Start end multiplicity pill
+      const startBorder = { x: line.startX, y: line.startY, dirX: dirX, dirY: dirY };
+      const mPos1 = this.computeMultiplicityPos(startBorder, 38, 22);
+      this.createMultiplicityPill(mPos1.x, mPos1.y, line, 'mult1', line.startSnapped?.node?.name || '1-Tomon');
+
+      // End end multiplicity pill
+      const endBorder = { x: line.endX, y: line.endY, dirX: -dirX, dirY: -dirY };
+      const mPos2 = this.computeMultiplicityPos(endBorder, 38, 22);
+      this.createMultiplicityPill(mPos2.x, mPos2.y, line, 'mult2', line.endSnapped?.node?.name || '2-Tomon');
     });
 
     // Render Free-Standing Connection Lines
@@ -1583,10 +1605,14 @@ class EERCanvasEngine {
     this.nodesLayer.appendChild(handle);
   }
 
-  computeMultiplicityPos(border, alongDist = 38, perpDist = 18) {
+  computeMultiplicityPos(border, alongDist = 42, perpDist = 24) {
     let normX = -border.dirY;
     let normY = border.dirX;
-    if (normY > 0.05 || (Math.abs(normY) <= 0.05 && normX < 0)) {
+    // Guarantee multiplicity pill floats cleanly ABOVE the line (normY negative)
+    if (normY > 0) {
+      normX = -normX;
+      normY = -normY;
+    } else if (Math.abs(normY) <= 0.05 && normX < 0) {
       normX = -normX;
       normY = -normY;
     }
@@ -1780,7 +1806,7 @@ class EERCanvasEngine {
     this.nodesLayer.appendChild(pill);
   }
 
-  openMultiplicitySelector(rel, multKey, e) {
+  openMultiplicitySelector(rel, multKey = 'mult1', e) {
     let popover = document.getElementById('eerMultiplicityPopover');
     if (!popover) {
       popover = document.createElement('div');
@@ -1789,41 +1815,86 @@ class EERCanvasEngine {
       document.body.appendChild(popover);
     }
 
-    const current = rel[multKey] || '1..1';
-    popover.innerHTML = `
-      <div class="mult-pop-header">
-        <span class="mult-pop-title">Multiplicity Tanlash</span>
-        <button class="mult-pop-close" id="btnCloseEerMultPop">✕</button>
-      </div>
-      <div class="mult-pop-body">
-        <div class="mult-options-grid">
-          <button class="btn-mult-opt ${current === '1..1' ? 'active' : ''}" data-val="1..1"><span>1..1</span> Majburiy bitta</button>
-          <button class="btn-mult-opt ${current === '0..1' ? 'active' : ''}" data-val="0..1"><span>0..1</span> Ixtiyoriy bitta</button>
-          <button class="btn-mult-opt ${current === '1..*' ? 'active' : ''}" data-val="1..*"><span>1..*</span> Kamida bitta</button>
-          <button class="btn-mult-opt ${current === '0..*' ? 'active' : ''}" data-val="0..*"><span>0..*</span> Ixtiyoriy ko'p</button>
+    let activeKey = multKey || 'mult1';
+
+    const renderPopContent = () => {
+      const current = rel[activeKey] || '1..1';
+      const label1 = rel.fromEntityName || rel.startSnapped?.node?.name || '1-Tomon';
+      const label2 = rel.toEntityName || rel.endSnapped?.node?.name || '2-Tomon';
+
+      popover.innerHTML = `
+        <div class="mult-pop-header">
+          <span class="mult-pop-title">Multiplicity Tanlash</span>
+          <button class="mult-pop-close" id="btnCloseEerMultPop">✕</button>
         </div>
-      </div>
-    `;
+        <div style="display:flex; gap:6px; padding:6px 10px; background:rgba(0,0,0,0.3); border-bottom:1px solid rgba(212,175,55,0.2);">
+          <button type="button" id="tabMult1" style="flex:1; padding:5px 8px; font-size:11px; font-weight:700; border-radius:4px; cursor:pointer; background:${activeKey === 'mult1' ? 'var(--accent-gold, #d4af37)' : '#221c16'}; color:${activeKey === 'mult1' ? '#14110e' : '#ffd166'}; border:1px solid #d4af37;">
+            ${label1}: <strong>${rel.mult1 || '1..1'}</strong>
+          </button>
+          <button type="button" id="tabMult2" style="flex:1; padding:5px 8px; font-size:11px; font-weight:700; border-radius:4px; cursor:pointer; background:${activeKey === 'mult2' ? 'var(--accent-gold, #d4af37)' : '#221c16'}; color:${activeKey === 'mult2' ? '#14110e' : '#ffd166'}; border:1px solid #d4af37;">
+            ${label2}: <strong>${rel.mult2 || '1..*'}</strong>
+          </button>
+        </div>
+        <div class="mult-pop-body">
+          <div class="mult-options-grid">
+            <button class="btn-mult-opt ${current === '1..1' ? 'active' : ''}" data-val="1..1"><span>1..1</span> Majburiy bitta</button>
+            <button class="btn-mult-opt ${current === '0..1' ? 'active' : ''}" data-val="0..1"><span>0..1</span> Ixtiyoriy bitta</button>
+            <button class="btn-mult-opt ${current === '1..*' ? 'active' : ''}" data-val="1..*"><span>1..*</span> Kamida bitta</button>
+            <button class="btn-mult-opt ${current === '0..*' ? 'active' : ''}" data-val="0..*"><span>0..*</span> Ixtiyoriy ko'p</button>
+          </div>
+        </div>
+      `;
+
+      popover.querySelector('#btnCloseEerMultPop')?.addEventListener('click', () => {
+        popover.style.display = 'none';
+      });
+
+      popover.querySelector('#tabMult1')?.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        activeKey = 'mult1';
+        renderPopContent();
+      });
+
+      popover.querySelector('#tabMult2')?.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        activeKey = 'mult2';
+        renderPopContent();
+      });
+
+      popover.querySelectorAll('.btn-mult-opt').forEach(btn => {
+        btn.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          const val = btn.getAttribute('data-val');
+          rel[activeKey] = val;
+          popover.style.display = 'none';
+          this.renderLinks();
+          this.showToast(`✅ Multiplicity o'rnatildi: ${activeKey === 'mult1' ? label1 : label2} (${val})`);
+          if (window.playSfx) window.playSfx('click');
+        });
+      });
+    };
+
+    renderPopContent();
 
     const target = e?.currentTarget || e?.target;
     const rect = target?.getBoundingClientRect ? target.getBoundingClientRect() : null;
 
     let posX = window.innerWidth / 2 - 140;
-    let posY = window.innerHeight / 2 - 60;
+    let posY = window.innerHeight / 2 - 80;
 
     if (rect) {
       posX = rect.left + rect.width / 2 - 140;
       posY = rect.bottom + 8;
-      if (posY + 160 > window.innerHeight) {
-        posY = rect.top - 160;
+      if (posY + 190 > window.innerHeight) {
+        posY = rect.top - 190;
       }
     } else if (e?.clientX !== undefined) {
       posX = e.clientX - 140;
       posY = e.clientY + 10;
     }
 
-    posX = Math.max(10, Math.min(window.innerWidth - 290, posX));
-    posY = Math.max(10, Math.min(window.innerHeight - 170, posY));
+    posX = Math.max(10, Math.min(window.innerWidth - 300, posX));
+    posY = Math.max(10, Math.min(window.innerHeight - 200, posY));
 
     popover.style.position = 'fixed';
     popover.style.left = posX + 'px';
@@ -1831,21 +1902,8 @@ class EERCanvasEngine {
     popover.style.zIndex = '99999';
     popover.style.display = 'flex';
 
-    popover.querySelector('#btnCloseEerMultPop')?.addEventListener('click', () => {
-      popover.style.display = 'none';
-    });
-
-    popover.querySelectorAll('.btn-mult-opt').forEach(btn => {
-      btn.addEventListener('click', () => {
-        rel[multKey] = btn.getAttribute('data-val');
-        popover.style.display = 'none';
-        this.renderLinks();
-        if (window.playSfx) window.playSfx('click');
-      });
-    });
-
     const closeOnOutside = (evt) => {
-      if (!popover.contains(evt.target) && !evt.target.closest('.mult-pill')) {
+      if (!popover.contains(evt.target) && !evt.target.closest('.mult-pill') && !evt.target.closest('.line-action-toolbar')) {
         popover.style.display = 'none';
         window.removeEventListener('click', closeOnOutside);
       }

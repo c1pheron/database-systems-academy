@@ -136,7 +136,7 @@
   // ==========================================================================
   function loadSavedState() {
     try {
-      const saved = localStorage.getItem('DS_W2_PROGRESS');
+      const saved = localStorage.getItem('DS_W2_PROGRESS') || localStorage.getItem('WIUT_DS_W2_PROGRESS') || localStorage.getItem('ACADEMY_DS_W2_PROGRESS');
       if (saved) {
         const data = JSON.parse(saved);
         if (data.solvedIds && Array.isArray(data.solvedIds)) {
@@ -157,7 +157,9 @@
         score: STATE.score,
         salary: STATE.salary
       };
-      localStorage.setItem('DS_W2_PROGRESS', JSON.stringify(data));
+      const json = JSON.stringify(data);
+      localStorage.setItem('DS_W2_PROGRESS', json);
+      localStorage.setItem('WIUT_DS_W2_PROGRESS', json);
     } catch (e) {}
   }
 
@@ -274,19 +276,54 @@
     if (elSource) elSource.textContent = q.source || "L02 Relational Model";
     if (elTitle) elTitle.textContent = q.title || "Jadval Loyihalash";
 
-    if (elClientDialogue) {
-      elClientDialogue.innerHTML = `<strong>Tizimlar Rahbari:</strong> "${q.story || ''}"`;
+    // Render Authentic Academic Case Study Dossier (Tutorial 2 Standard - Image 2)
+    const elNarrative = document.getElementById('caseNarrativeBox');
+    const elTasks = document.getElementById('caseTasksBox');
+
+    function formatInlineMarkdown(str) {
+      if (!str) return '';
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/`([^`]+)`/g, '<code style="background:rgba(212,175,55,0.14); color:#ffd166; padding:1px 5px; border-radius:3px; font-family:\'JetBrains Mono\', monospace; font-size:12px;">$1</code>');
     }
 
-    if (elTask) {
-      elTask.textContent = q.taskUz || "Jadvalni belgilangan ustunlar va PK/FK bilan loyihalang.";
+    if (elNarrative) {
+      const paras = q.caseStudy?.paragraphs || (q.story || '').split('\n\n').filter(p => p.trim());
+      elNarrative.innerHTML = paras.map(p => `<p>${formatInlineMarkdown(p)}</p>`).join('');
+    }
+
+    if (elTasks) {
+      const taskList = q.caseStudy?.tasks || (q.taskUz || '').split('\n').filter(t => t.trim());
+      elTasks.innerHTML = taskList.map(t => {
+        const match = t.match(/^([a-d]\))\s*(.*)$/i);
+        if (match) {
+          return `
+            <div class="case-task-item">
+              <span class="case-task-letter">${match[1]}</span>
+              <span class="case-task-text">${formatInlineMarkdown(match[2])}</span>
+            </div>
+          `;
+        }
+        return `
+          <div class="case-task-item">
+            <span class="case-task-letter">•</span>
+            <span class="case-task-text">${formatInlineMarkdown(t)}</span>
+          </div>
+        `;
+      }).join('');
+
       let btnDetail = document.getElementById('btnChallengeDetail');
       if (!btnDetail) {
         btnDetail = document.createElement('button');
         btnDetail.id = 'btnChallengeDetail';
         btnDetail.className = 'btn-challenge-detail';
         btnDetail.type = 'button';
-        elTask.parentNode.appendChild(btnDetail);
+        btnDetail.style.marginTop = '12px';
+        elTasks.appendChild(btnDetail);
       }
       btnDetail.innerHTML = `<span>📖 Batafsil</span> <small style="opacity:0.85;">(Komandani o'rganish)</small>`;
       btnDetail.onclick = () => {

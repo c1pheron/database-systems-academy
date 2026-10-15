@@ -10,8 +10,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Tahlilchisi",
     "clientAvatar": "retailer",
     "title": "Aktyor va Film: 'ActsIn' Aloqasi (Role Atributi)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #51 (Tizim Tahlilchisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Actor** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n• **Movie** entitiysi (atributlari: noyob identifikatori `code` {PK}, `title`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Actor** va **Movie** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Actor bir nechta Movie ga bog'lanishi mumkin, va aksincha, bitta Movie bir nechta Actor bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Actor** (Birlamchi kalit: `id`): `id` {PK}, `name`\n• **Movie** (Birlamchi kalit: `code`): `code` {PK}, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Actor` (**0..***) ↔ `Movie` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Actor** ob'yektlari hisobga olinadi. Har bir **Actor** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Movie** sub'yektlari kiritilgan. Har bir **Movie** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Actor** vaqt davomida bir nechta **Movie** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Movie** bir nechta **Actor** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -69,7 +69,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Actor' (0..*) va 'Movie' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Actor' va 'Movie' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
+    "task": "'Actor' va 'Movie' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Actor** ob'yektlari hisobga olinadi. Har bir **Actor** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Movie** sub'yektlari kiritilgan. Har bir **Movie** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Actor** vaqt davomida bir nechta **Movie** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Movie** bir nechta **Actor** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 52,
@@ -80,8 +93,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Tahlilchisi",
     "clientAvatar": "retailer",
     "title": "Foydalanuvchi va Guruh: 'MemberOf' Aloqasi (JoinedDate Atributi)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #52 (Tizim Tahlilchisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **User** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n• **UserGroup** entitiysi (atributlari: noyob identifikatori `code` {PK}, `title`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **User** va **UserGroup** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta User bir nechta UserGroup ga bog'lanishi mumkin, va aksincha, bitta UserGroup bir nechta User bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **User** (Birlamchi kalit: `id`): `id` {PK}, `name`\n• **UserGroup** (Birlamchi kalit: `code`): `code` {PK}, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `User` (**0..***) ↔ `UserGroup` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **User** ob'yektlari hisobga olinadi. Har bir **User** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **UserGroup** sub'yektlari kiritilgan. Har bir **UserGroup** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **User** vaqt davomida bir nechta **UserGroup** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **UserGroup** bir nechta **User** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -139,7 +152,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'User' (0..*) va 'UserGroup' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'User' va 'UserGroup' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
+    "task": "'User' va 'UserGroup' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **User** ob'yektlari hisobga olinadi. Har bir **User** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **UserGroup** sub'yektlari kiritilgan. Har bir **UserGroup** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **User** vaqt davomida bir nechta **UserGroup** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **UserGroup** bir nechta **User** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 53,
@@ -150,8 +176,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Tahlilchisi",
     "clientAvatar": "retailer",
     "title": "Avtomobil va Xizmat Safari: 'Drives' Aloqasi (Mileage Atributi)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #53 (Tizim Tahlilchisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Driver** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n• **Route** entitiysi (atributlari: noyob identifikatori `code` {PK}, `title`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Driver** va **Route** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Driver bir nechta Route ga bog'lanishi mumkin, va aksincha, bitta Route bir nechta Driver bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Driver** (Birlamchi kalit: `id`): `id` {PK}, `name`\n• **Route** (Birlamchi kalit: `code`): `code` {PK}, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Driver` (**0..***) ↔ `Route` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Driver** ob'yektlari hisobga olinadi. Har bir **Driver** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Route** sub'yektlari kiritilgan. Har bir **Route** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Driver** vaqt davomida bir nechta **Route** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Route** bir nechta **Driver** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -209,7 +235,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Driver' (0..*) va 'Route' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Driver' va 'Route' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
+    "task": "'Driver' va 'Route' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Driver** ob'yektlari hisobga olinadi. Har bir **Driver** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Route** sub'yektlari kiritilgan. Har bir **Route** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Driver** vaqt davomida bir nechta **Route** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Route** bir nechta **Driver** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 54,
@@ -220,8 +259,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Tahlilchisi",
     "clientAvatar": "retailer",
     "title": "Dasturchi va Repozitoriy: 'Contributes' Aloqasi (Commits Atributi)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #54 (Tizim Tahlilchisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Developer** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n• **Repository** entitiysi (atributlari: noyob identifikatori `code` {PK}, `title`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Developer** va **Repository** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Developer bir nechta Repository ga bog'lanishi mumkin, va aksincha, bitta Repository bir nechta Developer bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Developer** (Birlamchi kalit: `id`): `id` {PK}, `name`\n• **Repository** (Birlamchi kalit: `code`): `code` {PK}, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Developer` (**0..***) ↔ `Repository` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Developer** ob'yektlari hisobga olinadi. Har bir **Developer** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Repository** sub'yektlari kiritilgan. Har bir **Repository** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Developer** vaqt davomida bir nechta **Repository** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Repository** bir nechta **Developer** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -279,7 +318,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Developer' (0..*) va 'Repository' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Developer' va 'Repository' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
+    "task": "'Developer' va 'Repository' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Developer** ob'yektlari hisobga olinadi. Har bir **Developer** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Repository** sub'yektlari kiritilgan. Har bir **Repository** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Developer** vaqt davomida bir nechta **Repository** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Repository** bir nechta **Developer** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 55,
@@ -290,8 +342,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Tahlilchisi",
     "clientAvatar": "retailer",
     "title": "Sayyoh va Mehmonxona: 'StaysAt' Aloqasi (CheckIn Atributi)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #55 (Tizim Tahlilchisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Tourist** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n• **Hotel** entitiysi (atributlari: noyob identifikatori `code` {PK}, `title`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Tourist** va **Hotel** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Tourist bir nechta Hotel ga bog'lanishi mumkin, va aksincha, bitta Hotel bir nechta Tourist bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Tourist** (Birlamchi kalit: `id`): `id` {PK}, `name`\n• **Hotel** (Birlamchi kalit: `code`): `code` {PK}, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Tourist` (**0..***) ↔ `Hotel` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Tourist** ob'yektlari hisobga olinadi. Har bir **Tourist** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Hotel** sub'yektlari kiritilgan. Har bir **Hotel** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Tourist** vaqt davomida bir nechta **Hotel** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Hotel** bir nechta **Tourist** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -349,7 +401,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Tourist' (0..*) va 'Hotel' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Tourist' va 'Hotel' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
+    "task": "'Tourist' va 'Hotel' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Tourist** ob'yektlari hisobga olinadi. Har bir **Tourist** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Hotel** sub'yektlari kiritilgan. Har bir **Hotel** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Tourist** vaqt davomida bir nechta **Hotel** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Hotel** bir nechta **Tourist** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 56,
@@ -360,8 +425,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Tahlilchisi",
     "clientAvatar": "retailer",
     "title": "Xaridor va Do'kon Cheki: 'Purchases' Aloqasi (Discount Atributi)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #56 (Tizim Tahlilchisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Buyer** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n• **Receipt** entitiysi (atributlari: noyob identifikatori `code` {PK}, `title`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Buyer** va **Receipt** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Buyer bir nechta Receipt ga bog'lanishi mumkin, va aksincha, bitta Receipt bir nechta Buyer bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Buyer** (Birlamchi kalit: `id`): `id` {PK}, `name`\n• **Receipt** (Birlamchi kalit: `code`): `code` {PK}, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Buyer` (**0..***) ↔ `Receipt` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Buyer** ob'yektlari hisobga olinadi. Har bir **Buyer** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Receipt** sub'yektlari kiritilgan. Har bir **Receipt** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Buyer** vaqt davomida bir nechta **Receipt** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Receipt** bir nechta **Buyer** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -419,7 +484,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Buyer' (0..*) va 'Receipt' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Buyer' va 'Receipt' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
+    "task": "'Buyer' va 'Receipt' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Buyer** ob'yektlari hisobga olinadi. Har bir **Buyer** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Receipt** sub'yektlari kiritilgan. Har bir **Receipt** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Buyer** vaqt davomida bir nechta **Receipt** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Receipt** bir nechta **Buyer** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 57,
@@ -430,8 +508,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Tahlilchisi",
     "clientAvatar": "retailer",
     "title": "Dori va Kasallik: 'Treats' Aloqasi (Dosage Atributi)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #57 (Tizim Tahlilchisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Drug** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n• **Disease** entitiysi (atributlari: noyob identifikatori `code` {PK}, `title`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Drug** va **Disease** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Drug bir nechta Disease ga bog'lanishi mumkin, va aksincha, bitta Disease bir nechta Drug bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Drug** (Birlamchi kalit: `id`): `id` {PK}, `name`\n• **Disease** (Birlamchi kalit: `code`): `code` {PK}, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Drug` (**0..***) ↔ `Disease` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Drug** ob'yektlari hisobga olinadi. Har bir **Drug** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Disease** sub'yektlari kiritilgan. Har bir **Disease** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Drug** vaqt davomida bir nechta **Disease** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Disease** bir nechta **Drug** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -489,7 +567,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Drug' (0..*) va 'Disease' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Drug' va 'Disease' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
+    "task": "'Drug' va 'Disease' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Drug** ob'yektlari hisobga olinadi. Har bir **Drug** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Disease** sub'yektlari kiritilgan. Har bir **Disease** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Drug** vaqt davomida bir nechta **Disease** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Disease** bir nechta **Drug** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 58,
@@ -500,8 +591,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Tahlilchisi",
     "clientAvatar": "retailer",
     "title": "O'qituvchi va Sinf: 'Supervises' Aloqasi (AcademicYear Atributi)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #58 (Tizim Tahlilchisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Teacher** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n• **ClassRoom** entitiysi (atributlari: noyob identifikatori `code` {PK}, `title`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Teacher** va **ClassRoom** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Teacher bir nechta ClassRoom ga bog'lanishi mumkin, va aksincha, bitta ClassRoom bir nechta Teacher bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Teacher** (Birlamchi kalit: `id`): `id` {PK}, `name`\n• **ClassRoom** (Birlamchi kalit: `code`): `code` {PK}, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Teacher` (**0..***) ↔ `ClassRoom` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Teacher** ob'yektlari hisobga olinadi. Har bir **Teacher** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **ClassRoom** sub'yektlari kiritilgan. Har bir **ClassRoom** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Teacher** vaqt davomida bir nechta **ClassRoom** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **ClassRoom** bir nechta **Teacher** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -559,7 +650,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Teacher' (0..*) va 'ClassRoom' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Teacher' va 'ClassRoom' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
+    "task": "'Teacher' va 'ClassRoom' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Teacher** ob'yektlari hisobga olinadi. Har bir **Teacher** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **ClassRoom** sub'yektlari kiritilgan. Har bir **ClassRoom** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Teacher** vaqt davomida bir nechta **ClassRoom** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **ClassRoom** bir nechta **Teacher** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 59,
@@ -570,8 +674,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Tahlilchisi",
     "clientAvatar": "retailer",
     "title": "Kompaniya va Homiylik: 'Sponsors' Aloqasi (Amount Atributi)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #59 (Tizim Tahlilchisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Company** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n• **Event** entitiysi (atributlari: noyob identifikatori `code` {PK}, `title`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Company** va **Event** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Company bir nechta Event ga bog'lanishi mumkin, va aksincha, bitta Event bir nechta Company bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Company** (Birlamchi kalit: `id`): `id` {PK}, `name`\n• **Event** (Birlamchi kalit: `code`): `code` {PK}, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Company` (**0..***) ↔ `Event` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Company** ob'yektlari hisobga olinadi. Har bir **Company** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Event** sub'yektlari kiritilgan. Har bir **Event** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Company** vaqt davomida bir nechta **Event** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Event** bir nechta **Company** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -629,7 +733,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Company' (0..*) va 'Event' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Company' va 'Event' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
+    "task": "'Company' va 'Event' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Company** ob'yektlari hisobga olinadi. Har bir **Company** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Event** sub'yektlari kiritilgan. Har bir **Event** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Company** vaqt davomida bir nechta **Event** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Event** bir nechta **Company** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 60,
@@ -640,8 +757,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Tahlilchisi",
     "clientAvatar": "retailer",
     "title": "4-Qavat Final Bossi: Xalqaro Logistika Tranziti ('Transits' - FreightCost)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #60 (Tizim Tahlilchisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Carrier** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n• **CargoHub** entitiysi (atributlari: noyob identifikatori `code` {PK}, `title`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Carrier** va **CargoHub** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Carrier bir nechta CargoHub ga bog'lanishi mumkin, va aksincha, bitta CargoHub bir nechta Carrier bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Carrier** (Birlamchi kalit: `id`): `id` {PK}, `name`\n• **CargoHub** (Birlamchi kalit: `code`): `code` {PK}, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Carrier` (**0..***) ↔ `CargoHub` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Carrier** ob'yektlari hisobga olinadi. Har bir **Carrier** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **CargoHub** sub'yektlari kiritilgan. Har bir **CargoHub** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Carrier** vaqt davomida bir nechta **CargoHub** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **CargoHub** bir nechta **Carrier** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -699,7 +816,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Carrier' (0..*) va 'CargoHub' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Carrier' va 'CargoHub' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang."
+    "task": "'Carrier' va 'CargoHub' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Carrier** ob'yektlari hisobga olinadi. Har bir **Carrier** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **CargoHub** sub'yektlari kiritilgan. Har bir **CargoHub** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: code (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Carrier** vaqt davomida bir nechta **CargoHub** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **CargoHub** bir nechta **Carrier** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 61,
@@ -710,8 +840,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Xodim va Rahbar Rekursiv Aloqasi (Supervises)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #61 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Employee** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Employee** va **Employee** o'rtasidagi munosabat: Biznes qoidasiga ko'ra, munosabat chegaralari: `Employee` tomonida **0..1**, `Employee` tomonida esa **0..*** qatnashishi shart.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Employee** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Employee` (**0..1**) ↔ `Employee` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Employee** ob'yektlari hisobga olinadi. Har bir **Employee** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Employee** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -750,7 +880,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Employee' (0..1) va 'Employee' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Employee' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'Employee' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Employee** ob'yektlari hisobga olinadi. Har bir **Employee** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Tashkilotning operatsion qoidalariga muvofiq, **Employee** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 62,
@@ -761,8 +904,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Ierarxik Katalog Daraxti Rekursiv Aloqasi (SubCategoryOf)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #62 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Category** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Category** va **Category** o'rtasidagi munosabat: Biznes qoidasiga ko'ra, munosabat chegaralari: `Category` tomonida **0..1**, `Category` tomonida esa **0..*** qatnashishi shart.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Category** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Category` (**0..1**) ↔ `Category` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Category** ob'yektlari hisobga olinadi. Har bir **Category** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Category** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -801,7 +944,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Category' (0..1) va 'Category' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Category' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'Category' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Category** ob'yektlari hisobga olinadi. Har bir **Category** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Tashkilotning operatsion qoidalariga muvofiq, **Category** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 63,
@@ -812,8 +968,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Zavod Detallari Rekursiv *:* Yig'masi (BOM - Contains)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #63 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Part** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Part** va **Part** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Part bir nechta Part ga bog'lanishi mumkin, va aksincha, bitta Part bir nechta Part bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Part** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Part` (**0..***) ↔ `Part` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Part** ob'yektlari hisobga olinadi. Har bir **Part** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Part** vaqt davomida bir nechta **Staff** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Staff** bir nechta **Part** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -852,7 +1008,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Part' (0..*) va 'Part' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Part' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'Part' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Part** ob'yektlari hisobga olinadi. Har bir **Part** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Part** vaqt davomida bir nechta **Staff** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Staff** bir nechta **Part** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 64,
@@ -863,8 +1032,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Universitet Fani Prerekvizitlari Rekursiv Aloqasi (Prerequisite)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #64 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Course** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Course** va **Course** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Course bir nechta Course ga bog'lanishi mumkin, va aksincha, bitta Course bir nechta Course bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Course** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Course` (**0..***) ↔ `Course` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Course** ob'yektlari hisobga olinadi. Har bir **Course** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Course** vaqt davomida bir nechta **Staff** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Staff** bir nechta **Course** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -903,7 +1072,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Course' (0..*) va 'Course' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Course' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'Course' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Course** ob'yektlari hisobga olinadi. Har bir **Course** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Course** vaqt davomida bir nechta **Staff** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Staff** bir nechta **Course** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 65,
@@ -914,8 +1096,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Ijtimoiy Tarmoq Do'stlik Rekursiv Aloqasi (FriendOf)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #65 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **User** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **User** va **User** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta User bir nechta User ga bog'lanishi mumkin, va aksincha, bitta User bir nechta User bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **User** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `User` (**0..***) ↔ `User` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **User** ob'yektlari hisobga olinadi. Har bir **User** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **User** vaqt davomida bir nechta **Staff** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Staff** bir nechta **User** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -954,7 +1136,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'User' (0..*) va 'User' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'User' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'User' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **User** ob'yektlari hisobga olinadi. Har bir **User** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **User** vaqt davomida bir nechta **Staff** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Staff** bir nechta **User** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 66,
@@ -965,8 +1160,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Korxona Tashkiliy Bo'linmalar Daraxti (SubDivisionOf)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #66 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Division** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Division** va **Division** o'rtasidagi munosabat: Biznes qoidasiga ko'ra, munosabat chegaralari: `Division` tomonida **0..1**, `Division` tomonida esa **0..*** qatnashishi shart.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Division** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Division` (**0..1**) ↔ `Division` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Division** ob'yektlari hisobga olinadi. Har bir **Division** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Division** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1005,7 +1200,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Division' (0..1) va 'Division' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Division' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'Division' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Division** ob'yektlari hisobga olinadi. Har bir **Division** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Tashkilotning operatsion qoidalariga muvofiq, **Division** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 67,
@@ -1016,8 +1224,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Tarixiy Voqealar Sabab-Oqibat Rekursiv Aloqasi (LeadsTo)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #67 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **HistoricalEvent** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **HistoricalEvent** va **HistoricalEvent** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta HistoricalEvent bir nechta HistoricalEvent ga bog'lanishi mumkin, va aksincha, bitta HistoricalEvent bir nechta HistoricalEvent bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **HistoricalEvent** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `HistoricalEvent` (**0..***) ↔ `HistoricalEvent` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **HistoricalEvent** ob'yektlari hisobga olinadi. Har bir **HistoricalEvent** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **HistoricalEvent** vaqt davomida bir nechta **Staff** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Staff** bir nechta **HistoricalEvent** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1056,7 +1264,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'HistoricalEvent' (0..*) va 'HistoricalEvent' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'HistoricalEvent' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'HistoricalEvent' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **HistoricalEvent** ob'yektlari hisobga olinadi. Har bir **HistoricalEvent** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **HistoricalEvent** vaqt davomida bir nechta **Staff** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Staff** bir nechta **HistoricalEvent** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 68,
@@ -1067,8 +1288,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Moliya Balans Moddalari Ierarxiyasi (SubAccountOf)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #68 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Account** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Account** va **Account** o'rtasidagi munosabat: Biznes qoidasiga ko'ra, munosabat chegaralari: `Account` tomonida **0..1**, `Account` tomonida esa **0..*** qatnashishi shart.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Account** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Account` (**0..1**) ↔ `Account` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Account** ob'yektlari hisobga olinadi. Har bir **Account** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Account** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1107,7 +1328,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Account' (0..1) va 'Account' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Account' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'Account' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Account** ob'yektlari hisobga olinadi. Har bir **Account** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Tashkilotning operatsion qoidalariga muvofiq, **Account** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 69,
@@ -1118,8 +1352,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Dasturiy Komponentlar Paketlar Daraxti (DependsOn)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #69 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Component** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Component** va **Component** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Component bir nechta Component ga bog'lanishi mumkin, va aksincha, bitta Component bir nechta Component bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Component** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Component` (**0..***) ↔ `Component` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Component** ob'yektlari hisobga olinadi. Har bir **Component** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Component** vaqt davomida bir nechta **Staff** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Staff** bir nechta **Component** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1158,7 +1392,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Component' (0..*) va 'Component' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Component' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'Component' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..*', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Component** ob'yektlari hisobga olinadi. Har bir **Component** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Component** vaqt davomida bir nechta **Staff** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Staff** bir nechta **Component** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 70,
@@ -1169,8 +1416,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Avtomobil Ehtiyot Qismlari O'rnini Bosish (Replaces)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #70 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **SparePart** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **SparePart** va **SparePart** o'rtasidagi munosabat: Biznes qoidasiga ko'ra, munosabat chegaralari: `SparePart` tomonida **0..1**, `SparePart` tomonida esa **0..*** qatnashishi shart.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **SparePart** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `SparePart` (**0..1**) ↔ `SparePart` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **SparePart** ob'yektlari hisobga olinadi. Har bir **SparePart** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **SparePart** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1209,7 +1456,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'SparePart' (0..1) va 'SparePart' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'SparePart' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'SparePart' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **SparePart** ob'yektlari hisobga olinadi. Har bir **SparePart** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Tashkilotning operatsion qoidalariga muvofiq, **SparePart** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 71,
@@ -1220,8 +1480,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Xizmat Vazifalari Ketma-ketligi Rekursiv Aloqasi (Follows)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #71 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Task** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Task** va **Task** o'rtasidagi munosabat: Biznes qoidasiga ko'ra, munosabat chegaralari: `Task` tomonida **0..1**, `Task` tomonida esa **0..*** qatnashishi shart.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Task** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Task` (**0..1**) ↔ `Task` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Task** ob'yektlari hisobga olinadi. Har bir **Task** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Task** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1260,7 +1520,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Task' (0..1) va 'Task' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Task' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'Task' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Task** ob'yektlari hisobga olinadi. Har bir **Task** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Tashkilotning operatsion qoidalariga muvofiq, **Task** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 72,
@@ -1271,8 +1544,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Kadrlar Almashinuvi Merosxo'rlik Tizimi (Succeeds)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #72 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Staff** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Staff** va **Staff** o'rtasidagi munosabat: Biznes qoidasiga ko'ra, munosabat chegaralari: `Staff` tomonida **0..1**, `Staff` tomonida esa **0..*** qatnashishi shart.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Staff** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Staff` (**0..1**) ↔ `Staff` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Staff** ob'yektlari hisobga olinadi. Har bir **Staff** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}), name. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Staff** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1311,7 +1584,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Staff' (0..1) va 'Staff' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Staff** ob'yektlari hisobga olinadi. Har bir **Staff** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}), name. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Tashkilotning operatsion qoidalariga muvofiq, **Staff** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 73,
@@ -1322,8 +1608,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Geografik Hududlar Ma'muriy Daraxti (BelongsToRegion)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #73 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Region** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Region** va **Region** o'rtasidagi munosabat: Biznes qoidasiga ko'ra, munosabat chegaralari: `Region` tomonida **0..1**, `Region` tomonida esa **0..*** qatnashishi shart.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Region** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Region` (**0..1**) ↔ `Region` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Region** ob'yektlari hisobga olinadi. Har bir **Region** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Region** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1362,7 +1648,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Region' (0..1) va 'Region' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Region' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'Region' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Region** ob'yektlari hisobga olinadi. Har bir **Region** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Tashkilotning operatsion qoidalariga muvofiq, **Region** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 74,
@@ -1373,8 +1672,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "Elektron Pochta Xatlari Zanjiri (ReplyToThread)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #74 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **EmailMessage** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **EmailMessage** va **EmailMessage** o'rtasidagi munosabat: Biznes qoidasiga ko'ra, munosabat chegaralari: `EmailMessage` tomonida **0..1**, `EmailMessage` tomonida esa **0..*** qatnashishi shart.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **EmailMessage** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `EmailMessage` (**0..1**) ↔ `EmailMessage` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **EmailMessage** ob'yektlari hisobga olinadi. Har bir **EmailMessage** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **EmailMessage** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1413,7 +1712,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'EmailMessage' (0..1) va 'EmailMessage' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'EmailMessage' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'EmailMessage' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **EmailMessage** ob'yektlari hisobga olinadi. Har bir **EmailMessage** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Tashkilotning operatsion qoidalariga muvofiq, **EmailMessage** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 75,
@@ -1424,8 +1736,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
     "clientAvatar": "ceo",
     "title": "5-Qavat Bossi: Mentorlik va Jamoa Rahbarligi Rekursiv Tizimi",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #75 (Tashkiliy Boshqaruv Mutaxassisi)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Staff** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Staff** va **Staff** o'rtasidagi munosabat: Biznes qoidasiga ko'ra, munosabat chegaralari: `Staff` tomonida **0..1**, `Staff` tomonida esa **0..*** qatnashishi shart.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Staff** (Birlamchi kalit: `id`): `id` {PK}, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Staff` (**0..1**) ↔ `Staff` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Staff** ob'yektlari hisobga olinadi. Har bir **Staff** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}), name. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Staff** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1464,7 +1776,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Staff' (0..1) va 'Staff' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying."
+    "task": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv munosabatini chizing: bir tomoniga '0..1', ikkinchi tomoniga '0..*' multiplisitiyalarini qo'ying.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Staff** ob'yektlari hisobga olinadi. Har bir **Staff** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}), name. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Tashkilotning operatsion qoidalariga muvofiq, **Staff** va **Staff** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 76,
@@ -1475,8 +1800,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "O'qitish Taqsimoti Ternary Rombi (Teaches: Course, Instructor, Semester)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #76 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Course** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Instructor** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **Semester** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Course** va **Instructor** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Course bir nechta Instructor ga bog'lanishi mumkin, va aksincha, bitta Instructor bir nechta Course bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Course** va **Semester** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Course bir nechta Semester ga bog'lanishi mumkin, va aksincha, bitta Semester bir nechta Course bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Course** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Instructor** (Birlamchi kalit: `id2`): `id2` {PK}\n• **Semester** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Course` (**0..***) ↔ `Instructor` (**0..***)\n• `Course` (**0..***) ↔ `Semester` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Course** ob'yektlari hisobga olinadi. Har bir **Course** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Instructor** sub'yektlari kiritilgan. Har bir **Instructor** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Course** vaqt davomida bir nechta **Instructor** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Instructor** bir nechta **Course** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1547,7 +1872,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Course' (0..*) va 'Instructor' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Course', 'Instructor', 'Semester' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Course', 'Instructor', 'Semester' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Course** ob'yektlari hisobga olinadi. Har bir **Course** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Instructor** sub'yektlari kiritilgan. Har bir **Instructor** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Course** vaqt davomida bir nechta **Instructor** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Instructor** bir nechta **Course** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 77,
@@ -1558,8 +1896,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Ta'minot Shartnomasi Ternary Rombi (Supplies: Supplier, Part, Project)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #77 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Supplier** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Part** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **Project** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Supplier** va **Part** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Supplier bir nechta Part ga bog'lanishi mumkin, va aksincha, bitta Part bir nechta Supplier bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Supplier** va **Project** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Supplier bir nechta Project ga bog'lanishi mumkin, va aksincha, bitta Project bir nechta Supplier bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Supplier** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Part** (Birlamchi kalit: `id2`): `id2` {PK}\n• **Project** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Supplier` (**0..***) ↔ `Part` (**0..***)\n• `Supplier` (**0..***) ↔ `Project` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Supplier** ob'yektlari hisobga olinadi. Har bir **Supplier** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Part** sub'yektlari kiritilgan. Har bir **Part** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Supplier** vaqt davomida bir nechta **Part** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Part** bir nechta **Supplier** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1630,7 +1968,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Supplier' (0..*) va 'Part' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Supplier', 'Part', 'Project' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Supplier', 'Part', 'Project' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Supplier** ob'yektlari hisobga olinadi. Har bir **Supplier** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Part** sub'yektlari kiritilgan. Har bir **Part** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Supplier** vaqt davomida bir nechta **Part** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Part** bir nechta **Supplier** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 78,
@@ -1641,8 +1992,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Tibbiy Davolash Rejasi (Prescribes: Doctor, Patient, Drug)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #78 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Doctor** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Patient** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **Drug** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Doctor** va **Patient** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Doctor bir nechta Patient ga bog'lanishi mumkin, va aksincha, bitta Patient bir nechta Doctor bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Doctor** va **Drug** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Doctor bir nechta Drug ga bog'lanishi mumkin, va aksincha, bitta Drug bir nechta Doctor bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Doctor** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Patient** (Birlamchi kalit: `id2`): `id2` {PK}\n• **Drug** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Doctor` (**0..***) ↔ `Patient` (**0..***)\n• `Doctor` (**0..***) ↔ `Drug` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Doctor** ob'yektlari hisobga olinadi. Har bir **Doctor** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Patient** sub'yektlari kiritilgan. Har bir **Patient** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Doctor** vaqt davomida bir nechta **Patient** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Patient** bir nechta **Doctor** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1713,7 +2064,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Doctor' (0..*) va 'Patient' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Doctor', 'Patient', 'Drug' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Doctor', 'Patient', 'Drug' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Doctor** ob'yektlari hisobga olinadi. Har bir **Doctor** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Patient** sub'yektlari kiritilgan. Har bir **Patient** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Doctor** vaqt davomida bir nechta **Patient** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Patient** bir nechta **Doctor** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 79,
@@ -1724,8 +2088,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Sug'urta Da'vosi Ko'rib Chiqilishi (Assesses: Policy, Claim, Agent)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #79 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Policy** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Claim** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **Agent** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Policy** va **Claim** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Policy bir nechta Claim ga bog'lanishi mumkin, va aksincha, bitta Claim bir nechta Policy bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Policy** va **Agent** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Policy bir nechta Agent ga bog'lanishi mumkin, va aksincha, bitta Agent bir nechta Policy bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Policy** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Claim** (Birlamchi kalit: `id2`): `id2` {PK}\n• **Agent** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Policy` (**0..***) ↔ `Claim` (**0..***)\n• `Policy` (**0..***) ↔ `Agent` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Policy** ob'yektlari hisobga olinadi. Har bir **Policy** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Claim** sub'yektlari kiritilgan. Har bir **Claim** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Policy** vaqt davomida bir nechta **Claim** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Claim** bir nechta **Policy** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1796,7 +2160,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Policy' (0..*) va 'Claim' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Policy', 'Claim', 'Agent' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Policy', 'Claim', 'Agent' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Policy** ob'yektlari hisobga olinadi. Har bir **Policy** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Claim** sub'yektlari kiritilgan. Har bir **Claim** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Policy** vaqt davomida bir nechta **Claim** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Claim** bir nechta **Policy** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 80,
@@ -1807,8 +2184,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Avtomobil Ijarasi Shartnomasi (Rents: Customer, Vehicle, AgencyBranch)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #80 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Customer** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Vehicle** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **AgencyBranch** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Customer** va **Vehicle** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Customer bir nechta Vehicle ga bog'lanishi mumkin, va aksincha, bitta Vehicle bir nechta Customer bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Customer** va **AgencyBranch** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Customer bir nechta AgencyBranch ga bog'lanishi mumkin, va aksincha, bitta AgencyBranch bir nechta Customer bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Customer** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Vehicle** (Birlamchi kalit: `id2`): `id2` {PK}\n• **AgencyBranch** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Customer` (**0..***) ↔ `Vehicle` (**0..***)\n• `Customer` (**0..***) ↔ `AgencyBranch` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Customer** ob'yektlari hisobga olinadi. Har bir **Customer** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Vehicle** sub'yektlari kiritilgan. Har bir **Vehicle** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Customer** vaqt davomida bir nechta **Vehicle** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Vehicle** bir nechta **Customer** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1879,7 +2256,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Customer' (0..*) va 'Vehicle' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Customer', 'Vehicle', 'AgencyBranch' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Customer', 'Vehicle', 'AgencyBranch' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Customer** ob'yektlari hisobga olinadi. Har bir **Customer** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Vehicle** sub'yektlari kiritilgan. Har bir **Vehicle** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Customer** vaqt davomida bir nechta **Vehicle** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Vehicle** bir nechta **Customer** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 81,
@@ -1890,8 +2280,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Qurilish Obyekti Mashina Taqsimoti (Deploys: Site, Machinery, Operator)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #81 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Site** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Machinery** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **Operator** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Site** va **Machinery** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Site bir nechta Machinery ga bog'lanishi mumkin, va aksincha, bitta Machinery bir nechta Site bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Site** va **Operator** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Site bir nechta Operator ga bog'lanishi mumkin, va aksincha, bitta Operator bir nechta Site bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Site** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Machinery** (Birlamchi kalit: `id2`): `id2` {PK}\n• **Operator** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Site` (**0..***) ↔ `Machinery` (**0..***)\n• `Site` (**0..***) ↔ `Operator` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Site** ob'yektlari hisobga olinadi. Har bir **Site** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Machinery** sub'yektlari kiritilgan. Har bir **Machinery** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Site** vaqt davomida bir nechta **Machinery** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Machinery** bir nechta **Site** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -1962,7 +2352,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Site' (0..*) va 'Machinery' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Site', 'Machinery', 'Operator' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Site', 'Machinery', 'Operator' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Site** ob'yektlari hisobga olinadi. Har bir **Site** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Machinery** sub'yektlari kiritilgan. Har bir **Machinery** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Site** vaqt davomida bir nechta **Machinery** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Machinery** bir nechta **Site** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 82,
@@ -1973,8 +2376,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Sport Musobaqasi Hakamligi (Officiates: Referee, Match, Tournament)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #82 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Referee** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Match** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **Tournament** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Referee** va **Match** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Referee bir nechta Match ga bog'lanishi mumkin, va aksincha, bitta Match bir nechta Referee bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Referee** va **Tournament** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Referee bir nechta Tournament ga bog'lanishi mumkin, va aksincha, bitta Tournament bir nechta Referee bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Referee** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Match** (Birlamchi kalit: `id2`): `id2` {PK}\n• **Tournament** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Referee` (**0..***) ↔ `Match` (**0..***)\n• `Referee` (**0..***) ↔ `Tournament` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Referee** ob'yektlari hisobga olinadi. Har bir **Referee** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Match** sub'yektlari kiritilgan. Har bir **Match** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Referee** vaqt davomida bir nechta **Match** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Match** bir nechta **Referee** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2045,7 +2448,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Referee' (0..*) va 'Match' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Referee', 'Match', 'Tournament' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Referee', 'Match', 'Tournament' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Referee** ob'yektlari hisobga olinadi. Har bir **Referee** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Match** sub'yektlari kiritilgan. Har bir **Match** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Referee** vaqt davomida bir nechta **Match** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Match** bir nechta **Referee** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 83,
@@ -2056,8 +2472,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Bank Kredit Komissiyasi (Evaluates: LoanApp, Officer, Committee)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #83 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **LoanApp** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Officer** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **Committee** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **LoanApp** va **Officer** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta LoanApp bir nechta Officer ga bog'lanishi mumkin, va aksincha, bitta Officer bir nechta LoanApp bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **LoanApp** va **Committee** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta LoanApp bir nechta Committee ga bog'lanishi mumkin, va aksincha, bitta Committee bir nechta LoanApp bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **LoanApp** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Officer** (Birlamchi kalit: `id2`): `id2` {PK}\n• **Committee** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `LoanApp` (**0..***) ↔ `Officer` (**0..***)\n• `LoanApp` (**0..***) ↔ `Committee` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **LoanApp** ob'yektlari hisobga olinadi. Har bir **LoanApp** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Officer** sub'yektlari kiritilgan. Har bir **Officer** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **LoanApp** vaqt davomida bir nechta **Officer** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Officer** bir nechta **LoanApp** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2128,7 +2544,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'LoanApp' (0..*) va 'Officer' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'LoanApp', 'Officer', 'Committee' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'LoanApp', 'Officer', 'Committee' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **LoanApp** ob'yektlari hisobga olinadi. Har bir **LoanApp** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Officer** sub'yektlari kiritilgan. Har bir **Officer** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **LoanApp** vaqt davomida bir nechta **Officer** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Officer** bir nechta **LoanApp** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 84,
@@ -2139,8 +2568,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Yuk Bojxona Tekshiruvi (Inspects: Cargo, Inspector, CustomsPost)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #84 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Cargo** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Inspector** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **CustomsPost** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Cargo** va **Inspector** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Cargo bir nechta Inspector ga bog'lanishi mumkin, va aksincha, bitta Inspector bir nechta Cargo bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Cargo** va **CustomsPost** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Cargo bir nechta CustomsPost ga bog'lanishi mumkin, va aksincha, bitta CustomsPost bir nechta Cargo bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Cargo** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Inspector** (Birlamchi kalit: `id2`): `id2` {PK}\n• **CustomsPost** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Cargo` (**0..***) ↔ `Inspector` (**0..***)\n• `Cargo` (**0..***) ↔ `CustomsPost` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Cargo** ob'yektlari hisobga olinadi. Har bir **Cargo** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Inspector** sub'yektlari kiritilgan. Har bir **Inspector** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Cargo** vaqt davomida bir nechta **Inspector** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Inspector** bir nechta **Cargo** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2211,7 +2640,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Cargo' (0..*) va 'Inspector' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Cargo', 'Inspector', 'CustomsPost' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Cargo', 'Inspector', 'CustomsPost' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Cargo** ob'yektlari hisobga olinadi. Har bir **Cargo** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Inspector** sub'yektlari kiritilgan. Har bir **Inspector** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Cargo** vaqt davomida bir nechta **Inspector** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Inspector** bir nechta **Cargo** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 85,
@@ -2222,8 +2664,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Laboratoriya Namunasi Tahlili (Tests: Sample, Chemist, Equipment)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #85 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Sample** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Chemist** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **Equipment** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Sample** va **Chemist** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Sample bir nechta Chemist ga bog'lanishi mumkin, va aksincha, bitta Chemist bir nechta Sample bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Sample** va **Equipment** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Sample bir nechta Equipment ga bog'lanishi mumkin, va aksincha, bitta Equipment bir nechta Sample bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Sample** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Chemist** (Birlamchi kalit: `id2`): `id2` {PK}\n• **Equipment** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Sample` (**0..***) ↔ `Chemist` (**0..***)\n• `Sample` (**0..***) ↔ `Equipment` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Sample** ob'yektlari hisobga olinadi. Har bir **Sample** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Chemist** sub'yektlari kiritilgan. Har bir **Chemist** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Sample** vaqt davomida bir nechta **Chemist** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Chemist** bir nechta **Sample** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2294,7 +2736,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Sample' (0..*) va 'Chemist' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Sample', 'Chemist', 'Equipment' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Sample', 'Chemist', 'Equipment' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Sample** ob'yektlari hisobga olinadi. Har bir **Sample** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Chemist** sub'yektlari kiritilgan. Har bir **Chemist** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Sample** vaqt davomida bir nechta **Chemist** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Chemist** bir nechta **Sample** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 86,
@@ -2305,8 +2760,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Mehmonxona Xona Bandligi (Books: Guest, Room, BookingAgent)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #86 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Guest** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Room** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **BookingAgent** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Guest** va **Room** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Guest bir nechta Room ga bog'lanishi mumkin, va aksincha, bitta Room bir nechta Guest bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Guest** va **BookingAgent** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Guest bir nechta BookingAgent ga bog'lanishi mumkin, va aksincha, bitta BookingAgent bir nechta Guest bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Guest** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Room** (Birlamchi kalit: `id2`): `id2` {PK}\n• **BookingAgent** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Guest` (**0..***) ↔ `Room` (**0..***)\n• `Guest` (**0..***) ↔ `BookingAgent` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Guest** ob'yektlari hisobga olinadi. Har bir **Guest** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Room** sub'yektlari kiritilgan. Har bir **Room** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Guest** vaqt davomida bir nechta **Room** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Room** bir nechta **Guest** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2377,7 +2832,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Guest' (0..*) va 'Room' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Guest', 'Room', 'BookingAgent' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Guest', 'Room', 'BookingAgent' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Guest** ob'yektlari hisobga olinadi. Har bir **Guest** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Room** sub'yektlari kiritilgan. Har bir **Room** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Guest** vaqt davomida bir nechta **Room** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Room** bir nechta **Guest** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 87,
@@ -2388,8 +2856,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Xalqaro Parvoz Ekipaji (Assigns: Flight, Pilot, Aircraft)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #87 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Flight** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Pilot** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **Aircraft** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Flight** va **Pilot** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Flight bir nechta Pilot ga bog'lanishi mumkin, va aksincha, bitta Pilot bir nechta Flight bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Flight** va **Aircraft** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Flight bir nechta Aircraft ga bog'lanishi mumkin, va aksincha, bitta Aircraft bir nechta Flight bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Flight** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Pilot** (Birlamchi kalit: `id2`): `id2` {PK}\n• **Aircraft** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Flight` (**0..***) ↔ `Pilot` (**0..***)\n• `Flight` (**0..***) ↔ `Aircraft` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Flight** ob'yektlari hisobga olinadi. Har bir **Flight** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Pilot** sub'yektlari kiritilgan. Har bir **Pilot** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Flight** vaqt davomida bir nechta **Pilot** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Pilot** bir nechta **Flight** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2460,7 +2928,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Flight' (0..*) va 'Pilot' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Flight', 'Pilot', 'Aircraft' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Flight', 'Pilot', 'Aircraft' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Flight** ob'yektlari hisobga olinadi. Har bir **Flight** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Pilot** sub'yektlari kiritilgan. Har bir **Pilot** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Flight** vaqt davomida bir nechta **Pilot** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Pilot** bir nechta **Flight** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 88,
@@ -2471,8 +2952,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Kinofilm Kasting Taqsimoti (Casts: Movie, Role, Actor)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #88 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Movie** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Role** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **Actor** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Movie** va **Role** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Movie bir nechta Role ga bog'lanishi mumkin, va aksincha, bitta Role bir nechta Movie bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Movie** va **Actor** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Movie bir nechta Actor ga bog'lanishi mumkin, va aksincha, bitta Actor bir nechta Movie bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Movie** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Role** (Birlamchi kalit: `id2`): `id2` {PK}\n• **Actor** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Movie` (**0..***) ↔ `Role` (**0..***)\n• `Movie` (**0..***) ↔ `Actor` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Movie** ob'yektlari hisobga olinadi. Har bir **Movie** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Role** sub'yektlari kiritilgan. Har bir **Role** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Movie** vaqt davomida bir nechta **Role** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Role** bir nechta **Movie** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2543,7 +3024,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Movie' (0..*) va 'Role' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Movie', 'Role', 'Actor' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Movie', 'Role', 'Actor' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Movie** ob'yektlari hisobga olinadi. Har bir **Movie** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Role** sub'yektlari kiritilgan. Har bir **Role** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Movie** vaqt davomida bir nechta **Role** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Role** bir nechta **Movie** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 89,
@@ -2554,8 +3048,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "Zavod Mahsulotini Qadoqlash (Packs: Product, PackagingLine, Operator)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #89 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Product** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **PackagingLine** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **Operator** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Product** va **PackagingLine** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Product bir nechta PackagingLine ga bog'lanishi mumkin, va aksincha, bitta PackagingLine bir nechta Product bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Product** va **Operator** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Product bir nechta Operator ga bog'lanishi mumkin, va aksincha, bitta Operator bir nechta Product bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Product** (Birlamchi kalit: `id1`): `id1` {PK}\n• **PackagingLine** (Birlamchi kalit: `id2`): `id2` {PK}\n• **Operator** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Product` (**0..***) ↔ `PackagingLine` (**0..***)\n• `Product` (**0..***) ↔ `Operator` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Product** ob'yektlari hisobga olinadi. Har bir **Product** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **PackagingLine** sub'yektlari kiritilgan. Har bir **PackagingLine** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Product** vaqt davomida bir nechta **PackagingLine** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **PackagingLine** bir nechta **Product** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2626,7 +3120,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Product' (0..*) va 'PackagingLine' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Product', 'PackagingLine', 'Operator' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Product', 'PackagingLine', 'Operator' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Product** ob'yektlari hisobga olinadi. Har bir **Product** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **PackagingLine** sub'yektlari kiritilgan. Har bir **PackagingLine** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Product** vaqt davomida bir nechta **PackagingLine** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **PackagingLine** bir nechta **Product** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 90,
@@ -2637,8 +3144,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "Tizim Integratori",
     "clientAvatar": "vicechancellor",
     "title": "6-Qavat Bossi: Festival Chiqishlari Ternary Tizimi (Artist, Stage, FestivalDay)",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #90 (Tizim Integratori)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Artist** entitiysi (atributlari: noyob identifikatori `id1` {PK})\n• **Stage** entitiysi (atributlari: noyob identifikatori `id2` {PK})\n• **FestivalDay** entitiysi (atributlari: noyob identifikatori `id3` {PK})\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\n• **Artist** va **Stage** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Artist bir nechta Stage ga bog'lanishi mumkin, va aksincha, bitta Stage bir nechta Artist bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n• **Artist** va **FestivalDay** o'rtasidagi munosabat: Bu ko'pga-ko'p (*:*) assotsiatsiyadir: bitta Artist bir nechta FestivalDay ga bog'lanishi mumkin, va aksincha, bitta FestivalDay bir nechta Artist bilan hamkorlik qilishi mumkin (0..* ↔ 0..*).\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Artist** (Birlamchi kalit: `id1`): `id1` {PK}\n• **Stage** (Birlamchi kalit: `id2`): `id2` {PK}\n• **FestivalDay** (Birlamchi kalit: `id3`): `id3` {PK}\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Artist` (**0..***) ↔ `Stage` (**0..***)\n• `Artist` (**0..***) ↔ `FestivalDay` (**0..***)",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Artist** ob'yektlari hisobga olinadi. Har bir **Artist** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Stage** sub'yektlari kiritilgan. Har bir **Stage** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Artist** vaqt davomida bir nechta **Stage** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Stage** bir nechta **Artist** bilan aloqador bo'lishi mumkin.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2709,7 +3216,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
     "explanation": "'Artist' (0..*) va 'Stage' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Artist', 'Stage', 'FestivalDay' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
+    "task": "'Artist', 'Stage', 'FestivalDay' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Artist** ob'yektlari hisobga olinadi. Har bir **Artist** o'zining id1 (birlamchi kalit {PK}) kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Stage** sub'yektlari kiritilgan. Har bir **Stage** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id2 (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Artist** vaqt davomida bir nechta **Stage** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Stage** bir nechta **Artist** bilan aloqador bo'lishi mumkin."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 91,
@@ -2720,8 +3240,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "EER Arxitektura Eksperti",
     "clientAvatar": "architect",
     "title": "Xodimlar Ixtisoslashuvi: Soatbay va Oylik ({Mandatory, Or})",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #91 (EER Arxitektura Eksperti)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Employee** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\nMazkur mustaqil entitiy tashkilotning asosiy axborot yadrosi bo'lib, o'zining mustaqil birlamchi kalitiga ega.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Employee** (Birlamchi kalit: `id`): `id` {PK}, `name`",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Employee** ob'yektlari hisobga olinadi. Har bir **Employee** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Employee** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Employee** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2780,7 +3300,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Employee' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
-    "task": "'Employee' superklassi va uning subklasslarini ('HourlyEmp', 'SalariedEmp') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
+    "task": "'Employee' superklassi va uning subklasslarini ('HourlyEmp', 'SalariedEmp') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Employee** ob'yektlari hisobga olinadi. Har bir **Employee** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Employee** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Employee** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 92,
@@ -2791,8 +3324,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "EER Arxitektura Eksperti",
     "clientAvatar": "architect",
     "title": "Transport Vositalari Ierarxiyasi ({Mandatory, Or})",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #92 (EER Arxitektura Eksperti)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Vehicle** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\nMazkur mustaqil entitiy tashkilotning asosiy axborot yadrosi bo'lib, o'zining mustaqil birlamchi kalitiga ega.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Vehicle** (Birlamchi kalit: `id`): `id` {PK}, `name`",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Vehicle** ob'yektlari hisobga olinadi. Har bir **Vehicle** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Vehicle** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Vehicle** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2851,7 +3384,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Vehicle' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
-    "task": "'Vehicle' superklassi va uning subklasslarini ('Car', 'Truck') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
+    "task": "'Vehicle' superklassi va uning subklasslarini ('Car', 'Truck') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Vehicle** ob'yektlari hisobga olinadi. Har bir **Vehicle** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Vehicle** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Vehicle** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 93,
@@ -2862,8 +3408,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "EER Arxitektura Eksperti",
     "clientAvatar": "architect",
     "title": "Universitet Xodimlari Qisman Ixtisoslashuvi ({Optional, Or})",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #93 (EER Arxitektura Eksperti)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Person** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\nMazkur mustaqil entitiy tashkilotning asosiy axborot yadrosi bo'lib, o'zining mustaqil birlamchi kalitiga ega.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Person** (Birlamchi kalit: `id`): `id` {PK}, `name`",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Person** ob'yektlari hisobga olinadi. Har bir **Person** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: attr1. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Person** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Person** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2922,7 +3468,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Person' ostidagi '{Optional, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
-    "task": "'Person' superklassi va uning subklasslarini ('Staff', 'Student') doskada chizing hamda '{Optional, Or}' ixtisoslashuv cheklovini o'rnating."
+    "task": "'Person' superklassi va uning subklasslarini ('Staff', 'Student') doskada chizing hamda '{Optional, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Person** ob'yektlari hisobga olinadi. Har bir **Person** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: attr1. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Person** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Person** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 94,
@@ -2933,8 +3492,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "EER Arxitektura Eksperti",
     "clientAvatar": "architect",
     "title": "Bank Hisob Varaqlari: Omonat va Joriy ({Mandatory, Or})",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #94 (EER Arxitektura Eksperti)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Account** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\nMazkur mustaqil entitiy tashkilotning asosiy axborot yadrosi bo'lib, o'zining mustaqil birlamchi kalitiga ega.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Account** (Birlamchi kalit: `id`): `id` {PK}, `name`",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Account** ob'yektlari hisobga olinadi. Har bir **Account** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Account** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Account** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -2993,7 +3552,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Account' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
-    "task": "'Account' superklassi va uning subklasslarini ('SavingsAcc', 'CurrentAcc') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
+    "task": "'Account' superklassi va uning subklasslarini ('SavingsAcc', 'CurrentAcc') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Account** ob'yektlari hisobga olinadi. Har bir **Account** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Account** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Account** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 95,
@@ -3004,8 +3576,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "EER Arxitektura Eksperti",
     "clientAvatar": "architect",
     "title": "Kutubxona Resurslari: Kitob va Jurnal ({Mandatory, Or})",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #95 (EER Arxitektura Eksperti)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **LibraryItem** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\nMazkur mustaqil entitiy tashkilotning asosiy axborot yadrosi bo'lib, o'zining mustaqil birlamchi kalitiga ega.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **LibraryItem** (Birlamchi kalit: `id`): `id` {PK}, `name`",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **LibraryItem** ob'yektlari hisobga olinadi. Har bir **LibraryItem** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **LibraryItem** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **LibraryItem** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -3064,7 +3636,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'LibraryItem' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
-    "task": "'LibraryItem' superklassi va uning subklasslarini ('Book', 'Journal') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
+    "task": "'LibraryItem' superklassi va uning subklasslarini ('Book', 'Journal') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **LibraryItem** ob'yektlari hisobga olinadi. Har bir **LibraryItem** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **LibraryItem** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **LibraryItem** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 96,
@@ -3075,8 +3660,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "EER Arxitektura Eksperti",
     "clientAvatar": "architect",
     "title": "Mulk Turlari: Turarjoy va Tijorat Mulki ({Mandatory, Or})",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #96 (EER Arxitektura Eksperti)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Property** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\nMazkur mustaqil entitiy tashkilotning asosiy axborot yadrosi bo'lib, o'zining mustaqil birlamchi kalitiga ega.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Property** (Birlamchi kalit: `id`): `id` {PK}, `name`",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Property** ob'yektlari hisobga olinadi. Har bir **Property** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Property** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Property** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -3135,7 +3720,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Property' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
-    "task": "'Property' superklassi va uning subklasslarini ('Residential', 'Commercial') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
+    "task": "'Property' superklassi va uning subklasslarini ('Residential', 'Commercial') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Property** ob'yektlari hisobga olinadi. Har bir **Property** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Property** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Property** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 97,
@@ -3146,8 +3744,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "EER Arxitektura Eksperti",
     "clientAvatar": "architect",
     "title": "Kompaniya Mijozlari: Jismoniy va Yuridik Shaxs ({Mandatory, Or})",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #97 (EER Arxitektura Eksperti)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Customer** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\nMazkur mustaqil entitiy tashkilotning asosiy axborot yadrosi bo'lib, o'zining mustaqil birlamchi kalitiga ega.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Customer** (Birlamchi kalit: `id`): `id` {PK}, `name`",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Customer** ob'yektlari hisobga olinadi. Har bir **Customer** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Customer** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Customer** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -3206,7 +3804,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Customer' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
-    "task": "'Customer' superklassi va uning subklasslarini ('Individual', 'Corporate') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
+    "task": "'Customer' superklassi va uning subklasslarini ('Individual', 'Corporate') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Customer** ob'yektlari hisobga olinadi. Har bir **Customer** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Customer** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Customer** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 98,
@@ -3217,8 +3828,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "EER Arxitektura Eksperti",
     "clientAvatar": "architect",
     "title": "Dasturiy Foydalanuvchilar: Admin va Mehmon ({Optional, Or})",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #98 (EER Arxitektura Eksperti)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **User** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\nMazkur mustaqil entitiy tashkilotning asosiy axborot yadrosi bo'lib, o'zining mustaqil birlamchi kalitiga ega.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **User** (Birlamchi kalit: `id`): `id` {PK}, `name`",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **User** ob'yektlari hisobga olinadi. Har bir **User** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **User** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **User** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -3277,7 +3888,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'User' ostidagi '{Optional, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
-    "task": "'User' superklassi va uning subklasslarini ('Admin', 'Guest') doskada chizing hamda '{Optional, Or}' ixtisoslashuv cheklovini o'rnating."
+    "task": "'User' superklassi va uning subklasslarini ('Admin', 'Guest') doskada chizing hamda '{Optional, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **User** ob'yektlari hisobga olinadi. Har bir **User** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **User** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **User** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 99,
@@ -3288,8 +3912,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "EER Arxitektura Eksperti",
     "clientAvatar": "architect",
     "title": "Tibbiy Sug'urta Rejalari: Baza va Premium ({Mandatory, Or})",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #99 (EER Arxitektura Eksperti)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **InsurancePlan** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\nMazkur mustaqil entitiy tashkilotning asosiy axborot yadrosi bo'lib, o'zining mustaqil birlamchi kalitiga ega.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **InsurancePlan** (Birlamchi kalit: `id`): `id` {PK}, `name`",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **InsurancePlan** ob'yektlari hisobga olinadi. Har bir **InsurancePlan** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **InsurancePlan** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **InsurancePlan** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -3348,7 +3972,20 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'InsurancePlan' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
-    "task": "'InsurancePlan' superklassi va uning subklasslarini ('BasicPlan', 'PremiumPlan') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
+    "task": "'InsurancePlan' superklassi va uning subklasslarini ('BasicPlan', 'PremiumPlan') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **InsurancePlan** ob'yektlari hisobga olinadi. Har bir **InsurancePlan** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **InsurancePlan** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **InsurancePlan** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   },
   {
     "id": 100,
@@ -3359,8 +3996,8 @@ _scope.EER_CLIENTS_51_100 = [
     "clientRole": "EER Arxitektura Eksperti",
     "clientAvatar": "architect",
     "title": "7-Qavat Bossi: Bemorlar Ixtisoslashuvi ({Mandatory, Or})",
-    "story": "**Mijoz Portfolio:** Biznes Hamkor #100 (EER Arxitektura Eksperti)\n**Korporativ Muammo:** Bizning tashkilotimizda axborot tizimini kengaytirish va ma'lumotlar yaxlitligini ta'minlash bo'yicha Seminar 1 standartlariga muvofiq yangi arxitektura ishlab chiqilmoqda. Quyidagi ob'yektlar va mantiqiy biznes munosabatlarini tizimga kiritishimiz zarur:\n\n📋 **Tizimda Saqlanadigan Entitiylar va Atributlar:**\n• **Patient** entitiysi (atributlari: noyob identifikatori `id` {PK}, `name`)\n\n🏢 **Operatsion Biznes Qoidalari va Aloqadorlik:**\nMazkur mustaqil entitiy tashkilotning asosiy axborot yadrosi bo'lib, o'zining mustaqil birlamchi kalitiga ega.\n\nAgar talab etilgan multiplicity yoki kalitlar noto'g'ri belgilansa, amaliyotda ma'lumotlar yo'qolishi yoki Connection Trap (Fan trap / Chasm trap) yuzaga keladi. Shuning uchun barcha qoidalarni sinchkovlik bilan loyihalang.",
-    "taskUz": "Yuqoridagi biznes tavsifini diqqat bilan o'rganing va UML EER diagrammasini shakllantiring:\n1. **Entitiylarni shakllantirish:** Barcha keltirilgan entitiylarni polotnoda joylashtiring va ularning Birlamchi Kaliti {PK} yoki Qisman Kaliti {PPK} ni to'g'ri ko'rsating.\n2. **Multiplicity (Kardinallik)ni belgilash:** Aloqa chizig'ini torting va har bir tomondagi minimal va maksimal qatnashish chegaralarini to'g'ri o'rnating.\n3. **Tekshiruv:** Biznes mantiqqa zid bo'lgan multiplicity tanlansa, tizim xatolik haqida ogohlantiradi.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Patient** (Birlamchi kalit: `id`): `id` {PK}, `name`",
+    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Patient** ob'yektlari hisobga olinadi. Har bir **Patient** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Patient** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Patient** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
+    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
     "starterDiagram": {
       "entities": [
         {
@@ -3419,6 +4056,19 @@ _scope.EER_CLIENTS_51_100 = [
     },
     "hint": "Bitta ob'ekt bir vaqtning o'zida bir nechta subklassga tegishli bo'lishi mumkinmi (And) yoki qat'iy bittasigami (Or)? Har bir ob'ekt subklassga kirishi shartmi (Mandatory) yoki ixtiyoriymi (Optional)?",
     "explanation": "'Patient' ostidagi '{Mandatory, Or}' ixtisoslashuv ierarxiyasi to'g'ri va xatosiz o'rnatildi.",
-    "task": "'Patient' superklassi va uning subklasslarini ('InPatient', 'OutPatient') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating."
+    "task": "'Patient' superklassi va uning subklasslarini ('InPatient', 'OutPatient') doskada chizing hamda '{Mandatory, Or}' ixtisoslashuv cheklovini o'rnating.",
+    "caseStudy": {
+      "paragraphs": [
+        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Patient** ob'yektlari hisobga olinadi. Har bir **Patient** o'zining id (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
+        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: id (birlamchi kalit {PK}). Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
+        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Patient** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Patient** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
+      ],
+      "tasks": [
+        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
+        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
+        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
+        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
+      ]
+    }
   }
 ];
