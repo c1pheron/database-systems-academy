@@ -8,11 +8,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="../os_dictionary.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 
   <!-- TOP EXECUTIVE HUD -->
   <header class="top-hud">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="../index.html" class="btn btn-back" id="btnBackHub" title="OS Boshqaruv Xabiga Qaytish">Ortga</a>
+      <button id="btnOpenDictionary" class="btn btn-dictionary" title="Barcha Linux buyruqlari qidiruvi (Ctrl+K)"><span>🔍</span> <span>Qidiruv</span></button>
+    </div>
     <div class="brand-box">
       <div class="brand-emblem">🐧</div>
       <div>
@@ -93,12 +100,34 @@
 
       <!-- Live Virtual Linux File System Explorer -->
       <!-- 2. KALI LINUX TERMINAL & WORKBENCH -->
+      
+      <!-- 2-MODE SEGMENTED CONTROL: MASALA REJIMI VS ERKIN CLI -->
+      <div class="cli-mode-segmented-bar">
+        <button class="cli-segment-btn active" id="btnModeQuest" type="button">
+          <span class="cs-icon">🎯</span>
+          <span class="cs-title">Masala Rejimi</span>
+          <span class="cs-desc">150 ta vazifani ketma-ket yechish</span>
+        </button>
+        <button class="cli-segment-btn" id="btnModeSandbox" type="button">
+          <span class="cs-icon">💻</span>
+          <span class="cs-title">Erkin CLI Rejimi</span>
+          <span class="cs-desc">Cheklovsiz to'liq Linux terminali</span>
+        </button>
+      </div>
+    
       <div class="panel-card terminal-card" id="terminalWorkbenchCard">
         <div class="panel-header">
           <div class="panel-title">
             <span>🐧</span>
             <span id="terminalHeaderTitle">Kali Linux Terminal (UserLAnd • Debian 12)</span>
           </div>
+
+          <div class="terminal-engine-switch">
+            <button class="engine-btn active" id="btnEngineShell" type="button" title="0 soniyada yuklanuvchi virtual shell">⚡ Tezkor Shell</button>
+            <button class="engine-btn" id="btnEngineWasm" type="button" title="Haqiqiy x86 Linux yadrosi (WASM)">🐧 Real Linux</button>
+          </div>
+          <button type="button" class="btn-floating-exit-fs" id="btnFloatingExitFs" title="Oddiy rejimga qaytish">✕ Chiqish</button>
+    
           <div class="terminal-mode-switch-group">
             <button class="terminal-mode-btn active" id="btnModeQuest" type="button" title="Topshiriqlar rejimi: Savollarni ketma-ket yechish">🎯 Topshiriqlar</button>
             <button class="terminal-mode-btn" id="btnModeSandbox" type="button" title="Erkin CLI rejimi: Istalgan Linux buyrug'ini erkin ishlatish">💻 Erkin CLI</button>
@@ -136,6 +165,16 @@
 
         <!-- PANE A: AUTHENTIC KALI LINUX TERMINAL -->
         <div class="workbench-pane" id="paneKaliTerminal">
+
+          <!-- WASM Real Linux Screen (v86 + xterm.js) -->
+          <div id="wasmTerminalContainer" class="wasm-term-screen" style="display: none;">
+            <div id="wasmLoader" class="wasm-loader" style="display: none;">
+              <div class="wasm-spinner"></div>
+              <div id="wasmLoaderText">🐧 WebAssembly Real Linux Kernel yuklanmoqda... (SeaBIOS &amp; x86 Linux)</div>
+            </div>
+            <div id="wasmXtermBox" class="wasm-xterm-box"></div>
+          </div>
+    
           <div class="kali-screen" id="kaliScreen" tabindex="0">
             <div class="kali-stream" id="kaliStream"></div>
             <div class="kali-active-prompt" id="kaliActivePrompt">
@@ -149,7 +188,7 @@
             <input
               type="text"
               id="kaliHiddenInput"
-              class="kali-hidden-input"
+              class="kali-inline-cmd-input"
               autocomplete="off"
               autocorrect="off"
               autocapitalize="off"
@@ -461,6 +500,9 @@
   <script src="data/questions_101_150.js"></script>
   <script src="data/command_anatomy.js"></script>
   <script src="engine2d.js"></script>
+  <script src="../os_dictionary.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/v86@latest/build/libv86.js"></script>
   <script src="game.js"></script>
 
 </body>

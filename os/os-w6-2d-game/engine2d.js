@@ -1,579 +1,502 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 6 2D NOC & CONTAINER ARENA ENGINE
-// Features: Virtual Memory Demand Paging, Page Replacement Comparison (FIFO/OPT/LRU),
-// Docker Container Microservices (app1, app2, mypg), Volume Storage Persistence,
-// Professor Turing (🐧 Tux), Alice (DevOps Lead), Bob (Virtual Memory Guru),
-// Interactive WASD / Click Walk, Animated LED Racks, Docker Containers & Cooling Fans.
+// WIUT OPERATING SYSTEMS (5COSC041C) — ATMOSPHERIC 2D NIGHT CODER ATELIER
+// Kapishon kiygan dasturchi tunda o'z xonasida kompyuterga qarab o'tirgan sokin atmosfera.
+// Oyna, oy, yulduzlar, monitor nuri, klaviaturada yozish va kofe bug'i.
 // ============================================================================
 
-class CyberVirtualMemoryArena2D {
+class CyberNocArena2D {
   constructor(canvasId) {
     this.canvas = document.getElementById(canvasId);
     this.ctx = this.canvas ? this.canvas.getContext("2d") : null;
     this.width = 860;
-    this.height = 380;
-
-    // Player (Virtualization & Container Engineer)
-    this.player = {
-      x: 120,
-      y: 290,
-      targetX: null,
-      targetY: null,
-      vx: 0,
-      vy: 0,
-      speed: 3.2,
-      facing: "right",
-      walkFrame: 0,
-      speech: "Virtual Memory, Demand Paging va Docker Microservislari laboratoriyasiga xush kelibsiz!",
-      speechTimer: 240
-    };
-
-    // Professor Turing (Kernel & Memory Guru)
-    this.turing = {
-      x: 520,
-      y: 265,
-      name: "Prof. Turing 🐧",
-      speech: "OPT kelajakni bilmaydi (Oracle), shuning uchun stack xususiyatiga ega LRU eng yaxshi amaliy yechimdir!",
-      speechTimer: 260,
-      avatar: "🐧"
-    };
-
-    // DevOps Alice (Container Architect)
-    this.alice = {
-      x: 350,
-      y: 265,
-      name: "Alice 👩‍💻",
-      speech: "Doimiy ma'lumotlar uchun '-v pgdata:/var/lib/postgresql/data' unutilmasin! Aks holda rm da baza o'chadi!",
-      speechTimer: 230,
-      avatar: "👩‍💻"
-    };
-
-    // Specialist Bob (Paging & Allocator Specialist)
-    this.bob = {
-      x: 190,
-      y: 265,
-      name: "Bob 👨‍💻",
-      speech: "EAT da 0.1% fault ham xotiraga murojaatni 41 barobarga sekinlashtiradi (8.2 μs)!",
-      speechTimer: 230,
-      avatar: "👨‍💻"
-    };
-
-    // 5 Infrastructure Racks in 2D Space
-    this.racks = [
-      {
-        id: "rack_paging",
-        x: 40,
-        y: 45,
-        w: 130,
-        h: 175,
-        name: "DEMAND PAGING",
-        sub: "Fault Trap, EAT 8.2μs",
-        tab: "paging",
-        leds: [],
-        fanAngle: 0,
-        accent: "#06b6d4"
-      },
-      {
-        id: "rack_replacement",
-        x: 200,
-        y: 45,
-        w: 130,
-        h: 175,
-        name: "PAGE REPLACEMENT",
-        sub: "FIFO 15, OPT 9, LRU 12",
-        tab: "replacement",
-        leds: [],
-        fanAngle: 0,
-        accent: "#8b5cf6"
-      },
-      {
-        id: "rack_thrashing",
-        x: 360,
-        y: 45,
-        w: 130,
-        h: 175,
-        name: "WORKING SET & PFF",
-        sub: "Locality, Buddy, Slab",
-        tab: "paging",
-        leds: [],
-        fanAngle: 0,
-        accent: "#f59e0b"
-      },
-      {
-        id: "rack_containers",
-        x: 520,
-        y: 45,
-        w: 130,
-        h: 175,
-        name: "DOCKER CONTAINERS",
-        sub: "app1:5000, app2:5001",
-        tab: "containers",
-        leds: [],
-        fanAngle: 0,
-        accent: "#0091e6"
-      },
-      {
-        id: "rack_volumes",
-        x: 680,
-        y: 45,
-        w: 140,
-        h: 175,
-        name: "VOLUMES & COMPOSE",
-        sub: "pgdata, compose.yaml",
-        tab: "compose",
-        leds: [],
-        fanAngle: 0,
-        accent: "#10b981"
-      }
-    ];
-
-    // Initialize blinking LEDs
-    this.racks.forEach(rack => {
-      for (let i = 0; i < 6; i++) {
-        rack.leds.push({
-          state: Math.random() > 0.4,
-          timer: Math.floor(Math.random() * 40)
-        });
-      }
-    });
-
-    // Particles (Virtual Data Packets & Paging Lines)
-    this.particles = [];
-    for (let i = 0; i < 18; i++) {
-      this.particles.push({
-        x: Math.random() * 860,
-        y: 35 + Math.random() * 200,
-        vx: (Math.random() - 0.5) * 0.8,
-        vy: (Math.random() - 0.5) * 0.4,
-        size: 1 + Math.random() * 2,
-        alpha: 0.2 + Math.random() * 0.6
-      });
-    }
-
-    this.keys = {};
-    this.animId = null;
-
-    this.initEvents();
-    this.startLoop();
-  }
-
-  initEvents() {
-    window.addEventListener("keydown", (e) => {
-      if (document.activeElement && (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA")) {
-        return;
-      }
-      this.keys[e.key.toLowerCase()] = true;
-    });
-
-    window.addEventListener("keyup", (e) => {
-      this.keys[e.key.toLowerCase()] = false;
-    });
+    this.height = 340;
 
     if (this.canvas) {
-      this.canvas.addEventListener("click", (e) => {
-        const rect = this.canvas.getBoundingClientRect();
-        const scaleX = this.width / rect.width;
-        const scaleY = this.height / rect.height;
-        const clickX = (e.clientX - rect.left) * scaleX;
-        const clickY = (e.clientY - rect.top) * scaleY;
+      this.canvas.width = this.width;
+      this.canvas.height = this.height;
+    }
 
-        // Check rack click
-        let hitRack = null;
-        for (const rack of this.racks) {
-          if (clickX >= rack.x && clickX <= rack.x + rack.w &&
-              clickY >= rack.y && clickY <= rack.y + rack.h) {
-            hitRack = rack;
-            break;
-          }
-        }
+    // Programmer State (Boy in Hoodie)
+    this.player = {
+      speech: "Tungi sokinlikda Linux tizimini o'rganish vaqti...",
+      speechTimer: 240,
+      typingFrame: 0,
+      isTyping: true
+    };
 
-        if (hitRack) {
-          if (window.switchInspectorTab) {
-            window.switchInspectorTab(hitRack.tab);
-          }
-          this.player.speech = `${hitRack.name} bloki ochildi! (${hitRack.sub})`;
-          this.player.speechTimer = 160;
-          return;
-        }
-
-        // Set target walk point
-        this.player.targetX = Math.max(30, Math.min(this.width - 30, clickX));
-        this.player.targetY = Math.max(240, Math.min(this.height - 30, clickY));
+    // Particles (stars, steam, matrix lines, success confetti)
+    this.stars = [];
+    for (let i = 0; i < 35; i++) {
+      this.stars.push({
+        x: 600 + Math.random() * 220,
+        y: 30 + Math.random() * 120,
+        r: Math.random() * 1.5 + 0.5,
+        alpha: Math.random(),
+        speed: 0.02 + Math.random() * 0.02
       });
     }
+
+    this.steamParticles = [];
+    this.successParticles = [];
+    this.codeLines = [
+      "root@kali:~# uname -r",
+      "6.6.15-kali1-amd64",
+      "root@kali:~# ls -lai /home",
+      "1024 drwxr-xr-x 4 student",
+      "root@kali:~# find / -name '*.conf'",
+      "/etc/nginx/nginx.conf",
+      "root@kali:~# stat /etc/passwd",
+      "Inode: 1048576 Links: 1",
+      "root@kali:~# ps aux | grep bash",
+      "student  1420 0.0  0.1 /bin/bash"
+    ];
+    this.codeScrollY = 0;
+
+    // Callbacks
+    this.onSelectTab = null;
+    this.onOpenMap = null;
+    this.onTriggerEvent = null;
+
+    this.tick = 0;
+    this.running = true;
+
+    this.animate = this.animate.bind(this);
+    requestAnimationFrame(this.animate);
   }
 
-  triggerPlayerAlert(msg) {
-    this.player.speech = msg;
+  setSector(sectorNum) {
+    this.player.speech = `${sectorNum}-Qavat topshiriqlari faollashdi. Konsentratsiyani yo'qotmaymiz!`;
     this.player.speechTimer = 200;
   }
 
-  triggerTuringQuote(msg) {
-    this.turing.speech = msg;
-    this.turing.speechTimer = 220;
+  addSuccessBurst() {
+    for (let i = 0; i < 45; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = Math.random() * 5 + 2;
+      this.successParticles.push({
+        x: 380,
+        y: 190,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - 2,
+        r: Math.random() * 3 + 2,
+        alpha: 1.0,
+        color: ['#10b981', '#22d3ee', '#fbbf24', '#38bdf8', '#34d399'][Math.floor(Math.random() * 5)]
+      });
+    }
+  }
+
+  animate() {
+    if (!this.running || !this.ctx) return;
+    this.tick++;
+
+    this.update();
+    this.render();
+
+    requestAnimationFrame(this.animate);
   }
 
   update() {
-    // 1. Player movement via Keyboard
-    let moveX = 0;
-    let moveY = 0;
-
-    if (this.keys["arrowleft"] || this.keys["a"]) moveX -= 1;
-    if (this.keys["arrowright"] || this.keys["d"]) moveX += 1;
-    if (this.keys["arrowup"] || this.keys["w"]) moveY -= 1;
-    if (this.keys["arrowdown"] || this.keys["s"]) moveY += 1;
-
-    if (moveX !== 0 || moveY !== 0) {
-      this.player.targetX = null;
-      this.player.targetY = null;
-      this.player.x += moveX * this.player.speed;
-      this.player.y += moveY * this.player.speed;
-      this.player.facing = moveX < 0 ? "left" : (moveX > 0 ? "right" : this.player.facing);
-      this.player.walkFrame += 0.2;
-    } else if (this.player.targetX !== null && this.player.targetY !== null) {
-      const dx = this.player.targetX - this.player.x;
-      const dy = this.player.targetY - this.player.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-
-      if (dist < 4) {
-        this.player.targetX = null;
-        this.player.targetY = null;
-      } else {
-        this.player.x += (dx / dist) * this.player.speed;
-        this.player.y += (dy / dist) * this.player.speed;
-        this.player.facing = dx < 0 ? "left" : "right";
-        this.player.walkFrame += 0.2;
-      }
-    }
-
-    // Bounds checking
-    this.player.x = Math.max(40, Math.min(this.width - 40, this.player.x));
-    this.player.y = Math.max(235, Math.min(this.height - 35, this.player.y));
-
-    // Speech timers
-    if (this.player.speechTimer > 0) this.player.speechTimer--;
-    if (this.turing.speechTimer > 0) this.turing.speechTimer--;
-    if (this.alice.speechTimer > 0) this.alice.speechTimer--;
-    if (this.bob.speechTimer > 0) this.bob.speechTimer--;
-
-    // Rack LED updates
-    this.racks.forEach(rack => {
-      rack.fanAngle += 0.08;
-      rack.leds.forEach(led => {
-        led.timer--;
-        if (led.timer <= 0) {
-          led.state = Math.random() > 0.45;
-          led.timer = Math.floor(20 + Math.random() * 40);
-        }
-      });
+    // Stars twinkling
+    this.stars.forEach(s => {
+      s.alpha += s.speed;
+      if (s.alpha > 1 || s.alpha < 0.2) s.speed = -s.speed;
     });
 
-    // Particles update
-    this.particles.forEach(p => {
+    // Coffee Steam
+    if (this.tick % 8 === 0) {
+      this.steamParticles.push({
+        x: 522 + (Math.random() * 6 - 3),
+        y: 220,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: -0.7 - Math.random() * 0.5,
+        alpha: 0.7,
+        r: Math.random() * 2 + 1.5
+      });
+    }
+    this.steamParticles.forEach(p => {
       p.x += p.vx;
       p.y += p.vy;
-      if (p.x < 0) p.x = this.width;
-      if (p.x > this.width) p.x = 0;
-      if (p.y < 30) p.y = 230;
-      if (p.y > 230) p.y = 30;
+      p.alpha -= 0.01;
+      p.r += 0.04;
     });
+    this.steamParticles = this.steamParticles.filter(p => p.alpha > 0);
+
+    // Success burst particles
+    this.successParticles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.12; // gravity
+      p.alpha -= 0.018;
+    });
+    this.successParticles = this.successParticles.filter(p => p.alpha > 0);
+
+    // Code scrolling on monitor
+    if (this.tick % 4 === 0) {
+      this.codeScrollY += 0.6;
+      if (this.codeScrollY > 16) this.codeScrollY = 0;
+    }
+
+    // Speech bubble timer
+    if (this.player.speechTimer > 0) {
+      this.player.speechTimer--;
+    }
   }
 
-  draw() {
-    if (!this.ctx) return;
+  render() {
     const ctx = this.ctx;
-    ctx.clearRect(0, 0, this.width, this.height);
+    const w = this.width;
+    const h = this.height;
 
-    // 1. Dark Datacenter NOC Background
-    const bgGrad = ctx.createLinearGradient(0, 0, 0, this.height);
-    bgGrad.addColorStop(0, "#050b16");
-    bgGrad.addColorStop(0.65, "#0a1529");
-    bgGrad.addColorStop(0.66, "#040810");
-    bgGrad.addColorStop(1, "#020408");
-    ctx.fillStyle = bgGrad;
-    ctx.fillRect(0, 0, this.width, this.height);
+    ctx.clearRect(0, 0, w, h);
 
-    // Floor Grid lines (Perspective Tile Floor)
-    ctx.strokeStyle = "rgba(0, 145, 230, 0.12)";
+    // 1. Dark Room Background Gradient
+    const roomGrad = ctx.createLinearGradient(0, 0, 0, h);
+    roomGrad.addColorStop(0, '#060913');
+    roomGrad.addColorStop(0.7, '#0b1120');
+    roomGrad.addColorStop(1, '#080d1a');
+    ctx.fillStyle = roomGrad;
+    ctx.fillRect(0, 0, w, h);
+
+    // 2. Room Floor
+    const floorGrad = ctx.createLinearGradient(0, 240, 0, h);
+    floorGrad.addColorStop(0, '#0e1628');
+    floorGrad.addColorStop(1, '#060a14');
+    ctx.fillStyle = floorGrad;
+    ctx.fillRect(0, 240, w, h - 240);
+
+    // Floor perspective planks
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
     ctx.lineWidth = 1;
-    for (let y = 245; y < this.height; y += 22) {
+    for (let x = -100; x < w + 200; x += 120) {
       ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(this.width, y);
-      ctx.stroke();
-    }
-    for (let x = 0; x < this.width; x += 38) {
-      ctx.beginPath();
-      ctx.moveTo(x, 245);
-      ctx.lineTo(x, this.height);
+      ctx.moveTo(x, 240);
+      ctx.lineTo(x + (x - w / 2) * 0.4, h);
       ctx.stroke();
     }
 
-    // 2. Overhead Neon Data Piping
-    ctx.strokeStyle = "rgba(139, 92, 246, 0.35)";
-    ctx.lineWidth = 4;
+    // 3. Night Window (Right side)
+    const winX = 600, winY = 25, winW = 220, winH = 150;
+    ctx.save();
+    ctx.fillStyle = '#030611';
+    ctx.fillRect(winX, winY, winW, winH);
+
+    // Stars
+    this.stars.forEach(s => {
+      ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0, s.alpha)})`;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // Crescent Moon
+    ctx.fillStyle = '#fef08a';
     ctx.beginPath();
-    ctx.moveTo(20, 30);
-    ctx.lineTo(this.width - 20, 30);
+    ctx.arc(winX + 175, winY + 45, 18, 0, Math.PI * 2);
+    ctx.fill();
+    // Shadow to make crescent
+    ctx.fillStyle = '#030611';
+    ctx.beginPath();
+    ctx.arc(winX + 182, winY + 42, 16, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Distant city silhouette
+    ctx.fillStyle = '#070c1a';
+    ctx.fillRect(winX + 15, winY + 115, 30, 35);
+    ctx.fillRect(winX + 50, winY + 95, 25, 55);
+    ctx.fillRect(winX + 80, winY + 120, 35, 30);
+    ctx.fillRect(winX + 120, winY + 105, 40, 45);
+    ctx.fillRect(winX + 165, winY + 125, 45, 25);
+
+    // Window frame
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(winX, winY, winW, winH);
+    ctx.beginPath();
+    ctx.moveTo(winX + winW / 2, winY);
+    ctx.lineTo(winX + winW / 2, winY + winH);
+    ctx.moveTo(winX, winY + winH / 2);
+    ctx.lineTo(winX + winW, winY + winH / 2);
+    ctx.stroke();
+    ctx.restore();
+
+    // 4. Cozy Ambient Cyber Desk
+    const deskX = 140, deskY = 215, deskW = 440, deskH = 16;
+    // Desk surface
+    const deskGrad = ctx.createLinearGradient(deskX, deskY, deskX, deskY + deskH);
+    deskGrad.addColorStop(0, '#1e293b');
+    deskGrad.addColorStop(1, '#0f172a');
+    ctx.fillStyle = deskGrad;
+    ctx.fillRect(deskX, deskY, deskW, deskH);
+
+    // Desk legs
+    ctx.fillStyle = '#090d16';
+    ctx.fillRect(deskX + 25, deskY + deskH, 14, h - (deskY + deskH));
+    ctx.fillRect(deskX + deskW - 39, deskY + deskH, 14, h - (deskY + deskH));
+
+    // 5. Dual Monitor Setup & Glowing Screen
+    const monX = 260, monY = 85, monW = 200, monH = 120;
+
+    // Monitor stand
+    ctx.fillStyle = '#334155';
+    ctx.fillRect(monX + monW / 2 - 8, monY + monH, 16, 16);
+    ctx.fillRect(monX + monW / 2 - 35, monY + monH + 12, 70, 5);
+
+    // Monitor Outer Bezel
+    ctx.fillStyle = '#0f172a';
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(monX, monY, monW, monH, 6);
+    ctx.fill();
     ctx.stroke();
 
-    ctx.strokeStyle = "rgba(0, 145, 230, 0.4)";
+    // Ambient Monitor Glow behind and on desk
+    const glow = ctx.createRadialGradient(monX + monW / 2, monY + monH / 2, 20, monX + monW / 2, monY + monH / 2, 160);
+    glow.addColorStop(0, 'rgba(56, 189, 248, 0.22)');
+    glow.addColorStop(0.6, 'rgba(16, 185, 129, 0.08)');
+    glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(monX + monW / 2, monY + monH / 2, 160, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Monitor Screen Display (Debian Kali Terminal)
+    ctx.save();
+    ctx.beginPath();
+    ctx.roundRect(monX + 6, monY + 6, monW - 12, monH - 12, 4);
+    ctx.clip();
+
+    ctx.fillStyle = '#030712';
+    ctx.fillRect(monX + 6, monY + 6, monW - 12, monH - 12);
+
+    // Terminal Title bar on monitor
+    ctx.fillStyle = '#111827';
+    ctx.fillRect(monX + 6, monY + 6, monW - 12, 14);
+    ctx.fillStyle = '#ef4444';
+    ctx.beginPath(); ctx.arc(monX + 14, monY + 13, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#f59e0b';
+    ctx.beginPath(); ctx.arc(monX + 22, monY + 13, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#10b981';
+    ctx.beginPath(); ctx.arc(monX + 30, monY + 13, 3, 0, Math.PI * 2); ctx.fill();
+
+    // Terminal Code lines
+    ctx.font = '8px monospace';
+    ctx.fillStyle = '#38bdf8';
+    let lineY = monY + 30;
+    for (let i = 0; i < 7; i++) {
+      const idx = (i + Math.floor(this.tick / 60)) % this.codeLines.length;
+      const text = this.codeLines[idx];
+      ctx.fillStyle = text.startsWith('root@') ? '#22d3ee' : '#34d399';
+      ctx.fillText(text, monX + 12, lineY);
+      lineY += 12;
+    }
+
+    // Blinking cursor on monitor
+    if (Math.floor(this.tick / 25) % 2 === 0) {
+      ctx.fillStyle = '#22d3ee';
+      ctx.fillRect(monX + 12, lineY - 2, 5, 8);
+    }
+    ctx.restore();
+
+    // Tux Penguin Mascot Sticker on Monitor Base
+    ctx.font = '14px sans-serif';
+    ctx.fillText('🐧', monX + monW - 25, monY + monH - 6);
+
+    // 6. Steaming Coffee Mug on Desk
+    const mugX = 515, mugY = 217;
+    ctx.fillStyle = '#334155';
+    ctx.beginPath();
+    ctx.roundRect(mugX, mugY - 14, 15, 14, 2);
+    ctx.fill();
+    // Mug handle
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.arc(mugX + 16, mugY - 7, 5, -Math.PI / 2, Math.PI / 2);
+    ctx.stroke();
+    // Warm coffee glow
+    ctx.fillStyle = '#78350f';
+    ctx.fillRect(mugX + 2, mugY - 14, 11, 2);
+
+    // Steam particles
+    this.steamParticles.forEach(p => {
+      ctx.fillStyle = `rgba(203, 213, 225, ${p.alpha})`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // 7. Warm Desk Lamp
+    const lampX = 180, lampY = 150;
+    ctx.strokeStyle = '#475569';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(lampX, deskY);
+    ctx.lineTo(lampX - 15, lampY + 30);
+    ctx.lineTo(lampX + 10, lampY);
+    ctx.stroke();
+
+    // Lamp shade
+    ctx.fillStyle = '#f59e0b';
+    ctx.beginPath();
+    ctx.moveTo(lampX + 2, lampY);
+    ctx.lineTo(lampX + 26, lampY + 14);
+    ctx.lineTo(lampX - 6, lampY + 14);
+    ctx.closePath();
+    ctx.fill();
+
+    // Soft lamp warm light beam
+    const lampGlow = ctx.createRadialGradient(lampX + 10, lampY + 14, 5, lampX + 10, lampY + 40, 80);
+    lampGlow.addColorStop(0, 'rgba(251, 191, 36, 0.28)');
+    lampGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = lampGlow;
+    ctx.beginPath();
+    ctx.arc(lampX + 10, lampY + 40, 80, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 8. Programmer Boy in Dark Hoodie (Kapishon)
+    const boyX = 360, boyY = 145;
+
+    // Ergonomic Chair Back
+    ctx.fillStyle = '#090d16';
+    ctx.strokeStyle = '#1e293b';
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(20, 26);
-    ctx.lineTo(this.width - 20, 26);
-    ctx.stroke();
-
-    // Data packet particles
-    this.particles.forEach(p => {
-      ctx.fillStyle = `rgba(56, 189, 248, ${p.alpha})`;
-      ctx.fillRect(p.x, p.y, p.size, p.size);
-    });
-
-    // 3. Draw 5 Server Racks
-    this.racks.forEach(rack => {
-      this.drawRack(ctx, rack);
-    });
-
-    // 4. Draw Characters
-    this.drawNPC(ctx, this.bob, "#38bdf8", "👨‍💻");
-    this.drawNPC(ctx, this.alice, "#a78bfa", "👩‍💻");
-    this.drawNPC(ctx, this.turing, "#facc15", "🐧");
-    this.drawPlayer(ctx, this.player);
-
-    // 5. Speech Bubbles
-    if (this.bob.speechTimer > 0) this.drawBubble(ctx, this.bob.x, this.bob.y - 45, this.bob.speech, "#38bdf8");
-    if (this.alice.speechTimer > 0) this.drawBubble(ctx, this.alice.x, this.alice.y - 45, this.alice.speech, "#a78bfa");
-    if (this.turing.speechTimer > 0) this.drawBubble(ctx, this.turing.x, this.turing.y - 45, this.turing.speech, "#facc15");
-    if (this.player.speechTimer > 0) this.drawBubble(ctx, this.player.x, this.player.y - 50, this.player.speech, "#22d3ee");
-  }
-
-  drawRack(ctx, rack) {
-    // Rack casing
-    ctx.fillStyle = "#0c182c";
-    ctx.strokeStyle = rack.accent;
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.roundRect(rack.x, rack.y, rack.w, rack.h, 6);
+    ctx.roundRect(boyX - 25, boyY + 15, 50, 75, 10);
     ctx.fill();
     ctx.stroke();
 
-    // Header banner
-    ctx.fillStyle = "#12233f";
-    ctx.fillRect(rack.x + 1, rack.y + 1, rack.w - 2, 26);
+    // Chair Headrest
+    ctx.beginPath();
+    ctx.roundRect(boyX - 18, boyY - 5, 36, 16, 5);
+    ctx.fill();
+    ctx.stroke();
 
-    ctx.font = "bold 9.5px 'JetBrains Mono', monospace";
-    ctx.fillStyle = rack.accent;
-    ctx.textAlign = "center";
-    ctx.fillText(rack.name, rack.x + rack.w / 2, rack.y + 16);
+    // Boy Torso & Hoodie
+    const hoodieGrad = ctx.createLinearGradient(boyX - 22, boyY + 35, boyX + 22, boyY + 95);
+    hoodieGrad.addColorStop(0, '#1e293b');
+    hoodieGrad.addColorStop(1, '#0f172a');
+    ctx.fillStyle = hoodieGrad;
 
-    // Subtitle
-    ctx.font = "8.5px 'Inter', sans-serif";
-    ctx.fillStyle = "#94a3b8";
-    ctx.fillText(rack.sub, rack.x + rack.w / 2, rack.y + 36);
+    // Body / Back
+    ctx.beginPath();
+    ctx.moveTo(boyX - 22, boyY + 95);
+    ctx.lineTo(boyX - 18, boyY + 35);
+    ctx.lineTo(boyX + 18, boyY + 35);
+    ctx.lineTo(boyX + 22, boyY + 95);
+    ctx.closePath();
+    ctx.fill();
 
-    // Server blade slots (4 blades)
-    for (let b = 0; b < 4; b++) {
-      const by = rack.y + 44 + b * 26;
-      ctx.fillStyle = "#070e1c";
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
-      ctx.lineWidth = 1;
+    // Dark Hoodie Head & Hood (Kapishon)
+    ctx.fillStyle = '#1e293b';
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    // Hood contour
+    ctx.arc(boyX, boyY + 22, 19, Math.PI * 0.8, Math.PI * 2.2);
+    ctx.fill();
+    ctx.stroke();
+
+    // Inner Hood & Shadow
+    ctx.fillStyle = '#090d16';
+    ctx.beginPath();
+    ctx.arc(boyX, boyY + 24, 14, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Face Profile / Glasses softly lit by monitor
+    ctx.fillStyle = '#fbcfe8';
+    ctx.beginPath();
+    ctx.arc(boyX + 4, boyY + 23, 8, -Math.PI / 2, Math.PI / 2);
+    ctx.fill();
+
+    // Glowing Glasses / Eye Reflection from screen
+    ctx.fillStyle = '#38bdf8';
+    ctx.fillRect(boyX + 7, boyY + 20, 6, 3);
+
+    // Arms stretching to keyboard with typing motion
+    const typeOffset = Math.sin(this.tick * 0.4) * 2;
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 7;
+    ctx.lineCap = 'round';
+
+    // Left Arm
+    ctx.beginPath();
+    ctx.moveTo(boyX - 14, boyY + 45);
+    ctx.lineTo(boyX - 4, deskY + 3 + typeOffset);
+    ctx.stroke();
+
+    // Right Arm
+    ctx.beginPath();
+    ctx.moveTo(boyX + 14, boyY + 45);
+    ctx.lineTo(boyX + 18, deskY + 3 - typeOffset);
+    ctx.stroke();
+
+    // Hands on Keyboard
+    ctx.fillStyle = '#fbcfe8';
+    ctx.beginPath();
+    ctx.arc(boyX - 4, deskY + 3 + typeOffset, 3.5, 0, Math.PI * 2);
+    ctx.arc(boyX + 18, deskY + 3 - typeOffset, 3.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Keyboard on desk
+    ctx.fillStyle = '#0f172a';
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.4)';
+    ctx.lineWidth = 1;
+    ctx.fillRect(monX + 40, deskY + 1, 75, 7);
+    ctx.strokeRect(monX + 40, deskY + 1, 75, 7);
+
+    // 9. Speech Bubble / Thoughts
+    if (this.player.speech && this.player.speechTimer > 0) {
+      const bubbleX = 220, bubbleY = 32, bubbleW = 270, bubbleH = 34;
+
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.94)';
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
+      ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.roundRect(rack.x + 8, by, rack.w - 16, 22, 3);
+      ctx.roundRect(bubbleX, bubbleY, bubbleW, bubbleH, 8);
       ctx.fill();
       ctx.stroke();
 
-      // Ventilation slots
-      ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
-      for (let v = 0; v < 6; v++) {
-        ctx.fillRect(rack.x + 14 + v * 6, by + 16, 3, 2);
-      }
-
-      // Blade LEDs
-      const ledIdx = (b * 2) % rack.leds.length;
-      const led1 = rack.leds[ledIdx];
-      const led2 = rack.leds[(ledIdx + 1) % rack.leds.length];
-
-      ctx.fillStyle = led1.state ? rack.accent : "#1e293b";
+      // Little pointer tail pointing to boy
       ctx.beginPath();
-      ctx.arc(rack.x + rack.w - 28, by + 10, 2.5, 0, Math.PI * 2);
+      ctx.moveTo(bubbleX + 120, bubbleY + bubbleH);
+      ctx.lineTo(boyX, boyY + 5);
+      ctx.lineTo(bubbleX + 140, bubbleY + bubbleH);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.94)';
       ctx.fill();
-
-      ctx.fillStyle = led2.state ? "#10b981" : "#1e293b";
-      ctx.beginPath();
-      ctx.arc(rack.x + rack.w - 18, by + 10, 2.5, 0, Math.PI * 2);
-      ctx.fill();
-    }
-
-    // Cooling Fan at bottom
-    const fanX = rack.x + rack.w / 2;
-    const fanY = rack.y + rack.h - 18;
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.18)";
-    ctx.lineWidth = 1.2;
-    ctx.beginPath();
-    ctx.arc(fanX, fanY, 11, 0, Math.PI * 2);
-    ctx.stroke();
-
-    // Blades
-    ctx.strokeStyle = rack.accent;
-    ctx.lineWidth = 1.5;
-    for (let a = 0; a < 3; a++) {
-      const angle = rack.fanAngle + (a * Math.PI * 2) / 3;
-      ctx.beginPath();
-      ctx.moveTo(fanX, fanY);
-      ctx.lineTo(fanX + Math.cos(angle) * 9, fanY + Math.sin(angle) * 9);
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
       ctx.stroke();
+
+      // Text inside
+      ctx.font = '600 11px "Inter", sans-serif';
+      ctx.fillStyle = '#f8fafc';
+      ctx.textAlign = 'center';
+      ctx.fillText(this.player.speech, bubbleX + bubbleW / 2, bubbleY + 21);
+      ctx.textAlign = 'start';
     }
-  }
 
-  drawNPC(ctx, npc, color, symbol) {
-    ctx.save();
-    ctx.translate(npc.x, npc.y);
-
-    // Shadow
-    ctx.fillStyle = "rgba(0, 0, 0, 0.45)";
-    ctx.beginPath();
-    ctx.ellipse(0, 8, 14, 5, 0, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Body pedestal
-    ctx.fillStyle = `rgba(255, 255, 255, 0.05)`;
-    ctx.beginPath();
-    ctx.arc(0, -10, 16, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Avatar emoji
-    ctx.font = "24px sans-serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText(symbol, 0, -12);
-
-    // Name Tag
-    ctx.font = "bold 9.5px 'JetBrains Mono', monospace";
-    ctx.fillStyle = color;
-    ctx.textAlign = "center";
-    ctx.fillText(npc.name, 0, 18);
-
-    ctx.restore();
-  }
-
-  drawPlayer(ctx, p) {
-    ctx.save();
-    ctx.translate(p.x, p.y);
-
-    // Shadow
-    ctx.fillStyle = "rgba(0, 0, 0, 0.55)";
-    ctx.beginPath();
-    ctx.ellipse(0, 9, 16, 6, 0, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Animated Bobbing
-    const bob = Math.sin(p.walkFrame) * 2;
-
-    // Glowing ring under player
-    ctx.strokeStyle = "rgba(34, 211, 238, 0.6)";
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.ellipse(0, 9, 14, 5, 0, 0, Math.PI * 2);
-    ctx.stroke();
-
-    // Body (Virtualization Suit)
-    ctx.fillStyle = "#0284c7";
-    ctx.beginPath();
-    ctx.roundRect(-10, -22 + bob, 20, 22, 5);
-    ctx.fill();
-
-    // Head
-    ctx.fillStyle = "#fbcfe8";
-    ctx.beginPath();
-    ctx.arc(0, -28 + bob, 8.5, 0, Math.PI * 2);
-    ctx.fill();
-
-    // DevOps Visor
-    ctx.fillStyle = "#38bdf8";
-    ctx.fillRect(p.facing === "left" ? -8 : -1, -30 + bob, 9, 4);
-
-    // Laptop
-    ctx.fillStyle = "#334155";
-    ctx.fillRect(p.facing === "left" ? -14 : 6, -14 + bob, 8, 10);
-    ctx.fillStyle = "#38bdf8";
-    ctx.fillRect(p.facing === "left" ? -13 : 7, -13 + bob, 6, 8);
-
-    // Label
-    ctx.font = "bold 9.5px 'JetBrains Mono', monospace";
-    ctx.fillStyle = "#38bdf8";
-    ctx.textAlign = "center";
-    ctx.fillText("SEN (TALABA)", 0, 22);
-
-    ctx.restore();
-  }
-
-  drawBubble(ctx, x, y, text, accentColor) {
-    ctx.save();
-    ctx.font = "11px 'Inter', sans-serif";
-    const padding = 8;
-    const maxW = 210;
-
-    // Word wrap
-    const words = text.split(" ");
-    let line = "";
-    const lines = [];
-    for (let n = 0; n < words.length; n++) {
-      const testLine = line + words[n] + " ";
-      const metrics = ctx.measureText(testLine);
-      if (metrics.width > maxW && n > 0) {
-        lines.push(line);
-        line = words[n] + " ";
-      } else {
-        line = testLine;
-      }
-    }
-    lines.push(line);
-
-    const bWidth = Math.min(maxW + padding * 2, 230);
-    const bHeight = lines.length * 15 + padding * 2;
-    const bx = Math.max(10, Math.min(this.width - bWidth - 10, x - bWidth / 2));
-    const by = Math.max(10, y - bHeight);
-
-    // Background Bubble
-    ctx.fillStyle = "rgba(10, 20, 38, 0.94)";
-    ctx.strokeStyle = accentColor;
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.roundRect(bx, by, bWidth, bHeight, 7);
-    ctx.fill();
-    ctx.stroke();
-
-    // Bubble pointer
-    ctx.fillStyle = "rgba(10, 20, 38, 0.94)";
-    ctx.beginPath();
-    ctx.moveTo(x - 5, by + bHeight);
-    ctx.lineTo(x, by + bHeight + 6);
-    ctx.lineTo(x + 5, by + bHeight);
-    ctx.fill();
-
-    // Text lines
-    ctx.fillStyle = "#f8fafc";
-    ctx.textAlign = "left";
-    lines.forEach((l, idx) => {
-      ctx.fillText(l.trim(), bx + padding, by + padding + 11 + idx * 15);
+    // 10. Success Confetti Sparks
+    this.successParticles.forEach(p => {
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1.0;
     });
 
-    ctx.restore();
-  }
-
-  startLoop() {
-    const loop = () => {
-      this.update();
-      this.draw();
-      this.animId = requestAnimationFrame(loop);
-    };
-    this.animId = requestAnimationFrame(loop);
-  }
-
-  destroy() {
-    if (this.animId) cancelAnimationFrame(this.animId);
+    // 11. Subtle Status Label on bottom right
+    ctx.font = '10px "JetBrains Mono", monospace';
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.5)';
+    ctx.fillText('⚡ WIUT LINUX LAB • DEBIAN 12 KERNEL', w - 240, h - 12);
   }
 }
 
-window.CyberVirtualMemoryArena2D = CyberVirtualMemoryArena2D;
+window.CyberNocArena2D = CyberNocArena2D;
+
+window.CyberDevOpsArena2D = CyberNocArena2D;
+window.CyberProcessNocArena2D = CyberNocArena2D;
+window.CyberAutomationNocArena2D = CyberNocArena2D;
+window.CyberDockerArena2D = CyberNocArena2D;
+window.CyberVirtualMemoryArena2D = CyberNocArena2D;

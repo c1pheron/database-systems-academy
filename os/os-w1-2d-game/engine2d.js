@@ -494,3 +494,8 @@ class CyberNocArena2D {
 }
 
 window.CyberNocArena2D = CyberNocArena2D;
+window.CyberDevOpsArena2D = CyberNocArena2D;
+window.CyberProcessNocArena2D = CyberNocArena2D;
+window.CyberAutomationNocArena2D = CyberNocArena2D;
+window.CyberDockerArena2D = CyberNocArena2D;
+window.CyberVirtualMemoryArena2D = CyberNocArena2D;

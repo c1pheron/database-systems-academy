@@ -1,482 +1,3198 @@
 // ============================================================================
 // OPERATING SYSTEMS ACADEMY — COMPREHENSIVE LINUX DICTIONARY & ENCYCLOPEDIA
-// 100+ Linux Buyruqlari, Tizim Chaqiriqlari (System Calls), Bash Skriptlash,
+// 120+ Linux Buyruqlari, Tizim Chaqiriqlari (System Calls), Bash Skriptlash,
 // Jarayonlar, Xotira, Docker va Inodelar bo'yicha to'liq o'zbekcha ensiklopediya!
+// WIUT Operating Systems (5COSC041C) & Database Systems uchun to'liq moslangan.
 // ============================================================================
 
 (function () {
   "use strict";
 
   const OS_DICTIONARY_DATA = [
-    // -------------------------------------------------------------------------
-    // 1. NAVIGATSIYA & INODELAR (WEEK 1)
-    // -------------------------------------------------------------------------
-    {
-      cmd: "pwd",
-      name: "Print Working Directory (Joriy Katalogni Ko'rsatish)",
-      cat: "nav",
-      catName: "Navigatsiya & Inodelar",
-      desc: "Terminalda ayni daqiqada qaysi to'liq absolyut yo'lda (papka ichida) turganingizni chiqaradi.",
-      syntax: "pwd [BAYROQLAR]",
-      flags: [
-        { flag: "-L", desc: "Mantiqiy yo'lni chiqarish (simvolik havolalar hisobga olinadi)" },
-        { flag: "-P", desc: "Fizik real yo'lni chiqarish (barcha simvolik havolalarni ochib beradi)" }
-      ],
-      example: "pwd\n/home/student",
-      analogy: "Xaritadagi 'Siz hozir shu yerdasiz' qizil belgisi. Serverda adashib qolmaslik uchun har doim birinchi bo'lib teriladigan buyruq."
-    },
-    {
-      cmd: "ls",
-      name: "List Directory Contents (Katalog Tarkibini Ko'rish)",
-      cat: "nav",
-      catName: "Navigatsiya & Inodelar",
-      desc: "Katalog ichidagi fayl va jildlar ro'yxatini, ularning huquqlari, inodelari va hajmini ko'rsatadi.",
-      syntax: "ls [BAYROQLAR] [MANZIL]",
-      flags: [
-        { flag: "-a", desc: "Barcha fayllarni, jumladan nuqta bilan boshlanuvchi yashirin fayllarni ham ko'rsatish" },
-        { flag: "-l", desc: "Uzoq format: ruxsatlar, bog'lamlar soni, egasi, hajmi va sanasi bilan ko'rsatish" },
-        { flag: "-h", desc: "Inson tushunadigan o'lchov birliklarida (K, M, G) chiqarish (-l bilan birga)" },
-        { flag: "-i", desc: "Har bir faylning Inode (identifikatsiya) raqamini chiqarish" },
-        { flag: "-R", desc: "Rekursiv ravishda barcha ichki papkalarni ham chiqarish" }
-      ],
-      example: "ls -lai /home/student\n10027 -rw-r--r-- 2 student student 4096 Oct 14 21:00 data.txt",
-      analogy: "Do'kondagi peshtaxtani ko'zdan kechirish. -l har bir mahsulot narxi va ishlab chiqarilgan sanasini ko'rsatadi, -i esa shtrix-kodini (inode) ko'rsatadi."
-    },
-    {
-      cmd: "cd",
-      name: "Change Directory (Ishchi Katalogni O'zgartirish)",
-      cat: "nav",
-      catName: "Navigatsiya & Inodelar",
-      desc: "Joriy papkadan boshqa papkaga o'tish uchun xizmat qiladi.",
-      syntax: "cd [MANZIL]",
-      flags: [
-        { flag: "~", desc: "Foydalanuvchining uy katalogiga (/home/user) o'tish" },
-        { flag: "..", desc: "Bitta yuqori darajadagi ota papkaga qaytish" },
-        { flag: "-", desc: "Oldingi turgan katalogga qaytish" },
-        { flag: "/", desc: "Ildiz (root) katalogiga o'tish" }
-      ],
-      example: "cd /var/log && pwd\n/var/log",
-      analogy: "Bino ichida xonadan xonaga o'tish. cd .. eshikdan chiqib koridorga qaytish bilan barobar."
-    },
-    {
-      cmd: "mkdir",
-      name: "Make Directory (Yangi Katalog Yaratish)",
-      cat: "nav",
-      catName: "Navigatsiya & Inodelar",
-      desc: "Fayl tizimida yangi jild yoki bir nechta qavatli jildlar zanjirini barpo etadi.",
-      syntax: "mkdir [BAYROQLAR] KATALOG_NOMI",
-      flags: [
-        { flag: "-p", desc: "Parents: Ota-ona kataloglari mavjud bo'lmasa, ularni ham avtomatik yaratish" },
-        { flag: "-m", desc: "Yaratilayotgan papkaga darhol ruxsatlar (masalan 755) belgilash" },
-        { flag: "-v", desc: "Har bir yaratilgan papka haqida xabar chiqarish (verbose)" }
-      ],
-      example: "mkdir -p scripts/backup/daily",
-      analogy: "Hujjatlar uchun yangi papka ochish. -p bayrog'i 'Agar javon va quti bo'lmasa, avval ularni yasab, keyin ichiga papka qo'y' degani."
-    },
-    {
-      cmd: "stat",
-      name: "Status (Fayl va Inode Metama'lumotlari)",
-      cat: "nav",
-      catName: "Navigatsiya & Inodelar",
-      desc: "Faylning Inode raqami, kirish/o'zgarish vaqtlari (Access, Modify, Change) va bog'lamlar sonini (links) chiqaradi.",
-      syntax: "stat [BAYROQLAR] FAYL_NOMI",
-      flags: [
-        { flag: "-c", desc: "Maxsus formatda faqat inode yoki ruxsatni chiqarish" },
-        { flag: "-f", desc: "Fayl tizimi (file system) holatini ko'rsatish" }
-      ],
-      example: "stat myfile.txt\nInode: 10027   Links: 2   Access: (0644/-rw-r--r--)",
-      analogy: "Insonning pasport ma'lumotlari: tug'ilgan yili, propiskasi va ID raqami. Linuxda har bir faylning pasporti stat orqali o'qiladi."
-    },
-    {
-      cmd: "ln",
-      name: "Link (Qattiq va Simvolik Bog'lamlar Yaratish)",
-      cat: "nav",
-      catName: "Navigatsiya & Inodelar",
-      desc: "Fayllarga havolalar yaratish. Hard link bitta inodeni ulashadi, Soft link (symlink) esa boshqa fayl yo'liga ishora qiladi.",
-      syntax: "ln [BAYROQLAR] MANBA NISHON",
-      flags: [
-        { flag: "-s", desc: "Simvolik (yumshoq / soft) havola yaratish (Windows yorlig'i kabi)" },
-        { flag: "-f", desc: "Agar nishon fayli mavjud bo'lsa, uni majburiy o'chirib qayta ulash" },
-        { flag: "-v", desc: "Yaratilgan havola haqida ma'lumot chiqarish" }
-      ],
-      example: "ln original.txt hardlink.txt   # Hardlink (bir xil inode)\nln -s /etc/passwd link_pass    # Softlink",
-      analogy: "Hardlink — bitta xonaga 2 ta eshik qo'yish (bir eshik buzilsa ham xona qoladi). Softlink — eshik ustiga 'Qo'shni binoga qarang' deb yozib qo'yilgan yorliq."
-    },
-    {
-      cmd: "find",
-      name: "Find Files (Fayllarni Ierarxiya Bo'yicha Qidirish)",
-      cat: "nav",
-      catName: "Navigatsiya & Inodelar",
-      desc: "Berilgan katalogdan boshlab nomi, hajmi, o'zgartirilgan vaqti yoki inodelar bo'yicha kuchli qidiruv.",
-      syntax: "find [QAYERDAN] [KRITERIYALAR]",
-      flags: [
-        { flag: "-name", desc: "Fayl nomi bo'yicha qidirish (wildcard '*' ishlatish mumkin)" },
-        { flag: "-iname", desc: "Katta-kichik harflarni farqlamasdan qidirish" },
-        { flag: "-type", desc: "Fayl turi: 'f' (oddiy fayl), 'd' (katalog), 'l' (havola)" },
-        { flag: "-mtime", desc: "Oxirgi o'zgartirilgan kunlar soni (-7 = so'nggi 7 kunda)" },
-        { flag: "-inum", desc: "Aniq Inode raqami bo'yicha qidirish" },
-        { flag: "-size", desc: "Hajmi bo'yicha qidirish (+100M = 100MB dan kattalar)" },
-        { flag: "-exec", desc: "Topilgan har bir fayl ustida buyruq bajarish" }
-      ],
-      example: "find /var/log -name '*.log' -mtime -7",
-      analogy: "Katta arxiv omborida maxsus robot orqali qidirish: 'Menga so'nggi 7 kunda kelgan .log kengaytmali barcha qog'ozlarni topib ber'."
-    },
+  {
+    "cmd": "pwd",
+    "name": "Print Working Directory (Joriy Katalogni Ko'rsatish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Terminalda ayni daqiqada qaysi to'liq absolyut yo'lda (papka ichida) turganingizni chiqaradi.",
+    "syntax": "pwd [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-L",
+        "desc": "Mantiqiy yo'lni chiqarish (simvolik havolalar hisobga olinadi)"
+      },
+      {
+        "flag": "-P",
+        "desc": "Fizik real yo'lni chiqarish (barcha simvolik havolalarni ochib beradi)"
+      }
+    ],
+    "example": "pwd\n/home/student",
+    "analogy": "Xaritadagi 'Siz hozir shu yerdasiz' qizil belgisi. Serverda adashib qolmaslik uchun har doim birinchi bo'lib teriladigan buyruq."
+  },
+  {
+    "cmd": "ls",
+    "name": "List Directory Contents (Katalog Tarkibini Ko'rish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Katalog ichidagi fayl va jildlar ro'yxatini, ularning huquqlari, inodelari va hajmini ko'rsatadi.",
+    "syntax": "ls [BAYROQLAR] [MANZIL]",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Barcha fayllarni, jumladan nuqta bilan boshlanuvchi yashirin (.bashrc) fayllarni ko'rsatish"
+      },
+      {
+        "flag": "-l",
+        "desc": "Uzoq format: ruxsatlar, bog'lamlar soni, egasi, hajmi va sanasi bilan ko'rsatish"
+      },
+      {
+        "flag": "-h",
+        "desc": "Inson tushunadigan o'lchov birliklarida (K, M, G) chiqarish (-l bilan birga)"
+      },
+      {
+        "flag": "-i",
+        "desc": "Har bir faylning Inode (identifikatsiya) raqamini chiqarish"
+      },
+      {
+        "flag": "-R",
+        "desc": "Rekursiv ravishda barcha ichki papkalarni ham chiqarish"
+      },
+      {
+        "flag": "-t",
+        "desc": "O'zgartirilgan vaqti bo'yicha tartiblash (eng yangilari yuqorida)"
+      }
+    ],
+    "example": "ls -lai /home/student\n10027 -rw-r--r-- 2 student student 4096 Oct 15 05:00 data.txt",
+    "analogy": "Do'kondagi peshtaxtani ko'zdan kechirish. -l har bir mahsulot narxi va ishlab chiqarilgan sanasini ko'rsatadi, -i esa shtrix-kodini (inode) ko'rsatadi."
+  },
+  {
+    "cmd": "cd",
+    "name": "Change Directory (Ishchi Katalogni O'zgartirish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Joriy papkadan boshqa papkaga o'tish uchun xizmat qiladi.",
+    "syntax": "cd [MANZIL]",
+    "flags": [
+      {
+        "flag": "~",
+        "desc": "Foydalanuvchining uy katalogiga (/home/user) o'tish"
+      },
+      {
+        "flag": "..",
+        "desc": "Bitta yuqori darajadagi ota papkaga qaytish"
+      },
+      {
+        "flag": "-",
+        "desc": "Oldingi turgan katalogga qaytish"
+      },
+      {
+        "flag": "/",
+        "desc": "Ildiz (root) katalogiga o'tish"
+      }
+    ],
+    "example": "cd /var/log && pwd\n/var/log",
+    "analogy": "Bino ichida xonadan xonaga o'tish. cd .. eshikdan chiqib koridorga qaytish bilan barobar."
+  },
+  {
+    "cmd": "mkdir",
+    "name": "Make Directory (Yangi Papka Yaratish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Fayl tizimida yangi papkalar (kataloglar) hosil qiladi.",
+    "syntax": "mkdir [BAYROQLAR] PAPKA_NOMI",
+    "flags": [
+      {
+        "flag": "-p",
+        "desc": "Zarur bo'lsa barcha oraliq (ota) papkalarni bir vaqtda yaratish (parents)"
+      },
+      {
+        "flag": "-m",
+        "desc": "Yaratilayotgan papkaga darhol maxsus ruxsat o'rnatish (masalan: -m 755)"
+      },
+      {
+        "flag": "-v",
+        "desc": "Har bir yaratilgan papka haqida xabar chiqarish (verbose)"
+      }
+    ],
+    "example": "mkdir -p /home/student/projects/os/lab1",
+    "analogy": "Arxivda yangi quti yoki javon ochish. -p bayrog'i esa javon yo'q bo'lsa uni ham birvarakayiga yasab berishdir."
+  },
+  {
+    "cmd": "rmdir",
+    "name": "Remove Empty Directory (Bo'sh Papkani O'chirish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Faqatgina bo'sh bo'lgan papkalarni xavfsiz o'chirish uchun mo'ljallangan.",
+    "syntax": "rmdir [BAYROQLAR] PAPKA_NOMI",
+    "flags": [
+      {
+        "flag": "-p",
+        "desc": "Bo'sh bo'lib qolgan ota papkalarni ham rekursiv o'chirish"
+      },
+      {
+        "flag": "-v",
+        "desc": "Har bir o'chirilgan papka haqida batafsil ma'lumot berish"
+      }
+    ],
+    "example": "rmdir empty_folder/",
+    "analogy": "Bo'shab qolgan qutini tashlab yuborish. Ichida bitta qalam bo'lsa ham xatolik berib tashlashdan to'xtatadi."
+  },
+  {
+    "cmd": "touch",
+    "name": "Touch / Update Timestamps (Fayl Yaratish yoki Vaqtini Yangilash)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Mavjud bo'lmagan bo'sh faylni hosil qiladi yoki mavjud faylning so'nggi kirish/o'zgarish vaqt tamg'asini yangilaydi.",
+    "syntax": "touch [BAYROQLAR] FAYL_NOMI",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Faqat kirish (access) vaqtini o'zgartirish"
+      },
+      {
+        "flag": "-m",
+        "desc": "Faqat modifikatsiya (o'zgartirish) vaqtini o'zgartirish"
+      },
+      {
+        "flag": "-c",
+        "desc": "Fayl mavjud bo'lmasa uni yangidan yaratmaslik"
+      },
+      {
+        "flag": "-d",
+        "desc": "Maxsus sana/vaqt belgilash (masalan: touch -d 'yesterday' file)"
+      }
+    ],
+    "example": "touch server.log",
+    "analogy": "Daftarga bugungi sana shtampini bosish yoki bo'sh yangi daftar varag'ini ochish."
+  },
+  {
+    "cmd": "rm",
+    "name": "Remove Files or Directories (Fayl va Papkalarni O'chirish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Fayl tizimidan fayllar va kataloglarni doimiy ravishda o'chiradi (Linuxda savatcha/trash yo'q!).",
+    "syntax": "rm [BAYROQLAR] NISHON",
+    "flags": [
+      {
+        "flag": "-r, -R",
+        "desc": "Rekursiv ravishda papka va uning barcha ichidagi narsalarini o'chirish"
+      },
+      {
+        "flag": "-f",
+        "desc": "Majburiy (force) o'chirish, tasdiq so'ramaslik va xatoliklarni yashirish"
+      },
+      {
+        "flag": "-i",
+        "desc": "Har bir faylni o'chirishdan oldin foydalanuvchidan tasdiq so'rash"
+      }
+    ],
+    "example": "rm -rf /tmp/old_cache",
+    "analogy": "Hujjatlarni maydalagichga (shredder) solish. rm -rf xuddi butun arxiv xonasini yondirib yuborishdek o'ta ehtiyotkorlik talab qiladi."
+  },
+  {
+    "cmd": "cp",
+    "name": "Copy Files and Directories (Nusxalash)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Fayllar va papkalardan yangi mustaqil nusxa yaratadi.",
+    "syntax": "cp [BAYROQLAR] MANBA NISHON",
+    "flags": [
+      {
+        "flag": "-r, -R",
+        "desc": "Papkani barcha ichki elementlari bilan birga rekursiv nusxalash"
+      },
+      {
+        "flag": "-p",
+        "desc": "Faylning asl ruxsatlari, egasi va vaqt tamg'alarini saqlab qolish (preserve)"
+      },
+      {
+        "flag": "-a",
+        "desc": "Arxiv rejimi (-rpP barchasini o'z ichiga oladi)"
+      },
+      {
+        "flag": "-u",
+        "desc": "Faqat nishondan yangiroq bo'lgan manba fayllarni yangilash (update)"
+      }
+    ],
+    "example": "cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak",
+    "analogy": "Hujjatdan kseronusxa olish. Yangi nusxa o'z inodiga ega bo'lib, asl faylga bog'liq bo'lmaydi."
+  },
+  {
+    "cmd": "mv",
+    "name": "Move / Rename Files (Ko'chirish yoki Qayta Nomlash)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Fayl yoki papkaning manzilini o'zgartiradi yoki uning nomini o'zgartiradi (bitta disk ichida Inode o'zgarmaydi!).",
+    "syntax": "mv [BAYROQLAR] MANBA NISHON",
+    "flags": [
+      {
+        "flag": "-i",
+        "desc": "Mavjud faylni ustiga yozishdan oldin so'rash (interactive)"
+      },
+      {
+        "flag": "-f",
+        "desc": "So'rovsiz ustiga yozish (force)"
+      },
+      {
+        "flag": "-n",
+        "desc": "Mavjud fayllarni hech qachon almashtirmaslik (no-clobber)"
+      }
+    ],
+    "example": "mv draft.txt final_report.txt",
+    "analogy": "Daftarning muqovadagi sarlavhasini o'zgartirish yoki papkani boshqa xonaga eltib qo'yish. Hujjatning o'zi (inode) o'zgarmaydi."
+  },
+  {
+    "cmd": "ln",
+    "name": "Link Files (Bog'lamlar: Hard Link va Soft Link)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Fayllarga qattiq (hard link) yoki simvolik (soft/symlink) havolalar hosil qiladi.",
+    "syntax": "ln [BAYROQLAR] MANBA NISHON",
+    "flags": [
+      {
+        "flag": "-s",
+        "desc": "Simvolik (Soft) havola yaratish (Windowsdagi yorliq/shortcut kabi)"
+      },
+      {
+        "flag": "-f",
+        "desc": "Mavjud nishon faylni majburiy almashtirish"
+      },
+      {
+        "flag": "-v",
+        "desc": "Har bir yaratilgan bog'lam haqida ma'lumot berish"
+      }
+    ],
+    "example": "ln -s /var/log/nginx/access.log ~/my_logs.lnk\nln file.txt hardlink.txt",
+    "analogy": "Hard link — bitta odamning ikki xil pasporti (bitta Inode raqami, bitta ma'lumot). Soft link (-s) — eshikka osilgan 'Shu xonaga kiring' degan ko'rsatkich."
+  },
+  {
+    "cmd": "stat",
+    "name": "File / File System Status (Inode va Metama'lumotlarni Ko'rish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Faylning Inode raqami, kirish huquqlari (oktal va harfli), o'lchami, bloklar soni, atime, mtime va ctime vaqtlarini to'liq chiqaradi.",
+    "syntax": "stat [BAYROQLAR] FAYL",
+    "flags": [
+      {
+        "flag": "-c",
+        "desc": "Maxsus formatda ma'lumot olish (masalan: %i Inode, %a huquqlar)"
+      },
+      {
+        "flag": "-f",
+        "desc": "Faylning o'zi emas, u joylashgan butun fayl tizimi statistikasini ko'rsatish"
+      }
+    ],
+    "example": "stat /etc/passwd\nInode: 1048576 Links: 1 Access: (0644/-rw-r--r--)",
+    "analogy": "Faylning tibbiy varaqasi yoki shaxsiy guvohnomasi. Undagi barcha sir-asrorlar va metama'lumotlar ochib beriladi."
+  },
+  {
+    "cmd": "file",
+    "name": "Determine File Type (Fayl Tipini Anqlash)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Fayl nomining kengaytmasiga (.txt, .exe) aldanmasdan, uning dastlabki sehrli baytlari (magic bytes) orqali haqiqiy turini aniqlaydi.",
+    "syntax": "file [BAYROQLAR] FAYL",
+    "flags": [
+      {
+        "flag": "-b",
+        "desc": "Qisqa rejim: fayl nomini chiqarmasdan faqat tipini ko'rsatish (brief)"
+      },
+      {
+        "flag": "-i",
+        "desc": "MIME formatida chiqarish (masalan: text/plain; charset=utf-8)"
+      }
+    ],
+    "example": "file script.sh\nscript.sh: Bourne-Again shell script, ASCII text executable",
+    "analogy": "Kimyoviy laboratoriya tekshiruvi. Dorining yorlig'iga qaramasdan, uning tarkibini tahlil qilib haqiqiy nimaligini aytib beradi."
+  },
+  {
+    "cmd": "find",
+    "name": "Search Files in Directory Hierarchy (Fayllarni Qidirish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Fayl tizimida nomi, hajmi, egasi, inodelari, ruxsatlari va vaqtiga ko'ra chuqur real-vaqtli qidiruv olib boradi.",
+    "syntax": "find [QIDIRUV_MANZILI] [MEZONLAR] [AMALLAR]",
+    "flags": [
+      {
+        "flag": "-name",
+        "desc": "Fayl nomi bo'yicha qidirish (katta-kichik harfga sezgir)"
+      },
+      {
+        "flag": "-iname",
+        "desc": "Harf registrini hisobga olmasdan qidirish"
+      },
+      {
+        "flag": "-type",
+        "desc": "Fayl turi bo'yicha: f (oddiy fayl), d (papka), l (symlink)"
+      },
+      {
+        "flag": "-size",
+        "desc": "Hajmi bo'yicha: +100M (100MB dan katta), -5k (5KB dan kichik)"
+      },
+      {
+        "flag": "-mtime",
+        "desc": "O'zgartirilgan kunlari bo'yicha (-7 so'nggi 7 kunda)"
+      },
+      {
+        "flag": "-inum",
+        "desc": "Aynan ma'lum bir Inode raqamiga ega faylni topish"
+      },
+      {
+        "flag": "-exec",
+        "desc": "Topilgan har bir fayl ustida buyruq bajarish (-exec rm {} \\;)"
+      }
+    ],
+    "example": "find /var/log -type f -name '*.log' -size +10M",
+    "analogy": "Tergovchi yoki politsiyachi xizmat iti. Butun binodan berilgan belgilarga (bo'yi, kiyimi, yoshi) mos keluvchi odamni topib beradi."
+  },
+  {
+    "cmd": "locate",
+    "name": "Find Files by Name Database (Tezkor Indekslangan Qidiruv)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Diskni to'liq aylanmasdan, oldindan tuzilgan ma'lumotlar bazasi (mlocate.db) orqali faylni millisekundlarda topadi.",
+    "syntax": "locate [BAYROQLAR] NAQSH",
+    "flags": [
+      {
+        "flag": "-i",
+        "desc": "Katta-kichik harflarni farqlamaslik (ignore case)"
+      },
+      {
+        "flag": "-n",
+        "desc": "Chiqariladigan natijalar sonini cheklash (masalan: -n 5)"
+      },
+      {
+        "flag": "-c",
+        "desc": "Topilgan fayllar sonini chiqarish"
+      }
+    ],
+    "example": "locate nginx.conf\n/etc/nginx/nginx.conf\n/usr/share/doc/nginx/examples/nginx.conf",
+    "analogy": "Kutubxona katalog kartochkasi. Kitoblarni javonma-javon qidirmasdan, bazadagi ro'yxatdan bir zumda topish."
+  },
+  {
+    "cmd": "which",
+    "name": "Locate a Command Executable ($PATH Bo'ylab Qidirish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Terminalga buyruq yozilganda, $PATH muhit o'zgaruvchisidagi qaysi absolyut binary (/usr/bin/...) ishga tushishini ko'rsatadi.",
+    "syntax": "which BUYRUQ_NOMI",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "$PATH ichida topilgan barcha mos keluvchi ijrochi fayllarni chiqarish"
+      }
+    ],
+    "example": "which bash\n/usr/bin/bash",
+    "analogy": "Siz chaqirgan xodim qaysi xonada o'tirishini va qayerdan yugurib kelishini aniqlash."
+  },
+  {
+    "cmd": "whereis",
+    "name": "Locate Binary, Source, and Manual Pages (Hujjat va Dasturni Topish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Dasturning ijrochi binar fayli, manba kodi va qo'llanma (man page) sahifalari qayerda joylashganini ko'rsatadi.",
+    "syntax": "whereis [BAYROQLAR] DASTUR",
+    "flags": [
+      {
+        "flag": "-b",
+        "desc": "Faqat binary (ijro fayli) qismini qidirish"
+      },
+      {
+        "flag": "-m",
+        "desc": "Faqat man qo'llanmalari bo'limini qidirish"
+      }
+    ],
+    "example": "whereis tar\ntar: /usr/bin/tar /usr/include/tar.h /usr/share/man/man1/tar.1.gz",
+    "analogy": "Mahsulotning o'zini, pasportini va ishlab chiqaruvchi zavod manzilini birdaniga topish."
+  },
+  {
+    "cmd": "tree",
+    "name": "List Directory Contents as a Tree (Daraxtsimon Ierarxiya)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Katalog va fayllar ierarxiyasini chiroyli grafik daraxt shaklida terminalga chiqaradi.",
+    "syntax": "tree [BAYROQLAR] [MANZIL]",
+    "flags": [
+      {
+        "flag": "-L N",
+        "desc": "Daraxt chuqurligini N qavatgacha cheklash (level)"
+      },
+      {
+        "flag": "-d",
+        "desc": "Faqat papkalarni ko'rsatish, fayllarni yashirish"
+      },
+      {
+        "flag": "-a",
+        "desc": "Yashirin fayllarni ham chiqarish"
+      }
+    ],
+    "example": "tree -L 2 /home/student",
+    "analogy": "Kompaniya tashkiliy tuzilmasining shajarasi (organizational chart)."
+  },
+  {
+    "cmd": "basename",
+    "name": "Strip Directory and Suffix from Filenames (Fayl Nomini Ajratish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "To'liq yo'ldan (path) faqat faylning toza nomini ajratib oladi.",
+    "syntax": "basename YO'L [QO'SHIMCHA]",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Bir nechta argumentlarni bir vaqtda qabul qilish"
+      }
+    ],
+    "example": "basename /usr/local/bin/python3\npython3",
+    "analogy": "Odamning to'liq pasport ma'lumotidan faqat ismini ajratib aytish."
+  },
+  {
+    "cmd": "dirname",
+    "name": "Strip Last Component from File Name (Papkaning Yo'lini Olish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Fayl joylashgan ota katalogning yo'lini qaytaradi.",
+    "syntax": "dirname YO'L",
+    "flags": [],
+    "example": "dirname /etc/nginx/nginx.conf\n/etc/nginx",
+    "analogy": "Xat yuboruvchining manzilidagi xonadon raqamini olib tashlab, shahar va ko'cha nomini qoldirish."
+  },
+  {
+    "cmd": "realpath",
+    "name": "Print Resolved Absolute Path (To'liq Haqiqiy Yo'l)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Nisbiy yo'llar (../, ./) va barcha simvolik havolalarni (symlinks) haqiqiy fizik absolyut yo'lga aylantiradi.",
+    "syntax": "realpath [BAYROQLAR] YO'L",
+    "flags": [
+      {
+        "flag": "-e",
+        "desc": "Fayl mavjud bo'lishi shartligini tekshirish"
+      },
+      {
+        "flag": "-q",
+        "desc": "Xatoliklar chiqarmaslik (quiet)"
+      }
+    ],
+    "example": "realpath ../../var/log\n/var/log",
+    "analogy": "Taxallus yoki qisqartma nomning haqiqiy rasmiy yuridik nomini topish."
+  },
+  {
+    "cmd": "cat",
+    "name": "Concatenate and Display Files (Fayl Tarkibini Chiqarish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Bir yoki bir nechta fayl ichidagi matnni terminalga chiqaradi yoki ularni bir-biriga ulaydi.",
+    "syntax": "cat [BAYROQLAR] [FAYLLAR]",
+    "flags": [
+      {
+        "flag": "-n",
+        "desc": "Barcha qatorlarni 1 dan boshlab raqamlash"
+      },
+      {
+        "flag": "-b",
+        "desc": "Faqat bo'sh bo'lmagan qatorlarni raqamlash"
+      },
+      {
+        "flag": "-A",
+        "desc": "Ko'rinmas belgilarni (tab, qator oxiri $) ko'rsatish"
+      }
+    ],
+    "example": "cat /etc/issue\nDebian GNU/Linux 12 \\n \\l",
+    "analogy": "Kitob sahifasini ochib ovoz chiqarib o'qib berish."
+  },
+  {
+    "cmd": "tac",
+    "name": "Concatenate and Print in Reverse (Teskari Qatorlarda Chiqarish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Fayl qatorlarini oxirgi qatordan boshlab birinchi qatorgacha teskari tartibda chiqaradi (cat ning aksi).",
+    "syntax": "tac [FAYL]",
+    "flags": [],
+    "example": "tac /var/log/boot.log",
+    "analogy": "Gazetani eng so'nggi sahifasidan boshlab orqaga qarab o'qish."
+  },
+  {
+    "cmd": "head",
+    "name": "Output First Part of Files (Dastlabki Qatorlarni Ko'rish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Faylning boshidagi dastlabki bir necha qatorni (sukut bo'yicha 10 ta) ko'rsatadi.",
+    "syntax": "head [BAYROQLAR] FAYL",
+    "flags": [
+      {
+        "flag": "-n N",
+        "desc": "Aynan N ta dastlabki qatorni chiqarish (masalan: -n 5)"
+      },
+      {
+        "flag": "-c N",
+        "desc": "Dastlabki N ta baytni chiqarish"
+      }
+    ],
+    "example": "head -n 5 /etc/passwd",
+    "analogy": "Gazetaning bosh maqolasi va sarlavhalarini ko'zdan kechirish."
+  },
+  {
+    "cmd": "tail",
+    "name": "Output Last Part of Files (Oxirgi Qatorlar va Jonli Loglar)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Faylning oxiridagi qatorlarni chiqaradi. -f bayrog'i server loglarini jonli (real-vaqt) kuzatish uchun asosiy quroldir.",
+    "syntax": "tail [BAYROQLAR] FAYL",
+    "flags": [
+      {
+        "flag": "-n N",
+        "desc": "Oxirgi N ta qatorni chiqarish (masalan: -n 20)"
+      },
+      {
+        "flag": "-f",
+        "desc": "Faylga yangi qatorlar qo'shilganda ularni jonli ekranga chiqarib turish (follow)"
+      },
+      {
+        "flag": "-F",
+        "desc": "Fayl qayta yaratilsa (logrotate) ham kuzatishda davom etish"
+      }
+    ],
+    "example": "tail -f /var/log/nginx/access.log",
+    "analogy": "Kassadagi chek apparatini kuzatish. Har bir yangi xarid paydo bo'lishi bilan lenta pastga uzayib boradi."
+  },
+  {
+    "cmd": "less",
+    "name": "Opposite of More / Interactive Pager (Qulay Matn Ko'rgich)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Katta fayllarni xotirani to'ldirmasdan sahifama-sahifa o'qish, yuqoriga/pastga siljish va ichidan qidirish (/pattern) imkonini beradi.",
+    "syntax": "less FAYL",
+    "flags": [
+      {
+        "flag": "-N",
+        "desc": "Qator raqamlarini chiqarish"
+      },
+      {
+        "flag": "-S",
+        "desc": "Uzun qatorlarni pastga tushirmasdan kesish (chop long lines)"
+      }
+    ],
+    "example": "less /var/log/syslog",
+    "analogy": "Elektron kitob o'quvchi (Kindle). 1000 betlik kitobni varaqlash, qidirish va istalgan joyiga sakrash mumkin."
+  },
+  {
+    "cmd": "more",
+    "name": "File Page by Page Filter (Oddiy Sahifalash)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Matnni faqat oldinga qarab sahifama-sahifa chiqaruvchi sodda klassik vosita.",
+    "syntax": "more FAYL",
+    "flags": [
+      {
+        "flag": "-d",
+        "desc": "Foydalanuvchiga yordamchi tugmalar ko'rsatmasini berish"
+      }
+    ],
+    "example": "more large_text.txt",
+    "analogy": "Varaqlari faqat oldinga ochiladigan, orqaga qaytib bo'lmaydigan qadimgi qo'lyozma."
+  },
+  {
+    "cmd": "grep",
+    "name": "Global Regular Expression Print (Matn Ichidan Qidirish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Fayllar yoki quvur (pipe) ichidan berilgan so'z yoki muntazam ifoda (regex) ga mos keluvchi qatorlarni topib chiqaradi.",
+    "syntax": "grep [BAYROQLAR] 'NAQSH' [FAYL]",
+    "flags": [
+      {
+        "flag": "-i",
+        "desc": "Harflar registrini (katta/kichik) farqlamaslik (ignore case)"
+      },
+      {
+        "flag": "-v",
+        "desc": "Inversiya: mos KELMAGAN qatorlarni chiqarish (invert match)"
+      },
+      {
+        "flag": "-r, -R",
+        "desc": "Barcha ichki papkalardagi fayllarni rekursiv qidirish"
+      },
+      {
+        "flag": "-n",
+        "desc": "Mos kelgan qator raqamini ham ko'rsatish"
+      },
+      {
+        "flag": "-c",
+        "desc": "Faqat mos kelgan qatorlar sonini chiqarish"
+      },
+      {
+        "flag": "-E",
+        "desc": "Kengaytirilgan muntazam ifodalar (ERE) rejimi (egrep)"
+      },
+      {
+        "flag": "-o",
+        "desc": "Butun qatorni emas, faqat mos kelgan bo'lagini chiqarish"
+      }
+    ],
+    "example": "grep -i 'error' /var/log/syslog | grep -v 'debug'",
+    "analogy": "Lug'atdan yoki kitobdan qalam bilan kerakli so'zlarni sariq marker bilan ajratib ko'rsatish."
+  },
+  {
+    "cmd": "sed",
+    "name": "Stream Editor (Oqimli Matn Tahrirchisi)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Matn oqimi ustida qatorma-qator qidirish, almashtirish (substitute), o'chirish va o'zgartirishlarni avtomatlashtiradi.",
+    "syntax": "sed [BAYROQLAR] 'BUYRUQ' FAYL",
+    "flags": [
+      {
+        "flag": "-i",
+        "desc": "Faylni to'g'ridan-to'g'ri joyida (in-place) o'zgartirib saqlash"
+      },
+      {
+        "flag": "-e",
+        "desc": "Bir nechta sed amallarini ketma-ket bajarish"
+      },
+      {
+        "flag": "-n",
+        "desc": "Standart chiqarishni bostirish (faqat 'p' buyrug'i bilan ko'rsatish)"
+      }
+    ],
+    "example": "sed -i 's/8080/80/g' /etc/nginx/sites-available/default",
+    "analogy": "Word dasturidagi 'Topish va almashtirish' (Ctrl+H) tugmasining super-tezkor avtomatlashgan terminal versiyasi."
+  },
+  {
+    "cmd": "awk",
+    "name": "Pattern Scanning and Processing Language (Matn va Jadval Dasturlash Tili)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Matn fayllarini ustunlar (maydonlar $1, $2...) bo'yicha tahlil qilish, matematik hisob-kitoblar va hisobotlar tuzish uchun qudratli vosita.",
+    "syntax": "awk [BAYROQLAR] 'SHART {AMAL}' FAYL",
+    "flags": [
+      {
+        "flag": "-F 'AJRATUVCHI'",
+        "desc": "Ustunlar ajratuvchisini belgilash (masalan: -F ':' /etc/passwd uchun)"
+      },
+      {
+        "flag": "-v O'ZGARUVCHI=QIYMAT",
+        "desc": "Awk ichiga tashqi o'zgaruvchi uzatish"
+      }
+    ],
+    "example": "awk -F':' '{print $1, $3}' /etc/passwd",
+    "analogy": "Excel jadvalidan faqat A va C ustunlarini ajratib olib, ularning yig'indisini hisoblab beruvchi aqlli dasturchi."
+  },
+  {
+    "cmd": "cut",
+    "name": "Remove Sections from Each Line (Ustunlarni Qirqib Olish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Har bir qatordan belgilangan maydonlar (fields) yoki baytlarni qirqib ajratib oladi.",
+    "syntax": "cut [BAYROQLAR] [FAYL]",
+    "flags": [
+      {
+        "flag": "-d 'BELGI'",
+        "desc": "Maydonlar ajratuvchisini belgilash (delimiter, masalan: -d ':')"
+      },
+      {
+        "flag": "-f RO'YXAT",
+        "desc": "Aynan qaysi ustunlarni olish (masalan: -f 1,3 yoki -f 1-5)"
+      },
+      {
+        "flag": "-c RO'YXAT",
+        "desc": "Belgilar pozitsiyasi bo'yicha qirqish (characters)"
+      }
+    ],
+    "example": "cut -d: -f1 /etc/passwd",
+    "analogy": "Qaychi bilan jadvalning faqat kerakli ustunini qirqib olib, qolganini tashlab yuborish."
+  },
+  {
+    "cmd": "sort",
+    "name": "Sort Lines of Text Files (Matn Qatorlarini Tartiblash)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Matn qatorlarini alfavit yoki raqamlar bo'yicha, o'sish yoki kamayish tartibida joylashtiradi.",
+    "syntax": "sort [BAYROQLAR] [FAYL]",
+    "flags": [
+      {
+        "flag": "-n",
+        "desc": "Raqamli qiymatlar bo'yicha tartiblash (1, 2, 10 tartibida, 1, 10, 2 emas)"
+      },
+      {
+        "flag": "-r",
+        "desc": "Teskari (kamayish) tartibda saralash (reverse)"
+      },
+      {
+        "flag": "-k N",
+        "desc": "Aynan N-ustun bo'yicha saralash"
+      },
+      {
+        "flag": "-u",
+        "desc": "Faqat takrorlanmas noyob qatorlarni qoldirish (unique)"
+      }
+    ],
+    "example": "du -sh * | sort -h -r",
+    "analogy": "Talabalar ro'yxatini baholari yoki familiyalari bo'yicha alfavit tartibiga keltirish."
+  },
+  {
+    "cmd": "uniq",
+    "name": "Report or Omit Repeated Lines (Takrorlangan Qatorlarni Filtrlash)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Ketma-ket kelgan bir xil takroriy qatorlarni olib tashlaydi yoki ularning sonini hisoblaydi (ishlashdan oldin sort qilinishi kerak!).",
+    "syntax": "uniq [BAYROQLAR] [KIRISH [CHIQISH]]",
+    "flags": [
+      {
+        "flag": "-c",
+        "desc": "Har bir qator necha marta takrorlanganini hisoblab yoniga yozish (count)"
+      },
+      {
+        "flag": "-d",
+        "desc": "Faqat takrorlangan (dublikat) qatorlarni ko'rsatish"
+      },
+      {
+        "flag": "-u",
+        "desc": "Faqat mutlaqo takrorlanmagan yakka qatorlarni ko'rsatish"
+      }
+    ],
+    "example": "cat access.log | awk '{print $1}' | sort | uniq -c | sort -nr",
+    "analogy": "Bir xil tovarlardan faqat bittasini qoldirib, qolgan nusxalarini olib tashlash."
+  },
+  {
+    "cmd": "tr",
+    "name": "Translate or Delete Characters (Belgilarni Almashtirish/O'chirish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Standart kiritish oqimidagi belgilarni boshqa belgilarga almashtiradi, katta-kichik qiladi yoki o'chiradi.",
+    "syntax": "tr [BAYROQLAR] TO'PLAM1 [TO'PLAM2]",
+    "flags": [
+      {
+        "flag": "-d",
+        "desc": "TO'PLAM1 da ko'rsatilgan belgilarni butunlay o'chirib tashlash (delete)"
+      },
+      {
+        "flag": "-s",
+        "desc": "Ketma-ket takrorlangan belgilarni bittaga qisqartirish (squeeze)"
+      }
+    ],
+    "example": "echo 'hello world' | tr 'a-z' 'A-Z'\nHELLO WORLD",
+    "analogy": "Matndagi barcha nuqtalarni vergulga yoki barcha kichik harflarni bosh harfga bir zumda aylantirish."
+  },
+  {
+    "cmd": "wc",
+    "name": "Word, Line, Character, Byte Count (Hisoblagich)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Fayl yoki quvurdagi qatorlar, so'zlar, belgilar va baytlar sonini aniq hisoblaydi.",
+    "syntax": "wc [BAYROQLAR] [FAYL]",
+    "flags": [
+      {
+        "flag": "-l",
+        "desc": "Faqat qatorlar sonini chiqarish (lines) — skriptlarda eng ko'p ishlatiladi"
+      },
+      {
+        "flag": "-w",
+        "desc": "Faqat so'zlar sonini chiqarish (words)"
+      },
+      {
+        "flag": "-c",
+        "desc": "Faqat baytlar sonini chiqarish (bytes)"
+      },
+      {
+        "flag": "-m",
+        "desc": "Belgilar sonini chiqarish (characters)"
+      }
+    ],
+    "example": "ps aux | wc -l\n142",
+    "analogy": "Insho tekshirgich. Darsda talabaning necha so'z va necha qator yozganini sanab beradi."
+  },
+  {
+    "cmd": "tee",
+    "name": "Read from stdin and Write to stdout and Files (T-simon Quvur Bo'luvchi)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Buyruq natijasini bir vaqtning o'zida ham ekranga chiqaradi, ham faylga yozib qo'yadi (T-ulagich kabi).",
+    "syntax": "BUYRUQ | tee [BAYROQLAR] FAYL",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Fayl ustiga yozmasdan, uning oxiriga qo'shish (append)"
+      }
+    ],
+    "example": "echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf",
+    "analogy": "Suv quvuridagi uchlik (troynik). Suv bir vaqtda ham oshxonaga oqadi, ham hovuzga to'kiladi."
+  },
+  {
+    "cmd": "xargs",
+    "name": "Build and Execute Command Lines from stdin (Argumentlarga Aylantiruvchi)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Standart kirishdan kelgan qatorlarni bo'lib, boshqa buyruqqa parametr (argument) sifatida uzatadi.",
+    "syntax": "BUYRUQ | xargs [BAYROQLAR] BUYRUQ2",
+    "flags": [
+      {
+        "flag": "-I {}",
+        "desc": "Har bir element uchun maxsus o'rnini bosuvchi belgilash (placeholder)"
+      },
+      {
+        "flag": "-n N",
+        "desc": "Bitta chaqiriqda ko'pi bilan N ta argument uzatish"
+      },
+      {
+        "flag": "-P N",
+        "desc": "N ta parallel jarayonda ishga tushirish (tezlashtirish)"
+      }
+    ],
+    "example": "find /tmp -name '*.log' | xargs rm -f",
+    "analogy": "Katta qutidagi ro'yxatni olib, har bir buyumni qadoqlash konveyeriga birma-bir uzatib turuvchi robot."
+  },
+  {
+    "cmd": "diff",
+    "name": "Compare Files Line by Line (Farqlarni Aniqlash)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Ikki fayl orasidagi farqlarni qatorma-qator solishtirib ko'rsatadi.",
+    "syntax": "diff [BAYROQLAR] FAYL1 FAYL2",
+    "flags": [
+      {
+        "flag": "-u",
+        "desc": "Unifikatsiyalangan (Git uslubidagi) qulay ko'rinishda chiqarish"
+      },
+      {
+        "flag": "-y",
+        "desc": "Ekranni ikkiga bo'lib yonma-yon ko'rsatish (side-by-side)"
+      },
+      {
+        "flag": "-w",
+        "desc": "Barcha probel va bo'shliqlarni e'tiborsiz qoldirish"
+      }
+    ],
+    "example": "diff -u nginx.conf.old nginx.conf.new",
+    "analogy": "Ikki shartnoma nusxasini chiroqqa tutib, qaysi so'zlar o'zgarganini solishtirish."
+  },
+  {
+    "cmd": "cmp",
+    "name": "Compare Two Files Byte by Byte (Baytma-bayt Solishtirish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Ikki binar yoki matnli faylni baytma-bayt solishtiradi va ilk uchragan farqning pozitsiyasini ko'rsatadi.",
+    "syntax": "cmp [BAYROQLAR] FAYL1 FAYL2",
+    "flags": [
+      {
+        "flag": "-l",
+        "desc": "Farq qiluvchi barcha baytlar raqamini chiqarish"
+      },
+      {
+        "flag": "-s",
+        "desc": "Hech narsa chiqarmaslik, faqat chiqish kodi ($?) bilan javob berish"
+      }
+    ],
+    "example": "cmp file1.bin file2.bin",
+    "analogy": "Ikki nusxa faylning aynan bir xilligini tekshiruvchi MD5/hash nazorati kabi."
+  },
+  {
+    "cmd": "strings",
+    "name": "Find Printable Strings in Binary Files (Binar Fayldan Matn Ajratish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Ijrochi dastur, yadroli binar fayl yoki xotira dumpi ichidagi o'qilishi mumkin bo'lgan barcha matnlarni chiqaradi.",
+    "syntax": "strings [BAYROQLAR] FAYL",
+    "flags": [
+      {
+        "flag": "-n N",
+        "desc": "Kamida N ta belgidan iborat so'zlarni qidirish (sukut bo'yicha 4)"
+      }
+    ],
+    "example": "strings /usr/bin/sudo | grep 'PAM'",
+    "analogy": "Qorong'i rudadan sof oltin donachalarini ajratib oluvchi magnit."
+  },
+  {
+    "cmd": "paste",
+    "name": "Merge Lines of Files (Fayllarni Yonma-Yon Birlashtirish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Bir nechta fayl qatorlarini vertikal emas, balki gorizontal ravishda yonma-yon ulaydi.",
+    "syntax": "paste [BAYROQLAR] FAYLLAR...",
+    "flags": [
+      {
+        "flag": "-d 'BELGI'",
+        "desc": "Qatorlar orasiga qo'yiladigan ajratuvchini belgilash (masalan: -d ',')"
+      },
+      {
+        "flag": "-s",
+        "desc": "Ketma-ket bitta faylni bitta qatorga yoyish"
+      }
+    ],
+    "example": "paste names.txt phones.txt",
+    "analogy": "Ikki xil daftardagi ma'lumotlarni bitta jadvalga yonma-yon yopishtirish."
+  },
+  {
+    "cmd": "split",
+    "name": "Split a File into Pieces (Katta Faylni Bo'laklarga Bo'lish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Gigabaytlab katta fayllarni kichik qismlarga (qatorlar yoki megabaytlar bo'yicha) bo'lib beradi.",
+    "syntax": "split [BAYROQLAR] FAYL [PREFIKS]",
+    "flags": [
+      {
+        "flag": "-b N",
+        "desc": "Har bir bo'lak hajmini belgilash (masalan: -b 100M)"
+      },
+      {
+        "flag": "-l N",
+        "desc": "Har bir bo'lak qatorlar sonini belgilash (masalan: -l 1000)"
+      },
+      {
+        "flag": "-d",
+        "desc": "Harflar o'rniga raqamli suffikslardan foydalanish"
+      }
+    ],
+    "example": "split -b 50M backup.tar.gz backup_part_",
+    "analogy": "Katta yuk mashinasiga sig'magan yukni bir nechta kichik avtomobillarga taqsimlab yuklash."
+  },
+  {
+    "cmd": "chmod",
+    "name": "Change File Mode Bits (Fayl Ruxsatlarini O'zgartirish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Fayl va kataloglar ustida O'qish (r=4), Yozish (w=2) va Ijro etish (x=1) huquqlarini belgilaydi.",
+    "syntax": "chmod [BAYROQLAR] HUQUQ FAYL",
+    "flags": [
+      {
+        "flag": "-R",
+        "desc": "Rekursiv ravishda ichki barcha fayllar va papkalarga qo'llash"
+      },
+      {
+        "flag": "755",
+        "desc": "Egasi to'liq (rwx), guruh va boshqalar faqat o'qish va kirish (r-x)"
+      },
+      {
+        "flag": "644",
+        "desc": "Egasi o'qish-yozish (rw-), qolganlar faqat o'qish (r--)"
+      },
+      {
+        "flag": "777",
+        "desc": "Hamma uchun barcha ruxsatlar (xavfli!)"
+      },
+      {
+        "flag": "+x",
+        "desc": "Skriptga ijro etish huquqini qo'shish"
+      },
+      {
+        "flag": "+t",
+        "desc": "Sticky Bit o'rnatish (/tmp kabi, faqat fayl egasi o'chira oladi)"
+      }
+    ],
+    "example": "chmod 755 deploy.sh && chmod +t /srv/shared_folder",
+    "analogy": "Eshik qulfini almashtirish. 755 — uy egasiga to'liq kalit, mehmonlarga esa faqat ko'rish va o'tish ruxsati beradi."
+  },
+  {
+    "cmd": "chown",
+    "name": "Change File Owner and Group (Fayl Egasini O'zgartirish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Fayl yoki papkaning egasi (user) va guruhini (group) yangilaydi.",
+    "syntax": "chown [BAYROQLAR] FOYDALANUVCHI[:GURUH] FAYL",
+    "flags": [
+      {
+        "flag": "-R",
+        "desc": "Rekursiv ravishda papka ichidagi barcha fayllarga o'rnatish"
+      },
+      {
+        "flag": "-v",
+        "desc": "O'zgargan har bir fayl haqida ma'lumot berish"
+      }
+    ],
+    "example": "sudo chown -R www-data:www-data /var/www/html",
+    "analogy": "Mulkdorlik guvohnomasini (kadastr) yangi egasining nomiga rasmiylashtirish."
+  },
+  {
+    "cmd": "chgrp",
+    "name": "Change Group Ownership (Fayl Guruhini O'zgartirish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Faylning qaysi guruhga tegishli ekanligini o'zgartiradi.",
+    "syntax": "chgrp [BAYROQLAR] GURUH FAYL",
+    "flags": [
+      {
+        "flag": "-R",
+        "desc": "Rekursiv guruh o'zgartirish"
+      }
+    ],
+    "example": "sudo chgrp developers /opt/project",
+    "analogy": "Kompaniyadagi loyiha papkasini 'Marketing' bo'limidan 'Dasturchilar' bo'limi balansiga o'tkazish."
+  },
+  {
+    "cmd": "umask",
+    "name": "User File Creation Mask (Yangi Fayllar Maskasi)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Yangi yaratiladigan fayl va papkalardan qaysi ruxsatlar avtomatik olib tashlanishini belgilaydi (maksimal 666 va 777 dan ayriladi).",
+    "syntax": "umask [MASKA]",
+    "flags": [
+      {
+        "flag": "-S",
+        "desc": "Maskani ramziy ko'rinishda ko'rish (masalan: u=rwx,g=rx,o=rx)"
+      }
+    ],
+    "example": "umask 022\n# Yangi fayl 666-022=644 bo'ladi, papka esa 777-022=755",
+    "analogy": "Yangi tug'ilgan hujjatga davlat standarti bo'yicha sukut bo'yicha qo'yiladigan cheklovlar filtri."
+  },
+  {
+    "cmd": "useradd",
+    "name": "Create a New User (Yangi Foydalanuvchi Yaratish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Linux tizimida yangi foydalanuvchi akkauntini hosil qiladi.",
+    "syntax": "useradd [BAYROQLAR] FOYDALANUVCHI",
+    "flags": [
+      {
+        "flag": "-m",
+        "desc": "Foydalanuvchiga /home da shaxsiy uy papkasini yaratish"
+      },
+      {
+        "flag": "-s SHELL",
+        "desc": "Sukut bo'yicha shellni belgilash (masalan: -s /bin/bash)"
+      },
+      {
+        "flag": "-g GURUH",
+        "desc": "Asosiy birlamchi guruhni belgilash"
+      },
+      {
+        "flag": "-G GURUHLAR",
+        "desc": "Qo'shimcha ikkilamchi guruhlar ro'yxati (masalan: -G sudo,docker)"
+      }
+    ],
+    "example": "sudo useradd -m -s /bin/bash -G sudo devops_user",
+    "analogy": "Universitetga yangi talaba qabul qilib, unga talabalik guvohnomasi va yotoqxona xonasi ajratish."
+  },
+  {
+    "cmd": "usermod",
+    "name": "Modify a User Account (Foydalanuvchini Tahrirlash)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Mavjud foydalanuvchining guruhlari, boshlang'ich katalogi yoki shellini o'zgartiradi.",
+    "syntax": "usermod [BAYROQLAR] FOYDALANUVCHI",
+    "flags": [
+      {
+        "flag": "-aG GURUH",
+        "desc": "Eski guruhlarini o'chirmasdan yangi guruhga qo'shish (append group)"
+      },
+      {
+        "flag": "-s SHELL",
+        "desc": "Yangi standart shell tayinlash"
+      },
+      {
+        "flag": "-L",
+        "desc": "Akkauntni vaqtincha bloklash (lock)"
+      },
+      {
+        "flag": "-U",
+        "desc": "Bloklangan akkauntni ochish (unlock)"
+      }
+    ],
+    "example": "sudo usermod -aG docker student",
+    "analogy": "Xodimning lavozimini oshirish va unga yangi xonalarga kirish uchun ruxsatnomalar qo'shib berish."
+  },
+  {
+    "cmd": "userdel",
+    "name": "Delete a User Account (Foydalanuvchini O'chirish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Tizimdan foydalanuvchi hisobini o'chiradi.",
+    "syntax": "userdel [BAYROQLAR] FOYDALANUVCHI",
+    "flags": [
+      {
+        "flag": "-r",
+        "desc": "Foydalanuvchining uy papkasi (/home/user) va pochta qutisini ham o'chirish"
+      }
+    ],
+    "example": "sudo userdel -r old_user",
+    "analogy": "Ishdan bo'shatilgan xodimning profilini va uning barcha shaxsiy narsalarini tozalash."
+  },
+  {
+    "cmd": "groupadd",
+    "name": "Create a User Group (Yangi Guruh Yaratish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Tizimda foydalanuvchilarni umumiy huquqlar bilan birlashtirish uchun yangi guruh ochadi.",
+    "syntax": "groupadd [BAYROQLAR] GURUH_NOMI",
+    "flags": [
+      {
+        "flag": "-g GID",
+        "desc": "Guruhga maxsus GID raqamini belgilash"
+      }
+    ],
+    "example": "sudo groupadd devops",
+    "analogy": "Kompaniyada yangi bo'lim yoki loyiha jamoasi tashkil qilish."
+  },
+  {
+    "cmd": "passwd",
+    "name": "Change User Password (Parolni O'zgartirish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Foydalanuvchining autentifikatsiya parolini o'zgartiradi (/etc/shadow yangilanadi).",
+    "syntax": "passwd [FOYDALANUVCHI]",
+    "flags": [
+      {
+        "flag": "-l",
+        "desc": "Parolni bloklash (lock)"
+      },
+      {
+        "flag": "-u",
+        "desc": "Parolni blokdan chiqarish (unlock)"
+      },
+      {
+        "flag": "-d",
+        "desc": "Parolni butunlay olib tashlash (parolsiz kirish)"
+      }
+    ],
+    "example": "passwd\nNew password:\nRetype new password:",
+    "analogy": "Plastik karta PIN-kodini bankomatda yangilash."
+  },
+  {
+    "cmd": "su",
+    "name": "Substitute User Identity (Boshqa Foydalanuvchiga O'tish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Terminal seansida boshqa foydalanuvchi yoki root nomidan ishlash imkonini beradi.",
+    "syntax": "su [BAYROQLAR] [FOYDALANUVCHI]",
+    "flags": [
+      {
+        "flag": "-",
+        "desc": "Foydalanuvchining to'liq muhitini (environment, $PATH, $HOME) yuklab o'tish (login shell)"
+      }
+    ],
+    "example": "su - student",
+    "analogy": "Boshqa xodimning kompyuteriga uning login-paroli bilan kirib ishlash."
+  },
+  {
+    "cmd": "sudo",
+    "name": "Execute a Command as Another User / Root (Superfoydalanuvchi Huquqi)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Oddiy foydalanuvchiga /etc/sudoers qoidalari asosida root nomidan xavfsiz va audit qilinadigan buyruq bajarishga ruxsat beradi.",
+    "syntax": "sudo [BAYROQLAR] BUYRUQ",
+    "flags": [
+      {
+        "flag": "-i",
+        "desc": "Root foydalanuvchisining interaktiv login shellini ochish"
+      },
+      {
+        "flag": "-u USER",
+        "desc": "Root emas, aynan ko'rsatilgan foydalanuvchi nomidan buyruq bajarish"
+      },
+      {
+        "flag": "-l",
+        "desc": "Joriy foydalanuvchi qaysi buyruqlarni sudo orqali bajara olishini ko'rish"
+      }
+    ],
+    "example": "sudo apt update && sudo systemctl restart nginx",
+    "analogy": "Bosh direktorning maxsus muhrini vaqtincha ishlatish. Har bir harakat jurnalda (log) saqlanib qoladi."
+  },
+  {
+    "cmd": "id",
+    "name": "Print Real and Effective User and Group IDs (ID larni Ko'rish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Foydalanuvchining UID (User ID), GID (Group ID) va a'zo bo'lgan barcha guruhlarini chiqaradi.",
+    "syntax": "id [FOYDALANUVCHI]",
+    "flags": [
+      {
+        "flag": "-u",
+        "desc": "Faqat UID raqamini chiqarish"
+      },
+      {
+        "flag": "-g",
+        "desc": "Faqat asosiy GID raqamini chiqarish"
+      },
+      {
+        "flag": "-un",
+        "desc": "Raqam o'rniga foydalanuvchi nomini chiqarish"
+      }
+    ],
+    "example": "id\nuid=1000(student) gid=1000(student) groups=1000(student),27(sudo),998(docker)",
+    "analogy": "Shaxsiy pasport va viza sahifalarini tekshirish."
+  },
+  {
+    "cmd": "whoami",
+    "name": "Print Effective User ID (Men Kimman?)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Ayni daqiqada qaysi foydalanuvchi akkaunti ostida buyruqlar bajarayotganingizni aniq chiqaradi.",
+    "syntax": "whoami",
+    "flags": [],
+    "example": "whoami\nroot",
+    "analogy": "Oynaga qarab kim ekanligingizni eslash."
+  },
+  {
+    "cmd": "visudo",
+    "name": "Edit the Sudoers File Safely (Sudoers Faylini Xavfsiz Tahrirlash)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "/etc/sudoers faylini sintaktik xatolarni tekshirgan holda ochadi. Sintaksisda xato bo'lsa saqlashga qo'ymaydi, bu esa tizimdan uzilib qolishdan asraydi.",
+    "syntax": "sudo visudo",
+    "flags": [
+      {
+        "flag": "-c",
+        "desc": "Tahrirlamasdan faqat sintaksisni tekshirish (check only)"
+      }
+    ],
+    "example": "sudo visudo",
+    "analogy": "Konstitutsiyaga o'zgartirish kiritishdan oldin adliya ekspertizasidan o'tkazish."
+  },
+  {
+    "cmd": "setfacl",
+    "name": "Set File Access Control Lists (Kengaytirilgan Ruxsatlar O'rnatish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Standart Linux ruxsatlaridan (Owner/Group/Others) tashqari, ma'lum bir individual foydalanuvchiga alohida ruxsat berish imkonini beradi.",
+    "syntax": "setfacl [BAYROQLAR] AMAL FAYL",
+    "flags": [
+      {
+        "flag": "-m u:USER:rwx",
+        "desc": "Ko'rsatilgan foydalanuvchiga alohida ruxsat berish (modify)"
+      },
+      {
+        "flag": "-x u:USER",
+        "desc": "Foydalanuvchining maxsus ACL huquqini olib tashlash"
+      },
+      {
+        "flag": "-b",
+        "desc": "Barcha qo'shimcha ACL huquqlarini tozalash"
+      }
+    ],
+    "example": "setfacl -m u:ali:rw- secret_doc.txt",
+    "analogy": "Umumiy qoidalardan tashqari aynan bitta mehmon uchun shaxsiy magnit ruxsatnoma ochib berish."
+  },
+  {
+    "cmd": "getfacl",
+    "name": "Get File Access Control Lists (Kengaytirilgan Ruxsatlarni Ko'rish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Foydalanuvchilar",
+    "desc": "Faylga o'rnatilgan barcha standart va kengaytirilgan (ACL) huquqlarni batafsil ko'rsatadi.",
+    "syntax": "getfacl FAYL",
+    "flags": [],
+    "example": "getfacl secret_doc.txt",
+    "analogy": "Binoga kimlar maxsus ruxsat bilan kira olishi ro'yxatini ko'zdan kechirish."
+  },
+  {
+    "cmd": "ps",
+    "name": "Report Process Status (Jarayonlar Holati)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Tizimda ishlab turgan faol jarayonlarning PID, foydalanuvchi, CPU/Xotira sarfi va buyruq qatorini ko'rsatadi.",
+    "syntax": "ps [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "aux",
+        "desc": "BSD formati: barcha foydalanuvchilarning barcha jarayonlarini to'liq chiqarish"
+      },
+      {
+        "flag": "-ef",
+        "desc": "Standart UNIX formati: to'liq ro'yxat va ota jarayonlar (PPID)"
+      },
+      {
+        "flag": "-u USER",
+        "desc": "Faqat ko'rsatilgan foydalanuvchi jarayonlarini ko'rish"
+      }
+    ],
+    "example": "ps aux | grep nginx",
+    "analogy": "Zavoddagi barcha ishchilarning joriy holati va nima ish qilayotgani qayd etilgan tabel."
+  },
+  {
+    "cmd": "top",
+    "name": "Display Linux Processes (Jonli Tizim Monitori)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Protsessor (CPU), operativ xotira (RAM), Swap va jarayonlarning resurs iste'molini real vaqt rejimida har 3 soniyada yangilab turadi.",
+    "syntax": "top [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-d N",
+        "desc": "Yangilanish oralig'ini N soniya qilib belgilash"
+      },
+      {
+        "flag": "-u USER",
+        "desc": "Faqat ma'lum bir foydalanuvchi jarayonlarini ko'rsatish"
+      }
+    ],
+    "example": "top\n# 'q' chiqish, 'k' jarayonni o'ldirish, 'M' xotira bo'yicha saralash",
+    "analogy": "Reanimatsiya xonasidagi bemorning yurak urishi va qon bosimini real vaqtda ko'rsatib turuvchi kardiomonitor."
+  },
+  {
+    "cmd": "htop",
+    "name": "Interactive Process Viewer (Zamonaviy Rangli Monitor)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Top ning zamonaviy, rangli, klaviatura va sichqoncha bilan boshqariladigan, yadrolar sarfini alohida ko'rsatuvchi interaktiv varianti.",
+    "syntax": "htop",
+    "flags": [],
+    "example": "htop",
+    "analogy": "Oddiy qora-oq spidometr o'rniga o'rnatilgan zamonaviy rangli Tesla raqamli boshqaruv paneli."
+  },
+  {
+    "cmd": "kill",
+    "name": "Send a Signal to a Process (Jarayonga Signal Yuborish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Jarayonga uning PID raqami orqali POSIX signallarini yuboradi (masalan: to'xtatish, qayta yuklash yoki o'ldirish).",
+    "syntax": "kill [-SIGNAL] PID",
+    "flags": [
+      {
+        "flag": "-15 (SIGTERM)",
+        "desc": "Yumshoq to'xtatish (jarayonga o'z ishini saqlab toza yopilish imkoni beriladi)"
+      },
+      {
+        "flag": "-9 (SIGKILL)",
+        "desc": "Majburiy o'ldirish (yadro darajasida darhol to'xtatiladi, inkor qilib bo'lmaydi)"
+      },
+      {
+        "flag": "-1 (SIGHUP)",
+        "desc": "Konfiguratsiyani qayta yuklash (reload)"
+      },
+      {
+        "flag": "-l",
+        "desc": "Barcha mavjud signallar ro'yxatini chiqarish"
+      }
+    ],
+    "example": "kill -15 1420\nkill -9 9999",
+    "analogy": "SIGTERM — xodimga 'ish vaqting tugadi, buyumlaringni yig'ishtirib ketaver' deyish. SIGKILL — xavfsizlik xizmati kelib xodimni ushlab tashqariga chiqarib yuborishi."
+  },
+  {
+    "cmd": "killall",
+    "name": "Kill Processes by Name (Nomi Bo'yicha Barchasini O'ldirish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "PID qidirmasdan, bir xil nomdagi barcha jarayonlarni bitta buyruq bilan to'xtatadi.",
+    "syntax": "killall [BAYROQLAR] JARAYON_NOMI",
+    "flags": [
+      {
+        "flag": "-9",
+        "desc": "Majburiy SIGKILL signali bilan o'ldirish"
+      },
+      {
+        "flag": "-u USER",
+        "desc": "Faqat ko'rsatilgan foydalanuvchiga tegishli jarayonlarni o'ldirish"
+      }
+    ],
+    "example": "sudo killall -9 firefox",
+    "analogy": "Barcha xonalardagi chiroqlarni bitta umumiy rubilnik orqali o'chirib qo'yish."
+  },
+  {
+    "cmd": "pkill",
+    "name": "Signal Processes Based on Name (Naqsh Bo'yicha Signal Yuborish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Jarayon nomining bir qismi yoki naqsh bo'yicha mos keluvchilarga signal yuboradi.",
+    "syntax": "pkill [BAYROQLAR] NAQSH",
+    "flags": [
+      {
+        "flag": "-f",
+        "desc": "Faqat jarayon nomini emas, butun buyruq qatorini (command line) tekshirish"
+      },
+      {
+        "flag": "-u USER",
+        "desc": "Aynan ma'lum bir foydalanuvchi nomini cheklash"
+      }
+    ],
+    "example": "pkill -f 'python3 server.py'",
+    "analogy": "Ismida 'Alisher' degan so'z bor barcha talabalarni chaqirib olish."
+  },
+  {
+    "cmd": "pgrep",
+    "name": "Look up Processes Based on Name (Jarayon PID larini Topish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Nomiga ko'ra ishlab turgan jarayonlarning faqat PID raqamlarini chiqaradi (skriptlar uchun ayni muddao).",
+    "syntax": "pgrep [BAYROQLAR] NAQSH",
+    "flags": [
+      {
+        "flag": "-l",
+        "desc": "PID yonida jarayon nomini ham ko'rsatish"
+      },
+      {
+        "flag": "-a",
+        "desc": "To'liq buyruq qatorini ham chiqarish"
+      }
+    ],
+    "example": "pgrep -l sshd\n824 sshd",
+    "analogy": "Kutubxonadagi kitobning faqat inventar raqamini tezkor topib olish."
+  },
+  {
+    "cmd": "nice",
+    "name": "Run with Modified Scheduling Priority (Prioritet Bilan Boshlash)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Jarayonni maxsus ustuvorlik (nice qiymati -20 dan +19 gacha) bilan ishga tushiradi. Yuqori musbat son — tizimga 'muloyim' (kam CPU oladi), manfiy son — agressiv (ko'p CPU oladi).",
+    "syntax": "nice -n QIYMAT BUYRUQ",
+    "flags": [
+      {
+        "flag": "-n 19",
+        "desc": "Eng past ustuvorlik (orqa fonda kompyuterni qotirmasdan ishlash)"
+      },
+      {
+        "flag": "-n -10",
+        "desc": "Yuqori ustuvorlik (faqat root ruxsat bera oladi)"
+      }
+    ],
+    "example": "nice -n 15 tar -czf backup.tar.gz /var/www",
+    "analogy": "Navbatda turgan odamning 'Men shoshmayapman, bemalol boshqalarni o'tkazavering' deb muloyimlik (nice) qilishi."
+  },
+  {
+    "cmd": "renice",
+    "name": "Alter Priority of Running Processes (Ishlab Turgan Jarayon Prioritetini O'zgartirish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Ayni vaqtda ishlab turgan jarayonning nice qiymatini o'zgartiradi.",
+    "syntax": "renice QIYMAT -p PID",
+    "flags": [
+      {
+        "flag": "-u USER",
+        "desc": "Foydalanuvchining barcha jarayonlari prioritetini o'zgartirish"
+      }
+    ],
+    "example": "sudo renice -n 5 -p 1420",
+    "analogy": "Ishlab turgan ishchiga qo'shimcha vazifa yuklab yoki uning yuklamasini kamaytirib berish."
+  },
+  {
+    "cmd": "nohup",
+    "name": "Run a Command Immune to Hangups (Terminal Yopilganda Ham Ishlab Turish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Terminal yopilganda yuboriladigan SIGHUP signalini e'tiborsiz qoldirib, dasturning orqa fonda to'xtamasdan ishlashini ta'minlaydi.",
+    "syntax": "nohup BUYRUQ &",
+    "flags": [],
+    "example": "nohup python3 long_train.py > train.log 2>&1 &",
+    "analogy": "Telefon qo'ng'irog'i uzilsa ham, o'z ishini tugatmaguncha to'xtamaydigan mustaqil robot."
+  },
+  {
+    "cmd": "bg",
+    "name": "Send Jobs to Background (Jarayonni Orqa Fonga O'tkazish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Ctrl+Z bilan to'xtatilgan (suspended) jarayonni terminalni band qilmasdan fonda ishlashini davom ettiradi.",
+    "syntax": "bg [%JOB_ID]",
+    "flags": [],
+    "example": "# Ctrl+Z bosilgach:\nbg %1",
+    "analogy": "Ishni stoldan olib, orqa fondagi xodimning javoniga qo'yish."
+  },
+  {
+    "cmd": "fg",
+    "name": "Bring Job to Foreground (Jarayonni Old Fonga Qaytarish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Orqa fonda ishlayotgan jarayonni qaytadan faol terminal boshqaruviga olib chiqadi.",
+    "syntax": "fg [%JOB_ID]",
+    "flags": [],
+    "example": "fg %1",
+    "analogy": "Javonda turgan ishni yana oldingizga olib kelib, qo'lda davom ettirish."
+  },
+  {
+    "cmd": "jobs",
+    "name": "List Active Jobs (Joriy Terminal Vazifalarini Ko'rish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Ayni terminal seansida orqa fonda (bg) yoki to'xtatib turilgan (stopped) topshiriqlar ro'yxatini ko'rsatadi.",
+    "syntax": "jobs [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-l",
+        "desc": "Topshiriq raqami yonida uning haqiqiy PID raqamini ham ko'rsatish"
+      }
+    ],
+    "example": "jobs -l\n[1]+ 14205 Running python3 bot.py &",
+    "analogy": "Bitta ustaning bir vaqtda bajarayotgan buyurtmalari ro'yxati."
+  },
+  {
+    "cmd": "pstree",
+    "name": "Display a Tree of Processes (Ota-Bola Jarayonlar Shajarasi)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Jarayonlarning ota (PPID) va bola munosabatlarini daraxt ko'rinishida ko'rsatadi (systemd barcha jarayonlarning bobosi ekanini ko'rish mumkin).",
+    "syntax": "pstree [BAYROQLAR] [PID/USER]",
+    "flags": [
+      {
+        "flag": "-p",
+        "desc": "Har bir jarayon nomi yonida uning PID raqamini ko'rsatish"
+      },
+      {
+        "flag": "-u",
+        "desc": "Foydalanuvchi o'zgargan nuqtalarni ko'rsatish"
+      }
+    ],
+    "example": "pstree -p",
+    "analogy": "Oila shajarasi (bobosi systemd, ota bash, farzandlari esa cat, grep...)."
+  },
+  {
+    "cmd": "fork",
+    "name": "Fork System Call (Jarayon Klonlash / Nusxa Yaratish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Operatsion tizim yadrosiga (kernel) murojaat qilib, joriy jarayonning xotiradagi aynan 100% nusxasini (bola jarayon) hosil qiladi. Ota jarayonga bolaning PID raqami, bola jarayonga esa 0 qaytadi.",
+    "syntax": "pid_t pid = fork();",
+    "flags": [
+      {
+        "flag": "pid > 0",
+        "desc": "Ota jarayon kodi bajarilmoqda (pid - bola jarayon raqami)"
+      },
+      {
+        "flag": "pid == 0",
+        "desc": "Yangi tug'ilgan bola jarayon kodi bajarilmoqda"
+      },
+      {
+        "flag": "pid < 0",
+        "desc": "Xatolik! Yangi jarayon yaratish uchun xotira yetmadi"
+      }
+    ],
+    "example": "int pid = fork();\nif (pid == 0) {\n    printf(\"Men bola jarayonman!\\n\");\n} else {\n    printf(\"Men otaman, bolam PID: %d\\n\", pid);\n}",
+    "analogy": "Hujayraning mitoz bo'linishi. Bitta tirik organizmdan aynan bir xil xususiyatga ega ikkinchi mustaqil organizm ajralib chiqadi."
+  },
+  {
+    "cmd": "execve",
+    "name": "Execute Program System Call (Xotiradagi Dasturni Almashtirish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Joriy jarayon xotirasini butunlay tozalab, uning o'rniga yangi binar dasturni yuklaydi va ishga tushiradi (PID o'zgarmaydi!).",
+    "syntax": "int execve(const char *pathname, char *const argv[], char *const envp[]);",
+    "flags": [],
+    "example": "char *args[] = {\"/bin/ls\", \"-l\", NULL};\nexecve(args[0], args, NULL);",
+    "analogy": "Kostyum-shim kiygan odamning bir zumda shifokor xalatini kiyib, butunlay yangi kasb vazifasiga kirishishi. Odamning o'zi (PID) o'zgarmaydi."
+  },
+  {
+    "cmd": "waitpid",
+    "name": "Wait for Process State Change (Bola Jarayonni Kutish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Ota jarayon bola jarayon o'z ishini tugatguncha (exit bo'lguncha) to'xtab kutib turadi va uning chiqish kodini (status) qabul qiladi. Bu 'Zombie' jarayonlar hosil bo'lishining oldini oladi.",
+    "syntax": "pid_t waitpid(pid_t pid, int *status, int options);",
+    "flags": [
+      {
+        "flag": "WNOHANG",
+        "desc": "Bola hali tugamagan bo'lsa otani qotirmasdan darhol qaytish"
+      }
+    ],
+    "example": "waitpid(child_pid, &status, 0);",
+    "analogy": "Maktab darvozasida farzandining darslari tugashini kutib turgan ota."
+  },
+  {
+    "cmd": "pipe",
+    "name": "Create Interprocess Communication Channel (Quvur Tizim Chaqirig'i)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Ikki jarayon orasida bir yo'nalishli ma'lumot almashish (IPC) uchun xotirada quvur ochadi (fd[0] o'qish uchun, fd[1] yozish uchun).",
+    "syntax": "int pipe(int pipefd[2]);",
+    "flags": [],
+    "example": "int fd[2];\npipe(fd);\n// fd[1] ga yoziladi, fd[0] dan o'qiladi",
+    "analogy": "Ikki xona orasiga o'rnatilgan pnevmatik quvur. Birinchi xona xatni solsa, ikkinchi xona qabul qilib oladi."
+  },
+  {
+    "cmd": "strace",
+    "name": "Trace System Calls and Signals (Tizim Chaqiriqlarini Kuzatish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Dastur ishlayotganda uning Linux yadrosiga qilayotgan barcha tizim chaqiriqlarini (open, read, write, connect, fork) real vaqtda ko'rsatadi.",
+    "syntax": "strace [BAYROQLAR] DASTUR",
+    "flags": [
+      {
+        "flag": "-e trace=open,read",
+        "desc": "Faqat ma'lum turdagi tizim chaqiriqlarini filtrlab ko'rsatish"
+      },
+      {
+        "flag": "-p PID",
+        "desc": "Ishlab turgan begona jarayonga ulanib uning qo'ng'iroqlarini kuzatish"
+      },
+      {
+        "flag": "-c",
+        "desc": "Chaqiriqlar soni va vaqti bo'yicha yakuniy statistik jadval chiqarish"
+      }
+    ],
+    "example": "strace -e trace=openat ls /tmp",
+    "analogy": "Telefon tarmog'idagi barcha suhbatlar va qo'ng'iroqlarni yozib oluvchi xavfsizlik filtri."
+  },
+  {
+    "cmd": "dmesg",
+    "name": "Print Kernel Ring Buffer (Yadro Xabarlarini O'qish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Linux yadrosi yuklanishi (boot), uskunalar (HDD, USB, RAM) aniqlanishi va OOM (Out of Memory) xatoliklari tarixini ko'rsatadi.",
+    "syntax": "dmesg [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-T",
+        "desc": "Vaqt tamg'alarini inson tushunadigan sana ko'rinishida chiqarish"
+      },
+      {
+        "flag": "-l err,warn",
+        "desc": "Faqat jiddiy xato va ogohlantirishlarni filtrlash"
+      },
+      {
+        "flag": "-w",
+        "desc": "Yangi kelgan yadro xabarlarini jonli kuzatib turish"
+      }
+    ],
+    "example": "dmesg -T | grep -i 'oom-killer'",
+    "analogy": "Samolyotning 'qora qutisi'. Tizimda qanday uskunaviy muammo yoki yadroning halokati yuz berganini ochib beradi."
+  },
+  {
+    "cmd": "uname",
+    "name": "Print System Information (Yadro va OT Ma'lumotlari)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Linux yadrosi versiyasi, protsessor arxitekturasi (x86_64, aarch64) va operatsion tizim nomini ko'rsatadi.",
+    "syntax": "uname [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Barcha ma'lumotlarni to'liq chiqarish (all)"
+      },
+      {
+        "flag": "-r",
+        "desc": "Faqat Linux yadrosi versiyasini chiqarish (kernel release)"
+      },
+      {
+        "flag": "-m",
+        "desc": "Mashina arxitekturasini chiqarish (masalan: x86_64)"
+      }
+    ],
+    "example": "uname -a\nLinux debian 6.1.0-18-amd64 #1 SMP x86_64 GNU/Linux",
+    "analogy": "Avtomobilning texnik pasportini ko'zdan kechirish (motor turi, ishlab chiqarilgan yili)."
+  },
+  {
+    "cmd": "free",
+    "name": "Display Amount of Free and Used Memory (Operativ Xotira Holati)",
+    "cat": "mem",
+    "catName": "Xotira & Swap",
+    "desc": "Tizimdagi umumiy, ishlatilayotgan, bo'sh, buferlangan va keshdagi operativ xotira (RAM) hamda Swap hajmini ko'rsatadi.",
+    "syntax": "free [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-h",
+        "desc": "Inson tushunadigan formatda (GB, MB) chiqarish (human-readable)"
+      },
+      {
+        "flag": "-m",
+        "desc": "Megabaytlarda chiqarish"
+      },
+      {
+        "flag": "-s N",
+        "desc": "Har N soniyada yangilab turish"
+      }
+    ],
+    "example": "free -h\n               total        used        free      shared  buff/cache   available\nMem:           15Gi       3.2Gi       8.4Gi       210Mi       3.8Gi        11Gi\nSwap:         2.0Gi          0B       2.0Gi",
+    "analogy": "Katta ombordagi bo'sh javonlar va band javonlarni ko'zdan kechirish."
+  },
+  {
+    "cmd": "vmstat",
+    "name": "Report Virtual Memory Statistics (Virtual Xotira Tahlili)",
+    "cat": "mem",
+    "catName": "Xotira & Swap",
+    "desc": "Jarayonlar navbati, xotira, paging, swap kirish/chiqishi (si, so), disk I/O va CPU faolligi bo'yicha to'liq hisobot beradi.",
+    "syntax": "vmstat [ORALIK [SONI]]",
+    "flags": [
+      {
+        "flag": "-s",
+        "desc": "Barcha xotira hodisalari bo'yicha jami hisoblagichlarni chiqarish"
+      },
+      {
+        "flag": "-d",
+        "desc": "Disk faolligi statistikasini alohida chiqarish"
+      }
+    ],
+    "example": "vmstat 2 5",
+    "analogy": "Tizimning pulsini tekshiruvchi tibbiy stetoskop. Swap operatsiyalari ko'paygan bo'lsa, xotira yetishmayotganini fosh qiladi."
+  },
+  {
+    "cmd": "pmap",
+    "name": "Report Memory Map of a Process (Jarayon Xotira Xaritasi)",
+    "cat": "mem",
+    "catName": "Xotira & Swap",
+    "desc": "Ma'lum bir jarayon qaysi virtual xotira manzillarini, kutubxonalarni (so) va stack/heap ni egallab turganini ko'rsatadi.",
+    "syntax": "pmap [BAYROQLAR] PID",
+    "flags": [
+      {
+        "flag": "-x",
+        "desc": "Kengaytirilgan format: RSS (fizik xotira) va Dirty xotirani ham ko'rsatish"
+      }
+    ],
+    "example": "pmap -x 1420",
+    "analogy": "Bino ichidagi qaysi xonalarni qaysi bo'limlar egallab turganining aniq chizmasi."
+  },
+  {
+    "cmd": "swapon",
+    "name": "Enable Devices and Files for Paging (Swap Qismini Faollashtirish)",
+    "cat": "mem",
+    "catName": "Xotira & Swap",
+    "desc": "Diskdagi maxsus bo'lim yoki faylni virtual xotira (Swap) sifatida ishga tushiradi.",
+    "syntax": "sudo swapon [BAYROQLAR] QURILMA/FAYL",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "/etc/fstab dagi barcha belgilangan Swap bo'limlarini yoqish"
+      },
+      {
+        "flag": "--show",
+        "desc": "Faol Swap bo'limlari ro'yxati va ularning bandligini jadval ko'rinishida ko'rsatish"
+      }
+    ],
+    "example": "sudo swapon /swapfile && swapon --show",
+    "analogy": "Asosiy omborda joy tugaganda, qo'shni qo'shimcha yerto'lani zaxira ombor sifatida ishga tushirish."
+  },
+  {
+    "cmd": "swapoff",
+    "name": "Disable Devices and Files for Paging (Swapni O'chirish)",
+    "cat": "mem",
+    "catName": "Xotira & Swap",
+    "desc": "Swap xotirasidagi ma'lumotlarni qayta RAM ga ko'chirib, swap maydonini xavfsiz to'xtatadi.",
+    "syntax": "sudo swapoff -a",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Barcha faol Swap bo'limlarini o'chirish"
+      }
+    ],
+    "example": "sudo swapoff -a",
+    "analogy": "Zaxira yerto'ladagi barcha qutilarni qaytarib asosiy zalga kiritish va yerto'la eshigini qulflash."
+  },
+  {
+    "cmd": "sync",
+    "name": "Synchronize Cached Writes to Persistent Storage (Xotirani Diskka Yozish)",
+    "cat": "mem",
+    "catName": "Xotira & Swap",
+    "desc": "Operativ xotira (RAM) buferida qolib ketgan barcha ma'lumotlarni zudlik bilan qattiq diskka yozilishini majburiy ta'minlaydi.",
+    "syntax": "sync",
+    "flags": [],
+    "example": "sync",
+    "analogy": "Word da yozayotgan maqolangizni chiroq o'chib qolishidan oldin darhol Ctrl+S qilib fleshkaga saqlab olish."
+  },
+  {
+    "cmd": "slabtop",
+    "name": "Display Kernel Slab Cache Information in Real Time (Yadro Keshini Ko'rish)",
+    "cat": "mem",
+    "catName": "Xotira & Swap",
+    "desc": "Linux yadrosining ichki obyektlari (inodelar, dentry keshlari) qancha operativ xotira yeyayotganini real vaqtda ko'rsatadi.",
+    "syntax": "sudo slabtop",
+    "flags": [],
+    "example": "sudo slabtop -s c",
+    "analogy": "Zavod ma'muriyatining qog'ozbozlik va ichki blankalari qancha javonni egallab yotganini taftish qilish."
+  },
+  {
+    "cmd": "df",
+    "name": "Report File System Disk Space Usage (Disk Hajmi va Inodelar)",
+    "cat": "disk",
+    "catName": "Disk & Fayl Tizimlari",
+    "desc": "Ulangan barcha disk bo'limlarining umumiy hajmi, ishlatilgani, bo'sh joyi va Inodelar sonini (%i) chiqaradi.",
+    "syntax": "df [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-h",
+        "desc": "Inson tushunadigan formatda (GB, MB) chiqarish"
+      },
+      {
+        "flag": "-i",
+        "desc": "Bo'sh baytlarni emas, balki erkin Inodelar sonini tekshirish (juda muhim!)"
+      },
+      {
+        "flag": "-T",
+        "desc": "Fayl tizimi turini ham (ext4, xfs, btrfs) ko'rsatish"
+      }
+    ],
+    "example": "df -hT\n/dev/sda1      ext4       40G   12G   26G  32% /",
+    "analogy": "Fleshkangizda yoki qattiq diskingizda qancha bo'sh joy qolganini ko'rsatuvchi xususiyatlar oynasi."
+  },
+  {
+    "cmd": "du",
+    "name": "Estimate File Space Usage (Papka va Fayllar Hajmini O'lchash)",
+    "cat": "disk",
+    "catName": "Disk & Fayl Tizimlari",
+    "desc": "Qaysi papka yoki fayl diskda eng ko'p joy egallayotganini chuqur tahlil qiladi.",
+    "syntax": "du [BAYROQLAR] [MANZIL]",
+    "flags": [
+      {
+        "flag": "-s",
+        "desc": "Faqat umumiy yig'indi hajmni chiqarish (summary)"
+      },
+      {
+        "flag": "-h",
+        "desc": "O'qish oson bo'lgan birliklarda (K, M, G) ko'rsatish"
+      },
+      {
+        "flag": "-d N",
+        "desc": "Papkalar chuqurligini N qavatgacha cheklash (max-depth)"
+      }
+    ],
+    "example": "du -sh /var/log/* | sort -hr | head -n 5",
+    "analogy": "Qaysi xonada eng ko'p eski buyumlar yig'ilib qolganini tarozi bilan o'lchab chiqish."
+  },
+  {
+    "cmd": "mount",
+    "name": "Mount a File System (Fayl Tizimini Ulash)",
+    "cat": "disk",
+    "catName": "Disk & Fayl Tizimlari",
+    "desc": "Disk bo'limi, fleshka, ISO obrazi yoki tarmoq diskini tizimdagi ma'lum bir papkaga (mount point) ulaydi.",
+    "syntax": "sudo mount [BAYROQLAR] QURILMA PAPKA",
+    "flags": [
+      {
+        "flag": "-t TUR",
+        "desc": "Fayl tizimi turini ko'rsatish (ext4, ntfs, iso9660, nfs)"
+      },
+      {
+        "flag": "-o VARIANTLAR",
+        "desc": "Qo'shimcha parametrlar (ro=faqat o'qish, rw=o'qish-yozish, noexec)"
+      }
+    ],
+    "example": "sudo mount /dev/sdb1 /mnt/usb_drive",
+    "analogy": "Tashqi fleshkani kompyuter portiga tiqib, uning tarkibini bitta jild sifatida ochish."
+  },
+  {
+    "cmd": "umount",
+    "name": "Unmount File Systems (Fayl Tizimini Xavfsiz Uzish)",
+    "cat": "disk",
+    "catName": "Disk & Fayl Tizimlari",
+    "desc": "Ulab qo'yilgan disk bo'limi yoki fleshkani keshdagi ma'lumotlarni saqlab, xavfsiz uzadi.",
+    "syntax": "sudo umount [BAYROQLAR] PAPKA_YOKI_QURILMA",
+    "flags": [
+      {
+        "flag": "-l",
+        "desc": "Band bo'lsa ham fon rejimida darhol xavfsiz uzish (lazy unmount)"
+      },
+      {
+        "flag": "-f",
+        "desc": "Tarmoq diski javob bermay qotganda majburiy uzish (force)"
+      }
+    ],
+    "example": "sudo umount /mnt/usb_drive",
+    "analogy": "Fleshkani sug'urib olishdan oldin Windowsda 'Xavfsiz chiqarish' tugmasini bosish."
+  },
+  {
+    "cmd": "lsblk",
+    "name": "List Block Devices (Blok Qurilmalari va Disk Bo'limlari)",
+    "cat": "disk",
+    "catName": "Disk & Fayl Tizimlari",
+    "desc": "Kompyuterga ulangan barcha qattiq disklar (sda, nvme0n1), ularning bo'limlari (sda1, sda2) va ulangan nuqtalarini shajara shaklida ko'rsatadi.",
+    "syntax": "lsblk [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-f",
+        "desc": "Fayl tizimi turlari (FSTYPE) va UUID raqamlarini ham ko'rsatish"
+      },
+      {
+        "flag": "-m",
+        "desc": "Ruxsatlar va egalik huquqlari bilan chiqarish"
+      }
+    ],
+    "example": "lsblk -f",
+    "analogy": "Kompyuterning qornini ochib, qaysi qattiq disk qaysi kabel orqali qayerga ulanganini ko'rsatuvchi sxema."
+  },
+  {
+    "cmd": "fdisk",
+    "name": "Manipulate Disk Partition Table (Disk Bo'limlari Ustasi)",
+    "cat": "disk",
+    "catName": "Disk & Fayl Tizimlari",
+    "desc": "MBR va GPT formatdagi qattiq disklarni bo'laklarga ajratish, o'chirish va yangi bo'limlar ochish uchun interaktiv vosita.",
+    "syntax": "sudo fdisk [BAYROQLAR] QURILMA",
+    "flags": [
+      {
+        "flag": "-l",
+        "desc": "Tizimdagi barcha disklar va ularning bo'limlar jadvalini chiqarish"
+      }
+    ],
+    "example": "sudo fdisk -l /dev/sda",
+    "analogy": "Yangi sotib olingan bo'sh yer uchastkasini kadastr bo'yicha devorlar bilan xonalarga bo'lib chiqish."
+  },
+  {
+    "cmd": "mkfs",
+    "name": "Build a Linux File System (Formatlash va Fayl Tizimi Yaratish)",
+    "cat": "disk",
+    "catName": "Disk & Fayl Tizimlari",
+    "desc": "Bo'sh disk qismiga ext4, xfs, vfat kabi fayl tizimi tuzilmasini, Inode jadvallarini yozadi (formatlaydi).",
+    "syntax": "sudo mkfs [BAYROQLAR] QURILMA",
+    "flags": [
+      {
+        "flag": "-t ext4",
+        "desc": "ext4 fayl tizimini yaratish"
+      },
+      {
+        "flag": "-t vfat",
+        "desc": "Barcha tizimlar (Windows/Mac/Linux) tushunadigan FAT formatlash"
+      }
+    ],
+    "example": "sudo mkfs.ext4 /dev/sdb1",
+    "analogy": "Bo'sh daftarga kataklar, chiziqlar va bet raqamlarini chizib chiqish (formatlash)."
+  },
+  {
+    "cmd": "fsck",
+    "name": "Check and Repair a Linux File System (Fayl Tizimini Tekshirish va Davolash)",
+    "cat": "disk",
+    "catName": "Disk & Fayl Tizimlari",
+    "desc": "Diskdagi Inodelar buzilishi, bloklarning noto'g'ri ko'rsatkichlari va tizim to'satdan o'chgandagi xatoliklarni tekshiradi va tuzatadi.",
+    "syntax": "sudo fsck [BAYROQLAR] QURILMA",
+    "flags": [
+      {
+        "flag": "-y",
+        "desc": "Barcha tuzatish savollariga avtomatik 'Ha' deb javob berish"
+      },
+      {
+        "flag": "-f",
+        "desc": "Fayl tizimi toza deb belgilangan bo'lsa ham majburiy tekshirish"
+      }
+    ],
+    "example": "sudo fsck -y /dev/sdb1",
+    "analogy": "Kasal bo'lgan diskni rentgen apparatiga solib, singan suyaklarini to'g'irlab qo'yuvchi jarroh."
+  },
+  {
+    "cmd": "dd",
+    "name": "Convert and Copy a File (Past Darajali Baytma-Bayt Nusxalash)",
+    "cat": "disk",
+    "catName": "Disk & Fayl Tizimlari",
+    "desc": "Fayllar va disk bloklarini to'g'ridan-to'g'ri baytma-bayt o'qiydi va yozadi (Bootable USB yasash, zaxira nusxa olish va disk klonlash quroli).",
+    "syntax": "dd if=MANBA of=NISHON [PARAMETRLAR]",
+    "flags": [
+      {
+        "flag": "if=FILE",
+        "desc": "Kirish manbasi (Input File, masalan: if=debian.iso)"
+      },
+      {
+        "flag": "of=DEVICE",
+        "desc": "Chiqish qurilmasi (Output File, masalan: of=/dev/sdc)"
+      },
+      {
+        "flag": "bs=4M",
+        "desc": "Bitta blok hajmini 4MB qilib belgilash (tezlikni oshiradi)"
+      },
+      {
+        "flag": "status=progress",
+        "desc": "Nusxalanish jarayonini jonli ko'rsatib turish"
+      }
+    ],
+    "example": "sudo dd if=linux.iso of=/dev/sdb bs=4M status=progress && sync",
+    "analogy": "Kitobni harfma-harf emas, butun bir varoqni fotokopiya qilib aynan bir xil qilib ko'chirish."
+  },
+  {
+    "cmd": "ip",
+    "name": "Show / Manipulate Routing, Devices, Interfaces (Tarmoq Boshqaruvi)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Zamonaviy Linux tarmoq boshqaruv vositasi (ifconfig o'rnini bosuvchi). IP manzillar, interfeyslar va marshrutlarni boshqaradi.",
+    "syntax": "ip [OBYEKT] [BUYRUQ]",
+    "flags": [
+      {
+        "flag": "a / addr",
+        "desc": "Barcha interfeyslarning IP manzillarini ko'rsatish"
+      },
+      {
+        "flag": "r / route",
+        "desc": "Standart shlyuz (gateway) va yo'nalishlar jadvalini ko'rish"
+      },
+      {
+        "flag": "link set dev UP/DOWN",
+        "desc": "Tarmoq kartasini yoqish yoki o'chirish"
+      }
+    ],
+    "example": "ip a\nip route show",
+    "analogy": "Xonadondagi barcha telefon raqamlari va internet kabellari holatini tekshirish."
+  },
+  {
+    "cmd": "ping",
+    "name": "Send ICMP ECHO_REQUEST to Network Hosts (Aloqani Tekshirish)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Tarmoqdagi server bilan aloqa borligini va ma'lumot yetib borish vaqtini (latency millisekundlarda) tekshiradi.",
+    "syntax": "ping [BAYROQLAR] MANZIL",
+    "flags": [
+      {
+        "flag": "-c N",
+        "desc": "N ta so'rov yuborgandan so'ng to'xtash (Linuxda to'xtovsiz ketadi)"
+      },
+      {
+        "flag": "-i SEK",
+        "desc": "So'rovlar orasidagi tanaffus vaqti"
+      }
+    ],
+    "example": "ping -c 4 8.8.8.8",
+    "analogy": "Qorong'i xonada kimdir bormi deb ovoz chiqarish va aks-sado qaytib kelishini kutish."
+  },
+  {
+    "cmd": "ss",
+    "name": "Socket Statistics (Ochiq Portlar va Ulanishlar)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Serverda qaysi portlar tinglayotganini (listening) va qaysi mijozlar ulanganini tezkor ko'rsatadi (netstat o'rniga).",
+    "syntax": "ss [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-t",
+        "desc": "Faqat TCP ulanishlarni ko'rsatish"
+      },
+      {
+        "flag": "-u",
+        "desc": "Faqat UDP ulanishlarni ko'rsatish"
+      },
+      {
+        "flag": "-l",
+        "desc": "Faqat tinglayotgan (listening) ochiq portlarni ko'rsatish"
+      },
+      {
+        "flag": "-n",
+        "desc": "Nomlar emas, raqamli portlarni ko'rsatish (masalan: 80, 443, 22)"
+      },
+      {
+        "flag": "-p",
+        "desc": "Qaysi jarayon (PID va dastur) portni ushlab turganini ko'rsatish"
+      }
+    ],
+    "example": "sudo ss -tulpn",
+    "analogy": "Mehmonxonadagi barcha eshiklarning (portlar) qaysi biri ochiqligi va ichida kimlar borligini ko'zdan kechirish."
+  },
+  {
+    "cmd": "netstat",
+    "name": "Network Statistics (Klassik Tarmoq Monitori)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Tarmoq ulanishlari, marshrut jadvallari va interfeys statistikalarini ko'rsatuvchi klassik vosita.",
+    "syntax": "netstat [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-tulpn",
+        "desc": "TCP, UDP, tinglovchi portlar, raqamlar va jarayonlar"
+      }
+    ],
+    "example": "netstat -rn",
+    "analogy": "Eski uslubdagi telefon stansiyasi jurnali."
+  },
+  {
+    "cmd": "curl",
+    "name": "Transfer Data from or to a Server (HTTP / API So'rovlar)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Terminaldan turib veb-sahifalar, REST API larga HTTP GET, POST, PUT so'rovlar yuborish va fayllar yuklab olish vositasi.",
+    "syntax": "curl [BAYROQLAR] URL",
+    "flags": [
+      {
+        "flag": "-I",
+        "desc": "Faqat HTTP sarlavhalarini (headers: 200 OK, 404) olish"
+      },
+      {
+        "flag": "-O",
+        "desc": "Faylni serverdagi asl nomi bilan diskka yuklab olish"
+      },
+      {
+        "flag": "-L",
+        "desc": "Agar yo'naltirish (301/302 redirect) bo'lsa orqasidan ergashish"
+      },
+      {
+        "flag": "-X POST",
+        "desc": "Maxsus HTTP metodini tanlash (POST, DELETE, PUT)"
+      },
+      {
+        "flag": "-H 'Header'",
+        "desc": "Maxsus sarlavha qo'shish (masalan: Authorization)"
+      },
+      {
+        "flag": "-s",
+        "desc": "Jim rejim: yuklanish foizini ko'rsatmaslik (silent)"
+      }
+    ],
+    "example": "curl -I https://google.com\ncurl -s https://api.ipify.org",
+    "analogy": "Brauzersiz to'g'ridan-to'g'ri veb-saytga yoki kuryerga xat va posilka yuborib javobini olish."
+  },
+  {
+    "cmd": "wget",
+    "name": "Non-interactive Network Downloader (Fayllarni Yuklab Olish)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Internetdan fayllar, arxivlar yoki butun boshli veb-saytlarni fon rejimida uzilishsiz yuklab oladi.",
+    "syntax": "wget [BAYROQLAR] URL",
+    "flags": [
+      {
+        "flag": "-c",
+        "desc": "Uzilib qolgan yuklashni qolgan joyidan davom ettirish (continue)"
+      },
+      {
+        "flag": "-b",
+        "desc": "Orqa fonda yuklash (background)"
+      },
+      {
+        "flag": "-O NOMI",
+        "desc": "Yuklangan faylni boshqa nom bilan saqlash"
+      }
+    ],
+    "example": "wget -c https://example.com/large_backup.zip",
+    "analogy": "Internetdan yuklab olish menejeri (Download Master)."
+  },
+  {
+    "cmd": "ssh",
+    "name": "OpenSSH Remote Login Client (Masofaviy Xavfsiz Ulanish)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Internet yoki mahalliy tarmoqdagi masofaviy Linux serverga shifrlangan xavfsiz terminal konsolini ochadi.",
+    "syntax": "ssh [BAYROQLAR] FOYDALANUVCHI@SERVER_IP",
+    "flags": [
+      {
+        "flag": "-p PORT",
+        "desc": "Standart 22-port o'rniga boshqa port orqali ulanish"
+      },
+      {
+        "flag": "-i KALIT",
+        "desc": "Parolsiz kirish uchun shaxsiy SSH kalitini ko'rsatish (id_rsa)"
+      },
+      {
+        "flag": "-L L_PORT:HOST:R_PORT",
+        "desc": "Port forwarding (tunneling) yaratish"
+      }
+    ],
+    "example": "ssh -i ~/.ssh/wiut_key student@192.168.1.50",
+    "analogy": "Dunyoning narigi burchagidagi kompyuterning oldiga borib o'tirib, uning klaviaturasidan boshqarayotgandek xavfsiz ulanish."
+  },
+  {
+    "cmd": "scp",
+    "name": "Secure Copy (SSH Orqali Fayl Yuborish)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Ikki kompyuter orasida SSH shifrlash protokoli orqali fayl va papkalarni nusxalaydi.",
+    "syntax": "scp [BAYROQLAR] MANBA NISHON",
+    "flags": [
+      {
+        "flag": "-r",
+        "desc": "Papkani barcha ichki fayllari bilan rekursiv yuborish"
+      },
+      {
+        "flag": "-P PORT",
+        "desc": "Boshqa portni ko'rsatish"
+      }
+    ],
+    "example": "scp -r ./dist/ student@server:/var/www/html/",
+    "analogy": "Shifrlangan diplomatik pochta orqali chet eldagi ofisga hujjatlarni yetkazib berish."
+  },
+  {
+    "cmd": "rsync",
+    "name": "Remote Sync (Tezkor Sinxronizatsiya)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Fayllarni faqat o'zgargan bo'laklarini (delta-transfer) yuborish orqali favqulodda tez sinxronizatsiya qiladi.",
+    "syntax": "rsync [BAYROQLAR] MANBA NISHON",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Arxiv rejimi (ruxsatlar, vaqtlar va symlinklar saqlanadi)"
+      },
+      {
+        "flag": "-v",
+        "desc": "Batafsil ma'lumot berish (verbose)"
+      },
+      {
+        "flag": "-z",
+        "desc": "Tarmoq orqali yuborishda ma'lumotni siqish (compress)"
+      },
+      {
+        "flag": "--delete",
+        "desc": "Manbada o'chirilgan fayllarni nishonda ham o'chirish"
+      }
+    ],
+    "example": "rsync -avz --progress /data/ backup_server:/backup/",
+    "analogy": "Kitobning ikkinchi nashrini chop etganda, butun kitobni emas, faqat o'zgargan 3 ta betini jo'natish."
+  },
+  {
+    "cmd": "nc",
+    "name": "Netcat (Shveysariya Armiyasi Pichoqchasi)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "TCP yoki UDP portlarni tekshirish, port tinglash, fayl uzatish va tarmoq orqali matn yuborishning eng universal vositasi.",
+    "syntax": "nc [BAYROQLAR] MANZIL PORT",
+    "flags": [
+      {
+        "flag": "-z",
+        "desc": "Ma'lumot yubormasdan faqat port ochiqligini tekshirish (scan)"
+      },
+      {
+        "flag": "-v",
+        "desc": "Batafsil hisobot (verbose)"
+      },
+      {
+        "flag": "-l",
+        "desc": "Kutilayotgan ulanishlar uchun port tinglovchi serverga aylanish (listen)"
+      }
+    ],
+    "example": "nc -zv 192.168.1.1 80 443 22",
+    "analogy": "Har qanday qulfga tushadigan universal master-kalit."
+  },
+  {
+    "cmd": "cron",
+    "name": "Daemon to Execute Scheduled Commands (Vaqt Bo'yicha Rejalashtiruvchi)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Linux orqa fonida doim ishlab turadigan, daqiqa, soat, kun va oylarga qarab avtomatlashtirilgan vazifalarni ishga tushiruvchi tizim xizmati.",
+    "syntax": "* * * * * BUYRUQ\n(daqiqa soat kun oy hafta_kuni)",
+    "flags": [],
+    "example": "# Har kuni kechasi soat 02:00 da zaxira olish:\n0 2 * * * /backup.sh",
+    "analogy": "Xonadagi budilnik. Belgilangan daqiqa va soatda avtomatik jiringlab vazifani ishga tushiradi."
+  },
+  {
+    "cmd": "crontab",
+    "name": "Maintain Crontab Files for Individual Users (Cron Jadvalini Boshqarish)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Foydalanuvchining avtomatlashtirilgan cron vazifalar jadvalini tahrirlash yoki ko'rish vositasi.",
+    "syntax": "crontab [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-e",
+        "desc": "Joriy foydalanuvchining cron jadvalini matn muharririda tahrirlash (edit)"
+      },
+      {
+        "flag": "-l",
+        "desc": "Faol vazifalar ro'yxatini chiqarish (list)"
+      },
+      {
+        "flag": "-r",
+        "desc": "Foydalanuvchining barcha cron vazifalarini tozalash (remove)"
+      }
+    ],
+    "example": "crontab -e\ncrontab -l",
+    "analogy": "Kundalik daftarchasiga har kungi yoki har haftalik rejalarni yozib qo'yish."
+  },
+  {
+    "cmd": "systemctl",
+    "name": "Control the Systemd System and Service Manager (Xizmatlar Boshqaruvi)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Linuxdagi tizim xizmatlarini (Nginx, Docker, SSH, MySQL) yoqish, to'xtatish, holatini tekshirish va avtoyuklashga qo'yish vositasi.",
+    "syntax": "sudo systemctl [AMAL] XIZMAT",
+    "flags": [
+      {
+        "flag": "start",
+        "desc": "Xizmatni ishga tushirish"
+      },
+      {
+        "flag": "stop",
+        "desc": "Xizmatni to'xtatish"
+      },
+      {
+        "flag": "restart",
+        "desc": "Xizmatni qayta o'chirib yoqish"
+      },
+      {
+        "flag": "status",
+        "desc": "Xizmat faoliyati va so'nggi loglarini ko'rish"
+      },
+      {
+        "flag": "enable",
+        "desc": "Server o'chib yoqilganda avtomatik ishga tushishini yoqish"
+      },
+      {
+        "flag": "disable",
+        "desc": "Avtoyuklanishdan olib tashlash"
+      }
+    ],
+    "example": "sudo systemctl restart nginx && systemctl status nginx",
+    "analogy": "Binodagi lift, generator va ventilyatsiya tizimlarini markaziy boshqaruv pultidan yoqib-o'chirish."
+  },
+  {
+    "cmd": "journalctl",
+    "name": "Query the Systemd Journal (Tizim Loglarini O'qish)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Systemd ning barcha xizmatlar, yadro va yuklanish loglarini birlashtiruvchi markaziy jurnal vositasi.",
+    "syntax": "journalctl [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-u XIZMAT",
+        "desc": "Faqat ko'rsatilgan xizmat loglarini ko'rish (masalan: -u ssh)"
+      },
+      {
+        "flag": "-f",
+        "desc": "Yangi kelgan loglarni real vaqtda jonli kuzatish (follow)"
+      },
+      {
+        "flag": "-p err",
+        "desc": "Faqat xatoliklarni filtrlash (priority)"
+      },
+      {
+        "flag": "-b",
+        "desc": "Faqat joriy yuklanishdan (boot) keyingi yozuvlarni ko'rish"
+      }
+    ],
+    "example": "journalctl -u docker.service -f",
+    "analogy": "Tashkilotdagi barcha hodisalar va xatoliklar yozib boriladigan yagona navbatchilik daftari."
+  },
+  {
+    "cmd": "alias",
+    "name": "Create an Alias for Commands (Qisqa Nom / Taxallus Berish)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Uzun va murakkab buyruqlarga qisqa taxallus (shortcut) beradi.",
+    "syntax": "alias QISQA='UZUN BUYRUQ'",
+    "flags": [],
+    "example": "alias ll='ls -lai --color=auto'\nalias update='sudo apt update && sudo apt upgrade -y'",
+    "analogy": "Telefon kitobidagi tezkor terish raqami (masalan 1 ni bossangiz onangizga qo'ng'iroq ketishi)."
+  },
+  {
+    "cmd": "export",
+    "name": "Set an Environment Variable (Muhit O'zgaruvchisini Eksport Qilish)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "O'zgaruvchini joriy shell va undan tug'iladigan barcha bola jarayonlarga uzatadi.",
+    "syntax": "export O'ZGARUVCHI=QIYMAT",
+    "flags": [],
+    "example": "export PATH=$PATH:/opt/my_scripts\nexport NODE_ENV=production",
+    "analogy": "Xonaning havosiga xushbo'y hid sepish. Xonaga kirgan har bir yangi odam (bola jarayon) bu hidni sezadi."
+  },
+  {
+    "cmd": "env",
+    "name": "Run a Program in a Modified Environment (Muhit O'zgaruvchilari)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Barcha faol muhit o'zgaruvchilari (USER, PATH, SHELL, HOME) ro'yxatini chiqaradi.",
+    "syntax": "env",
+    "flags": [],
+    "example": "env | grep -E 'USER|SHELL|PATH'",
+    "analogy": "Kompyuterning ayni damdagi ob-havo va iqlim sharoitlari xaritasi."
+  },
+  {
+    "cmd": "source",
+    "name": "Execute Commands from a File in Current Shell (Skriptni Joriy Shellda Yuklash)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Faylni yangi subshell ochmasdan, aynan joriy shell xotirasida ishga tushiradi (nuqta . buyrug'i bilan bir xil).",
+    "syntax": "source FAYL yoki . FAYL",
+    "flags": [],
+    "example": "source ~/.bashrc",
+    "analogy": "Yangi qoidalarni eshitib, ularni darhol o'z miyangizda qabul qilib ishga tushirish."
+  },
+  {
+    "cmd": "history",
+    "name": "GNU History Library (Terilgan Buyruqlar Tarixi)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Oldin terilgan barcha buyruqlar tarixini raqamlari bilan ko'rsatadi (!raqam orqali qayta bajarish mumkin).",
+    "syntax": "history [SONI]",
+    "flags": [
+      {
+        "flag": "-c",
+        "desc": "Tarix xotirasini tozalash"
+      }
+    ],
+    "example": "history | grep 'docker'\n!1024",
+    "analogy": "Brauzerning ko'rilgan sahifalar tarixi (Ctrl+H)."
+  },
+  {
+    "cmd": "read",
+    "name": "Read a Line from Standard Input (Foydalanuvchidan Matn Kiritish)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Bash skriptlarida foydalanuvchidan klaviatura orqali javob yoki ma'lumot qabul qilib oladi.",
+    "syntax": "read [BAYROQLAR] O'ZGARUVCHI",
+    "flags": [
+      {
+        "flag": "-p 'MATN'",
+        "desc": "Kiritishdan oldin so'rov matnini chiqarish (prompt)"
+      },
+      {
+        "flag": "-s",
+        "desc": "Yozilayotgan parolni ekranda yashirish (silent)"
+      },
+      {
+        "flag": "-t SEK",
+        "desc": "Javob kutish vaqtini cheklash (timeout)"
+      }
+    ],
+    "example": "read -p 'Ismingizni kiriting: ' user_name\necho \"Salom, $user_name!\"",
+    "analogy": "Anketa to'ldirishda 'Ismingiz:' deb savol berib javob kutib turish."
+  },
+  {
+    "cmd": "exit",
+    "name": "Cause the Shell to Exit (Chiqish va Holat Kodini Qaytarish)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Joriy shell yoki skriptni tugatadi va tizimga chiqish kodini (0 muvaffaqiyat, 1-255 xatolik) qaytaradi.",
+    "syntax": "exit [KOD]",
+    "flags": [],
+    "example": "exit 0\nexit 1",
+    "analogy": "Dars tamom bo'lib xonadan chiqib ketish va dars muvaffaqiyatli o'tganini bildirish."
+  },
+  {
+    "cmd": "docker",
+    "name": "Container Platform CLI (Konteynerlar Boshqaruvi)",
+    "cat": "devops",
+    "catName": "Docker & Virtualizatsiya",
+    "desc": "Ilovalarni barcha kutubxonalari bilan birga mustaqil izolyatsiyalangan konteynerlarda ishga tushirish platformasi.",
+    "syntax": "docker [BUYRUQ] [PARAMETRLAR]",
+    "flags": [],
+    "example": "docker --version",
+    "analogy": "Dengiz yuk konteyneri. Tovarlarni kemada ham, poyezdda ham hech narsasini buzmasdan xuddi o'zidek eltib beradi."
+  },
+  {
+    "cmd": "docker run",
+    "name": "Run a Command in a New Container (Yangi Konteynerni Boshlash)",
+    "cat": "devops",
+    "catName": "Docker & Virtualizatsiya",
+    "desc": "Obrazdan (image) yangi konteyner yaratadi va uni ishga tushiradi.",
+    "syntax": "docker run [BAYROQLAR] OBRAZ [BUYRUQ]",
+    "flags": [
+      {
+        "flag": "-d",
+        "desc": "Orqa fonda ajratilgan rejimda ishga tushirish (detached)"
+      },
+      {
+        "flag": "-p X:Y",
+        "desc": "Portlarni ochish: tashqi X portni konteyner ichidagi Y portga ulash (masalan: -p 8080:80)"
+      },
+      {
+        "flag": "--name NOMI",
+        "desc": "Konteynerga inson tushunadigan nom berish"
+      },
+      {
+        "flag": "-v X:Y",
+        "desc": "Volume ulash: kompyuterdagi X papkani konteyner ichidagi Y ga bog'lash"
+      },
+      {
+        "flag": "--rm",
+        "desc": "Konteyner to'xtashi bilan uni avtomatik o'chirib tashlash"
+      }
+    ],
+    "example": "docker run -d -p 80:80 --name my_web nginx:alpine",
+    "analogy": "Yangi ijaraga olingan do'konga tovarlarni joylashtirib, tashqi eshigiga 80-raqamli yorliq osish."
+  },
+  {
+    "cmd": "docker ps",
+    "name": "List Containers (Ishlab Turgan Konteynerlarni Ko'rish)",
+    "cat": "devops",
+    "catName": "Docker & Virtualizatsiya",
+    "desc": "Tizimda ishlab turgan yoki to'xtatilgan barcha konteynerlar holatini chiqaradi.",
+    "syntax": "docker ps [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Barcha konteynerlarni, shu jumladan to'xtaganlarini ham ko'rsatish"
+      },
+      {
+        "flag": "-q",
+        "desc": "Faqat konteyner ID larini chiqarish (skriptlar uchun)"
+      }
+    ],
+    "example": "docker ps",
+    "analogy": "Portdagi barcha kemalar va ularning holatini qayd etuvchi navbatchi jurnali."
+  },
+  {
+    "cmd": "docker exec",
+    "name": "Execute a Command in a Running Container (Konteyner Ichiga Kirish)",
+    "cat": "devops",
+    "catName": "Docker & Virtualizatsiya",
+    "desc": "Ishlab turgan konteyner ichiga yangi buyruq yuborish yoki uning ichida Bash shell ochib ishlash vositasi.",
+    "syntax": "docker exec [BAYROQLAR] KONTEYNER BUYRUQ",
+    "flags": [
+      {
+        "flag": "-it",
+        "desc": "Interaktiv tty terminal ochish (ichiga kirib ishlash imkonini beradi)"
+      }
+    ],
+    "example": "docker exec -it my_web /bin/sh",
+    "analogy": "Konteynerning eshigini ochib, uning ichiga kirib biror narsani tuzatib chiqish."
+  },
+  {
+    "cmd": "docker build",
+    "name": "Build an Image from a Dockerfile (Yangi Obraz Yig'ish)",
+    "cat": "devops",
+    "catName": "Docker & Virtualizatsiya",
+    "desc": "Dockerfile ko'rsatmalari asosida qadamma-qadam yangi dasturiy ta'minot obrazini quradi.",
+    "syntax": "docker build [BAYROQLAR] YO'L",
+    "flags": [
+      {
+        "flag": "-t NOMI:TEG",
+        "desc": "Yaratilayotgan obrazga nom va versiya tegi berish (masalan: -t myapp:1.0)"
+      }
+    ],
+    "example": "docker build -t my_api:latest .",
+    "analogy": "Retsept kitobi (Dockerfile) asosida yangi pishiriq pishirish."
+  },
+  {
+    "cmd": "docker stop",
+    "name": "Stop One or More Running Containers (Konteynerni To'xtatish)",
+    "cat": "devops",
+    "catName": "Docker & Virtualizatsiya",
+    "desc": "Konteyner ichidagi asosiy jarayonga SIGTERM yuborib, uni xavfsiz to'xtatadi.",
+    "syntax": "docker stop [BAYROQLAR] KONTEYNER",
+    "flags": [
+      {
+        "flag": "-t N",
+        "desc": "SIGKILL yuborishdan oldin N soniya kutish"
+      }
+    ],
+    "example": "docker stop my_web",
+    "analogy": "Ish kuni tugagach do'konni yopib kalit bilan qulflash."
+  },
+  {
+    "cmd": "docker rm",
+    "name": "Remove One or More Containers (Konteynerni O'chirish)",
+    "cat": "devops",
+    "catName": "Docker & Virtualizatsiya",
+    "desc": "To'xtatilgan konteynerlarni xotira va diskdan o'chirib tashlaydi.",
+    "syntax": "docker rm [BAYROQLAR] KONTEYNER",
+    "flags": [
+      {
+        "flag": "-f",
+        "desc": "Ishlab turgan bo'lsa ham majburiy o'chirish"
+      }
+    ],
+    "example": "docker rm my_web",
+    "analogy": "Eskirgan vaqtinchalik chodirni buzib tashlab joyini tozalash."
+  },
+  {
+    "cmd": "docker logs",
+    "name": "Fetch the Logs of a Container (Konteyner Loglarini Ko'rish)",
+    "cat": "devops",
+    "catName": "Docker & Virtualizatsiya",
+    "desc": "Konteyner ichidagi dastur standart chiqishga (stdout/stderr) chiqargan barcha ma'lumotlarni ko'rsatadi.",
+    "syntax": "docker logs [BAYROQLAR] KONTEYNER",
+    "flags": [
+      {
+        "flag": "-f",
+        "desc": "Yangi kelayotgan loglarni jonli kuzatish (follow)"
+      },
+      {
+        "flag": "--tail N",
+        "desc": "Oxirgi N ta qatorni chiqarish"
+      }
+    ],
+    "example": "docker logs -f my_web",
+    "analogy": "Konteyner ichidagi avtomat apparatining hisobot lentasini ko'rib chiqish."
+  },
+  {
+    "cmd": "chroot",
+    "name": "Change Root Directory (Ildiz Papkani O'zgartirish)",
+    "cat": "devops",
+    "catName": "Docker & Virtualizatsiya",
+    "desc": "Jarayon uchun yangi izolyatsiyalangan root (/) katalogini belgilaydi. Jarayon bu papkadan tashqariga chiqa olmaydi (qamoqxona/jail). Konteynerlar texnologiyasining eng qadimgi bobosi.",
+    "syntax": "sudo chroot YANGI_ILDIZ [BUYRUQ]",
+    "flags": [],
+    "example": "sudo chroot /jail /bin/sh",
+    "analogy": "Bolaga faqat o'yin xonasini ko'rsatib, butun dunyo faqat shu xonadan iborat ekaniga ishontirib qo'yish."
+  },
+  {
+    "cmd": "cgroups",
+    "name": "Control Groups (Resurslarni Cheklovchi Yadro Mexanizmi)",
+    "cat": "devops",
+    "catName": "Docker & Virtualizatsiya",
+    "desc": "Linux yadrosining jarayonlar guruhi uchun CPU, xotira, disk I/O va tarmoq resurslarini qat'iy cheklash (quota) tizimi (Docker aynan cgroups ustiga qurilgan).",
+    "syntax": "/sys/fs/cgroup/...",
+    "flags": [],
+    "example": "cat /sys/fs/cgroup/memory/memory.limit_in_bytes",
+    "analogy": "Kvartiradagi elektr tokiga avtomat o'rnatish. Agar 5 kilovattdan oshsa, chiroq o'chib cheklov ishga tushadi."
+  },
+  {
+    "cmd": "nano",
+    "name": "GNU nano Text Editor (Oson Terminal Matn Muharriri)",
+    "cat": "dev",
+    "catName": "Muharrirlar & Dasturlar",
+    "desc": "Boshlang'ich foydalanuvchilar uchun qulay, pastida barcha klaviatura buyruqlari (Ctrl+O saqlash, Ctrl+X chiqish) yozilgan sodda matn muharriri.",
+    "syntax": "nano [BAYROQLAR] FAYL",
+    "flags": [
+      {
+        "flag": "-l",
+        "desc": "Qator raqamlarini chiqarish (line numbers)"
+      }
+    ],
+    "example": "nano config.yaml",
+    "analogy": "Oddiy va tushunarli Bloknot (Notepad) dasturi."
+  },
+  {
+    "cmd": "vim",
+    "name": "Vi IMproved (Professional Modal Matn Muharriri)",
+    "cat": "dev",
+    "catName": "Muharrirlar & Dasturlar",
+    "desc": "Dunyo bo'ylab tizim ma'murlari va dasturchilarining asosiy modal muharriri (Normal rejim, Insert rejim 'i', Buyruq rejimi ':wq').",
+    "syntax": "vim FAYL",
+    "flags": [],
+    "example": "vim script.sh\n# 'i' yozish, 'Esc' chiqish, ':wq' saqlab chiqish",
+    "analogy": "Supertezkor sport avtomobili. Haydashni o'rganish biroz vaqt oladi, ammo o'rgangach boshqa mashinaga o'tgingiz kelmaydi."
+  },
+  {
+    "cmd": "gcc",
+    "name": "GNU Compiler Collection (C/C++ Kompilyatori)",
+    "cat": "dev",
+    "catName": "Muharrirlar & Dasturlar",
+    "desc": "C va C++ dasturlash tilidagi kodlarni kompyuter tushunadigan mashina tiliga (binary) o'giradi.",
+    "syntax": "gcc [BAYROQLAR] MANBA.c -o DASTUR",
+    "flags": [
+      {
+        "flag": "-Wall",
+        "desc": "Barcha mumkin bo'lgan ogohlantirishlarni (warnings) ko'rsatish"
+      },
+      {
+        "flag": "-O2",
+        "desc": "Kodni tezlik bo'yicha optimallashtirish"
+      },
+      {
+        "flag": "-g",
+        "desc": "Debag ma'lumotlarini qo'shish (GDB uchun)"
+      }
+    ],
+    "example": "gcc -Wall main.c -o myprogram",
+    "analogy": "Xorijiy tildagi kitobni o'zbek tiliga to'liq tarjima qilib yangi nashr etish."
+  },
+  {
+    "cmd": "make",
+    "name": "GNU make Utility to Maintain Groups of Programs (Avtomatik Yig'uvchi)",
+    "cat": "dev",
+    "catName": "Muharrirlar & Dasturlar",
+    "desc": "Makefile qoidalari asosida faqat o'zgargan manba fayllarni aniqlab, loyihani tejamkor va avtomatlashtirilgan tarzda yig'adi.",
+    "syntax": "make [MAQSAD]",
+    "flags": [
+      {
+        "flag": "-j N",
+        "desc": "N ta yadroda parallel yig'ish (tezlashtiradi)"
+      }
+    ],
+    "example": "make -j4 && sudo make install",
+    "analogy": "Katta binoni qurishda qaysi g'ishtlar o'zgarganini bilib, faqat o'sha devorni ta'mirlab beruvchi usta."
+  },
+  {
+    "cmd": "ldd",
+    "name": "Print Shared Object Dependencies (Dinamik Kutubxonalar Ro'yxati)",
+    "cat": "dev",
+    "catName": "Muharrirlar & Dasturlar",
+    "desc": "Binar fayl ishlashi uchun qaysi umumiy kutubxonalar (.so fayllar) kerakligini ko'rsatadi.",
+    "syntax": "ldd DASTUR",
+    "flags": [],
+    "example": "ldd /bin/bash",
+    "analogy": "Yig'ilayotgan mebel uchun qaysi zavodning bolt va gaykalari talab etilishini tekshirish."
+  },
+  {
+    "cmd": "readlink",
+    "name": "Print Value of a Symbolic Link (Simvolik Havola Manzilini O'qish)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Simvolik (soft) havola qaysi haqiqiy faylga qarab turganini aniqlaydi.",
+    "syntax": "readlink [BAYROQLAR] HAVOLA",
+    "flags": [
+      {
+        "flag": "-f",
+        "desc": "Barcha oraliq symlinklarni to'liq yechib haqiqiy yo'lni ko'rsatish"
+      }
+    ],
+    "example": "readlink -f /usr/bin/python\n/usr/bin/python3.11",
+    "analogy": "Ko'rsatkich belgining aslida qaysi ko'chaga eltishini xaritada tekshirish."
+  },
+  {
+    "cmd": "type",
+    "name": "Describe a Command (Buyruq Turini Aniqlash)",
+    "cat": "nav",
+    "catName": "Navigatsiya & Inodelar",
+    "desc": "Kiritilgan buyruq Bash ichki buyrug'i (builtin), tashqi binary (/usr/bin), alias yoki funksiya ekanini aytadi.",
+    "syntax": "type BUYRUQ",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Buyruqning barcha turlarini ko'rsatish"
+      }
+    ],
+    "example": "type cd\ncd is a shell builtin\ntype ls\nls is aliased to 'ls --color=auto'",
+    "analogy": "Xodim kompaniyaning doimiy shtatidami yoki yollanma ishchimi ekanini tekshirish."
+  },
+  {
+    "cmd": "nl",
+    "name": "Number Lines of Files (Qatorlarni Maxsus Raqamlash)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Fayl qatorlarini turli formatlarda, bo'limlar bo'yicha chiroyli raqamlab beradi.",
+    "syntax": "nl [BAYROQLAR] FAYL",
+    "flags": [
+      {
+        "flag": "-ba",
+        "desc": "Bo'sh qatorlarni ham birga raqamlash"
+      }
+    ],
+    "example": "nl -ba script.sh",
+    "analogy": "Kitob boblarining har bir jumlasiga tartib raqami qo'yib chiqish."
+  },
+  {
+    "cmd": "comm",
+    "name": "Compare Two Sorted Files Line by Line (Tartiblangan Fayllarni Solishtirish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Oldindan saralangan (sort) ikki faylni solishtirib, faqat 1-faylda bor, faqat 2-faylda bor va ikkalasida ham bor qatorlarni 3 ta ustunda chiqaradi.",
+    "syntax": "comm [BAYROQLAR] FAYL1 FAYL2",
+    "flags": [
+      {
+        "flag": "-1",
+        "desc": "1-ustunni (faqat 1-fayldagilarni) yashirish"
+      },
+      {
+        "flag": "-2",
+        "desc": "2-ustunni yashirish"
+      },
+      {
+        "flag": "-3",
+        "desc": "3-ustunni (umumiy bo'lganlarini) yashirish"
+      }
+    ],
+    "example": "comm -12 listA.txt listB.txt # Faqat ikkalasida ham bor qatorlar",
+    "analogy": "Ikki sinf o'quvchilari ro'yxatini solishtirib, umumiy to'garakka qatnashuvchilarni topish."
+  },
+  {
+    "cmd": "join",
+    "name": "Join Lines of Two Files on a Common Field (Fayllarni Kalit Bo'yicha Birlashtirish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "SQL dagi INNER JOIN kabi ikki matnli faylni umumiy ustun (kalit) bo'yicha birlashtiradi.",
+    "syntax": "join [BAYROQLAR] FAYL1 FAYL2",
+    "flags": [
+      {
+        "flag": "-t 'BELGI'",
+        "desc": "Ustunlar ajratuvchisini belgilash"
+      }
+    ],
+    "example": "join -t: users.txt salaries.txt",
+    "analogy": "SQL dagi JOIN amali kabi mijozlar jadvali bilan ularning buyurtmalar jadvalini ID bo'yicha ulash."
+  },
+  {
+    "cmd": "hexdump",
+    "name": "Hexadecimal, Decimal, Octal, ASCII Dump (O'n Oltilik Ko'rinish)",
+    "cat": "text",
+    "catName": "Matn, Fayllar & Quvurlar",
+    "desc": "Binar fayllarning ichki baytlarini o'n oltilik (hex) va ASCII ko'rinishida ko'rsatadi.",
+    "syntax": "hexdump [BAYROQLAR] FAYL",
+    "flags": [
+      {
+        "flag": "-C",
+        "desc": "Kanonik format: yonida ASCII harflari bilan chiqarish"
+      }
+    ],
+    "example": "hexdump -C /bin/ls | head -n 10",
+    "analogy": "Kompyuter mikrosxemasidagi signallarni mikroskop ostida ko'rish."
+  },
+  {
+    "cmd": "chattr",
+    "name": "Change File Attributes on Linux File System (O'zgarmas Fayllar Yaratish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Xavfsizlik",
+    "desc": "Faylga maxsus ext4 atributlarini o'rnatadi. Masalan +i atributi faylni hatto root ham o'chira olmaydigan yoki o'zgartira olmaydigan qilib qulflaydi!",
+    "syntax": "sudo chattr [BAYROQLAR] [+/-ATRIBUT] FAYL",
+    "flags": [
+      {
+        "flag": "+i",
+        "desc": "Immutable: faylni o'chirish, nomini o'zgartirish va yozishni to'liq bloklash"
+      },
+      {
+        "flag": "+a",
+        "desc": "Append-only: faqat oxiriga ma'lumot qo'shish mumkin, eskilarini o'chirib bo'lmaydi (loglar uchun ideal)"
+      }
+    ],
+    "example": "sudo chattr +i /etc/resolv.conf",
+    "analogy": "Hujjatni temir seyfga solib, kalitini daryoga tashlab yuborish. Hatto kompaniya prezidenti ham uni o'zgartira olmaydi."
+  },
+  {
+    "cmd": "lsattr",
+    "name": "List File Attributes on a Linux Second Extended File System (Atributlarni Ko'rish)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Xavfsizlik",
+    "desc": "Fayllarga qo'yilgan maxsus atributlarni (+i, +a) ko'rsatadi.",
+    "syntax": "lsattr [BAYROQLAR] [FAYL]",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Barcha fayllarni ko'rsatish"
+      }
+    ],
+    "example": "lsattr /etc/resolv.conf\n----i---------e------- /etc/resolv.conf",
+    "analogy": "Eshikdagi yashirin magnit qulflarni maxsus detektor bilan aniqlash."
+  },
+  {
+    "cmd": "who",
+    "name": "Show Who is Logged on (Tizimga Kirgan Foydalanuvchilar)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Xavfsizlik",
+    "desc": "Ayni daqiqada serverga qaysi foydalanuvchilar qaysi terminal (tty, pts) va IP orqali kirganini ko'rsatadi.",
+    "syntax": "who [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-b",
+        "desc": "Tizim so'nggi marta qachon yoqilganini (boot time) chiqarish"
+      },
+      {
+        "flag": "-H",
+        "desc": "Ustunlar sarlavhalari bilan chiqarish"
+      }
+    ],
+    "example": "who\nstudent  pts/0        2026-10-15 04:30 (192.168.1.100)",
+    "analogy": "Kutubxonaga yoki ofisga ayni vaqtda kirib o'tirgan tashrifchilar ro'yxati."
+  },
+  {
+    "cmd": "w",
+    "name": "Show Who is Logged on and What They are Doing (Foydalanuvchilar Nima Qilyapti?)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Xavfsizlik",
+    "desc": "Serverdagi faol foydalanuvchilar, server yuklamasi (load average) va har bir foydalanuvchi ayni paytda qaysi buyruqni ishlatayotganini ko'rsatadi.",
+    "syntax": "w",
+    "flags": [],
+    "example": "w",
+    "analogy": "Ofisdagi videokuzatuv kamerasi. Kim qaysi stolda o'tirgani va hozir aynan nima ish qilayotganini ko'rsatadi."
+  },
+  {
+    "cmd": "last",
+    "name": "Show a Listing of Last Logged in Users (Kirishlar Tarixi)",
+    "cat": "perm",
+    "catName": "Ruxsatlar & Xavfsizlik",
+    "desc": "/var/log/wtmp faylini tahlil qilib, serverga kimlar, qachon, qancha vaqtga kirib chiqqanini ko'rsatadi (kiber-xavfsizlik auditi uchun muhim).",
+    "syntax": "last [BAYROQLAR] [USER]",
+    "flags": [
+      {
+        "flag": "-n N",
+        "desc": "Oxirgi N ta kirish qaydini ko'rsatish"
+      },
+      {
+        "flag": "-a",
+        "desc": "IP manzilni eng o'ng ustunda ko'rsatish"
+      }
+    ],
+    "example": "last -n 5 student",
+    "analogy": "Bino nazorat o'tish joyidagi turniketning elektron kirish-chiqish arxivi."
+  },
+  {
+    "cmd": "sleep",
+    "name": "Delay for a Specified Amount of Time (Vaqtinchalik Tanaffus)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Skript yoki jarayonni belgilangan soniya, daqiqa yoki soatga to'xtatib turadi.",
+    "syntax": "sleep VAQT[s/m/h/d]",
+    "flags": [],
+    "example": "sleep 5\nsleep 2m",
+    "analogy": "Qisqa tanaffus e'lon qilish. Skript belgilangan vaqt davomida uxlab turadi."
+  },
+  {
+    "cmd": "timeout",
+    "name": "Run a Command with a Time Limit (Vaqt Cheklovi Bilan Ishga Tushirish)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Buyruqni ishga tushiradi va agar u belgilangan vaqt ichida tugamasa, uni avtomatik o'ldiradi (qotib qolishlarning oldini oladi).",
+    "syntax": "timeout [SIGNAL] VAQT BUYRUQ",
+    "flags": [
+      {
+        "flag": "-k VAQT",
+        "desc": "SIGTERM dan so'ng ham to'xtamasa, SIGKILL yuborish"
+      }
+    ],
+    "example": "timeout 10s ping 8.8.8.8",
+    "analogy": "Imtihondagi qumsoat. Vaqt tugashi bilan o'qituvchi daftarni majburiy olib qo'yadi."
+  },
+  {
+    "cmd": "watch",
+    "name": "Execute a Program Periodically, Showing Output Fullscreen (Jonli Takroriy Kuzatuv)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Har 2 soniyada buyruqni qayta-qayta ishga tushirib, natijadagi o'zgarishlarni ekranda jonli ko'rsatib turadi.",
+    "syntax": "watch [BAYROQLAR] BUYRUQ",
+    "flags": [
+      {
+        "flag": "-n SEK",
+        "desc": "Yangilanish oralig'ini belgilash (masalan: -n 1)"
+      },
+      {
+        "flag": "-d",
+        "desc": "O'zgargan harflar va sonlarni rangli qilib ajratib ko'rsatish (differences)"
+      }
+    ],
+    "example": "watch -n 1 -d 'free -m'",
+    "analogy": "Stadiondagi hisob tablosini har soniyada ko'zdan kechirib turish."
+  },
+  {
+    "cmd": "pidof",
+    "name": "Find the Process ID of a Running Program (Dastur PID ini Aniqlash)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Nomiga ko'ra ishlab turgan dasturning PID raqamini topib beradi.",
+    "syntax": "pidof [BAYROQLAR] DASTUR",
+    "flags": [
+      {
+        "flag": "-s",
+        "desc": "Faqat bitta yagona PID chiqarish"
+      }
+    ],
+    "example": "pidof nginx\n1048 1049 1050",
+    "analogy": "Ism bo'yicha fuqaroning pasport seriya raqamini topib berish."
+  },
+  {
+    "cmd": "lsof",
+    "name": "List Open Files (Ochiq Fayllar va Tarmoq Soketlari)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Linuxda 'Hamma narsa fayl' tamoyili bor. lsof qaysi jarayon qaysi faylni, portni yoki soketni ochiq ushlab turganini ko'rsatadi.",
+    "syntax": "sudo lsof [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-i :PORT",
+        "desc": "Aynan ma'lum bir portni (masalan: -i :80) qaysi dastur ushlab turganini ko'rish"
+      },
+      {
+        "flag": "-u USER",
+        "desc": "Foydalanuvchining barcha ochiq fayllari"
+      },
+      {
+        "flag": "-p PID",
+        "desc": "Aynan shu jarayon ochgan barcha fayllar ro'yxati"
+      }
+    ],
+    "example": "sudo lsof -i :80",
+    "analogy": "Kutubxonadagi kitob hozir kimning qo'lida ekanini darhol fosh qiluvchi kitobxon kartochkasi."
+  },
+  {
+    "cmd": "ltrace",
+    "name": "A Library Call Tracer (Kutubxona Chaqiriqlarini Kuzatuvchi)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Dasturning dinamik kutubxonalarga (libc: printf, malloc, strlen) qilgan barcha chaqiriqlarini ko'rsatadi.",
+    "syntax": "ltrace [BAYROQLAR] DASTUR",
+    "flags": [],
+    "example": "ltrace ./my_program",
+    "analogy": "Dasturchining oshpazga qanday buyurtmalar berganini qadamma-qadam eshitib turish."
+  },
+  {
+    "cmd": "uptime",
+    "name": "Tell How Long the System has Been Running (Server Ish Vaqti)",
+    "cat": "proc",
+    "catName": "Jarayonlar & Signallar",
+    "desc": "Server qancha vaqtdan beri o'chmasdan ishlayotgani (uptime), nechta foydalanuvchi borligi va 1, 5, 15 daqiqalik yuklama ko'rsatkichlarini (load average) chiqaradi.",
+    "syntax": "uptime [BAYROQLAR]",
+    "flags": [
+      {
+        "flag": "-p",
+        "desc": "Chiroyli inson tilida chiqarish (masalan: up 14 days, 3 hours)"
+      },
+      {
+        "flag": "-s",
+        "desc": "Server qaysi aniq sana va vaqtda yoqilganini ko'rsatish"
+      }
+    ],
+    "example": "uptime -p\nup 12 weeks, 3 days, 4 hours",
+    "analogy": "Avtomobilning bosib o'tgan umumiy masofasi va dvigatelning to'xtovsiz ishlash soati."
+  },
+  {
+    "cmd": "valgrind",
+    "name": "Memory Management and Leak Detection Tool (Xotira Oqishini Tekshiruvchi)",
+    "cat": "mem",
+    "catName": "Xotira & Swap",
+    "desc": "C/C++ dasturlarida xotiraning to'g'ri ajratilishi (malloc), tozalanishi (free) va xotira sizib chiqishlarini (memory leaks) tahlil qiluvchi mashhur vosita.",
+    "syntax": "valgrind --leak-check=full ./dastur",
+    "flags": [
+      {
+        "flag": "--leak-check=full",
+        "desc": "Xotiradagi har bir oqib ketgan baytni qatorma-qator fosh qilish"
+      }
+    ],
+    "example": "valgrind --leak-check=full ./lab4_fork",
+    "analogy": "Suv quvuridagi eng kichik teshik va tomchilarni ham aniqlab beruvchi sezgir skaner."
+  },
+  {
+    "cmd": "sysctl",
+    "name": "Configure Kernel Parameters at Runtime (Yadro Parametrlarini Sozlash)",
+    "cat": "mem",
+    "catName": "Xotira & Swap",
+    "desc": "Linux yadrosining xotira, tarmoq va xavfsizlik sozlamalarini (/proc/sys) real vaqtda ko'rish va o'zgartirish vositasi.",
+    "syntax": "sudo sysctl [BAYROQLAR] [PARAMETR=QIYMAT]",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Barcha yadro parametrlarini chiqarish"
+      },
+      {
+        "flag": "-p",
+        "desc": "/etc/sysctl.conf faylidagi o'zgarishlarni qayta yuklash"
+      }
+    ],
+    "example": "sudo sysctl vm.swappiness=10",
+    "analogy": "Avtomobilning bort kompyuteriga kirib, dvigatelning maksimal quvvatini dasturiy sozlash."
+  },
+  {
+    "cmd": "blkid",
+    "name": "Locate / Print Block Device Attributes (Disk UUID larini Ko'rish)",
+    "cat": "disk",
+    "catName": "Disk & Fayl Tizimlari",
+    "desc": "Disk bo'limlarining noyob UUID identifikatorlari va fayl tizimi turlarini (/etc/fstab uchun kerak) chiqaradi.",
+    "syntax": "sudo blkid [QURILMA]",
+    "flags": [],
+    "example": "sudo blkid /dev/sda1\n/dev/sda1: UUID=\"a1b2c3d4-...\" TYPE=\"ext4\"",
+    "analogy": "Har bir pasportning davlat ro'yxatidan o'tgan takrorlanmas unikal seriya raqami."
+  },
+  {
+    "cmd": "parted",
+    "name": "A Partition Manipulation Program (Katta Disklar Boshqaruvi)",
+    "cat": "disk",
+    "catName": "Disk & Fayl Tizimlari",
+    "desc": "2 Terabaytdan katta bo'lgan zamonaviy GPT disklarni bo'limlarga ajratish va o'lchamini o'zgartirish vositasi.",
+    "syntax": "sudo parted [QURILMA]",
+    "flags": [
+      {
+        "flag": "-l",
+        "desc": "Barcha disklar jadvalini ko'rsatish"
+      }
+    ],
+    "example": "sudo parted -l",
+    "analogy": "Katta stadionni qismlarga ajratuvchi professional arxitektor."
+  },
+  {
+    "cmd": "traceroute",
+    "name": "Print the Route Packets Trace to Network Host (Paket Yo'nalishini Kuzatish)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Kompyuteringizdan chiqqan paket nishon serverga yetib borguncha qaysi routerlar (hop) orqali o'tayotganini ko'rsatadi.",
+    "syntax": "traceroute [BAYROQLAR] MANZIL",
+    "flags": [
+      {
+        "flag": "-n",
+        "desc": "DNS nomlarini yechmasdan tezkor raqamli IP larni ko'rsatish"
+      }
+    ],
+    "example": "traceroute -n 8.8.8.8",
+    "analogy": "Toshkentdan Samarqandga ketayotgan poyezdning qaysi bekatlarda to'xtab o'tishini kuzatish."
+  },
+  {
+    "cmd": "dig",
+    "name": "DNS Lookup Utility (DNS Domen Qidiruv Vositasi)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Domen nomining qaysi IP manzilga (A, CNAME, MX, TXT yozuvlari) tegishli ekanini DNS serverlardan so'rab beradi.",
+    "syntax": "dig [BAYROQLAR] DOMEN",
+    "flags": [
+      {
+        "flag": "+short",
+        "desc": "Faqat qisqa toza IP manzilni chiqarish"
+      },
+      {
+        "flag": "ANY",
+        "desc": "Domenning barcha mavjud DNS yozuvlarini olish"
+      }
+    ],
+    "example": "dig google.com +short\n142.250.185.206",
+    "analogy": "Shahar ma'lumotlar byurosidan kompaniyaning aniq manzilini so'rab olish."
+  },
+  {
+    "cmd": "ufw",
+    "name": "Uncomplicated Firewall (Sodda Xavfsizlik Devori)",
+    "cat": "net",
+    "catName": "Tarmoq & Server",
+    "desc": "Iptables ustiga qurilgan, server portlarini (22, 80, 443) xakerlardan himoyalovchi juda qulay brandmauer (firewall).",
+    "syntax": "sudo ufw [AMAL] [PORT/XIZMAT]",
+    "flags": [
+      {
+        "flag": "allow PORT",
+        "desc": "Portga kirishga ruxsat berish (masalan: allow 22/tcp)"
+      },
+      {
+        "flag": "deny PORT",
+        "desc": "Portni butunlay yopish"
+      },
+      {
+        "flag": "status",
+        "desc": "Faol xavfsizlik qoidalari ro'yxatini ko'rish"
+      }
+    ],
+    "example": "sudo ufw allow 22 && sudo ufw allow 80 && sudo ufw enable",
+    "analogy": "Bino kirishidagi qattiqqo'l qorovul. Faqat ruxsatnomasi bor mehmonlarni ichkariga kiritadi."
+  },
+  {
+    "cmd": "echo",
+    "name": "Display a Line of Text (Matn Chiqarish)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Terminalga matn yoki o'zgaruvchilar qiymatini chiqaradi yoki faylga yo'naltiradi (>).",
+    "syntax": "echo [BAYROQLAR] [MATN]",
+    "flags": [
+      {
+        "flag": "-e",
+        "desc": "Maxsus belgilarni (\\n yangi qator, \\t tab) yoqish"
+      },
+      {
+        "flag": "-n",
+        "desc": "Oxirida yangi qatorga o'tmaslik"
+      }
+    ],
+    "example": "echo \"Current user: $USER\"",
+    "analogy": "Karnay orqali e'lon qilish."
+  },
+  {
+    "cmd": "printf",
+    "name": "Format and Print Data (Formatlangan Matn Chiqarish)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "C tilidagi printf kabi ma'lumotlarni aniq ustunlar va formatlar (%s, %d, %-10s) bo'yicha chiroyli chiqaradi.",
+    "syntax": "printf 'FORMAT' [ARGUMENTLAR]",
+    "flags": [],
+    "example": "printf \"%-10s: %d\\n\" \"Disk\" 85",
+    "analogy": "Hujjatni maxsus bosmaxona shabloni bo'yicha chiroyli joylashtirib chop etish."
+  },
+  {
+    "cmd": "test",
+    "name": "Check File Types and Compare Values (Shartlarni Tekshirish / [ ])",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Fayl mavjudligi (-f), papkaligi (-d), sonlar kattaligi (-gt, -lt) yoki satrlar tengligini tekshiradi (Bashdagi [ shart ] sintaksisi bilan bir xil).",
+    "syntax": "test SHART yoki [ SHART ]",
+    "flags": [
+      {
+        "flag": "-f FAYL",
+        "desc": "Fayl mavjud va oddiy fayl ekanini tekshirish"
+      },
+      {
+        "flag": "-d PAPKA",
+        "desc": "Papka mavjudligini tekshirish"
+      },
+      {
+        "flag": "-z SATR",
+        "desc": "Satr bo'sh ekanligini tekshirish"
+      },
+      {
+        "flag": "-eq / -ne",
+        "desc": "Sonlarning teng / teng emasligini tekshirish"
+      }
+    ],
+    "example": "[ -f /etc/passwd ] && echo \"Fayl mavjud!\"",
+    "analogy": "Mantiqiy shart tekshiruvi: agar xodim ro'yxatda bo'lsa ichkariga kiritilsin."
+  },
+  {
+    "cmd": "seq",
+    "name": "Print a Sequence of Numbers (Raqamlar Ketma-ketligini Chiqarish)",
+    "cat": "bash",
+    "catName": "Bash & Cron",
+    "desc": "Bash sikllari (for) uchun raqamlar ketma-ketligini chiqarib beradi.",
+    "syntax": "seq [BOSHLANISH [QADAM]] TUGASH",
+    "flags": [
+      {
+        "flag": "-w",
+        "desc": "Boshiga nollar qo'shib bir xil kenglikda chiqarish (01, 02..)"
+      }
+    ],
+    "example": "for i in $(seq 1 5); do echo \"Server #$i\"; done",
+    "analogy": "1 dan 100 gacha bo'lgan navbat talonlarini avtomatdan chiqarish."
+  },
+  {
+    "cmd": "gdb",
+    "name": "The GNU Project Debugger (C/C++ Dasturlar Debaggeri)",
+    "cat": "dev",
+    "catName": "Muharrirlar & Dev",
+    "desc": "Dasturning qadam-baqadam bajarilishini ko'rish, xotiradagi o'zgaruvchilarni tekshirish va Segmentation Fault sababini aniqlash quroli.",
+    "syntax": "gdb [DASTUR]",
+    "flags": [],
+    "example": "gdb ./my_c_program\n(gdb) run\n(gdb) backtrace",
+    "analogy": "Kino lentasini to'xtatib, kadrma-kadr jinoyatchining qayerda xatoga yo'l qo'yganini o'rganish."
+  },
+  {
+    "cmd": "objdump",
+    "name": "Display Information from Object Files (Disassembler)",
+    "cat": "dev",
+    "catName": "Muharrirlar & Dev",
+    "desc": "Kompilyatsiya qilingan binar faylni Assembler kodlariga (disassembly) o'girib, mashina ko'rsatmalarini ko'rish imkonini beradi.",
+    "syntax": "objdump [BAYROQLAR] DASTUR",
+    "flags": [
+      {
+        "flag": "-d",
+        "desc": "Ijrochi kodni assembler tilida chiqarish (disassemble)"
+      },
+      {
+        "flag": "-M intel",
+        "desc": "Intel sintaksisida chiqarish (o'qish osonroq)"
+      }
+    ],
+    "example": "objdump -d -M intel ./a.out",
+    "analogy": "Zavod mashinasini qismlarga ajratib, ichidagi tishli g'ildiraklarning qanday aylanishini o'rganish."
+  }
+];
 
-    // -------------------------------------------------------------------------
-    // 2. MATN & OQIMLAR (WEEK 1 & 2)
-    // -------------------------------------------------------------------------
-    {
-      cmd: "cat",
-      name: "Concatenate & Display (Fayllarni O'qish va Birlashtirish)",
-      cat: "text",
-      catName: "Matn & Oqimlar",
-      desc: "Fayl tarkibini to'liq terminalga chiqaradi yoki bir nechta faylni birlashtirib yangi faylga yo'naltiradi.",
-      syntax: "cat [BAYROQLAR] [FAYLLAR]",
-      flags: [
-        { flag: "-n", desc: "Barcha satrlarni 1 dan boshlab raqamlash" },
-        { flag: "-b", desc: "Faqat bo'sh bo'lmagan satrlarni raqamlash" },
-        { flag: "-E", desc: "Har bir satr oxiriga '$' belgisini qo'yish" }
-      ],
-      example: "cat -n /etc/passwd\ncat part1.txt part2.txt > full.txt",
-      analogy: "Kitobni varaqlamasdan, boshidan oxirigacha ovoz chiqarib o'qib berish."
-    },
-    {
-      cmd: "head",
-      name: "Head (Faylning Boshlang'ich Qismini Chiqarish)",
-      cat: "text",
-      catName: "Matn & Oqimlar",
-      desc: "Faylning dastlabki bir necha satrini ko'rsatadi (sukut bo'yicha 10 ta satr).",
-      syntax: "head -n [SON] FAYL",
-      flags: [
-        { flag: "-n", desc: "Ko'rsatiladigan satrlar soni (masalan -n 5)" },
-        { flag: "-c", desc: "Ko'rsatiladigan baytlar soni" }
-      ],
-      example: "head -n 5 /etc/passwd",
-      analogy: "Gazetaning birinchi betidagi sarlavhalarni tezda ko'zdan kechirish."
-    },
-    {
-      cmd: "tail",
-      name: "Tail (Faylning Oxirgi Qismini Chiqarish)",
-      cat: "text",
-      catName: "Matn & Oqimlar",
-      desc: "Faylning oxirgi satrlarini chiqaradi. -f bayrog'i real vaqtda server loglarini kuzatish uchun eng mashhur vositadir.",
-      syntax: "tail [BAYROQLAR] FAYL",
-      flags: [
-        { flag: "-n", desc: "Oxirgi satrlar soni (masalan -n 10)" },
-        { flag: "-f", desc: "Follow: Faylga yangi yozilayotgan satrlarni real vaqt rejimida jonli kuzatish" }
-      ],
-      example: "tail -f /var/log/syslog",
-      analogy: "Telegram chatining eng so'nggi xabarlarini kutib turish. Yangi xabar kelishi bilan ekranga darhol chiqadi."
-    },
-    {
-      cmd: "wc",
-      name: "Word Count (Satr, So'z va Baytlar Hisoblagichi)",
-      cat: "text",
-      catName: "Matn & Oqimlar",
-      desc: "Matnli fayl ichidagi satrlar, so'zlar va baytlar sonini sanab beradi.",
-      syntax: "wc [BAYROQLAR] FAYL",
-      flags: [
-        { flag: "-l", desc: "Faqat satrlar sonini (lines) sanash" },
-        { flag: "-w", desc: "Faqat so'zlar sonini (words) sanash" },
-        { flag: "-c", desc: "Faqat baytlar sonini (bytes) sanash" },
-        { flag: "-m", desc: "Faqat belgilar sonini (characters) sanash" }
-      ],
-      example: "wc -l /etc/passwd\n42 /etc/passwd",
-      analogy: "Insho tekshiruvchi o'qituvchining so'z sanash kalkulyatori."
-    },
-    {
-      cmd: "grep",
-      name: "Global Regular Expression Print (Muntazam Qidiruv)",
-      cat: "text",
-      catName: "Matn & Oqimlar",
-      desc: "Fayllar yoki buyruq oqimi ichidan berilgan qolip (pattern/regex) bo'yicha mos keluvchi satrlarni filtrlaydi.",
-      syntax: "grep [BAYROQLAR] 'QOLIP' FAYL",
-      flags: [
-        { flag: "-i", desc: "Katta-kichik harflarni farqlamaslik (ignore-case)" },
-        { flag: "-v", desc: "Invert: Mos kelmaydigan barcha satrlarni chiqarish" },
-        { flag: "-c", desc: "Mos kelgan satrlar sonini sanash" },
-        { flag: "-r", desc: "Papka ichidagi barcha fayllarni rekursiv qidirish" },
-        { flag: "-E", desc: "Kengaytirilgan Regex (Extended Regular Expressions) dan foydalanish" }
-      ],
-      example: "grep -i 'error' /var/log/syslog | wc -l",
-      analogy: "Qum ichidan metall detektor yordamida tilla tangalarni topib olish."
-    },
-    {
-      cmd: "sort",
-      name: "Sort (Qatorlarni Tartiblash)",
-      cat: "text",
-      catName: "Matn & Oqimlar",
-      desc: "Matn qatorlarini alifbo yoki raqamlar bo'yicha tartiblaydi.",
-      syntax: "sort [BAYROQLAR] FAYL",
-      flags: [
-        { flag: "-n", desc: "Raqamli tartiblash (1, 2, 10 tartibida, 1, 10, 2 emas)" },
-        { flag: "-r", desc: "Teskari tartibda (kamayish tartibida)" },
-        { flag: "-u", desc: "Takrorlangan qatorlarni olib tashlash (unique)" },
-        { flag: "-k", desc: "Aniq ustun (kolonka) bo'yicha saralash" }
-      ],
-      example: "sort -n -r scores.txt",
-      analogy: "Kartalarni kattaligi bo'yicha tartiblab chiqish."
-    },
-    {
-      cmd: "uniq",
-      name: "Unique (Takrorlangan Qatorlarni Filtrlash)",
-      cat: "text",
-      catName: "Matn & Oqimlar",
-      desc: "Ketma-ket kelgan bir xil satrlarni bittaga tushiradi yoki ularning necha marta takrorlanganini hisoblaydi.",
-      syntax: "uniq [BAYROQLAR] [FAYL]",
-      flags: [
-        { flag: "-c", desc: "Har bir satr necha marta uchraganini ko'rsatish" },
-        { flag: "-d", desc: "Faqat takrorlangan satrlarni chiqarish" },
-        { flag: "-u", desc: "Faqat takrorlanmagan yagona satrlarni chiqarish" }
-      ],
-      example: "sort ip_addresses.txt | uniq -c | sort -nr",
-      analogy: "Bir xil kvitansiyalarni yig'ib, har biridan nechtadan ekanligini belgilab qo'yish."
-    },
+  const root = typeof window !== "undefined" ? window : (typeof globalThis !== "undefined" ? globalThis : this);
+  root.OS_DICTIONARY_DATA = OS_DICTIONARY_DATA;
 
-    // -------------------------------------------------------------------------
-    // 3. RUXSATLAR & FOYDALANUVCHILAR (WEEK 2)
-    // -------------------------------------------------------------------------
-    {
-      cmd: "chmod",
-      name: "Change Mode (Fayl Ruxsatlarini O'zgartirish)",
-      cat: "perm",
-      catName: "Ruxsatlar & Foydalanuvchilar",
-      desc: "Fayl yoki jildga o'qish (r=4), yozish (w=2) va ijro etish (x=1) huquqlarini raqamli yoki belgili formatda o'rnatadi.",
-      syntax: "chmod [RUXSAT] FAYL",
-      flags: [
-        { flag: "755", desc: "Egasi: rwx (7), Guruh: r-x (5), Boshqalar: r-x (5)" },
-        { flag: "644", desc: "Egasi: rw- (6), Guruh: r-- (4), Boshqalar: r-- (4) — standart fayl ruxsati" },
-        { flag: "700", desc: "Faqat egasiga to'liq huquq (shaxsiy SSH kalitlar uchun)" },
-        { flag: "+x", desc: "Barcha foydalanuvchilarga ijro etish (executable) huquqini qo'shish" },
-        { flag: "-R", desc: "Rekursiv tarzda papka va uning barcha ichki fayllariga qo'llash" },
-        { flag: "+t", desc: "Sticky Bit: faqat fayl egasi o'chira oladigan qilib himoyalash" }
-      ],
-      example: "chmod +x deploy.sh\nchmod 755 /srv/app",
-      analogy: "Eshik qulfini almashtirish: egasiga 3 ta kalit (ochish, yozish, kirish), mehmonlarga esa faqat derazadan qarash huquqini berish."
-    },
-    {
-      cmd: "chown",
-      name: "Change Owner (Fayl Egasini va Guruhini O'zgartirish)",
-      cat: "perm",
-      catName: "Ruxsatlar & Foydalanuvchilar",
-      desc: "Fayl yoki papkaga egalik huquqini boshqa foydalanuvchiga yoki guruhga topshiradi.",
-      syntax: "chown [FOYDALANUVCHI]:[GURUH] FAYL",
-      flags: [
-        { flag: "-R", desc: "Rekursiv ravishda butun katalog daraxtiga qo'llash" }
-      ],
-      example: "chown -R www-data:www-data /var/www/html",
-      analogy: "Mulkdorlik shartnomasini qayta rasmiylashtirish. Uyning yangi egasini davlat reestridan ro'yxatdan o'tkazish."
-    },
-    {
-      cmd: "useradd",
-      name: "User Add (Yangi Tizim Foydalanuvchisini Yaratish)",
-      cat: "perm",
-      catName: "Ruxsatlar & Foydalanuvchilar",
-      desc: "Debian/Linux tizimida yangi foydalanuvchi hisobini yaratadi va kerakli parametrlarni sozlaydi.",
-      syntax: "useradd [BAYROQLAR] FOYDALANUVCHI",
-      flags: [
-        { flag: "-m", desc: "Uy katalogini (/home/username) avtomatik yaratish" },
-        { flag: "-s", desc: "Standart login qobig'ini (masalan /bin/bash) belgilash" },
-        { flag: "-g", desc: "Birlamchi guruhni belgilash" },
-        { flag: "-G", desc: "Qo'shimcha ikkilamchi guruhlarga qo'shish (masalan sudo)" }
-      ],
-      example: "useradd -m -s /bin/bash -G sudo devuser",
-      analogy: "Yangi xodimga ofis kaliti, stol-stul va xizmat guvohnomasini topshirish."
-    },
-    {
-      cmd: "usermod",
-      name: "User Modify (Foydalanuvchi Sozlamalarini O'zgartirish)",
-      cat: "perm",
-      catName: "Ruxsatlar & Foydalanuvchilar",
-      desc: "Mavjud foydalanuvchining guruhlari, login qobig'i yoki uy katalogini o'zgartiradi.",
-      syntax: "usermod [BAYROQLAR] FOYDALANUVCHI",
-      flags: [
-        { flag: "-aG", desc: "Append Group: Eski guruhlarni saqlab qolgan holda yangi guruhga qo'shish (juda muhim!)" },
-        { flag: "-s", desc: "Foydalanuvchi qobig'ini o'zgartirish" },
-        { flag: "-L", desc: "Foydalanuvchi hisobini bloklash (Lock)" }
-      ],
-      example: "usermod -aG docker student",
-      analogy: "Xodim lavozimiga yangi vakolatlar qo'shish. -aG bayrog'isiz faqat -G qilinsa, xodimning eski barcha ruxsatlari bekor bo'lib ketadi!"
-    },
-
-    // -------------------------------------------------------------------------
-    // 4. BASH SKRIPTLASH & AVTOMATLASHTIRISH (WEEK 2 & 3)
-    // -------------------------------------------------------------------------
-    {
-      cmd: "shebang",
-      name: "#!/bin/bash (Shebang Direktivasi)",
-      cat: "bash",
-      catName: "Bash Skriptlash",
-      desc: "Skript faylining eng birinchi satrida turishi shart bo'lgan sehrli belgi. Operatsion tizimga ushbu faylni qaysi interpretator (bash, python, sh) orqali bajarish kerakligini ko'rsatadi.",
-      syntax: "#!/bin/bash",
-      flags: [
-        { flag: "#!/usr/bin/env bash", desc: "Portativ variant: tizim PATH bo'yicha bashni o'zi topadi" }
-      ],
-      example: "#!/bin/bash\necho 'Salom WIUT!'",
-      analogy: "Maktub konvertiga yozilgan til ko'rsatkichi: 'Ushbu xat o'zbek tilida yozilgan, tarjimonga o'zbekcha o'qiting'."
-    },
-    {
-      cmd: "variables",
-      name: "Bash O'zgaruvchilari & Maxsus Parametrlar",
-      cat: "bash",
-      catName: "Bash Skriptlash",
-      desc: "Bashda ma'lumotlarni saqlash va tizim holatini tekshirish uchun o'zgaruvchilar.",
-      syntax: "NAME='Qiymat'  # Diqqat: '=' atrofida probel bo'lmasligi shart!",
-      flags: [
-        { flag: "$?", desc: "Oxirgi bajarilgan buyruqning chiqish kodi (0 = muvaffaqiyatli, 1+ = xato)" },
-        { flag: "$#", desc: "Skriptga uzatilgan argumentlar soni" },
-        { flag: "$1, $2", desc: "Skriptga berilgan 1-chi va 2-chi pozitsion argumentlar" },
-        { flag: "$$", desc: "Joriy skript jarayonining PID raqami" }
-      ],
-      example: "NAME='Ali'\necho \"Salom $NAME, Exit code: $?\"",
-      analogy: "Qutiga yorliq yopishtirish. $? esa eng so'nggi amal muvaffaqiyatli bo'lgan yoki yo'qligini ko'rsatuvchi svetofor signali."
-    },
-    {
-      cmd: "if_else",
-      name: "Bash If-Else Shart Konstruksiyasi",
-      cat: "bash",
-      catName: "Bash Skriptlash",
-      desc: "Berilgan shart bajarilishiga qarab skriptning turli qismlarini ishga tushirish.",
-      syntax: "if [ SHART ]; then ... elif [ SHART ]; then ... else ... fi",
-      flags: [
-        { flag: "-f FAYL", desc: "Fayl mavjud va oddiy fayl ekanligini tekshirish" },
-        { flag: "-d KATALOG", desc: "Katalog mavjudligini tekshirish" },
-        { flag: "-z SATR", desc: "Satr bo'sh ekanligini tekshirish" },
-        { flag: "-eq, -ne", desc: "Tenglik va teng emaslik (raqamlar uchun)" }
-      ],
-      example: "if [ -f /etc/passwd ]; then\n  echo 'Fayl topildi'\nfi",
-      analogy: "Chorrahadagi yo'l belgisi: agar yomg'ir yog'sa soyabonni och, aks holda yo'lda davom et."
-    },
-    {
-      cmd: "loops",
-      name: "Bash Takrorlanish Sikllari (For & While)",
-      cat: "bash",
-      catName: "Bash Skriptlash",
-      desc: "Bir xil amallarni ro'yxat bo'yicha yoki shart bajarilguniga qadar takroriy bajarish.",
-      syntax: "for ITEM in RO'YXAT; do ... done\nwhile [ SHART ]; do ... done",
-      flags: [
-        { flag: "seq 1 10", desc: "1 dan 10 gacha raqamlar ketma-ketligini generatsiya qilish" }
-      ],
-      example: "for i in {1..5}; do\n  echo \"Server #$i tekshirildi\"\ndone",
-      analogy: "Konveyer lentasi: har bir qutini birin-ketin olib, markalash va keyingisiga o'tish."
-    },
-
-    // -------------------------------------------------------------------------
-    // 5. JARAYONLAR, SIGNALLAR & FORK() (WEEK 3 & 4)
-    // -------------------------------------------------------------------------
-    {
-      cmd: "ps",
-      name: "Process Status (Faol Jarayonlar Holati)",
-      cat: "proc",
-      catName: "Jarayonlar & Signallar",
-      desc: "Tizimda ishlayotgan barcha jarayonlar (PID, foydalanuvchi, CPU/Xotira ulushi) suratini chiqaradi.",
-      syntax: "ps [BAYROQLAR]",
-      flags: [
-        { flag: "aux", desc: "BSD formati: tizimdagi barcha jarayonlarni batafsil ko'rsatish" },
-        { flag: "-ef", desc: "Standart UNIX formati: to'liq buyruq satri va PPID bilan chiqarish" },
-        { flag: "--forest", desc: "Jarayonlar daraxtini (ota-bola munosabatlarini) chiroyli ko'rsatish" }
-      ],
-      example: "ps aux | grep nginx",
-      analogy: "Kasalxona monitori: hozir qaysi bemorlar bor, ularning puls va harorati qanday."
-    },
-    {
-      cmd: "top",
-      name: "Table of Processes (Jonli Tizim Monitori)",
-      cat: "proc",
-      catName: "Jarayonlar & Signallar",
-      desc: "Real vaqt rejimida CPU, RAM va eng ko'p resurs yeyayotgan jarayonlarni dinamik yangilab turadi.",
-      syntax: "top [BAYROQLAR]",
-      flags: [
-        { flag: "-u", desc: "Faqat berilgan foydalanuvchi jarayonlarini ko'rsatish" },
-        { flag: "-p", desc: "Faqat berilgan PID jarayonini kuzatish" }
-      ],
-      example: "top",
-      analogy: "Aeroport dispetcherlik ekrani: havoda nechta samolyot bor, qaysi biri eng ko'p yoqilg'i sarflayapti."
-    },
-    {
-      cmd: "kill",
-      name: "Kill (Jarayonlarga Signal Yuborish)",
-      cat: "proc",
-      catName: "Jarayonlar & Signallar",
-      desc: "Jarayonga tugatish yoki boshqaruv signallarini uzatadi.",
-      syntax: "kill -[SIGNAL] PID",
-      flags: [
-        { flag: "-15 (SIGTERM)", desc: "Yumshoq to'xtatish signali (jarayonga ma'lumotlarni saqlab yopilishiga imkon beradi)" },
-        { flag: "-9 (SIGKILL)", desc: "Majburiy va darhol o'ldirish signali (jarayon rad eta olmaydi)" },
-        { flag: "-1 (SIGHUP)", desc: "Konfiguratsiyani qayta yuklash signali" }
-      ],
-      example: "kill -15 1245\nkill -9 9999",
-      analogy: "SIGTERM: xodimga 'ishlaringizni yig'ishtiring, ofis yopilyapti' deyish. SIGKILL: elektr tokini to'satdan uzib qo'yish."
-    },
-    {
-      cmd: "fork",
-      name: "fork() System Call (Jarayonni Ikkiga Ko'paytirish)",
-      cat: "proc",
-      catName: "Jarayonlar & Signallar",
-      desc: "Ota jarayonning aynan 1:1 nusxasi bo'lgan yangi bola (child) jarayonni vujudga keltiradi. Ota jarayonga bolaning PID raqami, bolaga esa 0 qaytadi.",
-      syntax: "pid = os.fork()  # Python da",
-      flags: [
-        { flag: "pid > 0", desc: "Ota jarayon bloki (parent process)" },
-        { flag: "pid == 0", desc: "Bola jarayon bloki (child process)" },
-        { flag: "pid < 0", desc: "Xatolik: tizimda yangi jarayon yaratish uchun xotira yetmadi" }
-      ],
-      example: "import os\npid = os.fork()\nif pid == 0:\n  print('Men bola jarayonman!')\nelse:\n  print(f'Men otaman, bolam PID={pid}')",
-      analogy: "Hujayraning mitoz bo'linishi. Bitta tirik organizmdan aynan bir xil xususiyatga ega ikkinchi organizm ajralib chiqadi."
-    },
-
-    // -------------------------------------------------------------------------
-    // 6. DEVOPS, SCHEDULING & XOTIRA (WEEK 5 & 6)
-    // -------------------------------------------------------------------------
-    {
-      cmd: "cron",
-      name: "Cron & Crontab (Vaqt Bo'yicha Rejalashtiruvchi)",
-      cat: "devops",
-      catName: "DevOps & Xotira",
-      desc: "Vazifalarni har daqiqa, soat, kun yoki haftada avtomatik ishga tushirish xizmati.",
-      syntax: "* * * * * BUYRUQ  # (Daqiqa Soat Kun Oy Hafta_kuni)",
-      flags: [
-        { flag: "crontab -e", desc: "Joriy foydalanuvchining cron jadvalini tahrirlash" },
-        { flag: "crontab -l", desc: "Mavjud rejalashtirilgan vazifalar ro'yxatini ko'rish" },
-        { flag: "crontab -r", desc: "Barcha rejalashtirilgan cron vazifalarini o'chirib tashlash" }
-      ],
-      example: "0 2 * * * /backup/db_backup.sh  # Har kecha soat 02:00 da",
-      analogy: "Budilnik: belgilangan vaqt kelganda avtomatik jiringlab, vazifani bajarishga tushadi."
-    },
-    {
-      cmd: "free",
-      name: "Free (Operativ Xotira Holati)",
-      cat: "devops",
-      catName: "DevOps & Xotira",
-      desc: "Tizimning jami, ishlatilayotgan, bo'sh RAM va Swap (almashtirish) xotirasini ko'rsatadi.",
-      syntax: "free [BAYROQLAR]",
-      flags: [
-        { flag: "-h", desc: "Inson tushunadigan formatda (GB, MB) chiqarish" },
-        { flag: "-m", desc: "Megabaytlarda ko'rsatish" },
-        { flag: "-s 2", desc: "Har 2 soniyada yangilab turish" }
-      ],
-      example: "free -h\nMem: 16Gi total, 4.2Gi used, 9.8Gi free",
-      analogy: "Hamyondagi naqd pul va bank kartasidagi mablag'ni tekshirib olish."
-    },
-    {
-      cmd: "docker",
-      name: "Docker (Konteynerlashtirish Platformasi)",
-      cat: "devops",
-      catName: "DevOps & Xotira",
-      desc: "Ilovalarni va ularning barcha bog'liqliklarini alohida izolyatsiyalangan konteynerlarda yurgizish.",
-      syntax: "docker [KOMANDA] [PARAMETRLAR]",
-      flags: [
-        { flag: "run -d -p 80:80 nginx", desc: "Fonda 80-portni ulab Nginx konteynerini ishga tushirish" },
-        { flag: "ps", desc: "Hozir ishlayotgan faol konteynerlarni ko'rish" },
-        { flag: "ps -a", desc: "To'xtagan konteynerlarni ham ko'rsatish" },
-        { flag: "stop ID", desc: "Konteynerni to'xtatish" },
-        { flag: "exec -it ID bash", desc: "Ishlayotgan konteyner ichiga interaktiv terminal ochish" }
-      ],
-      example: "docker run -d --name my-web -p 8080:80 nginx",
-      analogy: "Dengiz yuk konteyneri: ichida mebel bormi yoki mashina, kema uchun farqi yo'q — u xavfsiz va alohida tashiladi."
-    }
-  ];
-
-  // Helper function to build modal HTML
   function buildDictionaryModalHtml() {
     return `
       <div class="os-dict-overlay" id="osDictOverlay">
@@ -486,7 +3202,7 @@
             <div class="os-dict-title-box">
               <span class="os-dict-title-icon">📖</span>
               <div>
-                <div class="os-dict-title">Operating Systems — Barcha 6 Haftalik Buyruqlar Lug'ati</div>
+                <div class="os-dict-title">Operating Systems — 120+ Linux Buyruqlar Ensiklopediyasi</div>
                 <div class="os-dict-sub">Linux CLI, Inodelar, Bash skriptlar, fork(), Xotira va Docker bo'yicha to'liq qo'llanma</div>
               </div>
             </div>
@@ -496,17 +3212,21 @@
           <div class="os-dict-controls">
             <div class="os-dict-search-wrap">
               <span class="os-dict-search-icon">🔍</span>
-              <input type="text" id="osDictSearchInput" class="os-dict-search-input" placeholder="Buyruq, bayroq yoki tushunchani qidiring (masalan: pwd, chmod, fork, $?, cron)..." autocomplete="off" />
+              <input type="text" id="osDictSearchInput" class="os-dict-search-input" placeholder="Buyruq, bayroq yoki tushunchani qidiring (masalan: pwd, chmod, fork, $?, cron, docker)..." autocomplete="off" />
             </div>
 
             <div class="os-dict-categories" id="osDictCategories">
-              <button class="os-cat-pill active" data-cat="all">Barchasi (Hammasi)</button>
+              <button class="os-cat-pill active" data-cat="all">Barchasi (${OS_DICTIONARY_DATA.length})</button>
               <button class="os-cat-pill" data-cat="nav">📁 Navigatsiya &amp; Inodelar</button>
               <button class="os-cat-pill" data-cat="text">📜 Matn &amp; Oqimlar</button>
-              <button class="os-cat-pill" data-cat="perm">🔒 Ruxsatlar &amp; Foydalanuvchilar</button>
-              <button class="os-cat-pill" data-cat="bash">⚡ Bash Skriptlash</button>
+              <button class="os-cat-pill" data-cat="perm">🔒 Ruxsatlar &amp; Xavfsizlik</button>
               <button class="os-cat-pill" data-cat="proc">⚙️ Jarayonlar &amp; fork()</button>
-              <button class="os-cat-pill" data-cat="devops">🐳 DevOps, Cron &amp; Docker</button>
+              <button class="os-cat-pill" data-cat="mem">🧠 Xotira &amp; Swap</button>
+              <button class="os-cat-pill" data-cat="disk">💾 Disk &amp; Bloklar</button>
+              <button class="os-cat-pill" data-cat="net">🌐 Tarmoq &amp; Server</button>
+              <button class="os-cat-pill" data-cat="bash">⚡ Bash &amp; Cron</button>
+              <button class="os-cat-pill" data-cat="devops">🐳 Docker &amp; DevOps</button>
+              <button class="os-cat-pill" data-cat="dev">🛠 Muharrirlar &amp; Dev</button>
             </div>
           </div>
 
@@ -537,7 +3257,8 @@
       }
       // Text search
       if (!query) return true;
-      const haystack = `${item.cmd} ${item.name} ${item.desc} ${item.example} ${item.analogy} ${item.flags.map(f => f.flag + ' ' + f.desc).join(' ')}`.toLowerCase();
+      const flagsText = (item.flags || []).map(f => f.flag + ' ' + f.desc).join(' ');
+      const haystack = `${item.cmd} ${item.name} ${item.desc} ${item.example} ${item.analogy} ${flagsText}`.toLowerCase();
       return haystack.includes(query);
     });
 
@@ -547,7 +3268,7 @@
 
     if (filtered.length === 0) {
       container.innerHTML = `
-        <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+        <div style="padding: 40px; text-align: center; color: var(--text-muted, #94a3b8);">
           <div style="font-size: 36px; margin-bottom: 12px;">🔍</div>
           <div style="font-size: 16px; color: #fff; font-weight: 600;">Hech qanday buyruq topilmadi</div>
           <div style="font-size: 13px; margin-top: 6px;">Qidiruv so'zini o'zgartirib ko'ring yoki boshqa kategoriyani tanlang.</div>
@@ -559,17 +3280,19 @@
     let html = "";
     filtered.forEach(item => {
       html += `
-        <article class="os-cmd-entry">
-          <div class="os-entry-head">
-            <div class="os-entry-title-box">
-              <span class="os-entry-cmd">${escapeHtml(item.cmd)}</span>
-              <span class="os-entry-cat-badge">${escapeHtml(item.catName)}</span>
+        <article class="os-dict-card" id="dict-${escapeHtml(item.cmd)}">
+          <div class="os-card-header">
+            <div>
+              <span class="os-cmd-badge">${escapeHtml(item.cmd)}</span>
+              <span class="os-cmd-title">${escapeHtml(item.name)}</span>
             </div>
-            <button class="btn-copy-cmd" onclick="window.copyToClipboard('${escapeAttr(item.example.split('\n')[0])}')">Nusxa olish 📋</button>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <span class="os-cat-tag">${escapeHtml(item.catName)}</span>
+              <button class="os-copy-btn" onclick="window.copyToClipboard('${escapeAttr(item.cmd)}')">📋 Nusxalash</button>
+            </div>
           </div>
 
-          <div style="font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px;">${escapeHtml(item.name)}</div>
-          <p class="os-entry-desc">${escapeHtml(item.desc)}</p>
+          <div class="os-entry-desc">${escapeHtml(item.desc)}</div>
 
           <div class="os-entry-block">
             <div class="os-block-title">📌 Sintaksis:</div>
@@ -620,10 +3343,10 @@
     return String(str).replace(/'/g, "\\'").replace(/"/g, "&quot;");
   }
 
-  window.copyToClipboard = function (text) {
+  root.copyToClipboard = function (text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(() => {
-        showCopyToast("Buyruq nusxalandi!");
+        showCopyToast("Buyruq nusxalandi: " + text);
       });
     } else {
       const textarea = document.createElement("textarea");
@@ -632,7 +3355,7 @@
       textarea.select();
       document.execCommand("copy");
       document.body.removeChild(textarea);
-      showCopyToast("Buyruq nusxalandi!");
+      showCopyToast("Buyruq nusxalandi: " + text);
     }
   };
 
@@ -652,7 +3375,8 @@
   }
 
   // Global open / close
-  window.openOsDictionary = function () {
+  root.openOsDictionary = function () {
+    if (typeof document === "undefined") return;
     let overlay = document.getElementById("osDictOverlay");
     if (!overlay) {
       document.body.insertAdjacentHTML("beforeend", buildDictionaryModalHtml());
@@ -668,12 +3392,14 @@
     }
   };
 
-  window.closeOsDictionary = function () {
+  root.closeOsDictionary = function () {
+    if (typeof document === "undefined") return;
     const overlay = document.getElementById("osDictOverlay");
     if (overlay) overlay.classList.remove("active");
   };
 
   function bindDictionaryEvents() {
+    if (typeof document === "undefined") return;
     const overlay = document.getElementById("osDictOverlay");
     const closeBtn = document.getElementById("btnCloseOsDict");
     const searchInput = document.getElementById("osDictSearchInput");
@@ -682,12 +3408,12 @@
     let currentCat = "all";
 
     if (closeBtn) {
-      closeBtn.addEventListener("click", window.closeOsDictionary);
+      closeBtn.addEventListener("click", root.closeOsDictionary);
     }
 
     if (overlay) {
       overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) window.closeOsDictionary();
+        if (e.target === overlay) root.closeOsDictionary();
       });
     }
 
@@ -708,20 +3434,26 @@
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && overlay && overlay.classList.contains("active")) {
-        window.closeOsDictionary();
+        root.closeOsDictionary();
       } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
-        window.openOsDictionary();
+        root.openOsDictionary();
       }
     });
   }
 
   // Auto attach button trigger
-  document.addEventListener("DOMContentLoaded", () => {
-    const triggerBtn = document.getElementById("btnOpenDictionary");
-    if (triggerBtn) {
-      triggerBtn.addEventListener("click", window.openOsDictionary);
-    }
-  });
+  if (typeof document !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      const triggerBtn = document.getElementById("btnOpenDictionary");
+      if (triggerBtn) {
+        triggerBtn.addEventListener("click", root.openOsDictionary);
+      }
+    });
+  }
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = { OS_DICTIONARY_DATA };
+  }
 
 })();

@@ -1,7 +1,7 @@
 /* ============================================================================
-   WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 2 NOC & DEVOPS SECURITY THEME
-   Deep Matrix Obsidian (#080c14), Cyber Cyan (#06b6d4), Terminal Emerald (#10b981),
-   Neon Gold (#f59e0b), Cyber Violet (#8b5cf6) and Platinum (#f8fafc).
+   WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 1 NOC & DATA CENTER THEME
+   Deep Matrix Obsidian (#080c14), Terminal Emerald (#10b981), Cyber Cyan (#06b6d4),
+   Amber Alert (#f59e0b) and Platinum (#f8fafc).
    ============================================================================ */
 
 :root {
@@ -16,7 +16,6 @@
   --border-cyan: rgba(6, 182, 212, 0.55);
   --border-emerald: rgba(16, 185, 129, 0.55);
   --border-amber: rgba(245, 158, 11, 0.5);
-  --border-violet: rgba(139, 92, 246, 0.5);
   --border-active: #22d3ee;
 
   --text-primary: #f8fafc;
@@ -27,10 +26,9 @@
   --accent-cyan-bright: #22d3ee;
   --accent-emerald: #10b981;
   --accent-emerald-bright: #34d399;
+  --accent-emerald-soft: rgba(16, 185, 129, 0.15);
   --accent-amber: #f59e0b;
   --accent-amber-bright: #fbbf24;
-  --accent-violet: #8b5cf6;
-  --accent-violet-bright: #a78bfa;
   --accent-ruby: #ef4444;
 
   --shadow-matrix: 0 10px 30px rgba(0, 0, 0, 0.65);
@@ -38,13 +36,17 @@
   --radius-sm: 6px;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  min-width: 0;
 }
 
-body {
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
   background-color: var(--bg-deep);
   background-image: radial-gradient(circle at 50% 0%, #111a2f 0%, #080c14 80%);
   color: var(--text-primary);
@@ -54,7 +56,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
 }
 
 /* ============================================================================
@@ -63,13 +64,49 @@ body {
 .top-hud {
   background: linear-gradient(180deg, #10182c 0%, #0b1120 100%);
   border-bottom: 1px solid var(--border-cyan);
-  padding: 10px 20px;
+  padding: 10px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
   z-index: 25;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-back {
+  background: #14223d !important;
+  border: 1px solid var(--accent-cyan) !important;
+  color: var(--accent-cyan-bright) !important;
+  font-weight: 700 !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-back:hover {
+  background: var(--accent-cyan) !important;
+  color: #080c14 !important;
+}
+
+.btn-dictionary {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(16, 185, 129, 0.2)) !important;
+  border: 1px solid var(--accent-cyan) !important;
+  color: var(--accent-cyan-bright) !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+.btn-dictionary:hover {
+  background: var(--accent-cyan) !important;
+  color: #080c14 !important;
 }
 
 .brand-box {
@@ -79,33 +116,35 @@ body {
 }
 
 .brand-emblem {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 9px;
   background: linear-gradient(135deg, #16243d, #0b1424);
   border: 1px solid var(--accent-cyan);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 20px;
   color: var(--accent-emerald-bright);
   box-shadow: 0 0 14px rgba(6, 182, 212, 0.35);
+  flex-shrink: 0;
 }
 
 .brand-title {
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 700;
   letter-spacing: 0.5px;
   color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .brand-title .badge-os {
-  background: rgba(139, 92, 246, 0.2);
-  border: 1px solid var(--accent-violet);
-  color: var(--accent-violet-bright);
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid var(--accent-emerald);
+  color: var(--accent-emerald-bright);
   font-size: 10px;
   font-weight: 600;
   padding: 1px 6px;
@@ -113,7 +152,7 @@ body {
 }
 
 .brand-sub {
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--accent-cyan-bright);
 }
 
@@ -145,10 +184,17 @@ body {
   color: var(--text-primary);
 }
 
-.stat-val.gold { color: var(--accent-amber-bright); }
-.stat-val.emerald { color: var(--accent-emerald-bright); }
-.stat-val.cyan { color: var(--accent-cyan-bright); }
-.stat-val.violet { color: var(--accent-violet-bright); }
+.stat-val.gold {
+  color: var(--accent-amber-bright);
+}
+
+.stat-val.emerald {
+  color: var(--accent-emerald-bright);
+}
+
+.stat-val.cyan {
+  color: var(--accent-cyan-bright);
+}
 
 .progress-wrap {
   width: 75px;
@@ -162,7 +208,7 @@ body {
 .progress-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-emerald));
   border-radius: 3px;
   transition: width 0.3s ease;
 }
@@ -198,6 +244,10 @@ body {
   transform: translateY(-1px);
 }
 
+.btn:active {
+  transform: translateY(0);
+}
+
 .btn-primary {
   background: linear-gradient(135deg, #059669, #10b981);
   border-color: #34d399;
@@ -214,16 +264,16 @@ body {
 }
 
 .btn-event {
-  background: linear-gradient(135deg, #7c3aed, #a855f7);
-  border-color: #c084fc;
-  color: #fff;
+  background: linear-gradient(135deg, #b45309, #f59e0b);
+  border-color: #fbbf24;
+  color: #261300;
   font-weight: 700;
-  animation: pulseViolet 2.2s infinite ease-in-out;
+  animation: pulseAmber 2.2s infinite ease-in-out;
 }
 
-@keyframes pulseViolet {
-  0%, 100% { box-shadow: 0 0 8px rgba(139, 92, 246, 0.3); }
-  50% { box-shadow: 0 0 18px rgba(139, 92, 246, 0.7); }
+@keyframes pulseAmber {
+  0%, 100% { box-shadow: 0 0 8px rgba(245, 158, 11, 0.3); }
+  50% { box-shadow: 0 0 18px rgba(245, 158, 11, 0.7); }
 }
 
 /* ============================================================================
@@ -272,7 +322,7 @@ body {
 }
 
 .sector-pill.active {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(139, 92, 246, 0.25));
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(16, 185, 129, 0.25));
   border-color: var(--accent-cyan);
   color: #fff;
   font-weight: 600;
@@ -350,20 +400,26 @@ body {
    ============================================================================ */
 .canvas-wrap {
   position: relative;
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
   background: #050811;
   border-bottom: 1px solid var(--border-subtle);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
 }
 
 #gameCanvas {
-  display: block;
-  width: 100%;
-  max-height: 380px;
-  object-fit: contain;
-  cursor: crosshair;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  max-height: 240px !important;
+  aspect-ratio: 860 / 340;
+  object-fit: cover !important;
+  cursor: default;
 }
 
 .office-ticker {
@@ -387,9 +443,9 @@ body {
 }
 
 .ticker-badge {
-  background: rgba(139, 92, 246, 0.2);
-  border: 1px solid var(--accent-violet);
-  color: var(--accent-violet-bright);
+  background: rgba(6, 182, 212, 0.2);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan-bright);
   font-size: 10.5px;
   font-weight: 600;
   padding: 1px 7px;
@@ -472,11 +528,29 @@ body {
   color: #fff;
 }
 
-.badge-perm { color: var(--accent-emerald-bright); font-weight: 600; }
-.badge-inode { color: var(--accent-amber-bright); }
-.badge-file { color: #fff; font-weight: 600; }
-.badge-dir { color: #60a5fa; font-weight: 700; }
-.badge-sticky { color: #f43f5e; font-weight: bold; background: rgba(244, 63, 94, 0.15); padding: 1px 4px; border-radius: 3px; }
+.badge-perm {
+  color: var(--accent-emerald-bright);
+  font-weight: 600;
+}
+
+.badge-inode {
+  color: var(--accent-amber-bright);
+}
+
+.badge-file {
+  color: #fff;
+  font-weight: 600;
+}
+
+.badge-dir {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.badge-symlink {
+  color: #ec4899;
+  font-style: italic;
+}
 
 /* ============================================================================
    RIGHT COLUMN: MISSION DOSSIER & QUESTION STRIP
@@ -558,9 +632,9 @@ body {
 }
 
 .badge-source {
-  background: rgba(139, 92, 246, 0.15);
-  border: 1px solid var(--accent-violet);
-  color: var(--accent-violet-bright);
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid var(--accent-amber);
+  color: var(--accent-amber-bright);
   font-size: 11px;
   font-weight: 600;
   padding: 2px 8px;
@@ -900,15 +974,70 @@ body {
 
 .event-choice-btn:hover {
   background: #1c2b4a;
-  border-color: var(--accent-violet-bright);
+  border-color: var(--accent-amber-bright);
   transform: translateX(4px);
 }
 
 /* ============================================================================
-   COMMAND & FLAG ANATOMY INTERACTIVE ACCORDION CARD (USER REQUEST)
+   TERMINAL MODE SWITCH PILLS & CONTROLS
+   ============================================================================ */
+.terminal-mode-switch {
+  display: flex;
+  align-items: center;
+  background: #0b1325;
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+  gap: 2px;
+}
+
+.mode-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 11.5px;
+  padding: 4px 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.mode-btn:hover {
+  color: #fff;
+  background: rgba(6, 182, 212, 0.15);
+}
+
+.mode-btn.active {
+  background: var(--accent-cyan);
+  color: #03131d;
+  font-weight: 700;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+}
+
+.btn-xs {
+  padding: 2px 7px;
+  font-size: 11px;
+}
+
+.mode-tab {
+  background: #111b2f;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  color: var(--text-secondary);
+}
+
+.mode-tab.active {
+  background: rgba(6, 182, 212, 0.25);
+  border-color: var(--accent-cyan-bright);
+  color: var(--accent-cyan-bright);
+  font-weight: 700;
+}
+
+/* ============================================================================
+   COMMAND & FLAG ANATOMY INTERACTIVE ACCORDION CARD (BATAFSIL)
    ============================================================================ */
 .cmd-info-card {
-  margin: 8px 0 10px 0;
+  margin: 6px 0 10px 0;
   border-radius: 8px;
   background: #09101f;
   border: 1px solid rgba(6, 182, 212, 0.35);
@@ -996,7 +1125,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-height: 280px;
+  max-height: 320px;
   overflow-y: auto;
   font-size: 12px;
   line-height: 1.5;
@@ -1092,7 +1221,175 @@ body {
   margin-top: 2px;
 }
 
+/* ============================================================================
+   CLI TOUCH BAR FOR QUICK LINUX KEYS (DESKTOP & MOBILE)
+   ============================================================================ */
+.cli-touch-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  background: #080d19;
+  border-top: 1px solid rgba(6, 182, 212, 0.2);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
 
+.cli-key-btn {
+  background: #111a2e;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: var(--accent-cyan-bright);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.cli-key-btn:hover {
+  background: #1c2b4d;
+  border-color: var(--accent-cyan);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.cli-key-btn:active {
+  transform: translateY(1px);
+  background: var(--accent-cyan);
+  color: #03131d;
+}
+
+/* ============================================================================
+   EXPANDED CLI MASTER MODE & FULLSCREEN TTY CONSOLE
+   ============================================================================ */
+
+/* CLI Master Mode (Wide Stage) */
+body.mode-cli-master .main-grid {
+  grid-template-columns: 1fr;
+  max-width: 1300px;
+}
+
+body.mode-cli-master .left-col {
+  display: none;
+}
+
+body.mode-cli-master .terminal-window {
+  min-height: 520px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+body.mode-cli-master .terminal-output {
+  min-height: 400px;
+  max-height: 580px;
+  font-size: 13.5px;
+}
+
+body.mode-cli-master #bashInput {
+  font-size: 14.5px;
+}
+
+/* Fullscreen Debian 12 TTY Mode */
+.terminal-window.is-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  border-radius: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  background: #03060c !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.terminal-fullscreen-bar {
+  background: #070e1c;
+  border-bottom: 1px solid var(--accent-cyan);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fs-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.fs-badge {
+  background: var(--accent-cyan);
+  color: #03141f;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.fs-qtitle {
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fs-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.btn-exit-fs {
+  background: #dc2626 !important;
+  border-color: #ef4444 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+.btn-exit-fs:hover {
+  background: #ef4444 !important;
+}
+
+.terminal-window.is-fullscreen .terminal-header {
+  padding: 6px 16px !important;
+}
+
+.terminal-window.is-fullscreen .terminal-output {
+  flex: 1 !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  font-size: 14.5px !important;
+  line-height: 1.6 !important;
+  padding: 16px 20px !important;
+}
+
+.terminal-window.is-fullscreen .terminal-input-row {
+  padding: 10px 16px !important;
+  background: #060b17 !important;
+  border-top: 1px solid var(--border-cyan) !important;
+}
+
+.terminal-window.is-fullscreen #bashInput {
+  font-size: 15px !important;
+}
+
+/* ============================================================================
+   KALI LINUX WORKBENCH CARD (Integrated in Left Column & Fullscreen Toggle)
+   ============================================================================ */
 
 .panel-card.terminal-card {
   background: #000000;
@@ -1144,7 +1441,9 @@ body {
   position: fixed !important;
   inset: 0 !important;
   width: 100vw !important;
+  max-width: 100vw !important;
   height: 100vh !important;
+  height: 100dvh !important;
   z-index: 99999 !important;
   background: #000000 !important;
   border-radius: 0 !important;
@@ -1152,6 +1451,7 @@ body {
   border: none !important;
   display: flex !important;
   flex-direction: column !important;
+  overflow: hidden !important;
 }
 
 .terminal-card.is-fullscreen .panel-header {
@@ -1403,75 +1703,375 @@ body {
   line-height: 1.35;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
-.kali-typed-text {
-  color: #f8fafc;
-  white-space: pre-wrap;
-  word-break: break-all;
-  font-weight: 600;
+.kali-inline-cmd-input {
+  flex: 1;
+  min-width: 60px;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #f8fafc !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  caret-color: #22d3ee !important;
 }
 
-.kali-cursor {
-  display: inline-block;
-  width: 8.5px;
-  height: 16px;
-  background: #ffffff;
-  margin-left: 1px;
-  vertical-align: -2px;
-  animation: kaliBlink 1s step-end infinite;
+/* Engine Switcher */
+.terminal-engine-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #090e1a;
+  padding: 2px 4px;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
 }
 
-@keyframes kaliBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.btn-engine-pill {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
 }
 
-.kali-hidden-input {
+.btn-engine-pill:hover {
+  color: #fff;
+}
+
+.btn-engine-pill.active {
+  background: #1e293b;
+  color: #38bdf8;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+/* In-Terminal Interactive Editor Overlay (nano / vim) */
+.terminal-editor-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  width: 1px;
-  height: 1px;
-  font-size: 16px;
-  pointer-events: none;
+  inset: 0;
+  background: #050811;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-header {
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  border-bottom: 1px solid #334155;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.editor-textarea {
+  flex: 1;
+  background: #000000;
+  color: #e2e8f0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13.5px;
+  padding: 12px;
   border: none;
   outline: none;
-  background: transparent;
-  color: transparent;
-  margin: 0;
-  padding: 0;
-  z-index: -1;
+  resize: none;
+  line-height: 1.5;
 }
 
-.terminal-mode-switch-group {
+.editor-footer {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 5px 12px;
+  display: flex;
+  gap: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  border-top: 1px solid #1e293b;
+}
+
+/* WASM Real Linux Screen */
+.wasm-term-screen {
+  width: 100%;
+  height: 380px;
+  min-height: 280px;
+  max-height: 480px;
+  background: #000000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.wasm-loader {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #38bdf8;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  text-align: center;
+  padding: 16px;
+}
+
+.wasm-spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid rgba(56, 189, 248, 0.2);
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: wasmSpin 0.8s linear infinite;
+}
+
+@keyframes wasmSpin {
+  to { transform: rotate(360deg); }
+}
+
+.wasm-xterm-box {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  background: #000000;
+  padding: 4px;
+  overflow: hidden;
+}
+
+body.terminal-is-fullscreen {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.terminal-card.is-fullscreen .wasm-term-screen {
+  flex: 1 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.terminal-card.is-fullscreen .wasm-xterm-box {
+  flex: 1 !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* ============================================================================
+   2-MODE SEGMENTED CONTROL: MASALA YECHISH VS ERKIN CLI
+   ============================================================================ */
+.cli-mode-segmented-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: #090f1e;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 6px;
+  margin-bottom: 4px;
+}
+
+.cli-mode-pill {
+  background: #0e172a;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  padding: 9px 12px;
   display: flex;
   align-items: center;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  border-radius: 6px;
-  padding: 2px;
-  gap: 2px;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  user-select: none;
 }
 
-.terminal-mode-btn {
-  background: transparent !important;
-  color: #94a3b8 !important;
-  border: none !important;
-  border-radius: 4px !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  padding: 3px 8px !important;
+.cli-mode-pill:hover {
+  background: #14223d;
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.cli-mode-pill.active {
+  background: linear-gradient(135deg, #132742 0%, #0d1e34 100%);
+  border-color: var(--accent-cyan-bright);
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.22);
+}
+
+.cli-mode-pill .mode-icon {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cli-mode-pill .mode-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.cli-mode-pill .mode-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.25;
+}
+
+.cli-mode-pill .mode-sub {
+  font-size: 10.5px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.cli-mode-pill.active .mode-title {
+  color: #38bdf8;
+}
+
+.cli-mode-pill.active .mode-sub {
+  color: #cbd5e1;
+}
+
+/* Terminal Active Mode Badge */
+.terminal-active-mode-badge {
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan-bright);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+/* In-Terminal Quick Task & Action Bar */
+.terminal-task-bar {
+  background: #060a14;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.25);
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.tt-text {
+  color: var(--accent-cyan-bright);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tt-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.tt-btn {
+  background: #142036;
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  color: #e2e8f0;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease;
+  white-space: nowrap;
 }
 
-.terminal-mode-btn.active {
-  background: #0284c7 !important;
+.tt-btn:hover {
+  background: var(--accent-cyan);
+  color: #080c14;
+  border-color: var(--accent-cyan-bright);
+}
+
+/* Floating High-Contrast Fullscreen Exit Button */
+.btn-floating-exit-fs {
+  position: fixed !important;
+  top: 10px !important;
+  right: 12px !important;
+  z-index: 10000000 !important;
+  background: #dc2626 !important;
   color: #ffffff !important;
-  box-shadow: 0 1px 4px rgba(2, 132, 199, 0.4);
+  border: 1.5px solid #f87171 !important;
+  border-radius: 8px !important;
+  padding: 8px 14px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  display: none;
+  cursor: pointer !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(8px);
+}
+
+.btn-floating-exit-fs:hover {
+  background: #b91c1c !important;
+}
+
+.terminal-card.is-fullscreen .btn-floating-exit-fs {
+  display: block !important;
+}
+
+/* Prominent Batafsil Button */
+.batafsil-btn-wrap {
+  margin: 10px 0 12px 0;
+}
+
+.btn-batafsil {
+  width: 100%;
+  background: linear-gradient(135deg, #16243d 0%, #0e172a 100%);
+  border: 1.5px solid var(--accent-cyan);
+  color: var(--accent-cyan-bright);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(6, 182, 212, 0.2);
+}
+
+.btn-batafsil:hover {
+  background: var(--accent-cyan);
+  color: #080c14;
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.5);
 }
 
 /* History Entries in Stream */
@@ -1723,39 +2323,259 @@ body {
   flex-wrap: wrap;
 }
 
-/* Responsive Overrides for Mobile Phones */
-@media (max-width: 768px) {
-  .kali-topbar {
-    padding: 0 6px;
-    gap: 4px;
-    height: 38px;
-    min-height: 38px;
+/* ============================================================================
+   RESPONSIVE DESIGN & MOBILE PHONE OPTIMIZATION (100% CONTAINMENT)
+   ============================================================================ */
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .top-hud {
+    padding: 8px 12px;
+    gap: 8px;
+    flex-wrap: wrap;
   }
-  .kt-host-badge {
+
+  .brand-sub {
     display: none;
   }
-  .kt-brand {
+
+  .hud-stats {
+    width: 100%;
+    order: 3;
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .stat-pill {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 4px 8px;
     font-size: 11px;
   }
-  .kt-task-btn {
-    padding: 3px 6px;
-    font-size: 11px;
-    max-width: 120px;
+
+  .hud-actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
   }
-  .kt-action-btn {
-    padding: 3px 6px;
-    font-size: 10.5px;
-  }
-  .kali-screen {
+
+  .main-grid {
+    grid-template-columns: 1fr;
     padding: 8px 10px;
+    gap: 12px;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .canvas-wrap {
+    max-height: 240px;
+    overflow: hidden;
+  }
+
+  #gameCanvas {
+    max-height: 240px;
+    width: 100%;
+    height: auto;
+  }
+
+  .terminal-card:not(.is-fullscreen) .kali-screen {
+    height: 380px;
+    min-height: 320px;
+    max-height: 480px;
     font-size: 12.5px;
+    padding: 10px 12px;
   }
+
+  .action-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .action-left, .action-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .action-bar .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .kali-fullscreen-bar {
+    padding: 4px 8px;
+    height: auto;
+    min-height: 42px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-hud {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 8px 10px !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .brand-box {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .brand-title {
+    font-size: 13px !important;
+  }
+
+  .brand-sub {
+    font-size: 11px !important;
+  }
+
+  .brand-emblem {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 17px !important;
+  }
+
+  .btn-back {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+  }
+
+  .hud-stats {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 6px !important;
+  }
+
+  .hud-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+  }
+
+  .hud-actions .btn {
+    padding: 5px 9px !important;
+    font-size: 11px !important;
+  }
+
+  .main-grid {
+    padding: 6px 8px !important;
+    gap: 10px !important;
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .canvas-wrap {
+    max-height: 200px !important;
+  }
+
+  #gameCanvas {
+    max-height: 200px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .cli-mode-segmented-bar {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+
+  .cli-mode-pill {
+    padding: 7px 10px !important;
+  }
+
+  .cli-mode-pill .mode-title {
+    font-size: 12px !important;
+  }
+
+  .cli-mode-pill .mode-sub {
+    font-size: 10px !important;
+  }
+
+  .panel-header {
+    padding: 6px 10px !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .panel-title {
+    font-size: 12px !important;
+  }
+
+  .terminal-engine-switch {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .btn-engine-pill {
+    flex: 1 !important;
+    text-align: center !important;
+  }
+
+  .q-strip {
+    gap: 4px !important;
+    padding: 6px 8px !important;
+    overflow-x: auto !important;
+  }
+
+  .q-dot {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 10px !important;
+  }
+
+  .mission-body {
+    padding: 10px 12px !important;
+  }
+
+  .mission-title {
+    font-size: 14.5px !important;
+  }
+
+  .kali-screen {
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    height: 340px !important;
+  }
+
   .kali-touch-bar {
-    padding: 4px 6px;
+    padding: 4px 6px !important;
+    gap: 4px !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
   }
+
   .kt-key-btn {
-    padding: 6px 9px;
-    font-size: 11px;
+    padding: 6px 8px !important;
+    font-size: 11px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .modal-dialog, .kali-modal-content {
+    width: 95% !important;
+    max-width: 95% !important;
+    margin: 10px auto !important;
+    padding: 12px !important;
   }
 }
 

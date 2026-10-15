@@ -1006,6 +1006,7 @@
       if (el.btnModeFull) el.btnModeFull.classList.add("active");
       if (el.btnModeSplit) el.btnModeSplit.classList.remove("active");
       if (el.btnModeCli) el.btnModeCli.classList.remove("active");
+      document.body.classList.add("terminal-is-fullscreen");
     } else {
       if (el.terminalWorkbenchCard) el.terminalWorkbenchCard.classList.remove("is-fullscreen");
       if (el.kaliFullscreenBar) el.kaliFullscreenBar.style.display = "none";
@@ -1013,9 +1014,17 @@
       if (el.btnModeSplit) el.btnModeSplit.classList.add("active");
       if (el.btnModeFull) el.btnModeFull.classList.remove("active");
       if (el.btnModeCli) el.btnModeCli.classList.remove("active");
+      document.body.classList.remove("terminal-is-fullscreen");
     }
 
-    focusKaliInput();
+    setTimeout(() => {
+      if (typeof fitWasmTerminal === "function") fitWasmTerminal();
+      focusKaliInput();
+    }, 50);
+    setTimeout(() => {
+      if (typeof fitWasmTerminal === "function") fitWasmTerminal();
+      focusKaliInput();
+    }, 250);
   }
 
   function focusKaliInput() {
@@ -1145,6 +1154,25 @@
   let wasmEmulatorInstance = null;
   let wasmXtermInstance = null;
 
+  function fitWasmTerminal() {
+    if (!wasmXtermInstance) return;
+    const box = document.getElementById("wasmXtermBox");
+    if (!box) return;
+    const isMobile = window.innerWidth <= 600;
+    const charWidth = isMobile ? 7.2 : 8.4;
+    const charHeight = isMobile ? 15 : 18;
+    const w = Math.max(260, box.clientWidth - 10);
+    const h = Math.max(200, box.clientHeight - 10);
+    const cols = Math.max(34, Math.floor(w / charWidth));
+    const rows = Math.max(12, Math.floor(h / charHeight));
+    try {
+      wasmXtermInstance.resize(cols, rows);
+      wasmXtermInstance.scrollToBottom();
+    } catch (e) {}
+  }
+  window.fitWasmTerminal = fitWasmTerminal;
+  window.addEventListener("resize", fitWasmTerminal);
+
   async function initWasmRealLinux() {
     if (wasmEmulatorInstance) {
       if (wasmXtermInstance) wasmXtermInstance.focus();
@@ -1175,11 +1203,13 @@
     }
 
     try {
-      // 1. Initialize Xterm UI
+      const isMobile = window.innerWidth <= 600;
       if (!wasmXtermInstance) {
         wasmXtermInstance = new Terminal({
-          cols: 80,
-          rows: 24,
+          cols: isMobile ? 42 : 80,
+          rows: isMobile ? 18 : 24,
+          fontSize: isMobile ? 11.5 : 13,
+          lineHeight: 1.2,
           theme: {
             background: "#000000",
             foreground: "#f8fafc",
@@ -1187,10 +1217,12 @@
             selectionBackground: "rgba(56, 189, 248, 0.3)"
           },
           fontFamily: "'JetBrains Mono', monospace",
-          fontSize: 13,
-          cursorBlink: true
+          cursorBlink: true,
+          scrollOnUserInput: true,
+          scrollback: 2000
         });
         wasmXtermInstance.open(box);
+        fitWasmTerminal();
       }
 
       // 2. Render live download progress bar in the loader
@@ -1272,13 +1304,17 @@
         } else {
           wasmXtermInstance.write(byte);
         }
+        wasmXtermInstance.scrollToBottom();
       });
 
       wasmXtermInstance.onData(function(data) {
         if (wasmEmulatorInstance) {
           wasmEmulatorInstance.serial0_send(data);
         }
+        wasmXtermInstance.scrollToBottom();
       });
+
+      fitWasmTerminal();
 
       wasmEmulatorInstance.add_listener("ready", function() {
         if (loader) loader.style.display = "none";
@@ -1525,6 +1561,23 @@ permitted by applicable law.
           SoundFX.playKey();
           const token = btn.getAttribute("data-token");
           const key = btn.getAttribute("data-key");
+
+          if (state.activeEngine === "wasm" && wasmEmulatorInstance) {
+            if (token) {
+              wasmEmulatorInstance.serial0_send(token);
+            } else if (key === "Tab") {
+              wasmEmulatorInstance.serial0_send("\t");
+            } else if (key === "CtrlC") {
+              wasmEmulatorInstance.serial0_send("\x03");
+            } else if (key === "clear") {
+              wasmEmulatorInstance.serial0_send("clear\n");
+            }
+            if (wasmXtermInstance) {
+              wasmXtermInstance.focus();
+              wasmXtermInstance.scrollToBottom();
+            }
+            return;
+          }
 
           if (token) {
             insertKaliToken(token);

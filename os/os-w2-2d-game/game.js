@@ -241,6 +241,20 @@
     el.kaliTypedText = document.getElementById("kaliTypedText");
     el.kaliCursor = document.getElementById("kaliCursor");
     el.kaliHiddenInput = document.getElementById("kaliHiddenInput");
+
+    el.wasmTerminalContainer = document.getElementById("wasmTerminalContainer");
+    el.wasmLoader = document.getElementById("wasmLoader");
+    el.wasmLoaderText = document.getElementById("wasmLoaderText");
+    el.wasmXtermBox = document.getElementById("wasmXtermBox");
+    el.btnEngineShell = document.getElementById("btnEngineShell");
+    el.btnEngineWasm = document.getElementById("btnEngineWasm");
+    el.btnFloatingExitFs = document.getElementById("btnFloatingExitFs");
+    el.terminalEditorOverlay = document.getElementById("terminalEditorOverlay");
+    el.editorTitle = document.getElementById("editorTitle");
+    el.editorTextarea = document.getElementById("editorTextarea");
+    el.btnEditorSave = document.getElementById("btnEditorSave");
+    el.btnEditorExit = document.getElementById("btnEditorExit");
+
     el.kaliTouchBar = document.getElementById("kaliTouchBar");
     el.btnTouchPrev = document.getElementById("btnTouchPrev");
     el.btnTouchNext = document.getElementById("btnTouchNext");
@@ -922,6 +936,286 @@
   // KALI LINUX TERMINAL ENGINE & WORKBENCH HELPERS (2 MODES & FULLSCREEN)
   // ============================================================================
 
+  
+  // --- Interactive Terminal Text Editor (nano / vim / vi) ---
+  function openTerminalEditor(prog, filename, initialContent = "") {
+    state.activeEditor = { prog, filename };
+    if (el.editorTitle) {
+      el.editorTitle.textContent = `${prog.toUpperCase()} • ${filename}`;
+    }
+    if (el.editorTextarea) {
+      el.editorTextarea.value = initialContent;
+    }
+    if (el.terminalEditorOverlay) {
+      el.terminalEditorOverlay.style.display = "flex";
+    }
+    setTimeout(() => {
+      if (el.editorTextarea) el.editorTextarea.focus();
+    }, 60);
+  }
+
+  function saveAndCloseTerminalEditor() {
+    if (!state.activeEditor || !state.liveShell) return;
+    const content = el.editorTextarea ? el.editorTextarea.value : "";
+    const filename = state.activeEditor.filename;
+    const cwd = state.liveShell.cwd || "/home/student";
+    const fullPath = filename.startsWith("/") ? filename : (cwd === "/" ? "/" + filename : cwd + "/" + filename);
+    const parts = fullPath.split("/").filter(Boolean);
+    const fname = parts.pop();
+    const dirPath = "/" + parts.join("/");
+
+    let dirNode = state.liveShell.getNode(dirPath);
+    if (!dirNode) {
+      state.liveShell.execute(`mkdir -p "${dirPath}"`);
+      dirNode = state.liveShell.getNode(dirPath);
+    }
+
+    if (dirNode && dirNode.children) {
+      let fileNode = dirNode.children[fname];
+      if (!fileNode) {
+        fileNode = {
+          name: fname,
+          type: "file",
+          inode: Math.floor(Math.random() * 500000 + 1000000),
+          permissions: "-rw-r--r--",
+          owner: state.liveShell.user || "student",
+          group: state.liveShell.user || "student",
+          links: 1,
+          mtime: new Date().toISOString().replace("T", " ").substring(0, 19),
+          content: content,
+          size: content.length
+        };
+        dirNode.children[fname] = fileNode;
+      } else {
+        fileNode.content = content;
+        fileNode.size = content.length;
+        fileNode.mtime = new Date().toISOString().replace("T", " ").substring(0, 19);
+      }
+    }
+
+    const savedProg = state.activeEditor.prog.toUpperCase();
+    const savedFile = state.activeEditor.filename;
+    closeTerminalEditor();
+    printKaliInfo(`[✓ ${savedProg}: '${savedFile}' muvaffaqiyatli saqlandi (${content.length} bayt)]`);
+    renderFsExplorer();
+  }
+
+  function closeTerminalEditor() {
+    if (el.terminalEditorOverlay) {
+      el.terminalEditorOverlay.style.display = "none";
+    }
+    state.activeEditor = null;
+    focusKaliInput();
+    if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+  }
+
+  // --- Real Linux WebAssembly (v86 + xterm.js) ---
+  let wasmEmulatorInstance = null;
+  let wasmXtermInstance = null;
+
+  function fitWasmTerminal() {
+    if (!wasmXtermInstance) return;
+    const box = document.getElementById("wasmXtermBox");
+    if (!box) return;
+    const rect = box.getBoundingClientRect();
+    const isMobile = window.innerWidth <= 600;
+    const charWidth = isMobile ? 7.0 : 8.2;
+    const charHeight = isMobile ? 14.5 : 17.5;
+    const w = Math.max(240, (rect.width > 0 ? rect.width : box.clientWidth) - 8);
+    const h = Math.max(160, (rect.height > 0 ? rect.height : box.clientHeight) - 8);
+    const cols = Math.max(30, Math.floor(w / charWidth));
+    const rows = Math.max(10, Math.floor(h / charHeight));
+    try {
+      wasmXtermInstance.resize(cols, rows);
+      wasmXtermInstance.scrollToBottom();
+    } catch (e) {}
+  }
+  window.fitWasmTerminal = fitWasmTerminal;
+  window.addEventListener("resize", fitWasmTerminal);
+
+  async function initWasmRealLinux() {
+    if (wasmEmulatorInstance) {
+      if (wasmXtermInstance) wasmXtermInstance.focus();
+      return;
+    }
+
+    const box = el.wasmXtermBox || document.getElementById("wasmXtermBox");
+    const loader = el.wasmLoader || document.getElementById("wasmLoader");
+    const loaderText = el.wasmLoaderText || document.getElementById("wasmLoaderText");
+    if (!box) return;
+
+    if (loader) loader.style.display = "flex";
+
+    const V86Constructor = window.V86 || window.V86Starter;
+    if (typeof Terminal === "undefined" || !V86Constructor) {
+      if (loaderText) {
+        loaderText.innerHTML = `
+          <div style="font-weight:700; color:#fbbf24; margin-bottom:6px;">⚠️ WebAssembly kutubxonasi kutilmoqda</div>
+          <div style="font-size:12px; color:#cbd5e1; margin-bottom:12px; max-width:320px; line-height:1.5;">
+            Internet tezligi past bo'lsa yoki kutishni istamasangiz, <b>0 soniyada</b> ochiluvchi va ichida <b>haqiqiy vim/nano</b> bor Tezkor Shelldan foydalaning:
+          </div>
+          <button type="button" class="btn btn-primary" onclick="window.setTerminalEngine('shell')" style="padding:7px 16px; font-weight:700;">
+            ⚡ Tezkor Shellga O'tish
+          </button>
+        `;
+      }
+      return;
+    }
+
+    try {
+      const isMobile = window.innerWidth <= 600;
+      if (!wasmXtermInstance) {
+        wasmXtermInstance = new Terminal({
+          cols: isMobile ? 42 : 80,
+          rows: isMobile ? 18 : 24,
+          fontSize: isMobile ? 11.5 : 13,
+          lineHeight: 1.2,
+          theme: {
+            background: "#000000",
+            foreground: "#f8fafc",
+            cursor: "#22d3ee",
+            selectionBackground: "rgba(56, 189, 248, 0.3)"
+          },
+          fontFamily: "'JetBrains Mono', monospace",
+          cursorBlink: true,
+          scrollOnUserInput: true,
+          scrollback: 2000
+        });
+        wasmXtermInstance.open(box);
+        fitWasmTerminal();
+      }
+
+      if (loaderText) {
+        loaderText.innerHTML = `
+          <div class="wasm-spinner"></div>
+          <div style="font-weight:700; color:#38bdf8; margin-top:8px;">🐧 Haqiqiy Linux Tizimi Yuklanmoqda...</div>
+          <div id="wasmProgressStatus" style="font-family:'JetBrains Mono', monospace; font-size:13.5px; color:#34d399; margin: 8px 0 6px; font-weight:700;">0.00 MB / 7.35 MB (0%)</div>
+          <div style="width:260px; height:8px; background:#0f172a; border-radius:4px; overflow:hidden; border:1px solid #334155; margin: 0 auto 14px auto;">
+            <div id="wasmProgressBarFill" style="width:0%; height:100%; background:linear-gradient(90deg, #06b6d4, #10b981); transition:width 0.2s ease;"></div>
+          </div>
+          <div style="font-size:11px; color:#94a3b8; margin-bottom:10px;">Bir marta yuklanadi va brauzeringizda keshlanadi.</div>
+          <button type="button" class="btn btn-primary" onclick="window.setTerminalEngine('shell')" style="padding:6px 14px; font-size:11.5px; font-weight:700;">
+            ⚡ Tezkor Shellga O'tish (Kutmasdan Ishlash)
+          </button>
+        `;
+      }
+
+      const isoUrl = "../os-w1-2d-game/data/linux4.iso";
+      const isoResponse = await fetch(isoUrl);
+      if (!isoResponse.ok) {
+        throw new Error(`ISO fayl topilmadi: ${isoResponse.statusText}`);
+      }
+
+      const reader = isoResponse.body.getReader();
+      const contentLength = +isoResponse.headers.get("Content-Length") || 7712768;
+      let receivedLength = 0;
+      let chunks = [];
+
+      const statusEl = document.getElementById("wasmProgressStatus");
+      const barEl = document.getElementById("wasmProgressBarFill");
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        receivedLength += value.length;
+        const percent = Math.min(100, Math.round((receivedLength / contentLength) * 100));
+        const mbReceived = (receivedLength / (1024 * 1024)).toFixed(2);
+        const mbTotal = (contentLength / (1024 * 1024)).toFixed(2);
+
+        if (statusEl) statusEl.textContent = `${mbReceived} MB / ${mbTotal} MB (${percent}%)`;
+        if (barEl) barEl.style.width = `${percent}%`;
+      }
+
+      if (statusEl) statusEl.textContent = "✓ 100% Yuklandi! Linux x86 Kernel ishga tushmoqda...";
+
+      let isoBytes = new Uint8Array(receivedLength);
+      let pos = 0;
+      for (let chunk of chunks) {
+        isoBytes.set(chunk, pos);
+        pos += chunk.length;
+      }
+
+      wasmXtermInstance.writeln("\x1b[1;36m🐧 Linux Kernel x86 ishga tushmoqda... (SeaBIOS & Kernel 4.x)\x1b[0m\r\n");
+
+      wasmEmulatorInstance = new V86Constructor({
+        wasm_path: "https://cdn.jsdelivr.net/npm/v86@latest/build/v86.wasm",
+        memory_size: 64 * 1024 * 1024,
+        vga_memory_size: 2 * 1024 * 1024,
+        screen_container: null,
+        bios: {
+          url: "../os-w1-2d-game/data/seabios.bin"
+        },
+        vga_bios: {
+          url: "../os-w1-2d-game/data/vgabios.bin"
+        },
+        cdrom: {
+          buffer: isoBytes.buffer
+        },
+        autostart: true
+      });
+
+      wasmEmulatorInstance.add_listener("serial0-output-byte", function(byte) {
+        if (typeof byte === "number") {
+          const char = String.fromCharCode(byte);
+          wasmXtermInstance.write(char);
+        } else {
+          wasmXtermInstance.write(byte);
+        }
+        wasmXtermInstance.scrollToBottom();
+      });
+
+      wasmXtermInstance.onData(function(data) {
+        if (wasmEmulatorInstance) {
+          wasmEmulatorInstance.serial0_send(data);
+        }
+        wasmXtermInstance.scrollToBottom();
+      });
+
+      fitWasmTerminal();
+
+      wasmEmulatorInstance.add_listener("ready", function() {
+        if (loader) loader.style.display = "none";
+        wasmXtermInstance.writeln("\r\n\x1b[1;32m✓ Haqiqiy x86 Linux tizimi faol! Tizimga xush kelibsiz.\x1b[0m\r\n");
+        wasmXtermInstance.focus();
+      });
+
+      setTimeout(() => {
+        if (loader) loader.style.display = "none";
+      }, 4500);
+
+    } catch (err) {
+      console.error("WASM boot error:", err);
+      if (loaderText) {
+        loaderText.innerHTML = `
+          <div style="font-weight:700; color:#ef4444; margin-bottom:6px;">⚠️ Yuklashda xatolik: ${err.message}</div>
+          <button type="button" class="btn btn-primary" onclick="window.setTerminalEngine('shell')" style="margin-top:8px;">
+            ⚡ Tezkor Shellga O'tish
+          </button>
+        `;
+      }
+    }
+  }
+
+  function setTerminalEngine(engine) {
+    state.activeEngine = engine;
+    SoundFX.playKey();
+    if (engine === "wasm") {
+      if (el.btnEngineWasm) el.btnEngineWasm.classList.add("active");
+      if (el.btnEngineShell) el.btnEngineShell.classList.remove("active");
+      if (el.wasmTerminalContainer) el.wasmTerminalContainer.style.display = "block";
+      if (el.kaliScreen) el.kaliScreen.style.display = "none";
+      initWasmRealLinux();
+    } else {
+      if (el.btnEngineShell) el.btnEngineShell.classList.add("active");
+      if (el.btnEngineWasm) el.btnEngineWasm.classList.remove("active");
+      if (el.wasmTerminalContainer) el.wasmTerminalContainer.style.display = "none";
+      if (el.kaliScreen) el.kaliScreen.style.display = "block";
+      focusKaliInput();
+    }
+  }
+  window.setTerminalEngine = setTerminalEngine;
+
   function toggleTerminalFullscreen(enable) {
     const isFs = (typeof enable === "boolean") ? enable : !state.terminalFullscreen;
     state.terminalFullscreen = isFs;
@@ -932,13 +1226,28 @@
       if (el.terminalWorkbenchCard) el.terminalWorkbenchCard.classList.add("is-fullscreen");
       if (el.kaliFullscreenBar) el.kaliFullscreenBar.style.display = "flex";
       if (el.btnToggleFullscreen) el.btnToggleFullscreen.textContent = "✕ Kichraytirish";
+      if (el.btnModeFull) el.btnModeFull.classList.add("active");
+      if (el.btnModeSplit) el.btnModeSplit.classList.remove("active");
+      if (el.btnModeCli) el.btnModeCli.classList.remove("active");
+      document.body.classList.add("terminal-is-fullscreen");
     } else {
       if (el.terminalWorkbenchCard) el.terminalWorkbenchCard.classList.remove("is-fullscreen");
       if (el.kaliFullscreenBar) el.kaliFullscreenBar.style.display = "none";
       if (el.btnToggleFullscreen) el.btnToggleFullscreen.textContent = "⛶ To'liq Ekran";
+      if (el.btnModeSplit) el.btnModeSplit.classList.add("active");
+      if (el.btnModeFull) el.btnModeFull.classList.remove("active");
+      if (el.btnModeCli) el.btnModeCli.classList.remove("active");
+      document.body.classList.remove("terminal-is-fullscreen");
     }
 
-    focusKaliInput();
+    setTimeout(() => {
+      if (typeof fitWasmTerminal === "function") fitWasmTerminal();
+      focusKaliInput();
+    }, 50);
+    setTimeout(() => {
+      if (typeof fitWasmTerminal === "function") fitWasmTerminal();
+      focusKaliInput();
+    }, 250);
   }
 
   function focusKaliInput() {
@@ -1080,6 +1389,24 @@ permitted by applicable law.
           SoundFX.playKey();
           const token = btn.getAttribute("data-token");
           const key = btn.getAttribute("data-key");
+          
+          if (state.activeEngine === "wasm" && wasmEmulatorInstance) {
+            if (token) {
+              wasmEmulatorInstance.serial0_send(token);
+            } else if (key === "Tab") {
+              wasmEmulatorInstance.serial0_send("\t");
+            } else if (key === "CtrlC") {
+              wasmEmulatorInstance.serial0_send("\x03");
+            } else if (key === "clear") {
+              wasmEmulatorInstance.serial0_send("clear\n");
+            }
+            if (wasmXtermInstance) {
+              wasmXtermInstance.focus();
+              wasmXtermInstance.scrollToBottom();
+            }
+            return;
+          }
+
           if (token) {
             insertKaliToken(token);
           } else if (key === "Tab") {
