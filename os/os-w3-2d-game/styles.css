@@ -3221,3 +3221,8 @@ input.kali-inline-cmd-input {
 .kali-screen::-webkit-scrollbar-thumb:hover {
   background: #0284c7 !important;
 }
+
+/* Ensure duplicate floating button is completely removed */
+.btn-floating-exit-fs {
+  display: none !important;
+}

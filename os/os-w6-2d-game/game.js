@@ -1071,13 +1071,6 @@
   function scrollKaliToBottom() {
     if (!el.kaliScreen) return;
     el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
-    if (el.kaliActivePrompt) {
-      try {
-        el.kaliActivePrompt.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-      } catch(e) {
-        try { el.kaliActivePrompt.scrollIntoView(false); } catch(err) {}
-      }
-    }
   }
 
   function focusKaliInput() {
@@ -1121,10 +1114,7 @@ Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls
       card.style.borderColor = "rgba(34, 211, 238, 0.4)";
       card.style.color = "#22d3ee";
       card.style.margin = "6px 0";
-      card.innerHTML = `<b>🎯 Masala Yechish Rejimi Faol!</b><br>
-Joriy Topshiriq #${state.currentQuestionId}: <b>${q ? escapeHtml(q.title) : ""}</b><br>
-Talab etilgan buyruqni terminalda bajaring.`;
-      if (el.kaliStream) el.kaliStream.appendChild(card);
+      if (q) printKaliTaskCard(q);
       if (el.kaliScreen) scrollKaliToBottom();
       focusKaliInput();
     }
@@ -1910,9 +1900,39 @@ permitted by applicable law.
 <span style="color:#f8fafc">Welcome to Kali in UserLAnd!</span>\n`;
   }
 
+  
+  function printKaliTaskCard(q) {
+    if (!q || !el.kaliStream) return;
+    const card = document.createElement("div");
+    card.className = "kali-meta-card";
+    card.style.borderColor = "rgba(56, 189, 248, 0.4)";
+    card.style.background = "rgba(8, 14, 28, 0.9)";
+    card.style.color = "#38bdf8";
+    card.style.margin = "8px 0";
+    card.style.padding = "9px 13px";
+    card.style.borderRadius = "6px";
+    card.style.borderLeft = "4px solid #38bdf8";
+
+    const cleanTask = q.taskUz ? q.taskUz.replace(/<[^>]*>/g, "") : (q.story || "Topshiriqni bajaring.");
+    card.innerHTML = `<div style="font-weight:700; font-size:13.5px; color:#38bdf8; display:flex; align-items:center; gap:6px;">
+      <span>🎯</span> <span>Topshiriq #${q.id}: ${escapeHtml(q.title)}</span>
+    </div>
+    <div style="font-size:12.5px; color:#cbd5e1; margin-top:5px; line-height:1.45;">
+      <b>Vazifa:</b> ${escapeHtml(cleanTask)}
+    </div>`;
+
+    el.kaliStream.appendChild(card);
+    scrollKaliToBottom();
+  }
+
   function initKaliTerminal() {
     if (!el.kaliStream) return;
     el.kaliStream.innerHTML = getKaliBannerHtml();
+    // Initial Quest Card on Terminal Init
+    const initQ = allQuestions.find(item => item.id === state.currentQuestionId);
+    if (initQ && state.terminalMode !== "sandbox") {
+      printKaliTaskCard(initQ);
+    }
     updateTerminalPrompt();
 
     // Clicking or tapping anywhere in the black terminal screen focuses the inline input without scrolling jumps
@@ -1932,9 +1952,7 @@ permitted by applicable law.
     // Input handling on inline input directly in prompt
     if (el.kaliHiddenInput) {
       el.kaliHiddenInput.addEventListener("input", () => {
-        if (el.kaliScreen) {
-          scrollKaliToBottom();
-        }
+        // Typing does not scroll or jump; caret is kept in view naturally
       });
 
       el.kaliHiddenInput.addEventListener("keydown", (e) => {
@@ -2626,12 +2644,48 @@ permitted by applicable law.
 
       const succDiv = document.createElement("div");
       succDiv.className = "kali-grade-success";
-      succDiv.innerHTML = `✓ TO'G'RI! ${escapeHtml(grade.message)}<br><span style="color:#a7f3d0; font-size:12px;">+$100 Bonus hisobingizga qo'shildi! Keyingi topshiriqqa o'tish uchun <b>'next'</b> deb yozing yoki yuqoridagi [Keyingi ▶] tugmasini bosing.</span>`;
+      succDiv.innerHTML = `✓ TO'G'RI! ${escapeHtml(grade.message)}<br><span style="color:#a7f3d0; font-size:12px;">+$100 Bonus hisobingizga qo'shildi!</span>`;
       el.kaliStream.appendChild(succDiv);
 
-      showFeedback(true, `<b>✓ ${grade.message}</b><br><span style="color:#a7f3d0; font-size:12px;">+$100 Bonus hisobingizga qo'shildi. Keyingi topshiriqqa o'tishingiz mumkin!</span>`);
-
+      showFeedback(true, `<b>✓ ${grade.message}</b><br><span style="color:#a7f3d0; font-size:12px;">+$100 Bonus hisobingizga qo'shildi! Keyingi topshiriqqa o'tilmoqda...</span>`);
       checkOfficeEventTrigger(currentQ.id);
+
+      // Auto-advance to next question after 1.2s celebration
+      if (state.terminalMode !== "sandbox") {
+        if (state.currentQuestionId < allQuestions.length) {
+          setTimeout(() => {
+            // 1. Yashil xabarni o'chirish
+            if (succDiv && succDiv.parentNode) {
+              succDiv.style.transition = "opacity 0.3s ease";
+              succDiv.style.opacity = "0";
+              setTimeout(() => {
+                if (succDiv && succDiv.parentNode) {
+                  succDiv.parentNode.removeChild(succDiv);
+                }
+              }, 300);
+            }
+
+            // 2. O'yinda keyingi masalaga avtomatik o'tish
+            const nextId = state.currentQuestionId + 1;
+            loadQuestion(nextId);
+
+            // 3. Terminalda keyingi masalaning ko'k kartasini chiqarish
+            const nextQ = allQuestions.find(item => item.id === nextId);
+            if (nextQ) {
+              printKaliTaskCard(nextQ);
+            }
+            focusKaliInput();
+          }, 1200);
+        } else {
+          setTimeout(() => {
+            const winCard = document.createElement("div");
+            winCard.className = "kali-grade-success";
+            winCard.innerHTML = "🏆 TABRIKLAYMIZ! Barcha 150 ta topshiriq muvaffaqiyatli yakunlandi!";
+            el.kaliStream.appendChild(winCard);
+            scrollKaliToBottom();
+          }, 1200);
+        }
+      }
     } else {
       SoundFX.playError();
       const errDiv = document.createElement("div");
