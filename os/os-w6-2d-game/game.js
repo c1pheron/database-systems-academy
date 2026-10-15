@@ -1074,7 +1074,9 @@
     if (el.kaliActivePrompt) {
       try {
         el.kaliActivePrompt.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-      } catch(e) {}
+      } catch(e) {
+        try { el.kaliActivePrompt.scrollIntoView(false); } catch(err) {}
+      }
     }
   }
 
@@ -2005,6 +2007,8 @@ permitted by applicable law.
     // Toggle Kali Fullscreen
     const btnToggleKali = document.getElementById("btnToggleKaliFs");
     const btnFloatExit = document.getElementById("btnFloatingExitFs");
+    const btnFsExit = document.getElementById("btnFsExit");
+    const btnFsClear = document.getElementById("btnFsClear");
 
     function setFullscreenMode(enable) {
       SoundFX.playKey();
@@ -2029,12 +2033,22 @@ permitted by applicable law.
           btnToggleKali.style.color = "";
         }
       }
+      setTimeout(scrollKaliToBottom, 30);
       setTimeout(scrollKaliToBottom, 100);
+      setTimeout(scrollKaliToBottom, 250);
       focusKaliInput();
     }
 
-    if (btnToggleKali) {
-      btnToggleKali.addEventListener("click", () => setFullscreenMode());
+    if (btnToggleKali) btnToggleKali.addEventListener("click", () => setFullscreenMode());
+    if (btnFloatExit) btnFloatExit.addEventListener("click", () => setFullscreenMode(false));
+    if (btnFsExit) btnFsExit.addEventListener("click", () => setFullscreenMode(false));
+    if (btnFsClear) {
+      btnFsClear.addEventListener("click", () => {
+        SoundFX.playKey();
+        if (el.kaliStream) el.kaliStream.innerHTML = "";
+        scrollKaliToBottom();
+        focusKaliInput();
+      });
     }
     if (btnFloatExit) {
       btnFloatExit.addEventListener("click", () => setFullscreenMode(false));
@@ -2388,7 +2402,7 @@ permitted by applicable law.
     const lower = rawCmd.toLowerCase();
 
     if (lower === "task" || lower === "vazifa") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       const q = allQuestions.find(item => item.id === state.currentQuestionId);
       if (q) {
         const card = document.createElement("div");
@@ -2408,13 +2422,13 @@ permitted by applicable law.
     }
 
     if (lower === "batafsil") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       if (el.modalKtBatafsil) el.modalKtBatafsil.classList.add("active");
       return;
     }
 
     if (lower === "hint" || lower === "maslahat") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       const q = allQuestions.find(item => item.id === state.currentQuestionId);
       if (q) {
         printKaliInfo(`[💡 MASLAHAT]: ${q.hint || "Topshiriq matniga qarang."}`);
@@ -2423,7 +2437,7 @@ permitted by applicable law.
     }
 
     if (lower === "preview" || lower === "natija") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       const q = allQuestions.find(item => item.id === state.currentQuestionId);
       if (q) {
         const expShell = new window.VIRTUAL_LINUX_W6.VirtualLinuxShell();
@@ -2434,7 +2448,7 @@ permitted by applicable law.
     }
 
     if (lower === "next" || lower === "keyingi") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       if (state.currentQuestionId < allQuestions.length) {
         loadQuestion(state.currentQuestionId + 1);
         const qNext = allQuestions.find(item => item.id === state.currentQuestionId);
@@ -2446,7 +2460,7 @@ permitted by applicable law.
     }
 
     if (lower === "prev" || lower === "oldingi") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       if (state.currentQuestionId > 1) {
         loadQuestion(state.currentQuestionId - 1);
         const qPrev = allQuestions.find(item => item.id === state.currentQuestionId);
@@ -2463,49 +2477,49 @@ permitted by applicable law.
     }
 
     if (lower === "fullscreen" || lower === "full" || lower === "f11") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       toggleTerminalFullscreen(true);
       return;
     }
 
     if (lower === "exit" || lower === "split" || lower === "quit" || lower === "2d") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       toggleTerminalFullscreen(false);
       return;
     }
 
     if (lower === "fs" || lower === "files") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       setWorkbenchTab("fs");
       return;
     }
 
     if (lower === "term" || lower === "cli") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       setWorkbenchTab("terminal");
       return;
     }
 
     if (lower === "sandbox" || lower === "erkin") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       setTerminalMode("sandbox");
       return;
     }
 
     if (lower === "quest" || lower === "masala" || lower === "topshiriq") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       setTerminalMode("quest");
       return;
     }
 
     if (lower === "map" || lower === "xarita") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       openMapModal();
       return;
     }
 
     if (lower === "help") {
-      appendKaliPromptHistory(rawCmd);
+      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
       printKaliInfo(`WIUT Kali Linux Terminal Buyruqlari:
   task / vazifa    - Joriy topshiriq va talablarni chiqarish
   batafsil         - Buyruq va bayroqlar to'liq tahlili (modal)
@@ -2526,7 +2540,7 @@ permitted by applicable law.
     }
 
     // Append executed prompt line to history
-    appendKaliPromptHistory(rawCmd);
+    appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
 
     // echo $? exit code inspector
     if (rawCmd === "echo $?") {

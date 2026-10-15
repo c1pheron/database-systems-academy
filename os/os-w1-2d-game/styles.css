@@ -2993,3 +2993,231 @@ input.kali-inline-cmd-input {
   cursor: pointer !important;
   box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5) !important;
 }
+
+/* ==========================================================================
+   KALI LINUX TERMINAL: BULLETPROOF FULLSCREEN & SCROLL ENGINE (V5)
+   ========================================================================== */
+
+/* Split Mode vs Fullscreen Mode Bar Visibility */
+.terminal-card:not(.is-fullscreen) .kali-fullscreen-bar {
+  display: none !important;
+}
+
+.terminal-card.is-fullscreen .panel-header {
+  display: none !important;
+}
+
+/* Dedicated Fullscreen Top Bar */
+.terminal-card.is-fullscreen .kali-fullscreen-bar {
+  display: flex !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  max-height: 46px !important;
+  background: #080d1a !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.3) !important;
+  padding: 0 16px !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  z-index: 1000 !important;
+  box-sizing: border-box !important;
+}
+
+.kali-fullscreen-bar .kfs-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.kali-fullscreen-bar .kfs-logo {
+  font-size: 18px !important;
+}
+
+.kali-fullscreen-bar .kfs-title {
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #38bdf8 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  letter-spacing: 0.3px !important;
+}
+
+.kali-fullscreen-bar .kfs-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.btn-kfs-clear {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  color: #e2e8f0 !important;
+  font-size: 12px !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+}
+
+.btn-kfs-clear:hover {
+  background: #334155 !important;
+}
+
+.btn-kfs-exit {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border: 1.5px solid #f87171 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  padding: 6px 18px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 12px rgba(239, 68, 68, 0.5) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn-kfs-exit:hover {
+  background: #dc2626 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Floating Exit Button (Extra Redundancy) */
+.btn-floating-exit-fs {
+  display: none !important;
+}
+
+.terminal-card.is-fullscreen .btn-floating-exit-fs {
+  display: flex !important;
+  position: fixed !important;
+  top: 8px !important;
+  right: 14px !important;
+  z-index: 10000 !important;
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border: 1px solid #fca5a5 !important;
+  border-radius: 6px !important;
+  padding: 6px 14px !important;
+  font-size: 12.5px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Fullscreen Card Container */
+.panel-card.terminal-card.is-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-height: 100vh !important;
+  max-height: 100dvh !important;
+  z-index: 999999 !important;
+  background: #000000 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+/* Terminal Container in Fullscreen */
+.terminal-card.is-fullscreen .terminal-container {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 0% !important;
+  min-height: 0 !important;
+  height: calc(100% - 46px) !important;
+  max-height: calc(100% - 46px) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Kali Screen in Fullscreen: Takes exactly remaining space MINUS touch bar */
+.terminal-card.is-fullscreen .kali-screen {
+  display: block !important;
+  flex: 1 1 0% !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  background: #000000 !important;
+  overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch !important;
+  padding: 16px 18px 80px 18px !important; /* 80px bottom padding guarantees prompt is 100% visible */
+  box-sizing: border-box !important;
+}
+
+/* Touch Bar in Fullscreen: Pinned to bottom, non-collapsible */
+.terminal-card.is-fullscreen .kali-touch-bar {
+  display: flex !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  background: #080d1a !important;
+  border-top: 1px solid #1e293b !important;
+  z-index: 50 !important;
+  position: relative !important;
+  bottom: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Split Mode (Normal) Terminal Card */
+.terminal-card:not(.is-fullscreen) .terminal-container {
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  width: 100% !important;
+}
+
+.terminal-card:not(.is-fullscreen) .kali-screen {
+  min-height: 320px !important;
+  max-height: 480px !important;
+  height: 380px !important;
+  background: #000000 !important;
+  overflow-y: scroll !important;
+  padding: 14px 14px 60px 14px !important;
+  box-sizing: border-box !important;
+}
+
+.terminal-card:not(.is-fullscreen) .kali-touch-bar {
+  flex-shrink: 0 !important;
+  height: 42px !important;
+}
+
+/* Active Prompt Margin Guarantee */
+.kali-active-prompt {
+  margin-top: 10px !important;
+  margin-bottom: 24px !important;
+  min-height: 48px !important;
+  display: block !important;
+}
+
+/* High Visibility Cyan Scrollbar */
+.kali-screen::-webkit-scrollbar {
+  width: 10px !important;
+}
+.kali-screen::-webkit-scrollbar-track {
+  background: #070b14 !important;
+}
+.kali-screen::-webkit-scrollbar-thumb {
+  background: #38bdf8 !important;
+  border-radius: 5px !important;
+  border: 2px solid #070b14 !important;
+}
+.kali-screen::-webkit-scrollbar-thumb:hover {
+  background: #0284c7 !important;
+}
