@@ -1,434 +1,822 @@
 var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
-
 _scope.EER_CLIENTS_1_50 = [
   {
     "id": 1,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Alisher Zokirov",
-    "clientRole": "'Orient Bank' Boshqaruv Raisi",
-    "clientAvatar": "banker",
-    "title": "Bank Filiallari va Xodimlar Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Branch** ob'yektlari hisobga olinadi. Har bir **Branch** o'zining branchNo (birlamchi kalit {PK}), city kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: staffNo (birlamchi kalit {PK}), name. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Branch** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Branch** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "1-Qavat • Fuqaro Aviatsiyasi",
+    "clientName": "Temur Karimov",
+    "clientRole": "Aviatsiya Texnik Direktori",
+    "clientAvatar": "mentor",
+    "title": "Aviakompaniya Aviatsiya Parki",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Fuqaro Aviatsiyasi sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Aircraft** ro'yxatga olinadi. Har bir **Aircraft** o'zining takrorlanmas kodi `tailNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `model`, `manufacturer`, `capacity`. Ushbu atributlarning barchasi bevosita **Aircraft** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'Aircraft' kuchli entitiysini yarating, uning 'tailNo' birlamchi kalitini {PK} belgilang va 'model', 'manufacturer', 'capacity' atributlarini qo'shing.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Branch",
-          "attributes": [
-            {
-              "name": "branchNo",
-              "isPK": true
-            },
-            {
-              "name": "city"
-            }
-          ]
-        },
-        {
-          "name": "Staff",
-          "attributes": [
-            {
-              "name": "staffNo",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Branch",
-          "pk": "branchNo"
-        },
-        {
-          "name": "Staff",
-          "pk": "staffNo"
+          "name": "Aircraft",
+          "pk": "tailNo",
+          "attributes": [
+            {
+              "name": "tailNo",
+              "isPK": true
+            },
+            {
+              "name": "model",
+              "isPK": false
+            },
+            {
+              "name": "manufacturer",
+              "isPK": false
+            },
+            {
+              "name": "capacity",
+              "isPK": false
+            }
+          ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Branch' (1..1) va 'Staff' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Branch' va 'Staff' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Branch** ob'yektlari hisobga olinadi. Har bir **Branch** o'zining branchNo (birlamchi kalit {PK}), city kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Staff** sub'yektlari kiritilgan. Har bir **Staff** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: staffNo (birlamchi kalit {PK}), name. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Branch** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Staff** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Staff** qat'iy ravishda faqat bitta **Branch** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
+      "relationships": []
     }
   },
   {
     "id": 2,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Dilnoza Rahimova",
-    "clientRole": "University Fakultet Dekani",
-    "clientAvatar": "dean",
-    "title": "Fakultet va Talabalar Ro'yxati",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Faculty** ob'yektlari hisobga olinadi. Har bir **Faculty** o'zining facultyCode (birlamchi kalit {PK}), facultyName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Student** sub'yektlari kiritilgan. Har bir **Student** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: studentId (birlamchi kalit {PK}), fullName. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Faculty** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Student** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Student** qat'iy ravishda faqat bitta **Faculty** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "1-Qavat • Tibbiyot & Sog'liqni Saqlash",
+    "clientName": "Dr. Aziza Rahimova",
+    "clientRole": "Bosh Shifokor Muovini",
+    "clientAvatar": "mentor",
+    "title": "Markaziy Shifoxona Bemorlar Reyestri",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Tibbiyot & Sog'liqni Saqlash sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Patient** ro'yxatga olinadi. Har bir **Patient** o'zining takrorlanmas kodi `patientId` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `fullName`, `dob`, `bloodType`, `phone`. Ushbu atributlarning barchasi bevosita **Patient** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'Patient' kuchli entitiysini yarating, uning 'patientId' birlamchi kalitini {PK} belgilang va 'fullName', 'dob', 'bloodType', 'phone' atributlarini qo'shing.",
     "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
       "entities": [
         {
-          "name": "Faculty",
+          "name": "Patient",
+          "pk": "patientId",
           "attributes": [
             {
-              "name": "facultyCode",
+              "name": "patientId",
               "isPK": true
             },
             {
-              "name": "facultyName"
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "dob",
+              "isPK": false
+            },
+            {
+              "name": "bloodType",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
             }
           ]
-        },
+        }
+      ],
+      "relationships": []
+    }
+  },
+  {
+    "id": 3,
+    "sector": 1,
+    "difficulty": "1-Qavat • Oliy Ta'lim",
+    "clientName": "Bobur Mansurov",
+    "clientRole": "Akademik Registrator",
+    "clientAvatar": "mentor",
+    "title": "Universitet Talabalar Akademik Reyestri",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Oliy Ta'lim sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Student** ro'yxatga olinadi. Har bir **Student** o'zining takrorlanmas kodi `studentId` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `firstName`, `lastName`, `email`, `gpa`. Ushbu atributlarning barchasi bevosita **Student** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'Student' kuchli entitiysini yarating, uning 'studentId' birlamchi kalitini {PK} belgilang va 'firstName', 'lastName', 'email', 'gpa' atributlarini qo'shing.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
         {
           "name": "Student",
+          "pk": "studentId",
           "attributes": [
             {
               "name": "studentId",
               "isPK": true
             },
             {
-              "name": "fullName"
+              "name": "firstName",
+              "isPK": false
+            },
+            {
+              "name": "lastName",
+              "isPK": false
+            },
+            {
+              "name": "email",
+              "isPK": false
+            },
+            {
+              "name": "gpa",
+              "isPK": false
             }
           ]
         }
       ],
       "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Faculty",
-          "pk": "facultyCode"
-        },
-        {
-          "name": "Student",
-          "pk": "studentId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Faculty",
-          "entity2": "Student",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Faculty' (1..1) va 'Student' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Faculty' va 'Student' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Faculty** ob'yektlari hisobga olinadi. Har bir **Faculty** o'zining facultyCode (birlamchi kalit {PK}), facultyName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Student** sub'yektlari kiritilgan. Har bir **Student** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: studentId (birlamchi kalit {PK}), fullName. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Faculty** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Student** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Student** qat'iy ravishda faqat bitta **Faculty** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 3,
-    "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Botir Qodirov",
-    "clientRole": "'Mega Market' Logistika Direktori",
-    "clientAvatar": "logistics",
-    "title": "Toifalar va Mahsulotlar Katalogi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Category** ob'yektlari hisobga olinadi. Har bir **Category** o'zining catId (birlamchi kalit {PK}), catName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Product** sub'yektlari kiritilgan. Har bir **Product** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: prodCode (birlamchi kalit {PK}), price. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Category** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Product** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Product** qat'iy ravishda faqat bitta **Category** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Category",
-          "attributes": [
-            {
-              "name": "catId",
-              "isPK": true
-            },
-            {
-              "name": "catName"
-            }
-          ]
-        },
-        {
-          "name": "Product",
-          "attributes": [
-            {
-              "name": "prodCode",
-              "isPK": true
-            },
-            {
-              "name": "price"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Category",
-          "pk": "catId"
-        },
-        {
-          "name": "Product",
-          "pk": "prodCode"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Category",
-          "entity2": "Product",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Category' (1..1) va 'Product' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Category' va 'Product' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Category** ob'yektlari hisobga olinadi. Har bir **Category** o'zining catId (birlamchi kalit {PK}), catName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Product** sub'yektlari kiritilgan. Har bir **Product** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: prodCode (birlamchi kalit {PK}), price. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Category** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Product** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Product** qat'iy ravishda faqat bitta **Category** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
     }
   },
   {
     "id": 4,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Nodir Salimov",
-    "clientRole": "'Ziyo Nashr' Bosh Muharriri",
-    "clientAvatar": "publisher",
-    "title": "Nashriyot va Kitoblar Noshirligi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Publisher** ob'yektlari hisobga olinadi. Har bir **Publisher** o'zining pubId (birlamchi kalit {PK}), pubName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Book** sub'yektlari kiritilgan. Har bir **Book** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: isbn (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Publisher** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Book** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Book** qat'iy ravishda faqat bitta **Publisher** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "1-Qavat • Kutubxona & Fond",
+    "clientName": "Gulnora Karimova",
+    "clientRole": "Bosh Bibliograf",
+    "clientAvatar": "mentor",
+    "title": "Davlat Ilmiy Kutubxonasi Kitob Fondi",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Kutubxona & Fond sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Book** ro'yxatga olinadi. Har bir **Book** o'zining takrorlanmas kodi `isbn` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `title`, `author`, `publishYear`, `genre`. Ushbu atributlarning barchasi bevosita **Book** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'Book' kuchli entitiysini yarating, uning 'isbn' birlamchi kalitini {PK} belgilang va 'title', 'author', 'publishYear', 'genre' atributlarini qo'shing.",
     "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
       "entities": [
         {
-          "name": "Publisher",
-          "attributes": [
-            {
-              "name": "pubId",
-              "isPK": true
-            },
-            {
-              "name": "pubName"
-            }
-          ]
-        },
-        {
           "name": "Book",
+          "pk": "isbn",
           "attributes": [
             {
               "name": "isbn",
               "isPK": true
             },
             {
-              "name": "title"
+              "name": "title",
+              "isPK": false
+            },
+            {
+              "name": "author",
+              "isPK": false
+            },
+            {
+              "name": "publishYear",
+              "isPK": false
+            },
+            {
+              "name": "genre",
+              "isPK": false
             }
           ]
         }
       ],
       "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Publisher",
-          "pk": "pubId"
-        },
-        {
-          "name": "Book",
-          "pk": "isbn"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Publisher",
-          "entity2": "Book",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Publisher' (1..1) va 'Book' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Publisher' va 'Book' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Publisher** ob'yektlari hisobga olinadi. Har bir **Publisher** o'zining pubId (birlamchi kalit {PK}), pubName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Book** sub'yektlari kiritilgan. Har bir **Book** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: isbn (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Publisher** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Book** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Book** qat'iy ravishda faqat bitta **Publisher** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
     }
   },
   {
     "id": 5,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Malika Yusupova",
-    "clientRole": "'Shifo Med' Bosh Shifokori",
-    "clientAvatar": "doctor",
-    "title": "Kasalxona Bo'limi va Palatalar",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **WardDept** ob'yektlari hisobga olinadi. Har bir **WardDept** o'zining deptCode (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **WardRoom** sub'yektlari kiritilgan. Har bir **WardRoom** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: roomNo (birlamchi kalit {PK}), capacity. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **WardDept** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **WardRoom** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **WardRoom** qat'iy ravishda faqat bitta **WardDept** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "1-Qavat • Avtomobilsozlik & Dilerlik",
+    "clientName": "Rustam Aliyev",
+    "clientRole": "Avtosalon Savdo Direktori",
+    "clientAvatar": "mentor",
+    "title": "Avtosalon Transport Vositalari Reyestri",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Avtomobilsozlik & Dilerlik sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Vehicle** ro'yxatga olinadi. Har bir **Vehicle** o'zining takrorlanmas kodi `vin` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `make`, `model`, `prodYear`, `price`. Ushbu atributlarning barchasi bevosita **Vehicle** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'Vehicle' kuchli entitiysini yarating, uning 'vin' birlamchi kalitini {PK} belgilang va 'make', 'model', 'prodYear', 'price' atributlarini qo'shing.",
     "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
       "entities": [
         {
-          "name": "WardDept",
+          "name": "Vehicle",
+          "pk": "vin",
           "attributes": [
             {
-              "name": "deptCode",
+              "name": "vin",
               "isPK": true
             },
             {
-              "name": "name"
+              "name": "make",
+              "isPK": false
+            },
+            {
+              "name": "model",
+              "isPK": false
+            },
+            {
+              "name": "prodYear",
+              "isPK": false
+            },
+            {
+              "name": "price",
+              "isPK": false
             }
           ]
-        },
+        }
+      ],
+      "relationships": []
+    }
+  },
+  {
+    "id": 6,
+    "sector": 1,
+    "difficulty": "1-Qavat • Bank & Moliya",
+    "clientName": "Jamshid Qodirov",
+    "clientRole": "Bosh Buxgalter",
+    "clientAvatar": "mentor",
+    "title": "Tijorat Banki Depozit va Hisoblar Tizimi",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Bank & Moliya sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **BankAccount** ro'yxatga olinadi. Har bir **BankAccount** o'zining takrorlanmas kodi `accountNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `balance`, `currency`, `openDate`, `branchCode`. Ushbu atributlarning barchasi bevosita **BankAccount** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'BankAccount' kuchli entitiysini yarating, uning 'accountNo' birlamchi kalitini {PK} belgilang va 'balance', 'currency', 'openDate', 'branchCode' atributlarini qo'shing.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
         {
-          "name": "WardRoom",
+          "name": "BankAccount",
+          "pk": "accountNo",
+          "attributes": [
+            {
+              "name": "accountNo",
+              "isPK": true
+            },
+            {
+              "name": "balance",
+              "isPK": false
+            },
+            {
+              "name": "currency",
+              "isPK": false
+            },
+            {
+              "name": "openDate",
+              "isPK": false
+            },
+            {
+              "name": "branchCode",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    }
+  },
+  {
+    "id": 7,
+    "sector": 1,
+    "difficulty": "1-Qavat • Mehmonxona & Turizm",
+    "clientName": "Malika Yusupova",
+    "clientRole": "Mehmonxona Boshqaruvchisi",
+    "clientAvatar": "mentor",
+    "title": "Besh Yulduzli Mehmonxona Xonalar Fondi",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Mehmonxona & Turizm sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **HotelRoom** ro'yxatga olinadi. Har bir **HotelRoom** o'zining takrorlanmas kodi `roomNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `roomType`, `pricePerNight`, `floorNo`, `capacity`. Ushbu atributlarning barchasi bevosita **HotelRoom** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'HotelRoom' kuchli entitiysini yarating, uning 'roomNo' birlamchi kalitini {PK} belgilang va 'roomType', 'pricePerNight', 'floorNo', 'capacity' atributlarini qo'shing.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "HotelRoom",
+          "pk": "roomNo",
           "attributes": [
             {
               "name": "roomNo",
               "isPK": true
             },
             {
-              "name": "capacity"
+              "name": "roomType",
+              "isPK": false
+            },
+            {
+              "name": "pricePerNight",
+              "isPK": false
+            },
+            {
+              "name": "floorNo",
+              "isPK": false
+            },
+            {
+              "name": "capacity",
+              "isPK": false
             }
           ]
         }
       ],
       "relationships": []
+    }
+  },
+  {
+    "id": 8,
+    "sector": 1,
+    "difficulty": "1-Qavat • Restoran & Katering",
+    "clientName": "Otabek Sodiqov",
+    "clientRole": "Bosh Oshpaz",
+    "clientAvatar": "mentor",
+    "title": "Premium Restoran Taomnomasi",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Restoran & Katering sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **MenuItem** ro'yxatga olinadi. Har bir **MenuItem** o'zining takrorlanmas kodi `itemId` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `name`, `category`, `price`, `calories`. Ushbu atributlarning barchasi bevosita **MenuItem** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'MenuItem' kuchli entitiysini yarating, uning 'itemId' birlamchi kalitini {PK} belgilang va 'name', 'category', 'price', 'calories' atributlarini qo'shing.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "WardDept",
-          "pk": "deptCode"
+          "name": "MenuItem",
+          "pk": "itemId",
+          "attributes": [
+            {
+              "name": "itemId",
+              "isPK": true
+            },
+            {
+              "name": "name",
+              "isPK": false
+            },
+            {
+              "name": "category",
+              "isPK": false
+            },
+            {
+              "name": "price",
+              "isPK": false
+            },
+            {
+              "name": "calories",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    }
+  },
+  {
+    "id": 9,
+    "sector": 1,
+    "difficulty": "1-Qavat • IT & Dasturiy Ta'minot",
+    "clientName": "Farhod Ergashev",
+    "clientRole": "Texnik Direktor (CTO)",
+    "clientAvatar": "mentor",
+    "title": "IT Kompaniyasi Muhandislik Shtati",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. IT & Dasturiy Ta'minot sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Developer** ro'yxatga olinadi. Har bir **Developer** o'zining takrorlanmas kodi `devId` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `fullName`, `role`, `techStack`, `salary`. Ushbu atributlarning barchasi bevosita **Developer** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'Developer' kuchli entitiysini yarating, uning 'devId' birlamchi kalitini {PK} belgilang va 'fullName', 'role', 'techStack', 'salary' atributlarini qo'shing.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Developer",
+          "pk": "devId",
+          "attributes": [
+            {
+              "name": "devId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "role",
+              "isPK": false
+            },
+            {
+              "name": "techStack",
+              "isPK": false
+            },
+            {
+              "name": "salary",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    }
+  },
+  {
+    "id": 10,
+    "sector": 1,
+    "difficulty": "1-Qavat • E-Commerce & Savdo",
+    "clientName": "Shahnoza Karimova",
+    "clientRole": "Mahsulot Bosh Menejeri",
+    "clientAvatar": "mentor",
+    "title": "Onlayn Gipermarket Tovar Katalogi",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. E-Commerce & Savdo sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Product** ro'yxatga olinadi. Har bir **Product** o'zining takrorlanmas kodi `sku` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `title`, `price`, `stockQty`, `weightKg`. Ushbu atributlarning barchasi bevosita **Product** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'Product' kuchli entitiysini yarating, uning 'sku' birlamchi kalitini {PK} belgilang va 'title', 'price', 'stockQty', 'weightKg' atributlarini qo'shing.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Product",
+          "pk": "sku",
+          "attributes": [
+            {
+              "name": "sku",
+              "isPK": true
+            },
+            {
+              "name": "title",
+              "isPK": false
+            },
+            {
+              "name": "price",
+              "isPK": false
+            },
+            {
+              "name": "stockQty",
+              "isPK": false
+            },
+            {
+              "name": "weightKg",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    }
+  },
+  {
+    "id": 11,
+    "sector": 1,
+    "difficulty": "1-Qavat • Kino & Ko'ngilochar",
+    "clientName": "Akmal Shokirov",
+    "clientRole": "Kinoprokat Boshqaruvchisi",
+    "clientAvatar": "mentor",
+    "title": "Kinoteatrlar Tarmog'i Filmlar Jadvali",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Kino & Ko'ngilochar sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Movie** ro'yxatga olinadi. Har bir **Movie** o'zining takrorlanmas kodi `movieId` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `title`, `director`, `durationMin`, `ageRating`. Ushbu atributlarning barchasi bevosita **Movie** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'Movie' kuchli entitiysini yarating, uning 'movieId' birlamchi kalitini {PK} belgilang va 'title', 'director', 'durationMin', 'ageRating' atributlarini qo'shing.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Movie",
+          "pk": "movieId",
+          "attributes": [
+            {
+              "name": "movieId",
+              "isPK": true
+            },
+            {
+              "name": "title",
+              "isPK": false
+            },
+            {
+              "name": "director",
+              "isPK": false
+            },
+            {
+              "name": "durationMin",
+              "isPK": false
+            },
+            {
+              "name": "ageRating",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    }
+  },
+  {
+    "id": 12,
+    "sector": 1,
+    "difficulty": "1-Qavat • Farmatsevtika & Dorixona",
+    "clientName": "Umida Zokirova",
+    "clientRole": "Bosh Provisor",
+    "clientAvatar": "mentor",
+    "title": "Markaziy Dorixona Dori Vositalari Inventari",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Farmatsevtika & Dorixona sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Medicine** ro'yxatga olinadi. Har bir **Medicine** o'zining takrorlanmas kodi `barcode` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `name`, `dosageMg`, `manufacturer`, `expDate`. Ushbu atributlarning barchasi bevosita **Medicine** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'Medicine' kuchli entitiysini yarating, uning 'barcode' birlamchi kalitini {PK} belgilang va 'name', 'dosageMg', 'manufacturer', 'expDate' atributlarini qo'shing.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Medicine",
+          "pk": "barcode",
+          "attributes": [
+            {
+              "name": "barcode",
+              "isPK": true
+            },
+            {
+              "name": "name",
+              "isPK": false
+            },
+            {
+              "name": "dosageMg",
+              "isPK": false
+            },
+            {
+              "name": "manufacturer",
+              "isPK": false
+            },
+            {
+              "name": "expDate",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    }
+  },
+  {
+    "id": 13,
+    "sector": 1,
+    "difficulty": "1-Qavat • Logistika & Yuk Tashish",
+    "clientName": "Sanjar Normatov",
+    "clientRole": "Logistika Floti Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Trans-Kontinental Yuk Tashish Avtoparki",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Logistika & Yuk Tashish sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **CargoTruck** ro'yxatga olinadi. Har bir **CargoTruck** o'zining takrorlanmas kodi `plateNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `capacityTons`, `fuelType`, `mileageKm`, `status`. Ushbu atributlarning barchasi bevosita **CargoTruck** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'CargoTruck' kuchli entitiysini yarating, uning 'plateNo' birlamchi kalitini {PK} belgilang va 'capacityTons', 'fuelType', 'mileageKm', 'status' atributlarini qo'shing.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "CargoTruck",
+          "pk": "plateNo",
+          "attributes": [
+            {
+              "name": "plateNo",
+              "isPK": true
+            },
+            {
+              "name": "capacityTons",
+              "isPK": false
+            },
+            {
+              "name": "fuelType",
+              "isPK": false
+            },
+            {
+              "name": "mileageKm",
+              "isPK": false
+            },
+            {
+              "name": "status",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    }
+  },
+  {
+    "id": 14,
+    "sector": 1,
+    "difficulty": "1-Qavat • Sport & Fitnes",
+    "clientName": "Nilufar Rahimova",
+    "clientRole": "Mijozlar Xizmati Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Premium Fitnes Klub A'zolari Reyestri",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Sport & Fitnes sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **ClubMember** ro'yxatga olinadi. Har bir **ClubMember** o'zining takrorlanmas kodi `memberCardNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `fullName`, `membershipType`, `expiryDate`, `phone`. Ushbu atributlarning barchasi bevosita **ClubMember** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'ClubMember' kuchli entitiysini yarating, uning 'memberCardNo' birlamchi kalitini {PK} belgilang va 'fullName', 'membershipType', 'expiryDate', 'phone' atributlarini qo'shing.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "ClubMember",
+          "pk": "memberCardNo",
+          "attributes": [
+            {
+              "name": "memberCardNo",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "membershipType",
+              "isPK": false
+            },
+            {
+              "name": "expiryDate",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    }
+  },
+  {
+    "id": 15,
+    "sector": 1,
+    "difficulty": "1-Qavat • Yashil Energetika",
+    "clientName": "Davron Karimov",
+    "clientRole": "Bosh Energetik Muhandis",
+    "clientAvatar": "mentor",
+    "title": "Quyosh Fotoelektr Stansiyasi Invertorlari",
+    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Yashil Energetika sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **SolarInverter** ro'yxatga olinadi. Har bir **SolarInverter** o'zining takrorlanmas kodi `serialNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `peakPowerKw`, `voltageInput`, `installDate`, `efficiency`. Ushbu atributlarning barchasi bevosita **SolarInverter** ga tegishli bo'lib, uning holatini tavsiflaydi.",
+    "instruction": "Polotnoda 'SolarInverter' kuchli entitiysini yarating, uning 'serialNo' birlamchi kalitini {PK} belgilang va 'peakPowerKw', 'voltageInput', 'installDate', 'efficiency' atributlarini qo'shing.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "SolarInverter",
+          "pk": "serialNo",
+          "attributes": [
+            {
+              "name": "serialNo",
+              "isPK": true
+            },
+            {
+              "name": "peakPowerKw",
+              "isPK": false
+            },
+            {
+              "name": "voltageInput",
+              "isPK": false
+            },
+            {
+              "name": "installDate",
+              "isPK": false
+            },
+            {
+              "name": "efficiency",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    }
+  },
+  {
+    "id": 16,
+    "sector": 2,
+    "difficulty": "2-Qavat • Yo'l Harakati Xavfsizligi",
+    "clientName": "Polkovnik Botir Rahmonov",
+    "clientRole": "DYXX Bosh Inspektor",
+    "clientAvatar": "mentor",
+    "title": "Avtomobil Haydovchisi va Haydovchilik Guvohnomasi",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Yo'l Harakati Xavfsizligi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Driver** (driverId {PK}, `fullName`, `phone`, `bloodGroup`) qayd etiladi. Ikkinchi entitiy esa rasmiy **DriverLicense** (licenseNo {PK}, `categories`, `issueDate`, `expiryDate`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Driver** aynan bitta **DriverLicense** bilan bog'lanishi mumkin va har bir **DriverLicense** qat'iy ravishda bitta **Driver** ga tegishli bo'ladi. Munosabat turi: **Holds**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'Driver' va 'DriverLicense' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'Holds' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Driver",
+          "pk": "driverId",
+          "attributes": [
+            {
+              "name": "driverId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "bloodGroup",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "WardRoom",
-          "pk": "roomNo"
+          "name": "DriverLicense",
+          "pk": "licenseNo",
+          "attributes": [
+            {
+              "name": "licenseNo",
+              "isPK": true
+            },
+            {
+              "name": "categories",
+              "isPK": false
+            },
+            {
+              "name": "issueDate",
+              "isPK": false
+            },
+            {
+              "name": "expiryDate",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "WardDept",
-          "entity2": "WardRoom",
+          "entity1": "Driver",
+          "entity2": "DriverLicense",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..1",
+          "name": "Holds"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'WardDept' (1..1) va 'WardRoom' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'WardDept' va 'WardRoom' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **WardDept** ob'yektlari hisobga olinadi. Har bir **WardDept** o'zining deptCode (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **WardRoom** sub'yektlari kiritilgan. Har bir **WardRoom** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: roomNo (birlamchi kalit {PK}), capacity. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **WardDept** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **WardRoom** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **WardRoom** qat'iy ravishda faqat bitta **WardDept** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
-    "id": 6,
-    "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Javohir Toirov",
-    "clientRole": "Davlat Ro'yxatga Olish Xizmati",
-    "clientAvatar": "officer",
-    "title": "Fuqaro va Pasport Munosabati",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Citizen** ob'yektlari hisobga olinadi. Har bir **Citizen** o'zining pinfl (birlamchi kalit {PK}), fullName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Passport** sub'yektlari kiritilgan. Har bir **Passport** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: passNo (birlamchi kalit {PK}), issueDate. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Citizen** va **Passport** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "id": 17,
+    "sector": 2,
+    "difficulty": "2-Qavat • Migratsiya & Fuqarolik",
+    "clientName": "Mayor Sherzod Aliyev",
+    "clientRole": "Pasport Bo'limi Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Fuqaro va Biometrik Identifikatsiya Pasporti",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Migratsiya & Fuqarolik tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Citizen** (pinfl {PK}, `fullName`, `birthDate`, `nationality`) qayd etiladi. Ikkinchi entitiy esa rasmiy **Passport** (passportNo {PK}, `expiryDate`, `issuedBy`, `chipVersion`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Citizen** aynan bitta **Passport** bilan bog'lanishi mumkin va har bir **Passport** qat'iy ravishda bitta **Citizen** ga tegishli bo'ladi. Munosabat turi: **IssuedTo**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'Citizen' va 'Passport' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'IssuedTo' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
     "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
       "entities": [
         {
           "name": "Citizen",
+          "pk": "pinfl",
           "attributes": [
             {
               "name": "pinfl",
               "isPK": true
             },
             {
-              "name": "fullName"
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "birthDate",
+              "isPK": false
+            },
+            {
+              "name": "nationality",
+              "isPK": false
             }
           ]
         },
         {
           "name": "Passport",
+          "pk": "passportNo",
           "attributes": [
             {
-              "name": "passNo",
+              "name": "passportNo",
               "isPK": true
             },
             {
-              "name": "issueDate"
+              "name": "expiryDate",
+              "isPK": false
+            },
+            {
+              "name": "issuedBy",
+              "isPK": false
+            },
+            {
+              "name": "chipVersion",
+              "isPK": false
             }
           ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Citizen",
-          "pk": "pinfl"
-        },
-        {
-          "name": "Passport",
-          "pk": "passNo"
         }
       ],
       "relationships": [
@@ -436,3490 +824,2419 @@ _scope.EER_CLIENTS_1_50 = [
           "entity1": "Citizen",
           "entity2": "Passport",
           "mult1": "1..1",
-          "mult2": "1..1"
+          "mult2": "1..1",
+          "name": "IssuedTo"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Citizen' (1..1) va 'Passport' (1..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Citizen' va 'Passport' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Citizen** ob'yektlari hisobga olinadi. Har bir **Citizen** o'zining pinfl (birlamchi kalit {PK}), fullName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Passport** sub'yektlari kiritilgan. Har bir **Passport** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: passNo (birlamchi kalit {PK}), issueDate. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Citizen** va **Passport** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 7,
-    "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Sanjar Mirzayev",
-    "clientRole": "Futbol Ligasi Komissari",
-    "clientAvatar": "sports",
-    "title": "Futbol Klubi va Stadion Munosabati",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **FootballClub** ob'yektlari hisobga olinadi. Har bir **FootballClub** o'zining clubId (birlamchi kalit {PK}), clubName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Stadium** sub'yektlari kiritilgan. Har bir **Stadium** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: stadiumId (birlamchi kalit {PK}), seats. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **FootballClub** va **Stadium** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "FootballClub",
-          "attributes": [
-            {
-              "name": "clubId",
-              "isPK": true
-            },
-            {
-              "name": "clubName"
-            }
-          ]
-        },
-        {
-          "name": "Stadium",
-          "attributes": [
-            {
-              "name": "stadiumId",
-              "isPK": true
-            },
-            {
-              "name": "seats"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "FootballClub",
-          "pk": "clubId"
-        },
-        {
-          "name": "Stadium",
-          "pk": "stadiumId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "FootballClub",
-          "entity2": "Stadium",
-          "mult1": "1..1",
-          "mult2": "1..1"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'FootballClub' (1..1) va 'Stadium' (1..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'FootballClub' va 'Stadium' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **FootballClub** ob'yektlari hisobga olinadi. Har bir **FootballClub** o'zining clubId (birlamchi kalit {PK}), clubName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Stadium** sub'yektlari kiritilgan. Har bir **Stadium** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: stadiumId (birlamchi kalit {PK}), seats. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **FootballClub** va **Stadium** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 8,
-    "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Gulnora Ergasheva",
-    "clientRole": "Avtopark Mudiri",
-    "clientAvatar": "fleet",
-    "title": "Haydovchi va Xizmat Mashinasi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Driver** ob'yektlari hisobga olinadi. Har bir **Driver** o'zining licenseNo (birlamchi kalit {PK}), fullName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Vehicle** sub'yektlari kiritilgan. Har bir **Vehicle** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: vin (birlamchi kalit {PK}), model. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Driver** va **Vehicle** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Driver",
-          "attributes": [
-            {
-              "name": "licenseNo",
-              "isPK": true
-            },
-            {
-              "name": "fullName"
-            }
-          ]
-        },
-        {
-          "name": "Vehicle",
-          "attributes": [
-            {
-              "name": "vin",
-              "isPK": true
-            },
-            {
-              "name": "model"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Driver",
-          "pk": "licenseNo"
-        },
-        {
-          "name": "Vehicle",
-          "pk": "vin"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Driver",
-          "entity2": "Vehicle",
-          "mult1": "1..1",
-          "mult2": "1..1"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Driver' (1..1) va 'Vehicle' (1..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Driver' va 'Vehicle' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Driver** ob'yektlari hisobga olinadi. Har bir **Driver** o'zining licenseNo (birlamchi kalit {PK}), fullName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Vehicle** sub'yektlari kiritilgan. Har bir **Vehicle** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: vin (birlamchi kalit {PK}), model. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Driver** va **Vehicle** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 9,
-    "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Davron Akbarov",
-    "clientRole": "Dasturiy Ta'minot Company PM",
-    "clientAvatar": "techpm",
-    "title": "Loyiha va Versiya Boshqaruvi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Project** ob'yektlari hisobga olinadi. Har bir **Project** o'zining projId (birlamchi kalit {PK}), title kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Repository** sub'yektlari kiritilgan. Har bir **Repository** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: repoId (birlamchi kalit {PK}), repoUrl. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Project** va **Repository** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Project",
-          "attributes": [
-            {
-              "name": "projId",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        },
-        {
-          "name": "Repository",
-          "attributes": [
-            {
-              "name": "repoId",
-              "isPK": true
-            },
-            {
-              "name": "repoUrl"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Project",
-          "pk": "projId"
-        },
-        {
-          "name": "Repository",
-          "pk": "repoId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Project",
-          "entity2": "Repository",
-          "mult1": "1..1",
-          "mult2": "1..1"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Project' (1..1) va 'Repository' (1..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Project' va 'Repository' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Project** ob'yektlari hisobga olinadi. Har bir **Project** o'zining projId (birlamchi kalit {PK}), title kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Repository** sub'yektlari kiritilgan. Har bir **Repository** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: repoId (birlamchi kalit {PK}), repoUrl. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Project** va **Repository** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 10,
-    "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Aziza Karimova",
-    "clientRole": "Mehmonxona Tarmog'i Manager",
-    "clientAvatar": "hotel",
-    "title": "Mehmonxona va Bosh Bino",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Hotel** ob'yektlari hisobga olinadi. Har bir **Hotel** o'zining hotelId (birlamchi kalit {PK}), city kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **MainBuilding** sub'yektlari kiritilgan. Har bir **MainBuilding** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: bldgId (birlamchi kalit {PK}), floors. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Hotel** va **MainBuilding** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Hotel",
-          "attributes": [
-            {
-              "name": "hotelId",
-              "isPK": true
-            },
-            {
-              "name": "city"
-            }
-          ]
-        },
-        {
-          "name": "MainBuilding",
-          "attributes": [
-            {
-              "name": "bldgId",
-              "isPK": true
-            },
-            {
-              "name": "floors"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Hotel",
-          "pk": "hotelId"
-        },
-        {
-          "name": "MainBuilding",
-          "pk": "bldgId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Hotel",
-          "entity2": "MainBuilding",
-          "mult1": "1..1",
-          "mult2": "1..1"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Hotel' (1..1) va 'MainBuilding' (1..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Hotel' va 'MainBuilding' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Hotel** ob'yektlari hisobga olinadi. Har bir **Hotel** o'zining hotelId (birlamchi kalit {PK}), city kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **MainBuilding** sub'yektlari kiritilgan. Har bir **MainBuilding** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: bldgId (birlamchi kalit {PK}), floors. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Hotel** va **MainBuilding** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 11,
-    "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Otabek G'aniyev",
-    "clientRole": "Temir Yo'l Vokzali Dispetcheri",
-    "clientAvatar": "railway",
-    "title": "Poyezd va Vagonlar Zanjiri",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Train** ob'yektlari hisobga olinadi. Har bir **Train** o'zining trainNo (birlamchi kalit {PK}), route kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Carriage** sub'yektlari kiritilgan. Har bir **Carriage** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: carriageId (birlamchi kalit {PK}), seatsCount. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Train** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Carriage** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Carriage** qat'iy ravishda faqat bitta **Train** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Train",
-          "attributes": [
-            {
-              "name": "trainNo",
-              "isPK": true
-            },
-            {
-              "name": "route"
-            }
-          ]
-        },
-        {
-          "name": "Carriage",
-          "attributes": [
-            {
-              "name": "carriageId",
-              "isPK": true
-            },
-            {
-              "name": "seatsCount"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Train",
-          "pk": "trainNo"
-        },
-        {
-          "name": "Carriage",
-          "pk": "carriageId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Train",
-          "entity2": "Carriage",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Train' (1..1) va 'Carriage' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Train' va 'Carriage' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Train** ob'yektlari hisobga olinadi. Har bir **Train** o'zining trainNo (birlamchi kalit {PK}), route kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Carriage** sub'yektlari kiritilgan. Har bir **Carriage** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: carriageId (birlamchi kalit {PK}), seatsCount. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Train** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Carriage** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Carriage** qat'iy ravishda faqat bitta **Train** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 12,
-    "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Zuhra Murodova",
-    "clientRole": "Maktab Direktori",
-    "clientAvatar": "principal",
-    "title": "Sinf va O'quvchilar Bog'liqligi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **SchoolClass** ob'yektlari hisobga olinadi. Har bir **SchoolClass** o'zining classId (birlamchi kalit {PK}), gradeLevel kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Pupil** sub'yektlari kiritilgan. Har bir **Pupil** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: pupilId (birlamchi kalit {PK}), fullName. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **SchoolClass** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Pupil** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Pupil** qat'iy ravishda faqat bitta **SchoolClass** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "SchoolClass",
-          "attributes": [
-            {
-              "name": "classId",
-              "isPK": true
-            },
-            {
-              "name": "gradeLevel"
-            }
-          ]
-        },
-        {
-          "name": "Pupil",
-          "attributes": [
-            {
-              "name": "pupilId",
-              "isPK": true
-            },
-            {
-              "name": "fullName"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "SchoolClass",
-          "pk": "classId"
-        },
-        {
-          "name": "Pupil",
-          "pk": "pupilId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "SchoolClass",
-          "entity2": "Pupil",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'SchoolClass' (1..1) va 'Pupil' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'SchoolClass' va 'Pupil' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **SchoolClass** ob'yektlari hisobga olinadi. Har bir **SchoolClass** o'zining classId (birlamchi kalit {PK}), gradeLevel kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Pupil** sub'yektlari kiritilgan. Har bir **Pupil** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: pupilId (birlamchi kalit {PK}), fullName. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **SchoolClass** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Pupil** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Pupil** qat'iy ravishda faqat bitta **SchoolClass** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 13,
-    "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Umid Vohidov",
-    "clientRole": "IT Xizmatlar Servis Manager",
-    "clientAvatar": "itsm",
-    "title": "Mijoz va Qo'llab-quvvatlash Chiptasi (Ticket)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Client** ob'yektlari hisobga olinadi. Har bir **Client** o'zining clientId (birlamchi kalit {PK}), orgName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Ticket** sub'yektlari kiritilgan. Har bir **Ticket** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: ticketNo (birlamchi kalit {PK}), issueText. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Client** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Ticket** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Ticket** qat'iy ravishda faqat bitta **Client** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Client",
-          "attributes": [
-            {
-              "name": "clientId",
-              "isPK": true
-            },
-            {
-              "name": "orgName"
-            }
-          ]
-        },
-        {
-          "name": "Ticket",
-          "attributes": [
-            {
-              "name": "ticketNo",
-              "isPK": true
-            },
-            {
-              "name": "issueText"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Client",
-          "pk": "clientId"
-        },
-        {
-          "name": "Ticket",
-          "pk": "ticketNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Client",
-          "entity2": "Ticket",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Client' (1..1) va 'Ticket' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Client' va 'Ticket' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Client** ob'yektlari hisobga olinadi. Har bir **Client** o'zining clientId (birlamchi kalit {PK}), orgName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Ticket** sub'yektlari kiritilgan. Har bir **Ticket** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: ticketNo (birlamchi kalit {PK}), issueText. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Client** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Ticket** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Ticket** qat'iy ravishda faqat bitta **Client** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 14,
-    "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Shahnoza Aliyeva",
-    "clientRole": "Library Tarmog'i Head",
-    "clientAvatar": "librarian",
-    "title": "Kutubxona Bo'limi va Tokchalar",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **LibrarySection** ob'yektlari hisobga olinadi. Har bir **LibrarySection** o'zining secId (birlamchi kalit {PK}), topic kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Bookshelf** sub'yektlari kiritilgan. Har bir **Bookshelf** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: shelfNo (birlamchi kalit {PK}), capacity. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **LibrarySection** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Bookshelf** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Bookshelf** qat'iy ravishda faqat bitta **LibrarySection** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "LibrarySection",
-          "attributes": [
-            {
-              "name": "secId",
-              "isPK": true
-            },
-            {
-              "name": "topic"
-            }
-          ]
-        },
-        {
-          "name": "Bookshelf",
-          "attributes": [
-            {
-              "name": "shelfNo",
-              "isPK": true
-            },
-            {
-              "name": "capacity"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "LibrarySection",
-          "pk": "secId"
-        },
-        {
-          "name": "Bookshelf",
-          "pk": "shelfNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "LibrarySection",
-          "entity2": "Bookshelf",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'LibrarySection' (1..1) va 'Bookshelf' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'LibrarySection' va 'Bookshelf' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **LibrarySection** ob'yektlari hisobga olinadi. Har bir **LibrarySection** o'zining secId (birlamchi kalit {PK}), topic kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Bookshelf** sub'yektlari kiritilgan. Har bir **Bookshelf** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: shelfNo (birlamchi kalit {PK}), capacity. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **LibrarySection** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Bookshelf** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Bookshelf** qat'iy ravishda faqat bitta **LibrarySection** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 15,
-    "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich",
-    "clientName": "Bahriddin Po'latov",
-    "clientRole": "'Apex Corporation' Bosh Ijrochi Direktori",
-    "clientAvatar": "ceo",
-    "title": "1-Qavat Bossi: Korxona Departamenti va Bosh Menejer",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Department** ob'yektlari hisobga olinadi. Har bir **Department** o'zining deptNo (birlamchi kalit {PK}), dName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Employee** sub'yektlari kiritilgan. Har bir **Employee** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: empNo (birlamchi kalit {PK}), fullName. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Department** va **Employee** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Department",
-          "attributes": [
-            {
-              "name": "deptNo",
-              "isPK": true
-            },
-            {
-              "name": "dName"
-            }
-          ]
-        },
-        {
-          "name": "Employee",
-          "attributes": [
-            {
-              "name": "empNo",
-              "isPK": true
-            },
-            {
-              "name": "fullName"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Department",
-          "pk": "deptNo"
-        },
-        {
-          "name": "Employee",
-          "pk": "empNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Department",
-          "entity2": "Employee",
-          "name": "Manages",
-          "mult1": "1..1",
-          "mult2": "1..1"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Department' (1..1) va 'Employee' (1..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Department' va 'Employee' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Department** ob'yektlari hisobga olinadi. Har bir **Department** o'zining deptNo (birlamchi kalit {PK}), dName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Employee** sub'yektlari kiritilgan. Har bir **Employee** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: empNo (birlamchi kalit {PK}), fullName. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Department** va **Employee** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 16,
-    "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Eldor Shokirov",
-    "clientRole": "Avtosalon Savdo Manager",
-    "clientAvatar": "dealer",
-    "title": "Mijoz va Avtomobil Xaridi (Ixtiyoriy 0..*)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Customer** ob'yektlari hisobga olinadi. Har bir **Customer** o'zining custId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Car** sub'yektlari kiritilgan. Har bir **Car** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: vin (birlamchi kalit {PK}), model. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkiliy tartibga binoan, har bir **Car** aniq bitta **Customer** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Customer** da dastlabki bosqichda birorta ham **Car** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Customer",
-          "attributes": [
-            {
-              "name": "custId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Car",
-          "attributes": [
-            {
-              "name": "vin",
-              "isPK": true
-            },
-            {
-              "name": "model"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Customer",
-          "pk": "custId"
-        },
-        {
-          "name": "Car",
-          "pk": "vin"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Customer",
-          "entity2": "Car",
-          "mult1": "1..1",
-          "mult2": "0..*"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Customer' (1..1) va 'Car' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Customer' va 'Car' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Customer** ob'yektlari hisobga olinadi. Har bir **Customer** o'zining custId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Car** sub'yektlari kiritilgan. Har bir **Car** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: vin (birlamchi kalit {PK}), model. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkiliy tartibga binoan, har bir **Car** aniq bitta **Customer** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Customer** da dastlabki bosqichda birorta ham **Car** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 17,
-    "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Nargiza Rustamova",
-    "clientRole": "Universitet O'quv Department Head",
-    "clientAvatar": "academic",
-    "title": "Professor va Ilmiy Maqolalar Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Professor** ob'yektlari hisobga olinadi. Har bir **Professor** o'zining profId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Article** sub'yektlari kiritilgan. Har bir **Article** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: articleId (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkiliy tartibga binoan, har bir **Article** aniq bitta **Professor** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Professor** da dastlabki bosqichda birorta ham **Article** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Professor",
-          "attributes": [
-            {
-              "name": "profId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Article",
-          "attributes": [
-            {
-              "name": "articleId",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Professor",
-          "pk": "profId"
-        },
-        {
-          "name": "Article",
-          "pk": "articleId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Professor",
-          "entity2": "Article",
-          "mult1": "1..1",
-          "mult2": "0..*"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Professor' (1..1) va 'Article' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Professor' va 'Article' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Professor** ob'yektlari hisobga olinadi. Har bir **Professor** o'zining profId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Article** sub'yektlari kiritilgan. Har bir **Article** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: articleId (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkiliy tartibga binoan, har bir **Article** aniq bitta **Professor** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Professor** da dastlabki bosqichda birorta ham **Article** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 18,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Bobur Ismoilov",
-    "clientRole": "HR Boshqarmasi Director",
-    "clientAvatar": "hrmanager",
-    "title": "Xodim va Xizmat Noutbuki Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Employee** ob'yektlari hisobga olinadi. Har bir **Employee** o'zining empNo (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Laptop** sub'yektlari kiritilgan. Har bir **Laptop** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: serialNo (birlamchi kalit {PK}), model. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Employee** va **Laptop** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Soliq Boshqaruvi",
+    "clientName": "Nodir Hakimov",
+    "clientRole": "Soliq Inspeksiyasi Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Kompaniya va Soliq Ro'yxatdan O'tish Guvohnomasi",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Soliq Boshqaruvi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Company** (tin {PK}, `companyName`, `legalAddress`, `industryType`) qayd etiladi. Ikkinchi entitiy esa rasmiy **TaxCertificate** (certId {PK}, `taxRegime`, `effectiveDate`, `regNumber`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Company** aynan bitta **TaxCertificate** bilan bog'lanishi mumkin va har bir **TaxCertificate** qat'iy ravishda bitta **Company** ga tegishli bo'ladi. Munosabat turi: **CertifiedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'Company' va 'TaxCertificate' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'CertifiedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Employee",
-          "attributes": [
-            {
-              "name": "empNo",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Laptop",
-          "attributes": [
-            {
-              "name": "serialNo",
-              "isPK": true
-            },
-            {
-              "name": "model"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Employee",
-          "pk": "empNo"
-        },
-        {
-          "name": "Laptop",
-          "pk": "serialNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Employee",
-          "entity2": "Laptop",
-          "mult1": "1..1",
-          "mult2": "0..1"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Employee' (1..1) va 'Laptop' (0..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Employee' va 'Laptop' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Employee** ob'yektlari hisobga olinadi. Har bir **Employee** o'zining empNo (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Laptop** sub'yektlari kiritilgan. Har bir **Laptop** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: serialNo (birlamchi kalit {PK}), model. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Employee** va **Laptop** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 19,
-    "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Nargiza Yo'ldosheva",
-    "clientRole": "IT Akademiya Kurs Manager",
-    "clientAvatar": "academic",
-    "title": "O'quvchi va Sertifikat Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Student** ob'yektlari hisobga olinadi. Har bir **Student** o'zining studentId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Certificate** sub'yektlari kiritilgan. Har bir **Certificate** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: certId (birlamchi kalit {PK}), issueDate. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Student** va **Certificate** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Student",
-          "x": 120,
-          "y": 150,
+          "name": "Company",
+          "pk": "tin",
           "attributes": [
             {
-              "name": "studentId",
+              "name": "tin",
               "isPK": true
             },
             {
-              "name": "name"
+              "name": "companyName",
+              "isPK": false
+            },
+            {
+              "name": "legalAddress",
+              "isPK": false
+            },
+            {
+              "name": "industryType",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Certificate",
-          "x": 480,
-          "y": 150,
+          "name": "TaxCertificate",
+          "pk": "certId",
           "attributes": [
             {
               "name": "certId",
               "isPK": true
             },
             {
-              "name": "issueDate"
+              "name": "taxRegime",
+              "isPK": false
+            },
+            {
+              "name": "effectiveDate",
+              "isPK": false
+            },
+            {
+              "name": "regNumber",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [
+        {
+          "entity1": "Company",
+          "entity2": "TaxCertificate",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "CertifiedBy"
+        }
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "sector": 2,
+    "difficulty": "2-Qavat • Klinika Boshqaruvi",
+    "clientName": "Prof. Hasan Umarov",
+    "clientRole": "Bosh Shifokor",
+    "clientAvatar": "mentor",
+    "title": "Shifoxona Bo'limi va Bo'lim Bosh Shifokori",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Klinika Boshqaruvi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **HospitalDept** (deptCode {PK}, `deptName`, `floorNo`, `bedQuota`) qayd etiladi. Ikkinchi entitiy esa rasmiy **HeadDoctor** (licenseId {PK}, `doctorName`, `specialtyField`, `phone`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **HospitalDept** aynan bitta **HeadDoctor** bilan bog'lanishi mumkin va har bir **HeadDoctor** qat'iy ravishda bitta **HospitalDept** ga tegishli bo'ladi. Munosabat turi: **HeadedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'HospitalDept' va 'HeadDoctor' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'HeadedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
+    "starterDiagram": {
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Student",
-          "pk": "studentId"
+          "name": "HospitalDept",
+          "pk": "deptCode",
+          "attributes": [
+            {
+              "name": "deptCode",
+              "isPK": true
+            },
+            {
+              "name": "deptName",
+              "isPK": false
+            },
+            {
+              "name": "floorNo",
+              "isPK": false
+            },
+            {
+              "name": "bedQuota",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Certificate",
-          "pk": "certId"
+          "name": "HeadDoctor",
+          "pk": "licenseId",
+          "attributes": [
+            {
+              "name": "licenseId",
+              "isPK": true
+            },
+            {
+              "name": "doctorName",
+              "isPK": false
+            },
+            {
+              "name": "specialtyField",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Student",
-          "entity2": "Certificate",
+          "entity1": "HospitalDept",
+          "entity2": "HeadDoctor",
           "mult1": "1..1",
-          "mult2": "0..1"
+          "mult2": "1..1",
+          "name": "HeadedBy"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Student' (1..1) va 'Certificate' (0..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Student' va 'Certificate' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Student** ob'yektlari hisobga olinadi. Har bir **Student** o'zining studentId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Certificate** sub'yektlari kiritilgan. Har bir **Certificate** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: certId (birlamchi kalit {PK}), issueDate. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Student** va **Certificate** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 20,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Farhod Karimov",
-    "clientRole": "Library Tizimi Engineer",
-    "clientAvatar": "librarian",
-    "title": "Kitobxon va Jarimalar Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Member** ob'yektlari hisobga olinadi. Har bir **Member** o'zining memberId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Fine** sub'yektlari kiritilgan. Har bir **Fine** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: fineId (birlamchi kalit {PK}), amount. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkiliy tartibga binoan, har bir **Fine** aniq bitta **Member** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Member** da dastlabki bosqichda birorta ham **Fine** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Korporativ IT Texnika",
+    "clientName": "Javohir Qosimov",
+    "clientRole": "IT Aktivlar Menejeri",
+    "clientAvatar": "mentor",
+    "title": "Kompaniya Xodimi va Xizmat Noutbuki",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Korporativ IT Texnika tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **StaffMember** (staffId {PK}, `staffName`, `jobTitle`, `workEmail`) qayd etiladi. Ikkinchi entitiy esa rasmiy **AssignedLaptop** (assetTag {PK}, `serialNo`, `modelName`, `ramGb`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **StaffMember** aynan bitta **AssignedLaptop** bilan bog'lanishi mumkin va har bir **AssignedLaptop** qat'iy ravishda bitta **StaffMember** ga tegishli bo'ladi. Munosabat turi: **AssignedTo**, kardinallik chegaralari: **1..1** va **0..1**.",
+    "instruction": "'StaffMember' va 'AssignedLaptop' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'AssignedTo' aloqasini (1..1 : 0..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Member",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "memberId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Fine",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "fineId",
-              "isPK": true
-            },
-            {
-              "name": "amount"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Member",
-          "pk": "memberId"
+          "name": "StaffMember",
+          "pk": "staffId",
+          "attributes": [
+            {
+              "name": "staffId",
+              "isPK": true
+            },
+            {
+              "name": "staffName",
+              "isPK": false
+            },
+            {
+              "name": "jobTitle",
+              "isPK": false
+            },
+            {
+              "name": "workEmail",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Fine",
-          "pk": "fineId"
+          "name": "AssignedLaptop",
+          "pk": "assetTag",
+          "attributes": [
+            {
+              "name": "assetTag",
+              "isPK": true
+            },
+            {
+              "name": "serialNo",
+              "isPK": false
+            },
+            {
+              "name": "modelName",
+              "isPK": false
+            },
+            {
+              "name": "ramGb",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Member",
-          "entity2": "Fine",
+          "entity1": "StaffMember",
+          "entity2": "AssignedLaptop",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "0..1",
+          "name": "AssignedTo"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Member' (1..1) va 'Fine' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Member' va 'Fine' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Member** ob'yektlari hisobga olinadi. Har bir **Member** o'zining memberId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Fine** sub'yektlari kiritilgan. Har bir **Fine** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: fineId (birlamchi kalit {PK}), amount. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkiliy tartibga binoan, har bir **Fine** aniq bitta **Member** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Member** da dastlabki bosqichda birorta ham **Fine** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 21,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Sevara Normatova",
-    "clientRole": "Clinic Ro'yxatga Olish Department",
-    "clientAvatar": "doctor",
-    "title": "Bemor va Retseptlar Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Patient** ob'yektlari hisobga olinadi. Har bir **Patient** o'zining patientId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Prescription** sub'yektlari kiritilgan. Har bir **Prescription** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: rxNo (birlamchi kalit {PK}), date. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkiliy tartibga binoan, har bir **Prescription** aniq bitta **Patient** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Patient** da dastlabki bosqichda birorta ham **Prescription** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Davlat Boshqaruvi",
+    "clientName": "Shavkat Toirov",
+    "clientRole": "Devonxona Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Vazirlik Boshqarmasi va Soha Vaziri",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Davlat Boshqaruvi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Ministry** (ministryId {PK}, `officialTitle`, `budgetBillion`, `location`) qayd etiladi. Ikkinchi entitiy esa rasmiy **Minister** (ministerId {PK}, `fullName`, `appointedDate`, `decreeNo`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Ministry** aynan bitta **Minister** bilan bog'lanishi mumkin va har bir **Minister** qat'iy ravishda bitta **Ministry** ga tegishli bo'ladi. Munosabat turi: **LedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'Ministry' va 'Minister' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'LedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Patient",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "patientId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Prescription",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "rxNo",
-              "isPK": true
-            },
-            {
-              "name": "date"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Patient",
-          "pk": "patientId"
+          "name": "Ministry",
+          "pk": "ministryId",
+          "attributes": [
+            {
+              "name": "ministryId",
+              "isPK": true
+            },
+            {
+              "name": "officialTitle",
+              "isPK": false
+            },
+            {
+              "name": "budgetBillion",
+              "isPK": false
+            },
+            {
+              "name": "location",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Prescription",
-          "pk": "rxNo"
+          "name": "Minister",
+          "pk": "ministerId",
+          "attributes": [
+            {
+              "name": "ministerId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "appointedDate",
+              "isPK": false
+            },
+            {
+              "name": "decreeNo",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Patient",
-          "entity2": "Prescription",
+          "entity1": "Ministry",
+          "entity2": "Minister",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..1",
+          "name": "LedBy"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Patient' (1..1) va 'Prescription' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Patient' va 'Prescription' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Patient** ob'yektlari hisobga olinadi. Har bir **Patient** o'zining patientId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Prescription** sub'yektlari kiritilgan. Har bir **Prescription** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: rxNo (birlamchi kalit {PK}), date. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkiliy tartibga binoan, har bir **Prescription** aniq bitta **Patient** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Patient** da dastlabki bosqichda birorta ham **Prescription** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 22,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Akmal Rahmonov",
-    "clientRole": "Uy-joy Agency Broker",
-    "clientAvatar": "broker",
-    "title": "Mulk Egasi va Kvartiralar Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Owner** ob'yektlari hisobga olinadi. Har bir **Owner** o'zining ownerNo (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Property** sub'yektlari kiritilgan. Har bir **Property** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: propNo (birlamchi kalit {PK}), address. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Owner** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Property** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Property** qat'iy ravishda faqat bitta **Owner** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Harbiy Dengiz Floti",
+    "clientName": "Kapitan Anvar Salimov",
+    "clientRole": "Flot Admiral Shtabi",
+    "clientAvatar": "mentor",
+    "title": "Dengiz Harbiylashgan Kemasi va Kema Kapitani",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Harbiy Dengiz Floti tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Warship** (hullNo {PK}, `shipName`, `displacementTons`, `commissionYear`) qayd etiladi. Ikkinchi entitiy esa rasmiy **Captain** (officerId {PK}, `officerName`, `rankGrade`, `serviceYears`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Warship** aynan bitta **Captain** bilan bog'lanishi mumkin va har bir **Captain** qat'iy ravishda bitta **Warship** ga tegishli bo'ladi. Munosabat turi: **CommandedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'Warship' va 'Captain' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'CommandedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Owner",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "ownerNo",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Property",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "propNo",
-              "isPK": true
-            },
-            {
-              "name": "address"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Owner",
-          "pk": "ownerNo"
+          "name": "Warship",
+          "pk": "hullNo",
+          "attributes": [
+            {
+              "name": "hullNo",
+              "isPK": true
+            },
+            {
+              "name": "shipName",
+              "isPK": false
+            },
+            {
+              "name": "displacementTons",
+              "isPK": false
+            },
+            {
+              "name": "commissionYear",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Property",
-          "pk": "propNo"
+          "name": "Captain",
+          "pk": "officerId",
+          "attributes": [
+            {
+              "name": "officerId",
+              "isPK": true
+            },
+            {
+              "name": "officerName",
+              "isPK": false
+            },
+            {
+              "name": "rankGrade",
+              "isPK": false
+            },
+            {
+              "name": "serviceYears",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Owner",
-          "entity2": "Property",
+          "entity1": "Warship",
+          "entity2": "Captain",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..1",
+          "name": "CommandedBy"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Owner' (1..1) va 'Property' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Owner' va 'Property' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Owner** ob'yektlari hisobga olinadi. Har bir **Owner** o'zining ownerNo (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Property** sub'yektlari kiritilgan. Har bir **Property** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: propNo (birlamchi kalit {PK}), address. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Owner** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Property** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Property** qat'iy ravishda faqat bitta **Owner** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 23,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Jamshid Tursunov",
-    "clientRole": "Restoranlar Tarmog'i Bosh Oshpazi",
-    "clientAvatar": "chef",
-    "title": "Taom va Retsept Masalliqlari Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Dish** ob'yektlari hisobga olinadi. Har bir **Dish** o'zining dishId (birlamchi kalit {PK}), title kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Ingredient** sub'yektlari kiritilgan. Har bir **Ingredient** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: ingId (birlamchi kalit {PK}), name. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Dish** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Ingredient** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Ingredient** qat'iy ravishda faqat bitta **Dish** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Ko'chmas Mulk & Kadastr",
+    "clientName": "Muzaffar Jo'rayev",
+    "clientRole": "Kadastr Muhandisi",
+    "clientAvatar": "mentor",
+    "title": "Mulkdor va Ko'chmas Mulk Kadastr Pasporti",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Ko'chmas Mulk & Kadastr tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **PropertyOwner** (ownerId {PK}, `ownerName`, `phone`, `taxPayerCode`) qayd etiladi. Ikkinchi entitiy esa rasmiy **CadastreDeed** (deedNo {PK}, `cadastralZone`, `landAreaSqm`, `registeredDate`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **PropertyOwner** aynan bitta **CadastreDeed** bilan bog'lanishi mumkin va har bir **CadastreDeed** qat'iy ravishda bitta **PropertyOwner** ga tegishli bo'ladi. Munosabat turi: **DeededWith**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'PropertyOwner' va 'CadastreDeed' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'DeededWith' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Dish",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "dishId",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        },
-        {
-          "name": "Ingredient",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "ingId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Dish",
-          "pk": "dishId"
+          "name": "PropertyOwner",
+          "pk": "ownerId",
+          "attributes": [
+            {
+              "name": "ownerId",
+              "isPK": true
+            },
+            {
+              "name": "ownerName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "taxPayerCode",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Ingredient",
-          "pk": "ingId"
+          "name": "CadastreDeed",
+          "pk": "deedNo",
+          "attributes": [
+            {
+              "name": "deedNo",
+              "isPK": true
+            },
+            {
+              "name": "cadastralZone",
+              "isPK": false
+            },
+            {
+              "name": "landAreaSqm",
+              "isPK": false
+            },
+            {
+              "name": "registeredDate",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Dish",
-          "entity2": "Ingredient",
+          "entity1": "PropertyOwner",
+          "entity2": "CadastreDeed",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..1",
+          "name": "DeededWith"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Dish' (1..1) va 'Ingredient' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Dish' va 'Ingredient' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Dish** ob'yektlari hisobga olinadi. Har bir **Dish** o'zining dishId (birlamchi kalit {PK}), title kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Ingredient** sub'yektlari kiritilgan. Har bir **Ingredient** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: ingId (birlamchi kalit {PK}), name. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Dish** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Ingredient** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Ingredient** qat'iy ravishda faqat bitta **Dish** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 24,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Malika Zufarova",
-    "clientRole": "Mobil Aloqa Company Billing Mutaxassisi",
-    "clientAvatar": "telecom",
-    "title": "Abonent va SIM-karta Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Subscriber** ob'yektlari hisobga olinadi. Har bir **Subscriber** o'zining subId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **SIMCard** sub'yektlari kiritilgan. Har bir **SIMCard** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: iccid (birlamchi kalit {PK}), msisdn. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Subscriber** va **SIMCard** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Savdo & To'lov Tizimi",
+    "clientName": "Sardor Saidov",
+    "clientRole": "Kassa Texnik Mutaxassisi",
+    "clientAvatar": "mentor",
+    "title": "Kassa Shoxobchasi va Bank POS Terminali",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Savdo & To'lov Tizimi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **CheckoutLane** (laneNo {PK}, `deskCode`, `supervisorName`, `status`) qayd etiladi. Ikkinchi entitiy esa rasmiy **PosTerminal** (terminalId {PK}, `ipAddress`, `merchantCode`, `serialNumber`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **CheckoutLane** aynan bitta **PosTerminal** bilan bog'lanishi mumkin va har bir **PosTerminal** qat'iy ravishda bitta **CheckoutLane** ga tegishli bo'ladi. Munosabat turi: **EquippedWith**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'CheckoutLane' va 'PosTerminal' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'EquippedWith' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Subscriber",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "subId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "SIMCard",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "iccid",
-              "isPK": true
-            },
-            {
-              "name": "msisdn"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Subscriber",
-          "pk": "subId"
+          "name": "CheckoutLane",
+          "pk": "laneNo",
+          "attributes": [
+            {
+              "name": "laneNo",
+              "isPK": true
+            },
+            {
+              "name": "deskCode",
+              "isPK": false
+            },
+            {
+              "name": "supervisorName",
+              "isPK": false
+            },
+            {
+              "name": "status",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "SIMCard",
-          "pk": "iccid"
+          "name": "PosTerminal",
+          "pk": "terminalId",
+          "attributes": [
+            {
+              "name": "terminalId",
+              "isPK": true
+            },
+            {
+              "name": "ipAddress",
+              "isPK": false
+            },
+            {
+              "name": "merchantCode",
+              "isPK": false
+            },
+            {
+              "name": "serialNumber",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Subscriber",
-          "entity2": "SIMCard",
+          "entity1": "CheckoutLane",
+          "entity2": "PosTerminal",
           "mult1": "1..1",
-          "mult2": "0..1"
+          "mult2": "1..1",
+          "name": "EquippedWith"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Subscriber' (1..1) va 'SIMCard' (0..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Subscriber' va 'SIMCard' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Subscriber** ob'yektlari hisobga olinadi. Har bir **Subscriber** o'zining subId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **SIMCard** sub'yektlari kiritilgan. Har bir **SIMCard** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: iccid (birlamchi kalit {PK}), msisdn. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Subscriber** va **SIMCard** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 25,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Madina Hakimova",
-    "clientRole": "Tibbiy Sug'urta Company",
-    "clientAvatar": "insurance",
-    "title": "Mijoz va Sug'urta Polisi Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Person** ob'yektlari hisobga olinadi. Har bir **Person** o'zining personId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Policy** sub'yektlari kiritilgan. Har bir **Policy** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: policyNo (birlamchi kalit {PK}), coverage. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Person** va **Policy** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Maktab Ta'limi",
+    "clientName": "Munira Fayzullayeva",
+    "clientRole": "Maktab Mudiri",
+    "clientAvatar": "mentor",
+    "title": "Maktab O'quvchisi va Shaxsiy Saqlash Shkafchasi",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Maktab Ta'limi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Pupil** (pupilId {PK}, `fullName`, `gradeLevel`, `classRoom`) qayd etiladi. Ikkinchi entitiy esa rasmiy **SchoolLocker** (lockerNo {PK}, `hallwayWing`, `combinationCode`, `shelfCount`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Pupil** aynan bitta **SchoolLocker** bilan bog'lanishi mumkin va har bir **SchoolLocker** qat'iy ravishda bitta **Pupil** ga tegishli bo'ladi. Munosabat turi: **Allocated**, kardinallik chegaralari: **1..1** va **0..1**.",
+    "instruction": "'Pupil' va 'SchoolLocker' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'Allocated' aloqasini (1..1 : 0..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Person",
-          "attributes": [
-            {
-              "name": "personId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Policy",
-          "attributes": [
-            {
-              "name": "policyNo",
-              "isPK": true
-            },
-            {
-              "name": "coverage"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Person",
-          "pk": "personId"
+          "name": "Pupil",
+          "pk": "pupilId",
+          "attributes": [
+            {
+              "name": "pupilId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "gradeLevel",
+              "isPK": false
+            },
+            {
+              "name": "classRoom",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Policy",
-          "pk": "policyNo"
+          "name": "SchoolLocker",
+          "pk": "lockerNo",
+          "attributes": [
+            {
+              "name": "lockerNo",
+              "isPK": true
+            },
+            {
+              "name": "hallwayWing",
+              "isPK": false
+            },
+            {
+              "name": "combinationCode",
+              "isPK": false
+            },
+            {
+              "name": "shelfCount",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Person",
-          "entity2": "Policy",
+          "entity1": "Pupil",
+          "entity2": "SchoolLocker",
           "mult1": "1..1",
-          "mult2": "0..1"
+          "mult2": "0..1",
+          "name": "Allocated"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Person' (1..1) va 'Policy' (0..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Person' va 'Policy' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Person** ob'yektlari hisobga olinadi. Har bir **Person** o'zining personId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Policy** sub'yektlari kiritilgan. Har bir **Policy** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: policyNo (birlamchi kalit {PK}), coverage. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Person** va **Policy** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 26,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "G'ayrat Ergashev",
-    "clientRole": "Yuk Tashish Company Dispetcheri",
-    "clientAvatar": "logistics",
-    "title": "Konteyner va Yuk Jo'natmasi Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Shipment** ob'yektlari hisobga olinadi. Har bir **Shipment** o'zining shipmentId (birlamchi kalit {PK}), weight kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Container** sub'yektlari kiritilgan. Har bir **Container** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: containerNo (birlamchi kalit {PK}), capacity. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Shipment** va **Container** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Aviatsiya Xavfsizligi",
+    "clientName": "Oleg Smirnov",
+    "clientRole": "Avia Nazorat Inspeksiyasi",
+    "clientAvatar": "mentor",
+    "title": "Yo'lovchi Samolyoti va Qora Quti Yozuv Uskunasi",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Aviatsiya Xavfsizligi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Airplane** (airframeNo {PK}, `tailNumber`, `modelCode`, `serviceHours`) qayd etiladi. Ikkinchi entitiy esa rasmiy **FlightRecorder** (recorderId {PK}, `beaconFrequency`, `memoryCapacityGb`, `batteryExpiry`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Airplane** aynan bitta **FlightRecorder** bilan bog'lanishi mumkin va har bir **FlightRecorder** qat'iy ravishda bitta **Airplane** ga tegishli bo'ladi. Munosabat turi: **MonitoredBy**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'Airplane' va 'FlightRecorder' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'MonitoredBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Shipment",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "shipmentId",
-              "isPK": true
-            },
-            {
-              "name": "weight"
-            }
-          ]
-        },
-        {
-          "name": "Container",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "containerNo",
-              "isPK": true
-            },
-            {
-              "name": "capacity"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Shipment",
-          "pk": "shipmentId"
+          "name": "Airplane",
+          "pk": "airframeNo",
+          "attributes": [
+            {
+              "name": "airframeNo",
+              "isPK": true
+            },
+            {
+              "name": "tailNumber",
+              "isPK": false
+            },
+            {
+              "name": "modelCode",
+              "isPK": false
+            },
+            {
+              "name": "serviceHours",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Container",
-          "pk": "containerNo"
+          "name": "FlightRecorder",
+          "pk": "recorderId",
+          "attributes": [
+            {
+              "name": "recorderId",
+              "isPK": true
+            },
+            {
+              "name": "beaconFrequency",
+              "isPK": false
+            },
+            {
+              "name": "memoryCapacityGb",
+              "isPK": false
+            },
+            {
+              "name": "batteryExpiry",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Shipment",
-          "entity2": "Container",
+          "entity1": "Airplane",
+          "entity2": "FlightRecorder",
           "mult1": "1..1",
-          "mult2": "0..1"
+          "mult2": "1..1",
+          "name": "MonitoredBy"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Shipment' (1..1) va 'Container' (0..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Shipment' va 'Container' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Shipment** ob'yektlari hisobga olinadi. Har bir **Shipment** o'zining shipmentId (birlamchi kalit {PK}), weight kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Container** sub'yektlari kiritilgan. Har bir **Container** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: containerNo (birlamchi kalit {PK}), capacity. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Shipment** va **Container** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 27,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Zokir Usmonov",
-    "clientRole": "Kredit Byurosi Director",
-    "clientAvatar": "banker",
-    "title": "Mijoz va Garov Mulki Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Client** ob'yektlari hisobga olinadi. Har bir **Client** o'zining clientId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Collateral** sub'yektlari kiritilgan. Har bir **Collateral** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: collateralId (birlamchi kalit {PK}), appraisedValue. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkiliy tartibga binoan, har bir **Collateral** aniq bitta **Client** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Client** da dastlabki bosqichda birorta ham **Collateral** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Qishloq Xo'jaligi",
+    "clientName": "Ibrohim Rustamov",
+    "clientRole": "Yer Resurslari Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Fermer Xo'jaligi va Yer Ijara Shartnomasi",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Qishloq Xo'jaligi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Farm** (farmRegNo {PK}, `farmName`, `province`, `cropType`) qayd etiladi. Ikkinchi entitiy esa rasmiy **LandLeaseContract** (contractId {PK}, `hectares`, `leaseEndDate`, `regDate`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Farm** aynan bitta **LandLeaseContract** bilan bog'lanishi mumkin va har bir **LandLeaseContract** qat'iy ravishda bitta **Farm** ga tegishli bo'ladi. Munosabat turi: **ContractedUnder**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'Farm' va 'LandLeaseContract' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'ContractedUnder' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Client",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "clientId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Collateral",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "collateralId",
-              "isPK": true
-            },
-            {
-              "name": "appraisedValue"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Client",
-          "pk": "clientId"
+          "name": "Farm",
+          "pk": "farmRegNo",
+          "attributes": [
+            {
+              "name": "farmRegNo",
+              "isPK": true
+            },
+            {
+              "name": "farmName",
+              "isPK": false
+            },
+            {
+              "name": "province",
+              "isPK": false
+            },
+            {
+              "name": "cropType",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Collateral",
-          "pk": "collateralId"
+          "name": "LandLeaseContract",
+          "pk": "contractId",
+          "attributes": [
+            {
+              "name": "contractId",
+              "isPK": true
+            },
+            {
+              "name": "hectares",
+              "isPK": false
+            },
+            {
+              "name": "leaseEndDate",
+              "isPK": false
+            },
+            {
+              "name": "regDate",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Client",
-          "entity2": "Collateral",
+          "entity1": "Farm",
+          "entity2": "LandLeaseContract",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..1",
+          "name": "ContractedUnder"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Client' (1..1) va 'Collateral' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Client' va 'Collateral' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Client** ob'yektlari hisobga olinadi. Har bir **Client** o'zining clientId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Collateral** sub'yektlari kiritilgan. Har bir **Collateral** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: collateralId (birlamchi kalit {PK}), appraisedValue. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkiliy tartibga binoan, har bir **Collateral** aniq bitta **Client** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Client** da dastlabki bosqichda birorta ham **Collateral** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 28,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Shoira Valiyeva",
-    "clientRole": "Farmatsevtika Ombori Mudiri",
-    "clientAvatar": "pharmacist",
-    "title": "Dori Partiyasi va Sifat Sertifikati Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **MedicineBatch** ob'yektlari hisobga olinadi. Har bir **MedicineBatch** o'zining batchNo (birlamchi kalit {PK}), mfgDate kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **QualityCert** sub'yektlari kiritilgan. Har bir **QualityCert** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: certNo (birlamchi kalit {PK}), labResult. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **MedicineBatch** va **QualityCert** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Diplomatiya & Tashqi Ishlar",
+    "clientName": "Kamol Boboyev",
+    "clientRole": "Protokol Xizmati Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Diplomatik Elchixona va Favqulodda Muxtor Elchi",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Diplomatiya & Tashqi Ishlar tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Embassy** (embassyId {PK}, `hostCountry`, `cityLocation`, `establishedYear`) qayd etiladi. Ikkinchi entitiy esa rasmiy **Ambassador** (diplomatId {PK}, `fullName`, `credentialDate`, `diplomaticRank`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Embassy** aynan bitta **Ambassador** bilan bog'lanishi mumkin va har bir **Ambassador** qat'iy ravishda bitta **Embassy** ga tegishli bo'ladi. Munosabat turi: **RepresentedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'Embassy' va 'Ambassador' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'RepresentedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "MedicineBatch",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "batchNo",
-              "isPK": true
-            },
-            {
-              "name": "mfgDate"
-            }
-          ]
-        },
-        {
-          "name": "QualityCert",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "certNo",
-              "isPK": true
-            },
-            {
-              "name": "labResult"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "MedicineBatch",
-          "pk": "batchNo"
+          "name": "Embassy",
+          "pk": "embassyId",
+          "attributes": [
+            {
+              "name": "embassyId",
+              "isPK": true
+            },
+            {
+              "name": "hostCountry",
+              "isPK": false
+            },
+            {
+              "name": "cityLocation",
+              "isPK": false
+            },
+            {
+              "name": "establishedYear",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "QualityCert",
-          "pk": "certNo"
+          "name": "Ambassador",
+          "pk": "diplomatId",
+          "attributes": [
+            {
+              "name": "diplomatId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "credentialDate",
+              "isPK": false
+            },
+            {
+              "name": "diplomaticRank",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "MedicineBatch",
-          "entity2": "QualityCert",
+          "entity1": "Embassy",
+          "entity2": "Ambassador",
           "mult1": "1..1",
-          "mult2": "1..1"
+          "mult2": "1..1",
+          "name": "RepresentedBy"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'MedicineBatch' (1..1) va 'QualityCert' (1..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'MedicineBatch' va 'QualityCert' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '1..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **MedicineBatch** ob'yektlari hisobga olinadi. Har bir **MedicineBatch** o'zining batchNo (birlamchi kalit {PK}), mfgDate kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **QualityCert** sub'yektlari kiritilgan. Har bir **QualityCert** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: certNo (birlamchi kalit {PK}), labResult. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **MedicineBatch** va **QualityCert** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 29,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Rustam Mirzayev",
-    "clientRole": "Avtoturargoh Kompleksi Boshqaruvchisi",
-    "clientAvatar": "parking",
-    "title": "Mashina va Avtoturargoh Joyi Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Car** ob'yektlari hisobga olinadi. Har bir **Car** o'zining plateNo (birlamchi kalit {PK}), model kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **ParkingSpot** sub'yektlari kiritilgan. Har bir **ParkingSpot** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: slotNo (birlamchi kalit {PK}), floor. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Car** va **ParkingSpot** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Bank Xavfsizligi",
+    "clientName": "Akmal Fayziyev",
+    "clientRole": "Bank Inkassatsiya Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Bank Filiali va Asosiy Naqd Pul Seyfi",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Bank Xavfsizligi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **BankBranch** (branchNo {PK}, `street`, `city`, `phone`) qayd etiladi. Ikkinchi entitiy esa rasmiy **MainVault** (vaultId {PK}, `securityGrade`, `capacityKg`, `alarmCode`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **BankBranch** aynan bitta **MainVault** bilan bog'lanishi mumkin va har bir **MainVault** qat'iy ravishda bitta **BankBranch** ga tegishli bo'ladi. Munosabat turi: **SecuredWith**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'BankBranch' va 'MainVault' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'SecuredWith' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Car",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "plateNo",
-              "isPK": true
-            },
-            {
-              "name": "model"
-            }
-          ]
-        },
-        {
-          "name": "ParkingSpot",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "slotNo",
-              "isPK": true
-            },
-            {
-              "name": "floor"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Car",
-          "pk": "plateNo"
+          "name": "BankBranch",
+          "pk": "branchNo",
+          "attributes": [
+            {
+              "name": "branchNo",
+              "isPK": true
+            },
+            {
+              "name": "street",
+              "isPK": false
+            },
+            {
+              "name": "city",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "ParkingSpot",
-          "pk": "slotNo"
+          "name": "MainVault",
+          "pk": "vaultId",
+          "attributes": [
+            {
+              "name": "vaultId",
+              "isPK": true
+            },
+            {
+              "name": "securityGrade",
+              "isPK": false
+            },
+            {
+              "name": "capacityKg",
+              "isPK": false
+            },
+            {
+              "name": "alarmCode",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Car",
-          "entity2": "ParkingSpot",
+          "entity1": "BankBranch",
+          "entity2": "MainVault",
           "mult1": "1..1",
-          "mult2": "0..1"
+          "mult2": "1..1",
+          "name": "SecuredWith"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Car' (1..1) va 'ParkingSpot' (0..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Car' va 'ParkingSpot' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Car** ob'yektlari hisobga olinadi. Har bir **Car** o'zining plateNo (birlamchi kalit {PK}), model kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **ParkingSpot** sub'yektlari kiritilgan. Har bir **ParkingSpot** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: slotNo (birlamchi kalit {PK}), floor. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Car** va **ParkingSpot** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 30,
     "sector": 2,
-    "difficulty": "2-Qavat • Boshlang'ich",
-    "clientName": "Sherzod Jo'rayev",
-    "clientRole": "'Apex Aero' Parvozlar Xavfsizligi Direktori",
-    "clientAvatar": "airline",
-    "title": "2-Qavat Bossi: Samolyot va Parvozlar Jadvali Tizimi",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Aircraft** ob'yektlari hisobga olinadi. Har bir **Aircraft** o'zining tailNumber (birlamchi kalit {PK}), model kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Flight** sub'yektlari kiritilgan. Har bir **Flight** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: flightNo (birlamchi kalit {PK}), destAirport. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkiliy tartibga binoan, har bir **Flight** aniq bitta **Aircraft** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Aircraft** da dastlabki bosqichda birorta ham **Flight** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "2-Qavat • Olimpiya Qo'mitasi",
+    "clientName": "Dilorom Ismoilova",
+    "clientRole": "Antidoping Komissari",
+    "clientAvatar": "mentor",
+    "title": "Professional Atlet va Biologik Doping Pasporti",
+    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Olimpiya Qo'mitasi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Athlete** (licenseId {PK}, `athleteName`, `sportDiscipline`, `countryCode`) qayd etiladi. Ikkinchi entitiy esa rasmiy **DopingPassport** (passportCode {PK}, `biologicalProfile`, `lastTestDate`, `labCode`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Athlete** aynan bitta **DopingPassport** bilan bog'lanishi mumkin va har bir **DopingPassport** qat'iy ravishda bitta **Athlete** ga tegishli bo'ladi. Munosabat turi: **TrackedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
+    "instruction": "'Athlete' va 'DopingPassport' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'TrackedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Aircraft",
-          "attributes": [
-            {
-              "name": "tailNumber",
-              "isPK": true
-            },
-            {
-              "name": "model"
-            }
-          ]
-        },
-        {
-          "name": "Flight",
-          "attributes": [
-            {
-              "name": "flightNo",
-              "isPK": true
-            },
-            {
-              "name": "destAirport"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Aircraft",
-          "pk": "tailNumber"
+          "name": "Athlete",
+          "pk": "licenseId",
+          "attributes": [
+            {
+              "name": "licenseId",
+              "isPK": true
+            },
+            {
+              "name": "athleteName",
+              "isPK": false
+            },
+            {
+              "name": "sportDiscipline",
+              "isPK": false
+            },
+            {
+              "name": "countryCode",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Flight",
-          "pk": "flightNo"
+          "name": "DopingPassport",
+          "pk": "passportCode",
+          "attributes": [
+            {
+              "name": "passportCode",
+              "isPK": true
+            },
+            {
+              "name": "biologicalProfile",
+              "isPK": false
+            },
+            {
+              "name": "lastTestDate",
+              "isPK": false
+            },
+            {
+              "name": "labCode",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Aircraft",
-          "entity2": "Flight",
+          "entity1": "Athlete",
+          "entity2": "DopingPassport",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..1",
+          "name": "TrackedBy"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Aircraft' (1..1) va 'Flight' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Aircraft' va 'Flight' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..1' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Aircraft** ob'yektlari hisobga olinadi. Har bir **Aircraft** o'zining tailNumber (birlamchi kalit {PK}), model kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Flight** sub'yektlari kiritilgan. Har bir **Flight** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: flightNo (birlamchi kalit {PK}), destAirport. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkiliy tartibga binoan, har bir **Flight** aniq bitta **Aircraft** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Aircraft** da dastlabki bosqichda birorta ham **Flight** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 31,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Kamoliddin Fayzullayev",
-    "clientRole": "Ijtimoiy Himoya Boshqarmasi",
-    "clientAvatar": "social",
-    "title": "Xodim va Farzandlari (Zaif Entitiy Child)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Staff** ob'yektlari hisobga olinadi. Har bir **Staff** o'zining staffNo (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Child** sub'yektlari kiritilgan. Har bir **Child** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: fName, age. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkiliy tartibga binoan, har bir **Child** aniq bitta **Staff** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Staff** da dastlabki bosqichda birorta ham **Child** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Akademik Kadrlar",
+    "clientName": "Prof. Dilshod Karimov",
+    "clientRole": "Fakultet Dekani",
+    "clientAvatar": "mentor",
+    "title": "Universitet Kafedrasi va Professor-O'qituvchilar",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Akademik Kadrlar tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Department** (deptCode {PK}, `deptName`, `officeRoom`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **Lecturer** (lecturerId {PK}, `fullName`, `academicRank`, `salary`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Department** tarkibida kamida bitta yoki undan ko'p (1..*) **Lecturer** bo'lishi mumkin. Har bir **Lecturer** esa qat'iy ravishda faqat bitta (1..1) **Department** ga mansub bo'ladi. Munosabat: **Employs**.",
+    "instruction": "'Department' va 'Lecturer' entitiylarini polotnoga qo'ying, 'Employs' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Staff",
-          "attributes": [
-            {
-              "name": "staffNo",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Child",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "fName",
-              "isPPK": true
-            },
-            {
-              "name": "age"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Staff",
-          "pk": "staffNo"
+          "name": "Department",
+          "pk": "deptCode",
+          "attributes": [
+            {
+              "name": "deptCode",
+              "isPK": true
+            },
+            {
+              "name": "deptName",
+              "isPK": false
+            },
+            {
+              "name": "officeRoom",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Child",
-          "isWeak": true
+          "name": "Lecturer",
+          "pk": "lecturerId",
+          "attributes": [
+            {
+              "name": "lecturerId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "academicRank",
+              "isPK": false
+            },
+            {
+              "name": "salary",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Staff",
-          "entity2": "Child",
+          "entity1": "Department",
+          "entity2": "Lecturer",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..*",
+          "name": "Employs"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Staff' (1..1) va 'Child' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Staff' va 'Child' entitiylarini chizing. 'Child' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Staff** ob'yektlari hisobga olinadi. Har bir **Staff** o'zining staffNo (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Child** sub'yektlari kiritilgan. Har bir **Child** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: fName, age. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkiliy tartibga binoan, har bir **Child** aniq bitta **Staff** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Staff** da dastlabki bosqichda birorta ham **Child** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 32,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Ulug'bek Samatov",
-    "clientRole": "E-tijorat Ombor Manager",
-    "clientAvatar": "warehouse",
-    "title": "Buyurtma va Buyurtma Qatorlari (OrderLine)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Order** ob'yektlari hisobga olinadi. Har bir **Order** o'zining orderId (birlamchi kalit {PK}), orderDate kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **OrderLine** sub'yektlari kiritilgan. Har bir **OrderLine** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: lineNo, quantity. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Order** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **OrderLine** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **OrderLine** qat'iy ravishda faqat bitta **Order** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Matbaa & Nashriyot",
+    "clientName": "Feruza Mahmudova",
+    "clientRole": "Bosh Muharrir",
+    "clientAvatar": "mentor",
+    "title": "Nashriyot Uyi va Chop Etilgan Kitob Nashrlari",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Matbaa & Nashriyot tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Publisher** (publisherId {PK}, `companyName`, `address`, `phone`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **BookEdition** (editionIsbn {PK}, `title`, `printRun`, `price`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Publisher** tarkibida kamida bitta yoki undan ko'p (1..*) **BookEdition** bo'lishi mumkin. Har bir **BookEdition** esa qat'iy ravishda faqat bitta (1..1) **Publisher** ga mansub bo'ladi. Munosabat: **Publishes**.",
+    "instruction": "'Publisher' va 'BookEdition' entitiylarini polotnoga qo'ying, 'Publishes' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Order",
-          "attributes": [
-            {
-              "name": "orderId",
-              "isPK": true
-            },
-            {
-              "name": "orderDate"
-            }
-          ]
-        },
-        {
-          "name": "OrderLine",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "lineNo",
-              "isPPK": true
-            },
-            {
-              "name": "quantity"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Order",
-          "pk": "orderId"
+          "name": "Publisher",
+          "pk": "publisherId",
+          "attributes": [
+            {
+              "name": "publisherId",
+              "isPK": true
+            },
+            {
+              "name": "companyName",
+              "isPK": false
+            },
+            {
+              "name": "address",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "OrderLine",
-          "isWeak": true
+          "name": "BookEdition",
+          "pk": "editionIsbn",
+          "attributes": [
+            {
+              "name": "editionIsbn",
+              "isPK": true
+            },
+            {
+              "name": "title",
+              "isPK": false
+            },
+            {
+              "name": "printRun",
+              "isPK": false
+            },
+            {
+              "name": "price",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Order",
-          "entity2": "OrderLine",
+          "entity1": "Publisher",
+          "entity2": "BookEdition",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "name": "Publishes"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Order' (1..1) va 'OrderLine' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Order' va 'OrderLine' entitiylarini chizing. 'OrderLine' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Order** ob'yektlari hisobga olinadi. Har bir **Order** o'zining orderId (birlamchi kalit {PK}), orderDate kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **OrderLine** sub'yektlari kiritilgan. Har bir **OrderLine** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: lineNo, quantity. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Order** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **OrderLine** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **OrderLine** qat'iy ravishda faqat bitta **Order** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 33,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Bobur Hakimov",
-    "clientRole": "IT Loyihalar Manager",
-    "clientAvatar": "techpm",
-    "title": "Loyiha va Bosqichlar (Milestone Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Project** ob'yektlari hisobga olinadi. Har bir **Project** o'zining projId (birlamchi kalit {PK}), title kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Milestone** sub'yektlari kiritilgan. Har bir **Milestone** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: milestoneNo, targetDate. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Project** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Milestone** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Milestone** qat'iy ravishda faqat bitta **Project** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Fintech & Plastik Kartalar",
+    "clientName": "Ulug'bek Sobirov",
+    "clientRole": "Karta Boshqarmasi Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Bank Mijozi va Unga Biriktirilgan Plastik Kartalar",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Fintech & Plastik Kartalar tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Customer** (customerId {PK}, `fullName`, `phone`, `email`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **PaymentCard** (cardNumber {PK}, `cardType`, `expiryDate`, `cvvHash`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Customer** tarkibida kamida bitta yoki undan ko'p (1..*) **PaymentCard** bo'lishi mumkin. Har bir **PaymentCard** esa qat'iy ravishda faqat bitta (1..1) **Customer** ga mansub bo'ladi. Munosabat: **Owns**.",
+    "instruction": "'Customer' va 'PaymentCard' entitiylarini polotnoga qo'ying, 'Owns' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Project",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "projId",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        },
-        {
-          "name": "Milestone",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "milestoneNo",
-              "isPPK": true
-            },
-            {
-              "name": "targetDate"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Project",
-          "pk": "projId"
+          "name": "Customer",
+          "pk": "customerId",
+          "attributes": [
+            {
+              "name": "customerId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "email",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Milestone",
-          "isWeak": true
+          "name": "PaymentCard",
+          "pk": "cardNumber",
+          "attributes": [
+            {
+              "name": "cardNumber",
+              "isPK": true
+            },
+            {
+              "name": "cardType",
+              "isPK": false
+            },
+            {
+              "name": "expiryDate",
+              "isPK": false
+            },
+            {
+              "name": "cvvHash",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Project",
-          "entity2": "Milestone",
+          "entity1": "Customer",
+          "entity2": "PaymentCard",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "name": "Owns"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Project' (1..1) va 'Milestone' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Project' va 'Milestone' entitiylarini chizing. 'Milestone' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Project** ob'yektlari hisobga olinadi. Har bir **Project** o'zining projId (birlamchi kalit {PK}), title kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Milestone** sub'yektlari kiritilgan. Har bir **Milestone** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: milestoneNo, targetDate. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Project** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Milestone** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Milestone** qat'iy ravishda faqat bitta **Project** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 34,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Nilufar Qosimova",
-    "clientRole": "Sug'urta Da'volari Boshqarmasi",
-    "clientAvatar": "insurance",
-    "title": "Sug'urta Polisi va Zarar Da'volari (Claim Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Policy** ob'yektlari hisobga olinadi. Har bir **Policy** o'zining policyNo (birlamchi kalit {PK}), holder kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Claim** sub'yektlari kiritilgan. Har bir **Claim** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: claimSeq, amount. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkiliy tartibga binoan, har bir **Claim** aniq bitta **Policy** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Policy** da dastlabki bosqichda birorta ham **Claim** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Shahar Yo'lovchi Transporti",
+    "clientName": "Mansur Jo'rayev",
+    "clientRole": "Transport Garaji Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Avtobus Saroyi va Shahar Avtobuslari Floti",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Shahar Yo'lovchi Transporti tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **BusDepot** (depotId {PK}, `depotName`, `garageCapacity`, `cityZone`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **CityBus** (busRegNo {PK}, `model`, `seatCapacity`, `routeNo`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **BusDepot** tarkibida kamida bitta yoki undan ko'p (1..*) **CityBus** bo'lishi mumkin. Har bir **CityBus** esa qat'iy ravishda faqat bitta (1..1) **BusDepot** ga mansub bo'ladi. Munosabat: **Houses**.",
+    "instruction": "'BusDepot' va 'CityBus' entitiylarini polotnoga qo'ying, 'Houses' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Policy",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "policyNo",
-              "isPK": true
-            },
-            {
-              "name": "holder"
-            }
-          ]
-        },
-        {
-          "name": "Claim",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "claimSeq",
-              "isPPK": true
-            },
-            {
-              "name": "amount"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Policy",
-          "pk": "policyNo"
+          "name": "BusDepot",
+          "pk": "depotId",
+          "attributes": [
+            {
+              "name": "depotId",
+              "isPK": true
+            },
+            {
+              "name": "depotName",
+              "isPK": false
+            },
+            {
+              "name": "garageCapacity",
+              "isPK": false
+            },
+            {
+              "name": "cityZone",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Claim",
-          "isWeak": true
+          "name": "CityBus",
+          "pk": "busRegNo",
+          "attributes": [
+            {
+              "name": "busRegNo",
+              "isPK": true
+            },
+            {
+              "name": "model",
+              "isPK": false
+            },
+            {
+              "name": "seatCapacity",
+              "isPK": false
+            },
+            {
+              "name": "routeNo",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Policy",
-          "entity2": "Claim",
+          "entity1": "BusDepot",
+          "entity2": "CityBus",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..*",
+          "name": "Houses"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Policy' (1..1) va 'Claim' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Policy' va 'Claim' entitiylarini chizing. 'Claim' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Policy** ob'yektlari hisobga olinadi. Har bir **Policy** o'zining policyNo (birlamchi kalit {PK}), holder kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Claim** sub'yektlari kiritilgan. Har bir **Claim** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: claimSeq, amount. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkiliy tartibga binoan, har bir **Claim** aniq bitta **Policy** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Policy** da dastlabki bosqichda birorta ham **Claim** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 35,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Ravshan Usmonov",
-    "clientRole": "Mehmonxona Arxitektori",
-    "clientAvatar": "architect",
-    "title": "Bino va Xonalar (Zaif Entitiy) (Room Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Building** ob'yektlari hisobga olinadi. Har bir **Building** o'zining bldgNo (birlamchi kalit {PK}), city kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Room** sub'yektlari kiritilgan. Har bir **Room** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: roomNo, floor. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Building** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Room** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Room** qat'iy ravishda faqat bitta **Building** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Korporativ Boshqaruv",
+    "clientName": "Nargiza Odilova",
+    "clientRole": "HR Bosh Menejeri",
+    "clientAvatar": "mentor",
+    "title": "Kompaniya Filiali va Unda Ishlovchi Xodimlar",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Korporativ Boshqaruv tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Branch** (branchNo {PK}, `city`, `street`, `phone`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **Staff** (staffNo {PK}, `fName`, `lName`, `position`, `salary`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Branch** tarkibida kamida bitta yoki undan ko'p (1..*) **Staff** bo'lishi mumkin. Har bir **Staff** esa qat'iy ravishda faqat bitta (1..1) **Branch** ga mansub bo'ladi. Munosabat: **Operates**.",
+    "instruction": "'Branch' va 'Staff' entitiylarini polotnoga qo'ying, 'Operates' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Building",
-          "attributes": [
-            {
-              "name": "bldgNo",
-              "isPK": true
-            },
-            {
-              "name": "city"
-            }
-          ]
-        },
-        {
-          "name": "Room",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "roomNo",
-              "isPPK": true
-            },
-            {
-              "name": "floor"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Building",
-          "pk": "bldgNo"
+          "name": "Branch",
+          "pk": "branchNo",
+          "attributes": [
+            {
+              "name": "branchNo",
+              "isPK": true
+            },
+            {
+              "name": "city",
+              "isPK": false
+            },
+            {
+              "name": "street",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Room",
-          "isWeak": true
+          "name": "Staff",
+          "pk": "staffNo",
+          "attributes": [
+            {
+              "name": "staffNo",
+              "isPK": true
+            },
+            {
+              "name": "fName",
+              "isPK": false
+            },
+            {
+              "name": "lName",
+              "isPK": false
+            },
+            {
+              "name": "position",
+              "isPK": false
+            },
+            {
+              "name": "salary",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Building",
-          "entity2": "Room",
+          "entity1": "Branch",
+          "entity2": "Staff",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "name": "Operates"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Building' (1..1) va 'Room' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Building' va 'Room' entitiylarini chizing. 'Room' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Building** ob'yektlari hisobga olinadi. Har bir **Building** o'zining bldgNo (birlamchi kalit {PK}), city kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Room** sub'yektlari kiritilgan. Har bir **Room** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: roomNo, floor. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Building** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Room** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Room** qat'iy ravishda faqat bitta **Building** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 36,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Otabek Ergashev",
-    "clientRole": "Shifoxona Bosh Vrachi",
-    "clientAvatar": "doctor",
-    "title": "Palata va Karavotlar (Bed Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Ward** ob'yektlari hisobga olinadi. Har bir **Ward** o'zining wardNo (birlamchi kalit {PK}), dept kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Bed** sub'yektlari kiritilgan. Har bir **Bed** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: bedNo, type. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Ward** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Bed** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Bed** qat'iy ravishda faqat bitta **Ward** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Klinika Bo'limlari",
+    "clientName": "Shohida Olimova",
+    "clientRole": "Bosh Hamshira",
+    "clientAvatar": "mentor",
+    "title": "Shifoxona Bo'limi va Unga Qarashli Palatalar",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Klinika Bo'limlari tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **HospitalWard** (wardId {PK}, `wardName`, `floorLevel`, `nurseStation`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **PatientRoom** (roomNumber {PK}, `bedCount`, `isOxygenEquipped`, `dailyRate`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **HospitalWard** tarkibida kamida bitta yoki undan ko'p (1..*) **PatientRoom** bo'lishi mumkin. Har bir **PatientRoom** esa qat'iy ravishda faqat bitta (1..1) **HospitalWard** ga mansub bo'ladi. Munosabat: **Contains**.",
+    "instruction": "'HospitalWard' va 'PatientRoom' entitiylarini polotnoga qo'ying, 'Contains' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Ward",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "wardNo",
-              "isPK": true
-            },
-            {
-              "name": "dept"
-            }
-          ]
-        },
-        {
-          "name": "Bed",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "bedNo",
-              "isPPK": true
-            },
-            {
-              "name": "type"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Ward",
-          "pk": "wardNo"
+          "name": "HospitalWard",
+          "pk": "wardId",
+          "attributes": [
+            {
+              "name": "wardId",
+              "isPK": true
+            },
+            {
+              "name": "wardName",
+              "isPK": false
+            },
+            {
+              "name": "floorLevel",
+              "isPK": false
+            },
+            {
+              "name": "nurseStation",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Bed",
-          "isWeak": true
+          "name": "PatientRoom",
+          "pk": "roomNumber",
+          "attributes": [
+            {
+              "name": "roomNumber",
+              "isPK": true
+            },
+            {
+              "name": "bedCount",
+              "isPK": false
+            },
+            {
+              "name": "isOxygenEquipped",
+              "isPK": false
+            },
+            {
+              "name": "dailyRate",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Ward",
-          "entity2": "Bed",
+          "entity1": "HospitalWard",
+          "entity2": "PatientRoom",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "name": "Contains"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Ward' (1..1) va 'Bed' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Ward' va 'Bed' entitiylarini chizing. 'Bed' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Ward** ob'yektlari hisobga olinadi. Har bir **Ward** o'zining wardNo (birlamchi kalit {PK}), dept kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Bed** sub'yektlari kiritilgan. Har bir **Bed** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: bedNo, type. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Ward** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Bed** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Bed** qat'iy ravishda faqat bitta **Ward** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 37,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Lobar Sayfullayeva",
-    "clientRole": "O'quv Nashriyoti Tahririyati",
-    "clientAvatar": "publisher",
-    "title": "Kitob va Boblar (Chapter Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Book** ob'yektlari hisobga olinadi. Har bir **Book** o'zining isbn (birlamchi kalit {PK}), title kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Chapter** sub'yektlari kiritilgan. Har bir **Chapter** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: chapterNo, title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Book** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Chapter** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Chapter** qat'iy ravishda faqat bitta **Book** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Aeronavigatsiya",
+    "clientName": "Ravshan Yusupov",
+    "clientRole": "Parvozlar Bosh Dispetcheri",
+    "clientAvatar": "mentor",
+    "title": "Aviakompaniya va Xalqaro Parvoz Reyslari",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Aeronavigatsiya tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Airline** (airlineCode {PK}, `airlineName`, `countryOrigin`, `alliance`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **FlightSchedule** (flightNo {PK}, `originIata`, `destIata`, `departureTime`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Airline** tarkibida kamida bitta yoki undan ko'p (1..*) **FlightSchedule** bo'lishi mumkin. Har bir **FlightSchedule** esa qat'iy ravishda faqat bitta (1..1) **Airline** ga mansub bo'ladi. Munosabat: **Operates**.",
+    "instruction": "'Airline' va 'FlightSchedule' entitiylarini polotnoga qo'ying, 'Operates' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Book",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "isbn",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        },
-        {
-          "name": "Chapter",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "chapterNo",
-              "isPPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Book",
-          "pk": "isbn"
+          "name": "Airline",
+          "pk": "airlineCode",
+          "attributes": [
+            {
+              "name": "airlineCode",
+              "isPK": true
+            },
+            {
+              "name": "airlineName",
+              "isPK": false
+            },
+            {
+              "name": "countryOrigin",
+              "isPK": false
+            },
+            {
+              "name": "alliance",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Chapter",
-          "isWeak": true
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Book",
-          "entity2": "Chapter",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Book' (1..1) va 'Chapter' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Book' va 'Chapter' entitiylarini chizing. 'Chapter' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Book** ob'yektlari hisobga olinadi. Har bir **Book** o'zining isbn (birlamchi kalit {PK}), title kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Chapter** sub'yektlari kiritilgan. Har bir **Chapter** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: chapterNo, title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Book** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Chapter** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Chapter** qat'iy ravishda faqat bitta **Book** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
-      ]
-    }
-  },
-  {
-    "id": 38,
-    "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Jahongir To'xtayev",
-    "clientRole": "Aviakompaniya Engineer",
-    "clientAvatar": "airline",
-    "title": "Parvoz va Reys Segmentlari (FlightLeg Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Flight** ob'yektlari hisobga olinadi. Har bir **Flight** o'zining flightNo (birlamchi kalit {PK}), airline kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **FlightLeg** sub'yektlari kiritilgan. Har bir **FlightLeg** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: legNo, depTime. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Flight** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **FlightLeg** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **FlightLeg** qat'iy ravishda faqat bitta **Flight** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Flight",
-          "x": 120,
-          "y": 150,
+          "name": "FlightSchedule",
+          "pk": "flightNo",
           "attributes": [
             {
               "name": "flightNo",
               "isPK": true
             },
             {
-              "name": "airline"
-            }
-          ]
-        },
-        {
-          "name": "FlightLeg",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "legNo",
-              "isPPK": true
+              "name": "originIata",
+              "isPK": false
             },
             {
-              "name": "depTime"
+              "name": "destIata",
+              "isPK": false
+            },
+            {
+              "name": "departureTime",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [
+        {
+          "entity1": "Airline",
+          "entity2": "FlightSchedule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        }
+      ]
+    }
+  },
+  {
+    "id": 38,
+    "sector": 3,
+    "difficulty": "3-Qavat • Restoran Xizmati",
+    "clientName": "Zilola Ergasheva",
+    "clientRole": "Restoran Administratori",
+    "clientAvatar": "mentor",
+    "title": "Restoran Stoli va Buyurtma Cheklari",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Restoran Xizmati tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **DiningTable** (tableNo {PK}, `seatingCapacity`, `zoneArea`, `isReserved`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **OrderTicket** (orderId {PK}, `orderTime`, `totalSum`, `paymentStatus`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **DiningTable** tarkibida kamida bitta yoki undan ko'p (0..*) **OrderTicket** bo'lishi mumkin. Har bir **OrderTicket** esa qat'iy ravishda faqat bitta (1..1) **DiningTable** ga mansub bo'ladi. Munosabat: **Places**.",
+    "instruction": "'DiningTable' va 'OrderTicket' entitiylarini polotnoga qo'ying, 'Places' aloqasini o'rnatib, multiplisitiyani 1..1 va 0..* qilib belgilang.",
+    "starterDiagram": {
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Flight",
-          "pk": "flightNo"
+          "name": "DiningTable",
+          "pk": "tableNo",
+          "attributes": [
+            {
+              "name": "tableNo",
+              "isPK": true
+            },
+            {
+              "name": "seatingCapacity",
+              "isPK": false
+            },
+            {
+              "name": "zoneArea",
+              "isPK": false
+            },
+            {
+              "name": "isReserved",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "FlightLeg",
-          "isWeak": true
+          "name": "OrderTicket",
+          "pk": "orderId",
+          "attributes": [
+            {
+              "name": "orderId",
+              "isPK": true
+            },
+            {
+              "name": "orderTime",
+              "isPK": false
+            },
+            {
+              "name": "totalSum",
+              "isPK": false
+            },
+            {
+              "name": "paymentStatus",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Flight",
-          "entity2": "FlightLeg",
+          "entity1": "DiningTable",
+          "entity2": "OrderTicket",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "0..*",
+          "name": "Places"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Flight' (1..1) va 'FlightLeg' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Flight' va 'FlightLeg' entitiylarini chizing. 'FlightLeg' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Flight** ob'yektlari hisobga olinadi. Har bir **Flight** o'zining flightNo (birlamchi kalit {PK}), airline kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **FlightLeg** sub'yektlari kiritilgan. Har bir **FlightLeg** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: legNo, depTime. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Flight** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **FlightLeg** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **FlightLeg** qat'iy ravishda faqat bitta **Flight** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 39,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Doniyor Ziyoyev",
-    "clientRole": "Dasturiy Mahsulot Arxitektori",
-    "clientAvatar": "techpm",
-    "title": "Dasturiy Paket va Modullar (Module Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **SoftwarePackage** ob'yektlari hisobga olinadi. Har bir **SoftwarePackage** o'zining pkgId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Module** sub'yektlari kiritilgan. Har bir **Module** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: modCode, version. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **SoftwarePackage** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Module** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Module** qat'iy ravishda faqat bitta **SoftwarePackage** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Xalqaro Mehmonxona",
+    "clientName": "Sevara Shokirova",
+    "clientRole": "Mehmonxona Qabul Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Mehmonxona Majmuasi va Xonalar Boshqaruvi",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Xalqaro Mehmonxona tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Hotel** (hotelId {PK}, `hotelName`, `starRating`, `cityAddress`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **Room** (roomNo {PK}, `type`, `price`, `isCleaned`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Hotel** tarkibida kamida bitta yoki undan ko'p (1..*) **Room** bo'lishi mumkin. Har bir **Room** esa qat'iy ravishda faqat bitta (1..1) **Hotel** ga mansub bo'ladi. Munosabat: **Has**.",
+    "instruction": "'Hotel' va 'Room' entitiylarini polotnoga qo'ying, 'Has' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "SoftwarePackage",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "pkgId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Module",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "modCode",
-              "isPPK": true
-            },
-            {
-              "name": "version"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "SoftwarePackage",
-          "pk": "pkgId"
+          "name": "Hotel",
+          "pk": "hotelId",
+          "attributes": [
+            {
+              "name": "hotelId",
+              "isPK": true
+            },
+            {
+              "name": "hotelName",
+              "isPK": false
+            },
+            {
+              "name": "starRating",
+              "isPK": false
+            },
+            {
+              "name": "cityAddress",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Module",
-          "isWeak": true
+          "name": "Room",
+          "pk": "roomNo",
+          "attributes": [
+            {
+              "name": "roomNo",
+              "isPK": true
+            },
+            {
+              "name": "type",
+              "isPK": false
+            },
+            {
+              "name": "price",
+              "isPK": false
+            },
+            {
+              "name": "isCleaned",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "SoftwarePackage",
-          "entity2": "Module",
+          "entity1": "Hotel",
+          "entity2": "Room",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "name": "Has"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'SoftwarePackage' (1..1) va 'Module' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'SoftwarePackage' va 'Module' entitiylarini chizing. 'Module' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **SoftwarePackage** ob'yektlari hisobga olinadi. Har bir **SoftwarePackage** o'zining pkgId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Module** sub'yektlari kiritilgan. Har bir **Module** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: modCode, version. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **SoftwarePackage** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Module** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Module** qat'iy ravishda faqat bitta **SoftwarePackage** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 40,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Gulzoda Islomova",
-    "clientRole": "Teatr Bosh Ma'muri",
-    "clientAvatar": "arts",
-    "title": "Teatr Zali va Qatorlar (SeatRow Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Hall** ob'yektlari hisobga olinadi. Har bir **Hall** o'zining hallId (birlamchi kalit {PK}), hallName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **SeatRow** sub'yektlari kiritilgan. Har bir **SeatRow** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: rowNo, seatCount. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Hall** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **SeatRow** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **SeatRow** qat'iy ravishda faqat bitta **Hall** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Madaniyat & Teatr",
+    "clientName": "Rustam Mirzayev",
+    "clientRole": "Sahna Rejissyori",
+    "clientAvatar": "mentor",
+    "title": "Teatr Spektakli va Badiiy Rollar Fonotekasi",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Madaniyat & Teatr tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **TheatrePlay** (playCode {PK}, `title`, `authorPlaywright`, `genre`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **CharacterRole** (roleId {PK}, `characterName`, `importanceTier`, `actCount`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **TheatrePlay** tarkibida kamida bitta yoki undan ko'p (1..*) **CharacterRole** bo'lishi mumkin. Har bir **CharacterRole** esa qat'iy ravishda faqat bitta (1..1) **TheatrePlay** ga mansub bo'ladi. Munosabat: **Features**.",
+    "instruction": "'TheatrePlay' va 'CharacterRole' entitiylarini polotnoga qo'ying, 'Features' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Hall",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "hallId",
-              "isPK": true
-            },
-            {
-              "name": "hallName"
-            }
-          ]
-        },
-        {
-          "name": "SeatRow",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "rowNo",
-              "isPPK": true
-            },
-            {
-              "name": "seatCount"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Hall",
-          "pk": "hallId"
+          "name": "TheatrePlay",
+          "pk": "playCode",
+          "attributes": [
+            {
+              "name": "playCode",
+              "isPK": true
+            },
+            {
+              "name": "title",
+              "isPK": false
+            },
+            {
+              "name": "authorPlaywright",
+              "isPK": false
+            },
+            {
+              "name": "genre",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "SeatRow",
-          "isWeak": true
+          "name": "CharacterRole",
+          "pk": "roleId",
+          "attributes": [
+            {
+              "name": "roleId",
+              "isPK": true
+            },
+            {
+              "name": "characterName",
+              "isPK": false
+            },
+            {
+              "name": "importanceTier",
+              "isPK": false
+            },
+            {
+              "name": "actCount",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Hall",
-          "entity2": "SeatRow",
+          "entity1": "TheatrePlay",
+          "entity2": "CharacterRole",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "name": "Features"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Hall' (1..1) va 'SeatRow' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Hall' va 'SeatRow' entitiylarini chizing. 'SeatRow' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Hall** ob'yektlari hisobga olinadi. Har bir **Hall** o'zining hallId (birlamchi kalit {PK}), hallName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **SeatRow** sub'yektlari kiritilgan. Har bir **SeatRow** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: rowNo, seatCount. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Hall** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **SeatRow** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **SeatRow** qat'iy ravishda faqat bitta **Hall** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 41,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Bexruz Normurodov",
-    "clientRole": "Chiptaxona Head",
-    "clientAvatar": "retailer",
-    "title": "Chipta va Chipta Kuponlari (Coupon Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Ticket** ob'yektlari hisobga olinadi. Har bir **Ticket** o'zining ticketId (birlamchi kalit {PK}), price kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Coupon** sub'yektlari kiritilgan. Har bir **Coupon** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: couponNo, validDate. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Ticket** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Coupon** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Coupon** qat'iy ravishda faqat bitta **Ticket** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Media & Kontent",
+    "clientName": "Madina Alimova",
+    "clientRole": "Bosh Muharrir SMM",
+    "clientAvatar": "mentor",
+    "title": "Telegram Blog Kanali va Nashr Qilingan Postlar",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Media & Kontent tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Channel** (channelHandle {PK}, `channelTitle`, `subscribersCount`, `createdDate`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **ChannelPost** (postId {PK}, `publishedAt`, `viewCount`, `postText`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Channel** tarkibida kamida bitta yoki undan ko'p (0..*) **ChannelPost** bo'lishi mumkin. Har bir **ChannelPost** esa qat'iy ravishda faqat bitta (1..1) **Channel** ga mansub bo'ladi. Munosabat: **Publishes**.",
+    "instruction": "'Channel' va 'ChannelPost' entitiylarini polotnoga qo'ying, 'Publishes' aloqasini o'rnatib, multiplisitiyani 1..1 va 0..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Ticket",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "ticketId",
-              "isPK": true
-            },
-            {
-              "name": "price"
-            }
-          ]
-        },
-        {
-          "name": "Coupon",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "couponNo",
-              "isPPK": true
-            },
-            {
-              "name": "validDate"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Ticket",
-          "pk": "ticketId"
+          "name": "Channel",
+          "pk": "channelHandle",
+          "attributes": [
+            {
+              "name": "channelHandle",
+              "isPK": true
+            },
+            {
+              "name": "channelTitle",
+              "isPK": false
+            },
+            {
+              "name": "subscribersCount",
+              "isPK": false
+            },
+            {
+              "name": "createdDate",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Coupon",
-          "isWeak": true
+          "name": "ChannelPost",
+          "pk": "postId",
+          "attributes": [
+            {
+              "name": "postId",
+              "isPK": true
+            },
+            {
+              "name": "publishedAt",
+              "isPK": false
+            },
+            {
+              "name": "viewCount",
+              "isPK": false
+            },
+            {
+              "name": "postText",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Ticket",
-          "entity2": "Coupon",
+          "entity1": "Channel",
+          "entity2": "ChannelPost",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "0..*",
+          "name": "Publishes"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Ticket' (1..1) va 'Coupon' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Ticket' va 'Coupon' entitiylarini chizing. 'Coupon' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Ticket** ob'yektlari hisobga olinadi. Har bir **Ticket** o'zining ticketId (birlamchi kalit {PK}), price kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Coupon** sub'yektlari kiritilgan. Har bir **Coupon** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: couponNo, validDate. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Ticket** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Coupon** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Coupon** qat'iy ravishda faqat bitta **Ticket** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 42,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Maftuna Alimova",
-    "clientRole": "Bank Kartalari Monitoringi",
-    "clientAvatar": "banker",
-    "title": "Plastik Karta va PIN-Konvert (PinEnvelope Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **BankCard** ob'yektlari hisobga olinadi. Har bir **BankCard** o'zining cardNo (birlamchi kalit {PK}), expDate kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **PinEnvelope** sub'yektlari kiritilgan. Har bir **PinEnvelope** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: envSeq, salt. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **BankCard** va **PinEnvelope** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Omborxona Xo'jaligi",
+    "clientName": "Oybek Mahmudov",
+    "clientRole": "Ombor Mudiri",
+    "clientAvatar": "mentor",
+    "title": "Logistika Omborxonasi va Saqlash Bo'lmalari",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Omborxona Xo'jaligi tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Warehouse** (warehouseCode {PK}, `facilityName`, `totalVolumeM3`, `address`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **StorageBay** (bayBarcode {PK}, `aisleNo`, `maxWeightKg`, `temperatureZone`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Warehouse** tarkibida kamida bitta yoki undan ko'p (1..*) **StorageBay** bo'lishi mumkin. Har bir **StorageBay** esa qat'iy ravishda faqat bitta (1..1) **Warehouse** ga mansub bo'ladi. Munosabat: **ConsistsOf**.",
+    "instruction": "'Warehouse' va 'StorageBay' entitiylarini polotnoga qo'ying, 'ConsistsOf' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "BankCard",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "cardNo",
-              "isPK": true
-            },
-            {
-              "name": "expDate"
-            }
-          ]
-        },
-        {
-          "name": "PinEnvelope",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "envSeq",
-              "isPPK": true
-            },
-            {
-              "name": "salt"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "BankCard",
-          "pk": "cardNo"
+          "name": "Warehouse",
+          "pk": "warehouseCode",
+          "attributes": [
+            {
+              "name": "warehouseCode",
+              "isPK": true
+            },
+            {
+              "name": "facilityName",
+              "isPK": false
+            },
+            {
+              "name": "totalVolumeM3",
+              "isPK": false
+            },
+            {
+              "name": "address",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "PinEnvelope",
-          "isWeak": true
+          "name": "StorageBay",
+          "pk": "bayBarcode",
+          "attributes": [
+            {
+              "name": "bayBarcode",
+              "isPK": true
+            },
+            {
+              "name": "aisleNo",
+              "isPK": false
+            },
+            {
+              "name": "maxWeightKg",
+              "isPK": false
+            },
+            {
+              "name": "temperatureZone",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "BankCard",
-          "entity2": "PinEnvelope",
+          "entity1": "Warehouse",
+          "entity2": "StorageBay",
           "mult1": "1..1",
-          "mult2": "0..1"
+          "mult2": "1..*",
+          "name": "ConsistsOf"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'BankCard' (1..1) va 'PinEnvelope' (0..1) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'BankCard' va 'PinEnvelope' entitiylarini chizing. 'PinEnvelope' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '0..1' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **BankCard** ob'yektlari hisobga olinadi. Har bir **BankCard** o'zining cardNo (birlamchi kalit {PK}), expDate kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **PinEnvelope** sub'yektlari kiritilgan. Har bir **PinEnvelope** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: envSeq, salt. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **BankCard** va **PinEnvelope** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 43,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Nodir Mahmudov",
-    "clientRole": "Yuk Kemasi Kapitani",
-    "clientAvatar": "logistics",
-    "title": "Kema va Kema Xonalari (Cabin Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Ship** ob'yektlari hisobga olinadi. Har bir **Ship** o'zining imoNumber (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Cabin** sub'yektlari kiritilgan. Har bir **Cabin** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: cabinNo, beds. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Ship** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Cabin** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Cabin** qat'iy ravishda faqat bitta **Ship** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Hududiy Boshqaruv",
+    "clientName": "Botir Tursunov",
+    "clientRole": "Shahar Hokimiyati",
+    "clientAvatar": "mentor",
+    "title": "Viloyat Shahri va Unga Tegishli Tumanlar",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Hududiy Boshqaruv tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **City** (cityId {PK}, `cityName`, `regionName`, `population`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **District** (districtId {PK}, `districtName`, `postalIndex`, `areaSqKm`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **City** tarkibida kamida bitta yoki undan ko'p (1..*) **District** bo'lishi mumkin. Har bir **District** esa qat'iy ravishda faqat bitta (1..1) **City** ga mansub bo'ladi. Munosabat: **DividedInto**.",
+    "instruction": "'City' va 'District' entitiylarini polotnoga qo'ying, 'DividedInto' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Ship",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "imoNumber",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Cabin",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "cabinNo",
-              "isPPK": true
-            },
-            {
-              "name": "beds"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Ship",
-          "pk": "imoNumber"
+          "name": "City",
+          "pk": "cityId",
+          "attributes": [
+            {
+              "name": "cityId",
+              "isPK": true
+            },
+            {
+              "name": "cityName",
+              "isPK": false
+            },
+            {
+              "name": "regionName",
+              "isPK": false
+            },
+            {
+              "name": "population",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Cabin",
-          "isWeak": true
+          "name": "District",
+          "pk": "districtId",
+          "attributes": [
+            {
+              "name": "districtId",
+              "isPK": true
+            },
+            {
+              "name": "districtName",
+              "isPK": false
+            },
+            {
+              "name": "postalIndex",
+              "isPK": false
+            },
+            {
+              "name": "areaSqKm",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Ship",
-          "entity2": "Cabin",
+          "entity1": "City",
+          "entity2": "District",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "name": "DividedInto"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Ship' (1..1) va 'Cabin' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Ship' va 'Cabin' entitiylarini chizing. 'Cabin' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Ship** ob'yektlari hisobga olinadi. Har bir **Ship** o'zining imoNumber (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Cabin** sub'yektlari kiritilgan. Har bir **Cabin** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: cabinNo, beds. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Ship** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Cabin** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Cabin** qat'iy ravishda faqat bitta **Ship** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 44,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Zuhra Shodiyeva",
-    "clientRole": "Kollej O'quv Rejalari Head",
-    "clientAvatar": "principal",
-    "title": "Fan Sillabusi va Dars Mavzulari (Topic Zaif Entitiy)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Syllabus** ob'yektlari hisobga olinadi. Har bir **Syllabus** o'zining sylId (birlamchi kalit {PK}), subject kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Topic** sub'yektlari kiritilgan. Har bir **Topic** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: topicNo, hours. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nKompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Syllabus** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Topic** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Topic** qat'iy ravishda faqat bitta **Syllabus** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Sug'urta Bozori",
+    "clientName": "Gulzoda Salimova",
+    "clientRole": "Sug'urta Kompaniyasi Menejeri",
+    "clientAvatar": "mentor",
+    "title": "Sug'urta Agenti va Rasmiylashtirilgan Sug'urta Polislari",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Sug'urta Bozori tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **InsuranceBroker** (brokerId {PK}, `brokerName`, `licenseNo`, `commissionRate`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **Policy** (policyNo {PK}, `startDate`, `endDate`, `premiumAmount`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **InsuranceBroker** tarkibida kamida bitta yoki undan ko'p (0..*) **Policy** bo'lishi mumkin. Har bir **Policy** esa qat'iy ravishda faqat bitta (1..1) **InsuranceBroker** ga mansub bo'ladi. Munosabat: **Underwrites**.",
+    "instruction": "'InsuranceBroker' va 'Policy' entitiylarini polotnoga qo'ying, 'Underwrites' aloqasini o'rnatib, multiplisitiyani 1..1 va 0..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Syllabus",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "sylId",
-              "isPK": true
-            },
-            {
-              "name": "subject"
-            }
-          ]
-        },
-        {
-          "name": "Topic",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "topicNo",
-              "isPPK": true
-            },
-            {
-              "name": "hours"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Syllabus",
-          "pk": "sylId"
+          "name": "InsuranceBroker",
+          "pk": "brokerId",
+          "attributes": [
+            {
+              "name": "brokerId",
+              "isPK": true
+            },
+            {
+              "name": "brokerName",
+              "isPK": false
+            },
+            {
+              "name": "licenseNo",
+              "isPK": false
+            },
+            {
+              "name": "commissionRate",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Topic",
-          "isWeak": true
+          "name": "Policy",
+          "pk": "policyNo",
+          "attributes": [
+            {
+              "name": "policyNo",
+              "isPK": true
+            },
+            {
+              "name": "startDate",
+              "isPK": false
+            },
+            {
+              "name": "endDate",
+              "isPK": false
+            },
+            {
+              "name": "premiumAmount",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Syllabus",
-          "entity2": "Topic",
+          "entity1": "InsuranceBroker",
+          "entity2": "Policy",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "0..*",
+          "name": "Underwrites"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Syllabus' (1..1) va 'Topic' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Syllabus' va 'Topic' entitiylarini chizing. 'Topic' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Syllabus** ob'yektlari hisobga olinadi. Har bir **Syllabus** o'zining sylId (birlamchi kalit {PK}), subject kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Topic** sub'yektlari kiritilgan. Har bir **Topic** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: topicNo, hours. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Kompaniya nizomi va xavfsizlik reglamentiga muvofiq, har bir faoliyat ko'rsatayotgan **Syllabus** da operatsiyalar uzluksizligini ta'minlash uchun kamida bitta va ko'pi bilan cheklanmagan miqdorda **Topic** faoliyat yuritishi majburiydir. Boshqa tomondan, ichki tartib-qoidalarga ko'ra, har bir **Topic** qat'iy ravishda faqat bitta **Syllabus** shtatiga biriktiriladi va bir vaqtning o'zida bir nechta joyda xizmat qila olmaydi."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 45,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta",
-    "clientName": "Sardor Ahmedov",
-    "clientRole": "Bank IT Direktori",
-    "clientAvatar": "bankit",
-    "title": "3-Qavat Bossi: Hisob Raqam va Tranzaksiyalar (Transaction)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Account** ob'yektlari hisobga olinadi. Har bir **Account** o'zining accNo (birlamchi kalit {PK}), balance kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Transaction** sub'yektlari kiritilgan. Har bir **Transaction** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: txSeq, amount. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkiliy tartibga binoan, har bir **Transaction** aniq bitta **Account** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Account** da dastlabki bosqichda birorta ham **Transaction** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "3-Qavat • Telekom & Radioaloqa",
+    "clientName": "Eldor Vohidov",
+    "clientRole": "Radio Tarmoq Muhandisi",
+    "clientAvatar": "mentor",
+    "title": "Mobil Aloqa Minorasi va Antenna Sektorlari",
+    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Telekom & Radioaloqa tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **CellTower** (towerId {PK}, `towerName`, `latitude`, `longitude`, `heightMeters`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **AntennaSector** (sectorId {PK}, `azimuthDegree`, `frequencyBandMhz`, `powerWatt`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **CellTower** tarkibida kamida bitta yoki undan ko'p (1..*) **AntennaSector** bo'lishi mumkin. Har bir **AntennaSector** esa qat'iy ravishda faqat bitta (1..1) **CellTower** ga mansub bo'ladi. Munosabat: **Radiates**.",
+    "instruction": "'CellTower' va 'AntennaSector' entitiylarini polotnoga qo'ying, 'Radiates' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Account",
-          "attributes": [
-            {
-              "name": "accNo",
-              "isPK": true
-            },
-            {
-              "name": "balance"
-            }
-          ]
-        },
-        {
-          "name": "Transaction",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "txSeq",
-              "isPPK": true
-            },
-            {
-              "name": "amount"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Account",
-          "pk": "accNo"
+          "name": "CellTower",
+          "pk": "towerId",
+          "attributes": [
+            {
+              "name": "towerId",
+              "isPK": true
+            },
+            {
+              "name": "towerName",
+              "isPK": false
+            },
+            {
+              "name": "latitude",
+              "isPK": false
+            },
+            {
+              "name": "longitude",
+              "isPK": false
+            },
+            {
+              "name": "heightMeters",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Transaction",
-          "isWeak": true
+          "name": "AntennaSector",
+          "pk": "sectorId",
+          "attributes": [
+            {
+              "name": "sectorId",
+              "isPK": true
+            },
+            {
+              "name": "azimuthDegree",
+              "isPK": false
+            },
+            {
+              "name": "frequencyBandMhz",
+              "isPK": false
+            },
+            {
+              "name": "powerWatt",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Account",
-          "entity2": "Transaction",
+          "entity1": "CellTower",
+          "entity2": "AntennaSector",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..*",
+          "name": "Radiates"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Account' (1..1) va 'Transaction' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Account' va 'Transaction' entitiylarini chizing. 'Transaction' entitiysini 'Zaif Entitiy' deb belgilang, qisman kalitini ko'rsating va ularni '1..1' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Account** ob'yektlari hisobga olinadi. Har bir **Account** o'zining accNo (birlamchi kalit {PK}), balance kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Transaction** sub'yektlari kiritilgan. Har bir **Transaction** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: txSeq, amount. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkiliy tartibga binoan, har bir **Transaction** aniq bitta **Account** ga tayinlanadi. Biroq yangi ta'sis etilgan yoki qayta tashkil qilinayotgan **Account** da dastlabki bosqichda birorta ham **Transaction** ro'yxatga olinmagan bo'lishi yoki vaqt o'tishi bilan ko'plab xodimlar biriktirilishi mumkin."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi entitiy zaif entitiy (Weak Entity) hisoblanadi va uning mavjudlik bog'liqligi (identifying relationship ◆) qanday ifodalanadi?",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 46,
     "sector": 4,
-    "difficulty": "4-Qavat • O'rta",
-    "clientName": "Mansur Jo'rayev",
-    "clientRole": "IT Korxona Direktori",
-    "clientAvatar": "itdirector",
-    "title": "Xodim va Loyiha: Ish Soati Atributi (WorksOn)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Employee** ob'yektlari hisobga olinadi. Har bir **Employee** o'zining empNo (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Project** sub'yektlari kiritilgan. Har bir **Project** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: projNo (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Employee** va **Project** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "4-Qavat • Tibbiyot Xizmati",
+    "clientName": "Dr. Lola Sharipova",
+    "clientRole": "Klinika Koordinatori",
+    "clientAvatar": "mentor",
+    "title": "Shifokor va Bemor Qabuli (Appointment)",
+    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Tibbiyot Xizmati amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Doctor** (doctorId {PK}) va **Patient** (patientId {PK}) qatnashadi. Bir Doctor bir nechta Patient bilan, va aksincha, bir Patient bir nechta Doctor bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **Appointment** (appointId {PK}, `appointTime`, `diagnosisNotes`, `cost`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
+    "instruction": "'Doctor' va 'Patient' o'rtasida assotsiativ 'Appointment' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Employee",
-          "attributes": [
-            {
-              "name": "empNo",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Project",
-          "attributes": [
-            {
-              "name": "projNo",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Employee",
-          "pk": "empNo"
+          "name": "Doctor",
+          "pk": "doctorId",
+          "attributes": [
+            {
+              "name": "doctorId",
+              "isPK": true
+            }
+          ]
         },
         {
-          "name": "Project",
-          "pk": "projNo"
+          "name": "Patient",
+          "pk": "patientId",
+          "attributes": [
+            {
+              "name": "patientId",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Appointment",
+          "pk": "appointId",
+          "isAssociative": true,
+          "attributes": [
+            {
+              "name": "appointId",
+              "isPK": true
+            },
+            {
+              "name": "appointTime",
+              "isPK": false
+            },
+            {
+              "name": "diagnosisNotes",
+              "isPK": false
+            },
+            {
+              "name": "cost",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Employee",
-          "entity2": "Project",
-          "name": "WorksOn",
-          "mult1": "1..*",
-          "mult2": "1..5",
-          "associationClass": true
+          "entity1": "Doctor",
+          "entity2": "Appointment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "InvolvedIn"
+        },
+        {
+          "entity1": "Patient",
+          "entity2": "Appointment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "SubjectOf"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Employee' (1..*) va 'Project' (1..5) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Employee' va 'Project' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..*' hamda '1..5' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Employee** ob'yektlari hisobga olinadi. Har bir **Employee** o'zining empNo (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Project** sub'yektlari kiritilgan. Har bir **Project** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: projNo (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Employee** va **Project** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 47,
     "sector": 4,
-    "difficulty": "4-Qavat • O'rta",
-    "clientName": "Rustam Fayziyev",
-    "clientRole": "Avtomobil Plant Ta'minot Manager",
-    "clientAvatar": "automotive",
-    "title": "Yetkazib Beruvchi va Detallar (Supplies - narx Atributi)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Supplier** ob'yektlari hisobga olinadi. Har bir **Supplier** o'zining supplierId (birlamchi kalit {PK}), companyName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Part** sub'yektlari kiritilgan. Har bir **Part** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: partNo (birlamchi kalit {PK}), description. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Supplier** va **Part** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "4-Qavat • Universitet Dekanati",
+    "clientName": "Jasur Qobilov",
+    "clientRole": "Akademik Bo'lim Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Talaba va Fanlarga Ro'yxatdan O'tish (Enrollment)",
+    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Universitet Dekanati amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Student** (studentId {PK}) va **Course** (courseCode {PK}) qatnashadi. Bir Student bir nechta Course bilan, va aksincha, bir Course bir nechta Student bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **Enrollment** (enrollmentId {PK}, `semester`, `gradeLetter`, `attendanceScore`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
+    "instruction": "'Student' va 'Course' o'rtasida assotsiativ 'Enrollment' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Supplier",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "supplierId",
-              "isPK": true
-            },
-            {
-              "name": "companyName"
-            }
-          ]
-        },
-        {
-          "name": "Part",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "partNo",
-              "isPK": true
-            },
-            {
-              "name": "description"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Supplier",
-          "pk": "supplierId"
+          "name": "Student",
+          "pk": "studentId",
+          "attributes": [
+            {
+              "name": "studentId",
+              "isPK": true
+            }
+          ]
         },
         {
-          "name": "Part",
-          "pk": "partNo"
+          "name": "Course",
+          "pk": "courseCode",
+          "attributes": [
+            {
+              "name": "courseCode",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Enrollment",
+          "pk": "enrollmentId",
+          "isAssociative": true,
+          "attributes": [
+            {
+              "name": "enrollmentId",
+              "isPK": true
+            },
+            {
+              "name": "semester",
+              "isPK": false
+            },
+            {
+              "name": "gradeLetter",
+              "isPK": false
+            },
+            {
+              "name": "attendanceScore",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Supplier",
-          "entity2": "Part",
-          "name": "Supplies",
-          "mult1": "1..*",
+          "entity1": "Student",
+          "entity2": "Enrollment",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "associationClass": true
+          "name": "InvolvedIn"
+        },
+        {
+          "entity1": "Course",
+          "entity2": "Enrollment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "SubjectOf"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Supplier' (1..*) va 'Part' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Supplier' va 'Part' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '1..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Supplier** ob'yektlari hisobga olinadi. Har bir **Supplier** o'zining supplierId (birlamchi kalit {PK}), companyName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Part** sub'yektlari kiritilgan. Har bir **Part** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: partNo (birlamchi kalit {PK}), description. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Supplier** va **Part** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 48,
     "sector": 4,
-    "difficulty": "4-Qavat • O'rta",
-    "clientName": "Shohrux Mirzohidov",
-    "clientRole": "Library Tarmog'i Ma'muri",
-    "clientAvatar": "librarian",
-    "title": "A'zo va Kitob Ijarasi (Borrow - borrowDate Atributi)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Member** ob'yektlari hisobga olinadi. Har bir **Member** o'zining memberId (birlamchi kalit {PK}), fullName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Book** sub'yektlari kiritilgan. Har bir **Book** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: bookId (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Member** vaqt davomida bir nechta **Book** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Book** bir nechta **Member** bilan aloqador bo'lishi mumkin.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "4-Qavat • Nashriyot & Mualliflik Huquqi",
+    "clientName": "Gulbahor Karimova",
+    "clientRole": "Adabiy Agent",
+    "clientAvatar": "mentor",
+    "title": "Muallif va Kitob Hammuallifligi (Authorship)",
+    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Nashriyot & Mualliflik Huquqi amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Author** (authorId {PK}) va **Book** (isbn {PK}) qatnashadi. Bir Author bir nechta Book bilan, va aksincha, bir Book bir nechta Author bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **Authorship** (authorshipId {PK}, `royaltySharePercent`, `contributionChapter`, `contractSignDate`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
+    "instruction": "'Author' va 'Book' o'rtasida assotsiativ 'Authorship' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Member",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "memberId",
-              "isPK": true
-            },
-            {
-              "name": "fullName"
-            }
-          ]
-        },
-        {
-          "name": "Book",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "bookId",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Member",
-          "pk": "memberId"
+          "name": "Author",
+          "pk": "authorId",
+          "attributes": [
+            {
+              "name": "authorId",
+              "isPK": true
+            }
+          ]
         },
         {
           "name": "Book",
-          "pk": "bookId"
+          "pk": "isbn",
+          "attributes": [
+            {
+              "name": "isbn",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Authorship",
+          "pk": "authorshipId",
+          "isAssociative": true,
+          "attributes": [
+            {
+              "name": "authorshipId",
+              "isPK": true
+            },
+            {
+              "name": "royaltySharePercent",
+              "isPK": false
+            },
+            {
+              "name": "contributionChapter",
+              "isPK": false
+            },
+            {
+              "name": "contractSignDate",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Member",
-          "entity2": "Book",
-          "name": "Borrows",
-          "mult1": "0..*",
+          "entity1": "Author",
+          "entity2": "Authorship",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "associationClass": true
+          "name": "InvolvedIn"
+        },
+        {
+          "entity1": "Book",
+          "entity2": "Authorship",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "SubjectOf"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Member' (0..*) va 'Book' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Member' va 'Book' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Member** ob'yektlari hisobga olinadi. Har bir **Member** o'zining memberId (birlamchi kalit {PK}), fullName kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Book** sub'yektlari kiritilgan. Har bir **Book** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: bookId (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Member** vaqt davomida bir nechta **Book** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Book** bir nechta **Member** bilan aloqador bo'lishi mumkin."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 49,
     "sector": 4,
-    "difficulty": "4-Qavat • O'rta",
-    "clientName": "Dilorom Yusupova",
-    "clientRole": "Kasalxona Konsultatsiya Department",
-    "clientAvatar": "doctor",
-    "title": "Shifokor va Bemor Qabuli (Consults - konsultatsiya Tashxisi)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Doctor** ob'yektlari hisobga olinadi. Har bir **Doctor** o'zining docId (birlamchi kalit {PK}), specialty kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Patient** sub'yektlari kiritilgan. Har bir **Patient** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: patientId (birlamchi kalit {PK}), fullName. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nUshbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Doctor** vaqt davomida bir nechta **Patient** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Patient** bir nechta **Doctor** bilan aloqador bo'lishi mumkin.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "4-Qavat • Elektron Tijorat",
+    "clientName": "Sardor Ahmedov",
+    "clientRole": "Savdo Tahlilchisi",
+    "clientAvatar": "mentor",
+    "title": "Xarid Buyurtmasi va Tovar Tarkibi (OrderItem)",
+    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Elektron Tijorat amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Order** (orderId {PK}) va **Product** (sku {PK}) qatnashadi. Bir Order bir nechta Product bilan, va aksincha, bir Product bir nechta Order bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **OrderItem** (itemId {PK}, `quantity`, `appliedDiscount`, `lineTotal`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
+    "instruction": "'Order' va 'Product' o'rtasida assotsiativ 'OrderItem' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Doctor",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "docId",
-              "isPK": true
-            },
-            {
-              "name": "specialty"
-            }
-          ]
-        },
-        {
-          "name": "Patient",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "patientId",
-              "isPK": true
-            },
-            {
-              "name": "fullName"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Doctor",
-          "pk": "docId"
+          "name": "Order",
+          "pk": "orderId",
+          "attributes": [
+            {
+              "name": "orderId",
+              "isPK": true
+            }
+          ]
         },
         {
-          "name": "Patient",
-          "pk": "patientId"
+          "name": "Product",
+          "pk": "sku",
+          "attributes": [
+            {
+              "name": "sku",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "OrderItem",
+          "pk": "itemId",
+          "isAssociative": true,
+          "attributes": [
+            {
+              "name": "itemId",
+              "isPK": true
+            },
+            {
+              "name": "quantity",
+              "isPK": false
+            },
+            {
+              "name": "appliedDiscount",
+              "isPK": false
+            },
+            {
+              "name": "lineTotal",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Doctor",
-          "entity2": "Patient",
-          "name": "Consults",
-          "mult1": "0..*",
+          "entity1": "Order",
+          "entity2": "OrderItem",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "associationClass": true
+          "name": "InvolvedIn"
+        },
+        {
+          "entity1": "Product",
+          "entity2": "OrderItem",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "SubjectOf"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Doctor' (0..*) va 'Patient' (0..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Doctor' va 'Patient' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '0..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Doctor** ob'yektlari hisobga olinadi. Har bir **Doctor** o'zining docId (birlamchi kalit {PK}), specialty kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Patient** sub'yektlari kiritilgan. Har bir **Patient** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: patientId (birlamchi kalit {PK}), fullName. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Ushbu ikki ob'yekt o'rtasidagi hamkorlik erkin va ko'p tomonlama tashkil etilgan: bitta **Doctor** vaqt davomida bir nechta **Patient** bilan munosabatda bo'lishi mumkin, va aksincha, bitta **Patient** bir nechta **Doctor** bilan aloqador bo'lishi mumkin."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   },
   {
     "id": 50,
     "sector": 4,
-    "difficulty": "4-Qavat • O'rta",
-    "clientName": "Shuhrat Saidov",
-    "clientRole": "Universitet Registratori",
-    "clientAvatar": "registrar",
-    "title": "4-Qavat Bossi: Talaba va Fan Ro'yxatdan O'tishi (grade Atributi)",
-    "story": "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Student** ob'yektlari hisobga olinadi. Har bir **Student** o'zining studentId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.\n\nBoshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Course** sub'yektlari kiritilgan. Har bir **Course** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: courseCode (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.\n\nTashkilotning operatsion qoidalariga muvofiq, **Student** va **Course** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir.",
-    "taskUz": "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.\nb) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.\nc) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.\nd) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?",
+    "difficulty": "4-Qavat • Scrum & IT Boshqaruv",
+    "clientName": "Behzod Rahimov",
+    "clientRole": "Scrum Master",
+    "clientAvatar": "mentor",
+    "title": "Dasturchi va Dasturiy Loyihalar (ProjectAssignment)",
+    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Scrum & IT Boshqaruv amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Developer** (devId {PK}) va **Project** (projectCode {PK}) qatnashadi. Bir Developer bir nechta Project bilan, va aksincha, bir Project bir nechta Developer bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **ProjectAssignment** (assignId {PK}, `assignedRole`, `hoursPerWeek`, `startDate`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
+    "instruction": "'Developer' va 'Project' o'rtasida assotsiativ 'ProjectAssignment' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
-      "entities": [
-        {
-          "name": "Student",
-          "attributes": [
-            {
-              "name": "studentId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Course",
-          "attributes": [
-            {
-              "name": "courseCode",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        }
-      ],
+      "entities": [],
       "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Student",
-          "pk": "studentId"
+          "name": "Developer",
+          "pk": "devId",
+          "attributes": [
+            {
+              "name": "devId",
+              "isPK": true
+            }
+          ]
         },
         {
-          "name": "Course",
-          "pk": "courseCode"
+          "name": "Project",
+          "pk": "projectCode",
+          "attributes": [
+            {
+              "name": "projectCode",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "ProjectAssignment",
+          "pk": "assignId",
+          "isAssociative": true,
+          "attributes": [
+            {
+              "name": "assignId",
+              "isPK": true
+            },
+            {
+              "name": "assignedRole",
+              "isPK": false
+            },
+            {
+              "name": "hoursPerWeek",
+              "isPK": false
+            },
+            {
+              "name": "startDate",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Student",
-          "entity2": "Course",
-          "name": "Registers",
-          "mult1": "0..*",
-          "mult2": "1..*",
-          "associationClass": true
+          "entity1": "Developer",
+          "entity2": "ProjectAssignment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "InvolvedIn"
+        },
+        {
+          "entity1": "Project",
+          "entity2": "ProjectAssignment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "SubjectOf"
         }
-      ]
-    },
-    "hint": "Mijoz hikoyasidagi 'kamida bitta', 'majburiy', 'ixtiyoriy' yoki 'bir nechta' so'zlariga e'tibor bering. Bular minimal (0 yoki 1) va maksimal (1 yoki *) chegaralarni belgilaydi.",
-    "explanation": "'Student' (0..*) va 'Course' (1..*) o'rtasidagi munosabat mijoz talabi asosida to'liq qabul qilindi.",
-    "task": "'Student' va 'Course' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '1..*' multiplisitiyalari bilan bog'lang.",
-    "caseStudy": {
-      "paragraphs": [
-        "Tashkilot o'z faoliyatini butun mamlakat bo'ylab kengaytirmoqda va axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalash talab etiladi. Tizimda asosiy boshqaruv birligi sifatida **Student** ob'yektlari hisobga olinadi. Har bir **Student** o'zining studentId (birlamchi kalit {PK}), name kabi muhim ma'lumotlari bilan tavsiflanadi. Ushbu ob'yekt kompaniyaning mustaqil operatsion bo'g'ini hisoblanadi.",
-        "Boshqaruv va xizmat ko'rsatish jarayonlarini ta'minlash maqsadida tizimga **Course** sub'yektlari kiritilgan. Har bir **Course** to'g'risida quyidagi ma'lumotlar to'liq qayd etiladi: courseCode (birlamchi kalit {PK}), title. Mazkur sub'yektlar tashkilotning kundalik amaliy vazifalarini bajarish, hisobotlarni yuritish va mijozlarga xizmat ko'rsatishga mas'uldirlar.",
-        "Tashkilotning operatsion qoidalariga muvofiq, **Student** va **Course** o'rtasidagi o'zaro ishtirok chegaralari biznes logikasi asosida qat'iy cheklangan. Ushbu chegaralarni aniqlash tizim arxitektorining muhim tahliliy vazifasidir."
-      ],
-      "tasks": [
-        "a) Yuqoridagi matnli keys tavsifi asosida UML EER diagrammasini tuzing: entitiylarni chizing, ularning birlamchi kalitlari {PK} va ko'rsatilgan barcha atributlarini polotnoga joylashtiring.",
-        "b) Matndagi operatsion qoidalarni sinchkovlik bilan o'qib, har bir munosabat uchun minimal va maksimal qatnashish chegaralarini (Multiplicity) to'g'ri tanlang.",
-        "c) Qaysi bog'lanish tomoni majburiy (mandatory) va qaysi biri ixtiyoriy (optional) ekanligini matndan iqtibos keltirib asoslang.",
-        "d) Berilgan keys matnidagi qaysi operatsion qoidani EER diagrammasida bevosita ifodalab bo'lmaydi va nima uchun?"
       ]
     }
   }

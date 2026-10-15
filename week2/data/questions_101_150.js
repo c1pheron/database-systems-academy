@@ -1,2980 +1,8158 @@
 var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
-
 _scope.QUESTIONS_101_150 = [
   {
     "id": 101,
     "sector": 7,
-    "difficulty": "7-Qavat • O'rta",
-    "source": "T02 Page 3 & L02 Slide 38 • WorksOn Bridge Table",
-    "title": "Xodim va Loyiha Bog'lovchi Jadvali (WorksOn)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**WorksOn**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table WorksOn { empNo int [ref: > Employee.empNo] projNo int [ref: > Project.projNo] hours decimal indexes { (empNo, projNo) [pk] } }",
-      "WorksOn(empNo [PK, FK], projNo [PK, FK], hours)"
-    ],
-    "expectedSchema": {
-      "tableName": "WorksOn",
-      "columns": [
+    "difficulty": "7-Qavat • EER Kengaytirish",
+    "clientName": "Bobur Alimov",
+    "clientRole": "Prokat Boshqaruvchisi",
+    "clientAvatar": "mentor",
+    "title": "Filmlar: FeatureFilm va DocumentaryFilm (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **Movie** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Kino Asarlari amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Movie** superklassidan ikkita maxsus subklass ajratiladi: **FeatureFilm** (`boxOfficeMillions`, `aspectRatio`) va **DocumentaryFilm** (`historicalTopic`, `narratorName`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit movieId ni meros qilib oladi.",
+    "instruction": "Polotnodagi mavjud 'Movie' superklassidan ISA uchburchagi orqali 'FeatureFilm' va 'DocumentaryFilm' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "empNo",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Employee(empNo)"
-        },
-        {
-          "name": "projNo",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Project(projNo)"
-        },
-        {
-          "name": "hours",
-          "type": "decimal"
+          "name": "Movie",
+          "pk": "movieId",
+          "attributes": [
+            {
+              "name": "movieId",
+              "isPK": true
+            },
+            {
+              "name": "title",
+              "isPK": false
+            },
+            {
+              "name": "director",
+              "isPK": false
+            },
+            {
+              "name": "durationMin",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "WorksOn oraliq jadvali (empNo, projNo) kompozit PK va hours atributi bilan to'liq loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**WorksOn**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "Movie",
+        "subs": [
+          {
+            "name": "FeatureFilm",
+            "attributes": [
+              {
+                "name": "boxOfficeMillions",
+                "isPK": false
+              },
+              {
+                "name": "aspectRatio",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "DocumentaryFilm",
+            "attributes": [
+              {
+                "name": "historicalTopic",
+                "isPK": false
+              },
+              {
+                "name": "narratorName",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Mandatory, Or}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Movie",
+          "pk": "movieId",
+          "attributes": [
+            {
+              "name": "movieId",
+              "isPK": true
+            },
+            {
+              "name": "title",
+              "isPK": false
+            },
+            {
+              "name": "director",
+              "isPK": false
+            },
+            {
+              "name": "durationMin",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "Movie",
+        "subs": [
+          {
+            "name": "FeatureFilm",
+            "attributes": [
+              {
+                "name": "boxOfficeMillions",
+                "isPK": false
+              },
+              {
+                "name": "aspectRatio",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "DocumentaryFilm",
+            "attributes": [
+              {
+                "name": "historicalTopic",
+                "isPK": false
+              },
+              {
+                "name": "narratorName",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Mandatory, Or}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 102,
     "sector": 7,
-    "difficulty": "7-Qavat • O'rta",
-    "source": "L02 Slide 38 • Student Course Enrollment Bridge",
-    "title": "Talaba va Kurs Ro'yxatdan O'tish Jadvali (Enrollment)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Enrollment**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Enrollment { studentId int [ref: > Student.studentId] courseId varchar [ref: > Course.courseId] enrollDate date finalGrade varchar indexes { (studentId, courseId) [pk] } }",
-      "Enrollment(studentId [PK, FK], courseId [PK, FK], enrollDate, finalGrade)"
-    ],
-    "expectedSchema": {
-      "tableName": "Enrollment",
-      "columns": [
+    "difficulty": "7-Qavat • EER Kengaytirish",
+    "clientName": "Dr. Umida Saidova",
+    "clientRole": "Bosh Nazoratchi",
+    "clientAvatar": "mentor",
+    "title": "Dorilar: PrescriptionDrug va OtcDrug (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **Medicine** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Farmatsevtika Qonunchiligi amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Medicine** superklassidan ikkita maxsus subklass ajratiladi: **PrescriptionDrug** (`controlledSchedule`, `doctorReq`) va **OtcDrug** (`flavor`, `ageLimitYears`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit barcode ni meros qilib oladi.",
+    "instruction": "Polotnodagi mavjud 'Medicine' superklassidan ISA uchburchagi orqali 'PrescriptionDrug' va 'OtcDrug' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "studentId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Student(studentId)"
-        },
-        {
-          "name": "courseId",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Course(courseId)"
-        },
-        {
-          "name": "enrollDate",
-          "type": "date"
-        },
-        {
-          "name": "finalGrade",
-          "type": "varchar(5)"
+          "name": "Medicine",
+          "pk": "barcode",
+          "attributes": [
+            {
+              "name": "barcode",
+              "isPK": true
+            },
+            {
+              "name": "name",
+              "isPK": false
+            },
+            {
+              "name": "dosageMg",
+              "isPK": false
+            },
+            {
+              "name": "expDate",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Enrollment *:* oraliq jadvali to'g'ri loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Enrollment**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "Medicine",
+        "subs": [
+          {
+            "name": "PrescriptionDrug",
+            "attributes": [
+              {
+                "name": "controlledSchedule",
+                "isPK": false
+              },
+              {
+                "name": "doctorReq",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "OtcDrug",
+            "attributes": [
+              {
+                "name": "flavor",
+                "isPK": false
+              },
+              {
+                "name": "ageLimitYears",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Mandatory, Or}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Medicine",
+          "pk": "barcode",
+          "attributes": [
+            {
+              "name": "barcode",
+              "isPK": true
+            },
+            {
+              "name": "name",
+              "isPK": false
+            },
+            {
+              "name": "dosageMg",
+              "isPK": false
+            },
+            {
+              "name": "expDate",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "Medicine",
+        "subs": [
+          {
+            "name": "PrescriptionDrug",
+            "attributes": [
+              {
+                "name": "controlledSchedule",
+                "isPK": false
+              },
+              {
+                "name": "doctorReq",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "OtcDrug",
+            "attributes": [
+              {
+                "name": "flavor",
+                "isPK": false
+              },
+              {
+                "name": "ageLimitYears",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Mandatory, Or}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 103,
     "sector": 7,
-    "difficulty": "7-Qavat • O'rta",
-    "source": "L02 Slide 38 • Date Attribute on Bridge Relation",
-    "title": "Sana Atributli Tayinlash Jadvali (Assigned)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Assigned**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Assigned { empNo int [ref: > Employee.empNo] projNo int [ref: > Project.projNo] assignedDate date roleTitle varchar indexes { (empNo, projNo) [pk] } }",
-      "Assigned(empNo [PK, FK], projNo [PK, FK], assignedDate, roleTitle)"
-    ],
-    "expectedSchema": {
-      "tableName": "Assigned",
-      "columns": [
+    "difficulty": "7-Qavat • EER Kengaytirish",
+    "clientName": "Rustam Qobilov",
+    "clientRole": "Avtopark Texnik Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Furalar: RefrigeratedTruck va FlatbedTruck (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **CargoTruck** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Magistral Yuk Floti amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **CargoTruck** superklassidan ikkita maxsus subklass ajratiladi: **RefrigeratedTruck** (`minTempCelsius`, `compressorPower`) va **FlatbedTruck** (`bedLengthMeters`, `maxAxleWeight`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit plateNo ni meros qilib oladi.",
+    "instruction": "Polotnodagi mavjud 'CargoTruck' superklassidan ISA uchburchagi orqali 'RefrigeratedTruck' va 'FlatbedTruck' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "empNo",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Employee(empNo)"
-        },
-        {
-          "name": "projNo",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Project(projNo)"
-        },
-        {
-          "name": "assignedDate",
-          "type": "date"
-        },
-        {
-          "name": "roleTitle",
-          "type": "varchar(50)"
+          "name": "CargoTruck",
+          "pk": "plateNo",
+          "attributes": [
+            {
+              "name": "plateNo",
+              "isPK": true
+            },
+            {
+              "name": "capacityTons",
+              "isPK": false
+            },
+            {
+              "name": "mileageKm",
+              "isPK": false
+            },
+            {
+              "name": "fuelType",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "assignedDate va roleTitle atributlari Assigned bog'lovchi relatsiyasiga muvaffaqiyatli joylashtirildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Assigned**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "CargoTruck",
+        "subs": [
+          {
+            "name": "RefrigeratedTruck",
+            "attributes": [
+              {
+                "name": "minTempCelsius",
+                "isPK": false
+              },
+              {
+                "name": "compressorPower",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "FlatbedTruck",
+            "attributes": [
+              {
+                "name": "bedLengthMeters",
+                "isPK": false
+              },
+              {
+                "name": "maxAxleWeight",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Mandatory, Or}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "CargoTruck",
+          "pk": "plateNo",
+          "attributes": [
+            {
+              "name": "plateNo",
+              "isPK": true
+            },
+            {
+              "name": "capacityTons",
+              "isPK": false
+            },
+            {
+              "name": "mileageKm",
+              "isPK": false
+            },
+            {
+              "name": "fuelType",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "CargoTruck",
+        "subs": [
+          {
+            "name": "RefrigeratedTruck",
+            "attributes": [
+              {
+                "name": "minTempCelsius",
+                "isPK": false
+              },
+              {
+                "name": "compressorPower",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "FlatbedTruck",
+            "attributes": [
+              {
+                "name": "bedLengthMeters",
+                "isPK": false
+              },
+              {
+                "name": "maxAxleWeight",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Mandatory, Or}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 104,
     "sector": 7,
-    "difficulty": "7-Qavat • O'rta",
-    "source": "L02 Slide 40 • Multi-valued Author Awards",
-    "title": "Muallif Mukofotlari Ko'p Qiymatli Jadvali (AuthorAward)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**AuthorAward**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table AuthorAward { authorId int [ref: > Author.authorId] awardName varchar awardYear int indexes { (authorId, awardName) [pk] } }",
-      "AuthorAward(authorId [PK, FK], awardName [PK], awardYear)"
-    ],
-    "expectedSchema": {
-      "tableName": "AuthorAward",
-      "columns": [
+    "difficulty": "7-Qavat • EER Kengaytirish",
+    "clientName": "Dilnoza Vohidova",
+    "clientRole": "Klub Boshqaruvchisi",
+    "clientAvatar": "mentor",
+    "title": "Klub A'zolari: VipMember va RegularMember (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **ClubMember** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Fitnes Klub Ma'muriyati amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **ClubMember** superklassidan ikkita maxsus subklass ajratiladi: **VipMember** (`personalTrainerId`, `spaAccessLevel`) va **RegularMember** (`lockerAssigned`, `timeSlot`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit memberCardNo ni meros qilib oladi.",
+    "instruction": "Polotnodagi mavjud 'ClubMember' superklassidan ISA uchburchagi orqali 'VipMember' va 'RegularMember' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "authorId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Author(authorId)"
-        },
-        {
-          "name": "awardName",
-          "type": "varchar(100)",
-          "isPK": true
-        },
-        {
-          "name": "awardYear",
-          "type": "integer"
+          "name": "ClubMember",
+          "pk": "memberCardNo",
+          "attributes": [
+            {
+              "name": "memberCardNo",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "membershipType",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "AuthorAward ko'p qiymatli atribut jadvali 1NF qoidasi bo'yicha chizildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**AuthorAward**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "ClubMember",
+        "subs": [
+          {
+            "name": "VipMember",
+            "attributes": [
+              {
+                "name": "personalTrainerId",
+                "isPK": false
+              },
+              {
+                "name": "spaAccessLevel",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "RegularMember",
+            "attributes": [
+              {
+                "name": "lockerAssigned",
+                "isPK": false
+              },
+              {
+                "name": "timeSlot",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Mandatory, Or}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "ClubMember",
+          "pk": "memberCardNo",
+          "attributes": [
+            {
+              "name": "memberCardNo",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "membershipType",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "ClubMember",
+        "subs": [
+          {
+            "name": "VipMember",
+            "attributes": [
+              {
+                "name": "personalTrainerId",
+                "isPK": false
+              },
+              {
+                "name": "spaAccessLevel",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "RegularMember",
+            "attributes": [
+              {
+                "name": "lockerAssigned",
+                "isPK": false
+              },
+              {
+                "name": "timeSlot",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Mandatory, Or}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 105,
     "sector": 7,
-    "difficulty": "7-Qavat • Qiyin (7-Qavat Bossi)",
-    "source": "L02 Slide 38 • Supplies Many-to-Many Boss",
-    "title": "7-Qavat Bossi: Ta'minotchi va Mahsulot (Supplies)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Supplies**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Supplies { suppId varchar [ref: > Supplier.suppId] prodId varchar [ref: > Product.prodId] unitPrice decimal minQuantity int indexes { (suppId, prodId) [pk] } }",
-      "Supplies(suppId [PK, FK], prodId [PK, FK], unitPrice, minQuantity)"
-    ],
-    "expectedSchema": {
-      "tableName": "Supplies",
-      "columns": [
+    "difficulty": "7-Qavat • EER Kengaytirish",
+    "clientName": "Jamshid Mahmudov",
+    "clientRole": "Stansiya Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Invertorlar: CentralInverter va MicroInverter (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **SolarInverter** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Quyosh Podstansiyasi amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **SolarInverter** superklassidan ikkita maxsus subklass ajratiladi: **CentralInverter** (`transformerRatingKva`, `coolingSystem`) va **MicroInverter** (`mpptChannels`, `efficiencyRating`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit serialNo ni meros qilib oladi.",
+    "instruction": "Polotnodagi mavjud 'SolarInverter' superklassidan ISA uchburchagi orqali 'CentralInverter' va 'MicroInverter' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "suppId",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Supplier(suppId)"
-        },
-        {
-          "name": "prodId",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Product(prodId)"
-        },
-        {
-          "name": "unitPrice",
-          "type": "decimal"
-        },
-        {
-          "name": "minQuantity",
-          "type": "integer"
+          "name": "SolarInverter",
+          "pk": "serialNo",
+          "attributes": [
+            {
+              "name": "serialNo",
+              "isPK": true
+            },
+            {
+              "name": "peakPowerKw",
+              "isPK": false
+            },
+            {
+              "name": "voltageInput",
+              "isPK": false
+            },
+            {
+              "name": "efficiency",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "7-Qavat Bossi: Supplies oraliq relatsiyasi kompozit PK va atributlari bilan to'liq tuzildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Supplies**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "SolarInverter",
+        "subs": [
+          {
+            "name": "CentralInverter",
+            "attributes": [
+              {
+                "name": "transformerRatingKva",
+                "isPK": false
+              },
+              {
+                "name": "coolingSystem",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "MicroInverter",
+            "attributes": [
+              {
+                "name": "mpptChannels",
+                "isPK": false
+              },
+              {
+                "name": "efficiencyRating",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Mandatory, Or}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "SolarInverter",
+          "pk": "serialNo",
+          "attributes": [
+            {
+              "name": "serialNo",
+              "isPK": true
+            },
+            {
+              "name": "peakPowerKw",
+              "isPK": false
+            },
+            {
+              "name": "voltageInput",
+              "isPK": false
+            },
+            {
+              "name": "efficiency",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "SolarInverter",
+        "subs": [
+          {
+            "name": "CentralInverter",
+            "attributes": [
+              {
+                "name": "transformerRatingKva",
+                "isPK": false
+              },
+              {
+                "name": "coolingSystem",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "MicroInverter",
+            "attributes": [
+              {
+                "name": "mpptChannels",
+                "isPK": false
+              },
+              {
+                "name": "efficiencyRating",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Mandatory, Or}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 106,
     "sector": 8,
-    "difficulty": "8-Qavat • Boshlang'ich",
-    "source": "L02 Slide 36 • Chained 1:* Hierarchy Step 3",
-    "title": "Kompaniya va Bo'linma Zanjiri (Company & Division)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Company { companyId int [pk] compName varchar } Table Division { divisionId int [pk] companyId int [ref: > Company.companyId] divName varchar }",
-      "Company(companyId [PK], compName)\nDivision(divisionId [PK], companyId [FK], divName)"
-    ],
-    "expectedSchema": {
-      "tables": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Prof. Anvar Hakimov",
+    "clientRole": "Ilmiy Kadrlar Bo'limi",
+    "clientAvatar": "mentor",
+    "title": "Akademik Xodimlar: Instructor va Researcher (Overlapping) (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **UniversityStaff** ning ustma-ust tushuvchi **Instructor** va **Researcher** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'UniversityStaff' superklassining 'Instructor' va 'Researcher' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "tableName": "Company",
-          "columns": [
+          "name": "UniversityStaff",
+          "pk": "staffId",
+          "attributes": [
             {
-              "name": "companyId",
-              "type": "integer",
+              "name": "staffId",
               "isPK": true
             },
             {
-              "name": "compName",
-              "type": "varchar(80)"
-            }
-          ]
-        },
-        {
-          "tableName": "Division",
-          "columns": [
-            {
-              "name": "divisionId",
-              "type": "integer",
-              "isPK": true
+              "name": "fullName",
+              "isPK": false
             },
             {
-              "name": "companyId",
-              "type": "integer",
-              "isFK": true,
-              "references": "Company(companyId)"
+              "name": "email",
+              "isPK": false
             },
             {
-              "name": "divName",
-              "type": "varchar(80)"
+              "name": "salary",
+              "isPK": false
             }
           ]
         }
-      ]
-    },
-    "explanation": "Company va Division zanjirli 1:* relyatsion modeli qurildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "UniversityStaff",
+        "subs": [
+          {
+            "name": "Instructor",
+            "attributes": [
+              {
+                "name": "teachingHoursPerWeek",
+                "isPK": false
+              },
+              {
+                "name": "evalScore",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "Researcher",
+            "attributes": [
+              {
+                "name": "grantFundingUsd",
+                "isPK": false
+              },
+              {
+                "name": "hIndex",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "UniversityStaff",
+          "pk": "staffId",
+          "attributes": [
+            {
+              "name": "staffId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "email",
+              "isPK": false
+            },
+            {
+              "name": "salary",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "UniversityStaff",
+        "subs": [
+          {
+            "name": "Instructor",
+            "attributes": [
+              {
+                "name": "teachingHoursPerWeek",
+                "isPK": false
+              },
+              {
+                "name": "evalScore",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "Researcher",
+            "attributes": [
+              {
+                "name": "grantFundingUsd",
+                "isPK": false
+              },
+              {
+                "name": "hIndex",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 107,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 36 • 3-Tier Enterprise Hierarchy",
-    "title": "3 Bosqichli Korporativ Zanjir (Company -> Division -> Department)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Department**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Department { deptId int [pk] divisionId int [ref: > Division.divisionId] dName varchar }",
-      "Department(deptId [PK], divisionId [FK], dName)"
-    ],
-    "expectedSchema": {
-      "tableName": "Department",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Gulnora Sobirova",
+    "clientRole": "Chakana Xizmatlar Direktori",
+    "clientAvatar": "mentor",
+    "title": "Bank Mijozlari: Depositor va Borrower (Overlapping) (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **BankClient** ning ustma-ust tushuvchi **Depositor** va **Borrower** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'BankClient' superklassining 'Depositor' va 'Borrower' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "deptId",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "divisionId",
-          "type": "integer",
-          "isFK": true,
-          "references": "Division(divisionId)"
-        },
-        {
-          "name": "dName",
-          "type": "varchar(50)"
+          "name": "BankClient",
+          "pk": "clientId",
+          "attributes": [
+            {
+              "name": "clientId",
+              "isPK": true
+            },
+            {
+              "name": "clientName",
+              "isPK": false
+            },
+            {
+              "name": "taxCode",
+              "isPK": false
+            },
+            {
+              "name": "contactPhone",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "3 bosqichli korporativ zanjirning uchinchi pog'onasi Department jadvali loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Department**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "BankClient",
+        "subs": [
+          {
+            "name": "Depositor",
+            "attributes": [
+              {
+                "name": "depositBalance",
+                "isPK": false
+              },
+              {
+                "name": "termMonths",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "Borrower",
+            "attributes": [
+              {
+                "name": "loanAmount",
+                "isPK": false
+              },
+              {
+                "name": "creditRating",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "BankClient",
+          "pk": "clientId",
+          "attributes": [
+            {
+              "name": "clientId",
+              "isPK": true
+            },
+            {
+              "name": "clientName",
+              "isPK": false
+            },
+            {
+              "name": "taxCode",
+              "isPK": false
+            },
+            {
+              "name": "contactPhone",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "BankClient",
+        "subs": [
+          {
+            "name": "Depositor",
+            "attributes": [
+              {
+                "name": "depositBalance",
+                "isPK": false
+              },
+              {
+                "name": "termMonths",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "Borrower",
+            "attributes": [
+              {
+                "name": "loanAmount",
+                "isPK": false
+              },
+              {
+                "name": "creditRating",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 108,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 36 • Multi-tier Branch & Staff",
-    "title": "Filial va Xodim Zanjiri (Branch -> Employee)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Employee**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Employee { empId int [pk] branchId int [ref: > Branch.branchId] fullName varchar salary decimal }",
-      "Employee(empId [PK], branchId [FK], fullName, salary)"
-    ],
-    "expectedSchema": {
-      "tableName": "Employee",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Farrux Olimov",
+    "clientRole": "CISO Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Tizim Foydalanuvchilari: SecurityAdmin va SystemDev (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **SystemUser** ning ustma-ust tushuvchi **SecurityAdmin** va **SystemDev** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'SystemUser' superklassining 'SecurityAdmin' va 'SystemDev' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "empId",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "branchId",
-          "type": "integer",
-          "isFK": true,
-          "references": "Branch(branchId)"
-        },
-        {
-          "name": "fullName",
-          "type": "varchar(70)"
-        },
-        {
-          "name": "salary",
-          "type": "decimal"
+          "name": "SystemUser",
+          "pk": "userLogin",
+          "attributes": [
+            {
+              "name": "userLogin",
+              "isPK": true
+            },
+            {
+              "name": "email",
+              "isPK": false
+            },
+            {
+              "name": "createdDate",
+              "isPK": false
+            },
+            {
+              "name": "lastLogin",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Employee bola jadvali ota Branch ga branchId [FK] bilan muvaffaqiyatli ulandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Employee**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "SystemUser",
+        "subs": [
+          {
+            "name": "SecurityAdmin",
+            "attributes": [
+              {
+                "name": "clearanceLevel",
+                "isPK": false
+              },
+              {
+                "name": "incidentAlertEmail",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "SystemDev",
+            "attributes": [
+              {
+                "name": "gitBranchPermission",
+                "isPK": false
+              },
+              {
+                "name": "ideEnvConfig",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "SystemUser",
+          "pk": "userLogin",
+          "attributes": [
+            {
+              "name": "userLogin",
+              "isPK": true
+            },
+            {
+              "name": "email",
+              "isPK": false
+            },
+            {
+              "name": "createdDate",
+              "isPK": false
+            },
+            {
+              "name": "lastLogin",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "SystemUser",
+        "subs": [
+          {
+            "name": "SecurityAdmin",
+            "attributes": [
+              {
+                "name": "clearanceLevel",
+                "isPK": false
+              },
+              {
+                "name": "incidentAlertEmail",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "SystemDev",
+            "attributes": [
+              {
+                "name": "gitBranchPermission",
+                "isPK": false
+              },
+              {
+                "name": "ideEnvConfig",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 109,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 37 • Recursive 1:* Supervisor Relationship",
-    "title": "O'z-O'ziga Bog'lanuvchi Rahbarlik Jadvali (Employee Supervisor)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Employee**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Employee { empNo int [pk] fullName varchar managerId int [ref: > Employee.empNo] salary decimal }",
-      "Employee(empNo [PK], fullName, managerId [FK], salary)"
-    ],
-    "expectedSchema": {
-      "tableName": "Employee",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Prof. Dilnoza Rahimova",
+    "clientRole": "Dastur Qo'mitasi Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Sammit Qatnashchilari: KeynoteSpeaker va Reviewer (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **ConferenceAttendee** ning ustma-ust tushuvchi **KeynoteSpeaker** va **CommitteeReviewer** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'ConferenceAttendee' superklassining 'KeynoteSpeaker' va 'CommitteeReviewer' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "empNo",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "fullName",
-          "type": "varchar(60)"
-        },
-        {
-          "name": "managerId",
-          "type": "integer",
-          "isFK": true,
-          "references": "Employee(empNo)"
-        },
-        {
-          "name": "salary",
-          "type": "decimal"
+          "name": "ConferenceAttendee",
+          "pk": "attendeeId",
+          "attributes": [
+            {
+              "name": "attendeeId",
+              "isPK": true
+            },
+            {
+              "name": "attendeeName",
+              "isPK": false
+            },
+            {
+              "name": "institution",
+              "isPK": false
+            },
+            {
+              "name": "country",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Rekursiv supervisor bog'liqligi o'z-o'ziga qaragan managerId [FK] bilan to'g'ri loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Employee**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "ConferenceAttendee",
+        "subs": [
+          {
+            "name": "KeynoteSpeaker",
+            "attributes": [
+              {
+                "name": "lectureTopic",
+                "isPK": false
+              },
+              {
+                "name": "honorariumSum",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "CommitteeReviewer",
+            "attributes": [
+              {
+                "name": "paperQuota",
+                "isPK": false
+              },
+              {
+                "name": "assignedTrack",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "ConferenceAttendee",
+          "pk": "attendeeId",
+          "attributes": [
+            {
+              "name": "attendeeId",
+              "isPK": true
+            },
+            {
+              "name": "attendeeName",
+              "isPK": false
+            },
+            {
+              "name": "institution",
+              "isPK": false
+            },
+            {
+              "name": "country",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "ConferenceAttendee",
+        "subs": [
+          {
+            "name": "KeynoteSpeaker",
+            "attributes": [
+              {
+                "name": "lectureTopic",
+                "isPK": false
+              },
+              {
+                "name": "honorariumSum",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "CommitteeReviewer",
+            "attributes": [
+              {
+                "name": "paperQuota",
+                "isPK": false
+              },
+              {
+                "name": "assignedTrack",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 110,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 37 • Recursive Category Tree",
-    "title": "Rekursiv Katalog Daraxti (Category Tree)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Category**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Category { categoryId int [pk] catName varchar parentCatId int [ref: > Category.categoryId] sortOrder int }",
-      "Category(categoryId [PK], catName, parentCatId [FK], sortOrder)"
-    ],
-    "expectedSchema": {
-      "tableName": "Category",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Rustam Mirzayev",
+    "clientRole": "Sport Direktori",
+    "clientAvatar": "mentor",
+    "title": "Sportchilar: LeaguePlayer va TeamCoach (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **AthleteMember** ning ustma-ust tushuvchi **LeaguePlayer** va **TeamCoach** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'AthleteMember' superklassining 'LeaguePlayer' va 'TeamCoach' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "categoryId",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "catName",
-          "type": "varchar(50)"
-        },
-        {
-          "name": "parentCatId",
-          "type": "integer",
-          "isFK": true,
-          "references": "Category(categoryId)"
-        },
-        {
-          "name": "sortOrder",
-          "type": "integer"
+          "name": "AthleteMember",
+          "pk": "athleteId",
+          "attributes": [
+            {
+              "name": "athleteId",
+              "isPK": true
+            },
+            {
+              "name": "athleteName",
+              "isPK": false
+            },
+            {
+              "name": "bloodGroup",
+              "isPK": false
+            },
+            {
+              "name": "joinYear",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Category rekursiv daraxt tuzilmasi loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Category**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "AthleteMember",
+        "subs": [
+          {
+            "name": "LeaguePlayer",
+            "attributes": [
+              {
+                "name": "jerseyNumber",
+                "isPK": false
+              },
+              {
+                "name": "matchesPlayed",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "TeamCoach",
+            "attributes": [
+              {
+                "name": "coachingBadge",
+                "isPK": false
+              },
+              {
+                "name": "winLossRatio",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "AthleteMember",
+          "pk": "athleteId",
+          "attributes": [
+            {
+              "name": "athleteId",
+              "isPK": true
+            },
+            {
+              "name": "athleteName",
+              "isPK": false
+            },
+            {
+              "name": "bloodGroup",
+              "isPK": false
+            },
+            {
+              "name": "joinYear",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "AthleteMember",
+        "subs": [
+          {
+            "name": "LeaguePlayer",
+            "attributes": [
+              {
+                "name": "jerseyNumber",
+                "isPK": false
+              },
+              {
+                "name": "matchesPlayed",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "TeamCoach",
+            "attributes": [
+              {
+                "name": "coachingBadge",
+                "isPK": false
+              },
+              {
+                "name": "winLossRatio",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 111,
     "sector": 8,
-    "difficulty": "8-Qavat • Qiyin",
-    "source": "L02 Slide 38 • Bill of Materials (BOM) Recursive *:*",
-    "title": "Detal va Yig'ma Qismlar Rekursiv *:* Jadvali (PartAssembly)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**PartAssembly**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table PartAssembly { parentPartNo varchar [ref: > Part.partNo] childPartNo varchar [ref: > Part.partNo] quantity int indexes { (parentPartNo, childPartNo) [pk] } }",
-      "PartAssembly(parentPartNo [PK, FK], childPartNo [PK, FK], quantity)"
-    ],
-    "expectedSchema": {
-      "tableName": "PartAssembly",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Kapitan Vladimir Kim",
+    "clientRole": "Parvozlar Xavfsizligi Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Parvoz Ekipaji: CommercialPilot va SafetyInspector (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **CrewMember** ning ustma-ust tushuvchi **CommercialPilot** va **SafetyInspector** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'CrewMember' superklassining 'CommercialPilot' va 'SafetyInspector' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "parentPartNo",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Part(partNo)"
-        },
-        {
-          "name": "childPartNo",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Part(partNo)"
-        },
-        {
-          "name": "quantity",
-          "type": "integer"
+          "name": "CrewMember",
+          "pk": "crewId",
+          "attributes": [
+            {
+              "name": "crewId",
+              "isPK": true
+            },
+            {
+              "name": "crewName",
+              "isPK": false
+            },
+            {
+              "name": "flightHoursTotal",
+              "isPK": false
+            },
+            {
+              "name": "medicalCertDate",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Bill of Materials (BOM) rekursiv ko'pdan-ko'pga munosabati oraliq jadval yordamida to'liq hal qilindi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**PartAssembly**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "CrewMember",
+        "subs": [
+          {
+            "name": "CommercialPilot",
+            "attributes": [
+              {
+                "name": "typeRatingAircraft",
+                "isPK": false
+              },
+              {
+                "name": "coPilotLicenseNo",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "SafetyInspector",
+            "attributes": [
+              {
+                "name": "safetyAuditCert",
+                "isPK": false
+              },
+              {
+                "name": "inspectionCount",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "CrewMember",
+          "pk": "crewId",
+          "attributes": [
+            {
+              "name": "crewId",
+              "isPK": true
+            },
+            {
+              "name": "crewName",
+              "isPK": false
+            },
+            {
+              "name": "flightHoursTotal",
+              "isPK": false
+            },
+            {
+              "name": "medicalCertDate",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "CrewMember",
+        "subs": [
+          {
+            "name": "CommercialPilot",
+            "attributes": [
+              {
+                "name": "typeRatingAircraft",
+                "isPK": false
+              },
+              {
+                "name": "coPilotLicenseNo",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "SafetyInspector",
+            "attributes": [
+              {
+                "name": "safetyAuditCert",
+                "isPK": false
+              },
+              {
+                "name": "inspectionCount",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 112,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 36 • University Hierarchy (Faculty -> Dept -> Course)",
-    "title": "Universitet Fanlar Zanjiri (Course)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Course**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Course { courseCode varchar [pk] deptId int [ref: > Department.deptId] title varchar credits int }",
-      "Course(courseCode [PK], deptId [FK], title, credits)"
-    ],
-    "expectedSchema": {
-      "tableName": "Course",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Sherzod Aliyev",
+    "clientRole": "CRM Bosh Menejeri",
+    "clientAvatar": "mentor",
+    "title": "Avtosalon Mijozlari: VehicleBuyer va ServiceClient (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **DealershipClient** ning ustma-ust tushuvchi **VehicleBuyer** va **ServiceClient** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'DealershipClient' superklassining 'VehicleBuyer' va 'ServiceClient' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "courseCode",
-          "type": "varchar(10)",
-          "isPK": true
-        },
-        {
-          "name": "deptId",
-          "type": "integer",
-          "isFK": true,
-          "references": "Department(deptId)"
-        },
-        {
-          "name": "title",
-          "type": "varchar(80)"
-        },
-        {
-          "name": "credits",
-          "type": "integer"
+          "name": "DealershipClient",
+          "pk": "clientId",
+          "attributes": [
+            {
+              "name": "clientId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "passportNumber",
+              "isPK": false
+            },
+            {
+              "name": "contactPhone",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Course jadvali kafedraga bog'langan holda loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Course**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "DealershipClient",
+        "subs": [
+          {
+            "name": "VehicleBuyer",
+            "attributes": [
+              {
+                "name": "purchaseContractNo",
+                "isPK": false
+              },
+              {
+                "name": "purchasedVin",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "ServiceClient",
+            "attributes": [
+              {
+                "name": "serviceHistoryCode",
+                "isPK": false
+              },
+              {
+                "name": "discountLevelPercent",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "DealershipClient",
+          "pk": "clientId",
+          "attributes": [
+            {
+              "name": "clientId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "passportNumber",
+              "isPK": false
+            },
+            {
+              "name": "contactPhone",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "DealershipClient",
+        "subs": [
+          {
+            "name": "VehicleBuyer",
+            "attributes": [
+              {
+                "name": "purchaseContractNo",
+                "isPK": false
+              },
+              {
+                "name": "purchasedVin",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "ServiceClient",
+            "attributes": [
+              {
+                "name": "serviceHistoryCode",
+                "isPK": false
+              },
+              {
+                "name": "discountLevelPercent",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 113,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 36 • Warehouse Shelf Slot Hierarchy",
-    "title": "Ombor Tokcha Yacheykasi (ShelfSlot)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**ShelfSlot**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table ShelfSlot { slotId int [pk] aisleId int [ref: > Aisle.aisleId] slotCode varchar maxWeight decimal }",
-      "ShelfSlot(slotId [PK], aisleId [FK], slotCode, maxWeight)"
-    ],
-    "expectedSchema": {
-      "tableName": "ShelfSlot",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Mansur Karimov",
+    "clientRole": "Badiiy Rahbar",
+    "clientAvatar": "mentor",
+    "title": "Teatr Ijodkorlari: StageActor va PlayDirector (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **TheatreArtist** ning ustma-ust tushuvchi **StageActor** va **PlayDirector** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'TheatreArtist' superklassining 'StageActor' va 'PlayDirector' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "slotId",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "aisleId",
-          "type": "integer",
-          "isFK": true,
-          "references": "Aisle(aisleId)"
-        },
-        {
-          "name": "slotCode",
-          "type": "varchar(20)"
-        },
-        {
-          "name": "maxWeight",
-          "type": "decimal"
+          "name": "TheatreArtist",
+          "pk": "artistId",
+          "attributes": [
+            {
+              "name": "artistId",
+              "isPK": true
+            },
+            {
+              "name": "stageName",
+              "isPK": false
+            },
+            {
+              "name": "unionCardNo",
+              "isPK": false
+            },
+            {
+              "name": "debutYear",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "ShelfSlot ombor ierarxiyasining quyi jadvali sifatida yaratildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**ShelfSlot**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "TheatreArtist",
+        "subs": [
+          {
+            "name": "StageActor",
+            "attributes": [
+              {
+                "name": "actingRoleType",
+                "isPK": false
+              },
+              {
+                "name": "vocalRange",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "PlayDirector",
+            "attributes": [
+              {
+                "name": "directingPortfolio",
+                "isPK": false
+              },
+              {
+                "name": "repertoireCategory",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "TheatreArtist",
+          "pk": "artistId",
+          "attributes": [
+            {
+              "name": "artistId",
+              "isPK": true
+            },
+            {
+              "name": "stageName",
+              "isPK": false
+            },
+            {
+              "name": "unionCardNo",
+              "isPK": false
+            },
+            {
+              "name": "debutYear",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "TheatreArtist",
+        "subs": [
+          {
+            "name": "StageActor",
+            "attributes": [
+              {
+                "name": "actingRoleType",
+                "isPK": false
+              },
+              {
+                "name": "vocalRange",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "PlayDirector",
+            "attributes": [
+              {
+                "name": "directingPortfolio",
+                "isPK": false
+              },
+              {
+                "name": "repertoireCategory",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 114,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 38 • Course Prerequisite Recursive *:*",
-    "title": "Fan Prerekviziti Rekursiv *:* Jadvali (Prerequisite)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Prerequisite**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Prerequisite { courseCode varchar [ref: > Course.courseCode] prereqCode varchar [ref: > Course.courseCode] indexes { (courseCode, prereqCode) [pk] } }",
-      "Prerequisite(courseCode [PK, FK], prereqCode [PK, FK])"
-    ],
-    "expectedSchema": {
-      "tableName": "Prerequisite",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Dr. Lola Sobirova",
+    "clientRole": "Klinik Tadqiqotlar Mudiri",
+    "clientAvatar": "mentor",
+    "title": "Tibbiyot Xodimlari: Clinician va ClinicalTrialInvestigator (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **MedicalStaff** ning ustma-ust tushuvchi **Clinician** va **ClinicalTrialInvestigator** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'MedicalStaff' superklassining 'Clinician' va 'ClinicalTrialInvestigator' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "courseCode",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Course(courseCode)"
-        },
-        {
-          "name": "prereqCode",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Course(courseCode)"
+          "name": "MedicalStaff",
+          "pk": "licenseNo",
+          "attributes": [
+            {
+              "name": "licenseNo",
+              "isPK": true
+            },
+            {
+              "name": "doctorName",
+              "isPK": false
+            },
+            {
+              "name": "specialtyField",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Prerequisite rekursiv oraliq jadvali loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Prerequisite**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "MedicalStaff",
+        "subs": [
+          {
+            "name": "Clinician",
+            "attributes": [
+              {
+                "name": "dailyPatientQuota",
+                "isPK": false
+              },
+              {
+                "name": "wardRoomCode",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "ClinicalTrialInvestigator",
+            "attributes": [
+              {
+                "name": "clinicalProtocolCode",
+                "isPK": false
+              },
+              {
+                "name": "trialGrantNo",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "MedicalStaff",
+          "pk": "licenseNo",
+          "attributes": [
+            {
+              "name": "licenseNo",
+              "isPK": true
+            },
+            {
+              "name": "doctorName",
+              "isPK": false
+            },
+            {
+              "name": "specialtyField",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "MedicalStaff",
+        "subs": [
+          {
+            "name": "Clinician",
+            "attributes": [
+              {
+                "name": "dailyPatientQuota",
+                "isPK": false
+              },
+              {
+                "name": "wardRoomCode",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "ClinicalTrialInvestigator",
+            "attributes": [
+              {
+                "name": "clinicalProtocolCode",
+                "isPK": false
+              },
+              {
+                "name": "trialGrantNo",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 115,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 36 • Hospital Ward Bed Multi-tier",
-    "title": "Shifoxona Koyka O'rni (Bed)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Bed**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Bed { bedId int [pk] wardId int [ref: > Ward.wardId] bedNumber varchar isOccupied boolean }",
-      "Bed(bedId [PK], wardId [FK], bedNumber, isOccupied)"
-    ],
-    "expectedSchema": {
-      "tableName": "Bed",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Zilola Mahmudova",
+    "clientRole": "Ijodiy Direktor",
+    "clientAvatar": "mentor",
+    "title": "Media Ijodkorlari: VideoPresenter va AudioPodcaster (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **ContentCreator** ning ustma-ust tushuvchi **VideoPresenter** va **AudioPodcaster** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'ContentCreator' superklassining 'VideoPresenter' va 'AudioPodcaster' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "bedId",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "wardId",
-          "type": "integer",
-          "isFK": true,
-          "references": "Ward(wardId)"
-        },
-        {
-          "name": "bedNumber",
-          "type": "varchar(10)"
-        },
-        {
-          "name": "isOccupied",
-          "type": "boolean"
+          "name": "ContentCreator",
+          "pk": "creatorId",
+          "attributes": [
+            {
+              "name": "creatorId",
+              "isPK": true
+            },
+            {
+              "name": "channelName",
+              "isPK": false
+            },
+            {
+              "name": "subscriberTotal",
+              "isPK": false
+            },
+            {
+              "name": "contractExpiry",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Bed jadvali shifoxona ierarxiyasi bilan bog'landi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Bed**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "ContentCreator",
+        "subs": [
+          {
+            "name": "VideoPresenter",
+            "attributes": [
+              {
+                "name": "screenLanguage",
+                "isPK": false
+              },
+              {
+                "name": "videoStudioCode",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "AudioPodcaster",
+            "attributes": [
+              {
+                "name": "podcastFeedRss",
+                "isPK": false
+              },
+              {
+                "name": "audioEpisodeCount",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "ContentCreator",
+          "pk": "creatorId",
+          "attributes": [
+            {
+              "name": "creatorId",
+              "isPK": true
+            },
+            {
+              "name": "channelName",
+              "isPK": false
+            },
+            {
+              "name": "subscriberTotal",
+              "isPK": false
+            },
+            {
+              "name": "contractExpiry",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "ContentCreator",
+        "subs": [
+          {
+            "name": "VideoPresenter",
+            "attributes": [
+              {
+                "name": "screenLanguage",
+                "isPK": false
+              },
+              {
+                "name": "videoStudioCode",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "AudioPodcaster",
+            "attributes": [
+              {
+                "name": "podcastFeedRss",
+                "isPK": false
+              },
+              {
+                "name": "audioEpisodeCount",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 116,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 36 • Logistics Delivery Route Hierarchy",
-    "title": "Logistika Yetkazish Yo'nalishi (DeliveryRoute)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**DeliveryRoute**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table DeliveryRoute { routeId int [pk] vehicleId int [ref: > FleetVehicle.vehicleId] destCity varchar distanceKm decimal }",
-      "DeliveryRoute(routeId [PK], vehicleId [FK], destCity, distanceKm)"
-    ],
-    "expectedSchema": {
-      "tableName": "DeliveryRoute",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Alisher Yusupov",
+    "clientRole": "Flot Menejeri",
+    "clientAvatar": "mentor",
+    "title": "Haydovchilar: ExpressCourier va LongHaulDriver (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **FleetDriver** ning ustma-ust tushuvchi **ExpressCourier** va **LongHaulDriver** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'FleetDriver' superklassining 'ExpressCourier' va 'LongHaulDriver' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "routeId",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "vehicleId",
-          "type": "integer",
-          "isFK": true,
-          "references": "FleetVehicle(vehicleId)"
-        },
-        {
-          "name": "destCity",
-          "type": "varchar(60)"
-        },
-        {
-          "name": "distanceKm",
-          "type": "decimal"
+          "name": "FleetDriver",
+          "pk": "driverStaffId",
+          "attributes": [
+            {
+              "name": "driverStaffId",
+              "isPK": true
+            },
+            {
+              "name": "driverName",
+              "isPK": false
+            },
+            {
+              "name": "driverLicenseNo",
+              "isPK": false
+            },
+            {
+              "name": "ratingStars",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "DeliveryRoute jadvali avtopark ierarxiyasiga ulandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**DeliveryRoute**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "FleetDriver",
+        "subs": [
+          {
+            "name": "ExpressCourier",
+            "attributes": [
+              {
+                "name": "cityZoneCode",
+                "isPK": false
+              },
+              {
+                "name": "deliveriesPerShift",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "LongHaulDriver",
+            "attributes": [
+              {
+                "name": "tirCarnetNo",
+                "isPK": false
+              },
+              {
+                "name": "heavyVehiclePermitYear",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "FleetDriver",
+          "pk": "driverStaffId",
+          "attributes": [
+            {
+              "name": "driverStaffId",
+              "isPK": true
+            },
+            {
+              "name": "driverName",
+              "isPK": false
+            },
+            {
+              "name": "driverLicenseNo",
+              "isPK": false
+            },
+            {
+              "name": "ratingStars",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "FleetDriver",
+        "subs": [
+          {
+            "name": "ExpressCourier",
+            "attributes": [
+              {
+                "name": "cityZoneCode",
+                "isPK": false
+              },
+              {
+                "name": "deliveriesPerShift",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "LongHaulDriver",
+            "attributes": [
+              {
+                "name": "tirCarnetNo",
+                "isPK": false
+              },
+              {
+                "name": "heavyVehiclePermitYear",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 117,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 37 • Recursive Organization Units",
-    "title": "Tashkiliy Bo'linmalar Daraxti (OrgUnit Tree)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**OrgUnit**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table OrgUnit { unitId int [pk] unitName varchar parentUnitId int [ref: > OrgUnit.unitId] headTitle varchar }",
-      "OrgUnit(unitId [PK], unitName, parentUnitId [FK], headTitle)"
-    ],
-    "expectedSchema": {
-      "tableName": "OrgUnit",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Shavkat Saidov",
+    "clientRole": "HR Menejeri",
+    "clientAvatar": "mentor",
+    "title": "Restoran Xizmatchilari: ChiefBartender va SommelierExpert (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **RestaurantStaff** ning ustma-ust tushuvchi **ChiefBartender** va **SommelierExpert** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'RestaurantStaff' superklassining 'ChiefBartender' va 'SommelierExpert' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "unitId",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "unitName",
-          "type": "varchar(80)"
-        },
-        {
-          "name": "parentUnitId",
-          "type": "integer",
-          "isFK": true,
-          "references": "OrgUnit(unitId)"
-        },
-        {
-          "name": "headTitle",
-          "type": "varchar(60)"
+          "name": "RestaurantStaff",
+          "pk": "staffBadgeId",
+          "attributes": [
+            {
+              "name": "staffBadgeId",
+              "isPK": true
+            },
+            {
+              "name": "staffName",
+              "isPK": false
+            },
+            {
+              "name": "foodSafetyCertDate",
+              "isPK": false
+            },
+            {
+              "name": "wageHourly",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "OrgUnit daraxt strukturasi rekursiv kalit bilan chizildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**OrgUnit**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "RestaurantStaff",
+        "subs": [
+          {
+            "name": "ChiefBartender",
+            "attributes": [
+              {
+                "name": "mixologyCertLevel",
+                "isPK": false
+              },
+              {
+                "name": "barStationCode",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "SommelierExpert",
+            "attributes": [
+              {
+                "name": "sommelierDiplomaNo",
+                "isPK": false
+              },
+              {
+                "name": "cellarMasterPermit",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "RestaurantStaff",
+          "pk": "staffBadgeId",
+          "attributes": [
+            {
+              "name": "staffBadgeId",
+              "isPK": true
+            },
+            {
+              "name": "staffName",
+              "isPK": false
+            },
+            {
+              "name": "foodSafetyCertDate",
+              "isPK": false
+            },
+            {
+              "name": "wageHourly",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "RestaurantStaff",
+        "subs": [
+          {
+            "name": "ChiefBartender",
+            "attributes": [
+              {
+                "name": "mixologyCertLevel",
+                "isPK": false
+              },
+              {
+                "name": "barStationCode",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "SommelierExpert",
+            "attributes": [
+              {
+                "name": "sommelierDiplomaNo",
+                "isPK": false
+              },
+              {
+                "name": "cellarMasterPermit",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 118,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 36 • Publishing Multi-tier Book Volume",
-    "title": "Nashriyot Kitob Jildi (BookVolume)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**BookVolume**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table BookVolume { volumeId int [pk] seriesId int [ref: > BookSeries.seriesId] volumeNumber int isbn varchar [unique] }",
-      "BookVolume(volumeId [PK], seriesId [FK], volumeNumber, isbn [UQ])"
-    ],
-    "expectedSchema": {
-      "tableName": "BookVolume",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Kamola Rustamova",
+    "clientRole": "Rieltorlar Uyushmasi",
+    "clientAvatar": "mentor",
+    "title": "Mulk Bozorida: PropertyVendor va PropertyAcquirer (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **RealEstateCustomer** ning ustma-ust tushuvchi **PropertyVendor** va **PropertyAcquirer** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'RealEstateCustomer' superklassining 'PropertyVendor' va 'PropertyAcquirer' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "volumeId",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "seriesId",
-          "type": "integer",
-          "isFK": true,
-          "references": "BookSeries(seriesId)"
-        },
-        {
-          "name": "volumeNumber",
-          "type": "integer"
-        },
-        {
-          "name": "isbn",
-          "type": "varchar(20)",
-          "isUQ": true
+          "name": "RealEstateCustomer",
+          "pk": "customerId",
+          "attributes": [
+            {
+              "name": "customerId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "passportPin",
+              "isPK": false
+            },
+            {
+              "name": "contactPhone",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "BookVolume ko'p bosqichli nashriyot tizimiga ulandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**BookVolume**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "RealEstateCustomer",
+        "subs": [
+          {
+            "name": "PropertyVendor",
+            "attributes": [
+              {
+                "name": "exclusiveListingCode",
+                "isPK": false
+              },
+              {
+                "name": "saleAskingPrice",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "PropertyAcquirer",
+            "attributes": [
+              {
+                "name": "maxInvestmentBudget",
+                "isPK": false
+              },
+              {
+                "name": "desiredPropertyType",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "RealEstateCustomer",
+          "pk": "customerId",
+          "attributes": [
+            {
+              "name": "customerId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "passportPin",
+              "isPK": false
+            },
+            {
+              "name": "contactPhone",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "RealEstateCustomer",
+        "subs": [
+          {
+            "name": "PropertyVendor",
+            "attributes": [
+              {
+                "name": "exclusiveListingCode",
+                "isPK": false
+              },
+              {
+                "name": "saleAskingPrice",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "PropertyAcquirer",
+            "attributes": [
+              {
+                "name": "maxInvestmentBudget",
+                "isPK": false
+              },
+              {
+                "name": "desiredPropertyType",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 119,
     "sector": 8,
-    "difficulty": "8-Qavat • O'rta",
-    "source": "L02 Slide 36 • Vendor Contract Purchase Order",
-    "title": "Xarid Buyurtmasi Zanjiri (PurchaseOrder)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**PurchaseOrder**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table PurchaseOrder { orderId int [pk] contractId int [ref: > VendorContract.contractId] orderDate date totalAmount decimal }",
-      "PurchaseOrder(orderId [PK], contractId [FK], orderDate, totalAmount)"
-    ],
-    "expectedSchema": {
-      "tableName": "PurchaseOrder",
-      "columns": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Jaloliddin Qodirov",
+    "clientRole": "Hamjamiyat Menejeri",
+    "clientAvatar": "mentor",
+    "title": "Platforma Foydalanuvchilari: ActiveLearner va TeachingMentor (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **PlatformUser** ning ustma-ust tushuvchi **ActiveLearner** va **TeachingMentor** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'PlatformUser' superklassining 'ActiveLearner' va 'TeachingMentor' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "orderId",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "contractId",
-          "type": "integer",
-          "isFK": true,
-          "references": "VendorContract(contractId)"
-        },
-        {
-          "name": "orderDate",
-          "type": "date"
-        },
-        {
-          "name": "totalAmount",
-          "type": "decimal"
+          "name": "PlatformUser",
+          "pk": "userId",
+          "attributes": [
+            {
+              "name": "userId",
+              "isPK": true
+            },
+            {
+              "name": "userFullName",
+              "isPK": false
+            },
+            {
+              "name": "emailAddress",
+              "isPK": false
+            },
+            {
+              "name": "regTimestamp",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "PurchaseOrder jadvali shartnoma zanjiriga ulandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**PurchaseOrder**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "PlatformUser",
+        "subs": [
+          {
+            "name": "ActiveLearner",
+            "attributes": [
+              {
+                "name": "enrolledCoursesCount",
+                "isPK": false
+              },
+              {
+                "name": "courseCertificatesTotal",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "TeachingMentor",
+            "attributes": [
+              {
+                "name": "mentorHourlyFee",
+                "isPK": false
+              },
+              {
+                "name": "menteeSessionCount",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "PlatformUser",
+          "pk": "userId",
+          "attributes": [
+            {
+              "name": "userId",
+              "isPK": true
+            },
+            {
+              "name": "userFullName",
+              "isPK": false
+            },
+            {
+              "name": "emailAddress",
+              "isPK": false
+            },
+            {
+              "name": "regTimestamp",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "PlatformUser",
+        "subs": [
+          {
+            "name": "ActiveLearner",
+            "attributes": [
+              {
+                "name": "enrolledCoursesCount",
+                "isPK": false
+              },
+              {
+                "name": "courseCertificatesTotal",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "TeachingMentor",
+            "attributes": [
+              {
+                "name": "mentorHourlyFee",
+                "isPK": false
+              },
+              {
+                "name": "menteeSessionCount",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 120,
     "sector": 8,
-    "difficulty": "8-Qavat • Qiyin (8-Qavat Bossi)",
-    "source": "L02 Slide 36 & Slide 37 • Multi-tier + Recursive Staff Boss",
-    "title": "8-Qavat Bossi: Bo'lim va Mentorli Xodim Sxemasi",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Department { deptId int [pk] dName varchar } Table Staff { staffId int [pk] deptId int [ref: > Department.deptId] mentorId int [ref: > Staff.staffId] fullName varchar }",
-      "Department(deptId [PK], dName)\nStaff(staffId [PK], deptId [FK], mentorId [FK], fullName)"
-    ],
-    "expectedSchema": {
-      "tables": [
+    "difficulty": "8-Qavat • EER Kengaytirish",
+    "clientName": "Bahodir Olimov",
+    "clientRole": "Tijorat Direktori",
+    "clientAvatar": "mentor",
+    "title": "Savdo Hamkorlari: RawMaterialSupplier va WholesaleDistributor (EER Bosqichi)",
+    "story": "1-haftada yaratilgan **TradingEnterprise** ning ustma-ust tushuvchi **RawMaterialSupplier** va **WholesaleDistributor** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
+    "instruction": "'TradingEnterprise' superklassining 'RawMaterialSupplier' va 'WholesaleDistributor' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "tableName": "Department",
-          "columns": [
+          "name": "TradingEnterprise",
+          "pk": "enterpriseInn",
+          "attributes": [
             {
-              "name": "deptId",
-              "type": "integer",
+              "name": "enterpriseInn",
               "isPK": true
             },
             {
-              "name": "dName",
-              "type": "varchar(50)"
-            }
-          ]
-        },
-        {
-          "tableName": "Staff",
-          "columns": [
-            {
-              "name": "staffId",
-              "type": "integer",
-              "isPK": true
+              "name": "legalEntityName",
+              "isPK": false
             },
             {
-              "name": "deptId",
-              "type": "integer",
-              "isFK": true,
-              "references": "Department(deptId)"
+              "name": "bankBik",
+              "isPK": false
             },
             {
-              "name": "mentorId",
-              "type": "integer",
-              "isFK": true,
-              "references": "Staff(staffId)"
-            },
-            {
-              "name": "fullName",
-              "type": "varchar(60)"
+              "name": "cityHq",
+              "isPK": false
             }
           ]
         }
-      ]
-    },
-    "explanation": "8-Qavat Bossi: Bo'lim va rekursiv ustozlik (mentorId) tizimi to'liq relying arxitekturaga o'tkazildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "subclasses": {
+        "superclass": "TradingEnterprise",
+        "subs": [
+          {
+            "name": "RawMaterialSupplier",
+            "attributes": [
+              {
+                "name": "supplyCatalogRef",
+                "isPK": false
+              },
+              {
+                "name": "isoQualityCert",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "WholesaleDistributor",
+            "attributes": [
+              {
+                "name": "salesTerritoryRegion",
+                "isPK": false
+              },
+              {
+                "name": "creditLineLimit",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "TradingEnterprise",
+          "pk": "enterpriseInn",
+          "attributes": [
+            {
+              "name": "enterpriseInn",
+              "isPK": true
+            },
+            {
+              "name": "legalEntityName",
+              "isPK": false
+            },
+            {
+              "name": "bankBik",
+              "isPK": false
+            },
+            {
+              "name": "cityHq",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "subclasses": {
+        "superclass": "TradingEnterprise",
+        "subs": [
+          {
+            "name": "RawMaterialSupplier",
+            "attributes": [
+              {
+                "name": "supplyCatalogRef",
+                "isPK": false
+              },
+              {
+                "name": "isoQualityCert",
+                "isPK": false
+              }
+            ]
+          },
+          {
+            "name": "WholesaleDistributor",
+            "attributes": [
+              {
+                "name": "salesTerritoryRegion",
+                "isPK": false
+              },
+              {
+                "name": "creditLineLimit",
+                "isPK": false
+              }
+            ]
+          }
+        ],
+        "constraint": "{Optional, And}"
+      },
+      "relationships": []
     }
   },
   {
     "id": 121,
     "sector": 9,
-    "difficulty": "9-Qavat • Boshlang'ich",
-    "source": "L02 Slide 42 • Step 7: Pure Ternary (*:*:*)",
-    "title": "Klassik Ternary O'qitish Jadvali (Teaches)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Teaches**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Teaches { courseCode varchar [ref: > Course.courseCode] instId int [ref: > Instructor.instId] semCode varchar [ref: > Semester.semCode] roomNo varchar indexes { (courseCode, instId, semCode) [pk] } }",
-      "Teaches(courseCode [PK, FK], instId [PK, FK], semCode [PK, FK], roomNo)"
-    ],
-    "expectedSchema": {
-      "tableName": "Teaches",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Ziyoda Karimova",
+    "clientRole": "Davlat Notariusi",
+    "clientAvatar": "mentor",
+    "title": "Mulk Egaligi: Owner Kategoriyasi (Person ∪ Bank ∪ Company) (EER Bosqichi)",
+    "story": "1-haftadagi **Person**, **Bank** va **Company** entitiylari asosida ularning barchasini birlashtiruvchi **PropertyOwner** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'PropertyOwner' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "courseCode",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Course(courseCode)"
+          "name": "Person",
+          "pk": "pinfl",
+          "attributes": [
+            {
+              "name": "pinfl",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "instId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Instructor(instId)"
+          "name": "Bank",
+          "pk": "bankCode",
+          "attributes": [
+            {
+              "name": "bankCode",
+              "isPK": true
+            },
+            {
+              "name": "bankName",
+              "isPK": false
+            },
+            {
+              "name": "licenseNo",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "semCode",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Semester(semCode)"
-        },
-        {
-          "name": "roomNo",
-          "type": "varchar(20)"
+          "name": "Company",
+          "pk": "tin",
+          "attributes": [
+            {
+              "name": "tin",
+              "isPK": true
+            },
+            {
+              "name": "companyName",
+              "isPK": false
+            },
+            {
+              "name": "address",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Step 7 ga binoan *:*:* ternary munosabatda uchala ota kalit birlashib kompozit PK hosil qiladi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Teaches**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "PropertyOwner",
+          "superclasses": [
+            "Person",
+            "Bank",
+            "Company"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Person",
+          "pk": "pinfl",
+          "attributes": [
+            {
+              "name": "pinfl",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Bank",
+          "pk": "bankCode",
+          "attributes": [
+            {
+              "name": "bankCode",
+              "isPK": true
+            },
+            {
+              "name": "bankName",
+              "isPK": false
+            },
+            {
+              "name": "licenseNo",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Company",
+          "pk": "tin",
+          "attributes": [
+            {
+              "name": "tin",
+              "isPK": true
+            },
+            {
+              "name": "companyName",
+              "isPK": false
+            },
+            {
+              "name": "address",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "PropertyOwner",
+          "superclasses": [
+            "Person",
+            "Bank",
+            "Company"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 122,
     "sector": 9,
-    "difficulty": "9-Qavat • O'rta",
-    "source": "L02 Slide 42 • Step 7 Oltin Qoidasi (1..1 Kardinallik Cheklovi)",
-    "title": "Ternary Oltin Qoidasi: 1..1 Cheklovli O'qitish (Teaches)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Teaches**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Teaches { courseCode varchar [ref: > Course.courseCode] semCode varchar [ref: > Semester.semCode] instId int [ref: > Instructor.instId] roomNo varchar indexes { (courseCode, semCode) [pk] } }",
-      "Teaches(courseCode [PK, FK], semCode [PK, FK], instId [FK], roomNo)"
-    ],
-    "expectedSchema": {
-      "tableName": "Teaches",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Mayor Akmal Vohidov",
+    "clientRole": "DYXX Ro'yxatdan O'tkazish Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Avtotransport Egasi: VehicleOwner Kategoriyasi (Citizen ∪ LeasingFirm ∪ StateAgency) (EER Bosqichi)",
+    "story": "1-haftadagi **PrivateCitizen**, **LeasingFirm** va **StateAgency** entitiylari asosida ularning barchasini birlashtiruvchi **VehicleOwner** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'VehicleOwner' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "courseCode",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Course(courseCode)"
+          "name": "PrivateCitizen",
+          "pk": "citizenPinfl",
+          "attributes": [
+            {
+              "name": "citizenPinfl",
+              "isPK": true
+            },
+            {
+              "name": "citizenName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "semCode",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Semester(semCode)"
+          "name": "LeasingFirm",
+          "pk": "leasingInn",
+          "attributes": [
+            {
+              "name": "leasingInn",
+              "isPK": true
+            },
+            {
+              "name": "firmTitle",
+              "isPK": false
+            },
+            {
+              "name": "licenseDate",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "instId",
-          "type": "integer",
-          "isPK": false,
-          "isFK": true,
-          "references": "Instructor(instId)"
-        },
-        {
-          "name": "roomNo",
-          "type": "varchar(20)"
+          "name": "StateAgency",
+          "pk": "agencyCode",
+          "attributes": [
+            {
+              "name": "agencyCode",
+              "isPK": true
+            },
+            {
+              "name": "agencyTitle",
+              "isPK": false
+            },
+            {
+              "name": "ministryCode",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Step 7 Oltin Qoidasi: 1..1 qatnashchi kaliti PK dan chiqariladi, aks holda bitta kurs-semestrga 2 ta o'qituvchi yozilib qolishi mumkin edi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Teaches**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "VehicleOwner",
+          "superclasses": [
+            "PrivateCitizen",
+            "LeasingFirm",
+            "StateAgency"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "PrivateCitizen",
+          "pk": "citizenPinfl",
+          "attributes": [
+            {
+              "name": "citizenPinfl",
+              "isPK": true
+            },
+            {
+              "name": "citizenName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "LeasingFirm",
+          "pk": "leasingInn",
+          "attributes": [
+            {
+              "name": "leasingInn",
+              "isPK": true
+            },
+            {
+              "name": "firmTitle",
+              "isPK": false
+            },
+            {
+              "name": "licenseDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "StateAgency",
+          "pk": "agencyCode",
+          "attributes": [
+            {
+              "name": "agencyCode",
+              "isPK": true
+            },
+            {
+              "name": "agencyTitle",
+              "isPK": false
+            },
+            {
+              "name": "ministryCode",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "VehicleOwner",
+          "superclasses": [
+            "PrivateCitizen",
+            "LeasingFirm",
+            "StateAgency"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 123,
     "sector": 9,
-    "difficulty": "9-Qavat • O'rta",
-    "source": "L02 Slide 42 • Doctor Consultation Ternary",
-    "title": "Tibbiy Konsultatsiya Ternary Jadvali (Consultation)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Consultation**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Consultation { doctorId int [ref: > Doctor.doctorId] patientId int [ref: > Patient.patientId] clinicId int [ref: > Clinic.clinicId] consultDate timestamp indexes { (doctorId, patientId, clinicId) [pk] } }",
-      "Consultation(doctorId [PK, FK], patientId [PK, FK], clinicId [PK, FK], consultDate)"
-    ],
-    "expectedSchema": {
-      "tableName": "Consultation",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Sardor Salimov",
+    "clientRole": "G'aznachilik Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "To'lov Qabul Qiluvchi: PayeeEntity Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **FreelanceContractor**, **UtilityProvider** va **TaxAuthority** entitiylari asosida ularning barchasini birlashtiruvchi **PayeeEntity** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'PayeeEntity' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "doctorId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Doctor(doctorId)"
+          "name": "FreelanceContractor",
+          "pk": "freelancerId",
+          "attributes": [
+            {
+              "name": "freelancerId",
+              "isPK": true
+            },
+            {
+              "name": "freelancerName",
+              "isPK": false
+            },
+            {
+              "name": "serviceCategory",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "patientId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Patient(patientId)"
+          "name": "UtilityProvider",
+          "pk": "utilityInn",
+          "attributes": [
+            {
+              "name": "utilityInn",
+              "isPK": true
+            },
+            {
+              "name": "providerName",
+              "isPK": false
+            },
+            {
+              "name": "accountIban",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "clinicId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Clinic(clinicId)"
-        },
-        {
-          "name": "consultDate",
-          "type": "timestamp"
+          "name": "TaxAuthority",
+          "pk": "taxOfficeNo",
+          "attributes": [
+            {
+              "name": "taxOfficeNo",
+              "isPK": true
+            },
+            {
+              "name": "treasuryCode",
+              "isPK": false
+            },
+            {
+              "name": "regionName",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Consultation 3 tomonlama aloqa jadvali muvaffaqiyatli tuzildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Consultation**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "PayeeEntity",
+          "superclasses": [
+            "FreelanceContractor",
+            "UtilityProvider",
+            "TaxAuthority"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "FreelanceContractor",
+          "pk": "freelancerId",
+          "attributes": [
+            {
+              "name": "freelancerId",
+              "isPK": true
+            },
+            {
+              "name": "freelancerName",
+              "isPK": false
+            },
+            {
+              "name": "serviceCategory",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "UtilityProvider",
+          "pk": "utilityInn",
+          "attributes": [
+            {
+              "name": "utilityInn",
+              "isPK": true
+            },
+            {
+              "name": "providerName",
+              "isPK": false
+            },
+            {
+              "name": "accountIban",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "TaxAuthority",
+          "pk": "taxOfficeNo",
+          "attributes": [
+            {
+              "name": "taxOfficeNo",
+              "isPK": true
+            },
+            {
+              "name": "treasuryCode",
+              "isPK": false
+            },
+            {
+              "name": "regionName",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "PayeeEntity",
+          "superclasses": [
+            "FreelanceContractor",
+            "UtilityProvider",
+            "TaxAuthority"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 124,
     "sector": 9,
-    "difficulty": "9-Qavat • O'rta",
-    "source": "L02 Slide 42 • Supplier Part Project Pure Ternary",
-    "title": "Ta'minotchi, Detal va Loyiha Ternary Jadvali (SupplyProject)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**SupplyProject**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table SupplyProject { suppId varchar [ref: > Supplier.suppId] partNo varchar [ref: > Part.partNo] projNo int [ref: > Project.projNo] quantity int indexes { (suppId, partNo, projNo) [pk] } }",
-      "SupplyProject(suppId [PK, FK], partNo [PK, FK], projNo [PK, FK], quantity)"
-    ],
-    "expectedSchema": {
-      "tableName": "SupplyProject",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Nodira Qosimova",
+    "clientRole": "Kredit Xatarlari Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Qarz Oluvchi: LoanBorrower Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **SoleProprietorship**, **CommercialPartnership** va **CorporationHolding** entitiylari asosida ularning barchasini birlashtiruvchi **LoanBorrower** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'LoanBorrower' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "suppId",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Supplier(suppId)"
+          "name": "SoleProprietorship",
+          "pk": "spInn",
+          "attributes": [
+            {
+              "name": "spInn",
+              "isPK": true
+            },
+            {
+              "name": "ownerFullName",
+              "isPK": false
+            },
+            {
+              "name": "regDate",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "partNo",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Part(partNo)"
+          "name": "CommercialPartnership",
+          "pk": "partnershipNo",
+          "attributes": [
+            {
+              "name": "partnershipNo",
+              "isPK": true
+            },
+            {
+              "name": "firmName",
+              "isPK": false
+            },
+            {
+              "name": "shareCapital",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "projNo",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Project(projNo)"
-        },
-        {
-          "name": "quantity",
-          "type": "integer"
+          "name": "CorporationHolding",
+          "pk": "holdingTin",
+          "attributes": [
+            {
+              "name": "holdingTin",
+              "isPK": true
+            },
+            {
+              "name": "corporateName",
+              "isPK": false
+            },
+            {
+              "name": "stockTicker",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "SupplyProject klassik 3 talik relying oraliq jadvali loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**SupplyProject**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "LoanBorrower",
+          "superclasses": [
+            "SoleProprietorship",
+            "CommercialPartnership",
+            "CorporationHolding"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "SoleProprietorship",
+          "pk": "spInn",
+          "attributes": [
+            {
+              "name": "spInn",
+              "isPK": true
+            },
+            {
+              "name": "ownerFullName",
+              "isPK": false
+            },
+            {
+              "name": "regDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CommercialPartnership",
+          "pk": "partnershipNo",
+          "attributes": [
+            {
+              "name": "partnershipNo",
+              "isPK": true
+            },
+            {
+              "name": "firmName",
+              "isPK": false
+            },
+            {
+              "name": "shareCapital",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CorporationHolding",
+          "pk": "holdingTin",
+          "attributes": [
+            {
+              "name": "holdingTin",
+              "isPK": true
+            },
+            {
+              "name": "corporateName",
+              "isPK": false
+            },
+            {
+              "name": "stockTicker",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "LoanBorrower",
+          "superclasses": [
+            "SoleProprietorship",
+            "CommercialPartnership",
+            "CorporationHolding"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 125,
     "sector": 9,
-    "difficulty": "9-Qavat • Qiyin",
-    "source": "L02 Slide 42 • Step 7: 1..1 on Project Constraint",
-    "title": "1..1 Loyiha Cheklovli Ta'minot Ternary (SupplyProject)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**SupplyProject**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table SupplyProject { suppId varchar [ref: > Supplier.suppId] partNo varchar [ref: > Part.partNo] projNo int [ref: > Project.projNo] quantity int indexes { (suppId, partNo) [pk] } }",
-      "SupplyProject(suppId [PK, FK], partNo [PK, FK], projNo [FK], quantity)"
-    ],
-    "expectedSchema": {
-      "tableName": "SupplyProject",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Sherzod Jo'rayev",
+    "clientRole": "Bosh Notarius",
+    "clientAvatar": "mentor",
+    "title": "Yuridik Hujjat Imzolovchi: LegalSignatory Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **DomesticCitizen**, **ForeignDiplomat** va **CorporateAttorney** entitiylari asosida ularning barchasini birlashtiruvchi **LegalSignatory** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'LegalSignatory' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "suppId",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Supplier(suppId)"
+          "name": "DomesticCitizen",
+          "pk": "residentPinfl",
+          "attributes": [
+            {
+              "name": "residentPinfl",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "registeredAddress",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "partNo",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Part(partNo)"
+          "name": "ForeignDiplomat",
+          "pk": "passportNumber",
+          "attributes": [
+            {
+              "name": "passportNumber",
+              "isPK": true
+            },
+            {
+              "name": "diplomatName",
+              "isPK": false
+            },
+            {
+              "name": "sendingState",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "projNo",
-          "type": "integer",
-          "isPK": false,
-          "isFK": true,
-          "references": "Project(projNo)"
-        },
-        {
-          "name": "quantity",
-          "type": "integer"
+          "name": "CorporateAttorney",
+          "pk": "powerOfAttorneyNo",
+          "attributes": [
+            {
+              "name": "powerOfAttorneyNo",
+              "isPK": true
+            },
+            {
+              "name": "lawyerName",
+              "isPK": false
+            },
+            {
+              "name": "validUntil",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Step 7 qoidasi: Project 1..1 bo'lgani uchun projNo PK dan chiqarilib, oddiy FK qilib saqlanadi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**SupplyProject**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "LegalSignatory",
+          "superclasses": [
+            "DomesticCitizen",
+            "ForeignDiplomat",
+            "CorporateAttorney"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "DomesticCitizen",
+          "pk": "residentPinfl",
+          "attributes": [
+            {
+              "name": "residentPinfl",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "registeredAddress",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ForeignDiplomat",
+          "pk": "passportNumber",
+          "attributes": [
+            {
+              "name": "passportNumber",
+              "isPK": true
+            },
+            {
+              "name": "diplomatName",
+              "isPK": false
+            },
+            {
+              "name": "sendingState",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CorporateAttorney",
+          "pk": "powerOfAttorneyNo",
+          "attributes": [
+            {
+              "name": "powerOfAttorneyNo",
+              "isPK": true
+            },
+            {
+              "name": "lawyerName",
+              "isPK": false
+            },
+            {
+              "name": "validUntil",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "LegalSignatory",
+          "superclasses": [
+            "DomesticCitizen",
+            "ForeignDiplomat",
+            "CorporateAttorney"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 126,
     "sector": 9,
-    "difficulty": "9-Qavat • O'rta",
-    "source": "L02 Slide 42 • Festival Concert Ternary",
-    "title": "Festival Konserti Ternary Jadvali (Concert)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Concert**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Concert { artistId int [ref: > Artist.artistId] stageId int [ref: > Stage.stageId] dayId int [ref: > FestDay.dayId] performanceTime time indexes { (artistId, stageId, dayId) [pk] } }",
-      "Concert(artistId [PK, FK], stageId [PK, FK], dayId [PK, FK], performanceTime)"
-    ],
-    "expectedSchema": {
-      "tableName": "Concert",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Polkovnik Baxtiyor Alimov",
+    "clientRole": "Bojxona Posti Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Bojxona Yuki Yuboruvchi: CargoConsignor Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **ManufacturingPlant**, **TradingHouse** va **HumanitarianMission** entitiylari asosida ularning barchasini birlashtiruvchi **CargoConsignor** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'CargoConsignor' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "artistId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Artist(artistId)"
+          "name": "ManufacturingPlant",
+          "pk": "factoryTin",
+          "attributes": [
+            {
+              "name": "factoryTin",
+              "isPK": true
+            },
+            {
+              "name": "plantTitle",
+              "isPK": false
+            },
+            {
+              "name": "industrialZone",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "stageId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Stage(stageId)"
+          "name": "TradingHouse",
+          "pk": "tradingLicNo",
+          "attributes": [
+            {
+              "name": "tradingLicNo",
+              "isPK": true
+            },
+            {
+              "name": "firmTitle",
+              "isPK": false
+            },
+            {
+              "name": "chamberMemberId",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "dayId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "FestDay(dayId)"
-        },
-        {
-          "name": "performanceTime",
-          "type": "time"
+          "name": "HumanitarianMission",
+          "pk": "missionRegCode",
+          "attributes": [
+            {
+              "name": "missionRegCode",
+              "isPK": true
+            },
+            {
+              "name": "unCharityCode",
+              "isPK": false
+            },
+            {
+              "name": "countryOrigin",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Concert ternary jadvali to'g'ri loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Concert**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "CargoConsignor",
+          "superclasses": [
+            "ManufacturingPlant",
+            "TradingHouse",
+            "HumanitarianMission"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "ManufacturingPlant",
+          "pk": "factoryTin",
+          "attributes": [
+            {
+              "name": "factoryTin",
+              "isPK": true
+            },
+            {
+              "name": "plantTitle",
+              "isPK": false
+            },
+            {
+              "name": "industrialZone",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "TradingHouse",
+          "pk": "tradingLicNo",
+          "attributes": [
+            {
+              "name": "tradingLicNo",
+              "isPK": true
+            },
+            {
+              "name": "firmTitle",
+              "isPK": false
+            },
+            {
+              "name": "chamberMemberId",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "HumanitarianMission",
+          "pk": "missionRegCode",
+          "attributes": [
+            {
+              "name": "missionRegCode",
+              "isPK": true
+            },
+            {
+              "name": "unCharityCode",
+              "isPK": false
+            },
+            {
+              "name": "countryOrigin",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "CargoConsignor",
+          "superclasses": [
+            "ManufacturingPlant",
+            "TradingHouse",
+            "HumanitarianMission"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 127,
     "sector": 9,
-    "difficulty": "9-Qavat • O'rta",
-    "source": "L02 Slide 42 • Flight Crew Ternary",
-    "title": "Aviareys Ekipaj Tayinlash Ternary Jadvali (FlightDuty)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**FlightDuty**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table FlightDuty { flightNo varchar [ref: > Flight.flightNo] tailNo varchar [ref: > Aircraft.tailNo] groupId int [ref: > CrewGroup.groupId] dutyDate date indexes { (flightNo, tailNo, groupId) [pk] } }",
-      "FlightDuty(flightNo [PK, FK], tailNo [PK, FK], groupId [PK, FK], dutyDate)"
-    ],
-    "expectedSchema": {
-      "tableName": "FlightDuty",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Dr. Dilnoza Umarova",
+    "clientRole": "Patent Eksperti",
+    "clientAvatar": "mentor",
+    "title": "Patent Huquq Egasi: PatentAssignee Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **ResearchUniversity**, **IndependentInventor** va **TechCorporation** entitiylari asosida ularning barchasini birlashtiruvchi **PatentAssignee** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'PatentAssignee' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "flightNo",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Flight(flightNo)"
+          "name": "ResearchUniversity",
+          "pk": "universityCharterNo",
+          "attributes": [
+            {
+              "name": "universityCharterNo",
+              "isPK": true
+            },
+            {
+              "name": "universityName",
+              "isPK": false
+            },
+            {
+              "name": "rectorName",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "tailNo",
-          "type": "varchar(15)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Aircraft(tailNo)"
+          "name": "IndependentInventor",
+          "pk": "inventorPinfl",
+          "attributes": [
+            {
+              "name": "inventorPinfl",
+              "isPK": true
+            },
+            {
+              "name": "inventorName",
+              "isPK": false
+            },
+            {
+              "name": "patentCount",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "groupId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "CrewGroup(groupId)"
-        },
-        {
-          "name": "dutyDate",
-          "type": "date"
+          "name": "TechCorporation",
+          "pk": "corpTin",
+          "attributes": [
+            {
+              "name": "corpTin",
+              "isPK": true
+            },
+            {
+              "name": "corpLegalTitle",
+              "isPK": false
+            },
+            {
+              "name": "rndBudgetUsd",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "FlightDuty 3 tomonlama navbatchilik sxemasi yaratildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**FlightDuty**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "PatentAssignee",
+          "superclasses": [
+            "ResearchUniversity",
+            "IndependentInventor",
+            "TechCorporation"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "ResearchUniversity",
+          "pk": "universityCharterNo",
+          "attributes": [
+            {
+              "name": "universityCharterNo",
+              "isPK": true
+            },
+            {
+              "name": "universityName",
+              "isPK": false
+            },
+            {
+              "name": "rectorName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "IndependentInventor",
+          "pk": "inventorPinfl",
+          "attributes": [
+            {
+              "name": "inventorPinfl",
+              "isPK": true
+            },
+            {
+              "name": "inventorName",
+              "isPK": false
+            },
+            {
+              "name": "patentCount",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "TechCorporation",
+          "pk": "corpTin",
+          "attributes": [
+            {
+              "name": "corpTin",
+              "isPK": true
+            },
+            {
+              "name": "corpLegalTitle",
+              "isPK": false
+            },
+            {
+              "name": "rndBudgetUsd",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "PatentAssignee",
+          "superclasses": [
+            "ResearchUniversity",
+            "IndependentInventor",
+            "TechCorporation"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 128,
     "sector": 9,
-    "difficulty": "9-Qavat • O'rta",
-    "source": "L02 Slide 42 • Hotel Room Guest Booking Ternary",
-    "title": "Mehmonxona Xona Band Qilish Ternary (RoomBooking)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**RoomBooking**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table RoomBooking { hotelId int [ref: > Hotel.hotelId] roomNo int [ref: > Room.roomNo] guestId int [ref: > Guest.guestId] checkInDate date totalPaid decimal indexes { (hotelId, roomNo, guestId) [pk] } }",
-      "RoomBooking(hotelId [PK, FK], roomNo [PK, FK], guestId [PK, FK], checkInDate, totalPaid)"
-    ],
-    "expectedSchema": {
-      "tableName": "RoomBooking",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Ulug'bek Fayziyev",
+    "clientRole": "Aktuariy Direktori",
+    "clientAvatar": "mentor",
+    "title": "Sug'urta Polisi Benefitsiari: PolicyBeneficiary Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **FamilyKin**, **MortgageBank** va **CharitableTrust** entitiylari asosida ularning barchasini birlashtiruvchi **PolicyBeneficiary** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'PolicyBeneficiary' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "hotelId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Hotel(hotelId)"
+          "name": "FamilyKin",
+          "pk": "relativePinfl",
+          "attributes": [
+            {
+              "name": "relativePinfl",
+              "isPK": true
+            },
+            {
+              "name": "kinFullName",
+              "isPK": false
+            },
+            {
+              "name": "kinshipDegree",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "roomNo",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Room(roomNo)"
+          "name": "MortgageBank",
+          "pk": "bankLicNo",
+          "attributes": [
+            {
+              "name": "bankLicNo",
+              "isPK": true
+            },
+            {
+              "name": "bankName",
+              "isPK": false
+            },
+            {
+              "name": "loanAgreementNo",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "guestId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Guest(guestId)"
-        },
-        {
-          "name": "checkInDate",
-          "type": "date"
-        },
-        {
-          "name": "totalPaid",
-          "type": "decimal"
+          "name": "CharitableTrust",
+          "pk": "charityRegNo",
+          "attributes": [
+            {
+              "name": "charityRegNo",
+              "isPK": true
+            },
+            {
+              "name": "trustTitle",
+              "isPK": false
+            },
+            {
+              "name": "foundationScope",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "RoomBooking ternary jadvali loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**RoomBooking**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "PolicyBeneficiary",
+          "superclasses": [
+            "FamilyKin",
+            "MortgageBank",
+            "CharitableTrust"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "FamilyKin",
+          "pk": "relativePinfl",
+          "attributes": [
+            {
+              "name": "relativePinfl",
+              "isPK": true
+            },
+            {
+              "name": "kinFullName",
+              "isPK": false
+            },
+            {
+              "name": "kinshipDegree",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MortgageBank",
+          "pk": "bankLicNo",
+          "attributes": [
+            {
+              "name": "bankLicNo",
+              "isPK": true
+            },
+            {
+              "name": "bankName",
+              "isPK": false
+            },
+            {
+              "name": "loanAgreementNo",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CharitableTrust",
+          "pk": "charityRegNo",
+          "attributes": [
+            {
+              "name": "charityRegNo",
+              "isPK": true
+            },
+            {
+              "name": "trustTitle",
+              "isPK": false
+            },
+            {
+              "name": "foundationScope",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "PolicyBeneficiary",
+          "superclasses": [
+            "FamilyKin",
+            "MortgageBank",
+            "CharitableTrust"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 129,
     "sector": 9,
-    "difficulty": "9-Qavat • O'rta",
-    "source": "L02 Slide 42 • Car Rental Branch Ternary",
-    "title": "Avtomobil Ijara Shartnomasi Ternary (CarRentalContract)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**CarRentalContract**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table CarRentalContract { vin varchar [ref: > Vehicle.vin] custId int [ref: > Customer.custId] branchId int [ref: > Branch.branchId] startDate date indexes { (vin, custId, branchId) [pk] } }",
-      "CarRentalContract(vin [PK, FK], custId [PK, FK], branchId [PK, FK], startDate)"
-    ],
-    "expectedSchema": {
-      "tableName": "CarRentalContract",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Gulzoda Karimova",
+    "clientRole": "Brendlar Reyestri Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Savdo Belgisi Egasi: TrademarkOwner Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **PrivateEnterpriser**, **NonProfitOrg** va **JointStockCompany** entitiylari asosida ularning barchasini birlashtiruvchi **TrademarkOwner** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'TrademarkOwner' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "vin",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Vehicle(vin)"
+          "name": "PrivateEnterpriser",
+          "pk": "tinNo",
+          "attributes": [
+            {
+              "name": "tinNo",
+              "isPK": true
+            },
+            {
+              "name": "brandOwnerName",
+              "isPK": false
+            },
+            {
+              "name": "taxRegime",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "custId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Customer(custId)"
+          "name": "NonProfitOrg",
+          "pk": "npoCertNo",
+          "attributes": [
+            {
+              "name": "npoCertNo",
+              "isPK": true
+            },
+            {
+              "name": "orgTitle",
+              "isPK": false
+            },
+            {
+              "name": "justiceMinistryPermit",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "branchId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Branch(branchId)"
-        },
-        {
-          "name": "startDate",
-          "type": "date"
+          "name": "JointStockCompany",
+          "pk": "jscInn",
+          "attributes": [
+            {
+              "name": "jscInn",
+              "isPK": true
+            },
+            {
+              "name": "jscTitle",
+              "isPK": false
+            },
+            {
+              "name": "marketCapitalization",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "CarRentalContract ternary munosabat jadvali loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**CarRentalContract**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "TrademarkOwner",
+          "superclasses": [
+            "PrivateEnterpriser",
+            "NonProfitOrg",
+            "JointStockCompany"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "PrivateEnterpriser",
+          "pk": "tinNo",
+          "attributes": [
+            {
+              "name": "tinNo",
+              "isPK": true
+            },
+            {
+              "name": "brandOwnerName",
+              "isPK": false
+            },
+            {
+              "name": "taxRegime",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "NonProfitOrg",
+          "pk": "npoCertNo",
+          "attributes": [
+            {
+              "name": "npoCertNo",
+              "isPK": true
+            },
+            {
+              "name": "orgTitle",
+              "isPK": false
+            },
+            {
+              "name": "justiceMinistryPermit",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "JointStockCompany",
+          "pk": "jscInn",
+          "attributes": [
+            {
+              "name": "jscInn",
+              "isPK": true
+            },
+            {
+              "name": "jscTitle",
+              "isPK": false
+            },
+            {
+              "name": "marketCapitalization",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "TrademarkOwner",
+          "superclasses": [
+            "PrivateEnterpriser",
+            "NonProfitOrg",
+            "JointStockCompany"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 130,
     "sector": 9,
-    "difficulty": "9-Qavat • O'rta",
-    "source": "L02 Slide 42 • Sports League Fixture Ternary",
-    "title": "Futbol Uchrashuvi Ternary Jadvali (MatchFixture)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**MatchFixture**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table MatchFixture { homeTeamId int [ref: > Team.teamId] awayTeamId int [ref: > Team.teamId] stadiumId int [ref: > Stadium.stadiumId] matchDate date indexes { (homeTeamId, awayTeamId, stadiumId) [pk] } }",
-      "MatchFixture(homeTeamId [PK, FK], awayTeamId [PK, FK], stadiumId [PK, FK], matchDate)"
-    ],
-    "expectedSchema": {
-      "tableName": "MatchFixture",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Dr. Farhod Saidov",
+    "clientRole": "Sug'urta Jamg'armasi Direktori",
+    "clientAvatar": "mentor",
+    "title": "Tibbiy Sug'urta Kafili: HealthCoverageSponsor Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **EmployerCompany**, **HealthMinistry** va **PrivatePhilanthropist** entitiylari asosida ularning barchasini birlashtiruvchi **HealthCoverageSponsor** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'HealthCoverageSponsor' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "homeTeamId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Team(teamId)"
+          "name": "EmployerCompany",
+          "pk": "employerTin",
+          "attributes": [
+            {
+              "name": "employerTin",
+              "isPK": true
+            },
+            {
+              "name": "companyName",
+              "isPK": false
+            },
+            {
+              "name": "insuredStaffCount",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "awayTeamId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Team(teamId)"
+          "name": "HealthMinistry",
+          "pk": "ministryCode",
+          "attributes": [
+            {
+              "name": "ministryCode",
+              "isPK": true
+            },
+            {
+              "name": "budgetProgramName",
+              "isPK": false
+            },
+            {
+              "name": "decreeNumber",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "stadiumId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Stadium(stadiumId)"
-        },
-        {
-          "name": "matchDate",
-          "type": "date"
+          "name": "PrivatePhilanthropist",
+          "pk": "donorPinfl",
+          "attributes": [
+            {
+              "name": "donorPinfl",
+              "isPK": true
+            },
+            {
+              "name": "donorFullName",
+              "isPK": false
+            },
+            {
+              "name": "endowmentSum",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "MatchFixture sport ligasi ternary jadvali chizildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**MatchFixture**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "HealthCoverageSponsor",
+          "superclasses": [
+            "EmployerCompany",
+            "HealthMinistry",
+            "PrivatePhilanthropist"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "EmployerCompany",
+          "pk": "employerTin",
+          "attributes": [
+            {
+              "name": "employerTin",
+              "isPK": true
+            },
+            {
+              "name": "companyName",
+              "isPK": false
+            },
+            {
+              "name": "insuredStaffCount",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "HealthMinistry",
+          "pk": "ministryCode",
+          "attributes": [
+            {
+              "name": "ministryCode",
+              "isPK": true
+            },
+            {
+              "name": "budgetProgramName",
+              "isPK": false
+            },
+            {
+              "name": "decreeNumber",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PrivatePhilanthropist",
+          "pk": "donorPinfl",
+          "attributes": [
+            {
+              "name": "donorPinfl",
+              "isPK": true
+            },
+            {
+              "name": "donorFullName",
+              "isPK": false
+            },
+            {
+              "name": "endowmentSum",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "HealthCoverageSponsor",
+          "superclasses": [
+            "EmployerCompany",
+            "HealthMinistry",
+            "PrivatePhilanthropist"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 131,
     "sector": 9,
-    "difficulty": "9-Qavat • Qiyin",
-    "source": "L02 Slide 42 • Step 7: 1..1 Pallet Placement",
-    "title": "1..1 Poddon Joylashuv Cheklovi Ternary (PalletPlacement)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**PalletPlacement**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table PalletPlacement { palletId int [pk, ref: > Pallet.palletId] whId int [ref: > Warehouse.whId] zoneId int [ref: > Zone.zoneId] placedDate timestamp }",
-      "PalletPlacement(palletId [PK, FK], whId [FK], zoneId [FK], placedDate)"
-    ],
-    "expectedSchema": {
-      "tableName": "PalletPlacement",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Mansur Shokirov",
+    "clientRole": "Depozitariy Boshqaruvchisi",
+    "clientAvatar": "mentor",
+    "title": "Aksiya Egasi: ShareholderEntity Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **MutualFund**, **SovereignWealthFund** va **RetailInvestor** entitiylari asosida ularning barchasini birlashtiruvchi **ShareholderEntity** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'ShareholderEntity' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "palletId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Pallet(palletId)"
+          "name": "MutualFund",
+          "pk": "fundRegNo",
+          "attributes": [
+            {
+              "name": "fundRegNo",
+              "isPK": true
+            },
+            {
+              "name": "fundName",
+              "isPK": false
+            },
+            {
+              "name": "netAssetValueUsd",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "whId",
-          "type": "integer",
-          "isPK": false,
-          "isFK": true,
-          "references": "Warehouse(whId)"
+          "name": "SovereignWealthFund",
+          "pk": "sovereignCode",
+          "attributes": [
+            {
+              "name": "sovereignCode",
+              "isPK": true
+            },
+            {
+              "name": "stateTreasuryTitle",
+              "isPK": false
+            },
+            {
+              "name": "trusteeCouncil",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "zoneId",
-          "type": "integer",
-          "isPK": false,
-          "isFK": true,
-          "references": "Zone(zoneId)"
-        },
-        {
-          "name": "placedDate",
-          "type": "timestamp"
+          "name": "RetailInvestor",
+          "pk": "investorPassportNo",
+          "attributes": [
+            {
+              "name": "investorPassportNo",
+              "isPK": true
+            },
+            {
+              "name": "investorFullName",
+              "isPK": false
+            },
+            {
+              "name": "brokerageAccNo",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Step 7 Oltin Qoidasi: Poddon faqat 1 ta joyda tura olganligi uchun uning o'zi yagona PK bo'ladi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**PalletPlacement**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "ShareholderEntity",
+          "superclasses": [
+            "MutualFund",
+            "SovereignWealthFund",
+            "RetailInvestor"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "MutualFund",
+          "pk": "fundRegNo",
+          "attributes": [
+            {
+              "name": "fundRegNo",
+              "isPK": true
+            },
+            {
+              "name": "fundName",
+              "isPK": false
+            },
+            {
+              "name": "netAssetValueUsd",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SovereignWealthFund",
+          "pk": "sovereignCode",
+          "attributes": [
+            {
+              "name": "sovereignCode",
+              "isPK": true
+            },
+            {
+              "name": "stateTreasuryTitle",
+              "isPK": false
+            },
+            {
+              "name": "trusteeCouncil",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "RetailInvestor",
+          "pk": "investorPassportNo",
+          "attributes": [
+            {
+              "name": "investorPassportNo",
+              "isPK": true
+            },
+            {
+              "name": "investorFullName",
+              "isPK": false
+            },
+            {
+              "name": "brokerageAccNo",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "ShareholderEntity",
+          "superclasses": [
+            "MutualFund",
+            "SovereignWealthFund",
+            "RetailInvestor"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 132,
     "sector": 9,
-    "difficulty": "9-Qavat • O'rta",
-    "source": "L02 Slide 42 • Exam Grading Ternary",
-    "title": "Imtihon Baholash Ternary Jadvali (ExamGrading)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**ExamGrading**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table ExamGrading { studentId int [ref: > Student.studentId] paperId int [ref: > ExamPaper.paperId] examinerId int [ref: > Examiner.examinerId] score decimal indexes { (studentId, paperId, examinerId) [pk] } }",
-      "ExamGrading(studentId [PK, FK], paperId [PK, FK], examinerId [PK, FK], score)"
-    ],
-    "expectedSchema": {
-      "tableName": "ExamGrading",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Polkovnik Ravshan Normatov",
+    "clientRole": "Aerodrom Texnik Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Uchish Yo'lagi Foydalanuvchisi: RunwayOperator Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **CommercialAirline**, **AirForceSquadron** va **PrivateAirCharter** entitiylari asosida ularning barchasini birlashtiruvchi **RunwayOperator** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'RunwayOperator' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "studentId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Student(studentId)"
+          "name": "CommercialAirline",
+          "pk": "airlineIata",
+          "attributes": [
+            {
+              "name": "airlineIata",
+              "isPK": true
+            },
+            {
+              "name": "airlineName",
+              "isPK": false
+            },
+            {
+              "name": "slotPermitNo",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "paperId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "ExamPaper(paperId)"
+          "name": "AirForceSquadron",
+          "pk": "militaryUnitCode",
+          "attributes": [
+            {
+              "name": "militaryUnitCode",
+              "isPK": true
+            },
+            {
+              "name": "squadronRank",
+              "isPK": false
+            },
+            {
+              "name": "defenseZoneId",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "examinerId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Examiner(examinerId)"
-        },
-        {
-          "name": "score",
-          "type": "decimal"
+          "name": "PrivateAirCharter",
+          "pk": "charterFlightCert",
+          "attributes": [
+            {
+              "name": "charterFlightCert",
+              "isPK": true
+            },
+            {
+              "name": "operatorName",
+              "isPK": false
+            },
+            {
+              "name": "hangarCode",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "ExamGrading ternary munosabat jadvali tuzildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**ExamGrading**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "RunwayOperator",
+          "superclasses": [
+            "CommercialAirline",
+            "AirForceSquadron",
+            "PrivateAirCharter"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "CommercialAirline",
+          "pk": "airlineIata",
+          "attributes": [
+            {
+              "name": "airlineIata",
+              "isPK": true
+            },
+            {
+              "name": "airlineName",
+              "isPK": false
+            },
+            {
+              "name": "slotPermitNo",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "AirForceSquadron",
+          "pk": "militaryUnitCode",
+          "attributes": [
+            {
+              "name": "militaryUnitCode",
+              "isPK": true
+            },
+            {
+              "name": "squadronRank",
+              "isPK": false
+            },
+            {
+              "name": "defenseZoneId",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PrivateAirCharter",
+          "pk": "charterFlightCert",
+          "attributes": [
+            {
+              "name": "charterFlightCert",
+              "isPK": true
+            },
+            {
+              "name": "operatorName",
+              "isPK": false
+            },
+            {
+              "name": "hangarCode",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "RunwayOperator",
+          "superclasses": [
+            "CommercialAirline",
+            "AirForceSquadron",
+            "PrivateAirCharter"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 133,
     "sector": 9,
-    "difficulty": "9-Qavat • O'rta",
-    "source": "L02 Slide 42 • Contractor Task Ternary with Attributes",
-    "title": "Pudratchi Vazifa Tayinlash Ternary (TaskContract)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**TaskContract**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table TaskContract { clientId int [ref: > Client.clientId] contractorId int [ref: > Contractor.contractorId] taskId int [ref: > ProjectTask.taskId] hourlyRate decimal plannedHours int indexes { (clientId, contractorId, taskId) [pk] } }",
-      "TaskContract(clientId [PK, FK], contractorId [PK, FK], taskId [PK, FK], hourlyRate, plannedHours)"
-    ],
-    "expectedSchema": {
-      "tableName": "TaskContract",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Shohruh Mirzayev",
+    "clientRole": "Billing Arxitektori",
+    "clientAvatar": "mentor",
+    "title": "Aloqa Abanenti: TelecomSubscriber Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **IndividualSubscriber**, **CorporateSubscriber** va **IotDeviceGateway** entitiylari asosida ularning barchasini birlashtiruvchi **TelecomSubscriber** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'TelecomSubscriber' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "clientId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Client(clientId)"
+          "name": "IndividualSubscriber",
+          "pk": "personalId",
+          "attributes": [
+            {
+              "name": "personalId",
+              "isPK": true
+            },
+            {
+              "name": "subscriberName",
+              "isPK": false
+            },
+            {
+              "name": "passportSeries",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "contractorId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Contractor(contractorId)"
+          "name": "CorporateSubscriber",
+          "pk": "companyInn",
+          "attributes": [
+            {
+              "name": "companyInn",
+              "isPK": true
+            },
+            {
+              "name": "corpClientName",
+              "isPK": false
+            },
+            {
+              "name": "allocatedSimCount",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "taskId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "ProjectTask(taskId)"
-        },
-        {
-          "name": "hourlyRate",
-          "type": "decimal"
-        },
-        {
-          "name": "plannedHours",
-          "type": "integer"
+          "name": "IotDeviceGateway",
+          "pk": "macAddressDevice",
+          "attributes": [
+            {
+              "name": "macAddressDevice",
+              "isPK": true
+            },
+            {
+              "name": "deviceHardwareType",
+              "isPK": false
+            },
+            {
+              "name": "firmwareVer",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "TaskContract ternary jadvali barcha atributlari bilan chizildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**TaskContract**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "TelecomSubscriber",
+          "superclasses": [
+            "IndividualSubscriber",
+            "CorporateSubscriber",
+            "IotDeviceGateway"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "IndividualSubscriber",
+          "pk": "personalId",
+          "attributes": [
+            {
+              "name": "personalId",
+              "isPK": true
+            },
+            {
+              "name": "subscriberName",
+              "isPK": false
+            },
+            {
+              "name": "passportSeries",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CorporateSubscriber",
+          "pk": "companyInn",
+          "attributes": [
+            {
+              "name": "companyInn",
+              "isPK": true
+            },
+            {
+              "name": "corpClientName",
+              "isPK": false
+            },
+            {
+              "name": "allocatedSimCount",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "IotDeviceGateway",
+          "pk": "macAddressDevice",
+          "attributes": [
+            {
+              "name": "macAddressDevice",
+              "isPK": true
+            },
+            {
+              "name": "deviceHardwareType",
+              "isPK": false
+            },
+            {
+              "name": "firmwareVer",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "TelecomSubscriber",
+          "superclasses": [
+            "IndividualSubscriber",
+            "CorporateSubscriber",
+            "IotDeviceGateway"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 134,
     "sector": 9,
-    "difficulty": "9-Qavat • Qiyin",
-    "source": "L02 Slide 42 • Step 7: Equipment Deployment 1..1",
-    "title": "1..1 Uskuna Joylashuv Cheklovi Ternary (EquipmentDeploy)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**EquipmentDeploy**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table EquipmentDeploy { equipId int [pk, ref: > Equipment.equipId] siteId int [ref: > Site.siteId] engId int [ref: > Engineer.engId] deployDate date }",
-      "EquipmentDeploy(equipId [PK, FK], siteId [FK], engId [FK], deployDate)"
-    ],
-    "expectedSchema": {
-      "tableName": "EquipmentDeploy",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Prof. Temur Vohidov",
+    "clientRole": "Grant Komissiyasi Raisi",
+    "clientAvatar": "mentor",
+    "title": "Ilmiy Grant Moliyalashtiruvchi: GrantFunder Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **StateScienceAgency**, **TechConsortium** va **GlobalFoundation** entitiylari asosida ularning barchasini birlashtiruvchi **GrantFunder** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'GrantFunder' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "equipId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Equipment(equipId)"
+          "name": "StateScienceAgency",
+          "pk": "govAgencyId",
+          "attributes": [
+            {
+              "name": "govAgencyId",
+              "isPK": true
+            },
+            {
+              "name": "budgetSourceTitle",
+              "isPK": false
+            },
+            {
+              "name": "curatorOfficer",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "siteId",
-          "type": "integer",
-          "isPK": false,
-          "isFK": true,
-          "references": "Site(siteId)"
+          "name": "TechConsortium",
+          "pk": "consortiumInn",
+          "attributes": [
+            {
+              "name": "consortiumInn",
+              "isPK": true
+            },
+            {
+              "name": "industrialAllianceTitle",
+              "isPK": false
+            },
+            {
+              "name": "leadPartner",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "engId",
-          "type": "integer",
-          "isPK": false,
-          "isFK": true,
-          "references": "Engineer(engId)"
-        },
-        {
-          "name": "deployDate",
-          "type": "date"
+          "name": "GlobalFoundation",
+          "pk": "foundationRegNo",
+          "attributes": [
+            {
+              "name": "foundationRegNo",
+              "isPK": true
+            },
+            {
+              "name": "foundationTitle",
+              "isPK": false
+            },
+            {
+              "name": "genevaAccordNo",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "Step 7 oltin qoidasi muvaffaqiyatli qo'llandi: equipId yagona PK bo'ldi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**EquipmentDeploy**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "GrantFunder",
+          "superclasses": [
+            "StateScienceAgency",
+            "TechConsortium",
+            "GlobalFoundation"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "StateScienceAgency",
+          "pk": "govAgencyId",
+          "attributes": [
+            {
+              "name": "govAgencyId",
+              "isPK": true
+            },
+            {
+              "name": "budgetSourceTitle",
+              "isPK": false
+            },
+            {
+              "name": "curatorOfficer",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "TechConsortium",
+          "pk": "consortiumInn",
+          "attributes": [
+            {
+              "name": "consortiumInn",
+              "isPK": true
+            },
+            {
+              "name": "industrialAllianceTitle",
+              "isPK": false
+            },
+            {
+              "name": "leadPartner",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "GlobalFoundation",
+          "pk": "foundationRegNo",
+          "attributes": [
+            {
+              "name": "foundationRegNo",
+              "isPK": true
+            },
+            {
+              "name": "foundationTitle",
+              "isPK": false
+            },
+            {
+              "name": "genevaAccordNo",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "GrantFunder",
+          "superclasses": [
+            "StateScienceAgency",
+            "TechConsortium",
+            "GlobalFoundation"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 135,
     "sector": 9,
-    "difficulty": "9-Qavat • Qiyin (9-Qavat Bossi)",
-    "source": "L02 Slide 42 & T02 • Master Step 7 Course Offering Boss",
-    "title": "9-Qavat Bossi: Semestrda Dars O'tish Taklifi (CourseOffering)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**CourseOffering**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table CourseOffering { courseCode varchar [ref: > Course.courseCode] semCode varchar [ref: > Semester.semCode] instId int [ref: > Instructor.instId] roomNo varchar capacity int indexes { (courseCode, semCode) [pk] } }",
-      "CourseOffering(courseCode [PK, FK], semCode [PK, FK], instId [FK], roomNo, capacity)"
-    ],
-    "expectedSchema": {
-      "tableName": "CourseOffering",
-      "columns": [
+    "difficulty": "9-Qavat • EER Kengaytirish",
+    "clientName": "Aziz Sobirov",
+    "clientRole": "Tender Bosh Inspektor",
+    "clientAvatar": "mentor",
+    "title": "Davlat Tenderi Ishtirokchisi: TenderBidder Kategoriyasi (EER Bosqichi)",
+    "story": "1-haftadagi **EngineeringConsortium**, **ConstructionCorp** va **MunicipalUtility** entitiylari asosida ularning barchasini birlashtiruvchi **TenderBidder** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
+    "instruction": "'TenderBidder' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "courseCode",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Course(courseCode)"
+          "name": "EngineeringConsortium",
+          "pk": "consortiumCode",
+          "attributes": [
+            {
+              "name": "consortiumCode",
+              "isPK": true
+            },
+            {
+              "name": "consortiumTitle",
+              "isPK": false
+            },
+            {
+              "name": "guaranteeBankInn",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "semCode",
-          "type": "varchar(10)",
-          "isPK": true,
-          "isFK": true,
-          "references": "Semester(semCode)"
+          "name": "ConstructionCorp",
+          "pk": "builderInn",
+          "attributes": [
+            {
+              "name": "builderInn",
+              "isPK": true
+            },
+            {
+              "name": "sroLicenseNumber",
+              "isPK": false
+            },
+            {
+              "name": "machineryAssetCount",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "instId",
-          "type": "integer",
-          "isPK": false,
-          "isFK": true,
-          "references": "Instructor(instId)"
-        },
-        {
-          "name": "roomNo",
-          "type": "varchar(20)"
-        },
-        {
-          "name": "capacity",
-          "type": "integer"
+          "name": "MunicipalUtility",
+          "pk": "utilityBranchNo",
+          "attributes": [
+            {
+              "name": "utilityBranchNo",
+              "isPK": true
+            },
+            {
+              "name": "districtName",
+              "isPK": false
+            },
+            {
+              "name": "cityHokimiyatDecree",
+              "isPK": false
+            }
+          ]
         }
-      ]
-    },
-    "explanation": "9-Qavat Bossi: Step 7 oltin qoidasi mukammal bajarildi: instId PK dan chiqarilib, faqat (courseCode, semCode) kompozit PK bo'ldi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**CourseOffering**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
-      ]
+      "categories": [
+        {
+          "name": "TenderBidder",
+          "superclasses": [
+            "EngineeringConsortium",
+            "ConstructionCorp",
+            "MunicipalUtility"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "EngineeringConsortium",
+          "pk": "consortiumCode",
+          "attributes": [
+            {
+              "name": "consortiumCode",
+              "isPK": true
+            },
+            {
+              "name": "consortiumTitle",
+              "isPK": false
+            },
+            {
+              "name": "guaranteeBankInn",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ConstructionCorp",
+          "pk": "builderInn",
+          "attributes": [
+            {
+              "name": "builderInn",
+              "isPK": true
+            },
+            {
+              "name": "sroLicenseNumber",
+              "isPK": false
+            },
+            {
+              "name": "machineryAssetCount",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MunicipalUtility",
+          "pk": "utilityBranchNo",
+          "attributes": [
+            {
+              "name": "utilityBranchNo",
+              "isPK": true
+            },
+            {
+              "name": "districtName",
+              "isPK": false
+            },
+            {
+              "name": "cityHokimiyatDecree",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "name": "TenderBidder",
+          "superclasses": [
+            "EngineeringConsortium",
+            "ConstructionCorp",
+            "MunicipalUtility"
+          ],
+          "isUnion": true
+        }
+      ],
+      "relationships": []
     }
   },
   {
     "id": 136,
     "sector": 10,
-    "difficulty": "10-Qavat • Boshlang'ich",
-    "source": "L02 Slide 43 • Step 8 Option 8A (Superclass + Subclasses)",
-    "title": "Option 8A: Rahbar Subklassi (Manager Subclass)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Employee { empNo int [pk] name varchar jobType varchar } Table Manager { empNo int [pk, ref: > Employee.empNo] bonus decimal }",
-      "Employee(empNo [PK], name, jobType)\nManager(empNo [PK, FK], bonus)"
-    ],
-    "expectedSchema": {
-      "tables": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Behzod Vohidov",
+    "clientRole": "Bosh Aeroport Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Xalqaro Aeroport Kompleks Axborot Tizimi (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **Airport**, **Terminal**, **FlightSchedule** va **PassengerBooking** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "tableName": "Employee",
-          "columns": [
+          "name": "Airport",
+          "pk": "iataCode",
+          "attributes": [
             {
-              "name": "empNo",
-              "type": "integer",
+              "name": "iataCode",
               "isPK": true
             },
             {
-              "name": "name",
-              "type": "varchar(60)"
+              "name": "airportName",
+              "isPK": false
             },
             {
-              "name": "jobType",
-              "type": "varchar(20)"
+              "name": "cityLocation",
+              "isPK": false
+            },
+            {
+              "name": "countryCode",
+              "isPK": false
             }
           ]
         },
         {
-          "tableName": "Manager",
-          "columns": [
+          "name": "Terminal",
+          "pk": "terminalId",
+          "attributes": [
             {
-              "name": "empNo",
-              "type": "integer",
-              "isPK": true,
-              "isFK": true,
-              "references": "Employee(empNo)"
+              "name": "terminalId",
+              "isPK": true
             },
             {
-              "name": "bonus",
-              "type": "decimal"
+              "name": "gateCount",
+              "isPK": false
+            },
+            {
+              "name": "passengerCapacityAnnual",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "FlightSchedule",
+          "pk": "flightNo",
+          "attributes": [
+            {
+              "name": "flightNo",
+              "isPK": true
+            },
+            {
+              "name": "departureTime",
+              "isPK": false
+            },
+            {
+              "name": "aircraftTailNo",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PassengerBooking",
+          "pk": "bookingRef",
+          "attributes": [
+            {
+              "name": "bookingRef",
+              "isPK": true
+            },
+            {
+              "name": "passengerName",
+              "isPK": false
+            },
+            {
+              "name": "seatNumber",
+              "isPK": false
+            },
+            {
+              "name": "ticketPrice",
+              "isPK": false
             }
           ]
         }
+      ],
+      "relationships": [
+        {
+          "entity1": "Airport",
+          "entity2": "Terminal",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "Terminal",
+          "entity2": "FlightSchedule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "FlightSchedule",
+          "entity2": "PassengerBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     },
-    "explanation": "Option 8A: Superklass va subklass alohida jadvallar bo'lib, ota PK subklassda [PK, FK] bo'lib xizmat qiladi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Airport",
+          "pk": "iataCode",
+          "attributes": [
+            {
+              "name": "iataCode",
+              "isPK": true
+            },
+            {
+              "name": "airportName",
+              "isPK": false
+            },
+            {
+              "name": "cityLocation",
+              "isPK": false
+            },
+            {
+              "name": "countryCode",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Terminal",
+          "pk": "terminalId",
+          "attributes": [
+            {
+              "name": "terminalId",
+              "isPK": true
+            },
+            {
+              "name": "gateCount",
+              "isPK": false
+            },
+            {
+              "name": "passengerCapacityAnnual",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "FlightSchedule",
+          "pk": "flightNo",
+          "attributes": [
+            {
+              "name": "flightNo",
+              "isPK": true
+            },
+            {
+              "name": "departureTime",
+              "isPK": false
+            },
+            {
+              "name": "aircraftTailNo",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PassengerBooking",
+          "pk": "bookingRef",
+          "attributes": [
+            {
+              "name": "bookingRef",
+              "isPK": true
+            },
+            {
+              "name": "passengerName",
+              "isPK": false
+            },
+            {
+              "name": "seatNumber",
+              "isPK": false
+            },
+            {
+              "name": "ticketPrice",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "Airport",
+          "entity2": "Terminal",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "Terminal",
+          "entity2": "FlightSchedule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "FlightSchedule",
+          "entity2": "PassengerBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 137,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "L02 Slide 43 • Option 8A SalesPerson Subclass",
-    "title": "Option 8A: Sotuvchi Subklassi (SalesPerson)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**SalesPerson**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table SalesPerson { empNo int [pk, ref: > Employee.empNo] commissionRate decimal salesTarget decimal }",
-      "SalesPerson(empNo [PK, FK], commissionRate, salesTarget)"
-    ],
-    "expectedSchema": {
-      "tableName": "SalesPerson",
-      "columns": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Javohir Qodirov",
+    "clientRole": "Bosh Bank Arxitektori",
+    "clientAvatar": "mentor",
+    "title": "Milliy Banklararo Hisob-Kitob va Kliring Arxitekturasi (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **CentralBank**, **CommercialBank**, **SettlementAccount** va **ClearingTransaction** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "empNo",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Employee(empNo)"
+          "name": "CentralBank",
+          "pk": "centralBankCode",
+          "attributes": [
+            {
+              "name": "centralBankCode",
+              "isPK": true
+            },
+            {
+              "name": "officialTitle",
+              "isPK": false
+            },
+            {
+              "name": "reserveGoldTons",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "commissionRate",
-          "type": "decimal"
+          "name": "CommercialBank",
+          "pk": "bikNumber",
+          "attributes": [
+            {
+              "name": "bikNumber",
+              "isPK": true
+            },
+            {
+              "name": "bankName",
+              "isPK": false
+            },
+            {
+              "name": "charterCapitalBillion",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "salesTarget",
-          "type": "decimal"
+          "name": "SettlementAccount",
+          "pk": "correspondentAccNo",
+          "attributes": [
+            {
+              "name": "correspondentAccNo",
+              "isPK": true
+            },
+            {
+              "name": "currencyCode",
+              "isPK": false
+            },
+            {
+              "name": "clearedBalance",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ClearingTransaction",
+          "pk": "txRefCode",
+          "attributes": [
+            {
+              "name": "txRefCode",
+              "isPK": true
+            },
+            {
+              "name": "transferSum",
+              "isPK": false
+            },
+            {
+              "name": "txTimestamp",
+              "isPK": false
+            },
+            {
+              "name": "swiftMessage",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "CentralBank",
+          "entity2": "CommercialBank",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "CommercialBank",
+          "entity2": "SettlementAccount",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "SettlementAccount",
+          "entity2": "ClearingTransaction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
         }
       ]
     },
-    "explanation": "SalesPerson subklassi Option 8A me'morchiligi asosida loyihalandi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**SalesPerson**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "CentralBank",
+          "pk": "centralBankCode",
+          "attributes": [
+            {
+              "name": "centralBankCode",
+              "isPK": true
+            },
+            {
+              "name": "officialTitle",
+              "isPK": false
+            },
+            {
+              "name": "reserveGoldTons",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CommercialBank",
+          "pk": "bikNumber",
+          "attributes": [
+            {
+              "name": "bikNumber",
+              "isPK": true
+            },
+            {
+              "name": "bankName",
+              "isPK": false
+            },
+            {
+              "name": "charterCapitalBillion",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SettlementAccount",
+          "pk": "correspondentAccNo",
+          "attributes": [
+            {
+              "name": "correspondentAccNo",
+              "isPK": true
+            },
+            {
+              "name": "currencyCode",
+              "isPK": false
+            },
+            {
+              "name": "clearedBalance",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ClearingTransaction",
+          "pk": "txRefCode",
+          "attributes": [
+            {
+              "name": "txRefCode",
+              "isPK": true
+            },
+            {
+              "name": "transferSum",
+              "isPK": false
+            },
+            {
+              "name": "txTimestamp",
+              "isPK": false
+            },
+            {
+              "name": "swiftMessage",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "CentralBank",
+          "entity2": "CommercialBank",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "CommercialBank",
+          "entity2": "SettlementAccount",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "SettlementAccount",
+          "entity2": "ClearingTransaction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 138,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "L02 Slide 43 • Option 8A Engineer Subclass",
-    "title": "Option 8A: Muhandis Subklassi (Engineer)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Engineer**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Engineer { empNo int [pk, ref: > Employee.empNo] specialty varchar licenseNo varchar }",
-      "Engineer(empNo [PK, FK], specialty, licenseNo)"
-    ],
-    "expectedSchema": {
-      "tableName": "Engineer",
-      "columns": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Prof. Dilshod Umarov",
+    "clientRole": "Klinika Texnik Boshqaruvchisi",
+    "clientAvatar": "mentor",
+    "title": "Respublika Onkologiya Markazi Davolash Tizimi (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **Hospital**, **SpecializedWard**, **SpecializedDoctor** va **PatientCourse** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "empNo",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Employee(empNo)"
+          "name": "Hospital",
+          "pk": "hospitalId",
+          "attributes": [
+            {
+              "name": "hospitalId",
+              "isPK": true
+            },
+            {
+              "name": "hospitalName",
+              "isPK": false
+            },
+            {
+              "name": "cityAddress",
+              "isPK": false
+            },
+            {
+              "name": "bedCapacityTotal",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "specialty",
-          "type": "varchar(50)"
+          "name": "SpecializedWard",
+          "pk": "wardCode",
+          "attributes": [
+            {
+              "name": "wardCode",
+              "isPK": true
+            },
+            {
+              "name": "wardName",
+              "isPK": false
+            },
+            {
+              "name": "radiationShieldingGrade",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "licenseNo",
-          "type": "varchar(30)"
+          "name": "SpecializedDoctor",
+          "pk": "licenseId",
+          "attributes": [
+            {
+              "name": "licenseId",
+              "isPK": true
+            },
+            {
+              "name": "doctorFullName",
+              "isPK": false
+            },
+            {
+              "name": "oncologyBoardCert",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PatientCourse",
+          "pk": "courseId",
+          "attributes": [
+            {
+              "name": "courseId",
+              "isPK": true
+            },
+            {
+              "name": "diagnosisProtocol",
+              "isPK": false
+            },
+            {
+              "name": "chemoCycleNumber",
+              "isPK": false
+            },
+            {
+              "name": "startDate",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Hospital",
+          "entity2": "SpecializedWard",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "SpecializedWard",
+          "entity2": "SpecializedDoctor",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "SpecializedDoctor",
+          "entity2": "PatientCourse",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
         }
       ]
     },
-    "explanation": "Engineer subklass relatsiyasi tuzildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Engineer**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Hospital",
+          "pk": "hospitalId",
+          "attributes": [
+            {
+              "name": "hospitalId",
+              "isPK": true
+            },
+            {
+              "name": "hospitalName",
+              "isPK": false
+            },
+            {
+              "name": "cityAddress",
+              "isPK": false
+            },
+            {
+              "name": "bedCapacityTotal",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SpecializedWard",
+          "pk": "wardCode",
+          "attributes": [
+            {
+              "name": "wardCode",
+              "isPK": true
+            },
+            {
+              "name": "wardName",
+              "isPK": false
+            },
+            {
+              "name": "radiationShieldingGrade",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SpecializedDoctor",
+          "pk": "licenseId",
+          "attributes": [
+            {
+              "name": "licenseId",
+              "isPK": true
+            },
+            {
+              "name": "doctorFullName",
+              "isPK": false
+            },
+            {
+              "name": "oncologyBoardCert",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PatientCourse",
+          "pk": "courseId",
+          "attributes": [
+            {
+              "name": "courseId",
+              "isPK": true
+            },
+            {
+              "name": "diagnosisProtocol",
+              "isPK": false
+            },
+            {
+              "name": "chemoCycleNumber",
+              "isPK": false
+            },
+            {
+              "name": "startDate",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "Hospital",
+          "entity2": "SpecializedWard",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "SpecializedWard",
+          "entity2": "SpecializedDoctor",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "SpecializedDoctor",
+          "entity2": "PatientCourse",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 139,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "L02 Slide 43 • Option 8A Secretary Subclass",
-    "title": "Option 8A: Kotiba Subklassi (Secretary)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Secretary**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Secretary { empNo int [pk, ref: > Employee.empNo] typingSpeed int }",
-      "Secretary(empNo [PK, FK], typingSpeed)"
-    ],
-    "expectedSchema": {
-      "tableName": "Secretary",
-      "columns": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Kapitan Anvar Mahmudov",
+    "clientRole": "Logistika Porti Boshqaruvchisi",
+    "clientAvatar": "mentor",
+    "title": "Trans-Okean Dengiz Porti va Konteyner Terminali (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **MegaWarehouse**, **ContainerVessel**, **CustomsDeclaration** va **FreightForwarder** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "empNo",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Employee(empNo)"
+          "name": "MegaWarehouse",
+          "pk": "hubCode",
+          "attributes": [
+            {
+              "name": "hubCode",
+              "isPK": true
+            },
+            {
+              "name": "portName",
+              "isPK": false
+            },
+            {
+              "name": "dockBerthCount",
+              "isPK": false
+            },
+            {
+              "name": "customsZoneCode",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "typingSpeed",
-          "type": "integer"
+          "name": "ContainerVessel",
+          "pk": "imoNumber",
+          "attributes": [
+            {
+              "name": "imoNumber",
+              "isPK": true
+            },
+            {
+              "name": "vesselName",
+              "isPK": false
+            },
+            {
+              "name": "teuCapacity",
+              "isPK": false
+            },
+            {
+              "name": "flagState",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CustomsDeclaration",
+          "pk": "gtdNumber",
+          "attributes": [
+            {
+              "name": "gtdNumber",
+              "isPK": true
+            },
+            {
+              "name": "customsDutySum",
+              "isPK": false
+            },
+            {
+              "name": "inspectionPassed",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "FreightForwarder",
+          "pk": "forwarderInn",
+          "attributes": [
+            {
+              "name": "forwarderInn",
+              "isPK": true
+            },
+            {
+              "name": "forwarderTitle",
+              "isPK": false
+            },
+            {
+              "name": "fiataLicenseNo",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "MegaWarehouse",
+          "entity2": "ContainerVessel",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "ContainerVessel",
+          "entity2": "CustomsDeclaration",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "CustomsDeclaration",
+          "entity2": "FreightForwarder",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
         }
       ]
     },
-    "explanation": "Secretary subklass jadvali yaratildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Secretary**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "MegaWarehouse",
+          "pk": "hubCode",
+          "attributes": [
+            {
+              "name": "hubCode",
+              "isPK": true
+            },
+            {
+              "name": "portName",
+              "isPK": false
+            },
+            {
+              "name": "dockBerthCount",
+              "isPK": false
+            },
+            {
+              "name": "customsZoneCode",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ContainerVessel",
+          "pk": "imoNumber",
+          "attributes": [
+            {
+              "name": "imoNumber",
+              "isPK": true
+            },
+            {
+              "name": "vesselName",
+              "isPK": false
+            },
+            {
+              "name": "teuCapacity",
+              "isPK": false
+            },
+            {
+              "name": "flagState",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CustomsDeclaration",
+          "pk": "gtdNumber",
+          "attributes": [
+            {
+              "name": "gtdNumber",
+              "isPK": true
+            },
+            {
+              "name": "customsDutySum",
+              "isPK": false
+            },
+            {
+              "name": "inspectionPassed",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "FreightForwarder",
+          "pk": "forwarderInn",
+          "attributes": [
+            {
+              "name": "forwarderInn",
+              "isPK": true
+            },
+            {
+              "name": "forwarderTitle",
+              "isPK": false
+            },
+            {
+              "name": "fiataLicenseNo",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "MegaWarehouse",
+          "entity2": "ContainerVessel",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "ContainerVessel",
+          "entity2": "CustomsDeclaration",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "CustomsDeclaration",
+          "entity2": "FreightForwarder",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 140,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "L02 Slide 44 • Option 8B (Subclasses Only)",
-    "title": "Option 8B: Faqat Subklasslar (Hourly & Salaried Employee)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table HourlyEmp { empNo int [pk] name varchar hourlyRate decimal } Table SalariedEmp { empNo int [pk] name varchar annualSalary decimal }",
-      "HourlyEmp(empNo [PK], name, hourlyRate)\nSalariedEmp(empNo [PK], name, annualSalary)"
-    ],
-    "expectedSchema": {
-      "tables": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Prof. Sherzod Salimov",
+    "clientRole": "IT Prorektor",
+    "clientAvatar": "mentor",
+    "title": "Xalqaro Universitet Kampusi Yagona Modeli (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **UniversityFaculty**, **AcademicDepartment**, **StaffMember** va **StudentClass** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "tableName": "HourlyEmp",
-          "columns": [
+          "name": "UniversityFaculty",
+          "pk": "facultyCode",
+          "attributes": [
             {
-              "name": "empNo",
-              "type": "integer",
+              "name": "facultyCode",
               "isPK": true
             },
             {
-              "name": "name",
-              "type": "varchar(60)"
+              "name": "facultyName",
+              "isPK": false
             },
             {
-              "name": "hourlyRate",
-              "type": "decimal"
+              "name": "buildingNumber",
+              "isPK": false
             }
           ]
         },
         {
-          "tableName": "SalariedEmp",
-          "columns": [
+          "name": "AcademicDepartment",
+          "pk": "deptId",
+          "attributes": [
             {
-              "name": "empNo",
-              "type": "integer",
+              "name": "deptId",
               "isPK": true
             },
             {
-              "name": "name",
-              "type": "varchar(60)"
+              "name": "deptTitle",
+              "isPK": false
             },
             {
-              "name": "annualSalary",
-              "type": "decimal"
+              "name": "researchFocusArea",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "StaffMember",
+          "pk": "staffNo",
+          "attributes": [
+            {
+              "name": "staffNo",
+              "isPK": true
+            },
+            {
+              "name": "staffFullName",
+              "isPK": false
+            },
+            {
+              "name": "academicRankGrade",
+              "isPK": false
+            },
+            {
+              "name": "salary",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "StudentClass",
+          "pk": "classCode",
+          "attributes": [
+            {
+              "name": "classCode",
+              "isPK": true
+            },
+            {
+              "name": "studySemester",
+              "isPK": false
+            },
+            {
+              "name": "roomHallCode",
+              "isPK": false
+            },
+            {
+              "name": "maxEnrolled",
+              "isPK": false
             }
           ]
         }
+      ],
+      "relationships": [
+        {
+          "entity1": "UniversityFaculty",
+          "entity2": "AcademicDepartment",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "AcademicDepartment",
+          "entity2": "StaffMember",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "StaffMember",
+          "entity2": "StudentClass",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     },
-    "explanation": "Option 8B: Umumiy ota jadvalsiz, to'liq ajratilgan subklasslar relying arxitekturasi qurildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "UniversityFaculty",
+          "pk": "facultyCode",
+          "attributes": [
+            {
+              "name": "facultyCode",
+              "isPK": true
+            },
+            {
+              "name": "facultyName",
+              "isPK": false
+            },
+            {
+              "name": "buildingNumber",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "AcademicDepartment",
+          "pk": "deptId",
+          "attributes": [
+            {
+              "name": "deptId",
+              "isPK": true
+            },
+            {
+              "name": "deptTitle",
+              "isPK": false
+            },
+            {
+              "name": "researchFocusArea",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "StaffMember",
+          "pk": "staffNo",
+          "attributes": [
+            {
+              "name": "staffNo",
+              "isPK": true
+            },
+            {
+              "name": "staffFullName",
+              "isPK": false
+            },
+            {
+              "name": "academicRankGrade",
+              "isPK": false
+            },
+            {
+              "name": "salary",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "StudentClass",
+          "pk": "classCode",
+          "attributes": [
+            {
+              "name": "classCode",
+              "isPK": true
+            },
+            {
+              "name": "studySemester",
+              "isPK": false
+            },
+            {
+              "name": "roomHallCode",
+              "isPK": false
+            },
+            {
+              "name": "maxEnrolled",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "UniversityFaculty",
+          "entity2": "AcademicDepartment",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "AcademicDepartment",
+          "entity2": "StaffMember",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "StaffMember",
+          "entity2": "StudentClass",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 141,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "L02 Slide 44 • Option 8B Vehicle Specialization",
-    "title": "Option 8B: Avtomobil va Yuk Mashinasi Subklasslari",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Car { vin varchar [pk] make varchar model varchar trunkLitres int } Table Truck { vin varchar [pk] make varchar model varchar cargoTonnage decimal }",
-      "Car(vin [PK], make, model, trunkLitres)\nTruck(vin [PK], make, model, cargoTonnage)"
-    ],
-    "expectedSchema": {
-      "tables": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Akmal Qosimov",
+    "clientRole": "Bosh Energetik Dispetcher",
+    "clientAvatar": "mentor",
+    "title": "Yagona Milliy Energotizim Dispetcherlik Arxitekturasi (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **PowerPlant**, **ElectricSubstation**, **TransmissionLine** va **LoadZone** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "tableName": "Car",
-          "columns": [
+          "name": "PowerPlant",
+          "pk": "plantCode",
+          "attributes": [
             {
-              "name": "vin",
-              "type": "varchar(20)",
+              "name": "plantCode",
               "isPK": true
             },
             {
-              "name": "make",
-              "type": "varchar(40)"
+              "name": "plantName",
+              "isPK": false
             },
             {
-              "name": "model",
-              "type": "varchar(40)"
+              "name": "fuelType",
+              "isPK": false
             },
             {
-              "name": "trunkLitres",
-              "type": "integer"
+              "name": "installedMegaWatts",
+              "isPK": false
             }
           ]
         },
         {
-          "tableName": "Truck",
-          "columns": [
+          "name": "ElectricSubstation",
+          "pk": "substationId",
+          "attributes": [
             {
-              "name": "vin",
-              "type": "varchar(20)",
+              "name": "substationId",
               "isPK": true
             },
             {
-              "name": "make",
-              "type": "varchar(40)"
+              "name": "substationName",
+              "isPK": false
             },
             {
-              "name": "model",
-              "type": "varchar(40)"
+              "name": "stepDownVoltageKv",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "TransmissionLine",
+          "pk": "lineCode",
+          "attributes": [
+            {
+              "name": "lineCode",
+              "isPK": true
             },
             {
-              "name": "cargoTonnage",
-              "type": "decimal"
+              "name": "distanceKilometers",
+              "isPK": false
+            },
+            {
+              "name": "maxAmpereThroughput",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "LoadZone",
+          "pk": "zoneId",
+          "attributes": [
+            {
+              "name": "zoneId",
+              "isPK": true
+            },
+            {
+              "name": "zoneCityRegion",
+              "isPK": false
+            },
+            {
+              "name": "peakDemandMegaWatts",
+              "isPK": false
             }
           ]
         }
+      ],
+      "relationships": [
+        {
+          "entity1": "PowerPlant",
+          "entity2": "ElectricSubstation",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "ElectricSubstation",
+          "entity2": "TransmissionLine",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "TransmissionLine",
+          "entity2": "LoadZone",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     },
-    "explanation": "Option 8B transport vositalari modeli muvaffaqiyatli tuzildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "PowerPlant",
+          "pk": "plantCode",
+          "attributes": [
+            {
+              "name": "plantCode",
+              "isPK": true
+            },
+            {
+              "name": "plantName",
+              "isPK": false
+            },
+            {
+              "name": "fuelType",
+              "isPK": false
+            },
+            {
+              "name": "installedMegaWatts",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ElectricSubstation",
+          "pk": "substationId",
+          "attributes": [
+            {
+              "name": "substationId",
+              "isPK": true
+            },
+            {
+              "name": "substationName",
+              "isPK": false
+            },
+            {
+              "name": "stepDownVoltageKv",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "TransmissionLine",
+          "pk": "lineCode",
+          "attributes": [
+            {
+              "name": "lineCode",
+              "isPK": true
+            },
+            {
+              "name": "distanceKilometers",
+              "isPK": false
+            },
+            {
+              "name": "maxAmpereThroughput",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "LoadZone",
+          "pk": "zoneId",
+          "attributes": [
+            {
+              "name": "zoneId",
+              "isPK": true
+            },
+            {
+              "name": "zoneCityRegion",
+              "isPK": false
+            },
+            {
+              "name": "peakDemandMegaWatts",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "PowerPlant",
+          "entity2": "ElectricSubstation",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "ElectricSubstation",
+          "entity2": "TransmissionLine",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "TransmissionLine",
+          "entity2": "LoadZone",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 142,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "L02 Slide 45 • Option 8C (Single Relation with Type Discriminator)",
-    "title": "Option 8C: Yagona Birlashgan Jadval va Diskriminator Ustuni",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Vehicle**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Vehicle { vin varchar [pk] make varchar model varchar vehicleType varchar trunkLitres int cargoTonnage decimal }",
-      "Vehicle(vin [PK], make, model, vehicleType, trunkLitres, cargoTonnage)"
-    ],
-    "expectedSchema": {
-      "tableName": "Vehicle",
-      "columns": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Mansur Aliyev",
+    "clientRole": "Bosh Poezd Dispetcheri",
+    "clientAvatar": "mentor",
+    "title": "Magistral Temir Yo'l va Ekspress Qatnovlar Tizimi (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **RailwayNetwork**, **TrainSchedule**, **LocomotiveEngine** va **PassengerBooking** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "vin",
-          "type": "varchar(20)",
-          "isPK": true
+          "name": "RailwayNetwork",
+          "pk": "networkId",
+          "attributes": [
+            {
+              "name": "networkId",
+              "isPK": true
+            },
+            {
+              "name": "networkName",
+              "isPK": false
+            },
+            {
+              "name": "trackGaugeMm",
+              "isPK": false
+            },
+            {
+              "name": "electrifiedPercent",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "make",
-          "type": "varchar(40)"
+          "name": "TrainSchedule",
+          "pk": "scheduleTripNo",
+          "attributes": [
+            {
+              "name": "scheduleTripNo",
+              "isPK": true
+            },
+            {
+              "name": "departureTimestamp",
+              "isPK": false
+            },
+            {
+              "name": "arrivalTimestamp",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "model",
-          "type": "varchar(40)"
+          "name": "LocomotiveEngine",
+          "pk": "locoSerialNo",
+          "attributes": [
+            {
+              "name": "locoSerialNo",
+              "isPK": true
+            },
+            {
+              "name": "locomotiveModel",
+              "isPK": false
+            },
+            {
+              "name": "tractivePowerHp",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "vehicleType",
-          "type": "varchar(20)"
+          "name": "PassengerBooking",
+          "pk": "ticketPnr",
+          "attributes": [
+            {
+              "name": "ticketPnr",
+              "isPK": true
+            },
+            {
+              "name": "passengerName",
+              "isPK": false
+            },
+            {
+              "name": "coachCarriageNo",
+              "isPK": false
+            },
+            {
+              "name": "seatIndex",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "RailwayNetwork",
+          "entity2": "TrainSchedule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
         },
         {
-          "name": "trunkLitres",
-          "type": "integer"
+          "entity1": "TrainSchedule",
+          "entity2": "LocomotiveEngine",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
         },
         {
-          "name": "cargoTonnage",
-          "type": "decimal"
+          "entity1": "LocomotiveEngine",
+          "entity2": "PassengerBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
         }
       ]
     },
-    "explanation": "Option 8C: Barcha subklasslar vehicleType diskriminatori bilan yagona relyatsion jadvalga birlashtirildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Vehicle**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "RailwayNetwork",
+          "pk": "networkId",
+          "attributes": [
+            {
+              "name": "networkId",
+              "isPK": true
+            },
+            {
+              "name": "networkName",
+              "isPK": false
+            },
+            {
+              "name": "trackGaugeMm",
+              "isPK": false
+            },
+            {
+              "name": "electrifiedPercent",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "TrainSchedule",
+          "pk": "scheduleTripNo",
+          "attributes": [
+            {
+              "name": "scheduleTripNo",
+              "isPK": true
+            },
+            {
+              "name": "departureTimestamp",
+              "isPK": false
+            },
+            {
+              "name": "arrivalTimestamp",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "LocomotiveEngine",
+          "pk": "locoSerialNo",
+          "attributes": [
+            {
+              "name": "locoSerialNo",
+              "isPK": true
+            },
+            {
+              "name": "locomotiveModel",
+              "isPK": false
+            },
+            {
+              "name": "tractivePowerHp",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PassengerBooking",
+          "pk": "ticketPnr",
+          "attributes": [
+            {
+              "name": "ticketPnr",
+              "isPK": true
+            },
+            {
+              "name": "passengerName",
+              "isPK": false
+            },
+            {
+              "name": "coachCarriageNo",
+              "isPK": false
+            },
+            {
+              "name": "seatIndex",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "RailwayNetwork",
+          "entity2": "TrainSchedule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "TrainSchedule",
+          "entity2": "LocomotiveEngine",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "LocomotiveEngine",
+          "entity2": "PassengerBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 143,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "L02 Slide 46 • Option 8D (Overlapping with Boolean Flags)",
-    "title": "Option 8D: Kesishevchi Subklasslar va Mantiqiy Bayroqlar (Part)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**Part**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Part { partNo varchar [pk] partName varchar isManufactured boolean drawingNo varchar isPurchased boolean supplierCost decimal }",
-      "Part(partNo [PK], partName, isManufactured, drawingNo, isPurchased, supplierCost)"
-    ],
-    "expectedSchema": {
-      "tableName": "Part",
-      "columns": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Sanjar Normatov",
+    "clientRole": "Raqamli Vazirlik Arxitektori",
+    "clientAvatar": "mentor",
+    "title": "Elektron Hukumat Davlat Xizmatlari Yagona Portali (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **GovPortalService**, **CitizenRequest**, **MinistryDepartment** va **ProcessingOfficer** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "partNo",
-          "type": "varchar(20)",
-          "isPK": true
+          "name": "GovPortalService",
+          "pk": "serviceCode",
+          "attributes": [
+            {
+              "name": "serviceCode",
+              "isPK": true
+            },
+            {
+              "name": "serviceTitle",
+              "isPK": false
+            },
+            {
+              "name": "statutoryFeeSum",
+              "isPK": false
+            },
+            {
+              "name": "processingDays",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "partName",
-          "type": "varchar(60)"
+          "name": "CitizenRequest",
+          "pk": "applicationId",
+          "attributes": [
+            {
+              "name": "applicationId",
+              "isPK": true
+            },
+            {
+              "name": "applicantPinfl",
+              "isPK": false
+            },
+            {
+              "name": "submittedTimestamp",
+              "isPK": false
+            },
+            {
+              "name": "status",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "isManufactured",
-          "type": "boolean"
+          "name": "MinistryDepartment",
+          "pk": "departmentInn",
+          "attributes": [
+            {
+              "name": "departmentInn",
+              "isPK": true
+            },
+            {
+              "name": "ministryTitle",
+              "isPK": false
+            },
+            {
+              "name": "competentAuthorityZone",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "drawingNo",
-          "type": "varchar(30)"
+          "name": "ProcessingOfficer",
+          "pk": "officerStaffId",
+          "attributes": [
+            {
+              "name": "officerStaffId",
+              "isPK": true
+            },
+            {
+              "name": "officerFullName",
+              "isPK": false
+            },
+            {
+              "name": "digitalSignatureCert",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "GovPortalService",
+          "entity2": "CitizenRequest",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
         },
         {
-          "name": "isPurchased",
-          "type": "boolean"
+          "entity1": "CitizenRequest",
+          "entity2": "MinistryDepartment",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
         },
         {
-          "name": "supplierCost",
-          "type": "decimal"
+          "entity1": "MinistryDepartment",
+          "entity2": "ProcessingOfficer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
         }
       ]
     },
-    "explanation": "Option 8D: Kesishevchi (overlapping) subklasslar boolean bayroqlar orqali yagona jadvalda hal etildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**Part**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "GovPortalService",
+          "pk": "serviceCode",
+          "attributes": [
+            {
+              "name": "serviceCode",
+              "isPK": true
+            },
+            {
+              "name": "serviceTitle",
+              "isPK": false
+            },
+            {
+              "name": "statutoryFeeSum",
+              "isPK": false
+            },
+            {
+              "name": "processingDays",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CitizenRequest",
+          "pk": "applicationId",
+          "attributes": [
+            {
+              "name": "applicationId",
+              "isPK": true
+            },
+            {
+              "name": "applicantPinfl",
+              "isPK": false
+            },
+            {
+              "name": "submittedTimestamp",
+              "isPK": false
+            },
+            {
+              "name": "status",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MinistryDepartment",
+          "pk": "departmentInn",
+          "attributes": [
+            {
+              "name": "departmentInn",
+              "isPK": true
+            },
+            {
+              "name": "ministryTitle",
+              "isPK": false
+            },
+            {
+              "name": "competentAuthorityZone",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ProcessingOfficer",
+          "pk": "officerStaffId",
+          "attributes": [
+            {
+              "name": "officerStaffId",
+              "isPK": true
+            },
+            {
+              "name": "officerFullName",
+              "isPK": false
+            },
+            {
+              "name": "digitalSignatureCert",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "GovPortalService",
+          "entity2": "CitizenRequest",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "CitizenRequest",
+          "entity2": "MinistryDepartment",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "MinistryDepartment",
+          "entity2": "ProcessingOfficer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 144,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "T02 Page 25 • FK Pointing to Subclass (Why Option 8A is Mandatory)",
-    "title": "Subklassga Tashqi Kalit Yo'nalishi (Project Manager FK)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table ProjectManager { empNo int [pk, ref: > Employee.empNo] bonus decimal } Table Project { projNo int [pk] title varchar managerId int [ref: > ProjectManager.empNo] }",
-      "ProjectManager(empNo [PK, FK], bonus)\nProject(projNo [PK], title, managerId [FK])"
-    ],
-    "expectedSchema": {
-      "tables": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Dr. Zulfiya Rustamova",
+    "clientRole": "Bosh Texnologik Arxitektor",
+    "clientAvatar": "mentor",
+    "title": "GMP Standartidagi Biotexnologik Zavod Axborot Klasteri (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **PharmaFactory**, **ChemicalLab**, **DrugBatch** va **QualityAudit** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "tableName": "ProjectManager",
-          "columns": [
+          "name": "PharmaFactory",
+          "pk": "facilityId",
+          "attributes": [
             {
-              "name": "empNo",
-              "type": "integer",
-              "isPK": true,
-              "isFK": true,
-              "references": "Employee(empNo)"
+              "name": "facilityId",
+              "isPK": true
             },
             {
-              "name": "bonus",
-              "type": "decimal"
+              "name": "facilityName",
+              "isPK": false
+            },
+            {
+              "name": "gmpAccreditationNo",
+              "isPK": false
+            },
+            {
+              "name": "cleanRoomGrade",
+              "isPK": false
             }
           ]
         },
         {
-          "tableName": "Project",
-          "columns": [
+          "name": "ChemicalLab",
+          "pk": "labUnitCode",
+          "attributes": [
             {
-              "name": "projNo",
-              "type": "integer",
+              "name": "labUnitCode",
               "isPK": true
             },
             {
-              "name": "title",
-              "type": "varchar(80)"
+              "name": "labSpecialization",
+              "isPK": false
             },
             {
-              "name": "managerId",
-              "type": "integer",
-              "isFK": true,
-              "references": "ProjectManager(empNo)"
+              "name": "hplcInstrumentCount",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DrugBatch",
+          "pk": "batchNumber",
+          "attributes": [
+            {
+              "name": "batchNumber",
+              "isPK": true
+            },
+            {
+              "name": "manufactureDate",
+              "isPK": false
+            },
+            {
+              "name": "releaseInspectionPassed",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "QualityAudit",
+          "pk": "auditProtocolId",
+          "attributes": [
+            {
+              "name": "auditProtocolId",
+              "isPK": true
+            },
+            {
+              "name": "auditorName",
+              "isPK": false
+            },
+            {
+              "name": "purityAssayPercent",
+              "isPK": false
+            },
+            {
+              "name": "auditDate",
+              "isPK": false
             }
           ]
         }
+      ],
+      "relationships": [
+        {
+          "entity1": "PharmaFactory",
+          "entity2": "ChemicalLab",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "ChemicalLab",
+          "entity2": "DrugBatch",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "DrugBatch",
+          "entity2": "QualityAudit",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     },
-    "explanation": "Subklassga FK yo'naltirilgan holda Option 8A referensial yaxlitlikni to'liq ta'minlaydi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "PharmaFactory",
+          "pk": "facilityId",
+          "attributes": [
+            {
+              "name": "facilityId",
+              "isPK": true
+            },
+            {
+              "name": "facilityName",
+              "isPK": false
+            },
+            {
+              "name": "gmpAccreditationNo",
+              "isPK": false
+            },
+            {
+              "name": "cleanRoomGrade",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ChemicalLab",
+          "pk": "labUnitCode",
+          "attributes": [
+            {
+              "name": "labUnitCode",
+              "isPK": true
+            },
+            {
+              "name": "labSpecialization",
+              "isPK": false
+            },
+            {
+              "name": "hplcInstrumentCount",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DrugBatch",
+          "pk": "batchNumber",
+          "attributes": [
+            {
+              "name": "batchNumber",
+              "isPK": true
+            },
+            {
+              "name": "manufactureDate",
+              "isPK": false
+            },
+            {
+              "name": "releaseInspectionPassed",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "QualityAudit",
+          "pk": "auditProtocolId",
+          "attributes": [
+            {
+              "name": "auditProtocolId",
+              "isPK": true
+            },
+            {
+              "name": "auditorName",
+              "isPK": false
+            },
+            {
+              "name": "purityAssayPercent",
+              "isPK": false
+            },
+            {
+              "name": "auditDate",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "PharmaFactory",
+          "entity2": "ChemicalLab",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "ChemicalLab",
+          "entity2": "DrugBatch",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "DrugBatch",
+          "entity2": "QualityAudit",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 145,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "L02 Slide 43 • 2-Tier Subclass Hierarchy",
-    "title": "2 Pog'onali Subklass Ierarxiyasi (Person -> Staff -> AcademicStaff)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nUshbu masalada kuchli mustaqil entitiy (**AcademicStaff**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table AcademicStaff { personId int [pk, ref: > Staff.personId] researchDomain varchar }",
-      "AcademicStaff(personId [PK, FK], researchDomain)"
-    ],
-    "expectedSchema": {
-      "tableName": "AcademicStaff",
-      "columns": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Temur Mahmudov",
+    "clientRole": "Sanoat Ishlab Chiqarish Direktori",
+    "clientAvatar": "mentor",
+    "title": "Avtomobil Yig'uv Zavodi va Rasmiy Dilerlik Majmuasi (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **CarManufacturer**, **AssemblyLine**, **DealershipShowroom** va **VehicleOrder** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "name": "personId",
-          "type": "integer",
-          "isPK": true,
-          "isFK": true,
-          "references": "Staff(personId)"
+          "name": "CarManufacturer",
+          "pk": "oemCode",
+          "attributes": [
+            {
+              "name": "oemCode",
+              "isPK": true
+            },
+            {
+              "name": "manufacturerName",
+              "isPK": false
+            },
+            {
+              "name": "hqCountry",
+              "isPK": false
+            },
+            {
+              "name": "isoQualityCert",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "researchDomain",
-          "type": "varchar(80)"
+          "name": "AssemblyLine",
+          "pk": "conveyorId",
+          "attributes": [
+            {
+              "name": "conveyorId",
+              "isPK": true
+            },
+            {
+              "name": "productionLineModel",
+              "isPK": false
+            },
+            {
+              "name": "unitsPerDayCapacity",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DealershipShowroom",
+          "pk": "dealerChainId",
+          "attributes": [
+            {
+              "name": "dealerChainId",
+              "isPK": true
+            },
+            {
+              "name": "showroomCity",
+              "isPK": false
+            },
+            {
+              "name": "serviceBayQuota",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "VehicleOrder",
+          "pk": "contractNumber",
+          "attributes": [
+            {
+              "name": "contractNumber",
+              "isPK": true
+            },
+            {
+              "name": "customerPinfl",
+              "isPK": false
+            },
+            {
+              "name": "allocatedVin",
+              "isPK": false
+            },
+            {
+              "name": "paymentStatus",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "CarManufacturer",
+          "entity2": "AssemblyLine",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "AssemblyLine",
+          "entity2": "DealershipShowroom",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "DealershipShowroom",
+          "entity2": "VehicleOrder",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
         }
       ]
     },
-    "explanation": "Ko'p bosqichli subklass ierarxiyasida ota PK har doim [PK, FK] bo'lib davom etadi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Ushbu masalada kuchli mustaqil entitiy (**AcademicStaff**) berilgan. Tutorial 2 Task 1 dagi 1-qoidaga binoan, har bir oddiy entitiy alohida jadvalga aylanadi. Entitiyning birlamchi kaliti jadvalning Birlamchi Kaliti [PK] bo'ladi, qolgan oddiy atributlar esa jadval ustunlari sifatida saqlanadi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "CarManufacturer",
+          "pk": "oemCode",
+          "attributes": [
+            {
+              "name": "oemCode",
+              "isPK": true
+            },
+            {
+              "name": "manufacturerName",
+              "isPK": false
+            },
+            {
+              "name": "hqCountry",
+              "isPK": false
+            },
+            {
+              "name": "isoQualityCert",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "AssemblyLine",
+          "pk": "conveyorId",
+          "attributes": [
+            {
+              "name": "conveyorId",
+              "isPK": true
+            },
+            {
+              "name": "productionLineModel",
+              "isPK": false
+            },
+            {
+              "name": "unitsPerDayCapacity",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DealershipShowroom",
+          "pk": "dealerChainId",
+          "attributes": [
+            {
+              "name": "dealerChainId",
+              "isPK": true
+            },
+            {
+              "name": "showroomCity",
+              "isPK": false
+            },
+            {
+              "name": "serviceBayQuota",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "VehicleOrder",
+          "pk": "contractNumber",
+          "attributes": [
+            {
+              "name": "contractNumber",
+              "isPK": true
+            },
+            {
+              "name": "customerPinfl",
+              "isPK": false
+            },
+            {
+              "name": "allocatedVin",
+              "isPK": false
+            },
+            {
+              "name": "paymentStatus",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "CarManufacturer",
+          "entity2": "AssemblyLine",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "AssemblyLine",
+          "entity2": "DealershipShowroom",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "DealershipShowroom",
+          "entity2": "VehicleOrder",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 146,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "L02 Slide 43 • Bank Account EER Hierarchy",
-    "title": "Bank Hisob Raqamlari EER Ierarxiyasi (Savings & Checking)",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Account { accountNo varchar [pk] balance decimal openDate date } Table SavingsAccount { accountNo varchar [pk, ref: > Account.accountNo] interestRate decimal } Table CheckingAccount { accountNo varchar [pk, ref: > Account.accountNo] overdraftLimit decimal }",
-      "Account(accountNo [PK], balance, openDate)\nSavingsAccount(accountNo [PK, FK], interestRate)\nCheckingAccount(accountNo [PK, FK], overdraftLimit)"
-    ],
-    "expectedSchema": {
-      "tables": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Farhod Karimov",
+    "clientRole": "SOC Bosh Muhandisi",
+    "clientAvatar": "mentor",
+    "title": "Davlat Kiberxavfsizlik Operatsion Markazi (SOC) (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **SOCNetwork**, **SecurityThreat**, **IncidentTicket** va **MitigationAction** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "tableName": "Account",
-          "columns": [
+          "name": "SOCNetwork",
+          "pk": "perimeterId",
+          "attributes": [
             {
-              "name": "accountNo",
-              "type": "varchar(20)",
+              "name": "perimeterId",
               "isPK": true
             },
             {
-              "name": "balance",
-              "type": "decimal"
+              "name": "networkSegmentName",
+              "isPK": false
             },
             {
-              "name": "openDate",
-              "type": "date"
+              "name": "firewallApplianceIp",
+              "isPK": false
             }
           ]
         },
         {
-          "tableName": "SavingsAccount",
-          "columns": [
+          "name": "SecurityThreat",
+          "pk": "cveCode",
+          "attributes": [
             {
-              "name": "accountNo",
-              "type": "varchar(20)",
-              "isPK": true,
-              "isFK": true,
-              "references": "Account(accountNo)"
+              "name": "cveCode",
+              "isPK": true
             },
             {
-              "name": "interestRate",
-              "type": "decimal"
+              "name": "cvssSeverityScore",
+              "isPK": false
+            },
+            {
+              "name": "threatVectorCategory",
+              "isPK": false
             }
           ]
         },
         {
-          "tableName": "CheckingAccount",
-          "columns": [
+          "name": "IncidentTicket",
+          "pk": "incidentId",
+          "attributes": [
             {
-              "name": "accountNo",
-              "type": "varchar(20)",
-              "isPK": true,
-              "isFK": true,
-              "references": "Account(accountNo)"
+              "name": "incidentId",
+              "isPK": true
             },
             {
-              "name": "overdraftLimit",
-              "type": "decimal"
+              "name": "detectedTimestamp",
+              "isPK": false
+            },
+            {
+              "name": "containmentState",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MitigationAction",
+          "pk": "playbookActionId",
+          "attributes": [
+            {
+              "name": "playbookActionId",
+              "isPK": true
+            },
+            {
+              "name": "analystBadgeId",
+              "isPK": false
+            },
+            {
+              "name": "patchAppliedTimestamp",
+              "isPK": false
             }
           ]
         }
+      ],
+      "relationships": [
+        {
+          "entity1": "SOCNetwork",
+          "entity2": "SecurityThreat",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "SecurityThreat",
+          "entity2": "IncidentTicket",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "IncidentTicket",
+          "entity2": "MitigationAction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     },
-    "explanation": "Bank hisob raqamlari EER ierarxiyasi Option 8A bo'yicha to'liq yaratildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "SOCNetwork",
+          "pk": "perimeterId",
+          "attributes": [
+            {
+              "name": "perimeterId",
+              "isPK": true
+            },
+            {
+              "name": "networkSegmentName",
+              "isPK": false
+            },
+            {
+              "name": "firewallApplianceIp",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SecurityThreat",
+          "pk": "cveCode",
+          "attributes": [
+            {
+              "name": "cveCode",
+              "isPK": true
+            },
+            {
+              "name": "cvssSeverityScore",
+              "isPK": false
+            },
+            {
+              "name": "threatVectorCategory",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "IncidentTicket",
+          "pk": "incidentId",
+          "attributes": [
+            {
+              "name": "incidentId",
+              "isPK": true
+            },
+            {
+              "name": "detectedTimestamp",
+              "isPK": false
+            },
+            {
+              "name": "containmentState",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MitigationAction",
+          "pk": "playbookActionId",
+          "attributes": [
+            {
+              "name": "playbookActionId",
+              "isPK": true
+            },
+            {
+              "name": "analystBadgeId",
+              "isPK": false
+            },
+            {
+              "name": "patchAppliedTimestamp",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "SOCNetwork",
+          "entity2": "SecurityThreat",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "SecurityThreat",
+          "entity2": "IncidentTicket",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "IncidentTicket",
+          "entity2": "MitigationAction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 147,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "L02 Slide 43 • Patient In/Out EER Hierarchy",
-    "title": "Statsionar va Ambulator Bemorlar EER Ierarxiyasi",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table InPatient { patientId int [pk, ref: > Patient.patientId] bedNo varchar admitDate date } Table OutPatient { patientId int [pk, ref: > Patient.patientId] clinicDate date }",
-      "InPatient(patientId [PK, FK], bedNo, admitDate)\nOutPatient(patientId [PK, FK], clinicDate)"
-    ],
-    "expectedSchema": {
-      "tables": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Nargiza Jo'rayeva",
+    "clientRole": "Ta'minot Zanjiri Arxitektori",
+    "clientAvatar": "mentor",
+    "title": "Markaziy Savdo Gipermarketlar Tarmog'i va Logistika Hubi (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **RetailChainStore**, **CentralDepot**, **SupplierVendor** va **ProductInventory** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "tableName": "InPatient",
-          "columns": [
+          "name": "RetailChainStore",
+          "pk": "storeUnitId",
+          "attributes": [
             {
-              "name": "patientId",
-              "type": "integer",
-              "isPK": true,
-              "isFK": true,
-              "references": "Patient(patientId)"
+              "name": "storeUnitId",
+              "isPK": true
             },
             {
-              "name": "bedNo",
-              "type": "varchar(10)"
+              "name": "storeBrandName",
+              "isPK": false
             },
             {
-              "name": "admitDate",
-              "type": "date"
+              "name": "cityAddress",
+              "isPK": false
+            },
+            {
+              "name": "checkoutCount",
+              "isPK": false
             }
           ]
         },
         {
-          "tableName": "OutPatient",
-          "columns": [
+          "name": "CentralDepot",
+          "pk": "depotBarcode",
+          "attributes": [
             {
-              "name": "patientId",
-              "type": "integer",
-              "isPK": true,
-              "isFK": true,
-              "references": "Patient(patientId)"
+              "name": "depotBarcode",
+              "isPK": true
             },
             {
-              "name": "clinicDate",
-              "type": "date"
+              "name": "refrigeratedCapacityTons",
+              "isPK": false
+            },
+            {
+              "name": "palletSlots",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SupplierVendor",
+          "pk": "vendorTin",
+          "attributes": [
+            {
+              "name": "vendorTin",
+              "isPK": true
+            },
+            {
+              "name": "supplierCompanyName",
+              "isPK": false
+            },
+            {
+              "name": "slaPerformanceIndex",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ProductInventory",
+          "pk": "inventorySku",
+          "attributes": [
+            {
+              "name": "inventorySku",
+              "isPK": true
+            },
+            {
+              "name": "onHandQuantity",
+              "isPK": false
+            },
+            {
+              "name": "reorderThresholdUnits",
+              "isPK": false
             }
           ]
         }
+      ],
+      "relationships": [
+        {
+          "entity1": "RetailChainStore",
+          "entity2": "CentralDepot",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "CentralDepot",
+          "entity2": "SupplierVendor",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "SupplierVendor",
+          "entity2": "ProductInventory",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     },
-    "explanation": "Statsionar va ambulator bemorlar subklass sxemasi chizildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "RetailChainStore",
+          "pk": "storeUnitId",
+          "attributes": [
+            {
+              "name": "storeUnitId",
+              "isPK": true
+            },
+            {
+              "name": "storeBrandName",
+              "isPK": false
+            },
+            {
+              "name": "cityAddress",
+              "isPK": false
+            },
+            {
+              "name": "checkoutCount",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CentralDepot",
+          "pk": "depotBarcode",
+          "attributes": [
+            {
+              "name": "depotBarcode",
+              "isPK": true
+            },
+            {
+              "name": "refrigeratedCapacityTons",
+              "isPK": false
+            },
+            {
+              "name": "palletSlots",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SupplierVendor",
+          "pk": "vendorTin",
+          "attributes": [
+            {
+              "name": "vendorTin",
+              "isPK": true
+            },
+            {
+              "name": "supplierCompanyName",
+              "isPK": false
+            },
+            {
+              "name": "slaPerformanceIndex",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ProductInventory",
+          "pk": "inventorySku",
+          "attributes": [
+            {
+              "name": "inventorySku",
+              "isPK": true
+            },
+            {
+              "name": "onHandQuantity",
+              "isPK": false
+            },
+            {
+              "name": "reorderThresholdUnits",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "RetailChainStore",
+          "entity2": "CentralDepot",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "CentralDepot",
+          "entity2": "SupplierVendor",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "SupplierVendor",
+          "entity2": "ProductInventory",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 148,
     "sector": 10,
-    "difficulty": "10-Qavat • O'rta",
-    "source": "L02 Slide 43 • Vehicle Rental Booking Subclass Link",
-    "title": "Yengil Mashina Subklassi va Ijara Bronlash Jadvali",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Car { plateNo varchar [pk, ref: > Vehicle.plateNo] numSeats int } Table RentalBooking { bookingId int [pk] plateNo varchar [ref: > Car.plateNo] custId int [ref: > Customer.custId] rentalDays int }",
-      "Car(plateNo [PK, FK], numSeats)\nRentalBooking(bookingId [PK], plateNo [FK], custId [FK], rentalDays)"
-    ],
-    "expectedSchema": {
-      "tables": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "G'ayrat Vohidov",
+    "clientRole": "Bosh Texnologik Dispetcher",
+    "clientAvatar": "mentor",
+    "title": "Neft-Gaz Kimyo Majmuasi va Magistral Quvurlar Tizimi (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **RefineryPlant**, **StorageTanker**, **PipelineSegment** va **CrudeOilShipment** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "tableName": "Car",
-          "columns": [
+          "name": "RefineryPlant",
+          "pk": "refineryCode",
+          "attributes": [
             {
-              "name": "plateNo",
-              "type": "varchar(15)",
-              "isPK": true,
-              "isFK": true,
-              "references": "Vehicle(plateNo)"
+              "name": "refineryCode",
+              "isPK": true
             },
             {
-              "name": "numSeats",
-              "type": "integer"
+              "name": "refineryName",
+              "isPK": false
+            },
+            {
+              "name": "crudeCapacityBarrelsPerDay",
+              "isPK": false
             }
           ]
         },
         {
-          "tableName": "RentalBooking",
-          "columns": [
+          "name": "StorageTanker",
+          "pk": "tankId",
+          "attributes": [
             {
-              "name": "bookingId",
-              "type": "integer",
+              "name": "tankId",
               "isPK": true
             },
             {
-              "name": "plateNo",
-              "type": "varchar(15)",
-              "isFK": true,
-              "references": "Car(plateNo)"
+              "name": "tankGrossVolumeM3",
+              "isPK": false
             },
             {
-              "name": "custId",
-              "type": "integer",
-              "isFK": true,
-              "references": "Customer(custId)"
+              "name": "storedHydrocarbonGrade",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PipelineSegment",
+          "pk": "pipelineSegmentCode",
+          "attributes": [
+            {
+              "name": "pipelineSegmentCode",
+              "isPK": true
             },
             {
-              "name": "rentalDays",
-              "type": "integer"
+              "name": "pipelineDiameterMm",
+              "isPK": false
+            },
+            {
+              "name": "operatingBarPressure",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CrudeOilShipment",
+          "pk": "consignmentBillOfLading",
+          "attributes": [
+            {
+              "name": "consignmentBillOfLading",
+              "isPK": true
+            },
+            {
+              "name": "batchSpecificGravity",
+              "isPK": false
+            },
+            {
+              "name": "dispatchTime",
+              "isPK": false
             }
           ]
         }
+      ],
+      "relationships": [
+        {
+          "entity1": "RefineryPlant",
+          "entity2": "StorageTanker",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "StorageTanker",
+          "entity2": "PipelineSegment",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "PipelineSegment",
+          "entity2": "CrudeOilShipment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     },
-    "explanation": "Car subklassi va unga yo'naltirilgan RentalBooking relying modeli qurildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "RefineryPlant",
+          "pk": "refineryCode",
+          "attributes": [
+            {
+              "name": "refineryCode",
+              "isPK": true
+            },
+            {
+              "name": "refineryName",
+              "isPK": false
+            },
+            {
+              "name": "crudeCapacityBarrelsPerDay",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "StorageTanker",
+          "pk": "tankId",
+          "attributes": [
+            {
+              "name": "tankId",
+              "isPK": true
+            },
+            {
+              "name": "tankGrossVolumeM3",
+              "isPK": false
+            },
+            {
+              "name": "storedHydrocarbonGrade",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PipelineSegment",
+          "pk": "pipelineSegmentCode",
+          "attributes": [
+            {
+              "name": "pipelineSegmentCode",
+              "isPK": true
+            },
+            {
+              "name": "pipelineDiameterMm",
+              "isPK": false
+            },
+            {
+              "name": "operatingBarPressure",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CrudeOilShipment",
+          "pk": "consignmentBillOfLading",
+          "attributes": [
+            {
+              "name": "consignmentBillOfLading",
+              "isPK": true
+            },
+            {
+              "name": "batchSpecificGravity",
+              "isPK": false
+            },
+            {
+              "name": "dispatchTime",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "RefineryPlant",
+          "entity2": "StorageTanker",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "StorageTanker",
+          "entity2": "PipelineSegment",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "PipelineSegment",
+          "entity2": "CrudeOilShipment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 149,
     "sector": 10,
-    "difficulty": "10-Qavat • Qiyin",
-    "source": "T02 Task 4 • IT Enterprise Developer & QA Hierarchy",
-    "title": "Seminar 2 Task 4: Dasturchi va QA Muhandisi Subklasslari",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Developer { empNo int [pk, ref: > Employee.empNo] githubUser varchar } Table QAEngineer { empNo int [pk, ref: > Employee.empNo] testTool varchar }",
-      "Developer(empNo [PK, FK], githubUser)\nQAEngineer(empNo [PK, FK], testTool)"
-    ],
-    "expectedSchema": {
-      "tables": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Jamshid Aliyev",
+    "clientRole": "Tarmoq Bosh Arxitektori",
+    "clientAvatar": "mentor",
+    "title": "5G Telekommunikatsiya Yadro Tarmog'i va Billing Arxitekturasi (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **TelecomCore**, **FiveGBaseStation**, **BillingSubscription** va **DataTrafficSession** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "tableName": "Developer",
-          "columns": [
+          "name": "TelecomCore",
+          "pk": "coreSwitchId",
+          "attributes": [
             {
-              "name": "empNo",
-              "type": "integer",
-              "isPK": true,
-              "isFK": true,
-              "references": "Employee(empNo)"
+              "name": "coreSwitchId",
+              "isPK": true
             },
             {
-              "name": "githubUser",
-              "type": "varchar(50)"
+              "name": "coreRouterModel",
+              "isPK": false
+            },
+            {
+              "name": "opticalCapacityTbps",
+              "isPK": false
             }
           ]
         },
         {
-          "tableName": "QAEngineer",
-          "columns": [
+          "name": "FiveGBaseStation",
+          "pk": "gNodeBId",
+          "attributes": [
             {
-              "name": "empNo",
-              "type": "integer",
-              "isPK": true,
-              "isFK": true,
-              "references": "Employee(empNo)"
+              "name": "gNodeBId",
+              "isPK": true
             },
             {
-              "name": "testTool",
-              "type": "varchar(50)"
+              "name": "carrierFrequencyGhz",
+              "isPK": false
+            },
+            {
+              "name": "massiveMimoSectors",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "BillingSubscription",
+          "pk": "subscriberMsisdn",
+          "attributes": [
+            {
+              "name": "subscriberMsisdn",
+              "isPK": true
+            },
+            {
+              "name": "activeTariffPlan",
+              "isPK": false
+            },
+            {
+              "name": "dataBalanceGigabytes",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DataTrafficSession",
+          "pk": "sessionCdrId",
+          "attributes": [
+            {
+              "name": "sessionCdrId",
+              "isPK": true
+            },
+            {
+              "name": "connectionTimestamp",
+              "isPK": false
+            },
+            {
+              "name": "uplinkMegabytesTransferred",
+              "isPK": false
             }
           ]
         }
+      ],
+      "relationships": [
+        {
+          "entity1": "TelecomCore",
+          "entity2": "FiveGBaseStation",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "FiveGBaseStation",
+          "entity2": "BillingSubscription",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "BillingSubscription",
+          "entity2": "DataTrafficSession",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     },
-    "explanation": "Developer va QAEngineer subklasslari Seminar 2 andozasida tuzildi.",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "TelecomCore",
+          "pk": "coreSwitchId",
+          "attributes": [
+            {
+              "name": "coreSwitchId",
+              "isPK": true
+            },
+            {
+              "name": "coreRouterModel",
+              "isPK": false
+            },
+            {
+              "name": "opticalCapacityTbps",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "FiveGBaseStation",
+          "pk": "gNodeBId",
+          "attributes": [
+            {
+              "name": "gNodeBId",
+              "isPK": true
+            },
+            {
+              "name": "carrierFrequencyGhz",
+              "isPK": false
+            },
+            {
+              "name": "massiveMimoSectors",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "BillingSubscription",
+          "pk": "subscriberMsisdn",
+          "attributes": [
+            {
+              "name": "subscriberMsisdn",
+              "isPK": true
+            },
+            {
+              "name": "activeTariffPlan",
+              "isPK": false
+            },
+            {
+              "name": "dataBalanceGigabytes",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DataTrafficSession",
+          "pk": "sessionCdrId",
+          "attributes": [
+            {
+              "name": "sessionCdrId",
+              "isPK": true
+            },
+            {
+              "name": "connectionTimestamp",
+              "isPK": false
+            },
+            {
+              "name": "uplinkMegabytesTransferred",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "TelecomCore",
+          "entity2": "FiveGBaseStation",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "FiveGBaseStation",
+          "entity2": "BillingSubscription",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "BillingSubscription",
+          "entity2": "DataTrafficSession",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   },
   {
     "id": 150,
     "sector": 10,
-    "difficulty": "10-Qavat • Master Grand Boss (Grand Finale)",
-    "source": "T02 Seminar Task 4 & L02 • Complete Enterprise EER Relational Schema",
-    "title": "150-Savol MASTER GRAND BOSS: Seminar 2 Task 4 Korporativ EER Arxitekturasi",
-    "story": "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.\n\nMazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.\n\nSiz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi.",
-    "taskUz": "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).\nb) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.\nc) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.\nd) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang.",
-    "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
-    "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
-    "solutions": [
-      "Table Employee { empNo int [pk] fName varchar lName varchar } Table ProjectManager { empNo int [pk, ref: > Employee.empNo] bonus decimal } Table Project { projNo int [pk] title varchar managerId int [ref: > ProjectManager.empNo] } Table WorksOn { empNo int [ref: > Employee.empNo] projNo int [ref: > Project.projNo] hours decimal indexes { (empNo, projNo) [pk] } }",
-      "Employee(empNo [PK], fName, lName)\nProjectManager(empNo [PK, FK], bonus)\nProject(projNo [PK], title, managerId [FK])\nWorksOn(empNo [PK, FK], projNo [PK, FK], hours)"
-    ],
-    "expectedSchema": {
-      "tables": [
+    "difficulty": "10-Qavat • EER Kengaytirish",
+    "clientName": "Akademik Anvar Qodirov",
+    "clientRole": "Kosmik Missiyalar Bosh Arxitektori",
+    "clientAvatar": "mentor",
+    "title": "Global Kosmik Parvozlar va Sun'iy Yo'ldosh Boshqaruvi (EER Bosqichi)",
+    "story": "1-haftada yaratilgan korporativ **Spaceport**, **SatelliteOrbiter**, **GroundStation** va **MissionTelemetry** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
+    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "starterDiagram": {
+      "entities": [
         {
-          "tableName": "Employee",
-          "columns": [
+          "name": "Spaceport",
+          "pk": "launchComplexId",
+          "attributes": [
             {
-              "name": "empNo",
-              "type": "integer",
+              "name": "launchComplexId",
               "isPK": true
             },
             {
-              "name": "fName",
-              "type": "varchar(50)"
+              "name": "cosmodromeName",
+              "isPK": false
             },
             {
-              "name": "lName",
-              "type": "varchar(50)"
+              "name": "launchPadCount",
+              "isPK": false
+            },
+            {
+              "name": "geoCoordinates",
+              "isPK": false
             }
           ]
         },
         {
-          "tableName": "ProjectManager",
-          "columns": [
+          "name": "SatelliteOrbiter",
+          "pk": "noradCatalogId",
+          "attributes": [
             {
-              "name": "empNo",
-              "type": "integer",
-              "isPK": true,
-              "isFK": true,
-              "references": "Employee(empNo)"
-            },
-            {
-              "name": "bonus",
-              "type": "decimal"
-            }
-          ]
-        },
-        {
-          "tableName": "Project",
-          "columns": [
-            {
-              "name": "projNo",
-              "type": "integer",
+              "name": "noradCatalogId",
               "isPK": true
             },
             {
-              "name": "title",
-              "type": "varchar(80)"
+              "name": "satelliteName",
+              "isPK": false
             },
             {
-              "name": "managerId",
-              "type": "integer",
-              "isFK": true,
-              "references": "ProjectManager(empNo)"
+              "name": "orbitAltitudeKm",
+              "isPK": false
+            },
+            {
+              "name": "payloadSensor",
+              "isPK": false
             }
           ]
         },
         {
-          "tableName": "WorksOn",
-          "columns": [
+          "name": "GroundStation",
+          "pk": "groundStationCode",
+          "attributes": [
             {
-              "name": "empNo",
-              "type": "integer",
-              "isPK": true,
-              "isFK": true,
-              "references": "Employee(empNo)"
+              "name": "groundStationCode",
+              "isPK": true
             },
             {
-              "name": "projNo",
-              "type": "integer",
-              "isPK": true,
-              "isFK": true,
-              "references": "Project(projNo)"
+              "name": "parabolicDishDiameterMeters",
+              "isPK": false
             },
             {
-              "name": "hours",
-              "type": "decimal"
+              "name": "uplinkFrequencyGhz",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MissionTelemetry",
+          "pk": "telemetryFrameId",
+          "attributes": [
+            {
+              "name": "telemetryFrameId",
+              "isPK": true
+            },
+            {
+              "name": "solarPanelVolts",
+              "isPK": false
+            },
+            {
+              "name": "onboardTempKelvin",
+              "isPK": false
+            },
+            {
+              "name": "downlinkTime",
+              "isPK": false
             }
           ]
         }
+      ],
+      "relationships": [
+        {
+          "entity1": "Spaceport",
+          "entity2": "SatelliteOrbiter",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "SatelliteOrbiter",
+          "entity2": "GroundStation",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "GroundStation",
+          "entity2": "MissionTelemetry",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     },
-    "explanation": "TABRIKLAYMIZ! 150-savol Master Boss to'liq yechildi! Siz Week 2 Relational Model & EER Mapping kursini professional Bosh Relyatsion Me'mor darajasida o'zlashtirdingiz!",
-    "caseStudy": {
-      "paragraphs": [
-        "**Tutorial 02: Relational Model Mapping Standards**\nYuqorida keltirilgan **\"Berilgan Konseptual ER / EER Diagrammasi (Manba)\"** modelini ko'rib chiqing. Konseptual modelda biznes talablari to'liq ifodalangan bo'lib, relyatsion ma'lumotlar bazasi me'mori sifatida siz ushbu diagrammani RDBMS (PostgreSQL / MySQL) uchun yaroqli relyatsion sxemaga o'tkazishingiz kerak.",
-        "Mazkur vazifada ixtisoslashuv / umumlashtirish (Subclass / Superclass) yoki kompozit tuzilmalar keltirilgan. Tutorial 2 Task 2 dagi Option 8A, 8B, 8C yoki 8D usullaridan tegishli shartlar asosida to'g'ri relyatsion jadvallar to'plamini shakllantirish talab etiladi.",
-        "Siz draw.io polotnosida jadvallarni yaratib, har bir jadval uchun to'g'ri ustun nomlarini kiriting, ularning Birlamchi Kalit [PK] va Tashqi Kalit [FK] statuslarini belgilang, hamda jadvallar o'rtasidagi Crow's Foot munosabat chiziqlarini torting. Agar kalitlar yoki aloqa uchlari noto'g'ri o'rnatilsa, tizim relyatsion algebra qoidalariga asoslanib xato qaytaradi."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Spaceport",
+          "pk": "launchComplexId",
+          "attributes": [
+            {
+              "name": "launchComplexId",
+              "isPK": true
+            },
+            {
+              "name": "cosmodromeName",
+              "isPK": false
+            },
+            {
+              "name": "launchPadCount",
+              "isPK": false
+            },
+            {
+              "name": "geoCoordinates",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SatelliteOrbiter",
+          "pk": "noradCatalogId",
+          "attributes": [
+            {
+              "name": "noradCatalogId",
+              "isPK": true
+            },
+            {
+              "name": "satelliteName",
+              "isPK": false
+            },
+            {
+              "name": "orbitAltitudeKm",
+              "isPK": false
+            },
+            {
+              "name": "payloadSensor",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "GroundStation",
+          "pk": "groundStationCode",
+          "attributes": [
+            {
+              "name": "groundStationCode",
+              "isPK": true
+            },
+            {
+              "name": "parabolicDishDiameterMeters",
+              "isPK": false
+            },
+            {
+              "name": "uplinkFrequencyGhz",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MissionTelemetry",
+          "pk": "telemetryFrameId",
+          "attributes": [
+            {
+              "name": "telemetryFrameId",
+              "isPK": true
+            },
+            {
+              "name": "solarPanelVolts",
+              "isPK": false
+            },
+            {
+              "name": "onboardTempKelvin",
+              "isPK": false
+            },
+            {
+              "name": "downlinkTime",
+              "isPK": false
+            }
+          ]
+        }
       ],
-      "tasks": [
-        "a) Berilgan konseptual ER diagrammasini relyatsion modelga to'liq xaritalang (draw.io polotnosida jadvallarni shakllantiring).",
-        "b) Har bir jadval uchun Birlamchi Kalit [PK] va kerakli Tashqi Kalit [FK] larini aniq ko'rsating.",
-        "c) Jadvallar o'rtasida to'g'ri yo'nalish va kardinallikka ega bo'lgan Crow's Foot munosabatlarini bog'lang.",
-        "d) Xaritalash jarayonida qaysi ER cheklovi relyatsion sxemada bevosita ifodalanmay yo'qolishini aniqlang."
+      "relationships": [
+        {
+          "entity1": "Spaceport",
+          "entity2": "SatelliteOrbiter",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Manages"
+        },
+        {
+          "entity1": "SatelliteOrbiter",
+          "entity2": "GroundStation",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates"
+        },
+        {
+          "entity1": "GroundStation",
+          "entity2": "MissionTelemetry",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Records"
+        }
       ]
     }
   }

@@ -306,24 +306,13 @@
     }
 
     if (elTasks) {
-      const taskList = q.caseStudy?.tasks || (q.taskUz || '').split('\n').filter(t => t.trim());
-      elTasks.innerHTML = taskList.map(t => {
-        const match = t.match(/^([a-d]\))\s*(.*)$/i);
-        if (match) {
-          return `
-            <div class="case-task-item">
-              <span class="case-task-letter">${match[1]}</span>
-              <span class="case-task-text">${formatInlineMarkdown(match[2])}</span>
-            </div>
-          `;
-        }
-        return `
-          <div class="case-task-item">
-            <span class="case-task-letter">•</span>
-            <span class="case-task-text">${formatInlineMarkdown(t)}</span>
-          </div>
-        `;
-      }).join('');
+      const inst = q.instruction || (q.caseStudy?.tasks ? q.caseStudy.tasks[0] : (q.taskUz ? q.taskUz.split('\n')[0] : "Biznes talablari asosida modelni shakllantiring."));
+      elTasks.innerHTML = `
+        <div class="case-instruction-pill" style="display:flex; align-items:flex-start; gap:8px; padding:10px 14px; background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.25); border-radius:6px; color:#f0f0f0; font-size:13px; line-height:1.5;">
+          <span style="font-size:16px;">🎯</span>
+          <div><strong>Topshiriq:</strong> ${formatInlineMarkdown(inst.replace(/^[a-d]\)\s*/i, ''))}</div>
+        </div>
+      `;
 
       let btnDetail = document.getElementById('btnChallengeDetail');
       if (!btnDetail) {
@@ -334,7 +323,7 @@
         btnDetail.style.marginTop = '12px';
         elTasks.appendChild(btnDetail);
       }
-      btnDetail.innerHTML = `<span>📖 Batafsil</span> <small style="opacity:0.85;">(Komandani o'rganish)</small>`;
+      btnDetail.innerHTML = `<span>📖 Batafsil</span> <small style="opacity:0.85;">(Nazariya & Misollar)</small>`;
       btnDetail.onclick = () => {
         if (window.databaseEncyclopedia) {
           window.databaseEncyclopedia.openForQuestion(q, 1);
@@ -345,21 +334,21 @@
     // Hide hints and feedback initially
     if (elHint) {
       elHint.style.display = 'none';
-      elHint.textContent = `💡 Maslahat: ${q.hint || "Mijoz talablaridagi 1..1 yoki 1..* bog'lanishlarga e'tibor bering."}`;
+      elHint.textContent = `💡 Maslahat: ${q.hint || "Talablardagi entitiylar va munosabatlarga e'tibor bering."}`;
     }
     if (elFeedback) {
       elFeedback.style.display = 'none';
       elFeedback.className = 'feedback-box';
     }
 
-    // 4. Update 2D Atelier Banner
+    // 4. Update 2D Atelier Banner (Short mentor advice, no story duplicate)
     if (atelier2D) {
-      atelier2D.setClient(q.clientName, q.clientRole, q.story);
+      atelier2D.setClient(q.clientName, q.clientRole, q.title);
     }
     const tickerSpeaker = document.getElementById('tickerSpeaker');
     const tickerMessage = document.getElementById('tickerMessage');
-    if (tickerSpeaker) tickerSpeaker.textContent = q.clientRole ? q.clientRole.toUpperCase() : "BUYURTMACHI";
-    if (tickerMessage) tickerMessage.textContent = q.story || "Modelni shakllantiring.";
+    if (tickerSpeaker) tickerSpeaker.textContent = q.clientRole ? q.clientRole.toUpperCase() : "BOSH ME'MOR ATLAS";
+    if (tickerMessage) tickerMessage.textContent = "Mijoz talablarini o'rganing va quyidagi EER diagrammasini to'g'ri shakllantiring.";
 
     // 5. Concept Anatomy Card
     renderConceptAnatomy(q);

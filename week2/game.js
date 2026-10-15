@@ -1,6 +1,11 @@
 /**
- * DATABASE SYSTEMS ACADEMY — 2-HAFTA: RELATSION SXEMA BOSHQARUVCHI (GAME CONTROLLER)
- * 150 ta Relyatsion Sxema Keyslari, draw.io Jadvallar Atelesi, 10 ta Qavat va Grader
+ * DATABASE SYSTEMS ACADEMY — 2-HAFTA: EER MODELNI KENGAYTIRISH (GAME CONTROLLER)
+ * 150 ta EER Kengaytirish Keysi, draw.io EER Atelesi, 10 ta Qavat va Intelligent Grader
+ * 
+ * Bevosita 1-haftaning davomi:
+ * - 1-haftada yaratilgan ER diagramma polotnoda avtomatik yuklanadi (starterDiagram)
+ * - Talaba o'sha diagrammaga subklasslar, ISA uchburchagi {Mandatory, Or} / {Optional, And},
+ *   zaif entitiylar yoki cheklovlarni kiritib to'laqonli EER diagrammaga aylantiradi.
  */
 
 (function () {
@@ -16,7 +21,7 @@
   };
 
   let allQuestions = [];
-  let relCanvas = null;
+  let eerCanvas = null;
   let atelier2D = null;
 
   // ==========================================================================
@@ -96,12 +101,12 @@
     // 2. Load LocalStorage
     loadSavedState();
 
-    // 3. Initialize 2D Atelier Banner & Relational Canvas Engine
+    // 3. Initialize 2D Atelier Banner & EER Canvas Engine
     if (window.Relational2DEngine) {
       atelier2D = new window.Relational2DEngine('consultCanvas');
     }
-    if (window.RelationalCanvasEngine) {
-      relCanvas = new window.RelationalCanvasEngine('relCanvasContainer');
+    if (window.EERCanvasEngine) {
+      eerCanvas = new window.EERCanvasEngine('eerCanvasContainer');
     }
 
     // 4. Render 10 Floors & HUD
@@ -132,34 +137,47 @@
   });
 
   // ==========================================================================
-  // 3. STATE PERSISTENCE
+  // 3. STATE PERSISTENCE (Multi-Key Mirroring)
   // ==========================================================================
   function loadSavedState() {
     try {
-      const saved = localStorage.getItem('DS_W2_PROGRESS') || localStorage.getItem('WIUT_DS_W2_PROGRESS') || localStorage.getItem('ACADEMY_DS_W2_PROGRESS');
-      if (saved) {
-        const data = JSON.parse(saved);
-        if (data.solvedIds && Array.isArray(data.solvedIds)) {
-          STATE.solvedIds = new Set(data.solvedIds);
+      const keys = ['DS_W2_PROGRESS', 'WIUT_DS_W2_PROGRESS', 'ACADEMY_DS_W2_PROGRESS', 'DS_W2_SOLVED_IDS', 'WIUT_DS_W2_SOLVED'];
+      for (const k of keys) {
+        const saved = localStorage.getItem(k);
+        if (saved) {
+          try {
+            const data = JSON.parse(saved);
+            if (Array.isArray(data)) {
+              data.forEach(id => STATE.solvedIds.add(Number(id)));
+            } else if (data && data.solvedIds && Array.isArray(data.solvedIds)) {
+              data.solvedIds.forEach(id => STATE.solvedIds.add(Number(id)));
+              if (data.currentQId) STATE.currentQId = data.currentQId;
+              if (data.score) STATE.score = data.score;
+              if (data.salary) STATE.salary = data.salary;
+            }
+          } catch (e) {}
         }
-        if (data.currentQId) STATE.currentQId = data.currentQId;
-        if (data.score) STATE.score = data.score;
-        if (data.salary) STATE.salary = data.salary;
       }
     } catch (e) {}
   }
 
   function saveState() {
     try {
+      const solvedArr = Array.from(STATE.solvedIds);
       const data = {
-        solvedIds: Array.from(STATE.solvedIds),
+        solvedIds: solvedArr,
         currentQId: STATE.currentQId,
         score: STATE.score,
         salary: STATE.salary
       };
       const json = JSON.stringify(data);
+      const arrJson = JSON.stringify(solvedArr);
+
       localStorage.setItem('DS_W2_PROGRESS', json);
       localStorage.setItem('WIUT_DS_W2_PROGRESS', json);
+      localStorage.setItem('ACADEMY_DS_W2_PROGRESS', json);
+      localStorage.setItem('DS_W2_SOLVED_IDS', arrJson);
+      localStorage.setItem('WIUT_DS_W2_SOLVED', arrJson);
     } catch (e) {}
   }
 
@@ -171,11 +189,11 @@
     const total = 150;
     const pct = Math.round((solved / total) * 100);
 
-    let rank = "Kichik Sxema Me'mori";
+    let rank = "Kichik EER Arxitektor";
     if (solved >= 135) rank = "Bosh Mantiqiy Arxitektor (Penthouse)";
-    else if (solved >= 105) rank = "Katta Relyatsion Sxema Muhandisi";
-    else if (solved >= 75) rank = "Yetakchi Jadvallar Modeleri";
-    else if (solved >= 45) rank = "O'rta Relyatsion Modeler";
+    else if (solved >= 105) rank = "Katta EER Tizim Muhandisi";
+    else if (solved >= 75) rank = "Yetakchi EER Modeleri";
+    else if (solved >= 45) rank = "O'rta Darajali Modeler";
     else if (solved >= 15) rank = "Kichik Muhandis-Modeler";
 
     const elRank = document.getElementById('hudRankTitle');
@@ -196,10 +214,23 @@
   // ==========================================================================
   function renderSectorTabs() {
     const nav = document.getElementById('sectorNavList');
-    if (!nav || !window.RELATIONAL_CATALOG) return;
+    if (!nav) return;
 
     nav.innerHTML = '';
-    const sectors = window.RELATIONAL_CATALOG.sectors || [];
+    const catalog = window.EER_CATALOG || window.RELATIONAL_CATALOG || {};
+    const sectors = catalog.sectors || [
+      { id: 1, range: [1, 15], name: "1-Qavat: Single Strong Entity", badge: "1F" },
+      { id: 2, range: [16, 30], name: "2-Qavat: 1..1 Relationships", badge: "2F" },
+      { id: 3, range: [31, 45], name: "3-Qavat: 1..* Cardinality", badge: "3F" },
+      { id: 4, range: [46, 60], name: "4-Qavat: *..* Many-to-Many", badge: "4F" },
+      { id: 5, range: [61, 75], name: "5-Qavat: Weak Entities", badge: "5F" },
+      { id: 6, range: [76, 90], name: "6-Qavat: Recursive Hierarchy", badge: "6F" },
+      { id: 7, range: [91, 105], name: "7-Qavat: Specialisation Disjoint", badge: "7F" },
+      { id: 8, range: [106, 120], name: "8-Qavat: Specialisation Overlap", badge: "8F" },
+      { id: 9, range: [121, 135], name: "9-Qavat: Categories / Union", badge: "9F" },
+      { id: 10, range: [136, 150], name: "10-Qavat: Enterprise Architecture", badge: "10F" }
+    ];
+
     const currentQ = allQuestions.find(q => q.id === STATE.currentQId) || allQuestions[0];
     const currentSectorId = currentQ ? (currentQ.sector || Math.ceil(currentQ.id / 15)) : 1;
 
@@ -264,22 +295,17 @@
     const elDiff = document.getElementById('qDifficultyBadge');
     const elSource = document.getElementById('qSourceBadge');
     const elTitle = document.getElementById('qTitle');
-    const elClientDialogue = document.getElementById('clientDialogue');
-    const elTask = document.getElementById('qTask');
     const elHint = document.getElementById('qHintBox');
     const elFeedback = document.getElementById('feedbackBox');
 
-    if (elFloor) elFloor.textContent = `${secId}-Qavat: Relatsion Sxemaga O'tkazish`;
+    if (elFloor) elFloor.textContent = `${secId}-Qavat: EER Modelga Kengaytirish`;
     if (elSub) elSub.textContent = q.difficulty || "Amaliy Keys";
     if (elQNum) elQNum.textContent = `Keys #${q.id} / 150`;
     if (elDiff) elDiff.textContent = q.difficulty || "O'rta";
-    if (elSource) elSource.textContent = q.source || "L02 Relational Model";
-    if (elTitle) elTitle.textContent = q.title || "Jadval Loyihalash";
+    if (elSource) elSource.textContent = "Seminar 02 • EER Modeli";
+    if (elTitle) elTitle.textContent = q.title || "EER Kengaytirish";
 
-    // Render Authentic Academic Case Study Dossier (Tutorial 2 Standard - Image 2)
-    const elNarrative = document.getElementById('caseNarrativeBox');
-    const elTasks = document.getElementById('caseTasksBox');
-
+    // Format Markdown Helper
     function formatInlineMarkdown(str) {
       if (!str) return '';
       return str
@@ -291,30 +317,23 @@
         .replace(/`([^`]+)`/g, '<code style="background:rgba(212,175,55,0.14); color:#ffd166; padding:1px 5px; border-radius:3px; font-family:\'JetBrains Mono\', monospace; font-size:12px;">$1</code>');
     }
 
+    // Render Narrative (Without duplicate ticker)
+    const elNarrative = document.getElementById('caseNarrativeBox');
+    const elTasks = document.getElementById('caseTasksBox');
+
     if (elNarrative) {
       const paras = q.caseStudy?.paragraphs || (q.story || '').split('\n\n').filter(p => p.trim());
       elNarrative.innerHTML = paras.map(p => `<p>${formatInlineMarkdown(p)}</p>`).join('');
     }
 
     if (elTasks) {
-      const taskList = q.caseStudy?.tasks || (q.taskUz || '').split('\n').filter(t => t.trim());
-      elTasks.innerHTML = taskList.map(t => {
-        const match = t.match(/^([a-d]\))\s*(.*)$/i);
-        if (match) {
-          return `
-            <div class="case-task-item">
-              <span class="case-task-letter">${match[1]}</span>
-              <span class="case-task-text">${formatInlineMarkdown(match[2])}</span>
-            </div>
-          `;
-        }
-        return `
-          <div class="case-task-item">
-            <span class="case-task-letter">•</span>
-            <span class="case-task-text">${formatInlineMarkdown(t)}</span>
-          </div>
-        `;
-      }).join('');
+      const inst = q.instruction || (q.caseStudy?.tasks ? q.caseStudy.tasks[0] : (q.taskUz ? q.taskUz.split('\n')[0] : "Dastlabki modelni EER qoidalari asosida kengaytiring."));
+      elTasks.innerHTML = `
+        <div class="case-instruction-pill" style="display:flex; align-items:flex-start; gap:8px; padding:10px 14px; background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.25); border-radius:6px; color:#f0f0f0; font-size:13px; line-height:1.5;">
+          <span style="font-size:16px;">🎯</span>
+          <div><strong>Topshiriq:</strong> ${formatInlineMarkdown(inst.replace(/^[a-d]\)\s*/i, ''))}</div>
+        </div>
+      `;
 
       let btnDetail = document.getElementById('btnChallengeDetail');
       if (!btnDetail) {
@@ -325,7 +344,7 @@
         btnDetail.style.marginTop = '12px';
         elTasks.appendChild(btnDetail);
       }
-      btnDetail.innerHTML = `<span>📖 Batafsil</span> <small style="opacity:0.85;">(Komandani o'rganish)</small>`;
+      btnDetail.innerHTML = `<span>📖 Batafsil</span> <small style="opacity:0.85;">(Nazariya & Misollar)</small>`;
       btnDetail.onclick = () => {
         if (window.databaseEncyclopedia) {
           window.databaseEncyclopedia.openForQuestion(q, 2);
@@ -335,270 +354,131 @@
 
     if (elHint) {
       elHint.style.display = 'none';
-      elHint.textContent = `💡 Maslahat: ${q.hint || "Birlamchi kalit [PK] va Tashqi kalit [FK] larni to'g'ri ko'rsating."}`;
+      elHint.textContent = `💡 Maslahat: ${q.hint || "Subklasslar, ISA uchburchagi va {Mandatory, Or} / {Optional, And} cheklovlariga e'tibor bering."}`;
     }
     if (elFeedback) {
       elFeedback.style.display = 'none';
       elFeedback.className = 'feedback-box';
     }
 
-    // Render Visual Source ER / EER Diagram (Tutorial 2 Standard)
-    renderSourceERDiagram(q);
-
     if (atelier2D) {
-      atelier2D.setClient("Tizimlar Rahbari", "Mijoz", q.story);
+      atelier2D.setClient(q.clientName || "Bosh Me'mor Atlas", q.clientRole || "Maslahatchi", q.title);
     }
+    const tickerSpeaker = document.getElementById('tickerSpeaker');
     const tickerMessage = document.getElementById('tickerMessage');
-    if (tickerMessage) tickerMessage.textContent = q.story || "Relyatsion sxemani shakllantiring.";
+    if (tickerSpeaker) tickerSpeaker.textContent = q.clientRole ? q.clientRole.toUpperCase() : "BOSH ME'MOR ATLAS";
+    if (tickerMessage) tickerMessage.textContent = "1-haftada yaratilgan model asosida yangi EER talablarini to'ldiring.";
 
-    // Render starter puzzle tables on canvas (No answers leaked!)
-    if (relCanvas) {
-      const exp = q.expectedSchema || {};
-      const expTables = exp.tables || (exp.tableName ? [exp] : []);
-      const count = expTables.length;
-      const starterTables = expTables.map((t, idx) => ({
-        tableName: t.tableName || t.name || `Jadval${idx + 1}`,
-        columns: [
-          { name: 'id', isPK: false }
-        ],
-        x: count === 1 ? 260 : (idx === 0 ? 80 : 420),
-        y: 120
-      }));
-      relCanvas.renderSchema({ tables: starterTables, references: [] });
+    // Load Starter Diagram into EER Canvas (Harmonious continuation of Week 1!)
+    if (eerCanvas) {
+      eerCanvas.loadStarterDiagram(q.starterDiagram || q.expectedDiagram);
     }
   }
 
   // ==========================================================================
-  // SOURCE ER / EER DIAGRAM VISUALIZER (Tutorial 2 Standard)
-  // ==========================================================================
-  function renderSourceERDiagram(q) {
-    const container = document.getElementById('qSourceDiagram');
-    if (!container) return;
-    container.innerHTML = '';
-
-    const exp = q.expectedSchema || {};
-    const expTables = exp.tables || (exp.tableName ? [exp] : []);
-    const refs = exp.references || [];
-    const title = (q.title || '').toLowerCase();
-    const task = (q.taskUz || '').toLowerCase();
-
-    // 1. Check if this is an ISA / Specialisation hierarchy (Vehicle -> Car, Truck, or Person -> Doctor, etc.)
-    const isHierarchy = title.includes('meros') || title.includes('subclass') || title.includes('ixtisoslashuv') || task.includes('subclass') || task.includes('superklass') || task.includes('option 8');
-    
-    if (isHierarchy && expTables.length >= 2) {
-      let superclass = expTables[0];
-      let subclasses = expTables.slice(1);
-      
-      let constraint = "{Mandatory, Or}";
-      if (task.includes("optional, or") || title.includes("optional, or")) constraint = "{Optional, Or}";
-      else if (task.includes("mandatory, and") || title.includes("mandatory, and")) constraint = "{Mandatory, And}";
-      else if (task.includes("optional, and") || title.includes("optional, and")) constraint = "{Optional, And}";
-      else if (task.includes("optional, disjoint") || title.includes("disjoint")) constraint = "{Optional, Disjoint}";
-
-      const wrap = document.createElement('div');
-      wrap.className = 'uml-isa-block';
-
-      // Superclass Box
-      const superBox = createUmlEntityBox(superclass);
-      wrap.appendChild(superBox);
-
-      // ISA Triangle & Constraint
-      const triWrap = document.createElement('div');
-      triWrap.style.textAlign = 'center';
-      triWrap.innerHTML = `
-        <div class="uml-isa-triangle"></div>
-        <div class="uml-isa-constraint">${constraint}</div>
-      `;
-      wrap.appendChild(triWrap);
-
-      // Subclasses row
-      const subRow = document.createElement('div');
-      subRow.className = 'uml-diagram-canvas';
-      subclasses.forEach(sub => {
-        subRow.appendChild(createUmlEntityBox(sub));
-      });
-      wrap.appendChild(subRow);
-
-      container.appendChild(wrap);
-      return;
-    }
-
-    // 2. Multi-entity relationship or Weak Entity
-    if (expTables.length > 1) {
-      const canvas = document.createElement('div');
-      canvas.className = 'uml-diagram-canvas';
-
-      expTables.forEach((tbl, idx) => {
-        const isWeak = (tbl.tableName || tbl.name || '').toLowerCase().includes('child') ||
-                       (tbl.tableName || tbl.name || '').toLowerCase().includes('copy') ||
-                       (tbl.tableName || tbl.name || '').toLowerCase().includes('session') ||
-                       (tbl.tableName || tbl.name || '').toLowerCase().includes('dependent') ||
-                       task.includes('zaif entitiy') || title.includes('zaif');
-        
-        const box = createUmlEntityBox(tbl, isWeak && idx > 0);
-        canvas.appendChild(box);
-
-        if (idx < expTables.length - 1) {
-          const matchedRef = refs.find(r => 
-            (r.fromTable === tbl.tableName && r.toTable === expTables[idx+1].tableName) ||
-            (r.toTable === tbl.tableName && r.fromTable === expTables[idx+1].tableName)
-          );
-
-          const mult1 = matchedRef ? (matchedRef.fromTable === tbl.tableName ? matchedRef.fromMult : matchedRef.toMult) : '1..1';
-          const mult2 = matchedRef ? (matchedRef.toTable === expTables[idx+1].tableName ? matchedRef.toMult : matchedRef.fromMult) : '0..*';
-          const relName = matchedRef ? (matchedRef.type || 'Aloqa') : (isWeak ? 'Has' : 'Aloqa');
-
-          const conn = document.createElement('div');
-          conn.className = 'uml-connector';
-          conn.innerHTML = `
-            <span class="uml-mult-label">${mult1 || '1..1'}</span>
-            <div class="uml-connector-line"></div>
-            <div class="uml-rel-diamond ${isWeak ? 'composition' : ''}" title="${isWeak ? 'Kompozitsiya (Composition ◆)' : 'Assotsiatsiya'}">
-              ${isWeak ? '◆ ' : '◇ '}${relName}
-            </div>
-            <div class="uml-connector-line"></div>
-            <span class="uml-mult-label">${mult2 || '0..*'}</span>
-          `;
-          canvas.appendChild(conn);
-        }
-      });
-
-      container.appendChild(canvas);
-      return;
-    }
-
-    // 3. Single Entity (Task 1 strong entity mapping)
-    if (expTables.length === 1) {
-      const canvas = document.createElement('div');
-      canvas.className = 'uml-diagram-canvas';
-      canvas.appendChild(createUmlEntityBox(expTables[0]));
-      container.appendChild(canvas);
-    }
-  }
-
-  function createUmlEntityBox(tbl, isWeak = false) {
-    const box = document.createElement('div');
-    box.className = 'uml-entity-card' + (isWeak ? ' weak' : '');
-    
-    const tName = tbl.tableName || tbl.name || 'Entity';
-    const header = document.createElement('div');
-    header.className = 'uml-entity-header';
-    header.innerHTML = isWeak ? `║ ${tName} (Zaif) ║` : tName;
-    box.appendChild(header);
-
-    const attrsDiv = document.createElement('div');
-    attrsDiv.className = 'uml-entity-attrs';
-    
-    (tbl.columns || []).forEach(col => {
-      const row = document.createElement('div');
-      row.className = 'uml-attr-row';
-      if (col.isPK) {
-        if (isWeak && !col.isFK) {
-          row.innerHTML = `<span class="uml-attr-ppk">${col.name}</span> <span class="uml-badge-ppk">{PPK}</span>`;
-        } else {
-          row.innerHTML = `<span class="uml-attr-pk">${col.name}</span> <span class="uml-badge-pk">{PK}</span>`;
-        }
-      } else if (col.isFK) {
-        row.innerHTML = `<span>${col.name}</span> <span style="font-size:9px; color:#5c8d73;">[FK]</span>`;
-      } else {
-        row.innerHTML = `<span>${col.name}</span>`;
-      }
-      attrsDiv.appendChild(row);
-    });
-
-    box.appendChild(attrsDiv);
-    return box;
-  }
-
-  // ==========================================================================
-  // 7. BIND USER CONTROLS & WORKBENCH
+  // 7. BIND CONTROLS
   // ==========================================================================
   function bindControls() {
+    // Navigation: Next / Prev
     const btnPrev = document.getElementById('btnPrevQ');
     const btnNext = document.getElementById('btnNextQ');
-
     if (btnPrev) {
       btnPrev.addEventListener('click', () => {
-        window.playSfx('click');
-        if (STATE.currentQId > 1) loadQuestion(STATE.currentQId - 1);
+        if (STATE.currentQId > 1) {
+          window.playSfx('click');
+          loadQuestion(STATE.currentQId - 1);
+        }
       });
     }
-
     if (btnNext) {
       btnNext.addEventListener('click', () => {
-        window.playSfx('click');
-        if (STATE.currentQId < 150) loadQuestion(STATE.currentQId + 1);
-      });
-    }
-
-    const btnHint = document.getElementById('btnToggleHint');
-    if (btnHint) {
-      btnHint.addEventListener('click', () => {
-        window.playSfx('click');
-        const box = document.getElementById('qHintBox');
-        if (box) {
-          box.style.display = box.style.display === 'none' ? 'block' : 'none';
+        if (STATE.currentQId < 150) {
+          window.playSfx('click');
+          loadQuestion(STATE.currentQId + 1);
         }
       });
     }
 
-    // Toolbar buttons for draw.io Relational Studio
-    const btnAddTable = document.getElementById('relBtnAddTable');
-    if (btnAddTable) {
-      btnAddTable.addEventListener('click', () => {
+    // Canvas Toolbar Buttons
+    const btnAddEntity = document.getElementById('eerBtnAddEntity');
+    if (btnAddEntity) {
+      btnAddEntity.addEventListener('click', () => {
         window.playSfx('click');
-        const name = prompt("Yangi jadval nomini kiriting:", "Kompaniya");
-        if (name && relCanvas) {
-          relCanvas.addTable({ tableName: name.trim() });
-        }
+        if (eerCanvas) eerCanvas.spawnEntity();
       });
     }
 
-    const btnResetTpl = document.getElementById('relBtnResetTemplate');
-    if (btnResetTpl) {
-      btnResetTpl.addEventListener('click', () => {
+    const btnAddRel = document.getElementById('eerBtnAddRel');
+    if (btnAddRel) {
+      btnAddRel.addEventListener('click', () => {
+        window.playSfx('click');
+        if (eerCanvas) eerCanvas.spawnRelationship();
+      });
+    }
+
+    const btnToggleWeak = document.getElementById('eerBtnToggleWeak');
+    if (btnToggleWeak) {
+      btnToggleWeak.addEventListener('click', () => {
+        window.playSfx('click');
+        if (eerCanvas) eerCanvas.toggleSelectedWeak();
+      });
+    }
+
+    const btnResetTemplate = document.getElementById('eerBtnResetTemplate');
+    if (btnResetTemplate) {
+      btnResetTemplate.addEventListener('click', () => {
         window.playSfx('click');
         const q = allQuestions.find(item => item.id === STATE.currentQId);
-        if (q && relCanvas) {
-          const exp = q.expectedSchema || {};
-          const expTables = exp.tables || (exp.tableName ? [exp] : []);
-          const count = expTables.length;
-          const starterTables = expTables.map((t, idx) => ({
-            tableName: t.tableName || t.name || `Jadval${idx + 1}`,
-            columns: [
-              { name: 'id', isPK: false }
-            ],
-            x: count === 1 ? 260 : (idx === 0 ? 80 : 420),
-            y: 120
-          }));
-          relCanvas.renderSchema({ tables: starterTables, references: [] });
+        if (q && eerCanvas) {
+          eerCanvas.loadStarterDiagram(q.starterDiagram || q.expectedDiagram);
         }
       });
     }
 
-    const btnClearCanvas = document.getElementById('relBtnClearCanvas');
+    const btnClearCanvas = document.getElementById('eerBtnClearCanvas');
     if (btnClearCanvas) {
       btnClearCanvas.addEventListener('click', () => {
         window.playSfx('click');
-        if (confirm("Chizilgan jadvallarni tozalashni xohlaysizmi?") && relCanvas) {
-          relCanvas.clearCanvas();
+        if (confirm("Haqiqatan ham polotnoni tozalamoqchimisiz?")) {
+          if (eerCanvas) eerCanvas.clear();
         }
       });
     }
 
-    const btnExportDrawio = document.getElementById('btnExportDrawio');
-    if (btnExportDrawio) {
-      btnExportDrawio.addEventListener('click', () => {
-        window.playSfx('click');
-        if (!relCanvas || !window.RELATIONAL_DRAWIO_EXPORTER) return;
-        const currentSchema = relCanvas.exportCurrentSchema();
-        const xml = window.RELATIONAL_DRAWIO_EXPORTER.exportToXml(currentSchema);
+    // Toggle Shapes Sidebar
+    const btnToggleSidebar = document.getElementById('btnToggleShapesSidebar');
+    const btnSidebarFold = document.getElementById('btnToggleSidebar');
+    const btnSidebarUnfold = document.getElementById('btnUnfoldSidebar');
+    const drawioSidebar = document.getElementById('drawioSidebar');
 
+    if (btnToggleSidebar && drawioSidebar) {
+      btnToggleSidebar.addEventListener('click', () => {
+        drawioSidebar.classList.toggle('collapsed');
+      });
+    }
+    if (btnSidebarFold && drawioSidebar) {
+      btnSidebarFold.addEventListener('click', () => {
+        drawioSidebar.classList.add('collapsed');
+      });
+    }
+    if (btnSidebarUnfold && drawioSidebar) {
+      btnSidebarUnfold.addEventListener('click', () => {
+        drawioSidebar.classList.remove('collapsed');
+      });
+    }
+
+    // Export draw.io XML
+    const btnExport = document.getElementById('btnExportDrawio');
+    if (btnExport) {
+      btnExport.addEventListener('click', () => {
+        window.playSfx('click');
+        if (!eerCanvas) return;
+        const xml = eerCanvas.exportDrawioXML();
         const blob = new Blob([xml], { type: 'application/xml' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `Relational_Schema_${STATE.currentQId}.drawio`;
+        a.download = `EER_Model_W2_${STATE.currentQId}.drawio`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -609,7 +489,19 @@
     // Verification Button
     const btnVerify = document.getElementById('btnVerifySchema');
     if (btnVerify) {
-      btnVerify.addEventListener('click', verifySchema);
+      btnVerify.addEventListener('click', verifyEERModel);
+    }
+
+    // Hint Button
+    const btnHint = document.getElementById('btnToggleHint');
+    if (btnHint) {
+      btnHint.addEventListener('click', () => {
+        window.playSfx('click');
+        const elHint = document.getElementById('qHintBox');
+        if (elHint) {
+          elHint.style.display = elHint.style.display === 'none' ? 'block' : 'none';
+        }
+      });
     }
 
     // Sound toggle
@@ -636,20 +528,28 @@
       });
     }
 
-    // Modals
     setupModals();
   }
 
   // ==========================================================================
-  // 8. SCHEMA VERIFICATION & GRADING (DIAGRAM ONLY)
+  // 8. EER MODEL VERIFICATION & GRADING
   // ==========================================================================
-  function verifySchema() {
+  function verifyEERModel() {
     const elFeedback = document.getElementById('feedbackBox');
     try {
-      if (!window.RELATIONAL_GRADER) {
+      if (!eerCanvas) {
         if (elFeedback) {
           elFeedback.className = 'feedback-box error';
-          elFeedback.innerHTML = `<strong>⚠️ Xatolik:</strong> Tekshiruv tizimi (RELATIONAL_GRADER) topilmadi.`;
+          elFeedback.innerHTML = `<strong>⚠️ Xatolik:</strong> EER kanvasi yuklanmagan.`;
+          elFeedback.style.display = 'block';
+        }
+        return;
+      }
+
+      if (!window.EER_GRADER) {
+        if (elFeedback) {
+          elFeedback.className = 'feedback-box error';
+          elFeedback.innerHTML = `<strong>⚠️ Xatolik:</strong> Tekshiruv moduli (EER_GRADER) topilmadi.`;
           elFeedback.style.display = 'block';
         }
         return;
@@ -658,23 +558,18 @@
       const q = allQuestions.find(item => item.id === STATE.currentQId);
       if (!q) return;
 
-      let result = null;
-      if (relCanvas) {
-        const userSchema = relCanvas.exportCurrentSchema();
-        result = window.RELATIONAL_GRADER.grade(userSchema, q);
-      } else {
-        result = window.RELATIONAL_GRADER.grade({ tables: [], references: [] }, q);
-      }
+      const userDiagram = eerCanvas.exportCurrentDiagram();
+      const result = window.EER_GRADER.grade(userDiagram, q);
 
       if (!elFeedback) return;
 
       if (result.passed) {
         window.playSfx('success');
-        if (atelier2D) atelier2D.triggerSuccess("Relyatsion Jadval Tasdiqlandi!");
+        if (atelier2D) atelier2D.triggerSuccess("EER Diagramma Qabul Qilindi!");
 
         elFeedback.className = 'feedback-box success';
         elFeedback.innerHTML = `
-          <strong>🎉 A'lo Natija!</strong> ${result.feedback || "Sxema relyatsion qoidalar va kalitlar bo'yicha to'g'ri loyihalandi."}
+          <strong>🎉 A'lo Natija!</strong> ${result.feedback || "EER kengaytirishlari va subklasslar to'liq tasdiqlandi."}
           <div style="margin-top:8px;">
             <button id="btnNextChallenge" class="btn btn-primary" style="padding:4px 12px;">Keyingi Topshiriqqa O'tish ▶</button>
           </div>
@@ -683,17 +578,19 @@
 
         if (!STATE.solvedIds.has(q.id)) {
           STATE.solvedIds.add(q.id);
-          STATE.score += 100;
-          STATE.salary += 150;
+          STATE.score += 150;
+          STATE.salary += 50;
           saveState();
           updateHUD();
           renderSectorTabs();
+
+          const dot = document.querySelector(`.q-dot[title='Topshiriq #${q.id}']`);
+          if (dot) dot.classList.add('completed');
         }
 
-        const nextBtn = document.getElementById('btnNextChallenge');
-        if (nextBtn) {
-          nextBtn.addEventListener('click', () => {
-            window.playSfx('click');
+        const btnNextChallenge = document.getElementById('btnNextChallenge');
+        if (btnNextChallenge) {
+          btnNextChallenge.addEventListener('click', () => {
             if (STATE.currentQId < 150) {
               loadQuestion(STATE.currentQId + 1);
             }
@@ -701,176 +598,65 @@
         }
       } else {
         window.playSfx('error');
-        if (atelier2D) atelier2D.triggerError("Sxemada xatolik bor!");
-
         elFeedback.className = 'feedback-box error';
-        elFeedback.innerHTML = `<strong>⚠️ Diqqat:</strong> ${result.feedback || "Jadval nomlari, Birlamchi Kalit [PK] yoki Tashqi Kalit [FK] larni qaytadan tekshiring."}`;
+        elFeedback.innerHTML = result.feedback;
         elFeedback.style.display = 'block';
       }
     } catch (err) {
-      console.error("verifySchema error:", err);
+      console.error("verifyEERModel error:", err);
       if (elFeedback) {
         elFeedback.className = 'feedback-box error';
-        elFeedback.innerHTML = `<strong>⚠️ Tekshiruvda kutilmagan xatolik:</strong> ${err.message || err}`;
+        elFeedback.innerHTML = `<strong>⚠️ Xatolik yuz berdi:</strong> ${err.message}`;
         elFeedback.style.display = 'block';
       }
     }
   }
 
   // ==========================================================================
-  // 9. MODALS: 150 MAP & OFFICE INCIDENT
+  // 9. MODALS (Map & Incident)
   // ==========================================================================
   function setupModals() {
     const btnMap = document.getElementById('btnOpenMap');
-    const mapModal = document.getElementById('mapModal');
+    const modalMap = document.getElementById('mapModal');
     const btnCloseMap = document.getElementById('btnCloseMap');
+    const mapBody = document.getElementById('mapModalBody');
 
-    if (btnMap && mapModal) {
+    if (btnMap && modalMap) {
       btnMap.addEventListener('click', () => {
         window.playSfx('click');
-        renderMapModal();
-        mapModal.classList.add('open');
+        if (mapBody) {
+          mapBody.innerHTML = '';
+          const catalog = window.EER_CATALOG || window.RELATIONAL_CATALOG || {};
+          const sectors = catalog.sectors || [];
+          sectors.forEach(sec => {
+            const secCard = document.createElement('div');
+            secCard.className = 'map-sector-card';
+            secCard.innerHTML = `<h4 style="color:var(--accent-gold); margin:0 0 8px 0; font-size:13px;">${sec.name}</h4>`;
+            const grid = document.createElement('div');
+            grid.className = 'map-grid';
+            for (let i = sec.range[0]; i <= sec.range[1]; i++) {
+              const cell = document.createElement('div');
+              cell.className = 'map-cell' + (i === STATE.currentQId ? ' active' : '') + (STATE.solvedIds.has(i) ? ' completed' : '');
+              cell.textContent = i;
+              cell.addEventListener('click', () => {
+                modalMap.classList.remove('active');
+                loadQuestion(i);
+              });
+              grid.appendChild(cell);
+            }
+            secCard.appendChild(grid);
+            mapBody.appendChild(secCard);
+          });
+        }
+        modalMap.classList.add('active');
       });
     }
-    if (btnCloseMap && mapModal) {
-      btnCloseMap.addEventListener('click', () => mapModal.classList.remove('open'));
-    }
 
-    const btnIncident = document.getElementById('btnTriggerEvent');
-    const incidentModal = document.getElementById('eventModal');
-    const btnCloseIncident = document.getElementById('btnCloseEvent');
-
-    if (btnIncident && incidentModal) {
-      btnIncident.addEventListener('click', () => {
-        window.playSfx('click');
-        renderIncidentModal();
-        incidentModal.classList.add('open');
+    if (btnCloseMap && modalMap) {
+      btnCloseMap.addEventListener('click', () => {
+        modalMap.classList.remove('active');
       });
     }
-    if (btnCloseIncident && incidentModal) {
-      btnCloseIncident.addEventListener('click', () => incidentModal.classList.remove('open'));
-    }
-  }
-
-  function renderMapModal() {
-    const body = document.getElementById('mapModalBody');
-    if (!body || !window.RELATIONAL_CATALOG) return;
-
-    body.innerHTML = '';
-    const sectors = window.RELATIONAL_CATALOG.sectors || [];
-
-    sectors.forEach(sec => {
-      const secBox = document.createElement('div');
-      secBox.style.marginBottom = '14px';
-
-      const secTitle = document.createElement('div');
-      secTitle.style.fontWeight = '700';
-      secTitle.style.fontSize = '12.5px';
-      secTitle.style.color = '#c8a96e';
-      secTitle.style.marginBottom = '6px';
-      secTitle.textContent = `${sec.badge}: ${sec.name}`;
-      secBox.appendChild(secTitle);
-
-      const grid = document.createElement('div');
-      grid.className = 'map-grid';
-
-      for (let i = sec.range[0]; i <= sec.range[1]; i++) {
-        const btn = document.createElement('button');
-        btn.className = 'choice-btn';
-        btn.style.padding = '6px 8px';
-        btn.style.textAlign = 'center';
-        btn.style.fontSize = '11px';
-        btn.textContent = `#${i}`;
-
-        if (STATE.solvedIds.has(i)) {
-          btn.classList.add('correct-choice');
-        }
-        if (i === STATE.currentQId) {
-          btn.style.borderColor = '#c8a96e';
-          btn.style.fontWeight = 'bold';
-        }
-
-        btn.addEventListener('click', () => {
-          window.playSfx('click');
-          document.getElementById('mapModal').classList.remove('open');
-          loadQuestion(i);
-        });
-
-        grid.appendChild(btn);
-      }
-
-      secBox.appendChild(grid);
-      body.appendChild(secBox);
-    });
-  }
-
-  function renderIncidentModal() {
-    const body = document.getElementById('eventModalBody');
-    if (!body) return;
-
-    const events = [
-      {
-        speaker: "Katta Me'mor Atlas",
-        title: "Subklasslarni Mapp Qilish Bahsi",
-        avatar: "🏛️",
-        desc: "Kompaniyada `Employee` superklassi ostida `Manager` va `Engineer` subklasslari mavjud. Cheklov: {Mandatory, Or}. Agar tashqi jadvallardan subklasslarga to'g'ridan-to'g'ri Tashqi Kalit (FK) yo'nalmagan bo'lsa, qaysi variant jadval sonini kamaytiradi?",
-        choices: [
-          { text: "Option 8A: 3 ta jadval ochish (Employee, Manager, Engineer)", correct: false },
-          { text: "Option 8C: Faqat 1 ta umumiy Employee jadvali ochib, 'role' diskriminator ustunini qo'shish", correct: true },
-          { text: "Option 8D: Subklasslarni umuman hisobga olmaslik", correct: false }
-        ]
-      },
-      {
-        speaker: "Ma'lumotlar Bazasi Administratori",
-        title: "Crow's Foot da NULL Tashqi Kalit",
-        avatar: "👨‍💻",
-        desc: "Xodimlar jadvalida `deptNo` tashqi kaliti mavjud, lekin yangi ishga olingan xodimlar hali bo'limga biriktirilmagan bo'lishi mumkin. Crow's Foot chizig'ida qaysi belgi qo'yiladi?",
-        choices: [
-          { text: "Ikkita parallel chiziq (||) — majburiy NOT NULL", correct: false },
-          { text: "Aylana va chiziq (o|) — ixtiyoriy, NULL bo'lishi mumkin", correct: true },
-          { text: "Faqat qarg'a oyog'i", correct: false }
-        ]
-      }
-    ];
-
-    const ev = events[Math.floor(Math.random() * events.length)];
-
-    body.innerHTML = `
-      <div class="event-speaker-row">
-        <div class="event-avatar">${ev.avatar}</div>
-        <div>
-          <div style="font-weight:700; color:#f2ede4; font-size:14px;">${ev.title}</div>
-          <div style="font-size:11.5px; color:#c8a96e;">${ev.speaker}</div>
-        </div>
-      </div>
-      <p style="font-size:13px; color:#c4bbb0; line-height:1.5;">${ev.desc}</p>
-      <div class="event-choices" id="incidentChoices"></div>
-    `;
-
-    const choicesBox = document.getElementById('incidentChoices');
-    ev.choices.forEach(ch => {
-      const btn = document.createElement('button');
-      btn.className = 'choice-btn';
-      btn.textContent = ch.text;
-
-      btn.addEventListener('click', () => {
-        if (ch.correct) {
-          window.playSfx('success');
-          btn.classList.add('correct-choice');
-          STATE.score += 250;
-          STATE.salary += 100;
-          saveState();
-          updateHUD();
-          btn.textContent += " ✓ (To'g'ri! +$250 Kapital & +$100 Maosh)";
-        } else {
-          window.playSfx('error');
-          btn.classList.add('wrong-choice');
-          btn.textContent += " ✗ (Noto'g'ri yondashuv)";
-        }
-      });
-
-      choicesBox.appendChild(btn);
-    });
   }
 
 })();

@@ -102,7 +102,7 @@
       <div class="panel-card" style="flex:1;">
         <div class="panel-header">
           <div class="panel-title">
-            <span>📊 draw.io Relyatsion Jadvallar & Crow's Foot Polotnosi</span>
+            <span>📐 Vizual EER Diagramma Atelesi (draw.io Uslubida)</span>
           </div>
         </div>
 
@@ -112,19 +112,26 @@
             <button class="eer-chip-btn" id="btnToggleShapesSidebar" title="Shakllar palitrasini yig'ish / ochish">
               <span>📐 Shakllar</span>
             </button>
-            <button class="eer-chip-btn" id="relBtnAddTable" title="Yangi jadval qo'shish">
-              <span>➕ Jadval</span>
+            <button class="eer-chip-btn" id="eerBtnAddEntity" title="Yangi to'rtburchak entitiy qo'shish">
+              <span>➕ Entitiy</span>
             </button>
-            <button class="eer-chip-btn" id="relBtnResetTemplate" title="Dastlabki sxemani tiklash">
-              <span>📋 Shablon</span>
+            <button class="eer-chip-btn" id="eerBtnAddRel" title="Yangi aloqa rombi qo'shish">
+              <span>🔷 Romb</span>
             </button>
-            <button class="eer-chip-btn" id="relBtnClearCanvas" title="Polotnoni tozalash">
-              <span>🗑 Tozalash</span>
+            <button class="eer-chip-btn" id="eerBtnToggleWeak" title="Tanlangan ob'ektni zaif (Weak) qilish">
+              <span>📦 Zaif Entitiy</span>
             </button>
           </div>
+
           <div class="eer-tool-group">
-            <button class="eer-chip-btn" id="btnExportDrawio" title="draw.io formatida yuklab olish">
-              <span>💾 .drawio</span>
+            <button class="eer-chip-btn" id="eerBtnResetTemplate" title="Dastlabki ER diagrammasini tiklash">
+              <span>📋 Dastlabki ER</span>
+            </button>
+            <button class="eer-chip-btn" id="eerBtnClearCanvas" title="Polotnoni tozalash">
+              <span>🧹 Tozalash</span>
+            </button>
+            <button class="eer-chip-btn" id="btnExportDrawio" style="border-color:var(--accent-gold); color:var(--accent-gold-bright);" title="Draw.io XML faylni yuklab olish">
+              <span>💾 .drawio XML</span>
             </button>
           </div>
         </div>
@@ -334,15 +341,15 @@
             <span>📐 Shakllar</span> <span>▶</span>
           </button>
 
-          <!-- Interactive Table Board -->
-          <div class="canvas-container" id="relCanvasContainer">
-            <!-- SVG Crow's Foot lines and HTML Table Boxes rendered dynamically -->
+          <!-- Interactive Diagram Board -->
+          <div class="canvas-container" id="eerCanvasContainer">
+            <!-- SVG lines and HTML Entity Boxes rendered dynamically -->
           </div>
         </div>
 
         <div style="padding:7px 12px; background:#1b1612; border-top:1px solid var(--border-subtle); font-size:11px; color:var(--text-muted); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
-          <span>💡 <em>Eslatma:</em> Port strelkalaridan sudrab Crow's Foot aloqalarini o'rnating. G'ildirak orqali masshtablang.</span>
-          <span style="color:var(--accent-gold);">draw.io Relational Schema Standard</span>
+          <span>💡 <em>Maslahat:</em> Dastlabki ER modeliga yangi EER subklasslar yoki cheklovlarni qo'shing va tekshiring!</span>
+          <span style="color:var(--accent-gold);">UML EER Standard (Extended Entity-Relationship)</span>
         </div>
       </div>
 
@@ -379,27 +386,16 @@
 
           <h3 id="qTitle" class="mission-title">Yuklanmoqda...</h3>
 
-          <!-- Source ER / EER Model Blueprint (Tutorial 2 Standard) -->
-          <div class="source-er-model-card" id="sourceERCard">
-            <div class="source-er-header">
-              <div class="source-er-title">
-                <span>📐</span>
-                <span>Berilgan Konseptual ER / EER Diagrammasi (Manba):</span>
-              </div>
-              <span class="source-er-pill">Tutorial 2 Mapping</span>
-            </div>
-            <div id="qSourceDiagram" class="source-er-display">
-              <!-- Dynamically injected visual UML ER diagram -->
-            </div>
-          </div>
-
           <!-- Authentic Academic Case Study Dossier (Tutorial 2 Standard) -->
           <article class="academic-case-dossier" id="academicCaseDossier">
+            <h4 class="case-section-header" style="font-size:12px; font-weight:700; color:var(--accent-gold); text-transform:uppercase; letter-spacing:0.8px; margin:0 0 8px 0; display:flex; align-items:center; gap:6px;">
+              <span>📝</span> <span>SAVOL:</span>
+            </h4>
             <div class="case-narrative-box" id="caseNarrativeBox">
               <!-- Rendered paragraphs -->
             </div>
             <div class="case-tasks-box" id="caseTasksBox">
-              <!-- Rendered analytical questions a, b, c, d -->
+              <!-- Rendered single instruction pill & Batafsil button -->
             </div>
           </article>
 
@@ -419,18 +415,17 @@
         <div class="action-box">
           <div class="drawio-quick-guide" style="padding:10px 12px; background:rgba(200, 169, 110, 0.06); border:1px solid var(--border-subtle); border-radius:6px; margin-bottom:12px; font-size:11.5px; line-height:1.6; color:var(--text-secondary);">
             <div style="font-weight:600; color:var(--accent-gold); margin-bottom:4px; display:flex; align-items:center; gap:6px;">
-              <span>📊 draw.io Relyatsion Boshqaruv</span>
+              <span>📐 EER Kengaytirish Qo'llanmasi</span>
             </div>
-            <div>• <strong>Bog'lash:</strong> Jadval ustiga boring, paydo bo'lgan port strelkasini (<span style="color:var(--accent-gold);">▲ ▶ ▼ ◀</span>) sudrab ikkinchi jadvalga ulang — avtomatik aloqa chizig'i hosil bo'ladi.</div>
-            <div>• <strong>Kalitlar:</strong> <span style="color:var(--accent-gold); font-weight:700;">[Oddiy]</span> katagini bosib <strong>[PK]</strong>, <strong>[FK1]</strong> yoki <strong>[PK,FK1]</strong> holatiga o'tkazing.</div>
-            <div>• <strong>Crow's Foot:</strong> Tashqi kalitli jadval tomonda <strong>Crow's Foot (|<)</strong> va ota jadval tomonda <strong>(||)</strong> avtomatik aks etadi.</div>
-            <div>• <strong>Masshtab:</strong> Sichqoncha g'ildiragini aylantirib yaqinlashtiring / uzoqlashtiring yoki burchakdagi <strong>+ / - / 1:1</strong> tugmalaridan foydalaning.</div>
-            <div>• <strong>Ustunlar:</strong> Sarlavhadagi <span style="color:var(--accent-gold);">+</span> orqali yangi ustun qo'shing, nomini to'g'ridan-to'g'ri yozib tahrirlang.</div>
+            <div>• <strong>Dastlabki Model:</strong> 1-haftada yaratilgan ER diagramma polotnoda tayyor holda yuklanadi.</div>
+            <div>• <strong>Subklass Qo'shish:</strong> Chap paneldagi <strong>[ISA Uchburchagi]</strong> yoki tepadagi <strong>[➕ Entitiy]</strong> orqali subklasslarni joylang.</div>
+            <div>• <strong>Cheklovlar:</strong> Disjoint <strong>{Mandatory, Or}</strong> yoki Overlapping <strong>{Optional, And}</strong> cheklovlarini to'g'ri tanlang.</div>
+            <div>• <strong>Tekshirish:</strong> Barcha entitiy va bog'lanishlar tayyor bo'lgach, <strong>[✅ EER Modelni Tekshirish]</strong> tugmasini bosing!</div>
           </div>
 
           <div class="action-bar">
             <div class="action-left">
-              <button id="btnVerifySchema" class="btn btn-primary">✅ Sxemani Tekshirish</button>
+              <button id="btnVerifySchema" class="btn btn-primary">✅ EER Modelni Tekshirish</button>
               <button id="btnToggleHint" class="btn">💡 Maslahat Olish</button>
             </div>
           </div>
@@ -477,12 +472,13 @@
   <!-- =========================================================================
        SCRIPTS
        ========================================================================= -->
-  <script src="data/relational_catalog.js"></script>
+  <script src="data/eer_catalog.js"></script>
   <script src="data/questions_1_50.js"></script>
   <script src="data/questions_51_100.js"></script>
   <script src="data/questions_101_150.js"></script>
   <script src="engine2d.js"></script>
-  <script src="relational_canvas.js"></script>
+  <script src="eer_canvas.js"></script>
+  <script src="eer_grader.js"></script>
   <script src="game.js"></script>
   <script src="../database_dictionary.js"></script>
 
