@@ -67,6 +67,11 @@
           completedEvents: state.completedEvents
         })
       );
+      localStorage.setItem('DS_W6_PROGRESS', JSON.stringify({
+        solvedIds: state.solvedIds,
+        solvedCount: state.solvedIds.length,
+        score: state.bonusCapital || 0
+      }));
     } catch (e) {
       console.warn("State save error:", e);
     }

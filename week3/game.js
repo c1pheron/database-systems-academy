@@ -52,6 +52,11 @@
   function saveState() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      localStorage.setItem('DS_W3_PROGRESS', JSON.stringify({
+        solvedIds: state.solvedIds,
+        solvedCount: state.solvedIds.length,
+        score: state.xp || 0
+      }));
     } catch (e) {
       console.warn("Progressni saqlashda xatolik:", e);
     }

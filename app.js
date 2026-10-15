@@ -19,12 +19,12 @@
   ];
 
   const MODULE_STORAGE_KEYS = {
-    1: "DS_W1_PROGRESS",
-    2: "DS_W2_PROGRESS",
-    3: "DS_W3_PROGRESS",
-    4: "DS_W4_PROGRESS",
-    5: "DS_W5_PROGRESS",
-    6: "DS_W6_PROGRESS"
+    1: ["DS_W1_PROGRESS", "ACADEMY_DS_W1_PROGRESS"],
+    2: ["DS_W2_PROGRESS", "ACADEMY_DS_W2_PROGRESS"],
+    3: ["DS_W3_PROGRESS", "ACADEMY_DS_W3_PROGRESS_V1", "ACADEMY_DS_W3_DDL_PROGRESS_V2"],
+    4: ["DS_W4_PROGRESS", "wiut_ds_w4_luxury_hq_v2"],
+    5: ["DS_W5_PROGRESS", "wiut_ds_w5_hq_state_v1"],
+    6: ["DS_W6_PROGRESS", "wiut_ds_w6_hq_state_v1"]
   };
 
   // State
@@ -69,19 +69,35 @@
     let grandTotalCapital = 0;
 
     for (let w = 1; w <= 6; w++) {
-      const key = MODULE_STORAGE_KEYS[w];
-      try {
-        const raw = localStorage.getItem(key);
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          const solvedCount = Array.isArray(parsed.solvedIds) ? parsed.solvedIds.length : (parsed.solvedCount || 0);
-          state.moduleProgress[w] = solvedCount;
-          grandTotalSolved += solvedCount;
-          grandTotalCapital += (parsed.score || parsed.capital || solvedCount * 100);
-        } else {
-          state.moduleProgress[w] = 0;
+      const keys = MODULE_STORAGE_KEYS[w];
+      let foundData = null;
+
+      for (const k of keys) {
+        try {
+          const raw = localStorage.getItem(k);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (parsed) {
+              foundData = parsed;
+              break;
+            }
+          }
+        } catch (e) {}
+      }
+
+      if (foundData) {
+        let count = 0;
+        if (Array.isArray(foundData.solvedIds)) {
+          count = foundData.solvedIds.length;
+        } else if (foundData.solvedIds && typeof foundData.solvedIds === "object") {
+          count = Object.keys(foundData.solvedIds).length;
+        } else if (typeof foundData.solvedCount === "number") {
+          count = foundData.solvedCount;
         }
-      } catch (e) {
+        state.moduleProgress[w] = count;
+        grandTotalSolved += count;
+        grandTotalCapital += (foundData.score || foundData.bonusCapital || foundData.capital || count * 100);
+      } else {
         state.moduleProgress[w] = 0;
       }
     }
@@ -135,11 +151,20 @@
     }
   }
 
+  function refresh() {
+    loadUnifiedProgress();
+    renderUI();
+  }
+
   // Initialization on DOM Load
   document.addEventListener("DOMContentLoaded", () => {
     initTelegram();
-    loadUnifiedProgress();
-    renderUI();
+    refresh();
+
+    // Auto-update when returning to tab or when localStorage changes in another tab
+    window.addEventListener("focus", refresh);
+    window.addEventListener("pageshow", refresh);
+    window.addEventListener("storage", refresh);
   });
 
 })();

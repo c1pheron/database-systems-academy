@@ -610,69 +610,101 @@
         }
       }
 
-      // Sync All 3 Modules Progress
-      let dsTotal = 0;
-      let osTotal = 0;
-      let oopTotal = 0;
-      let totalCapital = 0;
+      function syncProgress() {
+        let dsTotal = 0;
+        let osTotal = 0;
+        let oopTotal = 0;
+        let totalCapital = 0;
 
-      // 1. DS (1-6)
-      for (let w = 1; w <= 6; w++) {
-        try {
-          const raw = localStorage.getItem(`DS_W${w}_PROGRESS`);
-          if (raw) {
-            const p = JSON.parse(raw);
-            const count = Array.isArray(p.solvedIds) ? p.solvedIds.length : (p.solvedCount || 0);
-            dsTotal += count;
-            totalCapital += (p.score || p.capital || count * 100);
+        // 1. Database Systems (1-6)
+        const dsKeyMap = {
+          1: ["DS_W1_PROGRESS", "ACADEMY_DS_W1_PROGRESS"],
+          2: ["DS_W2_PROGRESS", "ACADEMY_DS_W2_PROGRESS"],
+          3: ["DS_W3_PROGRESS", "ACADEMY_DS_W3_PROGRESS_V1", "ACADEMY_DS_W3_DDL_PROGRESS_V2"],
+          4: ["DS_W4_PROGRESS", "wiut_ds_w4_luxury_hq_v2"],
+          5: ["DS_W5_PROGRESS", "wiut_ds_w5_hq_state_v1"],
+          6: ["DS_W6_PROGRESS", "wiut_ds_w6_hq_state_v1"]
+        };
+
+        for (let w = 1; w <= 6; w++) {
+          const keys = dsKeyMap[w] || [];
+          for (const k of keys) {
+            try {
+              const raw = localStorage.getItem(k);
+              if (raw) {
+                const p = JSON.parse(raw);
+                let count = 0;
+                if (Array.isArray(p.solvedIds)) count = p.solvedIds.length;
+                else if (p.solvedIds && typeof p.solvedIds === "object") count = Object.keys(p.solvedIds).length;
+                else if (typeof p.solvedCount === "number") count = p.solvedCount;
+
+                dsTotal += count;
+                totalCapital += (p.score || p.bonusCapital || p.capital || count * 100);
+                break;
+              }
+            } catch (e) {}
           }
-        } catch (e) {}
-      }
-
-      // 2. OS (1-6)
-      for (let w = 1; w <= 6; w++) {
-        try {
-          const raw = localStorage.getItem(`WIUT_OS_W${w}_PROGRESS`);
-          if (raw) {
-            const p = JSON.parse(raw);
-            const count = Array.isArray(p.solvedIds) ? p.solvedIds.length : (p.solvedCount || 0);
-            osTotal += count;
-            totalCapital += (p.bonusCapital || p.capital || count * 100);
-          }
-        } catch (e) {}
-      }
-
-      // 3. OOP
-      try {
-        const raw = localStorage.getItem("WIUT_OOP_PROGRESS");
-        if (raw) {
-          const p = JSON.parse(raw);
-          oopTotal = Array.isArray(p.solvedIds) ? p.solvedIds.length : (p.solvedCount || 0);
-          totalCapital += (p.capital || oopTotal * 100);
         }
-      } catch (e) {}
 
-      // Render
-      const grandTotal = dsTotal + osTotal + oopTotal;
-      const grandTotalPossible = 2700;
+        // 2. OS (1-6)
+        for (let w = 1; w <= 6; w++) {
+          try {
+            const raw = localStorage.getItem(`WIUT_OS_W${w}_PROGRESS`);
+            if (raw) {
+              const p = JSON.parse(raw);
+              let count = 0;
+              if (Array.isArray(p.solvedIds)) count = p.solvedIds.length;
+              else if (p.solvedIds && typeof p.solvedIds === "object") count = Object.keys(p.solvedIds).length;
+              else if (typeof p.solvedCount === "number") count = p.solvedCount;
 
-      const dsEl = document.getElementById("dsGrandStat");
-      const osEl = document.getElementById("osGrandStat");
-      const oopEl = document.getElementById("oopGrandStat");
-      const grandSolvedEl = document.getElementById("grandSolvedTotal");
-      const grandCapitalEl = document.getElementById("grandCapitalTotal");
-      const progressBar = document.getElementById("grandProgressBar");
-      const progressPercent = document.getElementById("grandProgressPercent");
+              osTotal += count;
+              totalCapital += (p.bonusCapital || p.capital || count * 100);
+            }
+          } catch (e) {}
+        }
 
-      if (dsEl) dsEl.textContent = `${dsTotal} / 900`;
-      if (osEl) osEl.textContent = `${osTotal} / 900`;
-      if (oopEl) oopEl.textContent = `${oopTotal} / 900`;
-      if (grandSolvedEl) grandSolvedEl.textContent = `${grandTotal} / ${grandTotalPossible}`;
-      if (grandCapitalEl) grandCapitalEl.textContent = `$${totalCapital.toLocaleString()}`;
+        // 3. OOP
+        try {
+          const raw = localStorage.getItem("WIUT_OOP_PROGRESS");
+          if (raw) {
+            const p = JSON.parse(raw);
+            let count = 0;
+            if (Array.isArray(p.solvedIds)) count = p.solvedIds.length;
+            else if (p.solvedIds && typeof p.solvedIds === "object") count = Object.keys(p.solvedIds).length;
+            else if (typeof p.solvedCount === "number") count = p.solvedCount;
 
-      const pct = Math.min(100, Math.round((grandTotal / grandTotalPossible) * 100));
-      if (progressBar) progressBar.style.width = `${pct}%`;
-      if (progressPercent) progressPercent.textContent = `${pct}% Bajarildi`;
+            oopTotal = count;
+            totalCapital += (p.capital || oopTotal * 100);
+          }
+        } catch (e) {}
+
+        // Render
+        const grandTotal = dsTotal + osTotal + oopTotal;
+        const grandTotalPossible = 2700;
+
+        const dsEl = document.getElementById("dsGrandStat");
+        const osEl = document.getElementById("osGrandStat");
+        const oopEl = document.getElementById("oopGrandStat");
+        const grandSolvedEl = document.getElementById("grandSolvedTotal");
+        const grandCapitalEl = document.getElementById("grandCapitalTotal");
+        const progressBar = document.getElementById("grandProgressBar");
+        const progressPercent = document.getElementById("grandProgressPercent");
+
+        if (dsEl) dsEl.textContent = `${dsTotal} / 900`;
+        if (osEl) osEl.textContent = `${osTotal} / 900`;
+        if (oopEl) oopEl.textContent = `${oopTotal} / 900`;
+        if (grandSolvedEl) grandSolvedEl.textContent = `${grandTotal} / ${grandTotalPossible}`;
+        if (grandCapitalEl) grandCapitalEl.textContent = `$${totalCapital.toLocaleString()}`;
+
+        const pct = Math.min(100, Math.round((grandTotal / grandTotalPossible) * 100));
+        if (progressBar) progressBar.style.width = `${pct}%`;
+        if (progressPercent) progressPercent.textContent = `${pct}% Bajarildi`;
+      }
+
+      syncProgress();
+      window.addEventListener("focus", syncProgress);
+      window.addEventListener("pageshow", syncProgress);
+      window.addEventListener("storage", syncProgress);
     })();
   </script>
 

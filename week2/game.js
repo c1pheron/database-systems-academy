@@ -305,6 +305,9 @@
       elFeedback.className = 'feedback-box';
     }
 
+    // Render Visual Source ER / EER Diagram (Tutorial 2 Standard)
+    renderSourceERDiagram(q);
+
     if (atelier2D) {
       atelier2D.setClient("Tizimlar Rahbari", "Mijoz", q.story);
     }
@@ -326,6 +329,148 @@
       }));
       relCanvas.renderSchema({ tables: starterTables, references: [] });
     }
+  }
+
+  // ==========================================================================
+  // SOURCE ER / EER DIAGRAM VISUALIZER (Tutorial 2 Standard)
+  // ==========================================================================
+  function renderSourceERDiagram(q) {
+    const container = document.getElementById('qSourceDiagram');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const exp = q.expectedSchema || {};
+    const expTables = exp.tables || (exp.tableName ? [exp] : []);
+    const refs = exp.references || [];
+    const title = (q.title || '').toLowerCase();
+    const task = (q.taskUz || '').toLowerCase();
+
+    // 1. Check if this is an ISA / Specialisation hierarchy (Vehicle -> Car, Truck, or Person -> Doctor, etc.)
+    const isHierarchy = title.includes('meros') || title.includes('subclass') || title.includes('ixtisoslashuv') || task.includes('subclass') || task.includes('superklass') || task.includes('option 8');
+    
+    if (isHierarchy && expTables.length >= 2) {
+      let superclass = expTables[0];
+      let subclasses = expTables.slice(1);
+      
+      let constraint = "{Mandatory, Or}";
+      if (task.includes("optional, or") || title.includes("optional, or")) constraint = "{Optional, Or}";
+      else if (task.includes("mandatory, and") || title.includes("mandatory, and")) constraint = "{Mandatory, And}";
+      else if (task.includes("optional, and") || title.includes("optional, and")) constraint = "{Optional, And}";
+      else if (task.includes("optional, disjoint") || title.includes("disjoint")) constraint = "{Optional, Disjoint}";
+
+      const wrap = document.createElement('div');
+      wrap.className = 'uml-isa-block';
+
+      // Superclass Box
+      const superBox = createUmlEntityBox(superclass);
+      wrap.appendChild(superBox);
+
+      // ISA Triangle & Constraint
+      const triWrap = document.createElement('div');
+      triWrap.style.textAlign = 'center';
+      triWrap.innerHTML = `
+        <div class="uml-isa-triangle"></div>
+        <div class="uml-isa-constraint">${constraint}</div>
+      `;
+      wrap.appendChild(triWrap);
+
+      // Subclasses row
+      const subRow = document.createElement('div');
+      subRow.className = 'uml-diagram-canvas';
+      subclasses.forEach(sub => {
+        subRow.appendChild(createUmlEntityBox(sub));
+      });
+      wrap.appendChild(subRow);
+
+      container.appendChild(wrap);
+      return;
+    }
+
+    // 2. Multi-entity relationship or Weak Entity
+    if (expTables.length > 1) {
+      const canvas = document.createElement('div');
+      canvas.className = 'uml-diagram-canvas';
+
+      expTables.forEach((tbl, idx) => {
+        const isWeak = (tbl.tableName || tbl.name || '').toLowerCase().includes('child') ||
+                       (tbl.tableName || tbl.name || '').toLowerCase().includes('copy') ||
+                       (tbl.tableName || tbl.name || '').toLowerCase().includes('session') ||
+                       (tbl.tableName || tbl.name || '').toLowerCase().includes('dependent') ||
+                       task.includes('zaif entitiy') || title.includes('zaif');
+        
+        const box = createUmlEntityBox(tbl, isWeak && idx > 0);
+        canvas.appendChild(box);
+
+        if (idx < expTables.length - 1) {
+          const matchedRef = refs.find(r => 
+            (r.fromTable === tbl.tableName && r.toTable === expTables[idx+1].tableName) ||
+            (r.toTable === tbl.tableName && r.fromTable === expTables[idx+1].tableName)
+          );
+
+          const mult1 = matchedRef ? (matchedRef.fromTable === tbl.tableName ? matchedRef.fromMult : matchedRef.toMult) : '1..1';
+          const mult2 = matchedRef ? (matchedRef.toTable === expTables[idx+1].tableName ? matchedRef.toMult : matchedRef.fromMult) : '0..*';
+          const relName = matchedRef ? (matchedRef.type || 'Aloqa') : (isWeak ? 'Has' : 'Aloqa');
+
+          const conn = document.createElement('div');
+          conn.className = 'uml-connector';
+          conn.innerHTML = `
+            <span class="uml-mult-label">${mult1 || '1..1'}</span>
+            <div class="uml-connector-line"></div>
+            <div class="uml-rel-diamond ${isWeak ? 'composition' : ''}" title="${isWeak ? 'Kompozitsiya (Composition ◆)' : 'Assotsiatsiya'}">
+              ${isWeak ? '◆ ' : '◇ '}${relName}
+            </div>
+            <div class="uml-connector-line"></div>
+            <span class="uml-mult-label">${mult2 || '0..*'}</span>
+          `;
+          canvas.appendChild(conn);
+        }
+      });
+
+      container.appendChild(canvas);
+      return;
+    }
+
+    // 3. Single Entity (Task 1 strong entity mapping)
+    if (expTables.length === 1) {
+      const canvas = document.createElement('div');
+      canvas.className = 'uml-diagram-canvas';
+      canvas.appendChild(createUmlEntityBox(expTables[0]));
+      container.appendChild(canvas);
+    }
+  }
+
+  function createUmlEntityBox(tbl, isWeak = false) {
+    const box = document.createElement('div');
+    box.className = 'uml-entity-card' + (isWeak ? ' weak' : '');
+    
+    const tName = tbl.tableName || tbl.name || 'Entity';
+    const header = document.createElement('div');
+    header.className = 'uml-entity-header';
+    header.innerHTML = isWeak ? `║ ${tName} (Zaif) ║` : tName;
+    box.appendChild(header);
+
+    const attrsDiv = document.createElement('div');
+    attrsDiv.className = 'uml-entity-attrs';
+    
+    (tbl.columns || []).forEach(col => {
+      const row = document.createElement('div');
+      row.className = 'uml-attr-row';
+      if (col.isPK) {
+        if (isWeak && !col.isFK) {
+          row.innerHTML = `<span class="uml-attr-ppk">${col.name}</span> <span class="uml-badge-ppk">{PPK}</span>`;
+        } else {
+          row.innerHTML = `<span class="uml-attr-pk">${col.name}</span> <span class="uml-badge-pk">{PK}</span>`;
+        }
+      } else if (col.isFK) {
+        row.innerHTML = `<span>${col.name}</span> <span style="font-size:9px; color:#5c8d73;">[FK]</span>`;
+      } else {
+        row.innerHTML = `<span>${col.name}</span>`;
+      }
+      attrsDiv.appendChild(row);
+    });
+
+    box.appendChild(attrsDiv);
+    return box;
   }
 
   // ==========================================================================
