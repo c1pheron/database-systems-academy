@@ -1184,7 +1184,12 @@ class EERCanvasEngine {
           if (window.playSfx) window.playSfx('click');
         };
 
-        this.drawLine(borderF.x, borderF.y, borderT.x, borderT.y, onDblClickRel);
+        const multLabel = `${rel.mult1 || '1..1'} ↔ ${rel.mult2 || '1..*'}`;
+        this.drawLine(borderF.x, borderF.y, borderT.x, borderT.y, onDblClickRel, false, null, {
+          onDelete: onDblClickRel,
+          onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult1', e),
+          multText: multLabel
+        });
 
         // Handles at both ends to allow grabbing and re-attaching
         const onStartHandleDrag = (e) => {
@@ -1236,15 +1241,13 @@ class EERCanvasEngine {
         this.renderConnectionPortHandle(borderF.x, borderF.y, onStartHandleDrag, onDblClickRel);
         this.renderConnectionPortHandle(borderT.x, borderT.y, onEndHandleDrag, onDblClickRel);
 
-        // 1. Multiplicity for fromEnt (strictly outside entity box)
-        const mx1 = borderF.x + borderF.dirX * 32;
-        const my1 = borderF.y + borderF.dirY * 32;
-        this.createMultiplicityPill(mx1, my1, rel, 'mult1', fromEnt.name);
+        // 1. Multiplicity for fromEnt (positioned cleanly ABOVE/OUTSIDE the connector line)
+        const mPos1 = this.computeMultiplicityPos(borderF, 38, 18);
+        this.createMultiplicityPill(mPos1.x, mPos1.y, rel, 'mult1', fromEnt.name);
 
-        // 2. Multiplicity for toEnt (strictly outside entity box)
-        const mx2 = borderT.x + borderT.dirX * 32;
-        const my2 = borderT.y + borderT.dirY * 32;
-        this.createMultiplicityPill(mx2, my2, rel, 'mult2', toEnt.name);
+        // 2. Multiplicity for toEnt (positioned cleanly ABOVE/OUTSIDE the connector line)
+        const mPos2 = this.computeMultiplicityPos(borderT, 38, 18);
+        this.createMultiplicityPill(mPos2.x, mPos2.y, rel, 'mult2', toEnt.name);
       } else {
         // Fallback for explicit diamond nodes placed on canvas
         const rCenterX = rel.x + 45;
@@ -1264,10 +1267,13 @@ class EERCanvasEngine {
             }
           };
 
-          this.drawLine(borderF.x, borderF.y, borderR1.x, borderR1.y, onDblClickFrom);
-          const mx1 = borderF.x + borderF.dirX * 32;
-          const my1 = borderF.y + borderF.dirY * 32;
-          this.createMultiplicityPill(mx1, my1, rel, 'mult1', fromEnt.name);
+          this.drawLine(borderF.x, borderF.y, borderR1.x, borderR1.y, onDblClickFrom, false, null, {
+            onDelete: onDblClickFrom,
+            onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult1', e),
+            multText: rel.mult1 || '1..1'
+          });
+          const mPos1 = this.computeMultiplicityPos(borderF, 38, 18);
+          this.createMultiplicityPill(mPos1.x, mPos1.y, rel, 'mult1', fromEnt.name);
         }
 
         if (toEnt) {
@@ -1284,10 +1290,13 @@ class EERCanvasEngine {
             }
           };
 
-          this.drawLine(borderR2.x, borderR2.y, borderT.x, borderT.y, onDblClickTo);
-          const mx2 = borderT.x + borderT.dirX * 32;
-          const my2 = borderT.y + borderT.dirY * 32;
-          this.createMultiplicityPill(mx2, my2, rel, 'mult2', toEnt.name);
+          this.drawLine(borderR2.x, borderR2.y, borderT.x, borderT.y, onDblClickTo, false, null, {
+            onDelete: onDblClickTo,
+            onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult2', e),
+            multText: rel.mult2 || '1..*'
+          });
+          const mPos2 = this.computeMultiplicityPos(borderT, 38, 18);
+          this.createMultiplicityPill(mPos2.x, mPos2.y, rel, 'mult2', toEnt.name);
         }
       }
     });
@@ -1574,48 +1583,70 @@ class EERCanvasEngine {
     this.nodesLayer.appendChild(handle);
   }
 
-  showLineDeleteButton(midX, midY, onDelete) {
-    this.removeLineDeleteButton();
-
-    const btn = document.createElement('div');
-    btn.className = 'line-del-btn';
-    btn.innerHTML = '✕';
-    btn.title = "Chiziqni o'chirish";
-    btn.style.position = 'absolute';
-    btn.style.left = `${Math.round(midX)}px`;
-    btn.style.top = `${Math.round(midY)}px`;
-    btn.style.transform = 'translate(-50%, -50%)';
-    btn.style.width = '30px';
-    btn.style.height = '30px';
-    btn.style.borderRadius = '50%';
-    btn.style.background = '#e63946';
-    btn.style.color = '#ffffff';
-    btn.style.fontSize = '15px';
-    btn.style.fontWeight = 'bold';
-    btn.style.display = 'flex';
-    btn.style.alignItems = 'center';
-    btn.style.justifyContent = 'center';
-    btn.style.cursor = 'pointer';
-    btn.style.zIndex = '1000';
-    btn.style.border = '2.5px solid #ffffff';
-    btn.style.boxShadow = '0 3px 12px rgba(0,0,0,0.6)';
-    btn.style.pointerEvents = 'auto';
-
-    const handleDelete = (e) => {
-      e.stopPropagation();
-      if (e.cancelable) e.preventDefault();
-      btn.remove();
-      if (onDelete) onDelete(e);
+  computeMultiplicityPos(border, alongDist = 38, perpDist = 18) {
+    let normX = -border.dirY;
+    let normY = border.dirX;
+    if (normY > 0.05 || (Math.abs(normY) <= 0.05 && normX < 0)) {
+      normX = -normX;
+      normY = -normY;
+    }
+    return {
+      x: Math.round(border.x + border.dirX * alongDist + normX * perpDist),
+      y: Math.round(border.y + border.dirY * alongDist + normY * perpDist)
     };
+  }
 
-    btn.addEventListener('click', handleDelete);
-    btn.addEventListener('touchend', handleDelete, { passive: false });
+  showLineActionToolbar(midX, midY, actionOptions) {
+    this.removeLineDeleteButton();
+    const opts = typeof actionOptions === 'function' ? { onDelete: actionOptions } : (actionOptions || {});
 
-    this.nodesLayer.appendChild(btn);
+    const toolbar = document.createElement('div');
+    toolbar.className = 'line-action-toolbar line-del-btn';
+    toolbar.style.position = 'absolute';
+    toolbar.style.left = `${Math.round(midX)}px`;
+    toolbar.style.top = `${Math.round(midY)}px`;
+    toolbar.style.transform = 'translate(-50%, -50%)';
+    toolbar.style.zIndex = '1000';
+    toolbar.style.pointerEvents = 'auto';
+
+    let html = '';
+    if (opts.onMultiplicity) {
+      html += `<button type="button" class="line-action-mult-btn" title="Multiplicityni o'zgartirish">⚙️ Multiplicity ${opts.multText ? `(${opts.multText})` : ''}</button>`;
+    }
+    if (opts.onDelete) {
+      html += `<button type="button" class="line-action-del-btn" title="Chiziqni o'chirish">🗑️ O'chirish (✕)</button>`;
+    }
+    toolbar.innerHTML = html;
+
+    if (opts.onMultiplicity) {
+      const btnMult = toolbar.querySelector('.line-action-mult-btn');
+      const handleMult = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        toolbar.remove();
+        opts.onMultiplicity(e);
+      };
+      btnMult?.addEventListener('click', handleMult);
+      btnMult?.addEventListener('touchend', handleMult, { passive: false });
+    }
+
+    if (opts.onDelete) {
+      const btnDel = toolbar.querySelector('.line-action-del-btn');
+      const handleDelete = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        toolbar.remove();
+        opts.onDelete(e);
+      };
+      btnDel?.addEventListener('click', handleDelete);
+      btnDel?.addEventListener('touchend', handleDelete, { passive: false });
+    }
+
+    this.nodesLayer.appendChild(toolbar);
 
     const outsideListener = (e) => {
-      if (e.target !== btn && !btn.contains(e.target)) {
-        btn.remove();
+      if (e.target !== toolbar && !toolbar.contains(e.target)) {
+        toolbar.remove();
         window.removeEventListener('mousedown', outsideListener);
         window.removeEventListener('touchstart', outsideListener);
       }
@@ -1626,12 +1657,16 @@ class EERCanvasEngine {
     }, 150);
   }
 
-  removeLineDeleteButton() {
-    if (!this.nodesLayer) return;
-    this.nodesLayer.querySelectorAll('.line-del-btn').forEach(b => b.remove());
+  showLineDeleteButton(midX, midY, onDeleteOrOpts) {
+    this.showLineActionToolbar(midX, midY, onDeleteOrOpts);
   }
 
-  drawLine(x1, y1, x2, y2, onDelete = null, isDashed = false, onStartDrag = null) {
+  removeLineDeleteButton() {
+    if (!this.nodesLayer) return;
+    this.nodesLayer.querySelectorAll('.line-del-btn, .line-action-toolbar').forEach(b => b.remove());
+  }
+
+  drawLine(x1, y1, x2, y2, onDelete = null, isDashed = false, onStartDrag = null, lineActions = null) {
     const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 
     // Solid invisible-opacity thick hitbox for touch & mouse (32px wide)
@@ -1679,27 +1714,30 @@ class EERCanvasEngine {
       hitbox.addEventListener('touchstart', stopBubblingAndPreventDrag, { passive: false });
     }
 
-    if (onDelete) {
-      // Single click / tap shows the red ✕ delete button
+    if (onDelete || lineActions) {
+      const actions = lineActions || { onDelete };
+      // Single click / tap shows action toolbar (Multiplicity + Delete)
       const handleClick = (e) => {
         e.stopPropagation();
-        this.showLineDeleteButton(midX, midY, onDelete);
+        this.showLineActionToolbar(midX, midY, actions);
       };
 
       hitbox.addEventListener('click', handleClick);
       line.addEventListener('click', handleClick);
 
       // Double click immediately deletes the line
-      hitbox.addEventListener('dblclick', (e) => {
-        e.stopPropagation();
-        this.removeLineDeleteButton();
-        onDelete(e);
-      });
-      line.addEventListener('dblclick', (e) => {
-        e.stopPropagation();
-        this.removeLineDeleteButton();
-        onDelete(e);
-      });
+      if (onDelete) {
+        hitbox.addEventListener('dblclick', (e) => {
+          e.stopPropagation();
+          this.removeLineDeleteButton();
+          onDelete(e);
+        });
+        line.addEventListener('dblclick', (e) => {
+          e.stopPropagation();
+          this.removeLineDeleteButton();
+          onDelete(e);
+        });
+      }
 
       let lastTap = 0;
       const handleTap = (e) => {
@@ -1709,10 +1747,9 @@ class EERCanvasEngine {
           e.stopPropagation();
           if (e.cancelable) e.preventDefault();
           this.removeLineDeleteButton();
-          onDelete(e);
+          if (onDelete) onDelete(e);
         } else {
-          // Single tap on mobile touch shows the delete button
-          this.showLineDeleteButton(midX, midY, onDelete);
+          this.showLineActionToolbar(midX, midY, actions);
         }
         lastTap = curTime;
       };
@@ -2082,14 +2119,32 @@ class EERCanvasEngine {
   }
 
   exportCurrentDiagram() {
+    const rels = [...this.relationships];
+    this.standaloneLines.forEach(sl => {
+      if (sl.startSnapped?.node && sl.endSnapped?.node) {
+        const n1 = sl.startSnapped.node;
+        const n2 = sl.endSnapped.node;
+        rels.push({
+          name: sl.name || 'Aloqa',
+          entity1: n1.name,
+          entity2: n2.name,
+          fromEntityName: n1.name,
+          toEntityName: n2.name,
+          mult1: sl.mult1 || '1..1',
+          mult2: sl.mult2 || '1..*',
+          isIdentifying: !!sl.isDashed
+        });
+      }
+    });
+
     return {
       entities: this.entities.map(e => ({
         name: e.name,
-        pk: (e.attributes.find(a => a.isPK) || {}).name,
-        isWeak: e.isWeak,
-        attributes: e.attributes
+        pk: (e.attributes?.find(a => a.isPK) || {}).name,
+        isWeak: !!e.isWeak,
+        attributes: e.attributes || []
       })),
-      relationships: this.relationships.map(r => ({
+      relationships: rels.map(r => ({
         name: r.name,
         entity1: r.fromEntityName,
         entity2: r.toEntityName,

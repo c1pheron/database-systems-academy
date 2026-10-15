@@ -1,8 +1,3 @@
-// ============================================================================
-// ACADEMY DATABASE SYSTEMS (MODULE) — WEEK 2: QUESTIONS
-// O'zgaruvchi: QUESTIONS_1_50 (100% Amaliy Relyatsion Sxema Keyslari - Jumboq Rejimi)
-// ============================================================================
-
 var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
 
 _scope.QUESTIONS_1_50 = [
@@ -13,7 +8,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 34 • Strong Entity Step 1",
     "title": "Filial Jadvalini Loyihalash (Branch)",
     "story": "Bank tizimida filiallar to'g'risidagi ma'lumotlarni saqlovchi mustaqil jadval loyihalashimiz kerak.",
-    "taskUz": "'Branch' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Branch' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Branch**\n• Ustunlar: `branchNo` [PK] (varchar(10)), `city` (varchar(50)), `postcode` (varchar(15))",
     "starterCode": "Table Branch {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -48,7 +43,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 34 • Student Entity",
     "title": "Talaba Jadvalini Loyihalash (Student)",
     "story": "Universitet tizimi uchun talabalar reestri jadvali talab qilinadi.",
-    "taskUz": "'Student' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Student' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Student**\n• Ustunlar: `studentId` [PK] (integer), `firstName` (varchar(50)), `lastName` (varchar(50)), `enrollDate` (date)",
     "starterCode": "Table Student {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -87,7 +82,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 34 • Product Entity",
     "title": "Mahsulot Katalogi Jadvali (Product)",
     "story": "E-tijorat do'konida ombor mahsulotlarini ro'yxatga olish lozim.",
-    "taskUz": "'Product' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Product' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Product**\n• Ustunlar: `productCode` [PK] (varchar(20)), `name` (varchar(100)), `price` (decimal), `stockQuantity` (integer)",
     "starterCode": "Table Product {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -125,7 +120,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 34 • Course Entity",
     "title": "O'quv Kursi Jadvali (Course)",
     "story": "Universitet modul katalogida har bir kurs o'z kodi va kreditlariga ega.",
-    "taskUz": "'Course' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Course' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Course**\n• Ustunlar: `courseCode` [PK] (varchar(10)), `title` (varchar(100)), `credits` (integer)",
     "starterCode": "Table Course {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -159,7 +154,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 34 • Patient Entity",
     "title": "Bemor Jadvali (Patient)",
     "story": "Klinika bazasida bemorlarni ro'yxatga oluvchi bosh jadval kerak.",
-    "taskUz": "'Patient' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Patient' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Patient**\n• Ustunlar: `patientId` [PK] (varchar(15)), `fullName` (varchar(80)), `dateOfBirth` (date), `bloodGroup` (varchar(5))",
     "starterCode": "Table Patient {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -197,7 +192,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 34 & T02 Task 1 • Composite Name Mapping",
     "title": "Kompozit Atributni Yoyish: Xodim Jadvali (Employee)",
     "story": "ER diagrammada xodim `Employee` entitiyasi `Name` murakkab kompozit atributiga ega bo'lib, u `fName` va `lName` qismlaridan iborat.",
-    "taskUz": "'Employee' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Employee' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Employee**\n• Ustunlar: `empNo` [PK] (integer), `fName` (varchar(50)), `lName` (varchar(50)), `salary` (decimal)",
     "starterCode": "Table Employee {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -235,7 +230,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 34 • Composite Address Mapping",
     "title": "Kompozit Manzilni Yoyish: Yetkazib Beruvchi (Supplier)",
     "story": "`Supplier` entitiyasida `Address` kompozit atributi bo'lib, u `street`, `city`, `postcode` dan tashkil topgan.",
-    "taskUz": "'Supplier' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Supplier' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Supplier**\n• Ustunlar: `suppId` [PK] (varchar(10)), `companyName` (varchar(80)), `street` (varchar(100)), `city` (varchar(50)), `postcode` (varchar(15))",
     "starterCode": "Table Supplier {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -277,7 +272,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 3 • Derived Attribute Exclusion",
     "title": "Hosilaviy Atributni Chiqarish: Klub A'zosi (Member)",
     "story": "Fitnes klubida a'zoning yoshi `age` hosilaviy atribut hisoblanadi (tug'ilgan sana `birthDate` dan hisoblanadi). Step 1 ga ko'ra ortiqchalikka yo'l qo'ymaslik uchun u saqlanmaydi.",
-    "taskUz": "'Member' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Member' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Member**\n• Ustunlar: `memberId` [PK] (integer), `fullName` (varchar(80)), `birthDate` (date)",
     "starterCode": "Table Member {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -311,7 +306,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 54 • Alternate Key UQ Mapping",
     "title": "Unikal Muqobil Kalitli Foydalanuvchi Jadvali (AppUser)",
     "story": "Tizim foydalanuvchisi `userId` bilan identifikatsiyalanadi, lekin `username` va `email` ham takrorlanmas unikal (Alternate Keys) bo'lishi shart.",
-    "taskUz": "'AppUser' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'AppUser' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **AppUser**\n• Ustunlar: `userId` [PK] (integer), `username` (varchar(50)), `email` (varchar(100)), `regDate` (timestamp)",
     "starterCode": "Table AppUser {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -351,7 +346,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Natural Key: ISBN",
     "title": "Tabiiy Kalitli Kitob Jadvali (Book)",
     "story": "Kitoblar dunyosida ISBN xalqaro standarti mavjud tabiiy unikal kalit (Natural Key) sanaladi.",
-    "taskUz": "'Book' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Book' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Book**\n• Ustunlar: `isbn` [PK] (varchar(20)), `title` (varchar(150)), `pageCount` (integer), `pubYear` (integer)",
     "starterCode": "Table Book {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -389,7 +384,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Natural Key: VIN",
     "title": "Tabiiy Kalitli Avtomobil Jadvali (Vehicle)",
     "story": "Avtomobillar bazasida VIN (Vehicle Identification Number) global unikal tabiiy kalit hisoblanadi.",
-    "taskUz": "'Vehicle' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Vehicle' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Vehicle**\n• Ustunlar: `vin` [PK] (varchar(20)), `make` (varchar(50)), `model` (varchar(50)), `year` (integer)",
     "starterCode": "Table Vehicle {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -427,7 +422,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Natural Key: PINFL",
     "title": "Fuqarolik Reestri Jadvali (Citizen)",
     "story": "O'zbekiston elektron hukumat tizimida fuqaroning 14 xonali JSHSHIR (PINFL) raqami asosiy tabiiy kalit hisoblanadi.",
-    "taskUz": "'Citizen' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Citizen' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Citizen**\n• Ustunlar: `pinfl` [PK] (varchar(14)), `fullName` (varchar(100)), `issueDate` (date)",
     "starterCode": "Table Citizen {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -461,7 +456,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 34 • Aircraft Entity",
     "title": "Aviatsiya Parki Jadvali (Aircraft)",
     "story": "Aviakompaniya samolyotlarining bort raqami `tailNo` orqali identifikatsiya qilinadi.",
-    "taskUz": "'Aircraft' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Aircraft' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Aircraft**\n• Ustunlar: `tailNo` [PK] (varchar(10)), `manufacturer` (varchar(50)), `model` (varchar(50)), `capacity` (integer)",
     "starterCode": "Table Aircraft {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -499,7 +494,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "T02 Task 1 • Department Strong Entity",
     "title": "Seminar 2 Task 1: Departament Jadvali (Department)",
     "story": "Seminar 2 dagi Company ER modelining asosiy kuchli entitiyasi `Department` hisoblanadi.",
-    "taskUz": "'Department' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'Department' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Department**\n• Ustunlar: `deptNo` [PK] (integer), `dName` (varchar(50)), `budget` (decimal)",
     "starterCode": "Table Department {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -533,7 +528,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 34 • Floor 1 Strong Entity Boss",
     "title": "1-Qavat Bossi: Korporativ Xodim Yadro Jadvali (EmployeeCore)",
     "story": "Katta korporatsiyada xodim entitiyasi quyidagilardan iborat: `empNo` (identifikator), `Name(fName, lName)` (kompozit), `Address(street, city, postcode)` (kompozit), `email` (unikal muqobil kalit) va `age` (hosilaviy).",
-    "taskUz": "'EmployeeCore' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.",
+    "taskUz": "'EmployeeCore' entitiysi uchun relyatsion jadvalni loyihalang. Birlamchi kalitni [PK] to'g'ri belgilang va barcha oddiy atributlarni ustunlarga yoying.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **EmployeeCore**\n• Ustunlar: `empNo` [PK] (integer), `fName` (varchar(50)), `lName` (varchar(50)), `street` (varchar(100)), `city` (varchar(50)), `postcode` (varchar(15)), `email` (varchar(100))",
     "starterCode": "Table EmployeeCore {\n  // Ustunlarni va [pk] kalitini kiriting\n}",
     "hint": "Jadval nomi, har bir ustun tipi va kamida bitta Birlamchi Kalit [PK] ustuni bo'lishi shart.",
     "solutions": [
@@ -584,7 +579,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 & 54 • Composite Primary Key",
     "title": "Kurs Nashri Jadvali (CourseEdition)",
     "story": "Kurs har yili qayta nashr etiladi. Qatorni bir qiymatli aniqlash uchun kurs kodi va nashr yili birgalikda olinadi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **CourseEdition**\n• Ustunlar: `courseCode` [PK] (varchar(10)), `editionYear` [PK] (integer), `syllabusVersion` (varchar(20))",
     "starterCode": "Table CourseEdition {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -619,7 +614,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Warehouse Slot Composite Key",
     "title": "Omborxona Yacheykasi Jadvali (WarehouseSlot)",
     "story": "Logistika omborida har bir joy qator `aisle`, polkasi `shelf` va yacheykasi `bin` raqami bilan aniqlanadi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **WarehouseSlot**\n• Ustunlar: `aisle` [PK] (varchar(5)), `shelf` [PK] (integer), `bin` [PK] (integer), `capacityKg` (decimal)",
     "starterCode": "Table WarehouseSlot {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -659,7 +654,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Room Schedule Composite Key",
     "title": "Auditoriya Bandligi Jadvali (ClassSchedule)",
     "story": "Universitetda auditoriya `roomNo`, dars soati `periodNo` va haftaning kuni `dayOfWeek` bilan band qilinadi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **ClassSchedule**\n• Ustunlar: `roomNo` [PK] (varchar(10)), `periodNo` [PK] (integer), `dayOfWeek` [PK] (varchar(10)), `subjectTitle` (varchar(80))",
     "starterCode": "Table ClassSchedule {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -699,7 +694,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Flight Seat Composite Key",
     "title": "Aviaqatnov O'rindiqlari (FlightSeat)",
     "story": "Samolyotda har bir o'rindiq reys raqami va o'rindiq kodi kombinatsiyasi bilan sotiladi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **FlightSeat**\n• Ustunlar: `flightNo` [PK] (varchar(10)), `seatNo` [PK] (varchar(5)), `classType` (varchar(20))",
     "starterCode": "Table FlightSeat {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -734,7 +729,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • GeoPoint Composite Key",
     "title": "Geografik Nuqta Jadvali (GeoPoint)",
     "story": "Xaritada nuqta kenglik va uzunlik koordinatalari juftligi bilan belgilanadi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **GeoPoint**\n• Ustunlar: `latitude` [PK] (decimal), `longitude` [PK] (decimal), `locationName` (varchar(100))",
     "starterCode": "Table GeoPoint {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -769,7 +764,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Passport Composite Authority",
     "title": "Pasport Seriyasi va Raqami Jadvali (PassportDoc)",
     "story": "Pasportda faqat raqamning o'zi emas, seriya va raqam juftligi unikal hisoblanadi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **PassportDoc**\n• Ustunlar: `series` [PK] (varchar(5)), `docNumber` [PK] (varchar(15)), `holderName` (varchar(80)), `expiryDate` (date)",
     "starterCode": "Table PassportDoc {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -808,7 +803,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Metric Observation Composite Key",
     "title": "Server Metrikalari Kuzatuvi (ServerMetric)",
     "story": "Monitoring tizimida metrika server nomi, metrika nomi va vaqt belgisi bilan qayd etiladi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **ServerMetric**\n• Ustunlar: `serverHost` [PK] (varchar(50)), `metricName` [PK] (varchar(50)), `recordedAt` [PK] (timestamp), `metricValue` (decimal)",
     "starterCode": "Table ServerMetric {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -848,7 +843,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Tariff Composite Key",
     "title": "Zona Bo'yicha Tarif Jadvali (ZoneTariff)",
     "story": "Taksi xizmatida yo'l narxi jo'nash zonasi va borish zonasi kodi bilan belgilanadi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **ZoneTariff**\n• Ustunlar: `fromZone` [PK] (integer), `toZone` [PK] (integer), `baseCost` (decimal)",
     "starterCode": "Table ZoneTariff {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -883,7 +878,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Subject Prerequisite Composite Key",
     "title": "Fan Prerekviziti Jadvali (Prerequisite)",
     "story": "O'quv rejasida qaysi fan qaysi fanga prerekvizit ekani ko'rsatiladi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Prerequisite**\n• Ustunlar: `courseCode` [PK] (varchar(10)), `prereqCourseCode` [PK] (varchar(10)), `minGradeRequired` (varchar(5))",
     "starterCode": "Table Prerequisite {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -918,7 +913,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Account Card Composite Key",
     "title": "Hisob va Karta Bog'lanishi (AccountCard)",
     "story": "Bankda bitta hisob raqamiga bir nechta karta ulanishi mumkin.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **AccountCard**\n• Ustunlar: `accountNo` [PK] (varchar(20)), `cardNumber` [PK] (varchar(16)), `cardholderName` (varchar(80))",
     "starterCode": "Table AccountCard {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -953,7 +948,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Sensor Log Composite Key",
     "title": "IoT Datchik Ko'rsatkichi Jadvali (SensorLog)",
     "story": "Aqlli binoda datchik ko'rsatkichi datchik ID si va o'qilgan vaqt bilan unikal saqlanadi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **SensorLog**\n• Ustunlar: `sensorId` [PK] (varchar(20)), `readTimestamp` [PK] (timestamp), `temperature` (decimal)",
     "starterCode": "Table SensorLog {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -988,7 +983,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Lab Test Composite Key",
     "title": "Laboratoriya Sinov Namunasi (LabSample)",
     "story": "Laboratoriyada tekshiruv partiya raqami va namuna raqami kombinatsiyasi bilan boshqariladi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **LabSample**\n• Ustunlar: `batchNo` [PK] (varchar(15)), `sampleIndex` [PK] (integer), `purityLevel` (decimal)",
     "starterCode": "Table LabSample {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -1023,7 +1018,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Project Sprint Composite Key",
     "title": "Loyiha Sprinti Jadvali (ProjectSprint)",
     "story": "IT kompaniyada loyiha kodi va sprint raqami sprintni unikal belgilaydi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **ProjectSprint**\n• Ustunlar: `projectCode` [PK] (varchar(10)), `sprintNo` [PK] (integer), `startDate` (date), `endDate` (date)",
     "starterCode": "Table ProjectSprint {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -1062,7 +1057,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Device Port Composite Key",
     "title": "Tarmoq Qurilmasi Porti (DevicePort)",
     "story": "Server routerida har bir port qurilma MAC manzili va port raqami bilan aniqlanadi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **DevicePort**\n• Ustunlar: `deviceMac` [PK] (varchar(17)), `portIndex` [PK] (integer), `speedMbps` (integer)",
     "starterCode": "Table DevicePort {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -1097,7 +1092,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 25 • Composite Key Boss",
     "title": "2-Qavat Bossi: Konteyner Logistika Kuzatuvi (ContainerLog)",
     "story": "Xalqaro dengiz portida har bir yuk yozuvi konteyner kodi, kema reysi kodi va tekshiruv punkti uchligi bilan identifikatsiyalanadi.",
-    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.",
+    "taskUz": "Mijoz talabidagi tabiiy unikal identifikatorlar yoki ko'p ustunli birikmadan iborat Kompozit Birlamchi Kalitli relyatsion jadvalni loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **ContainerLog**\n• Ustunlar: `containerId` [PK] (varchar(20)), `voyageCode` [PK] (varchar(20)), `checkpointCode` [PK] (varchar(10)), `inspectionStatus` (varchar(30)), `weightTons` (decimal)",
     "starterCode": "Table ContainerLog {\n  // Ustunlar va kompozit [pk] kalitlarini kiriting\n}",
     "hint": "Kompozit kalitda bir nechta ustunga [pk] belgisi qo'yiladi.",
     "solutions": [
@@ -1141,7 +1136,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 & T02 Task 1 • Department-Employee 1:*",
     "title": "Departament va Xodim 1:* Sxemasi (Department -> Employee)",
     "story": "Bitta departamentda ko'plab xodimlar ishlaydi. Step 3 ga ko'ra `deptNo` tashqi kaliti bola jadvaliga (`Employee`) tushadi.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Department** (Ustunlar: `deptNo` [PK] (integer), `dName` (varchar(50)))\n• Jadval: **Employee** (Ustunlar: `empNo` [PK] (integer), `name` (varchar(80)), `deptNo` [FK] (integer))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1195,7 +1190,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Branch-Staff 1:*",
     "title": "Filial va Xodimlar 1:* Sxemasi (Branch -> Staff)",
     "story": "Bank filiali ko'plab xodimlarga ega. Har bir xodim bitta filialda ishlaydi.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Branch** (Ustunlar: `branchNo` [PK] (varchar(10)), `city` (varchar(50)))\n• Jadval: **Staff** (Ustunlar: `staffNo` [PK] (varchar(10)), `name` (varchar(80)), `branchNo` [FK] (varchar(10)))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1249,7 +1244,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Faculty-Student 1:*",
     "title": "Fakultet va Talabalar 1:* Sxemasi (Faculty -> Student)",
     "story": "Fakultetda ko'plab talabalar o'qiydi. Talaba bitta fakultetga mansub.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Faculty** (Ustunlar: `facCode` [PK] (varchar(10)), `facultyName` (varchar(80)))\n• Jadval: **Student** (Ustunlar: `studentId` [PK] (integer), `name` (varchar(80)), `facCode` [FK] (varchar(10)))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1303,7 +1298,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Publisher-Book 1:*",
     "title": "Nashriyot va Kitoblar 1:* Sxemasi (Publisher -> Book)",
     "story": "Nashriyot ko'plab kitoblarni chop etadi. Har bir kitob bitta nashriyotga tegishli.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Publisher** (Ustunlar: `pubId` [PK] (varchar(10)), `pubName` (varchar(80)))\n• Jadval: **Book** (Ustunlar: `isbn` [PK] (varchar(20)), `title` (varchar(100)), `pubId` [FK] (varchar(10)))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1357,7 +1352,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Category-Product 1:*",
     "title": "Kategoriya va Mahsulotlar 1:* Sxemasi (Category -> Product)",
     "story": "Kategoriya ostida ko'plab mahsulotlar bo'ladi.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Category** (Ustunlar: `catId` [PK] (integer), `catTitle` (varchar(50)))\n• Jadval: **Product** (Ustunlar: `prodId` [PK] (integer), `prodName` (varchar(80)), `catId` [FK] (integer))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1411,7 +1406,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Customer-Order 1:*",
     "title": "Mijoz va Buyurtmalar 1:* Sxemasi (Customer -> Order)",
     "story": "Mijoz bir nechta buyurtmalar berishi mumkin.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Customer** (Ustunlar: `custId` [PK] (integer), `custName` (varchar(80)))\n• Jadval: **CustomerOrder** (Ustunlar: `orderNo` [PK] (integer), `orderDate` (date), `custId` [FK] (integer))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1465,7 +1460,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Hospital-Ward 1:*",
     "title": "Shifoxona va Palatalar 1:* Sxemasi (Hospital -> Ward)",
     "story": "Shifoxonada ko'plab bo'limlar (ward) mavjud.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Hospital** (Ustunlar: `hospCode` [PK] (varchar(10)), `hospName` (varchar(80)))\n• Jadval: **Ward** (Ustunlar: `wardNo` [PK] (integer), `bedCount` (integer), `hospCode` [FK] (varchar(10)))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1519,7 +1514,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Author-Article 1:*",
     "title": "Muallif va Maqolalar 1:* Sxemasi (Author -> Article)",
     "story": "Bitta muallif bir nechta ilmiy maqola yozadi.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Author** (Ustunlar: `authorId` [PK] (integer), `authorName` (varchar(80)))\n• Jadval: **Article** (Ustunlar: `articleId` [PK] (integer), `title` (varchar(120)), `authorId` [FK] (integer))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1573,7 +1568,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Country-City 1:*",
     "title": "Davlat va Shaharlar 1:* Sxemasi (Country -> City)",
     "story": "Davlat tarkibida ko'plab shaharlar bo'ladi.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Country** (Ustunlar: `countryCode` [PK] (varchar(3)), `countryName` (varchar(60)))\n• Jadval: **City** (Ustunlar: `cityId` [PK] (integer), `cityName` (varchar(60)), `countryCode` [FK] (varchar(3)))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1627,7 +1622,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Team-Player 1:*",
     "title": "Jamoa va O'yinchilar 1:* Sxemasi (Team -> Player)",
     "story": "Sport jamoasida ko'plab o'yinchilar to'p suradi.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Team** (Ustunlar: `teamId` [PK] (integer), `teamName` (varchar(50)))\n• Jadval: **Player** (Ustunlar: `playerId` [PK] (integer), `playerName` (varchar(80)), `teamId` [FK] (integer))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1681,7 +1676,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 54 • Mandatory FK (NOT NULL) Syntax",
     "title": "Majburiy Qatnashuvli Tashqi Kalit (NOT NULL)",
     "story": "Xodim albatta departamentga biriktirilgan bo'lishi shart (1..1 majburiy qatnashuv).",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Employee**\n• Ustunlar: `empNo` [PK] (integer), `name` (varchar(80)), `deptNo` [FK] (integer)",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1718,7 +1713,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Recursive 1:* Supervisor",
     "title": "Rekursiv 1:* Rahbar Ierarxiyasi Jadvali (EmployeeWithBoss)",
     "story": "Xodim o'zining boshqa bir hamkasbi (rahbar) tomonidan nazorat qilinadi.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **EmployeeWithBoss**\n• Ustunlar: `empNo` [PK] (integer), `name` (varchar(80)), `supervisorId` [FK] (integer)",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1754,7 +1749,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Recursive Category Tree",
     "title": "Rekursiv Kategoriya Daraxti (CategoryTree)",
     "story": "E-tijoratda kategoriya o'zining ota kategoriyasiga ega bo'lishi mumkin.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **CategoryTree**\n• Ustunlar: `catId` [PK] (integer), `title` (varchar(60)), `parentCatId` [FK] (integer)",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1790,7 +1785,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 36 • Warehouse-Pallet 1:*",
     "title": "Ombor va Palletlar 1:* Sxemasi (Warehouse -> Pallet)",
     "story": "Omborda ko'plab palletlar saqlanadi.",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Warehouse** (Ustunlar: `whId` [PK] (integer), `location` (varchar(50)))\n• Jadval: **Pallet** (Ustunlar: `palletId` [PK] (integer), `weight` (decimal), `whId` [FK] (integer))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1844,7 +1839,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "T02 Task 1 • Floor 3 Boss",
     "title": "3-Qavat Bossi: Korporativ Bo'lim va Xodimlar Sxemasi",
     "story": "Kompaniyada `Department(deptNo, dName, budget)` ota jadvali va `Employee(empNo, fName, lName, salary, deptNo)` bola jadvali o'rtasida 1:* munosabati bor. Xodim uchun bo'lim majburiy [NOT NULL].",
-    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.",
+    "taskUz": "1:* (Ota va Bola) munosabatini relying jadvallarga o'tkazing. Tashqi Kalit (FK) qaysi jadvalga joylashtirilishi kerakligini aniqlang va Crow's Foot bog'lanishini hosil qiling.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Department** (Ustunlar: `deptNo` [PK] (integer), `dName` (varchar(50)), `budget` (decimal))\n• Jadval: **Employee** (Ustunlar: `empNo` [PK] (integer), `fName` (varchar(50)), `lName` (varchar(50)), `salary` (decimal), `deptNo` [FK] (integer))",
     "starterCode": "// Ota va Bola jadvallarini yarating va [ref: > Ota.pk] bilan bog'lang",
     "hint": "1:* munosabatda Tashqi Kalit (FK) har doim bola jadvaliga qo'yiladi va ota jadvalning PK siga havola qiladi.",
     "solutions": [
@@ -1911,7 +1906,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "T02 Task 1 & L02 Slide 35 • Child Weak Entity",
     "title": "Farzand Zaif Entitiyasi Jadvali (Child)",
     "story": "Seminar 2 Task 1 dagi xodimning farzandi `Child` zaif entitiyasi o'zining mustaqil PK siga ega emas. Ota xodim `empNo` uning PK siga kirishi shart.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Child**\n• Ustunlar: `empNo` [PK] (integer), `name` [PK] (varchar(50)), `age` (integer)",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -1949,7 +1944,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 35 • OrderLine Weak Entity",
     "title": "Buyurtma Qatori Zaif Entitiyasi (OrderLine)",
     "story": "Buyurtma qatori `OrderLine` alohida mavjud bo'lolmaydi. Ota kalit: `orderNo`, qisman kalit: `lineNo`.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **OrderLine**\n• Ustunlar: `orderNo` [PK] (integer), `lineNo` [PK] (integer), `itemCode` (varchar(20)), `quantity` (integer)",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -1990,7 +1985,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 35 • Room Weak Entity",
     "title": "Mehmonxona Xonasi Zaif Entitiyasi (Room)",
     "story": "Xona `Room` har doim o'zining mehmonxonasi `Hotel` ga bog'liq. Ota kalit: `hotelNo`, qisman kalit: `roomNo`.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Room**\n• Ustunlar: `hotelNo` [PK] (varchar(10)), `roomNo` [PK] (varchar(10)), `roomType` (varchar(30)), `pricePerNight` (decimal)",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -2031,7 +2026,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 35 • Building Floor Weak Entity",
     "title": "Bino Qavati Zaif Entitiyasi (Floor)",
     "story": "Bino qavati `Floor` binoga bog'liq zaif entitiya. Ota kalit: `buildingId`, qisman kalit: `floorNo`.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Floor**\n• Ustunlar: `buildingId` [PK] (varchar(10)), `floorNo` [PK] (integer), `usableArea` (decimal)",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -2068,7 +2063,7 @@ _scope.QUESTIONS_1_50 = [
     "source": "L02 Slide 35 • Client Preference Weak Entity",
     "title": "Darslikdagi Preference Zaif Entitiyasi (Preference)",
     "story": "Lecture 2 Slide 35 dagi misol: Mijozning ijara imtiyozi `Preference` zaif entitiya bo'lib, ota kalit `clientNo`, qisman kalit `prefType` dir.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Preference**\n• Ustunlar: `clientNo` [PK] (varchar(10)), `prefType` [PK] (varchar(30)), `maxRent` (decimal)",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -2099,7 +2094,3 @@ _scope.QUESTIONS_1_50 = [
     "explanation": "Preference zaif entitiyasi Step 2 ga muvofiq chizildi."
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = _scope.QUESTIONS_1_50;
-}

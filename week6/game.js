@@ -257,6 +257,19 @@
       const foundEmpnos = extractRelevantEmpnos(q);
       arena.highlightEmployees(foundEmpnos);
     }
+
+    // Auto-switch schema tab to question's main table or view if not viewing result
+    if (state.activeSchemaTab !== "result") {
+      const meta = (q.expectedSql || "").match(/\bFROM\s+([a-zA-Z0-9_]+)/i);
+      if (meta && meta[1]) {
+        let mainTable = meta[1].toLowerCase();
+        if (mainTable.startsWith("v_")) mainTable = "views";
+        const availableTabs = Array.from(document.querySelectorAll(".schema-tab")).map((t) => t.dataset.table);
+        if (availableTabs.includes(mainTable)) {
+          switchSchemaTab(mainTable);
+        }
+      }
+    }
   }
 
   function extractRelevantEmpnos(q) {
@@ -277,80 +290,103 @@
   }
 
   function runUserQuery() {
-    const q = getCurrentQuestion();
-    const sqlInput = document.getElementById("sqlInput");
-    const rawSql = sqlInput ? sqlInput.value.trim() : "";
-
-    state.savedQueries[q.id] = rawSql;
-    saveState();
-
     const feedbackBox = document.getElementById("feedbackBox");
-    if (!feedbackBox) return;
-    feedbackBox.style.display = "block";
+    if (feedbackBox) feedbackBox.style.display = "block";
 
-    // 1. Diagnostics check
-    const diag = window.SQL_GRADER.detectDiagnostics(rawSql, q);
-    if (diag) {
-      feedbackBox.className = "feedback-box error";
-      feedbackBox.innerHTML = `<strong>⚠️ Sintaksis Ogohlantirishi:</strong><br>${diag}`;
-      return;
-    }
+    try {
+      const q = getCurrentQuestion();
+      const sqlInput = document.getElementById("sqlInput");
+      const rawSql = sqlInput ? sqlInput.value.trim() : "";
 
-    // 2. Execute User SQL
-    const userRes = window.SQL_GRADER.execute(rawSql);
-    if (!userRes.success) {
-      feedbackBox.className = "feedback-box error";
-      feedbackBox.innerHTML = `<strong>❌ SQL Xatolik:</strong><br>${userRes.error}`;
-      return;
-    }
-
-    // Save and display in results table
-    state.lastResultTable = userRes;
-    switchSchemaTab("result");
-
-    // 3. Execute Expected SQL
-    const expRes = window.SQL_GRADER.execute(q.expectedSql);
-    const cmp = window.SQL_GRADER.compareResults(userRes, expRes);
-
-    if (!cmp.match) {
-      feedbackBox.className = "feedback-box error";
-      feedbackBox.innerHTML = `
-        <strong>⚠️ Natijada Farq Bor:</strong><br>
-        ${cmp.message}<br><br>
-        <span style="font-size:11.5px; color:#38bdf8;">Maslahat: So'rov shartini, ustunlar nomini va saralashni qayta tekshiring. 'Kutilayotgan Natija' tugmasi bilan solishtiring.</span>
-      `;
-      return;
-    }
-
-    // SUCCESS!
-    feedbackBox.className = "feedback-box success";
-    const isNewSolve = !state.solvedIds.includes(q.id);
-
-    if (isNewSolve) {
-      state.solvedIds.push(q.id);
-      const bonusEarned = 400 + q.sector * 60;
-      state.bonusCapital += bonusEarned;
+      state.savedQueries[q.id] = rawSql;
       saveState();
 
-      if (arena) arena.triggerExplosion(arena.width / 2, arena.height / 2, "#38bdf8");
-      if (arena) arena.addFloatingText(`+$${bonusEarned} MUKOFOT!`, arena.player.x, arena.player.y - 40, "#10b981");
+      if (!window.SQL_GRADER) {
+        if (feedbackBox) {
+          feedbackBox.className = "feedback-box error";
+          feedbackBox.innerHTML = `<strong>⚠️ Xatolik:</strong> SQL Grader moduli yuklanmadi.`;
+        }
+        return;
+      }
 
-      feedbackBox.innerHTML = `
-        <strong>🎉 Ajoyib Natija! Topshiriq Muvaffaqiyatli Bajarildi!</strong><br>
-        Barcha ustunlar va qatorlar kutilganidek aniq chiqdi. Hisobingizga <strong>+$${bonusEarned}</strong> bonus kapital qo'shildi!
-      `;
+      // 1. Diagnostics check
+      const diag = window.SQL_GRADER.detectDiagnostics(rawSql, q);
+      if (diag) {
+        if (feedbackBox) {
+          feedbackBox.className = "feedback-box error";
+          feedbackBox.innerHTML = `<strong>⚠️ Sintaksis Ogohlantirishi:</strong><br>${diag}`;
+        }
+        return;
+      }
 
-      checkOfficeEventTrigger(q.id);
-    } else {
-      feedbackBox.innerHTML = `
-        <strong>✓ Qayta Tasdiqlandi!</strong><br>
-        Ushbu topshiriq avval ham bajarilgan edi. Natijalar to'g'ri chiqmoqda!
-      `;
+      // 2. Execute User SQL
+      const userRes = window.SQL_GRADER.execute(rawSql);
+      if (!userRes.success) {
+        if (feedbackBox) {
+          feedbackBox.className = "feedback-box error";
+          feedbackBox.innerHTML = `<strong>❌ SQL Xatolik:</strong><br>${userRes.error}`;
+        }
+        return;
+      }
+
+      // Save and display in results table
+      state.lastResultTable = userRes;
+      switchSchemaTab("result");
+
+      // 3. Execute Expected SQL
+      const expRes = window.SQL_GRADER.execute(q.expectedSql);
+      const cmp = window.SQL_GRADER.compareResults(userRes, expRes);
+
+      if (!cmp.match) {
+        if (feedbackBox) {
+          feedbackBox.className = "feedback-box error";
+          feedbackBox.innerHTML = `
+            <strong>⚠️ Natijada Farq Bor:</strong><br>
+            ${cmp.message}<br><br>
+            <span style="font-size:11.5px; color:#38bdf8;">Maslahat: So'rov shartini, ustunlar nomini va saralashni qayta tekshiring. 'Kutilayotgan Natija' tugmasi bilan solishtiring.</span>
+          `;
+        }
+        return;
+      }
+
+      // SUCCESS!
+      if (feedbackBox) {
+        feedbackBox.className = "feedback-box success";
+        const isNewSolve = !state.solvedIds.includes(q.id);
+
+        if (isNewSolve) {
+          state.solvedIds.push(q.id);
+          const bonusEarned = 400 + q.sector * 60;
+          state.bonusCapital += bonusEarned;
+          saveState();
+
+          if (arena) arena.triggerExplosion(arena.width / 2, arena.height / 2, "#38bdf8");
+          if (arena) arena.addFloatingText(`+$${bonusEarned} MUKOFOT!`, arena.player.x, arena.player.y - 40, "#10b981");
+
+          feedbackBox.innerHTML = `
+            <strong>🎉 Ajoyib Natija! Topshiriq Muvaffaqiyatli Bajarildi!</strong><br>
+            Barcha ustunlar va qatorlar kutilganidek aniq chiqdi. Hisobingizga <strong>+$${bonusEarned}</strong> bonus kapital qo'shildi!
+          `;
+
+          checkOfficeEventTrigger(q.id);
+        } else {
+          feedbackBox.innerHTML = `
+            <strong>✓ Qayta Tasdiqlandi!</strong><br>
+            Ushbu topshiriq avval ham bajarilgan edi. Natijalar to'g'ri chiqmoqda!
+          `;
+        }
+      }
+
+      renderHUD();
+      renderFloorStrip();
+      renderSectorBar();
+    } catch (err) {
+      console.error("runUserQuery error:", err);
+      if (feedbackBox) {
+        feedbackBox.className = "feedback-box error";
+        feedbackBox.innerHTML = `<strong>⚠️ Tizim Xatosi:</strong> So'rovni tekshirishda kutilmagan xatolik yuz berdi: ${err.message || err}`;
+      }
     }
-
-    renderHUD();
-    renderFloorStrip();
-    renderSectorBar();
   }
 
   function previewExpectedResult() {

@@ -1,8 +1,3 @@
-// ============================================================================
-// DATABASE SYSTEMS ACADEMY — 1-HAFTA: KONSEPTUAL EER MODEL VA DIAGRAMMALAR
-// O'zgaruvchi: EER_CLIENTS_101_150 (50 ta Amaliy Vizual EER Keyslari - Jumboq Rejimi)
-// ============================================================================
-
 var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
 
 _scope.EER_CLIENTS_101_150 = [
@@ -16,7 +11,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "To'lov Usullari: Naqd va Karta ({Mandatory, Or})",
     "story": "'PaymentMethod' superklassi ostida 'CashPayment' va 'CardPayment' kesishmaydigan subklasslari joylashgan ({Mandatory, Or}).",
-    "taskUz": "'PaymentMethod' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'PaymentMethod' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **PaymentMethod** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -84,7 +79,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Soliq To'lovchilar: Rezident va Norezident ({Mandatory, Or})",
     "story": "'TaxPayer' superklassi ostida 'Resident' va 'NonResident' kesishmaydigan subklasslari joylashgan ({Mandatory, Or}).",
-    "taskUz": "'TaxPayer' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'TaxPayer' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **TaxPayer** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -152,7 +147,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Avtomobil Dvigatellari: Benzin va Elektr ({Mandatory, Or})",
     "story": "'Engine' superklassi ostida 'PetrolEngine' va 'ElectricEngine' kesishmaydigan subklasslari joylashgan ({Mandatory, Or}).",
-    "taskUz": "'Engine' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'Engine' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Engine** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -220,7 +215,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Mehmonxona Xonalari: Standart va Lyuks ({Mandatory, Or})",
     "story": "'HotelRoom' superklassi ostida 'StandardRoom' va 'DeluxeRoom' kesishmaydigan subklasslari joylashgan ({Mandatory, Or}).",
-    "taskUz": "'HotelRoom' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'HotelRoom' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **HotelRoom** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -288,7 +283,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "7-Qavat Grand Boss: Aeroport Xodimlari ({Mandatory, Or})",
     "story": "'AirportStaff' superklassi ostida 'GroundCrew' va 'FlightCrew' kesishmaydigan subklasslari joylashgan ({Mandatory, Or}).",
-    "taskUz": "'AirportStaff' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'AirportStaff' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **AirportStaff** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -356,7 +351,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Detal Ishlab Chiqarish va Xarid: {Mandatory, And}",
     "story": "'Part' superklassi ostida 'ManufacturedPart' va 'PurchasedPart' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Mandatory, And}'.",
-    "taskUz": "'Part' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'Part' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Part** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -424,7 +419,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Universitet Xodimi va Talaba Kesishuvi: {Optional, And}",
     "story": "'Person' superklassi ostida 'StaffMember' va 'StudentMember' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Optional, And}'.",
-    "taskUz": "'Person' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'Person' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Person** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -492,7 +487,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Muallif va Tarjimon Kesishuvi: {Optional, And}",
     "story": "'Writer' superklassi ostida 'Author' va 'Translator' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Optional, And}'.",
-    "taskUz": "'Writer' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'Writer' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Writer** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -560,7 +555,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Dastur Foydalanuvchisi: Xaridor va Sotuvchi ({Mandatory, And})",
     "story": "'PlatformUser' superklassi ostida 'Buyer' va 'Seller' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Mandatory, And}'.",
-    "taskUz": "'PlatformUser' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'PlatformUser' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **PlatformUser** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -628,7 +623,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Avtomobil Ishlab Chiqaruvchi va Sotuvchi: {Optional, And}",
     "story": "'AutoCompany' superklassi ostida 'Manufacturer' va 'Dealer' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Optional, And}'.",
-    "taskUz": "'AutoCompany' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'AutoCompany' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **AutoCompany** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -696,7 +691,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Sportchi va Murabbiy Kesishuvi: {Optional, And}",
     "story": "'Athlete' superklassi ostida 'Player' va 'Coach' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Optional, And}'.",
-    "taskUz": "'Athlete' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'Athlete' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Athlete** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -764,7 +759,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Shifoxona Xodimi: Vrach va O'qituvchi ({Optional, And})",
     "story": "'HospitalStaff' superklassi ostida 'Doctor' va 'Lecturer' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Optional, And}'.",
-    "taskUz": "'HospitalStaff' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'HospitalStaff' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **HospitalStaff** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -832,7 +827,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Kompaniya Filiali: Savdo va Servis Markazi ({Mandatory, And})",
     "story": "'Branch' superklassi ostida 'SalesOffice' va 'ServiceCenter' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Mandatory, And}'.",
-    "taskUz": "'Branch' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'Branch' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Branch** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -900,7 +895,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Musiqachi: Bastakor va Ijrochi ({Optional, And})",
     "story": "'Musician' superklassi ostida 'Composer' va 'Performer' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Optional, And}'.",
-    "taskUz": "'Musician' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'Musician' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Musician** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -968,7 +963,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "IT Mutaxassis: Dasturchi va DevOps ({Optional, And})",
     "story": "'TechStaff' superklassi ostida 'Coder' va 'DevOps' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Optional, And}'.",
-    "taskUz": "'TechStaff' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'TechStaff' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **TechStaff** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -1036,7 +1031,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Bino: Ofis va Turarjoy Majmuasi ({Mandatory, And})",
     "story": "'Building' superklassi ostida 'OfficeSpace' va 'ApartmentSpace' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Mandatory, And}'.",
-    "taskUz": "'Building' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'Building' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Building** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -1104,7 +1099,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Kredit Karta Egasi: Debet va Kredit Funksiyasi ({Mandatory, And})",
     "story": "'CardHolder' superklassi ostida 'DebitCard' va 'CreditCard' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Mandatory, And}'.",
-    "taskUz": "'CardHolder' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'CardHolder' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **CardHolder** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -1172,7 +1167,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Restoran Xodimi: Oshpaz va Ma'mur ({Optional, And})",
     "story": "'RestStaff' superklassi ostida 'Cook' va 'Manager' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Optional, And}'.",
-    "taskUz": "'RestStaff' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'RestStaff' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **RestStaff** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -1240,7 +1235,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "Ilmiy Xodim: Tadqiqotchi va Ekspert ({Optional, And})",
     "story": "'Scientist' superklassi ostida 'Researcher' va 'Expert' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Optional, And}'.",
-    "taskUz": "'Scientist' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'Scientist' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Scientist** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -1308,7 +1303,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "architect",
     "title": "8-Qavat Bossi: Aviatsiya Xodimi (Uchuvchi va Instruktor {Optional, And})",
     "story": "'AeroStaff' superklassi ostida 'Pilot' va 'FlightInstructor' bir vaqtning o'zida amal qilishi mumkin bo'lgan kesishuvchi subklasslar mavjud. Qoida: '{Optional, And}'.",
-    "taskUz": "'AeroStaff' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.",
+    "taskUz": "'AeroStaff' va uning ostidagi subklasslar ierarxiyasini tahlil qiling. Mijoz talabidagi ixtisoslashuv turini (kesishmaydigan yoki kesishuvchi) hamda to'liqlik cheklovini aniqlab, EER diagrammani to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **AeroStaff** (Birlamchi kalit: `id`): `id {PK}`",
     "starterDiagram": {
       "entities": [
         {
@@ -1376,7 +1371,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Bo'lim, Filial va Xodim: Fan Trap Bartaraf Etish",
     "story": "Tizimda Fan Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Division' -> 'Branch' va 'Branch' -> 'Staff'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Division** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Branch** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Staff** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Division` (**1..1**) ↔ `Branch` (**1..***)\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1459,7 +1454,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Mulk, Filial va Xodim: Chasm Trap Tuzatish",
     "story": "Tizimda Chasm Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Branch' -> 'Staff' va 'Staff' -> 'Property'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Branch** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Staff** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Property** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)\n• `Staff` (**1..1**) ↔ `Property` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1542,7 +1537,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Fakultet, Kafedra va O'qituvchi: Fan Trap Hal Qilish",
     "story": "Tizimda Fan Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Division' -> 'Branch' va 'Branch' -> 'Staff'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Division** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Branch** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Staff** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Division` (**1..1**) ↔ `Branch` (**1..***)\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1625,7 +1620,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Loyiha, Bo'lim va Dasturchi: Chasm Trap Bartaraf Etish",
     "story": "Tizimda Chasm Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Branch' -> 'Staff' va 'Staff' -> 'Property'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Branch** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Staff** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Property** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)\n• `Staff` (**1..1**) ↔ `Property` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1708,7 +1703,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Zavod, Tsex va Ishchi: Fan Trap Tuzatish",
     "story": "Tizimda Fan Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Division' -> 'Branch' va 'Branch' -> 'Staff'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Division** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Branch** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Staff** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Division` (**1..1**) ↔ `Branch` (**1..***)\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1791,7 +1786,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Kasalxona, Bo'lim va Palata: Chasm Trap Hal Qilish",
     "story": "Tizimda Chasm Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Branch' -> 'Staff' va 'Staff' -> 'Property'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Branch** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Staff** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Property** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)\n• `Staff` (**1..1**) ↔ `Property` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1874,7 +1869,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Bank, Filial va Kassir: Fan Trap Bartaraf Etish",
     "story": "Tizimda Fan Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Division' -> 'Branch' va 'Branch' -> 'Staff'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Division** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Branch** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Staff** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Division` (**1..1**) ↔ `Branch` (**1..***)\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1957,7 +1952,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Kompaniya, Shartnoma va Mijoz: Chasm Trap Tuzatish",
     "story": "Tizimda Chasm Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Branch' -> 'Staff' va 'Staff' -> 'Property'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Branch** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Staff** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Property** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)\n• `Staff` (**1..1**) ↔ `Property` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2040,7 +2035,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Do'kon, Ombor va Yukchi: Fan Trap Hal Qilish",
     "story": "Tizimda Fan Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Division' -> 'Branch' va 'Branch' -> 'Staff'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Division** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Branch** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Staff** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Division` (**1..1**) ↔ `Branch` (**1..***)\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2123,7 +2118,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Universitet, Guruh va Talaba: Chasm Trap Bartaraf Etish",
     "story": "Tizimda Chasm Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Branch' -> 'Staff' va 'Staff' -> 'Property'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Branch** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Staff** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Property** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)\n• `Staff` (**1..1**) ↔ `Property` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2206,7 +2201,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Nashriyot, Jurnal va Maqola: Fan Trap Tuzatish",
     "story": "Tizimda Fan Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Division' -> 'Branch' va 'Branch' -> 'Staff'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Division** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Branch** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Staff** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Division` (**1..1**) ↔ `Branch` (**1..***)\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2289,7 +2284,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Klinika, Shifokor va Retsept: Chasm Trap Hal Qilish",
     "story": "Tizimda Chasm Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Branch' -> 'Staff' va 'Staff' -> 'Property'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Branch** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Staff** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Property** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)\n• `Staff` (**1..1**) ↔ `Property` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2372,7 +2367,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Holding, Korxona va Boshqaruvchi: Fan Trap Bartaraf Etish",
     "story": "Tizimda Fan Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Division' -> 'Branch' va 'Branch' -> 'Staff'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Division** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Branch** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Staff** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Division` (**1..1**) ↔ `Branch` (**1..***)\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2455,7 +2450,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "Aviakompaniya, Samolyot va Reys: Chasm Trap Tuzatish",
     "story": "Tizimda Chasm Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Branch' -> 'Staff' va 'Staff' -> 'Property'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Branch** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Staff** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Property** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)\n• `Staff` (**1..1**) ↔ `Property` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2538,7 +2533,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "auditor",
     "title": "9-Qavat Bossi: Murakkab Fan va Chasm Trap Korporativ Qayta Loyihalash",
     "story": "Tizimda Fan Trap xatosi aniqlangan! Bog'lanishlar ketma-ketligi buzilganligi tufayli mantiqiy chalkashlik yuzaga kelgan. To'g'ri arxitektura: 'Division' -> 'Branch' va 'Branch' -> 'Staff'.",
-    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.",
+    "taskUz": "Ushbu biznes modelidagi yashirin aloqa tuzog'ini (Fan Trap yoki Chasm Trap) aniqlang. Noaniqlikni bartaraf qilish uchun entitiylar orasidagi noto'g'ri zanjirni uzib, to'g'ri mantiqiy yo'nalish bo'ylab bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Division** (Birlamchi kalit: `id1`): `id1 {PK}`\n• **Branch** (Birlamchi kalit: `id2`): `id2 {PK}`\n• **Staff** (Birlamchi kalit: `id3`): `id3 {PK}`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Division` (**1..1**) ↔ `Branch` (**1..***)\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2621,7 +2616,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'Orient Bank' Korporativ EER Master Arxitekturasi",
     "story": "Bank filiallari (Branch), xodimlari (Staff) va hisob raqamlari (Account) o'rtasidagi to'liq arxitekturani chizing.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Branch** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Staff** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Account** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)\n• `Staff` (**1..1**) ↔ `Account` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2713,7 +2708,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'Akfa Medline' Markaziy Tibbiyot EER Tizimi",
     "story": "Kasalxona bo'limlari (Department), shifokorlar (Doctor) va bemorlar (Patient) munosabatini to'liq ifodalang.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Department** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Doctor** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Patient** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Department` (**1..1**) ↔ `Doctor` (**1..***)\n• `Doctor` (**1..1**) ↔ `Patient` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2805,7 +2800,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'Uzbekistan Airways' Aviatashuvlar EER Bosh Sxemasi",
     "story": "Samolyot (Aircraft), parvoz (Flight) va yo'lovchilar chiptasi (Ticket) zanjirini quring.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Aircraft** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Flight** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Ticket** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Aircraft` (**1..1**) ↔ `Flight` (**1..***)\n• `Flight` (**1..1**) ↔ `Ticket` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2897,7 +2892,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'Uzum Market' E-tijorat & Logistika EER Modeli",
     "story": "Buyurtma (Order), xaridor (Customer) va yetkazib berish kuryeri (Courier) aloqalarini chizing.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Customer** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Order** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Courier** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Customer` (**1..1**) ↔ `Order` (**1..***)\n• `Order` (**1..1**) ↔ `Courier` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2989,7 +2984,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'University ERP' Universitet Boshqaruv Tizimi EER Tizimi",
     "story": "Fakultet (Faculty), o'qituvchi (Lecturer) va fan (Course) o'rtasidagi munosabatlarni aniq quring.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Faculty** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Lecturer** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Course** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Faculty` (**1..1**) ↔ `Lecturer` (**1..***)\n• `Lecturer` (**1..1**) ↔ `Course` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3081,7 +3076,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'Tashkent City Hotel' Mehmonxona Majmuasi EER",
     "story": "Mehmonxona (Hotel), xona (Room) va bronlash (Reservation) modelini to'liq chizib bering.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Hotel** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Room** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Reservation** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Hotel` (**1..1**) ↔ `Room` (**1..***)\n• `Room` (**1..1**) ↔ `Reservation` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3173,7 +3168,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'Texnopark' Sanoat Ishlab Chiqarish EER Arxitekturasi",
     "story": "Zavod (Plant), ishlab chiqarish liniyasi (Line) va mahsulot (Product) munosabatini yarating.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Plant** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Line** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Product** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Plant` (**1..1**) ↔ `Line` (**1..***)\n• `Line` (**1..1**) ↔ `Product` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3265,7 +3260,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'Korzinka' Supermarketlar Tarmog'i Ta'minot Zanjiri",
     "story": "Markaziy ombor (Warehouse), do'kon (Store) va tovar partiyasi (GoodsBatch) zanjirini quring.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Warehouse** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Store** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **GoodsBatch** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Warehouse` (**1..1**) ↔ `Store` (**1..***)\n• `Store` (**1..1**) ↔ `GoodsBatch` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3357,7 +3352,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'Payme' To'lov Tizimi Kliring EER Tizimi",
     "story": "Hamyon (Wallet), tranzaksiya (PaymentTx) va savdo nuqtasi (Merchant) arxitekturasini chizing.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Merchant** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **PaymentTx** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Wallet** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Merchant` (**1..1**) ↔ `PaymentTx` (**1..***)\n• `PaymentTx` (**1..1**) ↔ `Wallet` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3449,7 +3444,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'IT Park Uzbekistan' Rezidentlar va Akseleratsiya EER",
     "story": "Akselerator (Accelerator), startap (Startup) va mentor (Mentor) o'rtasidagi aloqalarni birlashtiring.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Accelerator** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Startup** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Mentor** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Accelerator` (**1..1**) ↔ `Startup` (**1..***)\n• `Startup` (**1..1**) ↔ `Mentor` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3541,7 +3536,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'O'zbekiston Temir Yo'llari' Ekspress Chipta Tizimi",
     "story": "Poyezd (Train), vagon (Carriage) va chipta (Ticket) zanjirini chizing.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Train** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Carriage** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Ticket** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Train` (**1..1**) ↔ `Carriage` (**1..***)\n• `Carriage` (**1..1**) ↔ `Ticket` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3633,7 +3628,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: 'UzAuto Motors' Avtomobil Yig'uv Klasteri EER",
     "story": "Model (CarModel), korpus yig'ish sexi (BodyShop) va avtomobil nusxasi (CarUnit) ni bog'lang.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **CarModel** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **BodyShop** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **CarUnit** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `CarModel` (**1..1**) ↔ `BodyShop` (**1..***)\n• `BodyShop` (**1..1**) ↔ `CarUnit` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3725,7 +3720,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: Sug'urta Xoldingi Integrallashgan EER Sxemasi",
     "story": "Mijoz (Client), polis (Policy) va sug'urta agenti (Agent) bog'liqligini to'liq ko'rsating.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Client** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Policy** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Agent** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Client` (**1..1**) ↔ `Policy` (**1..***)\n• `Policy` (**1..1**) ↔ `Agent` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3817,7 +3812,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "ceo",
     "title": "10-Qavat: Farmatsevtika Holdingi Xalqaro Ta'minot EER Tizimi",
     "story": "Ishlab chiqaruvchi (PharmaCorp), dori (Medicine) va distribyutor (Distributor) munosabatini chizing.",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **PharmaCorp** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Medicine** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Distributor** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `PharmaCorp` (**1..1**) ↔ `Medicine` (**1..***)\n• `Medicine` (**1..1**) ↔ `Distributor` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3909,7 +3904,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientAvatar": "atlas",
     "title": "10-Qavat OLIY BOSSI: University & Westminster University Enterprise Master EER",
     "story": "Tabriklayman, Bosh Me'mor! Siz 150-savol — Oliy Me'moriy Bossga yetib keldingiz! Butun universitet ekotizimini: Fakultet (Faculty), Kafedra (Department), Professor (Professor) va Talaba (Student) ning to'liq ierarxik va binar aloqalarini eng mukammal darajada chizib bering!",
-    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.",
+    "taskUz": "Mijoz bayon qilgan ko'p tomonlama munosabatlarni tahlil qiling. Barcha entitiylar orasidagi to'g'ri aloqalarni o'rnating va har bir bog'lanish uchidagi UML multiplisitiyalarini mustaqil aniqlang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Faculty** (Birlamchi kalit: `id1`): `id1 {PK}`, `name`\n• **Department** (Birlamchi kalit: `id2`): `id2 {PK}`, `title`\n• **Professor** (Birlamchi kalit: `id3`): `id3 {PK}`, `code`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Faculty` (**1..1**) ↔ `Department` (**1..***)\n• `Department` (**1..1**) ↔ `Professor` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3992,7 +3987,3 @@ _scope.EER_CLIENTS_101_150 = [
     "task": "'Faculty', 'Department', 'Professor' entitiylarini chizing, ularning birlamchi kalitlarini belgilang va mijoz talabiga mos to'g'ri multiplisitiyalar bilan o'zaro bog'lang."
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = _scope.EER_CLIENTS_101_150;
-}

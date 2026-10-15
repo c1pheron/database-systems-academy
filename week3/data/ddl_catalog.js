@@ -228,8 +228,22 @@ window.DDL_GRADER = {
       .replace(/;+\s*$/g, "")
       .replace(/[‘’]/g, "'")
       .replace(/[“”]/g, '"')
+      .replace(/\bint\b/gi, "integer")
+      .replace(/\bbool\b/gi, "boolean")
+      .replace(/\bcharacter\s+varying\b/gi, "varchar")
       .replace(/\s+/g, " ")
       .trim();
+    return s;
+  },
+
+  normalizeType(t) {
+    if (!t) return "";
+    let s = t.toLowerCase().replace(/\s+/g, "");
+    if (s === "int" || s.startsWith("int4") || s === "integer") return "integer";
+    if (s.startsWith("int8") || s === "bigint") return "bigint";
+    if (s.startsWith("int2") || s === "smallint") return "smallint";
+    if (s === "bool" || s === "boolean") return "boolean";
+    if (s.startsWith("charactervarying")) return s.replace("charactervarying", "varchar");
     return s;
   },
 
@@ -439,7 +453,15 @@ window.DDL_GRADER = {
 
     // Step 3: Required Patterns matching
     if (question.requiredPatterns && question.requiredPatterns.length > 0) {
-      const allMatched = question.requiredPatterns.every((pat) => {
+      const validPatterns = question.requiredPatterns.filter(pat => {
+        if (!pat) return false;
+        if (typeof pat === 'object' && !(pat instanceof RegExp) && !Array.isArray(pat) && Object.keys(pat).length === 0) {
+          return false;
+        }
+        return true;
+      });
+
+      const allMatched = validPatterns.length > 0 ? validPatterns.every((pat) => {
         if (pat instanceof RegExp) {
           return pat.test(rawSql) || pat.test(normUser);
         }
@@ -451,7 +473,7 @@ window.DDL_GRADER = {
           );
         }
         return normUser.includes(String(pat).toLowerCase());
-      });
+      }) : false;
 
       const forbiddenHit =
         question.forbiddenPatterns &&
@@ -498,7 +520,9 @@ window.DDL_GRADER = {
               feedback: `Missing column: '${expCol.name}' was not found in table definition.`
             };
           }
-          if (expCol.type && !userCol.type.startsWith(expCol.type.toLowerCase())) {
+          const uTypeNorm = this.normalizeType(userCol.type);
+          const eTypeNorm = this.normalizeType(expCol.type);
+          if (eTypeNorm && !uTypeNorm.startsWith(eTypeNorm) && !eTypeNorm.startsWith(uTypeNorm)) {
             return {
               passed: false,
               feedback: `Column type mismatch for '${expCol.name}': expected '${expCol.type}', found '${userCol.type}'.`

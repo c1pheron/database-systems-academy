@@ -360,91 +360,109 @@
   // ==========================================================================
 
   function runAndGradeSQL() {
-    const q = getCurrentQuestion();
-    const rawSql = document.getElementById("sqlInput").value;
     const fb = document.getElementById("feedbackBox");
+    try {
+      const q = getCurrentQuestion();
+      const rawSql = document.getElementById("sqlInput").value;
 
-    const gradeRes = window.SQL_GRADER.grade(rawSql, q);
-    const expected = window.SQL_GRADER.getExpectedResult(q);
-
-    if (gradeRes.passed) {
-      const isFirstTime = !state.solvedIds.includes(q.id);
-      const isBoss = q.id % 15 === 0;
-      const reward = isFirstTime ? (isBoss ? 600 : 250) : 0;
-
-      if (isFirstTime) {
-        state.solvedIds.push(q.id);
-        state.bonusCapital += reward;
+      if (!window.SQL_GRADER) {
+        if (fb) {
+          fb.className = "feedback-box error";
+          fb.style.display = "block";
+          fb.innerHTML = `<strong>⚠️ Xatolik:</strong> SQL Grader moduli yuklanmadi.`;
+        }
+        return;
       }
-      state.savedQueries[q.id] = rawSql;
-      state.lastResultTable = expected;
-      state.activeSchemaTab = "result";
-      updateSchemaTabButtons();
-      saveState();
 
-      renderHUD();
-      renderSectorBar();
-      renderFloorQuestionsStrip();
-      renderSchemaTable(expected.matchedEmpnos || []);
+      const gradeRes = window.SQL_GRADER.grade(rawSql, q);
+      const expected = window.SQL_GRADER.getExpectedResult(q);
 
-      if (arena) {
-        arena.celebrateSuccess(
-          expected.matchedEmpnos || [],
-          isFirstTime ? `+$${reward} Mukofot!` : "Tasdiqlandi!"
+      if (gradeRes.passed) {
+        const isFirstTime = !state.solvedIds.includes(q.id);
+        const isBoss = q.id % 15 === 0;
+        const reward = isFirstTime ? (isBoss ? 600 : 250) : 0;
+
+        if (isFirstTime) {
+          state.solvedIds.push(q.id);
+          state.bonusCapital += reward;
+        }
+        state.savedQueries[q.id] = rawSql;
+        state.lastResultTable = expected;
+        state.activeSchemaTab = "result";
+        updateSchemaTabButtons();
+        saveState();
+
+        renderHUD();
+        renderSectorBar();
+        renderFloorQuestionsStrip();
+        renderSchemaTable(expected.matchedEmpnos || []);
+
+        if (arena) {
+          arena.celebrateSuccess(
+            expected.matchedEmpnos || [],
+            isFirstTime ? `+$${reward} Mukofot!` : "Tasdiqlandi!"
+          );
+        }
+
+        const nextQ = ALL_QUESTIONS.find((item) => item.id === q.id + 1);
+        fb.className = "feedback-box success";
+        fb.style.display = "block";
+        fb.innerHTML = `
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div>
+              <strong>✓ Hisobot Tasdiqlandi!</strong> ${formatInlineMarkdown(gradeRes.feedback)}
+              ${isFirstTime ? `<span style="color:var(--accent-gold-bright); font-weight:600;"> (+$${reward} Bonus Kapital)</span>` : ""}
+            </div>
+            ${
+              nextQ
+                ? `<button class="btn btn-primary" id="btnInlineNext">Keyingi Savol (${nextQ.id}) ▶</button>`
+                : `<span style="color:var(--accent-gold-bright); font-weight:700;">🏆 Barcha 150 Savol Yakunlandi!</span>`
+            }
+          </div>
+        `;
+
+        const btnInlineNext = document.getElementById("btnInlineNext");
+        if (btnInlineNext && nextQ) {
+          btnInlineNext.addEventListener("click", () => selectQuestion(nextQ.id));
+        }
+
+        // Check if an interactive Office Story Event ("Voqealik") triggers at this milestone!
+        const milestoneEvent = (window.COMPANY_DB?.officeEvents || []).find(
+          (ev) => ev.triggerAfterQ === q.id && !state.completedEvents.includes(ev.id)
         );
-      }
-
-      const nextQ = ALL_QUESTIONS.find((item) => item.id === q.id + 1);
-      fb.className = "feedback-box success";
-      fb.style.display = "block";
-      fb.innerHTML = `
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <div>
-            <strong>✓ Hisobot Tasdiqlandi!</strong> ${formatInlineMarkdown(gradeRes.feedback)}
-            ${isFirstTime ? `<span style="color:var(--accent-gold-bright); font-weight:600;"> (+$${reward} Bonus Kapital)</span>` : ""}
+        if (milestoneEvent) {
+          setTimeout(() => openOfficeEventModal(milestoneEvent), 900);
+        }
+      } else {
+        fb.className = "feedback-box error";
+        fb.style.display = "block";
+        fb.innerHTML = `
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div><strong>✕ Tekshiruvdan o'tmadi:</strong> ${formatInlineMarkdown(gradeRes.feedback)}</div>
+            <div style="font-size:12px; color:var(--text-secondary); display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:2px;">
+              <span>Yechishga yordam:</span>
+              <button class="btn" style="padding:3px 9px; font-size:11.5px;" id="btnInlinePreviewExpected">👁 Kutilayotgan Natijani Ko'rish</button>
+              <button class="btn" style="padding:3px 9px; font-size:11.5px;" id="btnInlineHint">💡 Maslahatni Ochish</button>
+            </div>
           </div>
-          ${
-            nextQ
-              ? `<button class="btn btn-primary" id="btnInlineNext">Keyingi Savol (${nextQ.id}) ▶</button>`
-              : `<span style="color:var(--accent-gold-bright); font-weight:700;">🏆 Barcha 150 Savol Yakunlandi!</span>`
-          }
-        </div>
-      `;
-
-      const btnInlineNext = document.getElementById("btnInlineNext");
-      if (btnInlineNext && nextQ) {
-        btnInlineNext.addEventListener("click", () => selectQuestion(nextQ.id));
+        `;
+        document.getElementById("btnInlinePreviewExpected")?.addEventListener("click", () => {
+          document.getElementById("btnPreviewExpected")?.click();
+        });
+        document.getElementById("btnInlineHint")?.addEventListener("click", () => {
+          const hb = document.getElementById("hintBox");
+          if (hb) hb.style.display = "block";
+        });
+        if (arena) {
+          arena.triggerErrorEffect(gradeRes.feedback);
+        }
       }
-
-      // Check if an interactive Office Story Event ("Voqealik") triggers at this milestone!
-      const milestoneEvent = (window.COMPANY_DB?.officeEvents || []).find(
-        (ev) => ev.triggerAfterQ === q.id && !state.completedEvents.includes(ev.id)
-      );
-      if (milestoneEvent) {
-        setTimeout(() => openOfficeEventModal(milestoneEvent), 900);
-      }
-    } else {
-      fb.className = "feedback-box error";
-      fb.style.display = "block";
-      fb.innerHTML = `
-        <div style="display:flex; flex-direction:column; gap:8px;">
-          <div><strong>✕ Tekshiruvdan o'tmadi:</strong> ${formatInlineMarkdown(gradeRes.feedback)}</div>
-          <div style="font-size:12px; color:var(--text-secondary); display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:2px;">
-            <span>Yechishga yordam:</span>
-            <button class="btn" style="padding:3px 9px; font-size:11.5px;" id="btnInlinePreviewExpected">👁 Kutilayotgan Natijani Ko'rish</button>
-            <button class="btn" style="padding:3px 9px; font-size:11.5px;" id="btnInlineHint">💡 Maslahatni Ochish</button>
-          </div>
-        </div>
-      `;
-      document.getElementById("btnInlinePreviewExpected")?.addEventListener("click", () => {
-        document.getElementById("btnPreviewExpected")?.click();
-      });
-      document.getElementById("btnInlineHint")?.addEventListener("click", () => {
-        const hb = document.getElementById("hintBox");
-        if (hb) hb.style.display = "block";
-      });
-      if (arena) {
-        arena.triggerErrorEffect(gradeRes.feedback);
+    } catch (err) {
+      console.error("runAndGradeSQL error:", err);
+      if (fb) {
+        fb.className = "feedback-box error";
+        fb.style.display = "block";
+        fb.innerHTML = `<strong>⚠️ Tizim Xatosi:</strong> So'rovni tekshirishda kutilmagan xatolik yuz berdi: ${err.message || err}`;
       }
     }
   }

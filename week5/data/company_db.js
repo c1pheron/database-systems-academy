@@ -1501,7 +1501,10 @@ window.SQL_GRADER = {
       };
     }
 
-    // 3. Values check (row by row or unordered)
+    // 3. Direct ordered values check
+    let directMatch = true;
+    let mismatchMsg = "";
+
     for (let i = 0; i < expectedRes.rows.length; i++) {
       const expRow = expectedRes.rows[i];
       const usrRow = userRes.rows[i];
@@ -1513,17 +1516,42 @@ window.SQL_GRADER = {
         const usrVal = usrRow[usrKeys[k]];
 
         if (expVal === null && usrVal !== null && usrVal !== undefined) {
-          return { match: false, message: `${i + 1}-qatorda qiymat NULL bo'lishi kerak edi.` };
+          directMatch = false;
+          mismatchMsg = `${i + 1}-qatorda qiymat NULL bo'lishi kerak edi.`;
+          break;
         }
         if (expVal !== null && String(expVal).toLowerCase().trim() !== String(usrVal).toLowerCase().trim()) {
-          return {
-            match: false,
-            message: `${i + 1}-qatorda kutilgan '${expVal}' o'rniga '${usrVal}' chiqdi.`
-          };
+          directMatch = false;
+          mismatchMsg = `${i + 1}-qatorda kutilgan '${expVal}' o'rniga '${usrVal}' chiqdi.`;
+          break;
         }
       }
+      if (!directMatch) break;
     }
 
-    return { match: true, message: "A'lo darajada! Barcha natijalar to'liq mos keldi." };
+    if (directMatch) {
+      return { match: true, message: "A'lo darajada! Barcha natijalar to'liq mos keldi." };
+    }
+
+    // 4. Multiset fallback (unordered equality if no strict row order required)
+    try {
+      const serializeRow = (r) => {
+        return Object.values(r).map(v => (v === null || v === undefined ? 'null' : String(v).trim().toLowerCase())).join('|||');
+      };
+      const expSorted = expectedRes.rows.map(serializeRow).sort();
+      const usrSorted = userRes.rows.map(serializeRow).sort();
+
+      const multisetMatch = expSorted.every((val, idx) => val === usrSorted[idx]);
+      if (multisetMatch) {
+        return { match: true, message: "A'lo darajada! Barcha qatorlar va qiymatlar to'liq mos keldi." };
+      }
+    } catch (e) {
+      // ignore
+    }
+
+    return {
+      match: false,
+      message: mismatchMsg || "Natijalar kutilgan qiymatlarga mos kelmadi."
+    };
   }
 };

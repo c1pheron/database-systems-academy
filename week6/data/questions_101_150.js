@@ -1,9 +1,6 @@
-// ============================================================================
-// DATABASE SYSTEMS ACADEMY — WEEK 6: QUERY OPTIMIZATION & TRANSACTIONS
-// Variable: QUESTIONS_101_150 (50 Questions)
-// ============================================================================
+var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
 
-window.QUESTIONS_101_150 = [
+_scope.QUESTIONS_101_150 = [
   {
     "id": 101,
     "sector": 7,
@@ -11,7 +8,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 25g • 20-Bo'lim Kesishmasi",
     "title": "20-Bo'lim Xodimlari va Dallas Nomzodlari Kesishmasi (INTERSECT)",
     "story": "20-bo'limga tegishli bo'lgan hamda ikkala ro'yxatda mavjud shaxslarni aniqlang.",
-    "taskUz": "20-bo'lim xodimlari (`ename WHERE deptno = 20`) and 20-bo'lim nomzodlari (`aname WHERE deptno = 20`) ning kesishmasini `INTERSECT` using display. Order results by `ename`.",
+    "taskUz": "20-bo'lim xodimlari (`ename WHERE deptno = 20`) and 20-bo'lim nomzodlari (`aname WHERE deptno = 20`) ning kesishmasini `INTERSECT` using chiqaring. Order results by `ename`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`\n• Asosiy jadvallar: `emp`\n• Saralash (ORDER BY): `ename`",
     "expectedSql": "SELECT ename FROM emp WHERE deptno = 20 INTERSECT SELECT aname FROM applicant WHERE deptno = 20 ORDER BY ename",
     "hint": "`SELECT ename FROM emp WHERE deptno = 20 INTERSECT SELECT aname FROM applicant WHERE deptno = 20 ORDER BY ename` yozing.",
     "tags": [
@@ -22,7 +19,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename FROM emp WHERE deptno = 20 INTERSECT SELECT aname FROM applicant WHERE deptno = 20 ORDER BY ename"
     ],
-    "task": "20-bo'lim xodimlari (`ename WHERE deptno = 20`) and 20-bo'lim nomzodlari (`aname WHERE deptno = 20`) ning kesishmasini `INTERSECT` using display. Order results by `ename`.",
+    "task": "20-bo'lim xodimlari (`ename WHERE deptno = 20`) and 20-bo'lim nomzodlari (`aname WHERE deptno = 20`) ning kesishmasini `INTERSECT` using chiqaring. Order results by `ename`.",
     "explanation": ""
   },
   {
@@ -32,7 +29,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 25h • 20-Bo'lim Ayirmasi",
     "title": "20-Bo'lim Xodimlaridan Nomzod Bo'lmaganlarini Ayirish (EXCEPT)",
     "story": "20-bo'limda ishlayotgan, ammo dastlabki nomzodlar ro'yxatida bo'lmagan xodimni toping.",
-    "taskUz": "20-bo'lim xodimlaridan (`ename WHERE deptno = 20`) 20-bo'lim nomzodlarini (`aname WHERE deptno = 20`) `EXCEPT` via ayirib display. Order results by `ename`.",
+    "taskUz": "20-bo'lim xodimlaridan (`ename WHERE deptno = 20`) 20-bo'lim nomzodlarini (`aname WHERE deptno = 20`) `EXCEPT` via ayirib chiqaring. Order results by `ename`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`\n• Asosiy jadvallar: `emp`\n• Saralash (ORDER BY): `ename`",
     "expectedSql": "SELECT ename FROM emp WHERE deptno = 20 EXCEPT SELECT aname FROM applicant WHERE deptno = 20 ORDER BY ename",
     "hint": "`SELECT ename FROM emp WHERE deptno = 20 EXCEPT SELECT aname FROM applicant WHERE deptno = 20 ORDER BY ename` yozing.",
     "tags": [
@@ -43,7 +40,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename FROM emp WHERE deptno = 20 EXCEPT SELECT aname FROM applicant WHERE deptno = 20 ORDER BY ename"
     ],
-    "task": "20-bo'lim xodimlaridan (`ename WHERE deptno = 20`) 20-bo'lim nomzodlarini (`aname WHERE deptno = 20`) `EXCEPT` via ayirib display. Order results by `ename`.",
+    "task": "20-bo'lim xodimlaridan (`ename WHERE deptno = 20`) 20-bo'lim nomzodlarini (`aname WHERE deptno = 20`) `EXCEPT` via ayirib chiqaring. Order results by `ename`.",
     "explanation": ""
   },
   {
@@ -53,7 +50,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 25i • Kotib va 20-Bo'lim Kesishmasi",
     "title": "Ham CLERK, Ham 20-Bo'limda Ishlovchilar (INTERSECT)",
     "story": "Ikki mustaqil filtrlash so'rovi kesishmasi orqali kotiblar va 20-bo'lim xodimlarini toping.",
-    "taskUz": "Lavozimi 'CLERK' bo'lgan xodimlar (`ename WHERE job = 'CLERK'`) and 20-bo'limda ishlovchi xodimlar (`ename WHERE deptno = 20`) ning kesishmasini `INTERSECT` via display. Order results by `ename`.",
+    "taskUz": "Lavozimi 'CLERK' bo'lgan xodimlar (`ename WHERE job = 'CLERK'`) and 20-bo'limda ishlovchi xodimlar (`ename WHERE deptno = 20`) ning kesishmasini `INTERSECT` via chiqaring. Order results by `ename`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`\n• Asosiy jadvallar: `emp`\n• Saralash (ORDER BY): `ename`",
     "expectedSql": "SELECT ename FROM emp WHERE job = 'CLERK' INTERSECT SELECT ename FROM emp WHERE deptno = 20 ORDER BY ename",
     "hint": "`SELECT ename FROM emp WHERE job = 'CLERK' INTERSECT SELECT ename FROM emp WHERE deptno = 20 ORDER BY ename` yozing.",
     "tags": [
@@ -64,7 +61,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename FROM emp WHERE job = 'CLERK' INTERSECT SELECT ename FROM emp WHERE deptno = 20 ORDER BY ename"
     ],
-    "task": "Lavozimi 'CLERK' bo'lgan xodimlar (`ename WHERE job = 'CLERK'`) and 20-bo'limda ishlovchi xodimlar (`ename WHERE deptno = 20`) ning kesishmasini `INTERSECT` via display. Order results by `ename`.",
+    "task": "Lavozimi 'CLERK' bo'lgan xodimlar (`ename WHERE job = 'CLERK'`) and 20-bo'limda ishlovchi xodimlar (`ename WHERE deptno = 20`) ning kesishmasini `INTERSECT` via chiqaring. Order results by `ename`.",
     "explanation": ""
   },
   {
@@ -74,7 +71,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 25j • Menejersiz Lavozimlar (EXCEPT)",
     "title": "Barcha Lavozimlardan Menejerni Ayirib Chiqarish (EXCEPT)",
     "story": "Barcha kasblar to'plamidan boshqaruv lavozimi 'MANAGER' ni to'plamlar ayirmasi bilan olib tashlang.",
-    "taskUz": "Barcha mavjud lavozimlardan (`job FROM emp`) faqat 'MANAGER' lavozimini (`job FROM emp WHERE job = 'MANAGER'`) `EXCEPT` via ayirib display. Order results by `job`.",
+    "taskUz": "Barcha mavjud lavozimlardan (`job FROM emp`) faqat 'MANAGER' lavozimini (`job FROM emp WHERE job = 'MANAGER'`) `EXCEPT` via ayirib chiqaring. Order results by `job`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `job`\n• Asosiy jadvallar: `emp`\n• Saralash (ORDER BY): `job`",
     "expectedSql": "SELECT job FROM emp EXCEPT SELECT job FROM emp WHERE job = 'MANAGER' ORDER BY job",
     "hint": "`SELECT job FROM emp EXCEPT SELECT job FROM emp WHERE job = 'MANAGER' ORDER BY job` yozing.",
     "tags": [
@@ -85,7 +82,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT job FROM emp EXCEPT SELECT job FROM emp WHERE job = 'MANAGER' ORDER BY job"
     ],
-    "task": "Barcha mavjud lavozimlardan (`job FROM emp`) faqat 'MANAGER' lavozimini (`job FROM emp WHERE job = 'MANAGER'`) `EXCEPT` via ayirib display. Order results by `job`.",
+    "task": "Barcha mavjud lavozimlardan (`job FROM emp`) faqat 'MANAGER' lavozimini (`job FROM emp WHERE job = 'MANAGER'`) `EXCEPT` via ayirib chiqaring. Order results by `job`.",
     "explanation": ""
   },
   {
@@ -95,7 +92,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 25k • Ism va Kasb Kesishmasi",
     "title": "Xodim va Nomzodlarning Ismi Hamda Kasbi Kesishmasi (INTERSECT)",
     "story": "Ikkala ro'yxatda ham ismi va kasbi 100% bir xil bo'lgan to'liq mosliklarni toping.",
-    "taskUz": "`emp` jadandlidagi `ename, job` ustunlari and `applicant` jadandlidagi `aname, job` ustunlarining kesishmasini `INTERSECT` using display. Order results by `ename`.",
+    "taskUz": "`emp` jadandlidagi `ename, job` ustunlari and `applicant` jadandlidagi `aname, job` ustunlarining kesishmasini `INTERSECT` using chiqaring. Order results by `ename`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`\n• Asosiy jadvallar: `emp`, `applicant`\n• Saralash (ORDER BY): `ename`",
     "expectedSql": "SELECT ename, job FROM emp INTERSECT SELECT aname, job FROM applicant ORDER BY ename",
     "hint": "`SELECT ename, job FROM emp INTERSECT SELECT aname, job FROM applicant ORDER BY ename` yozing.",
     "tags": [
@@ -106,7 +103,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename, job FROM emp INTERSECT SELECT aname, job FROM applicant ORDER BY ename"
     ],
-    "task": "`emp` jadandlidagi `ename, job` ustunlari and `applicant` jadandlidagi `aname, job` ustunlarining kesishmasini `INTERSECT` using display. Order results by `ename`.",
+    "task": "`emp` jadandlidagi `ename, job` ustunlari and `applicant` jadandlidagi `aname, job` ustunlarining kesishmasini `INTERSECT` using chiqaring. Order results by `ename`.",
     "explanation": ""
   },
   {
@@ -116,7 +113,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 26 • CREATE VIEW v_emp_dept30",
     "title": "30-Bo'lim Ko'rinishini Yaratish (CREATE VIEW)",
     "story": "Eslatma: Relyatsion ko'rinish (VIEW) — bu ma'lumotlar bazasida saqlanadigan virtual jadvaldir.",
-    "taskUz": "Faqat 30-bo'lim xodimlarini ko'rsatuvchi `v_emp_dept30` ko'rinishini yarating (`empno, ename, job, sal, deptno` ustunlari bilan).",
+    "taskUz": "Faqat 30-bo'lim xodimlarini ko'rsatuvchi `v_emp_dept30` ko'rinishini yarating (`empno, ename, job, sal, deptno` ustunlari bilan).\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `empno`, `ename`, `job`, `sal`, `deptno`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "CREATE VIEW v_emp_dept30 AS SELECT empno, ename, job, sal, deptno FROM emp WHERE deptno = 30",
     "hint": "`CREATE VIEW v_emp_dept30 AS SELECT empno, ename, job, sal, deptno FROM emp WHERE deptno = 30` .",
     "tags": [
@@ -137,7 +134,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 27 • SELECT FROM VIEW",
     "title": "Ko'rinishdan Maoshi 1500 dan Yuqori Xodimlarni Filtrlash",
     "story": "Yaratilgan virtual `v_emp_dept30` ko'rinishidan oddiy jadval kabi so'rov orqali ma'lumot oling.",
-    "taskUz": "`v_emp_dept30` ko'rinishidan maoshi 1500 dan yuqori (`sal > 1500`) bo'lgan xodimlarning name (`ename`) and salary (`sal`) display. Order results by `sal DESC`.",
+    "taskUz": "`v_emp_dept30` ko'rinishidan maoshi 1500 dan yuqori (`sal > 1500`) bo'lgan xodimlarning name (`ename`) and salary (`sal`) chiqaring. Order results by `sal DESC`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`\n• Asosiy jadvallar: `v_emp_dept30`\n• Saralash (ORDER BY): `sal DESC`",
     "expectedSql": "SELECT ename, sal FROM v_emp_dept30 WHERE sal > 1500 ORDER BY sal DESC",
     "hint": "`SELECT ename, sal FROM v_emp_dept30 WHERE sal > 1500 ORDER BY sal DESC` yozing.",
     "tags": [
@@ -148,7 +145,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename, sal FROM v_emp_dept30 WHERE sal > 1500 ORDER BY sal DESC"
     ],
-    "task": "`v_emp_dept30` ko'rinishidan maoshi 1500 dan yuqori (`sal > 1500`) bo'lgan xodimlarning name (`ename`) and salary (`sal`) display. Order results by `sal DESC`.",
+    "task": "`v_emp_dept30` ko'rinishidan maoshi 1500 dan yuqori (`sal > 1500`) bo'lgan xodimlarning name (`ename`) and salary (`sal`) chiqaring. Order results by `sal DESC`.",
     "explanation": ""
   },
   {
@@ -158,7 +155,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 28 • CREATE VIEW v_emp_public",
     "title": "Ommaviy Xavfsiz Ko'rinish Yaratish (v_emp_public)",
     "story": "Xavfsizlik nuqtai nazaridan maxfiy maosh (`sal`) ustunini yashirgan holda ommaviy ko'rinish yaratamiz.",
-    "taskUz": "Faqat `empno, ename, job, deptno` ustunlaridan iborat bo'lgan `v_emp_public` ko'rinishini yarating.",
+    "taskUz": "Faqat `empno, ename, job, deptno` ustunlaridan iborat bo'lgan `v_emp_public` ko'rinishini yarating.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `empno`, `ename`, `job`, `deptno`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "CREATE VIEW v_emp_public AS SELECT empno, ename, job, deptno FROM emp",
     "hint": "`CREATE VIEW v_emp_public AS SELECT empno, ename, job, deptno FROM emp` yozing.",
     "tags": [
@@ -179,7 +176,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 28b • v_emp_public dan Filtrlash",
     "title": "Ommaviy Ko'rinishdan Kotiblarni Saralash",
     "story": "Ommaviy `v_emp_public` ko'rinishidan faqat CLERK lavozimidagi xodimlarni saralab oling.",
-    "taskUz": "`v_emp_public` ko'rinishidan lavozimi kotib (`job = 'CLERK'`) bo'lgan xodimlarning raqami (`empno`) and ismini (`ename`) display. Order results by `ename`.",
+    "taskUz": "`v_emp_public` ko'rinishidan lavozimi kotib (`job = 'CLERK'`) bo'lgan xodimlarning raqami (`empno`) and ismini (`ename`) chiqaring. Order results by `ename`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `empno`, `ename`\n• Asosiy jadvallar: `v_emp_public`\n• Saralash (ORDER BY): `ename`",
     "expectedSql": "SELECT empno, ename FROM v_emp_public WHERE job = 'CLERK' ORDER BY ename",
     "hint": "`SELECT empno, ename FROM v_emp_public WHERE job = 'CLERK' ORDER BY ename` yozing.",
     "tags": [
@@ -190,7 +187,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT empno, ename FROM v_emp_public WHERE job = 'CLERK' ORDER BY ename"
     ],
-    "task": "`v_emp_public` ko'rinishidan lavozimi kotib (`job = 'CLERK'`) bo'lgan xodimlarning raqami (`empno`) and ismini (`ename`) display. Order results by `ename`.",
+    "task": "`v_emp_public` ko'rinishidan lavozimi kotib (`job = 'CLERK'`) bo'lgan xodimlarning raqami (`empno`) and ismini (`ename`) chiqaring. Order results by `ename`.",
     "explanation": ""
   },
   {
@@ -200,7 +197,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 29 • CREATE VIEW v_dept_summary",
     "title": "Bo'limlar Xulosasi Ko'rinishini Yaratish (v_dept_summary)",
     "story": "Agregatlangan hisobotlar uchun oldindan hisoblangan virtual ko'rinish yaratamiz.",
-    "taskUz": "Bo'limlar bo'yicha `deptno`, xodimlar soni (`COUNT(*) AS emp_count`) and o'rtacha maoshni (`ROUND(AVG(sal), 2) AS avg_sal`) jamlovchi `v_dept_summary` ko'rinishini yarating.",
+    "taskUz": "Bo'limlar bo'yicha `deptno`, xodimlar soni (`COUNT(*) AS emp_count`) and o'rtacha maoshni (`ROUND(AVG(sal), 2) AS avg_sal`) jamlovchi `v_dept_summary` ko'rinishini yarating.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `deptno`, `emp_count`, `ROUND(AVG(sal)`, `avg_sal`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "CREATE VIEW v_dept_summary AS SELECT deptno, COUNT(*) AS emp_count, ROUND(AVG(sal), 2) AS avg_sal FROM emp GROUP BY deptno",
     "hint": "`CREATE VIEW v_dept_summary AS SELECT deptno, COUNT(*) AS emp_count, ROUND(AVG(sal), 2) AS avg_sal FROM emp GROUP BY deptno` yozing.",
     "tags": [
@@ -221,7 +218,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 29b • v_dept_summary dan Filtrlash",
     "title": "Xulosa Ko'rinishidan O'rtachasi 2000 dan Yuqorilarini Tanlash",
     "story": "Agregatlangan ko'rinish ustida qo'shimcha WHERE filtrlashni bajaring.",
-    "taskUz": "`v_dept_summary` ko'rinishidan o'rtacha maoshi 2000 dan yuqori (`avg_sal > 2000`) bo'lgan bo'limlarning `deptno` and `avg_sal` ustunlarini display. Order results by `avg_sal DESC`.",
+    "taskUz": "`v_dept_summary` ko'rinishidan o'rtacha maoshi 2000 dan yuqori (`avg_sal > 2000`) bo'lgan bo'limlarning `deptno` and `avg_sal` ustunlarini chiqaring. Order results by `avg_sal DESC`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `deptno`, `avg_sal`\n• Asosiy jadvallar: `v_dept_summary`\n• Saralash (ORDER BY): `avg_sal DESC`",
     "expectedSql": "SELECT deptno, avg_sal FROM v_dept_summary WHERE avg_sal > 2000 ORDER BY avg_sal DESC",
     "hint": "`SELECT deptno, avg_sal FROM v_dept_summary WHERE avg_sal > 2000 ORDER BY avg_sal DESC` yozing.",
     "tags": [
@@ -232,7 +229,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT deptno, avg_sal FROM v_dept_summary WHERE avg_sal > 2000 ORDER BY avg_sal DESC"
     ],
-    "task": "`v_dept_summary` ko'rinishidan o'rtacha maoshi 2000 dan yuqori (`avg_sal > 2000`) bo'lgan bo'limlarning `deptno` and `avg_sal` ustunlarini display. Order results by `avg_sal DESC`.",
+    "task": "`v_dept_summary` ko'rinishidan o'rtacha maoshi 2000 dan yuqori (`avg_sal > 2000`) bo'lgan bo'limlarning `deptno` and `avg_sal` ustunlarini chiqaring. Order results by `avg_sal DESC`.",
     "explanation": ""
   },
   {
@@ -242,7 +239,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 29c • CREATE VIEW v_emp_dept_info",
     "title": "Bog'langan Ko'p Jadval Ko'rinishi (v_emp_dept_info)",
     "story": "Dasturchilar doimiy JOIN yozib o'tirmasligi uchun xodim va bo'limni oldindan bog'lovchi ko'rinish tuzing.",
-    "taskUz": "`emp` and `dept` jadandllarini `deptno` via bog'lab, `ename, job, sal, dname, loc` ustunlariga ega `v_emp_dept_info` ko'rinishini yarating.",
+    "taskUz": "`emp` and `dept` jadandllarini `deptno` via bog'lab, `ename, job, sal, dname, loc` ustunlariga ega `v_emp_dept_info` ko'rinishini yarating.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`, `dname`, `loc`\n• Asosiy jadvallar: `emp`, `dept`",
     "expectedSql": "CREATE VIEW v_emp_dept_info AS SELECT e.ename, e.job, e.sal, d.dname, d.loc FROM emp e JOIN dept d ON e.deptno = d.deptno",
     "hint": "`CREATE VIEW v_emp_dept_info AS SELECT e.ename, e.job, e.sal, d.dname, d.loc FROM emp e JOIN dept d ON e.deptno = d.deptno` yozing.",
     "tags": [
@@ -263,7 +260,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 29d • v_emp_dept_info dan Dallasni Filtrlash",
     "title": "Bog'langan Ko'rinishdan Dallas Filialini Tanlash",
     "story": "`v_emp_dept_info` ko'rinishi orqali Dallas shahrida ishlovchilarni oson tanlab oling.",
-    "taskUz": "`v_emp_dept_info` ko'rinishidan `loc = 'DALLAS'` shahrida ishlovchi xodimlarning name (`ename`), job title (`job`) and salary (`sal`) display. Order results by `sal DESC`.",
+    "taskUz": "`v_emp_dept_info` ko'rinishidan `loc = 'DALLAS'` shahrida ishlovchi xodimlarning name (`ename`), job title (`job`) and salary (`sal`) chiqaring. Order results by `sal DESC`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`\n• Asosiy jadvallar: `v_emp_dept_info`\n• Saralash (ORDER BY): `sal DESC`",
     "expectedSql": "SELECT ename, job, sal FROM v_emp_dept_info WHERE loc = 'DALLAS' ORDER BY sal DESC",
     "hint": "`SELECT ename, job, sal FROM v_emp_dept_info WHERE loc = 'DALLAS' ORDER BY sal DESC` yozing.",
     "tags": [
@@ -274,7 +271,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename, job, sal FROM v_emp_dept_info WHERE loc = 'DALLAS' ORDER BY sal DESC"
     ],
-    "task": "`v_emp_dept_info` ko'rinishidan `loc = 'DALLAS'` shahrida ishlovchi xodimlarning name (`ename`), job title (`job`) and salary (`sal`) display. Order results by `sal DESC`.",
+    "task": "`v_emp_dept_info` ko'rinishidan `loc = 'DALLAS'` shahrida ishlovchi xodimlarning name (`ename`), job title (`job`) and salary (`sal`) chiqaring. Order results by `sal DESC`.",
     "explanation": ""
   },
   {
@@ -284,7 +281,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 29e • CREATE VIEW v_commissioned_staff",
     "title": "Komissiya Oluvchilar Ko'rinishi (v_commissioned_staff)",
     "story": "Sotuv departamenti uchun maxsus komissiya oluvchi xodimlar ko'rinishini hosil qiling.",
-    "taskUz": "Faqat komissiya oluvchi (`comm IS NOT NULL AND comm > 0`) xodimlarning `empno, ename, job, sal, comm` ustunlaridan iborat `v_commissioned_staff` ko'rinishini yarating.",
+    "taskUz": "Faqat komissiya oluvchi (`comm IS NOT NULL AND comm > 0`) xodimlarning `empno, ename, job, sal, comm` ustunlaridan iborat `v_commissioned_staff` ko'rinishini yarating.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `empno`, `ename`, `job`, `sal`, `comm`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "CREATE VIEW v_commissioned_staff AS SELECT empno, ename, job, sal, comm FROM emp WHERE comm IS NOT NULL AND comm > 0",
     "hint": "`CREATE VIEW v_commissioned_staff AS SELECT empno, ename, job, sal, comm FROM emp WHERE comm IS NOT NULL AND comm > 0` yozing.",
     "tags": [
@@ -305,7 +302,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 29f • v_commissioned_staff dan Filtrlash",
     "title": "Komissiyali Ko'rinishdan Maoshi 1400 dan Yuqorilarini Tanlash",
     "story": "`v_commissioned_staff` ko'rinishidan maoshi 1400 dan baland xodimlarni filtrlash.",
-    "taskUz": "`v_commissioned_staff` ko'rinishidan maoshi 1400 dan yuqori (`sal > 1400`) bo'lgan xodimlarning name (`ename`), maoshi (`sal`) and komissiyasini (`comm`) display.",
+    "taskUz": "`v_commissioned_staff` ko'rinishidan maoshi 1400 dan yuqori (`sal > 1400`) bo'lgan xodimlarning name (`ename`), maoshi (`sal`) and komissiyasini (`comm`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `comm`\n• Asosiy jadvallar: `v_commissioned_staff`",
     "expectedSql": "SELECT ename, sal, comm FROM v_commissioned_staff WHERE sal > 1400",
     "hint": "`SELECT ename, sal, comm FROM v_commissioned_staff WHERE sal > 1400` yozing.",
     "tags": [
@@ -316,7 +313,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename, sal, comm FROM v_commissioned_staff WHERE sal > 1400"
     ],
-    "task": "`v_commissioned_staff` ko'rinishidan maoshi 1400 dan yuqori (`sal > 1400`) bo'lgan xodimlarning name (`ename`), maoshi (`sal`) and komissiyasini (`comm`) display.",
+    "task": "`v_commissioned_staff` ko'rinishidan maoshi 1400 dan yuqori (`sal > 1400`) bo'lgan xodimlarning name (`ename`), maoshi (`sal`) and komissiyasini (`comm`) chiqaring.",
     "explanation": ""
   },
   {
@@ -326,7 +323,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 29g • CREATE VIEW v_all_talents",
     "title": "Barcha Iqtidorlar Ko'rinishi (v_all_talents)",
     "story": "Xodimlar va nomzodlar birlashmasidan iborat korporativ iqtidorlar ko'rinishini yarating.",
-    "taskUz": "`emp` dagi `ename, job` and `applicant` dagi `aname, job` ning `UNION` birlashmasidan iborat `v_all_talents` ko'rinishini yarating.",
+    "taskUz": "`emp` dagi `ename, job` and `applicant` dagi `aname, job` ning `UNION` birlashmasidan iborat `v_all_talents` ko'rinishini yarating.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`\n• Asosiy jadvallar: `emp`, `applicant`",
     "expectedSql": "CREATE VIEW v_all_talents AS SELECT ename, job FROM emp UNION SELECT aname, job FROM applicant",
     "hint": "`CREATE VIEW v_all_talents AS SELECT ename, job FROM emp UNION SELECT aname, job FROM applicant` yozing.",
     "tags": [
@@ -347,7 +344,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 29h • v_all_talents dan Tahlilchilarni Saralash",
     "title": "Iqtidorlar Ko'rinishidan Analitiklarni Tanlash",
     "story": "`v_all_talents` ko'rinishi orqali kompaniyadagi barcha mavjud va potentsial analitiklarni ajrating.",
-    "taskUz": "`v_all_talents` ko'rinishidan lavozimi analitik (`job = 'ANALYST'`) bo'lgan barcha shaxslarning ismini (`ename`) display. Natijani alphabetical order saralang.",
+    "taskUz": "`v_all_talents` ko'rinishidan lavozimi analitik (`job = 'ANALYST'`) bo'lgan barcha shaxslarning ismini (`ename`) chiqaring. Natijani alphabetical order saralang.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`\n• Asosiy jadvallar: `v_all_talents`\n• Saralash (ORDER BY): `ename`",
     "expectedSql": "SELECT ename FROM v_all_talents WHERE job = 'ANALYST' ORDER BY ename",
     "hint": "`SELECT ename FROM v_all_talents WHERE job = 'ANALYST' ORDER BY ename` yozing.",
     "tags": [
@@ -358,7 +355,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename FROM v_all_talents WHERE job = 'ANALYST' ORDER BY ename"
     ],
-    "task": "`v_all_talents` ko'rinishidan lavozimi analitik (`job = 'ANALYST'`) bo'lgan barcha shaxslarning ismini (`ename`) display. Natijani alphabetical order saralang.",
+    "task": "`v_all_talents` ko'rinishidan lavozimi analitik (`job = 'ANALYST'`) bo'lgan barcha shaxslarning ismini (`ename`) chiqaring. Natijani alphabetical order saralang.",
     "explanation": ""
   },
   {
@@ -368,7 +365,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 29i • v_emp_dept30 dan Kotibni Topish",
     "title": "30-Bo'lim Ko'rinishidan Kotibni Topish",
     "story": "`v_emp_dept30` ko'rinishi bo'yicha CLERK lavozimida faoliyat yurituvchi xodimni aniqlang.",
-    "taskUz": "`v_emp_dept30` ko'rinishidan `job = 'CLERK'` bo'lgan xodimning name (`ename`) and salary (`sal`) display.",
+    "taskUz": "`v_emp_dept30` ko'rinishidan `job = 'CLERK'` bo'lgan xodimning name (`ename`) and salary (`sal`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`\n• Asosiy jadvallar: `v_emp_dept30`",
     "expectedSql": "SELECT ename, sal FROM v_emp_dept30 WHERE job = 'CLERK'",
     "hint": "`SELECT ename, sal FROM v_emp_dept30 WHERE job = 'CLERK'` yozing.",
     "tags": [
@@ -379,7 +376,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename, sal FROM v_emp_dept30 WHERE job = 'CLERK'"
     ],
-    "task": "`v_emp_dept30` ko'rinishidan `job = 'CLERK'` bo'lgan xodimning name (`ename`) and salary (`sal`) display.",
+    "task": "`v_emp_dept30` ko'rinishidan `job = 'CLERK'` bo'lgan xodimning name (`ename`) and salary (`sal`) chiqaring.",
     "explanation": ""
   },
   {
@@ -389,7 +386,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 29j • v_emp_dept_info dan ACCOUNTING Xodimlari",
     "title": "Bog'langan Ko'rinishdan Buxgalteriya Bo'limini Saralash",
     "story": "`v_emp_dept_info` ko'rinishidan buxgalteriya (`dname = 'ACCOUNTING'`) xodimlarini saralang.",
-    "taskUz": "`v_emp_dept_info` ko'rinishidan `dname = 'ACCOUNTING'` bo'limida ishlovchi xodimlarning name (`ename`) and salary (`sal`) display. Order results by `sal DESC`.",
+    "taskUz": "`v_emp_dept_info` ko'rinishidan `dname = 'ACCOUNTING'` bo'limida ishlovchi xodimlarning name (`ename`) and salary (`sal`) chiqaring. Order results by `sal DESC`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`\n• Asosiy jadvallar: `v_emp_dept_info`\n• Saralash (ORDER BY): `sal DESC`",
     "expectedSql": "SELECT ename, sal FROM v_emp_dept_info WHERE dname = 'ACCOUNTING' ORDER BY sal DESC",
     "hint": "`SELECT ename, sal FROM v_emp_dept_info WHERE dname = 'ACCOUNTING' ORDER BY sal DESC` yozing.",
     "tags": [
@@ -400,7 +397,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename, sal FROM v_emp_dept_info WHERE dname = 'ACCOUNTING' ORDER BY sal DESC"
     ],
-    "task": "`v_emp_dept_info` ko'rinishidan `dname = 'ACCOUNTING'` bo'limida ishlovchi xodimlarning name (`ename`) and salary (`sal`) display. Order results by `sal DESC`.",
+    "task": "`v_emp_dept_info` ko'rinishidan `dname = 'ACCOUNTING'` bo'limida ishlovchi xodimlarning name (`ename`) and salary (`sal`) chiqaring. Order results by `sal DESC`.",
     "explanation": ""
   },
   {
@@ -410,7 +407,7 @@ window.QUESTIONS_101_150 = [
     "source": "S06 Task 29k • CREATE OR REPLACE VIEW",
     "title": "Ko'rinishni Yangilash (CREATE OR REPLACE VIEW)",
     "story": "PostgreSQL da ko'rinish tuzilishini mavjud nom bilan xavfsiz yangilash uchun `CREATE OR REPLACE VIEW` ishlatiladi.",
-    "taskUz": "`v_emp_dept30` ko'rinishini `CREATE OR REPLACE VIEW` using qayta yarating (`empno, ename, job, sal, deptno FROM emp WHERE deptno = 30`).",
+    "taskUz": "`v_emp_dept30` ko'rinishini `CREATE OR REPLACE VIEW` using qayta yarating (`empno, ename, job, sal, deptno FROM emp WHERE deptno = 30`).\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `empno`, `ename`, `job`, `sal`, `deptno`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "CREATE OR REPLACE VIEW v_emp_dept30 AS SELECT empno, ename, job, sal, deptno FROM emp WHERE deptno = 30",
     "hint": "`CREATE OR REPLACE VIEW v_emp_dept30 AS SELECT empno, ename, job, sal, deptno FROM emp WHERE deptno = 30` .",
     "tags": [
@@ -431,7 +428,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Heuristic Rule 1 • Optimal Reja",
     "title": "Optimal So'rov Rejasini Tanlash (is_optimal = true)",
     "story": "Hevristik optimallashtirishning 1-oltin qoidasi: Selektsiyani (WHERE filtrini) relyatsion daraxtda iloji boricha pastki barglarga tushirish kerak.",
-    "taskUz": "`query_plans` jadandlidan eng optimal deb baholangan (`is_optimal = true`) strategiyaning `plan_id, query_desc, strategy` ustunlarini display.",
+    "taskUz": "`query_plans` jadandlidan eng optimal deb baholangan (`is_optimal = true`) strategiyaning `plan_id, query_desc, strategy` ustunlarini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `plan_id`, `query_desc`, `strategy`\n• Asosiy jadvallar: `query_plans`",
     "expectedSql": "SELECT plan_id, query_desc, strategy FROM query_plans WHERE is_optimal = true",
     "hint": "`SELECT plan_id, query_desc, strategy FROM query_plans WHERE is_optimal = true` yozing.",
     "tags": [
@@ -442,7 +439,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT plan_id, query_desc, strategy FROM query_plans WHERE is_optimal = true"
     ],
-    "task": "`query_plans` jadandlidan eng optimal deb baholangan (`is_optimal = true`) strategiyaning `plan_id, query_desc, strategy` ustunlarini display.",
+    "task": "`query_plans` jadandlidan eng optimal deb baholangan (`is_optimal = true`) strategiyaning `plan_id, query_desc, strategy` ustunlarini chiqaring.",
     "explanation": ""
   },
   {
@@ -452,7 +449,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Heuristic Evaluation • I/O Yuklamasi Saralash",
     "title": "Strategiyalarni Hisoblangan I/O Bo'yicha Saralash",
     "story": "So'rov rejalari qancha kam disk I/O sarflasa, tizim shuncha tez ishlaydi.",
-    "taskUz": "`query_plans` jadandlidan strategiyalarni hisoblangan I/O yuklamasi (`estimated_io`) bo'yicha eng tejamkoridan boshlab saralang (`plan_id, strategy, estimated_io`).",
+    "taskUz": "`query_plans` jadandlidan strategiyalarni hisoblangan I/O yuklamasi (`estimated_io`) bo'yicha eng tejamkoridan boshlab saralang (`plan_id, strategy, estimated_io`).\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `plan_id`, `strategy`, `estimated_io`\n• Asosiy jadvallar: `query_plans`\n• Saralash (ORDER BY): `estimated_io`",
     "expectedSql": "SELECT plan_id, strategy, estimated_io FROM query_plans ORDER BY estimated_io",
     "hint": "`SELECT plan_id, strategy, estimated_io FROM query_plans ORDER BY estimated_io` yozing.",
     "tags": [
@@ -494,7 +491,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Heuristic Cost • Eng Samarasiz Reja",
     "title": "Eng Yuqori Xarajatli (Samarasiz) Strategiya",
     "story": "Optimizatsiyada qochilishi kerak bo'lgan eng qimmat (Dekart ko'paytmasi) rejasini aniqlang.",
-    "taskUz": "`query_plans` jadandlidan eng past samardorlikka (`cost_rank = 3`) ega strategiyaning `plan_id, strategy, estimated_io` ustunlarini display.",
+    "taskUz": "`query_plans` jadandlidan eng past samardorlikka (`cost_rank = 3`) ega strategiyaning `plan_id, strategy, estimated_io` ustunlarini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `plan_id`, `strategy`, `estimated_io`\n• Asosiy jadvallar: `query_plans`",
     "expectedSql": "SELECT plan_id, strategy, estimated_io FROM query_plans WHERE cost_rank = 3",
     "hint": "`SELECT plan_id, strategy, estimated_io FROM query_plans WHERE cost_rank = 3` yozing.",
     "tags": [
@@ -505,7 +502,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT plan_id, strategy, estimated_io FROM query_plans WHERE cost_rank = 3"
     ],
-    "task": "`query_plans` jadandlidan eng past samardorlikka (`cost_rank = 3`) ega strategiyaning `plan_id, strategy, estimated_io` ustunlarini display.",
+    "task": "`query_plans` jadandlidan eng past samardorlikka (`cost_rank = 3`) ega strategiyaning `plan_id, strategy, estimated_io` ustunlarini chiqaring.",
     "explanation": ""
   },
   {
@@ -515,7 +512,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Heuristic Rule 2 • Proyeksiyani (π) Tushirish",
     "title": "Proyeksiyani Pastga Tushirish: Keraksiz Ustunlarni Erta Olib Tashlash",
     "story": "Hevristikaning 2-qoidasi: Relyatsion daraxtda faqat kerakli ustunlarni erta tanlab olish (Proyeksiya π) oraliq xotira sarfini keskin kamaytiradi.",
-    "taskUz": "`emp` and `dept` jadandllarini `deptno` via bog'lab, faqat `ename` and `dname` ustunlarini display. Order results by `ename`.",
+    "taskUz": "`emp` and `dept` jadandllarini `deptno` via bog'lab, faqat `ename` and `dname` ustunlarini chiqaring. Order results by `ename`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `dname`\n• Asosiy jadvallar: `emp`, `dept`\n• Saralash (ORDER BY): `e.ename`",
     "expectedSql": "SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno ORDER BY e.ename",
     "hint": "`SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno ORDER BY e.ename` yozing.",
     "tags": [
@@ -526,7 +523,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno ORDER BY e.ename"
     ],
-    "task": "`emp` and `dept` jadandllarini `deptno` via bog'lab, faqat `ename` and `dname` ustunlarini display. Order results by `ename`.",
+    "task": "`emp` and `dept` jadandllarini `deptno` via bog'lab, faqat `ename` and `dname` ustunlarini chiqaring. Order results by `ename`.",
     "explanation": ""
   },
   {
@@ -536,7 +533,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Selektsiya Kaskadi • Cascade of Selection",
     "title": "Relyatsion Algebra: Selektsiya Kaskadi (σ)",
     "story": "Kaskad qoidasi: `σ_c1 ∧ c2(R) ≡ σ_c1(σ_c2(R))`. Ikki filtrni birlashtirib, faqat 10-bo'limdagi maoshi 2000 dan yuqori xodimlarni toping.",
-    "taskUz": "10-bo'limda ishlaydigan and maoshi 2000 dan yuqori bo'lgan xodimlarning name (`ename`), maoshi (`sal`) and bo'lim raqamini (`deptno`) display. Order results by `sal DESC`.",
+    "taskUz": "10-bo'limda ishlaydigan and maoshi 2000 dan yuqori bo'lgan xodimlarning name (`ename`), maoshi (`sal`) and bo'lim raqamini (`deptno`) chiqaring. Order results by `sal DESC`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `deptno`\n• Asosiy jadvallar: `emp`\n• Saralash (ORDER BY): `sal DESC`",
     "expectedSql": "SELECT ename, sal, deptno FROM emp WHERE deptno = 10 AND sal > 2000 ORDER BY sal DESC",
     "hint": "`SELECT ename, sal, deptno FROM emp WHERE deptno = 10 AND sal > 2000 ORDER BY sal DESC` yozing.",
     "tags": [
@@ -547,7 +544,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename, sal, deptno FROM emp WHERE deptno = 10 AND sal > 2000 ORDER BY sal DESC"
     ],
-    "task": "10-bo'limda ishlaydigan and maoshi 2000 dan yuqori bo'lgan xodimlarning name (`ename`), maoshi (`sal`) and bo'lim raqamini (`deptno`) display. Order results by `sal DESC`.",
+    "task": "10-bo'limda ishlaydigan and maoshi 2000 dan yuqori bo'lgan xodimlarning name (`ename`), maoshi (`sal`) and bo'lim raqamini (`deptno`) chiqaring. Order results by `sal DESC`.",
     "explanation": ""
   },
   {
@@ -578,7 +575,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Heuristic Join Order • 3 Jadval Bog'lanishi",
     "title": "Optimal Bog'lanish Tartibi (emp, dept, works_on)",
     "story": "Uchta jadvalni bog'lashda filtrni (`pno = 101`) biriktirib, oraliq qatorlar sonini minimal darajada saqlang.",
-    "taskUz": "`emp`, `dept` and `works_on` jadandllarini optimal bog'lab, 101-loyihada (`w.pno = 101`) ishlayotgan xodimlarning `ename, dname, hours` ustunlarini display. Order results by `ename`.",
+    "taskUz": "`emp`, `dept` and `works_on` jadandllarini optimal bog'lab, 101-loyihada (`w.pno = 101`) ishlayotgan xodimlarning `ename, dname, hours` ustunlarini chiqaring. Order results by `ename`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `dname`, `hours`\n• Asosiy jadvallar: `emp`, `dept`, `works_on`\n• Saralash (ORDER BY): `e.ename`",
     "expectedSql": "SELECT e.ename, d.dname, w.hours FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN works_on w ON e.empno = w.empno WHERE w.pno = 101 ORDER BY e.ename",
     "hint": "`SELECT e.ename, d.dname, w.hours FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN works_on w ON e.empno = w.empno WHERE w.pno = 101 ORDER BY e.ename` yozing.",
     "tags": [
@@ -589,7 +586,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT e.ename, d.dname, w.hours FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN works_on w ON e.empno = w.empno WHERE w.pno = 101 ORDER BY e.ename"
     ],
-    "task": "`emp`, `dept` and `works_on` jadandllarini optimal bog'lab, 101-loyihada (`w.pno = 101`) ishlayotgan xodimlarning `ename, dname, hours` ustunlarini display. Order results by `ename`.",
+    "task": "`emp`, `dept` and `works_on` jadandllarini optimal bog'lab, 101-loyihada (`w.pno = 101`) ishlayotgan xodimlarning `ename, dname, hours` ustunlarini chiqaring. Order results by `ename`.",
     "explanation": ""
   },
   {
@@ -599,7 +596,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Subexpression Elimination • Diapazon",
     "title": "Umumiy Ifodani Hisoblash (Maosh Diapazoni)",
     "story": "Kompaniyadagi maksimal va minimal maosh farqini (diapazonini) bitta optimallashgan ifodada chiqaring.",
-    "taskUz": "`emp` jadandlidagi maksimal maoshdan minimal maoshni ayirib, diapazonni (`MAX(sal) - MIN(sal) AS sal_range`) display.",
+    "taskUz": "`emp` jadandlidagi maksimal maoshdan minimal maoshni ayirib, diapazonni (`MAX(sal) - MIN(sal) AS sal_range`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `sal_range`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "SELECT MAX(sal) - MIN(sal) AS sal_range FROM emp",
     "hint": "`SELECT MAX(sal) - MIN(sal) AS sal_range FROM emp` yozing.",
     "tags": [
@@ -610,7 +607,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT MAX(sal) - MIN(sal) AS sal_range FROM emp"
     ],
-    "task": "`emp` jadandlidagi maksimal maoshdan minimal maoshni ayirib, diapazonni (`MAX(sal) - MIN(sal) AS sal_range`) display.",
+    "task": "`emp` jadandlidagi maksimal maoshdan minimal maoshni ayirib, diapazonni (`MAX(sal) - MIN(sal) AS sal_range`) chiqaring.",
     "explanation": ""
   },
   {
@@ -620,7 +617,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Pushdown into Views • Predikatni Tushirish",
     "title": "Predikatni Ko'rinish Ichiga Tushirish (Pushdown)",
     "story": "Optimallashtiruvchi ko'rinish tashqarisidagi `WHERE job = 'MANAGER'` filtrini ko'rinish ichidagi jadvalga tushiradi.",
-    "taskUz": "`v_emp_dept30` ko'rinishidan `job = 'MANAGER'` bo'lgan xodimning name (`ename`) and salary (`sal`) display.",
+    "taskUz": "`v_emp_dept30` ko'rinishidan `job = 'MANAGER'` bo'lgan xodimning name (`ename`) and salary (`sal`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`\n• Asosiy jadvallar: `v_emp_dept30`",
     "expectedSql": "SELECT ename, sal FROM v_emp_dept30 WHERE job = 'MANAGER'",
     "hint": "`SELECT ename, sal FROM v_emp_dept30 WHERE job = 'MANAGER'` yozing.",
     "tags": [
@@ -631,7 +628,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename, sal FROM v_emp_dept30 WHERE job = 'MANAGER'"
     ],
-    "task": "`v_emp_dept30` ko'rinishidan `job = 'MANAGER'` bo'lgan xodimning name (`ename`) and salary (`sal`) display.",
+    "task": "`v_emp_dept30` ko'rinishidan `job = 'MANAGER'` bo'lgan xodimning name (`ename`) and salary (`sal`) chiqaring.",
     "explanation": ""
   },
   {
@@ -641,7 +638,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Query Transformation • Ekvivalent Almashtirish",
     "title": "So'rovni Ekvivalent Skalyar Tenglikka O'zgartirish",
     "story": "Yagona natija beruvchi subqueryni `IN` o'rniga to'g'ridan-to'g'ri skalyar `=` operatoriga aylantirish samaraliroqdir.",
-    "taskUz": "Prezident (`job = 'PRESIDENT'`) ning maoshiga teng bo'lgan xodimning name (`ename`) and salary (`sal`) skalyar `=` subquerysi via display.",
+    "taskUz": "Prezident (`job = 'PRESIDENT'`) ning maoshiga teng bo'lgan xodimning name (`ename`) and salary (`sal`) skalyar `=` subquerysi via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "SELECT ename, sal FROM emp WHERE sal = (SELECT sal FROM emp WHERE job = 'PRESIDENT')",
     "hint": "`SELECT ename, sal FROM emp WHERE sal = (SELECT sal FROM emp WHERE job = 'PRESIDENT')` yozing.",
     "tags": [
@@ -652,7 +649,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename, sal FROM emp WHERE sal = (SELECT sal FROM emp WHERE job = 'PRESIDENT')"
     ],
-    "task": "Prezident (`job = 'PRESIDENT'`) ning maoshiga teng bo'lgan xodimning name (`ename`) and salary (`sal`) skalyar `=` subquerysi via display.",
+    "task": "Prezident (`job = 'PRESIDENT'`) ning maoshiga teng bo'lgan xodimning name (`ename`) and salary (`sal`) skalyar `=` subquerysi via chiqaring.",
     "explanation": ""
   },
   {
@@ -662,7 +659,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Intermediate Row Reduction • Erta Selektsiya",
     "title": "Erta Selektsiya Orqali Oraliq Qatorlarni Qisqartirish",
     "story": "20-bo'limdagi barcha xodimlarni emas, faqat ANALYST lavozimidagilarni darhol filtrlash oraliq xotirani tejaydi.",
-    "taskUz": "20-bo'limdagi (`deptno = 20`) and analitik (`job = 'ANALYST'`) lavozimidagi xodimlarning name (`ename`) and salary (`sal`) display. Order results by `ename`.",
+    "taskUz": "20-bo'limdagi (`deptno = 20`) and analitik (`job = 'ANALYST'`) lavozimidagi xodimlarning name (`ename`) and salary (`sal`) chiqaring. Order results by `ename`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`\n• Asosiy jadvallar: `emp`\n• Saralash (ORDER BY): `ename`",
     "expectedSql": "SELECT ename, sal FROM emp WHERE deptno = 20 AND job = 'ANALYST' ORDER BY ename",
     "hint": "`SELECT ename, sal FROM emp WHERE deptno = 20 AND job = 'ANALYST' ORDER BY ename` yozing.",
     "tags": [
@@ -673,7 +670,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ename, sal FROM emp WHERE deptno = 20 AND job = 'ANALYST' ORDER BY ename"
     ],
-    "task": "20-bo'limdagi (`deptno = 20`) and analitik (`job = 'ANALYST'`) lavozimidagi xodimlarning name (`ename`) and salary (`sal`) display. Order results by `ename`.",
+    "task": "20-bo'limdagi (`deptno = 20`) and analitik (`job = 'ANALYST'`) lavozimidagi xodimlarning name (`ename`) and salary (`sal`) chiqaring. Order results by `ename`.",
     "explanation": ""
   },
   {
@@ -683,7 +680,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Subquery Flattening • Unnesting to JOIN",
     "title": "Subqueryni JOIN ga O'girish (Unnesting / Flattening)",
     "story": "Optimallashtiruvchi sekin korrelyatsion subqueryni tezkor JOIN va GROUP BY ko'rinishiga aylantiradi.",
-    "taskUz": "Rahbarlar and ularga bo'ysunuvchilar sonini `emp m JOIN emp e ON m.empno = e.mgr` via guruhlab display. (`m.ename, COUNT(e.empno) AS reports_count`). Order results by `reports_count DESC`.",
+    "taskUz": "Rahbarlar and ularga bo'ysunuvchilar sonini `emp m JOIN emp e ON m.empno = e.mgr` via guruhlab chiqaring. (`m.ename, COUNT(e.empno) AS reports_count`). Order results by `reports_count DESC`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `reports_count`\n• Asosiy jadvallar: `emp`\n• Saralash (ORDER BY): `reports_count DESC`",
     "expectedSql": "SELECT m.ename, COUNT(e.empno) AS reports_count FROM emp m JOIN emp e ON m.empno = e.mgr GROUP BY m.ename ORDER BY reports_count DESC",
     "hint": "`SELECT m.ename, COUNT(e.empno) AS reports_count FROM emp m JOIN emp e ON m.empno = e.mgr GROUP BY m.ename ORDER BY reports_count DESC` yozing.",
     "tags": [
@@ -694,7 +691,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT m.ename, COUNT(e.empno) AS reports_count FROM emp m JOIN emp e ON m.empno = e.mgr GROUP BY m.ename ORDER BY reports_count DESC"
     ],
-    "task": "Rahbarlar and ularga bo'ysunuvchilar sonini `emp m JOIN emp e ON m.empno = e.mgr` via guruhlab display. (`m.ename, COUNT(e.empno) AS reports_count`). Order results by `reports_count DESC`.",
+    "task": "Rahbarlar and ularga bo'ysunuvchilar sonini `emp m JOIN emp e ON m.empno = e.mgr` via guruhlab chiqaring. (`m.ename, COUNT(e.empno) AS reports_count`). Order results by `reports_count DESC`.",
     "explanation": ""
   },
   {
@@ -725,7 +722,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Heuristic Elimination • Samarasiz Rejalar",
     "title": "Barcha Samarasiz (is_optimal = false) Rejalar",
     "story": "Tizim qaysi rejalarni rad etishi kerakligini tekshirish uchun samarasiz rejalarni saralang.",
-    "taskUz": "`query_plans` jadandlidan `is_optimal = false` bo'lgan strategiyalarning `plan_id, strategy, estimated_io` ustunlarini display. Order results by `cost_rank`.",
+    "taskUz": "`query_plans` jadandlidan `is_optimal = false` bo'lgan strategiyalarning `plan_id, strategy, estimated_io` ustunlarini chiqaring. Order results by `cost_rank`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `plan_id`, `strategy`, `estimated_io`\n• Asosiy jadvallar: `query_plans`\n• Saralash (ORDER BY): `cost_rank`",
     "expectedSql": "SELECT plan_id, strategy, estimated_io FROM query_plans WHERE is_optimal = false ORDER BY cost_rank",
     "hint": "`SELECT plan_id, strategy, estimated_io FROM query_plans WHERE is_optimal = false ORDER BY cost_rank` yozing.",
     "tags": [
@@ -736,7 +733,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT plan_id, strategy, estimated_io FROM query_plans WHERE is_optimal = false ORDER BY cost_rank"
     ],
-    "task": "`query_plans` jadandlidan `is_optimal = false` bo'lgan strategiyalarning `plan_id, strategy, estimated_io` ustunlarini display. Order results by `cost_rank`.",
+    "task": "`query_plans` jadandlidan `is_optimal = false` bo'lgan strategiyalarning `plan_id, strategy, estimated_io` ustunlarini chiqaring. Order results by `cost_rank`.",
     "explanation": ""
   },
   {
@@ -746,7 +743,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 PostgreSQL EXPLAIN • So'rov Rejasini Ko'rish",
     "title": "PostgreSQL EXPLAIN: JOIN So'rov Rejasi",
     "story": "PostgreSQL da so'rov rejasini (Execution Plan) ko'rish uchun so'rov oldiga `EXPLAIN` kalit so'zi qo'yiladi.",
-    "taskUz": "`emp` and `dept` jadandllari bog'lanishi uchun `EXPLAIN SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno` buyrug'ini bering.",
+    "taskUz": "`emp` and `dept` jadandllari bog'lanishi uchun `EXPLAIN SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno` buyrug'ini bering.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `dname`\n• Asosiy jadvallar: `emp`, `dept`",
     "expectedSql": "EXPLAIN SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno",
     "hint": "`EXPLAIN SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno` .",
     "tags": [
@@ -767,7 +764,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 PostgreSQL EXPLAIN • Subquery Rejasi",
     "title": "PostgreSQL EXPLAIN: Ichki So'rov Rejasi",
     "story": "Ichki subqueryli so'rov qanday fizik operatorlar bilan bajarilishini ko'rish uchun EXPLAIN qiling.",
-    "taskUz": "O'rtacha maoshdan yuqori xodimlarni topish so'rovi uchun `EXPLAIN SELECT ename, sal FROM emp WHERE sal > (SELECT AVG(sal) FROM emp)` rejasini display.",
+    "taskUz": "O'rtacha maoshdan yuqori xodimlarni topish so'rovi uchun `EXPLAIN SELECT ename, sal FROM emp WHERE sal > (SELECT AVG(sal) FROM emp)` rejasini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "EXPLAIN SELECT ename, sal FROM emp WHERE sal > (SELECT AVG(sal) FROM emp)",
     "hint": "`EXPLAIN SELECT ename, sal FROM emp WHERE sal > (SELECT AVG(sal) FROM emp)` yozing.",
     "tags": [
@@ -778,7 +775,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "EXPLAIN SELECT ename, sal FROM emp WHERE sal > (SELECT AVG(sal) FROM emp)"
     ],
-    "task": "O'rtacha maoshdan yuqori xodimlarni topish so'rovi uchun `EXPLAIN SELECT ename, sal FROM emp WHERE sal > (SELECT AVG(sal) FROM emp)` rejasini display.",
+    "task": "O'rtacha maoshdan yuqori xodimlarni topish so'rovi uchun `EXPLAIN SELECT ename, sal FROM emp WHERE sal > (SELECT AVG(sal) FROM emp)` rejasini chiqaring.",
     "explanation": ""
   },
   {
@@ -788,7 +785,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 PostgreSQL EXPLAIN • Filtr Rejasi",
     "title": "PostgreSQL EXPLAIN: WHERE Filtr Rejasi (Seq Scan)",
     "story": "`WHERE sal >= 2000` filtrlash so'rovi ketma-ket skanerlash (Seq Scan) va filtr shartini ko'rsatadi.",
-    "taskUz": "Maosh filtri uchun `EXPLAIN SELECT ename, job, sal FROM emp WHERE sal >= 2000` rejasini display.",
+    "taskUz": "Maosh filtri uchun `EXPLAIN SELECT ename, job, sal FROM emp WHERE sal >= 2000` rejasini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "EXPLAIN SELECT ename, job, sal FROM emp WHERE sal >= 2000",
     "hint": "`EXPLAIN SELECT ename, job, sal FROM emp WHERE sal >= 2000` yozing.",
     "tags": [
@@ -799,7 +796,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "EXPLAIN SELECT ename, job, sal FROM emp WHERE sal >= 2000"
     ],
-    "task": "Maosh filtri uchun `EXPLAIN SELECT ename, job, sal FROM emp WHERE sal >= 2000` rejasini display.",
+    "task": "Maosh filtri uchun `EXPLAIN SELECT ename, job, sal FROM emp WHERE sal >= 2000` rejasini chiqaring.",
     "explanation": ""
   },
   {
@@ -809,7 +806,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 PostgreSQL EXPLAIN • Aggregation Rejasi",
     "title": "PostgreSQL EXPLAIN: Guruhlash Rejasi (HashAggregate)",
     "story": "`GROUP BY deptno` agregatsiyasi HashAggregate orqali xotirada qanday hisoblanishini ko'ring.",
-    "taskUz": "Guruhlash so'rovi uchun `EXPLAIN SELECT deptno, COUNT(*) FROM emp GROUP BY deptno` rejasini display.",
+    "taskUz": "Guruhlash so'rovi uchun `EXPLAIN SELECT deptno, COUNT(*) FROM emp GROUP BY deptno` rejasini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `deptno`, `COUNT(*)`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "EXPLAIN SELECT deptno, COUNT(*) FROM emp GROUP BY deptno",
     "hint": "`EXPLAIN SELECT deptno, COUNT(*) FROM emp GROUP BY deptno` yozing.",
     "tags": [
@@ -820,7 +817,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "EXPLAIN SELECT deptno, COUNT(*) FROM emp GROUP BY deptno"
     ],
-    "task": "Guruhlash so'rovi uchun `EXPLAIN SELECT deptno, COUNT(*) FROM emp GROUP BY deptno` rejasini display.",
+    "task": "Guruhlash so'rovi uchun `EXPLAIN SELECT deptno, COUNT(*) FROM emp GROUP BY deptno` rejasini chiqaring.",
     "explanation": ""
   },
   {
@@ -830,7 +827,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Cost Parameters • seq_page_cost",
     "title": "PostgreSQL Narx Parametri: seq_page_cost (1.0)",
     "story": "PostgreSQL da bitta sahifani ketma-ket (sequential) o'qish narxi standart bo'yicha 1.0 ga teng.",
-    "taskUz": "`optimizer_stats` jadandlidan `param_name = 'seq_page_cost'` parametrining `param_name, default_andlue, description` ustunlarini display.",
+    "taskUz": "`optimizer_stats` jadandlidan `param_name = 'seq_page_cost'` parametrining `param_name, default_andlue, description` ustunlarini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `param_name`, `default_value`, `description`\n• Asosiy jadvallar: `optimizer_stats`",
     "expectedSql": "SELECT param_name, default_value, description FROM optimizer_stats WHERE param_name = 'seq_page_cost'",
     "hint": "`SELECT param_name, default_value, description FROM optimizer_stats WHERE param_name = 'seq_page_cost'` yozing.",
     "tags": [
@@ -841,7 +838,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT param_name, default_value, description FROM optimizer_stats WHERE param_name = 'seq_page_cost'"
     ],
-    "task": "`optimizer_stats` jadandlidan `param_name = 'seq_page_cost'` parametrining `param_name, default_andlue, description` ustunlarini display.",
+    "task": "`optimizer_stats` jadandlidan `param_name = 'seq_page_cost'` parametrining `param_name, default_andlue, description` ustunlarini chiqaring.",
     "explanation": ""
   },
   {
@@ -851,7 +848,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Cost Parameters • random_page_cost",
     "title": "PostgreSQL Narx Parametri: random_page_cost (4.0)",
     "story": "Tasodifiy sahifa o'qish narxi (`random_page_cost`) disk kallasining siljishi tufayli 4.0 (4 baravar qimmat) qilib belgilangan.",
-    "taskUz": "`optimizer_stats` jadandlidan `param_name = 'random_page_cost'` parametrining `param_name, default_andlue, description` ustunlarini display.",
+    "taskUz": "`optimizer_stats` jadandlidan `param_name = 'random_page_cost'` parametrining `param_name, default_andlue, description` ustunlarini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `param_name`, `default_value`, `description`\n• Asosiy jadvallar: `optimizer_stats`",
     "expectedSql": "SELECT param_name, default_value, description FROM optimizer_stats WHERE param_name = 'random_page_cost'",
     "hint": "`SELECT param_name, default_value, description FROM optimizer_stats WHERE param_name = 'random_page_cost'` yozing.",
     "tags": [
@@ -862,7 +859,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT param_name, default_value, description FROM optimizer_stats WHERE param_name = 'random_page_cost'"
     ],
-    "task": "`optimizer_stats` jadandlidan `param_name = 'random_page_cost'` parametrining `param_name, default_andlue, description` ustunlarini display.",
+    "task": "`optimizer_stats` jadandlidan `param_name = 'random_page_cost'` parametrining `param_name, default_andlue, description` ustunlarini chiqaring.",
     "explanation": ""
   },
   {
@@ -872,7 +869,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Cost Parameters • cpu_tuple_cost",
     "title": "PostgreSQL Narx Parametri: cpu_tuple_cost (0.01)",
     "story": "Bitta qatorni CPU da tekshirish narxi (`cpu_tuple_cost`) standart 0.01 birlik hisoblanadi.",
-    "taskUz": "`optimizer_stats` jadandlidan `param_name = 'cpu_tuple_cost'` parametrining `param_name, default_andlue, description` ustunlarini display.",
+    "taskUz": "`optimizer_stats` jadandlidan `param_name = 'cpu_tuple_cost'` parametrining `param_name, default_andlue, description` ustunlarini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `param_name`, `default_value`, `description`\n• Asosiy jadvallar: `optimizer_stats`",
     "expectedSql": "SELECT param_name, default_value, description FROM optimizer_stats WHERE param_name = 'cpu_tuple_cost'",
     "hint": "`SELECT param_name, default_value, description FROM optimizer_stats WHERE param_name = 'cpu_tuple_cost'` yozing.",
     "tags": [
@@ -883,7 +880,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT param_name, default_value, description FROM optimizer_stats WHERE param_name = 'cpu_tuple_cost'"
     ],
-    "task": "`optimizer_stats` jadandlidan `param_name = 'cpu_tuple_cost'` parametrining `param_name, default_andlue, description` ustunlarini display.",
+    "task": "`optimizer_stats` jadandlidan `param_name = 'cpu_tuple_cost'` parametrining `param_name, default_andlue, description` ustunlarini chiqaring.",
     "explanation": ""
   },
   {
@@ -977,7 +974,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Join Collapse Limit • Qayta Tartiblash Chegarasi",
     "title": "PostgreSQL Parametri: join_collapse_limit (8)",
     "story": "Optimallashtiruvchi to'liq kombinatorik tartiblaydigan maksimal jadvallar soni standart bo'yicha 8 tadir.",
-    "taskUz": "`optimizer_stats` jadandlidan `param_name = 'join_collapse_limit'` parametrining `param_name, default_andlue` ustunlarini display.",
+    "taskUz": "`optimizer_stats` jadandlidan `param_name = 'join_collapse_limit'` parametrining `param_name, default_andlue` ustunlarini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `param_name`, `default_value`\n• Asosiy jadvallar: `optimizer_stats`",
     "expectedSql": "SELECT param_name, default_value FROM optimizer_stats WHERE param_name = 'join_collapse_limit'",
     "hint": "`SELECT param_name, default_value FROM optimizer_stats WHERE param_name = 'join_collapse_limit'` yozing.",
     "tags": [
@@ -988,7 +985,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT param_name, default_value FROM optimizer_stats WHERE param_name = 'join_collapse_limit'"
     ],
-    "task": "`optimizer_stats` jadandlidan `param_name = 'join_collapse_limit'` parametrining `param_name, default_andlue` ustunlarini display.",
+    "task": "`optimizer_stats` jadandlidan `param_name = 'join_collapse_limit'` parametrining `param_name, default_andlue` ustunlarini chiqaring.",
     "explanation": ""
   },
   {
@@ -998,7 +995,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 EXPLAIN ANALYZE • Haqiqiy Vaqt Bilan Tahlil",
     "title": "PostgreSQL EXPLAIN ANALYZE: Haqiqiy Vaqt Tahlili",
     "story": "Eslatma: `EXPLAIN ANALYZE` so'rovni haqiqatda bajaradi va rejadagi `actual time` hamda qatorlar sonini aniq o'lchaydi.",
-    "taskUz": "`emp` and `dept` bog'lanishining haqiqiy bajarilish andqtini o'lchash uchun `EXPLAIN ANALYZE SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno` buyrug'ini bering.",
+    "taskUz": "`emp` and `dept` bog'lanishining haqiqiy bajarilish andqtini o'lchash uchun `EXPLAIN ANALYZE SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno` buyrug'ini bering.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `dname`\n• Asosiy jadvallar: `emp`, `dept`",
     "expectedSql": "EXPLAIN ANALYZE SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno",
     "hint": "`EXPLAIN ANALYZE SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno` .",
     "tags": [
@@ -1019,7 +1016,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 EXPLAIN ANALYZE Subquery • Haqiqiy Bajarilish",
     "title": "Ichki So'rovning EXPLAIN ANALYZE Rejasi",
     "story": "Ichki subqueryli so'rovning haqiqiy ishlash vaqtini EXPLAIN ANALYZE orqali tahlil qiling.",
-    "taskUz": "`EXPLAIN ANALYZE SELECT ename, sal FROM emp WHERE sal > (SELECT AVG(sal) FROM emp)` buyrug'ini bering.",
+    "taskUz": "`EXPLAIN ANALYZE SELECT ename, sal FROM emp WHERE sal > (SELECT AVG(sal) FROM emp)` buyrug'ini bering.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "EXPLAIN ANALYZE SELECT ename, sal FROM emp WHERE sal > (SELECT AVG(sal) FROM emp)",
     "hint": "`EXPLAIN ANALYZE SELECT ename, sal FROM emp WHERE sal > (SELECT AVG(sal) FROM emp)` yozing.",
     "tags": [
@@ -1040,7 +1037,7 @@ window.QUESTIONS_101_150 = [
     "source": "L06 Grand Final • Bosh Data Arxitektori Sertifikatsiyasi",
     "title": "Bosh Data Arxitektori Final Sinovi (Optimal Korrelyatsiya & JOIN)",
     "story": "TABRIKLAYMIZ! Final 150-sinov: Korrelyatsion subquery, JOIN va optimal tartiblashni o'zida birlashtirgan elita so'rov.",
-    "taskUz": "O'z bo'limining o'rtacha maoshidan ko'proq maosh oluvchi xodimlarning name (`ename`), job title (`job`), maoshi (`sal`) and bo'lim nomini (`dname`) optimal JOIN and korrelyatsion subquery bilan display. Order results by `sal DESC`.",
+    "taskUz": "O'z bo'limining o'rtacha maoshidan ko'proq maosh oluvchi xodimlarning name (`ename`), job title (`job`), maoshi (`sal`) and bo'lim nomini (`dname`) optimal JOIN and korrelyatsion subquery bilan chiqaring. Order results by `sal DESC`.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`, `dname`\n• Asosiy jadvallar: `emp`, `dept`\n• Saralash (ORDER BY): `e.sal DESC`",
     "expectedSql": "SELECT e.ename, e.job, e.sal, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE e.sal > (SELECT AVG(sub.sal) FROM emp sub WHERE sub.deptno = e.deptno) ORDER BY e.sal DESC",
     "hint": "`SELECT e.ename, e.job, e.sal, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE e.sal > (SELECT AVG(sub.sal) FROM emp sub WHERE sub.deptno = e.deptno) ORDER BY e.sal DESC` yozing.",
     "tags": [
@@ -1052,11 +1049,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT e.ename, e.job, e.sal, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE e.sal > (SELECT AVG(sub.sal) FROM emp sub WHERE sub.deptno = e.deptno) ORDER BY e.sal DESC"
     ],
-    "task": "O'z bo'limining o'rtacha maoshidan ko'proq maosh oluvchi xodimlarning name (`ename`), job title (`job`), maoshi (`sal`) and bo'lim nomini (`dname`) optimal JOIN and korrelyatsion subquery bilan display. Order results by `sal DESC`.",
+    "task": "O'z bo'limining o'rtacha maoshidan ko'proq maosh oluvchi xodimlarning name (`ename`), job title (`job`), maoshi (`sal`) and bo'lim nomini (`dname`) optimal JOIN and korrelyatsion subquery bilan chiqaring. Order results by `sal DESC`.",
     "explanation": ""
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = window.QUESTIONS_101_150;
-}

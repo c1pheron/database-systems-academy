@@ -462,60 +462,76 @@
   // 8. SCHEMA VERIFICATION & GRADING (DIAGRAM ONLY)
   // ==========================================================================
   function verifySchema() {
-    if (!window.RELATIONAL_GRADER) return;
-
-    const q = allQuestions.find(item => item.id === STATE.currentQId);
-    if (!q) return;
-
-    let result = null;
-    if (relCanvas) {
-      const userSchema = relCanvas.exportCurrentSchema();
-      result = window.RELATIONAL_GRADER.grade(userSchema, q);
-    } else {
-      result = window.RELATIONAL_GRADER.grade({ tables: [], references: [] }, q);
-    }
-
     const elFeedback = document.getElementById('feedbackBox');
-    if (!elFeedback) return;
-
-    if (result.passed) {
-      window.playSfx('success');
-      if (atelier2D) atelier2D.triggerSuccess("Relyatsion Jadval Tasdiqlandi!");
-
-      elFeedback.className = 'feedback-box success';
-      elFeedback.innerHTML = `
-        <strong>🎉 A'lo Natija!</strong> ${result.feedback || "Sxema relyatsion qoidalar va kalitlar bo'yicha to'g'ri loyihalandi."}
-        <div style="margin-top:8px;">
-          <button id="btnNextChallenge" class="btn btn-primary" style="padding:4px 12px;">Keyingi Topshiriqqa O'tish ▶</button>
-        </div>
-      `;
-      elFeedback.style.display = 'block';
-
-      if (!STATE.solvedIds.has(q.id)) {
-        STATE.solvedIds.add(q.id);
-        STATE.score += 100;
-        STATE.salary += 150;
-        saveState();
-        updateHUD();
-        renderSectorTabs();
+    try {
+      if (!window.RELATIONAL_GRADER) {
+        if (elFeedback) {
+          elFeedback.className = 'feedback-box error';
+          elFeedback.innerHTML = `<strong>⚠️ Xatolik:</strong> Tekshiruv tizimi (RELATIONAL_GRADER) topilmadi.`;
+          elFeedback.style.display = 'block';
+        }
+        return;
       }
 
-      const nextBtn = document.getElementById('btnNextChallenge');
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-          window.playSfx('click');
-          if (STATE.currentQId < 150) {
-            loadQuestion(STATE.currentQId + 1);
-          }
-        });
-      }
-    } else {
-      window.playSfx('error');
-      if (atelier2D) atelier2D.triggerError("Sxemada xatolik bor!");
+      const q = allQuestions.find(item => item.id === STATE.currentQId);
+      if (!q) return;
 
-      elFeedback.className = 'feedback-box error';
-      elFeedback.innerHTML = `<strong>⚠️ Diqqat:</strong> ${result.feedback || "Jadval nomlari, Birlamchi Kalit [PK] yoki Tashqi Kalit [FK] larni qaytadan tekshiring."}`;
-      elFeedback.style.display = 'block';
+      let result = null;
+      if (relCanvas) {
+        const userSchema = relCanvas.exportCurrentSchema();
+        result = window.RELATIONAL_GRADER.grade(userSchema, q);
+      } else {
+        result = window.RELATIONAL_GRADER.grade({ tables: [], references: [] }, q);
+      }
+
+      if (!elFeedback) return;
+
+      if (result.passed) {
+        window.playSfx('success');
+        if (atelier2D) atelier2D.triggerSuccess("Relyatsion Jadval Tasdiqlandi!");
+
+        elFeedback.className = 'feedback-box success';
+        elFeedback.innerHTML = `
+          <strong>🎉 A'lo Natija!</strong> ${result.feedback || "Sxema relyatsion qoidalar va kalitlar bo'yicha to'g'ri loyihalandi."}
+          <div style="margin-top:8px;">
+            <button id="btnNextChallenge" class="btn btn-primary" style="padding:4px 12px;">Keyingi Topshiriqqa O'tish ▶</button>
+          </div>
+        `;
+        elFeedback.style.display = 'block';
+
+        if (!STATE.solvedIds.has(q.id)) {
+          STATE.solvedIds.add(q.id);
+          STATE.score += 100;
+          STATE.salary += 150;
+          saveState();
+          updateHUD();
+          renderSectorTabs();
+        }
+
+        const nextBtn = document.getElementById('btnNextChallenge');
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            window.playSfx('click');
+            if (STATE.currentQId < 150) {
+              loadQuestion(STATE.currentQId + 1);
+            }
+          });
+        }
+      } else {
+        window.playSfx('error');
+        if (atelier2D) atelier2D.triggerError("Sxemada xatolik bor!");
+
+        elFeedback.className = 'feedback-box error';
+        elFeedback.innerHTML = `<strong>⚠️ Diqqat:</strong> ${result.feedback || "Jadval nomlari, Birlamchi Kalit [PK] yoki Tashqi Kalit [FK] larni qaytadan tekshiring."}`;
+        elFeedback.style.display = 'block';
+      }
+    } catch (err) {
+      console.error("verifySchema error:", err);
+      if (elFeedback) {
+        elFeedback.className = 'feedback-box error';
+        elFeedback.innerHTML = `<strong>⚠️ Tekshiruvda kutilmagan xatolik:</strong> ${err.message || err}`;
+        elFeedback.style.display = 'block';
+      }
     }
   }
 

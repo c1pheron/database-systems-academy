@@ -1,9 +1,6 @@
-// ============================================================================
-// DATABASE SYSTEMS ACADEMY — WEEK 5: JOINS, AGGREGATION & STORAGE
-// Variable: QUESTIONS_1_50 (50 Questions)
-// ============================================================================
+var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
 
-window.QUESTIONS_1_50 = [
+_scope.QUESTIONS_1_50 = [
   {
     "id": 1,
     "sector": 1,
@@ -11,7 +8,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 1 • ANSI JOIN ... ON",
     "title": "Dallas Bo'limidagi Xodimlar",
     "story": "Dallas shahridagi tadqiqot bo'limiga yangi loyihalar topshirilmoqda. Rahbariyat ushbu filialda kimlar ishlayotgani va ularning maoshini bilishni istaydi.",
-    "taskUz": "Dallas working in departments located in employee name (`ename`), salary (`sal`) and department name (`dname`) display.",
+    "taskUz": "Dallas shahrida joylashgan bo'limlarda ishlovchi employee name (`ename`), salary (`sal`) and department name (`dname`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `dname`\n• Asosiy jadvallar: `emp`, `dept`",
     "expectedSql": "SELECT e.ename, e.sal, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE d.loc = 'DALLAS'",
     "hint": "`emp` va `dept` jadvallarini `deptno` kaliti orqali `JOIN ... ON` bilan bog'lang va `loc = 'DALLAS'` shartini qo'ying.",
     "tags": [
@@ -22,7 +19,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.sal, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE d.loc = 'DALLAS'"
     ],
-    "task": "Dallas working in departments located in employee name (`ename`), salary (`sal`) and department name (`dname`) display.",
+    "task": "Dallas shahrida joylashgan bo'limlarda ishlovchi employee name (`ename`), salary (`sal`) and department name (`dname`) chiqaring.",
     "explanation": ""
   },
   {
@@ -32,7 +29,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 2 • Bo'lim va Xodim Saralash",
     "title": "Xodimlar va Bo'lim Nomi",
     "story": "Korporativ HR portali uchun har bir xodim qaysi bo'limda xizmat qilayotganini ko'rsatuvchi tartiblangan hisobot kerak.",
-    "taskUz": "All employee name (`ename`) and department name (`dname`) display. Natijani avandl bo'lim nomi (`dname`), so'ng xodim ismi (`ename`) bo'yicha order by.",
+    "taskUz": "Barcha xodimlarning ismi (`ename`) and department name (`dname`) chiqaring. Natijani avval bo'lim nomi (`dname`), so'ng xodim ismi (`ename`) bo'yicha tartibida saralang.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `dname`\n• Asosiy jadvallar: `emp`, `dept`\n• Saralash (ORDER BY): `d.dname, e.ename`",
     "expectedSql": "SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno ORDER BY d.dname, e.ename",
     "hint": "`ORDER BY d.dname, e.ename` yordamida ikki darajali alifbo tartibida saralang.",
     "tags": [
@@ -42,7 +39,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno ORDER BY d.dname, e.ename"
     ],
-    "task": "All employee name (`ename`) and department name (`dname`) display. Natijani avandl bo'lim nomi (`dname`), so'ng xodim ismi (`ename`) bo'yicha order by.",
+    "task": "Barcha xodimlarning ismi (`ename`) and department name (`dname`) chiqaring. Natijani avval bo'lim nomi (`dname`), so'ng xodim ismi (`ename`) bo'yicha tartibida saralang.",
     "explanation": ""
   },
   {
@@ -52,7 +49,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 2b • JOIN ... USING",
     "title": "USING Sintaksisi Bilan Bog'lash",
     "story": "SQL standartida ikkala jadvalda bir xil nomlangan ustun bo'lsa, `ON e.deptno = d.deptno` o'rniga qisqaroq `USING` qo'llanilishi mumkin.",
-    "taskUz": "`JOIN dept USING (deptno)` sintaksisidan foydalanib, xodim ismi (`ename`) and uning department name (`dname`) display.",
+    "taskUz": "`JOIN dept USING (deptno)` sintaksisidan foydalanib, xodim ismi (`ename`) and uning department name (`dname`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `dname`\n• Asosiy jadvallar: `emp`, `dept`",
     "expectedSql": "SELECT e.ename, d.dname FROM emp e JOIN dept d USING (deptno)",
     "hint": "`ON e.deptno = d.deptno` o'rniga qavs ichida `USING (deptno)` .",
     "tags": [
@@ -62,7 +59,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, d.dname FROM emp e JOIN dept d USING (deptno)"
     ],
-    "task": "`JOIN dept USING (deptno)` sintaksisidan foydalanib, xodim ismi (`ename`) and uning department name (`dname`) display.",
+    "task": "`JOIN dept USING (deptno)` sintaksisidan foydalanib, xodim ismi (`ename`) and uning department name (`dname`) chiqaring.",
     "explanation": ""
   },
   {
@@ -72,7 +69,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 1 • Kasb va Filial",
     "title": "Chikago Sotuvchilari",
     "story": "Chikago filialida maxsus savdo kampaniyasi o'tkazilmoqda. Boshqaruv faqat ushbu shahardagi sotuvchilar ro'yxatini talab qildi.",
-    "taskUz": "Chikagoda ishlaydigan and lavozimi 'SALESMAN' bo'lgan employee name (`ename`), salary (`sal`) and shahrini (`loc`) display.",
+    "taskUz": "Chikagoda ishlaydigan and lavozimi 'SALESMAN' bo'lgan employee name (`ename`), salary (`sal`) and shahrini (`loc`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `loc`\n• Asosiy jadvallar: `emp`, `dept`",
     "expectedSql": "SELECT e.ename, e.sal, d.loc FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE d.loc = 'CHICAGO' AND e.job = 'SALESMAN'",
     "hint": "`WHERE d.loc = 'CHICAGO' AND e.job = 'SALESMAN'` mantiqiy shartini qo'llang.",
     "tags": [
@@ -82,7 +79,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.sal, d.loc FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE d.loc = 'CHICAGO' AND e.job = 'SALESMAN'"
     ],
-    "task": "Chikagoda ishlaydigan and lavozimi 'SALESMAN' bo'lgan employee name (`ename`), salary (`sal`) and shahrini (`loc`) display.",
+    "task": "Chikagoda ishlaydigan and lavozimi 'SALESMAN' bo'lgan employee name (`ename`), salary (`sal`) and shahrini (`loc`) chiqaring.",
     "explanation": ""
   },
   {
@@ -92,7 +89,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 1 • Shaharlar Filtrlash",
     "title": "Nyu-York Boshqaruvchilari",
     "story": "Nyu-York bosh ofisidagi boshqaruv kengashi (MANAGER) xodimlarining ro'yxati moliyaviy audit uchun taqdim etilishi kerak.",
-    "taskUz": "Nyu-Yorkda (`NEW YORK`) ishlaydigan All menejerlarning (`job = 'MANAGER'`) ismi (`ename`), lavozimi (`job`) and shahrini (`loc`) display.",
+    "taskUz": "Nyu-Yorkda (`NEW YORK`) ishlaydigan All menejerlarning (`job = 'MANAGER'`) ismi (`ename`), lavozimi (`job`) and shahrini (`loc`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `loc`\n• Asosiy jadvallar: `emp`, `dept`",
     "expectedSql": "SELECT e.ename, e.job, d.loc FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE d.loc = 'NEW YORK' AND e.job = 'MANAGER'",
     "hint": "`loc = 'NEW YORK'` va `job = 'MANAGER'` tengliklarini tekshiring.",
     "tags": [
@@ -102,7 +99,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.job, d.loc FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE d.loc = 'NEW YORK' AND e.job = 'MANAGER'"
     ],
-    "task": "Nyu-Yorkda (`NEW YORK`) ishlaydigan All menejerlarning (`job = 'MANAGER'`) ismi (`ename`), lavozimi (`job`) and shahrini (`loc`) display.",
+    "task": "Nyu-Yorkda (`NEW YORK`) ishlaydigan All menejerlarning (`job = 'MANAGER'`) ismi (`ename`), lavozimi (`job`) and shahrini (`loc`) chiqaring.",
     "explanation": ""
   },
   {
@@ -112,7 +109,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 1 • Eski Sintaksis Vergul Bilan",
     "title": "Tarixiy Ulam Sintaksisi (FROM emp, dept)",
     "story": "Eski SQL kodlarida ANSI `JOIN` kalit so'zi o'rniga jadvallar vergul bilan ajratilib, ulam sharti `WHERE` ga yozilgan.",
-    "taskUz": "Vergul sintaksisi (`FROM emp e, dept d`) and `WHERE e.deptno = d.deptno` via xodim ismi (`ename`) and department name (`dname`) display.",
+    "taskUz": "Vergul sintaksisi (`FROM emp e, dept d`) and `WHERE e.deptno = d.deptno` via xodim ismi (`ename`) and department name (`dname`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `dname`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "SELECT e.ename, d.dname FROM emp e, dept d WHERE e.deptno = d.deptno",
     "hint": "`FROM emp e, dept d WHERE e.deptno = d.deptno` shaklida yozing.",
     "tags": [
@@ -122,7 +119,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, d.dname FROM emp e, dept d WHERE e.deptno = d.deptno"
     ],
-    "task": "Vergul sintaksisi (`FROM emp e, dept d`) and `WHERE e.deptno = d.deptno` via xodim ismi (`ename`) and department name (`dname`) display.",
+    "task": "Vergul sintaksisi (`FROM emp e, dept d`) and `WHERE e.deptno = d.deptno` via xodim ismi (`ename`) and department name (`dname`) chiqaring.",
     "explanation": ""
   },
   {
@@ -132,7 +129,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 1 • Maosh Filtrlash",
     "title": "Yuqori Maoshli Dallas Xodimlari",
     "story": "Dallas filialidagi ilmiy xodimlardan maoshi $2,500 dan yuqori bo'lgan yuqori malakali mutaxassislar ro'yxatini shakllantiring.",
-    "taskUz": "Dallasda ishlaydigan and salary 2500 dan katta bo'lgan employee name (`ename`), lavozimi (`job`) and salaryni (`sal`) display.",
+    "taskUz": "Dallasda ishlaydigan and salary 2500 dan katta bo'lgan employee name (`ename`), lavozimi (`job`) and salaryni (`sal`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`\n• Asosiy jadvallar: `emp`, `dept`",
     "expectedSql": "SELECT e.ename, e.job, e.sal FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE d.loc = 'DALLAS' AND e.sal > 2500",
     "hint": "`d.loc = 'DALLAS' AND e.sal > 2500` shartini bering.",
     "tags": [
@@ -142,7 +139,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.job, e.sal FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE d.loc = 'DALLAS' AND e.sal > 2500"
     ],
-    "task": "Dallasda ishlaydigan and salary 2500 dan katta bo'lgan employee name (`ename`), lavozimi (`job`) and salaryni (`sal`) display.",
+    "task": "Dallasda ishlaydigan and salary 2500 dan katta bo'lgan employee name (`ename`), lavozimi (`job`) and salaryni (`sal`) chiqaring.",
     "explanation": ""
   },
   {
@@ -152,7 +149,7 @@ window.QUESTIONS_1_50 = [
     "source": "L05 Engineering Projects • 2-Jadval",
     "title": "Korporativ Loyihalar va Bo'limlar",
     "story": "Kompaniya qoshidagi muhandislik loyihalari (`project`) qaysi bo'limlar homiyligida olib borilayotganini tahlil qilish lozim.",
-    "taskUz": "Har bir loyiha nomi (`pname`), uning byudjeti (`budget`) and unga mas'ul department name (`dname`) display.",
+    "taskUz": "Har bir loyiha nomi (`pname`), uning byudjeti (`budget`) and unga mas'ul department name (`dname`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `pname`, `budget`, `dname`\n• Asosiy jadvallar: `project`, `dept`",
     "expectedSql": "SELECT p.pname, p.budget, d.dname FROM project p JOIN dept d ON p.deptno = d.deptno",
     "hint": "`project p JOIN dept d ON p.deptno = d.deptno` orqali bog'lang.",
     "tags": [
@@ -163,7 +160,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT p.pname, p.budget, d.dname FROM project p JOIN dept d ON p.deptno = d.deptno"
     ],
-    "task": "Har bir loyiha nomi (`pname`), uning byudjeti (`budget`) and unga mas'ul department name (`dname`) display.",
+    "task": "Har bir loyiha nomi (`pname`), uning byudjeti (`budget`) and unga mas'ul department name (`dname`) chiqaring.",
     "explanation": ""
   },
   {
@@ -173,7 +170,7 @@ window.QUESTIONS_1_50 = [
     "source": "L05 Engineering Projects • Shahar Mosligi",
     "title": "Tashkent va Nyu-York Loyihalari",
     "story": "Xalqaro IT xablar doirasida Toshkent yoki Nyu-York shahrida amalga oshirilayotgan yirik tizim loyihalarini ajratib ko'rsating.",
-    "taskUz": "Shahri 'TASHKENT' yoki 'NEW YORK' bo'lgan loyihalarning nomi (`pname`), shahri (`ploc`) and byudjetini (`budget`) bo'lim nomi (`dname`) bilan birga display.",
+    "taskUz": "Shahri 'TASHKENT' yoki 'NEW YORK' bo'lgan loyihalarning nomi (`pname`), shahri (`ploc`) and byudjetini (`budget`) bo'lim nomi (`dname`) bilan birga chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `pname`, `ploc`, `budget`, `dname`\n• Asosiy jadvallar: `project`, `dept`",
     "expectedSql": "SELECT p.pname, p.ploc, p.budget, d.dname FROM project p JOIN dept d ON p.deptno = d.deptno WHERE p.ploc IN ('TASHKENT', 'NEW YORK')",
     "hint": "`WHERE p.ploc IN ('TASHKENT', 'NEW YORK')` shartidan foydalaning.",
     "tags": [
@@ -183,7 +180,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT p.pname, p.ploc, p.budget, d.dname FROM project p JOIN dept d ON p.deptno = d.deptno WHERE p.ploc IN ('TASHKENT', 'NEW YORK')"
     ],
-    "task": "Shahri 'TASHKENT' yoki 'NEW YORK' bo'lgan loyihalarning nomi (`pname`), shahri (`ploc`) and byudjetini (`budget`) bo'lim nomi (`dname`) bilan birga display.",
+    "task": "Shahri 'TASHKENT' yoki 'NEW YORK' bo'lgan loyihalarning nomi (`pname`), shahri (`ploc`) and byudjetini (`budget`) bo'lim nomi (`dname`) bilan birga chiqaring.",
     "explanation": ""
   },
   {
@@ -193,7 +190,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB Intro • Tracks & Genres",
     "title": "Chinook: Treklar va Janr Nomi",
     "story": "Chinook raqamli media do'konida har bir musiqa treki qaysi musiqa janriga mansubligini aniqlash zarur.",
-    "taskUz": "Trek nomi (`name`) and tegishli janr nomini (`name` o'rniga `g.name`) `track` and `genre` jadandllarini joining display.",
+    "taskUz": "Trek nomi (`name`) and tegishli janr nomini (`name` o'rniga `g.name`) `track` and `genre` jadandllarini joining chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `name`, `genre_name`\n• Asosiy jadvallar: `track`, `genre`",
     "expectedSql": "SELECT t.name, g.name AS genre_name FROM track t JOIN genre g ON t.genre_id = g.genre_id",
     "hint": "`track t JOIN genre g ON t.genre_id = g.genre_id` orqali bog'lang.",
     "tags": [
@@ -204,7 +201,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT t.name, g.name AS genre_name FROM track t JOIN genre g ON t.genre_id = g.genre_id"
     ],
-    "task": "Trek nomi (`name`) and tegishli janr nomini (`name` o'rniga `g.name`) `track` and `genre` jadandllarini joining display.",
+    "task": "Trek nomi (`name`) and tegishli janr nomini (`name` o'rniga `g.name`) `track` and `genre` jadandllarini joining chiqaring.",
     "explanation": ""
   },
   {
@@ -214,7 +211,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB • Albums & Artists",
     "title": "Chinook: Albomlar va Ijrochilar",
     "story": "Foydalanuvchilar qidiruv tizimida albom nomi bilan birga uni ijro etgan guruh yoki musiqachi nomini ko'rishlari kerak.",
-    "taskUz": "Albom sarlavhasi (`title`) and ijrochi nomini (`name`) `album` and `artist` jadandllarini `artist_id` via joining display.",
+    "taskUz": "Albom sarlavhasi (`title`) and ijrochi nomini (`name`) `album` and `artist` jadandllarini `artist_id` via joining chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `title`, `name`\n• Asosiy jadvallar: `album`, `artist`",
     "expectedSql": "SELECT al.title, ar.name FROM album al JOIN artist ar ON al.artist_id = ar.artist_id",
     "hint": "`album al JOIN artist ar ON al.artist_id = ar.artist_id` orqali ulam yarating.",
     "tags": [
@@ -225,7 +222,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT al.title, ar.name FROM album al JOIN artist ar ON al.artist_id = ar.artist_id"
     ],
-    "task": "Albom sarlavhasi (`title`) and ijrochi nomini (`name`) `album` and `artist` jadandllarini `artist_id` via joining display.",
+    "task": "Albom sarlavhasi (`title`) and ijrochi nomini (`name`) `album` and `artist` jadandllarini `artist_id` via joining chiqaring.",
     "explanation": ""
   },
   {
@@ -235,7 +232,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB • Invoices & Customers",
     "title": "Chinook: Invoyslar va Xaridorlar",
     "story": "Buxgalteriya har bir to'lov kvitansiyasi (invoys) qaysi xaridorga tegishli ekanligini qayd etib bormoqda.",
-    "taskUz": "Invoys raqami (`invoice_id`), to'lov sanasi (`invoice_date`), jami summa (`total`) and xaridorning familiyasini (`last_name`) display.",
+    "taskUz": "Invoys raqami (`invoice_id`), to'lov sanasi (`invoice_date`), jami summa (`total`) and xaridorning familiyasini (`last_name`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `invoice_id`, `invoice_date`, `total`, `last_name`\n• Asosiy jadvallar: `invoice`, `customer`",
     "expectedSql": "SELECT i.invoice_id, i.invoice_date, i.total, c.last_name FROM invoice i JOIN customer c ON i.customer_id = c.customer_id",
     "hint": "`invoice i JOIN customer c ON i.customer_id = c.customer_id` ulamini qo'llang.",
     "tags": [
@@ -246,7 +243,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT i.invoice_id, i.invoice_date, i.total, c.last_name FROM invoice i JOIN customer c ON i.customer_id = c.customer_id"
     ],
-    "task": "Invoys raqami (`invoice_id`), to'lov sanasi (`invoice_date`), jami summa (`total`) and xaridorning familiyasini (`last_name`) display.",
+    "task": "Invoys raqami (`invoice_id`), to'lov sanasi (`invoice_date`), jami summa (`total`) and xaridorning familiyasini (`last_name`) chiqaring.",
     "explanation": ""
   },
   {
@@ -256,7 +253,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB • Germany Invoices",
     "title": "Germaniyalik Xaridorlar Invoyslari",
     "story": "Yevropa filiali faqat Germaniyada ro'yxatdan o'tgan buyurtmachilarning invoyslarini tekshirmoqchi.",
-    "taskUz": "Invoys mamlakati 'Germany' bo'lgan xaridorlarning ismi (`first_name`), familiyasi (`last_name`) and invoys summasini (`total`) display.",
+    "taskUz": "Invoys mamlakati 'Germany' bo'lgan xaridorlarning ismi (`first_name`), familiyasi (`last_name`) and invoys summasini (`total`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `first_name`, `last_name`, `total`\n• Asosiy jadvallar: `invoice`, `customer`",
     "expectedSql": "SELECT c.first_name, c.last_name, i.total FROM invoice i JOIN customer c ON i.customer_id = c.customer_id WHERE i.billing_country = 'Germany'",
     "hint": "`WHERE i.billing_country = 'Germany'` shartini qo'ying.",
     "tags": [
@@ -266,7 +263,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT c.first_name, c.last_name, i.total FROM invoice i JOIN customer c ON i.customer_id = c.customer_id WHERE i.billing_country = 'Germany'"
     ],
-    "task": "Invoys mamlakati 'Germany' bo'lgan xaridorlarning ismi (`first_name`), familiyasi (`last_name`) and invoys summasini (`total`) display.",
+    "task": "Invoys mamlakati 'Germany' bo'lgan xaridorlarning ismi (`first_name`), familiyasi (`last_name`) and invoys summasini (`total`) chiqaring.",
     "explanation": ""
   },
   {
@@ -276,7 +273,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 2 • Bo'lim Xodimlari Saralash",
     "title": "Xodimlar va Ishga Kirgan Sanasi",
     "story": "Korporatsiya stajini hisoblash uchun xodimlarning bo'limi va ish boshlagan sanasi (`hiredate`) taqqoslanmoqda.",
-    "taskUz": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and ishga qabul qilingan sanasini (`hiredate`) display. Natijani ishga kirgan sanasi bo'yicha order by.",
+    "taskUz": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and ishga qabul qilingan sanasini (`hiredate`) chiqaring. Natijani ishga kirgan sanasi bo'yicha tartibida saralang.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `ename`, `hiredate`\n• Asosiy jadvallar: `emp`, `dept`\n• Saralash (ORDER BY): `e.hiredate`",
     "expectedSql": "SELECT d.dname, e.ename, e.hiredate FROM emp e JOIN dept d ON e.deptno = d.deptno ORDER BY e.hiredate",
     "hint": "`ORDER BY e.hiredate` orqali o'sish tartibida saralang.",
     "tags": [
@@ -286,7 +283,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT d.dname, e.ename, e.hiredate FROM emp e JOIN dept d ON e.deptno = d.deptno ORDER BY e.hiredate"
     ],
-    "task": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and ishga qabul qilingan sanasini (`hiredate`) display. Natijani ishga kirgan sanasi bo'yicha order by.",
+    "task": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and ishga qabul qilingan sanasini (`hiredate`) chiqaring. Natijani ishga kirgan sanasi bo'yicha tartibida saralang.",
     "explanation": ""
   },
   {
@@ -296,7 +293,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 1–2 Sarhisob",
     "title": "1-Qavat Bosh Imtihoni: Katta ANSI Ulam",
     "story": "1-qavat portali ochilishi uchun Nyu-York va Dallasdagi menejer hamda tahlilchilarni aniq hisoblab bering.",
-    "taskUz": "Shahri 'NEW YORK' yoki 'DALLAS' bo'lgan, lavozimi 'MANAGER' yoki 'ANALYST' bo'lgan employee name (`ename`), lavozimi (`job`), salary (`sal`) and shahrini (`loc`) display. Natijani maosh bo'yicha kamayish tartibida order by.",
+    "taskUz": "Shahri 'NEW YORK' yoki 'DALLAS' bo'lgan, lavozimi 'MANAGER' yoki 'ANALYST' bo'lgan employee name (`ename`), lavozimi (`job`), salary (`sal`) and shahrini (`loc`) chiqaring. Natijani maosh bo'yicha kamayish tartibida tartibida saralang.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`, `loc`\n• Asosiy jadvallar: `emp`, `dept`\n• Saralash (ORDER BY): `e.sal DESC`",
     "expectedSql": "SELECT e.ename, e.job, e.sal, d.loc FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE d.loc IN ('NEW YORK', 'DALLAS') AND e.job IN ('MANAGER', 'ANALYST') ORDER BY e.sal DESC",
     "hint": "`WHERE d.loc IN ('NEW YORK', 'DALLAS') AND e.job IN ('MANAGER', 'ANALYST') ORDER BY e.sal DESC` shartini qo'ying.",
     "tags": [
@@ -308,7 +305,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.job, e.sal, d.loc FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE d.loc IN ('NEW YORK', 'DALLAS') AND e.job IN ('MANAGER', 'ANALYST') ORDER BY e.sal DESC"
     ],
-    "task": "Shahri 'NEW YORK' yoki 'DALLAS' bo'lgan, lavozimi 'MANAGER' yoki 'ANALYST' bo'lgan employee name (`ename`), lavozimi (`job`), salary (`sal`) and shahrini (`loc`) display. Natijani maosh bo'yicha kamayish tartibida order by.",
+    "task": "Shahri 'NEW YORK' yoki 'DALLAS' bo'lgan, lavozimi 'MANAGER' yoki 'ANALYST' bo'lgan employee name (`ename`), lavozimi (`job`), salary (`sal`) and shahrini (`loc`) chiqaring. Natijani maosh bo'yicha kamayish tartibida tartibida saralang.",
     "explanation": ""
   },
   {
@@ -318,7 +315,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 5 • Non-Equi Join (BETWEEN)",
     "title": "Xodimlar Maosh Razryadi (salgrade)",
     "story": "Kompaniyada xodimlarning maoshi ma'lum bir razryad oralig'iga tushadi. Bu yerda tenglik emas, oraliq tekshiriladi.",
-    "taskUz": "Har bir xodimning ismi (`ename`), salary (`sal`) and qaysi maosh razryadida (`grade`) ekanligini `salgrade` bilan joining display.",
+    "taskUz": "Har bir xodimning ismi (`ename`), salary (`sal`) and qaysi maosh razryadida (`grade`) ekanligini `salgrade` bilan joining chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `grade`\n• Asosiy jadvallar: `emp`, `salgrade`",
     "expectedSql": "SELECT e.ename, e.sal, s.grade FROM emp e JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal",
     "hint": "`JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal` - Non-equi join sintaksisidan foydalaning.",
     "tags": [
@@ -329,7 +326,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.sal, s.grade FROM emp e JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal"
     ],
-    "task": "Har bir xodimning ismi (`ename`), salary (`sal`) and qaysi maosh razryadida (`grade`) ekanligini `salgrade` bilan joining display.",
+    "task": "Har bir xodimning ismi (`ename`), salary (`sal`) and qaysi maosh razryadida (`grade`) ekanligini `salgrade` bilan joining chiqaring.",
     "explanation": ""
   },
   {
@@ -339,7 +336,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 5 • Razryad Chegaralari",
     "title": "Razryad Chegaralari Bilan To'liq Hisobot",
     "story": "HR taftish komissiyasi har bir xodim maoshi bilan birga uning razryadining eng quyi (`losal`) va eng yuqori (`hisal`) chegaralarini talab qildi.",
-    "taskUz": "Xodim ismi (`ename`), salary (`sal`), razryadi (`grade`), `losal` and `hisal` qiymatlarini display. Natijani razryad (`grade`), so'ng maosh (`sal`) bo'yicha order by.",
+    "taskUz": "Xodim ismi (`ename`), salary (`sal`), razryadi (`grade`), `losal` and `hisal` qiymatlarini chiqaring. Natijani razryad (`grade`), so'ng maosh (`sal`) bo'yicha tartibida saralang.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `grade`, `losal`, `hisal`\n• Asosiy jadvallar: `emp`, `salgrade`\n• Saralash (ORDER BY): `s.grade, e.sal`",
     "expectedSql": "SELECT e.ename, e.sal, s.grade, s.losal, s.hisal FROM emp e JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal ORDER BY s.grade, e.sal",
     "hint": "`ORDER BY s.grade, e.sal` orqali tartiblang.",
     "tags": [
@@ -350,7 +347,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.sal, s.grade, s.losal, s.hisal FROM emp e JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal ORDER BY s.grade, e.sal"
     ],
-    "task": "Xodim ismi (`ename`), salary (`sal`), razryadi (`grade`), `losal` and `hisal` qiymatlarini display. Natijani razryad (`grade`), so'ng maosh (`sal`) bo'yicha order by.",
+    "task": "Xodim ismi (`ename`), salary (`sal`), razryadi (`grade`), `losal` and `hisal` qiymatlarini chiqaring. Natijani razryad (`grade`), so'ng maosh (`sal`) bo'yicha tartibida saralang.",
     "explanation": ""
   },
   {
@@ -360,7 +357,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 5 • Yuqori Razryad Filtr",
     "title": "4-Razryaddagi Katta Mutaxassislar",
     "story": "Kompaniyaning 4-razryadida ($2001 - $3000) faoliyat yurituvchi yetakchi mutaxassislarni aniqlang.",
-    "taskUz": "Maosh razryadi 4 ga teng bo'lgan employee name (`ename`), lavozimi (`job`) and salaryni (`sal`) display.",
+    "taskUz": "Maosh razryadi 4 ga teng bo'lgan employee name (`ename`), lavozimi (`job`) and salaryni (`sal`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`\n• Asosiy jadvallar: `emp`, `salgrade`",
     "expectedSql": "SELECT e.ename, e.job, e.sal FROM emp e JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal WHERE s.grade = 4",
     "hint": "`WHERE s.grade = 4` shartini qo'shing.",
     "tags": [
@@ -370,7 +367,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.job, e.sal FROM emp e JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal WHERE s.grade = 4"
     ],
-    "task": "Maosh razryadi 4 ga teng bo'lgan employee name (`ename`), lavozimi (`job`) and salaryni (`sal`) display.",
+    "task": "Maosh razryadi 4 ga teng bo'lgan employee name (`ename`), lavozimi (`job`) and salaryni (`sal`) chiqaring.",
     "explanation": ""
   },
   {
@@ -380,7 +377,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 7 • 3-Jadval Birikmasi",
     "title": "Xodim, Bo'lim va Maosh Razryadi",
     "story": "3 ta asosiy korporativ jadvalni birlashtirish: xodim kim, qaysi bo'limda ishlaydi va qaysi razryad toifasiga kiradi?",
-    "taskUz": "Xodim ismi (`ename`), bo'lim nomi (`dname`) and maosh razryadini (`grade`) `emp`, `dept` and `salgrade` jadandllarini birga joining display.",
+    "taskUz": "Xodim ismi (`ename`), bo'lim nomi (`dname`) and maosh razryadini (`grade`) `emp`, `dept` and `salgrade` jadandllarini birga joining chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `dname`, `grade`\n• Asosiy jadvallar: `emp`, `dept`, `salgrade`",
     "expectedSql": "SELECT e.ename, d.dname, s.grade FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal",
     "hint": "Ketma-ket ikkita `JOIN` yozing: biri `dept d ON ...`, ikkinchisi `salgrade s ON ...`.",
     "tags": [
@@ -392,7 +389,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, d.dname, s.grade FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal"
     ],
-    "task": "Xodim ismi (`ename`), bo'lim nomi (`dname`) and maosh razryadini (`grade`) `emp`, `dept` and `salgrade` jadandllarini birga joining display.",
+    "task": "Xodim ismi (`ename`), bo'lim nomi (`dname`) and maosh razryadini (`grade`) `emp`, `dept` and `salgrade` jadandllarini birga joining chiqaring.",
     "explanation": ""
   },
   {
@@ -402,7 +399,7 @@ window.QUESTIONS_1_50 = [
     "source": "L05 Engineering • 3-Table Join",
     "title": "Xodim, Loyiha va Ishlagan Soatlari",
     "story": "Muhandislik hisobotida kim qaysi loyihada necha soat xizmat qilgani aks etishi kerak.",
-    "taskUz": "Xodim ismi (`ename`), loyiha nomi (`pname`) and ishlangan soatlar sonini (`hours`) `emp`, `works_on` and `project` jadandllarini joining display.",
+    "taskUz": "Xodim ismi (`ename`), loyiha nomi (`pname`) and ishlangan soatlar sonini (`hours`) `emp`, `works_on` and `project` jadandllarini joining chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `pname`, `hours`\n• Asosiy jadvallar: `emp`, `works_on`, `project`",
     "expectedSql": "SELECT e.ename, p.pname, w.hours FROM emp e JOIN works_on w ON e.empno = w.empno JOIN project p ON w.pno = p.pno",
     "hint": "`emp` -> `works_on` (empno orqali) -> `project` (pno orqali) zanjirini bog'lang.",
     "tags": [
@@ -413,7 +410,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, p.pname, w.hours FROM emp e JOIN works_on w ON e.empno = w.empno JOIN project p ON w.pno = p.pno"
     ],
-    "task": "Xodim ismi (`ename`), loyiha nomi (`pname`) and ishlangan soatlar sonini (`hours`) `emp`, `works_on` and `project` jadandllarini joining display.",
+    "task": "Xodim ismi (`ename`), loyiha nomi (`pname`) and ishlangan soatlar sonini (`hours`) `emp`, `works_on` and `project` jadandllarini joining chiqaring.",
     "explanation": ""
   },
   {
@@ -423,7 +420,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB H1 • Track, Album & Artist",
     "title": "Chinook: Trek, Albom va Ijrochi",
     "story": "Musiqa trekining qaysi albomga va qaysi san'atkorga tegishli ekanligini 3 ta jadval ulamidan toping.",
-    "taskUz": "Trek nomi (`name`), albom sarlavhasi (`title`) and ijrochi nomini (`ar.name`) `track`, `album` and `artist` jadandllarini joining display.",
+    "taskUz": "Trek nomi (`name`), albom sarlavhasi (`title`) and ijrochi nomini (`ar.name`) `track`, `album` and `artist` jadandllarini joining chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `name`, `title`, `artist_name`\n• Asosiy jadvallar: `track`, `album`, `artist`",
     "expectedSql": "SELECT t.name, al.title, ar.name AS artist_name FROM track t JOIN album al ON t.album_id = al.album_id JOIN artist ar ON al.artist_id = ar.artist_id",
     "hint": "`track t JOIN album al ON t.album_id = al.album_id JOIN artist ar ON al.artist_id = ar.artist_id` bog'lamasini tuzing.",
     "tags": [
@@ -435,7 +432,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT t.name, al.title, ar.name AS artist_name FROM track t JOIN album al ON t.album_id = al.album_id JOIN artist ar ON al.artist_id = ar.artist_id"
     ],
-    "task": "Trek nomi (`name`), albom sarlavhasi (`title`) and ijrochi nomini (`ar.name`) `track`, `album` and `artist` jadandllarini joining display.",
+    "task": "Trek nomi (`name`), albom sarlavhasi (`title`) and ijrochi nomini (`ar.name`) `track`, `album` and `artist` jadandllarini joining chiqaring.",
     "explanation": ""
   },
   {
@@ -445,7 +442,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB H1 • AC/DC Treklari",
     "title": "Chinook: 'AC/DC' Guruhining Barcha Treklari",
     "story": "Afsonaviy 'AC/DC' rok guruhining barcha musiqiy kompozitsiyalarini katalogdan saralab oling.",
-    "taskUz": "'AC/DC' ijrochisining All treklari uchun albom nomi (`title`) and trek nomini (`name`) display. Natijani albom sarlavhasi, so'ng trek nomi bo'yicha order by.",
+    "taskUz": "'AC/DC' ijrochisining All treklari uchun albom nomi (`title`) and trek nomini (`name`) chiqaring. Natijani albom sarlavhasi, so'ng trek nomi bo'yicha tartibida saralang.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `title`, `name`\n• Asosiy jadvallar: `track`, `album`, `artist`\n• Saralash (ORDER BY): `al.title, t.name`",
     "expectedSql": "SELECT al.title, t.name FROM track t JOIN album al ON t.album_id = al.album_id JOIN artist ar ON al.artist_id = ar.artist_id WHERE ar.name = 'AC/DC' ORDER BY al.title, t.name",
     "hint": "`WHERE ar.name = 'AC/DC'` shartini qo'ying.",
     "tags": [
@@ -455,7 +452,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT al.title, t.name FROM track t JOIN album al ON t.album_id = al.album_id JOIN artist ar ON al.artist_id = ar.artist_id WHERE ar.name = 'AC/DC' ORDER BY al.title, t.name"
     ],
-    "task": "'AC/DC' ijrochisining All treklari uchun albom nomi (`title`) and trek nomini (`name`) display. Natijani albom sarlavhasi, so'ng trek nomi bo'yicha order by.",
+    "task": "'AC/DC' ijrochisining All treklari uchun albom nomi (`title`) and trek nomini (`name`) chiqaring. Natijani albom sarlavhasi, so'ng trek nomi bo'yicha tartibida saralang.",
     "explanation": ""
   },
   {
@@ -465,7 +462,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB • Trek, Janr va Narx",
     "title": "Chinook: 300 Sekunddan Uzun Rok Treklar",
     "story": "Davomiyligi 5 daqiqadan (300,000 millisekund) oshadigan Rok janridagi treklar audiofayllar ro'yxatini shakllantiring.",
-    "taskUz": "Janri 'Rock' bo'lgan and davomiyligi 300,000 millisekunddan katta bo'lgan treklarning nomi (`name`), albom sarlavhasi (`title`) and millisekundlarini (`milliseconds`) display.",
+    "taskUz": "Janri 'Rock' bo'lgan and davomiyligi 300,000 millisekunddan katta bo'lgan treklarning nomi (`name`), albom sarlavhasi (`title`) and millisekundlarini (`milliseconds`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `name`, `title`, `milliseconds`\n• Asosiy jadvallar: `track`, `album`, `genre`",
     "expectedSql": "SELECT t.name, al.title, t.milliseconds FROM track t JOIN album al ON t.album_id = al.album_id JOIN genre g ON t.genre_id = g.genre_id WHERE g.name = 'Rock' AND t.milliseconds > 300000",
     "hint": "`WHERE g.name = 'Rock' AND t.milliseconds > 300000` shartini bering.",
     "tags": [
@@ -476,7 +473,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT t.name, al.title, t.milliseconds FROM track t JOIN album al ON t.album_id = al.album_id JOIN genre g ON t.genre_id = g.genre_id WHERE g.name = 'Rock' AND t.milliseconds > 300000"
     ],
-    "task": "Janri 'Rock' bo'lgan and davomiyligi 300,000 millisekunddan katta bo'lgan treklarning nomi (`name`), albom sarlavhasi (`title`) and millisekundlarini (`milliseconds`) display.",
+    "task": "Janri 'Rock' bo'lgan and davomiyligi 300,000 millisekunddan katta bo'lgan treklarning nomi (`name`), albom sarlavhasi (`title`) and millisekundlarini (`milliseconds`) chiqaring.",
     "explanation": ""
   },
   {
@@ -486,7 +483,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB • Sales Chain 3 Tables",
     "title": "Chinook: Invoys Satrlari, Trek va Invoys",
     "story": "Xarid qilingan har bir trekning narxi va sotilgan sanasini bilish uchun sotuv zanjirini birlashtiring.",
-    "taskUz": "Invoys sanasi (`invoice_date`), trek nomi (`name`) and sotilgan donasi (`quantity`) ustunlarini `invoice`, `invoice_line` and `track` jadandllarini joining display.",
+    "taskUz": "Invoys sanasi (`invoice_date`), trek nomi (`name`) and sotilgan donasi (`quantity`) ustunlarini `invoice`, `invoice_line` and `track` jadandllarini joining chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `invoice_date`, `name`, `quantity`\n• Asosiy jadvallar: `invoice`, `invoice_line`, `track`",
     "expectedSql": "SELECT i.invoice_date, t.name, il.quantity FROM invoice i JOIN invoice_line il ON i.invoice_id = il.invoice_id JOIN track t ON il.track_id = t.track_id",
     "hint": "`invoice` -> `invoice_line` -> `track` zanjirini bog'lang.",
     "tags": [
@@ -497,7 +494,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT i.invoice_date, t.name, il.quantity FROM invoice i JOIN invoice_line il ON i.invoice_id = il.invoice_id JOIN track t ON il.track_id = t.track_id"
     ],
-    "task": "Invoys sanasi (`invoice_date`), trek nomi (`name`) and sotilgan donasi (`quantity`) ustunlarini `invoice`, `invoice_line` and `track` jadandllarini joining display.",
+    "task": "Invoys sanasi (`invoice_date`), trek nomi (`name`) and sotilgan donasi (`quantity`) ustunlarini `invoice`, `invoice_line` and `track` jadandllarini joining chiqaring.",
     "explanation": ""
   },
   {
@@ -507,7 +504,7 @@ window.QUESTIONS_1_50 = [
     "source": "L05 Engineering • UzumPay Loyihasi Xodimlari",
     "title": "UzumPay Loyihasidagi Muhandislar",
     "story": "Toshkentdagi 'UzumPay' moliyaviy loyihasida ter to'kayotgan muhandislar va ularning sarflagan vaqtlarini aniqlang.",
-    "taskUz": "'UzumPay' loyihasida ishlayotgan employee name (`ename`), lavozimi (`job`) and ishlagan soatlarini (`hours`) display.",
+    "taskUz": "'UzumPay' loyihasida ishlayotgan employee name (`ename`), lavozimi (`job`) and ishlagan soatlarini (`hours`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `hours`\n• Asosiy jadvallar: `emp`, `works_on`, `project`",
     "expectedSql": "SELECT e.ename, e.job, w.hours FROM emp e JOIN works_on w ON e.empno = w.empno JOIN project p ON w.pno = p.pno WHERE p.pname = 'UzumPay'",
     "hint": "`WHERE p.pname = 'UzumPay'` shartini kiriting.",
     "tags": [
@@ -517,7 +514,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.job, w.hours FROM emp e JOIN works_on w ON e.empno = w.empno JOIN project p ON w.pno = p.pno WHERE p.pname = 'UzumPay'"
     ],
-    "task": "'UzumPay' loyihasida ishlayotgan employee name (`ename`), lavozimi (`job`) and ishlagan soatlarini (`hours`) display.",
+    "task": "'UzumPay' loyihasida ishlayotgan employee name (`ename`), lavozimi (`job`) and ishlagan soatlarini (`hours`) chiqaring.",
     "explanation": ""
   },
   {
@@ -527,7 +524,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 5 • 1 va 2-Razryadlar",
     "title": "Boshlang'ich Maosh Razryadlari (1 va 2)",
     "story": "Ijtimoiy yordam paketi uchun kompaniyadagi eng quyi 1- va 2-razryadlarda faoliyat yuritayotgan xodimlar ro'yxati tuzilmoqda.",
-    "taskUz": "Maosh razryadi 1 yoki 2 bo'lgan employee name (`ename`), bo'lim nomi (`dname`) and razryadini (`grade`) display.",
+    "taskUz": "Maosh razryadi 1 yoki 2 bo'lgan employee name (`ename`), bo'lim nomi (`dname`) and razryadini (`grade`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `dname`, `grade`\n• Asosiy jadvallar: `emp`, `dept`, `salgrade`",
     "expectedSql": "SELECT e.ename, d.dname, s.grade FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal WHERE s.grade IN (1, 2)",
     "hint": "`WHERE s.grade IN (1, 2)` orqali filtrlang.",
     "tags": [
@@ -537,7 +534,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, d.dname, s.grade FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal WHERE s.grade IN (1, 2)"
     ],
-    "task": "Maosh razryadi 1 yoki 2 bo'lgan employee name (`ename`), bo'lim nomi (`dname`) and razryadini (`grade`) display.",
+    "task": "Maosh razryadi 1 yoki 2 bo'lgan employee name (`ename`), bo'lim nomi (`dname`) and razryadini (`grade`) chiqaring.",
     "explanation": ""
   },
   {
@@ -547,7 +544,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB • Customer & Support Agent",
     "title": "Chinook: Xaridor va Unga Mas'ul Xodim",
     "story": "Har bir xaridorga konsultatsiya beruvchi korporativ qo'llab-quvvatlash agenti (support rep) biriktirilgan.",
-    "taskUz": "Xaridorning ismi (`first_name`), uning mamlakati (`country`) and unga mas'ul xodimning ismini (`ename`) `customer` and `emp` jadandllarini `support_rep_id = empno` via joining display.",
+    "taskUz": "Xaridorning ismi (`first_name`), uning mamlakati (`country`) and unga mas'ul xodimning ismini (`ename`) `customer` and `emp` jadandllarini `support_rep_id = empno` via joining chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `first_name`, `country`, `ename`\n• Asosiy jadvallar: `customer`, `emp`",
     "expectedSql": "SELECT c.first_name, c.country, e.ename FROM customer c JOIN emp e ON c.support_rep_id = e.empno",
     "hint": "`customer c JOIN emp e ON c.support_rep_id = e.empno` ulamini qo'llang.",
     "tags": [
@@ -558,7 +555,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT c.first_name, c.country, e.ename FROM customer c JOIN emp e ON c.support_rep_id = e.empno"
     ],
-    "task": "Xaridorning ismi (`first_name`), uning mamlakati (`country`) and unga mas'ul xodimning ismini (`ename`) `customer` and `emp` jadandllarini `support_rep_id = empno` via joining display.",
+    "task": "Xaridorning ismi (`first_name`), uning mamlakati (`country`) and unga mas'ul xodimning ismini (`ename`) `customer` and `emp` jadandllarini `support_rep_id = empno` via joining chiqaring.",
     "explanation": ""
   },
   {
@@ -568,7 +565,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 7 • 3-Jadval Dallas",
     "title": "Dallasdagi Xodimlar va Ularning Razryadi",
     "story": "Dallas filiali maosh toifalarini qayta ko'rib chiqmoqda. Faqat Dallas bo'limidagi xodimlar toifalari kerak.",
-    "taskUz": "Dallasda ishlovchi employee name (`ename`), salary (`sal`) and razryadini (`grade`) display. Natijani maosh bo'yicha kamayish tartibida order by.",
+    "taskUz": "Dallasda ishlovchi employee name (`ename`), salary (`sal`) and razryadini (`grade`) chiqaring. Natijani maosh bo'yicha kamayish tartibida tartibida saralang.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `grade`\n• Asosiy jadvallar: `emp`, `dept`, `salgrade`\n• Saralash (ORDER BY): `e.sal DESC`",
     "expectedSql": "SELECT e.ename, e.sal, s.grade FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal WHERE d.loc = 'DALLAS' ORDER BY e.sal DESC",
     "hint": "`WHERE d.loc = 'DALLAS' ORDER BY e.sal DESC` shartini bering.",
     "tags": [
@@ -579,7 +576,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.sal, s.grade FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal WHERE d.loc = 'DALLAS' ORDER BY e.sal DESC"
     ],
-    "task": "Dallasda ishlovchi employee name (`ename`), salary (`sal`) and razryadini (`grade`) display. Natijani maosh bo'yicha kamayish tartibida order by.",
+    "task": "Dallasda ishlovchi employee name (`ename`), salary (`sal`) and razryadini (`grade`) chiqaring. Natijani maosh bo'yicha kamayish tartibida tartibida saralang.",
     "explanation": ""
   },
   {
@@ -589,7 +586,7 @@ window.QUESTIONS_1_50 = [
     "source": "L05 Engineering • 40 Soatdan Ko'p Ishlaganlar",
     "title": "Katta Loyiha Yuklamasi (>= 40 Soat)",
     "story": "Overtime (ortiqcha ish) monitoringida biror loyihaga 40 yoki undan ko'p soat ajratgan muhandislar tahlil qilinmoqda.",
-    "taskUz": "Biror loyihaga 40 yoki undan ko'p soat ishlagan employee name (`ename`), bo'lim nomi (`dname`), loyiha nomi (`pname`) and soatlarini (`hours`) display.",
+    "taskUz": "Biror loyihaga 40 yoki undan ko'p soat ishlagan employee name (`ename`), bo'lim nomi (`dname`), loyiha nomi (`pname`) and soatlarini (`hours`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `dname`, `pname`, `hours`\n• Asosiy jadvallar: `emp`, `dept`, `works_on`, `project`",
     "expectedSql": "SELECT e.ename, d.dname, p.pname, w.hours FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN works_on w ON e.empno = w.empno JOIN project p ON w.pno = p.pno WHERE w.hours >= 40",
     "hint": "4 ta jadvalni ketma-ket bog'lang (`emp` -> `dept`, `works_on`, `project`) va `w.hours >= 40` shartini qo'ying.",
     "tags": [
@@ -599,7 +596,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, d.dname, p.pname, w.hours FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN works_on w ON e.empno = w.empno JOIN project p ON w.pno = p.pno WHERE w.hours >= 40"
     ],
-    "task": "Biror loyihaga 40 yoki undan ko'p soat ishlagan employee name (`ename`), bo'lim nomi (`dname`), loyiha nomi (`pname`) and soatlarini (`hours`) display.",
+    "task": "Biror loyihaga 40 yoki undan ko'p soat ishlagan employee name (`ename`), bo'lim nomi (`dname`), loyiha nomi (`pname`) and soatlarini (`hours`) chiqaring.",
     "explanation": ""
   },
   {
@@ -609,7 +606,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 7 • 2-Qavat Bosh Imtihoni",
     "title": "2-Qavat Bosh Imtihoni: Katta Korporativ Matritsa",
     "story": "2-qavat liftini ochish uchun xodim, uning bo'limi, maosh razryadi va unga yuklatilgan loyiha nomini yagona so'rovda chiqaring.",
-    "taskUz": "Xodim ismi (`ename`), bo'lim nomi (`dname`), maosh razryadi (`grade`) and loyiha nomini (`pname`) `emp`, `dept`, `salgrade`, `works_on` and `project` jadandllarini joining display. Natijani xodim ismi bo'yicha order by.",
+    "taskUz": "Xodim ismi (`ename`), bo'lim nomi (`dname`), maosh razryadi (`grade`) and loyiha nomini (`pname`) `emp`, `dept`, `salgrade`, `works_on` and `project` jadandllarini joining chiqaring. Natijani xodim ismi bo'yicha tartibida saralang.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `dname`, `grade`, `pname`\n• Asosiy jadvallar: `emp`, `dept`, `salgrade`, `works_on`, `project`\n• Saralash (ORDER BY): `e.ename`",
     "expectedSql": "SELECT e.ename, d.dname, s.grade, p.pname FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal JOIN works_on w ON e.empno = w.empno JOIN project p ON w.pno = p.pno ORDER BY e.ename",
     "hint": "Barcha 5 ta jadvalni to'g'ri kalitlar bilan bog'lang va `ORDER BY e.ename` qiling.",
     "tags": [
@@ -620,7 +617,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, d.dname, s.grade, p.pname FROM emp e JOIN dept d ON e.deptno = d.deptno JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal JOIN works_on w ON e.empno = w.empno JOIN project p ON w.pno = p.pno ORDER BY e.ename"
     ],
-    "task": "Xodim ismi (`ename`), bo'lim nomi (`dname`), maosh razryadi (`grade`) and loyiha nomini (`pname`) `emp`, `dept`, `salgrade`, `works_on` and `project` jadandllarini joining display. Natijani xodim ismi bo'yicha order by.",
+    "task": "Xodim ismi (`ename`), bo'lim nomi (`dname`), maosh razryadi (`grade`) and loyiha nomini (`pname`) `emp`, `dept`, `salgrade`, `works_on` and `project` jadandllarini joining chiqaring. Natijani xodim ismi bo'yicha tartibida saralang.",
     "explanation": ""
   },
   {
@@ -630,7 +627,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 10a • LEFT JOIN",
     "title": "Barcha Bo'limlar va Ularning Xodimlari",
     "story": "Kompaniyada 4 ta bo'lim bor, ammo 40-bo'limda (OPERATIONS) hali birorta xodim ishga olinmagan. Oddiy `JOIN` uni yo'qotib yuboradi.",
-    "taskUz": "All bo'lim ma'lumotlarini saqlab qolgan holda bo'lim nomi (`dname`), xodim raqami (`empno`) and xodim ismini (`ename`) `LEFT JOIN` via display.",
+    "taskUz": "All bo'lim ma'lumotlarini saqlab qolgan holda bo'lim nomi (`dname`), xodim raqami (`empno`) and xodim ismini (`ename`) `LEFT JOIN` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `empno`, `ename`\n• Asosiy jadvallar: `dept`, `emp`",
     "expectedSql": "SELECT d.dname, e.empno, e.ename FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno",
     "hint": "`FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno` - chapdagi `dept` ning barcha qatorlari natijada qoladi.",
     "tags": [
@@ -641,7 +638,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT d.dname, e.empno, e.ename FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno"
     ],
-    "task": "All bo'lim ma'lumotlarini saqlab qolgan holda bo'lim nomi (`dname`), xodim raqami (`empno`) and xodim ismini (`ename`) `LEFT JOIN` via display.",
+    "task": "All bo'lim ma'lumotlarini saqlab qolgan holda bo'lim nomi (`dname`), xodim raqami (`empno`) and xodim ismini (`ename`) `LEFT JOIN` via chiqaring.",
     "explanation": ""
   },
   {
@@ -651,7 +648,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 10b • RIGHT JOIN",
     "title": "Aylantirilgan RIGHT JOIN",
     "story": "SQL da `dept LEFT JOIN emp` va `emp RIGHT JOIN dept` aynan bir xil ma'noni anglatadi — jadvallar o'rni almashadi.",
-    "taskUz": "`RIGHT JOIN` sintaksisidan foydalanib, All bo'lim nomlari (`dname`) and xodim ismlarini (`ename`) display.",
+    "taskUz": "`RIGHT JOIN` sintaksisidan foydalanib, All bo'lim nomlari (`dname`) and xodim ismlarini (`ename`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `ename`\n• Asosiy jadvallar: `emp`, `dept`",
     "expectedSql": "SELECT d.dname, e.ename FROM emp e RIGHT JOIN dept d ON e.deptno = d.deptno",
     "hint": "`FROM emp e RIGHT JOIN dept d ON e.deptno = d.deptno` shaklida yozing.",
     "tags": [
@@ -660,7 +657,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT d.dname, e.ename FROM emp e RIGHT JOIN dept d ON e.deptno = d.deptno"
     ],
-    "task": "`RIGHT JOIN` sintaksisidan foydalanib, All bo'lim nomlari (`dname`) and xodim ismlarini (`ename`) display.",
+    "task": "`RIGHT JOIN` sintaksisidan foydalanib, All bo'lim nomlari (`dname`) and xodim ismlarini (`ename`) chiqaring.",
     "explanation": ""
   },
   {
@@ -670,7 +667,7 @@ window.QUESTIONS_1_50 = [
     "source": "L05 Engineering • Barcha Loyihalar va Xodimlar",
     "title": "Barcha Loyihalar va Biriktirilgan Xodimlar",
     "story": "Ba'zi yangi loyihalarga hali hech kim biriktirilmagan bo'lishi mumkin. Barcha loyihalar ro'yxati to'liq chiqishi shart.",
-    "taskUz": "All loyihalar nomi (`pname`) and unga biriktirilgan xodimlarning `empno` ustunini `project LEFT JOIN works_on` via display.",
+    "taskUz": "All loyihalar nomi (`pname`) and unga biriktirilgan xodimlarning `empno` ustunini `project LEFT JOIN works_on` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `pname`, `empno`\n• Asosiy jadvallar: `project`, `works_on`",
     "expectedSql": "SELECT p.pname, w.empno FROM project p LEFT JOIN works_on w ON p.pno = w.pno",
     "hint": "`project p LEFT JOIN works_on w ON p.pno = w.pno` bog'lanishidan foydalaning.",
     "tags": [
@@ -681,7 +678,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT p.pname, w.empno FROM project p LEFT JOIN works_on w ON p.pno = w.pno"
     ],
-    "task": "All loyihalar nomi (`pname`) and unga biriktirilgan xodimlarning `empno` ustunini `project LEFT JOIN works_on` via display.",
+    "task": "All loyihalar nomi (`pname`) and unga biriktirilgan xodimlarning `empno` ustunini `project LEFT JOIN works_on` via chiqaring.",
     "explanation": ""
   },
   {
@@ -691,7 +688,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB H4 • Albomi Yo'q Ijrochilar",
     "title": "Chinook: Barcha Ijrochilar va Albomlari",
     "story": "Chinook ma'lumotlar bazasida ro'yxatga olingan, lekin hali birorta albom chiqarmagan ijrochilar ham mavjud.",
-    "taskUz": "All ijrochi nomlari (`name`) and ularning albom sarlavhalarini (`title`) `artist LEFT JOIN album` via display.",
+    "taskUz": "All ijrochi nomlari (`name`) and ularning albom sarlavhalarini (`title`) `artist LEFT JOIN album` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `name`, `title`\n• Asosiy jadvallar: `artist`, `album`",
     "expectedSql": "SELECT ar.name, al.title FROM artist ar LEFT JOIN album al ON ar.artist_id = al.artist_id",
     "hint": "`artist ar LEFT JOIN album al ON ar.artist_id = al.artist_id` qiling.",
     "tags": [
@@ -703,7 +700,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT ar.name, al.title FROM artist ar LEFT JOIN album al ON ar.artist_id = al.artist_id"
     ],
-    "task": "All ijrochi nomlari (`name`) and ularning albom sarlavhalarini (`title`) `artist LEFT JOIN album` via display.",
+    "task": "All ijrochi nomlari (`name`) and ularning albom sarlavhalarini (`title`) `artist LEFT JOIN album` via chiqaring.",
     "explanation": ""
   },
   {
@@ -713,7 +710,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB H2 • Xaridorlar va Xodimlar",
     "title": "Chinook: Barcha Xaridorlar va Qo'llab-Quvvatlovchilar",
     "story": "Yangi ro'yxatdan o'tgan mijozga hali qo'llab-quvvatlash xodimi biriktirilmagan bo'lishi mumkin. Mijoz hisobotdan tushib qolmasligi lozim.",
-    "taskUz": "All mijozlarning familiyasi (`last_name`), mamlakati (`country`) and ularga biriktirilgan xodim ismini (`ename`) `customer LEFT JOIN emp` via display.",
+    "taskUz": "All mijozlarning familiyasi (`last_name`), mamlakati (`country`) and ularga biriktirilgan xodim ismini (`ename`) `customer LEFT JOIN emp` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `last_name`, `country`, `ename`\n• Asosiy jadvallar: `customer`, `emp`",
     "expectedSql": "SELECT c.last_name, c.country, e.ename FROM customer c LEFT JOIN emp e ON c.support_rep_id = e.empno",
     "hint": "`customer c LEFT JOIN emp e ON c.support_rep_id = e.empno` .",
     "tags": [
@@ -724,7 +721,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT c.last_name, c.country, e.ename FROM customer c LEFT JOIN emp e ON c.support_rep_id = e.empno"
     ],
-    "task": "All mijozlarning familiyasi (`last_name`), mamlakati (`country`) and ularga biriktirilgan xodim ismini (`ename`) `customer LEFT JOIN emp` via display.",
+    "task": "All mijozlarning familiyasi (`last_name`), mamlakati (`country`) and ularga biriktirilgan xodim ismini (`ename`) `customer LEFT JOIN emp` via chiqaring.",
     "explanation": ""
   },
   {
@@ -734,7 +731,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 15 • Shartni ON Bandiga Qo'yish",
     "title": "Shartni ON Bandiga Joylashtirish (Faqat Clerklar)",
     "story": "Diqqat: Tashqi ulamda qo'shimcha shartni `ON` bandiga qo'yish bilan `WHERE` bandiga qo'yish natijani butunlay o'zgartiradi!",
-    "taskUz": "All bo'limlar (`dept`) chiqishi shart bo'lgan holda, faqat 'CLERK' lavozimidagi xodimlarni bog'lang. Bo'lim nomi (`dname`) and xodim ismini (`ename`) display.",
+    "taskUz": "All bo'limlar (`dept`) chiqishi shart bo'lgan holda, faqat 'CLERK' lavozimidagi xodimlarni bog'lang. Bo'lim nomi (`dname`) and xodim ismini (`ename`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `ename`\n• Asosiy jadvallar: `dept`, `emp`",
     "expectedSql": "SELECT d.dname, e.ename FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno AND e.job = 'CLERK'",
     "hint": "Shartni `ON` bandining o'ziga qo'ying: `ON d.deptno = e.deptno AND e.job = 'CLERK'`.",
     "tags": [
@@ -745,7 +742,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT d.dname, e.ename FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno AND e.job = 'CLERK'"
     ],
-    "task": "All bo'limlar (`dept`) chiqishi shart bo'lgan holda, faqat 'CLERK' lavozimidagi xodimlarni bog'lang. Bo'lim nomi (`dname`) and xodim ismini (`ename`) display.",
+    "task": "All bo'limlar (`dept`) chiqishi shart bo'lgan holda, faqat 'CLERK' lavozimidagi xodimlarni bog'lang. Bo'lim nomi (`dname`) and xodim ismini (`ename`) chiqaring.",
     "explanation": ""
   },
   {
@@ -755,7 +752,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 15 • Shartni WHERE Bandiga Qo'yish",
     "title": "Shartni WHERE Bandiga Joylashtirish Tuzog'i",
     "story": "Agar `e.job = 'CLERK'` sharti `WHERE` ga qo'yilsa, xodimi yo'q bo'limlar tashlab yuboriladi va u amalda `INNER JOIN` ga aylanib qoladi!",
-    "taskUz": "Shartni `WHERE` bandiga qo'yib, bo'lim nomi (`dname`) and xodim ismini (`ename`) display. (faqat kotiblari bor bo'limlar qoladi).",
+    "taskUz": "Shartni `WHERE` bandiga qo'yib, bo'lim nomi (`dname`) and xodim ismini (`ename`) chiqaring. (faqat kotiblari bor bo'limlar qoladi).\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `ename`\n• Asosiy jadvallar: `dept`, `emp`",
     "expectedSql": "SELECT d.dname, e.ename FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno WHERE e.job = 'CLERK'",
     "hint": "`WHERE e.job = 'CLERK'` qilib yozing.",
     "tags": [
@@ -765,7 +762,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT d.dname, e.ename FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno WHERE e.job = 'CLERK'"
     ],
-    "task": "Shartni `WHERE` bandiga qo'yib, bo'lim nomi (`dname`) and xodim ismini (`ename`) display. (faqat kotiblari bor bo'limlar qoladi).",
+    "task": "Shartni `WHERE` bandiga qo'yib, bo'lim nomi (`dname`) and xodim ismini (`ename`) chiqaring. (faqat kotiblari bor bo'limlar qoladi).",
     "explanation": ""
   },
   {
@@ -775,7 +772,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB H5 • Barcha Treklar va Invoyslar",
     "title": "Chinook: Sotilgan va Sotilmagan Barcha Treklar",
     "story": "Do'konda mavjud bo'lgan barcha musiqiy treklarning sotilishini tekshirish uchun ularni xarid qilingan invoys satrlari bilan bog'lang.",
-    "taskUz": "All treklarning nomi (`name`) and ularning xarid narxini (`unit_price`) `track LEFT JOIN invoice_line` via display.",
+    "taskUz": "All treklarning nomi (`name`) and ularning xarid narxini (`unit_price`) `track LEFT JOIN invoice_line` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `name`, `unit_price`\n• Asosiy jadvallar: `track`, `invoice_line`",
     "expectedSql": "SELECT t.name, il.unit_price FROM track t LEFT JOIN invoice_line il ON t.track_id = il.track_id",
     "hint": "`track t LEFT JOIN invoice_line il ON t.track_id = il.track_id` .",
     "tags": [
@@ -786,7 +783,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT t.name, il.unit_price FROM track t LEFT JOIN invoice_line il ON t.track_id = il.track_id"
     ],
-    "task": "All treklarning nomi (`name`) and ularning xarid narxini (`unit_price`) `track LEFT JOIN invoice_line` via display.",
+    "task": "All treklarning nomi (`name`) and ularning xarid narxini (`unit_price`) `track LEFT JOIN invoice_line` via chiqaring.",
     "explanation": ""
   },
   {
@@ -796,7 +793,7 @@ window.QUESTIONS_1_50 = [
     "source": "L05 Engineering • Barcha Xodimlar va Loyihalari",
     "title": "Barcha Xodimlar va Ularning Loyihalari",
     "story": "Kompaniyada ba'zi xodimlar (masalan, Prezident KING yoki yangi xodimlar) hali birorta muhandislik loyihasiga biriktirilmagan.",
-    "taskUz": "All employee name (`ename`) and ularning biriktirilgan loyiha raqamini (`pno`) `emp LEFT JOIN works_on` via display.",
+    "taskUz": "Barcha xodimlarning ismi (`ename`) and ularning biriktirilgan loyiha raqamini (`pno`) `emp LEFT JOIN works_on` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `pno`\n• Asosiy jadvallar: `emp`, `works_on`",
     "expectedSql": "SELECT e.ename, w.pno FROM emp e LEFT JOIN works_on w ON e.empno = w.empno",
     "hint": "`emp e LEFT JOIN works_on w ON e.empno = w.empno` orqali barcha xodimlarni saqlang.",
     "tags": [
@@ -807,7 +804,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, w.pno FROM emp e LEFT JOIN works_on w ON e.empno = w.empno"
     ],
-    "task": "All employee name (`ename`) and ularning biriktirilgan loyiha raqamini (`pno`) `emp LEFT JOIN works_on` via display.",
+    "task": "Barcha xodimlarning ismi (`ename`) and ularning biriktirilgan loyiha raqamini (`pno`) `emp LEFT JOIN works_on` via chiqaring.",
     "explanation": ""
   },
   {
@@ -817,7 +814,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 10 • Menejerlar Tashqi Ulami",
     "title": "Barcha Bo'limlar va Faqat Menejerlar",
     "story": "Boshqaruv xaritasida barcha bo'limlar ko'rinishi, lekin har bir bo'lim qarshisida faqat uning boshqaruvchisi (MANAGER) turishi kerak.",
-    "taskUz": "All bo'limlar nomi (`dname`) and uning menejeri ismini (`ename`) `LEFT JOIN ... AND e.job = 'MANAGER'` via display.",
+    "taskUz": "All bo'limlar nomi (`dname`) and uning menejeri ismini (`ename`) `LEFT JOIN ... AND e.job = 'MANAGER'` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `ename`\n• Asosiy jadvallar: `dept`, `emp`",
     "expectedSql": "SELECT d.dname, e.ename FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno AND e.job = 'MANAGER'",
     "hint": "`ON d.deptno = e.deptno AND e.job = 'MANAGER'` shartini yozing.",
     "tags": [
@@ -827,7 +824,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT d.dname, e.ename FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno AND e.job = 'MANAGER'"
     ],
-    "task": "All bo'limlar nomi (`dname`) and uning menejeri ismini (`ename`) `LEFT JOIN ... AND e.job = 'MANAGER'` via display.",
+    "task": "All bo'limlar nomi (`dname`) and uning menejeri ismini (`ename`) `LEFT JOIN ... AND e.job = 'MANAGER'` via chiqaring.",
     "explanation": ""
   },
   {
@@ -837,7 +834,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB • Invoysi Yo'q Xaridorlar",
     "title": "Chinook: Barcha Xaridorlar va Invoys Sanalari",
     "story": "Ro'yxatdan o'tgan mijozlarning faolligini o'rganish uchun ularni invoyslar bilan tashqi bog'lang.",
-    "taskUz": "All xaridorlarning familiyasi (`last_name`) and invoys sanasini (`invoice_date`) `customer LEFT JOIN invoice` via display.",
+    "taskUz": "All xaridorlarning familiyasi (`last_name`) and invoys sanasini (`invoice_date`) `customer LEFT JOIN invoice` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `last_name`, `invoice_date`\n• Asosiy jadvallar: `customer`, `invoice`",
     "expectedSql": "SELECT c.last_name, i.invoice_date FROM customer c LEFT JOIN invoice i ON c.customer_id = i.customer_id",
     "hint": "`customer c LEFT JOIN invoice i ON c.customer_id = i.customer_id` orqali bog'lang.",
     "tags": [
@@ -848,7 +845,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT c.last_name, i.invoice_date FROM customer c LEFT JOIN invoice i ON c.customer_id = i.customer_id"
     ],
-    "task": "All xaridorlarning familiyasi (`last_name`) and invoys sanasini (`invoice_date`) `customer LEFT JOIN invoice` via display.",
+    "task": "All xaridorlarning familiyasi (`last_name`) and invoys sanasini (`invoice_date`) `customer LEFT JOIN invoice` via chiqaring.",
     "explanation": ""
   },
   {
@@ -858,7 +855,7 @@ window.QUESTIONS_1_50 = [
     "source": "L05 Engineering • 3 Ta Jadval Ketma-ket LEFT JOIN",
     "title": "Ketma-ket 3 Ta Jadval Tashqi Ulami",
     "story": "Bo'limlar, ularning xodimlari va o'sha xodimlarning loyihalarini birorta ham bo'limni yo'qotmasdan bog'lash talab etiladi.",
-    "taskUz": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and loyiha raqamini (`pno`) `dept LEFT JOIN emp` and keyin `LEFT JOIN works_on` via display.",
+    "taskUz": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and loyiha raqamini (`pno`) `dept LEFT JOIN emp` and keyin `LEFT JOIN works_on` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `ename`, `pno`\n• Asosiy jadvallar: `dept`, `emp`, `works_on`",
     "expectedSql": "SELECT d.dname, e.ename, w.pno FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno LEFT JOIN works_on w ON e.empno = w.empno",
     "hint": "Ikkita ketma-ket `LEFT JOIN` ishlating.",
     "tags": [
@@ -870,7 +867,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT d.dname, e.ename, w.pno FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno LEFT JOIN works_on w ON e.empno = w.empno"
     ],
-    "task": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and loyiha raqamini (`pno`) `dept LEFT JOIN emp` and keyin `LEFT JOIN works_on` via display.",
+    "task": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and loyiha raqamini (`pno`) `dept LEFT JOIN emp` and keyin `LEFT JOIN works_on` via chiqaring.",
     "explanation": ""
   },
   {
@@ -880,7 +877,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 14 • Barcha Xodimlar va Rahbari",
     "title": "Barcha Xodimlar va Rahbarining Ismi (KING bilan)",
     "story": "Prezident KING ning rahbari yo'q (`supervisor IS NULL`). Oddiy `JOIN` uni o'chirib yuboradi. Barcha 14 ta xodim chiqishi kerak.",
-    "taskUz": "All 14 nafar xodimning ismi (`ename`) and ularning rahbari ismini (`m.ename`) `emp e LEFT JOIN emp m ON e.supervisor = m.empno` via display.",
+    "taskUz": "All 14 nafar xodimning ismi (`ename`) and ularning rahbari ismini (`m.ename`) `emp e LEFT JOIN emp m ON e.supervisor = m.empno` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `manager_name`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "SELECT e.ename, m.ename AS manager_name FROM emp e LEFT JOIN emp m ON e.supervisor = m.empno",
     "hint": "`emp e LEFT JOIN emp m ON e.supervisor = m.empno` yordamida chapdagi xodimlarning barchasini saqlang.",
     "tags": [
@@ -891,7 +888,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, m.ename AS manager_name FROM emp e LEFT JOIN emp m ON e.supervisor = m.empno"
     ],
-    "task": "All 14 nafar xodimning ismi (`ename`) and ularning rahbari ismini (`m.ename`) `emp e LEFT JOIN emp m ON e.supervisor = m.empno` via display.",
+    "task": "All 14 nafar xodimning ismi (`ename`) and ularning rahbari ismini (`m.ename`) `emp e LEFT JOIN emp m ON e.supervisor = m.empno` via chiqaring.",
     "explanation": ""
   },
   {
@@ -901,7 +898,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB • Artists, Albums & Tracks",
     "title": "Chinook: 3 Jadvalli To'liq Tashqi Katalog",
     "story": "Do'konda hali albomi yo'q ijrochilar ham, albomi bo'lib treki yo'q plastinkalar ham katalogda qolishi lozim.",
-    "taskUz": "Ijrochi nomi (`ar.name`), albom sarlavhasi (`title`) and trek nomini (`t.name`) `artist LEFT JOIN album` and `LEFT JOIN track` via display.",
+    "taskUz": "Ijrochi nomi (`ar.name`), albom sarlavhasi (`title`) and trek nomini (`t.name`) `artist LEFT JOIN album` and `LEFT JOIN track` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `name`, `title`, `track_name`\n• Asosiy jadvallar: `artist`, `album`, `track`",
     "expectedSql": "SELECT ar.name, al.title, t.name AS track_name FROM artist ar LEFT JOIN album al ON ar.artist_id = al.artist_id LEFT JOIN track t ON al.album_id = t.album_id",
     "hint": "`artist` -> `album` -> `track` zanjirini ketma-ket `LEFT JOIN` bilan bog'lang.",
     "tags": [
@@ -911,7 +908,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT ar.name, al.title, t.name AS track_name FROM artist ar LEFT JOIN album al ON ar.artist_id = al.artist_id LEFT JOIN track t ON al.album_id = t.album_id"
     ],
-    "task": "Ijrochi nomi (`ar.name`), albom sarlavhasi (`title`) and trek nomini (`t.name`) `artist LEFT JOIN album` and `LEFT JOIN track` via display.",
+    "task": "Ijrochi nomi (`ar.name`), albom sarlavhasi (`title`) and trek nomini (`t.name`) `artist LEFT JOIN album` and `LEFT JOIN track` via chiqaring.",
     "explanation": ""
   },
   {
@@ -921,7 +918,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 10–15 • 3-Qavat Bosh Imtihoni",
     "title": "3-Qavat Bosh Imtihoni: Tashqi Ulam Boshqarmasi",
     "story": "3-qavat liftini ochish uchun barcha bo'limlar, ularning xodimlari va xodimlarning maosh razryadlarini to'liq bog'lab bering.",
-    "taskUz": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and uning maosh razryadini (`grade`) `dept LEFT JOIN emp` and `LEFT JOIN salgrade` via display. Bo'sh 40-bo'lim ham natijada ko'rinishi shart.",
+    "taskUz": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and uning maosh razryadini (`grade`) `dept LEFT JOIN emp` and `LEFT JOIN salgrade` via chiqaring. Bo'sh 40-bo'lim ham natijada ko'rinishi shart.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `ename`, `grade`\n• Asosiy jadvallar: `dept`, `emp`, `salgrade`",
     "expectedSql": "SELECT d.dname, e.ename, s.grade FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno LEFT JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal",
     "hint": "`dept LEFT JOIN emp ON ... LEFT JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal` .",
     "tags": [
@@ -932,7 +929,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT d.dname, e.ename, s.grade FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno LEFT JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal"
     ],
-    "task": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and uning maosh razryadini (`grade`) `dept LEFT JOIN emp` and `LEFT JOIN salgrade` via display. Bo'sh 40-bo'lim ham natijada ko'rinishi shart.",
+    "task": "Bo'lim nomi (`dname`), xodim ismi (`ename`) and uning maosh razryadini (`grade`) `dept LEFT JOIN emp` and `LEFT JOIN salgrade` via chiqaring. Bo'sh 40-bo'lim ham natijada ko'rinishi shart.",
     "explanation": ""
   },
   {
@@ -942,7 +939,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 11 • Anti-Join",
     "title": "Hech Kim Ishlamaydigan Bo'limlar (Anti-Join)",
     "story": "Audit tekshiruvida birorta xodimi bo'lmagan bo'sh bo'limlarni topish topshirig'i berildi. Bu mantiqiy 'Anti-Join' deyiladi.",
-    "taskUz": "Birorta ham xodim ishlamaydigan bo'limning nomi (`dname`) and shahrini (`loc`) `dept LEFT JOIN emp` qilib, `WHERE e.empno IS NULL` via display.",
+    "taskUz": "Birorta ham xodim ishlamaydigan bo'limning nomi (`dname`) and shahrini (`loc`) `dept LEFT JOIN emp` qilib, `WHERE e.empno IS NULL` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `loc`\n• Asosiy jadvallar: `dept`, `emp`",
     "expectedSql": "SELECT d.dname, d.loc FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno WHERE e.empno IS NULL",
     "hint": "`WHERE e.empno IS NULL` sharti orqali ulam topilmagan qatorlarni ajratib oling.",
     "tags": [
@@ -953,7 +950,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT d.dname, d.loc FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno WHERE e.empno IS NULL"
     ],
-    "task": "Birorta ham xodim ishlamaydigan bo'limning nomi (`dname`) and shahrini (`loc`) `dept LEFT JOIN emp` qilib, `WHERE e.empno IS NULL` via display.",
+    "task": "Birorta ham xodim ishlamaydigan bo'limning nomi (`dname`) and shahrini (`loc`) `dept LEFT JOIN emp` qilib, `WHERE e.empno IS NULL` via chiqaring.",
     "explanation": ""
   },
   {
@@ -963,7 +960,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB H4 • Albomi Yo'q San'atkorlar",
     "title": "Chinook: Birorta Albomi Bo'lmagan Ijrochilar",
     "story": "Musiqa studiyasi ro'yxatida nomi bor, ammo diskografiyasida birorta albomi mavjud bo'lmagan san'atkorlarni aniqlang.",
-    "taskUz": "Albomga ega bo'lmagan ijrochilarning nomini (`name`) `artist LEFT JOIN album` and `WHERE al.album_id IS NULL` via display.",
+    "taskUz": "Albomga ega bo'lmagan ijrochilarning nomini (`name`) `artist LEFT JOIN album` and `WHERE al.album_id IS NULL` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `name`\n• Asosiy jadvallar: `artist`, `album`",
     "expectedSql": "SELECT ar.name FROM artist ar LEFT JOIN album al ON ar.artist_id = al.artist_id WHERE al.album_id IS NULL",
     "hint": "`WHERE al.album_id IS NULL` filtri bilan anti-join hosil qiling.",
     "tags": [
@@ -974,7 +971,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT ar.name FROM artist ar LEFT JOIN album al ON ar.artist_id = al.artist_id WHERE al.album_id IS NULL"
     ],
-    "task": "Albomga ega bo'lmagan ijrochilarning nomini (`name`) `artist LEFT JOIN album` and `WHERE al.album_id IS NULL` via display.",
+    "task": "Albomga ega bo'lmagan ijrochilarning nomini (`name`) `artist LEFT JOIN album` and `WHERE al.album_id IS NULL` via chiqaring.",
     "explanation": ""
   },
   {
@@ -984,7 +981,7 @@ window.QUESTIONS_1_50 = [
     "source": "Chinook DB H5 • Hech Qachon Sotilmagan Treklar",
     "title": "Chinook: Birorta Ham Sotilmagan Treklar",
     "story": "Do'konda turgan, lekin mijozlar tomonidan biror marta ham sotib olinmagan treklarni inventarizatsiya qiling.",
-    "taskUz": "Biror marta ham sotilmagan (invoys satrlarida uchramagan) treklarning nomini (`name`) `track LEFT JOIN invoice_line` and `WHERE il.track_id IS NULL` via display.",
+    "taskUz": "Biror marta ham sotilmagan (invoys satrlarida uchramagan) treklarning nomini (`name`) `track LEFT JOIN invoice_line` and `WHERE il.track_id IS NULL` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `name`\n• Asosiy jadvallar: `track`, `invoice_line`",
     "expectedSql": "SELECT t.name FROM track t LEFT JOIN invoice_line il ON t.track_id = il.track_id WHERE il.track_id IS NULL",
     "hint": "`WHERE il.track_id IS NULL` shartini qo'llang.",
     "tags": [
@@ -995,7 +992,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT t.name FROM track t LEFT JOIN invoice_line il ON t.track_id = il.track_id WHERE il.track_id IS NULL"
     ],
-    "task": "Biror marta ham sotilmagan (invoys satrlarida uchramagan) treklarning nomini (`name`) `track LEFT JOIN invoice_line` and `WHERE il.track_id IS NULL` via display.",
+    "task": "Biror marta ham sotilmagan (invoys satrlarida uchramagan) treklarning nomini (`name`) `track LEFT JOIN invoice_line` and `WHERE il.track_id IS NULL` via chiqaring.",
     "explanation": ""
   },
   {
@@ -1005,7 +1002,7 @@ window.QUESTIONS_1_50 = [
     "source": "L05 Engineering • Loyihaga Biriktirilmagan Xodimlar",
     "title": "Loyihalarda Qatnashmayotgan Xodimlar",
     "story": "Barcha xodimlar bandligini tekshirish jarayonida birorta muhandislik loyihasiga jalb qilinmagan xodimlarni aniqlang.",
-    "taskUz": "Birorta ham loyihada ishlamayotgan employee name (`ename`) and lavozimini (`job`) `emp LEFT JOIN works_on` and `WHERE w.empno IS NULL` via display.",
+    "taskUz": "Birorta ham loyihada ishlamayotgan employee name (`ename`) and lavozimini (`job`) `emp LEFT JOIN works_on` and `WHERE w.empno IS NULL` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`\n• Asosiy jadvallar: `emp`, `works_on`",
     "expectedSql": "SELECT e.ename, e.job FROM emp e LEFT JOIN works_on w ON e.empno = w.empno WHERE w.empno IS NULL",
     "hint": "`WHERE w.empno IS NULL` orqali filtrlang.",
     "tags": [
@@ -1016,7 +1013,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.job FROM emp e LEFT JOIN works_on w ON e.empno = w.empno WHERE w.empno IS NULL"
     ],
-    "task": "Birorta ham loyihada ishlamayotgan employee name (`ename`) and lavozimini (`job`) `emp LEFT JOIN works_on` and `WHERE w.empno IS NULL` via display.",
+    "task": "Birorta ham loyihada ishlamayotgan employee name (`ename`) and lavozimini (`job`) `emp LEFT JOIN works_on` and `WHERE w.empno IS NULL` via chiqaring.",
     "explanation": ""
   },
   {
@@ -1026,7 +1023,7 @@ window.QUESTIONS_1_50 = [
     "source": "S05 Task 16 • Hech Kimni Boshqarmaydigan Xodimlar",
     "title": "Oddiy Ijrochilar (Hech Kimga Rahbar Bo'lmaganlar)",
     "story": "Ierarxik tuzilmada o'z qo'l ostida birorta ham bo'ysunuvchi xodimi bo'lmagan oddiy ijrochilarni topish kerak.",
-    "taskUz": "Boshqa hech bir xodimga rahbar bo'lmagan employee name (`ename`) and lavozimini (`job`) `emp e LEFT JOIN emp s ON e.empno = s.supervisor WHERE s.empno IS NULL` via display.",
+    "taskUz": "Boshqa hech bir xodimga rahbar bo'lmagan employee name (`ename`) and lavozimini (`job`) `emp e LEFT JOIN emp s ON e.empno = s.supervisor WHERE s.empno IS NULL` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "SELECT e.ename, e.job FROM emp e LEFT JOIN emp s ON e.empno = s.supervisor WHERE s.empno IS NULL",
     "hint": "`emp e LEFT JOIN emp s ON e.empno = s.supervisor WHERE s.empno IS NULL` self-anti-join ni qo'llang.",
     "tags": [
@@ -1036,11 +1033,7 @@ window.QUESTIONS_1_50 = [
     "solutions": [
       "SELECT e.ename, e.job FROM emp e LEFT JOIN emp s ON e.empno = s.supervisor WHERE s.empno IS NULL"
     ],
-    "task": "Boshqa hech bir xodimga rahbar bo'lmagan employee name (`ename`) and lavozimini (`job`) `emp e LEFT JOIN emp s ON e.empno = s.supervisor WHERE s.empno IS NULL` via display.",
+    "task": "Boshqa hech bir xodimga rahbar bo'lmagan employee name (`ename`) and lavozimini (`job`) `emp e LEFT JOIN emp s ON e.empno = s.supervisor WHERE s.empno IS NULL` via chiqaring.",
     "explanation": ""
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = window.QUESTIONS_1_50;
-}

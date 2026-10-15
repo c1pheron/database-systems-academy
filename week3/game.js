@@ -388,59 +388,67 @@
   // 6. EXECUTION & GRADING
 
   function handleRunCode() {
-    audio.init();
-    const q = getCurrentQuestion();
-    const code = sqlEditor.value.trim();
+    try {
+      audio.init();
+      const q = getCurrentQuestion();
+      const code = sqlEditor.value.trim();
 
-    // Save user's code to state
-    state.userCodes[q.id] = sqlEditor.value;
-    saveState();
+      // Save user's code to state
+      state.userCodes[q.id] = sqlEditor.value;
+      saveState();
 
-    if (!code) {
-      audio.playError();
-      consoleCard.className = 'console-card error';
-      consoleIcon.textContent = '⚠️';
-      consoleText.textContent = "Iltimos, avval SQL DDL kodingizni yozing!";
-      if (canvasEngine) canvasEngine.triggerErrorAlert("Kod maydoni bo'sh!");
-      return;
-    }
-
-    // Run in DDL_GRADER
-    const result = grader.grade(code, q);
-
-    if (result.passed) {
-      audio.playSuccess();
-
-      const wasAlreadySolved = state.solvedIds.includes(q.id);
-      if (!wasAlreadySolved) {
-        state.solvedIds.push(q.id);
-        const xpGain = (q.id % 15 === 0) ? 50 : 20; // 50 XP for Floor Bosses!
-        state.xp += xpGain;
-        saveState();
-        showToast(`✓ Tabriklaymiz! +${xpGain} XP qabul qilindi.`);
+      if (!code) {
+        audio.playError();
+        consoleCard.className = 'console-card error';
+        consoleIcon.textContent = '⚠️';
+        consoleText.textContent = "Iltimos, avval SQL DDL kodingizni yozing!";
+        if (canvasEngine) canvasEngine.triggerErrorAlert("Kod maydoni bo'sh!");
+        return;
       }
 
-      consoleCard.className = 'console-card success';
-      consoleIcon.textContent = '✓';
-      consoleText.innerHTML = `<strong>Tekshiruvdan muvaffaqiyatli o'tdi!</strong> ${q.explanation || "DDL kodi barcha relyatsion talablarga to'liq javob berdi."}`;
+      // Run in DDL_GRADER
+      const result = grader.grade(code, q);
 
-      if (canvasEngine) {
-        const tName = q.expectedSchema ? q.expectedSchema.tableName : "schema";
-        canvasEngine.triggerDeploySuccess(tName);
+      if (result.passed) {
+        audio.playSuccess();
+
+        const wasAlreadySolved = state.solvedIds.includes(q.id);
+        if (!wasAlreadySolved) {
+          state.solvedIds.push(q.id);
+          const xpGain = (q.id % 15 === 0) ? 50 : 20; // 50 XP for Floor Bosses!
+          state.xp += xpGain;
+          saveState();
+          showToast(`✓ Tabriklaymiz! +${xpGain} XP qabul qilindi.`);
+        }
+
+        consoleCard.className = 'console-card success';
+        consoleIcon.textContent = '✓';
+        consoleText.innerHTML = `<strong>Tekshiruvdan muvaffaqiyatli o'tdi!</strong> ${q.explanation || "DDL kodi barcha relyatsion talablarga to'liq javob berdi."}`;
+
+        if (canvasEngine) {
+          const tName = q.expectedSchema ? q.expectedSchema.tableName : "schema";
+          canvasEngine.triggerDeploySuccess(tName);
+        }
+
+        renderSchemaBlueprint(q, true);
+        renderHUD();
+        renderFloorRail();
+      } else {
+        audio.playError();
+        consoleCard.className = 'console-card error';
+        consoleIcon.textContent = '❌';
+        consoleText.innerHTML = `<strong>Kompilyatsiya Xatosi:</strong> ${result.feedback}`;
+
+        if (canvasEngine) {
+          canvasEngine.triggerErrorAlert(result.feedback);
+        }
       }
-
-      renderSchemaBlueprint(q, true);
-      renderHUD();
-      renderFloorRail();
-    } else {
+    } catch (err) {
+      console.error("handleRunCode error:", err);
       audio.playError();
       consoleCard.className = 'console-card error';
       consoleIcon.textContent = '❌';
-      consoleText.innerHTML = `<strong>Kompilyatsiya Xatosi:</strong> ${result.feedback}`;
-
-      if (canvasEngine) {
-        canvasEngine.triggerErrorAlert(result.feedback);
-      }
+      consoleText.innerHTML = `<strong>Tizim Xatosi:</strong> DDL tekshirishda kutilmagan xatolik: ${err.message || err}`;
     }
   }
 

@@ -1,8 +1,3 @@
-// ============================================================================
-// ACADEMY DATABASE SYSTEMS (MODULE) — WEEK 2: QUESTIONS
-// O'zgaruvchi: QUESTIONS_51_100 (100% Amaliy Relyatsion Sxema Keyslari - Jumboq Rejimi)
-// ============================================================================
-
 var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
 
 _scope.QUESTIONS_51_100 = [
@@ -13,7 +8,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 35 • Bank Account Transaction Weak Entity",
     "title": "Bank Tranzaksiyasi Zaif Entitiyasi (Transaction)",
     "story": "Bank hisob raqami harakatlari `Transaction` alohida mavjud bo'la olmaydi. Ota kalit: `accountNo`, qisman kalit: `txSeq`.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Transaction**\n• Ustunlar: `accountNo` [PK] (varchar(20)), `txSeq` [PK] (integer), `amount` (decimal), `txDate` (timestamp)",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -54,7 +49,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 35 • Project Milestone Weak Entity",
     "title": "Loyiha Bosqichi Zaif Entitiyasi (Milestone)",
     "story": "Loyiha oraliq marrasi `Milestone` faqat o'sha loyiha `Project` doirasida ma'noga ega. Ota kalit: `projNo`, qisman kalit: `milestoneNo`.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Milestone**\n• Ustunlar: `projNo` [PK] (integer), `milestoneNo` [PK] (integer), `title` (varchar(80)), `targetDate` (date)",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -95,7 +90,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 35 • Flight Leg Weak Entity",
     "title": "Aviareys Oraliq Segmenti (FlightLeg)",
     "story": "Transkontinental reysning har bir parvoz segmenti `FlightLeg` ota reysga bog'liq zaif entitiya hisoblanadi. Ota kalit: `flightNo`, qisman kalit: `legNo`.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **FlightLeg**\n• Ustunlar: `flightNo` [PK] (varchar(10)), `legNo` [PK] (integer), `originAirport` (varchar(5)), `destAirport` (varchar(5))",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -136,7 +131,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 35 • Document Revision Weak Entity",
     "title": "Hujjat Versiyasi Zaif Entitiyasi (DocRevision)",
     "story": "Shartnomaning har bir yangilangan versiyasi `DocRevision` hujjatga bog'liq. Ota kalit: `docId`, qisman kalit: `revNo`.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **DocRevision**\n• Ustunlar: `docId` [PK] (varchar(15)), `revNo` [PK] (integer), `revDate` (date), `authorName` (varchar(80))",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -177,7 +172,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 35 • Course Module Topic Weak Entity",
     "title": "O'quv Moduli Mavzusi (ModuleTopic)",
     "story": "Modul ichidagi mavzu `ModuleTopic` mustaqil yashay olmaydi. Ota kalit: `moduleCode`, qisman kalit: `topicIndex`.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **ModuleTopic**\n• Ustunlar: `moduleCode` [PK] (varchar(10)), `topicIndex` [PK] (integer), `topicTitle` (varchar(100))",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -214,7 +209,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 35 • 2-Level Multi-level Weak Entity Chain",
     "title": "2-Bosqichli Zaif Entitiy Zanjiri: Bino -> Qavat -> Xona",
     "story": "Bino `Building(buildingId)` -> Qavat `Floor(buildingId, floorNo)` -> Xona `BuildingRoom(buildingId, floorNo, roomNo)`. Xona qavatga, qavat esa binoga bog'liq zaif entitiya.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **BuildingRoom**\n• Ustunlar: `buildingId` [PK] (varchar(10)), `floorNo` [PK] (integer), `roomNo` [PK] (integer), `capacity` (integer)",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -256,7 +251,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 35 • Company-Division-Section Weak Chain",
     "title": "Bo'linma Bo'limchasi Zaif Zanjiri (CompSection)",
     "story": "Kompaniya `Company(compCode)` -> Bo'linma `Division(compCode, divCode)` -> Bo'limcha `CompSection(compCode, divCode, sectionCode)`. Ota kalitlar pastga zanjir bo'lib tushadi.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **CompSection**\n• Ustunlar: `compCode` [PK] (varchar(10)), `divCode` [PK] (varchar(10)), `sectionCode` [PK] (varchar(10)), `managerName` (varchar(80))",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -298,7 +293,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 35 • Vehicle Inspection Log Weak Entity",
     "title": "Avtotransport Texnik Ko'riklari (VehicleInspection)",
     "story": "Avtomobil `Vehicle(vin)` har yili texnik ko'rikdan o'tadi `VehicleInspection`. Ota kalit: `vin`, qisman kalit: `inspectDate`.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **VehicleInspection**\n• Ustunlar: `vin` [PK] (varchar(20)), `inspectDate` [PK] (date), `inspectorName` (varchar(80)), `passed` (boolean)",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -339,7 +334,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 35 • Student Term GPA Weak Entity",
     "title": "Semestr Baholari Zaif Entitiyasi (TermGpa)",
     "story": "Talabaning har bir semestr bo'yicha GPA ko'rsatkichi `TermGpa` talabaga bog'liq. Ota kalit: `studentId`, qisman kalit: `termCode`.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **TermGpa**\n• Ustunlar: `studentId` [PK] (integer), `termCode` [PK] (varchar(10)), `gpaValue` (decimal)",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -376,7 +371,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 35 • Weak Entity Boss",
     "title": "4-Qavat Bossi: Bemor Tashrif Kundaligi (PatientLog)",
     "story": "Shifoxonada bemor `Patient(patientId, fullName)` ota entitiyasi va uning har kungi tibbiy qaydlari `PatientLog` zaif entitiyasi bor. Qisman kalit: `entryDate`. Qaydlar otasiz yashay olmaydi.",
-    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.",
+    "taskUz": "Zaif entitiy va uning egasi (ota entitiy) uchun relyatsion jadvallarni loyihalang. Zaif jadvalning kompozit kalitini ([PK,FK1]) to'g'ri shakllantiring.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Patient** (Ustunlar: `patientId` [PK] (varchar(15)), `fullName` (varchar(80)))\n• Jadval: **PatientLog** (Ustunlar: `patientId` [PK] (varchar(15)), `entryDate` [PK] (date), `doctorNotes` (text), `diagnosis` (varchar(100)))",
     "starterCode": "// Ota jadval va [PK,FK1] kompozit kalitli zaif bola jadvalini yarating",
     "hint": "Zaif entitiyning kaliti = (Ota_PK + Qisman_Kalit). Shuning uchun ota kaliti ham PK, ham FK bo'ladi.",
     "solutions": [
@@ -435,7 +430,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 & T02 Task 1 • Manages 1:1",
     "title": "Bo'lim Boshqaruvi 1:1 Sxemasi (Manages)",
     "story": "Kompaniyada departament va xodim o'rtasida `Manages` 1:1 aloqasi bor. Departament uchun boshqaruvchi majburiy, shuning uchun FK NULL lardan qochish maqsadida `Department` ga qo'yiladi va 1:1 bo'lishi uchun `managerId` ga unikal [UQ] belgisi beriladi.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Department** (Ustunlar: `deptNo` [PK] (integer), `dName` (varchar(50)), `managerId` [FK] (integer))\n• Jadval: **Employee** (Ustunlar: `empNo` [PK] (integer), `name` (varchar(80)))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -490,7 +485,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Car-Driver 1:1",
     "title": "Mashina va Haydovchi 1:1 Sxemasi (Car <-> Driver)",
     "story": "Har bir xizmat mashinasi aniq bitta haydovchiga biriktirilgan. Mashina uchun haydovchi majburiy.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Car** (Ustunlar: `vin` [PK] (varchar(20)), `model` (varchar(50)), `driverId` [FK] (integer))\n• Jadval: **Driver** (Ustunlar: `driverId` [PK] (integer), `driverName` (varchar(80)))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -545,7 +540,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Patient-MedicalCard 1:1",
     "title": "Bemor va Tibbiy Karta 1:1 Sxemasi (Patient <-> MedicalCard)",
     "story": "Har bir tibbiy karta aniq bitta bemorga ochiladi va bemor uchun karta ochilishi majburiy.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Patient** (Ustunlar: `patientId` [PK] (varchar(15)), `fullName` (varchar(80)))\n• Jadval: **MedicalCard** (Ustunlar: `cardNo` [PK] (varchar(15)), `issueDate` (date), `patientId` [FK] (varchar(15)))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -600,7 +595,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Citizen-Passport 1:1",
     "title": "Fuqaro va Pasport 1:1 Sxemasi (Citizen <-> Passport)",
     "story": "Pasport aniq bitta fuqaroga tegishli bo'lib, uning JSHSHIR (pinfl) raqami pasportda unikal tashqi kalit bo'ladi.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Citizen** (Ustunlar: `pinfl` [PK] (varchar(14)), `fullName` (varchar(80)))\n• Jadval: **Passport** (Ustunlar: `passNo` [PK] (varchar(10)), `expiryDate` (date), `pinfl` [FK] (varchar(14)))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -655,7 +650,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Club-Stadium 1:1",
     "title": "Futbol Klubi va Stadion 1:1 Sxemasi (Club <-> Stadium)",
     "story": "Har bir stadion bitta klubning uy stadioni hisoblanadi.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **FootballClub** (Ustunlar: `clubId` [PK] (integer), `clubName` (varchar(80)))\n• Jadval: **Stadium** (Ustunlar: `stadiumId` [PK] (integer), `capacity` (integer), `clubId` [FK] (integer))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -710,7 +705,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • 1:1 Relationship Attribute Placement",
     "title": "1:1 Aloqa Atributi Joylashuvi: Boshqaruv Sanasi (startDate)",
     "story": "1:1 munosabatdagi aloqa atributi (`startDate`) har doim Tashqi Kalit qayerga tushsa, o'sha jadvalga qo'shiladi.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Department**\n• Ustunlar: `deptNo` [PK] (integer), `dName` (varchar(50)), `managerId` [FK] (integer), `startDate` (date)",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -750,7 +745,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Store-Manager 1:1",
     "title": "Do'kon va Menejer 1:1 Sxemasi (Store <-> StoreManager)",
     "story": "Har bir supermarket filialida aniq bitta bosh menejer ishlaydi.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Store** (Ustunlar: `storeId` [PK] (integer), `location` (varchar(50)), `managerId` [FK] (integer))\n• Jadval: **StoreManager** (Ustunlar: `managerId` [PK] (integer), `fullName` (varchar(80)))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -805,7 +800,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Computer-Workstation 1:1",
     "title": "Ish Stoli va Tarmoq IP 1:1 Sxemasi (Workstation <-> NetworkIP)",
     "story": "Har bir kompyuterga aniq bitta statik IP biriktirilgan.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Workstation** (Ustunlar: `pcId` [PK] (varchar(10)), `model` (varchar(50)), `ipAddress` [FK] (varchar(15)))\n• Jadval: **NetworkIP** (Ustunlar: `ipAddress` [PK] (varchar(15)), `subnet` (varchar(20)))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -860,7 +855,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Merging Relations in Total-Total 1:1",
     "title": "Total-Total 1:1: Birlashtirilgan Yagona Jadval (UserAccountMerged)",
     "story": "Agar 1:1 aloqaning har ikkala tomoni ham majburiy bo'lsa (Total-Total), ularni bitta jadvalga birlashtirish (merge) JOIN larni yo'qotish uchun eng afzal yechimdir.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **UserSecurityMerged**\n• Ustunlar: `userId` [PK] (integer), `username` (varchar(50)), `passwordHash` (varchar(100)), `twoFactorEnabled` (boolean)",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -898,7 +893,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Faculty-Dean 1:1",
     "title": "Fakultet va Dekan 1:1 Sxemasi (Faculty <-> Dean)",
     "story": "Har bir fakultetda bitta dekan bor. Dekanlik ixtiyoriy, lekin fakultet uchun dekan bo'lishi majburiy.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Faculty** (Ustunlar: `facId` [PK] (integer), `facName` (varchar(80)), `deanId` [FK] (integer))\n• Jadval: **Professor** (Ustunlar: `profId` [PK] (integer), `profName` (varchar(80)))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -953,7 +948,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Vessel-Captain 1:1",
     "title": "Kema va Kapitan 1:1 Sxemasi (Vessel <-> SeaCaptain)",
     "story": "Dengiz kemasida aniq bitta mas'ul kapitan bo'ladi.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Vessel** (Ustunlar: `imoNumber` [PK] (varchar(10)), `vesselName` (varchar(80)), `captainId` [FK] (integer))\n• Jadval: **SeaCaptain** (Ustunlar: `captainId` [PK] (integer), `captainName` (varchar(80)))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -1008,7 +1003,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Branch-HeadStaff 1:1",
     "title": "Filial Mudiri 1:1 Sxemasi (BranchHead)",
     "story": "Bank filialiga xodimlardan biri mudir qilib tayinlanadi.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **BankBranch** (Ustunlar: `branchCode` [PK] (varchar(10)), `city` (varchar(50)), `headEmpNo` [FK] (integer))\n• Jadval: **BankStaff** (Ustunlar: `empNo` [PK] (integer), `staffName` (varchar(80)))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -1063,7 +1058,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Country-CapitalCity 1:1",
     "title": "Davlat va Poytaxt 1:1 Sxemasi (Country <-> CapitalCity)",
     "story": "Har bir davlatning bitta poytaxti bor.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **CountryState** (Ustunlar: `countryId` [PK] (varchar(5)), `countryName` (varchar(60)), `capitalCityId` [FK] (integer))\n• Jadval: **CapitalCity** (Ustunlar: `cityId` [PK] (integer), `cityName` (varchar(60)))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -1118,7 +1113,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 37 • Account-SecurityProfile 1:1",
     "title": "Foydalanuvchi va Xavfsizlik Profili 1:1 Sxemasi (Account <-> SecurityProfile)",
     "story": "Foydalanuvchi hisobi o'zining xavfsizlik profiliga 1:1 bog'langan.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **UserAccount** (Ustunlar: `accId` [PK] (integer), `email` (varchar(80)))\n• Jadval: **SecurityProfile** (Ustunlar: `profileId` [PK] (integer), `pinCode` (varchar(10)), `accId` [FK] (integer))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -1173,7 +1168,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "T02 Task 1 & L02 Slide 37 • 1:1 Executive Governance Boss",
     "title": "5-Qavat Bossi: Boshqaruv Me'moriyati (Department <-> Manager)",
     "story": "Kompaniyada `Department(deptNo, dName, budget)` departamenti va `Employee(empNo, name, salary)` xodimi o'rtasida 1:1 boshqaruv aloqasi bor. Boshqaruv sanasi `startDate` ham saqlanadi. 100% departamentlar boshqaruvchiga ega bo'lishi shart.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Department** (Ustunlar: `deptNo` [PK] (integer), `dName` (varchar(50)), `budget` (decimal), `managerId` [FK] (integer), `startDate` (date))\n• Jadval: **Employee** (Ustunlar: `empNo` [PK] (integer), `name` (varchar(80)), `salary` (decimal))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -1240,7 +1235,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "T02 Task 1 • Assigned Bridge Relation",
     "title": "Loyiha Biriktiruvi Bog'lovchi Jadvali (Assigned)",
     "story": "Seminar 2 Task 1: `Employee(empNo)` va `Project(projNo)` o'rtasida ko'pga-ko'p `Assigned` aloqasi bor. Step 5 ga binoan u alohida oraliq jadval bilan hal qilinadi.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Assigned**\n• Ustunlar: `empNo` [PK] (integer), `projNo` [PK] (integer)",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1275,7 +1270,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 & T02 Task 4 • WorksOn with Hours Attribute",
     "title": "Ish Soati Atributli WorksOn Bog'lovchi Jadvali",
     "story": "Xodim loyihada ishlash vaqti `hours` aloqa atributi bo'lib, u oraliq bog'lovchi jadvalga tushadi.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **WorksOn**\n• Ustunlar: `empNo` [PK] (integer), `projNo` [PK] (integer), `hours` (integer)",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1314,7 +1309,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • Student-Course Enrollment",
     "title": "Talaba va Kurs Ro'yxatdan O'tishi (Enrollment)",
     "story": "Talaba ko'plab kurslarda, kurs ko'plab talabalarda (`Enrollment` *:*). Baho: `grade`.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Enrollment**\n• Ustunlar: `studentId` [PK] (integer), `courseCode` [PK] (varchar(10)), `grade` (varchar(5))",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1353,7 +1348,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • Book-Author Many-to-Many",
     "title": "Kitob va Muallif Bog'lovchi Jadvali (BookAuthor)",
     "story": "Kitob bir nechta muallifga, muallif bir nechta kitobga ega bo'lishi mumkin.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **BookAuthor**\n• Ustunlar: `isbn` [PK] (varchar(20)), `authorId` [PK] (integer), `contributionRole` (varchar(50))",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1392,7 +1387,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • Doctor-Patient Appointment",
     "title": "Shifokor Qabuli Bog'lovchi Jadvali (Appointment)",
     "story": "Shifokor ko'plab bemorlarni qabul qiladi, bemor bir nechta shifokorga ko'rinishi mumkin.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Appointment**\n• Ustunlar: `doctorId` [PK] (integer), `patientId` [PK] (varchar(15)), `apptDate` [PK] (timestamp), `consultationNotes` (text)",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1436,7 +1431,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • Actor-Movie Cast",
     "title": "Film va Aktyor: Cast Bog'lovchi Jadvali",
     "story": "Aktyor bir nechta filmda rol o'ynaydi. Qahramon nomi `characterName` oraliq jadvalda saqlanadi.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **MovieCast**\n• Ustunlar: `movieId` [PK] (integer), `actorId` [PK] (integer), `characterName` (varchar(80))",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1475,7 +1470,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • Supplier-Part Shipment",
     "title": "Ta'minotchi va Detallar Bog'lovchi Jadvali (Shipment)",
     "story": "Ta'minotchi turli qismlarni jo'natadi: miqdor `quantity` va yetkazish sanasi `shipDate`.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Shipment**\n• Ustunlar: `suppId` [PK] (varchar(10)), `partId` [PK] (varchar(10)), `shipDate` [PK] (date), `quantity` (integer)",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1519,7 +1514,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • User-Role Assignment",
     "title": "Foydalanuvchi va Rollar Bog'lovchi Jadvali (UserRole)",
     "story": "Foydalanuvchi tizimda bir nechta rolga ega bo'lishi mumkin (Admin, Manager, User).",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **UserRole**\n• Ustunlar: `userId` [PK] (integer), `roleId` [PK] (integer), `assignedDate` (date)",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1558,7 +1553,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • Order-Product Bridge",
     "title": "Buyurtma va Mahsulotlar Bog'lovchi Jadvali (OrderItemBridge)",
     "story": "Buyurtmada bir nechta mahsulot, bitta mahsulot ko'p buyurtmada.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **OrderItemBridge**\n• Ustunlar: `orderNo` [PK] (integer), `productCode` [PK] (varchar(20)), `unitPrice` (decimal), `quantity` (integer)",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1601,7 +1596,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • Customer-Promotion Redemption",
     "title": "Promokod va Mijoz Bog'lovchi Jadvali (PromoRedeem)",
     "story": "Mijoz promokoddan foydalangan vaqt `redeemTimestamp` oraliq jadvalda qayd etiladi.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **PromoRedeem**\n• Ustunlar: `custId` [PK] (integer), `promoCode` [PK] (varchar(20)), `discountApplied` (decimal)",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1640,7 +1635,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • Passenger-Flight Booking",
     "title": "Yo'lovchi va Parvoz Chiptasi Bog'lovchi Jadvali (FlightBooking)",
     "story": "Yo'lovchi reysga joy band qiladi: chipta narxi `ticketFare`.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **FlightBooking**\n• Ustunlar: `passengerId` [PK] (varchar(15)), `flightNo` [PK] (varchar(10)), `flightDate` [PK] (date), `ticketFare` (decimal)",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1684,7 +1679,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • Musician-Band Membership",
     "title": "Musiqachi va Guruh A'zoligi (BandMember)",
     "story": "Musiqachi bir nechta guruhda chalishi mumkin: cholg'u asbobi `instrument`.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **BandMember**\n• Ustunlar: `bandId` [PK] (integer), `musicianId` [PK] (integer), `instrument` (varchar(50))",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1723,7 +1718,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • Driver-Vehicle Trip",
     "title": "Haydovchi va Mashina Sayohati (DriverTrip)",
     "story": "Kompaniya mashinasida har kuni turlicha haydovchi qatnaydi.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **DriverTrip**\n• Ustunlar: `vin` [PK] (varchar(20)), `driverId` [PK] (integer), `tripDate` [PK] (date), `distanceKm` (decimal)",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1767,7 +1762,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 38 • Student-Club Membership",
     "title": "Talabalar Klubi A'zoligi (ClubMembership)",
     "story": "Talaba universitetdagi bir nechta to'garak va klublarga a'zo bo'ladi.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **ClubMembership**\n• Ustunlar: `studentId` [PK] (integer), `clubCode` [PK] (varchar(10)), `joinedDate` (date)",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1806,7 +1801,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "T02 Task 1 & L02 Slide 38 • Many-to-Many Architecture Boss",
     "title": "6-Qavat Bossi: 3 Jadvalli To'liq Loyiha Biriktiruvi Tizimi",
     "story": "Kompaniyada xodim `Employee(empNo, name)`, loyiha `Project(projNo, pName)` va ularni bog'lovchi `WorksOn(empNo, projNo, hours)` oraliq jadvali bor. Barcha 3 ta jadval to'liq loyihalanishi kerak.",
-    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.",
+    "taskUz": "*:* (M:N) munosabatni relying modelga o'tkazish uchun zarur jadvallarni, jumladan ikkala tomonni bog'lovchi Oraliq (Junction/Bridge) jadvalini loyihalang.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Employee** (Ustunlar: `empNo` [PK] (integer), `name` (varchar(80)))\n• Jadval: **Project** (Ustunlar: `projNo` [PK] (integer), `pName` (varchar(80)))\n• Jadval: **WorksOn** (Ustunlar: `empNo` [PK] (integer), `projNo` [PK] (integer), `hours` (integer))",
     "starterCode": "// 2 ta asosiy jadval va 1 ta oraliq kompozit jadvalni loyihalang",
     "hint": "*:* aloqa to'g'ridan-to'g'ri ifodalanmaydi — ikkala jadvalning PK larini o'zida saqlovchi uchinchi oraliq jadval shart.",
     "solutions": [
@@ -1877,7 +1872,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "T02 Task 1 & L02 Slide 40 • Department Phone Multi-valued",
     "title": "Bo'lim Telefonlari Jadvali (DeptPhone)",
     "story": "Seminar 2 Task 1: Bo'lim ko'plab telefonlarga ega bo'lishi mumkin `Phone[1..*]`. 1NF atomiklik qoidasini saqlash uchun alohida jadval ochiladi.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **DeptPhone**\n• Ustunlar: `deptNo` [PK] (integer), `phone` [PK] (varchar(25))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -1910,7 +1905,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 40 • Employee Skills Multi-valued",
     "title": "Xodim Ko'nikmalari Jadvali (EmpSkill)",
     "story": "Xodim bir nechta dasturlash ko'nikmalariga ega bo'lishi mumkin: `Skill[*]`.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **EmpSkill**\n• Ustunlar: `empNo` [PK] (integer), `skillName` [PK] (varchar(50))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -1943,7 +1938,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 40 • Student Hobby Multi-valued",
     "title": "Talaba Qiziqishlari Jadvali (StudentHobby)",
     "story": "Talabaning sevimli mashg'ulotlari `Hobby[*]`: shaxmat, futbol, rasm chizish.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **StudentHobby**\n• Ustunlar: `studentId` [PK] (integer), `hobbyName` [PK] (varchar(50))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -1976,7 +1971,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 40 • Company Location Multi-valued",
     "title": "Kompaniya Shaharlari Jadvali (CompLocation)",
     "story": "Kompaniya bir nechta shaharda ofisiga ega bo'lishi mumkin `Location[*]`: Toshkent, Samarqand, London.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **CompLocation**\n• Ustunlar: `compCode` [PK] (varchar(10)), `locationName` [PK] (varchar(60))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -2009,7 +2004,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 40 • Product Color Multi-valued",
     "title": "Mahsulot Ranglari Jadvali (ProductColor)",
     "story": "Mahsulot bir nechta ranglarda mavjud bo'ladi: qora, oq, ko'k.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **ProductColor**\n• Ustunlar: `productCode` [PK] (varchar(20)), `colorName` [PK] (varchar(30))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -2042,7 +2037,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 40 • Applicant Language Multi-valued",
     "title": "Nomzod Tillari Jadvali (ApplicantLang)",
     "story": "Nomzod bir nechta xorijiy tillarni bilishi mumkin: `Language[*]`. Qo'shimcha ravishda daraja `proficiencyLevel` mavjud.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **ApplicantLang**\n• Ustunlar: `applicantId` [PK] (integer), `languageName` [PK] (varchar(40)), `proficiencyLevel` (varchar(10))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -2079,7 +2074,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 40 • Author Email Multi-valued",
     "title": "Muallif Elektron Pochtalari (AuthorEmail)",
     "story": "Muallif bir nechta e-mail manziliga ega bo'lishi mumkin `Email[*]`.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **AuthorEmail**\n• Ustunlar: `authorId` [PK] (integer), `emailAddress` [PK] (varchar(100))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -2112,7 +2107,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 40 • Customer Delivery Address Multi-valued",
     "title": "Mijoz Yetkazish Manzillari (CustDeliveryAddress)",
     "story": "Mijoz bir nechta yetkazib berish manzillariga ega (uy, ofis, ota-ona uyi).",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **CustDeliveryAddress**\n• Ustunlar: `custId` [PK] (integer), `addressLabel` [PK] (varchar(30)), `fullAddress` (varchar(150))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -2149,7 +2144,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 40 • Vehicle Feature Multi-valued",
     "title": "Avtomobil Qo'shimcha Jihozlari (VehicleFeature)",
     "story": "Avtomobil bir nechta qulayliklarga ega `Feature[*]`: Sunroof, HeatedSeats, Autopilot.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **VehicleFeature**\n• Ustunlar: `vin` [PK] (varchar(20)), `featureCode` [PK] (varchar(30))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -2182,7 +2177,7 @@ _scope.QUESTIONS_51_100 = [
     "source": "L02 Slide 40 & T02 Task 1 • Multi-valued 1NF Boss",
     "title": "7-Qavat Bossi: Bo'lim va Telefonlar 1NF Normalizatsiya Sxemasi",
     "story": "Kompaniyada `Department(deptNo, dName, budget)` ota jadvali va uning ko'p qiymatli telefonlari `DeptPhone(deptNo, phone)` jadvallari birgalikda 1NF relying sxemasini hosil qiladi.",
-    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.",
+    "taskUz": "Mijozning biznes talablariga mos relyatsion sxemani loyihalang. Kerakli jadvallar, Birlamchi Kalitlar (PK) va Tashqi Kalitlarni (FK) to'g'ri o'rnating.\n\n📋 **Kutilayotgan Jadval va Ustunlar:**\n• Jadval: **Department** (Ustunlar: `deptNo` [PK] (integer), `dName` (varchar(50)), `budget` (decimal))\n• Jadval: **DeptPhone** (Ustunlar: `deptNo` [PK] (integer), `phone` [PK] (varchar(25)))",
     "starterCode": "// Talab etilgan relyatsion jadvallar va aloqalarni kiriting",
     "hint": "Birlamchi va tashqi kalitlar munosabatini tekshiring.",
     "solutions": [
@@ -2231,7 +2226,3 @@ _scope.QUESTIONS_51_100 = [
     "explanation": "7-Qavat Bossi: Department va DeptPhone 1NF relyatsion sxemasi mukammal chizildi."
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = _scope.QUESTIONS_51_100;
-}

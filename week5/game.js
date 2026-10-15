@@ -230,6 +230,18 @@
         arena.setFloorCleared(allSolved);
       }
     }
+
+    // Auto-switch schema tab to question's main table if not viewing result
+    if (state.activeSchemaTab !== "result") {
+      const meta = (q.expectedSql || "").match(/\bFROM\s+([a-zA-Z0-9_]+)/i);
+      if (meta && meta[1]) {
+        const mainTable = meta[1].toLowerCase();
+        const availableTabs = Array.from(document.querySelectorAll(".schema-tab")).map((t) => t.dataset.table);
+        if (availableTabs.includes(mainTable)) {
+          switchSchemaTab(mainTable);
+        }
+      }
+    }
   }
 
   function renderTokenBar(q) {
@@ -358,79 +370,95 @@
   // ==========================================================================
 
   function runUserQuery() {
-    const q = getCurrentQuestion();
-    const rawSql = document.getElementById("sqlInput").value.trim();
-
-    state.savedQueries[q.id] = rawSql;
-    saveState();
-
     const feedbackBox = document.getElementById("feedbackBox");
-    feedbackBox.style.display = "block";
+    if (feedbackBox) feedbackBox.style.display = "block";
 
-    // 1. Diagnostics check
-    const diag = window.SQL_GRADER.detectDiagnostics(rawSql, q);
-    if (diag) {
-      feedbackBox.className = "feedback-box error";
-      feedbackBox.innerHTML = `<strong>⚠️ Tekshiruv Xabari:</strong><br>${formatInlineMarkdown(diag)}`;
-      return;
-    }
+    try {
+      const q = getCurrentQuestion();
+      const rawSql = document.getElementById("sqlInput").value.trim();
 
-    // 2. Execute user query
-    const userRes = window.SQL_GRADER.execute(rawSql);
-    if (!userRes.success) {
-      feedbackBox.className = "feedback-box error";
-      feedbackBox.innerHTML = `<strong>❌ Bajarishda Xatolik:</strong><br>${userRes.error}`;
-      return;
-    }
-
-    // Store in result tab
-    state.lastResultTable = userRes;
-    switchSchemaTab("result");
-
-    // 3. Execute expected reference query
-    const expRes = window.SQL_GRADER.execute(q.expectedSql);
-
-    // 4. Compare results
-    const cmp = window.SQL_GRADER.compareResults(userRes, expRes);
-
-    if (!cmp.match) {
-      feedbackBox.className = "feedback-box error";
-      feedbackBox.innerHTML = `
-        <strong>⚠️ Natijada Farq Bor:</strong><br>
-        ${cmp.message}<br><br>
-        <span style="font-size:11.5px; color:#e0c288;">Maslahat: So'rov shartini, ustunlar nomini va saralashni qayta tekshiring. 'Kutilayotgan Natija' tugmasi bilan solishtiring.</span>
-      `;
-      return;
-    }
-
-    // SUCCESS!
-    feedbackBox.className = "feedback-box success";
-    const isNewSolve = !state.solvedIds.includes(q.id);
-
-    if (isNewSolve) {
-      state.solvedIds.push(q.id);
-      const bonusEarned = 350 + q.sector * 50;
-      state.bonusCapital += bonusEarned;
+      state.savedQueries[q.id] = rawSql;
       saveState();
 
-      if (arena) arena.spawnBonusEffect(`+$${bonusEarned} Mukofot!`);
+      if (!window.SQL_GRADER) {
+        if (feedbackBox) {
+          feedbackBox.className = "feedback-box error";
+          feedbackBox.innerHTML = `<strong>⚠️ Xatolik:</strong> SQL Grader moduli yuklanmadi.`;
+        }
+        return;
+      }
 
-      feedbackBox.innerHTML = `
-        <strong>🎉 Ajoyib Natija! Topshiriq Muvaffaqiyatli Bajarildi!</strong><br>
-        Barcha ustunlar va qatorlar kutilganidek aniq chiqdi. Hisobingizga <strong>+$${bonusEarned}</strong> bonus kapital qo'shildi!
-      `;
+      // 1. Diagnostics check
+      const diag = window.SQL_GRADER.detectDiagnostics(rawSql, q);
+      if (diag) {
+        feedbackBox.className = "feedback-box error";
+        feedbackBox.innerHTML = `<strong>⚠️ Tekshiruv Xabari:</strong><br>${formatInlineMarkdown(diag)}`;
+        return;
+      }
 
-      checkOfficeEventTrigger(q.id);
-    } else {
-      feedbackBox.innerHTML = `
-        <strong>✓ Qayta Tasdiqlandi!</strong><br>
-        Ushbu topshiriq avval ham bajarilgan edi. Natijalar to'g'ri chiqmoqda!
-      `;
+      // 2. Execute user query
+      const userRes = window.SQL_GRADER.execute(rawSql);
+      if (!userRes.success) {
+        feedbackBox.className = "feedback-box error";
+        feedbackBox.innerHTML = `<strong>❌ Bajarishda Xatolik:</strong><br>${userRes.error}`;
+        return;
+      }
+
+      // Store in result tab
+      state.lastResultTable = userRes;
+      switchSchemaTab("result");
+
+      // 3. Execute expected reference query
+      const expRes = window.SQL_GRADER.execute(q.expectedSql);
+
+      // 4. Compare results
+      const cmp = window.SQL_GRADER.compareResults(userRes, expRes);
+
+      if (!cmp.match) {
+        feedbackBox.className = "feedback-box error";
+        feedbackBox.innerHTML = `
+          <strong>⚠️ Natijada Farq Bor:</strong><br>
+          ${cmp.message}<br><br>
+          <span style="font-size:11.5px; color:#e0c288;">Maslahat: So'rov shartini, ustunlar nomini va saralashni qayta tekshiring. 'Kutilayotgan Natija' tugmasi bilan solishtiring.</span>
+        `;
+        return;
+      }
+
+      // SUCCESS!
+      feedbackBox.className = "feedback-box success";
+      const isNewSolve = !state.solvedIds.includes(q.id);
+
+      if (isNewSolve) {
+        state.solvedIds.push(q.id);
+        const bonusEarned = 350 + q.sector * 50;
+        state.bonusCapital += bonusEarned;
+        saveState();
+
+        if (arena) arena.spawnBonusEffect(`+$${bonusEarned} Mukofot!`);
+
+        feedbackBox.innerHTML = `
+          <strong>🎉 Ajoyib Natija! Topshiriq Muvaffaqiyatli Bajarildi!</strong><br>
+          Barcha ustunlar va qatorlar kutilganidek aniq chiqdi. Hisobingizga <strong>+$${bonusEarned}</strong> bonus kapital qo'shildi!
+        `;
+
+        checkOfficeEventTrigger(q.id);
+      } else {
+        feedbackBox.innerHTML = `
+          <strong>✓ Qayta Tasdiqlandi!</strong><br>
+          Ushbu topshiriq avval ham bajarilgan edi. Natijalar to'g'ri chiqmoqda!
+        `;
+      }
+
+      renderHUD();
+      renderFloorStrip();
+      renderSectorBar();
+    } catch (err) {
+      console.error("runUserQuery error:", err);
+      if (feedbackBox) {
+        feedbackBox.className = "feedback-box error";
+        feedbackBox.innerHTML = `<strong>⚠️ Tizim Xatosi:</strong> So'rovni bajarishda kutilmagan xatolik yuz berdi: ${err.message || err}`;
+      }
     }
-
-    renderHUD();
-    renderFloorStrip();
-    renderSectorBar();
   }
 
   function previewExpectedResult() {

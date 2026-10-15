@@ -1412,48 +1412,70 @@ class RelationalCanvasEngine {
     this.nodesLayer.appendChild(handle);
   }
 
-  showLineDeleteButton(midX, midY, onDelete) {
-    this.removeLineDeleteButton();
-
-    const btn = document.createElement('div');
-    btn.className = 'line-del-btn';
-    btn.innerHTML = '✕';
-    btn.title = "Chiziqni o'chirish";
-    btn.style.position = 'absolute';
-    btn.style.left = `${Math.round(midX)}px`;
-    btn.style.top = `${Math.round(midY)}px`;
-    btn.style.transform = 'translate(-50%, -50%)';
-    btn.style.width = '30px';
-    btn.style.height = '30px';
-    btn.style.borderRadius = '50%';
-    btn.style.background = '#e63946';
-    btn.style.color = '#ffffff';
-    btn.style.fontSize = '15px';
-    btn.style.fontWeight = 'bold';
-    btn.style.display = 'flex';
-    btn.style.alignItems = 'center';
-    btn.style.justifyContent = 'center';
-    btn.style.cursor = 'pointer';
-    btn.style.zIndex = '1000';
-    btn.style.border = '2.5px solid #ffffff';
-    btn.style.boxShadow = '0 3px 12px rgba(0,0,0,0.6)';
-    btn.style.pointerEvents = 'auto';
-
-    const handleDelete = (e) => {
-      e.stopPropagation();
-      if (e.cancelable) e.preventDefault();
-      btn.remove();
-      if (onDelete) onDelete(e);
+  computeMultiplicityPos(border, alongDist = 38, perpDist = 18) {
+    let normX = -border.dirY;
+    let normY = border.dirX;
+    if (normY > 0.05 || (Math.abs(normY) <= 0.05 && normX < 0)) {
+      normX = -normX;
+      normY = -normY;
+    }
+    return {
+      x: Math.round(border.x + border.dirX * alongDist + normX * perpDist),
+      y: Math.round(border.y + border.dirY * alongDist + normY * perpDist)
     };
+  }
 
-    btn.addEventListener('click', handleDelete);
-    btn.addEventListener('touchend', handleDelete, { passive: false });
+  showLineActionToolbar(midX, midY, actionOptions) {
+    this.removeLineDeleteButton();
+    const opts = typeof actionOptions === 'function' ? { onDelete: actionOptions } : (actionOptions || {});
 
-    this.nodesLayer.appendChild(btn);
+    const toolbar = document.createElement('div');
+    toolbar.className = 'line-action-toolbar line-del-btn';
+    toolbar.style.position = 'absolute';
+    toolbar.style.left = `${Math.round(midX)}px`;
+    toolbar.style.top = `${Math.round(midY)}px`;
+    toolbar.style.transform = 'translate(-50%, -50%)';
+    toolbar.style.zIndex = '1000';
+    toolbar.style.pointerEvents = 'auto';
+
+    let html = '';
+    if (opts.onMultiplicity) {
+      html += `<button type="button" class="line-action-mult-btn" title="Multiplicity & Bog'lanishni o'zgartirish">⚙️ Multiplicity ${opts.multText ? `(${opts.multText})` : ''}</button>`;
+    }
+    if (opts.onDelete) {
+      html += `<button type="button" class="line-action-del-btn" title="Bog'lanishni o'chirish">🗑️ O'chirish (✕)</button>`;
+    }
+    toolbar.innerHTML = html;
+
+    if (opts.onMultiplicity) {
+      const btnMult = toolbar.querySelector('.line-action-mult-btn');
+      const handleMult = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        toolbar.remove();
+        opts.onMultiplicity(e);
+      };
+      btnMult?.addEventListener('click', handleMult);
+      btnMult?.addEventListener('touchend', handleMult, { passive: false });
+    }
+
+    if (opts.onDelete) {
+      const btnDel = toolbar.querySelector('.line-action-del-btn');
+      const handleDelete = (e) => {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+        toolbar.remove();
+        opts.onDelete(e);
+      };
+      btnDel?.addEventListener('click', handleDelete);
+      btnDel?.addEventListener('touchend', handleDelete, { passive: false });
+    }
+
+    this.nodesLayer.appendChild(toolbar);
 
     const outsideListener = (e) => {
-      if (e.target !== btn && !btn.contains(e.target)) {
-        btn.remove();
+      if (e.target !== toolbar && !toolbar.contains(e.target)) {
+        toolbar.remove();
         window.removeEventListener('mousedown', outsideListener);
         window.removeEventListener('touchstart', outsideListener);
       }
@@ -1464,9 +1486,13 @@ class RelationalCanvasEngine {
     }, 150);
   }
 
+  showLineDeleteButton(midX, midY, onDeleteOrOpts) {
+    this.showLineActionToolbar(midX, midY, onDeleteOrOpts);
+  }
+
   removeLineDeleteButton() {
     if (!this.nodesLayer) return;
-    this.nodesLayer.querySelectorAll('.line-del-btn').forEach(b => b.remove());
+    this.nodesLayer.querySelectorAll('.line-del-btn, .line-action-toolbar').forEach(b => b.remove());
   }
 
   drawTableConnection(ref, t1, t2) {
@@ -1512,9 +1538,14 @@ class RelationalCanvasEngine {
     hitbox.style.cursor = 'pointer';
     hitbox.style.pointerEvents = 'stroke';
 
-    const showDeleteBtn = (e) => {
+    const multLabel = `${fromMult} ↔ ${toMult}`;
+    const showLineActions = (e) => {
       e.stopPropagation();
-      this.showLineDeleteButton(midX, midY, deleteConn);
+      this.showLineActionToolbar(midX, midY, {
+        onDelete: deleteConn,
+        onMultiplicity: (ev) => this.openMultiplicityPopover(ref, ev),
+        multText: multLabel
+      });
     };
 
     const stopBubbling = (e) => {
@@ -1527,7 +1558,7 @@ class RelationalCanvasEngine {
     // Prevent dragging underlying table
     hitbox.addEventListener('mousedown', stopBubbling);
     hitbox.addEventListener('touchstart', stopBubbling, { passive: false });
-    hitbox.addEventListener('click', showDeleteBtn);
+    hitbox.addEventListener('click', showLineActions);
     hitbox.addEventListener('dblclick', (e) => {
       e.stopPropagation();
       this.removeLineDeleteButton();
@@ -1549,7 +1580,7 @@ class RelationalCanvasEngine {
 
     path.addEventListener('mousedown', stopBubbling);
     path.addEventListener('touchstart', stopBubbling, { passive: false });
-    path.addEventListener('click', showDeleteBtn);
+    path.addEventListener('click', showLineActions);
     path.addEventListener('dblclick', (e) => {
       e.stopPropagation();
       this.removeLineDeleteButton();
@@ -1567,7 +1598,11 @@ class RelationalCanvasEngine {
         this.removeLineDeleteButton();
         deleteConn(e);
       } else {
-        this.showLineDeleteButton(midX, midY, deleteConn);
+        this.showLineActionToolbar(midX, midY, {
+          onDelete: deleteConn,
+          onMultiplicity: (ev) => this.openMultiplicityPopover(ref, ev),
+          multText: multLabel
+        });
       }
       lastTap = now;
     };
@@ -1634,14 +1669,12 @@ class RelationalCanvasEngine {
     const pSign = border2.dirX >= 0 ? 1 : -1;
     this.drawMultiplicitySymbol(toMult, endX, endY, pSign);
 
-    // Multiplicity badges rendered in DOM layer positioned strictly outside borders
-    const mx1 = startX + border1.dirX * 32;
-    const my1 = startY + border1.dirY * 32;
-    const mx2 = endX + border2.dirX * 32;
-    const my2 = endY + border2.dirY * 32;
+    // Multiplicity badges rendered in DOM layer positioned strictly ABOVE/OUTSIDE the connector line
+    const mPos1 = this.computeMultiplicityPos(border1, 38, 18);
+    const mPos2 = this.computeMultiplicityPos(border2, 38, 18);
 
-    this.renderMultiplicityPill(fromMult, mx1, my1, (ev) => this.openMultiplicityPopover(ref, ev));
-    this.renderMultiplicityPill(toMult, mx2, my2, (ev) => this.openMultiplicityPopover(ref, ev));
+    this.renderMultiplicityPill(fromMult, mPos1.x, mPos1.y, (ev) => this.openMultiplicityPopover(ref, ev));
+    this.renderMultiplicityPill(toMult, mPos2.x, mPos2.y, (ev) => this.openMultiplicityPopover(ref, ev));
   }
 
   renderMultiplicityPill(text, x, y, onClick) {
@@ -1653,7 +1686,7 @@ class RelationalCanvasEngine {
     pill.style.top = `${Math.round(y)}px`;
     pill.style.transform = 'translate(-50%, -50%)';
     pill.style.cursor = 'pointer';
-    pill.style.zIndex = '45';
+    pill.style.zIndex = '100';
     pill.style.pointerEvents = 'auto';
     pill.title = "Multiplicity o'zgartirish uchun bosing";
 
@@ -2023,13 +2056,26 @@ class RelationalCanvasEngine {
   }
 
   exportCurrentSchema() {
+    const refs = [...this.references];
+    this.standaloneLines.forEach(sl => {
+      if (sl.startSnapped?.table && sl.endSnapped?.table) {
+        refs.push({
+          fromTable: sl.startSnapped.table.name,
+          toTable: sl.endSnapped.table.name,
+          fromMult: sl.fromMult || '0..*',
+          toMult: sl.toMult || '1..1',
+          isDashed: !!sl.isDashed
+        });
+      }
+    });
+
     return {
       tables: this.tables.map(t => ({
         tableName: t.name,
         name: t.name,
-        columns: t.columns
+        columns: t.columns || []
       })),
-      references: this.references
+      references: refs
     };
   }
 }

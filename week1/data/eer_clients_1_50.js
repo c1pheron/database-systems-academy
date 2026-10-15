@@ -1,8 +1,3 @@
-// ============================================================================
-// DATABASE SYSTEMS ACADEMY — 1-HAFTA: KONSEPTUAL EER MODEL VA DIAGRAMMALAR
-// O'zgaruvchi: EER_CLIENTS_1_50 (50 ta Amaliy Vizual EER Keyslari - Jumboq Rejimi)
-// ============================================================================
-
 var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
 
 _scope.EER_CLIENTS_1_50 = [
@@ -15,7 +10,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "banker",
     "title": "Bank Bank Filiallari va Xodimlar Tizimi",
     "story": "Assalomu alaykum, Me'mor! Bizning bankda filiallar (Branch) va ularda ishlovchi xodimlar (Staff) mavjud. Har bir filialda kamida 1 ta, ko'pi bilan ko'plab xodim ishlaydi. Har bir xodim esa qat'iy ravishda faqat 1 ta filialga biriktiriladi.",
-    "taskUz": "'Branch' va 'Staff' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Branch' va 'Staff' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Branch** (Birlamchi kalit: `branchNo`): `branchNo {PK}`, `city`\n• **Staff** (Birlamchi kalit: `staffNo`): `staffNo {PK}`, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Branch` (**1..1**) ↔ `Staff` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -78,7 +73,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "dean",
     "title": "Fakultet va Talabalar Ro'yxati",
     "story": "Universitetimizda har bir fakultet (Faculty) o'z talabalariga (Student) ega. Har bir talaba 1 ta fakultetda o'qiydi, fakultet esa ko'plab talabalarga ega.",
-    "taskUz": "'Faculty' va 'Student' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Faculty' va 'Student' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Faculty** (Birlamchi kalit: `facultyCode`): `facultyCode {PK}`, `facultyName`\n• **Student** (Birlamchi kalit: `studentId`): `studentId {PK}`, `fullName`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Faculty` (**1..1**) ↔ `Student` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -141,7 +136,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "logistics",
     "title": "Toifalar va Mahsulotlar Katalogi",
     "story": "Do'konimizda har bir toifa (Category) o'z ichiga kamida 1 ta yoki undan ko'p mahsulotlarni (Product) oladi. Har bir mahsulot bitta toifaga kiradi.",
-    "taskUz": "'Category' va 'Product' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Category' va 'Product' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Category** (Birlamchi kalit: `catId`): `catId {PK}`, `catName`\n• **Product** (Birlamchi kalit: `prodCode`): `prodCode {PK}`, `price`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Category` (**1..1**) ↔ `Product` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -204,7 +199,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "publisher",
     "title": "Nashriyot va Kitoblar Noshirligi",
     "story": "Nashriyotimiz (Publisher) kitoblar (Book) chop etadi. Har bir kitob aynan 1 ta nashriyotga qarashli, nashriyot esa ko'plab kitob chop etadi.",
-    "taskUz": "'Publisher' va 'Book' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Publisher' va 'Book' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Publisher** (Birlamchi kalit: `pubId`): `pubId {PK}`, `pubName`\n• **Book** (Birlamchi kalit: `isbn`): `isbn {PK}`, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Publisher` (**1..1**) ↔ `Book` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -267,7 +262,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "doctor",
     "title": "Kasalxona Bo'limi va Palatalar",
     "story": "Shifoxonamizda bo'limlar (WardDept) va palatalar (WardRoom) mavjud. Har bir bo'limda kamida 1 ta yoki ko'p palata bor, palata faqat 1 bo'limga tegishli.",
-    "taskUz": "'WardDept' va 'WardRoom' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'WardDept' va 'WardRoom' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **WardDept** (Birlamchi kalit: `deptCode`): `deptCode {PK}`, `name`\n• **WardRoom** (Birlamchi kalit: `roomNo`): `roomNo {PK}`, `capacity`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `WardDept` (**1..1**) ↔ `WardRoom` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -330,7 +325,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "officer",
     "title": "Fuqaro va Pasport Munosabati",
     "story": "Bizning tizimda har bir fuqaro (Citizen) qat'iy ravishda faqat bitta pasportga (Passport) ega bo'lishi shart va har bir pasport faqat 1 ta fuqaroga tegishli.",
-    "taskUz": "'Citizen' va 'Passport' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Citizen' va 'Passport' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Citizen** (Birlamchi kalit: `pinfl`): `pinfl {PK}`, `fullName`\n• **Passport** (Birlamchi kalit: `passNo`): `passNo {PK}`, `issueDate`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Citizen` (**1..1**) ↔ `Passport` (**1..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -393,7 +388,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "sports",
     "title": "Futbol Klubi va Stadion Munosabati",
     "story": "Ligamizda har bir klub (FootballClub) bitta uy stadioniga (Stadium) ega va har bir stadion faqat 1 ta klubga tegishli.",
-    "taskUz": "'FootballClub' va 'Stadium' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'FootballClub' va 'Stadium' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **FootballClub** (Birlamchi kalit: `clubId`): `clubId {PK}`, `clubName`\n• **Stadium** (Birlamchi kalit: `stadiumId`): `stadiumId {PK}`, `seats`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `FootballClub` (**1..1**) ↔ `Stadium` (**1..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -456,7 +451,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "fleet",
     "title": "Haydovchi va Xizmat Mashinasi",
     "story": "Korxonamizda har bir maxsus haydovchiga (Driver) aniq 1 ta xizmat avtomobili (Vehicle) biriktirilgan va har bir mashina 1 ta haydovchiga ega.",
-    "taskUz": "'Driver' va 'Vehicle' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Driver' va 'Vehicle' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Driver** (Birlamchi kalit: `licenseNo`): `licenseNo {PK}`, `fullName`\n• **Vehicle** (Birlamchi kalit: `vin`): `vin {PK}`, `model`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Driver` (**1..1**) ↔ `Vehicle` (**1..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -519,7 +514,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "techpm",
     "title": "Loyiha va Versiya Boshqaruvi",
     "story": "Kompaniyamizda har bir loyiha (Project) bitta markaziy Git repozitoriysiga (Repository) ega, har bir repozitoriy faqat 1 ta loyihaga xizmat qiladi.",
-    "taskUz": "'Project' va 'Repository' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Project' va 'Repository' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Project** (Birlamchi kalit: `projId`): `projId {PK}`, `title`\n• **Repository** (Birlamchi kalit: `repoId`): `repoId {PK}`, `repoUrl`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Project` (**1..1**) ↔ `Repository` (**1..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -582,7 +577,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "hotel",
     "title": "Mehmonxona va Bosh Bino",
     "story": "Mehmonxona tarmog'imizda har bir filial mehmonxona (Hotel) o'zining asosiy qabulxona binosiga (MainBuilding) ega va har bir bosh bino 1 ta mehmonxonaga qaraydi.",
-    "taskUz": "'Hotel' va 'MainBuilding' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Hotel' va 'MainBuilding' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Hotel** (Birlamchi kalit: `hotelId`): `hotelId {PK}`, `city`\n• **MainBuilding** (Birlamchi kalit: `bldgId`): `bldgId {PK}`, `floors`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Hotel` (**1..1**) ↔ `MainBuilding` (**1..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -645,7 +640,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "railway",
     "title": "Poyezd va Vagonlar Zanjiri",
     "story": "Temir yo'lda har bir poyezd (Train) bir nechta vagonlardan (Carriage) iborat. Har bir vagon esa ayni paytda faqat 1 ta poyezd tarkibiga ulangan bo'lishi shart.",
-    "taskUz": "'Train' va 'Carriage' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Train' va 'Carriage' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Train** (Birlamchi kalit: `trainNo`): `trainNo {PK}`, `route`\n• **Carriage** (Birlamchi kalit: `carriageId`): `carriageId {PK}`, `seatsCount`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Train` (**1..1**) ↔ `Carriage` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -708,7 +703,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "principal",
     "title": "Sinf va O'quvchilar Bog'liqligi",
     "story": "Maktabimizda har bir sinf (SchoolClass) bir nechta o'quvchilarga (Pupil) ega. Har bir o'quvchi faqat 1 ta sinfda o'qiydi.",
-    "taskUz": "'SchoolClass' va 'Pupil' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'SchoolClass' va 'Pupil' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **SchoolClass** (Birlamchi kalit: `classId`): `classId {PK}`, `gradeLevel`\n• **Pupil** (Birlamchi kalit: `pupilId`): `pupilId {PK}`, `fullName`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `SchoolClass` (**1..1**) ↔ `Pupil` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -771,7 +766,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "itsm",
     "title": "Mijoz va Qo'llab-quvvatlash Chiptasi (Ticket)",
     "story": "IT xizmatimizda har bir so'rov chiptasi (Ticket) aniq 1 ta mijozga (Client) tegishli. Mijoz esa bir nechta chipta ochgan bo'lishi mumkin.",
-    "taskUz": "'Client' va 'Ticket' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Client' va 'Ticket' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Client** (Birlamchi kalit: `clientId`): `clientId {PK}`, `orgName`\n• **Ticket** (Birlamchi kalit: `ticketNo`): `ticketNo {PK}`, `issueText`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Client` (**1..1**) ↔ `Ticket` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -834,7 +829,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "librarian",
     "title": "Kutubxona Bo'limi va Tokchalar",
     "story": "Kutubxonamizda har bir zal bo'limi (LibrarySection) bir nechta kitob tokchalariga (Bookshelf) ega, har bir tokcha aniq 1 ta bo'limda joylashgan.",
-    "taskUz": "'LibrarySection' va 'Bookshelf' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'LibrarySection' va 'Bookshelf' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **LibrarySection** (Birlamchi kalit: `secId`): `secId {PK}`, `topic`\n• **Bookshelf** (Birlamchi kalit: `shelfNo`): `shelfNo {PK}`, `capacity`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `LibrarySection` (**1..1**) ↔ `Bookshelf` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -897,7 +892,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "ceo",
     "title": "1-Qavat Bossi: Korxona Departamenti va Bosh Menejer",
     "story": "Assalomu alaykum, Bosh Me'mor! Korporatsiyamizda bo'limlar (Department) va xodimlar (Employee) mavjud. Har bir bo'limda qat'iy ravishda aniq 1 ta Bosh Menejer rahbarlik qiladi va har bir rahbar faqat 1 ta bo'limni boshqaradi. Ushbu 'Manages' 1:1 aloqasini to'liq chizib bering!",
-    "taskUz": "'Department' va 'Employee' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Department' va 'Employee' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Department** (Birlamchi kalit: `deptNo`): `deptNo {PK}`, `dName`\n• **Employee** (Birlamchi kalit: `empNo`): `empNo {PK}`, `fullName`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Department` (**1..1**) ↔ `Employee` (**1..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -961,7 +956,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "dealer",
     "title": "Mijoz va Avtomobil Xaridi (Ixtiyoriy 0..*)",
     "story": "Avtosalonimizda mijozlar (Customer) va avtomobillar (Car) bor. Har bir sotilgan avtomobil aniq 1 ta mijozga tegishli bo'ladi. Lekin ro'yxatdan o'tgan mijoz hali mashina sotib olmagan bo'lishi ham mumkin, ya'ni 0 tadan ko'pgacha mashina xarid qiladi.",
-    "taskUz": "'Customer' va 'Car' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Customer' va 'Car' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Customer** (Birlamchi kalit: `custId`): `custId {PK}`, `name`\n• **Car** (Birlamchi kalit: `vin`): `vin {PK}`, `model`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Customer` (**1..1**) ↔ `Car` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1024,7 +1019,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "academic",
     "title": "Professor va Ilmiy Maqolalar Tizimi",
     "story": "Universitetimizda professorlar (Professor) va ilmiy maqolalar (Article) mavjud. Har bir maqola 1 ta muallifga tegishli. Lekin yangi ishga kirgan professor hali maqola chop etmagan bo'lishi mumkin.",
-    "taskUz": "'Professor' va 'Article' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Professor' va 'Article' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Professor** (Birlamchi kalit: `profId`): `profId {PK}`, `name`\n• **Article** (Birlamchi kalit: `articleId`): `articleId {PK}`, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Professor` (**1..1**) ↔ `Article` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1087,7 +1082,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "hrmanager",
     "title": "Xodim va Xizmat Noutbuki Tizimi",
     "story": "Korxonamizda har bir xodim (Employee) va xizmat noutbuki (Laptop) bor. Har bir noutbuk faqat 1 ta xodimga biriktiriladi. Biroq har bir xodimga ham noutbuk berilmaydi (ayrimlari statsionar kompyuterda ishlaydi), ya'ni xodim ko'pi bilan 1 ta yoki 0 ta noutbukka ega bo'lishi mumkin.",
-    "taskUz": "'Employee' va 'Laptop' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Employee' va 'Laptop' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Employee** (Birlamchi kalit: `empNo`): `empNo {PK}`, `name`\n• **Laptop** (Birlamchi kalit: `serialNo`): `serialNo {PK}`, `model`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Employee` (**1..1**) ↔ `Laptop` (**0..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -1150,7 +1145,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "academic",
     "title": "O'quvchi va Sertifikat Tizimi",
     "story": "Akademiyamizda har bir sertifikat (Certificate) bitirgan 1 ta o'quvchiga (Student) beriladi. Lekin har bir o'quvchi ham kursni yakunlab sertifikat ololmasligi mumkin.",
-    "taskUz": "'Student' va 'Certificate' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Student' va 'Certificate' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Student** (Birlamchi kalit: `studentId`): `studentId {PK}`, `name`\n• **Certificate** (Birlamchi kalit: `certId`): `certId {PK}`, `issueDate`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Student` (**1..1**) ↔ `Certificate` (**0..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -1217,7 +1212,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "librarian",
     "title": "Kitobxon va Jarimalar Tizimi",
     "story": "Kutubxonamizda a'zo kitobxon (Member) va jarima cheklari (Fine) mavjud. Har bir jarima aniq 1 ta a'zoga yoziladi. Lekin intizomli a'zoda umuman jarima bo'lmasligi mumkin.",
-    "taskUz": "'Member' va 'Fine' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Member' va 'Fine' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Member** (Birlamchi kalit: `memberId`): `memberId {PK}`, `name`\n• **Fine** (Birlamchi kalit: `fineId`): `fineId {PK}`, `amount`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Member` (**1..1**) ↔ `Fine` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1284,7 +1279,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "doctor",
     "title": "Bemor va Retseptlar Tizimi",
     "story": "Klinikamizda har bir dori retsepti (Prescription) 1 ta bemorga (Patient) tegishli. Sog'lom profilaktikaga kelgan bemorga esa dori yozilmasligi mumkin.",
-    "taskUz": "'Patient' va 'Prescription' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Patient' va 'Prescription' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Patient** (Birlamchi kalit: `patientId`): `patientId {PK}`, `name`\n• **Prescription** (Birlamchi kalit: `rxNo`): `rxNo {PK}`, `date`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Patient` (**1..1**) ↔ `Prescription` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1351,7 +1346,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "broker",
     "title": "Mulk Egasi va Kvartiralar Tizimi",
     "story": "Agentligimizda ro'yxatdan o'tgan har bir mulk egasi (Owner) kamida 1 ta yoki bir nechta kvartiraga (Property) ega bo'lishi shart. Har bir kvartira esa 1 ta egaga qarashli.",
-    "taskUz": "'Owner' va 'Property' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Owner' va 'Property' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Owner** (Birlamchi kalit: `ownerNo`): `ownerNo {PK}`, `name`\n• **Property** (Birlamchi kalit: `propNo`): `propNo {PK}`, `address`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Owner` (**1..1**) ↔ `Property` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1418,7 +1413,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "chef",
     "title": "Taom va Retsept Masalliqlari Tizimi",
     "story": "Menyumizdagi har bir taom (Dish) kamida 1 ta yoki undan ko'p tarkibiy masalliqqa (Ingredient) ega bo'lishi shart. Har bir masalliq esa menyudagi 1 ta asosiy retseptga tegishli.",
-    "taskUz": "'Dish' va 'Ingredient' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Dish' va 'Ingredient' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Dish** (Birlamchi kalit: `dishId`): `dishId {PK}`, `title`\n• **Ingredient** (Birlamchi kalit: `ingId`): `ingId {PK}`, `name`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Dish` (**1..1**) ↔ `Ingredient` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1485,7 +1480,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "telecom",
     "title": "Abonent va SIM-karta Tizimi",
     "story": "Har bir SIM-karta (SIMCard) 1 ta abonentga (Subscriber) biriktirilgan. Yangi shartnoma tuzgan abonentga esa hali SIM berilmagan bo'lishi mumkin.",
-    "taskUz": "'Subscriber' va 'SIMCard' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Subscriber' va 'SIMCard' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Subscriber** (Birlamchi kalit: `subId`): `subId {PK}`, `name`\n• **SIMCard** (Birlamchi kalit: `iccid`): `iccid {PK}`, `msisdn`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Subscriber` (**1..1**) ↔ `SIMCard` (**0..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -1552,7 +1547,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "insurance",
     "title": "Mijoz va Sug'urta Polisi Tizimi",
     "story": "Kompaniyamizda fuqaro (Person) va tibbiy sug'urta polisi (Policy) mavjud. Har bir polis aniq 1 kishiga beriladi. Lekin fuqaro hali polis sotib olmagan bo'lishi mumkin.",
-    "taskUz": "'Person' va 'Policy' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Person' va 'Policy' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Person** (Birlamchi kalit: `personId`): `personId {PK}`, `name`\n• **Policy** (Birlamchi kalit: `policyNo`): `policyNo {PK}`, `coverage`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Person` (**1..1**) ↔ `Policy` (**0..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -1615,7 +1610,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "logistics",
     "title": "Konteyner va Yuk Jo'natmasi Tizimi",
     "story": "Logistika parkimizda konteyner (Container) va jo'natma (Shipment) mavjud. Har bir yuk 1 ta konteynerga yuklanadi. Zaxiradagi bo'sh konteyner esa yuklanmagan bo'lishi mumkin.",
-    "taskUz": "'Shipment' va 'Container' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Shipment' va 'Container' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Shipment** (Birlamchi kalit: `shipmentId`): `shipmentId {PK}`, `weight`\n• **Container** (Birlamchi kalit: `containerNo`): `containerNo {PK}`, `capacity`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Shipment` (**1..1**) ↔ `Container` (**0..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -1682,7 +1677,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "banker",
     "title": "Mijoz va Garov Mulki Tizimi",
     "story": "Bankimizda har bir garov mulki (Collateral) 1 ta mijozga (Client) tegishli. Lekin oddiy mikroqarz olgan mijoz garov qo'ymasligi mumkin.",
-    "taskUz": "'Client' va 'Collateral' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Client' va 'Collateral' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Client** (Birlamchi kalit: `clientId`): `clientId {PK}`, `name`\n• **Collateral** (Birlamchi kalit: `collateralId`): `collateralId {PK}`, `appraisedValue`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Client` (**1..1**) ↔ `Collateral` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1749,7 +1744,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "pharmacist",
     "title": "Dori Partiyasi va Sifat Sertifikati Tizimi",
     "story": "Omborimizda har bir dori partiyasi (MedicineBatch) majburiy ravishda aniq 1 ta sifat sertifikatiga (QualityCert) ega va har bir sertifikat 1 ta partiyaga beriladi.",
-    "taskUz": "'MedicineBatch' va 'QualityCert' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'MedicineBatch' va 'QualityCert' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **MedicineBatch** (Birlamchi kalit: `batchNo`): `batchNo {PK}`, `mfgDate`\n• **QualityCert** (Birlamchi kalit: `certNo`): `certNo {PK}`, `labResult`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `MedicineBatch` (**1..1**) ↔ `QualityCert` (**1..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -1816,7 +1811,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "parking",
     "title": "Mashina va Avtoturargoh Joyi Tizimi",
     "story": "Biznes markazimizda har bir band turargoh joyi (ParkingSpot) 1 ta ro'yxatdagi avtomobilga (Car) tegishli. Lekin mashina ko'chada yurgan paytda turargohda joy egallamasligi mumkin.",
-    "taskUz": "'Car' va 'ParkingSpot' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Car' va 'ParkingSpot' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Car** (Birlamchi kalit: `plateNo`): `plateNo {PK}`, `model`\n• **ParkingSpot** (Birlamchi kalit: `slotNo`): `slotNo {PK}`, `floor`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Car` (**1..1**) ↔ `ParkingSpot` (**0..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -1883,7 +1878,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "airline",
     "title": "2-Qavat Bossi: Samolyot va Parvozlar Jadvali Tizimi",
     "story": "Aviakompaniyamizda samolyotlar (Aircraft) va rejalashtirilgan parvozlar (Flight) mavjud. Har bir parvoz qat'iy ravishda aniq 1 ta samolyotga biriktirilishi shart. Lekin ba'zi yangi yoki ta'mirdagi samolyotlar hali birorta ham parvozga qo'yilmagan bo'lishi mumkin. Ushbu parvoz jadvalini to'liq chizing!",
-    "taskUz": "'Aircraft' va 'Flight' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Aircraft' va 'Flight' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Aircraft** (Birlamchi kalit: `tailNumber`): `tailNumber {PK}`, `model`\n• **Flight** (Birlamchi kalit: `flightNo`): `flightNo {PK}`, `destAirport`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Aircraft` (**1..1**) ↔ `Flight` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -1946,7 +1941,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "social",
     "title": "Xodim va Farzandlari (Zaif Entitiy Child)",
     "story": "Xodimlarimiz (Staff) va ularning qaramog'idagi farzandlari (Child) mavjud. Farzand alohida yashay olmaydi — u ota xodimiga bog'liq Weak Entity (Weak Entity) hisoblanadi. Farzandning o'ziga xos qisman kaliti {PPK} faqat uning ismi (fName) hisoblanadi. Har bir farzand aniq 1 ta xodimga tegishli, xodim esa 0 tadan ko'pgacha farzandga ega bo'lishi mumkin.",
-    "taskUz": "'Staff' va 'Child' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Staff' va 'Child' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Staff** (Birlamchi kalit: `staffNo`): `staffNo {PK}`, `name`\n• **Child**: `fName`, `age`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Staff` (**1..1**) ↔ `Child` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2010,7 +2005,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "warehouse",
     "title": "Buyurtma va Buyurtma Qatorlari (OrderLine)",
     "story": "Har bir buyurtma (Order) bir nechta qatorlardan (OrderLine) iborat. OrderLine mustaqil mavjud bo'la olmaydi (Weak Entity). Uning qisman kaliti {PPK} qator raqami (lineNo). Har bir buyurtma kamida 1 ta qatorga ega, qator esa aniq 1 ta buyurtmaga tegishli.",
-    "taskUz": "'Order' va 'OrderLine' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Order' va 'OrderLine' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Order** (Birlamchi kalit: `orderId`): `orderId {PK}`, `orderDate`\n• **OrderLine**: `lineNo`, `quantity`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Order` (**1..1**) ↔ `OrderLine` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2074,7 +2069,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "techpm",
     "title": "Loyiha va Bosqichlar (Milestone Zaif Entitiy)",
     "story": "Kompaniyamizda har bir loyiha (Project) bir nechta oraliq bosqichlarga (Milestone) ega. Milestone loyihasiz mustaqil mavjud bo'lmaydi (Weak Entity). Uning qisman kaliti {PPK} bosqich tartib raqami (milestoneNo). Har bir loyiha 1 tadan ko'p bosqichga ega, bosqich esa aniq 1 ta loyihaga qarashli.",
-    "taskUz": "'Project' va 'Milestone' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Project' va 'Milestone' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Project** (Birlamchi kalit: `projId`): `projId {PK}`, `title`\n• **Milestone**: `milestoneNo`, `targetDate`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Project` (**1..1**) ↔ `Milestone` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2142,7 +2137,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "insurance",
     "title": "Sug'urta Polisi va Zarar Da'volari (Claim Zaif Entitiy)",
     "story": "Sug'urta kompaniyamizda har bir polis (Policy) bo'yicha zarar da'volari (Claim) tushadi. Da'vo polissiz mavjud bo'la olmaydi (Weak Entity). Qisman kalit {PPK} da'vo ketma-ket raqami (claimSeq). Polis 0 tadan ko'pgacha da'voga ega, da'vo esa 1 ta polisga tegishli.",
-    "taskUz": "'Policy' va 'Claim' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Policy' va 'Claim' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Policy** (Birlamchi kalit: `policyNo`): `policyNo {PK}`, `holder`\n• **Claim**: `claimSeq`, `amount`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Policy` (**1..1**) ↔ `Claim` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2210,7 +2205,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "architect",
     "title": "Bino va Xonalar (Zaif Entitiy) (Room Zaif Entitiy)",
     "story": "Mehmonxona binosi (Building) va undagi xonalar (Room) bor. Xona faqat shu bino ichida mavjud (Weak Entity). Bino ichidagi qisman kalit {PPK} xona raqamidir (roomNo). Bino 1 tadan ko'p xonaga ega, xona esa bitta binoga tegishli.",
-    "taskUz": "'Building' va 'Room' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Building' va 'Room' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Building** (Birlamchi kalit: `bldgNo`): `bldgNo {PK}`, `city`\n• **Room**: `roomNo`, `floor`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Building` (**1..1**) ↔ `Room` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2274,7 +2269,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "doctor",
     "title": "Palata va Karavotlar (Bed Zaif Entitiy)",
     "story": "Shifoxonamizda palatalar (Ward) va karavotlar (Bed) mavjud. Karavot faqat shu palata ichida raqamlanadi (Weak Entity, {PPK} bedNo). Palata 1 tadan ko'p karavotga ega, karavot esa bitta palataga tegishli.",
-    "taskUz": "'Ward' va 'Bed' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Ward' va 'Bed' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Ward** (Birlamchi kalit: `wardNo`): `wardNo {PK}`, `dept`\n• **Bed**: `bedNo`, `type`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Ward` (**1..1**) ↔ `Bed` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2342,7 +2337,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "publisher",
     "title": "Kitob va Boblar (Chapter Zaif Entitiy)",
     "story": "Nashriyotimizda kitob (Book) va uning boblari (Chapter) bor. Bob kitobsiz yashay olmaydi (Weak Entity). Uning qisman kaliti {PPK} bob tartib raqami (chapterNo). Kitob kamida bitta yoki bir nechta bobga ega bo'ladi, har bir bob esa aniq bitta kitobga tegishli.",
-    "taskUz": "'Book' va 'Chapter' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Book' va 'Chapter' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Book** (Birlamchi kalit: `isbn`): `isbn {PK}`, `title`\n• **Chapter**: `chapterNo`, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Book` (**1..1**) ↔ `Chapter` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2410,7 +2405,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "airline",
     "title": "Parvoz va Reys Segmentlari (FlightLeg Zaif Entitiy)",
     "story": "Aviakompaniyada asosiy parvoz (Flight) bir nechta oraliq uchish qismlaridan (FlightLeg) iborat bo'lishi mumkin (Weak Entity, {PPK} legNo). Parvoz bir nechta oraliq uchish qismlariga ega bo'lishi mumkin, har bir qism aniq bitta parvozga qarashli.",
-    "taskUz": "'Flight' va 'FlightLeg' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Flight' va 'FlightLeg' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Flight** (Birlamchi kalit: `flightNo`): `flightNo {PK}`, `airline`\n• **FlightLeg**: `legNo`, `depTime`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Flight` (**1..1**) ↔ `FlightLeg` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2478,7 +2473,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "techpm",
     "title": "Dasturiy Paket va Modullar (Module Zaif Entitiy)",
     "story": "Dasturimiz (SoftwarePackage) bir nechta modullardan (Module) iborat. Modul dastursiz mavjud emas (Weak Entity, {PPK} modCode). Paket bir nechta modullardan iborat bo'ladi, har bir modul esa aniq bitta paketga tegishli.",
-    "taskUz": "'SoftwarePackage' va 'Module' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'SoftwarePackage' va 'Module' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **SoftwarePackage** (Birlamchi kalit: `pkgId`): `pkgId {PK}`, `name`\n• **Module**: `modCode`, `version`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `SoftwarePackage` (**1..1**) ↔ `Module` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2546,7 +2541,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "arts",
     "title": "Teatr Zali va Qatorlar (SeatRow Zaif Entitiy)",
     "story": "Teatrimizda tomosha zali (Hall) va undagi o'rindiqlar qatori (SeatRow) mavjud. Qator zalsiz mavjud bo'lmaydi (Weak Entity, {PPK} rowNo). Zal bir nechta qatorlarga ega bo'ladi, har bir qator aniq bitta tomosha zaliga qarashli.",
-    "taskUz": "'Hall' va 'SeatRow' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Hall' va 'SeatRow' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Hall** (Birlamchi kalit: `hallId`): `hallId {PK}`, `hallName`\n• **SeatRow**: `rowNo`, `seatCount`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Hall` (**1..1**) ↔ `SeatRow` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2614,7 +2609,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "retailer",
     "title": "Chipta va Chipta Kuponlari (Coupon Zaif Entitiy)",
     "story": "Xalqaro poyezd chiptasi (Ticket) bir nechta kupon varaqlaridan (Coupon) iborat (Weak Entity, {PPK} couponNo). Chipta bir nechta kuponlardan iborat bo'ladi, har bir kupon esa aniq bitta chiptaga tegishli.",
-    "taskUz": "'Ticket' va 'Coupon' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Ticket' va 'Coupon' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Ticket** (Birlamchi kalit: `ticketId`): `ticketId {PK}`, `price`\n• **Coupon**: `couponNo`, `validDate`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Ticket` (**1..1**) ↔ `Coupon` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2682,7 +2677,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "banker",
     "title": "Plastik Karta va PIN-Konvert (PinEnvelope Zaif Entitiy)",
     "story": "Bank plastik kartasi (BankCard) o'zining himoyalangan PIN-konvertiga (PinEnvelope) ega (Weak Entity, {PPK} envSeq). Karta ko'pi bilan bitta PIN-konvertga ega bo'lishi mumkin, konvert esa faqat bitta kartaga tegishli.",
-    "taskUz": "'BankCard' va 'PinEnvelope' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'BankCard' va 'PinEnvelope' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **BankCard** (Birlamchi kalit: `cardNo`): `cardNo {PK}`, `expDate`\n• **PinEnvelope**: `envSeq`, `salt`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `BankCard` (**1..1**) ↔ `PinEnvelope` (**0..1**)",
     "starterDiagram": {
       "entities": [
         {
@@ -2750,7 +2745,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "logistics",
     "title": "Kema va Kema Xonalari (Cabin Zaif Entitiy)",
     "story": "Yuk kemasida (Ship) kayutalar (Cabin) mavjud (Weak Entity, {PPK} cabinNo). Kema bir nechta kayutalarga ega bo'ladi, har bir kayuta esa faqat bitta kemaga tegishli.",
-    "taskUz": "'Ship' va 'Cabin' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Ship' va 'Cabin' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Ship** (Birlamchi kalit: `imoNumber`): `imoNumber {PK}`, `name`\n• **Cabin**: `cabinNo`, `beds`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Ship` (**1..1**) ↔ `Cabin` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2818,7 +2813,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "principal",
     "title": "Fan Sillabusi va Dars Mavzulari (Topic Zaif Entitiy)",
     "story": "Fan sillabusida (Syllabus) dars mavzulari (Topic) bor (Weak Entity, {PPK} topicNo). Sillabus bir nechta mavzulardan iborat bo'ladi, har bir mavzu esa faqat bitta sillabusga qarashli.",
-    "taskUz": "'Syllabus' va 'Topic' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Syllabus' va 'Topic' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Syllabus** (Birlamchi kalit: `sylId`): `sylId {PK}`, `subject`\n• **Topic**: `topicNo`, `hours`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Syllabus` (**1..1**) ↔ `Topic` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2886,7 +2881,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "bankit",
     "title": "3-Qavat Bossi: Hisob Raqam va Tranzaksiyalar (Transaction)",
     "story": "Assalomu alaykum! Bankimizda hisob raqamlari (Account) va har bir harakat (Transaction) mavjud. Tranzaksiya o'zicha mustaqil mavjud bo'lmaydi (Weak Entity). Uning qisman kaliti {PPK} tranzaksiya ketma-ketlik raqamidir (txSeq). Har bir hisob raqam 0 tadan ko'pgacha tranzaksiyaga ega bo'lishi mumkin, tranzaksiya esa qat'iy ravishda 1 ta hisobga tegishli. Ushbu zaif munosabatni chizing!",
-    "taskUz": "'Account' va 'Transaction' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Account' va 'Transaction' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Account** (Birlamchi kalit: `accNo`): `accNo {PK}`, `balance`\n• **Transaction**: `txSeq`, `amount`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Account` (**1..1**) ↔ `Transaction` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -2950,7 +2945,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "itdirector",
     "title": "Xodim va Loyiha: Ish Soati Atributi (WorksOn)",
     "story": "Korxonamizda xodimlar (Employee) va loyihalar (Project) o'rtasida ko'pdan-ko'pga munosabat bor: har bir xodim 1 tadan 5 tagacha loyihada ishlaydi (1..5), har bir loyihada kamida 1 ta yoki ko'p xodim ishlaydi. Eng muhimi: har bir xodimning loyihada ishlagan soati (hours) aynan shu 'WorksOn' aloqasining o'ziga xos atributi (Association Class) hisoblanadi!",
-    "taskUz": "'Employee' va 'Project' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Employee' va 'Project' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Employee** (Birlamchi kalit: `empNo`): `empNo {PK}`, `name`\n• **Project** (Birlamchi kalit: `projNo`): `projNo {PK}`, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Employee` (**1..***) ↔ `Project` (**1..5**)",
     "starterDiagram": {
       "entities": [
         {
@@ -3015,7 +3010,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "automotive",
     "title": "Yetkazib Beruvchi va Detallar (Supplies - narx Atributi)",
     "story": "Zavodimizda ta'minotchi (Supplier) va detallar (Part) o'rtasida 'Supplies' ko'pdan-ko'pga aloqasi mavjud. Bir ta'minotchi ko'plab detal yetkazadi, har bir detal ko'plab ta'minotchidan olinishi mumkin. Yetkazib berish narxi (unitPrice) aynan shu aloqaga tegishli (Association Class)!",
-    "taskUz": "'Supplier' va 'Part' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Supplier' va 'Part' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Supplier** (Birlamchi kalit: `supplierId`): `supplierId {PK}`, `companyName`\n• **Part** (Birlamchi kalit: `partNo`): `partNo {PK}`, `description`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Supplier` (**1..***) ↔ `Part` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3084,7 +3079,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "librarian",
     "title": "A'zo va Kitob Ijarasi (Borrow - borrowDate Atributi)",
     "story": "Kutubxonamizda a'zo kitobxon (Member) va kitob nusxasi (Book) o'rtasida 'Borrows' aloqasi bor. A'zo ko'p kitob olishi, kitob esa ko'p marta berilishi mumkin. Olingan sana (borrowDate) va qaytarish muddati (dueDate) aloqaning Association Class atributlaridir.",
-    "taskUz": "'Member' va 'Book' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Member' va 'Book' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Member** (Birlamchi kalit: `memberId`): `memberId {PK}`, `fullName`\n• **Book** (Birlamchi kalit: `bookId`): `bookId {PK}`, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Member` (**0..***) ↔ `Book` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3153,7 +3148,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "doctor",
     "title": "Shifokor va Bemor Qabuli (Consults - konsultatsiya Tashxisi)",
     "story": "Shifokor (Doctor) va bemor (Patient) o'rtasida 'Consults' aloqasi mavjud. Shifokor ko'p bemorni ko'radi, bemor ko'p shifokorga uchrashishi mumkin. Konsultatsiya natijasidagi tashxis (diagnosis) va to'lov (fee) aynan aloqa atributidir (Association Class).",
-    "taskUz": "'Doctor' va 'Patient' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Doctor' va 'Patient' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Doctor** (Birlamchi kalit: `docId`): `docId {PK}`, `specialty`\n• **Patient** (Birlamchi kalit: `patientId`): `patientId {PK}`, `fullName`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Doctor` (**0..***) ↔ `Patient` (**0..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3222,7 +3217,7 @@ _scope.EER_CLIENTS_1_50 = [
     "clientAvatar": "registrar",
     "title": "4-Qavat Bossi: Talaba va Fan Ro'yxatdan O'tishi (grade Atributi)",
     "story": "Universitetimizda talaba (Student) va o'quv fani (Course) o'rtasida 'Registers' aloqasi bor. Talaba bir nechta fanga yoziladi, fanda ko'plab talaba o'qiydi. Aloqaning o'zida yakuniy ball (grade) va semestr (semester) atributlari saqlanadi (Association Class). Ushbu modelni to'liq taqdim eting!",
-    "taskUz": "'Student' va 'Course' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.",
+    "taskUz": "'Student' va 'Course' entitiylari o'rtasidagi biznes qoidalarini chuqur o'rganing. Har bir tomonning minimal va maksimal ishtirok chegaralarini (UML multiplicity) mustaqil aniqlab, ularni diagrammada to'g'ri bog'lang.\n\n📋 **Kutilayotgan Entitiylar va Atributlar:**\n• **Student** (Birlamchi kalit: `studentId`): `studentId {PK}`, `name`\n• **Course** (Birlamchi kalit: `courseCode`): `courseCode {PK}`, `title`\n🔗 **Kutilayotgan Bog'lanish (Multiplicity):**\n• `Student` (**0..***) ↔ `Course` (**1..***)",
     "starterDiagram": {
       "entities": [
         {
@@ -3279,7 +3274,3 @@ _scope.EER_CLIENTS_1_50 = [
     "task": "'Student' va 'Course' entitiylarini chizing, birlamchi kalitlarini {PK} belgilang va mijoz talabiga mos '0..*' hamda '1..*' multiplisitiyalari bilan bog'lang."
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = _scope.EER_CLIENTS_1_50;
-}

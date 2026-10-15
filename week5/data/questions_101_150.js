@@ -1,9 +1,6 @@
-// ============================================================================
-// DATABASE SYSTEMS ACADEMY — WEEK 5: JOINS, AGGREGATION & STORAGE
-// Variable: QUESTIONS_101_150 (50 Questions)
-// ============================================================================
+var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
 
-window.QUESTIONS_101_150 = [
+_scope.QUESTIONS_101_150 = [
   {
     "id": 101,
     "sector": 7,
@@ -11,7 +8,7 @@ window.QUESTIONS_101_150 = [
     "source": "Chinook DB A1 • Janrlar Bo'yicha Treklar",
     "title": "Chinook: Janrlar Bo'yicha Treklar Soni",
     "story": "Chinook kutubxonasida har bir janr bo'yicha nechta audio trek saqlanayotganini hisoblab bering.",
-    "taskUz": "Janr nomi (`g.name`) and undagi treklar sonini (`track_count`) `track` and `genre` jadandllarini joining, `GROUP BY g.name` via display.",
+    "taskUz": "Janr nomi (`g.name`) and undagi treklar sonini (`track_count`) `track` and `genre` jadandllarini joining, `GROUP BY g.name` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `genre_name`, `track_count`\n• Asosiy jadvallar: `genre`, `track`",
     "expectedSql": "SELECT g.name AS genre_name, COUNT(t.track_id) AS track_count FROM genre g JOIN track t ON g.genre_id = t.genre_id GROUP BY g.name",
     "hint": "`SELECT g.name AS genre_name, COUNT(t.track_id) AS track_count FROM genre g JOIN track t ON g.genre_id = t.genre_id GROUP BY g.name` .",
     "tags": [
@@ -22,7 +19,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT g.name AS genre_name, COUNT(t.track_id) AS track_count FROM genre g JOIN track t ON g.genre_id = t.genre_id GROUP BY g.name"
     ],
-    "task": "Janr nomi (`g.name`) and undagi treklar sonini (`track_count`) `track` and `genre` jadandllarini joining, `GROUP BY g.name` via display.",
+    "task": "Janr nomi (`g.name`) and undagi treklar sonini (`track_count`) `track` and `genre` jadandllarini joining, `GROUP BY g.name` via chiqaring.",
     "explanation": ""
   },
   {
@@ -32,7 +29,7 @@ window.QUESTIONS_101_150 = [
     "source": "Chinook DB H6 • Ijrochilar Albomlari Soni",
     "title": "Chinook: Ijrochilar va Ularning Albomlari Soni",
     "story": "Qaysi musiqachi qancha disk chiqarganini hisoblash uchun `artist` va `album` jadvallarini guruhlang.",
-    "taskUz": "Ijrochi nomi (`ar.name`) and uning jami albomlari sonini (`album_count`) `GROUP BY ar.name` via display.",
+    "taskUz": "Ijrochi nomi (`ar.name`) and uning jami albomlari sonini (`album_count`) `GROUP BY ar.name` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `name`, `album_count`\n• Asosiy jadvallar: `artist`, `album`",
     "expectedSql": "SELECT ar.name, COUNT(al.album_id) AS album_count FROM artist ar JOIN album al ON ar.artist_id = al.artist_id GROUP BY ar.name",
     "hint": "`SELECT ar.name, COUNT(al.album_id) AS album_count FROM artist ar JOIN album al ON ar.artist_id = al.artist_id GROUP BY ar.name` .",
     "tags": [
@@ -42,7 +39,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ar.name, COUNT(al.album_id) AS album_count FROM artist ar JOIN album al ON ar.artist_id = al.artist_id GROUP BY ar.name"
     ],
-    "task": "Ijrochi nomi (`ar.name`) and uning jami albomlari sonini (`album_count`) `GROUP BY ar.name` via display.",
+    "task": "Ijrochi nomi (`ar.name`) and uning jami albomlari sonini (`album_count`) `GROUP BY ar.name` via chiqaring.",
     "explanation": ""
   },
   {
@@ -52,7 +49,7 @@ window.QUESTIONS_101_150 = [
     "source": "Chinook DB H7 • Mamlakatlar Bo'yicha Tushum",
     "title": "Chinook: Mamlakatlar Bo'yicha Jami Tushum",
     "story": "Xalqaro savdo hisobotida har bir billing mamlakati bo'yicha tushgan umumiy to'lov miqdorini hisoblang.",
-    "taskUz": "Mamlakat nomi (`billing_country`) and tushgan jami summani (`total_revenue`) `GROUP BY billing_country` via display.",
+    "taskUz": "Mamlakat nomi (`billing_country`) and tushgan jami summani (`total_revenue`) `GROUP BY billing_country` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `billing_country`, `total_revenue`\n• Asosiy jadvallar: `invoice`",
     "expectedSql": "SELECT billing_country, SUM(total) AS total_revenue FROM invoice GROUP BY billing_country",
     "hint": "`SELECT billing_country, SUM(total) AS total_revenue FROM invoice GROUP BY billing_country` .",
     "tags": [
@@ -62,7 +59,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT billing_country, SUM(total) AS total_revenue FROM invoice GROUP BY billing_country"
     ],
-    "task": "Mamlakat nomi (`billing_country`) and tushgan jami summani (`total_revenue`) `GROUP BY billing_country` via display.",
+    "task": "Mamlakat nomi (`billing_country`) and tushgan jami summani (`total_revenue`) `GROUP BY billing_country` via chiqaring.",
     "explanation": ""
   },
   {
@@ -72,7 +69,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Engineering • Loyihalar Bo'yicha Jami Soatlar",
     "title": "Loyihalar Bo'yicha Umumiy Ishlangan Soatlar",
     "story": "Har bir muhandislik loyihasiga butun jamoa tomonidan jami qancha vaqt (soat) sarflanganini aniqlang.",
-    "taskUz": "Loyiha nomi (`pname`) and All xodimlar ishlagan jami soatlarni (`total_hours`) `project` and `works_on` ni joining display.",
+    "taskUz": "Loyiha nomi (`pname`) and All xodimlar ishlagan jami soatlarni (`total_hours`) `project` and `works_on` ni joining chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `pname`, `total_hours`\n• Asosiy jadvallar: `project`, `works_on`",
     "expectedSql": "SELECT p.pname, SUM(w.hours) AS total_hours FROM project p JOIN works_on w ON p.pno = w.pno GROUP BY p.pname",
     "hint": "`SELECT p.pname, SUM(w.hours) AS total_hours FROM project p JOIN works_on w ON p.pno = w.pno GROUP BY p.pname` .",
     "tags": [
@@ -83,7 +80,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT p.pname, SUM(w.hours) AS total_hours FROM project p JOIN works_on w ON p.pno = w.pno GROUP BY p.pname"
     ],
-    "task": "Loyiha nomi (`pname`) and All xodimlar ishlagan jami soatlarni (`total_hours`) `project` and `works_on` ni joining display.",
+    "task": "Loyiha nomi (`pname`) and All xodimlar ishlagan jami soatlarni (`total_hours`) `project` and `works_on` ni joining chiqaring.",
     "explanation": ""
   },
   {
@@ -93,7 +90,7 @@ window.QUESTIONS_101_150 = [
     "source": "S05 Task 24–26 • 7-Qavat Bosh Imtihoni",
     "title": "7-Qavat Bosh Imtihoni: Korporativ Analitik Svodka",
     "story": "7-qavat portalini ochish uchun bo'limlar bo'yicha xodimlar soni va umumiy oylik byudjetni to'liq hisoblab bering.",
-    "taskUz": "Bo'lim nomi (`dname`), undagi xodimlar soni (`emp_count`) and bo'limning jami maosh fondini (`total_sal`) `GROUP BY d.dname` via display.",
+    "taskUz": "Bo'lim nomi (`dname`), undagi xodimlar soni (`emp_count`) and bo'limning jami maosh fondini (`total_sal`) `GROUP BY d.dname` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `emp_count`, `total_sal`\n• Asosiy jadvallar: `dept`, `emp`",
     "expectedSql": "SELECT d.dname, COUNT(e.empno) AS emp_count, SUM(e.sal) AS total_sal FROM dept d JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname",
     "hint": "`SELECT d.dname, COUNT(e.empno) AS emp_count, SUM(e.sal) AS total_sal FROM dept d JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname` .",
     "tags": [
@@ -105,7 +102,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT d.dname, COUNT(e.empno) AS emp_count, SUM(e.sal) AS total_sal FROM dept d JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname"
     ],
-    "task": "Bo'lim nomi (`dname`), undagi xodimlar soni (`emp_count`) and bo'limning jami maosh fondini (`total_sal`) `GROUP BY d.dname` via display.",
+    "task": "Bo'lim nomi (`dname`), undagi xodimlar soni (`emp_count`) and bo'limning jami maosh fondini (`total_sal`) `GROUP BY d.dname` via chiqaring.",
     "explanation": ""
   },
   {
@@ -115,7 +112,7 @@ window.QUESTIONS_101_150 = [
     "source": "S05 Task 27 • HAVING COUNT(*) > 1",
     "title": "Xodimlari 1 tadan Ko'p Bo'lgan Guruhlar",
     "story": "`WHERE` bandi individual qatorlarni filtrlaydi, `HAVING` esa guruhlangan natijalarni filtrlaydi. 1 tadan ko'p xodimga ega lavozimlarni toping.",
-    "taskUz": "Xodimlari soni 1 tadan ko'p bo'lgan lavozim nomi (`job`) and ularning sonini (`emp_count`) `GROUP BY job HAVING COUNT(*) > 1` via display.",
+    "taskUz": "Xodimlari soni 1 tadan ko'p bo'lgan lavozim nomi (`job`) and ularning sonini (`emp_count`) `GROUP BY job HAVING COUNT(*) > 1` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `job`, `emp_count`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "SELECT job, COUNT(*) AS emp_count FROM emp GROUP BY job HAVING COUNT(*) > 1",
     "hint": "`GROUP BY job HAVING COUNT(*) > 1` .",
     "tags": [
@@ -126,7 +123,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT job, COUNT(*) AS emp_count FROM emp GROUP BY job HAVING COUNT(*) > 1"
     ],
-    "task": "Xodimlari soni 1 tadan ko'p bo'lgan lavozim nomi (`job`) and ularning sonini (`emp_count`) `GROUP BY job HAVING COUNT(*) > 1` via display.",
+    "task": "Xodimlari soni 1 tadan ko'p bo'lgan lavozim nomi (`job`) and ularning sonini (`emp_count`) `GROUP BY job HAVING COUNT(*) > 1` via chiqaring.",
     "explanation": ""
   },
   {
@@ -136,7 +133,7 @@ window.QUESTIONS_101_150 = [
     "source": "S05 Task 27 • WHERE va HAVING Birgalikda",
     "title": "WHERE (Maosh > 1000) va HAVING (Soni > 1)",
     "story": "Avval maoshi $1000 dan oshadigan xodimlar filtrlanadi (`WHERE sal > 1000`), so'ngra guruhlar ichidan 1 tadan ko'p xodimi borlari saralanadi (`HAVING COUNT(*) > 1`).",
-    "taskUz": "salary 1000 dan katta bo'lgan xodimlardan tashkil topgan and soni 1 tadan ko'p bo'lgan lavozimlar (`job`) and ularning sonini (`emp_count`) display.",
+    "taskUz": "salary 1000 dan katta bo'lgan xodimlardan tashkil topgan and soni 1 tadan ko'p bo'lgan lavozimlar (`job`) and ularning sonini (`emp_count`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `job`, `emp_count`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "SELECT job, COUNT(*) AS emp_count FROM emp WHERE sal > 1000 GROUP BY job HAVING COUNT(*) > 1",
     "hint": "`WHERE sal > 1000 GROUP BY job HAVING COUNT(*) > 1` .",
     "tags": [
@@ -146,7 +143,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT job, COUNT(*) AS emp_count FROM emp WHERE sal > 1000 GROUP BY job HAVING COUNT(*) > 1"
     ],
-    "task": "salary 1000 dan katta bo'lgan xodimlardan tashkil topgan and soni 1 tadan ko'p bo'lgan lavozimlar (`job`) and ularning sonini (`emp_count`) display.",
+    "task": "salary 1000 dan katta bo'lgan xodimlardan tashkil topgan and soni 1 tadan ko'p bo'lgan lavozimlar (`job`) and ularning sonini (`emp_count`) chiqaring.",
     "explanation": ""
   },
   {
@@ -156,7 +153,7 @@ window.QUESTIONS_101_150 = [
     "source": "S05 Task 27 • STRING_AGG Funksiyasi",
     "title": "string_agg Bilan Ismlarni Birlashtirish",
     "story": "PostgreSQL ning kuchli `string_agg(ename, ', ')` funksiyasi bir guruhga tegishli barcha ismlarni bitta satrda vergul bilan ajratib beradi.",
-    "taskUz": "Har bir lavozim (`job`) and unga tegishli All xodimlar ismlari ro'yxatini (`STRING_AGG(ename, ', ') AS names`) display.",
+    "taskUz": "Har bir lavozim (`job`) and unga tegishli All xodimlar ismlari ro'yxatini (`STRING_AGG(ename, ', ') AS names`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `job`, `STRING_AGG(ename`, `names`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "SELECT job, STRING_AGG(ename, ', ') AS names FROM emp GROUP BY job",
     "hint": "`SELECT job, STRING_AGG(ename, ', ') AS names FROM emp GROUP BY job` .",
     "tags": [
@@ -166,7 +163,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT job, STRING_AGG(ename, ', ') AS names FROM emp GROUP BY job"
     ],
-    "task": "Har bir lavozim (`job`) and unga tegishli All xodimlar ismlari ro'yxatini (`STRING_AGG(ename, ', ') AS names`) display.",
+    "task": "Har bir lavozim (`job`) and unga tegishli All xodimlar ismlari ro'yxatini (`STRING_AGG(ename, ', ') AS names`) chiqaring.",
     "explanation": ""
   },
   {
@@ -176,7 +173,7 @@ window.QUESTIONS_101_150 = [
     "source": "S05 Task 29 • Ko'p Xodimni Boshqaruvchi Menejerlar",
     "title": "2 tadan Ko'p Xodimni Boshqaradigan Rahbarlar",
     "story": "Katta yuklama ostidagi rahbarlar: o'z qo'l ostida 2 tadan ko'p bo'ysunuvchisi bor menejerlarni toping.",
-    "taskUz": "Rahbar ismi (`m.ename AS manager`) and u boshqarayotgan xodimlar sonini (`subordinate_count`) `emp e JOIN emp m ON e.supervisor = m.empno GROUP BY m.ename HAVING COUNT(e.empno) > 2` via display.",
+    "taskUz": "Rahbar ismi (`m.ename AS manager`) and u boshqarayotgan xodimlar sonini (`subordinate_count`) `emp e JOIN emp m ON e.supervisor = m.empno GROUP BY m.ename HAVING COUNT(e.empno) > 2` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `manager`, `subordinate_count`\n• Asosiy jadvallar: `emp`",
     "expectedSql": "SELECT m.ename AS manager, COUNT(e.empno) AS subordinate_count FROM emp e JOIN emp m ON e.supervisor = m.empno GROUP BY m.ename HAVING COUNT(e.empno) > 2",
     "hint": "`GROUP BY m.ename HAVING COUNT(e.empno) > 2` .",
     "tags": [
@@ -186,7 +183,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT m.ename AS manager, COUNT(e.empno) AS subordinate_count FROM emp e JOIN emp m ON e.supervisor = m.empno GROUP BY m.ename HAVING COUNT(e.empno) > 2"
     ],
-    "task": "Rahbar ismi (`m.ename AS manager`) and u boshqarayotgan xodimlar sonini (`subordinate_count`) `emp e JOIN emp m ON e.supervisor = m.empno GROUP BY m.ename HAVING COUNT(e.empno) > 2` via display.",
+    "task": "Rahbar ismi (`m.ename AS manager`) and u boshqarayotgan xodimlar sonini (`subordinate_count`) `emp e JOIN emp m ON e.supervisor = m.empno GROUP BY m.ename HAVING COUNT(e.empno) > 2` via chiqaring.",
     "explanation": ""
   },
   {
@@ -196,7 +193,7 @@ window.QUESTIONS_101_150 = [
     "source": "S05 Task 30 • Shartli Agregatsiya (CASE WHEN)",
     "title": "Shartli Agregatsiya: Bo'limdagi Kotiblar Soni",
     "story": "`COUNT(CASE WHEN job = 'CLERK' THEN 1 END)` faqat kotib bo'lgan qatorlarni sanaydi, boshqalarda esa NULL qaytarib hisobga olmaydi.",
-    "taskUz": "Har bir bo'lim nomi (`dname`) and undagi aynan kotiblar sonini (`clerk_count`) `COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END)` via display.",
+    "taskUz": "Har bir bo'lim nomi (`dname`) and undagi aynan kotiblar sonini (`clerk_count`) `COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END)` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `clerk_count`\n• Asosiy jadvallar: `dept`, `emp`",
     "expectedSql": "SELECT d.dname, COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END) AS clerk_count FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname",
     "hint": "`COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END) AS clerk_count` iborasidan foydalaning.",
     "tags": [
@@ -207,7 +204,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT d.dname, COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END) AS clerk_count FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname"
     ],
-    "task": "Har bir bo'lim nomi (`dname`) and undagi aynan kotiblar sonini (`clerk_count`) `COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END)` via display.",
+    "task": "Har bir bo'lim nomi (`dname`) and undagi aynan kotiblar sonini (`clerk_count`) `COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END)` via chiqaring.",
     "explanation": ""
   },
   {
@@ -217,7 +214,7 @@ window.QUESTIONS_101_150 = [
     "source": "S05 Task 30 • Bo'limdagi Sotuvchilar Soni",
     "title": "Bo'limlar Bo'yicha Sotuvchilar Soni",
     "story": "Har bir bo'limda nechta sotuvchi (`SALESMAN`) borligini bitta so'rovda hisoblang.",
-    "taskUz": "Bo'lim nomi (`dname`) and sotuvchilar sonini (`sales_count`) `COUNT(CASE WHEN e.job = 'SALESMAN' THEN 1 END)` via display.",
+    "taskUz": "Bo'lim nomi (`dname`) and sotuvchilar sonini (`sales_count`) `COUNT(CASE WHEN e.job = 'SALESMAN' THEN 1 END)` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `sales_count`\n• Asosiy jadvallar: `dept`, `emp`",
     "expectedSql": "SELECT d.dname, COUNT(CASE WHEN e.job = 'SALESMAN' THEN 1 END) AS sales_count FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname",
     "hint": "`COUNT(CASE WHEN e.job = 'SALESMAN' THEN 1 END) AS sales_count` .",
     "tags": [
@@ -227,7 +224,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT d.dname, COUNT(CASE WHEN e.job = 'SALESMAN' THEN 1 END) AS sales_count FROM dept d LEFT JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname"
     ],
-    "task": "Bo'lim nomi (`dname`) and sotuvchilar sonini (`sales_count`) `COUNT(CASE WHEN e.job = 'SALESMAN' THEN 1 END)` via display.",
+    "task": "Bo'lim nomi (`dname`) and sotuvchilar sonini (`sales_count`) `COUNT(CASE WHEN e.job = 'SALESMAN' THEN 1 END)` via chiqaring.",
     "explanation": ""
   },
   {
@@ -237,7 +234,7 @@ window.QUESTIONS_101_150 = [
     "source": "S05 Task 26 • O'rtacha Maoshi $2000 dan Yuqori Bo'limlar",
     "title": "O'rtacha Maoshi $2,000 dan Yuqori Bo'limlar",
     "story": "Kompaniyaning eng yuqori maosh to'laydigan bo'limlarini aniqlash uchun guruhlash natijasini `HAVING AVG(e.sal) > 2000` bilan filtrlang.",
-    "taskUz": "O'rtacha salary 2000 dan katta bo'lgan bo'limlarning nomi (`dname`) and o'rtacha salaryni (`avg_sal`) display.",
+    "taskUz": "O'rtacha salary 2000 dan katta bo'lgan bo'limlarning nomi (`dname`) and o'rtacha salaryni (`avg_sal`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `avg_sal`\n• Asosiy jadvallar: `dept`, `emp`",
     "expectedSql": "SELECT d.dname, AVG(e.sal) AS avg_sal FROM dept d JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname HAVING AVG(e.sal) > 2000",
     "hint": "`GROUP BY d.dname HAVING AVG(e.sal) > 2000` .",
     "tags": [
@@ -247,7 +244,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT d.dname, AVG(e.sal) AS avg_sal FROM dept d JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname HAVING AVG(e.sal) > 2000"
     ],
-    "task": "O'rtacha salary 2000 dan katta bo'lgan bo'limlarning nomi (`dname`) and o'rtacha salaryni (`avg_sal`) display.",
+    "task": "O'rtacha salary 2000 dan katta bo'lgan bo'limlarning nomi (`dname`) and o'rtacha salaryni (`avg_sal`) chiqaring.",
     "explanation": ""
   },
   {
@@ -257,7 +254,7 @@ window.QUESTIONS_101_150 = [
     "source": "Chinook DB A1 • HAVING Treklar Soni",
     "title": "Chinook: Kamida 3 Ta Treki Bor Janrlar",
     "story": "Bizning namunaviy bazamizda kamida 3 ta audio trekka ega bo'lgan faol janrlarni aniqlang.",
-    "taskUz": "Kamida 3 ta treki bor janrlarning nomi (`g.name`) and treklar sonini (`track_count`) `HAVING COUNT(t.track_id) >= 3` via display.",
+    "taskUz": "Kamida 3 ta treki bor janrlarning nomi (`g.name`) and treklar sonini (`track_count`) `HAVING COUNT(t.track_id) >= 3` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `genre_name`, `track_count`\n• Asosiy jadvallar: `genre`, `track`",
     "expectedSql": "SELECT g.name AS genre_name, COUNT(t.track_id) AS track_count FROM genre g JOIN track t ON g.genre_id = t.genre_id GROUP BY g.name HAVING COUNT(t.track_id) >= 3",
     "hint": "`GROUP BY g.name HAVING COUNT(t.track_id) >= 3` .",
     "tags": [
@@ -267,7 +264,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT g.name AS genre_name, COUNT(t.track_id) AS track_count FROM genre g JOIN track t ON g.genre_id = t.genre_id GROUP BY g.name HAVING COUNT(t.track_id) >= 3"
     ],
-    "task": "Kamida 3 ta treki bor janrlarning nomi (`g.name`) and treklar sonini (`track_count`) `HAVING COUNT(t.track_id) >= 3` via display.",
+    "task": "Kamida 3 ta treki bor janrlarning nomi (`g.name`) and treklar sonini (`track_count`) `HAVING COUNT(t.track_id) >= 3` via chiqaring.",
     "explanation": ""
   },
   {
@@ -277,7 +274,7 @@ window.QUESTIONS_101_150 = [
     "source": "Chinook DB A2 • Eng Ko'p Daromad Keltirgan Ijrochilar",
     "title": "Chinook: Eng Ko'p Daromad Keltirgan Ijrochi",
     "story": "Xarid qilingan barcha treklar bo'yicha eng yuqori tushum keltirgan yetakchi san'atkorni aniqlang.",
-    "taskUz": "Ijrochi nomi (`ar.name`) and keltirgan umumiy daromadini (`total_revenue`) `invoice_line`, `track`, `album` and `artist` jadandllarini joining, `ORDER BY total_revenue DESC LIMIT 1` via display.",
+    "taskUz": "Ijrochi nomi (`ar.name`) and keltirgan umumiy daromadini (`total_revenue`) `invoice_line`, `track`, `album` and `artist` jadandllarini joining, `saralang total_revenue DESC LIMIT 1` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `name`, `total_revenue`\n• Asosiy jadvallar: `artist`, `album`, `track`, `invoice_line`\n• Saralash (ORDER BY): `total_revenue DESC`",
     "expectedSql": "SELECT ar.name, SUM(il.unit_price * il.quantity) AS total_revenue FROM artist ar JOIN album al ON ar.artist_id = al.artist_id JOIN track t ON al.album_id = t.album_id JOIN invoice_line il ON t.track_id = il.track_id GROUP BY ar.name ORDER BY total_revenue DESC LIMIT 1",
     "hint": "`SUM(il.unit_price * il.quantity) AS total_revenue ... ORDER BY total_revenue DESC LIMIT 1` qiling.",
     "tags": [
@@ -288,7 +285,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT ar.name, SUM(il.unit_price * il.quantity) AS total_revenue FROM artist ar JOIN album al ON ar.artist_id = al.artist_id JOIN track t ON al.album_id = t.album_id JOIN invoice_line il ON t.track_id = il.track_id GROUP BY ar.name ORDER BY total_revenue DESC LIMIT 1"
     ],
-    "task": "Ijrochi nomi (`ar.name`) and keltirgan umumiy daromadini (`total_revenue`) `invoice_line`, `track`, `album` and `artist` jadandllarini joining, `ORDER BY total_revenue DESC LIMIT 1` via display.",
+    "task": "Ijrochi nomi (`ar.name`) and keltirgan umumiy daromadini (`total_revenue`) `invoice_line`, `track`, `album` and `artist` jadandllarini joining, `saralang total_revenue DESC LIMIT 1` via chiqaring.",
     "explanation": ""
   },
   {
@@ -298,7 +295,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Engineering • Bir Nechta Loyihada Ishlayotganlar",
     "title": "1 tadan Ko'p Loyihada Band Bo'lgan Muhandislar",
     "story": "Resurslar zo'riqishi: bir vaqtning o'zida 1 tadan ko'p loyihaga jalb qilingan xodimlarni aniqlang.",
-    "taskUz": "1 tadan ko'p loyihada ishlayotgan employee name (`ename`) and loyihalari sonini (`project_count`) `GROUP BY e.ename HAVING COUNT(w.pno) > 1` via display.",
+    "taskUz": "1 tadan ko'p loyihada ishlayotgan employee name (`ename`) and loyihalari sonini (`project_count`) `GROUP BY e.ename HAVING COUNT(w.pno) > 1` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `project_count`\n• Asosiy jadvallar: `emp`, `works_on`",
     "expectedSql": "SELECT e.ename, COUNT(w.pno) AS project_count FROM emp e JOIN works_on w ON e.empno = w.empno GROUP BY e.ename HAVING COUNT(w.pno) > 1",
     "hint": "`GROUP BY e.ename HAVING COUNT(w.pno) > 1` .",
     "tags": [
@@ -308,7 +305,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT e.ename, COUNT(w.pno) AS project_count FROM emp e JOIN works_on w ON e.empno = w.empno GROUP BY e.ename HAVING COUNT(w.pno) > 1"
     ],
-    "task": "1 tadan ko'p loyihada ishlayotgan employee name (`ename`) and loyihalari sonini (`project_count`) `GROUP BY e.ename HAVING COUNT(w.pno) > 1` via display.",
+    "task": "1 tadan ko'p loyihada ishlayotgan employee name (`ename`) and loyihalari sonini (`project_count`) `GROUP BY e.ename HAVING COUNT(w.pno) > 1` via chiqaring.",
     "explanation": ""
   },
   {
@@ -318,7 +315,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Engineering • Katta Soatli Loyihalar",
     "title": "Umumiy Ish Vaqti 50 Soatdan Oshgan Loyihalar",
     "story": "Har bir loyiha bo'yicha jami sarflangan soatlar 50 dan oshgan asosiy korporativ loyihalarni aniqlang.",
-    "taskUz": "Umumiy ishlangan soatlari 50 dan katta bo'lgan loyihalarning nomi (`pname`) and jami soatlarini (`total_hours`) `HAVING SUM(w.hours) > 50` via display.",
+    "taskUz": "Umumiy ishlangan soatlari 50 dan katta bo'lgan loyihalarning nomi (`pname`) and jami soatlarini (`total_hours`) `HAVING SUM(w.hours) > 50` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `pname`, `total_hours`\n• Asosiy jadvallar: `project`, `works_on`",
     "expectedSql": "SELECT p.pname, SUM(w.hours) AS total_hours FROM project p JOIN works_on w ON p.pno = w.pno GROUP BY p.pname HAVING SUM(w.hours) > 50",
     "hint": "`GROUP BY p.pname HAVING SUM(w.hours) > 50` .",
     "tags": [
@@ -328,7 +325,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT p.pname, SUM(w.hours) AS total_hours FROM project p JOIN works_on w ON p.pno = w.pno GROUP BY p.pname HAVING SUM(w.hours) > 50"
     ],
-    "task": "Umumiy ishlangan soatlari 50 dan katta bo'lgan loyihalarning nomi (`pname`) and jami soatlarini (`total_hours`) `HAVING SUM(w.hours) > 50` via display.",
+    "task": "Umumiy ishlangan soatlari 50 dan katta bo'lgan loyihalarning nomi (`pname`) and jami soatlarini (`total_hours`) `HAVING SUM(w.hours) > 50` via chiqaring.",
     "explanation": ""
   },
   {
@@ -338,7 +335,7 @@ window.QUESTIONS_101_150 = [
     "source": "S05 Task 24 • Kamida 3 Ta Xodimi Bor Bo'limlar",
     "title": "Kamida 3 Nafer Xodimi Bor Bo'limlar",
     "story": "Katta tarkibli bo'limlar: o'z safida kamida 3 nafar xodimga ega bo'limlarni toping.",
-    "taskUz": "Kamida 3 nafar xodimga ega bo'lgan bo'lim nomi (`dname`) and xodimlar sonini (`emp_count`) `GROUP BY d.dname HAVING COUNT(e.empno) >= 3` via display.",
+    "taskUz": "Kamida 3 nafar xodimga ega bo'lgan bo'lim nomi (`dname`) and xodimlar sonini (`emp_count`) `GROUP BY d.dname HAVING COUNT(e.empno) >= 3` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `emp_count`\n• Asosiy jadvallar: `dept`, `emp`",
     "expectedSql": "SELECT d.dname, COUNT(e.empno) AS emp_count FROM dept d JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname HAVING COUNT(e.empno) >= 3",
     "hint": "`GROUP BY d.dname HAVING COUNT(e.empno) >= 3` .",
     "tags": [
@@ -348,7 +345,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT d.dname, COUNT(e.empno) AS emp_count FROM dept d JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname HAVING COUNT(e.empno) >= 3"
     ],
-    "task": "Kamida 3 nafar xodimga ega bo'lgan bo'lim nomi (`dname`) and xodimlar sonini (`emp_count`) `GROUP BY d.dname HAVING COUNT(e.empno) >= 3` via display.",
+    "task": "Kamida 3 nafar xodimga ega bo'lgan bo'lim nomi (`dname`) and xodimlar sonini (`emp_count`) `GROUP BY d.dname HAVING COUNT(e.empno) >= 3` via chiqaring.",
     "explanation": ""
   },
   {
@@ -358,7 +355,7 @@ window.QUESTIONS_101_150 = [
     "source": "Chinook DB H7 • Invoyslar Soni 2 tadan Ko'p Mamlakatlar",
     "title": "Chinook: 2 tadan Ko'p Invoysga Ega Mamlakatlar",
     "story": "Doimiy xaridorlar oqimiga ega bo'lgan mamlakatlarni guruhlash filtrida ajrating.",
-    "taskUz": "Invoyslar soni 2 tadan ko'p bo'lgan mamlakatlarning nomi (`billing_country`) and invoyslar sonini (`invoice_count`) `HAVING COUNT(invoice_id) > 2` via display.",
+    "taskUz": "Invoyslar soni 2 tadan ko'p bo'lgan mamlakatlarning nomi (`billing_country`) and invoyslar sonini (`invoice_count`) `HAVING COUNT(invoice_id) > 2` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `billing_country`, `invoice_count`\n• Asosiy jadvallar: `invoice`",
     "expectedSql": "SELECT billing_country, COUNT(invoice_id) AS invoice_count FROM invoice GROUP BY billing_country HAVING COUNT(invoice_id) > 2",
     "hint": "`GROUP BY billing_country HAVING COUNT(invoice_id) > 2` .",
     "tags": [
@@ -368,7 +365,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT billing_country, COUNT(invoice_id) AS invoice_count FROM invoice GROUP BY billing_country HAVING COUNT(invoice_id) > 2"
     ],
-    "task": "Invoyslar soni 2 tadan ko'p bo'lgan mamlakatlarning nomi (`billing_country`) and invoyslar sonini (`invoice_count`) `HAVING COUNT(invoice_id) > 2` via display.",
+    "task": "Invoyslar soni 2 tadan ko'p bo'lgan mamlakatlarning nomi (`billing_country`) and invoyslar sonini (`invoice_count`) `HAVING COUNT(invoice_id) > 2` via chiqaring.",
     "explanation": ""
   },
   {
@@ -378,7 +375,7 @@ window.QUESTIONS_101_150 = [
     "source": "S05 Task 28b • Bir Nechta Razryadga Ega Kasblar",
     "title": "Bir Nechta Maosh Razryadiga Ega Lavozimlar",
     "story": "Kompaniyada xodimlari bittadan ko'p har xil maosh razryadlarida turuvchi lavozimlarni aniqlang.",
-    "taskUz": "Turli xil maosh razryadlari soni 1 tadan ko'p bo'lgan lavozimlar (`job`) and ularning razryadlari sonini (`grade_count`) `HAVING COUNT(DISTINCT s.grade) > 1` via display.",
+    "taskUz": "Turli xil maosh razryadlari soni 1 tadan ko'p bo'lgan lavozimlar (`job`) and ularning razryadlari sonini (`grade_count`) `HAVING COUNT(DISTINCT s.grade) > 1` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `job`, `grade_count`\n• Asosiy jadvallar: `emp`, `salgrade`",
     "expectedSql": "SELECT e.job, COUNT(DISTINCT s.grade) AS grade_count FROM emp e JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal GROUP BY e.job HAVING COUNT(DISTINCT s.grade) > 1",
     "hint": "`GROUP BY e.job HAVING COUNT(DISTINCT s.grade) > 1` .",
     "tags": [
@@ -387,7 +384,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT e.job, COUNT(DISTINCT s.grade) AS grade_count FROM emp e JOIN salgrade s ON e.sal BETWEEN s.losal AND s.hisal GROUP BY e.job HAVING COUNT(DISTINCT s.grade) > 1"
     ],
-    "task": "Turli xil maosh razryadlari soni 1 tadan ko'p bo'lgan lavozimlar (`job`) and ularning razryadlari sonini (`grade_count`) `HAVING COUNT(DISTINCT s.grade) > 1` via display.",
+    "task": "Turli xil maosh razryadlari soni 1 tadan ko'p bo'lgan lavozimlar (`job`) and ularning razryadlari sonini (`grade_count`) `HAVING COUNT(DISTINCT s.grade) > 1` via chiqaring.",
     "explanation": ""
   },
   {
@@ -397,7 +394,7 @@ window.QUESTIONS_101_150 = [
     "source": "S05 Task 27–30 • 8-Qavat Bosh Imtihoni",
     "title": "8-Qavat Bosh Imtihoni: Katta HAVING & Shartli Svodka",
     "story": "8-qavat liftini ochish uchun har bir bo'limdagi kotiblar va boshqa xodimlar sonini hamda kamida 1 xodimi borligini HAVING orqali tasdiqlang.",
-    "taskUz": "Bo'lim nomi (`dname`), undagi kotiblar soni (`clerks`) and jami xodimlar sonini (`total_emps`) `COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END)` bilan hisoblab, `HAVING COUNT(e.empno) >= 1` via display.",
+    "taskUz": "Bo'lim nomi (`dname`), undagi kotiblar soni (`clerks`) and jami xodimlar sonini (`total_emps`) `COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END)` bilan hisoblab, `HAVING COUNT(e.empno) >= 1` via chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `clerks`, `total_emps`\n• Asosiy jadvallar: `dept`, `emp`",
     "expectedSql": "SELECT d.dname, COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END) AS clerks, COUNT(e.empno) AS total_emps FROM dept d JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname HAVING COUNT(e.empno) >= 1",
     "hint": "`SELECT d.dname, COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END) AS clerks, COUNT(e.empno) AS total_emps FROM dept d JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname HAVING COUNT(e.empno) >= 1` .",
     "tags": [
@@ -408,7 +405,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT d.dname, COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END) AS clerks, COUNT(e.empno) AS total_emps FROM dept d JOIN emp e ON d.deptno = e.deptno GROUP BY d.dname HAVING COUNT(e.empno) >= 1"
     ],
-    "task": "Bo'lim nomi (`dname`), undagi kotiblar soni (`clerks`) and jami xodimlar sonini (`total_emps`) `COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END)` bilan hisoblab, `HAVING COUNT(e.empno) >= 1` via display.",
+    "task": "Bo'lim nomi (`dname`), undagi kotiblar soni (`clerks`) and jami xodimlar sonini (`total_emps`) `COUNT(CASE WHEN e.job = 'CLERK' THEN 1 END)` bilan hisoblab, `HAVING COUNT(e.empno) >= 1` via chiqaring.",
     "explanation": ""
   },
   {
@@ -502,7 +499,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 15 & 17 • Sorted Faylda Ikkilik Qidiruv",
     "title": "Sorted Faylda Ikkilik Qidiruv (log2 b)",
     "story": "Agar fayl kalit bo'yicha tartiblangan (Sequential/Sorted) bo'lsa, ikkilik qidiruv (Binary Search) qo'llaniladi va atigi ceil(log2(15395)) ta sahifa o'qiladi. 2 ning 14-darajasi 16,384 bo'lgani uchun natija 14 ga teng!",
-    "taskUz": "Ikkilik qidiruvda 15,395 ta sahifa uchun talab qilinadigan sahifa o'qishlar sonini display. (`SELECT 14 AS sorted_binary_search_cost`).",
+    "taskUz": "Ikkilik qidiruvda 15,395 ta sahifa uchun talab qilinadigan sahifa o'qishlar sonini chiqaring. (`SELECT 14 AS sorted_binary_search_cost`).",
     "expectedSql": "SELECT 14 AS sorted_binary_search_cost",
     "hint": "`SELECT 14 AS sorted_binary_search_cost` deb yozing (Heap dagi 7698 o'rniga atigi 14 ta!).",
     "tags": [
@@ -513,7 +510,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT 14 AS sorted_binary_search_cost"
     ],
-    "task": "Ikkilik qidiruvda 15,395 ta sahifa uchun talab qilinadigan sahifa o'qishlar sonini display. (`SELECT 14 AS sorted_binary_search_cost`).",
+    "task": "Ikkilik qidiruvda 15,395 ta sahifa uchun talab qilinadigan sahifa o'qishlar sonini chiqaring. (`SELECT 14 AS sorted_binary_search_cost`).",
     "explanation": ""
   },
   {
@@ -523,7 +520,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 16 & 17 • Hash Faylda Qidiruv Narxi",
     "title": "Hash Faylda Qidiruv Narxi (O(1))",
     "story": "Xesh faylda kalit bo'yicha savatcha h(key) bevosita hisoblanadi. Shuning uchun tenglik bo'yicha qidirish narxi atigi 1 ta sahifa o'qishga teng!",
-    "taskUz": "Hash faylda tenglik bo'yicha qidiruvning o'rtacha sahifa o'qish narxini display. (`SELECT 1 AS hash_equality_search_cost`).",
+    "taskUz": "Hash faylda tenglik bo'yicha qidiruvning o'rtacha sahifa o'qish narxini chiqaring. (`SELECT 1 AS hash_equality_search_cost`).",
     "expectedSql": "SELECT 1 AS hash_equality_search_cost",
     "hint": "`SELECT 1 AS hash_equality_search_cost` .",
     "tags": [
@@ -534,7 +531,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT 1 AS hash_equality_search_cost"
     ],
-    "task": "Hash faylda tenglik bo'yicha qidiruvning o'rtacha sahifa o'qish narxini display. (`SELECT 1 AS hash_equality_search_cost`).",
+    "task": "Hash faylda tenglik bo'yicha qidiruvning o'rtacha sahifa o'qish narxini chiqaring. (`SELECT 1 AS hash_equality_search_cost`).",
     "explanation": ""
   },
   {
@@ -544,7 +541,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 17 • INSERT Amalida Heap ning Ustunligi",
     "title": "INSERT Amalida Heap ning Ustunligi",
     "story": "Nega PostgreSQL jadvallari standart holatda Heap fayl shaklida yaratiladi? Chunki yangi yozuvni qo'shish (INSERT) Heap da eng arzon: atigi 1 marta o'qish + 1 marta yozish (jami 2 I/O).",
-    "taskUz": "Heap faylga yangi yozuv qo'shishning sahifa I/O narxini display. (`SELECT 2 AS heap_insert_cost`).",
+    "taskUz": "Heap faylga yangi yozuv qo'shishning sahifa I/O narxini chiqaring. (`SELECT 2 AS heap_insert_cost`).",
     "expectedSql": "SELECT 2 AS heap_insert_cost",
     "hint": "`SELECT 2 AS heap_insert_cost` .",
     "tags": [
@@ -555,7 +552,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT 2 AS heap_insert_cost"
     ],
-    "task": "Heap faylga yangi yozuv qo'shishning sahifa I/O narxini display. (`SELECT 2 AS heap_insert_cost`).",
+    "task": "Heap faylga yangi yozuv qo'shishning sahifa I/O narxini chiqaring. (`SELECT 2 AS heap_insert_cost`).",
     "explanation": ""
   },
   {
@@ -585,7 +582,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 9 • Bufer Kesh (Buffer Pool)",
     "title": "Bufer Keshdagi Sahifalarni Tahlil Qilish",
     "story": "Diskdan o'qilgan sahifalar tezlik uchun operativ xotiradagi Buffer Pool (Shared Buffers) da keshlanadi. `storage_pages` jadvalidan keshda turgan sahifalarni ko'ring.",
-    "taskUz": "`storage_pages` jadandlidan keshda turgan (`is_cached = true`) sahifalarning `page_id`, `relname`, `record_count` and `hit_count` ustunlarini display.",
+    "taskUz": "`storage_pages` jadandlidan keshda turgan (`is_cached = true`) sahifalarning `page_id`, `relname`, `record_count` and `hit_count` ustunlarini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `page_id`, `relname`, `record_count`, `hit_count`\n• Asosiy jadvallar: `storage_pages`",
     "expectedSql": "SELECT page_id, relname, record_count, hit_count FROM storage_pages WHERE is_cached = true",
     "hint": "`SELECT page_id, relname, record_count, hit_count FROM storage_pages WHERE is_cached = true` .",
     "tags": [
@@ -596,7 +593,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT page_id, relname, record_count, hit_count FROM storage_pages WHERE is_cached = true"
     ],
-    "task": "`storage_pages` jadandlidan keshda turgan (`is_cached = true`) sahifalarning `page_id`, `relname`, `record_count` and `hit_count` ustunlarini display.",
+    "task": "`storage_pages` jadandlidan keshda turgan (`is_cached = true`) sahifalarning `page_id`, `relname`, `record_count` and `hit_count` ustunlarini chiqaring.",
     "explanation": ""
   },
   {
@@ -606,7 +603,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 13 • CTID Jismoniy Manzili",
     "title": "CTID Ustuni: Jismoniy Manzil (page, slot)",
     "story": "PostgreSQL da har bir yozuvning jismoniy joylashuv manzili `ctid = (sahifa_raqami, slot_raqami)` ko'rinishida bo'ladi.",
-    "taskUz": "`storage_pages` jadandlidan sahifa raqami (`page_id`), jadandl nomi (`relname`) and manzil namunasini (`ctid_sample`) display.",
+    "taskUz": "`storage_pages` jadandlidan sahifa raqami (`page_id`), jadandl nomi (`relname`) and manzil namunasini (`ctid_sample`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `page_id`, `relname`, `ctid_sample`\n• Asosiy jadvallar: `storage_pages`",
     "expectedSql": "SELECT page_id, relname, ctid_sample FROM storage_pages",
     "hint": "`SELECT page_id, relname, ctid_sample FROM storage_pages` .",
     "tags": [
@@ -617,7 +614,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT page_id, relname, ctid_sample FROM storage_pages"
     ],
-    "task": "`storage_pages` jadandlidan sahifa raqami (`page_id`), jadandl nomi (`relname`) and manzil namunasini (`ctid_sample`) display.",
+    "task": "`storage_pages` jadandlidan sahifa raqami (`page_id`), jadandl nomi (`relname`) and manzil namunasini (`ctid_sample`) chiqaring.",
     "explanation": ""
   },
   {
@@ -627,7 +624,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 17 • Fayl Tuzilmalari Solishtirma Jadvali",
     "title": "Fayl Tuzilmalari Unumdorligi Taqqosi",
     "story": "Bizning simulyatorimizdagi `file_stats` jadvali Heap, Sorted, Hash va B+ Tree tuzilmalarining qidirish va qo'shish narxlarini solishtiradi.",
-    "taskUz": "`file_stats` jadandlidan fayl turi (`file_type`), tenglik bo'yicha qidiruv narxi (`avg_equality_scan_pages`) and qo'shish narxini (`insert_pages`) display.",
+    "taskUz": "`file_stats` jadandlidan fayl turi (`file_type`), tenglik bo'yicha qidiruv narxi (`avg_equality_scan_pages`) and qo'shish narxini (`insert_pages`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `file_type`, `avg_equality_scan_pages`, `insert_pages`\n• Asosiy jadvallar: `file_stats`",
     "expectedSql": "SELECT file_type, avg_equality_scan_pages, insert_pages FROM file_stats",
     "hint": "`SELECT file_type, avg_equality_scan_pages, insert_pages FROM file_stats` .",
     "tags": [
@@ -638,7 +635,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT file_type, avg_equality_scan_pages, insert_pages FROM file_stats"
     ],
-    "task": "`file_stats` jadandlidan fayl turi (`file_type`), tenglik bo'yicha qidiruv narxi (`avg_equality_scan_pages`) and qo'shish narxini (`insert_pages`) display.",
+    "task": "`file_stats` jadandlidan fayl turi (`file_type`), tenglik bo'yicha qidiruv narxi (`avg_equality_scan_pages`) and qo'shish narxini (`insert_pages`) chiqaring.",
     "explanation": ""
   },
   {
@@ -669,7 +666,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 7 • Sahifadagi Bo'sh Joy (Free Space)",
     "title": "Sahifalardagi Bo'sh Joy Miqdori",
     "story": "Slotted Page arxitekturasida yozuvlar sahifaning oxiridan, ko'rsatkichlar (line pointers) esa boshidan o'sib, o'rtada bo'sh joy (free space) qoladi.",
-    "taskUz": "`storage_pages` jadandlidan bo'sh joyi 500 baytdan katta bo'lgan sahifalarning `page_id`, `record_count` and `free_bytes` ustunlarini display.",
+    "taskUz": "`storage_pages` jadandlidan bo'sh joyi 500 baytdan katta bo'lgan sahifalarning `page_id`, `record_count` and `free_bytes` ustunlarini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `page_id`, `record_count`, `free_bytes`\n• Asosiy jadvallar: `storage_pages`",
     "expectedSql": "SELECT page_id, record_count, free_bytes FROM storage_pages WHERE free_bytes > 500",
     "hint": "`WHERE free_bytes > 500` shartini bering.",
     "tags": [
@@ -679,7 +676,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT page_id, record_count, free_bytes FROM storage_pages WHERE free_bytes > 500"
     ],
-    "task": "`storage_pages` jadandlidan bo'sh joyi 500 baytdan katta bo'lgan sahifalarning `page_id`, `record_count` and `free_bytes` ustunlarini display.",
+    "task": "`storage_pages` jadandlidan bo'sh joyi 500 baytdan katta bo'lgan sahifalarning `page_id`, `record_count` and `free_bytes` ustunlarini chiqaring.",
     "explanation": ""
   },
   {
@@ -709,7 +706,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slides 1–18 • 9-Qavat Bosh Imtihoni",
     "title": "9-Qavat Bosh Imtihoni: Katta Jismoniy Saqlash Svodkasi",
     "story": "9-qavat portalini ochish uchun eng ko'p murojaat qilingan (hit_count eng yuqori) keshdagi sahifalarni saralab bering.",
-    "taskUz": "`storage_pages` jadandlidan All sahifalarning `page_id`, `file_type`, `relname` and `hit_count` ustunlarini chiqarib, `hit_count` kamayishi bo'yicha order by.",
+    "taskUz": "`storage_pages` jadandlidan All sahifalarning `page_id`, `file_type`, `relname` and `hit_count` ustunlarini chiqarib, `hit_count` kamayishi bo'yicha tartibida saralang.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `page_id`, `file_type`, `relname`, `hit_count`\n• Asosiy jadvallar: `storage_pages`\n• Saralash (ORDER BY): `hit_count DESC`",
     "expectedSql": "SELECT page_id, file_type, relname, hit_count FROM storage_pages ORDER BY hit_count DESC",
     "hint": "`SELECT page_id, file_type, relname, hit_count FROM storage_pages ORDER BY hit_count DESC` .",
     "tags": [
@@ -720,7 +717,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT page_id, file_type, relname, hit_count FROM storage_pages ORDER BY hit_count DESC"
     ],
-    "task": "`storage_pages` jadandlidan All sahifalarning `page_id`, `file_type`, `relname` and `hit_count` ustunlarini chiqarib, `hit_count` kamayishi bo'yicha order by.",
+    "task": "`storage_pages` jadandlidan All sahifalarning `page_id`, `file_type`, `relname` and `hit_count` ustunlarini chiqarib, `hit_count` kamayishi bo'yicha tartibida saralang.",
     "explanation": ""
   },
   {
@@ -730,7 +727,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 19–20 • Indeks Asoslari",
     "title": "Indeks Asoslari: Qidiruv Kaliti va Ko'rsatkich",
     "story": "Indeks kitob oxiridagi mundarijaga o'xshaydi: butun kitobni boshidan o'qimasdan, to'g'ridan-to'g'ri kerakli sahifaga borish imkonini beradi.",
-    "taskUz": "`file_stats` jadandlidan B+ Tree indeksi uchun qidiruv narxini (`avg_equality_scan_pages`) display.",
+    "taskUz": "`file_stats` jadandlidan B+ Tree indeksi uchun qidiruv narxini (`avg_equality_scan_pages`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `file_type`, `avg_equality_scan_pages`\n• Asosiy jadvallar: `file_stats`",
     "expectedSql": "SELECT file_type, avg_equality_scan_pages FROM file_stats WHERE file_type = 'B+ Tree Index'",
     "hint": "`WHERE file_type = 'B+ Tree Index'` deb yozing (atigi 3 ta sahifa!).",
     "tags": [
@@ -740,7 +737,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT file_type, avg_equality_scan_pages FROM file_stats WHERE file_type = 'B+ Tree Index'"
     ],
-    "task": "`file_stats` jadandlidan B+ Tree indeksi uchun qidiruv narxini (`avg_equality_scan_pages`) display.",
+    "task": "`file_stats` jadandlidan B+ Tree indeksi uchun qidiruv narxini (`avg_equality_scan_pages`) chiqaring.",
     "explanation": ""
   },
   {
@@ -770,7 +767,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 25 • Birlamchi Indeks (Primary Index)",
     "title": "Birlamchi Indeks (Primary Index)",
     "story": "Darslik ta'rifi bo'yicha Birlamchi Indeks: ma'lumotlar fayli kalit maydon bo'yicha tartiblangan bo'ladi va har bir blok uchun bitta indeks yozuvi bo'ladi (ya'ni Siyrak / Sparse bo'ladi).",
-    "taskUz": "Bitta jadandlda ko'pi bilan nechta Birlamchi Indeks bo'lishi mumkinligini display. (`SELECT 1 AS max_primary_indexes_per_file`).",
+    "taskUz": "Bitta jadandlda ko'pi bilan nechta Birlamchi Indeks bo'lishi mumkinligini chiqaring. (`SELECT 1 AS max_primary_indexes_per_file`).",
     "expectedSql": "SELECT 1 AS max_primary_indexes_per_file",
     "hint": "`SELECT 1 AS max_primary_indexes_per_file` deb yozing (jadval faqat bitta tartibda saralanishi mumkin!).",
     "tags": [
@@ -780,7 +777,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT 1 AS max_primary_indexes_per_file"
     ],
-    "task": "Bitta jadandlda ko'pi bilan nechta Birlamchi Indeks bo'lishi mumkinligini display. (`SELECT 1 AS max_primary_indexes_per_file`).",
+    "task": "Bitta jadandlda ko'pi bilan nechta Birlamchi Indeks bo'lishi mumkinligini chiqaring. (`SELECT 1 AS max_primary_indexes_per_file`).",
     "explanation": ""
   },
   {
@@ -810,7 +807,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 27 • Ikkilamchi Indeks (Secondary Index)",
     "title": "Ikkilamchi Indeks (Secondary Index)",
     "story": "Faylning tartibiga bog'liq bo'lmagan maydonga quriladigan indeks. U albatta Zich (Dense) bo'lishi shart, chunki fayl tartibsiz bo'lgani sababli barcha qatorlarga ko'rsatkich kerak bo'ladi.",
-    "taskUz": "1,000,000 ta mijoz uchun ikkilamchi indeks nechta yozuvga ega bo'lishini display. (`SELECT 1000000 AS secondary_index_entries`).",
+    "taskUz": "1,000,000 ta mijoz uchun ikkilamchi indeks nechta yozuvga ega bo'lishini chiqaring. (`SELECT 1000000 AS secondary_index_entries`).",
     "expectedSql": "SELECT 1000000 AS secondary_index_entries",
     "hint": "`SELECT 1000000 AS secondary_index_entries` .",
     "tags": [
@@ -821,7 +818,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT 1000000 AS secondary_index_entries"
     ],
-    "task": "1,000,000 ta mijoz uchun ikkilamchi indeks nechta yozuvga ega bo'lishini display. (`SELECT 1000000 AS secondary_index_entries`).",
+    "task": "1,000,000 ta mijoz uchun ikkilamchi indeks nechta yozuvga ega bo'lishini chiqaring. (`SELECT 1000000 AS secondary_index_entries`).",
     "explanation": ""
   },
   {
@@ -831,7 +828,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 28–30 • B+ Daraxt Balandligi",
     "title": "B+ Daraxt Chuqurligi va Balandligi (Height)",
     "story": "B+ Tree o'z-o'zini balanslovchi daraxtdir. Katta shoxlanish koeffitsienti (Fan-out p=100) tufayli 1,000,000 yozuvli baza uchun ham daraxt balandligi atigi 3 ta darajadan oshmaydi!",
-    "taskUz": "Fan-out p = 100 and 1,000,000 bargli daraxtning balandligini (h = 3) display. (`SELECT 3 AS btree_height`).",
+    "taskUz": "Fan-out p = 100 and 1,000,000 bargli daraxtning balandligini (h = 3) chiqaring. (`SELECT 3 AS btree_height`).",
     "expectedSql": "SELECT 3 AS btree_height",
     "hint": "`SELECT 3 AS btree_height` deb yozing (100 * 100 * 100 = 1,000,000!).",
     "tags": [
@@ -842,7 +839,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT 3 AS btree_height"
     ],
-    "task": "Fan-out p = 100 and 1,000,000 bargli daraxtning balandligini (h = 3) display. (`SELECT 3 AS btree_height`).",
+    "task": "Fan-out p = 100 and 1,000,000 bargli daraxtning balandligini (h = 3) chiqaring. (`SELECT 3 AS btree_height`).",
     "explanation": ""
   },
   {
@@ -873,7 +870,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 22 • Seq Scan vs Index Scan",
     "title": "Optimizer Tanlovi: Seq Scan vs Index Scan",
     "story": "Indeks har doim ham tez ishlayveradimi? Yo'q! Agar so'rov jadvaldagi qatorlarning 30% dan ko'pini tanlab olsa, optimizer sekin Random I/O qilib o'tirmay, tezkor Sequential Scan (ketma-ket o'qish) ni tanlaydi.",
-    "taskUz": "Bizning `storage_pages` jadandlidan B+ Tree ildiz and barg sahifalarini (`file_type LIKE 'BTREE%'`) display.",
+    "taskUz": "Bizning `storage_pages` jadandlidan B+ Tree ildiz and barg sahifalarini (`file_type LIKE 'BTREE%'`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `page_id`, `file_type`, `hit_count`\n• Asosiy jadvallar: `storage_pages`",
     "expectedSql": "SELECT page_id, file_type, hit_count FROM storage_pages WHERE file_type LIKE 'BTREE%'",
     "hint": "`WHERE file_type LIKE 'BTREE%'` .",
     "tags": [
@@ -884,7 +881,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT page_id, file_type, hit_count FROM storage_pages WHERE file_type LIKE 'BTREE%'"
     ],
-    "task": "Bizning `storage_pages` jadandlidan B+ Tree ildiz and barg sahifalarini (`file_type LIKE 'BTREE%'`) display.",
+    "task": "Bizning `storage_pages` jadandlidan B+ Tree ildiz and barg sahifalarini (`file_type LIKE 'BTREE%'`) chiqaring.",
     "explanation": ""
   },
   {
@@ -936,7 +933,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 Slide 33 • PostgreSQL Indeks Turlari",
     "title": "PostgreSQL Indeks Turlari: B-tree, GiST, GIN, BRIN",
     "story": "PostgreSQL da matnli to'liq qidiruv (Full-Text Search) uchun GIN, geofazoviy (GIS) ma'lumotlar uchun GiST, gigant jadvallar uchun esa BRIN (Block Range Index) ishlatiladi.",
-    "taskUz": "PostgreSQL da standart holatda qo'llaniladigan indeks turi 'BTREE' ekanligini display. (`SELECT 'BTREE' AS default_pg_index_type`).",
+    "taskUz": "PostgreSQL da standart holatda qo'llaniladigan indeks turi 'BTREE' ekanligini chiqaring. (`SELECT 'BTREE' AS default_pg_index_type`).",
     "expectedSql": "SELECT 'BTREE' AS default_pg_index_type",
     "hint": "`SELECT 'BTREE' AS default_pg_index_type` .",
     "tags": [
@@ -948,7 +945,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT 'BTREE' AS default_pg_index_type"
     ],
-    "task": "PostgreSQL da standart holatda qo'llaniladigan indeks turi 'BTREE' ekanligini display. (`SELECT 'BTREE' AS default_pg_index_type`).",
+    "task": "PostgreSQL da standart holatda qo'llaniladigan indeks turi 'BTREE' ekanligini chiqaring. (`SELECT 'BTREE' AS default_pg_index_type`).",
     "explanation": ""
   },
   {
@@ -1021,7 +1018,7 @@ window.QUESTIONS_101_150 = [
     "source": "L05 & S05 Butun Kurs • 150-Bosqich Grand Imtihon",
     "title": "150-BOSQICH GRAND IMTIHON: BOSH DATA ARXITEKTORI",
     "story": "Tabriklaymiz! Siz 150 bosqichli Academy Database Systems simulyatorining cho'qqisiga yetib keldingiz. Barcha bo'limlar, ularning xodimlari va keshdagi xotira sahifalarini tahlil qilib, yakuniy sertifikatsiyani qo'lga kiriting!",
-    "taskUz": "Kompaniya xodimlari orasida eng yuqori maosh oluvchi rahbarning ismi (`ename`), lavozimi (`job`), salary (`sal`) and department name (`dname`) `emp` and `dept` ni joining, `sal = 5000` sharti bilan display.",
+    "taskUz": "Kompaniya xodimlari orasida eng yuqori maosh oluvchi rahbarning ismi (`ename`), lavozimi (`job`), salary (`sal`) and department name (`dname`) `emp` and `dept` ni joining, `sal = 5000` sharti bilan chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`, `dname`\n• Asosiy jadvallar: `emp`, `dept`",
     "expectedSql": "SELECT e.ename, e.job, e.sal, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE e.sal = 5000",
     "hint": "`SELECT e.ename, e.job, e.sal, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE e.sal = 5000` deb yozing (Prezident KING!).",
     "tags": [
@@ -1032,11 +1029,7 @@ window.QUESTIONS_101_150 = [
     "solutions": [
       "SELECT e.ename, e.job, e.sal, d.dname FROM emp e JOIN dept d ON e.deptno = d.deptno WHERE e.sal = 5000"
     ],
-    "task": "Kompaniya xodimlari orasida eng yuqori maosh oluvchi rahbarning ismi (`ename`), lavozimi (`job`), salary (`sal`) and department name (`dname`) `emp` and `dept` ni joining, `sal = 5000` sharti bilan display.",
+    "task": "Kompaniya xodimlari orasida eng yuqori maosh oluvchi rahbarning ismi (`ename`), lavozimi (`job`), salary (`sal`) and department name (`dname`) `emp` and `dept` ni joining, `sal = 5000` sharti bilan chiqaring.",
     "explanation": ""
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = window.QUESTIONS_101_150;
-}

@@ -1,9 +1,6 @@
-// ============================================================================
-// DATABASE SYSTEMS ACADEMY — WEEK 4: SQL DML & QUERY ENGINEERING
-// Variable: QUESTIONS_1_50 (50 Questions)
-// ============================================================================
+var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
 
-window.QUESTIONS_1_50 = [
+_scope.QUESTIONS_1_50 = [
   {
     "id": 1,
     "sector": 1,
@@ -11,7 +8,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 14–15 • Jadvalni To'liq O'qish",
     "title": "Kompaniya Filiallari Ro'yxati",
     "story": "Bosh ofisdagi birinchi ish kuningiz. Kadrlar bo'limi rahbari sizdan kompaniyaning barcha filiallari haqidagi ma'lumotni bazadan chiqarib berishni so'radi.",
-    "taskUz": "Display all columns and rows from the department table (`dept`).",
+    "taskUz": "chiqaring all columns and rows from the department table (`dept`).\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `dept`",
     "starterCode": "",
     "hint": "Jadvaldagi barcha ustunlarni tanlash uchun yulduzcha belgisidan va `dept` jadval nomidan foydalaning.",
     "solutions": [
@@ -24,7 +21,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Bo'limlar jadvalidagi barcha 4 ta filial (Nyu-York, Dallas, Chikago va Boston) ma'lumotlari successfully retrieved.",
-    "task": "Display all columns and rows from the department table (`dept`)."
+    "task": "chiqaring all columns and rows from the department table (`dept`)."
   },
   {
     "id": 2,
@@ -33,7 +30,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 15 • Xodimlar Jadvali",
     "title": "Xodimlarning To'liq Reyestri",
     "story": "Bosh direktor KING yig'ilish oldidan korporatsiyada ishlayotgan barcha 14 nafar xodimning to'liq ro'yxatini ko'zdan kechirmoqchi.",
-    "taskUz": "Display all columns and rows from the employee table (`emp`).",
+    "taskUz": "chiqaring all columns and rows from the employee table (`emp`).\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Xodimlar jadvali `emp` deb nomlanadi. Barcha ustunlarni tanlash operatorini qo'llang.",
     "solutions": [
@@ -43,7 +40,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Barcha 14 nafar xodimning shaxsiy raqami, ismi, lavozimi va maosh ma'lumotlari successfully displayed.",
-    "task": "Display all columns and rows from the employee table (`emp`)."
+    "task": "chiqaring all columns and rows from the employee table (`emp`)."
   },
   {
     "id": 3,
@@ -52,7 +49,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Intro • Razryadlar Jadvali",
     "title": "Maosh Shkalasi va Razryadlar",
     "story": "Moliya bo'limi kompaniyadagi 5 bosqichli maosh razryadlari va ularning eng past hamda eng yuqori chegaralarini tekshirmoqda.",
-    "taskUz": "Maosh darajalari jadandlidagi (`salgrade`) barcha ustunlarni (`grade`, `losal`, `hisal`) select and display.",
+    "taskUz": "Maosh darajalari jadandlidagi (`salgrade`) barcha ustunlarni (`grade`, `losal`, `hisal`) select and chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `salgrade`",
     "starterCode": "",
     "hint": "`salgrade` jadvalidan barcha ustunlarni yoki ushbu uchta ustun nomini ketma-ket yozib tanlab oling.",
     "solutions": [
@@ -65,7 +62,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Kompaniyaning 1-darajadan 5-darajagacha bo'lgan maosh chegaralari jadvali tayyor.",
-    "task": "Maosh darajalari jadandlidagi (`salgrade`) barcha ustunlarni (`grade`, `losal`, `hisal`) select and display."
+    "task": "Maosh darajalari jadandlidagi (`salgrade`) barcha ustunlarni (`grade`, `losal`, `hisal`) select and chiqaring."
   },
   {
     "id": 4,
@@ -74,7 +71,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 9 & 14 • Vertikal Proyeksiya",
     "title": "Qisqa Maosh Vedomosti",
     "story": "Hisobchi Clarkga xodimlarning barcha shaxsiy ma'lumotlari emas, faqatgina ismi, lavozimi va oylik maoshi yozilgan qisqa ro'yxat kerak.",
-    "taskUz": "From the employee table (`emp`), faqatgina `ename`, `job` and `sal` columns (shu ketma-ketlikda) tanlab oling.",
+    "taskUz": "From the employee table (`emp`), faqatgina `ename`, `job` and `sal` columns (shu ketma-ketlikda) tanlab oling.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Yulduzcha o'rniga kerakli uchta ustun nomini vergul bilan ajratib yozing.",
     "solutions": [
@@ -93,7 +90,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 14 • Bo'lim Nomlari va Shaharlar",
     "title": "Filiallar Geografiyasi",
     "story": "Logistika bo'limiga bo'lim raqamlari kerak emas — ularga faqat bo'lim nomi va u joylashgan shahar nomi zarur.",
-    "taskUz": "From the department table (`dept`), faqat bo'lim nomi (`dname`) and joylashgan shahri (`loc`) columns display.",
+    "taskUz": "From the department table (`dept`), faqat bo'lim nomi (`dname`) and joylashgan shahri (`loc`) columns chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `dname`, `loc`\n• Asosiy jadvallar: `dept`",
     "starterCode": "",
     "hint": "`dept` jadvalidan `dname` va `loc` ustunlarini vergul orqali tanlang.",
     "solutions": [
@@ -103,7 +100,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "To'rtta filialning nomi va shahri ortiqcha ustunlarsiz taqdim etildi.",
-    "task": "From the department table (`dept`), faqat bo'lim nomi (`dname`) and joylashgan shahri (`loc`) columns display."
+    "task": "From the department table (`dept`), faqat bo'lim nomi (`dname`) and joylashgan shahri (`loc`) columns chiqaring."
   },
   {
     "id": 6,
@@ -112,7 +109,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 16–17 • Arifmetik Ko'paytirish",
     "title": "Yillik Maosh Hisob-kitobi",
     "story": "Moliyaviy rejalashtirish bo'limi har bir xodimning bir yillik asosiy maosh fondini (12 oy uchun) ko'rib chiqmoqchi.",
-    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`), oylik maoshini (`sal`) and oylik maoshining 12 ga ko'paytmasini uchinchi ustun sifatida display.",
+    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`), oylik maoshini (`sal`) and oylik maoshining 12 ga ko'paytmasini uchinchi ustun sifatida chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `12`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Uchinchi ustunda `sal` ustunini ko'paytirish amali yordamida 12 soniga ko'paytiring.",
     "solutions": [
@@ -127,7 +124,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Arifmetik ifoda yordamida har bir xodimning 12 oylik daromadi hisoblab chiqildi.",
-    "task": "From the employee table (`emp`), xodimning ismini (`ename`), oylik maoshini (`sal`) and oylik maoshining 12 ga ko'paytmasini uchinchi ustun sifatida display."
+    "task": "From the employee table (`emp`), xodimning ismini (`ename`), oylik maoshini (`sal`) and oylik maoshining 12 ga ko'paytmasini uchinchi ustun sifatida chiqaring."
   },
   {
     "id": 7,
@@ -136,7 +133,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Intro • Arifmetik Ayirish",
     "title": "Razryad Diapazoni Kengligi",
     "story": "Kadrlar bo'limi har bir maosh razryadining eng yuqori chegarasi bilan eng past chegarasi o'rtasidagi farqni (kenglikni) bilmoqchi.",
-    "taskUz": "From the salary grade table (`salgrade`), razryad raqami (`grade`), quyi chegara (`losal`), yuqori chegara (`hisal`) and yuqori chegaradan quyi chegarani ayirish natijasini display.",
+    "taskUz": "From the salary grade table (`salgrade`), razryad raqami (`grade`), quyi chegara (`losal`), yuqori chegara (`hisal`) and yuqori chegaradan quyi chegarani ayirish natijasini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `grade`, `losal`, `hisal`, `losal`\n• Asosiy jadvallar: `salgrade`",
     "starterCode": "",
     "hint": "To'rtinchi ustun sifatida `hisal` ustunidan `losal` ustunini ayiring.",
     "solutions": [
@@ -152,7 +149,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Har bir razryadning maosh diapazoni kengligi (`hisal - losal`) aniqlandi.",
-    "task": "From the salary grade table (`salgrade`), razryad raqami (`grade`), quyi chegara (`losal`), yuqori chegara (`hisal`) and yuqori chegaradan quyi chegarani ayirish natijasini display."
+    "task": "From the salary grade table (`salgrade`), razryad raqami (`grade`), quyi chegara (`losal`), yuqori chegara (`hisal`) and yuqori chegaradan quyi chegarani ayirish natijasini chiqaring."
   },
   {
     "id": 8,
@@ -161,7 +158,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 18 • Ustun Aliaslari (AS)",
     "title": "Bayram Mukofoti va Ustun Nomi",
     "story": "Yangi yil oldidan har bir xodimning oylik maoshiga 200 dollar miqdorida bir martalik mukofot qo'shib ko'rilmoqda. Hisobotda bu ustun `bonus_sal` deb nomlanishi shart.",
-    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`), maoshini (`sal`) and maoshiga 200 qo'shilgan qiymatni `bonus_sal` ustun nomi (alias) bilan display.",
+    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`), maoshini (`sal`) and maoshiga 200 qo'shilgan qiymatni `bonus_sal` ustun nomi (alias) bilan chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `bonus_sal`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Qo'shish ifodasidan so'ng `AS` kalit so'zi orqali `bonus_sal` nomini bering.",
     "strictAlias": true,
@@ -177,7 +174,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Hisoblangan ustunga `bonus_sal` taxallusi (alias) berildi.",
-    "task": "From the employee table (`emp`), xodimning ismini (`ename`), maoshini (`sal`) and maoshiga 200 qo'shilgan qiymatni `bonus_sal` ustun nomi (alias) bilan display."
+    "task": "From the employee table (`emp`), xodimning ismini (`ename`), maoshini (`sal`) and maoshiga 200 qo'shilgan qiymatni `bonus_sal` ustun nomi (alias) bilan chiqaring."
   },
   {
     "id": 9,
@@ -186,7 +183,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 16–17 • Qavslar va Amallar Ustuvorligi",
     "title": "Qavslar Ustuvorligi: Oylik Bo'linma",
     "story": "Buxgalteriyada bahs chiqdi: xodimning maoshiga avval 240 qo'shilib, keyin hosil bo'lgan yig'indi 12 ga bo'linishi kerak. Qavssiz yozilsa, faqat 240 soni 12 ga bo'linib ketadi!",
-    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`) and uning maoshiga (`sal`) avandl 240 ni qo'shib, so'ngra yig'indini 12 ga bo'lish natijasini `monthly_adj` ustun nomi bilan display.",
+    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`) and uning maoshiga (`sal`) avandl 240 ni qo'shib, so'ngra yig'indini 12 ga bo'lish natijasini `monthly_adj` ustun nomi bilan chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `monthly_adj`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Qo'shish amali bo'lish amalidan oldin bajarilishi uchun qo'shish ifodasini qavs ichiga oling.",
     "strictAlias": true,
@@ -208,7 +205,7 @@ window.QUESTIONS_1_50 = [
       }
     ],
     "explanation": "Matematik qavslar tufayli avval yig'indi hisoblanib, so'ngra 12 oyga to'g'ri bo'lindi.",
-    "task": "From the employee table (`emp`), xodimning ismini (`ename`) and uning maoshiga (`sal`) avandl 240 ni qo'shib, so'ngra yig'indini 12 ga bo'lish natijasini `monthly_adj` ustun nomi bilan display."
+    "task": "From the employee table (`emp`), xodimning ismini (`ename`) and uning maoshiga (`sal`) avandl 240 ni qo'shib, so'ngra yig'indini 12 ga bo'lish natijasini `monthly_adj` ustun nomi bilan chiqaring."
   },
   {
     "id": 10,
@@ -217,7 +214,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 18 & T04 C4 • Probelli Ustun Nomlari",
     "title": "Rasmiy Hisobot Sarlavhasi (Probelli Alias)",
     "story": "Direktorlar kengashi uchun tayyorlanayotgan hisobotda lavozim ustunining sarlavhasi probel bilan va bosh harfda `Job title` ko'rinishida chiqishi talab qilinmoqda.",
-    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`) and lavozimini (`job`) tanlab oling, bunda lavozim ustuniga probel bilan yozilgan `Job title` nomini (alias) bering.",
+    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`) and lavozimini (`job`) tanlab oling, bunda lavozim ustuniga probel bilan yozilgan `Job title` nomini (alias) bering.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `title`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "SQL da tarkibida bo'sh joy (probel) bo'lgan ustun nomlari ikki tirnoq (qo'shtirnoq) ichiga olinadi.",
     "strictAlias": true,
@@ -247,7 +244,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C17 • Foizli O'sish",
     "title": "Inflyatsiya Indeksatsiyasi (15% O'sish)",
     "story": "Kadrlar bo'limi barcha xodimlarning maoshini 15 foizga (ya'ni 1.15 baravarga) oshirib ko'rmoqchi.",
-    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`), joriy maoshini (`sal`) and maoshining `1.15` ga ko'paytmasini `increased_sal` ustun nomi bilan display.",
+    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`), joriy maoshini (`sal`) and maoshining `1.15` ga ko'paytmasini `increased_sal` ustun nomi bilan chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `increased_sal`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`sal` ustunini `1.15` ga ko'paytirib, `AS` orqali `increased_sal` nomini bering.",
     "strictAlias": true,
@@ -263,7 +260,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "15 foizlik o'sish koeffitsiyenti (`1.15`) barcha xodimlar uchun hisoblandi.",
-    "task": "From the employee table (`emp`), xodimning ismini (`ename`), joriy maoshini (`sal`) and maoshining `1.15` ga ko'paytmasini `increased_sal` ustun nomi bilan display."
+    "task": "From the employee table (`emp`), xodimning ismini (`ename`), joriy maoshini (`sal`) and maoshining `1.15` ga ko'paytmasini `increased_sal` ustun nomi bilan chiqaring."
   },
   {
     "id": 12,
@@ -272,7 +269,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 13 & 19, T04 C4 • DISTINCT",
     "title": "Noyob Lavozimlar Katalogi",
     "story": "Xodimlar jadvalida 14 kishi bo'lgani bilan, ularning ko'pchiligi bir xil lavozimda ishlaydi. HR bo'limiga lavozimlarning takrorlanmas ro'yxati kerak.",
-    "taskUz": "From the employee table (`emp`), barcha takrorlanmas (noyob) lavozim nomlarini (`job`) select and display.",
+    "taskUz": "From the employee table (`emp`), barcha takrorlanmas (noyob) lavozim nomlarini (`job`) select and chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `job`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Takroriy qatorlarni olib tashlash uchun `SELECT` dan keyin maxsus kalit so'zni (`DISTINCT`) ishlating.",
     "solutions": [
@@ -283,7 +280,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "14 ta qatordan takrorlar olib tashlanib, korporatsiyadagi 5 ta noyob lavozim qoldirildi.",
-    "task": "From the employee table (`emp`), barcha takrorlanmas (noyob) lavozim nomlarini (`job`) select and display."
+    "task": "From the employee table (`emp`), barcha takrorlanmas (noyob) lavozim nomlarini (`job`) select and chiqaring."
   },
   {
     "id": 13,
@@ -292,7 +289,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 19 • Faol Bo'lim Raqamlari",
     "title": "Xodim Ishlayotgan Faol Bo'limlar",
     "story": "Kompaniyada 4 ta bo'lim ro'yxatdan o'tgan, biroq amalda faqat nechtasida xodimlar ishlayotganini `emp` jadvalidan bilib olish mumkin.",
-    "taskUz": "From the employee table (`emp`), takrorlanmas (noyob) bo'lim raqamlarini (`deptno`) display.",
+    "taskUz": "From the employee table (`emp`), takrorlanmas (noyob) bo'lim raqamlarini (`deptno`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `deptno`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`emp` jadvalidan `deptno` ustunini takrorlarsiz tanlab oling.",
     "solutions": [
@@ -303,7 +300,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "`emp` jadvalida faqat 10, 20 va 30-bo'limlar mavjud (40-bo'limda hech kim ishlamaydi).",
-    "task": "From the employee table (`emp`), takrorlanmas (noyob) bo'lim raqamlarini (`deptno`) display."
+    "task": "From the employee table (`emp`), takrorlanmas (noyob) bo'lim raqamlarini (`deptno`) chiqaring."
   },
   {
     "id": 14,
@@ -312,7 +309,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Intro & E2 • Ikki Ustunli DISTINCT",
     "title": "Bo'lim va Lavozim Kombinatsiyalari",
     "story": "Tashkiliy tuzilma tahlilchisi har bir bo'limda qanday lavozim turlari mavjudligini (takroriy juftliklarsiz) ko'rmoqchi.",
-    "taskUz": "From the employee table (`emp`), bo'lim raqami (`deptno`) and lavozim (`job`) columnsng takrorlanmas kombinatsiyalarini display.",
+    "taskUz": "From the employee table (`emp`), bo'lim raqami (`deptno`) and lavozim (`job`) columnsng takrorlanmas kombinatsiyalarini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `deptno`, `job`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Takrorlarni yo'qotuvchi kalit so'zni `SELECT` dan so'ng bir marta yozib, ketidan `deptno` va `job` ustunlarini ko'rsating.",
     "solutions": [
@@ -323,7 +320,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "14 nafar xodim 9 xil noyob `(deptno, job)` kombinatsiyasiga mansub ekani aniqlandi.",
-    "task": "From the employee table (`emp`), bo'lim raqami (`deptno`) and lavozim (`job`) columnsng takrorlanmas kombinatsiyalarini display."
+    "task": "From the employee table (`emp`), bo'lim raqami (`deptno`) and lavozim (`job`) columnsng takrorlanmas kombinatsiyalarini chiqaring."
   },
   {
     "id": 15,
@@ -332,7 +329,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 16–18 • Kompleks Proyeksiya",
     "title": "1-Qavat Yakuniy Hisoboti: Yillik Paket",
     "story": "1-qavat liftiga chiqish oldidan Moliya direktori yakuniy hisobot so'radi: har bir xodimning yillik maoshiga 1000 dollar yillik bonus qo'shilgandagi umumiy summasi kerak.",
-    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`), lavozimini (`job`) and oylik maoshini (`sal`) 12 ga ko'paytirib, natijaga 1000 qo'shilgan ifodani `annual_package` ustun nomi bilan display.",
+    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`), lavozimini (`job`) and oylik maoshini (`sal`) 12 ga ko'paytirib, natijaga 1000 qo'shilgan ifodani `annual_package` ustun nomi bilan chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `annual_package`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`sal` ni 12 ga ko'paytirib, 1000 ni qo'shing va ustunga `annual_package` nomini bering.",
     "strictAlias": true,
@@ -348,7 +345,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "1-Qavat yakunlandi! Lift eshiklari ochildi — endi 2-qavatga (Kadrlar saralash departamentiga) ko'tarilamiz!",
-    "task": "From the employee table (`emp`), xodimning ismini (`ename`), lavozimini (`job`) and oylik maoshini (`sal`) 12 ga ko'paytirib, natijaga 1000 qo'shilgan ifodani `annual_package` ustun nomi bilan display."
+    "task": "From the employee table (`emp`), xodimning ismini (`ename`), lavozimini (`job`) and oylik maoshini (`sal`) 12 ga ko'paytirib, natijaga 1000 qo'shilgan ifodani `annual_package` ustun nomi bilan chiqaring."
   },
   {
     "id": 16,
@@ -357,7 +354,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C2 (Query 1) • Tenglik Sharti",
     "title": "Klerklar Ro'yxatini Ajratish",
     "story": "2-qavatga chiqdingiz. Kadrlar bo'limi faqat ish yurituvchi klerklar (`CLERK`) bilan alohida suhbat o'tkazmoqchi.",
-    "taskUz": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` ga teng having all employees to'liq ma'lumotlarini (`*`) display.",
+    "taskUz": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` ga teng having all employees to'liq ma'lumotlarini (`*`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Qatorlarni filtrlash uchun `WHERE` bandidan foydalaning va matn qiymatini bittalik tirnoq ichida katta harflarda yozing.",
     "solutions": [
@@ -370,7 +367,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "To'rt nafar klerk (JAMES, SMITH, ADAMS va MILLER) ro'yxati ajratib olindi.",
-    "task": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` ga teng having all employees to'liq ma'lumotlarini (`*`) display."
+    "task": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` ga teng having all employees to'liq ma'lumotlarini (`*`) chiqaring."
   },
   {
     "id": 17,
@@ -379,7 +376,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C2 (Query 2) • Sonli Shart",
     "title": "Chikago Sotuv Bo'limi Xodimlari",
     "story": "Chikagodagi 30-bo'lim rahbari BLAKE o'z bo'limida ishlayotgan barcha xodimlarning ro'yxatini so'radi.",
-    "taskUz": "From the employee table (`emp`), bo'lim raqami (`deptno`) `30` ga teng having barcha xodimlarni (`*`) toping.",
+    "taskUz": "From the employee table (`emp`), bo'lim raqami (`deptno`) `30` ga teng having barcha xodimlarni (`*`) toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`WHERE` bandida `deptno` ustunini 30 soniga tenglashtiring.",
     "solutions": [
@@ -401,7 +398,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 20 • Katta (`>`) Operator",
     "title": "Yuqori Maoshli Mutaxassislar",
     "story": "Soliq qo'mitasi oylik maoshi 2000 dollardan qat'iy yuqori bo'lgan xodimlarning ismi va maoshi haqida ma'lumotnoma so'radi.",
-    "taskUz": "From the employee table (`emp`), maoshi (`sal`) `2000` dan katta having xodimlarning faqat ismi (`ename`) and maoshi (`sal`) columns display.",
+    "taskUz": "From the employee table (`emp`), maoshi (`sal`) `2000` dan katta having xodimlarning faqat ismi (`ename`) and maoshi (`sal`) columns chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`SELECT` da ikkita ustunni ko'rsatib, `WHERE` qismida katta belgisidan foydalaning.",
     "solutions": [
@@ -416,7 +413,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Olti nafar yuqori maosh oluvchi rahbar va tahlilchilar aniqlandi.",
-    "task": "From the employee table (`emp`), maoshi (`sal`) `2000` dan katta having xodimlarning faqat ismi (`ename`) and maoshi (`sal`) columns display."
+    "task": "From the employee table (`emp`), maoshi (`sal`) `2000` dan katta having xodimlarning faqat ismi (`ename`) and maoshi (`sal`) columns chiqaring."
   },
   {
     "id": 19,
@@ -425,7 +422,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 22 • Kichik yoki Teng (`<=`)",
     "title": "Boshlang'ich Maosh Guruhi",
     "story": "Kasaba uyushmasi oylik maoshi 1250 dollardan oshmaydigan (1250 va undan kam) xodimlarga moddiy yordam ajratmoqchi.",
-    "taskUz": "From the employee table (`emp`), maoshi (`sal`) `1250` dan kichik yoki unga teng having xodimlarning ismi (`ename`), lavozimi (`job`) and maoshini (`sal`) display.",
+    "taskUz": "From the employee table (`emp`), maoshi (`sal`) `1250` dan kichik yoki unga teng having xodimlarning ismi (`ename`), lavozimi (`job`) and maoshini (`sal`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Kichik yoki teng (`<=`) taqqoslash operatorini ishlating.",
     "solutions": [
@@ -438,7 +435,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Besh nafar xodim (SMITH, JAMES, ADAMS, WARD va MARTIN) ushbu mezon bo'yicha topildi.",
-    "task": "From the employee table (`emp`), maoshi (`sal`) `1250` dan kichik yoki unga teng having xodimlarning ismi (`ename`), lavozimi (`job`) and maoshini (`sal`) display."
+    "task": "From the employee table (`emp`), maoshi (`sal`) `1250` dan kichik yoki unga teng having xodimlarning ismi (`ename`), lavozimi (`job`) and maoshini (`sal`) chiqaring."
   },
   {
     "id": 20,
@@ -447,7 +444,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 22 • Teng Emas (`<>` / `!=`)",
     "title": "Sotuvdan Tashqari Xodimlar",
     "story": "Ichki trening faqat sotuvchi (`SALESMAN`) bo'lmagan xodimlar uchun o'tkaziladi.",
-    "taskUz": "From the employee table (`emp`), lavozimi (`job`) `'SALESMAN'` ga teng bo'lmagan barcha xodimlarni (`*`) toping.",
+    "taskUz": "From the employee table (`emp`), lavozimi (`job`) `'SALESMAN'` ga teng bo'lmagan barcha xodimlarni (`*`) toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "SQL da 'teng emas' sharti uchun `<>` (yoki `!=`) operatoridan foydalaniladi.",
     "solutions": [
@@ -470,7 +467,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 27 & T04 C3 • BETWEEN Operator",
     "title": "Maosh Oralig'i Tekshiruvi (800 dan 1500 gacha)",
     "story": "Moliya bo'limiga maoshi 800 dollardan 1500 dollargacha (ikkala chegara ham kiradi) bo'lgan xodimlar ro'yxati kerak.",
-    "taskUz": "From the employee table (`emp`), maoshi (`sal`) `800` and `1500` oralig'ida having xodimlarning `ename`, `sal` and `deptno` columns diapazon operatori (`BETWEEN`) using display.",
+    "taskUz": "From the employee table (`emp`), maoshi (`sal`) `800` and `1500` oralig'ida having xodimlarning `ename`, `sal` and `deptno` columns diapazon operatori (`BETWEEN`) using chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `deptno`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`WHERE` bandida diapazon tekshiruvchi `BETWEEN ... AND ...` operatorini qo'llang.",
     "solutions": [
@@ -484,7 +481,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "`BETWEEN` ikkala chegarani ham o'z ichiga oladi: 800 oluvchi SMITH ham, 1500 oluvchi TURNER ham ro'yxatga kirdi.",
-    "task": "From the employee table (`emp`), maoshi (`sal`) `800` and `1500` oralig'ida having xodimlarning `ename`, `sal` and `deptno` columns diapazon operatori (`BETWEEN`) using display."
+    "task": "From the employee table (`emp`), maoshi (`sal`) `800` and `1500` oralig'ida having xodimlarning `ename`, `sal` and `deptno` columns diapazon operatori (`BETWEEN`) using chiqaring."
   },
   {
     "id": 22,
@@ -493,7 +490,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 32 • NOT BETWEEN",
     "title": "O'rta Diapazondan Tashqaridagilar",
     "story": "Endi aksincha: maoshi 1200 va 2900 dollar oralig'iga KIRMAYDIGAN (eng kam yoki eng ko'p maosh oluvchi) xodimlarni topish talab etiladi.",
-    "taskUz": "From the employee table (`emp`), maoshi (`sal`) `1200` and `2900` oralig'idan tashqarida having xodimlarning `ename`, `job` and `sal` columns `NOT BETWEEN` using display.",
+    "taskUz": "From the employee table (`emp`), maoshi (`sal`) `1200` and `2900` oralig'idan tashqarida having xodimlarning `ename`, `job` and `sal` columns `NOT BETWEEN` using chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`BETWEEN` operatoridan oldin `NOT` inkor so'zini qo'ying.",
     "solutions": [
@@ -506,7 +503,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Maoshi 1200 dan past (SMITH, JAMES, ADAMS) va 2900 dan yuqori (JONES, FORD, SCOTT, KING) bo'lgan 7 nafar xodim topildi.",
-    "task": "From the employee table (`emp`), maoshi (`sal`) `1200` and `2900` oralig'idan tashqarida having xodimlarning `ename`, `job` and `sal` columns `NOT BETWEEN` using display."
+    "task": "From the employee table (`emp`), maoshi (`sal`) `1200` and `2900` oralig'idan tashqarida having xodimlarning `ename`, `job` and `sal` columns `NOT BETWEEN` using chiqaring."
   },
   {
     "id": 23,
@@ -515,7 +512,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 28 & T04 C6 • IN Ro'yxat Operatori",
     "title": "Nyu-York va Dallas Filiallari (`IN`)",
     "story": "10-bo'lim (Nyu-York) va 20-bo'lim (Dallas) xodimlari uchun qo'shma vebinar tashkil etilmoqda.",
-    "taskUz": "From the employee table (`emp`), bo'lim raqami (`deptno`) `10` yoki `20` having xodimlarni ro'yxat operatori (`IN`) using toping.",
+    "taskUz": "From the employee table (`emp`), bo'lim raqami (`deptno`) `10` yoki `20` having xodimlarni ro'yxat operatori (`IN`) using toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`WHERE` bandida `deptno` ustunidan keyin `IN` operatorini va qavs ichida 10 hamda 20 sonlarini yozing.",
     "solutions": [
@@ -537,7 +534,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Intro • Shaharlar Bo'yicha Bo'limlar",
     "title": "Dallas va Chikago Ofislari",
     "story": "Boshqaruv kengashi faqat Dallas (`DALLAS`) va Chikago (`CHICAGO`) shaharlarida joylashgan bo'limlarning ma'lumotlarini so'radi.",
-    "taskUz": "From the department table (`dept`), joylashgan shahri (`loc`) `'DALLAS'` yoki `'CHICAGO'` having qatorlarni display.",
+    "taskUz": "From the department table (`dept`), joylashgan shahri (`loc`) `'DALLAS'` yoki `'CHICAGO'` having qatorlarni chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `dept`",
     "starterCode": "",
     "hint": "`dept` jadvalida `loc` ustunini `IN` yoki `OR` yordamida `'DALLAS'` va `'CHICAGO'` qiymatlariga tekshiring.",
     "solutions": [
@@ -551,7 +548,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "20-bo'lim (RESEARCH - DALLAS) va 30-bo'lim (SALES - CHICAGO) tanlab olindi.",
-    "task": "From the department table (`dept`), joylashgan shahri (`loc`) `'DALLAS'` yoki `'CHICAGO'` having qatorlarni display."
+    "task": "From the department table (`dept`), joylashgan shahri (`loc`) `'DALLAS'` yoki `'CHICAGO'` having qatorlarni chiqaring."
   },
   {
     "id": 25,
@@ -560,7 +557,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C18 (Query 1) • Rahbarlar Ro'yxati Bo'yicha Filtr",
     "title": "Tanlangan Menejerlar Jamoasi",
     "story": "Uch nafar rahbar — CLARK (`7782`), JONES (`7566`) va FORD (`7902`) ga bevosita bo'ysunadigan xodimlar ro'yxati talab qilindi.",
-    "taskUz": "From the employee table (`emp`), bevosita rahbari (`supervisor`) `7782`, `7566` yoki `7902` having xodimlarni `IN` operatori using toping.",
+    "taskUz": "From the employee table (`emp`), bevosita rahbari (`supervisor`) `7782`, `7566` yoki `7902` having xodimlarni `IN` operatori using toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`WHERE` bandida `supervisor` ustunini `(7782, 7566, 7902)` ro'yxatiga tekshiring.",
     "solutions": [
@@ -582,7 +579,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task H3 • Ikki Ro'yxat Kesishmasi",
     "title": "10 va 30-Bo'lim Klerk hamda Sotuvchilari",
     "story": "Kadrlar bo'limi faqat 10 yoki 30-bo'limda ishlaydigan klerk (`CLERK`) va sotuvchilarni (`SALESMAN`) ro'yxatga olmoqda.",
-    "taskUz": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` yoki `'SALESMAN'` having and bo'lim raqami (`deptno`) `10` yoki `30` having xodimlarni toping.",
+    "taskUz": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` yoki `'SALESMAN'` having and bo'lim raqami (`deptno`) `10` yoki `30` having xodimlarni toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Ikkita `IN` ro'yxat shartini `AND` mantiqiy operatori bilan birlashtiring.",
     "solutions": [
@@ -605,7 +602,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task H8 • Lavozim va Maosh Chegarasi",
     "title": "O'rta Bo'g'in Klerk va Menejerlar",
     "story": "Rahbariyat lavozimi klerk (`CLERK`) yoki menejer (`MANAGER`) bo'lgan, biroq maoshi 1000 dan 2000 dollargacha bo'lgan xodimlarni qidirmoqda.",
-    "taskUz": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` yoki `'MANAGER'` having and maoshi (`sal`) `1000` bilan `2000` oralig'ida having xodimlarni display.",
+    "taskUz": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` yoki `'MANAGER'` having and maoshi (`sal`) `1000` bilan `2000` oralig'ida having xodimlarni chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`job` uchun `IN` (yoki qavs ichida `OR`) va `sal` uchun `BETWEEN` operatorlarini `AND` bilan bog'lang.",
     "solutions": [
@@ -619,7 +616,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Menejerlarning barchasi 2000 dan ko'p maosh olgani sababli, bu oraliqda faqat ADAMS (1100) va MILLER (1300) topildi.",
-    "task": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` yoki `'MANAGER'` having and maoshi (`sal`) `1000` bilan `2000` oralig'ida having xodimlarni display."
+    "task": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` yoki `'MANAGER'` having and maoshi (`sal`) `1000` bilan `2000` oralig'ida having xodimlarni chiqaring."
   },
   {
     "id": 28,
@@ -628,7 +625,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 24–25 & T04 Intro • AND va OR Ustuvorligi",
     "title": "Mantiqiy Ustuvorlik Qavslari",
     "story": "Yosh tahlilchi 'klerk yoki sotuvchi bo'lgan va kamida 1250 maosh oladiganlar'ni topaman deb qavs qo'ymay yozgan edi, 800 oladigan SMITH ham ro'yxatga kirib ketdi! Chunki `AND` amali `OR` dan oldin bajariladi!",
-    "taskUz": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` yoki `'SALESMAN'` having and maoshi (`sal`) kamida `1250` (`>= 1250`) having xodimlarni qavslardan to'g'ri foydalanib toping.",
+    "taskUz": "From the employee table (`emp`), lavozimi (`job`) `'CLERK'` yoki `'SALESMAN'` having and maoshi (`sal`) kamida `1250` (`>= 1250`) having xodimlarni qavslardan to'g'ri foydalanib toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Avval lavozim shartlarini `OR` bilan qavs ichiga oling, so'ngra `AND` orqali maosh shartini qo'shing.",
     "solutions": [
@@ -657,7 +654,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C24 (Query 1) • Qo'shma Murakkab Filtr",
     "title": "Maxsus Attestatsiya Guruhi (T04 C24-1)",
     "story": "Attestatsiya komissiyasi ikkita maxsus toifadagi xodimlarni chaqirmoqda: 1-toifa — 20 yoki 30-bo'limda ishlaydigan va maoshi 1000 dan katta bo'lgan klerklar; 2-toifa — 30-bo'limda ishlaydigan va maoshi kamida 1500 bo'lgan sotuvchilar.",
-    "taskUz": "From the employee table (`emp`), yuqoridagi ikki toifadan biriga mansub having xodimlarni toping: (lavozimi `'CLERK'`, bo'limi `20` yoki `30`, maoshi `1000` dan katta) YOKI (lavozimi `'SALESMAN'`, bo'limi `30`, maoshi `1500` dan katta yoki teng).",
+    "taskUz": "From the employee table (`emp`), yuqoridagi ikki toifadan biriga mansub having xodimlarni toping: (lavozimi `'CLERK'`, bo'limi `20` yoki `30`, maoshi `1000` dan katta) YOKI (lavozimi `'SALESMAN'`, bo'limi `30`, maoshi `1500` dan katta yoki teng).\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Har bir toifaning uchta shartini `AND` bilan yozib, ikkita katta guruhni `OR` operatori bilan bog'lang.",
     "solutions": [
@@ -683,7 +680,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C24 (Query 2) • Murakkab Filtrni Inkor Qilish",
     "title": "2-Qavat Bossi: Attestatsiyadan Ozod Qilinganlar (T04 C24-2)",
     "story": "Endi komissiya 29-savoldagi attestatsiya ro'yxatiga KIRMAGAN qolgan 11 nafar xodimning ro'yxatini talab qildi!",
-    "taskUz": "29-savoldagi murakkab shartni butunligicha `NOT (...)` inkor operatori ichiga olib, ushbu mezonlarga tushmaydigan barcha 11 nafar xodimni (`emp`) display.",
+    "taskUz": "29-savoldagi murakkab shartni butunligicha `NOT (...)` inkor operatori ichiga olib, ushbu mezonlarga tushmaydigan barcha 11 nafar xodimni (`emp`) chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`WHERE NOT ( ... )` yozib, qavs ichiga 29-savoldagi ikkala toifa shartlarini joylashtiring.",
     "solutions": [
@@ -699,7 +696,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "2-Qavat zabt etildi! `NOT (...)` operatori butun murakkab mantiqiy ifodani inkor qilib, 11 nafar xodimni qaytardi.",
-    "task": "29-savoldagi murakkab shartni butunligicha `NOT (...)` inkor operatori ichiga olib, ushbu mezonlarga tushmaydigan barcha 11 nafar xodimni (`emp`) display."
+    "task": "29-savoldagi murakkab shartni butunligicha `NOT (...)` inkor operatori ichiga olib, ushbu mezonlarga tushmaydigan barcha 11 nafar xodimni (`emp`) chiqaring."
   },
   {
     "id": 31,
@@ -708,7 +705,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 31 • IS NULL",
     "title": "Yuqori Rahbariyat: Boshlig'i Yo'q Shaxs",
     "story": "3-qavat — Ichki Audit byurosi. Auditorlar korporatsiya ierarxiyasining eng cho'qqisida turgan va hech kimga bo'ysunmaydigan (`supervisor` qiymati `NULL` bo'lgan) shaxsni tekshirmoqda.",
-    "taskUz": "From the employee table (`emp`), rahbari (`supervisor`) mavjud bo'lmagan (`NULL`) xodimning `ename` and `supervisor` columns display.",
+    "taskUz": "From the employee table (`emp`), rahbari (`supervisor`) mavjud bo'lmagan (`NULL`) xodimning `ename` and `supervisor` columns chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `supervisor`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "SQL da `NULL` qiymatni oddiy tenglik (`=`) bilan tekshirib bo'lmaydi, `IS NULL` operatorini ishlating.",
     "solutions": [
@@ -721,7 +718,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Korporatsiya prezidenti KINGning rahbari yo'q (`supervisor IS NULL`).",
-    "task": "From the employee table (`emp`), rahbari (`supervisor`) mavjud bo'lmagan (`NULL`) xodimning `ename` and `supervisor` columns display."
+    "task": "From the employee table (`emp`), rahbari (`supervisor`) mavjud bo'lmagan (`NULL`) xodimning `ename` and `supervisor` columns chiqaring."
   },
   {
     "id": 32,
@@ -730,7 +727,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 31 • comm IS NULL",
     "title": "Komissiya Olmaydigan Xodimlar",
     "story": "Audit guruhi shartnomasida komissiya to'lovi umuman ko'zda tutilmagan (`comm` ustuni `NULL` bo'lgan) 10 nafar xodimning ro'yxatini so'radi.",
-    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` having xodimlarning `ename`, `job` and `sal` columns display.",
+    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` having xodimlarning `ename`, `job` and `sal` columns chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`WHERE` bandida `comm` ustuni uchun `IS NULL` shartini yozing.",
     "solutions": [
@@ -743,7 +740,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "Sotuvchi bo'lmagan barcha 10 nafar xodimda komissiya ustuni `NULL` holatida saqlanadi.",
-    "task": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` having xodimlarning `ename`, `job` and `sal` columns display."
+    "task": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` having xodimlarning `ename`, `job` and `sal` columns chiqaring."
   },
   {
     "id": 33,
@@ -752,7 +749,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 31 • IS NOT NULL",
     "title": "Komissiya Qayd Etilgan Sotuvchilar",
     "story": "Endi komissiya ustunida aniq qiymat (`NULL` emas) yozilgan 4 nafar xodimni ajratib oling.",
-    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` bo'lmagan xodimlarning `ename`, `job`, `sal` and `comm` columns display.",
+    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` bo'lmagan xodimlarning `ename`, `job`, `sal` and `comm` columns chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`, `comm`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`IS NOT NULL` operatoridan foydalaning.",
     "solutions": [
@@ -765,7 +762,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "MARTIN (1400), WARD (500), ALLEN (300) va TURNER (0) da komissiya qiymati mavjud.",
-    "task": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` bo'lmagan xodimlarning `ename`, `job`, `sal` and `comm` columns display."
+    "task": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` bo'lmagan xodimlarning `ename`, `job`, `sal` and `comm` columns chiqaring."
   },
   {
     "id": 34,
@@ -774,7 +771,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C5 & H2 • DISTINCT + IS NOT NULL",
     "title": "Rahbarlik Qilayotgan Xodimlar Raqamlari",
     "story": "Kadrlar bo'limiga kimdir ustidan rahbarlik qilayotgan boshliqlarning takrorlanmas tabel raqamlari (`supervisor`) kerak, bunda `NULL` qiymat ro'yxatga kirmasligi shart.",
-    "taskUz": "From the employee table (`emp`), `supervisor` columnng `NULL` bo'lmagan and takrorlanmas (noyob) qiymatlarini display.",
+    "taskUz": "From the employee table (`emp`), `supervisor` columnng `NULL` bo'lmagan and takrorlanmas (noyob) qiymatlarini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `supervisor`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`SELECT` da `DISTINCT` va `WHERE` da `IS NOT NULL` shartlarini birga qo'llang.",
     "solutions": [
@@ -787,7 +784,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "T04 C5: Kompaniyada 6 nafar xodim (7566, 7698, 7782, 7788, 7839, 7902) boshqalarga rahbarlik qiladi.",
-    "task": "From the employee table (`emp`), `supervisor` columnng `NULL` bo'lmagan and takrorlanmas (noyob) qiymatlarini display."
+    "task": "From the employee table (`emp`), `supervisor` columnng `NULL` bo'lmagan and takrorlanmas (noyob) qiymatlarini chiqaring."
   },
   {
     "id": 35,
@@ -796,7 +793,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task H15 • Nol yoki NULL Komissiya",
     "title": "Haqiqiy Bonus Olmaganlar (0 yoki NULL)",
     "story": "Auditorlar amalda bir dollar ham bonus olmagan xodimlarni — ya'ni komissiyasi `0` bo'lgan TURNERni ham, komissiyasi `NULL` bo'lgan 10 kishini ham bitta ro'yxatda ko'rmoqchi.",
-    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `0` ga teng YOKI `NULL` having barcha xodimlarni toping.",
+    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `0` ga teng YOKI `NULL` having barcha xodimlarni toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`comm` ustunini `0` ga tengligini Yoki (`OR`) `IS NULL` ekanligini tekshiring.",
     "solutions": [
@@ -819,7 +816,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 26 • 3-Valued Logic: comm > 0",
     "title": "Ijobiy Komissiya Oluvchilar",
     "story": "Endi faqat 0 dan katta komissiya olgan sotuvchilarni ajrating. E'tibor bering: `comm > 0` sharti `TURNER (0)` uchun `FALSE`, `NULL` bo'lgan 10 kishi uchun esa `UNKNOWN` qaytaradi!",
-    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `0` dan qat'iy katta having xodimlarning `ename`, `sal` and `comm` columns display.",
+    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `0` dan qat'iy katta having xodimlarning `ename`, `sal` and `comm` columns chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `comm`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`WHERE` bandida `comm` ustuni 0 dan katta ekanligini yozing.",
     "solutions": [
@@ -832,7 +829,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "`WHERE` bandi faqat `TRUE` natijalarni o'tkazadi: ALLEN (300), WARD (500) va MARTIN (1400).",
-    "task": "From the employee table (`emp`), komissiyasi (`comm`) `0` dan qat'iy katta having xodimlarning `ename`, `sal` and `comm` columns display."
+    "task": "From the employee table (`emp`), komissiyasi (`comm`) `0` dan qat'iy katta having xodimlarning `ename`, `sal` and `comm` columns chiqaring."
   },
   {
     "id": 37,
@@ -841,7 +838,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Intro • NOT IN va NULL Muammosi",
     "title": "Ikki Rahbardan Tashqari Barcha Xodimlar (T04 Intro)",
     "story": "Auditorlar rahbari 7902 (FORD) yoki 7566 (JONES) bo'lmagan barcha xodimlarni so'rashdi. Agar faqat `NOT IN (7902, 7566)` desangiz, rahbari `NULL` bo'lgan Prezident KING ro'yxatdan tushib qoladi!",
-    "taskUz": "From the employee table (`emp`), rahbari (`supervisor`) `7902` and `7566` bo'lmagan and rahbari `NULL` having xodimlarning `ename` and `supervisor` columns display.",
+    "taskUz": "From the employee table (`emp`), rahbari (`supervisor`) `7902` and `7566` bo'lmagan and rahbari `NULL` having xodimlarning `ename` and `supervisor` columns chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `supervisor`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`supervisor` ustuni uchun `NOT IN (7902, 7566)` shartiga `OR` orqali `supervisor IS NULL` shartini qo'shing.",
     "solutions": [
@@ -862,7 +859,7 @@ window.QUESTIONS_1_50 = [
       }
     ],
     "explanation": "Uch qiymatli mantiqda `NULL NOT IN (...)` noma'lum (`UNKNOWN`) bergani uchun `OR supervisor IS NULL` yordamida KING saqlab qolindi (11 kishi).",
-    "task": "From the employee table (`emp`), rahbari (`supervisor`) `7902` and `7566` bo'lmagan and rahbari `NULL` having xodimlarning `ename` and `supervisor` columns display."
+    "task": "From the employee table (`emp`), rahbari (`supervisor`) `7902` and `7566` bo'lmagan and rahbari `NULL` having xodimlarning `ename` and `supervisor` columns chiqaring."
   },
   {
     "id": 38,
@@ -871,7 +868,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C18 (Query 2) • Uch Rahbarni Istisno Qilish",
     "title": "Uch Rahbar Jamoasidan Tashqaridagilar (T04 C18-2)",
     "story": "25-savolda rahbari 7782, 7566 yoki 7902 bo'lgan 4 nafar xodimni topgan edik. Endi qolgan 10 nafar xodimni (Prezident KING bilan birga!) chiqarish kerak.",
-    "taskUz": "From the employee table (`emp`), rahbari (`supervisor`) `(7782, 7566, 7902)` ro'yxatiga kirmaydigan yoki rahbari `NULL` having barcha 10 nafar xodimni (`*`) toping.",
+    "taskUz": "From the employee table (`emp`), rahbari (`supervisor`) `(7782, 7566, 7902)` ro'yxatiga kirmaydigan yoki rahbari `NULL` having barcha 10 nafar xodimni (`*`) toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`supervisor` uchun `NOT IN (7782, 7566, 7902)` va `OR supervisor IS NULL` shartlarini yozing.",
     "solutions": [
@@ -894,7 +891,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task 12 • IS DISTINCT FROM",
     "title": "Komissiyasi 300 Bo'lmagan 13 Xodim",
     "story": "Kompaniyada faqat ALLEN 300 dollar komissiya oladi. Demak, komissiyasi 300 bo'lmaganlar 13 kishi! Ularni (`NULL` komissiyalilar bilan birga) PostgreSQLning maxsus `IS DISTINCT FROM` operatori yordamida toping.",
-    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `300` dan farq qiluvchi barcha 13 nafar xodimning `ename`, `sal` and `comm` columns `IS DISTINCT FROM` operatori orqali display.",
+    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `300` dan farq qiluvchi barcha 13 nafar xodimning `ename`, `sal` and `comm` columns `IS DISTINCT FROM` operatori orqali chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `comm`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`WHERE` bandida `comm` ustuni va `300` soni o'rtasida `IS DISTINCT FROM` operatorini ishlating.",
     "solutions": [
@@ -913,7 +910,7 @@ window.QUESTIONS_1_50 = [
       }
     ],
     "explanation": "`IS DISTINCT FROM` operatori `NULL` ni oddiy qiymat sifatida ko'rib, 300 ga teng emas deb hisoblaydi (13 ta qator).",
-    "task": "From the employee table (`emp`), komissiyasi (`comm`) `300` dan farq qiluvchi barcha 13 nafar xodimning `ename`, `sal` and `comm` columns `IS DISTINCT FROM` operatori orqali display."
+    "task": "From the employee table (`emp`), komissiyasi (`comm`) `300` dan farq qiluvchi barcha 13 nafar xodimning `ename`, `sal` and `comm` columns `IS DISTINCT FROM` operatori orqali chiqaring."
   },
   {
     "id": 40,
@@ -922,7 +919,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Null-Safe Equality • IS NOT DISTINCT FROM",
     "title": "Null-Xavfsiz Tenglik Tekshiruvi",
     "story": "PostgreSQL da `IS DISTINCT FROM` ning teskarisi `IS NOT DISTINCT FROM` hisoblanadi — u hatto `NULL` bilan `NULL` ni ham teng (`TRUE`) deb qabul qiladi!",
-    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` qiymatdan farqsiz having (`IS NOT DISTINCT FROM NULL`) xodimlarning `ename` and `comm` columns display.",
+    "taskUz": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` qiymatdan farqsiz having (`IS NOT DISTINCT FROM NULL`) xodimlarning `ename` and `comm` columns chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `comm`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`WHERE` bandida `comm` ustunidan keyin `IS NOT DISTINCT FROM NULL` iborasini yozing.",
     "solutions": [
@@ -935,7 +932,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "`comm IS NOT DISTINCT FROM NULL` mantiqan `comm IS NULL` bilan bir xil natija beradi va ikkita o'zgaruvchini solishtirishda juda qo'l keladi.",
-    "task": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` qiymatdan farqsiz having (`IS NOT DISTINCT FROM NULL`) xodimlarning `ename` and `comm` columns display."
+    "task": "From the employee table (`emp`), komissiyasi (`comm`) `NULL` qiymatdan farqsiz having (`IS NOT DISTINCT FROM NULL`) xodimlarning `ename` and `comm` columns chiqaring."
   },
   {
     "id": 41,
@@ -944,7 +941,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Intro • COALESCE Standart Qiymat",
     "title": "Komissiya O'rniga Nol Ko'rsatish (`COALESCE`)",
     "story": "Buxgalteriya hisobotida `NULL` yozuvi xunuk ko'rinmasligi uchun, komissiyasi `NULL` bo'lgan xodimlarda uning o'rniga `0` soni chiqishi kerak.",
-    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`), maoshini (`sal`) and `COALESCE` funksiyasi using komissiyasini (`comm`, agar `NULL` bo'lsa `0`) `safe_comm` ustun nomi bilan display.",
+    "taskUz": "From the employee table (`emp`), xodimning ismini (`ename`), maoshini (`sal`) and `COALESCE` funksiyasi using komissiyasini (`comm`, agar `NULL` bo'lsa `0`) `safe_comm` ustun nomi bilan chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `COALESCE(comm`, `safe_comm`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`COALESCE` funksiyasiga birinchi argument qilib `comm`, ikkinchi argument qilib `0` bering.",
     "solutions": [
@@ -958,7 +955,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "`COALESCE` ro'yxatdagi birinchi `NULL` bo'lmagan qiymatni qaytaradi.",
-    "task": "From the employee table (`emp`), xodimning ismini (`ename`), maoshini (`sal`) and `COALESCE` funksiyasi using komissiyasini (`comm`, agar `NULL` bo'lsa `0`) `safe_comm` ustun nomi bilan display."
+    "task": "From the employee table (`emp`), xodimning ismini (`ename`), maoshini (`sal`) and `COALESCE` funksiyasi using komissiyasini (`comm`, agar `NULL` bo'lsa `0`) `safe_comm` ustun nomi bilan chiqaring."
   },
   {
     "id": 42,
@@ -967,7 +964,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C25 • Maosh + Komissiya Yig'indisi",
     "title": "Jami Oylik Daromad (Maosh va Komissiya)",
     "story": "Agar maosh va komissiya oddiygina qo'shilsa, komissiyasi noma'lum bo'lgan 10 nafar xodimning jami maoshi ham noma'lum bo'lib qoladi! Komissiya bo'sh bo'lganda uni nolga almashtirib qo'shing.",
-    "taskUz": "From the employee table (`emp`), `ename`, `sal`, `comm` and maoshga komissiyani (agar komissiya `NULL` bo'lsa `0` ga almashtirib) qo'shish orqali hisoblangan jami daromadni `total_income` ustun nomi bilan display.",
+    "taskUz": "From the employee table (`emp`), `ename`, `sal`, `comm` and maoshga komissiyani (agar komissiya `NULL` bo'lsa `0` ga almashtirib) qo'shish orqali hisoblangan jami daromadni `total_income` ustun nomi bilan chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `comm`, `COALESCE(comm`, `total_income`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`sal` ustuniga `COALESCE(comm, 0)` ifodasini qo'shing.",
     "solutions": [
@@ -982,7 +979,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "T04 C25: Barcha 14 xodimning maoshi va komissiyasi xatosiz jamlandi.",
-    "task": "From the employee table (`emp`), `ename`, `sal`, `comm` and maoshga komissiyani (agar komissiya `NULL` bo'lsa `0` ga almashtirib) qo'shish orqali hisoblangan jami daromadni `total_income` ustun nomi bilan display."
+    "task": "From the employee table (`emp`), `ename`, `sal`, `comm` and maoshga komissiyani (agar komissiya `NULL` bo'lsa `0` ga almashtirib) qo'shish orqali hisoblangan jami daromadni `total_income` ustun nomi bilan chiqaring."
   },
   {
     "id": 43,
@@ -991,7 +988,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C18 (Query 3) • COALESCE in WHERE",
     "title": "Standart Qiymat Yordamida Rahbarlarni Filtrlash (T04 C18-3)",
     "story": "38-savoldagi qo'shimcha shartni yozmasdan, rahbar ustunidagi bo'sh qiymatga `-1` standart qiymat berib, `(7782, 7566, 7902)` ro'yxatida yo'qligini tekshirish mumkin!",
-    "taskUz": "From the employee table (`emp`), `supervisor` column (agar `NULL` bo'lsa `-1` ga almashtiruvchi funksiya orqali) `(7782, 7566, 7902)` ro'yxatiga kirmasligini tekshiruvchi so'rov yozing.",
+    "taskUz": "From the employee table (`emp`), `supervisor` column (agar `NULL` bo'lsa `-1` ga almashtiruvchi funksiya orqali) `(7782, 7566, 7902)` ro'yxatiga kirmasligini tekshiruvchi so'rov yozing.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`WHERE` bandida `COALESCE(supervisor, -1)` ifodasidan keyin `NOT IN (7782, 7566, 7902)` yozing.",
     "solutions": [
@@ -1013,7 +1010,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Intro & E7 • NULLIF Xavfsiz Bo'lish",
     "title": "Nolga Bo'lish Xatosidan Himoya",
     "story": "TURNERning komissiyasi `0` ga teng. Maoshni komissiyaga bo'lganda dastur nolga bo'lish xatosi bilan to'xtab qolmasligi uchun komissiya 0 bo'lsa uni `NULL` ga aylantiruvchi funksiyadan foydalaning!",
-    "taskUz": "From the employee table (`emp`), `ename`, `sal`, `comm` and maoshni (`sal`) nolga bo'lishdan himoyalangan komissiyaga (`comm` 0 bo'lsa `NULL` ga aylanadigan qilib) bo'lish natijasini display.",
+    "taskUz": "From the employee table (`emp`), `ename`, `sal`, `comm` and maoshni (`sal`) nolga bo'lishdan himoyalangan komissiyaga (`comm` 0 bo'lsa `NULL` ga aylanadigan qilib) bo'lish natijasini chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `sal`, `comm`, `NULLIF(comm`, `ratio`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Maxrajda `comm` o'rniga `NULLIF` funksiyasini yozib, unga `comm` va `0` argumentlarini bering.",
     "solutions": [
@@ -1033,7 +1030,7 @@ window.QUESTIONS_1_50 = [
       }
     ],
     "explanation": "`NULLIF(comm, 0)` komissiya 0 bo'lganda uni `NULL` ga aylantiradi va bo'linma xatosiz `NULL` qaytaradi.",
-    "task": "From the employee table (`emp`), `ename`, `sal`, `comm` and maoshni (`sal`) nolga bo'lishdan himoyalangan komissiyaga (`comm` 0 bo'lsa `NULL` ga aylanadigan qilib) bo'lish natijasini display."
+    "task": "From the employee table (`emp`), `ename`, `sal`, `comm` and maoshni (`sal`) nolga bo'lishdan himoyalangan komissiyaga (`comm` 0 bo'lsa `NULL` ga aylanadigan qilib) bo'lish natijasini chiqaring."
   },
   {
     "id": 45,
@@ -1042,7 +1039,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Extra Task E10 • IS TRUE va Mantiqiy XOR",
     "title": "3-Qavat Bossi: Aynan Bitta Mezon (T04 E10)",
     "story": "Audit byurosining eng murakkab savoli (T04 E10): Bizga ikkita mezondan AYNAN BITTASI rost bo'lgan xodimlar kerak: 1-mezon: lavozimi `'CLERK'`; 2-mezon: maoshi `1500` dan kam VA ishga kirgan sanasi `'2006-01-01'` dan oldin. Ikkala mezonni ham bajarganlar (JAMES, ADAMS, MILLER) chiqmasin!",
-    "taskUz": "From the employee table (`emp`), 1-mezon (lavozimi `'CLERK'`) ning haqiqat qiymati (`IS TRUE`) 2-mezon (maoshi `1500` dan kichik and `hiredate` sanasi `'2006-01-01'` dan oldin) ning haqiqat qiymatiga (`IS TRUE`) teng bo'lmagan xodimlarning `ename`, `job`, `sal`, `hiredate` columns display.",
+    "taskUz": "From the employee table (`emp`), 1-mezon (lavozimi `'CLERK'`) ning haqiqat qiymati (`IS TRUE`) 2-mezon (maoshi `1500` dan kichik and `hiredate` sanasi `'2006-01-01'` dan oldin) ning haqiqat qiymatiga (`IS TRUE`) teng bo'lmagan xodimlarning `ename`, `job`, `sal`, `hiredate` columns chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Kutilayotgan ustunlar: `ename`, `job`, `sal`, `hiredate`\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Birinchi shartni qavsga olib `IS TRUE` deng, ikkinchi qo'shma shartni ham qavsga olib `IS TRUE` deng va ular orasiga `<>` (teng emas) belgisini qo'ying.",
     "solutions": [
@@ -1059,7 +1056,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "3-Qavat yakunlandi! SMITH (faqat 1-mezonga mos, chunki 2007-yilda kirgan) va WARD (faqat 2-mezonga mos, chunki sotuvchi) topildi!",
-    "task": "From the employee table (`emp`), 1-mezon (lavozimi `'CLERK'`) ning haqiqat qiymati (`IS TRUE`) 2-mezon (maoshi `1500` dan kichik and `hiredate` sanasi `'2006-01-01'` dan oldin) ning haqiqat qiymatiga (`IS TRUE`) teng bo'lmagan xodimlarning `ename`, `job`, `sal`, `hiredate` columns display."
+    "task": "From the employee table (`emp`), 1-mezon (lavozimi `'CLERK'`) ning haqiqat qiymati (`IS TRUE`) 2-mezon (maoshi `1500` dan kichik and `hiredate` sanasi `'2006-01-01'` dan oldin) ning haqiqat qiymatiga (`IS TRUE`) teng bo'lmagan xodimlarning `ename`, `job`, `sal`, `hiredate` columns chiqaring."
   },
   {
     "id": 46,
@@ -1068,7 +1065,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 29 • LIKE Boshi Bo'yicha Qidiruv",
     "title": "S Harfi Bilan Boshlanuvchi Xodimlar",
     "story": "4-qavat — Korporativ Arxiv. Arxivchi ismining bosh harfi `S` bo'lgan xodimlarning shaxsiy yig'majildlarini qidirmoqda.",
-    "taskUz": "From the employee table (`emp`), ismi (`ename`) katta `'S'` harfi bilan boshlanadigan barcha xodimlarni `LIKE` operatori using toping.",
+    "taskUz": "From the employee table (`emp`), ismi (`ename`) katta `'S'` harfi bilan boshlanadigan barcha xodimlarni `LIKE` operatori using toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`LIKE` shablonida `'S'` harfidan keyin istalgancha belgini bildiruvchi foiz (`%`) belgisini qo'ying.",
     "solutions": [
@@ -1091,7 +1088,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 29 & T04 H6 • LIKE Oxiri Bo'yicha Qidiruv",
     "title": "N Harfi Bilan Tugaydigan Ismlar",
     "story": "Endi arxivdan ismi `N` harfi bilan tugaydigan xodimlarning ro'yxatini chiqarish kerak.",
-    "taskUz": "From the employee table (`emp`), ismi (`ename`) `'N'` harfi bilan tugaydigan barcha xodimlarni toping.",
+    "taskUz": "From the employee table (`emp`), ismi (`ename`) `'N'` harfi bilan tugaydigan barcha xodimlarni toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Shablonda foiz (`%`) belgisini `'N'` harfidan oldin yozing.",
     "solutions": [
@@ -1114,7 +1111,7 @@ window.QUESTIONS_1_50 = [
     "source": "L04 Slide 29 • `_` Bitta Belgi Shabloni",
     "title": "Ikkinchi Harfi L Bo'lgan Xodimlar",
     "story": "Arxiv kartotekasida ismining ikkinchi harfi `L` bo'lgan xodimlarni topish zarur.",
-    "taskUz": "From the employee table (`emp`), ismining (`ename`) aynan ikkinchi harfi `'L'` having xodimlarni `LIKE` operatori using toping.",
+    "taskUz": "From the employee table (`emp`), ismining (`ename`) aynan ikkinchi harfi `'L'` having xodimlarni `LIKE` operatori using toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Birinchi harf o'rniga bitta pastki chiziq (`_`), undan keyin `'L'` va foiz (`%`) belgisini yozing.",
     "solutions": [
@@ -1137,7 +1134,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C13 • ILIKE va 3-Harf",
     "title": "Uchinchi Harfi R Bo'lganlar (`ILIKE`)",
     "story": "Qidiruv katta-kichik harfga sezgir bo'lmasligi uchun PostgreSQLning maxsus `ILIKE` operatoridan foydalanib, ismining 3-harfi `r` bo'lgan xodimlarni toping.",
-    "taskUz": "From the employee table (`emp`), ismining (`ename`) uchinchi harfi `'r'` (katta yoki kichik) having xodimlarni `ILIKE` operatori using display.",
+    "taskUz": "From the employee table (`emp`), ismining (`ename`) uchinchi harfi `'r'` (katta yoki kichik) having xodimlarni `ILIKE` operatori using chiqaring.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "`ILIKE` shablonida ikkita pastki chiziq (`__`), keyin `r` harfi va `%` belgisini ishlating.",
     "solutions": [
@@ -1150,7 +1147,7 @@ window.QUESTIONS_1_50 = [
       {}
     ],
     "explanation": "T04 C13: MARTIN, TURNER, WARD va FORD ismlarining 3-harfi `'R'` ga teng.",
-    "task": "From the employee table (`emp`), ismining (`ename`) uchinchi harfi `'r'` (katta yoki kichik) having xodimlarni `ILIKE` operatori using display."
+    "task": "From the employee table (`emp`), ismining (`ename`) uchinchi harfi `'r'` (katta yoki kichik) having xodimlarni `ILIKE` operatori using chiqaring."
   },
   {
     "id": 50,
@@ -1159,7 +1156,7 @@ window.QUESTIONS_1_50 = [
     "source": "T04 Task C12 & H9 • Qo'shma Shablonlar",
     "title": "TH yoki LL Harf Birikmalari (T04 H9)",
     "story": "Tilshunoslik tahlili uchun ismida `'TH'` yoki `'LL'` harf juftligi qatnashgan xodimlar qidirilmoqda.",
-    "taskUz": "From the employee table (`emp`), ismida (`ename`) `'TH'` birikmasi YOKI `'LL'` birikmasi qatnashgan xodimlarni toping.",
+    "taskUz": "From the employee table (`emp`), ismida (`ename`) `'TH'` birikmasi YOKI `'LL'` birikmasi qatnashgan xodimlarni toping.\n\n📋 **Kutilayotgan Natija Ustunlari & Manbalar:**\n• Asosiy jadvallar: `emp`",
     "starterCode": "",
     "hint": "Ikkita `LIKE` (yoki `ILIKE`) shartini `OR` bilan bog'lang va harf birikmalarining ikki tomoniga `%` qo'ying.",
     "solutions": [
@@ -1177,7 +1174,3 @@ window.QUESTIONS_1_50 = [
     "task": "From the employee table (`emp`), ismida (`ename`) `'TH'` birikmasi YOKI `'LL'` birikmasi qatnashgan xodimlarni toping."
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = window.QUESTIONS_1_50;
-}

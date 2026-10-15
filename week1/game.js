@@ -518,56 +518,80 @@
   // 8. DIAGRAM VERIFICATION & GRADING
   // ==========================================================================
   function verifyDiagram() {
-    if (!eerCanvas || !window.EER_GRADER) return;
-
-    const q = allQuestions.find(item => item.id === STATE.currentQId);
-    if (!q) return;
-
-    const userDiagram = eerCanvas.exportCurrentDiagram();
-    const result = window.EER_GRADER.grade(userDiagram, q);
-
     const elFeedback = document.getElementById('feedbackBox');
-    if (!elFeedback) return;
-
-    if (result.passed) {
-      window.playSfx('success');
-      if (atelier2D) atelier2D.triggerSuccess("EER Diagramma Qabul Qilindi!");
-
-      elFeedback.className = 'feedback-box success';
-      elFeedback.innerHTML = `
-        <strong>🎉 A'lo Natija!</strong> ${result.feedback || "Mijoz siz tuzgan EER modelni to'liq tasdiqladi."}
-        <div style="margin-top:8px;">
-          <button id="btnNextChallenge" class="btn btn-primary" style="padding:4px 12px;">Keyingi Topshiriqqa O'tish ▶</button>
-        </div>
-      `;
-      elFeedback.style.display = 'block';
-
-      // State updates
-      if (!STATE.solvedIds.has(q.id)) {
-        STATE.solvedIds.add(q.id);
-        STATE.score += 100;
-        STATE.salary += 150;
-        saveState();
-        updateHUD();
-        renderSectorTabs();
+    try {
+      if (!eerCanvas) {
+        if (elFeedback) {
+          elFeedback.className = 'feedback-box error';
+          elFeedback.innerHTML = `<strong>⚠️ Xatolik:</strong> Diagramma kanvasi yuklanmagan.`;
+          elFeedback.style.display = 'block';
+        }
+        return;
+      }
+      if (!window.EER_GRADER) {
+        if (elFeedback) {
+          elFeedback.className = 'feedback-box error';
+          elFeedback.innerHTML = `<strong>⚠️ Xatolik:</strong> EER Grader tekshiruv moduli yuklanmadi.`;
+          elFeedback.style.display = 'block';
+        }
+        return;
       }
 
-      const nextBtn = document.getElementById('btnNextChallenge');
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-          window.playSfx('click');
-          if (STATE.currentQId < 150) {
-            loadQuestion(STATE.currentQId + 1);
-          }
-        });
-      }
-    } else {
-      window.playSfx('error');
-      if (atelier2D) atelier2D.triggerError("Diagrammada nomutanosiblik bor!");
+      const q = allQuestions.find(item => item.id === STATE.currentQId);
+      if (!q) return;
 
-      elFeedback.className = 'feedback-box error';
-      elFeedback.innerHTML = `<strong>⚠️ Diqqat:</strong> ${result.feedback || "Sxemada xatoliklar mavjud. Qaytadan tekshiring."}`;
-      elFeedback.style.display = 'block';
+      const userDiagram = eerCanvas.exportCurrentDiagram();
+      const result = window.EER_GRADER.grade(userDiagram, q);
+
+      if (!elFeedback) return;
+
+      if (result.passed) {
+        window.playSfx('success');
+        if (atelier2D) atelier2D.triggerSuccess("EER Diagramma Qabul Qilindi!");
+
+        elFeedback.className = 'feedback-box success';
+        elFeedback.innerHTML = `
+          <strong>🎉 A'lo Natija!</strong> ${result.feedback || "Mijoz siz tuzgan EER modelni to'liq tasdiqladi."}
+          <div style="margin-top:8px;">
+            <button id="btnNextChallenge" class="btn btn-primary" style="padding:4px 12px;">Keyingi Topshiriqqa O'tish ▶</button>
+          </div>
+        `;
+        elFeedback.style.display = 'block';
+
+        // State updates
+        if (!STATE.solvedIds.has(q.id)) {
+          STATE.solvedIds.add(q.id);
+          STATE.score += 100;
+          STATE.salary += 150;
+          saveState();
+          updateHUD();
+          renderSectorTabs();
+        }
+
+        const nextBtn = document.getElementById('btnNextChallenge');
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            window.playSfx('click');
+            if (STATE.currentQId < 150) {
+              loadQuestion(STATE.currentQId + 1);
+            }
+          });
+        }
+      } else {
+        window.playSfx('error');
+        if (atelier2D) atelier2D.triggerError("Diagrammada nomutanosiblik bor!");
+
+        elFeedback.className = 'feedback-box error';
+        elFeedback.innerHTML = `<strong>⚠️ Diqqat:</strong> ${result.feedback || "Sxemada xatoliklar mavjud. Qaytadan tekshiring."}`;
+        elFeedback.style.display = 'block';
+      }
+    } catch (err) {
+      console.error("verifyDiagram error:", err);
+      if (elFeedback) {
+        elFeedback.className = 'feedback-box error';
+        elFeedback.innerHTML = `<strong>⚠️ Tekshiruvda kutilmagan xatolik:</strong> ${err.message || err}`;
+        elFeedback.style.display = 'block';
+      }
     }
   }
 

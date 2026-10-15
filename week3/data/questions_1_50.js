@@ -1,9 +1,6 @@
-// ============================================================================
-// DATABASE SYSTEMS ACADEMY — WEEK 3: SQL DDL & RELATIONAL ALGEBRA
-// Variable: QUESTIONS_1_50 (50 Questions)
-// ============================================================================
+var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
 
-window.QUESTIONS_1_50 = [
+_scope.QUESTIONS_1_50 = [
   {
     "id": 1,
     "sector": 1,
@@ -19,9 +16,7 @@ window.QUESTIONS_1_50 = [
       "SET search_path = ddl_lab, public",
       "SET search_path TO ddl_lab,public"
     ],
-    "requiredPatterns": [
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "PostgreSQL qidiruv sxemasi muvaffaqiyatli ddl_lab ga yo'naltirildi.",
     "task": "Set the PostgreSQL search path (`search_path`) to `ddl_lab` and `public` schemas in the current session."
   },
@@ -32,7 +27,7 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 Intro • Oddiy Filial Jadvali",
     "title": "Core Branch Table",
     "story": "Kompaniya filiallarni ro'yxatga olish uchun eng sodda jadval yaratmoqchi. with filial kodi and nomi bo'lishi kifoya.",
-    "taskUz": "Create a table named `branch`: with `id` (integer) and `name` (varchar(50)) columns.",
+    "taskUz": "Create a table named `branch`: with `id` (integer) and `name` (varchar(50)) columns.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **branch**\n• Ustunlar: `id` (integer), `name` (varchar(50))",
     "starterCode": "",
     "hint": "`CREATE TABLE branch (...)` yozib, qavs ichida ustun nomi and uning tipini ko'rsating.",
     "solutions": [
@@ -40,11 +35,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE branch (\n  id integer,\n  name varchar(50)\n)",
       "CREATE TABLE branch (id int, name varchar(50))"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "branch",
       "columns": [
@@ -68,19 +59,14 @@ window.QUESTIONS_1_50 = [
     "source": "L03 Slide 12 • Sana Maydoni",
     "title": "Staff Registry Table va Qabul Sanasi",
     "story": "Kadrlar bo'limi xodimlarning ismi and ishga qabul qilingan sanasini qayd etuvchi oddiy struktura so'radi.",
-    "taskUz": "Create a table named `staff` with columns: `id` (integer), `full_name` (varchar(100)) and `hire_date` (date).",
+    "taskUz": "Create a table named `staff` with columns: `id` (integer), `full_name` (varchar(100)) and `hire_date` (date).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **staff**\n• Ustunlar: `id` (integer), `full_name` (varchar(100)), `hire_date` (date)",
     "starterCode": "",
     "hint": "Sana turi uchun `date` kalit so'zidan foydalaning.",
     "solutions": [
       "CREATE TABLE staff (id integer, full_name varchar(100), hire_date date)",
       "CREATE TABLE staff (\n  id integer,\n  full_name varchar(100),\n  hire_date date\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "staff",
       "columns": [
@@ -108,19 +94,14 @@ window.QUESTIONS_1_50 = [
     "source": "L03 Slide 14 • Aniq Son (Numeric/Decimal)",
     "title": "Mahsulotlar va Narx Maydoni",
     "story": "Omborxona uchun mahsulotlar jadvali kerak. Mahsulot narxi tiyingacha aniq bo'lishi lozim.",
-    "taskUz": "Create a table named `product` with columns: `item_no` (integer), `title` (varchar(80)) and `price` (10 xonali, 2 tasi kasr — numeric(10,2)).",
+    "taskUz": "Create a table named `product` with columns: `item_no` (integer), `title` (varchar(80)) and `price` (10 xonali, 2 tasi kasr — numeric(10,2)).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **product**\n• Ustunlar: `item_no` (integer), `title` (varchar(80)), `price` (numeric(10,2))",
     "starterCode": "",
     "hint": "Kasrli aniq pul qiymati uchun `numeric(10,2)` tipidan foydalaning.",
     "solutions": [
       "CREATE TABLE product (item_no integer, title varchar(80), price numeric(10,2))",
       "CREATE TABLE product (\n  item_no integer,\n  title varchar(80),\n  price numeric(10,2)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "product",
       "columns": [
@@ -148,20 +129,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 • Bo'limlar Asosiy Tuzilmasi",
     "title": "Bo'limlar Boshlang'ich Sxemasi",
     "story": "Seminar 3 ning 1-topshirig'i boshlanmoqda. Kompaniya bo'limlari uchun asosiy jadval strukturasi talab qilinmoqda.",
-    "taskUz": "Create a table named `department` with columns: `id` (integer), `title` (varchar(100)), `location` (varchar(50)) and `budget` (numeric(12,2)).",
+    "taskUz": "Create a table named `department` with columns: `id` (integer), `title` (varchar(100)), `location` (varchar(50)) and `budget` (numeric(12,2)).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **department**\n• Ustunlar: `id` (integer), `title` (varchar(100)), `location` (varchar(50)), `budget` (numeric(12,2))",
     "starterCode": "",
     "hint": "To'rtta ustun nomini ketma-ket ko'rsatilgan turlar bilan e'lon qiling.",
     "solutions": [
       "CREATE TABLE department (id integer, title varchar(100), location varchar(50), budget numeric(12,2))",
       "CREATE TABLE department (\n  id integer,\n  title varchar(100),\n  location varchar(50),\n  budget numeric(12,2)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "department",
       "columns": [
@@ -193,18 +168,14 @@ window.QUESTIONS_1_50 = [
     "source": "L03 Slide 15 • Boolean Maydoni",
     "title": "Loyiha Holatlari va Mantiqiy Bayroqcha",
     "story": "Loyihalarning faol yoki to'xtatilganligini kuzatish uchun mantiqiy (ha/yo'q) ustun zarur.",
-    "taskUz": "Create a table named `project_status` with columns: `code` (varchar(10)) and `is_active` (boolean).",
+    "taskUz": "Create a table named `project_status` with columns: `code` (varchar(10)) and `is_active` (boolean).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **project_status**\n• Ustunlar: `code` (varchar(10)), `is_active` (boolean)",
     "starterCode": "",
     "hint": "Mantiqiy haqiqat/yolg'on qiymatlari uchun `boolean` turini yozing.",
     "solutions": [
       "CREATE TABLE project_status (code varchar(10), is_active boolean)",
       "CREATE TABLE project_status (\n  code varchar(10),\n  is_active boolean\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "project_status",
       "columns": [
@@ -228,19 +199,14 @@ window.QUESTIONS_1_50 = [
     "source": "L03 Slide 13 • Timestamp Maydoni",
     "title": "Audit Jurnali va Vaqt Tamg'asi",
     "story": "Xavfsizlik tizimi har bir amaliyotning aniq sekundigacha being vaqtini saqlashi lozim.",
-    "taskUz": "Create a table named `audit_log` with columns: `log_id` (integer), `action` (varchar(50)) and `occurred_at` (sana and vaqt — timestamp).",
+    "taskUz": "Create a table named `audit_log` with columns: `log_id` (integer), `action` (varchar(50)) and `occurred_at` (sana and vaqt — timestamp).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **audit_log**\n• Ustunlar: `log_id` (integer), `action` (varchar(50)), `occurred_at` (timestamp)",
     "starterCode": "",
     "hint": "Sana and soat/minut/sekundni birlashtiruvchi tur `timestamp` deb ataladi.",
     "solutions": [
       "CREATE TABLE audit_log (log_id integer, action varchar(50), occurred_at timestamp)",
       "CREATE TABLE audit_log (\n  log_id integer,\n  action varchar(50),\n  occurred_at timestamp\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "audit_log",
       "columns": [
@@ -268,18 +234,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 • Telefon Raqamlari",
     "title": "Aloqa Ma'lumotlari Jadvali",
     "story": "Xodimlarning telefon raqamlarini saqlash uchun alohida sodda struktura talab etiladi.",
-    "taskUz": "Create a table named `contact_info` with columns: `staff_id` (integer) and `phone_number` (varchar(20)).",
+    "taskUz": "Create a table named `contact_info` with columns: `staff_id` (integer) and `phone_number` (varchar(20)).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **contact_info**\n• Ustunlar: `staff_id` (integer), `phone_number` (varchar(20))",
     "starterCode": "",
     "hint": "Telefon raqami simvollarni o'z ichiga olishi uchun varchar(20) turini qo'llang.",
     "solutions": [
       "CREATE TABLE contact_info (staff_id integer, phone_number varchar(20))",
       "CREATE TABLE contact_info (\n  staff_id integer,\n  phone_number varchar(20)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "contact_info",
       "columns": [
@@ -303,19 +265,14 @@ window.QUESTIONS_1_50 = [
     "source": "L03 Slide 14 • Katta Balans va Mijozlar",
     "title": "Mijozlar Balansi Jadvali",
     "story": "Korporativ mijozlar uchun hisob balansi katta miqdorlarni (14 xona, 2 tasi tiyin) sig'dira olishi kerak.",
-    "taskUz": "Create a table named `client` with columns: `client_id` (integer), `company_name` (varchar(120)) and `balance` (numeric(14,2)).",
+    "taskUz": "Create a table named `client` with columns: `client_id` (integer), `company_name` (varchar(120)) and `balance` (numeric(14,2)).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **client**\n• Ustunlar: `client_id` (integer), `company_name` (varchar(120)), `balance` (numeric(14,2))",
     "starterCode": "",
     "hint": "`numeric(14,2)` yozuvi umumiy 14 xona, verguldan keyin 2 ta kasr xonasini bildiradi.",
     "solutions": [
       "CREATE TABLE client (client_id integer, company_name varchar(120), balance numeric(14,2))",
       "CREATE TABLE client (\n  client_id integer,\n  company_name varchar(120),\n  balance numeric(14,2)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "client",
       "columns": [
@@ -343,18 +300,14 @@ window.QUESTIONS_1_50 = [
     "source": "L03 Slide 11 • Text Turi",
     "title": "Katta Hajmli Kesh Jadvali",
     "story": "Cheklanmagan uzunlikdagi matnli ma'lumotlarni saqlash uchun PostgreSQL da `text` turi qulay.",
-    "taskUz": "Create a table named `temp_cache` with columns: `cache_key` (varchar(50)) and `cache_val` (cheklanmagan matn — text).",
+    "taskUz": "Create a table named `temp_cache` with columns: `cache_key` (varchar(50)) and `cache_val` (cheklanmagan matn — text).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **temp_cache**\n• Ustunlar: `cache_key` (varchar(50)), `cache_val` (text)",
     "starterCode": "",
     "hint": "Uzunligi cheklanmagan erkin matn turi `text` deb yoziladi.",
     "solutions": [
       "CREATE TABLE temp_cache (cache_key varchar(50), cache_val text)",
       "CREATE TABLE temp_cache (\n  cache_key varchar(50),\n  cache_val text\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "temp_cache",
       "columns": [
@@ -385,9 +338,7 @@ window.QUESTIONS_1_50 = [
       "DROP TABLE IF EXISTS temp_cache",
       "DROP TABLE temp_cache"
     ],
-    "requiredPatterns": [
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "temp_cache jadvali bazadan o'chirildi.",
     "task": "Safely drop table `temp_cache` if it exists (using `IF EXISTS`)."
   },
@@ -405,9 +356,7 @@ window.QUESTIONS_1_50 = [
       "DROP TABLE department",
       "DROP TABLE IF EXISTS department"
     ],
-    "requiredPatterns": [
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "department jadvali tozalab tashlandi.",
     "task": "`department` nomli jadvalni butunlay o'chirib tashlang."
   },
@@ -418,19 +367,14 @@ window.QUESTIONS_1_50 = [
     "source": "L03 Slide 12 • Profil va Bio",
     "title": "Xodim Tarjimai Holi Jadvali",
     "story": "Kompaniya xodimlarining qisqacha tarjimai holi and qo'shilgan sanasini saqlamoqchi.",
-    "taskUz": "Create a table named `employee_profile` with columns: `emp_id` (integer), `bio` (text) and `joined_on` (date).",
+    "taskUz": "Create a table named `employee_profile` with columns: `emp_id` (integer), `bio` (text) and `joined_on` (date).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **employee_profile**\n• Ustunlar: `emp_id` (integer), `bio` (text), `joined_on` (date)",
     "starterCode": "",
     "hint": "`integer`, `text` and `date` turlarini ketma-ket qo'llang.",
     "solutions": [
       "CREATE TABLE employee_profile (emp_id integer, bio text, joined_on date)",
       "CREATE TABLE employee_profile (\n  emp_id integer,\n  bio text,\n  joined_on date\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "employee_profile",
       "columns": [
@@ -458,19 +402,14 @@ window.QUESTIONS_1_50 = [
     "source": "L03 Slide 15 • Invoyslar va To'lov Holati",
     "title": "Invoyslar va To'lov Holati",
     "story": "Buxgalteriya bo'limi har bir hisob-faktura raqami, jami summasi and to'langanlik holatini saqlashni so'radi.",
-    "taskUz": "Create a table named `invoice` with columns: `inv_no` (integer), `total_amount` (numeric(12,2)) and `paid` (boolean).",
+    "taskUz": "Create a table named `invoice` with columns: `inv_no` (integer), `total_amount` (numeric(12,2)) and `paid` (boolean).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **invoice**\n• Ustunlar: `inv_no` (integer), `total_amount` (numeric(12,2)), `paid` (boolean)",
     "starterCode": "",
     "hint": "`integer`, `numeric(12,2)` and `boolean` turlarini ishlating.",
     "solutions": [
       "CREATE TABLE invoice (inv_no integer, total_amount numeric(12,2), paid boolean)",
       "CREATE TABLE invoice (\n  inv_no integer,\n  total_amount numeric(12,2),\n  paid boolean\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "invoice",
       "columns": [
@@ -498,21 +437,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Core Preparation • 1-Qavat Yakuni",
     "title": "1-Qavat Bossi: Tashkiliy Birlik Arxitekturasi",
     "story": "1-qavatning yakuniy sinovi! Korporatsiyaning barcha tashkiliy birliklari (unit) uchun barcha 5 ta asosiy ma'lumot turlarini o'zida jamlagan mukammal jadval talab qilinmoqda.",
-    "taskUz": "Create a table named `organization_unit` with columns: `unit_id` (integer), `unit_name` (varchar(100)), `operational_budget` (numeric(15,2)), `active` (boolean) and `created_at` (timestamp).",
+    "taskUz": "Create a table named `organization_unit` with columns: `unit_id` (integer), `unit_name` (varchar(100)), `operational_budget` (numeric(15,2)), `active` (boolean) and `created_at` (timestamp).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **organization_unit**\n• Ustunlar: `unit_id` (integer), `unit_name` (varchar(100)), `operational_budget` (numeric(15,2)), `active` (boolean), `created_at` (timestamp)",
     "starterCode": "",
     "hint": "Barcha 5 ustunni ko'rsatilgan turlar bilan bitta CREATE TABLE ichida e'lon qiling.",
     "solutions": [
       "CREATE TABLE organization_unit (unit_id integer, unit_name varchar(100), operational_budget numeric(15,2), active boolean, created_at timestamp)",
       "CREATE TABLE organization_unit (\n  unit_id integer,\n  unit_name varchar(100),\n  operational_budget numeric(15,2),\n  active boolean,\n  created_at timestamp\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "organization_unit",
       "columns": [
@@ -548,18 +480,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 • Ustun Darajasidagi Primary Key",
     "title": "Ustun Darajasida Primary Key",
     "story": "Jadvalda har bir qatorni bir qiymatli aniqlash uchun birlamchi kalit (PK) shart. Eng oddiy usul — uni ustun yonida e'lon qilish.",
-    "taskUz": "Create a table named `warehouse`: `id` (integer) column bevosita ustun darajasida `PRIMARY KEY` qilib belgilang, second column esa `city` (varchar(50)) bo'lsin.",
+    "taskUz": "Create a table named `warehouse`: `id` (integer) column bevosita ustun darajasida `PRIMARY KEY` qilib belgilang, second column esa `city` (varchar(50)) bo'lsin.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **warehouse**\n• Ustunlar: `id` [PK] (integer), `city` (varchar(50))",
     "starterCode": "",
     "hint": "`id integer PRIMARY KEY, city varchar(50)` .",
     "solutions": [
       "CREATE TABLE warehouse (id integer PRIMARY KEY, city varchar(50))",
       "CREATE TABLE warehouse (\n  id integer PRIMARY KEY,\n  city varchar(50)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "warehouse",
       "columns": [
@@ -584,19 +512,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 • Jadval Darajasidagi Primary Key",
     "title": "Jadval Darajasida Primary Key",
     "story": "Ko'pincha arxitekturada kalitlar alohida qatorda yoziladi. Bu kodni o'qishni and boshqarishni osonlashtiradi.",
-    "taskUz": "Create a table named `supplier` with columns: `id` (integer) and `company` (varchar(80)). primary keyni jadval darajasida `PRIMARY KEY (id)` declared.",
+    "taskUz": "Create a table named `supplier` with columns: `id` (integer) and `company` (varchar(80)). primary keyni jadval darajasida `PRIMARY KEY (id)` declared.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **supplier**\n• Ustunlar: `id` [PK] (integer), `company` (varchar(80))",
     "starterCode": "",
     "hint": "Ustunlardan so'ng vergul qo'yib, `PRIMARY KEY (id)` .",
     "solutions": [
       "CREATE TABLE supplier (id integer, company varchar(80), PRIMARY KEY (id))",
       "CREATE TABLE supplier (\n  id integer,\n  company varchar(80),\n  PRIMARY KEY (id)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "supplier",
       "columns": [
@@ -621,17 +544,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 Rules • Nomlangan Birlamchi Kalit",
     "title": "Nomlangan Primary Key (Named Constraint)",
     "story": "Academy and professional enterprise qoidalariga ko'ra, har bir cheklov o'z rasmiy nomiga (`pk_jadval_ustun`) ega bo'lishi shart.",
-    "taskUz": "Create a table named `department` with columns: `id` (integer) and `title` (varchar(100)). primary keyga `pk_department_id` deb nom bering (`CONSTRAINT pk_department_id PRIMARY KEY (id)`).",
+    "taskUz": "Create a table named `department` with columns: `id` (integer) and `title` (varchar(100)). primary keyga `pk_department_id` deb nom bering (`CONSTRAINT pk_department_id PRIMARY KEY (id)`).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **department**\n• Ustunlar: `id` [PK] (integer), `title` (varchar(100))\n• Cheklovlar: `pk_department_id`",
     "starterCode": "",
     "hint": "`CONSTRAINT pk_department_id PRIMARY KEY (id)` sintaksisini jadval oxirida qo'llang.",
     "solutions": [
       "CREATE TABLE department (id integer, title varchar(100), CONSTRAINT pk_department_id PRIMARY KEY (id))",
       "CREATE TABLE department (\n  id integer,\n  title varchar(100),\n  CONSTRAINT pk_department_id PRIMARY KEY (id)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "department",
       "columns": [
@@ -659,18 +579,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 • GENERATED ALWAYS AS IDENTITY",
     "title": "Avto-inkrement (Identity) Mexanizmi",
     "story": "Baza har bir yangi qator kiritilganda unikal ID raqamini o'zi avtomatik generatsiya qilishi kerak.",
-    "taskUz": "Create a table named `customer`: `id` (integer) ustuniga `GENERATED ALWAYS AS IDENTITY` xususiyatini bering, second column esa `fullname` (varchar(70)) bo'lsin.",
+    "taskUz": "Create a table named `customer`: `id` (integer) ustuniga `GENERATED ALWAYS AS IDENTITY` xususiyatini bering, second column esa `fullname` (varchar(70)) bo'lsin.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **customer**\n• Ustunlar: `id` (integer), `fullname` (varchar(70))",
     "starterCode": "",
     "hint": "`id integer GENERATED ALWAYS AS IDENTITY` .",
     "solutions": [
       "CREATE TABLE customer (id integer GENERATED ALWAYS AS IDENTITY, fullname varchar(70))",
       "CREATE TABLE customer (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  fullname varchar(70)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "customer",
       "columns": [
@@ -695,18 +611,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 • Identity va PK Kombinatsiyasi",
     "title": "Identity va Nomlangan PK Birgalikda",
     "story": "Seminar 3 qoidasi: Identity qiymat yetkazib beradi (supply), Primary Key esa uning takrorlanmasligini qat'iy kafolatlaydi (enforce).",
-    "taskUz": "Create a table named `project` with columns: `id` (integer GENERATED ALWAYS AS IDENTITY) and `title` (varchar(100)). primary key nomini `pk_project_id` deb belgilang.",
+    "taskUz": "Create a table named `project` with columns: `id` (integer GENERATED ALWAYS AS IDENTITY) and `title` (varchar(100)). primary key nomini `pk_project_id` deb belgilang.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **project**\n• Ustunlar: `id` [PK] (integer), `title` (varchar(100))\n• Cheklovlar: `pk_project_id`",
     "starterCode": "",
     "hint": "`id integer GENERATED ALWAYS AS IDENTITY`, keyin `title varchar(100)`, oxirida `CONSTRAINT pk_project_id PRIMARY KEY (id)` yozing.",
     "solutions": [
       "CREATE TABLE project (id integer GENERATED ALWAYS AS IDENTITY, title varchar(100), CONSTRAINT pk_project_id PRIMARY KEY (id))",
       "CREATE TABLE project (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  title varchar(100),\n  CONSTRAINT pk_project_id PRIMARY KEY (id)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "project",
       "columns": [
@@ -742,10 +654,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100))",
       "CREATE TABLE department (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10),\n  title varchar(100)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "Identity sequence parametrlari (1 dan 10 qadam bilan) to'g'ri sozlandi.",
     "task": "Create a table named `department`: `id` column `integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10)` declared, second column `title` (varchar(100)) bo'lsin."
   },
@@ -763,10 +672,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE region (id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 50), region_name varchar(60))",
       "CREATE TABLE region (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 50),\n  region_name varchar(60)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "Yirik oraliqli identity parametrli jadval shakllantirildi.",
     "task": "Create a table named `region` with columns: `id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 50)` and `region_name varchar(60)`."
   },
@@ -777,18 +683,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 4 • Tabiiy Kalit (Natural Primary Key)",
     "title": "Tabiiy Primary Key (Pasport Raqami)",
     "story": "Seminar 2 and 3 kompaniya sxemasida: `passport_no` tabiiy birlamchi kalit hisoblanadi (surrogate sonli id emas, balki real hayotiy unikal kod).",
-    "taskUz": "Create a table named `person`: `passport_no` (varchar(20)) column named primary key (`CONSTRAINT pk_person_passport PRIMARY KEY (passport_no)`) qiling and `name` (varchar(50)) column qo'shing.",
+    "taskUz": "Create a table named `person`: `passport_no` (varchar(20)) column named primary key (`CONSTRAINT pk_person_passport PRIMARY KEY (passport_no)`) qiling and `name` (varchar(50)) column qo'shing.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **person**\n• Ustunlar: `passport_no` [PK] (varchar(20)), `name` (varchar(50))\n• Cheklovlar: `pk_person_passport`",
     "starterCode": "",
     "hint": "`passport_no` matnli column `CONSTRAINT pk_person_passport PRIMARY KEY (passport_no)` orqali asosiy kalit qiling.",
     "solutions": [
       "CREATE TABLE person (passport_no varchar(20), name varchar(50), CONSTRAINT pk_person_passport PRIMARY KEY (passport_no))",
       "CREATE TABLE person (\n  passport_no varchar(20),\n  name varchar(50),\n  CONSTRAINT pk_person_passport PRIMARY KEY (passport_no)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "person",
       "columns": [
@@ -823,11 +725,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE orders (order_code varchar(30), order_date date, CONSTRAINT pk_orders_code PRIMARY KEY (order_code))",
       "CREATE TABLE orders (\n  order_code varchar(30),\n  order_date date,\n  CONSTRAINT pk_orders_code PRIMARY KEY (order_code)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "Matnli birlamchi kalit muvaffaqiyatli bog'landi.",
     "task": "Create a table named `orders`: `order_code` (varchar(30)) column named primary key (`CONSTRAINT pk_orders_code PRIMARY KEY (order_code)`) qilib, `order_date` (date) column qo'shing."
   },
@@ -838,18 +736,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 • Xodimlar Jadvalining Birlamchi Kaliti",
     "title": "Xodimlar Jadvali va Identity PK",
     "story": "Kompaniya xodimlarining har biriga tizim tomonidan doimiy avtomatik xodim raqami berilishi shart.",
-    "taskUz": "Create a table named `employee`: `id` (integer GENERATED ALWAYS AS IDENTITY), `first_name` (varchar(25)) ustunlari and named primary key (`CONSTRAINT pk_employee_id PRIMARY KEY (id)`) bilan.",
+    "taskUz": "Create a table named `employee`: `id` (integer GENERATED ALWAYS AS IDENTITY), `first_name` (varchar(25)) ustunlari and named primary key (`CONSTRAINT pk_employee_id PRIMARY KEY (id)`) bilan.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **employee**\n• Ustunlar: `id` [PK] (integer), `first_name` (varchar(25))\n• Cheklovlar: `pk_employee_id`",
     "starterCode": "",
     "hint": "`id integer GENERATED ALWAYS AS IDENTITY`, so'ng ustunlar and `CONSTRAINT pk_employee_id PRIMARY KEY (id)`.",
     "solutions": [
       "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25), CONSTRAINT pk_employee_id PRIMARY KEY (id))",
       "CREATE TABLE employee (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  first_name varchar(25),\n  CONSTRAINT pk_employee_id PRIMARY KEY (id)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "employee",
       "columns": [
@@ -885,11 +779,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE student (student_id integer, full_name varchar(90), CONSTRAINT pk_student PRIMARY KEY (student_id))",
       "CREATE TABLE student (\n  student_id integer,\n  full_name varchar(90),\n  CONSTRAINT pk_student PRIMARY KEY (student_id)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "student jadvali named birlamchi kalit bilan yaratildi.",
     "task": "Create a table named `student`: `student_id` (integer) column `CONSTRAINT pk_student PRIMARY KEY (student_id)` deb nomlang and `full_name` (varchar(90)) column e'lon qiling."
   },
@@ -907,11 +797,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE vehicle (vin varchar(17), model varchar(50), CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin))",
       "CREATE TABLE vehicle (\n  vin varchar(17),\n  model varchar(50),\n  CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "vehicle jadvali xalqaro VIN birlamchi kaliti bilan tasdiqlandi.",
     "task": "Create a table named `vehicle`: `vin` (varchar(17)) column named primary key (`CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin)`) qiling and `model` (varchar(50)) column qo'shing."
   },
@@ -929,11 +815,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE receipt (receipt_id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, amount numeric(10,2))",
       "CREATE TABLE receipt (\n  receipt_id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,\n  amount numeric(10,2)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "receipt jadvali identity primary key bilan barpo etildi.",
     "task": "Create a table named `receipt` with columns: `receipt_id` (integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY) and `amount` (numeric(10,2))."
   },
@@ -951,11 +833,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE inventory_item (sku varchar(25), stock_qty integer, CONSTRAINT pk_inventory_sku PRIMARY KEY (sku))",
       "CREATE TABLE inventory_item (\n  sku varchar(25),\n  stock_qty integer,\n  CONSTRAINT pk_inventory_sku PRIMARY KEY (sku)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "inventory_item jadvali SKU klyuchi bilan yaratildi.",
     "task": "Create a table named `inventory_item`: `sku` (varchar(25)) column `CONSTRAINT pk_inventory_sku PRIMARY KEY (sku)` qilib, `stock_qty` (integer) column qo'shing."
   },
@@ -966,18 +844,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 Final • 2-Qavat Yakuni",
     "title": "2-Qavat Bossi: Bo'limlar To'liq Primary Key Standarti",
     "story": "2-qavatning eng mas'uliyatli topshirig'i! Seminar 3 talabiga muvofiq, `department` jadvali 1 dan boshlanib 10 tadan oshuvchi Identity column and rasmiy named birlamchi kalit bilan qayta qurilishi lozim.",
-    "taskUz": "Create a table named `department`: `id` (integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10)), `title` (varchar(100)), `location` (varchar(50)), `budget` (numeric(12,2)) ustunlari and named primary key (`CONSTRAINT pk_department_id PRIMARY KEY (id)`) bilan.",
+    "taskUz": "Create a table named `department`: `id` (integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10)), `title` (varchar(100)), `location` (varchar(50)), `budget` (numeric(12,2)) ustunlari and named primary key (`CONSTRAINT pk_department_id PRIMARY KEY (id)`) bilan.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **department**\n• Ustunlar: `id` [PK] (integer), `title` (varchar(100)), `location` (varchar(50)), `budget` (numeric(12,2))\n• Cheklovlar: `pk_department_id`",
     "starterCode": "",
     "hint": "`id` ustuniga `GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10)` bering, so'ng qolgan 3 ustunni yozib, oxirida `CONSTRAINT pk_department_id PRIMARY KEY (id)` qo'shing.",
     "solutions": [
       "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100), location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id))",
       "CREATE TABLE department (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10),\n  title varchar(100),\n  location varchar(50),\n  budget numeric(12,2),\n  CONSTRAINT pk_department_id PRIMARY KEY (id)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "department",
       "columns": [
@@ -1014,18 +888,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 • Ustun Darajasidagi NOT NULL",
     "title": "Majburiy Ism va Familiya (NOT NULL)",
     "story": "Xodimlar jadvalida xodimning ismi and familiyasi hech qachon bo'sh (NULL) qolmasligi shart.",
-    "taskUz": "Create a table named `staff_member` with columns: `id` (integer PRIMARY KEY), `first_name` (varchar(25) NOT NULL) and `last_name` (varchar(25) NOT NULL).",
+    "taskUz": "Create a table named `staff_member` with columns: `id` (integer PRIMARY KEY), `first_name` (varchar(25) NOT NULL) and `last_name` (varchar(25) NOT NULL).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **staff_member**\n• Ustunlar: `id` [PK] (integer), `first_name` [NOT NULL] (varchar(25)), `last_name` [NOT NULL] (varchar(25))",
     "starterCode": "",
     "hint": "Har bir majburiy ustun turidan keyin `NOT NULL` .",
     "solutions": [
       "CREATE TABLE staff_member (id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL)",
       "CREATE TABLE staff_member (\n  id integer PRIMARY KEY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "staff_member",
       "columns": [
@@ -1056,17 +926,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 • Ustun Darajasidagi UNIQUE",
     "title": "Ustun Darajasida Unikallik (UNIQUE)",
     "story": "Elektron pochta manzillari tizimda takrorlanmasligi kerak. Eng sodda usul — ustun yoniga `UNIQUE` yozish.",
-    "taskUz": "Create a table named `user_account` with columns: `id` (integer PRIMARY KEY) and `email` (varchar(100) NOT NULL UNIQUE).",
+    "taskUz": "Create a table named `user_account` with columns: `id` (integer PRIMARY KEY) and `email` (varchar(100) NOT NULL UNIQUE).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **user_account**\n• Ustunlar: `id` [PK] (integer), `email` [NOT NULL] (varchar(100))",
     "starterCode": "",
     "hint": "`email varchar(100) NOT NULL UNIQUE` .",
     "solutions": [
       "CREATE TABLE user_account (id integer PRIMARY KEY, email varchar(100) NOT NULL UNIQUE)",
       "CREATE TABLE user_account (\n  id integer PRIMARY KEY,\n  email varchar(100) NOT NULL UNIQUE\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "user_account",
       "columns": [
@@ -1093,17 +960,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 • Nomlangan UNIQUE Cheklovi",
     "title": "Nomlangan UNIQUE Constrainti (Constraint)",
     "story": "Bo'lim nomlari takrorlanmasligi shart. Xatolik sodir bo'lganda aniq nom chiqishi uchun cheklovni `uq_department_title` deb nomlash zarur.",
-    "taskUz": "Create a table named `department`: `id` (integer PRIMARY KEY), `title` (varchar(100) NOT NULL) ustunlari and named `CONSTRAINT uq_department_title UNIQUE (title)` with constraint.",
+    "taskUz": "Create a table named `department`: `id` (integer PRIMARY KEY), `title` (varchar(100) NOT NULL) ustunlari and named `CONSTRAINT uq_department_title UNIQUE (title)` with constraint.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **department**\n• Ustunlar: `id` [PK] (integer), `title` [NOT NULL] (varchar(100))\n• Cheklovlar: `uq_department_title`",
     "starterCode": "",
     "hint": "Jadval darajasida `CONSTRAINT uq_department_title UNIQUE (title)` declared.",
     "solutions": [
       "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, CONSTRAINT uq_department_title UNIQUE (title))",
       "CREATE TABLE department (\n  id integer PRIMARY KEY,\n  title varchar(100) NOT NULL,\n  CONSTRAINT uq_department_title UNIQUE (title)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "department",
       "columns": [
@@ -1133,17 +997,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 Employee • Nomlangan Email UNIQUE",
     "title": "Xodimning Nomlangan Email Constrainti",
     "story": "Seminar 3 ning employee jadvalida xodimning pochtasi unikal bo'lishi and `uq_employee_email` deb nomlanishi belgilangan.",
-    "taskUz": "Create a table named `employee`: `id` (integer PRIMARY KEY), `email` (varchar(100) NOT NULL) and `CONSTRAINT uq_employee_email UNIQUE (email)` with constraint.",
+    "taskUz": "Create a table named `employee`: `id` (integer PRIMARY KEY), `email` (varchar(100) NOT NULL) and `CONSTRAINT uq_employee_email UNIQUE (email)` with constraint.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **employee**\n• Ustunlar: `id` [PK] (integer), `email` [NOT NULL] (varchar(100))\n• Cheklovlar: `uq_employee_email`",
     "starterCode": "",
     "hint": "`CONSTRAINT uq_employee_email UNIQUE (email)` sintaksisini qo'shing.",
     "solutions": [
       "CREATE TABLE employee (id integer PRIMARY KEY, email varchar(100) NOT NULL, CONSTRAINT uq_employee_email UNIQUE (email))",
       "CREATE TABLE employee (\n  id integer PRIMARY KEY,\n  email varchar(100) NOT NULL,\n  CONSTRAINT uq_employee_email UNIQUE (email)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "employee",
       "columns": [
@@ -1180,11 +1041,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE member (id integer PRIMARY KEY, phone varchar(20) NOT NULL, username varchar(40) NOT NULL, CONSTRAINT uq_member_phone UNIQUE (phone), CONSTRAINT uq_member_username UNIQUE (username))",
       "CREATE TABLE member (\n  id integer PRIMARY KEY,\n  phone varchar(20) NOT NULL,\n  username varchar(40) NOT NULL,\n  CONSTRAINT uq_member_phone UNIQUE (phone),\n  CONSTRAINT uq_member_username UNIQUE (username)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "Ikkita mustaqil named UNIQUE cheklovlari muvaffaqiyatli bog'landi.",
     "task": "Create a table named `member`: `id` (integer PRIMARY KEY), `phone` (varchar(20) NOT NULL), `username` (varchar(40) NOT NULL) and ikkita named cheklov: `CONSTRAINT uq_member_phone UNIQUE (phone)` and `CONSTRAINT uq_member_username UNIQUE (username)` bilan."
   },
@@ -1202,10 +1059,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE inventory (id integer PRIMARY KEY, barcode varchar(30) NOT NULL, CONSTRAINT uq_inventory_barcode UNIQUE (barcode))",
       "CREATE TABLE inventory (\n  id integer PRIMARY KEY,\n  barcode varchar(30) NOT NULL,\n  CONSTRAINT uq_inventory_barcode UNIQUE (barcode)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "uq_inventory_barcode cheklovi barpo etildi.",
     "task": "Create a table named `inventory`: `id` (integer PRIMARY KEY), `barcode` (varchar(30) NOT NULL) and `CONSTRAINT uq_inventory_barcode UNIQUE (barcode)` with constraint."
   },
@@ -1223,10 +1077,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE citizen (id integer PRIMARY KEY, pinfl varchar(14) NOT NULL, CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl))",
       "CREATE TABLE citizen (\n  id integer PRIMARY KEY,\n  pinfl varchar(14) NOT NULL,\n  CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "citizen jadvalida PINFL unikalligi o'rnatildi.",
     "task": "Create a table named `citizen`: `id` (integer PRIMARY KEY), `pinfl` (varchar(14) NOT NULL) and `CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl)` with constraint."
   },
@@ -1244,10 +1095,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE hosted_domain (id integer PRIMARY KEY, domain_name varchar(100) NOT NULL, CONSTRAINT uq_domain_name UNIQUE (domain_name))",
       "CREATE TABLE hosted_domain (\n  id integer PRIMARY KEY,\n  domain_name varchar(100) NOT NULL,\n  CONSTRAINT uq_domain_name UNIQUE (domain_name)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "uq_domain_name cheklovi yaratildi.",
     "task": "Create a table named `hosted_domain`: `id` (integer PRIMARY KEY), `domain_name` (varchar(100) NOT NULL) and `CONSTRAINT uq_domain_name UNIQUE (domain_name)` with constraint."
   },
@@ -1265,10 +1113,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE security_badge (id integer PRIMARY KEY, badge_no varchar(15) NOT NULL, CONSTRAINT uq_badge_no UNIQUE (badge_no))",
       "CREATE TABLE security_badge (\n  id integer PRIMARY KEY,\n  badge_no varchar(15) NOT NULL,\n  CONSTRAINT uq_badge_no UNIQUE (badge_no)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "security_badge jadvalida nishonlar unikalligi ta'minlandi.",
     "task": "Create a table named `security_badge`: `id` (integer PRIMARY KEY), `badge_no` (varchar(15) NOT NULL) and `CONSTRAINT uq_badge_no UNIQUE (badge_no)` with constraint."
   },
@@ -1286,10 +1131,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE article (id integer PRIMARY KEY, slug varchar(80) NOT NULL, CONSTRAINT uq_article_slug UNIQUE (slug))",
       "CREATE TABLE article (\n  id integer PRIMARY KEY,\n  slug varchar(80) NOT NULL,\n  CONSTRAINT uq_article_slug UNIQUE (slug)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "uq_article_slug cheklovi o'rnatildi.",
     "task": "Create a table named `article`: `id` (integer PRIMARY KEY), `slug` (varchar(80) NOT NULL) and `CONSTRAINT uq_article_slug UNIQUE (slug)` with constraint."
   },
@@ -1307,10 +1149,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE dept_mgr (dept_id integer PRIMARY KEY, manager_passport_no varchar(20) NOT NULL, CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no))",
       "CREATE TABLE dept_mgr (\n  dept_id integer PRIMARY KEY,\n  manager_passport_no varchar(20) NOT NULL,\n  CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "1:1 bog'liqlik uchun zarur being unikal menejer cheklovi o'rnatildi.",
     "task": "Create a table named `dept_mgr`: `dept_id` (integer PRIMARY KEY), `manager_passport_no` (varchar(20) NOT NULL) and `CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no)` with constraint."
   },
@@ -1328,10 +1167,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE bank_account (account_id integer PRIMARY KEY, iban varchar(34) NOT NULL, CONSTRAINT uq_account_iban UNIQUE (iban))",
       "CREATE TABLE bank_account (\n  account_id integer PRIMARY KEY,\n  iban varchar(34) NOT NULL,\n  CONSTRAINT uq_account_iban UNIQUE (iban)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "uq_account_iban cheklovi o'rnatildi.",
     "task": "Create a table named `bank_account`: `account_id` (integer PRIMARY KEY), `iban` (varchar(34) NOT NULL) and `CONSTRAINT uq_account_iban UNIQUE (iban)` with constraint."
   },
@@ -1349,10 +1185,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE network_device (id integer PRIMARY KEY, mac_address varchar(17) NOT NULL, CONSTRAINT uq_device_mac UNIQUE (mac_address))",
       "CREATE TABLE network_device (\n  id integer PRIMARY KEY,\n  mac_address varchar(17) NOT NULL,\n  CONSTRAINT uq_device_mac UNIQUE (mac_address)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "uq_device_mac cheklovi yaratildi.",
     "task": "Create a table named `network_device`: `id` (integer PRIMARY KEY), `mac_address` (varchar(17) NOT NULL) and `CONSTRAINT uq_device_mac UNIQUE (mac_address)` with constraint."
   },
@@ -1370,12 +1203,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE emp_core (id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, email varchar(100) NOT NULL CONSTRAINT uq_emp_core_email UNIQUE)",
       "CREATE TABLE emp_core (\n  id integer PRIMARY KEY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL,\n  email varchar(100) NOT NULL CONSTRAINT uq_emp_core_email UNIQUE\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "emp_core jadvali barcha majburiy and unikal ustunlar bilan to'liq barpo etildi.",
     "task": "Create a table named `emp_core`: `id` (integer PRIMARY KEY), `first_name` (varchar(25) NOT NULL), `last_name` (varchar(25) NOT NULL) and `email` (varchar(100) NOT NULL CONSTRAINT uq_emp_core_email UNIQUE) bilan."
   },
@@ -1386,21 +1214,14 @@ window.QUESTIONS_1_50 = [
     "source": "T03 Task 1 Employee Complete • 3-Qavat Yakuni",
     "title": "3-Qavat Bossi: Xodimlar Jadvalining To'liq Constraintlari",
     "story": "3-qavatning bosh sinovi! Seminar 3 dagi `employee` jadvalining asosiy karkasini quring: Identity orqali avtomatik ID, named birlamchi kalit (`pk_employee_id`), majburiy ism-familiya and named unikal email (`uq_employee_email`).",
-    "taskUz": "Create a table named `employee`: `id` (integer GENERATED ALWAYS AS IDENTITY), `first_name` (varchar(25) NOT NULL), `last_name` (varchar(25) NOT NULL), `email` (varchar(100) NOT NULL), `CONSTRAINT pk_employee_id PRIMARY KEY (id)` and `CONSTRAINT uq_employee_email UNIQUE (email)` bilan.",
+    "taskUz": "Create a table named `employee`: `id` (integer GENERATED ALWAYS AS IDENTITY), `first_name` (varchar(25) NOT NULL), `last_name` (varchar(25) NOT NULL), `email` (varchar(100) NOT NULL), `CONSTRAINT pk_employee_id PRIMARY KEY (id)` and `CONSTRAINT uq_employee_email UNIQUE (email)` bilan.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **employee**\n• Ustunlar: `id` [PK] (integer), `first_name` [NOT NULL] (varchar(25)), `last_name` [NOT NULL] (varchar(25)), `email` [NOT NULL] (varchar(100))\n• Cheklovlar: `pk_employee_id`, `uq_employee_email`",
     "starterCode": "",
     "hint": "Ikkala cheklovni ham jadval darajasida named holda e'lon qiling (`CONSTRAINT pk_employee_id ...` and `CONSTRAINT uq_employee_email ...`).",
     "solutions": [
       "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, email varchar(100) NOT NULL, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email))",
       "CREATE TABLE employee (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL,\n  email varchar(100) NOT NULL,\n  CONSTRAINT pk_employee_id PRIMARY KEY (id),\n  CONSTRAINT uq_employee_email UNIQUE (email)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "expectedSchema": {
       "tableName": "employee",
       "columns": [
@@ -1449,10 +1270,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE dept_budget (id integer PRIMARY KEY, budget numeric(12,2), CONSTRAINT ck_dept_budget CHECK (budget >= 0))",
       "CREATE TABLE dept_budget (\n  id integer PRIMARY KEY,\n  budget numeric(12,2),\n  CONSTRAINT ck_dept_budget CHECK (budget >= 0)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "ck_dept_budget ijobiy byudjet cheklovi o'rnatildi.",
     "task": "Create a table named `dept_budget`: `id` (integer PRIMARY KEY), `budget` (numeric(12,2)) ustunlari and named `CONSTRAINT ck_dept_budget CHECK (budget >= 0)` with constraint."
   },
@@ -1470,10 +1288,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE staff_salary (id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000))",
       "CREATE TABLE staff_salary (\n  id integer PRIMARY KEY,\n  salary numeric(10,2),\n  CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "ck_staff_salary maosh oralig'i biznes qoidasi o'rnatildi.",
     "task": "Create a table named `staff_salary`: `id` (integer PRIMARY KEY), `salary` (numeric(10,2)) ustunlari and named `CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000)` with constraint."
   },
@@ -1491,10 +1306,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE contact_email (id integer PRIMARY KEY, email varchar(100), CONSTRAINT ck_contact_email CHECK (email LIKE '%@%'))",
       "CREATE TABLE contact_email (\n  id integer PRIMARY KEY,\n  email varchar(100),\n  CONSTRAINT ck_contact_email CHECK (email LIKE '%@%')\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "ck_contact_email shablon tekshiruvi muvaffaqiyatli o'rnatildi.",
     "task": "Create a table named `contact_email`: `id` (integer PRIMARY KEY), `email` (varchar(100)) ustunlari and named `CONSTRAINT ck_contact_email CHECK (email LIKE '%@%')` with constraint."
   },
@@ -1512,10 +1324,7 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE item_price (id integer PRIMARY KEY, price numeric(8,2), CONSTRAINT ck_item_price CHECK (price > 0))",
       "CREATE TABLE item_price (\n  id integer PRIMARY KEY,\n  price numeric(8,2),\n  CONSTRAINT ck_item_price CHECK (price > 0)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "ck_item_price cheklovi o'rnatildi.",
     "task": "Create a table named `item_price`: `id` (integer PRIMARY KEY), `price` (numeric(8,2)) ustunlari and named `CONSTRAINT ck_item_price CHECK (price > 0)` with constraint."
   },
@@ -1533,15 +1342,8 @@ window.QUESTIONS_1_50 = [
       "CREATE TABLE applicant (id integer PRIMARY KEY, age integer, CONSTRAINT ck_applicant_age CHECK (age >= 18))",
       "CREATE TABLE applicant (\n  id integer PRIMARY KEY,\n  age integer,\n  CONSTRAINT ck_applicant_age CHECK (age >= 18)\n)"
     ],
-    "requiredPatterns": [
-      {},
-      {}
-    ],
+    "requiredPatterns": [],
     "explanation": "ck_applicant_age yosh cheklovi o'rnatildi.",
     "task": "Create a table named `applicant`: `id` (integer PRIMARY KEY), `age` (integer) ustunlari and named `CONSTRAINT ck_applicant_age CHECK (age >= 18)` with constraint."
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = window.QUESTIONS_1_50;
-}
