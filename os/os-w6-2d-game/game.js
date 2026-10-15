@@ -223,6 +223,9 @@
     el.paneFsExplorer = document.getElementById("paneFsExplorer");
     el.btnCardBatafsil = document.getElementById("btnCardBatafsil");
     el.btnCardHint = document.getElementById("btnCardHint");
+    el.btnOpenDictionary = document.getElementById("btnOpenDictionary");
+    el.btnClearTerminal = document.getElementById("btnClearTerminal");
+    el.btnOpenBatafsil = document.getElementById("btnOpenBatafsil");
     el.btnToggleFullscreen = document.getElementById("btnToggleFullscreen");
 
     el.kaliFullscreenBar = document.getElementById("kaliFullscreenBar");
@@ -249,6 +252,13 @@
     el.btnEngineShell = document.getElementById("btnEngineShell");
     el.btnEngineWasm = document.getElementById("btnEngineWasm");
     el.btnFloatingExitFs = document.getElementById("btnFloatingExitFs");
+    el.btnOpenBatafsil = document.getElementById("btnOpenBatafsil");
+    el.terminalActiveModeBadge = document.getElementById("terminalActiveModeBadge");
+    el.terminalTaskBar = document.getElementById("terminalTaskBar");
+    el.terminalTaskText = document.getElementById("terminalTaskText");
+    el.btnTtBatafsil = document.getElementById("btnTtBatafsil");
+    el.btnTtHint = document.getElementById("btnTtHint");
+    el.btnTtExpected = document.getElementById("btnTtExpected");
     el.terminalEditorOverlay = document.getElementById("terminalEditorOverlay");
     el.editorTitle = document.getElementById("editorTitle");
     el.editorTextarea = document.getElementById("editorTextarea");
@@ -502,9 +512,14 @@
     if (el.ktModalStory) el.ktModalStory.textContent = q.story || "";
     if (el.ktModalTaskText) el.ktModalTaskText.innerHTML = q.taskUz || q.task || "";
     if (el.ktBatafsilCode) el.ktBatafsilCode.textContent = expText;
-    if (el.ktBatafsilContent && window.COMMAND_ANATOMY) {
-      const anatomy = window.COMMAND_ANATOMY.analyze(expText, q);
-      el.ktBatafsilContent.innerHTML = window.COMMAND_ANATOMY.renderCardHtml(anatomy);
+    if (el.ktBatafsilContent && (window.COMMAND_ANATOMY || window.COMMAND_ANATOMY_W6)) {
+      const engine = window.COMMAND_ANATOMY || window.COMMAND_ANATOMY_W6;
+      const anatomy = engine.analyze(expText, q);
+      el.ktBatafsilContent.innerHTML = engine.renderCardHtml ? engine.renderCardHtml(anatomy) : engine.formatCommandCard(anatomy);
+    }
+    if (el.terminalTaskText && state.terminalMode !== "sandbox") {
+      const cleanTask = (q.taskUz || q.task || q.title || "").replace(/<[^>]*>/g, "");
+      el.terminalTaskText.textContent = `📌 #${q.id}: ${cleanTask}`;
     }
     renderSmartTokens(q);
 
@@ -1432,7 +1447,30 @@ ${students.map(st => `  ${st.id} | ${st.name}`).join("\n")}
     if (isFs) {
       if (el.terminalWorkbenchCard) el.terminalWorkbenchCard.classList.add("is-fullscreen");
       if (el.kaliFullscreenBar) el.kaliFullscreenBar.style.display = "flex";
-      if (el.btnToggleFullscreen) el.btnToggleFullscreen.textContent = "✕ Kichraytirish";
+      if (el.btnOpenDictionary) {
+      el.btnOpenDictionary.addEventListener("click", () => {
+        if (window.openOsDictionary) window.openOsDictionary();
+      });
+    }
+    if (el.btnClearTerminal) {
+      el.btnClearTerminal.addEventListener("click", () => {
+        if (state.engine === "wasm" && wasmEmulatorInstance) {
+          wasmEmulatorInstance.serial0_send("clear\n");
+          if (wasmXtermInstance) { wasmXtermInstance.focus(); wasmXtermInstance.scrollToBottom(); }
+        } else {
+          if (el.kaliStream) el.kaliStream.innerHTML = "";
+          if (el.terminalOutput) el.terminalOutput.innerHTML = "";
+          if (el.termScreen) el.termScreen.innerHTML = "";
+        }
+      });
+    }
+    if (el.btnOpenBatafsil && el.modalKtBatafsil) {
+      el.btnOpenBatafsil.addEventListener("click", () => {
+        SoundFX.playKey();
+        el.modalKtBatafsil.classList.add("active");
+      });
+    }
+    if (el.btnToggleFullscreen) el.btnToggleFullscreen.textContent = "✕ Kichraytirish";
       if (el.btnModeFull) el.btnModeFull.classList.add("active");
       if (el.btnModeSplit) el.btnModeSplit.classList.remove("active");
       if (el.btnModeCli) el.btnModeCli.classList.remove("active");
@@ -1472,12 +1510,20 @@ ${students.map(st => `  ${st.id} | ${st.name}`).join("\n")}
     if (mode === "sandbox") {
       if (el.btnModeQuest) el.btnModeQuest.classList.remove("active");
       if (el.btnModeSandbox) el.btnModeSandbox.classList.add("active");
+      if (el.terminalActiveModeBadge) el.terminalActiveModeBadge.textContent = "💻 Erkin CLI";
       if (el.btnFsToggleMode) el.btnFsToggleMode.textContent = "💻 Rejim: Erkin CLI";
+      if (el.terminalTaskText) el.terminalTaskText.textContent = "💻 Erkin Sandbox: Istalgan buyruqni sinang (docker, docker ps, docker run...)";
       printKaliInfo("┌──[ 💻 ERKIN SANDBOX REJIMI FAOL ]──────────────────────────────────\n│ Istalgan Linux buyrug'ini erkin sinab ko'rishingiz mumkin\n│ Savollarga qaytish uchun 'quest' deb yozing yoki [🎯 Topshiriqlar] tugmasini bosing.\n└──────────────────────────────────────────────────────────────────");
     } else {
       if (el.btnModeQuest) el.btnModeQuest.classList.add("active");
       if (el.btnModeSandbox) el.btnModeSandbox.classList.remove("active");
+      if (el.terminalActiveModeBadge) el.terminalActiveModeBadge.textContent = "🎯 Masalalar";
       if (el.btnFsToggleMode) el.btnFsToggleMode.textContent = "🎯 Rejim: Topshiriqlar";
+      const currentQ = allQuestions.find(item => item.id === state.currentQuestionId);
+      if (el.terminalTaskText && currentQ) {
+        const cleanTask = (currentQ.taskUz || currentQ.task || currentQ.title || "").replace(/<[^>]*>/g, "");
+        el.terminalTaskText.textContent = `📌 #${currentQ.id}: ${cleanTask}`;
+      }
       printKaliInfo("[🎯 TOPSHIRIQLAR REJIMI]: Joriy vazifa #" + state.currentQuestionId + " tekshiriladi.");
     }
     focusKaliInput();
@@ -1710,6 +1756,40 @@ permitted by applicable law.
     }
     if (el.btnExitFullscreen) {
       el.btnExitFullscreen.addEventListener("click", () => toggleTerminalFullscreen(false));
+    }
+    if (el.btnFloatingExitFs) {
+      el.btnFloatingExitFs.addEventListener("click", () => toggleTerminalFullscreen(false));
+    }
+    if (el.btnOpenBatafsil && el.modalKtBatafsil) {
+      el.btnOpenBatafsil.addEventListener("click", () => {
+        SoundFX.playKey();
+        el.modalKtBatafsil.classList.add("active");
+      });
+    }
+    if (el.btnTtBatafsil && el.modalKtBatafsil) {
+      el.btnTtBatafsil.addEventListener("click", () => {
+        SoundFX.playKey();
+        el.modalKtBatafsil.classList.add("active");
+      });
+    }
+    if (el.btnTtHint) {
+      el.btnTtHint.addEventListener("click", () => {
+        SoundFX.playKey();
+        const q = allQuestions.find(item => item.id === state.currentQuestionId);
+        if (q) printKaliInfo("[💡 MASLAHAT]: " + (q.hint || "Topshiriq talablarini diqqat bilan o'rganing."));
+      });
+    }
+    if (el.btnTtExpected) {
+      el.btnTtExpected.addEventListener("click", () => {
+        SoundFX.playKey();
+        const q = allQuestions.find(item => item.id === state.currentQuestionId);
+        if (q && window.VIRTUAL_LINUX_W6) {
+          const expShell = new window.VIRTUAL_LINUX_W6.VirtualLinuxShell();
+          const expCmd = q.canonical || q.expectedBash || q.expectedSql || "";
+          const res = expShell.execute(expCmd);
+          printKaliInfo("[👁 KUTILGAN NATIJA]:\n" + (res.stdout || "(Konteynerlar yoki xotira holati o'zgaradi)"));
+        }
+      });
     }
 
     // Touch Nav
@@ -2182,6 +2262,10 @@ permitted by applicable law.
     `);
   }
 
-  window.addEventListener("DOMContentLoaded", initGame);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initGame);
+  } else {
+    initGame();
+  }
 
 })();

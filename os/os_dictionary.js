@@ -8,7 +8,253 @@
 (function () {
   "use strict";
 
+  const root = typeof window !== "undefined" ? window : (typeof global !== "undefined" ? global : this);
+
   const OS_DICTIONARY_DATA = [
+  {
+    "cmd": "|",
+    "name": "Unix Anonymous Pipe (Quvur / Oqimli Konveyer)",
+    "cat": "combos",
+    "catName": "⚡ Quvurlar & Kombinatsiyalar",
+    "desc": "Linux tizimining yuragi. Birinchi jarayonning standart chiqishini (STDOUT) ikkinchi jarayonning standart kirishiga (STDIN) diskka yozmasdan, to'g'ridan-to'g'ri operativ xotiradagi 64KB kernel buferi orqali uzatadi.",
+    "syntax": "BUYRUQ1 [BAYROQLAR] | BUYRUQ2 [BAYROQLAR]",
+    "syntaxRules": "Parametrlar tartibi: [Manba Dastur] | [Filtr/Format Dastur] | [Yakuniy Chiqaruvchi]. Har doim | belgisi atrofida bo'sh joy qoldiring.",
+    "flags": [
+      {
+        "flag": "|",
+        "desc": "STDOUT ni keyingi dastur STDIN ga ulash"
+      },
+      {
+        "flag": "|&",
+        "desc": "Ham STDOUT, ham STDERR xatoliklarni bitta quvurga uzatish (Bash 4.0+)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "cat /etc/passwd | grep -i student | awk -F: '{print $1}'",
+        "desc": "/etc/passwd dan student foydalanuvchilarini topib, faqat login nomini ajratib olish"
+      },
+      {
+        "cmd": "ps aux --sort=-%mem | head -n 10",
+        "desc": "Eng ko'p xotira (RAM) yeyotgan eng yuqori 10 ta jarayonni ekranga chiqarish"
+      },
+      {
+        "cmd": "cat /var/log/nginx/access.log | awk '{print $1}' | sort | uniq -c | sort -nr | head -n 5",
+        "desc": "Saytga eng ko'p so'rov yuborgan eng faol 5 ta IP manzilni aniqlash"
+      }
+    ],
+    "example": "cat /var/log/syslog | grep -i 'error' | tail -n 20\n(Oxirgi 20 ta jiddiy xatolikni filtrlash)",
+    "analogy": "Zavoddagi konveyer lentasi. Bir ishchi detalni qirqadi, ikkinchisi bo'yaydi, uchinchisi qutiga soladi. Har bir buyruq o'z ishini qilib keyingisiga uzatadi."
+  },
+  {
+    "cmd": ">",
+    "name": "STDOUT Truncate Redirection (Chiqishni Faylga Tozalab Yozish)",
+    "cat": "combos",
+    "catName": "⚡ Quvurlar & Kombinatsiyalar",
+    "desc": "Terminal ekraniga chiqishi kerak bo'lgan matnni ko'rsatilgan faylga yo'naltiradi. Agar fayl diskda mavjud bo'lsa, uning ichidagi barcha eski ma'lumotlarni tozalab (0 bayt qilib), yangidan yozadi.",
+    "syntax": "BUYRUQ > nishon_fayl.txt",
+    "syntaxRules": "Format: BUYRUQ [PARAMETRLAR] > FAYL. > dan keyin darhol bo'sh joy bilan fayl nomi ko'rsatiladi.",
+    "flags": [
+      {
+        "flag": ">",
+        "desc": "Standart chiqishni (file descriptor 1) faylga tozalab yozish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "cat /dev/null > /var/log/app.log",
+        "desc": "Faylni o'chirmasdan uning hajmini 0 baytga tushirish (xizmat to'xtamasligi uchun)"
+      },
+      {
+        "cmd": "echo 'PORT=8080' > .env",
+        "desc": "Yangi toza .env konfiguratsiya fayli yaratish"
+      }
+    ],
+    "example": "ls -la /var/log > barcha_loglar.txt\n(Katalog tarkibini toza faylga saqlash)",
+    "analogy": "Daftarning eski yozilgan betini butunlay o'chirib, o'rniga yangi yozuv yozish."
+  },
+  {
+    "cmd": ">>",
+    "name": "STDOUT Append Redirection (Chiqishni Fayl Oxiriga Qo'shish)",
+    "cat": "combos",
+    "catName": "⚡ Quvurlar & Kombinatsiyalar",
+    "desc": "Standart chiqish oqimini ko'rsatilgan faylning oxiriga yangi qator sifatida qo'shadi (mavjud eski ma'lumotlarga zarar yetkazmaydi).",
+    "syntax": "BUYRUQ >> doimiy_log.txt",
+    "syntaxRules": "DIQQAT: > o'rniga >> ishlatilmasa, barcha mavjud audit loglari yo'qolib ketadi!",
+    "flags": [
+      {
+        "flag": ">>",
+        "desc": "Standart chiqishni mavjud fayl oxiriga qo'shish (Append)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "echo 'alias ll=\"ls -la\"' >> ~/.bashrc",
+        "desc": "Foydalanuvchi profiliga yangi qulay alias qo'shish"
+      },
+      {
+        "cmd": "date >> /var/log/healthcheck.log && curl -I https://api.mycorp.uz >> /var/log/healthcheck.log",
+        "desc": "Server salomatligini har safar yangi yozuv qilib jurnalga kiritish"
+      }
+    ],
+    "example": "echo \"$(date): Zaxiralash muvaffaqiyatli tugadi\" >> /var/log/backup.log",
+    "analogy": "Kassaning chek lentasi: har bir yangi xarid oxiriga qo'shib boriladi, eskisi o'chirilmaydi."
+  },
+  {
+    "cmd": "2>&1",
+    "name": "Merge STDERR to STDOUT (Xatoliklar va Natijani Birlashtirish)",
+    "cat": "combos",
+    "catName": "⚡ Quvurlar & Kombinatsiyalar",
+    "desc": "Linux tizimida fayl deskriptori 2 (STDERR) ni fayl deskriptori 1 (STDOUT) ga birlashtiradi. Bu orqali ham dastur natijasi, ham yuz bergan barcha xatoliklar bitta umumiy log fayliga yoki bitta quvurga yo'naltiriladi.",
+    "syntax": "BUYRUQ > chiqish.log 2>&1",
+    "syntaxRules": "Tartib qoidasi: Avval > fayl.log ko'rsatiladi, so'ngra 2>&1 yoziladi. Bash 4 da qisqartmasi: &> fayl.log",
+    "flags": [
+      {
+        "flag": "2>",
+        "desc": "Faqat xatoliklarni alohida faylga yo'naltirish (masalan 2> /dev/null)"
+      },
+      {
+        "flag": "2>&1",
+        "desc": "Xatoliklar deskriptorini standart chiqishga ulash"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "/usr/local/bin/backup.sh > /var/log/backup.log 2>&1",
+        "desc": "Cron vazifasining barcha natija va xatoliklarini bitta logda to'plash"
+      },
+      {
+        "cmd": "find / -name 'mysecret.txt' 2> /dev/null",
+        "desc": "Faylni qidirishda barcha 'Permission denied' xatoliklarini yashirish"
+      }
+    ],
+    "example": "crontab -e da: 0 2 * * * /backup.sh > /var/log/backup.log 2>&1",
+    "analogy": "Ikkita alohida quvurni bitta umumiy trubaga ulash, shunda suv ham, loy ham bitta hovuzga borib quyiladi."
+  },
+  {
+    "cmd": "xargs",
+    "name": "Extended Arguments Converter (Oqimni Buyruq Argumentiga Aylantirish)",
+    "cat": "combos",
+    "catName": "⚡ Quvurlar & Kombinatsiyalar",
+    "desc": "Quvurdan kelayotgan satrlar yoki ro'yxatni qabul qilib, ularni keyingi buyruqning chaqiruv parametrlari qatoriga (command arguments) aylantirib beradi.",
+    "syntax": "BUYRUQ1 | xargs [BAYROQLAR] BUYRUQ2",
+    "syntaxRules": "Bo'sh joyli fayl nomlari uchun: find -print0 | xargs -0 rm -f formatidan foydalaning.",
+    "flags": [
+      {
+        "flag": "-I {}",
+        "desc": "Har bir parametr o'rnini {} belgisi orqali belgilash"
+      },
+      {
+        "flag": "-0",
+        "desc": "Null bayt (\\0) bilan ajratilgan nomlarni xavfsiz qabul qilish (bo'sh joyli fayllar uchun)"
+      },
+      {
+        "flag": "-n 1",
+        "desc": "Har bir argument uchun buyruqni alohida bittalab chaqirish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "find . -name '*.tmp' | xargs rm -f",
+        "desc": "Topilgan barcha .tmp fayllarni rm buyrug'iga uzatib bittada o'chirish"
+      },
+      {
+        "cmd": "docker ps -a -q | xargs docker rm",
+        "desc": "To'xtagan barcha Docker konteynerlarini bitta buyruq bilan tozalash"
+      },
+      {
+        "cmd": "cat urls.txt | xargs -n 1 -P 4 curl -O",
+        "desc": "Fayldagi manzillarni 4 ta parallel oqimda yuklab olish"
+      }
+    ],
+    "example": "grep -l 'PASSWORD' /var/www/*.php | xargs chmod 600",
+    "analogy": "Pochtachi quvurdan kelgan xatlarni bittalab emas, hammasini qopga solib avtomobilga yuklaydi."
+  },
+  {
+    "cmd": "tee",
+    "name": "T-splitter for Streams (Oqimni Ekranga ham, Faylga ham Yozish)",
+    "cat": "combos",
+    "catName": "⚡ Quvurlar & Kombinatsiyalar",
+    "desc": "Quvur ichida T-shaklidagi ajratuvchi bo'lib xizmat qiladi: ma'lumotni ham terminal ekranida ko'rsatadi, ham bir yoki bir nechta faylga saqlaydi.",
+    "syntax": "BUYRUQ | tee [BAYROQ] FAYL",
+    "syntaxRules": "Mavjud faylni ustiga yozmasdan oxiriga qo'shish uchun doim -a bayrog'i berilishi shart.",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Append rejimi: fayl oxiriga qo'shish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "ping 8.8.8.8 | tee ping_results.log",
+        "desc": "Tarmoq tekshiruvini ham ekranda ko'rish, ham faylga yozib borish"
+      },
+      {
+        "cmd": "echo 'deb http://...' | sudo tee /etc/apt/sources.list.d/app.list",
+        "desc": "Root ruxsati bilan tizim papkasiga xavfsiz yangi repo qo'shish"
+      }
+    ],
+    "example": "apt-get update | tee apt_update.log",
+    "analogy": "Suv trubasidagi T-quloq (troynik): suv ham kran orqali to'g'riga oqadi, ham yon truba orqali bochkaga quyiladi."
+  },
+  {
+    "cmd": "$()",
+    "name": "Command Substitution (Subshell Ichida Buyruq Bajarish)",
+    "cat": "combos",
+    "catName": "⚡ Quvurlar & Kombinatsiyalar",
+    "desc": "Qavs ichidagi buyruqni alohida subshell jarayonida bajaradi va uning natijasini tashqi buyruqning parametri sifatida joylashtiradi.",
+    "syntax": "BUYRUQ $(ICHKI_BUYRUQ)",
+    "syntaxRules": "Eski uslubdagi `buyruq` (backticks) o'rniga har doim $(buyruq) ishlatilishi tavsiya etiladi (chunki qavslar ichma-ich joylashishi mumkin: $(cmd1 $(cmd2))).",
+    "flags": [
+      {
+        "flag": "$()",
+        "desc": "Ichki buyruq natijasini qiymat sifatida olish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "kill -9 $(pgrep nginx)",
+        "desc": "Nginx ning barcha PID raqamlarini subshell da aniqlab, kill ga uzatish"
+      },
+      {
+        "cmd": "tar -czvf /backup/app-$(date +%F).tar.gz /var/www",
+        "desc": "Arxiv fayl nomiga avtomatik bugungi sanani qo'yish"
+      }
+    ],
+    "example": "echo \"Serverda jami $(who | wc -l) ta foydalanuvchi onlayn turibdi.\"",
+    "analogy": "Hisob-kitobdagi qavs: (2 + 2) avval hisoblanadi, so'ngra uning natijasi 4 tashqi amalda ishlatiladi."
+  },
+  {
+    "cmd": "&&",
+    "name": "Logical AND (Mantiqiy VA — Zanjirli Ishga Tushirish)",
+    "cat": "combos",
+    "catName": "⚡ Quvurlar & Kombinatsiyalar",
+    "desc": "Chapdagi buyruq muvaffaqiyatli (exit code 0) yakunlangan taqdirdagina o'ngdagi buyruqni ishga tushiradi.",
+    "syntax": "BUYRUQ1 && BUYRUQ2",
+    "syntaxRules": "Agar BUYRUQ1 xato bersa, BUYRUQ2 umuman ishga tushmaydi. Bu orqali xavfli amallar oldi olinadi.",
+    "flags": [
+      {
+        "flag": "&&",
+        "desc": "Oldingi buyruq exit-code 0 bo'lsa davom etish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "mkdir -p /srv/project && cd /srv/project",
+        "desc": "Papka ochilsagina uning ichiga kirish"
+      },
+      {
+        "cmd": "gcc main.c -o app && ./app",
+        "desc": "Kompilatsiya muvaffaqiyatli o'tsagina dasturni ishga tushirish"
+      },
+      {
+        "cmd": "apt update && apt upgrade -y",
+        "desc": "Paketlar ro'yxati yangilangandagina tizimni yangilash"
+      }
+    ],
+    "example": "make && sudo make install",
+    "analogy": "Xavfsizlik yo'lagi: birinchi eshik ochilsagina ikkinchi eshikka o'tish mumkin."
+  },
   {
     "cmd": "pwd",
     "name": "Print Working Directory (Joriy Katalogni Ko'rsatish)",
@@ -343,7 +589,22 @@
       }
     ],
     "example": "find /var/log -type f -name '*.log' -size +10M",
-    "analogy": "Tergovchi yoki politsiyachi xizmat iti. Butun binodan berilgan belgilarga (bo'yi, kiyimi, yoshi) mos keluvchi odamni topib beradi."
+    "analogy": "Tergovchi yoki politsiyachi xizmat iti. Butun binodan berilgan belgilarga (bo'yi, kiyimi, yoshi) mos keluvchi odamni topib beradi.",
+    "syntaxRules": "Format: find [QAYERDAN] [MEZONLAR] [AMAL]. Har doim qidiruv manzili birinchi ko'rsatiladi.",
+    "combinations": [
+      {
+        "cmd": "find /var/log -type f -name '*.log' -mtime +30 -exec gzip {} +",
+        "desc": "30 kundan eski barcha loglarni avtomatik siqish"
+      },
+      {
+        "cmd": "find /tmp -type f -size +100M -delete",
+        "desc": "100MB dan oshgan vaqtincha fayllarni diskdan tozalash"
+      },
+      {
+        "cmd": "find . -name '*.bak' | xargs rm -f",
+        "desc": "Zaxira fayllarni xargs orqali bittada o'chirish"
+      }
+    ]
   },
   {
     "cmd": "locate",
@@ -498,7 +759,18 @@
       }
     ],
     "example": "cat /etc/issue\nDebian GNU/Linux 12 \\n \\l",
-    "analogy": "Kitob sahifasini ochib ovoz chiqarib o'qib berish."
+    "analogy": "Kitob sahifasini ochib ovoz chiqarib o'qib berish.",
+    "syntaxRules": "Format: cat [BAYROQLAR] [FAYL...]. Quvurlarda foydalanilganda: cat fayl | filtr.",
+    "combinations": [
+      {
+        "cmd": "cat /etc/passwd | awk -F: '{print $1, $6}'",
+        "desc": "Barcha foydalanuvchilar va ularning uy papkalarini chiqarish"
+      },
+      {
+        "cmd": "cat part1.txt part2.txt > full.txt",
+        "desc": "Ikki qism faylni bitta butun faylga birlashtirish"
+      }
+    ]
   },
   {
     "cmd": "tac",
@@ -629,7 +901,22 @@
       }
     ],
     "example": "grep -i 'error' /var/log/syslog | grep -v 'debug'",
-    "analogy": "Lug'atdan yoki kitobdan qalam bilan kerakli so'zlarni sariq marker bilan ajratib ko'rsatish."
+    "analogy": "Lug'atdan yoki kitobdan qalam bilan kerakli so'zlarni sariq marker bilan ajratib ko'rsatish.",
+    "syntaxRules": "Parametrlar tartibi: grep [BAYROQLAR] 'SHABLON' [FAYLLAR...]. Shablon har doim bittalik qo'shtirnoq ichiga olinishi shart.",
+    "combinations": [
+      {
+        "cmd": "cat /var/log/syslog | grep -i 'error' | tail -n 20",
+        "desc": "Tizim loglaridan oxirgi 20 ta xatolikni filtrlash"
+      },
+      {
+        "cmd": "ps aux | grep node | grep -v grep | awk '{print $2}'",
+        "desc": "Node.js jarayonining aniq PID raqamini topish"
+      },
+      {
+        "cmd": "grep -rnw '/var/www' -e 'DB_PASSWORD'",
+        "desc": "Loyiha ichidagi barcha fayllardan maxfiy kalitni rekursiv qidirish"
+      }
+    ]
   },
   {
     "cmd": "sed",
@@ -673,7 +960,18 @@
       }
     ],
     "example": "awk -F':' '{print $1, $3}' /etc/passwd",
-    "analogy": "Excel jadvalidan faqat A va C ustunlarini ajratib olib, ularning yig'indisini hisoblab beruvchi aqlli dasturchi."
+    "analogy": "Excel jadvalidan faqat A va C ustunlarini ajratib olib, ularning yig'indisini hisoblab beruvchi aqlli dasturchi.",
+    "syntaxRules": "Format: awk -F[AJRATUVCHI] '{shart; print $ustun}' FAYL. Har doim bittalik qo'shtirnoq ishlatiladi.",
+    "combinations": [
+      {
+        "cmd": "cat /etc/passwd | awk -F: '$3 >= 1000 {print $1, $3, $6}'",
+        "desc": "Faqat oddiy foydalanuvchilar (UID >= 1000) ro'yxatini chiqarish"
+      },
+      {
+        "cmd": "awk '{sum += $1} END {print \"Jami yig'indi:\", sum}' raqamlar.txt",
+        "desc": "Ustundagi barcha sonlarning umumiy yig'indisini hisoblash"
+      }
+    ]
   },
   {
     "cmd": "cut",
@@ -725,7 +1023,14 @@
       }
     ],
     "example": "du -sh * | sort -h -r",
-    "analogy": "Talabalar ro'yxatini baholari yoki familiyalari bo'yicha alfavit tartibiga keltirish."
+    "analogy": "Talabalar ro'yxatini baholari yoki familiyalari bo'yicha alfavit tartibiga keltirish.",
+    "syntaxRules": "Format: sort [BAYROQLAR] FAYL. Raqamlar uchun -n, teskari uchun -r.",
+    "combinations": [
+      {
+        "cmd": "cat log.txt | sort | uniq -c | sort -nr",
+        "desc": "Eng ko'p takrorlangan qatorlarni kamayish tartibida saralab sanash"
+      }
+    ]
   },
   {
     "cmd": "uniq",
@@ -798,46 +1103,6 @@
     ],
     "example": "ps aux | wc -l\n142",
     "analogy": "Insho tekshirgich. Darsda talabaning necha so'z va necha qator yozganini sanab beradi."
-  },
-  {
-    "cmd": "tee",
-    "name": "Read from stdin and Write to stdout and Files (T-simon Quvur Bo'luvchi)",
-    "cat": "text",
-    "catName": "Matn, Fayllar & Quvurlar",
-    "desc": "Buyruq natijasini bir vaqtning o'zida ham ekranga chiqaradi, ham faylga yozib qo'yadi (T-ulagich kabi).",
-    "syntax": "BUYRUQ | tee [BAYROQLAR] FAYL",
-    "flags": [
-      {
-        "flag": "-a",
-        "desc": "Fayl ustiga yozmasdan, uning oxiriga qo'shish (append)"
-      }
-    ],
-    "example": "echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf",
-    "analogy": "Suv quvuridagi uchlik (troynik). Suv bir vaqtda ham oshxonaga oqadi, ham hovuzga to'kiladi."
-  },
-  {
-    "cmd": "xargs",
-    "name": "Build and Execute Command Lines from stdin (Argumentlarga Aylantiruvchi)",
-    "cat": "text",
-    "catName": "Matn, Fayllar & Quvurlar",
-    "desc": "Standart kirishdan kelgan qatorlarni bo'lib, boshqa buyruqqa parametr (argument) sifatida uzatadi.",
-    "syntax": "BUYRUQ | xargs [BAYROQLAR] BUYRUQ2",
-    "flags": [
-      {
-        "flag": "-I {}",
-        "desc": "Har bir element uchun maxsus o'rnini bosuvchi belgilash (placeholder)"
-      },
-      {
-        "flag": "-n N",
-        "desc": "Bitta chaqiriqda ko'pi bilan N ta argument uzatish"
-      },
-      {
-        "flag": "-P N",
-        "desc": "N ta parallel jarayonda ishga tushirish (tezlashtirish)"
-      }
-    ],
-    "example": "find /tmp -name '*.log' | xargs rm -f",
-    "analogy": "Katta qutidagi ro'yxatni olib, har bir buyumni qadoqlash konveyeriga birma-bir uzatib turuvchi robot."
   },
   {
     "cmd": "diff",
@@ -977,7 +1242,22 @@
       }
     ],
     "example": "chmod 755 deploy.sh && chmod +t /srv/shared_folder",
-    "analogy": "Eshik qulfini almashtirish. 755 — uy egasiga to'liq kalit, mehmonlarga esa faqat ko'rish va o'tish ruxsati beradi."
+    "analogy": "Eshik qulfini almashtirish. 755 — uy egasiga to'liq kalit, mehmonlarga esa faqat ko'rish va o'tish ruxsati beradi.",
+    "syntaxRules": "Format: chmod [BAYROQ] [REJIM: 755 / 644 / 1777] MANZIL. Rekursiv uchun -R ishlatiladi.",
+    "combinations": [
+      {
+        "cmd": "chmod 1777 /srv/shared",
+        "desc": "Sticky bit - har kim fayl yarata oladi, faqat egasi o'chira oladi"
+      },
+      {
+        "cmd": "chmod 755 script.sh && ./script.sh",
+        "desc": "Skriptga ijro ruxsatini berib, darhol ishga tushirish"
+      },
+      {
+        "cmd": "find /var/www -type f -exec chmod 644 {} + && find /var/www -type d -exec chmod 755 {} +",
+        "desc": "Veb-server uchun fayllarga 644, papkalarga 755 xavfsiz standart ruxsatlarini berish"
+      }
+    ]
   },
   {
     "cmd": "chown",
@@ -1291,7 +1571,18 @@
       }
     ],
     "example": "ps aux | grep nginx",
-    "analogy": "Zavoddagi barcha ishchilarning joriy holati va nima ish qilayotgani qayd etilgan tabel."
+    "analogy": "Zavoddagi barcha ishchilarning joriy holati va nima ish qilayotgani qayd etilgan tabel.",
+    "syntaxRules": "Format: ps [aux yoki -ef]. --sort=-%mem yoki --sort=-%cpu orqali saralash tavsiya etiladi.",
+    "combinations": [
+      {
+        "cmd": "ps aux --sort=-%mem | head -n 10",
+        "desc": "Eng ko'p operativ xotira (RAM) yeyotgan 10 ta jarayon"
+      },
+      {
+        "cmd": "ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -n 15",
+        "desc": "CPU bo'yicha eng og'ir jarayonlar auditi"
+      }
+    ]
   },
   {
     "cmd": "top",
@@ -1350,7 +1641,18 @@
       }
     ],
     "example": "kill -15 1420\nkill -9 9999",
-    "analogy": "SIGTERM — xodimga 'ish vaqting tugadi, buyumlaringni yig'ishtirib ketaver' deyish. SIGKILL — xavfsizlik xizmati kelib xodimni ushlab tashqariga chiqarib yuborishi."
+    "analogy": "SIGTERM — xodimga 'ish vaqting tugadi, buyumlaringni yig'ishtirib ketaver' deyish. SIGKILL — xavfsizlik xizmati kelib xodimni ushlab tashqariga chiqarib yuborishi.",
+    "syntaxRules": "Format: kill -[SIGNAL] PID. Avval xavfsiz -15 (SIGTERM), to'xtamasa -9 (SIGKILL) beriladi.",
+    "combinations": [
+      {
+        "cmd": "kill -15 $(pgrep nginx)",
+        "desc": "Nginx ni barcha fayllarni xavfsiz saqlagan holda to'xtatish (SIGTERM)"
+      },
+      {
+        "cmd": "kill -9 $(lsof -t -i:8080)",
+        "desc": "8080-portni band qilib turgan qotgan jarayonni majburiy o'ldirish"
+      }
+    ]
   },
   {
     "cmd": "killall",
@@ -2242,7 +2544,14 @@
       }
     ],
     "example": "crontab -e\ncrontab -l",
-    "analogy": "Kundalik daftarchasiga har kungi yoki har haftalik rejalarni yozib qo'yish."
+    "analogy": "Kundalik daftarchasiga har kungi yoki har haftalik rejalarni yozib qo'yish.",
+    "syntaxRules": "Format: * * * * * BUYRUQ (daqiqa soat kun oy haftakuni). Har doim chiqishni logga yo'naltiring.",
+    "combinations": [
+      {
+        "cmd": "(crontab -l 2>/dev/null; echo '0 2 * * * /backup.sh >> /var/log/backup.log 2>&1') | crontab -",
+        "desc": "Mavjud jadvallarni saqlagan holda yangi cron vazifasini xavfsiz qo'shish"
+      }
+    ]
   },
   {
     "cmd": "systemctl",
@@ -2412,7 +2721,22 @@
     "syntax": "docker [BUYRUQ] [PARAMETRLAR]",
     "flags": [],
     "example": "docker --version",
-    "analogy": "Dengiz yuk konteyneri. Tovarlarni kemada ham, poyezdda ham hech narsasini buzmasdan xuddi o'zidek eltib beradi."
+    "analogy": "Dengiz yuk konteyneri. Tovarlarni kemada ham, poyezdda ham hech narsasini buzmasdan xuddi o'zidek eltib beradi.",
+    "syntaxRules": "Format: docker [AMAL] [BAYROQLAR] OBRAZ. Detached rejim uchun -d, port uchun -p, volume uchun -v.",
+    "combinations": [
+      {
+        "cmd": "docker ps -a --filter 'status=exited' -q | xargs docker rm",
+        "desc": "O'chib qolgan barcha eski konteynerlarni tozalash"
+      },
+      {
+        "cmd": "docker run -d -p 8080:80 --name web -v $(pwd)/html:/usr/share/nginx/html:ro nginx:alpine",
+        "desc": "Port va havolali papka (volume) bilan Nginx konteynerini yurgizish"
+      },
+      {
+        "cmd": "docker stats --no-stream --format 'table {{.Name}}\\t{{.CPUPerc}}\\t{{.MemUsage}}'",
+        "desc": "Barcha konteynerlarning CPU va RAM sarfini bir lahzada ko'rish"
+      }
+    ]
   },
   {
     "cmd": "docker run",
@@ -3190,9 +3514,6 @@
   }
 ];
 
-  const root = typeof window !== "undefined" ? window : (typeof globalThis !== "undefined" ? globalThis : this);
-  root.OS_DICTIONARY_DATA = OS_DICTIONARY_DATA;
-
   function buildDictionaryModalHtml() {
     return `
       <div class="os-dict-overlay" id="osDictOverlay">
@@ -3217,6 +3538,7 @@
 
             <div class="os-dict-categories" id="osDictCategories">
               <button class="os-cat-pill active" data-cat="all">Barchasi (${OS_DICTIONARY_DATA.length})</button>
+              <button class="os-cat-pill" data-cat="combos">⚡ Quvurlar &amp; Kombinatsiyalar</button>
               <button class="os-cat-pill" data-cat="nav">📁 Navigatsiya &amp; Inodelar</button>
               <button class="os-cat-pill" data-cat="text">📜 Matn &amp; Oqimlar</button>
               <button class="os-cat-pill" data-cat="perm">🔒 Ruxsatlar &amp; Xavfsizlik</button>
@@ -3258,7 +3580,9 @@
       // Text search
       if (!query) return true;
       const flagsText = (item.flags || []).map(f => f.flag + ' ' + f.desc).join(' ');
-      const haystack = `${item.cmd} ${item.name} ${item.desc} ${item.example} ${item.analogy} ${flagsText}`.toLowerCase();
+      const combosText = (item.combinations || []).map(c => c.cmd + ' ' + c.desc).join(' ');
+      const syntaxRulesText = item.syntaxRules || '';
+      const haystack = `${item.cmd} ${item.name} ${item.desc} ${item.example} ${item.analogy} ${flagsText} ${combosText} ${syntaxRulesText}`.toLowerCase();
       return haystack.includes(query);
     });
 
@@ -3297,7 +3621,25 @@
           <div class="os-entry-block">
             <div class="os-block-title">📌 Sintaksis:</div>
             <div class="os-code-snippet">${escapeHtml(item.syntax)}</div>
+            ${item.syntaxRules ? `<div style="font-size:11.5px; color:#94a3b8; margin-top:5px; line-height:1.4;"><b>📐 Yozilish qoidasi:</b> ${escapeHtml(item.syntaxRules)}</div>` : ""}
           </div>
+
+          ${item.combinations && item.combinations.length > 0 ? `
+            <div class="os-entry-block" style="border-left: 3px solid #38bdf8;">
+              <div class="os-block-title" style="color: #38bdf8;">⚡ Haqiqiy Hayotdagi Quvurlar &amp; Kombinatsiyalar (Pipelines):</div>
+              <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 6px;">
+                ${item.combinations.map(c => `
+                  <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 6px; padding: 6px 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+                      <code style="color: #34d399; font-family: monospace; font-size: 12px; word-break: break-all;">${escapeHtml(c.cmd)}</code>
+                      <button class="os-copy-btn" style="flex-shrink: 0; padding: 2px 6px; font-size: 10px;" onclick="window.copyToClipboard('${escapeAttr(c.cmd)}')">📋 Nusxa</button>
+                    </div>
+                    <div style="font-size: 11px; color: #cbd5e1; margin-top: 3px;">• ${escapeHtml(c.desc)}</div>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+          ` : ""}
 
           ${item.flags && item.flags.length > 0 ? `
             <div class="os-entry-block">

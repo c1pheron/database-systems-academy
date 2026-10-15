@@ -101,37 +101,40 @@
       <!-- Live Virtual Linux File System Explorer -->
       <!-- 2. KALI LINUX TERMINAL & WORKBENCH -->
       
-      <!-- 2-MODE SEGMENTED CONTROL: MASALA REJIMI VS ERKIN CLI -->
+      <!-- 2-MODE SEGMENTED BAR: MASALA YECHISH VS ERKIN CLI -->
       <div class="cli-mode-segmented-bar">
-        <button class="cli-segment-btn active" id="btnModeQuest" type="button">
-          <span class="cs-icon">🎯</span>
-          <span class="cs-title">Masala Rejimi</span>
-          <span class="cs-desc">150 ta vazifani ketma-ket yechish</span>
+        <button type="button" class="cli-mode-pill active" id="btnModeQuest" title="Topshiriqlar rejimi: 150 ta savolni ketma-ket yechish">
+          <span class="mode-icon">🎯</span>
+          <span class="mode-text">
+            <span class="mode-title">Masala Yechish Rejimi</span>
+            <span class="mode-sub">150 ta vazifani ketma-ket yechish</span>
+          </span>
         </button>
-        <button class="cli-segment-btn" id="btnModeSandbox" type="button">
-          <span class="cs-icon">💻</span>
-          <span class="cs-title">Erkin CLI Rejimi</span>
-          <span class="cs-desc">Cheklovsiz to'liq Linux terminali</span>
+        <button type="button" class="cli-mode-pill" id="btnModeSandbox" title="Erkin CLI rejimi: Istalgan Linux buyrug'ini sinash">
+          <span class="mode-icon">💻</span>
+          <span class="mode-text">
+            <span class="mode-title">Erkin CLI Rejimi</span>
+            <span class="mode-sub">Istalgan buyruqni erkin sinash (Sandbox)</span>
+          </span>
         </button>
       </div>
     
       <div class="panel-card terminal-card" id="terminalWorkbenchCard">
-        <div class="panel-header">
+        <!-- Floating high-contrast exit button for mobile/desktop when fullscreen -->
+        <button type="button" class="btn-floating-exit-fs" id="btnFloatingExitFs" title="Oddiy rejimga qaytish">✕ Chiqish</button>
+
+        <div class="panel-header terminal-panel-header">
           <div class="panel-title">
             <span>🐧</span>
             <span id="terminalHeaderTitle">Kali Linux Terminal (UserLAnd • Debian 12)</span>
+            <span class="terminal-active-mode-badge" id="terminalActiveModeBadge">🎯 Masalalar</span>
           </div>
 
           <div class="terminal-engine-switch">
-            <button class="engine-btn active" id="btnEngineShell" type="button" title="0 soniyada yuklanuvchi virtual shell">⚡ Tezkor Shell</button>
-            <button class="engine-btn" id="btnEngineWasm" type="button" title="Haqiqiy x86 Linux yadrosi (WASM)">🐧 Real Linux</button>
+            <button class="btn-engine-pill active" id="btnEngineShell" type="button" title="0 soniyada yuklanuvchi virtual shell">⚡ Tezkor Shell</button>
+            <button class="btn-engine-pill" id="btnEngineWasm" type="button" title="Haqiqiy x86 Linux yadrosi (WASM)">🐧 Real Linux</button>
           </div>
-          <button type="button" class="btn-floating-exit-fs" id="btnFloatingExitFs" title="Oddiy rejimga qaytish">✕ Chiqish</button>
-    
-          <div class="terminal-mode-switch-group">
-            <button class="terminal-mode-btn active" id="btnModeQuest" type="button" title="Topshiriqlar rejimi: Savollarni ketma-ket yechish">🎯 Topshiriqlar</button>
-            <button class="terminal-mode-btn" id="btnModeSandbox" type="button" title="Erkin CLI rejimi: Istalgan Linux buyrug'ini erkin ishlatish">💻 Erkin CLI</button>
-          </div>
+
           <div class="terminal-card-tabs">
             <button class="schema-tab active" id="tabTerminalMode" type="button">🐧 Terminal (CLI)</button>
             <button class="schema-tab" id="tabFsMode" type="button">📂 Explorer &amp; Strukturalar</button>
@@ -141,6 +144,16 @@
             <button class="btn btn-xs" id="btnCardHint" type="button" title="Yordamchi maslahat">💡 Maslahat</button>
             <button class="btn btn-xs" id="btnClearTerminal" type="button" title="Terminalni tozalash">🧹 Tozalash</button>
             <button class="btn btn-xs btn-expand-terminal" id="btnToggleFullscreen" type="button" title="To'liq ekranga yoyish (F11)">⛶ To'liq Ekran</button>
+          </div>
+        </div>
+
+        <!-- In-Terminal Quick Task & Action Bar (Zero-Scroll on Mobile) -->
+        <div class="terminal-task-bar" id="terminalTaskBar">
+          <div class="tt-text" id="terminalTaskText">📌 #1: Yuklanmoqda...</div>
+          <div class="tt-actions">
+            <button type="button" class="tt-btn" id="btnTtBatafsil" title="Buyruq va bayroqlar batafsil tahlili">📖 Batafsil</button>
+            <button type="button" class="tt-btn" id="btnTtHint" title="Maslahat">💡</button>
+            <button type="button" class="tt-btn" id="btnTtExpected" title="Kutilgan natija">👁</button>
           </div>
         </div>
 
@@ -330,6 +343,14 @@
           </div>
 
           <!-- Action Buttons -->
+          <!-- BATAFSIL (ANATOMIYA & NAZARIYA) PROMINENT BUTTON -->
+          <div class="batafsil-btn-wrap">
+            <button type="button" class="btn btn-batafsil" id="btnOpenBatafsil">
+              <span class="btn-icon">📖</span>
+              <span class="btn-label">Batafsil: Buyruq va Bayroqlar Tahlili (5 Qadam)</span>
+            </button>
+          </div>
+
           <div class="action-bar">
             <div class="action-left">
               <button class="btn btn-primary" id="btnRunBash">
