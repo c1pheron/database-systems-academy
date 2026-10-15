@@ -380,10 +380,10 @@
           return { stdout: this.cwd, stderr: "", code: 0 };
 
         case "whoami":
-          return { stdout: this.user, stderr: "", code: 0 };
+        return { stdout: this.isRoot ? "root" : "userland", stderr: "", code: 0, editorAction: null };
 
         case "hostname":
-          return { stdout: this.hostname, stderr: "", code: 0 };
+        return { stdout: "kali", stderr: "", code: 0, editorAction: null };
 
         case "clear":
           return { stdout: "__CLEAR__", stderr: "", code: 0 };
@@ -443,17 +443,19 @@
           return this.cmdMan(args);
 
         case "uname": {
-          if (args.includes("-a")) {
-            return { stdout: "Linux debian-server 6.1.0-18-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01) x86_64 GNU/Linux", stderr: "", code: 0 };
+          const hasA = (args || []).includes("-a");
+          const hasR = (args || []).includes("-r");
+          if (hasA) {
+            return { stdout: "Linux kali 6.6.9-kali1-amd64 #1 SMP PREEMPT_DYNAMIC Kali 6.6.9-1kali1 (2024-01-08) x86_64 GNU/Linux", stderr: "", code: 0, editorAction: null };
           }
-          if (args.includes("-r")) {
-            return { stdout: "6.1.0-18-amd64", stderr: "", code: 0 };
+          if (hasR) {
+            return { stdout: "6.6.9-kali1-amd64", stderr: "", code: 0, editorAction: null };
           }
-          return { stdout: "Linux", stderr: "", code: 0 };
+          return { stdout: "Linux", stderr: "", code: 0, editorAction: null };
         }
 
         case "id": {
-          return { stdout: "uid=1000(student) gid=1000(student) groups=1000(student),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),106(netdev)", stderr: "", code: 0 };
+          return { stdout: "uid=1000(userland) gid=1000(userland) groups=1000(userland),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),106(netdev)", stderr: "", code: 0 };
         }
 
         case "uptime": {
@@ -542,14 +544,11 @@
           const subAction = (args[0] || "").toLowerCase();
           if (subAction === "update") {
             const updateOutput = [
-              "Hit:1 http://deb.debian.org/debian bookworm InRelease",
-              "Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]",
-              "Get:3 http://security.debian.org/debian-security bookworm-security InRelease [48.0 kB]",
-              "Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8,780 kB]",
-              "Fetched 8,883 kB in 1s (7,402 kB/s)",
+              "Get:1 http://http.kali.org/kali kali-rolling InRelease [41.5 kB]",
+              "Get:2 http://http.kali.org/kali kali-rolling/main amd64 Packages [19.8 MB]",
+              "Fetched 19.8 MB in 2s (9,921 kB/s)",
               "Reading package lists... Done",
               "Building dependency tree... Done",
-              "Reading state information... Done",
               "All packages are up to date."
             ].join("\n");
             return { stdout: updateOutput, stderr: "", code: 0 };

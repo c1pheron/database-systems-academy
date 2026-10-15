@@ -154,27 +154,45 @@
         </div>
 
         <!-- Terminal Container -->
-        <div class="terminal-container" id="terminalContainer">
+                <div class="terminal-container" id="terminalContainer" style="position: relative;">
           
-          <!-- Mode A: Tezkor Kali Stream Shell -->
+          <!-- Unified Interactive Kali Screen -->
           <div class="kali-screen" id="kaliScreen">
             <div class="kali-stream" id="kaliStream"></div>
             
-            <div class="kali-active-prompt">
-              <span class="k-prompt-line1">┌──(userland💀localhost)-[<span id="kaliPromptPath">~</span>]</span>
-              <div class="k-prompt-line2">
-                <span class="k-arrow">└─$</span>
-                <span class="k-typed" id="kaliTypedText"></span>
-                <span class="k-cursor" id="kaliCursor">█</span>
+            <div class="kali-active-prompt" id="kaliActivePrompt">
+              <div class="kali-p-row1" id="kaliPromptLine1">
+                <span class="k-green">┌──(</span><span class="k-blue" id="kaliPromptUser">userland</span><span class="k-white">💀</span><span class="k-blue" id="kaliPromptHost">localhost</span><span class="k-green">)-[</span><span class="k-white" id="kaliPromptPath">~</span><span class="k-green">]</span>
+              </div>
+              <div class="kali-p-row2">
+                <span class="k-green" id="kaliPromptArrow">└─$ </span>
+                <input type="text" 
+                       id="kaliHiddenInput" 
+                       class="kali-inline-cmd-input" 
+                       autocomplete="off" 
+                       autocorrect="off" 
+                       autocapitalize="off" 
+                       spellcheck="false" 
+                       autofocus />
               </div>
             </div>
-
-            <input type="text" id="kaliHiddenInput" class="kali-hidden-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
           </div>
 
-          <!-- Mode B: Real Linux (WASM xterm.js) -->
-          <div class="wasm-term-screen" id="wasmTerminalContainer" style="display: none;">
-            <div class="wasm-xterm-box" id="wasmXtermBox"></div>
+          <!-- In-Terminal Interactive Editor (nano / vim) -->
+          <div class="terminal-editor-overlay" id="terminalEditorOverlay" style="display: none;">
+            <div class="editor-header">
+              <span id="editorTitle">GNU nano 7.2 • /home/student/file.txt</span>
+              <div class="editor-actions">
+                <button type="button" class="btn btn-sm" id="btnEditorSave">💾 Saqlash</button>
+                <button type="button" class="btn btn-sm" id="btnEditorExit">✖ Chiqish</button>
+              </div>
+            </div>
+            <textarea class="editor-textarea" id="editorTextarea" spellcheck="false"></textarea>
+            <div class="editor-footer">
+              <span>^O Saqlash</span>
+              <span>^X Chiqish</span>
+              <span>(Yoki yuqoridagi tugmalarni bosing)</span>
+            </div>
           </div>
 
           <!-- Mobile Quick Touch Bar -->
@@ -195,7 +213,6 @@
             <button type="button" class="kt-key-btn kt-key-nav" id="btnTouchNext">Keyingi ▶</button>
           </div>
         </div>
-
       </div>
 
     </section>

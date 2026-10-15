@@ -2732,3 +2732,111 @@ html, body {
   color: #22d3ee !important;
   font-weight: 600 !important;
 }
+
+
+/* ==========================================================================
+   AUTHENTIC KALI LINUX TERMINAL & INLINE INPUT (NO WHITE BOXES GUARANTEED)
+   ========================================================================== */
+.kali-screen {
+  flex: 1 !important;
+  width: 100% !important;
+  min-height: 280px !important;
+  max-height: 480px !important;
+  background: #000000 !important;
+  background-color: #000000 !important;
+  overflow-y: auto !important;
+  padding: 12px 14px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace !important;
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+  color: #e2e8f0 !important;
+  -webkit-overflow-scrolling: touch !important;
+  cursor: text !important;
+  user-select: text !important;
+  box-sizing: border-box !important;
+}
+
+.kali-active-prompt {
+  margin-top: 6px !important;
+  font-family: inherit !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.kali-p-row1 {
+  line-height: 1.35 !important;
+  font-family: inherit !important;
+  user-select: none !important;
+  white-space: pre-wrap !important;
+}
+
+.kali-p-row2 {
+  line-height: 1.35 !important;
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  font-family: inherit !important;
+}
+
+.k-green {
+  color: #22c55e !important;
+  font-weight: 600 !important;
+}
+
+.k-blue {
+  color: #38bdf8 !important;
+  font-weight: 600 !important;
+}
+
+.k-red {
+  color: #ef4444 !important;
+  font-weight: 600 !important;
+}
+
+.k-white {
+  color: #f8fafc !important;
+  font-weight: 600 !important;
+}
+
+/* 100% Transparent, Native Inline Input — ZERO WHITE BOX */
+.kali-inline-cmd-input,
+input.kali-inline-cmd-input {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  min-width: 60px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  color: #f8fafc !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace !important;
+  font-size: 14.5px !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+  padding: 0 0 0 4px !important;
+  margin: 0 !important;
+  caret-color: #22d3ee !important; /* Authentic Kali cyan cursor */
+}
+
+.kali-inline-cmd-input:focus,
+.kali-inline-cmd-input:hover,
+.kali-inline-cmd-input:active {
+  outline: none !important;
+  border: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Hide any legacy hidden inputs permanently */
+.kali-hidden-input {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+}

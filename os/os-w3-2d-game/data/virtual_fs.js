@@ -464,9 +464,11 @@ echo "Report saved to: \${output}"
       const args = rawTokens.slice(1);
 
       switch (baseCmd) {
-        case "whoami": return { stdout: this.user, stderr: "", code: 0 };
+        case "whoami":
+        return { stdout: this.isRoot ? "root" : "userland", stderr: "", code: 0, editorAction: null };
         case "pwd": return { stdout: this.cwd, stderr: "", code: 0 };
-        case "hostname": return { stdout: "kali", stderr: "", code: 0 };
+        case "hostname":
+        return { stdout: "kali", stderr: "", code: 0, editorAction: null };
         case "echo": return this.cmdEcho(args);
         case "bash": return this.cmdBash(args);
         case "ps": return this.cmdPs(args);
@@ -505,8 +507,16 @@ echo "Report saved to: \${output}"
           };
         }
         case "uname": {
-          return { stdout: "Linux kali 6.1.0-kali-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01) x86_64 GNU/Linux", stderr: "", code: 0 };
+        const hasA = tokens.includes("-a");
+        const hasR = tokens.includes("-r");
+        if (hasA) {
+          return { stdout: "Linux kali 6.6.9-kali1-amd64 #1 SMP PREEMPT_DYNAMIC Kali 6.6.9-1kali1 (2024-01-08) x86_64 GNU/Linux", stderr: "", code: 0, editorAction: null };
         }
+        if (hasR) {
+          return { stdout: "6.6.9-kali1-amd64", stderr: "", code: 0, editorAction: null };
+        }
+        return { stdout: "Linux", stderr: "", code: 0, editorAction: null };
+      }
         case "hostname": {
           return { stdout: "kali", stderr: "", code: 0 };
         }
