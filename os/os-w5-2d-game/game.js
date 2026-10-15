@@ -1068,6 +1068,23 @@
     }, 250);
   }
 
+  
+  function showFloatingToast(msg, isError) {
+    let toast = document.getElementById("terminalFloatingToast");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.id = "terminalFloatingToast";
+      toast.className = "terminal-floating-toast";
+      document.body.appendChild(toast);
+    }
+    toast.className = "terminal-floating-toast" + (isError ? " error" : "") + " show";
+    toast.innerHTML = msg;
+    if (window._toastTimer) clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(() => {
+      toast.className = "terminal-floating-toast" + (isError ? " error" : "");
+    }, 2400);
+  }
+
   function scrollKaliToBottom() {
     if (!el.kaliScreen) return;
     el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
@@ -2420,7 +2437,7 @@ permitted by applicable law.
     const lower = rawCmd.toLowerCase();
 
     if (lower === "task" || lower === "vazifa") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       const q = allQuestions.find(item => item.id === state.currentQuestionId);
       if (q) {
         const card = document.createElement("div");
@@ -2440,13 +2457,13 @@ permitted by applicable law.
     }
 
     if (lower === "batafsil") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       if (el.modalKtBatafsil) el.modalKtBatafsil.classList.add("active");
       return;
     }
 
     if (lower === "hint" || lower === "maslahat") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       const q = allQuestions.find(item => item.id === state.currentQuestionId);
       if (q) {
         printKaliInfo(`[💡 MASLAHAT]: ${q.hint || "Topshiriq matniga qarang."}`);
@@ -2455,7 +2472,7 @@ permitted by applicable law.
     }
 
     if (lower === "preview" || lower === "natija") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       const q = allQuestions.find(item => item.id === state.currentQuestionId);
       if (q) {
         const expShell = new window.VIRTUAL_LINUX_W5.VirtualLinuxShell();
@@ -2466,7 +2483,7 @@ permitted by applicable law.
     }
 
     if (lower === "next" || lower === "keyingi") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       if (state.currentQuestionId < allQuestions.length) {
         loadQuestion(state.currentQuestionId + 1);
         const qNext = allQuestions.find(item => item.id === state.currentQuestionId);
@@ -2478,7 +2495,7 @@ permitted by applicable law.
     }
 
     if (lower === "prev" || lower === "oldingi") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       if (state.currentQuestionId > 1) {
         loadQuestion(state.currentQuestionId - 1);
         const qPrev = allQuestions.find(item => item.id === state.currentQuestionId);
@@ -2495,49 +2512,49 @@ permitted by applicable law.
     }
 
     if (lower === "fullscreen" || lower === "full" || lower === "f11") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       toggleTerminalFullscreen(true);
       return;
     }
 
     if (lower === "exit" || lower === "split" || lower === "quit" || lower === "2d") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       toggleTerminalFullscreen(false);
       return;
     }
 
     if (lower === "fs" || lower === "files") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       setWorkbenchTab("fs");
       return;
     }
 
     if (lower === "term" || lower === "cli") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       setWorkbenchTab("terminal");
       return;
     }
 
     if (lower === "sandbox" || lower === "erkin") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       setTerminalMode("sandbox");
       return;
     }
 
     if (lower === "quest" || lower === "masala" || lower === "topshiriq") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       setTerminalMode("quest");
       return;
     }
 
     if (lower === "map" || lower === "xarita") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       openMapModal();
       return;
     }
 
     if (lower === "help") {
-      appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+      appendKaliPromptHistory(rawCmd);
       printKaliInfo(`WIUT Kali Linux Terminal Buyruqlari:
   task / vazifa    - Joriy topshiriq va talablarni chiqarish
   batafsil         - Buyruq va bayroqlar to'liq tahlili (modal)
@@ -2558,7 +2575,7 @@ permitted by applicable law.
     }
 
     // Append executed prompt line to history
-    appendKaliPromptHistory(rawCmd); setTimeout(scrollKaliToBottom, 20); setTimeout(scrollKaliToBottom, 100);
+    appendKaliPromptHistory(rawCmd);
 
     // echo $? exit code inspector
     if (rawCmd === "echo $?") {
@@ -2642,48 +2659,27 @@ permitted by applicable law.
         state.arena.player.speechTimer = 180;
       }
 
-      const succDiv = document.createElement("div");
-      succDiv.className = "kali-grade-success";
-      succDiv.innerHTML = `✓ TO'G'RI! ${escapeHtml(grade.message)}<br><span style="color:#a7f3d0; font-size:12px;">+$100 Bonus hisobingizga qo'shildi!</span>`;
-      el.kaliStream.appendChild(succDiv);
-
-      showFeedback(true, `<b>✓ ${grade.message}</b><br><span style="color:#a7f3d0; font-size:12px;">+$100 Bonus hisobingizga qo'shildi! Keyingi topshiriqqa o'tilmoqda...</span>`);
+      // 1-Martalik Chiroyli Toast Xabarnoma (Terminalga katta yashil quti qo'shilmaydi!)
+      showFloatingToast("✓ TO'G'RI! +$100 Bonus hisobingizga qo'shildi!", false);
+      showFeedback(true, "<b>✓ " + grade.message + "</b><br><span style='color:#a7f3d0; font-size:12px;'>+$100 Bonus hisobingizga qo'shildi!</span>");
       checkOfficeEventTrigger(currentQ.id);
 
-      // Auto-advance to next question after 1.2s celebration
+      // Terminalda yashil xabar o'rniga DARHOL KEYINGI MASALA (Ko'k karta) chiqadi!
       if (state.terminalMode !== "sandbox") {
         if (state.currentQuestionId < allQuestions.length) {
-          setTimeout(() => {
-            // 1. Yashil xabarni o'chirish
-            if (succDiv && succDiv.parentNode) {
-              succDiv.style.transition = "opacity 0.3s ease";
-              succDiv.style.opacity = "0";
-              setTimeout(() => {
-                if (succDiv && succDiv.parentNode) {
-                  succDiv.parentNode.removeChild(succDiv);
-                }
-              }, 300);
-            }
-
-            // 2. O'yinda keyingi masalaga avtomatik o'tish
-            const nextId = state.currentQuestionId + 1;
-            loadQuestion(nextId);
-
-            // 3. Terminalda keyingi masalaning ko'k kartasini chiqarish
-            const nextQ = allQuestions.find(item => item.id === nextId);
-            if (nextQ) {
-              printKaliTaskCard(nextQ);
-            }
-            focusKaliInput();
-          }, 1200);
+          const nextId = state.currentQuestionId + 1;
+          loadQuestion(nextId);
+          const nextQ = allQuestions.find(item => item.id === nextId);
+          if (nextQ) {
+            printKaliTaskCard(nextQ);
+          }
+          focusKaliInput();
         } else {
-          setTimeout(() => {
-            const winCard = document.createElement("div");
-            winCard.className = "kali-grade-success";
-            winCard.innerHTML = "🏆 TABRIKLAYMIZ! Barcha 150 ta topshiriq muvaffaqiyatli yakunlandi!";
-            el.kaliStream.appendChild(winCard);
-            scrollKaliToBottom();
-          }, 1200);
+          const winCard = document.createElement("div");
+          winCard.className = "kali-grade-success";
+          winCard.style.margin = "8px 0";
+          winCard.innerHTML = "🏆 TABRIKLAYMIZ! Barcha 150 ta topshiriq muvaffaqiyatli yakunlandi!";
+          el.kaliStream.appendChild(winCard);
         }
       }
     } else {

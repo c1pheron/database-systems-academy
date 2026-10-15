@@ -3226,3 +3226,82 @@ input.kali-inline-cmd-input {
 .btn-floating-exit-fs {
   display: none !important;
 }
+
+/* ==========================================================================
+   V8: 1-TIME FLOATING TOAST + ZERO-JUMP ROCK-SOLID PROMPT
+   ========================================================================== */
+
+/* 1-Time Floating Toast Notification */
+.terminal-floating-toast {
+  position: fixed !important;
+  top: 18px !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-40px) !important;
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid #34d399 !important;
+  border-radius: 8px !important;
+  padding: 10px 24px !important;
+  font-family: 'JetBrains Mono', 'Inter', monospace !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 16px rgba(16, 185, 129, 0.5) !important;
+  z-index: 10000000 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.terminal-floating-toast.show {
+  opacity: 1 !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+.terminal-floating-toast.error {
+  background: linear-gradient(135deg, #b91c1c 0%, #ef4444 100%) !important;
+  border-color: #f87171 !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 16px rgba(239, 68, 68, 0.5) !important;
+}
+
+/* OVERRIDE ALL BOTTOM PADDING: EXACT 6px, NO 60px/80px GAPS */
+.kali-screen,
+.terminal-card .kali-screen,
+.terminal-card:not(.is-fullscreen) .kali-screen,
+.terminal-card.is-fullscreen .kali-screen {
+  padding-top: 12px !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  padding-bottom: 6px !important;
+  box-sizing: border-box !important;
+}
+
+/* OVERRIDE PROMPT MARGIN: EXACT 2px BOTTOM MARGIN */
+.kali-active-prompt {
+  margin-top: 6px !important;
+  margin-bottom: 2px !important;
+  min-height: 36px !important;
+  display: block !important;
+}
+
+/* Ensure prompt rows have steady heights */
+.kali-p-row1 {
+  line-height: 1.35 !important;
+  margin-bottom: 2px !important;
+}
+
+.kali-p-row2 {
+  line-height: 1.35 !important;
+  display: flex !important;
+  align-items: center !important;
+  min-height: 22px !important;
+}
+
+.kali-inline-cmd-input,
+input.kali-inline-cmd-input {
+  height: 22px !important;
+  line-height: 22px !important;
+  box-sizing: border-box !important;
+}
