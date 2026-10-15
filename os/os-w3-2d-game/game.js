@@ -1068,6 +1068,16 @@
     }, 250);
   }
 
+  function scrollKaliToBottom() {
+    if (!el.kaliScreen) return;
+    el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+    if (el.kaliActivePrompt) {
+      try {
+        el.kaliActivePrompt.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+      } catch(e) {}
+    }
+  }
+
   function focusKaliInput() {
     if (!el.kaliHiddenInput) return;
     try {
@@ -1095,7 +1105,7 @@
 Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls -la</code>, <code>mkdir demo</code>, <code>cat /etc/os-release</code>, <code>sudo apt update</code>, <code>whoami</code>, <code>hostname</code>, <code>uname -a</code>...<br>
 <i>(Topshiriq yechishga qaytish uchun yuqoridagi <b>🎯 Masala Yechish Rejimi</b> tugmasini bosing yoki 'quest' deb yozing)</i>`;
       if (el.kaliStream) el.kaliStream.appendChild(card);
-      if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+      if (el.kaliScreen) scrollKaliToBottom();
       focusKaliInput();
     } else {
       if (el.btnModeQuest) el.btnModeQuest.classList.add("active");
@@ -1113,7 +1123,7 @@ Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls
 Joriy Topshiriq #${state.currentQuestionId}: <b>${q ? escapeHtml(q.title) : ""}</b><br>
 Talab etilgan buyruqni terminalda bajaring.`;
       if (el.kaliStream) el.kaliStream.appendChild(card);
-      if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+      if (el.kaliScreen) scrollKaliToBottom();
       focusKaliInput();
     }
   }
@@ -1205,7 +1215,7 @@ Talab etilgan buyruqni terminalda bajaring.`;
     }
     state.activeEditor = null;
     focusKaliInput();
-    if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+    if (el.kaliScreen) scrollKaliToBottom();
   }
 
   // --- Real Linux WebAssembly (v86 + xterm.js) with IndexedDB Caching & Kali/Debian Environment ---
@@ -1921,7 +1931,7 @@ permitted by applicable law.
     if (el.kaliHiddenInput) {
       el.kaliHiddenInput.addEventListener("input", () => {
         if (el.kaliScreen) {
-          el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+          scrollKaliToBottom();
         }
       });
 
@@ -1994,20 +2004,51 @@ permitted by applicable law.
 
     // Toggle Kali Fullscreen
     const btnToggleKali = document.getElementById("btnToggleKaliFs");
-    if (btnToggleKali) {
-      btnToggleKali.addEventListener("click", () => {
-        SoundFX.playKey();
-        const termCard = document.getElementById("terminalCard");
-        if (termCard) {
-          termCard.classList.toggle("is-fullscreen");
-          const isFs = termCard.classList.contains("is-fullscreen");
-          btnToggleKali.textContent = isFs ? "✕ Kichraytirish" : "⛶ To'liq Ekran";
-          if (isFs) document.body.classList.add("terminal-is-fullscreen");
-          else document.body.classList.remove("terminal-is-fullscreen");
+    const btnFloatExit = document.getElementById("btnFloatingExitFs");
+
+    function setFullscreenMode(enable) {
+      SoundFX.playKey();
+      const termCard = document.getElementById("terminalCard");
+      if (!termCard) return;
+      
+      const isFs = (typeof enable === "boolean") ? enable : !termCard.classList.contains("is-fullscreen");
+      if (isFs) {
+        termCard.classList.add("is-fullscreen");
+        document.body.classList.add("terminal-is-fullscreen");
+        if (btnToggleKali) {
+          btnToggleKali.textContent = "✕ Chiqish";
+          btnToggleKali.style.background = "#ef4444";
+          btnToggleKali.style.color = "#ffffff";
         }
-        focusKaliInput();
-      });
+      } else {
+        termCard.classList.remove("is-fullscreen");
+        document.body.classList.remove("terminal-is-fullscreen");
+        if (btnToggleKali) {
+          btnToggleKali.textContent = "⛶ To'liq Ekran";
+          btnToggleKali.style.background = "";
+          btnToggleKali.style.color = "";
+        }
+      }
+      setTimeout(scrollKaliToBottom, 100);
+      focusKaliInput();
     }
+
+    if (btnToggleKali) {
+      btnToggleKali.addEventListener("click", () => setFullscreenMode());
+    }
+    if (btnFloatExit) {
+      btnFloatExit.addEventListener("click", () => setFullscreenMode(false));
+    }
+
+    // Escape key exits fullscreen
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        const termCard = document.getElementById("terminalCard");
+        if (termCard && termCard.classList.contains("is-fullscreen")) {
+          setFullscreenMode(false);
+        }
+      }
+    });
 
     // --- 2 Modes Switcher (Topshiriqlar vs Erkin Sandbox CLI) ---
     if (el.btnModeQuest) {
@@ -2250,7 +2291,7 @@ permitted by applicable law.
       el.kaliHiddenInput.value = cur + " " + token;
     }
     focusKaliInput();
-    if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+    if (el.kaliScreen) scrollKaliToBottom();
   }
 
   function handleKaliCtrlC() {
@@ -2324,7 +2365,7 @@ permitted by applicable law.
     div.className = "kali-meta-card";
     div.textContent = msg;
     el.kaliStream.appendChild(div);
-    if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+    if (el.kaliScreen) scrollKaliToBottom();
   }
 
   function handleKaliCommandSubmit() {
@@ -2335,7 +2376,7 @@ permitted by applicable law.
 
     if (!rawCmd) {
       appendKaliPromptHistory("");
-      if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+      if (el.kaliScreen) scrollKaliToBottom();
       return;
     }
 
@@ -2362,7 +2403,7 @@ permitted by applicable law.
 `;
         el.kaliStream.appendChild(card);
       }
-      if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+      if (el.kaliScreen) scrollKaliToBottom();
       return;
     }
 
@@ -2493,7 +2534,7 @@ permitted by applicable law.
       outDiv.className = "kali-cmd-stdout";
       outDiv.textContent = String(state.lastExitCode || 0);
       el.kaliStream.appendChild(outDiv);
-      if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+      if (el.kaliScreen) scrollKaliToBottom();
       return;
     }
 
@@ -2530,7 +2571,7 @@ permitted by applicable law.
       succMsg.style.color = "#38bdf8";
       succMsg.textContent = `[💻 Sandbox: Buyruq bajarildi • Exit code: ${state.lastExitCode}]`;
       el.kaliStream.appendChild(succMsg);
-      if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+      if (el.kaliScreen) scrollKaliToBottom();
       return;
     }
 
@@ -2588,7 +2629,7 @@ permitted by applicable law.
     }
 
     if (el.kaliScreen) {
-      el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+      scrollKaliToBottom();
     }
   }
 
