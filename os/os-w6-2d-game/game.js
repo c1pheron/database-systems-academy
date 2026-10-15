@@ -1982,6 +1982,33 @@ permitted by applicable law.
       });
     }
 
+        // Clear Kali Screen
+    const btnClearKali = document.getElementById("btnClearKaliScreen");
+    if (btnClearKali) {
+      btnClearKali.addEventListener("click", () => {
+        SoundFX.playKey();
+        if (el.kaliStream) el.kaliStream.innerHTML = "";
+        focusKaliInput();
+      });
+    }
+
+    // Toggle Kali Fullscreen
+    const btnToggleKali = document.getElementById("btnToggleKaliFs");
+    if (btnToggleKali) {
+      btnToggleKali.addEventListener("click", () => {
+        SoundFX.playKey();
+        const termCard = document.getElementById("terminalCard");
+        if (termCard) {
+          termCard.classList.toggle("is-fullscreen");
+          const isFs = termCard.classList.contains("is-fullscreen");
+          btnToggleKali.textContent = isFs ? "✕ Kichraytirish" : "⛶ To'liq Ekran";
+          if (isFs) document.body.classList.add("terminal-is-fullscreen");
+          else document.body.classList.remove("terminal-is-fullscreen");
+        }
+        focusKaliInput();
+      });
+    }
+
     // --- 2 Modes Switcher (Topshiriqlar vs Erkin Sandbox CLI) ---
     if (el.btnModeQuest) {
       el.btnModeQuest.addEventListener("click", () => setTerminalMode("quest"));
@@ -2285,7 +2312,7 @@ permitted by applicable law.
     const div = document.createElement("div");
     div.className = "kali-history-entry";
     div.innerHTML = `
-      <div class="kali-cmd-line1"><span class="k-green">┌──(</span><span class="k-blue">userland</span><span class="k-white">㉿</span><span class="k-blue">localhost</span><span class="k-green">)-[</span><span class="k-white">${promptPath}</span><span class="k-green">]</span></div>
+      <div class="kali-cmd-line1"><span class="k-green">┌──(</span><span class="k-blue">userland</span><span class="k-white">㉿</span><span class="k-blue">kali</span><span class="k-green">)-[</span><span class="k-white">${promptPath}</span><span class="k-green">]</span></div>
       <div class="kali-cmd-line2"><span class="k-green">└─$ </span><span class="k-cmd">${escapeHtml(cmd)}</span></div>
     `;
     el.kaliStream.appendChild(div);

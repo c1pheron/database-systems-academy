@@ -134,13 +134,9 @@
             <span>Kali Linux Terminal (Debian 12)</span>
           </div>
 
-          <div class="terminal-engine-switch">
-            <button type="button" class="btn-engine-pill active" id="btnEngineShell" onclick="setTerminalEngine('shell')">
-              ⚡ Tezkor Shell
-            </button>
-            <button type="button" class="btn-engine-pill" id="btnEngineWasm" onclick="setTerminalEngine('wasm')">
-              👾 Real Linux (Kali GNU/Linux)
-            </button>
+          <div class="terminal-os-badge">
+            <span class="os-dot-live"></span>
+            <span>Kali GNU/Linux 6.6 (Debian 12)</span>
           </div>
 
           <div style="display: flex; align-items: center; gap: 6px;">
@@ -161,7 +157,7 @@
             <div class="kali-stream" id="kaliStream"></div>
             
             <div class="kali-active-prompt" id="kaliActivePrompt">
-              <div class="kali-p-row1" id="kaliPromptLine1"><span class="k-green">┌──(</span><span class="k-blue" id="kaliPromptUser">userland</span><span class="k-white">💀</span><span class="k-blue" id="kaliPromptHost">localhost</span><span class="k-green">)-[</span><span class="k-white" id="kaliPromptPath">~</span><span class="k-green">]</span></div>
+              <div class="kali-p-row1" id="kaliPromptLine1"><span class="k-green">┌──(</span><span class="k-blue" id="kaliPromptUser">userland</span><span class="k-white">💀</span><span class="k-blue" id="kaliPromptHost">kali</span><span class="k-green">)-[</span><span class="k-white" id="kaliPromptPath">~</span><span class="k-green">]</span></div>
               <div class="kali-p-row2"><span class="k-green" id="kaliPromptArrow">└─$ </span><input type="text" id="kaliHiddenInput" class="kali-inline-cmd-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus /></div>
             </div>
           </div>
