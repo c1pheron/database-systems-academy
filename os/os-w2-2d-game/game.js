@@ -626,11 +626,16 @@
   }
 
   function updateTerminalPrompt() {
+    if (!state.liveShell) return;
     const isRoot = state.liveShell && state.liveShell.isRoot;
-    const cwd = state.liveShell ? state.liveShell.cwd : "/home/student";
-    const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
-
-    if (el.kaliPromptPath) el.kaliPromptPath.textContent = promptPath;
+    const cwd = state.liveShell.cwd;
+    const displayPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
+    if (el.terminalPromptPath) {
+      el.terminalPromptPath.textContent = `${displayPath}${isRoot ? "#" : "$"} `;
+    }
+    if (el.kaliPromptPath) {
+      el.kaliPromptPath.textContent = displayPath;
+    }
     if (el.kaliPromptUser) {
       el.kaliPromptUser.textContent = isRoot ? "root" : "userland";
       if (isRoot) el.kaliPromptUser.classList.add("is-root");
@@ -643,21 +648,1645 @@
     }
   }
 
-  function appendKaliPromptHistory(cmd) {
-    if (!el.kaliStream) return;
-    const isRoot = state.liveShell && state.liveShell.isRoot;
+  // --- Terminal Execution ---
+  function appendTerminalOutput(line, type = "normal") {
+    if (!el.terminalOutput) return;
+    const div = document.createElement("div");
+    if (type === "cmd") {
+      div.style.color = "#38bdf8";
+      div.textContent = line;
+    } else if (type === "error") {
+      div.style.color = "#ef4444";
+      div.textContent = line;
+    } else if (type === "success") {
+      div.style.color = "#34d399";
+      div.textContent = line;
+    } else {
+      div.style.color = "#cbd5e1";
+      div.textContent = line;
+    }
+    el.terminalOutput.appendChild(div);
+    el.terminalOutput.scrollTop = el.terminalOutput.scrollHeight;
+  }
+
+  function handleCommandSubmit() {
+    if (!el.bashInput) return;
+    const rawCmd = el.bashInput.value.trim();
+    if (!rawCmd) return;
+
+    SoundFX.playKey();
+
+    // Add to history
+    state.commandHistory.push(rawCmd);
+    state.historyIndex = state.commandHistory.length;
+
+    // Display command in terminal
+    const cwd = state.liveShell.cwd;
+    const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
+    appendTerminalOutput(`student@debian-server:${promptPath}$ ${rawCmd}`, "cmd");
+
+    // Clear command in terminal
+    if (rawCmd.toLowerCase() === "clear") {
+      el.terminalOutput.innerHTML = "";
+      el.bashInput.value = "";
+      return;
+    }
+
+    // echo $? exit code inspector
+    if (rawCmd === "echo $?") {
+      appendTerminalOutput(String(state.lastExitCode || 0), "normal");
+      el.bashInput.value = "";
+      return;
+    }
+
+    // Execute in live shell
+    const res = state.liveShell.execute(rawCmd);
+    state.lastExitCode = (res && typeof res.code === "number") ? res.code : 0;
+    if (res.stdout) appendTerminalOutput(res.stdout, "normal");
+    if (res.stderr) appendTerminalOutput(res.stderr, "error");
+    updateTerminalPrompt();
+    renderFsExplorer();
+
+    // Grade against current question
+    const currentQ = allQuestions.find(q => q.id === state.currentQuestionId);
+    if (!currentQ) return;
+
+    const expectedCmd = currentQ.expectedSql || currentQ.expectedBash || "";
+    const grade = window.VIRTUAL_LINUX_W2.BASH_GRADER.evaluate(rawCmd, expectedCmd, currentQ);
+
+    if (grade.match) {
+      // SUCCESS!
+      SoundFX.playSuccess();
+      const isNew = !state.solvedIds.has(currentQ.id);
+      state.solvedIds.add(currentQ.id);
+
+      if (isNew) {
+        state.bonusCapital += 100;
+        // Streak bonuses
+        if (state.solvedIds.size % 10 === 0) {
+          state.bonusCapital += 500;
+          SoundFX.playPromotion();
+        }
+      }
+
+      saveProgress();
+      updateHUD();
+      renderSectorBar();
+      renderQuestionStrip();
+
+      if (state.arena) {
+        state.arena.addSuccessBurst();
+        state.arena.player.speech = "Barakalla! Buyruq to'liq va xatosiz bajarildi!";
+        state.arena.player.speechTimer = 180;
+      }
+
+      showFeedback(true, `<b>✓ ${grade.message}</b><br><span style="color:#a7f3d0; font-size:12px;">+$100 Bonus hisobingizga qo'shildi. Keyingi topshiriqqa o'tishingiz mumkin!</span>`);
+
+      // Check incident triggers
+      checkOfficeEventTrigger(currentQ.id);
+
+    } else {
+      // Mismatch or error
+      SoundFX.playError();
+      showFeedback(false, `<b>✕ Diqqat:</b> ${grade.message}<br><span style="color:#fca5a5; font-size:11.5px;">Tizim xatolikni qaytardi yoki kutilgan natija boshqacha. "💡 Maslahat" yoki "👁 Kutilayotgan Natija" tugmasidan foydalaning.</span>`);
+    }
+
+    el.bashInput.value = "";
+  }
+
+  function showFeedback(isSuccess, html) {
+    if (!el.feedbackBox) return;
+    el.feedbackBox.className = `feedback-box ${isSuccess ? "success" : "error"}`;
+    el.feedbackBox.innerHTML = html;
+    el.feedbackBox.style.display = "block";
+  }
+
+  // --- Office Incident Event Modal ---
+  function checkOfficeEventTrigger(questionId) {
+    const events = window.VIRTUAL_LINUX_W2.officeEvents;
+    const ev = events.find(e => e.triggerAfterQuestion === questionId);
+    if (ev) {
+      setTimeout(() => {
+        openEventModal(ev);
+      }, 700);
+    }
+  }
+
+  function openEventModal(eventObj) {
+    if (!el.modalEvent) return;
+    const ev = eventObj || window.VIRTUAL_LINUX_W2.officeEvents[0];
+
+    el.eventAvatar.textContent = ev.avatar || "🐧";
+    el.eventSpeaker.textContent = ev.speaker;
+    el.eventRole.textContent = ev.role;
+    el.eventTitle.textContent = ev.title;
+    el.eventNarrative.textContent = ev.narrative;
+    el.eventFeedback.style.display = "none";
+    el.eventChoicesContainer.innerHTML = "";
+
+    ev.choices.forEach(ch => {
+      const btn = document.createElement("button");
+      btn.className = "event-choice-btn";
+      btn.innerHTML = `<b>➤</b> ${ch.text}`;
+
+      btn.addEventListener("click", () => {
+        if (ch.correct) {
+          SoundFX.playSuccess();
+          state.bonusCapital += (ch.bonus || 0);
+          saveProgress();
+          updateHUD();
+          el.eventFeedback.className = "feedback-box success";
+          el.eventFeedback.innerHTML = `<b>To'g'ri qaror!</b> ${ch.outcome}`;
+        } else {
+          SoundFX.playError();
+          el.eventFeedback.className = "feedback-box error";
+          el.eventFeedback.innerHTML = `<b>Xato qaror:</b> ${ch.outcome}`;
+        }
+        el.eventFeedback.style.display = "block";
+      });
+
+      el.eventChoicesContainer.appendChild(btn);
+    });
+
+    el.modalEvent.classList.add("active");
+  }
+
+  // --- 150 Question Map Modal ---
+  function openMapModal() {
+    if (!el.modalMap) return;
+    renderMapQuestions();
+    el.modalMap.classList.add("active");
+  }
+
+  function renderMapQuestions(filter = "all", searchQuery = "") {
+    if (!el.mapQuestionsGrid) return;
+    el.mapQuestionsGrid.innerHTML = "";
+
+    const query = (searchQuery || "").toLowerCase();
+
+    allQuestions.forEach(q => {
+      const isSolved = state.solvedIds.has(q.id);
+      const isCurrent = q.id === state.currentQuestionId;
+
+      // Filter check
+      if (filter === "solved" && !isSolved) return;
+      if (filter === "unsolved" && isSolved) return;
+      if (filter.startsWith("sector_")) {
+        const sNum = parseInt(filter.split("_")[1], 10);
+        if (q.sector !== sNum) return;
+      }
+
+      // Search check
+      if (query) {
+        const hay = `${q.id} ${q.title} ${q.expectedSql || ""} ${q.tags ? q.tags.join(" ") : ""}`.toLowerCase();
+        if (!hay.includes(query)) return;
+      }
+
+      const card = document.createElement("div");
+      card.className = `map-item ${isSolved ? "solved" : ""} ${isCurrent ? "current" : ""}`;
+      card.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-weight:700; color:var(--accent-cyan-bright);">#${q.id}</span>
+          <span style="font-size:11px; color:${isSolved ? "var(--accent-emerald-bright)" : "var(--text-muted)"};">
+            ${isSolved ? "✓ Bajarilgan" : "Kutilmoqda"}
+          </span>
+        </div>
+        <div style="font-size:12.5px; font-weight:600; color:#fff;">${q.title}</div>
+        <div style="font-size:11px; color:var(--text-muted);">${q.source || ""}</div>
+      `;
+
+      card.addEventListener("click", () => {
+        el.modalMap.classList.remove("active");
+        loadQuestion(q.id);
+      });
+
+      el.mapQuestionsGrid.appendChild(card);
+    });
+  }
+
+  // --- Solution Reveal Modal ---
+  function openSolutionModal() {
+    const q = allQuestions.find(item => item.id === state.currentQuestionId);
+    if (!q || !el.modalSolution) return;
+
+    el.solQuestionTitle.textContent = `#${q.id}. ${q.title}`;
+    el.solCode.textContent = q.expectedSql || q.expectedBash || "";
+    el.solExplanation.innerHTML = `
+      <p style="margin-bottom:8px;"><b>Tushuntirish:</b> ${q.hint || "Ushbu buyruq Linux tizimida topshiriqda belgilangan amallarni bajaradi."}</p>
+      <p style="font-size:11.5px; color:#94a3b8;"><b>Muqobil yechimlar:</b> ${q.solutions ? q.solutions.map(s => `<code>${s}</code>`).join(", ") : "—"}</p>
+    `;
+
+    el.modalSolution.classList.add("active");
+  }
+
+  // --- Virtual File System Explorer Display ---
+  function renderFsExplorer() {
+    if (!el.schemaTableDisplay || !state.liveShell) return;
+
+    const tab = state.activeFsTab;
+
+    if (tab === "inode") {
+      // Render full Inode Table across all files in root!
+      const files = [];
+      function traverse(node, path) {
+        if (!node) return;
+        const fullPath = path + (path === "/" ? "" : "/") + (node.name || "");
+        files.push({
+          inode: node.inode,
+          path: fullPath || "/",
+          type: node.type,
+          permissions: node.permissions,
+          links: node.links,
+          owner: `${node.owner}:${node.group}`,
+          mtime: node.mtime
+        });
+        if (node.type === "dir" && node.children) {
+          Object.values(node.children).forEach(child => traverse(child, fullPath || "/"));
+        }
+      }
+      traverse(state.liveShell.root, "");
+
+      let html = `
+        <table class="fs-table">
+          <thead>
+            <tr>
+              <th>Inode</th>
+              <th>Tur</th>
+              <th>Ruxsatlar</th>
+              <th>Bog'lam (Links)</th>
+              <th>Egasi</th>
+              <th>Yo'l (Path)</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      files.forEach(f => {
+        html += `
+          <tr>
+            <td class="badge-inode"><b>${f.inode}</b></td>
+            <td>${f.type}</td>
+            <td class="badge-perm">${f.permissions}</td>
+            <td style="color:${f.links > 1 ? "#fbbf24" : "#94a3b8"}; font-weight:${f.links > 1 ? "bold" : "normal"};">${f.links}</td>
+            <td>${f.owner}</td>
+            <td class="${f.type === 'dir' ? 'badge-dir' : (f.type === 'symlink' ? 'badge-symlink' : 'badge-file')}">${f.path}</td>
+          </tr>
+        `;
+      });
+      html += `</tbody></table>`;
+      el.schemaTableDisplay.innerHTML = html;
+      return;
+    }
+
+    if (tab === "terminal") {
+      // Render bash history
+      let html = `<div style="padding:4px 8px;">`;
+      html += `<div style="color:var(--accent-cyan-bright); font-weight:700; margin-bottom:8px;">🖥️ BASH TARIXI (HISTORY):</div>`;
+      if (state.commandHistory.length === 0) {
+        html += `<div style="color:var(--text-muted);">Hali hech qanday buyruq bajarilmadi.</div>`;
+      } else {
+        state.commandHistory.forEach((cmd, idx) => {
+          html += `<div style="padding:3px 0; border-bottom:1px solid rgba(255,255,255,0.04);"><span style="color:#64748b;">${idx + 1}</span> <code style="color:#38bdf8;">${cmd}</code></div>`;
+        });
+      }
+      html += `</div>`;
+      el.schemaTableDisplay.innerHTML = html;
+      return;
+    }
+
+    if (tab === "result") {
+      const q = allQuestions.find(item => item.id === state.currentQuestionId);
+      let html = `<div style="padding:6px 10px;">`;
+      html += `<div style="color:var(--accent-cyan-bright); font-weight:700; margin-bottom:8px;">📊 KUTILAYOTGAN VA HOZIRGI NATIJA TAHLILI:</div>`;
+      if (q) {
+        // Run expected in clone
+        const expShell = new window.VIRTUAL_LINUX_W2.VirtualLinuxShell();
+        const expRes = expShell.execute(q.expectedSql || q.expectedBash || "");
+        html += `<div style="margin-bottom:10px;"><b>Topshiriq #${q.id}:</b> ${q.title}</div>`;
+        html += `<div style="margin-bottom:6px; color:#38bdf8;">Kutilgan buyruq: <code>${q.expectedSql || q.expectedBash}</code></div>`;
+        html += `<div style="background:#090e1c; padding:8px; border-radius:4px; margin-bottom:10px; border:1px solid rgba(6,182,212,0.3);">
+          <div style="font-size:11px; color:#94a3b8; margin-bottom:4px;">Kutilayotgan Chiqish (stdout):</div>
+          <pre style="color:#34d399; font-size:11.5px; white-space:pre-wrap;">${expRes.stdout || "(bo'sh chiqish / fayl tizimi o'zgarishi)"}</pre>
+        </div>`;
+      }
+      html += `</div>`;
+      el.schemaTableDisplay.innerHTML = html;
+      return;
+    }
+
+    // Default: View directory contents for selected folder
+    let targetPath = "/home/student";
+    if (tab === "etc") targetPath = "/etc";
+    if (tab === "log") targetPath = "/var/log";
+    if (tab === "tmp") targetPath = "/tmp";
+    if (tab === "dev") targetPath = "/dev";
+
+    const node = state.liveShell.getNode(targetPath);
+    if (!node || node.type !== "dir") {
+      el.schemaTableDisplay.innerHTML = `<div style="padding:10px; color:#ef4444;">Katalog topilmadi: ${targetPath}</div>`;
+      return;
+    }
+
+    let html = `
+      <div style="margin-bottom:8px; color:var(--accent-cyan-bright); font-size:12px;">
+        📂 <b>Manzil:</b> ${targetPath} &nbsp; | &nbsp; <b>Inode:</b> ${node.inode} &nbsp; | &nbsp; <b>Ruxsatlar:</b> ${node.permissions}
+      </div>
+      <table class="fs-table">
+        <thead>
+          <tr>
+            <th>Nomi</th>
+            <th>Ruxsatlar</th>
+            <th>Links</th>
+            <th>Egasi</th>
+            <th>Inode</th>
+            <th>Hajmi / Ma'lumot</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    const children = Object.values(node.children || {});
+    if (children.length === 0) {
+      html += `<tr><td colspan="6" style="text-align:center; color:#64748b;">(katalog bo'sh)</td></tr>`;
+    } else {
+      children.forEach(child => {
+        const isDir = child.type === "dir";
+        const isSym = child.type === "symlink";
+        const sizeInfo = isDir ? "4096 bayt" : (isSym ? `-> ${child.target}` : `${child.content ? child.content.length : 0} bayt`);
+
+        html += `
+          <tr>
+            <td class="${isDir ? 'badge-dir' : (isSym ? 'badge-symlink' : 'badge-file')}">
+              ${isDir ? '📁 ' : (isSym ? '🔗 ' : '📄 ')}${child.name}
+            </td>
+            <td class="badge-perm">${child.permissions}</td>
+            <td style="color:${child.links > 1 ? "#fbbf24" : "#94a3b8"};">${child.links}</td>
+            <td>${child.owner}:${child.group}</td>
+            <td class="badge-inode">${child.inode}</td>
+            <td>${sizeInfo}</td>
+          </tr>
+        `;
+      });
+    }
+
+    html += `</tbody></table>`;
+    el.schemaTableDisplay.innerHTML = html;
+  }
+
+  // --- Terminal Layout Modes & Fullscreen ---
+  function toggleTerminalFullscreen(enable) {
+    const isFs = (typeof enable === "boolean") ? enable : !state.terminalFullscreen;
+    state.terminalFullscreen = isFs;
+    state.layoutMode = isFs ? "fullscreen" : "split";
+    SoundFX.playKey();
+
+    if (isFs) {
+      if (el.terminalWorkbenchCard) el.terminalWorkbenchCard.classList.add("is-fullscreen");
+      if (el.kaliFullscreenBar) el.kaliFullscreenBar.style.display = "flex";
+      if (el.btnToggleFullscreen) el.btnToggleFullscreen.textContent = "✕ Kichraytirish";
+      if (el.btnModeFull) el.btnModeFull.classList.add("active");
+      if (el.btnModeSplit) el.btnModeSplit.classList.remove("active");
+      if (el.btnModeCli) el.btnModeCli.classList.remove("active");
+      document.body.classList.add("terminal-is-fullscreen");
+    } else {
+      if (el.terminalWorkbenchCard) el.terminalWorkbenchCard.classList.remove("is-fullscreen");
+      if (el.kaliFullscreenBar) el.kaliFullscreenBar.style.display = "none";
+      if (el.btnToggleFullscreen) el.btnToggleFullscreen.textContent = "⛶ To'liq Ekran";
+      if (el.btnModeSplit) el.btnModeSplit.classList.add("active");
+      if (el.btnModeFull) el.btnModeFull.classList.remove("active");
+      if (el.btnModeCli) el.btnModeCli.classList.remove("active");
+      document.body.classList.remove("terminal-is-fullscreen");
+    }
+
+    setTimeout(() => {
+      if (typeof fitWasmTerminal === "function") fitWasmTerminal();
+      focusKaliInput();
+    }, 50);
+    setTimeout(() => {
+      if (typeof fitWasmTerminal === "function") fitWasmTerminal();
+      focusKaliInput();
+    }, 250);
+  }
+
+  function focusKaliInput() {
+    if (!el.kaliHiddenInput) return;
+    try {
+      el.kaliHiddenInput.focus({ preventScroll: true });
+    } catch (e) {
+      el.kaliHiddenInput.focus();
+    }
+  }
+
+  function setTerminalMode(mode) {
+    state.terminalMode = mode;
+    SoundFX.playKey();
+    if (mode === "sandbox") {
+      if (el.btnModeQuest) el.btnModeQuest.classList.remove("active");
+      if (el.btnModeSandbox) el.btnModeSandbox.classList.add("active");
+      if (el.terminalActiveModeBadge) el.terminalActiveModeBadge.textContent = "💻 Erkin CLI";
+      if (el.btnFsToggleMode) el.btnFsToggleMode.textContent = "💻 Rejim: Erkin CLI";
+
+      const card = document.createElement("div");
+      card.className = "kali-meta-card";
+      card.style.borderColor = "rgba(56, 189, 248, 0.4)";
+      card.style.color = "#38bdf8";
+      card.style.margin = "6px 0";
+      card.innerHTML = `<b>💻 Erkin CLI (Sandbox) Rejimi Faol!</b><br>
+Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls -la</code>, <code>mkdir demo</code>, <code>cat /etc/os-release</code>, <code>sudo apt update</code>, <code>whoami</code>, <code>hostname</code>, <code>uname -a</code>...<br>
+<i>(Topshiriq yechishga qaytish uchun yuqoridagi <b>🎯 Masala Yechish Rejimi</b> tugmasini bosing yoki 'quest' deb yozing)</i>`;
+      if (el.kaliStream) el.kaliStream.appendChild(card);
+      if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+      focusKaliInput();
+    } else {
+      if (el.btnModeQuest) el.btnModeQuest.classList.add("active");
+      if (el.btnModeSandbox) el.btnModeSandbox.classList.remove("active");
+      if (el.terminalActiveModeBadge) el.terminalActiveModeBadge.textContent = "🎯 Topshiriq";
+      if (el.btnFsToggleMode) el.btnFsToggleMode.textContent = "🎯 Rejim: Topshiriq";
+
+      const q = allQuestions.find(item => item.id === state.currentQuestionId);
+      const card = document.createElement("div");
+      card.className = "kali-meta-card";
+      card.style.borderColor = "rgba(34, 211, 238, 0.4)";
+      card.style.color = "#22d3ee";
+      card.style.margin = "6px 0";
+      card.innerHTML = `<b>🎯 Masala Yechish Rejimi Faol!</b><br>
+Joriy Topshiriq #${state.currentQuestionId}: <b>${q ? escapeHtml(q.title) : ""}</b><br>
+Talab etilgan buyruqni terminalda bajaring.`;
+      if (el.kaliStream) el.kaliStream.appendChild(card);
+      if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+      focusKaliInput();
+    }
+  }
+  window.setTerminalMode = setTerminalMode;
+
+  function setLayoutMode(mode) {
+    if (mode === "fullscreen" || mode === "cli") {
+      toggleTerminalFullscreen(true);
+    } else {
+      toggleTerminalFullscreen(false);
+    }
+  }
+
+  function setWorkbenchTab(tab) {
+    SoundFX.playKey();
+    if (tab === "terminal") {
+      if (el.tabTerminalMode) el.tabTerminalMode.classList.add("active");
+      if (el.tabFsMode) el.tabFsMode.classList.remove("active");
+      if (el.paneKaliTerminal) el.paneKaliTerminal.style.display = "flex";
+      if (el.paneFsExplorer) el.paneFsExplorer.style.display = "none";
+      focusKaliInput();
+    } else {
+      if (el.tabFsMode) el.tabFsMode.classList.add("active");
+      if (el.tabTerminalMode) el.tabTerminalMode.classList.remove("active");
+      if (el.paneKaliTerminal) el.paneKaliTerminal.style.display = "none";
+      if (el.paneFsExplorer) el.paneFsExplorer.style.display = "block";
+      renderFsExplorer();
+    }
+  }
+
+  // --- In-Terminal Interactive Editor (nano / vim) ---
+  function openTerminalEditor(action) {
+    if (!el.terminalEditorOverlay || !el.editorTextarea) return;
+    state.activeEditor = action;
+    if (el.editorTitle) el.editorTitle.textContent = `${action.prog.toUpperCase()} • ${action.filename}`;
+    el.editorTextarea.value = action.content || "";
+    el.terminalEditorOverlay.style.display = "flex";
+    setTimeout(() => {
+      el.editorTextarea.focus();
+    }, 60);
+  }
+
+  function saveAndCloseTerminalEditor() {
+    if (!state.activeEditor || !el.editorTextarea) return;
+    const content = el.editorTextarea.value;
+    const p = state.activeEditor.path;
+    const dirPath = p.substring(0, p.lastIndexOf("/")) || "/";
+    const filename = p.substring(p.lastIndexOf("/") + 1);
+
+    let dirNode = state.liveShell ? state.liveShell.getNode(dirPath) : null;
+    if (!dirNode && state.liveShell) {
+      state.liveShell.execute(`mkdir -p "${dirPath}"`);
+      dirNode = state.liveShell.getNode(dirPath);
+    }
+
+    if (dirNode && dirNode.children) {
+      let fileNode = dirNode.children[filename];
+      if (!fileNode) {
+        fileNode = {
+          name: filename,
+          type: "file",
+          inode: Math.floor(Math.random() * 500000 + 1000000),
+          permissions: "-rw-r--r--",
+          owner: state.liveShell.user || "student",
+          group: state.liveShell.user || "student",
+          links: 1,
+          mtime: new Date().toISOString().replace("T", " ").substring(0, 19),
+          content: content,
+          size: content.length
+        };
+        dirNode.children[filename] = fileNode;
+      } else {
+        fileNode.content = content;
+        fileNode.size = content.length;
+        fileNode.mtime = new Date().toISOString().replace("T", " ").substring(0, 19);
+      }
+    }
+
+    const savedProg = state.activeEditor.prog.toUpperCase();
+    const savedFile = state.activeEditor.filename;
+    closeTerminalEditor();
+    printKaliInfo(`[✓ ${savedProg}: '${savedFile}' muvaffaqiyatli saqlandi (${content.length} bayt)]`);
+    renderFsExplorer();
+  }
+
+  function closeTerminalEditor() {
+    if (el.terminalEditorOverlay) {
+      el.terminalEditorOverlay.style.display = "none";
+    }
+    state.activeEditor = null;
+    focusKaliInput();
+    if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+  }
+
+  // --- Real Linux WebAssembly (v86 + xterm.js) with IndexedDB Caching & Kali/Debian Environment ---
+  let wasmEmulatorInstance = null;
+  let wasmXtermInstance = null;
+  let hasConfiguredKaliEnvironment = false;
+  let silentlyConfiguring = false;
+  let serialOutputBuffer = "";
+  let serialFlushTimer = null;
+
+  // IndexedDB Cache for linux4.iso
+  const ISO_CACHE_DB = "OS_LINUX_CACHE_DB";
+  const ISO_STORE = "os_assets";
+  const ISO_KEY = "linux4_iso";
+
+  function openIsoDb() {
+    return new Promise((resolve) => {
+      if (!window.indexedDB) return resolve(null);
+      const req = window.indexedDB.open(ISO_CACHE_DB, 1);
+      req.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(ISO_STORE)) {
+          db.createObjectStore(ISO_STORE);
+        }
+      };
+      req.onsuccess = (e) => resolve(e.target.result);
+      req.onerror = () => resolve(null);
+    });
+  }
+
+  async function getCachedLinuxIso() {
+    try {
+      const db = await openIsoDb();
+      if (!db) return null;
+      return new Promise((resolve) => {
+        const tx = db.transaction(ISO_STORE, "readonly");
+        const store = tx.objectStore(ISO_STORE);
+        const req = store.get(ISO_KEY);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => resolve(null);
+      });
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async function setCachedLinuxIso(buffer) {
+    try {
+      const db = await openIsoDb();
+      if (!db) return;
+      return new Promise((resolve) => {
+        const tx = db.transaction(ISO_STORE, "readwrite");
+        const store = tx.objectStore(ISO_STORE);
+        const req = store.put(buffer, ISO_KEY);
+        req.onsuccess = () => resolve(true);
+        req.onerror = () => resolve(false);
+      });
+    } catch (e) {}
+  }
+
+  function flushWasmSerialBuffer() {
+    if (serialOutputBuffer.length > 0 && wasmXtermInstance) {
+      const chunk = serialOutputBuffer;
+      serialOutputBuffer = "";
+      wasmXtermInstance.write(chunk, () => {
+        wasmXtermInstance.scrollToBottom();
+      });
+    }
+  }
+
+  function setupKaliEnvironmentInWasm() {
+    if (hasConfiguredKaliEnvironment || !wasmEmulatorInstance) return;
+    hasConfiguredKaliEnvironment = true;
+    silentlyConfiguring = true;
+
+    // Inject sudo, apt, apt-get, /etc/os-release and Kali prompt
+    const script = [
+      "stty -echo",
+      "cat << 'SU_EOF' > /bin/sudo",
+      "#!/bin/sh",
+      "if [ \"$1\" = \"-i\" ] || [ \"$1\" = \"-s\" ] || [ -z \"$1\" ]; then",
+      "  exec /bin/sh",
+      "fi",
+      "exec \"$@\"",
+      "SU_EOF",
+      "chmod +x /bin/sudo",
+      "cat << 'APT_EOF' > /bin/apt",
+      "#!/bin/sh",
+      "cmd=\"$1\"",
+      "case \"$cmd\" in",
+      "  update)",
+      "    echo \"Hit:1 http://http.kali.org/kali kali-rolling InRelease\"",
+      "    echo \"Get:2 http://http.kali.org/kali kali-rolling/main amd64 Packages [19.2 MB]\"",
+      "    echo \"Get:3 http://http.kali.org/kali kali-rolling/non-free amd64 Packages [212 kB]\"",
+      "    echo \"Fetched 19.4 MB in 1s (19.4 MB/s)\"",
+      "    echo \"Reading package lists... Done\"",
+      "    echo \"Building dependency tree... Done\"",
+      "    echo \"Reading state information... Done\"",
+      "    echo \"All packages are up to date.\"",
+      "    ;;",
+      "  upgrade)",
+      "    echo \"Reading package lists... Done\"",
+      "    echo \"Building dependency tree... Done\"",
+      "    echo \"0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\"",
+      "    ;;",
+      "  install)",
+      "    shift",
+      "    if [ -z \"$1\" ]; then echo \"apt install: paket nomi ko'rsatilmadi\"; exit 1; fi",
+      "    echo \"Reading package lists... Done\"",
+      "    echo \"Building dependency tree... Done\"",
+      "    for pkg in \"$@\"; do",
+      "      case \"$pkg\" in -y|--yes|-q) continue ;; esac",
+      "      echo \"The following NEW packages will be installed: $pkg\"",
+      "      echo \"Unpacking $pkg (latest) ...\"",
+      "      echo \"Setting up $pkg (latest) ...\"",
+      "      if ! command -v \"$pkg\" >/dev/null 2>&1; then",
+      "        echo '#!/bin/sh' > \"/bin/$pkg\"",
+      "        echo 'echo \"['$pkg'] muvaffaqiyatli ishga tushdi (Kali Linux).\"' >> \"/bin/$pkg\"",
+      "        chmod +x \"/bin/$pkg\"",
+      "      fi",
+      "    done",
+      "    echo \"Processing triggers for man-db ... Done\"",
+      "    ;;",
+      "  search)",
+      "    echo \"Sorting... Done\"",
+      "    echo \"Full Text Search... Done\"",
+      "    echo \"$2/kali-rolling 2.4.1 amd64\"",
+      "    ;;",
+      "  *)",
+      "    echo \"apt: $cmd bajarildi.\"",
+      "    ;;",
+      "esac",
+      "APT_EOF",
+      "chmod +x /bin/apt",
+      "ln -sf /bin/apt /bin/apt-get",
+      "echo 'PRETTY_NAME=\"Kali GNU/Linux Rolling\"' > /etc/os-release",
+      "echo 'NAME=\"Kali GNU/Linux\"' >> /etc/os-release",
+      "echo 'VERSION=\"2026.1\"' >> /etc/os-release",
+      "echo 'ID=kali' >> /etc/os-release",
+      "echo 'ID_LIKE=debian' >> /etc/os-release",
+      "export PS1='root@kali:\\w# '",
+      "stty echo",
+      "clear",
+      ""
+    ].join("\n");
+
+    wasmEmulatorInstance.serial0_send(script);
+
+    setTimeout(() => {
+      silentlyConfiguring = false;
+      if (wasmXtermInstance) {
+        wasmXtermInstance.writeln("\r\n\x1b[1;32m✓ Kali GNU/Linux (x86_64) muhiti tayyor! sudo, apt va barcha buyruqlar faol.\x1b[0m\r\n");
+        wasmXtermInstance.focus();
+        wasmXtermInstance.scrollToBottom();
+      }
+    }, 1200);
+  }
+
+  function fitWasmTerminal() {
+    if (!wasmXtermInstance) return;
+    const box = document.getElementById("wasmXtermBox");
+    if (!box) return;
+    const isMobile = window.innerWidth <= 600;
+    const charWidth = isMobile ? 7.2 : 8.4;
+    const charHeight = isMobile ? 15 : 18;
+    const w = Math.max(260, box.clientWidth - 10);
+    const h = Math.max(180, box.clientHeight - 10);
+    const cols = Math.max(34, Math.floor(w / charWidth));
+    const rows = Math.max(10, Math.floor(h / charHeight));
+    try {
+      wasmXtermInstance.resize(cols, rows);
+      wasmXtermInstance.scrollToBottom();
+    } catch (e) {}
+  }
+  window.fitWasmTerminal = fitWasmTerminal;
+  window.addEventListener("resize", fitWasmTerminal);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", () => {
+      fitWasmTerminal();
+      if (wasmXtermInstance) {
+        setTimeout(() => wasmXtermInstance.scrollToBottom(), 60);
+      }
+    });
+  }
+
+  let wasmCmdBuffer = "";
+  let wasmHistory = [];
+  let wasmHistIdx = -1;
+
+  function printWasmPrompt() {
+    if (!wasmXtermInstance) return;
     const cwd = state.liveShell ? state.liveShell.cwd : "/home/student";
     const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
-    const user = isRoot ? "root" : "userland";
-    const userClass = isRoot ? "k-red" : "k-blue";
-    const arrow = isRoot ? "└─# " : "└─$ ";
-    const arrowClass = isRoot ? "k-red" : "k-green";
+    wasmXtermInstance.write(`\x1b[1;32m┌──(\x1b[1;34muserland\x1b[1;37m💀\x1b[1;34mlocalhost\x1b[1;32m)-[\x1b[1;37m${promptPath}\x1b[1;32m]\r\n└─$ \x1b[0m`);
+  }
+
+  function gradeAndOutputWasm(rawCmd, res) {
+    const currentQ = allQuestions.find(q => q.id === state.currentQuestionId);
+    if (currentQ && !state.solvedIds.has(currentQ.id)) {
+      let grade = null;
+      if (window.VIRTUAL_LINUX_W2 && window.VIRTUAL_LINUX_W2.BASH_GRADER) {
+        const expectedCmd = currentQ.expectedSql || currentQ.expectedBash || "";
+        const evalRes = window.VIRTUAL_LINUX_W2.BASH_GRADER.evaluate(rawCmd, expectedCmd, currentQ);
+        grade = { isCorrect: evalRes.match, message: evalRes.message };
+      } else if (window.BASH_GRADER) {
+        grade = window.BASH_GRADER.grade(currentQ, rawCmd, res);
+      } else if (window.VIRTUAL_LINUX_W2 && window.VIRTUAL_LINUX_W2.BASH_GRADER) {
+        const ok = window.VIRTUAL_LINUX_W2.BASH_GRADER.evaluate(currentQ, rawCmd, res);
+        grade = { isCorrect: ok, message: ok ? "Topshiriq muvaffaqiyatli bajarildi!" : "Xatolik" };
+      } else if (window.VIRTUAL_LINUX_W3 && window.VIRTUAL_LINUX_W3.BASH_GRADER) {
+        const ok = window.VIRTUAL_LINUX_W3.BASH_GRADER.evaluate(currentQ, rawCmd, res);
+        grade = { isCorrect: ok, message: ok ? "Topshiriq muvaffaqiyatli bajarildi!" : "Xatolik" };
+      } else if (window.VIRTUAL_LINUX_W4 && window.VIRTUAL_LINUX_W4.BASH_GRADER) {
+        const ok = window.VIRTUAL_LINUX_W4.BASH_GRADER.evaluate(currentQ, rawCmd, res);
+        grade = { isCorrect: ok, message: ok ? "Topshiriq muvaffaqiyatli bajarildi!" : "Xatolik" };
+      } else if (window.VIRTUAL_LINUX_W5 && window.VIRTUAL_LINUX_W5.BASH_GRADER) {
+        const ok = window.VIRTUAL_LINUX_W5.BASH_GRADER.evaluate(currentQ, rawCmd, res);
+        grade = { isCorrect: ok, message: ok ? "Topshiriq muvaffaqiyatli bajarildi!" : "Xatolik" };
+      } else if (window.VIRTUAL_LINUX_W6 && window.VIRTUAL_LINUX_W6.BASH_GRADER) {
+        const ok = window.VIRTUAL_LINUX_W6.BASH_GRADER.evaluate(currentQ, rawCmd, res);
+        grade = { isCorrect: ok, message: ok ? "Topshiriq muvaffaqiyatli bajarildi!" : "Xatolik" };
+      }
+
+      if (grade && grade.isCorrect) {
+        state.solvedIds.add(currentQ.id);
+        state.score += 100;
+        saveProgress();
+        updateHUD();
+        SoundFX.playSuccess();
+        wasmXtermInstance.write(`\x1b[1;32m✓ TO'G'RI! ${grade.message || "Topshiriq muvaffaqiyatli bajarildi!"}\x1b[0m\r\n`);
+        wasmXtermInstance.write(`\x1b[1;36m+$100 Bonus hisobingizga qo'shildi! Keyingi topshiriqqa o'tish uchun [Keyingi ▶] ni bosing.\x1b[0m\r\n`);
+        renderFsExplorer();
+      }
+    }
+    printWasmPrompt();
+    wasmXtermInstance.scrollToBottom();
+  }
+
+  function executeWasmKaliCommand(rawCmd) {
+    if (!wasmXtermInstance) return;
+    const clean = rawCmd.trim();
+    if (!clean) {
+      printWasmPrompt();
+      return;
+    }
+
+    const lower = clean.toLowerCase();
+
+    // Sudo su / su
+    if (lower === "sudo su" || lower === "su" || lower === "sudo -i" || lower === "sudo bash") {
+      state.isRoot = true;
+      wasmXtermInstance.write("root@kali:~# \r\n");
+      printWasmPrompt();
+      return;
+    }
+
+    // Exit from root
+    if (lower === "exit" && state.isRoot) {
+      state.isRoot = false;
+      wasmXtermInstance.write("exit\r\n");
+      printWasmPrompt();
+      return;
+    }
+
+    // Vim / vi / nano
+    if (lower.startsWith("vim") || lower.startsWith("vi ") || lower.startsWith("nano") || lower === "vi") {
+      const parts = clean.split(/\s+/);
+      const editor = parts[0] || "vim";
+      const filename = parts.slice(1).join(" ") || "script.sh";
+      if (state.liveShell) {
+        state.liveShell.execute('touch ' + filename);
+      }
+      const editorBanner = [
+        "\x1b[1;34m~\x1b[0m",
+        "\x1b[1;34m~\x1b[0m   \x1b[1;37m[" + editor.toUpperCase() + " — Kali GNU/Linux Text Editor]\x1b[0m",
+        "\x1b[1;34m~\x1b[0m   Fayl ochildi: \x1b[1;32m" + filename + "\x1b[0m",
+        "\x1b[1;34m~\x1b[0m   ────────────────────────────────────────────────────────────",
+        "\x1b[1;34m~\x1b[0m   # Kali Linux matn muharriri",
+        "\x1b[1;34m~\x1b[0m   # Tahrirlash: :i | Saqlash va chiqish: :wq | Chiqish: :q",
+        "\x1b[1;34m~\x1b[0m   ────────────────────────────────────────────────────────────",
+        "\x1b[1;34m~\x1b[0m",
+        "\x1b[1;32m\"" + filename + "\" [Yangi fayl yaratildi va saqlandi: :wq]\x1b[0m"
+      ].join("\r\n");
+      wasmXtermInstance.write(editorBanner + "\r\n");
+      gradeAndOutputWasm(rawCmd, { stdout: editorBanner, stderr: "", code: 0 });
+      return;
+    }
+
+    // 1. Clear
+    if (lower === "clear") {
+      wasmXtermInstance.write("\x1b[2J\x1b[H");
+      printWasmPrompt();
+      return;
+    }
+
+    // 2. Hostname
+    if (lower === "hostname" || lower === "sudo hostname") {
+      wasmXtermInstance.write("kali\r\n");
+      gradeAndOutputWasm(rawCmd, { stdout: "kali", stderr: "", code: 0 });
+      return;
+    }
+
+    // 3. Whoami
+    if (lower === "whoami" || lower === "sudo whoami") {
+      const who = lower.startsWith("sudo") ? "root" : "userland";
+      wasmXtermInstance.write(`${who}\r\n`);
+      gradeAndOutputWasm(rawCmd, { stdout: who, stderr: "", code: 0 });
+      return;
+    }
+
+    // 4. Sudo apt update / apt update
+    if (lower === "sudo apt update" || lower === "apt update" || lower === "sudo apt-get update" || lower === "apt-get update") {
+      const out = [
+        "Hit:1 http://http.kali.org/kali kali-rolling InRelease",
+        "Get:2 http://http.kali.org/kali kali-rolling/main amd64 Packages [19.2 MB]",
+        "Get:3 http://http.kali.org/kali kali-rolling/non-free amd64 Packages [212 kB]",
+        "Fetched 19.4 MB in 1s (19.4 MB/s)",
+        "Reading package lists... Done",
+        "Building dependency tree... Done",
+        "Reading state information... Done",
+        "All packages are up to date."
+      ].join("\r\n");
+      wasmXtermInstance.write(out + "\r\n");
+      gradeAndOutputWasm(rawCmd, { stdout: out, stderr: "", code: 0 });
+      return;
+    }
+
+    // 5. Apt install
+    if (lower.startsWith("apt install") || lower.startsWith("sudo apt install") || lower.startsWith("apt-get install") || lower.startsWith("sudo apt-get install")) {
+      const pkg = clean.split(" ").filter(w => !["sudo", "apt", "apt-get", "install", "-y"].includes(w)).pop() || "tools";
+      const out = [
+        "Reading package lists... Done",
+        "Building dependency tree... Done",
+        `The following NEW packages will be installed: ${pkg}`,
+        `Setting up ${pkg} (latest) ...`,
+        "Processing triggers for man-db ... Done"
+      ].join("\r\n");
+      wasmXtermInstance.write(out + "\r\n");
+      gradeAndOutputWasm(rawCmd, { stdout: out, stderr: "", code: 0 });
+      return;
+    }
+
+    // 6. Uname
+    if (lower === "uname" || lower === "uname -a" || lower === "sudo uname -a" || lower === "uname -r") {
+      const out = "Linux kali 6.1.0-kali-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01) x86_64 GNU/Linux";
+      wasmXtermInstance.write(out + "\r\n");
+      gradeAndOutputWasm(rawCmd, { stdout: out, stderr: "", code: 0 });
+      return;
+    }
+
+    // 7. Execute in liveShell
+    if (!state.liveShell) {
+      wasmXtermInstance.write("\x1b[1;31mError: Shell yuklanmagan\x1b[0m\r\n");
+      printWasmPrompt();
+      return;
+    }
+
+    const res = state.liveShell.execute(clean);
+    if (res.stdout && res.stdout !== "__CLEAR__") {
+      const lines = res.stdout.replace(/\r\n/g, "\n").split("\n");
+      lines.forEach(l => wasmXtermInstance.write(l + "\r\n"));
+    }
+    if (res.stdout === "__CLEAR__") {
+      wasmXtermInstance.write("\x1b[2J\x1b[H");
+    }
+    if (res.stderr) {
+      const lines = res.stderr.replace(/\r\n/g, "\n").split("\n");
+      lines.forEach(l => wasmXtermInstance.write(`\x1b[1;31m${l}\x1b[0m\r\n`));
+    }
+
+    gradeAndOutputWasm(clean, res);
+  }
+
+  function initWasmRealLinux() {
+    const box = document.getElementById("wasmXtermBox");
+    const loader = document.getElementById("wasmLoader");
+    if (loader) loader.style.display = "none";
+    if (!box) return;
+
+    if (!wasmXtermInstance && typeof Terminal !== "undefined") {
+      const isMobile = window.innerWidth <= 600;
+      wasmXtermInstance = new Terminal({
+        cols: isMobile ? 42 : 80,
+        rows: isMobile ? 18 : 24,
+        fontSize: isMobile ? 11.5 : 13,
+        lineHeight: 1.25,
+        theme: {
+          background: "#050811",
+          foreground: "#f8fafc",
+          cursor: "#22d3ee",
+          selectionBackground: "rgba(34, 211, 238, 0.3)",
+          black: "#0f172a",
+          red: "#ef4444",
+          green: "#10b981",
+          yellow: "#f59e0b",
+          blue: "#38bdf8",
+          magenta: "#ec4899",
+          cyan: "#06b6d4",
+          white: "#f8fafc"
+        },
+        fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+        cursorBlink: true,
+        scrollOnUserInput: true,
+        scrollback: 2000
+      });
+
+      box.innerHTML = "";
+      wasmXtermInstance.open(box);
+      fitWasmTerminal();
+
+      box.addEventListener("click", () => {
+        if (wasmXtermInstance) wasmXtermInstance.focus();
+      });
+      box.addEventListener("touchstart", () => {
+        if (wasmXtermInstance) wasmXtermInstance.focus();
+      }, { passive: true });
+
+      // Print Authentic Kali UserLAnd Banner (Image 2)
+      const banner = [
+        "/data/user/0/tech.ula/files/support/dbclient: Caution, skipping hostkey check for localhost",
+        "",
+        "The programs included with the Kali GNU/Linux system are free software;",
+        "the exact distribution terms for each program are described in the",
+        "individual files in /usr/share/doc/*/copyright.",
+        "",
+        "Kali GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent",
+        "permitted by applicable law.",
+        "\x1b[1;31m┌──(Message from Kali developers)\x1b[0m",
+        "\x1b[1;31m│\x1b[0m",
+        "\x1b[1;31m│\x1b[0m This is a minimal installation of Kali Linux, you likely",
+        "\x1b[1;31m│\x1b[0m want to install supplementary tools. Learn how:",
+        "\x1b[1;31m│\x1b[0m ⇒ https://www.kali.org/docs/troubleshooting/common-minimum-setup/",
+        "\x1b[1;31m│\x1b[0m",
+        "\x1b[1;31m└──(Run: \"touch ~/.hushlogin\" to hide this message)\x1b[0m",
+        "\x1b[1;37mWelcome to Kali in UserLAnd!\x1b[0m",
+        ""
+      ].join("\r\n");
+      wasmXtermInstance.write(banner + "\r\n");
+      printWasmPrompt();
+
+      wasmXtermInstance.onData(data => {
+        // Enter
+        if (data === "\r") {
+          wasmXtermInstance.write("\r\n");
+          const cmd = wasmCmdBuffer.trim();
+          wasmCmdBuffer = "";
+          if (cmd) {
+            wasmHistory.push(cmd);
+            wasmHistIdx = wasmHistory.length;
+            executeWasmKaliCommand(cmd);
+          } else {
+            printWasmPrompt();
+          }
+          wasmXtermInstance.scrollToBottom();
+          return;
+        }
+
+        // Backspace
+        if (data === "\x7f" || data === "\b") {
+          if (wasmCmdBuffer.length > 0) {
+            wasmCmdBuffer = wasmCmdBuffer.slice(0, -1);
+            wasmXtermInstance.write("\b \b");
+          }
+          return;
+        }
+
+        // Ctrl+C
+        if (data === "\x03") {
+          wasmCmdBuffer = "";
+          wasmXtermInstance.write("^C\r\n");
+          printWasmPrompt();
+          wasmXtermInstance.scrollToBottom();
+          return;
+        }
+
+        // Ctrl+L
+        if (data === "\x0c") {
+          wasmXtermInstance.write("\x1b[2J\x1b[H");
+          printWasmPrompt();
+          if (wasmCmdBuffer) wasmXtermInstance.write(wasmCmdBuffer);
+          return;
+        }
+
+        // Up Arrow
+        if (data === "\x1b[A") {
+          if (wasmHistory.length > 0 && wasmHistIdx > 0) {
+            wasmHistIdx--;
+            while (wasmCmdBuffer.length > 0) {
+              wasmXtermInstance.write("\b \b");
+              wasmCmdBuffer = wasmCmdBuffer.slice(0, -1);
+            }
+            wasmCmdBuffer = wasmHistory[wasmHistIdx];
+            wasmXtermInstance.write(wasmCmdBuffer);
+          }
+          return;
+        }
+
+        // Down Arrow
+        if (data === "\x1b[B") {
+          if (wasmHistIdx < wasmHistory.length - 1) {
+            wasmHistIdx++;
+            while (wasmCmdBuffer.length > 0) {
+              wasmXtermInstance.write("\b \b");
+              wasmCmdBuffer = wasmCmdBuffer.slice(0, -1);
+            }
+            wasmCmdBuffer = wasmHistory[wasmHistIdx];
+            wasmXtermInstance.write(wasmCmdBuffer);
+          } else if (wasmHistIdx === wasmHistory.length - 1) {
+            wasmHistIdx = wasmHistory.length;
+            while (wasmCmdBuffer.length > 0) {
+              wasmXtermInstance.write("\b \b");
+              wasmCmdBuffer = wasmCmdBuffer.slice(0, -1);
+            }
+          }
+          return;
+        }
+
+        // Normal typing
+        if (data.length === 1 && data.charCodeAt(0) >= 32) {
+          wasmCmdBuffer += data;
+          wasmXtermInstance.write(data);
+        }
+      });
+    }
+
+    if (wasmXtermInstance) {
+      setTimeout(() => {
+        wasmXtermInstance.focus();
+        fitWasmTerminal();
+        wasmXtermInstance.scrollToBottom();
+      }, 50);
+    }
+  }
+
+  function setTerminalEngine(engine) {
+    state.activeEngine = engine;
+    SoundFX.playKey();
+    if (engine === "wasm") {
+      if (el.btnEngineWasm) el.btnEngineWasm.classList.add("active");
+      if (el.btnEngineShell) el.btnEngineShell.classList.remove("active");
+      if (el.kaliStream) {
+        el.kaliStream.innerHTML = getKaliBannerHtml() + 
+          `<div style="color:#22c55e; margin: 4px 0 8px 0; font-size:12.5px; font-weight:600;">[*] 👾 Real Kali Linux (Debian 12 Bookworm) interaktiv sessiyasi faol. Buyruq kiriting:</div>`;
+      }
+    } else {
+      if (el.btnEngineShell) el.btnEngineShell.classList.add("active");
+      if (el.btnEngineWasm) el.btnEngineWasm.classList.remove("active");
+      if (el.kaliStream) {
+        el.kaliStream.innerHTML = `<div style="color:#38bdf8; margin: 4px 0 8px 0; font-size:12.5px; font-weight:600;">[*] ⚡ Tezkor Kali Shell faol. Topshiriq buyrug'ini kiriting yoki 'help' deb yozing:</div>`;
+      }
+    }
+    updateTerminalPrompt();
+    focusKaliInput();
+  }
+  window.setTerminalEngine = setTerminalEngine;
+
+  // Toggle Command & Flag Anatomy Card (Batafsil)
+  window.toggleCmdInfoCard = function () {
+    const cardBody = document.getElementById("cmdCardBody");
+    const toggleBtn = document.getElementById("btnToggleCmdCard");
+    const hint = document.getElementById("cmdCardToggleHint");
+    if (!cardBody) return;
+
+    SoundFX.playKey();
+    if (cardBody.style.display === "none" || !cardBody.style.display) {
+      cardBody.style.display = "flex";
+      if (toggleBtn) toggleBtn.classList.add("open");
+      if (hint) hint.textContent = "Yopish";
+    } else {
+      cardBody.style.display = "none";
+      if (toggleBtn) toggleBtn.classList.remove("open");
+      if (hint) hint.textContent = "Batafsil ko'rish";
+    }
+  };
+
+  // High-Fidelity Linux Tab Autocompletion
+  function handleTabAutocompletion() {
+    if (!el.bashInput) return;
+    SoundFX.playKey();
+    const val = el.bashInput.value;
+    const trimmedStart = val.trimStart();
+    const tokens = trimmedStart.split(/\s+/);
+
+    const knownCommands = [
+      "pwd", "whoami", "hostname", "cd", "ls", "mkdir", "rmdir",
+      "touch", "cat", "head", "tail", "wc", "cp", "mv", "rm",
+      "ln", "stat", "file", "find", "clear", "echo"
+    ];
+
+    // Case 1: First word completion (Command name)
+    if (tokens.length <= 1 && !val.endsWith(" ")) {
+      const prefix = tokens[0] || "";
+      const matches = knownCommands.filter(c => c.startsWith(prefix));
+      if (matches.length === 1) {
+        el.bashInput.value = matches[0] + " ";
+      } else if (matches.length > 1) {
+        appendTerminalOutput(matches.join("   "), "normal");
+      }
+      return;
+    }
+
+    // Case 2: Argument completion (Path / Directory / File)
+    const lastToken = tokens[tokens.length - 1] || "";
+    let searchDir = state.liveShell ? state.liveShell.cwd : "/home/student";
+    let filePrefix = lastToken;
+
+    if (lastToken.includes("/")) {
+      const lastSlashIdx = lastToken.lastIndexOf("/");
+      const dirPart = lastToken.slice(0, lastSlashIdx + 1);
+      filePrefix = lastToken.slice(lastSlashIdx + 1);
+      searchDir = state.liveShell.resolvePath(dirPart);
+    }
+
+    const node = state.liveShell.getNode(searchDir);
+    if (node && node.type === "dir" && node.children) {
+      const candidates = Object.keys(node.children);
+      const matches = candidates.filter(name => name.startsWith(filePrefix));
+      if (matches.length === 1) {
+        const matchName = matches[0];
+        const isDir = node.children[matchName].type === "dir";
+        const completedToken = lastToken.includes("/")
+          ? lastToken.slice(0, lastToken.lastIndexOf("/") + 1) + matchName + (isDir ? "/" : " ")
+          : matchName + (isDir ? "/" : " ");
+
+        tokens[tokens.length - 1] = completedToken;
+        el.bashInput.value = tokens.join(" ");
+      } else if (matches.length > 1) {
+        appendTerminalOutput(matches.join("   "), "normal");
+      }
+    }
+  }
+
+  // Quick Action Keys (Tab, Ctrl+C, clear)
+  window.triggerBashKey = function (action) {
+    if (!el.bashInput) return;
+    if (action === "Tab") {
+      handleTabAutocompletion();
+    } else if (action === "CtrlC") {
+      SoundFX.playKey();
+      const val = el.bashInput.value;
+      const cwd = state.liveShell.cwd;
+      const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
+      appendTerminalOutput(`student@debian-server:${promptPath}$ ${val}^C`, "normal");
+      el.bashInput.value = "";
+      el.bashInput.focus();
+    } else if (action === "clear") {
+      SoundFX.playKey();
+      if (el.terminalOutput) el.terminalOutput.innerHTML = "";
+      el.bashInput.value = "";
+      el.bashInput.focus();
+    }
+  };
+
+  // Insert token into Bash Input & Kali Terminal Input
+  window.insertBashToken = function (token) {
+    SoundFX.playKey();
+    if (el.bashInput) {
+      const cur = el.bashInput.value;
+      if (!cur) {
+        el.bashInput.value = token;
+      } else if (cur.endsWith(" ") || cur.endsWith("|") || cur.endsWith(">") || cur.endsWith("/")) {
+        el.bashInput.value = cur + token;
+      } else {
+        el.bashInput.value = cur + " " + token;
+      }
+    }
+    insertKaliToken(token);
+  };
+
+  // ============================================================================
+  // AUTHENTIC KALI LINUX TERMINAL ENGINE (1:1 with UserLAnd on Mobile & PC)
+  // ============================================================================
+
+  function getKaliBannerHtml() {
+    return `/data/user/0/tech.ula/files/support/dbclient: Caution, skipping hostkey check for localhost
+
+The programs included with the Kali GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Kali GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+<span style="color:#ef4444">┌──(Message from Kali developers)</span>
+<span style="color:#64748b">│</span>
+<span style="color:#e2e8f0">│ This is a minimal installation of Kali Linux, you likely</span>
+<span style="color:#e2e8f0">│ want to install supplementary tools. Learn how:</span>
+<span style="color:#38bdf8">│ ⇒ https://www.kali.org/docs/troubleshooting/common-minimum-setup/</span>
+<span style="color:#64748b">│</span>
+<span style="color:#64748b">└──(Run: "touch ~/.hushlogin" to hide this message)</span>
+<span style="color:#f8fafc">Welcome to Kali in UserLAnd!</span>\n`;
+  }
+
+  function initKaliTerminal() {
+    if (!el.kaliStream) return;
+    el.kaliStream.innerHTML = getKaliBannerHtml();
+    updateTerminalPrompt();
+
+    // Clicking or tapping anywhere in the black terminal screen focuses the inline input without scrolling jumps
+    if (el.kaliScreen && el.kaliHiddenInput) {
+      el.kaliScreen.addEventListener("click", (e) => {
+        if (!state.activeEditor && e.target !== el.kaliHiddenInput) {
+          focusKaliInput();
+        }
+      });
+      el.kaliScreen.addEventListener("touchstart", (e) => {
+        if (!state.activeEditor && e.target !== el.kaliHiddenInput) {
+          focusKaliInput();
+        }
+      }, { passive: true });
+    }
+
+    // Input handling on inline input directly in prompt
+    if (el.kaliHiddenInput) {
+      el.kaliHiddenInput.addEventListener("input", () => {
+        if (el.kaliScreen) {
+          el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+        }
+      });
+
+      el.kaliHiddenInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          handleKaliCommandSubmit();
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          if (state.historyIndex > 0) {
+            state.historyIndex--;
+            el.kaliHiddenInput.value = state.commandHistory[state.historyIndex] || "";
+          }
+        } else if (e.key === "ArrowDown") {
+          e.preventDefault();
+          if (state.historyIndex < state.commandHistory.length - 1) {
+            state.historyIndex++;
+            el.kaliHiddenInput.value = state.commandHistory[state.historyIndex] || "";
+          } else {
+            state.historyIndex = state.commandHistory.length;
+            el.kaliHiddenInput.value = "";
+          }
+        } else if (e.key === "Tab") {
+          e.preventDefault();
+          handleKaliTabCompletion();
+        } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "c") {
+          e.preventDefault();
+          handleKaliCtrlC();
+        } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "l") {
+          e.preventDefault();
+          if (el.kaliStream) el.kaliStream.innerHTML = "";
+        }
+      });
+    }
+
+    // Mobile Touch Bar Event Handling
+    if (el.kaliTouchBar) {
+      el.kaliTouchBar.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          SoundFX.playKey();
+          const token = btn.getAttribute("data-token");
+          const key = btn.getAttribute("data-key");
+
+          if (token) {
+            insertKaliToken(token);
+          } else if (key === "Tab") {
+            handleKaliTabCompletion();
+          } else if (key === "CtrlC") {
+            handleKaliCtrlC();
+          } else if (key === "clear") {
+            if (el.kaliStream) el.kaliStream.innerHTML = "";
+            if (el.kaliHiddenInput) el.kaliHiddenInput.value = "";
+            focusKaliInput();
+          }
+        });
+      });
+    }
+
+    // --- 2 Modes Switcher (Topshiriqlar vs Erkin Sandbox CLI) ---
+    if (el.btnModeQuest) {
+      el.btnModeQuest.addEventListener("click", () => setTerminalMode("quest"));
+    }
+    if (el.btnModeSandbox) {
+      el.btnModeSandbox.addEventListener("click", () => setTerminalMode("sandbox"));
+    }
+    if (el.btnFsToggleMode) {
+      el.btnFsToggleMode.addEventListener("click", () => {
+        setTerminalMode(state.terminalMode === "quest" ? "sandbox" : "quest");
+      });
+    }
+
+    // --- Terminal Workbench Card Tabs ---
+    if (el.tabTerminalMode) {
+      el.tabTerminalMode.addEventListener("click", () => setWorkbenchTab("terminal"));
+    }
+    if (el.tabFsMode) {
+      el.tabFsMode.addEventListener("click", () => setWorkbenchTab("fs"));
+    }
+
+    // --- Terminal Workbench Card Actions ---
+    if (el.btnCardBatafsil && el.modalKtBatafsil) {
+      el.btnCardBatafsil.addEventListener("click", () => {
+        SoundFX.playKey();
+        el.modalKtBatafsil.classList.add("active");
+      });
+    }
+    if (el.btnCardHint) {
+      el.btnCardHint.addEventListener("click", () => {
+        SoundFX.playKey();
+        const q = allQuestions.find(item => item.id === state.currentQuestionId);
+        if (q) {
+          printKaliInfo(`[💡 MASLAHAT]: ${q.hint || "Topshiriq talablarini diqqat bilan o'rganing."}`);
+        }
+        if (el.btnShowHint) el.btnShowHint.click();
+      });
+    }
+    if (el.btnClearTerminal) {
+      el.btnClearTerminal.addEventListener("click", () => {
+        SoundFX.playKey();
+        if (el.kaliStream) el.kaliStream.innerHTML = "";
+        if (el.terminalOutput) el.terminalOutput.innerHTML = "";
+        if (el.kaliHiddenInput) {
+          el.kaliHiddenInput.value = "";
+          if (el.kaliTypedText) el.kaliTypedText.textContent = "";
+          focusKaliInput();
+        }
+      });
+    }
+    if (el.btnToggleFullscreen) {
+      el.btnToggleFullscreen.addEventListener("click", () => {
+        toggleTerminalFullscreen();
+      });
+    }
+
+    // Engine switcher (Tezkor Shell vs Real Linux WASM)
+    if (el.btnEngineShell) {
+      el.btnEngineShell.addEventListener("click", () => setTerminalEngine("shell"));
+    }
+    if (el.btnEngineWasm) {
+      el.btnEngineWasm.addEventListener("click", () => setTerminalEngine("wasm"));
+    }
+
+    // Interactive Terminal Editor (nano / vim)
+    if (el.btnEditorSave) {
+      el.btnEditorSave.addEventListener("click", () => saveAndCloseTerminalEditor());
+    }
+    if (el.btnEditorExit) {
+      el.btnEditorExit.addEventListener("click", () => closeTerminalEditor());
+    }
+    if (el.editorTextarea) {
+      el.editorTextarea.addEventListener("keydown", (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s") {
+          e.preventDefault();
+          saveAndCloseTerminalEditor();
+        } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "x") {
+          e.preventDefault();
+          closeTerminalEditor();
+        }
+      });
+    }
+
+    // --- Fullscreen Floating Bar Buttons ---
+    if (el.btnFsTask && el.modalKtTask) {
+      el.btnFsTask.addEventListener("click", () => {
+        SoundFX.playKey();
+        el.modalKtTask.classList.add("active");
+      });
+    }
+    if (el.btnFsBatafsil && el.modalKtBatafsil) {
+      el.btnFsBatafsil.addEventListener("click", () => {
+        SoundFX.playKey();
+        el.modalKtBatafsil.classList.add("active");
+      });
+    }
+    if (el.btnFsHint) {
+      el.btnFsHint.addEventListener("click", () => {
+        SoundFX.playKey();
+        const q = allQuestions.find(item => item.id === state.currentQuestionId);
+        if (q) {
+          printKaliInfo(`[💡 MASLAHAT]: ${q.hint || "Topshiriq talablarini diqqat bilan o'rganing."}`);
+        }
+      });
+    }
+    if (el.btnFsPreview) {
+      el.btnFsPreview.addEventListener("click", () => {
+        SoundFX.playKey();
+        const q = allQuestions.find(item => item.id === state.currentQuestionId);
+        if (q) {
+          const expShell = new window.VIRTUAL_LINUX_W2.VirtualLinuxShell();
+          const res = expShell.execute(q.expectedSql || q.expectedBash || "");
+          printKaliInfo(`[👁 KUTILAYOTGAN NATIJA]:\n${res.stdout || "(Fayl tizimida o'zgarish sodir bo'ladi)"}`);
+        }
+      });
+    }
+    if (el.btnFsMap) {
+      el.btnFsMap.addEventListener("click", () => {
+        SoundFX.playKey();
+        openMapModal();
+      });
+    }
+    if (el.btnExitFullscreen) {
+      el.btnExitFullscreen.addEventListener("click", () => {
+        toggleTerminalFullscreen(false);
+      });
+    }
+    if (el.btnFloatingExitFs) {
+      el.btnFloatingExitFs.addEventListener("click", () => {
+        toggleTerminalFullscreen(false);
+      });
+    }
+    if (el.btnOpenBatafsil && el.modalKtBatafsil) {
+      el.btnOpenBatafsil.addEventListener("click", () => {
+        SoundFX.playKey();
+        el.modalKtBatafsil.classList.add("active");
+      });
+    }
+    if (el.btnTtBatafsil && el.modalKtBatafsil) {
+      el.btnTtBatafsil.addEventListener("click", () => {
+        SoundFX.playKey();
+        el.modalKtBatafsil.classList.add("active");
+      });
+    }
+    if (el.btnTtHint) {
+      el.btnTtHint.addEventListener("click", () => {
+        SoundFX.playKey();
+        const q = allQuestions.find(item => item.id === state.currentQuestionId);
+        if (q) printKaliInfo(`[💡 MASLAHAT]: ${q.hint || "Topshiriq talablarini diqqat bilan o'rganing."}`);
+      });
+    }
+    if (el.btnTtExpected) {
+      el.btnTtExpected.addEventListener("click", () => {
+        SoundFX.playKey();
+        const q = allQuestions.find(item => item.id === state.currentQuestionId);
+        if (q) {
+          const expShell = new window.VIRTUAL_LINUX_W2.VirtualLinuxShell();
+          const res = expShell.execute(q.expectedSql || q.expectedBash || "");
+          printKaliInfo(`[👁 KUTILGAN NATIJA]:\n${res.stdout || "(Fayl tizimida o'zgarish sodir bo'ladi)"}`);
+        }
+      });
+    }
+
+    // --- Mobile Touch Bar Nav Buttons ---
+    if (el.btnTouchPrev) {
+      el.btnTouchPrev.addEventListener("click", () => {
+        SoundFX.playKey();
+        if (state.currentQuestionId > 1) {
+          loadQuestion(state.currentQuestionId - 1);
+          printKaliInfo(`[➔] Oldingi vazifaga qaytildi: #${state.currentQuestionId}`);
+        }
+      });
+    }
+    if (el.btnTouchNext) {
+      el.btnTouchNext.addEventListener("click", () => {
+        SoundFX.playKey();
+        if (state.currentQuestionId < allQuestions.length) {
+          loadQuestion(state.currentQuestionId + 1);
+          printKaliInfo(`[➔] Keyingi vazifaga o'tildi: #${state.currentQuestionId}`);
+        }
+      });
+    }
+
+    // --- Modal Task & Batafsil Close Handlers ---
+    if (el.btnCloseKtTask && el.modalKtTask) {
+      el.btnCloseKtTask.addEventListener("click", () => {
+        el.modalKtTask.classList.remove("active");
+        focusKaliInput();
+      });
+    }
+    if (el.btnKtModalDone && el.modalKtTask) {
+      el.btnKtModalDone.addEventListener("click", () => {
+        el.modalKtTask.classList.remove("active");
+        focusKaliInput();
+      });
+    }
+    if (el.btnKtModalHint) {
+      el.btnKtModalHint.addEventListener("click", () => {
+        const q = allQuestions.find(item => item.id === state.currentQuestionId);
+        if (q) alert(`💡 Maslahat:\n${q.hint || "Topshiriq matniga qarang"}`);
+      });
+    }
+    if (el.btnKtModalSol) {
+      el.btnKtModalSol.addEventListener("click", () => {
+        if (el.modalKtTask) el.modalKtTask.classList.remove("active");
+        openSolutionModal();
+      });
+    }
+    if (el.btnCloseKtBatafsil && el.modalKtBatafsil) {
+      el.btnCloseKtBatafsil.addEventListener("click", () => {
+        el.modalKtBatafsil.classList.remove("active");
+        focusKaliInput();
+      });
+    }
+    if (el.btnOkKtBatafsil && el.modalKtBatafsil) {
+      el.btnOkKtBatafsil.addEventListener("click", () => {
+        el.modalKtBatafsil.classList.remove("active");
+        focusKaliInput();
+      });
+    }
+  }
+
+  function toggleKaliView(mode) {
+    if (mode === "kali" || mode === "fullscreen") {
+      toggleTerminalFullscreen(true);
+    } else {
+      toggleTerminalFullscreen(false);
+    }
+  }
+
+  function insertKaliToken(token) {
+    if (!el.kaliHiddenInput) return;
+    const cur = el.kaliHiddenInput.value;
+    if (!cur) {
+      el.kaliHiddenInput.value = token;
+    } else if (cur.endsWith(" ") || cur.endsWith("|") || cur.endsWith(">") || cur.endsWith("/")) {
+      el.kaliHiddenInput.value = cur + token;
+    } else {
+      el.kaliHiddenInput.value = cur + " " + token;
+    }
+    focusKaliInput();
+    if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
+  }
+
+  function handleKaliCtrlC() {
+    if (!el.kaliStream) return;
+    const cwd = state.liveShell ? state.liveShell.cwd : "/home/student";
+    const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
+    const val = el.kaliHiddenInput ? el.kaliHiddenInput.value : "";
+    appendKaliPromptHistory(val + "^C");
+    if (el.kaliHiddenInput) el.kaliHiddenInput.value = "";
+    if (el.kaliTypedText) el.kaliTypedText.textContent = "";
+    if (el.kaliHiddenInput) el.kaliHiddenInput.focus();
+  }
+
+  function handleKaliTabCompletion() {
+    if (!el.kaliHiddenInput) return;
+    SoundFX.playKey();
+    const val = el.kaliHiddenInput.value;
+    const trimmedStart = val.trimStart();
+    const tokens = trimmedStart.split(/\s+/);
+
+    if (tokens.length <= 1) {
+      const prefix = tokens[0] || "";
+      const bashCommands = [
+        "pwd", "whoami", "hostname", "cd", "ls", "mkdir", "rmdir",
+        "touch", "cat", "head", "tail", "wc", "cp", "mv", "rm",
+        "ln", "stat", "file", "find", "uname", "free", "df", "ps", "echo", "clear"
+      ];
+      const matches = bashCommands.filter(c => c.startsWith(prefix));
+      if (matches.length === 1) {
+        el.kaliHiddenInput.value = matches[0] + " ";
+        if (el.kaliTypedText) el.kaliTypedText.textContent = el.kaliHiddenInput.value;
+      } else if (matches.length > 1) {
+        printKaliInfo(matches.join("   "));
+      }
+      return;
+    }
+
+    const lastToken = tokens[tokens.length - 1];
+    const cwdNode = state.liveShell ? state.liveShell.getNode(state.liveShell.cwd) : null;
+    if (!cwdNode || !cwdNode.children) return;
+
+    const availableNames = Object.keys(cwdNode.children);
+    const matches = availableNames.filter(n => n.startsWith(lastToken));
+
+    if (matches.length === 1) {
+      tokens[tokens.length - 1] = matches[0];
+      el.kaliHiddenInput.value = tokens.join(" ");
+      if (el.kaliTypedText) el.kaliTypedText.textContent = el.kaliHiddenInput.value;
+    } else if (matches.length > 1) {
+      printKaliInfo(matches.join("   "));
+    }
+  }
+
+  function appendKaliPromptHistory(cmd) {
+    if (!el.kaliStream) return;
+    const cwd = state.liveShell ? state.liveShell.cwd : "/home/student";
+    const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
 
     const div = document.createElement("div");
     div.className = "kali-history-entry";
     div.innerHTML = `
-      <div class="kali-cmd-line1"><span class="k-green">┌──(</span><span class="${userClass}">${user}</span><span class="k-white">💀</span><span class="k-blue">localhost</span><span class="k-green">)-[</span><span class="k-white">${promptPath}</span><span class="k-green">]</span></div>
-      <div class="kali-cmd-line2"><span class="${arrowClass}">${arrow}</span><span class="k-cmd">${escapeHtml(cmd)}</span></div>
+      <div class="kali-cmd-line1"><span class="k-green">┌──(</span><span class="k-blue">userland</span><span class="k-white">㉿</span><span class="k-blue">localhost</span><span class="k-green">)-[</span><span class="k-white">${promptPath}</span><span class="k-green">]</span></div>
+      <div class="kali-cmd-line2"><span class="k-green">└─$ </span><span class="k-cmd">${escapeHtml(cmd)}</span></div>
     `;
     el.kaliStream.appendChild(div);
   }
