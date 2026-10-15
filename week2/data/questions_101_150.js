@@ -3,13 +3,13 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 101,
     "sector": 7,
-    "difficulty": "7-Qavat • EER Kengaytirish",
-    "clientName": "Bobur Alimov",
-    "clientRole": "Prokat Boshqaruvchisi",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
+    "clientName": "Akmal Shokirov",
+    "clientRole": "Kinoprokat Boshqaruvchisi",
     "clientAvatar": "mentor",
-    "title": "Filmlar: FeatureFilm va DocumentaryFilm (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Movie** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Kino Asarlari amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Movie** superklassidan ikkita maxsus subklass ajratiladi: **FeatureFilm** (`boxOfficeMillions`, `aspectRatio`) va **DocumentaryFilm** (`historicalTopic`, `narratorName`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit movieId ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'Movie' superklassidan ISA uchburchagi orqali 'FeatureFilm' va 'DocumentaryFilm' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Movie Disjoint Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
+    "instruction": "Subklass jadvallariga ota kalit 'movieId' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -31,43 +31,29 @@ _scope.QUESTIONS_101_150 = [
             {
               "name": "durationMin",
               "isPK": false
+            },
+            {
+              "name": "ageRating",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Movie",
         "subs": [
           {
-            "name": "FeatureFilm",
-            "attributes": [
-              {
-                "name": "boxOfficeMillions",
-                "isPK": false
-              },
-              {
-                "name": "aspectRatio",
-                "isPK": false
-              }
-            ]
+            "name": "MovieTypeA",
+            "attributes": []
           },
           {
-            "name": "DocumentaryFilm",
-            "attributes": [
-              {
-                "name": "historicalTopic",
-                "isPK": false
-              },
-              {
-                "name": "narratorName",
-                "isPK": false
-              }
-            ]
+            "name": "MovieTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -90,55 +76,41 @@ _scope.QUESTIONS_101_150 = [
             {
               "name": "durationMin",
               "isPK": false
+            },
+            {
+              "name": "ageRating",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Movie",
         "subs": [
           {
-            "name": "FeatureFilm",
-            "attributes": [
-              {
-                "name": "boxOfficeMillions",
-                "isPK": false
-              },
-              {
-                "name": "aspectRatio",
-                "isPK": false
-              }
-            ]
+            "name": "MovieTypeA",
+            "attributes": []
           },
           {
-            "name": "DocumentaryFilm",
-            "attributes": [
-              {
-                "name": "historicalTopic",
-                "isPK": false
-              },
-              {
-                "name": "narratorName",
-                "isPK": false
-              }
-            ]
+            "name": "MovieTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 102,
     "sector": 7,
-    "difficulty": "7-Qavat • EER Kengaytirish",
-    "clientName": "Dr. Umida Saidova",
-    "clientRole": "Bosh Nazoratchi",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
+    "clientName": "Umida Zokirova",
+    "clientRole": "Bosh Provisor",
     "clientAvatar": "mentor",
-    "title": "Dorilar: PrescriptionDrug va OtcDrug (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Medicine** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Farmatsevtika Qonunchiligi amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Medicine** superklassidan ikkita maxsus subklass ajratiladi: **PrescriptionDrug** (`controlledSchedule`, `doctorReq`) va **OtcDrug** (`flavor`, `ageLimitYears`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit barcode ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'Medicine' superklassidan ISA uchburchagi orqali 'PrescriptionDrug' va 'OtcDrug' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Medicine Disjoint Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
+    "instruction": "Subklass jadvallariga ota kalit 'barcode' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -158,45 +130,31 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
+              "name": "manufacturer",
+              "isPK": false
+            },
+            {
               "name": "expDate",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Medicine",
         "subs": [
           {
-            "name": "PrescriptionDrug",
-            "attributes": [
-              {
-                "name": "controlledSchedule",
-                "isPK": false
-              },
-              {
-                "name": "doctorReq",
-                "isPK": false
-              }
-            ]
+            "name": "MedicineTypeA",
+            "attributes": []
           },
           {
-            "name": "OtcDrug",
-            "attributes": [
-              {
-                "name": "flavor",
-                "isPK": false
-              },
-              {
-                "name": "ageLimitYears",
-                "isPK": false
-              }
-            ]
+            "name": "MedicineTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -217,57 +175,43 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
+              "name": "manufacturer",
+              "isPK": false
+            },
+            {
               "name": "expDate",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Medicine",
         "subs": [
           {
-            "name": "PrescriptionDrug",
-            "attributes": [
-              {
-                "name": "controlledSchedule",
-                "isPK": false
-              },
-              {
-                "name": "doctorReq",
-                "isPK": false
-              }
-            ]
+            "name": "MedicineTypeA",
+            "attributes": []
           },
           {
-            "name": "OtcDrug",
-            "attributes": [
-              {
-                "name": "flavor",
-                "isPK": false
-              },
-              {
-                "name": "ageLimitYears",
-                "isPK": false
-              }
-            ]
+            "name": "MedicineTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 103,
     "sector": 7,
-    "difficulty": "7-Qavat • EER Kengaytirish",
-    "clientName": "Rustam Qobilov",
-    "clientRole": "Avtopark Texnik Rahbari",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
+    "clientName": "Sanjar Normatov",
+    "clientRole": "Logistika Floti Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Furalar: RefrigeratedTruck va FlatbedTruck (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **CargoTruck** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Magistral Yuk Floti amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **CargoTruck** superklassidan ikkita maxsus subklass ajratiladi: **RefrigeratedTruck** (`minTempCelsius`, `compressorPower`) va **FlatbedTruck** (`bedLengthMeters`, `maxAxleWeight`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit plateNo ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'CargoTruck' superklassidan ISA uchburchagi orqali 'RefrigeratedTruck' va 'FlatbedTruck' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "CargoTruck Disjoint Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
+    "instruction": "Subklass jadvallariga ota kalit 'plateNo' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -283,49 +227,35 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
+              "name": "fuelType",
+              "isPK": false
+            },
+            {
               "name": "mileageKm",
               "isPK": false
             },
             {
-              "name": "fuelType",
+              "name": "status",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "CargoTruck",
         "subs": [
           {
-            "name": "RefrigeratedTruck",
-            "attributes": [
-              {
-                "name": "minTempCelsius",
-                "isPK": false
-              },
-              {
-                "name": "compressorPower",
-                "isPK": false
-              }
-            ]
+            "name": "CargoTruckTypeA",
+            "attributes": []
           },
           {
-            "name": "FlatbedTruck",
-            "attributes": [
-              {
-                "name": "bedLengthMeters",
-                "isPK": false
-              },
-              {
-                "name": "maxAxleWeight",
-                "isPK": false
-              }
-            ]
+            "name": "CargoTruckTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -342,61 +272,47 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
+              "name": "fuelType",
+              "isPK": false
+            },
+            {
               "name": "mileageKm",
               "isPK": false
             },
             {
-              "name": "fuelType",
+              "name": "status",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "CargoTruck",
         "subs": [
           {
-            "name": "RefrigeratedTruck",
-            "attributes": [
-              {
-                "name": "minTempCelsius",
-                "isPK": false
-              },
-              {
-                "name": "compressorPower",
-                "isPK": false
-              }
-            ]
+            "name": "CargoTruckTypeA",
+            "attributes": []
           },
           {
-            "name": "FlatbedTruck",
-            "attributes": [
-              {
-                "name": "bedLengthMeters",
-                "isPK": false
-              },
-              {
-                "name": "maxAxleWeight",
-                "isPK": false
-              }
-            ]
+            "name": "CargoTruckTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 104,
     "sector": 7,
-    "difficulty": "7-Qavat • EER Kengaytirish",
-    "clientName": "Dilnoza Vohidova",
-    "clientRole": "Klub Boshqaruvchisi",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
+    "clientName": "Nilufar Rahimova",
+    "clientRole": "Mijozlar Xizmati Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Klub A'zolari: VipMember va RegularMember (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **ClubMember** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Fitnes Klub Ma'muriyati amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **ClubMember** superklassidan ikkita maxsus subklass ajratiladi: **VipMember** (`personalTrainerId`, `spaAccessLevel`) va **RegularMember** (`lockerAssigned`, `timeSlot`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit memberCardNo ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'ClubMember' superklassidan ISA uchburchagi orqali 'VipMember' va 'RegularMember' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "ClubMember Disjoint Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
+    "instruction": "Subklass jadvallariga ota kalit 'memberCardNo' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -416,45 +332,31 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
+              "name": "expiryDate",
+              "isPK": false
+            },
+            {
               "name": "phone",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "ClubMember",
         "subs": [
           {
-            "name": "VipMember",
-            "attributes": [
-              {
-                "name": "personalTrainerId",
-                "isPK": false
-              },
-              {
-                "name": "spaAccessLevel",
-                "isPK": false
-              }
-            ]
+            "name": "ClubMemberTypeA",
+            "attributes": []
           },
           {
-            "name": "RegularMember",
-            "attributes": [
-              {
-                "name": "lockerAssigned",
-                "isPK": false
-              },
-              {
-                "name": "timeSlot",
-                "isPK": false
-              }
-            ]
+            "name": "ClubMemberTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -475,57 +377,43 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
+              "name": "expiryDate",
+              "isPK": false
+            },
+            {
               "name": "phone",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "ClubMember",
         "subs": [
           {
-            "name": "VipMember",
-            "attributes": [
-              {
-                "name": "personalTrainerId",
-                "isPK": false
-              },
-              {
-                "name": "spaAccessLevel",
-                "isPK": false
-              }
-            ]
+            "name": "ClubMemberTypeA",
+            "attributes": []
           },
           {
-            "name": "RegularMember",
-            "attributes": [
-              {
-                "name": "lockerAssigned",
-                "isPK": false
-              },
-              {
-                "name": "timeSlot",
-                "isPK": false
-              }
-            ]
+            "name": "ClubMemberTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 105,
     "sector": 7,
-    "difficulty": "7-Qavat • EER Kengaytirish",
-    "clientName": "Jamshid Mahmudov",
-    "clientRole": "Stansiya Boshlig'i",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
+    "clientName": "Davron Karimov",
+    "clientRole": "Bosh Energetik",
     "clientAvatar": "mentor",
-    "title": "Invertorlar: CentralInverter va MicroInverter (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **SolarInverter** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Quyosh Podstansiyasi amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **SolarInverter** superklassidan ikkita maxsus subklass ajratiladi: **CentralInverter** (`transformerRatingKva`, `coolingSystem`) va **MicroInverter** (`mpptChannels`, `efficiencyRating`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit serialNo ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'SolarInverter' superklassidan ISA uchburchagi orqali 'CentralInverter' va 'MicroInverter' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "SolarInverter Disjoint Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
+    "instruction": "Subklass jadvallariga ota kalit 'serialNo' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -545,45 +433,31 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
+              "name": "installDate",
+              "isPK": false
+            },
+            {
               "name": "efficiency",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "SolarInverter",
         "subs": [
           {
-            "name": "CentralInverter",
-            "attributes": [
-              {
-                "name": "transformerRatingKva",
-                "isPK": false
-              },
-              {
-                "name": "coolingSystem",
-                "isPK": false
-              }
-            ]
+            "name": "SolarInverterTypeA",
+            "attributes": []
           },
           {
-            "name": "MicroInverter",
-            "attributes": [
-              {
-                "name": "mpptChannels",
-                "isPK": false
-              },
-              {
-                "name": "efficiencyRating",
-                "isPK": false
-              }
-            ]
+            "name": "SolarInverterTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -604,57 +478,43 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
+              "name": "installDate",
+              "isPK": false
+            },
+            {
               "name": "efficiency",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "SolarInverter",
         "subs": [
           {
-            "name": "CentralInverter",
-            "attributes": [
-              {
-                "name": "transformerRatingKva",
-                "isPK": false
-              },
-              {
-                "name": "coolingSystem",
-                "isPK": false
-              }
-            ]
+            "name": "SolarInverterTypeA",
+            "attributes": []
           },
           {
-            "name": "MicroInverter",
-            "attributes": [
-              {
-                "name": "mpptChannels",
-                "isPK": false
-              },
-              {
-                "name": "efficiencyRating",
-                "isPK": false
-              }
-            ]
+            "name": "SolarInverterTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 106,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Prof. Anvar Hakimov",
-    "clientRole": "Ilmiy Kadrlar Bo'limi",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Akademik Xodimlar: Instructor va Researcher (Overlapping) (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **UniversityStaff** ning ustma-ust tushuvchi **Instructor** va **Researcher** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'UniversityStaff' superklassining 'Instructor' va 'Researcher' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "UniversityStaff Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'staffId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'Instructor' va 'Researcher' jadvallarida 'staffId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -680,39 +540,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "UniversityStaff",
         "subs": [
           {
             "name": "Instructor",
-            "attributes": [
-              {
-                "name": "teachingHoursPerWeek",
-                "isPK": false
-              },
-              {
-                "name": "evalScore",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "Researcher",
-            "attributes": [
-              {
-                "name": "grantFundingUsd",
-                "isPK": false
-              },
-              {
-                "name": "hIndex",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -739,51 +581,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "UniversityStaff",
         "subs": [
           {
             "name": "Instructor",
-            "attributes": [
-              {
-                "name": "teachingHoursPerWeek",
-                "isPK": false
-              },
-              {
-                "name": "evalScore",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "Researcher",
-            "attributes": [
-              {
-                "name": "grantFundingUsd",
-                "isPK": false
-              },
-              {
-                "name": "hIndex",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 107,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Gulnora Sobirova",
-    "clientRole": "Chakana Xizmatlar Direktori",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Bank Mijozlari: Depositor va Borrower (Overlapping) (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **BankClient** ning ustma-ust tushuvchi **Depositor** va **Borrower** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'BankClient' superklassining 'Depositor' va 'Borrower' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "BankClient Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'clientId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'Depositor' va 'Borrower' jadvallarida 'clientId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -809,39 +633,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "BankClient",
         "subs": [
           {
             "name": "Depositor",
-            "attributes": [
-              {
-                "name": "depositBalance",
-                "isPK": false
-              },
-              {
-                "name": "termMonths",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "Borrower",
-            "attributes": [
-              {
-                "name": "loanAmount",
-                "isPK": false
-              },
-              {
-                "name": "creditRating",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -868,51 +674,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "BankClient",
         "subs": [
           {
             "name": "Depositor",
-            "attributes": [
-              {
-                "name": "depositBalance",
-                "isPK": false
-              },
-              {
-                "name": "termMonths",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "Borrower",
-            "attributes": [
-              {
-                "name": "loanAmount",
-                "isPK": false
-              },
-              {
-                "name": "creditRating",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 108,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Farrux Olimov",
-    "clientRole": "CISO Boshlig'i",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Tizim Foydalanuvchilari: SecurityAdmin va SystemDev (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **SystemUser** ning ustma-ust tushuvchi **SecurityAdmin** va **SystemDev** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'SystemUser' superklassining 'SecurityAdmin' va 'SystemDev' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "SystemUser Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'userLogin' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'SecurityAdmin' va 'SystemDev' jadvallarida 'userLogin' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -938,39 +726,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "SystemUser",
         "subs": [
           {
             "name": "SecurityAdmin",
-            "attributes": [
-              {
-                "name": "clearanceLevel",
-                "isPK": false
-              },
-              {
-                "name": "incidentAlertEmail",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "SystemDev",
-            "attributes": [
-              {
-                "name": "gitBranchPermission",
-                "isPK": false
-              },
-              {
-                "name": "ideEnvConfig",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -997,51 +767,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "SystemUser",
         "subs": [
           {
             "name": "SecurityAdmin",
-            "attributes": [
-              {
-                "name": "clearanceLevel",
-                "isPK": false
-              },
-              {
-                "name": "incidentAlertEmail",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "SystemDev",
-            "attributes": [
-              {
-                "name": "gitBranchPermission",
-                "isPK": false
-              },
-              {
-                "name": "ideEnvConfig",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 109,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Prof. Dilnoza Rahimova",
-    "clientRole": "Dastur Qo'mitasi Boshlig'i",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Sammit Qatnashchilari: KeynoteSpeaker va Reviewer (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **ConferenceAttendee** ning ustma-ust tushuvchi **KeynoteSpeaker** va **CommitteeReviewer** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'ConferenceAttendee' superklassining 'KeynoteSpeaker' va 'CommitteeReviewer' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "ConferenceAttendee Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'attendeeId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'KeynoteSpeaker' va 'CommitteeReviewer' jadvallarida 'attendeeId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -1067,39 +819,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "ConferenceAttendee",
         "subs": [
           {
             "name": "KeynoteSpeaker",
-            "attributes": [
-              {
-                "name": "lectureTopic",
-                "isPK": false
-              },
-              {
-                "name": "honorariumSum",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "CommitteeReviewer",
-            "attributes": [
-              {
-                "name": "paperQuota",
-                "isPK": false
-              },
-              {
-                "name": "assignedTrack",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -1126,51 +860,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "ConferenceAttendee",
         "subs": [
           {
             "name": "KeynoteSpeaker",
-            "attributes": [
-              {
-                "name": "lectureTopic",
-                "isPK": false
-              },
-              {
-                "name": "honorariumSum",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "CommitteeReviewer",
-            "attributes": [
-              {
-                "name": "paperQuota",
-                "isPK": false
-              },
-              {
-                "name": "assignedTrack",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 110,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Rustam Mirzayev",
-    "clientRole": "Sport Direktori",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Sportchilar: LeaguePlayer va TeamCoach (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **AthleteMember** ning ustma-ust tushuvchi **LeaguePlayer** va **TeamCoach** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'AthleteMember' superklassining 'LeaguePlayer' va 'TeamCoach' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "AthleteMember Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'athleteId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'LeaguePlayer' va 'TeamCoach' jadvallarida 'athleteId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -1196,39 +912,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "AthleteMember",
         "subs": [
           {
             "name": "LeaguePlayer",
-            "attributes": [
-              {
-                "name": "jerseyNumber",
-                "isPK": false
-              },
-              {
-                "name": "matchesPlayed",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "TeamCoach",
-            "attributes": [
-              {
-                "name": "coachingBadge",
-                "isPK": false
-              },
-              {
-                "name": "winLossRatio",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -1255,51 +953,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "AthleteMember",
         "subs": [
           {
             "name": "LeaguePlayer",
-            "attributes": [
-              {
-                "name": "jerseyNumber",
-                "isPK": false
-              },
-              {
-                "name": "matchesPlayed",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "TeamCoach",
-            "attributes": [
-              {
-                "name": "coachingBadge",
-                "isPK": false
-              },
-              {
-                "name": "winLossRatio",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 111,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Kapitan Vladimir Kim",
-    "clientRole": "Parvozlar Xavfsizligi Boshlig'i",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Parvoz Ekipaji: CommercialPilot va SafetyInspector (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **CrewMember** ning ustma-ust tushuvchi **CommercialPilot** va **SafetyInspector** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'CrewMember' superklassining 'CommercialPilot' va 'SafetyInspector' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "CrewMember Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'crewId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'CommercialPilot' va 'SafetyInspector' jadvallarida 'crewId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -1325,39 +1005,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "CrewMember",
         "subs": [
           {
             "name": "CommercialPilot",
-            "attributes": [
-              {
-                "name": "typeRatingAircraft",
-                "isPK": false
-              },
-              {
-                "name": "coPilotLicenseNo",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "SafetyInspector",
-            "attributes": [
-              {
-                "name": "safetyAuditCert",
-                "isPK": false
-              },
-              {
-                "name": "inspectionCount",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -1384,51 +1046,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "CrewMember",
         "subs": [
           {
             "name": "CommercialPilot",
-            "attributes": [
-              {
-                "name": "typeRatingAircraft",
-                "isPK": false
-              },
-              {
-                "name": "coPilotLicenseNo",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "SafetyInspector",
-            "attributes": [
-              {
-                "name": "safetyAuditCert",
-                "isPK": false
-              },
-              {
-                "name": "inspectionCount",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 112,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Sherzod Aliyev",
-    "clientRole": "CRM Bosh Menejeri",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Avtosalon Mijozlari: VehicleBuyer va ServiceClient (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **DealershipClient** ning ustma-ust tushuvchi **VehicleBuyer** va **ServiceClient** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'DealershipClient' superklassining 'VehicleBuyer' va 'ServiceClient' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "DealershipClient Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'clientId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'VehicleBuyer' va 'ServiceClient' jadvallarida 'clientId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -1454,39 +1098,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "DealershipClient",
         "subs": [
           {
             "name": "VehicleBuyer",
-            "attributes": [
-              {
-                "name": "purchaseContractNo",
-                "isPK": false
-              },
-              {
-                "name": "purchasedVin",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "ServiceClient",
-            "attributes": [
-              {
-                "name": "serviceHistoryCode",
-                "isPK": false
-              },
-              {
-                "name": "discountLevelPercent",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -1513,51 +1139,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "DealershipClient",
         "subs": [
           {
             "name": "VehicleBuyer",
-            "attributes": [
-              {
-                "name": "purchaseContractNo",
-                "isPK": false
-              },
-              {
-                "name": "purchasedVin",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "ServiceClient",
-            "attributes": [
-              {
-                "name": "serviceHistoryCode",
-                "isPK": false
-              },
-              {
-                "name": "discountLevelPercent",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 113,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Mansur Karimov",
-    "clientRole": "Badiiy Rahbar",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Teatr Ijodkorlari: StageActor va PlayDirector (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **TheatreArtist** ning ustma-ust tushuvchi **StageActor** va **PlayDirector** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'TheatreArtist' superklassining 'StageActor' va 'PlayDirector' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "TheatreArtist Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'artistId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'StageActor' va 'PlayDirector' jadvallarida 'artistId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -1583,39 +1191,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "TheatreArtist",
         "subs": [
           {
             "name": "StageActor",
-            "attributes": [
-              {
-                "name": "actingRoleType",
-                "isPK": false
-              },
-              {
-                "name": "vocalRange",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "PlayDirector",
-            "attributes": [
-              {
-                "name": "directingPortfolio",
-                "isPK": false
-              },
-              {
-                "name": "repertoireCategory",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -1642,51 +1232,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "TheatreArtist",
         "subs": [
           {
             "name": "StageActor",
-            "attributes": [
-              {
-                "name": "actingRoleType",
-                "isPK": false
-              },
-              {
-                "name": "vocalRange",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "PlayDirector",
-            "attributes": [
-              {
-                "name": "directingPortfolio",
-                "isPK": false
-              },
-              {
-                "name": "repertoireCategory",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 114,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Dr. Lola Sobirova",
-    "clientRole": "Klinik Tadqiqotlar Mudiri",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Tibbiyot Xodimlari: Clinician va ClinicalTrialInvestigator (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **MedicalStaff** ning ustma-ust tushuvchi **Clinician** va **ClinicalTrialInvestigator** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'MedicalStaff' superklassining 'Clinician' va 'ClinicalTrialInvestigator' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "MedicalStaff Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'licenseNo' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'Clinician' va 'TrialInvestigator' jadvallarida 'licenseNo' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -1712,39 +1284,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "MedicalStaff",
         "subs": [
           {
             "name": "Clinician",
-            "attributes": [
-              {
-                "name": "dailyPatientQuota",
-                "isPK": false
-              },
-              {
-                "name": "wardRoomCode",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
-            "name": "ClinicalTrialInvestigator",
-            "attributes": [
-              {
-                "name": "clinicalProtocolCode",
-                "isPK": false
-              },
-              {
-                "name": "trialGrantNo",
-                "isPK": false
-              }
-            ]
+            "name": "TrialInvestigator",
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -1771,51 +1325,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "MedicalStaff",
         "subs": [
           {
             "name": "Clinician",
-            "attributes": [
-              {
-                "name": "dailyPatientQuota",
-                "isPK": false
-              },
-              {
-                "name": "wardRoomCode",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
-            "name": "ClinicalTrialInvestigator",
-            "attributes": [
-              {
-                "name": "clinicalProtocolCode",
-                "isPK": false
-              },
-              {
-                "name": "trialGrantNo",
-                "isPK": false
-              }
-            ]
+            "name": "TrialInvestigator",
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 115,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Zilola Mahmudova",
-    "clientRole": "Ijodiy Direktor",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Media Ijodkorlari: VideoPresenter va AudioPodcaster (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **ContentCreator** ning ustma-ust tushuvchi **VideoPresenter** va **AudioPodcaster** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'ContentCreator' superklassining 'VideoPresenter' va 'AudioPodcaster' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "ContentCreator Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'creatorId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'VideoPresenter' va 'AudioPodcaster' jadvallarida 'creatorId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -1841,39 +1377,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "ContentCreator",
         "subs": [
           {
             "name": "VideoPresenter",
-            "attributes": [
-              {
-                "name": "screenLanguage",
-                "isPK": false
-              },
-              {
-                "name": "videoStudioCode",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "AudioPodcaster",
-            "attributes": [
-              {
-                "name": "podcastFeedRss",
-                "isPK": false
-              },
-              {
-                "name": "audioEpisodeCount",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -1900,51 +1418,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "ContentCreator",
         "subs": [
           {
             "name": "VideoPresenter",
-            "attributes": [
-              {
-                "name": "screenLanguage",
-                "isPK": false
-              },
-              {
-                "name": "videoStudioCode",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "AudioPodcaster",
-            "attributes": [
-              {
-                "name": "podcastFeedRss",
-                "isPK": false
-              },
-              {
-                "name": "audioEpisodeCount",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 116,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Alisher Yusupov",
-    "clientRole": "Flot Menejeri",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Haydovchilar: ExpressCourier va LongHaulDriver (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **FleetDriver** ning ustma-ust tushuvchi **ExpressCourier** va **LongHaulDriver** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'FleetDriver' superklassining 'ExpressCourier' va 'LongHaulDriver' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "FleetDriver Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'driverStaffId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'ExpressCourier' va 'LongHaulDriver' jadvallarida 'driverStaffId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -1970,39 +1470,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "FleetDriver",
         "subs": [
           {
             "name": "ExpressCourier",
-            "attributes": [
-              {
-                "name": "cityZoneCode",
-                "isPK": false
-              },
-              {
-                "name": "deliveriesPerShift",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "LongHaulDriver",
-            "attributes": [
-              {
-                "name": "tirCarnetNo",
-                "isPK": false
-              },
-              {
-                "name": "heavyVehiclePermitYear",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -2029,51 +1511,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "FleetDriver",
         "subs": [
           {
             "name": "ExpressCourier",
-            "attributes": [
-              {
-                "name": "cityZoneCode",
-                "isPK": false
-              },
-              {
-                "name": "deliveriesPerShift",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "LongHaulDriver",
-            "attributes": [
-              {
-                "name": "tirCarnetNo",
-                "isPK": false
-              },
-              {
-                "name": "heavyVehiclePermitYear",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 117,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Shavkat Saidov",
-    "clientRole": "HR Menejeri",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Restoran Xizmatchilari: ChiefBartender va SommelierExpert (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **RestaurantStaff** ning ustma-ust tushuvchi **ChiefBartender** va **SommelierExpert** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'RestaurantStaff' superklassining 'ChiefBartender' va 'SommelierExpert' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "RestaurantStaff Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'staffBadgeId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'ChiefBartender' va 'SommelierExpert' jadvallarida 'staffBadgeId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -2099,39 +1563,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "RestaurantStaff",
         "subs": [
           {
             "name": "ChiefBartender",
-            "attributes": [
-              {
-                "name": "mixologyCertLevel",
-                "isPK": false
-              },
-              {
-                "name": "barStationCode",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "SommelierExpert",
-            "attributes": [
-              {
-                "name": "sommelierDiplomaNo",
-                "isPK": false
-              },
-              {
-                "name": "cellarMasterPermit",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -2158,51 +1604,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "RestaurantStaff",
         "subs": [
           {
             "name": "ChiefBartender",
-            "attributes": [
-              {
-                "name": "mixologyCertLevel",
-                "isPK": false
-              },
-              {
-                "name": "barStationCode",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "SommelierExpert",
-            "attributes": [
-              {
-                "name": "sommelierDiplomaNo",
-                "isPK": false
-              },
-              {
-                "name": "cellarMasterPermit",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 118,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Kamola Rustamova",
-    "clientRole": "Rieltorlar Uyushmasi",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Mulk Bozorida: PropertyVendor va PropertyAcquirer (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **RealEstateCustomer** ning ustma-ust tushuvchi **PropertyVendor** va **PropertyAcquirer** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'RealEstateCustomer' superklassining 'PropertyVendor' va 'PropertyAcquirer' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "RealEstateCustomer Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'customerId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'PropertyVendor' va 'PropertyAcquirer' jadvallarida 'customerId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -2228,39 +1656,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "RealEstateCustomer",
         "subs": [
           {
             "name": "PropertyVendor",
-            "attributes": [
-              {
-                "name": "exclusiveListingCode",
-                "isPK": false
-              },
-              {
-                "name": "saleAskingPrice",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "PropertyAcquirer",
-            "attributes": [
-              {
-                "name": "maxInvestmentBudget",
-                "isPK": false
-              },
-              {
-                "name": "desiredPropertyType",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -2287,51 +1697,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "RealEstateCustomer",
         "subs": [
           {
             "name": "PropertyVendor",
-            "attributes": [
-              {
-                "name": "exclusiveListingCode",
-                "isPK": false
-              },
-              {
-                "name": "saleAskingPrice",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "PropertyAcquirer",
-            "attributes": [
-              {
-                "name": "maxInvestmentBudget",
-                "isPK": false
-              },
-              {
-                "name": "desiredPropertyType",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 119,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Jaloliddin Qodirov",
-    "clientRole": "Hamjamiyat Menejeri",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Platforma Foydalanuvchilari: ActiveLearner va TeachingMentor (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **PlatformUser** ning ustma-ust tushuvchi **ActiveLearner** va **TeachingMentor** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'PlatformUser' superklassining 'ActiveLearner' va 'TeachingMentor' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "PlatformUser Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'userId' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'ActiveLearner' va 'TeachingMentor' jadvallarida 'userId' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -2357,39 +1749,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "PlatformUser",
         "subs": [
           {
             "name": "ActiveLearner",
-            "attributes": [
-              {
-                "name": "enrolledCoursesCount",
-                "isPK": false
-              },
-              {
-                "name": "courseCertificatesTotal",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "TeachingMentor",
-            "attributes": [
-              {
-                "name": "mentorHourlyFee",
-                "isPK": false
-              },
-              {
-                "name": "menteeSessionCount",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -2416,51 +1790,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "PlatformUser",
         "subs": [
           {
             "name": "ActiveLearner",
-            "attributes": [
-              {
-                "name": "enrolledCoursesCount",
-                "isPK": false
-              },
-              {
-                "name": "courseCertificatesTotal",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "TeachingMentor",
-            "attributes": [
-              {
-                "name": "mentorHourlyFee",
-                "isPK": false
-              },
-              {
-                "name": "menteeSessionCount",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 120,
     "sector": 8,
-    "difficulty": "8-Qavat • EER Kengaytirish",
-    "clientName": "Bahodir Olimov",
-    "clientRole": "Tijorat Direktori",
+    "difficulty": "8-Qavat • Professional (Overlapping) • Relational Mapping",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Savdo Hamkorlari: RawMaterialSupplier va WholesaleDistributor (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **TradingEnterprise** ning ustma-ust tushuvchi **RawMaterialSupplier** va **WholesaleDistributor** subklasslari tizimga muvaffaqiyatli kiritildi.\n\nEndi biznes talablari ushbu subklasslar uchun qo'shimcha maxsus atributlarni kiritish va model yaxlitligini tekshirishni talab etadi.",
-    "instruction": "'TradingEnterprise' superklassining 'RawMaterialSupplier' va 'WholesaleDistributor' subklasslari uchun EER yaxlitlik cheklovlarini to'liq tasdiqlang.",
+    "title": "TradingEnterprise Overlapping Ixtisoslashuvi (Relatsion Sxema)",
+    "story": "1-haftadagi ustma-ust tushuvchi modelni relyatsion sxemaga o'tkazishda: har bir subklass alohida jadval bo'lib, ota jadvalning 'enterpriseInn' kalitini o'ziga Birlamchi va Tashqi kalit [PK,FK1] sifatida oladi.",
+    "instruction": "'RawMaterialSupplier' va 'WholesaleDistributor' jadvallarida 'enterpriseInn' [PK,FK1] ustunini belgilab, ota jadvalga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -2486,39 +1842,21 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "TradingEnterprise",
         "subs": [
           {
             "name": "RawMaterialSupplier",
-            "attributes": [
-              {
-                "name": "supplyCatalogRef",
-                "isPK": false
-              },
-              {
-                "name": "isoQualityCert",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "WholesaleDistributor",
-            "attributes": [
-              {
-                "name": "salesTerritoryRegion",
-                "isPK": false
-              },
-              {
-                "name": "creditLineLimit",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     },
     "expectedDiagram": {
       "entities": [
@@ -2545,51 +1883,33 @@ _scope.QUESTIONS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "TradingEnterprise",
         "subs": [
           {
             "name": "RawMaterialSupplier",
-            "attributes": [
-              {
-                "name": "supplyCatalogRef",
-                "isPK": false
-              },
-              {
-                "name": "isoQualityCert",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "WholesaleDistributor",
-            "attributes": [
-              {
-                "name": "salesTerritoryRegion",
-                "isPK": false
-              },
-              {
-                "name": "creditLineLimit",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 121,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Ziyoda Karimova",
-    "clientRole": "Davlat Notariusi",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Mulk Egaligi: Owner Kategoriyasi (Person ∪ Bank ∪ Company) (EER Bosqichi)",
-    "story": "1-haftadagi **Person**, **Bank** va **Company** entitiylari asosida ularning barchasini birlashtiruvchi **PropertyOwner** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'PropertyOwner' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "PropertyOwner Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'PropertyOwner' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'PropertyOwner' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2601,11 +1921,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2619,11 +1939,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "bankName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "licenseNo",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2637,16 +1957,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "companyName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "address",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PropertyOwner",
@@ -2657,8 +1978,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2671,11 +1991,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2689,11 +2009,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "bankName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "licenseNo",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2707,16 +2027,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "companyName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "address",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PropertyOwner",
@@ -2727,20 +2048,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 122,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Mayor Akmal Vohidov",
-    "clientRole": "DYXX Ro'yxatdan O'tkazish Boshlig'i",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Avtotransport Egasi: VehicleOwner Kategoriyasi (Citizen ∪ LeasingFirm ∪ StateAgency) (EER Bosqichi)",
-    "story": "1-haftadagi **PrivateCitizen**, **LeasingFirm** va **StateAgency** entitiylari asosida ularning barchasini birlashtiruvchi **VehicleOwner** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'VehicleOwner' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "VehicleOwner Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'VehicleOwner' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'VehicleOwner' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2752,11 +2072,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "citizenName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2770,11 +2090,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "firmTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "licenseDate",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2788,16 +2108,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "agencyTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "ministryCode",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "VehicleOwner",
@@ -2808,8 +2129,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2822,11 +2142,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "citizenName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2840,11 +2160,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "firmTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "licenseDate",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2858,16 +2178,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "agencyTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "ministryCode",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "VehicleOwner",
@@ -2878,20 +2199,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 123,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Sardor Salimov",
-    "clientRole": "G'aznachilik Boshlig'i",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "To'lov Qabul Qiluvchi: PayeeEntity Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **FreelanceContractor**, **UtilityProvider** va **TaxAuthority** entitiylari asosida ularning barchasini birlashtiruvchi **PayeeEntity** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'PayeeEntity' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "PayeeEntity Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'PayeeEntity' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'PayeeEntity' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2903,11 +2223,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "freelancerName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "serviceCategory",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2921,11 +2241,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "providerName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "accountIban",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2939,16 +2259,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "treasuryCode",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "regionName",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PayeeEntity",
@@ -2959,8 +2280,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2973,11 +2293,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "freelancerName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "serviceCategory",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2991,11 +2311,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "providerName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "accountIban",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3009,16 +2329,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "treasuryCode",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "regionName",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PayeeEntity",
@@ -3029,20 +2350,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 124,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Nodira Qosimova",
-    "clientRole": "Kredit Xatarlari Boshlig'i",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Qarz Oluvchi: LoanBorrower Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **SoleProprietorship**, **CommercialPartnership** va **CorporationHolding** entitiylari asosida ularning barchasini birlashtiruvchi **LoanBorrower** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'LoanBorrower' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "LoanBorrower Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'LoanBorrower' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'LoanBorrower' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -3054,7 +2374,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "ownerFullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
@@ -3072,11 +2392,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "firmName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "shareCapital",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3090,16 +2410,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "corporateName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "stockTicker",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "LoanBorrower",
@@ -3110,8 +2431,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3124,7 +2444,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "ownerFullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
@@ -3142,11 +2462,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "firmName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "shareCapital",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3160,16 +2480,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "corporateName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "stockTicker",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "LoanBorrower",
@@ -3180,20 +2501,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 125,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Sherzod Jo'rayev",
-    "clientRole": "Bosh Notarius",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Yuridik Hujjat Imzolovchi: LegalSignatory Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **DomesticCitizen**, **ForeignDiplomat** va **CorporateAttorney** entitiylari asosida ularning barchasini birlashtiruvchi **LegalSignatory** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'LegalSignatory' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "LegalSignatory Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'LegalSignatory' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'LegalSignatory' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -3205,11 +2525,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "registeredAddress",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -3223,11 +2543,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "diplomatName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "sendingState",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3241,16 +2561,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "lawyerName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "validUntil",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "LegalSignatory",
@@ -3261,8 +2582,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3275,11 +2595,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "registeredAddress",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -3293,11 +2613,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "diplomatName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "sendingState",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3311,16 +2631,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "lawyerName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "validUntil",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "LegalSignatory",
@@ -3331,20 +2652,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 126,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Polkovnik Baxtiyor Alimov",
-    "clientRole": "Bojxona Posti Rahbari",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Bojxona Yuki Yuboruvchi: CargoConsignor Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **ManufacturingPlant**, **TradingHouse** va **HumanitarianMission** entitiylari asosida ularning barchasini birlashtiruvchi **CargoConsignor** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'CargoConsignor' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "CargoConsignor Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'CargoConsignor' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'CargoConsignor' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -3356,11 +2676,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "plantTitle",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "industrialZone",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -3374,11 +2694,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "firmTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "chamberMemberId",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3392,16 +2712,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "unCharityCode",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "countryOrigin",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "CargoConsignor",
@@ -3412,8 +2733,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3426,11 +2746,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "plantTitle",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "industrialZone",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -3444,11 +2764,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "firmTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "chamberMemberId",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3462,16 +2782,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "unCharityCode",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "countryOrigin",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "CargoConsignor",
@@ -3482,20 +2803,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 127,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Dr. Dilnoza Umarova",
-    "clientRole": "Patent Eksperti",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Patent Huquq Egasi: PatentAssignee Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **ResearchUniversity**, **IndependentInventor** va **TechCorporation** entitiylari asosida ularning barchasini birlashtiruvchi **PatentAssignee** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'PatentAssignee' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "PatentAssignee Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'PatentAssignee' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'PatentAssignee' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -3507,11 +2827,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "universityName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "rectorName",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -3525,11 +2845,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "inventorName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "patentCount",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3543,16 +2863,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "corpLegalTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "rndBudgetUsd",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PatentAssignee",
@@ -3563,8 +2884,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3577,11 +2897,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "universityName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "rectorName",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -3595,11 +2915,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "inventorName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "patentCount",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3613,16 +2933,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "corpLegalTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "rndBudgetUsd",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PatentAssignee",
@@ -3633,20 +2954,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 128,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Ulug'bek Fayziyev",
-    "clientRole": "Aktuariy Direktori",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Sug'urta Polisi Benefitsiari: PolicyBeneficiary Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **FamilyKin**, **MortgageBank** va **CharitableTrust** entitiylari asosida ularning barchasini birlashtiruvchi **PolicyBeneficiary** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'PolicyBeneficiary' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "PolicyBeneficiary Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'PolicyBeneficiary' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'PolicyBeneficiary' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -3658,11 +2978,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "kinFullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "kinshipDegree",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -3676,11 +2996,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "bankName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "loanAgreementNo",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3694,16 +3014,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "trustTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "foundationScope",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PolicyBeneficiary",
@@ -3714,8 +3035,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3728,11 +3048,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "kinFullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "kinshipDegree",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -3746,11 +3066,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "bankName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "loanAgreementNo",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3764,16 +3084,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "trustTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "foundationScope",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PolicyBeneficiary",
@@ -3784,20 +3105,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 129,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Gulzoda Karimova",
-    "clientRole": "Brendlar Reyestri Boshlig'i",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Savdo Belgisi Egasi: TrademarkOwner Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **PrivateEnterpriser**, **NonProfitOrg** va **JointStockCompany** entitiylari asosida ularning barchasini birlashtiruvchi **TrademarkOwner** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'TrademarkOwner' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "TrademarkOwner Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'TrademarkOwner' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'TrademarkOwner' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -3809,11 +3129,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "brandOwnerName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "taxRegime",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -3827,11 +3147,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "orgTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "justiceMinistryPermit",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3845,16 +3165,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "jscTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "marketCapitalization",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "TrademarkOwner",
@@ -3865,8 +3186,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3879,11 +3199,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "brandOwnerName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "taxRegime",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -3897,11 +3217,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "orgTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "justiceMinistryPermit",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3915,16 +3235,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "jscTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "marketCapitalization",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "TrademarkOwner",
@@ -3935,20 +3256,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 130,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Dr. Farhod Saidov",
-    "clientRole": "Sug'urta Jamg'armasi Direktori",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Tibbiy Sug'urta Kafili: HealthCoverageSponsor Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **EmployerCompany**, **HealthMinistry** va **PrivatePhilanthropist** entitiylari asosida ularning barchasini birlashtiruvchi **HealthCoverageSponsor** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'HealthCoverageSponsor' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "HealthCoverageSponsor Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'HealthCoverageSponsor' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'HealthCoverageSponsor' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -3960,11 +3280,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "companyName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "insuredStaffCount",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -3978,11 +3298,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "budgetProgramName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "decreeNumber",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -3996,16 +3316,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "donorFullName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "endowmentSum",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "HealthCoverageSponsor",
@@ -4016,8 +3337,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4030,11 +3350,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "companyName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "insuredStaffCount",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -4048,11 +3368,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "budgetProgramName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "decreeNumber",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -4066,16 +3386,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "donorFullName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "endowmentSum",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "HealthCoverageSponsor",
@@ -4086,20 +3407,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 131,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Mansur Shokirov",
-    "clientRole": "Depozitariy Boshqaruvchisi",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Aksiya Egasi: ShareholderEntity Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **MutualFund**, **SovereignWealthFund** va **RetailInvestor** entitiylari asosida ularning barchasini birlashtiruvchi **ShareholderEntity** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'ShareholderEntity' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "ShareholderEntity Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'ShareholderEntity' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'ShareholderEntity' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -4111,11 +3431,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "fundName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "netAssetValueUsd",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -4129,11 +3449,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "stateTreasuryTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "trusteeCouncil",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -4147,16 +3467,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "investorFullName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "brokerageAccNo",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "ShareholderEntity",
@@ -4167,8 +3488,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4181,11 +3501,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "fundName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "netAssetValueUsd",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -4199,11 +3519,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "stateTreasuryTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "trusteeCouncil",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -4217,16 +3537,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "investorFullName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "brokerageAccNo",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "ShareholderEntity",
@@ -4237,20 +3558,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 132,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Polkovnik Ravshan Normatov",
-    "clientRole": "Aerodrom Texnik Boshlig'i",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Uchish Yo'lagi Foydalanuvchisi: RunwayOperator Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **CommercialAirline**, **AirForceSquadron** va **PrivateAirCharter** entitiylari asosida ularning barchasini birlashtiruvchi **RunwayOperator** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'RunwayOperator' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "RunwayOperator Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'RunwayOperator' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'RunwayOperator' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -4262,11 +3582,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "airlineName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "slotPermitNo",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -4280,11 +3600,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "squadronRank",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "defenseZoneId",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -4298,16 +3618,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "operatorName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "hangarCode",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "RunwayOperator",
@@ -4318,8 +3639,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4332,11 +3652,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "airlineName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "slotPermitNo",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -4350,11 +3670,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "squadronRank",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "defenseZoneId",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -4368,16 +3688,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "operatorName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "hangarCode",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "RunwayOperator",
@@ -4388,20 +3709,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 133,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Shohruh Mirzayev",
-    "clientRole": "Billing Arxitektori",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Aloqa Abanenti: TelecomSubscriber Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **IndividualSubscriber**, **CorporateSubscriber** va **IotDeviceGateway** entitiylari asosida ularning barchasini birlashtiruvchi **TelecomSubscriber** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'TelecomSubscriber' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "TelecomSubscriber Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'TelecomSubscriber' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'TelecomSubscriber' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -4413,11 +3733,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "subscriberName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "passportSeries",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -4431,11 +3751,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "corpClientName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "allocatedSimCount",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -4449,16 +3769,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "deviceHardwareType",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "firmwareVer",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "TelecomSubscriber",
@@ -4469,8 +3790,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4483,11 +3803,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "subscriberName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "passportSeries",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -4501,11 +3821,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "corpClientName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "allocatedSimCount",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -4519,16 +3839,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "deviceHardwareType",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "firmwareVer",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "TelecomSubscriber",
@@ -4539,20 +3860,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 134,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Prof. Temur Vohidov",
-    "clientRole": "Grant Komissiyasi Raisi",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Ilmiy Grant Moliyalashtiruvchi: GrantFunder Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **StateScienceAgency**, **TechConsortium** va **GlobalFoundation** entitiylari asosida ularning barchasini birlashtiruvchi **GrantFunder** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'GrantFunder' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "GrantFunder Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'GrantFunder' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'GrantFunder' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -4564,11 +3884,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "budgetSourceTitle",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "curatorOfficer",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -4582,11 +3902,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "industrialAllianceTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "leadPartner",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -4600,16 +3920,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "foundationTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "genevaAccordNo",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "GrantFunder",
@@ -4620,8 +3941,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4634,11 +3954,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "budgetSourceTitle",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "curatorOfficer",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -4652,11 +3972,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "industrialAllianceTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "leadPartner",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -4670,16 +3990,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "foundationTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "genevaAccordNo",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "GrantFunder",
@@ -4690,20 +4011,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 135,
     "sector": 9,
-    "difficulty": "9-Qavat • EER Kengaytirish",
-    "clientName": "Aziz Sobirov",
-    "clientRole": "Tender Bosh Inspektor",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Davlat Tenderi Ishtirokchisi: TenderBidder Kategoriyasi (EER Bosqichi)",
-    "story": "1-haftadagi **EngineeringConsortium**, **ConstructionCorp** va **MunicipalUtility** entitiylari asosida ularning barchasini birlashtiruvchi **TenderBidder** Union Type (∪) toifasini EER polotnosida to'liq mustahkamlash lozim.",
-    "instruction": "'TenderBidder' Union Type (∪) kategoriyasini to'g'ri bog'lang va diagrammani yakunlang.",
+    "title": "TenderBidder Kategoriyasi (Union Type ∪) (Relatsion Sxema)",
+    "story": "1-haftadagi Union Type modelini relyatsion sxemaga o'tkazishda: umumiy 'TenderBidder' jadvali ochilib, unga o'zining yagona 'ownerId' [PK] beriladi va superklasslar unga Tashqi Kalit bilan ulanadi.",
+    "instruction": "'TenderBidder' jadvalini oching va uning Birlamchi Kalitini [PK] belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -4715,11 +4035,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "consortiumTitle",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "guaranteeBankInn",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -4733,11 +4053,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "sroLicenseNumber",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "machineryAssetCount",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -4751,16 +4071,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "districtName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "cityHokimiyatDecree",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "TenderBidder",
@@ -4771,8 +4092,7 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4785,11 +4105,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "consortiumTitle",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "guaranteeBankInn",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -4803,11 +4123,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "sroLicenseNumber",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "machineryAssetCount",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -4821,16 +4141,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "districtName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "cityHokimiyatDecree",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "TenderBidder",
@@ -4841,20 +4162,19 @@ _scope.QUESTIONS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 136,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Behzod Vohidov",
-    "clientRole": "Bosh Aeroport Me'mori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Xalqaro Aeroport Kompleks Axborot Tizimi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **Airport**, **Terminal**, **FlightSchedule** va **PassengerBooking** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "Airport Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -4872,10 +4192,6 @@ _scope.QUESTIONS_101_150 = [
             {
               "name": "cityLocation",
               "isPK": false
-            },
-            {
-              "name": "countryCode",
-              "isPK": false
             }
           ]
         },
@@ -4892,7 +4208,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "passengerCapacityAnnual",
+              "name": "capacity",
               "isPK": false
             }
           ]
@@ -4906,11 +4222,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "departureTime",
+              "name": "depTime",
               "isPK": false
             },
             {
-              "name": "aircraftTailNo",
+              "name": "destIata",
               "isPK": false
             }
           ]
@@ -4928,11 +4244,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "seatNumber",
-              "isPK": false
-            },
-            {
-              "name": "ticketPrice",
+              "name": "seatNo",
               "isPK": false
             }
           ]
@@ -4944,21 +4256,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "Terminal",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "Terminal",
           "entity2": "FlightSchedule",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "FlightSchedule",
           "entity2": "PassengerBooking",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -4979,10 +4291,6 @@ _scope.QUESTIONS_101_150 = [
             {
               "name": "cityLocation",
               "isPK": false
-            },
-            {
-              "name": "countryCode",
-              "isPK": false
             }
           ]
         },
@@ -4999,7 +4307,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "passengerCapacityAnnual",
+              "name": "capacity",
               "isPK": false
             }
           ]
@@ -5013,11 +4321,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "departureTime",
+              "name": "depTime",
               "isPK": false
             },
             {
-              "name": "aircraftTailNo",
+              "name": "destIata",
               "isPK": false
             }
           ]
@@ -5035,11 +4343,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "seatNumber",
-              "isPK": false
-            },
-            {
-              "name": "ticketPrice",
+              "name": "seatNo",
               "isPK": false
             }
           ]
@@ -5051,21 +4355,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "Terminal",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "Terminal",
           "entity2": "FlightSchedule",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "FlightSchedule",
           "entity2": "PassengerBooking",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -5073,21 +4377,21 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 137,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Javohir Qodirov",
-    "clientRole": "Bosh Bank Arxitektori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Milliy Banklararo Hisob-Kitob va Kliring Arxitekturasi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **CentralBank**, **CommercialBank**, **SettlementAccount** va **ClearingTransaction** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "CentralBank Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
           "name": "CentralBank",
-          "pk": "centralBankCode",
+          "pk": "bankCode",
           "attributes": [
             {
-              "name": "centralBankCode",
+              "name": "bankCode",
               "isPK": true
             },
             {
@@ -5095,7 +4399,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "reserveGoldTons",
+              "name": "goldReserveTons",
               "isPK": false
             }
           ]
@@ -5113,35 +4417,35 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "charterCapitalBillion",
+              "name": "capitalSum",
               "isPK": false
             }
           ]
         },
         {
           "name": "SettlementAccount",
-          "pk": "correspondentAccNo",
+          "pk": "accNo",
           "attributes": [
             {
-              "name": "correspondentAccNo",
+              "name": "accNo",
               "isPK": true
             },
             {
-              "name": "currencyCode",
+              "name": "currency",
               "isPK": false
             },
             {
-              "name": "clearedBalance",
+              "name": "balance",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ClearingTransaction",
-          "pk": "txRefCode",
+          "name": "ClearingTx",
+          "pk": "txRef",
           "attributes": [
             {
-              "name": "txRefCode",
+              "name": "txRef",
               "isPK": true
             },
             {
@@ -5149,11 +4453,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "txTimestamp",
-              "isPK": false
-            },
-            {
-              "name": "swiftMessage",
+              "name": "timestamp",
               "isPK": false
             }
           ]
@@ -5165,21 +4465,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "CommercialBank",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "CommercialBank",
           "entity2": "SettlementAccount",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "SettlementAccount",
-          "entity2": "ClearingTransaction",
+          "entity2": "ClearingTx",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -5187,10 +4487,10 @@ _scope.QUESTIONS_101_150 = [
       "entities": [
         {
           "name": "CentralBank",
-          "pk": "centralBankCode",
+          "pk": "bankCode",
           "attributes": [
             {
-              "name": "centralBankCode",
+              "name": "bankCode",
               "isPK": true
             },
             {
@@ -5198,7 +4498,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "reserveGoldTons",
+              "name": "goldReserveTons",
               "isPK": false
             }
           ]
@@ -5216,35 +4516,35 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "charterCapitalBillion",
+              "name": "capitalSum",
               "isPK": false
             }
           ]
         },
         {
           "name": "SettlementAccount",
-          "pk": "correspondentAccNo",
+          "pk": "accNo",
           "attributes": [
             {
-              "name": "correspondentAccNo",
+              "name": "accNo",
               "isPK": true
             },
             {
-              "name": "currencyCode",
+              "name": "currency",
               "isPK": false
             },
             {
-              "name": "clearedBalance",
+              "name": "balance",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ClearingTransaction",
-          "pk": "txRefCode",
+          "name": "ClearingTx",
+          "pk": "txRef",
           "attributes": [
             {
-              "name": "txRefCode",
+              "name": "txRef",
               "isPK": true
             },
             {
@@ -5252,11 +4552,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "txTimestamp",
-              "isPK": false
-            },
-            {
-              "name": "swiftMessage",
+              "name": "timestamp",
               "isPK": false
             }
           ]
@@ -5268,21 +4564,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "CommercialBank",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "CommercialBank",
           "entity2": "SettlementAccount",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "SettlementAccount",
-          "entity2": "ClearingTransaction",
+          "entity2": "ClearingTx",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -5290,33 +4586,29 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 138,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Prof. Dilshod Umarov",
-    "clientRole": "Klinika Texnik Boshqaruvchisi",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Respublika Onkologiya Markazi Davolash Tizimi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **Hospital**, **SpecializedWard**, **SpecializedDoctor** va **PatientCourse** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "Hospital Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Hospital",
-          "pk": "hospitalId",
+          "pk": "hospId",
           "attributes": [
             {
-              "name": "hospitalId",
+              "name": "hospId",
               "isPK": true
             },
             {
-              "name": "hospitalName",
+              "name": "hospName",
               "isPK": false
             },
             {
-              "name": "cityAddress",
-              "isPK": false
-            },
-            {
-              "name": "bedCapacityTotal",
+              "name": "address",
               "isPK": false
             }
           ]
@@ -5334,7 +4626,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "radiationShieldingGrade",
+              "name": "beds",
               "isPK": false
             }
           ]
@@ -5348,11 +4640,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "doctorFullName",
+              "name": "docName",
               "isPK": false
             },
             {
-              "name": "oncologyBoardCert",
+              "name": "specialty",
               "isPK": false
             }
           ]
@@ -5366,11 +4658,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "diagnosisProtocol",
-              "isPK": false
-            },
-            {
-              "name": "chemoCycleNumber",
+              "name": "protocol",
               "isPK": false
             },
             {
@@ -5386,21 +4674,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "SpecializedWard",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "SpecializedWard",
           "entity2": "SpecializedDoctor",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "SpecializedDoctor",
           "entity2": "PatientCourse",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -5408,22 +4696,18 @@ _scope.QUESTIONS_101_150 = [
       "entities": [
         {
           "name": "Hospital",
-          "pk": "hospitalId",
+          "pk": "hospId",
           "attributes": [
             {
-              "name": "hospitalId",
+              "name": "hospId",
               "isPK": true
             },
             {
-              "name": "hospitalName",
+              "name": "hospName",
               "isPK": false
             },
             {
-              "name": "cityAddress",
-              "isPK": false
-            },
-            {
-              "name": "bedCapacityTotal",
+              "name": "address",
               "isPK": false
             }
           ]
@@ -5441,7 +4725,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "radiationShieldingGrade",
+              "name": "beds",
               "isPK": false
             }
           ]
@@ -5455,11 +4739,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "doctorFullName",
+              "name": "docName",
               "isPK": false
             },
             {
-              "name": "oncologyBoardCert",
+              "name": "specialty",
               "isPK": false
             }
           ]
@@ -5473,11 +4757,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "diagnosisProtocol",
-              "isPK": false
-            },
-            {
-              "name": "chemoCycleNumber",
+              "name": "protocol",
               "isPK": false
             },
             {
@@ -5493,21 +4773,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "SpecializedWard",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "SpecializedWard",
           "entity2": "SpecializedDoctor",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "SpecializedDoctor",
           "entity2": "PatientCourse",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -5515,13 +4795,13 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 139,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Kapitan Anvar Mahmudov",
-    "clientRole": "Logistika Porti Boshqaruvchisi",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Trans-Okean Dengiz Porti va Konteyner Terminali (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **MegaWarehouse**, **ContainerVessel**, **CustomsDeclaration** va **FreightForwarder** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "MegaWarehouse Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -5537,11 +4817,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "dockBerthCount",
-              "isPK": false
-            },
-            {
-              "name": "customsZoneCode",
+              "name": "berthCount",
               "isPK": false
             }
           ]
@@ -5559,11 +4835,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "teuCapacity",
-              "isPK": false
-            },
-            {
-              "name": "flagState",
+              "name": "teuCap",
               "isPK": false
             }
           ]
@@ -5577,11 +4849,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "customsDutySum",
+              "name": "dutySum",
               "isPK": false
             },
             {
-              "name": "inspectionPassed",
+              "name": "passed",
               "isPK": false
             }
           ]
@@ -5595,11 +4867,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "forwarderTitle",
+              "name": "title",
               "isPK": false
             },
             {
-              "name": "fiataLicenseNo",
+              "name": "license",
               "isPK": false
             }
           ]
@@ -5611,21 +4883,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "ContainerVessel",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "ContainerVessel",
           "entity2": "CustomsDeclaration",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "CustomsDeclaration",
           "entity2": "FreightForwarder",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -5644,11 +4916,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "dockBerthCount",
-              "isPK": false
-            },
-            {
-              "name": "customsZoneCode",
+              "name": "berthCount",
               "isPK": false
             }
           ]
@@ -5666,11 +4934,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "teuCapacity",
-              "isPK": false
-            },
-            {
-              "name": "flagState",
+              "name": "teuCap",
               "isPK": false
             }
           ]
@@ -5684,11 +4948,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "customsDutySum",
+              "name": "dutySum",
               "isPK": false
             },
             {
-              "name": "inspectionPassed",
+              "name": "passed",
               "isPK": false
             }
           ]
@@ -5702,11 +4966,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "forwarderTitle",
+              "name": "title",
               "isPK": false
             },
             {
-              "name": "fiataLicenseNo",
+              "name": "license",
               "isPK": false
             }
           ]
@@ -5718,21 +4982,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "ContainerVessel",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "ContainerVessel",
           "entity2": "CustomsDeclaration",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "CustomsDeclaration",
           "entity2": "FreightForwarder",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -5740,17 +5004,17 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 140,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Prof. Sherzod Salimov",
-    "clientRole": "IT Prorektor",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Xalqaro Universitet Kampusi Yagona Modeli (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **UniversityFaculty**, **AcademicDepartment**, **StaffMember** va **StudentClass** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "Faculty Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "UniversityFaculty",
+          "name": "Faculty",
           "pk": "facultyCode",
           "attributes": [
             {
@@ -5762,13 +5026,13 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "buildingNumber",
+              "name": "building",
               "isPK": false
             }
           ]
         },
         {
-          "name": "AcademicDepartment",
+          "name": "AcademicDept",
           "pk": "deptId",
           "attributes": [
             {
@@ -5780,7 +5044,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "researchFocusArea",
+              "name": "focusArea",
               "isPK": false
             }
           ]
@@ -5794,11 +5058,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "staffFullName",
-              "isPK": false
-            },
-            {
-              "name": "academicRankGrade",
+              "name": "staffName",
               "isPK": false
             },
             {
@@ -5816,15 +5076,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "studySemester",
+              "name": "semester",
               "isPK": false
             },
             {
-              "name": "roomHallCode",
-              "isPK": false
-            },
-            {
-              "name": "maxEnrolled",
+              "name": "roomCode",
               "isPK": false
             }
           ]
@@ -5832,32 +5088,32 @@ _scope.QUESTIONS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "UniversityFaculty",
-          "entity2": "AcademicDepartment",
+          "entity1": "Faculty",
+          "entity2": "AcademicDept",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
-          "entity1": "AcademicDepartment",
+          "entity1": "AcademicDept",
           "entity2": "StaffMember",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "StaffMember",
           "entity2": "StudentClass",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "UniversityFaculty",
+          "name": "Faculty",
           "pk": "facultyCode",
           "attributes": [
             {
@@ -5869,13 +5125,13 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "buildingNumber",
+              "name": "building",
               "isPK": false
             }
           ]
         },
         {
-          "name": "AcademicDepartment",
+          "name": "AcademicDept",
           "pk": "deptId",
           "attributes": [
             {
@@ -5887,7 +5143,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "researchFocusArea",
+              "name": "focusArea",
               "isPK": false
             }
           ]
@@ -5901,11 +5157,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "staffFullName",
-              "isPK": false
-            },
-            {
-              "name": "academicRankGrade",
+              "name": "staffName",
               "isPK": false
             },
             {
@@ -5923,15 +5175,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "studySemester",
+              "name": "semester",
               "isPK": false
             },
             {
-              "name": "roomHallCode",
-              "isPK": false
-            },
-            {
-              "name": "maxEnrolled",
+              "name": "roomCode",
               "isPK": false
             }
           ]
@@ -5939,25 +5187,25 @@ _scope.QUESTIONS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "UniversityFaculty",
-          "entity2": "AcademicDepartment",
+          "entity1": "Faculty",
+          "entity2": "AcademicDept",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
-          "entity1": "AcademicDepartment",
+          "entity1": "AcademicDept",
           "entity2": "StaffMember",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "StaffMember",
           "entity2": "StudentClass",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -5965,13 +5213,13 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 141,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Akmal Qosimov",
-    "clientRole": "Bosh Energetik Dispetcher",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Yagona Milliy Energotizim Dispetcherlik Arxitekturasi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **PowerPlant**, **ElectricSubstation**, **TransmissionLine** va **LoadZone** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "PowerPlant Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -5987,17 +5235,13 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "fuelType",
-              "isPK": false
-            },
-            {
-              "name": "installedMegaWatts",
+              "name": "megaWatts",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ElectricSubstation",
+          "name": "Substation",
           "pk": "substationId",
           "attributes": [
             {
@@ -6009,7 +5253,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "stepDownVoltageKv",
+              "name": "voltageKv",
               "isPK": false
             }
           ]
@@ -6023,11 +5267,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "distanceKilometers",
+              "name": "distanceKm",
               "isPK": false
             },
             {
-              "name": "maxAmpereThroughput",
+              "name": "ampCapacity",
               "isPK": false
             }
           ]
@@ -6041,11 +5285,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "zoneCityRegion",
+              "name": "region",
               "isPK": false
             },
             {
-              "name": "peakDemandMegaWatts",
+              "name": "peakDemand",
               "isPK": false
             }
           ]
@@ -6054,24 +5298,24 @@ _scope.QUESTIONS_101_150 = [
       "relationships": [
         {
           "entity1": "PowerPlant",
-          "entity2": "ElectricSubstation",
+          "entity2": "Substation",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
-          "entity1": "ElectricSubstation",
+          "entity1": "Substation",
           "entity2": "TransmissionLine",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "TransmissionLine",
           "entity2": "LoadZone",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -6090,17 +5334,13 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "fuelType",
-              "isPK": false
-            },
-            {
-              "name": "installedMegaWatts",
+              "name": "megaWatts",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ElectricSubstation",
+          "name": "Substation",
           "pk": "substationId",
           "attributes": [
             {
@@ -6112,7 +5352,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "stepDownVoltageKv",
+              "name": "voltageKv",
               "isPK": false
             }
           ]
@@ -6126,11 +5366,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "distanceKilometers",
+              "name": "distanceKm",
               "isPK": false
             },
             {
-              "name": "maxAmpereThroughput",
+              "name": "ampCapacity",
               "isPK": false
             }
           ]
@@ -6144,11 +5384,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "zoneCityRegion",
+              "name": "region",
               "isPK": false
             },
             {
-              "name": "peakDemandMegaWatts",
+              "name": "peakDemand",
               "isPK": false
             }
           ]
@@ -6157,24 +5397,24 @@ _scope.QUESTIONS_101_150 = [
       "relationships": [
         {
           "entity1": "PowerPlant",
-          "entity2": "ElectricSubstation",
+          "entity2": "Substation",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
-          "entity1": "ElectricSubstation",
+          "entity1": "Substation",
           "entity2": "TransmissionLine",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "TransmissionLine",
           "entity2": "LoadZone",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -6182,13 +5422,13 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 142,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Mansur Aliyev",
-    "clientRole": "Bosh Poezd Dispetcheri",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Magistral Temir Yo'l va Ekspress Qatnovlar Tizimi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **RailwayNetwork**, **TrainSchedule**, **LocomotiveEngine** va **PassengerBooking** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "RailwayNetwork Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -6204,53 +5444,49 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "trackGaugeMm",
-              "isPK": false
-            },
-            {
-              "name": "electrifiedPercent",
+              "name": "trackMm",
               "isPK": false
             }
           ]
         },
         {
           "name": "TrainSchedule",
-          "pk": "scheduleTripNo",
+          "pk": "tripNo",
           "attributes": [
             {
-              "name": "scheduleTripNo",
+              "name": "tripNo",
               "isPK": true
             },
             {
-              "name": "departureTimestamp",
+              "name": "depTime",
               "isPK": false
             },
             {
-              "name": "arrivalTimestamp",
+              "name": "arrTime",
               "isPK": false
             }
           ]
         },
         {
           "name": "LocomotiveEngine",
-          "pk": "locoSerialNo",
+          "pk": "locoNo",
           "attributes": [
             {
-              "name": "locoSerialNo",
+              "name": "locoNo",
               "isPK": true
             },
             {
-              "name": "locomotiveModel",
+              "name": "model",
               "isPK": false
             },
             {
-              "name": "tractivePowerHp",
+              "name": "powerHp",
               "isPK": false
             }
           ]
         },
         {
-          "name": "PassengerBooking",
+          "name": "PassengerTicket",
           "pk": "ticketPnr",
           "attributes": [
             {
@@ -6262,11 +5498,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "coachCarriageNo",
-              "isPK": false
-            },
-            {
-              "name": "seatIndex",
+              "name": "coachNo",
               "isPK": false
             }
           ]
@@ -6278,21 +5510,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "TrainSchedule",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "TrainSchedule",
           "entity2": "LocomotiveEngine",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "LocomotiveEngine",
-          "entity2": "PassengerBooking",
+          "entity2": "PassengerTicket",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -6311,53 +5543,49 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "trackGaugeMm",
-              "isPK": false
-            },
-            {
-              "name": "electrifiedPercent",
+              "name": "trackMm",
               "isPK": false
             }
           ]
         },
         {
           "name": "TrainSchedule",
-          "pk": "scheduleTripNo",
+          "pk": "tripNo",
           "attributes": [
             {
-              "name": "scheduleTripNo",
+              "name": "tripNo",
               "isPK": true
             },
             {
-              "name": "departureTimestamp",
+              "name": "depTime",
               "isPK": false
             },
             {
-              "name": "arrivalTimestamp",
+              "name": "arrTime",
               "isPK": false
             }
           ]
         },
         {
           "name": "LocomotiveEngine",
-          "pk": "locoSerialNo",
+          "pk": "locoNo",
           "attributes": [
             {
-              "name": "locoSerialNo",
+              "name": "locoNo",
               "isPK": true
             },
             {
-              "name": "locomotiveModel",
+              "name": "model",
               "isPK": false
             },
             {
-              "name": "tractivePowerHp",
+              "name": "powerHp",
               "isPK": false
             }
           ]
         },
         {
-          "name": "PassengerBooking",
+          "name": "PassengerTicket",
           "pk": "ticketPnr",
           "attributes": [
             {
@@ -6369,11 +5597,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "coachCarriageNo",
-              "isPK": false
-            },
-            {
-              "name": "seatIndex",
+              "name": "coachNo",
               "isPK": false
             }
           ]
@@ -6385,21 +5609,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "TrainSchedule",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "TrainSchedule",
           "entity2": "LocomotiveEngine",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "LocomotiveEngine",
-          "entity2": "PassengerBooking",
+          "entity2": "PassengerTicket",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -6407,13 +5631,13 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 143,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Sanjar Normatov",
-    "clientRole": "Raqamli Vazirlik Arxitektori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Elektron Hukumat Davlat Xizmatlari Yagona Portali (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **GovPortalService**, **CitizenRequest**, **MinistryDepartment** va **ProcessingOfficer** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "GovPortalService Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -6429,21 +5653,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "statutoryFeeSum",
-              "isPK": false
-            },
-            {
-              "name": "processingDays",
+              "name": "fee",
               "isPK": false
             }
           ]
         },
         {
           "name": "CitizenRequest",
-          "pk": "applicationId",
+          "pk": "appId",
           "attributes": [
             {
-              "name": "applicationId",
+              "name": "appId",
               "isPK": true
             },
             {
@@ -6451,21 +5671,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "submittedTimestamp",
-              "isPK": false
-            },
-            {
-              "name": "status",
+              "name": "submittedAt",
               "isPK": false
             }
           ]
         },
         {
-          "name": "MinistryDepartment",
-          "pk": "departmentInn",
+          "name": "MinistryDept",
+          "pk": "deptInn",
           "attributes": [
             {
-              "name": "departmentInn",
+              "name": "deptInn",
               "isPK": true
             },
             {
@@ -6473,25 +5689,25 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "competentAuthorityZone",
+              "name": "zone",
               "isPK": false
             }
           ]
         },
         {
           "name": "ProcessingOfficer",
-          "pk": "officerStaffId",
+          "pk": "officerId",
           "attributes": [
             {
-              "name": "officerStaffId",
+              "name": "officerId",
               "isPK": true
             },
             {
-              "name": "officerFullName",
+              "name": "officerName",
               "isPK": false
             },
             {
-              "name": "digitalSignatureCert",
+              "name": "certKey",
               "isPK": false
             }
           ]
@@ -6503,21 +5719,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "CitizenRequest",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "CitizenRequest",
-          "entity2": "MinistryDepartment",
+          "entity2": "MinistryDept",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
-          "entity1": "MinistryDepartment",
+          "entity1": "MinistryDept",
           "entity2": "ProcessingOfficer",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -6536,21 +5752,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "statutoryFeeSum",
-              "isPK": false
-            },
-            {
-              "name": "processingDays",
+              "name": "fee",
               "isPK": false
             }
           ]
         },
         {
           "name": "CitizenRequest",
-          "pk": "applicationId",
+          "pk": "appId",
           "attributes": [
             {
-              "name": "applicationId",
+              "name": "appId",
               "isPK": true
             },
             {
@@ -6558,21 +5770,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "submittedTimestamp",
-              "isPK": false
-            },
-            {
-              "name": "status",
+              "name": "submittedAt",
               "isPK": false
             }
           ]
         },
         {
-          "name": "MinistryDepartment",
-          "pk": "departmentInn",
+          "name": "MinistryDept",
+          "pk": "deptInn",
           "attributes": [
             {
-              "name": "departmentInn",
+              "name": "deptInn",
               "isPK": true
             },
             {
@@ -6580,25 +5788,25 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "competentAuthorityZone",
+              "name": "zone",
               "isPK": false
             }
           ]
         },
         {
           "name": "ProcessingOfficer",
-          "pk": "officerStaffId",
+          "pk": "officerId",
           "attributes": [
             {
-              "name": "officerStaffId",
+              "name": "officerId",
               "isPK": true
             },
             {
-              "name": "officerFullName",
+              "name": "officerName",
               "isPK": false
             },
             {
-              "name": "digitalSignatureCert",
+              "name": "certKey",
               "isPK": false
             }
           ]
@@ -6610,21 +5818,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "CitizenRequest",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "CitizenRequest",
-          "entity2": "MinistryDepartment",
+          "entity2": "MinistryDept",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
-          "entity1": "MinistryDepartment",
+          "entity1": "MinistryDept",
           "entity2": "ProcessingOfficer",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -6632,13 +5840,13 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 144,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Dr. Zulfiya Rustamova",
-    "clientRole": "Bosh Texnologik Arxitektor",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "GMP Standartidagi Biotexnologik Zavod Axborot Klasteri (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **PharmaFactory**, **ChemicalLab**, **DrugBatch** va **QualityAudit** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "PharmaFactory Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -6654,57 +5862,53 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "gmpAccreditationNo",
-              "isPK": false
-            },
-            {
-              "name": "cleanRoomGrade",
+              "name": "gmpCert",
               "isPK": false
             }
           ]
         },
         {
           "name": "ChemicalLab",
-          "pk": "labUnitCode",
+          "pk": "labCode",
           "attributes": [
             {
-              "name": "labUnitCode",
+              "name": "labCode",
               "isPK": true
             },
             {
-              "name": "labSpecialization",
+              "name": "labSpec",
               "isPK": false
             },
             {
-              "name": "hplcInstrumentCount",
+              "name": "hplcCount",
               "isPK": false
             }
           ]
         },
         {
           "name": "DrugBatch",
-          "pk": "batchNumber",
+          "pk": "batchNo",
           "attributes": [
             {
-              "name": "batchNumber",
+              "name": "batchNo",
               "isPK": true
             },
             {
-              "name": "manufactureDate",
+              "name": "manufDate",
               "isPK": false
             },
             {
-              "name": "releaseInspectionPassed",
+              "name": "passed",
               "isPK": false
             }
           ]
         },
         {
           "name": "QualityAudit",
-          "pk": "auditProtocolId",
+          "pk": "auditId",
           "attributes": [
             {
-              "name": "auditProtocolId",
+              "name": "auditId",
               "isPK": true
             },
             {
@@ -6712,11 +5916,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "purityAssayPercent",
-              "isPK": false
-            },
-            {
-              "name": "auditDate",
+              "name": "purityPct",
               "isPK": false
             }
           ]
@@ -6728,21 +5928,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "ChemicalLab",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "ChemicalLab",
           "entity2": "DrugBatch",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "DrugBatch",
           "entity2": "QualityAudit",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -6761,57 +5961,53 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "gmpAccreditationNo",
-              "isPK": false
-            },
-            {
-              "name": "cleanRoomGrade",
+              "name": "gmpCert",
               "isPK": false
             }
           ]
         },
         {
           "name": "ChemicalLab",
-          "pk": "labUnitCode",
+          "pk": "labCode",
           "attributes": [
             {
-              "name": "labUnitCode",
+              "name": "labCode",
               "isPK": true
             },
             {
-              "name": "labSpecialization",
+              "name": "labSpec",
               "isPK": false
             },
             {
-              "name": "hplcInstrumentCount",
+              "name": "hplcCount",
               "isPK": false
             }
           ]
         },
         {
           "name": "DrugBatch",
-          "pk": "batchNumber",
+          "pk": "batchNo",
           "attributes": [
             {
-              "name": "batchNumber",
+              "name": "batchNo",
               "isPK": true
             },
             {
-              "name": "manufactureDate",
+              "name": "manufDate",
               "isPK": false
             },
             {
-              "name": "releaseInspectionPassed",
+              "name": "passed",
               "isPK": false
             }
           ]
         },
         {
           "name": "QualityAudit",
-          "pk": "auditProtocolId",
+          "pk": "auditId",
           "attributes": [
             {
-              "name": "auditProtocolId",
+              "name": "auditId",
               "isPK": true
             },
             {
@@ -6819,11 +6015,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "purityAssayPercent",
-              "isPK": false
-            },
-            {
-              "name": "auditDate",
+              "name": "purityPct",
               "isPK": false
             }
           ]
@@ -6835,21 +6027,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "ChemicalLab",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "ChemicalLab",
           "entity2": "DrugBatch",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "DrugBatch",
           "entity2": "QualityAudit",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -6857,13 +6049,13 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 145,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Temur Mahmudov",
-    "clientRole": "Sanoat Ishlab Chiqarish Direktori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Avtomobil Yig'uv Zavodi va Rasmiy Dilerlik Majmuasi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **CarManufacturer**, **AssemblyLine**, **DealershipShowroom** va **VehicleOrder** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "CarManufacturer Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -6875,43 +6067,39 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "manufacturerName",
+              "name": "corpName",
               "isPK": false
             },
             {
-              "name": "hqCountry",
-              "isPK": false
-            },
-            {
-              "name": "isoQualityCert",
+              "name": "isoCert",
               "isPK": false
             }
           ]
         },
         {
           "name": "AssemblyLine",
-          "pk": "conveyorId",
+          "pk": "lineId",
           "attributes": [
             {
-              "name": "conveyorId",
+              "name": "lineId",
               "isPK": true
             },
             {
-              "name": "productionLineModel",
+              "name": "lineModel",
               "isPK": false
             },
             {
-              "name": "unitsPerDayCapacity",
+              "name": "dailyCap",
               "isPK": false
             }
           ]
         },
         {
           "name": "DealershipShowroom",
-          "pk": "dealerChainId",
+          "pk": "dealerId",
           "attributes": [
             {
-              "name": "dealerChainId",
+              "name": "dealerId",
               "isPK": true
             },
             {
@@ -6919,29 +6107,25 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "serviceBayQuota",
+              "name": "quota",
               "isPK": false
             }
           ]
         },
         {
           "name": "VehicleOrder",
-          "pk": "contractNumber",
+          "pk": "contractNo",
           "attributes": [
             {
-              "name": "contractNumber",
+              "name": "contractNo",
               "isPK": true
             },
             {
-              "name": "customerPinfl",
+              "name": "customerPin",
               "isPK": false
             },
             {
-              "name": "allocatedVin",
-              "isPK": false
-            },
-            {
-              "name": "paymentStatus",
+              "name": "vin",
               "isPK": false
             }
           ]
@@ -6953,21 +6137,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "AssemblyLine",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "AssemblyLine",
           "entity2": "DealershipShowroom",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "DealershipShowroom",
           "entity2": "VehicleOrder",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -6982,43 +6166,39 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "manufacturerName",
+              "name": "corpName",
               "isPK": false
             },
             {
-              "name": "hqCountry",
-              "isPK": false
-            },
-            {
-              "name": "isoQualityCert",
+              "name": "isoCert",
               "isPK": false
             }
           ]
         },
         {
           "name": "AssemblyLine",
-          "pk": "conveyorId",
+          "pk": "lineId",
           "attributes": [
             {
-              "name": "conveyorId",
+              "name": "lineId",
               "isPK": true
             },
             {
-              "name": "productionLineModel",
+              "name": "lineModel",
               "isPK": false
             },
             {
-              "name": "unitsPerDayCapacity",
+              "name": "dailyCap",
               "isPK": false
             }
           ]
         },
         {
           "name": "DealershipShowroom",
-          "pk": "dealerChainId",
+          "pk": "dealerId",
           "attributes": [
             {
-              "name": "dealerChainId",
+              "name": "dealerId",
               "isPK": true
             },
             {
@@ -7026,29 +6206,25 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "serviceBayQuota",
+              "name": "quota",
               "isPK": false
             }
           ]
         },
         {
           "name": "VehicleOrder",
-          "pk": "contractNumber",
+          "pk": "contractNo",
           "attributes": [
             {
-              "name": "contractNumber",
+              "name": "contractNo",
               "isPK": true
             },
             {
-              "name": "customerPinfl",
+              "name": "customerPin",
               "isPK": false
             },
             {
-              "name": "allocatedVin",
-              "isPK": false
-            },
-            {
-              "name": "paymentStatus",
+              "name": "vin",
               "isPK": false
             }
           ]
@@ -7060,21 +6236,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "AssemblyLine",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "AssemblyLine",
           "entity2": "DealershipShowroom",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "DealershipShowroom",
           "entity2": "VehicleOrder",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -7082,13 +6258,13 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 146,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Farhod Karimov",
-    "clientRole": "SOC Bosh Muhandisi",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Davlat Kiberxavfsizlik Operatsion Markazi (SOC) (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **SOCNetwork**, **SecurityThreat**, **IncidentTicket** va **MitigationAction** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "SOCNetwork Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -7100,11 +6276,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "networkSegmentName",
+              "name": "segmentName",
               "isPK": false
             },
             {
-              "name": "firewallApplianceIp",
+              "name": "firewallIp",
               "isPK": false
             }
           ]
@@ -7118,11 +6294,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "cvssSeverityScore",
+              "name": "cvssScore",
               "isPK": false
             },
             {
-              "name": "threatVectorCategory",
+              "name": "category",
               "isPK": false
             }
           ]
@@ -7136,29 +6312,29 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "detectedTimestamp",
+              "name": "detectedAt",
               "isPK": false
             },
             {
-              "name": "containmentState",
+              "name": "state",
               "isPK": false
             }
           ]
         },
         {
           "name": "MitigationAction",
-          "pk": "playbookActionId",
+          "pk": "actionId",
           "attributes": [
             {
-              "name": "playbookActionId",
+              "name": "actionId",
               "isPK": true
             },
             {
-              "name": "analystBadgeId",
+              "name": "analystBadge",
               "isPK": false
             },
             {
-              "name": "patchAppliedTimestamp",
+              "name": "patchedAt",
               "isPK": false
             }
           ]
@@ -7170,21 +6346,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "SecurityThreat",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "SecurityThreat",
           "entity2": "IncidentTicket",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "IncidentTicket",
           "entity2": "MitigationAction",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -7199,11 +6375,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "networkSegmentName",
+              "name": "segmentName",
               "isPK": false
             },
             {
-              "name": "firewallApplianceIp",
+              "name": "firewallIp",
               "isPK": false
             }
           ]
@@ -7217,11 +6393,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "cvssSeverityScore",
+              "name": "cvssScore",
               "isPK": false
             },
             {
-              "name": "threatVectorCategory",
+              "name": "category",
               "isPK": false
             }
           ]
@@ -7235,29 +6411,29 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "detectedTimestamp",
+              "name": "detectedAt",
               "isPK": false
             },
             {
-              "name": "containmentState",
+              "name": "state",
               "isPK": false
             }
           ]
         },
         {
           "name": "MitigationAction",
-          "pk": "playbookActionId",
+          "pk": "actionId",
           "attributes": [
             {
-              "name": "playbookActionId",
+              "name": "actionId",
               "isPK": true
             },
             {
-              "name": "analystBadgeId",
+              "name": "analystBadge",
               "isPK": false
             },
             {
-              "name": "patchAppliedTimestamp",
+              "name": "patchedAt",
               "isPK": false
             }
           ]
@@ -7269,21 +6445,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "SecurityThreat",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "SecurityThreat",
           "entity2": "IncidentTicket",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "IncidentTicket",
           "entity2": "MitigationAction",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -7291,33 +6467,29 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 147,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Nargiza Jo'rayeva",
-    "clientRole": "Ta'minot Zanjiri Arxitektori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Markaziy Savdo Gipermarketlar Tarmog'i va Logistika Hubi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **RetailChainStore**, **CentralDepot**, **SupplierVendor** va **ProductInventory** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "RetailStore Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "RetailChainStore",
-          "pk": "storeUnitId",
+          "name": "RetailStore",
+          "pk": "storeId",
           "attributes": [
             {
-              "name": "storeUnitId",
+              "name": "storeId",
               "isPK": true
             },
             {
-              "name": "storeBrandName",
+              "name": "storeName",
               "isPK": false
             },
             {
               "name": "cityAddress",
-              "isPK": false
-            },
-            {
-              "name": "checkoutCount",
               "isPK": false
             }
           ]
@@ -7331,29 +6503,29 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "refrigeratedCapacityTons",
+              "name": "volumeTons",
               "isPK": false
             },
             {
-              "name": "palletSlots",
+              "name": "slots",
               "isPK": false
             }
           ]
         },
         {
           "name": "SupplierVendor",
-          "pk": "vendorTin",
+          "pk": "vendorInn",
           "attributes": [
             {
-              "name": "vendorTin",
+              "name": "vendorInn",
               "isPK": true
             },
             {
-              "name": "supplierCompanyName",
+              "name": "vendorName",
               "isPK": false
             },
             {
-              "name": "slaPerformanceIndex",
+              "name": "slaScore",
               "isPK": false
             }
           ]
@@ -7367,11 +6539,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "onHandQuantity",
+              "name": "quantityOnHand",
               "isPK": false
             },
             {
-              "name": "reorderThresholdUnits",
+              "name": "reorderLevel",
               "isPK": false
             }
           ]
@@ -7379,48 +6551,44 @@ _scope.QUESTIONS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "RetailChainStore",
+          "entity1": "RetailStore",
           "entity2": "CentralDepot",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "CentralDepot",
           "entity2": "SupplierVendor",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "SupplierVendor",
           "entity2": "ProductInventory",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "RetailChainStore",
-          "pk": "storeUnitId",
+          "name": "RetailStore",
+          "pk": "storeId",
           "attributes": [
             {
-              "name": "storeUnitId",
+              "name": "storeId",
               "isPK": true
             },
             {
-              "name": "storeBrandName",
+              "name": "storeName",
               "isPK": false
             },
             {
               "name": "cityAddress",
-              "isPK": false
-            },
-            {
-              "name": "checkoutCount",
               "isPK": false
             }
           ]
@@ -7434,29 +6602,29 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "refrigeratedCapacityTons",
+              "name": "volumeTons",
               "isPK": false
             },
             {
-              "name": "palletSlots",
+              "name": "slots",
               "isPK": false
             }
           ]
         },
         {
           "name": "SupplierVendor",
-          "pk": "vendorTin",
+          "pk": "vendorInn",
           "attributes": [
             {
-              "name": "vendorTin",
+              "name": "vendorInn",
               "isPK": true
             },
             {
-              "name": "supplierCompanyName",
+              "name": "vendorName",
               "isPK": false
             },
             {
-              "name": "slaPerformanceIndex",
+              "name": "slaScore",
               "isPK": false
             }
           ]
@@ -7470,11 +6638,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "onHandQuantity",
+              "name": "quantityOnHand",
               "isPK": false
             },
             {
-              "name": "reorderThresholdUnits",
+              "name": "reorderLevel",
               "isPK": false
             }
           ]
@@ -7482,25 +6650,25 @@ _scope.QUESTIONS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "RetailChainStore",
+          "entity1": "RetailStore",
           "entity2": "CentralDepot",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "CentralDepot",
           "entity2": "SupplierVendor",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "SupplierVendor",
           "entity2": "ProductInventory",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -7508,13 +6676,13 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 148,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "G'ayrat Vohidov",
-    "clientRole": "Bosh Texnologik Dispetcher",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Neft-Gaz Kimyo Majmuasi va Magistral Quvurlar Tizimi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **RefineryPlant**, **StorageTanker**, **PipelineSegment** va **CrudeOilShipment** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "RefineryPlant Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -7530,7 +6698,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "crudeCapacityBarrelsPerDay",
+              "name": "capacityBarrels",
               "isPK": false
             }
           ]
@@ -7544,43 +6712,43 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "tankGrossVolumeM3",
+              "name": "grossVolumeM3",
               "isPK": false
             },
             {
-              "name": "storedHydrocarbonGrade",
+              "name": "grade",
               "isPK": false
             }
           ]
         },
         {
           "name": "PipelineSegment",
-          "pk": "pipelineSegmentCode",
+          "pk": "segmentCode",
           "attributes": [
             {
-              "name": "pipelineSegmentCode",
+              "name": "segmentCode",
               "isPK": true
             },
             {
-              "name": "pipelineDiameterMm",
+              "name": "diameterMm",
               "isPK": false
             },
             {
-              "name": "operatingBarPressure",
+              "name": "pressureBar",
               "isPK": false
             }
           ]
         },
         {
           "name": "CrudeOilShipment",
-          "pk": "consignmentBillOfLading",
+          "pk": "consignmentNo",
           "attributes": [
             {
-              "name": "consignmentBillOfLading",
+              "name": "consignmentNo",
               "isPK": true
             },
             {
-              "name": "batchSpecificGravity",
+              "name": "gravitySpec",
               "isPK": false
             },
             {
@@ -7596,21 +6764,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "StorageTanker",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "StorageTanker",
           "entity2": "PipelineSegment",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "PipelineSegment",
           "entity2": "CrudeOilShipment",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -7629,7 +6797,7 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "crudeCapacityBarrelsPerDay",
+              "name": "capacityBarrels",
               "isPK": false
             }
           ]
@@ -7643,43 +6811,43 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "tankGrossVolumeM3",
+              "name": "grossVolumeM3",
               "isPK": false
             },
             {
-              "name": "storedHydrocarbonGrade",
+              "name": "grade",
               "isPK": false
             }
           ]
         },
         {
           "name": "PipelineSegment",
-          "pk": "pipelineSegmentCode",
+          "pk": "segmentCode",
           "attributes": [
             {
-              "name": "pipelineSegmentCode",
+              "name": "segmentCode",
               "isPK": true
             },
             {
-              "name": "pipelineDiameterMm",
+              "name": "diameterMm",
               "isPK": false
             },
             {
-              "name": "operatingBarPressure",
+              "name": "pressureBar",
               "isPK": false
             }
           ]
         },
         {
           "name": "CrudeOilShipment",
-          "pk": "consignmentBillOfLading",
+          "pk": "consignmentNo",
           "attributes": [
             {
-              "name": "consignmentBillOfLading",
+              "name": "consignmentNo",
               "isPK": true
             },
             {
-              "name": "batchSpecificGravity",
+              "name": "gravitySpec",
               "isPK": false
             },
             {
@@ -7695,21 +6863,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "StorageTanker",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "StorageTanker",
           "entity2": "PipelineSegment",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "PipelineSegment",
           "entity2": "CrudeOilShipment",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -7717,13 +6885,13 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 149,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Jamshid Aliyev",
-    "clientRole": "Tarmoq Bosh Arxitektori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "5G Telekommunikatsiya Yadro Tarmog'i va Billing Arxitekturasi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **TelecomCore**, **FiveGBaseStation**, **BillingSubscription** va **DataTrafficSession** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "TelecomCore Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -7735,11 +6903,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "coreRouterModel",
+              "name": "routerModel",
               "isPK": false
             },
             {
-              "name": "opticalCapacityTbps",
+              "name": "capacityTbps",
               "isPK": false
             }
           ]
@@ -7753,11 +6921,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "carrierFrequencyGhz",
+              "name": "freqGhz",
               "isPK": false
             },
             {
-              "name": "massiveMimoSectors",
+              "name": "mimoSectors",
               "isPK": false
             }
           ]
@@ -7771,29 +6939,29 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "activeTariffPlan",
+              "name": "planName",
               "isPK": false
             },
             {
-              "name": "dataBalanceGigabytes",
+              "name": "balanceGb",
               "isPK": false
             }
           ]
         },
         {
           "name": "DataTrafficSession",
-          "pk": "sessionCdrId",
+          "pk": "cdrSessionId",
           "attributes": [
             {
-              "name": "sessionCdrId",
+              "name": "cdrSessionId",
               "isPK": true
             },
             {
-              "name": "connectionTimestamp",
+              "name": "connectedAt",
               "isPK": false
             },
             {
-              "name": "uplinkMegabytesTransferred",
+              "name": "megabytes",
               "isPK": false
             }
           ]
@@ -7805,21 +6973,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "FiveGBaseStation",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "FiveGBaseStation",
           "entity2": "BillingSubscription",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "BillingSubscription",
           "entity2": "DataTrafficSession",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -7834,11 +7002,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "coreRouterModel",
+              "name": "routerModel",
               "isPK": false
             },
             {
-              "name": "opticalCapacityTbps",
+              "name": "capacityTbps",
               "isPK": false
             }
           ]
@@ -7852,11 +7020,11 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "carrierFrequencyGhz",
+              "name": "freqGhz",
               "isPK": false
             },
             {
-              "name": "massiveMimoSectors",
+              "name": "mimoSectors",
               "isPK": false
             }
           ]
@@ -7870,29 +7038,29 @@ _scope.QUESTIONS_101_150 = [
               "isPK": true
             },
             {
-              "name": "activeTariffPlan",
+              "name": "planName",
               "isPK": false
             },
             {
-              "name": "dataBalanceGigabytes",
+              "name": "balanceGb",
               "isPK": false
             }
           ]
         },
         {
           "name": "DataTrafficSession",
-          "pk": "sessionCdrId",
+          "pk": "cdrSessionId",
           "attributes": [
             {
-              "name": "sessionCdrId",
+              "name": "cdrSessionId",
               "isPK": true
             },
             {
-              "name": "connectionTimestamp",
+              "name": "connectedAt",
               "isPK": false
             },
             {
-              "name": "uplinkMegabytesTransferred",
+              "name": "megabytes",
               "isPK": false
             }
           ]
@@ -7904,21 +7072,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "FiveGBaseStation",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "FiveGBaseStation",
           "entity2": "BillingSubscription",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "BillingSubscription",
           "entity2": "DataTrafficSession",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -7926,21 +7094,21 @@ _scope.QUESTIONS_101_150 = [
   {
     "id": 150,
     "sector": 10,
-    "difficulty": "10-Qavat • EER Kengaytirish",
-    "clientName": "Akademik Anvar Qodirov",
-    "clientRole": "Kosmik Missiyalar Bosh Arxitektori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise) • Relational Mapping",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Global Kosmik Parvozlar va Sun'iy Yo'ldosh Boshqaruvi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan korporativ **Spaceport**, **SatelliteOrbiter**, **GroundStation** va **MissionTelemetry** arxitekturasi EER darajasida subklasslar va cheklovlar bilan boyitiladi.\n\nKorxona miqyosidagi to'liq ma'lumotlar modeli biznes talablariga 100% javob berishini tekshiring va tasdiqlang.",
-    "instruction": "Korporativ EER modelining barcha entitiylar va aloqalarini to'liq tekshiruvdan o'tkazing.",
+    "title": "Spaceport Korporativ Arxitekturasi (Relatsion Sxema)",
+    "story": "1-haftadagi yirik korporativ modelni relyatsion sxemaga o'tkazish: har bir jadval o'zining [PK] va Tashqi Kalitlari [FK] orqali to'liq relieshon zanjirni hosil qiladi.",
+    "instruction": "Barcha to'rtta jadvalni relieshon tarzda bog'lang: Tashqi Kalitlarni [FK1] to'g'ri joylashtirib, ota jadvallarga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Spaceport",
-          "pk": "launchComplexId",
+          "pk": "complexId",
           "attributes": [
             {
-              "name": "launchComplexId",
+              "name": "complexId",
               "isPK": true
             },
             {
@@ -7948,21 +7116,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "launchPadCount",
-              "isPK": false
-            },
-            {
-              "name": "geoCoordinates",
+              "name": "padCount",
               "isPK": false
             }
           ]
         },
         {
           "name": "SatelliteOrbiter",
-          "pk": "noradCatalogId",
+          "pk": "noradId",
           "attributes": [
             {
-              "name": "noradCatalogId",
+              "name": "noradId",
               "isPK": true
             },
             {
@@ -7970,51 +7134,43 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "orbitAltitudeKm",
-              "isPK": false
-            },
-            {
-              "name": "payloadSensor",
+              "name": "altitudeKm",
               "isPK": false
             }
           ]
         },
         {
           "name": "GroundStation",
-          "pk": "groundStationCode",
+          "pk": "stationCode",
           "attributes": [
             {
-              "name": "groundStationCode",
+              "name": "stationCode",
               "isPK": true
             },
             {
-              "name": "parabolicDishDiameterMeters",
+              "name": "dishDiameterMeters",
               "isPK": false
             },
             {
-              "name": "uplinkFrequencyGhz",
+              "name": "freqGhz",
               "isPK": false
             }
           ]
         },
         {
           "name": "MissionTelemetry",
-          "pk": "telemetryFrameId",
+          "pk": "telemetryId",
           "attributes": [
             {
-              "name": "telemetryFrameId",
+              "name": "telemetryId",
               "isPK": true
             },
             {
-              "name": "solarPanelVolts",
+              "name": "volts",
               "isPK": false
             },
             {
-              "name": "onboardTempKelvin",
-              "isPK": false
-            },
-            {
-              "name": "downlinkTime",
+              "name": "tempKelvin",
               "isPK": false
             }
           ]
@@ -8026,21 +7182,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "SatelliteOrbiter",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "SatelliteOrbiter",
           "entity2": "GroundStation",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "GroundStation",
           "entity2": "MissionTelemetry",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     },
@@ -8048,10 +7204,10 @@ _scope.QUESTIONS_101_150 = [
       "entities": [
         {
           "name": "Spaceport",
-          "pk": "launchComplexId",
+          "pk": "complexId",
           "attributes": [
             {
-              "name": "launchComplexId",
+              "name": "complexId",
               "isPK": true
             },
             {
@@ -8059,21 +7215,17 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "launchPadCount",
-              "isPK": false
-            },
-            {
-              "name": "geoCoordinates",
+              "name": "padCount",
               "isPK": false
             }
           ]
         },
         {
           "name": "SatelliteOrbiter",
-          "pk": "noradCatalogId",
+          "pk": "noradId",
           "attributes": [
             {
-              "name": "noradCatalogId",
+              "name": "noradId",
               "isPK": true
             },
             {
@@ -8081,51 +7233,43 @@ _scope.QUESTIONS_101_150 = [
               "isPK": false
             },
             {
-              "name": "orbitAltitudeKm",
-              "isPK": false
-            },
-            {
-              "name": "payloadSensor",
+              "name": "altitudeKm",
               "isPK": false
             }
           ]
         },
         {
           "name": "GroundStation",
-          "pk": "groundStationCode",
+          "pk": "stationCode",
           "attributes": [
             {
-              "name": "groundStationCode",
+              "name": "stationCode",
               "isPK": true
             },
             {
-              "name": "parabolicDishDiameterMeters",
+              "name": "dishDiameterMeters",
               "isPK": false
             },
             {
-              "name": "uplinkFrequencyGhz",
+              "name": "freqGhz",
               "isPK": false
             }
           ]
         },
         {
           "name": "MissionTelemetry",
-          "pk": "telemetryFrameId",
+          "pk": "telemetryId",
           "attributes": [
             {
-              "name": "telemetryFrameId",
+              "name": "telemetryId",
               "isPK": true
             },
             {
-              "name": "solarPanelVolts",
+              "name": "volts",
               "isPK": false
             },
             {
-              "name": "onboardTempKelvin",
-              "isPK": false
-            },
-            {
-              "name": "downlinkTime",
+              "name": "tempKelvin",
               "isPK": false
             }
           ]
@@ -8137,21 +7281,21 @@ _scope.QUESTIONS_101_150 = [
           "entity2": "SatelliteOrbiter",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "SatelliteOrbiter",
           "entity2": "GroundStation",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "GroundStation",
           "entity2": "MissionTelemetry",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }

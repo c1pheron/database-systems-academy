@@ -371,7 +371,27 @@
 
     // Load Starter Diagram into EER Canvas (Harmonious continuation of Week 1!)
     if (eerCanvas) {
-      eerCanvas.loadStarterDiagram(q.starterDiagram || q.expectedDiagram);
+      const savedW2 = localStorage.getItem(`DS_W2_DIAGRAM_${qId}`);
+      const savedW1 = localStorage.getItem(`DS_W1_DIAGRAM_${qId}`);
+      let chosenDiagram = q.starterDiagram || q.expectedDiagram;
+
+      if (savedW2) {
+        try {
+          const parsed2 = JSON.parse(savedW2);
+          if (parsed2 && parsed2.entities && parsed2.entities.length > 0) {
+            chosenDiagram = parsed2;
+          }
+        } catch (e) {}
+      } else if (savedW1) {
+        try {
+          const parsed1 = JSON.parse(savedW1);
+          if (parsed1 && parsed1.entities && parsed1.entities.length > 0) {
+            chosenDiagram = parsed1;
+          }
+        } catch (e) {}
+      }
+
+      eerCanvas.loadStarterDiagram(chosenDiagram);
     }
   }
 
@@ -576,6 +596,7 @@
         `;
         elFeedback.style.display = 'block';
 
+        localStorage.setItem(`DS_W2_DIAGRAM_${q.id}`, JSON.stringify(userDiagram));
         if (!STATE.solvedIds.has(q.id)) {
           STATE.solvedIds.add(q.id);
           STATE.score += 150;

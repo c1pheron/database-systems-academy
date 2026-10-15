@@ -3,13 +3,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 1,
     "sector": 1,
-    "difficulty": "1-Qavat • Fuqaro Aviatsiyasi",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Temur Karimov",
-    "clientRole": "Aviatsiya Texnik Direktori",
+    "clientRole": "Aviapark Texnik Direktori",
     "clientAvatar": "mentor",
-    "title": "Aviakompaniya Aviatsiya Parki",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Fuqaro Aviatsiyasi sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Aircraft** ro'yxatga olinadi. Har bir **Aircraft** o'zining takrorlanmas kodi `tailNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `model`, `manufacturer`, `capacity`. Ushbu atributlarning barchasi bevosita **Aircraft** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'Aircraft' kuchli entitiysini yarating, uning 'tailNo' birlamchi kalitini {PK} belgilang va 'model', 'manufacturer', 'capacity' atributlarini qo'shing.",
+    "title": "Aviakompaniya Havo Kemalarini Hisobga Olish",
+    "story": "Milliy aviakompaniya o'zining yo'lovchi va yuk tashuvchi samolyotlari parkini yagona raqamli reyestrda qayd etishni boshlamoqda. Texnik xizmat ko'rsatish va reyslarni rejalashtirish bo'limlari har bir samolyotning aniq texnik parametrlarini bilishi shart.\n\nTizimda asosiy mustaqil entitiy sifatida samolyotlar (**Aircraft**) ro'yxatga olinadi. Har bir samolyot xalqaro fuqaro aviatsiyasi qoidalariga muvofiq quyruq raqami (`tailNo`) orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nShuningdek, havo kemasining modeli (`model`), ishlab chiqaruvchi zavodi (`manufacturer`) hamda yo'lovchi o'rindiqlari sig'imi (`capacity`) atributlari saqlanadi.",
+    "instruction": "'Aircraft' kuchli entitiysini yarating, uning 'tailNo' birlamchi kalitini {PK} belgilang va qolgan atributlarini to'g'ri joylashtiring.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -45,13 +45,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 2,
     "sector": 1,
-    "difficulty": "1-Qavat • Tibbiyot & Sog'liqni Saqlash",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Dr. Aziza Rahimova",
     "clientRole": "Bosh Shifokor Muovini",
     "clientAvatar": "mentor",
-    "title": "Markaziy Shifoxona Bemorlar Reyestri",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Tibbiyot & Sog'liqni Saqlash sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Patient** ro'yxatga olinadi. Har bir **Patient** o'zining takrorlanmas kodi `patientId` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `fullName`, `dob`, `bloodType`, `phone`. Ushbu atributlarning barchasi bevosita **Patient** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'Patient' kuchli entitiysini yarating, uning 'patientId' birlamchi kalitini {PK} belgilang va 'fullName', 'dob', 'bloodType', 'phone' atributlarini qo'shing.",
+    "title": "Kardiologiya Markazi Bemorlar Elektron Kartasi",
+    "story": "Respublika kardiologiya markazida shoshilinch va rejali davolanuvchi bemorlarning elektron tibbiy kartasini yuritish joriy etilmoqda. Shifokorlar har bir bemorning shaxsiy ma'lumotlari va qon guruhini tezkorlik bilan aniqlashlari zarur.\n\nAxborot tizimining markaziy ob'yekti — Bemor (**Patient**) entitiysidir. Har bir murojaat qilgan fuqaroga shifoxona qabulxonasida noyob raqamli karta kodi (`patientId`) biriktiriladi va bu maydon Birlamchi Kalit {PK} vazifasini o'taydi.\n\nBemor to'g'risida uning to'liq ismi-sharifi (`fullName`), tug'ilgan sanasi (`dob`), tibbiy muolajalar uchun qon guruhi (`bloodType`) hamda shaxsiy telefoni (`phone`) kiritiladi.",
+    "instruction": "'Patient' entitiysini polotnoda yarating, 'patientId' maydonini {PK} qilib belgilang va bemor atributlarini to'ldiring.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -91,13 +91,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 3,
     "sector": 1,
-    "difficulty": "1-Qavat • Oliy Ta'lim",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Bobur Mansurov",
-    "clientRole": "Akademik Registrator",
+    "clientRole": "Bosh Registrator",
     "clientAvatar": "mentor",
-    "title": "Universitet Talabalar Akademik Reyestri",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Oliy Ta'lim sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Student** ro'yxatga olinadi. Har bir **Student** o'zining takrorlanmas kodi `studentId` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `firstName`, `lastName`, `email`, `gpa`. Ushbu atributlarning barchasi bevosita **Student** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'Student' kuchli entitiysini yarating, uning 'studentId' birlamchi kalitini {PK} belgilang va 'firstName', 'lastName', 'email', 'gpa' atributlarini qo'shing.",
+    "title": "Xalqaro Universitet Talabalar Akademik Reyestri",
+    "story": "Universitetda talabalarning o'quv natijalari, GPA ko'rsatkichlari va stipendiya hisob-kitoblarini avtomatlashtirish rejalashtirilgan. Dekanat barcha qabul qilingan talabalar haqida to'liq hisobotga ega bo'lishi lozim.\n\nTizimda Talaba (**Student**) mustaqil kuchli entitiy hisoblanadi. Har bir talabaga rasmiy talabalik ID raqami (`studentId`) taqdim etiladi va bu Birlamchi Kalit {PK} bo'ladi.\n\nTalabaning shaxsiy ma'lumotlari sifatida uning ismi (`firstName`), familiyasi (`lastName`), korporativ elektron pochtasi (`email`) va umumiy o'rtacha o'zlashtirish bali (`gpa`) qayd etiladi.",
+    "instruction": "'Student' entitiysini hosil qiling, 'studentId' ni {PK} deb belgilang va talabaning shaxsiy atributlarini qo'shing.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -137,13 +137,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 4,
     "sector": 1,
-    "difficulty": "1-Qavat • Kutubxona & Fond",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Gulnora Karimova",
     "clientRole": "Bosh Bibliograf",
     "clientAvatar": "mentor",
-    "title": "Davlat Ilmiy Kutubxonasi Kitob Fondi",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Kutubxona & Fond sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Book** ro'yxatga olinadi. Har bir **Book** o'zining takrorlanmas kodi `isbn` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `title`, `author`, `publishYear`, `genre`. Ushbu atributlarning barchasi bevosita **Book** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'Book' kuchli entitiysini yarating, uning 'isbn' birlamchi kalitini {PK} belgilang va 'title', 'author', 'publishYear', 'genre' atributlarini qo'shing.",
+    "title": "Davlat Ilmiy Kutubxonasi Kitoblar Fondi",
+    "story": "Ilmiy axborot kutubxona markazida kitoblar fondini elektron kataloglashtirish ishlari olib borilmoqda. Kitobxonlar nashrlarni tez va aniq topishlari uchun yagona inventarizatsiya talab etiladi.\n\nKatalogda har bir nashr Kitob (**Book**) entitiysi orqali ifodalanadi. Nashriyot xalqaro standartiga ko'ra kitoblarga noyob 13 xonali ISBN raqami (`isbn`) beriladi va bu Birlamchi Kalit {PK} bo'lib xizmat qiladi.\n\nShuningdek, asarning nomi (`title`), asosiy muallifi (`author`), bosilgan yili (`publishYear`) va adabiy yo'nalishi (`genre`) saqlanadi.",
+    "instruction": "'Book' entitiysini yarating, 'isbn' ga {PK} maqomini bering va uning bibliografik atributlarini kiriting.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -183,13 +183,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 5,
     "sector": 1,
-    "difficulty": "1-Qavat • Avtomobilsozlik & Dilerlik",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Rustam Aliyev",
-    "clientRole": "Avtosalon Savdo Direktori",
+    "clientRole": "Savdo Direktori",
     "clientAvatar": "mentor",
-    "title": "Avtosalon Transport Vositalari Reyestri",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Avtomobilsozlik & Dilerlik sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Vehicle** ro'yxatga olinadi. Har bir **Vehicle** o'zining takrorlanmas kodi `vin` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `make`, `model`, `prodYear`, `price`. Ushbu atributlarning barchasi bevosita **Vehicle** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'Vehicle' kuchli entitiysini yarating, uning 'vin' birlamchi kalitini {PK} belgilang va 'make', 'model', 'prodYear', 'price' atributlarini qo'shing.",
+    "title": "Avtosalon Transport Vositalari Katalogi",
+    "story": "Rasmiy avtomobil dileri sotuvga keltirilgan yangi transport vositalarini hisobga oluvchi yagona dilerlik bazasini shakllantirmoqda. Har bir avtomobilning ishlab chiqarilgan yili va narxi shaffof bo'lishi kerak.\n\nTizimda avtomobillar **Vehicle** entitiysi hisoblanadi. Zavod tomonidan kuzovga urilgan 17 belgili noyob VIN-kod (`vin`) Birlamchi Kalit {PK} vazifasini o'taydi.\n\nAvtomobilning brend markasi (`make`), modeli (`model`), konveyerdan chiqqan yili (`prodYear`) hamda sotuv narxi (`price`) saqlanadi.",
+    "instruction": "'Vehicle' entitiysini tuzing, 'vin' ni {PK} deb belgilang va avtomobil texnik parametrlarini joylashtiring.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -229,13 +229,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 6,
     "sector": 1,
-    "difficulty": "1-Qavat • Bank & Moliya",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Jamshid Qodirov",
     "clientRole": "Bosh Buxgalter",
     "clientAvatar": "mentor",
-    "title": "Tijorat Banki Depozit va Hisoblar Tizimi",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Bank & Moliya sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **BankAccount** ro'yxatga olinadi. Har bir **BankAccount** o'zining takrorlanmas kodi `accountNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `balance`, `currency`, `openDate`, `branchCode`. Ushbu atributlarning barchasi bevosita **BankAccount** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'BankAccount' kuchli entitiysini yarating, uning 'accountNo' birlamchi kalitini {PK} belgilang va 'balance', 'currency', 'openDate', 'branchCode' atributlarini qo'shing.",
+    "title": "Tijorat Banki Mijozlar Hisob Raqamlari",
+    "story": "Tijorat banki depozit mablag'larini xavfsiz saqlash va tranzaksiyalarni boshqarish maqsadida hisob raqamlar modulini modernizatsiya qilmoqda.\n\nTizimning asosiy moliyaviy birligi — Bank hisob raqami (**BankAccount**) entitiysidir. Har bir hisob 20 xonali xalqaro formatdagi noyob raqam (`accountNo`) bilan ochiladi va bu Birlamchi Kalit {PK} bo'ladi.\n\nHisobning joriy qoldig'i (`balance`), valyuta turi (`currency`), hisob ochilgan sana (`openDate`) hamda xizmat ko'rsatuvchi filial kodi (`branchCode`) qayd etiladi.",
+    "instruction": "'BankAccount' entitiysini yarating, 'accountNo' ni {PK} qilib, moliyaviy atributlarni kiriting.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -275,13 +275,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 7,
     "sector": 1,
-    "difficulty": "1-Qavat • Mehmonxona & Turizm",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Malika Yusupova",
-    "clientRole": "Mehmonxona Boshqaruvchisi",
+    "clientRole": "Boshqaruvchi",
     "clientAvatar": "mentor",
-    "title": "Besh Yulduzli Mehmonxona Xonalar Fondi",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Mehmonxona & Turizm sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **HotelRoom** ro'yxatga olinadi. Har bir **HotelRoom** o'zining takrorlanmas kodi `roomNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `roomType`, `pricePerNight`, `floorNo`, `capacity`. Ushbu atributlarning barchasi bevosita **HotelRoom** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'HotelRoom' kuchli entitiysini yarating, uning 'roomNo' birlamchi kalitini {PK} belgilang va 'roomType', 'pricePerNight', 'floorNo', 'capacity' atributlarini qo'shing.",
+    "title": "Mehmonxona Xonalar Fondi Reyestri",
+    "story": "Besh yulduzli mehmonxona majmuasi xonalarni onlayn bron qilish va mehmonlarni joylashtirishni to'liq avtomatlashtirmoqda.\n\nBino ichidagi har bir turar joy **HotelRoom** entitiysi hisoblanadi. Mehmonxona eshigidagi unikal xona raqami (`roomNo`) Birlamchi Kalit {PK} hisoblanadi.\n\nXonaning toifasi (`roomType`), kunlik ijara narxi (`pricePerNight`), nechanchi qavatda joylashgani (`floorNo`) hamda sig'imi (`capacity`) kiritiladi.",
+    "instruction": "'HotelRoom' entitiysini chizing, 'roomNo' ga {PK} maqomini bering va narx hamda sig'im xususiyatlarini qo'shing.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -321,13 +321,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 8,
     "sector": 1,
-    "difficulty": "1-Qavat • Restoran & Katering",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Otabek Sodiqov",
     "clientRole": "Bosh Oshpaz",
     "clientAvatar": "mentor",
-    "title": "Premium Restoran Taomnomasi",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Restoran & Katering sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **MenuItem** ro'yxatga olinadi. Har bir **MenuItem** o'zining takrorlanmas kodi `itemId` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `name`, `category`, `price`, `calories`. Ushbu atributlarning barchasi bevosita **MenuItem** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'MenuItem' kuchli entitiysini yarating, uning 'itemId' birlamchi kalitini {PK} belgilang va 'name', 'category', 'price', 'calories' atributlarini qo'shing.",
+    "title": "Premium Restoran Mualliflik Taomnomasi",
+    "story": "Zamonaviy restoran mijozlar uchun elektron planshet menyu va oshxona texnologik xaritalarini joriy qilmoqda. Har bir taomning narxi va kaloriyasi aniq bo'lishi zarur.\n\nMenyudagi har bir porsiya **MenuItem** entitiysi sifatida saqlanadi. Oshxona texnologik kartasidagi noyob taom kodi (`itemId`) Birlamchi Kalit {PK} bo'ladi.\n\nTaomning nomi (`name`), menyu bo'limi (`category`), sotuv bahosi (`price`) hamda parhez kaloriyasi (`calories`) qayd etiladi.",
+    "instruction": "'MenuItem' entitiysini tuzing, 'itemId' maydonini {PK} qiling va taom parametrlarini to'ldiring.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -367,13 +367,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 9,
     "sector": 1,
-    "difficulty": "1-Qavat • IT & Dasturiy Ta'minot",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Farhod Ergashev",
     "clientRole": "Texnik Direktor (CTO)",
     "clientAvatar": "mentor",
     "title": "IT Kompaniyasi Muhandislik Shtati",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. IT & Dasturiy Ta'minot sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Developer** ro'yxatga olinadi. Har bir **Developer** o'zining takrorlanmas kodi `devId` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `fullName`, `role`, `techStack`, `salary`. Ushbu atributlarning barchasi bevosita **Developer** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'Developer' kuchli entitiysini yarating, uning 'devId' birlamchi kalitini {PK} belgilang va 'fullName', 'role', 'techStack', 'salary' atributlarini qo'shing.",
+    "story": "Dasturiy ta'minot ishlab chiquvchi IT kompaniyasi dasturchilar va muhandislarning loyihalarga taqsimlanishini yagona reyestrda saqlamoqda.\n\nTizimda Dasturchi (**Developer**) mustaqil kuchli entitiy hisoblanadi. Kadrlar bo'limi tomonidan berilgan ichki xodim kodi (`devId`) Birlamchi Kalit {PK} hisoblanadi.\n\nXodimning to'liq ismi (`fullName`), egallab turgan lavozimi (`role`), asosiy dasturlash texnologiyalari (`techStack`) va maoshi (`salary`) saqlanadi.",
+    "instruction": "'Developer' entitiysini yarating, 'devId' ga {PK} belgisini qo'ying va uning professional ma'lumotlarini to'ldiring.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -413,13 +413,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 10,
     "sector": 1,
-    "difficulty": "1-Qavat • E-Commerce & Savdo",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Shahnoza Karimova",
-    "clientRole": "Mahsulot Bosh Menejeri",
+    "clientRole": "Katalog Menejeri",
     "clientAvatar": "mentor",
-    "title": "Onlayn Gipermarket Tovar Katalogi",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. E-Commerce & Savdo sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Product** ro'yxatga olinadi. Har bir **Product** o'zining takrorlanmas kodi `sku` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `title`, `price`, `stockQty`, `weightKg`. Ushbu atributlarning barchasi bevosita **Product** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'Product' kuchli entitiysini yarating, uning 'sku' birlamchi kalitini {PK} belgilang va 'title', 'price', 'stockQty', 'weightKg' atributlarini qo'shing.",
+    "title": "Onlayn Gipermarket Tovar Artikullari",
+    "story": "Yirik onlayn marketpleys ombordagi barcha tovarlarni hisobga olish va kuryerlik yetkazib berish tizimi bilan bog'lash uchun katalog bazasini qurmoqda.\n\nKatalogdagi mahsulot **Product** entitiysi orqali ifodalanadi. Xalqaro logistika qoidasiga ko'ra har bir tovar turiga berilgan SKU artikul kodi (`sku`) Birlamchi Kalit {PK} bo'ladi.\n\nMahsulotning nomi (`title`), chakana narxi (`price`), ombordagi mavjud soni (`stockQty`) va yuk og'irligi (`weightKg`) yoziladi.",
+    "instruction": "'Product' entitiysini chizing, 'sku' ga {PK} maqomini bering va uning ombor atributlarini kiriting.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -459,13 +459,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 11,
     "sector": 1,
-    "difficulty": "1-Qavat • Kino & Ko'ngilochar",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Akmal Shokirov",
     "clientRole": "Kinoprokat Boshqaruvchisi",
     "clientAvatar": "mentor",
     "title": "Kinoteatrlar Tarmog'i Filmlar Jadvali",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Kino & Ko'ngilochar sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Movie** ro'yxatga olinadi. Har bir **Movie** o'zining takrorlanmas kodi `movieId` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `title`, `director`, `durationMin`, `ageRating`. Ushbu atributlarning barchasi bevosita **Movie** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'Movie' kuchli entitiysini yarating, uning 'movieId' birlamchi kalitini {PK} belgilang va 'title', 'director', 'durationMin', 'ageRating' atributlarini qo'shing.",
+    "story": "Raqamli kinoteatrlar tarmog'i zallarda namoyish qilinayotgan filmlarni seanslarga taqsimlash uchun yagona kino asarlari bazasini shakllantirmoqda.\n\nTizimda film **Movie** entitiysi hisoblanadi. Filmning davlat prokat guvohnomasi raqami (`movieId`) Birlamchi Kalit {PK} sifatida qabul qilingan.\n\nFilmning rasmiy nomi (`title`), bosh rejissori (`director`), davomiyligi daqiqalarda (`durationMin`) hamda tomoshabinlar yosh chegarasi (`ageRating`) saqlanadi.",
+    "instruction": "'Movie' entitiysini polotnoga qo'shing, 'movieId' maydonini {PK} qiling va film xususiyatlarini to'ldiring.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -505,13 +505,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 12,
     "sector": 1,
-    "difficulty": "1-Qavat • Farmatsevtika & Dorixona",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Umida Zokirova",
     "clientRole": "Bosh Provisor",
     "clientAvatar": "mentor",
     "title": "Markaziy Dorixona Dori Vositalari Inventari",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Farmatsevtika & Dorixona sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **Medicine** ro'yxatga olinadi. Har bir **Medicine** o'zining takrorlanmas kodi `barcode` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `name`, `dosageMg`, `manufacturer`, `expDate`. Ushbu atributlarning barchasi bevosita **Medicine** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'Medicine' kuchli entitiysini yarating, uning 'barcode' birlamchi kalitini {PK} belgilang va 'name', 'dosageMg', 'manufacturer', 'expDate' atributlarini qo'shing.",
+    "story": "Yirik dorixonalar tarmog'ida dori vositalarining saqlash muddati va qonuniy sertifikatlarini qat'iy nazorat qilish tizimi ishlab chiqilmoqda.\n\nTizimning asosiy ob'yekti — Dori vositasi (**Medicine**) entitiysidir. Dori qutisiga bosilgan xalqaro shtrix-kod raqami (`barcode`) Birlamchi Kalit {PK} hisoblanadi.\n\nDori vositasining savdo nomi (`name`), faol modda dozasi milligrammda (`dosageMg`), ishlab chiqaruvchi farmatsevtika zavodi (`manufacturer`) va yaroqlilik muddati (`expDate`) saqlanadi.",
+    "instruction": "'Medicine' entitiysini tuzing, 'barcode' ni {PK} deb belgilang va dori parametrlarini kiriting.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -551,13 +551,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 13,
     "sector": 1,
-    "difficulty": "1-Qavat • Logistika & Yuk Tashish",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Sanjar Normatov",
-    "clientRole": "Logistika Floti Rahbari",
+    "clientRole": "Logistika Floti Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Trans-Kontinental Yuk Tashish Avtoparki",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Logistika & Yuk Tashish sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **CargoTruck** ro'yxatga olinadi. Har bir **CargoTruck** o'zining takrorlanmas kodi `plateNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `capacityTons`, `fuelType`, `mileageKm`, `status`. Ushbu atributlarning barchasi bevosita **CargoTruck** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'CargoTruck' kuchli entitiysini yarating, uning 'plateNo' birlamchi kalitini {PK} belgilang va 'capacityTons', 'fuelType', 'mileageKm', 'status' atributlarini qo'shing.",
+    "title": "Trans-Kontinental Yuk Mashinalari Avtoparki",
+    "story": "Xalqaro tranzit yo'laklarida yuk tashiydigan korxona o'zining og'ir yuk tyagachlarini dispetcherlik nazoratiga olmoqda.\n\nTizimda har bir yuk mashinasi **CargoTruck** entitiysi orqali aks ettiriladi. Davlat avtomobil inspeksiyasi tomonidan berilgan davlat raqam belgisi (`plateNo`) Birlamchi Kalit {PK} bo'ladi.\n\nMashinaning ruxsat etilgan to'liq yuk ko'tarish quvvati (`capacityTons`), yoqilg'i turi (`fuelType`), bosib o'tgan masofasi (`mileageKm`) va texnik holati (`status`) saqlanadi.",
+    "instruction": "'CargoTruck' entitiysini polotnoda yarating, 'plateNo' ga {PK} bering va uning yuk ko'rsatkichlarini kiriting.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -597,13 +597,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 14,
     "sector": 1,
-    "difficulty": "1-Qavat • Sport & Fitnes",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Nilufar Rahimova",
-    "clientRole": "Mijozlar Xizmati Rahbari",
+    "clientRole": "Mijozlar Xizmati Boshlig'i",
     "clientAvatar": "mentor",
     "title": "Premium Fitnes Klub A'zolari Reyestri",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Sport & Fitnes sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **ClubMember** ro'yxatga olinadi. Har bir **ClubMember** o'zining takrorlanmas kodi `memberCardNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `fullName`, `membershipType`, `expiryDate`, `phone`. Ushbu atributlarning barchasi bevosita **ClubMember** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'ClubMember' kuchli entitiysini yarating, uning 'memberCardNo' birlamchi kalitini {PK} belgilang va 'fullName', 'membershipType', 'expiryDate', 'phone' atributlarini qo'shing.",
+    "story": "Zamonaviy sog'lomlashtirish va fitnes klubi a'zolik kartalari hisobini yuritish hamda turniketlardan o'tishni boshqarish uchun a'zolar bazasini yaratmoqda.\n\nTizimning markaziy entitiysi — Klub a'zosi (**ClubMember**) hisoblanadi. Mijozga klubga a'zo bo'lganda topshiriladigan RFID plastik karta raqami (`memberCardNo`) Birlamchi Kalit {PK} hisoblanadi.\n\nA'zoning to'liq ismi (`fullName`), a'zolik tarifi (`membershipType`), shartnoma tugash sanasi (`expiryDate`) hamda telefoni (`phone`) kiritiladi.",
+    "instruction": "'ClubMember' entitiysini yarating, 'memberCardNo' ni {PK} qiling va a'zolik atributlarini to'ldiring.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -643,13 +643,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 15,
     "sector": 1,
-    "difficulty": "1-Qavat • Yashil Energetika",
+    "difficulty": "1-Qavat • Boshlang'ich",
     "clientName": "Davron Karimov",
-    "clientRole": "Bosh Energetik Muhandis",
+    "clientRole": "Bosh Energetik",
     "clientAvatar": "mentor",
     "title": "Quyosh Fotoelektr Stansiyasi Invertorlari",
-    "story": "Tashkilot o'z faoliyatini rivojlantirish va ma'lumotlarni tartibga solish maqsadida yagona markazlashgan axborot tizimining ma'lumotlar bazasini konseptual darajada loyihalashni talab etmoqda. Yashil Energetika sohasida faoliyat yurituvchi muassasa uchun tizimning mustahkam poydevori muhim o'rin tutadi.\n\nTizimda asosiy mustaqil kuchli entitiy sifatida **SolarInverter** ro'yxatga olinadi. Har bir **SolarInverter** o'zining takrorlanmas kodi `serialNo` orqali bir qiymatli identifikatsiyalanadi va bu uning Birlamchi Kaliti {PK} hisoblanadi.\n\nBundan tashqari, uning quyidagi muhim biznes xususiyatlari to'liq qayd etiladi: `peakPowerKw`, `voltageInput`, `installDate`, `efficiency`. Ushbu atributlarning barchasi bevosita **SolarInverter** ga tegishli bo'lib, uning holatini tavsiflaydi.",
-    "instruction": "Polotnoda 'SolarInverter' kuchli entitiysini yarating, uning 'serialNo' birlamchi kalitini {PK} belgilang va 'peakPowerKw', 'voltageInput', 'installDate', 'efficiency' atributlarini qo'shing.",
+    "story": "Yirik quyosh fotoelektr stansiyasida quyosh panellaridan olinayotgan o'zgarmas tokni tarmoq tokiga aylantiruvchi invertorlar nazorati amalga oshiriladi.\n\nStansiyaning asosiy texnik birligi — Quyosh invertori (**SolarInverter**) entitiysidir. Zavod tomonidan korpusga o'yib yozilgan noyob seriya raqami (`serialNo`) Birlamchi Kalit {PK} bo'ladi.\n\nInvertorning maksimal quvvati (`peakPowerKw`), kirish kuchlanishi (`voltageInput`), o'rnatilgan sana (`installDate`) hamda samaradorlik koeffitsiyenti (`efficiency`) kiritiladi.",
+    "instruction": "'SolarInverter' entitiysini yarating, 'serialNo' maydonini {PK} qiling va texnik parametrlarini saqlang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -689,445 +689,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 16,
     "sector": 2,
-    "difficulty": "2-Qavat • Yo'l Harakati Xavfsizligi",
-    "clientName": "Polkovnik Botir Rahmonov",
-    "clientRole": "DYXX Bosh Inspektor",
-    "clientAvatar": "mentor",
-    "title": "Avtomobil Haydovchisi va Haydovchilik Guvohnomasi",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Yo'l Harakati Xavfsizligi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Driver** (driverId {PK}, `fullName`, `phone`, `bloodGroup`) qayd etiladi. Ikkinchi entitiy esa rasmiy **DriverLicense** (licenseNo {PK}, `categories`, `issueDate`, `expiryDate`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Driver** aynan bitta **DriverLicense** bilan bog'lanishi mumkin va har bir **DriverLicense** qat'iy ravishda bitta **Driver** ga tegishli bo'ladi. Munosabat turi: **Holds**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'Driver' va 'DriverLicense' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'Holds' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
-    "starterDiagram": {
-      "entities": [],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Driver",
-          "pk": "driverId",
-          "attributes": [
-            {
-              "name": "driverId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            },
-            {
-              "name": "bloodGroup",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "DriverLicense",
-          "pk": "licenseNo",
-          "attributes": [
-            {
-              "name": "licenseNo",
-              "isPK": true
-            },
-            {
-              "name": "categories",
-              "isPK": false
-            },
-            {
-              "name": "issueDate",
-              "isPK": false
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Driver",
-          "entity2": "DriverLicense",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "Holds"
-        }
-      ]
-    }
-  },
-  {
-    "id": 17,
-    "sector": 2,
-    "difficulty": "2-Qavat • Migratsiya & Fuqarolik",
-    "clientName": "Mayor Sherzod Aliyev",
-    "clientRole": "Pasport Bo'limi Boshlig'i",
-    "clientAvatar": "mentor",
-    "title": "Fuqaro va Biometrik Identifikatsiya Pasporti",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Migratsiya & Fuqarolik tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Citizen** (pinfl {PK}, `fullName`, `birthDate`, `nationality`) qayd etiladi. Ikkinchi entitiy esa rasmiy **Passport** (passportNo {PK}, `expiryDate`, `issuedBy`, `chipVersion`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Citizen** aynan bitta **Passport** bilan bog'lanishi mumkin va har bir **Passport** qat'iy ravishda bitta **Citizen** ga tegishli bo'ladi. Munosabat turi: **IssuedTo**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'Citizen' va 'Passport' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'IssuedTo' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
-    "starterDiagram": {
-      "entities": [],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Citizen",
-          "pk": "pinfl",
-          "attributes": [
-            {
-              "name": "pinfl",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "birthDate",
-              "isPK": false
-            },
-            {
-              "name": "nationality",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "Passport",
-          "pk": "passportNo",
-          "attributes": [
-            {
-              "name": "passportNo",
-              "isPK": true
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false
-            },
-            {
-              "name": "issuedBy",
-              "isPK": false
-            },
-            {
-              "name": "chipVersion",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Citizen",
-          "entity2": "Passport",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "IssuedTo"
-        }
-      ]
-    }
-  },
-  {
-    "id": 18,
-    "sector": 2,
-    "difficulty": "2-Qavat • Soliq Boshqaruvi",
-    "clientName": "Nodir Hakimov",
-    "clientRole": "Soliq Inspeksiyasi Rahbari",
-    "clientAvatar": "mentor",
-    "title": "Kompaniya va Soliq Ro'yxatdan O'tish Guvohnomasi",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Soliq Boshqaruvi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Company** (tin {PK}, `companyName`, `legalAddress`, `industryType`) qayd etiladi. Ikkinchi entitiy esa rasmiy **TaxCertificate** (certId {PK}, `taxRegime`, `effectiveDate`, `regNumber`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Company** aynan bitta **TaxCertificate** bilan bog'lanishi mumkin va har bir **TaxCertificate** qat'iy ravishda bitta **Company** ga tegishli bo'ladi. Munosabat turi: **CertifiedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'Company' va 'TaxCertificate' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'CertifiedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
-    "starterDiagram": {
-      "entities": [],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Company",
-          "pk": "tin",
-          "attributes": [
-            {
-              "name": "tin",
-              "isPK": true
-            },
-            {
-              "name": "companyName",
-              "isPK": false
-            },
-            {
-              "name": "legalAddress",
-              "isPK": false
-            },
-            {
-              "name": "industryType",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "TaxCertificate",
-          "pk": "certId",
-          "attributes": [
-            {
-              "name": "certId",
-              "isPK": true
-            },
-            {
-              "name": "taxRegime",
-              "isPK": false
-            },
-            {
-              "name": "effectiveDate",
-              "isPK": false
-            },
-            {
-              "name": "regNumber",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Company",
-          "entity2": "TaxCertificate",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "CertifiedBy"
-        }
-      ]
-    }
-  },
-  {
-    "id": 19,
-    "sector": 2,
-    "difficulty": "2-Qavat • Klinika Boshqaruvi",
-    "clientName": "Prof. Hasan Umarov",
-    "clientRole": "Bosh Shifokor",
-    "clientAvatar": "mentor",
-    "title": "Shifoxona Bo'limi va Bo'lim Bosh Shifokori",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Klinika Boshqaruvi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **HospitalDept** (deptCode {PK}, `deptName`, `floorNo`, `bedQuota`) qayd etiladi. Ikkinchi entitiy esa rasmiy **HeadDoctor** (licenseId {PK}, `doctorName`, `specialtyField`, `phone`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **HospitalDept** aynan bitta **HeadDoctor** bilan bog'lanishi mumkin va har bir **HeadDoctor** qat'iy ravishda bitta **HospitalDept** ga tegishli bo'ladi. Munosabat turi: **HeadedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'HospitalDept' va 'HeadDoctor' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'HeadedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
-    "starterDiagram": {
-      "entities": [],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "HospitalDept",
-          "pk": "deptCode",
-          "attributes": [
-            {
-              "name": "deptCode",
-              "isPK": true
-            },
-            {
-              "name": "deptName",
-              "isPK": false
-            },
-            {
-              "name": "floorNo",
-              "isPK": false
-            },
-            {
-              "name": "bedQuota",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "HeadDoctor",
-          "pk": "licenseId",
-          "attributes": [
-            {
-              "name": "licenseId",
-              "isPK": true
-            },
-            {
-              "name": "doctorName",
-              "isPK": false
-            },
-            {
-              "name": "specialtyField",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "HospitalDept",
-          "entity2": "HeadDoctor",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "HeadedBy"
-        }
-      ]
-    }
-  },
-  {
-    "id": 20,
-    "sector": 2,
-    "difficulty": "2-Qavat • Korporativ IT Texnika",
-    "clientName": "Javohir Qosimov",
-    "clientRole": "IT Aktivlar Menejeri",
-    "clientAvatar": "mentor",
-    "title": "Kompaniya Xodimi va Xizmat Noutbuki",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Korporativ IT Texnika tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **StaffMember** (staffId {PK}, `staffName`, `jobTitle`, `workEmail`) qayd etiladi. Ikkinchi entitiy esa rasmiy **AssignedLaptop** (assetTag {PK}, `serialNo`, `modelName`, `ramGb`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **StaffMember** aynan bitta **AssignedLaptop** bilan bog'lanishi mumkin va har bir **AssignedLaptop** qat'iy ravishda bitta **StaffMember** ga tegishli bo'ladi. Munosabat turi: **AssignedTo**, kardinallik chegaralari: **1..1** va **0..1**.",
-    "instruction": "'StaffMember' va 'AssignedLaptop' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'AssignedTo' aloqasini (1..1 : 0..1) bilan to'g'ri ulang.",
-    "starterDiagram": {
-      "entities": [],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "StaffMember",
-          "pk": "staffId",
-          "attributes": [
-            {
-              "name": "staffId",
-              "isPK": true
-            },
-            {
-              "name": "staffName",
-              "isPK": false
-            },
-            {
-              "name": "jobTitle",
-              "isPK": false
-            },
-            {
-              "name": "workEmail",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "AssignedLaptop",
-          "pk": "assetTag",
-          "attributes": [
-            {
-              "name": "assetTag",
-              "isPK": true
-            },
-            {
-              "name": "serialNo",
-              "isPK": false
-            },
-            {
-              "name": "modelName",
-              "isPK": false
-            },
-            {
-              "name": "ramGb",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "StaffMember",
-          "entity2": "AssignedLaptop",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "name": "AssignedTo"
-        }
-      ]
-    }
-  },
-  {
-    "id": 21,
-    "sector": 2,
-    "difficulty": "2-Qavat • Davlat Boshqaruvi",
-    "clientName": "Shavkat Toirov",
-    "clientRole": "Devonxona Boshlig'i",
-    "clientAvatar": "mentor",
-    "title": "Vazirlik Boshqarmasi va Soha Vaziri",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Davlat Boshqaruvi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Ministry** (ministryId {PK}, `officialTitle`, `budgetBillion`, `location`) qayd etiladi. Ikkinchi entitiy esa rasmiy **Minister** (ministerId {PK}, `fullName`, `appointedDate`, `decreeNo`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Ministry** aynan bitta **Minister** bilan bog'lanishi mumkin va har bir **Minister** qat'iy ravishda bitta **Ministry** ga tegishli bo'ladi. Munosabat turi: **LedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'Ministry' va 'Minister' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'LedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
-    "starterDiagram": {
-      "entities": [],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Ministry",
-          "pk": "ministryId",
-          "attributes": [
-            {
-              "name": "ministryId",
-              "isPK": true
-            },
-            {
-              "name": "officialTitle",
-              "isPK": false
-            },
-            {
-              "name": "budgetBillion",
-              "isPK": false
-            },
-            {
-              "name": "location",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "Minister",
-          "pk": "ministerId",
-          "attributes": [
-            {
-              "name": "ministerId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "appointedDate",
-              "isPK": false
-            },
-            {
-              "name": "decreeNo",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Ministry",
-          "entity2": "Minister",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "LedBy"
-        }
-      ]
-    }
-  },
-  {
-    "id": 22,
-    "sector": 2,
-    "difficulty": "2-Qavat • Harbiy Dengiz Floti",
+    "difficulty": "2-Qavat • O'rta (1..1)",
     "clientName": "Kapitan Anvar Salimov",
     "clientRole": "Flot Admiral Shtabi",
     "clientAvatar": "mentor",
-    "title": "Dengiz Harbiylashgan Kemasi va Kema Kapitani",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Harbiy Dengiz Floti tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Warship** (hullNo {PK}, `shipName`, `displacementTons`, `commissionYear`) qayd etiladi. Ikkinchi entitiy esa rasmiy **Captain** (officerId {PK}, `officerName`, `rankGrade`, `serviceYears`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Warship** aynan bitta **Captain** bilan bog'lanishi mumkin va har bir **Captain** qat'iy ravishda bitta **Warship** ga tegishli bo'ladi. Munosabat turi: **CommandedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'Warship' va 'Captain' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'CommandedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
+    "title": "Harbiy Kema va Kema Komandiri",
+    "story": "Harbiy dengiz floti nizomiga ko'ra, har bir jangovar kema faqat bitta tayinlangan kema komandiri (kapitan) tomonidan boshqariladi. O'z navbatida, har bir kapitan bir vaqtning o'zida faqat bitta kemaga qo'mondonlik qilishi mumkin va boshqa kemaga rahbarlik qilish huquqiga ega emas.\n\nTizimda jangovar kema **Warship** (korpus kodi `hullNo` {PK}, kema nomi `shipName`, suv sig'imi `displacementTons`, safga kirgan yili `commissionYear`) entitiysi orqali ifodalanadi.\n\nKema komandiri esa **Captain** (ofitser guvohnomasi `officerId` {PK}, to'liq ismi `officerName`, harbiy unvoni `rankGrade`, xizmat yillari `serviceYears`) entitiysi sifatida saqlanadi. Ular o'rtasida **CommandedBy** munosabati o'rnatiladi.",
+    "instruction": "'Warship' va 'Captain' entitiylarini yarating, birlamchi kalitlarni belgilang va flot nizomiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1191,15 +759,447 @@ _scope.EER_CLIENTS_1_50 = [
     }
   },
   {
+    "id": 17,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta (1..1)",
+    "clientName": "Polkovnik Botir Rahmonov",
+    "clientRole": "DYXX Bosh Inspektor",
+    "clientAvatar": "mentor",
+    "title": "Avtomobil Haydovchisi va Haydovchilik Guvohnomasi",
+    "story": "Yo'l harakati xavfsizligi elektron ma'lumotlar bazasida har bir haydovchi o'ziga biriktirilgan rasmiy haydovchilik guvohnomasiga ega bo'ladi. Qonun bo'yicha har bir haydovchiga faqat bitta guvohnoma beriladi va har bir guvohnoma qat'iy ravishda bitta shaxsga tegishli bo'ladi.\n\nHaydovchi **Driver** entitiysi (`driverId` {PK}, ismi `fullName`, telefoni `phone`, qon guruhi `bloodGroup`) orqali aks ettiriladi.\n\nGuvohnoma esa **DriverLicense** entitiysi (`licenseNo` {PK}, toifalari `categories`, berilgan sana `issueDate`, amal qilish muddati `expiryDate`) sifatida qayd etiladi. Ular o'rtasida **Holds** aloqasi mavjud.",
+    "instruction": "'Driver' va 'DriverLicense' entitiylarini shakllantiring, {PK} kalitlarini belgilang va ular o'rtasidagi to'g'ri multiplisitiyani o'rnating.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Driver",
+          "pk": "driverId",
+          "attributes": [
+            {
+              "name": "driverId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "bloodGroup",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DriverLicense",
+          "pk": "licenseNo",
+          "attributes": [
+            {
+              "name": "licenseNo",
+              "isPK": true
+            },
+            {
+              "name": "categories",
+              "isPK": false
+            },
+            {
+              "name": "issueDate",
+              "isPK": false
+            },
+            {
+              "name": "expiryDate",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Driver",
+          "entity2": "DriverLicense",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "Holds"
+        }
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta (1..1)",
+    "clientName": "Mayor Sherzod Aliyev",
+    "clientRole": "Pasport Bo'limi Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Fuqaro va Biometrik ID Pasport",
+    "story": "Davlat shaxsni tasdiqlovchi hujjatlar reyestrida har bir fuqaro yagona biometrik pasportga ega bo'lishi reglament bilan belgilangan. Bir fuqaro bir vaqtning o'zida ikkinchi faol pasportga ega bo'la olmaydi va pasport faqat bitta shaxs nomiga rasmiylashtiriladi.\n\nFuqaro **Citizen** entitiysi (shaxsiy identifikatsiya kodi `pinfl` {PK}, to'liq ismi `fullName`, tug'ilgan sanasi `birthDate`, fuqaroligi `nationality`) sifatida kiritiladi.\n\nPasport esa **Passport** entitiysi (pasport seriya raqami `passportNo` {PK}, amal qilish muddati `expiryDate`, bergan organ `issuedBy`, chip standarti `chipVersion`) sifatida saqlanadi. Aloqa: **IssuedTo**.",
+    "instruction": "'Citizen' va 'Passport' entitiylarini tuzing, {PK} birlamchi kalitlarini belgilang va munosabat multiplisitiyasini to'g'ri qo'ying.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Citizen",
+          "pk": "pinfl",
+          "attributes": [
+            {
+              "name": "pinfl",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "birthDate",
+              "isPK": false
+            },
+            {
+              "name": "nationality",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Passport",
+          "pk": "passportNo",
+          "attributes": [
+            {
+              "name": "passportNo",
+              "isPK": true
+            },
+            {
+              "name": "expiryDate",
+              "isPK": false
+            },
+            {
+              "name": "issuedBy",
+              "isPK": false
+            },
+            {
+              "name": "chipVersion",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Citizen",
+          "entity2": "Passport",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "IssuedTo"
+        }
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta (1..1)",
+    "clientName": "Nodir Hakimov",
+    "clientRole": "Soliq Inspeksiyasi Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Kompaniya va Davlat Soliq Ro'yxat Guvohnomasi",
+    "story": "Davlat soliq qo'mitasi reyestrida har bir yuridik korxona davlat ro'yxatidan o'tganligi haqida bitta rasmiy soliq guvohnomasiga ega bo'ladi. Har bir sertifikat qat'iy ravishda faqat bitta korxonaga tegishlidir.\n\nKompaniya **Company** entitiysi (soliq to'lovchining identifikatsiya raqami `tin` {PK}, firma nomi `companyName`, yuridik manzili `legalAddress`, faoliyat sohasi `industryType`) orqali belgilanadi.\n\nSoliq guvohnomasi **TaxCertificate** entitiysi (`certId` {PK}, soliqqa tortish rejimi `taxRegime`, kuchga kirgan sana `effectiveDate`, davlat reyestr raqami `regNumber`) sifatida saqlanadi. Munosabat: **CertifiedBy**.",
+    "instruction": "'Company' va 'TaxCertificate' entitiylarini yarating, ularning {PK} kalitlarini belgilang va to'g'ri multiplisitiyani o'rnating.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Company",
+          "pk": "tin",
+          "attributes": [
+            {
+              "name": "tin",
+              "isPK": true
+            },
+            {
+              "name": "companyName",
+              "isPK": false
+            },
+            {
+              "name": "legalAddress",
+              "isPK": false
+            },
+            {
+              "name": "industryType",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "TaxCertificate",
+          "pk": "certId",
+          "attributes": [
+            {
+              "name": "certId",
+              "isPK": true
+            },
+            {
+              "name": "taxRegime",
+              "isPK": false
+            },
+            {
+              "name": "effectiveDate",
+              "isPK": false
+            },
+            {
+              "name": "regNumber",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Company",
+          "entity2": "TaxCertificate",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "CertifiedBy"
+        }
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta (1..1)",
+    "clientName": "Prof. Hasan Umarov",
+    "clientRole": "Bosh Shifokor",
+    "clientAvatar": "mentor",
+    "title": "Shifoxona Bo'limi va Bo'lim Bosh Vrachi",
+    "story": "Ko'p tarmoqli klinika ichki nizomiga binoan, har bir davolash bo'limiga faqat bitta tajribali bosh vrach rahbarlik qiladi. Bosh vrach bir vaqtning o'zida ikkita bo'lim mudiri bo'lishi taqiqlanadi.\n\nTizimda bo'lim **HospitalDept** entitiysi (`deptCode` {PK}, bo'lim nomi `deptName`, qavati `floorNo`, o'rinlar soni `bedQuota`) orqali belgilanadi.\n\nBosh vrach esa **HeadDoctor** entitiysi (litsenziya kodi `licenseId` {PK}, shifokor ismi `doctorName`, mutaxassisligi `specialtyField`, telefoni `phone`) sifatida saqlanadi. Munosabat: **HeadedBy**.",
+    "instruction": "'HospitalDept' va 'HeadDoctor' entitiylarini polotnoda yarating, birlamchi kalitlarni bering va to'g'ri multiplisitiyani o'rnating.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "HospitalDept",
+          "pk": "deptCode",
+          "attributes": [
+            {
+              "name": "deptCode",
+              "isPK": true
+            },
+            {
+              "name": "deptName",
+              "isPK": false
+            },
+            {
+              "name": "floorNo",
+              "isPK": false
+            },
+            {
+              "name": "bedQuota",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "HeadDoctor",
+          "pk": "licenseId",
+          "attributes": [
+            {
+              "name": "licenseId",
+              "isPK": true
+            },
+            {
+              "name": "doctorName",
+              "isPK": false
+            },
+            {
+              "name": "specialtyField",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "HospitalDept",
+          "entity2": "HeadDoctor",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "HeadedBy"
+        }
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta (1..1)",
+    "clientName": "Javohir Qosimov",
+    "clientRole": "IT Aktivlar Menejeri",
+    "clientAvatar": "mentor",
+    "title": "Kompaniya Xodimi va Xizmat Noutbuki",
+    "story": "Korporativ IT xavfsizlik siyosatiga ko'ra, har bir xizmat noutbuki faqat bitta xodimga biriktiriladi. Ayrim yangi xodimlarga esa hali noutbuk ajratilmagan bo'lishi mumkin, lekin bitta noutbuk hech qachon ikki kishiga berilmaydi.\n\nXodim **StaffMember** entitiysi (`staffId` {PK}, xodim ismi `staffName`, lavozimi `jobTitle`, pochtasi `workEmail`) sifatida yuritiladi.\n\nNoutbuk esa **AssignedLaptop** entitiysi (aktiv kodi `assetTag` {PK}, seriya raqami `serialNo`, modeli `modelName`, operativ xotirasi `ramGb`) sifatida saqlanadi. Aloqa: **AssignedTo**.",
+    "instruction": "'StaffMember' va 'AssignedLaptop' entitiylarini yarating, ixtiyoriylik qoidasini inobatga olgan holda multiplisitiyani belgilang.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "StaffMember",
+          "pk": "staffId",
+          "attributes": [
+            {
+              "name": "staffId",
+              "isPK": true
+            },
+            {
+              "name": "staffName",
+              "isPK": false
+            },
+            {
+              "name": "jobTitle",
+              "isPK": false
+            },
+            {
+              "name": "workEmail",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "AssignedLaptop",
+          "pk": "assetTag",
+          "attributes": [
+            {
+              "name": "assetTag",
+              "isPK": true
+            },
+            {
+              "name": "serialNo",
+              "isPK": false
+            },
+            {
+              "name": "modelName",
+              "isPK": false
+            },
+            {
+              "name": "ramGb",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "StaffMember",
+          "entity2": "AssignedLaptop",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "name": "AssignedTo"
+        }
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta (1..1)",
+    "clientName": "Shavkat Toirov",
+    "clientRole": "Devonxona Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Vazirlik va Soha Vaziri",
+    "story": "Hukumat apparati ma'lumotlar bazasida har bir davlat vazirligi bitta tayinlangan soha vaziri tomonidan boshqariladi va har bir vazir faqat bitta vazirlikka rahbarlik qiladi.\n\nVazirlik **Ministry** entitiysi (`ministryId` {PK}, rasmiy nomi `officialTitle`, yillik byudjeti `budgetBillion`, binosi `location`) orqali ifodalanadi.\n\nVazir esa **Minister** entitiysi (`ministerId` {PK}, to'liq ismi `fullName`, tayinlangan sanasi `appointedDate`, prezident farmoni raqami `decreeNo`) sifatida saqlanadi. Aloqa: **LedBy**.",
+    "instruction": "'Ministry' va 'Minister' entitiylarini polotnoda yarating, {PK} maydonlarini belgilang va to'g'ri multiplisitiyani qo'ying.",
+    "starterDiagram": {
+      "entities": [],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Ministry",
+          "pk": "ministryId",
+          "attributes": [
+            {
+              "name": "ministryId",
+              "isPK": true
+            },
+            {
+              "name": "officialTitle",
+              "isPK": false
+            },
+            {
+              "name": "budgetBillion",
+              "isPK": false
+            },
+            {
+              "name": "location",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Minister",
+          "pk": "ministerId",
+          "attributes": [
+            {
+              "name": "ministerId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "appointedDate",
+              "isPK": false
+            },
+            {
+              "name": "decreeNo",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Ministry",
+          "entity2": "Minister",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "LedBy"
+        }
+      ]
+    }
+  },
+  {
     "id": 23,
     "sector": 2,
-    "difficulty": "2-Qavat • Ko'chmas Mulk & Kadastr",
+    "difficulty": "2-Qavat • O'rta (1..1)",
     "clientName": "Muzaffar Jo'rayev",
-    "clientRole": "Kadastr Muhandisi",
+    "clientRole": "Bosh Kadastr Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Mulkdor va Ko'chmas Mulk Kadastr Pasporti",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Ko'chmas Mulk & Kadastr tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **PropertyOwner** (ownerId {PK}, `ownerName`, `phone`, `taxPayerCode`) qayd etiladi. Ikkinchi entitiy esa rasmiy **CadastreDeed** (deedNo {PK}, `cadastralZone`, `landAreaSqm`, `registeredDate`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **PropertyOwner** aynan bitta **CadastreDeed** bilan bog'lanishi mumkin va har bir **CadastreDeed** qat'iy ravishda bitta **PropertyOwner** ga tegishli bo'ladi. Munosabat turi: **DeededWith**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'PropertyOwner' va 'CadastreDeed' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'DeededWith' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
+    "title": "Mulkdor va Kadastr Pasporti",
+    "story": "Ko'chmas mulk davlat kadastri idorasida xususiy yer uchastkasi yoki bino kadastr hujjati aynan bitta rasmiy mulkdor nomiga ro'yxatga olinadi va har bir mulkdor ushbu yer maydoni uchun bitta kadastr guvohnomasiga ega bo'ladi.\n\nMulkdor **PropertyOwner** entitiysi (`ownerId` {PK}, ismi `ownerName`, telefoni `phone`, soliq to'lovchi kodi `taxPayerCode`) orqali kiritiladi.\n\nKadastr pasporti esa **CadastreDeed** entitiysi (`deedNo` {PK}, kadastr zonasi `cadastralZone`, maydoni `landAreaSqm`, ro'yxatga olingan sana `registeredDate`) sifatida saqlanadi. Aloqa: **DeededWith**.",
+    "instruction": "'PropertyOwner' va 'CadastreDeed' entitiylarini yarating, ularning {PK} kalitlarini belgilang va munosabat multiplisitiyasini o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1265,13 +1265,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 24,
     "sector": 2,
-    "difficulty": "2-Qavat • Savdo & To'lov Tizimi",
+    "difficulty": "2-Qavat • O'rta (1..1)",
     "clientName": "Sardor Saidov",
-    "clientRole": "Kassa Texnik Mutaxassisi",
+    "clientRole": "Kassa Texnik Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Kassa Shoxobchasi va Bank POS Terminali",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Savdo & To'lov Tizimi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **CheckoutLane** (laneNo {PK}, `deskCode`, `supervisorName`, `status`) qayd etiladi. Ikkinchi entitiy esa rasmiy **PosTerminal** (terminalId {PK}, `ipAddress`, `merchantCode`, `serialNumber`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **CheckoutLane** aynan bitta **PosTerminal** bilan bog'lanishi mumkin va har bir **PosTerminal** qat'iy ravishda bitta **CheckoutLane** ga tegishli bo'ladi. Munosabat turi: **EquippedWith**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'CheckoutLane' va 'PosTerminal' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'EquippedWith' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
+    "title": "Kassa Yo'lagi va Bank POS Terminali",
+    "story": "Yirik supermarketda har bir kassa stoli xavfsizlik qoidasiga muvofiq faqat bitta statsionar bank to'lov terminali bilan jihozlanadi va har bir terminal faqat bitta kassa stoliga qat'iy biriktiriladi.\n\nKassa stoli **CheckoutLane** entitiysi (`laneNo` {PK}, stol kodi `deskCode`, nazoratchi `supervisorName`, holati `status`) orqali belgilanadi.\n\nBank terminali esa **PosTerminal** entitiysi (`terminalId` {PK}, tarmoq manzili `ipAddress`, savdogar kodi `merchantCode`, seriya raqami `serialNumber`) sifatida saqlanadi. Aloqa: **EquippedWith**.",
+    "instruction": "'CheckoutLane' va 'PosTerminal' entitiylarini yarating, {PK} kalitlarini belgilang va to'g'ri multiplisitiyani o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1337,13 +1337,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 25,
     "sector": 2,
-    "difficulty": "2-Qavat • Maktab Ta'limi",
+    "difficulty": "2-Qavat • O'rta (1..1)",
     "clientName": "Munira Fayzullayeva",
     "clientRole": "Maktab Mudiri",
     "clientAvatar": "mentor",
-    "title": "Maktab O'quvchisi va Shaxsiy Saqlash Shkafchasi",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Maktab Ta'limi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Pupil** (pupilId {PK}, `fullName`, `gradeLevel`, `classRoom`) qayd etiladi. Ikkinchi entitiy esa rasmiy **SchoolLocker** (lockerNo {PK}, `hallwayWing`, `combinationCode`, `shelfCount`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Pupil** aynan bitta **SchoolLocker** bilan bog'lanishi mumkin va har bir **SchoolLocker** qat'iy ravishda bitta **Pupil** ga tegishli bo'ladi. Munosabat turi: **Allocated**, kardinallik chegaralari: **1..1** va **0..1**.",
-    "instruction": "'Pupil' va 'SchoolLocker' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'Allocated' aloqasini (1..1 : 0..1) bilan to'g'ri ulang.",
+    "title": "O'quvchi va Shaxsiy Saqlash Shkafchasi",
+    "story": "Zamonaviy maktabda har bir shaxsiy metall shkafcha faqat bitta o'quvchiga foydalanish uchun beriladi. Yangi kelgan ayrim o'quvchilarga hali shkafcha taqsimlanmagan bo'lishi mumkin, ammo bitta shkafchadan ikki o'quvchi foydalana olmaydi.\n\nO'quvchi **Pupil** entitiysi (`pupilId` {PK}, to'liq ismi `fullName`, sinfi `gradeLevel`, xonasi `classRoom`) orqali ifodalanadi.\n\nShkafcha esa **SchoolLocker** entitiysi (`lockerNo` {PK}, qaysi yo'lakda joylashgani `hallwayWing`, qulf kodi `combinationCode`, tokchalar soni `shelfCount`) sifatida saqlanadi. Aloqa: **Allocated**.",
+    "instruction": "'Pupil' va 'SchoolLocker' entitiylarini chizing, biznes talabini o'rganib to'g'ri multiplisitiyani polotnoda belgilang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1409,13 +1409,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 26,
     "sector": 2,
-    "difficulty": "2-Qavat • Aviatsiya Xavfsizligi",
+    "difficulty": "2-Qavat • O'rta (1..1)",
     "clientName": "Oleg Smirnov",
-    "clientRole": "Avia Nazorat Inspeksiyasi",
+    "clientRole": "Avia Inspektor",
     "clientAvatar": "mentor",
-    "title": "Yo'lovchi Samolyoti va Qora Quti Yozuv Uskunasi",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Aviatsiya Xavfsizligi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Airplane** (airframeNo {PK}, `tailNumber`, `modelCode`, `serviceHours`) qayd etiladi. Ikkinchi entitiy esa rasmiy **FlightRecorder** (recorderId {PK}, `beaconFrequency`, `memoryCapacityGb`, `batteryExpiry`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Airplane** aynan bitta **FlightRecorder** bilan bog'lanishi mumkin va har bir **FlightRecorder** qat'iy ravishda bitta **Airplane** ga tegishli bo'ladi. Munosabat turi: **MonitoredBy**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'Airplane' va 'FlightRecorder' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'MonitoredBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
+    "title": "Samolyot va Bort Qora Qutisi",
+    "story": "Parvozlar xavfsizligi xalqaro konventsiyasiga muvofiq, har bir yo'lovchi samolyotiga aynan bitta asosiy qora quti (avariya bort yozuvchisi) o'rnatiladi va har bir yozuv moslamasi bitta samolyot fyuzelyajiga muhrlanadi.\n\nSamolyot **Airplane** entitiysi (planyor raqami `airframeNo` {PK}, bort raqami `tailNumber`, model kodi `modelCode`, parvoz soati `serviceHours`) orqali ifodalanadi.\n\nQora quti esa **FlightRecorder** entitiysi (`recorderId` {PK}, mayoq chastotasi `beaconFrequency`, xotira hajmi `memoryCapacityGb`, batareya muddati `batteryExpiry`) sifatida saqlanadi. Aloqa: **MonitoredBy**.",
+    "instruction": "'Airplane' va 'FlightRecorder' entitiylarini yarating, {PK} kalitlarini belgilang va to'g'ri multiplisitiyani o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1481,13 +1481,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 27,
     "sector": 2,
-    "difficulty": "2-Qavat • Qishloq Xo'jaligi",
+    "difficulty": "2-Qavat • O'rta (1..1)",
     "clientName": "Ibrohim Rustamov",
-    "clientRole": "Yer Resurslari Boshlig'i",
+    "clientRole": "Yer Resurslari Mudiri",
     "clientAvatar": "mentor",
     "title": "Fermer Xo'jaligi va Yer Ijara Shartnomasi",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Qishloq Xo'jaligi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Farm** (farmRegNo {PK}, `farmName`, `province`, `cropType`) qayd etiladi. Ikkinchi entitiy esa rasmiy **LandLeaseContract** (contractId {PK}, `hectares`, `leaseEndDate`, `regDate`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Farm** aynan bitta **LandLeaseContract** bilan bog'lanishi mumkin va har bir **LandLeaseContract** qat'iy ravishda bitta **Farm** ga tegishli bo'ladi. Munosabat turi: **ContractedUnder**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'Farm' va 'LandLeaseContract' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'ContractedUnder' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
+    "story": "Qishloq xo'jaligi yer fondi reyestrida har bir ro'yxatga olingan fermer xo'jaligi ajratilgan yer maydoni uchun bitta asosiy davlat yer ijara shartnomasiga ega bo'ladi. Har bir shartnoma faqat bitta fermer xo'jaligiga tegishlidir.\n\nFermer xo'jaligi **Farm** entitiysi (`farmRegNo` {PK}, fermer nomi `farmName`, viloyati `province`, asosiy ekini `cropType`) orqali belgilanadi.\n\nIjara shartnomasi esa **LandLeaseContract** entitiysi (`contractId` {PK}, gektar maydoni `hectares`, ijara tugash sanasi `leaseEndDate`, ro'yxat sanasi `regDate`) sifatida saqlanadi. Aloqa: **ContractedUnder**.",
+    "instruction": "'Farm' va 'LandLeaseContract' entitiylarini shakllantiring, birlamchi kalitlarni belgilang va munosabat multiplisitiyasini o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1553,13 +1553,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 28,
     "sector": 2,
-    "difficulty": "2-Qavat • Diplomatiya & Tashqi Ishlar",
+    "difficulty": "2-Qavat • O'rta (1..1)",
     "clientName": "Kamol Boboyev",
-    "clientRole": "Protokol Xizmati Rahbari",
+    "clientRole": "Protokol Rahbari",
     "clientAvatar": "mentor",
-    "title": "Diplomatik Elchixona va Favqulodda Muxtor Elchi",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Diplomatiya & Tashqi Ishlar tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Embassy** (embassyId {PK}, `hostCountry`, `cityLocation`, `establishedYear`) qayd etiladi. Ikkinchi entitiy esa rasmiy **Ambassador** (diplomatId {PK}, `fullName`, `credentialDate`, `diplomaticRank`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Embassy** aynan bitta **Ambassador** bilan bog'lanishi mumkin va har bir **Ambassador** qat'iy ravishda bitta **Embassy** ga tegishli bo'ladi. Munosabat turi: **RepresentedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'Embassy' va 'Ambassador' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'RepresentedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
+    "title": "Diplomatik Elchixona va Favqulodda Elchi",
+    "story": "Tashqi ishlar vazirligi protokol qoidalariga binoan, xorijdagi har bir elchixonaga faqat bitta favqulodda va muxtor elchi rahbarlik qiladi va har bir elchi faqat bitta davlatdagi elchixonaga akkreditatsiya qilinadi.\n\nElchixona **Embassy** entitiysi (`embassyId` {PK}, joylashgan davlati `hostCountry`, shahri `cityLocation`, ochilgan yili `establishedYear`) orqali ifodalanadi.\n\nElchi esa **Ambassador** entitiysi (`diplomatId` {PK}, to'liq ismi `fullName`, ishonch yorlig'i topshirilgan sana `credentialDate`, diplomatik darajasi `diplomaticRank`) sifatida saqlanadi. Aloqa: **RepresentedBy**.",
+    "instruction": "'Embassy' va 'Ambassador' entitiylarini tuzing, ularning {PK} kalitlarini belgilang va to'g'ri multiplisitiyani o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1625,13 +1625,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 29,
     "sector": 2,
-    "difficulty": "2-Qavat • Bank Xavfsizligi",
+    "difficulty": "2-Qavat • O'rta (1..1)",
     "clientName": "Akmal Fayziyev",
-    "clientRole": "Bank Inkassatsiya Boshlig'i",
+    "clientRole": "Inkassatsiya Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Bank Filiali va Asosiy Naqd Pul Seyfi",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Bank Xavfsizligi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **BankBranch** (branchNo {PK}, `street`, `city`, `phone`) qayd etiladi. Ikkinchi entitiy esa rasmiy **MainVault** (vaultId {PK}, `securityGrade`, `capacityKg`, `alarmCode`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **BankBranch** aynan bitta **MainVault** bilan bog'lanishi mumkin va har bir **MainVault** qat'iy ravishda bitta **BankBranch** ga tegishli bo'ladi. Munosabat turi: **SecuredWith**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'BankBranch' va 'MainVault' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'SecuredWith' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
+    "title": "Bank Filiali va Markaziy Pul Seyfi",
+    "story": "Bank xavfsizlik reglamentiga ko'ra, har bir bank binosida naqd pullar va qimmatbaho metallarni saqlash uchun faqat bitta asosiy zirhli yerosti seyfi (Vault) quriladi va har bir seyf faqat bitta filial binosiga tegishli bo'ladi.\n\nBank filiali **BankBranch** entitiysi (`branchNo` {PK}, ko'chasi `street`, shahri `city`, telefoni `phone`) orqali ifodalanadi.\n\nSeyf esa **MainVault** entitiysi (`vaultId` {PK}, xavfsizlik sinfi `securityGrade`, maksimal sig'imi kilogrammda `capacityKg`, signalizatsiya kodi `alarmCode`) sifatida saqlanadi. Aloqa: **SecuredWith**.",
+    "instruction": "'BankBranch' va 'MainVault' entitiylarini shakllantiring, {PK} kalitlarini belgilang va to'g'ri multiplisitiyani o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1697,13 +1697,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 30,
     "sector": 2,
-    "difficulty": "2-Qavat • Olimpiya Qo'mitasi",
+    "difficulty": "2-Qavat • O'rta (1..1)",
     "clientName": "Dilorom Ismoilova",
     "clientRole": "Antidoping Komissari",
     "clientAvatar": "mentor",
     "title": "Professional Atlet va Biologik Doping Pasporti",
-    "story": "Muassasa ichki reglamentiga ko'ra, boshqaruv va hisob-kitobni avtomatlashtirish uchun ikkita asosiy ob'yekt o'rtasida qat'iy o'zaro bog'liqlik o'rnatilishi shart. Ushbu jarayon Olimpiya Qo'mitasi tizimining uzluksiz ishlashini kafolatlaydi.\n\nTizimda birinchi kuchli entitiy sifatida **Athlete** (licenseId {PK}, `athleteName`, `sportDiscipline`, `countryCode`) qayd etiladi. Ikkinchi entitiy esa rasmiy **DopingPassport** (passportCode {PK}, `biologicalProfile`, `lastTestDate`, `labCode`) hisoblanadi.\n\nOperatsion qoidalarga ko'ra, har bir **Athlete** aynan bitta **DopingPassport** bilan bog'lanishi mumkin va har bir **DopingPassport** qat'iy ravishda bitta **Athlete** ga tegishli bo'ladi. Munosabat turi: **TrackedBy**, kardinallik chegaralari: **1..1** va **1..1**.",
-    "instruction": "'Athlete' va 'DopingPassport' entitiylarini yarating, ularning {PK} kalitlarini belgilang va 'TrackedBy' aloqasini (1..1 : 1..1) bilan to'g'ri ulang.",
+    "story": "Xalqaro antidoping agentligi qoidalariga muvofiq, har bir professional sportchi o'zining doimiy biologik ko'rsatkichlarini kuzatuvchi bitta doping pasportiga ega bo'ladi va ushbu pasport faqat bitta sportchining biologik profilini ifodalaydi.\n\nSportchi **Athlete** entitiysi (`licenseId` {PK}, ismi `athleteName`, sport turi `sportDiscipline`, mamlakat kodi `countryCode`) orqali belgilanadi.\n\nDoping pasporti esa **DopingPassport** entitiysi (`passportCode` {PK}, qon profili `biologicalProfile`, oxirgi test sanasi `lastTestDate`, laboratoriya kodi `labCode`) sifatida saqlanadi. Aloqa: **TrackedBy**.",
+    "instruction": "'Athlete' va 'DopingPassport' entitiylarini polotnoga qo'ying, {PK} kalitlarini belgilang va to'g'ri multiplisitiyani o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1769,13 +1769,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 31,
     "sector": 3,
-    "difficulty": "3-Qavat • Akademik Kadrlar",
-    "clientName": "Prof. Dilshod Karimov",
-    "clientRole": "Fakultet Dekani",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Universitet Kafedrasi va Professor-O'qituvchilar",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Akademik Kadrlar tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Department** (deptCode {PK}, `deptName`, `officeRoom`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **Lecturer** (lecturerId {PK}, `fullName`, `academicRank`, `salary`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Department** tarkibida kamida bitta yoki undan ko'p (1..*) **Lecturer** bo'lishi mumkin. Har bir **Lecturer** esa qat'iy ravishda faqat bitta (1..1) **Department** ga mansub bo'ladi. Munosabat: **Employs**.",
-    "instruction": "'Department' va 'Lecturer' entitiylarini polotnoga qo'ying, 'Employs' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "Department va Lecturer Ierarxiyasi",
+    "story": "Universitet Kadrlar sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Har bir kafedrada bir nechta o'qituvchi ishlaydi, biroq har bir o'qituvchi faqat bitta kafedra shtatiga biriktiriladi.\n\nTizimda ota entitiy sifatida **Department** (deptCode {PK}, `deptName`, `officeRoom`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **Lecturer** (lecturerId {PK}, `fullName`, `academicRank`, `salary`) entitiysi hisoblanadi. Ular o'rtasida **Employs** munosabati o'rnatiladi.",
+    "instruction": "'Department' va 'Lecturer' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1837,13 +1837,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 32,
     "sector": 3,
-    "difficulty": "3-Qavat • Matbaa & Nashriyot",
-    "clientName": "Feruza Mahmudova",
-    "clientRole": "Bosh Muharrir",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Nashriyot Uyi va Chop Etilgan Kitob Nashrlari",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Matbaa & Nashriyot tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Publisher** (publisherId {PK}, `companyName`, `address`, `phone`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **BookEdition** (editionIsbn {PK}, `title`, `printRun`, `price`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Publisher** tarkibida kamida bitta yoki undan ko'p (1..*) **BookEdition** bo'lishi mumkin. Har bir **BookEdition** esa qat'iy ravishda faqat bitta (1..1) **Publisher** ga mansub bo'ladi. Munosabat: **Publishes**.",
-    "instruction": "'Publisher' va 'BookEdition' entitiylarini polotnoga qo'ying, 'Publishes' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "Publisher va BookEdition Ierarxiyasi",
+    "story": "Matbaa Nashriyoti sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Nashriyot ko'plab kitob nashrlarini chop etadi, har bir kitob nashri esa aynan bitta nashriyot tomonidan chiqariladi.\n\nTizimda ota entitiy sifatida **Publisher** (publisherId {PK}, `companyName`, `address`, `phone`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **BookEdition** (editionIsbn {PK}, `title`, `printRun`, `price`) entitiysi hisoblanadi. Ular o'rtasida **Publishes** munosabati o'rnatiladi.",
+    "instruction": "'Publisher' va 'BookEdition' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1909,13 +1909,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 33,
     "sector": 3,
-    "difficulty": "3-Qavat • Fintech & Plastik Kartalar",
-    "clientName": "Ulug'bek Sobirov",
-    "clientRole": "Karta Boshqarmasi Rahbari",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Bank Mijozi va Unga Biriktirilgan Plastik Kartalar",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Fintech & Plastik Kartalar tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Customer** (customerId {PK}, `fullName`, `phone`, `email`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **PaymentCard** (cardNumber {PK}, `cardType`, `expiryDate`, `cvvHash`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Customer** tarkibida kamida bitta yoki undan ko'p (1..*) **PaymentCard** bo'lishi mumkin. Har bir **PaymentCard** esa qat'iy ravishda faqat bitta (1..1) **Customer** ga mansub bo'ladi. Munosabat: **Owns**.",
-    "instruction": "'Customer' va 'PaymentCard' entitiylarini polotnoga qo'ying, 'Owns' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "Customer va PaymentCard Ierarxiyasi",
+    "story": "Fintech & Plastik Kartalar sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Bank mijozi o'z nomiga bir nechta plastik karta ochtirishi mumkin, ammo har bir karta faqat bitta mijozga tegishli bo'ladi.\n\nTizimda ota entitiy sifatida **Customer** (customerId {PK}, `fullName`, `phone`, `email`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **PaymentCard** (cardNumber {PK}, `cardType`, `expiryDate`, `cvvHash`) entitiysi hisoblanadi. Ular o'rtasida **Owns** munosabati o'rnatiladi.",
+    "instruction": "'Customer' va 'PaymentCard' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1981,13 +1981,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 34,
     "sector": 3,
-    "difficulty": "3-Qavat • Shahar Yo'lovchi Transporti",
-    "clientName": "Mansur Jo'rayev",
-    "clientRole": "Transport Garaji Boshlig'i",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Avtobus Saroyi va Shahar Avtobuslari Floti",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Shahar Yo'lovchi Transporti tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **BusDepot** (depotId {PK}, `depotName`, `garageCapacity`, `cityZone`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **CityBus** (busRegNo {PK}, `model`, `seatCapacity`, `routeNo`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **BusDepot** tarkibida kamida bitta yoki undan ko'p (1..*) **CityBus** bo'lishi mumkin. Har bir **CityBus** esa qat'iy ravishda faqat bitta (1..1) **BusDepot** ga mansub bo'ladi. Munosabat: **Houses**.",
-    "instruction": "'BusDepot' va 'CityBus' entitiylarini polotnoga qo'ying, 'Houses' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "BusDepot va CityBus Ierarxiyasi",
+    "story": "Shahar Avtobus Parki sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Avtobus saroyida o'nlab shahar avtobuslari saqlanadi, har bir avtobus esa qat'iy ravishda bitta saroy balansiga olingan.\n\nTizimda ota entitiy sifatida **BusDepot** (depotId {PK}, `depotName`, `garageCapacity`, `cityZone`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **CityBus** (busRegNo {PK}, `model`, `seatCapacity`, `routeNo`) entitiysi hisoblanadi. Ular o'rtasida **Houses** munosabati o'rnatiladi.",
+    "instruction": "'BusDepot' va 'CityBus' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2053,13 +2053,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 35,
     "sector": 3,
-    "difficulty": "3-Qavat • Korporativ Boshqaruv",
-    "clientName": "Nargiza Odilova",
-    "clientRole": "HR Bosh Menejeri",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Kompaniya Filiali va Unda Ishlovchi Xodimlar",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Korporativ Boshqaruv tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Branch** (branchNo {PK}, `city`, `street`, `phone`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **Staff** (staffNo {PK}, `fName`, `lName`, `position`, `salary`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Branch** tarkibida kamida bitta yoki undan ko'p (1..*) **Staff** bo'lishi mumkin. Har bir **Staff** esa qat'iy ravishda faqat bitta (1..1) **Branch** ga mansub bo'ladi. Munosabat: **Operates**.",
-    "instruction": "'Branch' va 'Staff' entitiylarini polotnoga qo'ying, 'Operates' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "Branch va Staff Ierarxiyasi",
+    "story": "Korporativ Filiallar sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Kompaniya filialida bir guruh xodimlar mehnat qiladi, har bir xodim esa bitta filial shtatida faoliyat yuritadi.\n\nTizimda ota entitiy sifatida **Branch** (branchNo {PK}, `city`, `street`, `phone`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **Staff** (staffNo {PK}, `fName`, `lName`, `position`, `salary`) entitiysi hisoblanadi. Ular o'rtasida **Operates** munosabati o'rnatiladi.",
+    "instruction": "'Branch' va 'Staff' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2129,13 +2129,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 36,
     "sector": 3,
-    "difficulty": "3-Qavat • Klinika Bo'limlari",
-    "clientName": "Shohida Olimova",
-    "clientRole": "Bosh Hamshira",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Shifoxona Bo'limi va Unga Qarashli Palatalar",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Klinika Bo'limlari tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **HospitalWard** (wardId {PK}, `wardName`, `floorLevel`, `nurseStation`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **PatientRoom** (roomNumber {PK}, `bedCount`, `isOxygenEquipped`, `dailyRate`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **HospitalWard** tarkibida kamida bitta yoki undan ko'p (1..*) **PatientRoom** bo'lishi mumkin. Har bir **PatientRoom** esa qat'iy ravishda faqat bitta (1..1) **HospitalWard** ga mansub bo'ladi. Munosabat: **Contains**.",
-    "instruction": "'HospitalWard' va 'PatientRoom' entitiylarini polotnoga qo'ying, 'Contains' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "HospitalWard va PatientRoom Ierarxiyasi",
+    "story": "Klinika Palatalari sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Shifoxona bo'limida bir nechta bemorlar xonasi joylashgan, har bir xona esa bitta bo'lim tarkibiga kiradi.\n\nTizimda ota entitiy sifatida **HospitalWard** (wardId {PK}, `wardName`, `floorLevel`, `nurseStation`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **PatientRoom** (roomNumber {PK}, `bedCount`, `isOxygenEquipped`, `dailyRate`) entitiysi hisoblanadi. Ular o'rtasida **Contains** munosabati o'rnatiladi.",
+    "instruction": "'HospitalWard' va 'PatientRoom' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2201,13 +2201,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 37,
     "sector": 3,
-    "difficulty": "3-Qavat • Aeronavigatsiya",
-    "clientName": "Ravshan Yusupov",
-    "clientRole": "Parvozlar Bosh Dispetcheri",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Aviakompaniya va Xalqaro Parvoz Reyslari",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Aeronavigatsiya tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Airline** (airlineCode {PK}, `airlineName`, `countryOrigin`, `alliance`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **FlightSchedule** (flightNo {PK}, `originIata`, `destIata`, `departureTime`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Airline** tarkibida kamida bitta yoki undan ko'p (1..*) **FlightSchedule** bo'lishi mumkin. Har bir **FlightSchedule** esa qat'iy ravishda faqat bitta (1..1) **Airline** ga mansub bo'ladi. Munosabat: **Operates**.",
-    "instruction": "'Airline' va 'FlightSchedule' entitiylarini polotnoga qo'ying, 'Operates' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "Airline va FlightSchedule Ierarxiyasi",
+    "story": "Aeronavigatsiya Jadvali sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Aviakompaniya o'nlab muntazam parvoz reyslarini bajaradi, har bir reys esa bitta aviatashuvchi tasarrufiga tegishli.\n\nTizimda ota entitiy sifatida **Airline** (airlineCode {PK}, `airlineName`, `countryOrigin`, `alliance`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **FlightSchedule** (flightNo {PK}, `originIata`, `destIata`, `departureTime`) entitiysi hisoblanadi. Ular o'rtasida **Operates** munosabati o'rnatiladi.",
+    "instruction": "'Airline' va 'FlightSchedule' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2273,13 +2273,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 38,
     "sector": 3,
-    "difficulty": "3-Qavat • Restoran Xizmati",
-    "clientName": "Zilola Ergasheva",
-    "clientRole": "Restoran Administratori",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Restoran Stoli va Buyurtma Cheklari",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Restoran Xizmati tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **DiningTable** (tableNo {PK}, `seatingCapacity`, `zoneArea`, `isReserved`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **OrderTicket** (orderId {PK}, `orderTime`, `totalSum`, `paymentStatus`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **DiningTable** tarkibida kamida bitta yoki undan ko'p (0..*) **OrderTicket** bo'lishi mumkin. Har bir **OrderTicket** esa qat'iy ravishda faqat bitta (1..1) **DiningTable** ga mansub bo'ladi. Munosabat: **Places**.",
-    "instruction": "'DiningTable' va 'OrderTicket' entitiylarini polotnoga qo'ying, 'Places' aloqasini o'rnatib, multiplisitiyani 1..1 va 0..* qilib belgilang.",
+    "title": "DiningTable va OrderTicket Ierarxiyasi",
+    "story": "Restoran Buyurtmalari sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Restoran stoliga kun davomida bir nechta buyurtma cheklari ochilishi mumkin, ammo har bir chek faqat bitta stolga biriktiriladi.\n\nTizimda ota entitiy sifatida **DiningTable** (tableNo {PK}, `seatingCapacity`, `zoneArea`, `isReserved`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **OrderTicket** (orderId {PK}, `orderTime`, `totalSum`, `paymentStatus`) entitiysi hisoblanadi. Ular o'rtasida **Places** munosabati o'rnatiladi.",
+    "instruction": "'DiningTable' va 'OrderTicket' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2336,7 +2336,7 @@ _scope.EER_CLIENTS_1_50 = [
           "entity1": "DiningTable",
           "entity2": "OrderTicket",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "Places"
         }
       ]
@@ -2345,13 +2345,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 39,
     "sector": 3,
-    "difficulty": "3-Qavat • Xalqaro Mehmonxona",
-    "clientName": "Sevara Shokirova",
-    "clientRole": "Mehmonxona Qabul Rahbari",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Mehmonxona Majmuasi va Xonalar Boshqaruvi",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Xalqaro Mehmonxona tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Hotel** (hotelId {PK}, `hotelName`, `starRating`, `cityAddress`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **Room** (roomNo {PK}, `type`, `price`, `isCleaned`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Hotel** tarkibida kamida bitta yoki undan ko'p (1..*) **Room** bo'lishi mumkin. Har bir **Room** esa qat'iy ravishda faqat bitta (1..1) **Hotel** ga mansub bo'ladi. Munosabat: **Has**.",
-    "instruction": "'Hotel' va 'Room' entitiylarini polotnoga qo'ying, 'Has' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "Hotel va Room Ierarxiyasi",
+    "story": "Mehmonxona Binosi sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Mehmonxona majmuasida yuzlab xonalar mavjud, har bir xona esa bitta muayyan mehmonxona korpusiga tegishlidir.\n\nTizimda ota entitiy sifatida **Hotel** (hotelId {PK}, `hotelName`, `starRating`, `cityAddress`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **Room** (roomNo {PK}, `type`, `price`, `isCleaned`) entitiysi hisoblanadi. Ular o'rtasida **Has** munosabati o'rnatiladi.",
+    "instruction": "'Hotel' va 'Room' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2417,13 +2417,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 40,
     "sector": 3,
-    "difficulty": "3-Qavat • Madaniyat & Teatr",
-    "clientName": "Rustam Mirzayev",
-    "clientRole": "Sahna Rejissyori",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Teatr Spektakli va Badiiy Rollar Fonotekasi",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Madaniyat & Teatr tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **TheatrePlay** (playCode {PK}, `title`, `authorPlaywright`, `genre`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **CharacterRole** (roleId {PK}, `characterName`, `importanceTier`, `actCount`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **TheatrePlay** tarkibida kamida bitta yoki undan ko'p (1..*) **CharacterRole** bo'lishi mumkin. Har bir **CharacterRole** esa qat'iy ravishda faqat bitta (1..1) **TheatrePlay** ga mansub bo'ladi. Munosabat: **Features**.",
-    "instruction": "'TheatrePlay' va 'CharacterRole' entitiylarini polotnoga qo'ying, 'Features' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "TheatrePlay va CharacterRole Ierarxiyasi",
+    "story": "Teatr Repertuari sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Teatr spektaklida bir nechta qahramon rollari mavjud, har bir rol esa bitta spektakl ssenariysiga tegishli.\n\nTizimda ota entitiy sifatida **TheatrePlay** (playCode {PK}, `title`, `authorPlaywright`, `genre`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **CharacterRole** (roleId {PK}, `characterName`, `importanceTier`, `actCount`) entitiysi hisoblanadi. Ular o'rtasida **Features** munosabati o'rnatiladi.",
+    "instruction": "'TheatrePlay' va 'CharacterRole' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2489,13 +2489,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 41,
     "sector": 3,
-    "difficulty": "3-Qavat • Media & Kontent",
-    "clientName": "Madina Alimova",
-    "clientRole": "Bosh Muharrir SMM",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Telegram Blog Kanali va Nashr Qilingan Postlar",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Media & Kontent tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Channel** (channelHandle {PK}, `channelTitle`, `subscribersCount`, `createdDate`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **ChannelPost** (postId {PK}, `publishedAt`, `viewCount`, `postText`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Channel** tarkibida kamida bitta yoki undan ko'p (0..*) **ChannelPost** bo'lishi mumkin. Har bir **ChannelPost** esa qat'iy ravishda faqat bitta (1..1) **Channel** ga mansub bo'ladi. Munosabat: **Publishes**.",
-    "instruction": "'Channel' va 'ChannelPost' entitiylarini polotnoga qo'ying, 'Publishes' aloqasini o'rnatib, multiplisitiyani 1..1 va 0..* qilib belgilang.",
+    "title": "Channel va ChannelPost Ierarxiyasi",
+    "story": "Telegram Media sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Blog kanali o'z sahifasida ko'plab postlar chiqaradi, har bir post esa aynan bitta kanal muallifiga tegishli.\n\nTizimda ota entitiy sifatida **Channel** (channelHandle {PK}, `channelTitle`, `subscribersCount`, `createdDate`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **ChannelPost** (postId {PK}, `publishedAt`, `viewCount`, `postText`) entitiysi hisoblanadi. Ular o'rtasida **Publishes** munosabati o'rnatiladi.",
+    "instruction": "'Channel' va 'ChannelPost' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2552,7 +2552,7 @@ _scope.EER_CLIENTS_1_50 = [
           "entity1": "Channel",
           "entity2": "ChannelPost",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "Publishes"
         }
       ]
@@ -2561,13 +2561,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 42,
     "sector": 3,
-    "difficulty": "3-Qavat • Omborxona Xo'jaligi",
-    "clientName": "Oybek Mahmudov",
-    "clientRole": "Ombor Mudiri",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Logistika Omborxonasi va Saqlash Bo'lmalari",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Omborxona Xo'jaligi tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **Warehouse** (warehouseCode {PK}, `facilityName`, `totalVolumeM3`, `address`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **StorageBay** (bayBarcode {PK}, `aisleNo`, `maxWeightKg`, `temperatureZone`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **Warehouse** tarkibida kamida bitta yoki undan ko'p (1..*) **StorageBay** bo'lishi mumkin. Har bir **StorageBay** esa qat'iy ravishda faqat bitta (1..1) **Warehouse** ga mansub bo'ladi. Munosabat: **ConsistsOf**.",
-    "instruction": "'Warehouse' va 'StorageBay' entitiylarini polotnoga qo'ying, 'ConsistsOf' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "Warehouse va StorageBay Ierarxiyasi",
+    "story": "Omborxona Xo'jaligi sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Katta logistika omborida ko'plab saqlash bo'lmalari bor, har bir bo'lma esa bitta ombor binosida joylashgan.\n\nTizimda ota entitiy sifatida **Warehouse** (warehouseCode {PK}, `facilityName`, `totalVolumeM3`, `address`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **StorageBay** (bayBarcode {PK}, `aisleNo`, `maxWeightKg`, `temperatureZone`) entitiysi hisoblanadi. Ular o'rtasida **ConsistsOf** munosabati o'rnatiladi.",
+    "instruction": "'Warehouse' va 'StorageBay' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2633,13 +2633,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 43,
     "sector": 3,
-    "difficulty": "3-Qavat • Hududiy Boshqaruv",
-    "clientName": "Botir Tursunov",
-    "clientRole": "Shahar Hokimiyati",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Viloyat Shahri va Unga Tegishli Tumanlar",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Hududiy Boshqaruv tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **City** (cityId {PK}, `cityName`, `regionName`, `population`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **District** (districtId {PK}, `districtName`, `postalIndex`, `areaSqKm`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **City** tarkibida kamida bitta yoki undan ko'p (1..*) **District** bo'lishi mumkin. Har bir **District** esa qat'iy ravishda faqat bitta (1..1) **City** ga mansub bo'ladi. Munosabat: **DividedInto**.",
-    "instruction": "'City' va 'District' entitiylarini polotnoga qo'ying, 'DividedInto' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "City va District Ierarxiyasi",
+    "story": "Davlat Ma'muriy Tizimi sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Viloyat markazi bo'lgan shahar bir necha tumanlarga bo'linadi, har bir tuman esa faqat bitta shahar ma'muriyatiga qaraydi.\n\nTizimda ota entitiy sifatida **City** (cityId {PK}, `cityName`, `regionName`, `population`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **District** (districtId {PK}, `districtName`, `postalIndex`, `areaSqKm`) entitiysi hisoblanadi. Ular o'rtasida **DividedInto** munosabati o'rnatiladi.",
+    "instruction": "'City' va 'District' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2705,13 +2705,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 44,
     "sector": 3,
-    "difficulty": "3-Qavat • Sug'urta Bozori",
-    "clientName": "Gulzoda Salimova",
-    "clientRole": "Sug'urta Kompaniyasi Menejeri",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Sug'urta Agenti va Rasmiylashtirilgan Sug'urta Polislari",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Sug'urta Bozori tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **InsuranceBroker** (brokerId {PK}, `brokerName`, `licenseNo`, `commissionRate`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **Policy** (policyNo {PK}, `startDate`, `endDate`, `premiumAmount`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **InsuranceBroker** tarkibida kamida bitta yoki undan ko'p (0..*) **Policy** bo'lishi mumkin. Har bir **Policy** esa qat'iy ravishda faqat bitta (1..1) **InsuranceBroker** ga mansub bo'ladi. Munosabat: **Underwrites**.",
-    "instruction": "'InsuranceBroker' va 'Policy' entitiylarini polotnoga qo'ying, 'Underwrites' aloqasini o'rnatib, multiplisitiyani 1..1 va 0..* qilib belgilang.",
+    "title": "InsuranceBroker va Policy Ierarxiyasi",
+    "story": "Sug'urta Agentligi sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Sug'urta agenti mijozlarga ko'plab sug'urta polislarini rasmiylashtiradi, har bir polis esa bitta mas'ul agent tomonidan imzolanadi.\n\nTizimda ota entitiy sifatida **InsuranceBroker** (brokerId {PK}, `brokerName`, `licenseNo`, `commissionRate`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **Policy** (policyNo {PK}, `startDate`, `endDate`, `premiumAmount`) entitiysi hisoblanadi. Ular o'rtasida **Underwrites** munosabati o'rnatiladi.",
+    "instruction": "'InsuranceBroker' va 'Policy' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2768,7 +2768,7 @@ _scope.EER_CLIENTS_1_50 = [
           "entity1": "InsuranceBroker",
           "entity2": "Policy",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "Underwrites"
         }
       ]
@@ -2777,13 +2777,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 45,
     "sector": 3,
-    "difficulty": "3-Qavat • Telekom & Radioaloqa",
-    "clientName": "Eldor Vohidov",
-    "clientRole": "Radio Tarmoq Muhandisi",
+    "difficulty": "3-Qavat • O'rta (1..*)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Mobil Aloqa Minorasi va Antenna Sektorlari",
-    "story": "Tashkilot o'z faoliyatini kengaytirmoqda va tabiiy boshqaruv ierarxiyasini axborot tizimida to'g'ri aks ettirishni maqsad qilgan. Telekom & Radioaloqa tarmog'ida resurslar markazlashtirilgan holda taqsimlanadi.\n\nTizimda asosiy ota birlik sifatida **CellTower** (towerId {PK}, `towerName`, `latitude`, `longitude`, `heightMeters`) ro'yxatga olinadi. Unga bo'ysunuvchi yoki biriktirilgan birlik esa **AntennaSector** (sectorId {PK}, `azimuthDegree`, `frequencyBandMhz`, `powerWatt`) hisoblanadi.\n\nKompaniya reglamentiga muvofiq, har bir **CellTower** tarkibida kamida bitta yoki undan ko'p (1..*) **AntennaSector** bo'lishi mumkin. Har bir **AntennaSector** esa qat'iy ravishda faqat bitta (1..1) **CellTower** ga mansub bo'ladi. Munosabat: **Radiates**.",
-    "instruction": "'CellTower' va 'AntennaSector' entitiylarini polotnoga qo'ying, 'Radiates' aloqasini o'rnatib, multiplisitiyani 1..1 va 1..* qilib belgilang.",
+    "title": "CellTower va AntennaSector Ierarxiyasi",
+    "story": "Mobil Aloqa Minorasi sohasida tabiiy boshqaruv ierarxiyasini ta'minlovchi axborot tizimi ishlab chiqilmoqda. Biznes qoidalariga ko'ra: Uyali aloqa minorasiga turli burchakka qaratilgan bir nechta sektor antennalari o'rnatiladi, har bir antenna bitta minoraga mahkamlangan.\n\nTizimda ota entitiy sifatida **CellTower** (towerId {PK}, `towerName`, `latitude`, `longitude`, `heightMeters`) ro'yxatga olinadi.\n\nUnga bo'ysunuvchi birlik esa **AntennaSector** (sectorId {PK}, `azimuthDegree`, `frequencyBandMhz`, `powerWatt`) entitiysi hisoblanadi. Ular o'rtasida **Radiates** munosabati o'rnatiladi.",
+    "instruction": "'CellTower' va 'AntennaSector' entitiylarini yarating, ularning {PK} kalitlarini belgilang va bayon etilgan biznes qoidasiga mos munosabat hamda multiplisitiyani polotnoda o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2853,13 +2853,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 46,
     "sector": 4,
-    "difficulty": "4-Qavat • Tibbiyot Xizmati",
-    "clientName": "Dr. Lola Sharipova",
-    "clientRole": "Klinika Koordinatori",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Shifokor va Bemor Qabuli (Appointment)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Tibbiyot Xizmati amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Doctor** (doctorId {PK}) va **Patient** (patientId {PK}) qatnashadi. Bir Doctor bir nechta Patient bilan, va aksincha, bir Patient bir nechta Doctor bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **Appointment** (appointId {PK}, `appointTime`, `diagnosisNotes`, `cost`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Doctor' va 'Patient' o'rtasida assotsiativ 'Appointment' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Doctor va Patient Hamkorligi",
+    "story": "Klinika Qabuli jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Bir shifokor ko'plab bemorlarni qabul qiladi, bemor ham bir nechta ixtisoslashgan shifokorlar ko'rigida bo'lishi mumkin. Qabul jarayoni oraliq Appointment orqali rasmiylashtiriladi.\n\nTizimda asosiy ishtirokchilar sifatida **Doctor** (doctorId {PK}) va **Patient** (patientId {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **Appointment** (appointId {PK}, `appointTime`, `diagnosisNotes`, `cost`) polotnoda aks ettiriladi.",
+    "instruction": "'Doctor' va 'Patient' o'rtasida assotsiativ 'Appointment' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2873,6 +2873,18 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "doctorId",
               "isPK": true
+            },
+            {
+              "name": "docName",
+              "isPK": false
+            },
+            {
+              "name": "specialization",
+              "isPK": false
+            },
+            {
+              "name": "roomNumber",
+              "isPK": false
             }
           ]
         },
@@ -2883,6 +2895,18 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "patientId",
               "isPK": true
+            },
+            {
+              "name": "patientName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "dob",
+              "isPK": false
             }
           ]
         },
@@ -2931,13 +2955,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 47,
     "sector": 4,
-    "difficulty": "4-Qavat • Universitet Dekanati",
-    "clientName": "Jasur Qobilov",
-    "clientRole": "Akademik Bo'lim Boshlig'i",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Talaba va Fanlarga Ro'yxatdan O'tish (Enrollment)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Universitet Dekanati amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Student** (studentId {PK}) va **Course** (courseCode {PK}) qatnashadi. Bir Student bir nechta Course bilan, va aksincha, bir Course bir nechta Student bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **Enrollment** (enrollmentId {PK}, `semester`, `gradeLetter`, `attendanceScore`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Student' va 'Course' o'rtasida assotsiativ 'Enrollment' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Student va Course Hamkorligi",
+    "story": "Universitet Darslari jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Bir talaba bir nechta o'quv fanlariga yoziladi, bir fanda esa yuzlab talabalar tahsil oladi. Ro'yxatdan o'tish Enrollment hujjati orqali yuritiladi.\n\nTizimda asosiy ishtirokchilar sifatida **Student** (studentId {PK}) va **Course** (courseCode {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **Enrollment** (enrollmentId {PK}, `semester`, `gradeLetter`, `attendanceScore`) polotnoda aks ettiriladi.",
+    "instruction": "'Student' va 'Course' o'rtasida assotsiativ 'Enrollment' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2951,6 +2975,18 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "studentId",
               "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "email",
+              "isPK": false
+            },
+            {
+              "name": "entryYear",
+              "isPK": false
             }
           ]
         },
@@ -2961,6 +2997,18 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "courseCode",
               "isPK": true
+            },
+            {
+              "name": "courseTitle",
+              "isPK": false
+            },
+            {
+              "name": "credits",
+              "isPK": false
+            },
+            {
+              "name": "syllabusVersion",
+              "isPK": false
             }
           ]
         },
@@ -3009,13 +3057,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 48,
     "sector": 4,
-    "difficulty": "4-Qavat • Nashriyot & Mualliflik Huquqi",
-    "clientName": "Gulbahor Karimova",
-    "clientRole": "Adabiy Agent",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Muallif va Kitob Hammuallifligi (Authorship)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Nashriyot & Mualliflik Huquqi amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Author** (authorId {PK}) va **Book** (isbn {PK}) qatnashadi. Bir Author bir nechta Book bilan, va aksincha, bir Book bir nechta Author bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **Authorship** (authorshipId {PK}, `royaltySharePercent`, `contributionChapter`, `contractSignDate`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Author' va 'Book' o'rtasida assotsiativ 'Authorship' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Author va Book Hamkorligi",
+    "story": "Adabiyot & Mualliflik jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Bir muallif bir nechta kitob yozishi mumkin, bir kitob esa bir nechta hammualliflar tomonidan yaratilishi mumkin.\n\nTizimda asosiy ishtirokchilar sifatida **Author** (authorId {PK}) va **Book** (isbn {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **Authorship** (authorshipId {PK}, `royaltySharePercent`, `contributionChapter`, `contractSignDate`) polotnoda aks ettiriladi.",
+    "instruction": "'Author' va 'Book' o'rtasida assotsiativ 'Authorship' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3029,6 +3077,18 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "authorId",
               "isPK": true
+            },
+            {
+              "name": "penName",
+              "isPK": false
+            },
+            {
+              "name": "country",
+              "isPK": false
+            },
+            {
+              "name": "birthYear",
+              "isPK": false
             }
           ]
         },
@@ -3039,6 +3099,18 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "isbn",
               "isPK": true
+            },
+            {
+              "name": "bookTitle",
+              "isPK": false
+            },
+            {
+              "name": "pageCount",
+              "isPK": false
+            },
+            {
+              "name": "firstEditionYear",
+              "isPK": false
             }
           ]
         },
@@ -3087,13 +3159,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 49,
     "sector": 4,
-    "difficulty": "4-Qavat • Elektron Tijorat",
-    "clientName": "Sardor Ahmedov",
-    "clientRole": "Savdo Tahlilchisi",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Xarid Buyurtmasi va Tovar Tarkibi (OrderItem)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Elektron Tijorat amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Order** (orderId {PK}) va **Product** (sku {PK}) qatnashadi. Bir Order bir nechta Product bilan, va aksincha, bir Product bir nechta Order bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **OrderItem** (itemId {PK}, `quantity`, `appliedDiscount`, `lineTotal`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Order' va 'Product' o'rtasida assotsiativ 'OrderItem' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Order va Product Hamkorligi",
+    "story": "E-Commerce Savdo jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Bitta xarid buyurtmasida turli tovarlar bo'lishi mumkin, ayni bitta tovar esa ko'plab mijozlar buyurtmasida qatnashadi.\n\nTizimda asosiy ishtirokchilar sifatida **Order** (orderId {PK}) va **Product** (sku {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **OrderItem** (itemId {PK}, `quantity`, `appliedDiscount`, `lineTotal`) polotnoda aks ettiriladi.",
+    "instruction": "'Order' va 'Product' o'rtasida assotsiativ 'OrderItem' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3107,6 +3179,18 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "orderId",
               "isPK": true
+            },
+            {
+              "name": "orderDate",
+              "isPK": false
+            },
+            {
+              "name": "shippingAddress",
+              "isPK": false
+            },
+            {
+              "name": "status",
+              "isPK": false
             }
           ]
         },
@@ -3117,6 +3201,18 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "sku",
               "isPK": true
+            },
+            {
+              "name": "productName",
+              "isPK": false
+            },
+            {
+              "name": "unitPrice",
+              "isPK": false
+            },
+            {
+              "name": "stockQty",
+              "isPK": false
             }
           ]
         },
@@ -3165,13 +3261,13 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 50,
     "sector": 4,
-    "difficulty": "4-Qavat • Scrum & IT Boshqaruv",
-    "clientName": "Behzod Rahimov",
-    "clientRole": "Scrum Master",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Dasturchi va Dasturiy Loyihalar (ProjectAssignment)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Scrum & IT Boshqaruv amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Developer** (devId {PK}) va **Project** (projectCode {PK}) qatnashadi. Bir Developer bir nechta Project bilan, va aksincha, bir Project bir nechta Developer bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **ProjectAssignment** (assignId {PK}, `assignedRole`, `hoursPerWeek`, `startDate`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Developer' va 'Project' o'rtasida assotsiativ 'ProjectAssignment' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Developer va Project Hamkorligi",
+    "story": "Scrum IT Loyihalar jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Dasturchi bir nechta loyihada ishlashi mumkin, har bir dasturiy loyihada esa jamoaviy dasturchilar birikmasi mehnat qiladi.\n\nTizimda asosiy ishtirokchilar sifatida **Developer** (devId {PK}) va **Project** (projectCode {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **ProjectAssignment** (assignId {PK}, `assignedRole`, `hoursPerWeek`, `startDate`) polotnoda aks ettiriladi.",
+    "instruction": "'Developer' va 'Project' o'rtasida assotsiativ 'ProjectAssignment' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3185,6 +3281,18 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "devId",
               "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "seniority",
+              "isPK": false
+            },
+            {
+              "name": "hourlyRate",
+              "isPK": false
             }
           ]
         },
@@ -3195,6 +3303,18 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "projectCode",
               "isPK": true
+            },
+            {
+              "name": "projectName",
+              "isPK": false
+            },
+            {
+              "name": "deadline",
+              "isPK": false
+            },
+            {
+              "name": "budgetUsd",
+              "isPK": false
             }
           ]
         },

@@ -3,13 +3,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 101,
     "sector": 7,
-    "difficulty": "7-Qavat • Kino Asarlari",
-    "clientName": "Bobur Alimov",
-    "clientRole": "Prokat Boshqaruvchisi",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Akmal Shokirov",
+    "clientRole": "Kinoprokat Boshqaruvchisi",
     "clientAvatar": "mentor",
-    "title": "Filmlar: FeatureFilm va DocumentaryFilm",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Kino Asarlari standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **Movie** (movieId {PK}, `title`, `director`, `durationMin`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **FeatureFilm** (`boxOfficeMillions`, `aspectRatio`) va **DocumentaryFilm** (`historicalTopic`, `narratorName`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'Movie' superklassidan 'FeatureFilm' va 'DocumentaryFilm' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "Movie Disjoint Ixtisoslashuvi",
+    "story": "Kino & Premyeralar sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **Movie** (movieId {PK}, `title`, `director`, `durationMin`, `ageRating`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'Movie' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -35,55 +35,41 @@ _scope.EER_CLIENTS_101_150 = [
             {
               "name": "durationMin",
               "isPK": false
+            },
+            {
+              "name": "ageRating",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Movie",
         "subs": [
           {
-            "name": "FeatureFilm",
-            "attributes": [
-              {
-                "name": "boxOfficeMillions",
-                "isPK": false
-              },
-              {
-                "name": "aspectRatio",
-                "isPK": false
-              }
-            ]
+            "name": "MovieTypeA",
+            "attributes": []
           },
           {
-            "name": "DocumentaryFilm",
-            "attributes": [
-              {
-                "name": "historicalTopic",
-                "isPK": false
-              },
-              {
-                "name": "narratorName",
-                "isPK": false
-              }
-            ]
+            "name": "MovieTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 102,
     "sector": 7,
-    "difficulty": "7-Qavat • Farmatsevtika Qonunchiligi",
-    "clientName": "Dr. Umida Saidova",
-    "clientRole": "Bosh Nazoratchi",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Umida Zokirova",
+    "clientRole": "Bosh Provisor",
     "clientAvatar": "mentor",
-    "title": "Dorilar: PrescriptionDrug va OtcDrug",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Farmatsevtika Qonunchiligi standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **Medicine** (barcode {PK}, `name`, `dosageMg`, `expDate`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **PrescriptionDrug** (`controlledSchedule`, `doctorReq`) va **OtcDrug** (`flavor`, `ageLimitYears`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'Medicine' superklassidan 'PrescriptionDrug' va 'OtcDrug' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "Medicine Disjoint Ixtisoslashuvi",
+    "story": "Farmatsevtika sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **Medicine** (barcode {PK}, `name`, `dosageMg`, `manufacturer`, `expDate`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'Medicine' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -107,57 +93,43 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
+              "name": "manufacturer",
+              "isPK": false
+            },
+            {
               "name": "expDate",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Medicine",
         "subs": [
           {
-            "name": "PrescriptionDrug",
-            "attributes": [
-              {
-                "name": "controlledSchedule",
-                "isPK": false
-              },
-              {
-                "name": "doctorReq",
-                "isPK": false
-              }
-            ]
+            "name": "MedicineTypeA",
+            "attributes": []
           },
           {
-            "name": "OtcDrug",
-            "attributes": [
-              {
-                "name": "flavor",
-                "isPK": false
-              },
-              {
-                "name": "ageLimitYears",
-                "isPK": false
-              }
-            ]
+            "name": "MedicineTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 103,
     "sector": 7,
-    "difficulty": "7-Qavat • Magistral Yuk Floti",
-    "clientName": "Rustam Qobilov",
-    "clientRole": "Avtopark Texnik Rahbari",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Sanjar Normatov",
+    "clientRole": "Logistika Floti Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Furalar: RefrigeratedTruck va FlatbedTruck",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Magistral Yuk Floti standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **CargoTruck** (plateNo {PK}, `capacityTons`, `mileageKm`, `fuelType`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **RefrigeratedTruck** (`minTempCelsius`, `compressorPower`) va **FlatbedTruck** (`bedLengthMeters`, `maxAxleWeight`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'CargoTruck' superklassidan 'RefrigeratedTruck' va 'FlatbedTruck' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "CargoTruck Disjoint Ixtisoslashuvi",
+    "story": "Magistral Yuk Tashish sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **CargoTruck** (plateNo {PK}, `capacityTons`, `fuelType`, `mileageKm`, `status`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'CargoTruck' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -177,61 +149,47 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
+              "name": "fuelType",
+              "isPK": false
+            },
+            {
               "name": "mileageKm",
               "isPK": false
             },
             {
-              "name": "fuelType",
+              "name": "status",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "CargoTruck",
         "subs": [
           {
-            "name": "RefrigeratedTruck",
-            "attributes": [
-              {
-                "name": "minTempCelsius",
-                "isPK": false
-              },
-              {
-                "name": "compressorPower",
-                "isPK": false
-              }
-            ]
+            "name": "CargoTruckTypeA",
+            "attributes": []
           },
           {
-            "name": "FlatbedTruck",
-            "attributes": [
-              {
-                "name": "bedLengthMeters",
-                "isPK": false
-              },
-              {
-                "name": "maxAxleWeight",
-                "isPK": false
-              }
-            ]
+            "name": "CargoTruckTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 104,
     "sector": 7,
-    "difficulty": "7-Qavat • Fitnes Klub Ma'muriyati",
-    "clientName": "Dilnoza Vohidova",
-    "clientRole": "Klub Boshqaruvchisi",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Nilufar Rahimova",
+    "clientRole": "Mijozlar Xizmati Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Klub A'zolari: VipMember va RegularMember",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Fitnes Klub Ma'muriyati standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **ClubMember** (memberCardNo {PK}, `fullName`, `membershipType`, `phone`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **VipMember** (`personalTrainerId`, `spaAccessLevel`) va **RegularMember** (`lockerAssigned`, `timeSlot`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'ClubMember' superklassidan 'VipMember' va 'RegularMember' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "ClubMember Disjoint Ixtisoslashuvi",
+    "story": "Sport & Fitnes sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **ClubMember** (memberCardNo {PK}, `fullName`, `membershipType`, `expiryDate`, `phone`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'ClubMember' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -255,57 +213,43 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
+              "name": "expiryDate",
+              "isPK": false
+            },
+            {
               "name": "phone",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "ClubMember",
         "subs": [
           {
-            "name": "VipMember",
-            "attributes": [
-              {
-                "name": "personalTrainerId",
-                "isPK": false
-              },
-              {
-                "name": "spaAccessLevel",
-                "isPK": false
-              }
-            ]
+            "name": "ClubMemberTypeA",
+            "attributes": []
           },
           {
-            "name": "RegularMember",
-            "attributes": [
-              {
-                "name": "lockerAssigned",
-                "isPK": false
-              },
-              {
-                "name": "timeSlot",
-                "isPK": false
-              }
-            ]
+            "name": "ClubMemberTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 105,
     "sector": 7,
-    "difficulty": "7-Qavat • Quyosh Podstansiyasi",
-    "clientName": "Jamshid Mahmudov",
-    "clientRole": "Stansiya Boshlig'i",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Davron Karimov",
+    "clientRole": "Bosh Energetik",
     "clientAvatar": "mentor",
-    "title": "Invertorlar: CentralInverter va MicroInverter",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Quyosh Podstansiyasi standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **SolarInverter** (serialNo {PK}, `peakPowerKw`, `voltageInput`, `efficiency`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **CentralInverter** (`transformerRatingKva`, `coolingSystem`) va **MicroInverter** (`mpptChannels`, `efficiencyRating`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'SolarInverter' superklassidan 'CentralInverter' va 'MicroInverter' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "SolarInverter Disjoint Ixtisoslashuvi",
+    "story": "Quyosh Energetikasi sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **SolarInverter** (serialNo {PK}, `peakPowerKw`, `voltageInput`, `installDate`, `efficiency`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'SolarInverter' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -329,57 +273,43 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
+              "name": "installDate",
+              "isPK": false
+            },
+            {
               "name": "efficiency",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "SolarInverter",
         "subs": [
           {
-            "name": "CentralInverter",
-            "attributes": [
-              {
-                "name": "transformerRatingKva",
-                "isPK": false
-              },
-              {
-                "name": "coolingSystem",
-                "isPK": false
-              }
-            ]
+            "name": "SolarInverterTypeA",
+            "attributes": []
           },
           {
-            "name": "MicroInverter",
-            "attributes": [
-              {
-                "name": "mpptChannels",
-                "isPK": false
-              },
-              {
-                "name": "efficiencyRating",
-                "isPK": false
-              }
-            ]
+            "name": "SolarInverterTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 106,
     "sector": 8,
-    "difficulty": "8-Qavat • Universitet Shtati",
-    "clientName": "Prof. Anvar Hakimov",
-    "clientRole": "Ilmiy Kadrlar Bo'limi",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Akademik Xodimlar: Instructor va Researcher (Overlapping)",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Universitet Shtati amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **UniversityStaff** (staffId {PK}, `fullName`, `email`, `salary`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **Instructor** (`teachingHoursPerWeek`, `evalScore`) va **Researcher** (`grantFundingUsd`, `hIndex`). Bitta UniversityStaff bir vaqtning o'zida ham Instructor, ham Researcher bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'UniversityStaff' superklassiga 'Instructor' va 'Researcher' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "UniversityStaff Overlapping Ixtisoslashuvi",
+    "story": "Universitet Akademik Shtati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Xodim bir vaqtning o'zida ham dars berishi (o'qituvchi), ham grant loyihasi ustida tadqiqot olib borishi (tadqiqotchi) mumkin.\n\nTizimda superklass sifatida **UniversityStaff** (staffId {PK}, `fullName`, `email`, `salary`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'UniversityStaff' superklassini va uning ustma-ust tushuvchi 'Instructor' hamda 'Researcher' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -409,51 +339,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "UniversityStaff",
         "subs": [
           {
             "name": "Instructor",
-            "attributes": [
-              {
-                "name": "teachingHoursPerWeek",
-                "isPK": false
-              },
-              {
-                "name": "evalScore",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "Researcher",
-            "attributes": [
-              {
-                "name": "grantFundingUsd",
-                "isPK": false
-              },
-              {
-                "name": "hIndex",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 107,
     "sector": 8,
-    "difficulty": "8-Qavat • Tijorat Banki Mijozlari",
-    "clientName": "Gulnora Sobirova",
-    "clientRole": "Chakana Xizmatlar Direktori",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Bank Mijozlari: Depositor va Borrower (Overlapping)",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Tijorat Banki Mijozlari amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **BankClient** (clientId {PK}, `clientName`, `taxCode`, `contactPhone`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **Depositor** (`depositBalance`, `termMonths`) va **Borrower** (`loanAmount`, `creditRating`). Bitta BankClient bir vaqtning o'zida ham Depositor, ham Borrower bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'BankClient' superklassiga 'Depositor' va 'Borrower' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "BankClient Overlapping Ixtisoslashuvi",
+    "story": "Tijorat Banki Mijozlari faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz bir vaqtda ham depozit hisobiga pul qo'ygan omonatchi, ham kredit olgan qarzdor bo'lishi mumkin.\n\nTizimda superklass sifatida **BankClient** (clientId {PK}, `clientName`, `taxCode`, `contactPhone`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'BankClient' superklassini va uning ustma-ust tushuvchi 'Depositor' hamda 'Borrower' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -483,51 +395,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "BankClient",
         "subs": [
           {
             "name": "Depositor",
-            "attributes": [
-              {
-                "name": "depositBalance",
-                "isPK": false
-              },
-              {
-                "name": "termMonths",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "Borrower",
-            "attributes": [
-              {
-                "name": "loanAmount",
-                "isPK": false
-              },
-              {
-                "name": "creditRating",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 108,
     "sector": 8,
-    "difficulty": "8-Qavat • Axborot Xavfsizligi",
-    "clientName": "Farrux Olimov",
-    "clientRole": "CISO Boshlig'i",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Tizim Foydalanuvchilari: SecurityAdmin va SystemDev",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Axborot Xavfsizligi amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **SystemUser** (userLogin {PK}, `email`, `createdDate`, `lastLogin`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **SecurityAdmin** (`clearanceLevel`, `incidentAlertEmail`) va **SystemDev** (`gitBranchPermission`, `ideEnvConfig`). Bitta SystemUser bir vaqtning o'zida ham SecurityAdmin, ham SystemDev bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'SystemUser' superklassiga 'SecurityAdmin' va 'SystemDev' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "SystemUser Overlapping Ixtisoslashuvi",
+    "story": "Axborot Xavfsizligi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Foydalanuvchi bir vaqtda ham xavfsizlik ma'muri, ham ishlab chiquvchi dasturchi rollariga ega bo'lishi mumkin.\n\nTizimda superklass sifatida **SystemUser** (userLogin {PK}, `email`, `createdDate`, `lastLogin`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'SystemUser' superklassini va uning ustma-ust tushuvchi 'SecurityAdmin' hamda 'SystemDev' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -557,51 +451,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "SystemUser",
         "subs": [
           {
             "name": "SecurityAdmin",
-            "attributes": [
-              {
-                "name": "clearanceLevel",
-                "isPK": false
-              },
-              {
-                "name": "incidentAlertEmail",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "SystemDev",
-            "attributes": [
-              {
-                "name": "gitBranchPermission",
-                "isPK": false
-              },
-              {
-                "name": "ideEnvConfig",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 109,
     "sector": 8,
-    "difficulty": "8-Qavat • Xalqaro Ilmiy Sammit",
-    "clientName": "Prof. Dilnoza Rahimova",
-    "clientRole": "Dastur Qo'mitasi Boshlig'i",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Sammit Qatnashchilari: KeynoteSpeaker va Reviewer",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Xalqaro Ilmiy Sammit amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **ConferenceAttendee** (attendeeId {PK}, `attendeeName`, `institution`, `country`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **KeynoteSpeaker** (`lectureTopic`, `honorariumSum`) va **CommitteeReviewer** (`paperQuota`, `assignedTrack`). Bitta ConferenceAttendee bir vaqtning o'zida ham KeynoteSpeaker, ham CommitteeReviewer bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'ConferenceAttendee' superklassiga 'KeynoteSpeaker' va 'CommitteeReviewer' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "ConferenceAttendee Overlapping Ixtisoslashuvi",
+    "story": "Ilmiy Kongress faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ishtirokchi ham ma'ruza qiluvchi spiker, ham maqolalarni baholovchi hay'at a'zosi bo'lishi mumkin.\n\nTizimda superklass sifatida **ConferenceAttendee** (attendeeId {PK}, `attendeeName`, `institution`, `country`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'ConferenceAttendee' superklassini va uning ustma-ust tushuvchi 'KeynoteSpeaker' hamda 'CommitteeReviewer' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -631,51 +507,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "ConferenceAttendee",
         "subs": [
           {
             "name": "KeynoteSpeaker",
-            "attributes": [
-              {
-                "name": "lectureTopic",
-                "isPK": false
-              },
-              {
-                "name": "honorariumSum",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "CommitteeReviewer",
-            "attributes": [
-              {
-                "name": "paperQuota",
-                "isPK": false
-              },
-              {
-                "name": "assignedTrack",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 110,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional Sport Klubi",
-    "clientName": "Rustam Mirzayev",
-    "clientRole": "Sport Direktori",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Sportchilar: LeaguePlayer va TeamCoach",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Professional Sport Klubi amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **AthleteMember** (athleteId {PK}, `athleteName`, `bloodGroup`, `joinYear`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **LeaguePlayer** (`jerseyNumber`, `matchesPlayed`) va **TeamCoach** (`coachingBadge`, `winLossRatio`). Bitta AthleteMember bir vaqtning o'zida ham LeaguePlayer, ham TeamCoach bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'AthleteMember' superklassiga 'LeaguePlayer' va 'TeamCoach' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "AthleteMember Overlapping Ixtisoslashuvi",
+    "story": "Sport Klubi Shtati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Tajribali sportchi ham maydonda o'yinchi, ham yoshlarga murabbiy sifatida faoliyat yuritishi mumkin.\n\nTizimda superklass sifatida **AthleteMember** (athleteId {PK}, `athleteName`, `bloodGroup`, `joinYear`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'AthleteMember' superklassini va uning ustma-ust tushuvchi 'LeaguePlayer' hamda 'TeamCoach' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -705,51 +563,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "AthleteMember",
         "subs": [
           {
             "name": "LeaguePlayer",
-            "attributes": [
-              {
-                "name": "jerseyNumber",
-                "isPK": false
-              },
-              {
-                "name": "matchesPlayed",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "TeamCoach",
-            "attributes": [
-              {
-                "name": "coachingBadge",
-                "isPK": false
-              },
-              {
-                "name": "winLossRatio",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 111,
     "sector": 8,
-    "difficulty": "8-Qavat • Aviatsiya Ekipaji",
-    "clientName": "Kapitan Vladimir Kim",
-    "clientRole": "Parvozlar Xavfsizligi Boshlig'i",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Parvoz Ekipaji: CommercialPilot va SafetyInspector",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Aviatsiya Ekipaji amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **CrewMember** (crewId {PK}, `crewName`, `flightHoursTotal`, `medicalCertDate`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **CommercialPilot** (`typeRatingAircraft`, `coPilotLicenseNo`) va **SafetyInspector** (`safetyAuditCert`, `inspectionCount`). Bitta CrewMember bir vaqtning o'zida ham CommercialPilot, ham SafetyInspector bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'CrewMember' superklassiga 'CommercialPilot' va 'SafetyInspector' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "CrewMember Overlapping Ixtisoslashuvi",
+    "story": "Aviatsiya Ekipaji faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ekipaj a'zosi ham parvoz uchuvchisi, ham xavfsizlik auditori vakolatiga ega bo'la oladi.\n\nTizimda superklass sifatida **CrewMember** (crewId {PK}, `crewName`, `flightHoursTotal`, `medicalCertDate`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'CrewMember' superklassini va uning ustma-ust tushuvchi 'CommercialPilot' hamda 'SafetyInspector' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -779,51 +619,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "CrewMember",
         "subs": [
           {
             "name": "CommercialPilot",
-            "attributes": [
-              {
-                "name": "typeRatingAircraft",
-                "isPK": false
-              },
-              {
-                "name": "coPilotLicenseNo",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "SafetyInspector",
-            "attributes": [
-              {
-                "name": "safetyAuditCert",
-                "isPK": false
-              },
-              {
-                "name": "inspectionCount",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 112,
     "sector": 8,
-    "difficulty": "8-Qavat • Avtodilerlik Klasteri",
-    "clientName": "Sherzod Aliyev",
-    "clientRole": "CRM Bosh Menejeri",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Avtosalon Mijozlari: VehicleBuyer va ServiceClient",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Avtodilerlik Klasteri amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **DealershipClient** (clientId {PK}, `fullName`, `passportNumber`, `contactPhone`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **VehicleBuyer** (`purchaseContractNo`, `purchasedVin`) va **ServiceClient** (`serviceHistoryCode`, `discountLevelPercent`). Bitta DealershipClient bir vaqtning o'zida ham VehicleBuyer, ham ServiceClient bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'DealershipClient' superklassiga 'VehicleBuyer' va 'ServiceClient' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "DealershipClient Overlapping Ixtisoslashuvi",
+    "story": "Avtodilerlik Klasteri faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz ham yangi avtomobil xarid qiluvchi, ham ta'mirlash xizmatidan foydalanuvchi bo'lishi mumkin.\n\nTizimda superklass sifatida **DealershipClient** (clientId {PK}, `fullName`, `passportNumber`, `contactPhone`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'DealershipClient' superklassini va uning ustma-ust tushuvchi 'VehicleBuyer' hamda 'ServiceClient' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -853,51 +675,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "DealershipClient",
         "subs": [
           {
             "name": "VehicleBuyer",
-            "attributes": [
-              {
-                "name": "purchaseContractNo",
-                "isPK": false
-              },
-              {
-                "name": "purchasedVin",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "ServiceClient",
-            "attributes": [
-              {
-                "name": "serviceHistoryCode",
-                "isPK": false
-              },
-              {
-                "name": "discountLevelPercent",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 113,
     "sector": 8,
-    "difficulty": "8-Qavat • Milliy Drama Teatri",
-    "clientName": "Mansur Karimov",
-    "clientRole": "Badiiy Rahbar",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Teatr Ijodkorlari: StageActor va PlayDirector",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Milliy Drama Teatri amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **TheatreArtist** (artistId {PK}, `stageName`, `unionCardNo`, `debutYear`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **StageActor** (`actingRoleType`, `vocalRange`) va **PlayDirector** (`directingPortfolio`, `repertoireCategory`). Bitta TheatreArtist bir vaqtning o'zida ham StageActor, ham PlayDirector bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'TheatreArtist' superklassiga 'StageActor' va 'PlayDirector' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "TheatreArtist Overlapping Ixtisoslashuvi",
+    "story": "Teatr Ijodiy Jamoasi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ijodkor aktyor sifatida sahnaga chiqishi bilan birga sahnalashtiruvchi rejissyor ham bo'lishi mumkin.\n\nTizimda superklass sifatida **TheatreArtist** (artistId {PK}, `stageName`, `unionCardNo`, `debutYear`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'TheatreArtist' superklassini va uning ustma-ust tushuvchi 'StageActor' hamda 'PlayDirector' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -927,51 +731,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "TheatreArtist",
         "subs": [
           {
             "name": "StageActor",
-            "attributes": [
-              {
-                "name": "actingRoleType",
-                "isPK": false
-              },
-              {
-                "name": "vocalRange",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "PlayDirector",
-            "attributes": [
-              {
-                "name": "directingPortfolio",
-                "isPK": false
-              },
-              {
-                "name": "repertoireCategory",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 114,
     "sector": 8,
-    "difficulty": "8-Qavat • Akademik Tibbiyot Instituti",
-    "clientName": "Dr. Lola Sobirova",
-    "clientRole": "Klinik Tadqiqotlar Mudiri",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Tibbiyot Xodimlari: Clinician va ClinicalTrialInvestigator",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Akademik Tibbiyot Instituti amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **MedicalStaff** (licenseNo {PK}, `doctorName`, `specialtyField`, `phone`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **Clinician** (`dailyPatientQuota`, `wardRoomCode`) va **ClinicalTrialInvestigator** (`clinicalProtocolCode`, `trialGrantNo`). Bitta MedicalStaff bir vaqtning o'zida ham Clinician, ham ClinicalTrialInvestigator bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'MedicalStaff' superklassiga 'Clinician' va 'ClinicalTrialInvestigator' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "MedicalStaff Overlapping Ixtisoslashuvi",
+    "story": "Klinik Tadqiqotlar faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Shifokor ham bemorlarni davolovchi vrach, ham dori sinovlarini o'tkazuvchi tadqiqotchi bo'la oladi.\n\nTizimda superklass sifatida **MedicalStaff** (licenseNo {PK}, `doctorName`, `specialtyField`, `phone`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'MedicalStaff' superklassini va uning ustma-ust tushuvchi 'Clinician' hamda 'TrialInvestigator' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1001,51 +787,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "MedicalStaff",
         "subs": [
           {
             "name": "Clinician",
-            "attributes": [
-              {
-                "name": "dailyPatientQuota",
-                "isPK": false
-              },
-              {
-                "name": "wardRoomCode",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
-            "name": "ClinicalTrialInvestigator",
-            "attributes": [
-              {
-                "name": "clinicalProtocolCode",
-                "isPK": false
-              },
-              {
-                "name": "trialGrantNo",
-                "isPK": false
-              }
-            ]
+            "name": "TrialInvestigator",
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 115,
     "sector": 8,
-    "difficulty": "8-Qavat • Raqamli Media Xolding",
-    "clientName": "Zilola Mahmudova",
-    "clientRole": "Ijodiy Direktor",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Media Ijodkorlari: VideoPresenter va AudioPodcaster",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Raqamli Media Xolding amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **ContentCreator** (creatorId {PK}, `channelName`, `subscriberTotal`, `contractExpiry`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **VideoPresenter** (`screenLanguage`, `videoStudioCode`) va **AudioPodcaster** (`podcastFeedRss`, `audioEpisodeCount`). Bitta ContentCreator bir vaqtning o'zida ham VideoPresenter, ham AudioPodcaster bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'ContentCreator' superklassiga 'VideoPresenter' va 'AudioPodcaster' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "ContentCreator Overlapping Ixtisoslashuvi",
+    "story": "Raqamli Media faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Muallif ham video lavha boshlovchisi, ham audio podkast yaratuvchisi sifatida faoliyat ko'rsatishi mumkin.\n\nTizimda superklass sifatida **ContentCreator** (creatorId {PK}, `channelName`, `subscriberTotal`, `contractExpiry`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'ContentCreator' superklassini va uning ustma-ust tushuvchi 'VideoPresenter' hamda 'AudioPodcaster' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1075,51 +843,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "ContentCreator",
         "subs": [
           {
             "name": "VideoPresenter",
-            "attributes": [
-              {
-                "name": "screenLanguage",
-                "isPK": false
-              },
-              {
-                "name": "videoStudioCode",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "AudioPodcaster",
-            "attributes": [
-              {
-                "name": "podcastFeedRss",
-                "isPK": false
-              },
-              {
-                "name": "audioEpisodeCount",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 116,
     "sector": 8,
-    "difficulty": "8-Qavat • Ekspress Kuryerlik",
-    "clientName": "Alisher Yusupov",
-    "clientRole": "Flot Menejeri",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Haydovchilar: ExpressCourier va LongHaulDriver",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Ekspress Kuryerlik amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **FleetDriver** (driverStaffId {PK}, `driverName`, `driverLicenseNo`, `ratingStars`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **ExpressCourier** (`cityZoneCode`, `deliveriesPerShift`) va **LongHaulDriver** (`tirCarnetNo`, `heavyVehiclePermitYear`). Bitta FleetDriver bir vaqtning o'zida ham ExpressCourier, ham LongHaulDriver bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'FleetDriver' superklassiga 'ExpressCourier' va 'LongHaulDriver' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "FleetDriver Overlapping Ixtisoslashuvi",
+    "story": "Logistika Kuryerlari faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Haydovchi ham shahar ichida tezkor yetkazuvchi, ham shaharlararo yuk tashuvchi vazifasini bajarishi mumkin.\n\nTizimda superklass sifatida **FleetDriver** (driverStaffId {PK}, `driverName`, `driverLicenseNo`, `ratingStars`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'FleetDriver' superklassini va uning ustma-ust tushuvchi 'ExpressCourier' hamda 'LongHaulDriver' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1149,51 +899,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "FleetDriver",
         "subs": [
           {
             "name": "ExpressCourier",
-            "attributes": [
-              {
-                "name": "cityZoneCode",
-                "isPK": false
-              },
-              {
-                "name": "deliveriesPerShift",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "LongHaulDriver",
-            "attributes": [
-              {
-                "name": "tirCarnetNo",
-                "isPK": false
-              },
-              {
-                "name": "heavyVehiclePermitYear",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 117,
     "sector": 8,
-    "difficulty": "8-Qavat • Restoranlar Zanjiri",
-    "clientName": "Shavkat Saidov",
-    "clientRole": "HR Menejeri",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Restoran Xizmatchilari: ChiefBartender va SommelierExpert",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Restoranlar Zanjiri amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **RestaurantStaff** (staffBadgeId {PK}, `staffName`, `foodSafetyCertDate`, `wageHourly`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **ChiefBartender** (`mixologyCertLevel`, `barStationCode`) va **SommelierExpert** (`sommelierDiplomaNo`, `cellarMasterPermit`). Bitta RestaurantStaff bir vaqtning o'zida ham ChiefBartender, ham SommelierExpert bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'RestaurantStaff' superklassiga 'ChiefBartender' va 'SommelierExpert' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "RestaurantStaff Overlapping Ixtisoslashuvi",
+    "story": "Restoran Xizmati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Xodim ham barda kokteyl ustasi, ham vino zaxirasini boshqaruvchi somelye bo'la oladi.\n\nTizimda superklass sifatida **RestaurantStaff** (staffBadgeId {PK}, `staffName`, `foodSafetyCertDate`, `wageHourly`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'RestaurantStaff' superklassini va uning ustma-ust tushuvchi 'ChiefBartender' hamda 'SommelierExpert' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1223,51 +955,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "RestaurantStaff",
         "subs": [
           {
             "name": "ChiefBartender",
-            "attributes": [
-              {
-                "name": "mixologyCertLevel",
-                "isPK": false
-              },
-              {
-                "name": "barStationCode",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "SommelierExpert",
-            "attributes": [
-              {
-                "name": "sommelierDiplomaNo",
-                "isPK": false
-              },
-              {
-                "name": "cellarMasterPermit",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 118,
     "sector": 8,
-    "difficulty": "8-Qavat • Ko'chmas Mulk Birjasi",
-    "clientName": "Kamola Rustamova",
-    "clientRole": "Rieltorlar Uyushmasi",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Mulk Bozorida: PropertyVendor va PropertyAcquirer",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Ko'chmas Mulk Birjasi amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **RealEstateCustomer** (customerId {PK}, `fullName`, `passportPin`, `contactPhone`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **PropertyVendor** (`exclusiveListingCode`, `saleAskingPrice`) va **PropertyAcquirer** (`maxInvestmentBudget`, `desiredPropertyType`). Bitta RealEstateCustomer bir vaqtning o'zida ham PropertyVendor, ham PropertyAcquirer bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'RealEstateCustomer' superklassiga 'PropertyVendor' va 'PropertyAcquirer' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "RealEstateCustomer Overlapping Ixtisoslashuvi",
+    "story": "Mulk Birjasi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz ham o'z eski uyini sotuvchi, ham o'rniga yangi kvartira xarid qiluvchi bo'lishi mumkin.\n\nTizimda superklass sifatida **RealEstateCustomer** (customerId {PK}, `fullName`, `passportPin`, `contactPhone`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'RealEstateCustomer' superklassini va uning ustma-ust tushuvchi 'PropertyVendor' hamda 'PropertyAcquirer' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1297,51 +1011,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "RealEstateCustomer",
         "subs": [
           {
             "name": "PropertyVendor",
-            "attributes": [
-              {
-                "name": "exclusiveListingCode",
-                "isPK": false
-              },
-              {
-                "name": "saleAskingPrice",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "PropertyAcquirer",
-            "attributes": [
-              {
-                "name": "maxInvestmentBudget",
-                "isPK": false
-              },
-              {
-                "name": "desiredPropertyType",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 119,
     "sector": 8,
-    "difficulty": "8-Qavat • EdTech Ta'lim Platformasi",
-    "clientName": "Jaloliddin Qodirov",
-    "clientRole": "Hamjamiyat Menejeri",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Platforma Foydalanuvchilari: ActiveLearner va TeachingMentor",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. EdTech Ta'lim Platformasi amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **PlatformUser** (userId {PK}, `userFullName`, `emailAddress`, `regTimestamp`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **ActiveLearner** (`enrolledCoursesCount`, `courseCertificatesTotal`) va **TeachingMentor** (`mentorHourlyFee`, `menteeSessionCount`). Bitta PlatformUser bir vaqtning o'zida ham ActiveLearner, ham TeachingMentor bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'PlatformUser' superklassiga 'ActiveLearner' va 'TeachingMentor' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "PlatformUser Overlapping Ixtisoslashuvi",
+    "story": "EdTech Platforma faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Foydalanuvchi ma'lum kurslarda talaba, o'zi mutaxassis bo'lgan boshqa kursda esa mentor bo'lishi mumkin.\n\nTizimda superklass sifatida **PlatformUser** (userId {PK}, `userFullName`, `emailAddress`, `regTimestamp`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'PlatformUser' superklassini va uning ustma-ust tushuvchi 'ActiveLearner' hamda 'TeachingMentor' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1371,51 +1067,33 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "PlatformUser",
         "subs": [
           {
             "name": "ActiveLearner",
-            "attributes": [
-              {
-                "name": "enrolledCoursesCount",
-                "isPK": false
-              },
-              {
-                "name": "courseCertificatesTotal",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "TeachingMentor",
-            "attributes": [
-              {
-                "name": "mentorHourlyFee",
-                "isPK": false
-              },
-              {
-                "name": "menteeSessionCount",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 120,
     "sector": 8,
-    "difficulty": "8-Qavat • Ulgurji B2B Savdo",
-    "clientName": "Bahodir Olimov",
-    "clientRole": "Tijorat Direktori",
+    "difficulty": "8-Qavat • Professional (Overlapping)",
+    "clientName": "Loyiha Rahbari",
+    "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
-    "title": "Savdo Hamkorlari: RawMaterialSupplier va WholesaleDistributor",
-    "story": "Tashkilot o'z faoliyatida ob'yektlarning ko'p qirrali rollarini qamrab oluvchi EER umumlashtirish modelini ishlab chiqmoqda. Ulgurji B2B Savdo amaliyotida bitta sub'yekt bir vaqtning o'zida bir nechta vazifani bajarishi mumkin.\n\nTizimning superklass ob'yekti — **TradingEnterprise** (enterpriseInn {PK}, `legalEntityName`, `bankBik`, `cityHq`) hisoblanadi.\n\nUshbu superklassdan ikkita ustma-ust tushuvchi subklass ajratiladi: **RawMaterialSupplier** (`supplyCatalogRef`, `isoQualityCert`) va **WholesaleDistributor** (`salesTerritoryRegion`, `creditLineLimit`). Bitta TradingEnterprise bir vaqtning o'zida ham RawMaterialSupplier, ham WholesaleDistributor bo'lishi, yoki ikkalasi ham bo'lmasligi mumkin: **{Optional, And}**.",
-    "instruction": "'TradingEnterprise' superklassiga 'RawMaterialSupplier' va 'WholesaleDistributor' subklasslarini {Optional, And} cheklovi bilan bog'lang.",
+    "title": "TradingEnterprise Overlapping Ixtisoslashuvi",
+    "story": "B2B Savdo faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Korxona ham xomashyo yetkazib beruvchi, ham tayyor tovarlarni ulgurji tarqatuvchi bo'la oladi.\n\nTizimda superklass sifatida **TradingEnterprise** (enterpriseInn {PK}, `legalEntityName`, `bankBik`, `cityHq`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "instruction": "'TradingEnterprise' superklassini va uning ustma-ust tushuvchi 'RawMaterialSupplier' hamda 'WholesaleDistributor' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1445,50 +1123,32 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "TradingEnterprise",
         "subs": [
           {
             "name": "RawMaterialSupplier",
-            "attributes": [
-              {
-                "name": "supplyCatalogRef",
-                "isPK": false
-              },
-              {
-                "name": "isoQualityCert",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           },
           {
             "name": "WholesaleDistributor",
-            "attributes": [
-              {
-                "name": "salesTerritoryRegion",
-                "isPK": false
-              },
-              {
-                "name": "creditLineLimit",
-                "isPK": false
-              }
-            ]
+            "attributes": []
           }
         ],
         "constraint": "{Optional, And}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 121,
     "sector": 9,
-    "difficulty": "9-Qavat • Ko'chmas Mulk Reyestri",
-    "clientName": "Ziyoda Karimova",
-    "clientRole": "Davlat Notariusi",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Mulk Egaligi: Owner Kategoriyasi (Person ∪ Bank ∪ Company)",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Ko'chmas Mulk Reyestri sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **Person** (pinfl {PK}), **Bank** (bankCode {PK}) va **Company** (tin {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **PropertyOwner** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "PropertyOwner Kategoriyasi (Union Type ∪)",
+    "story": "Mulk Egaligi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Ko'chmas mulk egasi fuqaro, ipoteka banki yoki tijorat kompaniyasi bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **Person** (pinfl {PK}), **Bank** (bankCode {PK}) va **Company** (tin {PK}).\n\nUlar yagona umumiy **PropertyOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'Person', 'Bank' va 'Company' entitiylarini chizing va ularni 'PropertyOwner' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -1505,11 +1165,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -1523,11 +1183,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "bankName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "licenseNo",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -1541,16 +1201,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "companyName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "address",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PropertyOwner",
@@ -1561,19 +1222,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 122,
     "sector": 9,
-    "difficulty": "9-Qavat • Davlat Avtotransport Nazorati",
-    "clientName": "Mayor Akmal Vohidov",
-    "clientRole": "DYXX Ro'yxatdan O'tkazish Boshlig'i",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Avtotransport Egasi: VehicleOwner Kategoriyasi (Citizen ∪ LeasingFirm ∪ StateAgency)",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Davlat Avtotransport Nazorati sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **PrivateCitizen** (citizenPinfl {PK}), **LeasingFirm** (leasingInn {PK}) va **StateAgency** (agencyCode {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **VehicleOwner** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "VehicleOwner Kategoriyasi (Union Type ∪)",
+    "story": "Avtotransport Ro'yxati faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Avtomobil egasi jismoniy shaxs, lizing firmasi yoki davlat idorasi bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **PrivateCitizen** (citizenPinfl {PK}), **LeasingFirm** (leasingInn {PK}) va **StateAgency** (agencyCode {PK}).\n\nUlar yagona umumiy **VehicleOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'PrivateCitizen', 'LeasingFirm' va 'StateAgency' entitiylarini chizing va ularni 'VehicleOwner' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -1590,11 +1250,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "citizenName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -1608,11 +1268,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "firmTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "licenseDate",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -1626,16 +1286,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "agencyTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "ministryCode",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "VehicleOwner",
@@ -1646,19 +1307,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 123,
     "sector": 9,
-    "difficulty": "9-Qavat • Davlat To'lovlar Kliringi",
-    "clientName": "Sardor Salimov",
-    "clientRole": "G'aznachilik Boshlig'i",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "To'lov Qabul Qiluvchi: PayeeEntity Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Davlat To'lovlar Kliringi sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **FreelanceContractor** (freelancerId {PK}), **UtilityProvider** (utilityInn {PK}) va **TaxAuthority** (taxOfficeNo {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **PayeeEntity** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "PayeeEntity Kategoriyasi (Union Type ∪)",
+    "story": "G'aznachilik To'lovlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: To'lovni qabul qiluvchi frilanser usta, kommunal korxona yoki soliq inspeksiyasi bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **FreelanceContractor** (freelancerId {PK}), **UtilityProvider** (utilityInn {PK}) va **TaxAuthority** (taxOfficeNo {PK}).\n\nUlar yagona umumiy **PayeeEntity** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'FreelanceContractor', 'UtilityProvider' va 'TaxAuthority' entitiylarini chizing va ularni 'PayeeEntity' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -1675,11 +1335,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "freelancerName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "serviceCategory",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -1693,11 +1353,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "providerName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "accountIban",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -1711,16 +1371,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "treasuryCode",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "regionName",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PayeeEntity",
@@ -1731,19 +1392,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 124,
     "sector": 9,
-    "difficulty": "9-Qavat • Kredit Byurosi Reyestri",
-    "clientName": "Nodira Qosimova",
-    "clientRole": "Kredit Xatarlari Boshlig'i",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Qarz Oluvchi: LoanBorrower Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Kredit Byurosi Reyestri sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **SoleProprietorship** (spInn {PK}), **CommercialPartnership** (partnershipNo {PK}) va **CorporationHolding** (holdingTin {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **LoanBorrower** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "LoanBorrower Kategoriyasi (Union Type ∪)",
+    "story": "Kredit Qarzdorligi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Bankdan kredit oluvchi yakka tadbirkor, shirkat yoki xalqaro xolding bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **SoleProprietorship** (spInn {PK}), **CommercialPartnership** (partnershipNo {PK}) va **CorporationHolding** (holdingTin {PK}).\n\nUlar yagona umumiy **LoanBorrower** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'SoleProprietorship', 'CommercialPartnership' va 'CorporationHolding' entitiylarini chizing va ularni 'LoanBorrower' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -1760,7 +1420,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "ownerFullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
@@ -1778,11 +1438,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "firmName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "shareCapital",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -1796,16 +1456,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "corporateName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "stockTicker",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "LoanBorrower",
@@ -1816,19 +1477,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 125,
     "sector": 9,
-    "difficulty": "9-Qavat • Notariat & Xalqaro Shartnomalar",
-    "clientName": "Sherzod Jo'rayev",
-    "clientRole": "Bosh Notarius",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Yuridik Hujjat Imzolovchi: LegalSignatory Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Notariat & Xalqaro Shartnomalar sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **DomesticCitizen** (residentPinfl {PK}), **ForeignDiplomat** (passportNumber {PK}) va **CorporateAttorney** (powerOfAttorneyNo {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **LegalSignatory** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "LegalSignatory Kategoriyasi (Union Type ∪)",
+    "story": "Notarial Hujjatlar faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Hujjatga imzo chekuvchi mahalliy fuqaro, xorijiy diplomat yoki ishonchnomali advokat bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **DomesticCitizen** (residentPinfl {PK}), **ForeignDiplomat** (passportNumber {PK}) va **CorporateAttorney** (powerOfAttorneyNo {PK}).\n\nUlar yagona umumiy **LegalSignatory** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'DomesticCitizen', 'ForeignDiplomat' va 'CorporateAttorney' entitiylarini chizing va ularni 'LegalSignatory' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -1845,11 +1505,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "registeredAddress",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -1863,11 +1523,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "diplomatName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "sendingState",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -1881,16 +1541,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "lawyerName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "validUntil",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "LegalSignatory",
@@ -1901,19 +1562,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 126,
     "sector": 9,
-    "difficulty": "9-Qavat • Bojxona Tranziti",
-    "clientName": "Polkovnik Baxtiyor Alimov",
-    "clientRole": "Bojxona Posti Rahbari",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Bojxona Yuki Yuboruvchi: CargoConsignor Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Bojxona Tranziti sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **ManufacturingPlant** (factoryTin {PK}), **TradingHouse** (tradingLicNo {PK}) va **HumanitarianMission** (missionRegCode {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **CargoConsignor** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "CargoConsignor Kategoriyasi (Union Type ∪)",
+    "story": "Bojxona Kargo Yuklari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Yuk jo'natuvchi ishlab chiqaruvchi zavod, savdo kompaniyasi yoki gumanitar jamg'arma bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **ManufacturingPlant** (factoryTin {PK}), **TradingHouse** (tradingLicNo {PK}) va **HumanitarianMission** (missionRegCode {PK}).\n\nUlar yagona umumiy **CargoConsignor** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'ManufacturingPlant', 'TradingHouse' va 'HumanitarianMission' entitiylarini chizing va ularni 'CargoConsignor' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -1930,11 +1590,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "plantTitle",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "industrialZone",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -1948,11 +1608,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "firmTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "chamberMemberId",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -1966,16 +1626,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "unCharityCode",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "countryOrigin",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "CargoConsignor",
@@ -1986,19 +1647,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 127,
     "sector": 9,
-    "difficulty": "9-Qavat • Intellektual Mulk Agentligi",
-    "clientName": "Dr. Dilnoza Umarova",
-    "clientRole": "Patent Eksperti",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Patent Huquq Egasi: PatentAssignee Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Intellektual Mulk Agentligi sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **ResearchUniversity** (universityCharterNo {PK}), **IndependentInventor** (inventorPinfl {PK}) va **TechCorporation** (corpTin {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **PatentAssignee** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "PatentAssignee Kategoriyasi (Union Type ∪)",
+    "story": "Patent Huquqi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Patent egasi ilmiy universitet, yakka ixtirochi yoki texnologik korporatsiya bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **ResearchUniversity** (universityCharterNo {PK}), **IndependentInventor** (inventorPinfl {PK}) va **TechCorporation** (corpTin {PK}).\n\nUlar yagona umumiy **PatentAssignee** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'ResearchUniversity', 'IndependentInventor' va 'TechCorporation' entitiylarini chizing va ularni 'PatentAssignee' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -2015,11 +1675,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "universityName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "rectorName",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2033,11 +1693,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "inventorName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "patentCount",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2051,16 +1711,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "corpLegalTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "rndBudgetUsd",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PatentAssignee",
@@ -2071,19 +1732,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 128,
     "sector": 9,
-    "difficulty": "9-Qavat • Xalqaro Sug'urta Jamg'armasi",
-    "clientName": "Ulug'bek Fayziyev",
-    "clientRole": "Aktuariy Direktori",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Sug'urta Polisi Benefitsiari: PolicyBeneficiary Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Xalqaro Sug'urta Jamg'armasi sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **FamilyKin** (relativePinfl {PK}), **MortgageBank** (bankLicNo {PK}) va **CharitableTrust** (charityRegNo {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **PolicyBeneficiary** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "PolicyBeneficiary Kategoriyasi (Union Type ∪)",
+    "story": "Sug'urta To'lovlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Sug'urta to'lovini oluvchi merosxo'r oila a'zosi, ipoteka banki yoki xayriya jamg'armasi bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **FamilyKin** (relativePinfl {PK}), **MortgageBank** (bankLicNo {PK}) va **CharitableTrust** (charityRegNo {PK}).\n\nUlar yagona umumiy **PolicyBeneficiary** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'FamilyKin', 'MortgageBank' va 'CharitableTrust' entitiylarini chizing va ularni 'PolicyBeneficiary' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -2100,11 +1760,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "kinFullName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "kinshipDegree",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2118,11 +1778,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "bankName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "loanAgreementNo",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2136,16 +1796,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "trustTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "foundationScope",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "PolicyBeneficiary",
@@ -2156,19 +1817,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 129,
     "sector": 9,
-    "difficulty": "9-Qavat • Savdo Belgilari Palatasi",
-    "clientName": "Gulzoda Karimova",
-    "clientRole": "Brendlar Reyestri Boshlig'i",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Savdo Belgisi Egasi: TrademarkOwner Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Savdo Belgilari Palatasi sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **PrivateEnterpriser** (tinNo {PK}), **NonProfitOrg** (npoCertNo {PK}) va **JointStockCompany** (jscInn {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **TrademarkOwner** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "TrademarkOwner Kategoriyasi (Union Type ∪)",
+    "story": "Savdo Belgilari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Savdo markasi egasi xususiy tadbirkor, notijorat tashkilot yoki aksiyadorlik jamiyati bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **PrivateEnterpriser** (tinNo {PK}), **NonProfitOrg** (npoCertNo {PK}) va **JointStockCompany** (jscInn {PK}).\n\nUlar yagona umumiy **TrademarkOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'PrivateEnterpriser', 'NonProfitOrg' va 'JointStockCompany' entitiylarini chizing va ularni 'TrademarkOwner' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -2185,11 +1845,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "brandOwnerName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "taxRegime",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2203,11 +1863,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "orgTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "justiceMinistryPermit",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2221,16 +1881,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "jscTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "marketCapitalization",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "TrademarkOwner",
@@ -2241,19 +1902,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 130,
     "sector": 9,
-    "difficulty": "9-Qavat • Sog'liqni Saqlash Jamg'armasi",
-    "clientName": "Dr. Farhod Saidov",
-    "clientRole": "Sug'urta Jamg'armasi Direktori",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Tibbiy Sug'urta Kafili: HealthCoverageSponsor Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Sog'liqni Saqlash Jamg'armasi sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **EmployerCompany** (employerTin {PK}), **HealthMinistry** (ministryCode {PK}) va **PrivatePhilanthropist** (donorPinfl {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **HealthCoverageSponsor** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "HealthCoverageSponsor Kategoriyasi (Union Type ∪)",
+    "story": "Tibbiy Kafillik faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Davolanish xarajatini qoplovchi ish beruvchi firma, vazirlik byudjeti yoki homiy bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **EmployerCompany** (employerTin {PK}), **HealthMinistry** (ministryCode {PK}) va **PrivatePhilanthropist** (donorPinfl {PK}).\n\nUlar yagona umumiy **HealthCoverageSponsor** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'EmployerCompany', 'HealthMinistry' va 'PrivatePhilanthropist' entitiylarini chizing va ularni 'HealthCoverageSponsor' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -2270,11 +1930,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "companyName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "insuredStaffCount",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2288,11 +1948,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "budgetProgramName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "decreeNumber",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2306,16 +1966,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "donorFullName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "endowmentSum",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "HealthCoverageSponsor",
@@ -2326,19 +1987,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 131,
     "sector": 9,
-    "difficulty": "9-Qavat • Markaziy Qimmatli Qog'ozlar Depozitariysi",
-    "clientName": "Mansur Shokirov",
-    "clientRole": "Depozitariy Boshqaruvchisi",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Aksiya Egasi: ShareholderEntity Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Markaziy Qimmatli Qog'ozlar Depozitariysi sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **MutualFund** (fundRegNo {PK}), **SovereignWealthFund** (sovereignCode {PK}) va **RetailInvestor** (investorPassportNo {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **ShareholderEntity** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "ShareholderEntity Kategoriyasi (Union Type ∪)",
+    "story": "Qimmatli Qog'ozlar Depozitariysi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Aksiya egasi xususiy investitsiya fondi, davlat suveren fondi yoki chakana investor bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **MutualFund** (fundRegNo {PK}), **SovereignWealthFund** (sovereignCode {PK}) va **RetailInvestor** (investorPassportNo {PK}).\n\nUlar yagona umumiy **ShareholderEntity** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'MutualFund', 'SovereignWealthFund' va 'RetailInvestor' entitiylarini chizing va ularni 'ShareholderEntity' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -2355,11 +2015,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "fundName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "netAssetValueUsd",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2373,11 +2033,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "stateTreasuryTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "trusteeCouncil",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2391,16 +2051,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "investorFullName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "brokerageAccNo",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "ShareholderEntity",
@@ -2411,19 +2072,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 132,
     "sector": 9,
-    "difficulty": "9-Qavat • Aeroport Uchish Yo'lagi Nazorati",
-    "clientName": "Polkovnik Ravshan Normatov",
-    "clientRole": "Aerodrom Texnik Boshlig'i",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Uchish Yo'lagi Foydalanuvchisi: RunwayOperator Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Aeroport Uchish Yo'lagi Nazorati sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **CommercialAirline** (airlineIata {PK}), **AirForceSquadron** (militaryUnitCode {PK}) va **PrivateAirCharter** (charterFlightCert {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **RunwayOperator** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "RunwayOperator Kategoriyasi (Union Type ∪)",
+    "story": "Aerodrom Uchish Yo'lagi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Uchish yo'lagidan fuqaro aviakompaniyasi, harbiy eskadron yoki xususiy charter foydalanishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **CommercialAirline** (airlineIata {PK}), **AirForceSquadron** (militaryUnitCode {PK}) va **PrivateAirCharter** (charterFlightCert {PK}).\n\nUlar yagona umumiy **RunwayOperator** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'CommercialAirline', 'AirForceSquadron' va 'PrivateAirCharter' entitiylarini chizing va ularni 'RunwayOperator' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -2440,11 +2100,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "airlineName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "slotPermitNo",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2458,11 +2118,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "squadronRank",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "defenseZoneId",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2476,16 +2136,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "operatorName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "hangarCode",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "RunwayOperator",
@@ -2496,19 +2157,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 133,
     "sector": 9,
-    "difficulty": "9-Qavat • Telekom Abonentlar Reyestri",
-    "clientName": "Shohruh Mirzayev",
-    "clientRole": "Billing Arxitektori",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Aloqa Abanenti: TelecomSubscriber Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Telekom Abonentlar Reyestri sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **IndividualSubscriber** (personalId {PK}), **CorporateSubscriber** (companyInn {PK}) va **IotDeviceGateway** (macAddressDevice {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **TelecomSubscriber** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "TelecomSubscriber Kategoriyasi (Union Type ∪)",
+    "story": "Telekom Abonentlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Aloqa tarmog'i abonenti jismoniy fuqaro, korporativ kompaniya yoki IoT smart qurilmasi bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **IndividualSubscriber** (personalId {PK}), **CorporateSubscriber** (companyInn {PK}) va **IotDeviceGateway** (macAddressDevice {PK}).\n\nUlar yagona umumiy **TelecomSubscriber** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'IndividualSubscriber', 'CorporateSubscriber' va 'IotDeviceGateway' entitiylarini chizing va ularni 'TelecomSubscriber' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -2525,11 +2185,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "subscriberName",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "passportSeries",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2543,11 +2203,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "corpClientName",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "allocatedSimCount",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2561,16 +2221,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "deviceHardwareType",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "firmwareVer",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "TelecomSubscriber",
@@ -2581,19 +2242,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 134,
     "sector": 9,
-    "difficulty": "9-Qavat • Innovatsion Rivojlanish Agentligi",
-    "clientName": "Prof. Temur Vohidov",
-    "clientRole": "Grant Komissiyasi Raisi",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Ilmiy Grant Moliyalashtiruvchi: GrantFunder Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Innovatsion Rivojlanish Agentligi sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **StateScienceAgency** (govAgencyId {PK}), **TechConsortium** (consortiumInn {PK}) va **GlobalFoundation** (foundationRegNo {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **GrantFunder** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "GrantFunder Kategoriyasi (Union Type ∪)",
+    "story": "Ilmiy Grantlar faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Grant moliyalashtiruvchisi davlat ilmiy agentligi, IT konsorsium yoki xalqaro fond bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **StateScienceAgency** (govAgencyId {PK}), **TechConsortium** (consortiumInn {PK}) va **GlobalFoundation** (foundationRegNo {PK}).\n\nUlar yagona umumiy **GrantFunder** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'StateScienceAgency', 'TechConsortium' va 'GlobalFoundation' entitiylarini chizing va ularni 'GrantFunder' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -2610,11 +2270,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "budgetSourceTitle",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "curatorOfficer",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2628,11 +2288,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "industrialAllianceTitle",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "leadPartner",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2646,16 +2306,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "foundationTitle",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "genevaAccordNo",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "GrantFunder",
@@ -2666,19 +2327,18 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 135,
     "sector": 9,
-    "difficulty": "9-Qavat • Davlat Xaridlari Portali",
-    "clientName": "Aziz Sobirov",
-    "clientRole": "Tender Bosh Inspektor",
+    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Davlat Tenderi Ishtirokchisi: TenderBidder Kategoriyasi",
-    "story": "Tizimda bir-biriga bog'liq bo'lmagan mustaqil superklasslarni yagona umumiy toifaga birlashtiruvchi Kategoriya (Union Type ∪) talab etiladi. Davlat Xaridlari Portali sohasida qonuniy munosabatlar turli yuridik va jismoniy shaxslar tomonidan amalga oshiriladi.\n\nTizimda uchta mustaqil entitiy mavjud: **EngineeringConsortium** (consortiumCode {PK}), **ConstructionCorp** (builderInn {PK}) va **MunicipalUtility** (utilityBranchNo {PK}).\n\nUshbu uchala turli entitiylar bitta umumiy **TenderBidder** toifasiga (Union Type ∪) ega bo'ladi va ushbu kategoriya tizimdagi boshqa operatsiyalarning asosiy sub'yekti sifatida ishtirok etadi.",
+    "title": "TenderBidder Kategoriyasi (Union Type ∪)",
+    "story": "Davlat Tenderlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Tenderda qatnashuvchi muhandislik konsortsiumi, qurilish korxonasi yoki shahar kommunal korxonasi bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **EngineeringConsortium** (consortiumCode {PK}), **ConstructionCorp** (builderInn {PK}) va **MunicipalUtility** (utilityBranchNo {PK}).\n\nUlar yagona umumiy **TenderBidder** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'EngineeringConsortium', 'ConstructionCorp' va 'MunicipalUtility' entitiylarini chizing va ularni 'TenderBidder' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [],
@@ -2695,11 +2355,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "consortiumTitle",
+              "name": "nameOrTitle",
               "isPK": false
             },
             {
-              "name": "guaranteeBankInn",
+              "name": "regDate",
               "isPK": false
             }
           ]
@@ -2713,11 +2373,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "sroLicenseNumber",
+              "name": "licenseCode",
               "isPK": false
             },
             {
-              "name": "machineryAssetCount",
+              "name": "contactEmail",
               "isPK": false
             }
           ]
@@ -2731,16 +2391,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "districtName",
+              "name": "charterNumber",
               "isPK": false
             },
             {
-              "name": "cityHokimiyatDecree",
+              "name": "taxStatus",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "categories": [
         {
           "name": "TenderBidder",
@@ -2751,20 +2412,19 @@ _scope.EER_CLIENTS_101_150 = [
           ],
           "isUnion": true
         }
-      ],
-      "relationships": []
+      ]
     }
   },
   {
     "id": 136,
     "sector": 10,
-    "difficulty": "10-Qavat • Xalqaro Aeroport Boshqaruvi",
-    "clientName": "Behzod Vohidov",
-    "clientRole": "Bosh Aeroport Me'mori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Xalqaro Aeroport Kompleks Axborot Tizimi",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Xalqaro Aeroport Boshqaruvi sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **Airport** (iataCode {PK}), **Terminal** (terminalId {PK}), **FlightSchedule** (flightNo {PK}) hamda **PassengerBooking** (bookingRef {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'Airport', 'Terminal', 'FlightSchedule' va 'PassengerBooking' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "Airport Korporativ Arxitekturasi",
+    "story": "Xalqaro Aeroport Majmuasi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Airport** (iataCode {PK}), **Terminal** (terminalId {PK}), **FlightSchedule** (flightNo {PK}) va **PassengerBooking** (bookingRef {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'Airport', 'Terminal', 'FlightSchedule' va 'PassengerBooking' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2786,10 +2446,6 @@ _scope.EER_CLIENTS_101_150 = [
             {
               "name": "cityLocation",
               "isPK": false
-            },
-            {
-              "name": "countryCode",
-              "isPK": false
             }
           ]
         },
@@ -2806,7 +2462,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "passengerCapacityAnnual",
+              "name": "capacity",
               "isPK": false
             }
           ]
@@ -2820,11 +2476,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "departureTime",
+              "name": "depTime",
               "isPK": false
             },
             {
-              "name": "aircraftTailNo",
+              "name": "destIata",
               "isPK": false
             }
           ]
@@ -2842,11 +2498,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "seatNumber",
-              "isPK": false
-            },
-            {
-              "name": "ticketPrice",
+              "name": "seatNo",
               "isPK": false
             }
           ]
@@ -2858,21 +2510,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "Terminal",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "Terminal",
           "entity2": "FlightSchedule",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "FlightSchedule",
           "entity2": "PassengerBooking",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -2880,13 +2532,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 137,
     "sector": 10,
-    "difficulty": "10-Qavat • Markaziy Bank Kliring Markazi",
-    "clientName": "Javohir Qodirov",
-    "clientRole": "Bosh Bank Arxitektori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Milliy Banklararo Hisob-Kitob va Kliring Arxitekturasi",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Markaziy Bank Kliring Markazi sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **CentralBank** (centralBankCode {PK}), **CommercialBank** (bikNumber {PK}), **SettlementAccount** (correspondentAccNo {PK}) hamda **ClearingTransaction** (txRefCode {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'CentralBank', 'CommercialBank', 'SettlementAccount' va 'ClearingTransaction' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "CentralBank Korporativ Arxitekturasi",
+    "story": "Markaziy Bank Kliringi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **CentralBank** (bankCode {PK}), **CommercialBank** (bikNumber {PK}), **SettlementAccount** (accNo {PK}) va **ClearingTx** (txRef {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'CentralBank', 'CommercialBank', 'SettlementAccount' va 'ClearingTx' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2895,10 +2547,10 @@ _scope.EER_CLIENTS_101_150 = [
       "entities": [
         {
           "name": "CentralBank",
-          "pk": "centralBankCode",
+          "pk": "bankCode",
           "attributes": [
             {
-              "name": "centralBankCode",
+              "name": "bankCode",
               "isPK": true
             },
             {
@@ -2906,7 +2558,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "reserveGoldTons",
+              "name": "goldReserveTons",
               "isPK": false
             }
           ]
@@ -2924,35 +2576,35 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "charterCapitalBillion",
+              "name": "capitalSum",
               "isPK": false
             }
           ]
         },
         {
           "name": "SettlementAccount",
-          "pk": "correspondentAccNo",
+          "pk": "accNo",
           "attributes": [
             {
-              "name": "correspondentAccNo",
+              "name": "accNo",
               "isPK": true
             },
             {
-              "name": "currencyCode",
+              "name": "currency",
               "isPK": false
             },
             {
-              "name": "clearedBalance",
+              "name": "balance",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ClearingTransaction",
-          "pk": "txRefCode",
+          "name": "ClearingTx",
+          "pk": "txRef",
           "attributes": [
             {
-              "name": "txRefCode",
+              "name": "txRef",
               "isPK": true
             },
             {
@@ -2960,11 +2612,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "txTimestamp",
-              "isPK": false
-            },
-            {
-              "name": "swiftMessage",
+              "name": "timestamp",
               "isPK": false
             }
           ]
@@ -2976,21 +2624,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "CommercialBank",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "CommercialBank",
           "entity2": "SettlementAccount",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "SettlementAccount",
-          "entity2": "ClearingTransaction",
+          "entity2": "ClearingTx",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -2998,13 +2646,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 138,
     "sector": 10,
-    "difficulty": "10-Qavat • Onkologiya Ilmiy-Amaliy Markazi",
-    "clientName": "Prof. Dilshod Umarov",
-    "clientRole": "Klinika Texnik Boshqaruvchisi",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Respublika Onkologiya Markazi Davolash Tizimi",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Onkologiya Ilmiy-Amaliy Markazi sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **Hospital** (hospitalId {PK}), **SpecializedWard** (wardCode {PK}), **SpecializedDoctor** (licenseId {PK}) hamda **PatientCourse** (courseId {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'Hospital', 'SpecializedWard', 'SpecializedDoctor' va 'PatientCourse' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "Hospital Korporativ Arxitekturasi",
+    "story": "Onkologiya Gospitali bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Hospital** (hospId {PK}), **SpecializedWard** (wardCode {PK}), **SpecializedDoctor** (licenseId {PK}) va **PatientCourse** (courseId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'Hospital', 'SpecializedWard', 'SpecializedDoctor' va 'PatientCourse' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3013,22 +2661,18 @@ _scope.EER_CLIENTS_101_150 = [
       "entities": [
         {
           "name": "Hospital",
-          "pk": "hospitalId",
+          "pk": "hospId",
           "attributes": [
             {
-              "name": "hospitalId",
+              "name": "hospId",
               "isPK": true
             },
             {
-              "name": "hospitalName",
+              "name": "hospName",
               "isPK": false
             },
             {
-              "name": "cityAddress",
-              "isPK": false
-            },
-            {
-              "name": "bedCapacityTotal",
+              "name": "address",
               "isPK": false
             }
           ]
@@ -3046,7 +2690,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "radiationShieldingGrade",
+              "name": "beds",
               "isPK": false
             }
           ]
@@ -3060,11 +2704,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "doctorFullName",
+              "name": "docName",
               "isPK": false
             },
             {
-              "name": "oncologyBoardCert",
+              "name": "specialty",
               "isPK": false
             }
           ]
@@ -3078,11 +2722,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "diagnosisProtocol",
-              "isPK": false
-            },
-            {
-              "name": "chemoCycleNumber",
+              "name": "protocol",
               "isPK": false
             },
             {
@@ -3098,21 +2738,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "SpecializedWard",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "SpecializedWard",
           "entity2": "SpecializedDoctor",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "SpecializedDoctor",
           "entity2": "PatientCourse",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -3120,13 +2760,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 139,
     "sector": 10,
-    "difficulty": "10-Qavat • Dengiz Konteyner Hubi",
-    "clientName": "Kapitan Anvar Mahmudov",
-    "clientRole": "Logistika Porti Boshqaruvchisi",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Trans-Okean Dengiz Porti va Konteyner Terminali",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Dengiz Konteyner Hubi sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **MegaWarehouse** (hubCode {PK}), **ContainerVessel** (imoNumber {PK}), **CustomsDeclaration** (gtdNumber {PK}) hamda **FreightForwarder** (forwarderInn {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'MegaWarehouse', 'ContainerVessel', 'CustomsDeclaration' va 'FreightForwarder' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "MegaWarehouse Korporativ Arxitekturasi",
+    "story": "Trans-Okean Porti bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **MegaWarehouse** (hubCode {PK}), **ContainerVessel** (imoNumber {PK}), **CustomsDeclaration** (gtdNumber {PK}) va **FreightForwarder** (forwarderInn {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'MegaWarehouse', 'ContainerVessel', 'CustomsDeclaration' va 'FreightForwarder' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3146,11 +2786,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "dockBerthCount",
-              "isPK": false
-            },
-            {
-              "name": "customsZoneCode",
+              "name": "berthCount",
               "isPK": false
             }
           ]
@@ -3168,11 +2804,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "teuCapacity",
-              "isPK": false
-            },
-            {
-              "name": "flagState",
+              "name": "teuCap",
               "isPK": false
             }
           ]
@@ -3186,11 +2818,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "customsDutySum",
+              "name": "dutySum",
               "isPK": false
             },
             {
-              "name": "inspectionPassed",
+              "name": "passed",
               "isPK": false
             }
           ]
@@ -3204,11 +2836,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "forwarderTitle",
+              "name": "title",
               "isPK": false
             },
             {
-              "name": "fiataLicenseNo",
+              "name": "license",
               "isPK": false
             }
           ]
@@ -3220,21 +2852,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "ContainerVessel",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "ContainerVessel",
           "entity2": "CustomsDeclaration",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "CustomsDeclaration",
           "entity2": "FreightForwarder",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -3242,13 +2874,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 140,
     "sector": 10,
-    "difficulty": "10-Qavat • Ko'p Tarmoqli Universitet",
-    "clientName": "Prof. Sherzod Salimov",
-    "clientRole": "IT Prorektor",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Xalqaro Universitet Kampusi Yagona Modeli",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Ko'p Tarmoqli Universitet sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **UniversityFaculty** (facultyCode {PK}), **AcademicDepartment** (deptId {PK}), **StaffMember** (staffNo {PK}) hamda **StudentClass** (classCode {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'UniversityFaculty', 'AcademicDepartment', 'StaffMember' va 'StudentClass' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "Faculty Korporativ Arxitekturasi",
+    "story": "Universitet Kampusi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Faculty** (facultyCode {PK}), **AcademicDept** (deptId {PK}), **StaffMember** (staffNo {PK}) va **StudentClass** (classCode {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'Faculty', 'AcademicDept', 'StaffMember' va 'StudentClass' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3256,7 +2888,7 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "UniversityFaculty",
+          "name": "Faculty",
           "pk": "facultyCode",
           "attributes": [
             {
@@ -3268,13 +2900,13 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "buildingNumber",
+              "name": "building",
               "isPK": false
             }
           ]
         },
         {
-          "name": "AcademicDepartment",
+          "name": "AcademicDept",
           "pk": "deptId",
           "attributes": [
             {
@@ -3286,7 +2918,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "researchFocusArea",
+              "name": "focusArea",
               "isPK": false
             }
           ]
@@ -3300,11 +2932,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "staffFullName",
-              "isPK": false
-            },
-            {
-              "name": "academicRankGrade",
+              "name": "staffName",
               "isPK": false
             },
             {
@@ -3322,15 +2950,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "studySemester",
+              "name": "semester",
               "isPK": false
             },
             {
-              "name": "roomHallCode",
-              "isPK": false
-            },
-            {
-              "name": "maxEnrolled",
+              "name": "roomCode",
               "isPK": false
             }
           ]
@@ -3338,25 +2962,25 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "UniversityFaculty",
-          "entity2": "AcademicDepartment",
+          "entity1": "Faculty",
+          "entity2": "AcademicDept",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
-          "entity1": "AcademicDepartment",
+          "entity1": "AcademicDept",
           "entity2": "StaffMember",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "StaffMember",
           "entity2": "StudentClass",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -3364,13 +2988,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 141,
     "sector": 10,
-    "difficulty": "10-Qavat • Milliy Elektr Tarmoqlari",
-    "clientName": "Akmal Qosimov",
-    "clientRole": "Bosh Energetik Dispetcher",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Yagona Milliy Energotizim Dispetcherlik Arxitekturasi",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Milliy Elektr Tarmoqlari sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **PowerPlant** (plantCode {PK}), **ElectricSubstation** (substationId {PK}), **TransmissionLine** (lineCode {PK}) hamda **LoadZone** (zoneId {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'PowerPlant', 'ElectricSubstation', 'TransmissionLine' va 'LoadZone' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "PowerPlant Korporativ Arxitekturasi",
+    "story": "Milliy Elektr Tizimi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **PowerPlant** (plantCode {PK}), **Substation** (substationId {PK}), **TransmissionLine** (lineCode {PK}) va **LoadZone** (zoneId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'PowerPlant', 'Substation', 'TransmissionLine' va 'LoadZone' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3390,17 +3014,13 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "fuelType",
-              "isPK": false
-            },
-            {
-              "name": "installedMegaWatts",
+              "name": "megaWatts",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ElectricSubstation",
+          "name": "Substation",
           "pk": "substationId",
           "attributes": [
             {
@@ -3412,7 +3032,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "stepDownVoltageKv",
+              "name": "voltageKv",
               "isPK": false
             }
           ]
@@ -3426,11 +3046,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "distanceKilometers",
+              "name": "distanceKm",
               "isPK": false
             },
             {
-              "name": "maxAmpereThroughput",
+              "name": "ampCapacity",
               "isPK": false
             }
           ]
@@ -3444,11 +3064,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "zoneCityRegion",
+              "name": "region",
               "isPK": false
             },
             {
-              "name": "peakDemandMegaWatts",
+              "name": "peakDemand",
               "isPK": false
             }
           ]
@@ -3457,24 +3077,24 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "PowerPlant",
-          "entity2": "ElectricSubstation",
+          "entity2": "Substation",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
-          "entity1": "ElectricSubstation",
+          "entity1": "Substation",
           "entity2": "TransmissionLine",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "TransmissionLine",
           "entity2": "LoadZone",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -3482,13 +3102,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 142,
     "sector": 10,
-    "difficulty": "10-Qavat • Davlat Temir Yo'llari",
-    "clientName": "Mansur Aliyev",
-    "clientRole": "Bosh Poezd Dispetcheri",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Magistral Temir Yo'l va Ekspress Qatnovlar Tizimi",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Davlat Temir Yo'llari sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **RailwayNetwork** (networkId {PK}), **TrainSchedule** (scheduleTripNo {PK}), **LocomotiveEngine** (locoSerialNo {PK}) hamda **PassengerBooking** (ticketPnr {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'RailwayNetwork', 'TrainSchedule', 'LocomotiveEngine' va 'PassengerBooking' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "RailwayNetwork Korporativ Arxitekturasi",
+    "story": "Davlat Temir Yo'llari bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RailwayNetwork** (networkId {PK}), **TrainSchedule** (tripNo {PK}), **LocomotiveEngine** (locoNo {PK}) va **PassengerTicket** (ticketPnr {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'RailwayNetwork', 'TrainSchedule', 'LocomotiveEngine' va 'PassengerTicket' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3508,53 +3128,49 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "trackGaugeMm",
-              "isPK": false
-            },
-            {
-              "name": "electrifiedPercent",
+              "name": "trackMm",
               "isPK": false
             }
           ]
         },
         {
           "name": "TrainSchedule",
-          "pk": "scheduleTripNo",
+          "pk": "tripNo",
           "attributes": [
             {
-              "name": "scheduleTripNo",
+              "name": "tripNo",
               "isPK": true
             },
             {
-              "name": "departureTimestamp",
+              "name": "depTime",
               "isPK": false
             },
             {
-              "name": "arrivalTimestamp",
+              "name": "arrTime",
               "isPK": false
             }
           ]
         },
         {
           "name": "LocomotiveEngine",
-          "pk": "locoSerialNo",
+          "pk": "locoNo",
           "attributes": [
             {
-              "name": "locoSerialNo",
+              "name": "locoNo",
               "isPK": true
             },
             {
-              "name": "locomotiveModel",
+              "name": "model",
               "isPK": false
             },
             {
-              "name": "tractivePowerHp",
+              "name": "powerHp",
               "isPK": false
             }
           ]
         },
         {
-          "name": "PassengerBooking",
+          "name": "PassengerTicket",
           "pk": "ticketPnr",
           "attributes": [
             {
@@ -3566,11 +3182,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "coachCarriageNo",
-              "isPK": false
-            },
-            {
-              "name": "seatIndex",
+              "name": "coachNo",
               "isPK": false
             }
           ]
@@ -3582,21 +3194,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "TrainSchedule",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "TrainSchedule",
           "entity2": "LocomotiveEngine",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "LocomotiveEngine",
-          "entity2": "PassengerBooking",
+          "entity2": "PassengerTicket",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -3604,13 +3216,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 143,
     "sector": 10,
-    "difficulty": "10-Qavat • Yagona Davlat Xizmatlari",
-    "clientName": "Sanjar Normatov",
-    "clientRole": "Raqamli Vazirlik Arxitektori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Elektron Hukumat Davlat Xizmatlari Yagona Portali",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Yagona Davlat Xizmatlari sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **GovPortalService** (serviceCode {PK}), **CitizenRequest** (applicationId {PK}), **MinistryDepartment** (departmentInn {PK}) hamda **ProcessingOfficer** (officerStaffId {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'GovPortalService', 'CitizenRequest', 'MinistryDepartment' va 'ProcessingOfficer' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "GovPortalService Korporativ Arxitekturasi",
+    "story": "Elektron Hukumat Portali bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **GovPortalService** (serviceCode {PK}), **CitizenRequest** (appId {PK}), **MinistryDept** (deptInn {PK}) va **ProcessingOfficer** (officerId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'GovPortalService', 'CitizenRequest', 'MinistryDept' va 'ProcessingOfficer' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3630,21 +3242,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "statutoryFeeSum",
-              "isPK": false
-            },
-            {
-              "name": "processingDays",
+              "name": "fee",
               "isPK": false
             }
           ]
         },
         {
           "name": "CitizenRequest",
-          "pk": "applicationId",
+          "pk": "appId",
           "attributes": [
             {
-              "name": "applicationId",
+              "name": "appId",
               "isPK": true
             },
             {
@@ -3652,21 +3260,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "submittedTimestamp",
-              "isPK": false
-            },
-            {
-              "name": "status",
+              "name": "submittedAt",
               "isPK": false
             }
           ]
         },
         {
-          "name": "MinistryDepartment",
-          "pk": "departmentInn",
+          "name": "MinistryDept",
+          "pk": "deptInn",
           "attributes": [
             {
-              "name": "departmentInn",
+              "name": "deptInn",
               "isPK": true
             },
             {
@@ -3674,25 +3278,25 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "competentAuthorityZone",
+              "name": "zone",
               "isPK": false
             }
           ]
         },
         {
           "name": "ProcessingOfficer",
-          "pk": "officerStaffId",
+          "pk": "officerId",
           "attributes": [
             {
-              "name": "officerStaffId",
+              "name": "officerId",
               "isPK": true
             },
             {
-              "name": "officerFullName",
+              "name": "officerName",
               "isPK": false
             },
             {
-              "name": "digitalSignatureCert",
+              "name": "certKey",
               "isPK": false
             }
           ]
@@ -3704,21 +3308,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "CitizenRequest",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "CitizenRequest",
-          "entity2": "MinistryDepartment",
+          "entity2": "MinistryDept",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
-          "entity1": "MinistryDepartment",
+          "entity1": "MinistryDept",
           "entity2": "ProcessingOfficer",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -3726,13 +3330,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 144,
     "sector": 10,
-    "difficulty": "10-Qavat • Biotexnologiya Farmatsevtika Zavodi",
-    "clientName": "Dr. Zulfiya Rustamova",
-    "clientRole": "Bosh Texnologik Arxitektor",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "GMP Standartidagi Biotexnologik Zavod Axborot Klasteri",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Biotexnologiya Farmatsevtika Zavodi sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **PharmaFactory** (facilityId {PK}), **ChemicalLab** (labUnitCode {PK}), **DrugBatch** (batchNumber {PK}) hamda **QualityAudit** (auditProtocolId {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'PharmaFactory', 'ChemicalLab', 'DrugBatch' va 'QualityAudit' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "PharmaFactory Korporativ Arxitekturasi",
+    "story": "GMP Farmatsevtika Klasteri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **PharmaFactory** (facilityId {PK}), **ChemicalLab** (labCode {PK}), **DrugBatch** (batchNo {PK}) va **QualityAudit** (auditId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'PharmaFactory', 'ChemicalLab', 'DrugBatch' va 'QualityAudit' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3752,57 +3356,53 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "gmpAccreditationNo",
-              "isPK": false
-            },
-            {
-              "name": "cleanRoomGrade",
+              "name": "gmpCert",
               "isPK": false
             }
           ]
         },
         {
           "name": "ChemicalLab",
-          "pk": "labUnitCode",
+          "pk": "labCode",
           "attributes": [
             {
-              "name": "labUnitCode",
+              "name": "labCode",
               "isPK": true
             },
             {
-              "name": "labSpecialization",
+              "name": "labSpec",
               "isPK": false
             },
             {
-              "name": "hplcInstrumentCount",
+              "name": "hplcCount",
               "isPK": false
             }
           ]
         },
         {
           "name": "DrugBatch",
-          "pk": "batchNumber",
+          "pk": "batchNo",
           "attributes": [
             {
-              "name": "batchNumber",
+              "name": "batchNo",
               "isPK": true
             },
             {
-              "name": "manufactureDate",
+              "name": "manufDate",
               "isPK": false
             },
             {
-              "name": "releaseInspectionPassed",
+              "name": "passed",
               "isPK": false
             }
           ]
         },
         {
           "name": "QualityAudit",
-          "pk": "auditProtocolId",
+          "pk": "auditId",
           "attributes": [
             {
-              "name": "auditProtocolId",
+              "name": "auditId",
               "isPK": true
             },
             {
@@ -3810,11 +3410,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "purityAssayPercent",
-              "isPK": false
-            },
-            {
-              "name": "auditDate",
+              "name": "purityPct",
               "isPK": false
             }
           ]
@@ -3826,21 +3422,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "ChemicalLab",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "ChemicalLab",
           "entity2": "DrugBatch",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "DrugBatch",
           "entity2": "QualityAudit",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -3848,13 +3444,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 145,
     "sector": 10,
-    "difficulty": "10-Qavat • Avtomobilsozlik Sanoat Klasteri",
-    "clientName": "Temur Mahmudov",
-    "clientRole": "Sanoat Ishlab Chiqarish Direktori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Avtomobil Yig'uv Zavodi va Rasmiy Dilerlik Majmuasi",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Avtomobilsozlik Sanoat Klasteri sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **CarManufacturer** (oemCode {PK}), **AssemblyLine** (conveyorId {PK}), **DealershipShowroom** (dealerChainId {PK}) hamda **VehicleOrder** (contractNumber {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'CarManufacturer', 'AssemblyLine', 'DealershipShowroom' va 'VehicleOrder' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "CarManufacturer Korporativ Arxitekturasi",
+    "story": "Avtomobil Yig'uv Klasteri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **CarManufacturer** (oemCode {PK}), **AssemblyLine** (lineId {PK}), **DealershipShowroom** (dealerId {PK}) va **VehicleOrder** (contractNo {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'CarManufacturer', 'AssemblyLine', 'DealershipShowroom' va 'VehicleOrder' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3870,43 +3466,39 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "manufacturerName",
+              "name": "corpName",
               "isPK": false
             },
             {
-              "name": "hqCountry",
-              "isPK": false
-            },
-            {
-              "name": "isoQualityCert",
+              "name": "isoCert",
               "isPK": false
             }
           ]
         },
         {
           "name": "AssemblyLine",
-          "pk": "conveyorId",
+          "pk": "lineId",
           "attributes": [
             {
-              "name": "conveyorId",
+              "name": "lineId",
               "isPK": true
             },
             {
-              "name": "productionLineModel",
+              "name": "lineModel",
               "isPK": false
             },
             {
-              "name": "unitsPerDayCapacity",
+              "name": "dailyCap",
               "isPK": false
             }
           ]
         },
         {
           "name": "DealershipShowroom",
-          "pk": "dealerChainId",
+          "pk": "dealerId",
           "attributes": [
             {
-              "name": "dealerChainId",
+              "name": "dealerId",
               "isPK": true
             },
             {
@@ -3914,29 +3506,25 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "serviceBayQuota",
+              "name": "quota",
               "isPK": false
             }
           ]
         },
         {
           "name": "VehicleOrder",
-          "pk": "contractNumber",
+          "pk": "contractNo",
           "attributes": [
             {
-              "name": "contractNumber",
+              "name": "contractNo",
               "isPK": true
             },
             {
-              "name": "customerPinfl",
+              "name": "customerPin",
               "isPK": false
             },
             {
-              "name": "allocatedVin",
-              "isPK": false
-            },
-            {
-              "name": "paymentStatus",
+              "name": "vin",
               "isPK": false
             }
           ]
@@ -3948,21 +3536,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "AssemblyLine",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "AssemblyLine",
           "entity2": "DealershipShowroom",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "DealershipShowroom",
           "entity2": "VehicleOrder",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -3970,13 +3558,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 146,
     "sector": 10,
-    "difficulty": "10-Qavat • Milliy Kiberxavfsizlik Markazi",
-    "clientName": "Farhod Karimov",
-    "clientRole": "SOC Bosh Muhandisi",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Davlat Kiberxavfsizlik Operatsion Markazi (SOC)",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Milliy Kiberxavfsizlik Markazi sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **SOCNetwork** (perimeterId {PK}), **SecurityThreat** (cveCode {PK}), **IncidentTicket** (incidentId {PK}) hamda **MitigationAction** (playbookActionId {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'SOCNetwork', 'SecurityThreat', 'IncidentTicket' va 'MitigationAction' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "SOCNetwork Korporativ Arxitekturasi",
+    "story": "SOC Kiberxavfsizlik bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **SOCNetwork** (perimeterId {PK}), **SecurityThreat** (cveCode {PK}), **IncidentTicket** (incidentId {PK}) va **MitigationAction** (actionId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'SOCNetwork', 'SecurityThreat', 'IncidentTicket' va 'MitigationAction' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3992,11 +3580,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "networkSegmentName",
+              "name": "segmentName",
               "isPK": false
             },
             {
-              "name": "firewallApplianceIp",
+              "name": "firewallIp",
               "isPK": false
             }
           ]
@@ -4010,11 +3598,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "cvssSeverityScore",
+              "name": "cvssScore",
               "isPK": false
             },
             {
-              "name": "threatVectorCategory",
+              "name": "category",
               "isPK": false
             }
           ]
@@ -4028,29 +3616,29 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "detectedTimestamp",
+              "name": "detectedAt",
               "isPK": false
             },
             {
-              "name": "containmentState",
+              "name": "state",
               "isPK": false
             }
           ]
         },
         {
           "name": "MitigationAction",
-          "pk": "playbookActionId",
+          "pk": "actionId",
           "attributes": [
             {
-              "name": "playbookActionId",
+              "name": "actionId",
               "isPK": true
             },
             {
-              "name": "analystBadgeId",
+              "name": "analystBadge",
               "isPK": false
             },
             {
-              "name": "patchAppliedTimestamp",
+              "name": "patchedAt",
               "isPK": false
             }
           ]
@@ -4062,21 +3650,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "SecurityThreat",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "SecurityThreat",
           "entity2": "IncidentTicket",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "IncidentTicket",
           "entity2": "MitigationAction",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -4084,13 +3672,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 147,
     "sector": 10,
-    "difficulty": "10-Qavat • Milliy Gipermarketlar Zanjiri",
-    "clientName": "Nargiza Jo'rayeva",
-    "clientRole": "Ta'minot Zanjiri Arxitektori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Markaziy Savdo Gipermarketlar Tarmog'i va Logistika Hubi",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Milliy Gipermarketlar Zanjiri sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **RetailChainStore** (storeUnitId {PK}), **CentralDepot** (depotBarcode {PK}), **SupplierVendor** (vendorTin {PK}) hamda **ProductInventory** (inventorySku {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'RetailChainStore', 'CentralDepot', 'SupplierVendor' va 'ProductInventory' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "RetailStore Korporativ Arxitekturasi",
+    "story": "Chakana Savdo Zanjiri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RetailStore** (storeId {PK}), **CentralDepot** (depotBarcode {PK}), **SupplierVendor** (vendorInn {PK}) va **ProductInventory** (inventorySku {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'RetailStore', 'CentralDepot', 'SupplierVendor' va 'ProductInventory' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -4098,23 +3686,19 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "RetailChainStore",
-          "pk": "storeUnitId",
+          "name": "RetailStore",
+          "pk": "storeId",
           "attributes": [
             {
-              "name": "storeUnitId",
+              "name": "storeId",
               "isPK": true
             },
             {
-              "name": "storeBrandName",
+              "name": "storeName",
               "isPK": false
             },
             {
               "name": "cityAddress",
-              "isPK": false
-            },
-            {
-              "name": "checkoutCount",
               "isPK": false
             }
           ]
@@ -4128,29 +3712,29 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "refrigeratedCapacityTons",
+              "name": "volumeTons",
               "isPK": false
             },
             {
-              "name": "palletSlots",
+              "name": "slots",
               "isPK": false
             }
           ]
         },
         {
           "name": "SupplierVendor",
-          "pk": "vendorTin",
+          "pk": "vendorInn",
           "attributes": [
             {
-              "name": "vendorTin",
+              "name": "vendorInn",
               "isPK": true
             },
             {
-              "name": "supplierCompanyName",
+              "name": "vendorName",
               "isPK": false
             },
             {
-              "name": "slaPerformanceIndex",
+              "name": "slaScore",
               "isPK": false
             }
           ]
@@ -4164,11 +3748,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "onHandQuantity",
+              "name": "quantityOnHand",
               "isPK": false
             },
             {
-              "name": "reorderThresholdUnits",
+              "name": "reorderLevel",
               "isPK": false
             }
           ]
@@ -4176,25 +3760,25 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "RetailChainStore",
+          "entity1": "RetailStore",
           "entity2": "CentralDepot",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "CentralDepot",
           "entity2": "SupplierVendor",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "SupplierVendor",
           "entity2": "ProductInventory",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -4202,13 +3786,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 148,
     "sector": 10,
-    "difficulty": "10-Qavat • Neft-Gaz Qayta Ishlash Majmuasi",
-    "clientName": "G'ayrat Vohidov",
-    "clientRole": "Bosh Texnologik Dispetcher",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Neft-Gaz Kimyo Majmuasi va Magistral Quvurlar Tizimi",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Neft-Gaz Qayta Ishlash Majmuasi sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **RefineryPlant** (refineryCode {PK}), **StorageTanker** (tankId {PK}), **PipelineSegment** (pipelineSegmentCode {PK}) hamda **CrudeOilShipment** (consignmentBillOfLading {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'RefineryPlant', 'StorageTanker', 'PipelineSegment' va 'CrudeOilShipment' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "RefineryPlant Korporativ Arxitekturasi",
+    "story": "Neft-Gaz Majmuasi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RefineryPlant** (refineryCode {PK}), **StorageTanker** (tankId {PK}), **PipelineSegment** (segmentCode {PK}) va **CrudeOilShipment** (consignmentNo {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'RefineryPlant', 'StorageTanker', 'PipelineSegment' va 'CrudeOilShipment' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -4228,7 +3812,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "crudeCapacityBarrelsPerDay",
+              "name": "capacityBarrels",
               "isPK": false
             }
           ]
@@ -4242,43 +3826,43 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "tankGrossVolumeM3",
+              "name": "grossVolumeM3",
               "isPK": false
             },
             {
-              "name": "storedHydrocarbonGrade",
+              "name": "grade",
               "isPK": false
             }
           ]
         },
         {
           "name": "PipelineSegment",
-          "pk": "pipelineSegmentCode",
+          "pk": "segmentCode",
           "attributes": [
             {
-              "name": "pipelineSegmentCode",
+              "name": "segmentCode",
               "isPK": true
             },
             {
-              "name": "pipelineDiameterMm",
+              "name": "diameterMm",
               "isPK": false
             },
             {
-              "name": "operatingBarPressure",
+              "name": "pressureBar",
               "isPK": false
             }
           ]
         },
         {
           "name": "CrudeOilShipment",
-          "pk": "consignmentBillOfLading",
+          "pk": "consignmentNo",
           "attributes": [
             {
-              "name": "consignmentBillOfLading",
+              "name": "consignmentNo",
               "isPK": true
             },
             {
-              "name": "batchSpecificGravity",
+              "name": "gravitySpec",
               "isPK": false
             },
             {
@@ -4294,21 +3878,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "StorageTanker",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "StorageTanker",
           "entity2": "PipelineSegment",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "PipelineSegment",
           "entity2": "CrudeOilShipment",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -4316,13 +3900,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 149,
     "sector": 10,
-    "difficulty": "10-Qavat • Global Telekom Operator",
-    "clientName": "Jamshid Aliyev",
-    "clientRole": "Tarmoq Bosh Arxitektori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "5G Telekommunikatsiya Yadro Tarmog'i va Billing Arxitekturasi",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Global Telekom Operator sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **TelecomCore** (coreSwitchId {PK}), **FiveGBaseStation** (gNodeBId {PK}), **BillingSubscription** (subscriberMsisdn {PK}) hamda **DataTrafficSession** (sessionCdrId {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'TelecomCore', 'FiveGBaseStation', 'BillingSubscription' va 'DataTrafficSession' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "TelecomCore Korporativ Arxitekturasi",
+    "story": "5G Telekomunikasiya bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **TelecomCore** (coreSwitchId {PK}), **FiveGBaseStation** (gNodeBId {PK}), **BillingSubscription** (subscriberMsisdn {PK}) va **DataTrafficSession** (cdrSessionId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'TelecomCore', 'FiveGBaseStation', 'BillingSubscription' va 'DataTrafficSession' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -4338,11 +3922,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "coreRouterModel",
+              "name": "routerModel",
               "isPK": false
             },
             {
-              "name": "opticalCapacityTbps",
+              "name": "capacityTbps",
               "isPK": false
             }
           ]
@@ -4356,11 +3940,11 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "carrierFrequencyGhz",
+              "name": "freqGhz",
               "isPK": false
             },
             {
-              "name": "massiveMimoSectors",
+              "name": "mimoSectors",
               "isPK": false
             }
           ]
@@ -4374,29 +3958,29 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "activeTariffPlan",
+              "name": "planName",
               "isPK": false
             },
             {
-              "name": "dataBalanceGigabytes",
+              "name": "balanceGb",
               "isPK": false
             }
           ]
         },
         {
           "name": "DataTrafficSession",
-          "pk": "sessionCdrId",
+          "pk": "cdrSessionId",
           "attributes": [
             {
-              "name": "sessionCdrId",
+              "name": "cdrSessionId",
               "isPK": true
             },
             {
-              "name": "connectionTimestamp",
+              "name": "connectedAt",
               "isPK": false
             },
             {
-              "name": "uplinkMegabytesTransferred",
+              "name": "megabytes",
               "isPK": false
             }
           ]
@@ -4408,21 +3992,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "FiveGBaseStation",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "FiveGBaseStation",
           "entity2": "BillingSubscription",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "BillingSubscription",
           "entity2": "DataTrafficSession",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }
@@ -4430,13 +4014,13 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 150,
     "sector": 10,
-    "difficulty": "10-Qavat • Kosmik Tadqiqotlar va Sun'iy Yo'ldoshlar",
-    "clientName": "Akademik Anvar Qodirov",
-    "clientRole": "Kosmik Missiyalar Bosh Arxitektori",
+    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
+    "clientName": "Bosh Direktor",
+    "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
-    "title": "Global Kosmik Parvozlar va Sun'iy Yo'ldosh Boshqaruvi",
-    "story": "Xalqaro korporativ darajadagi murakkab axborot tizimining butun arxitekturasini loyihalash amalga oshirilmoqda. Kosmik Tadqiqotlar va Sun'iy Yo'ldoshlar sohasida ko'plab bo'g'inlar yagona uzluksiz texnologik zanjirda faoliyat ko'rsatadi.\n\nTizimning negizida to'rtta asosiy entitiy ishtirok etadi: **Spaceport** (launchComplexId {PK}), **SatelliteOrbiter** (noradCatalogId {PK}), **GroundStation** (groundStationCode {PK}) hamda **MissionTelemetry** (telemetryFrameId {PK}).\n\nUshbu entitiylar o'zaro tabiiy ierarxiya, 1..* bo'ysunuv va operatsion munosabatlar zanjiri orqali bog'langan bo'lib, korxonaning to'liq biznes jarayonlarini ta'minlaydi.",
-    "instruction": "Korporativ tizimning barcha 'Spaceport', 'SatelliteOrbiter', 'GroundStation' va 'MissionTelemetry' entitiylarini polotnoda joylashtiring va ularning aloqalarini to'g'ri o'rnating.",
+    "title": "Spaceport Korporativ Arxitekturasi",
+    "story": "Kosmik Missiyalar Boshqaruvi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Spaceport** (complexId {PK}), **SatelliteOrbiter** (noradId {PK}), **GroundStation** (stationCode {PK}) va **MissionTelemetry** (telemetryId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "instruction": "'Spaceport', 'SatelliteOrbiter', 'GroundStation' va 'MissionTelemetry' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -4445,10 +4029,10 @@ _scope.EER_CLIENTS_101_150 = [
       "entities": [
         {
           "name": "Spaceport",
-          "pk": "launchComplexId",
+          "pk": "complexId",
           "attributes": [
             {
-              "name": "launchComplexId",
+              "name": "complexId",
               "isPK": true
             },
             {
@@ -4456,21 +4040,17 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "launchPadCount",
-              "isPK": false
-            },
-            {
-              "name": "geoCoordinates",
+              "name": "padCount",
               "isPK": false
             }
           ]
         },
         {
           "name": "SatelliteOrbiter",
-          "pk": "noradCatalogId",
+          "pk": "noradId",
           "attributes": [
             {
-              "name": "noradCatalogId",
+              "name": "noradId",
               "isPK": true
             },
             {
@@ -4478,51 +4058,43 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "orbitAltitudeKm",
-              "isPK": false
-            },
-            {
-              "name": "payloadSensor",
+              "name": "altitudeKm",
               "isPK": false
             }
           ]
         },
         {
           "name": "GroundStation",
-          "pk": "groundStationCode",
+          "pk": "stationCode",
           "attributes": [
             {
-              "name": "groundStationCode",
+              "name": "stationCode",
               "isPK": true
             },
             {
-              "name": "parabolicDishDiameterMeters",
+              "name": "dishDiameterMeters",
               "isPK": false
             },
             {
-              "name": "uplinkFrequencyGhz",
+              "name": "freqGhz",
               "isPK": false
             }
           ]
         },
         {
           "name": "MissionTelemetry",
-          "pk": "telemetryFrameId",
+          "pk": "telemetryId",
           "attributes": [
             {
-              "name": "telemetryFrameId",
+              "name": "telemetryId",
               "isPK": true
             },
             {
-              "name": "solarPanelVolts",
+              "name": "volts",
               "isPK": false
             },
             {
-              "name": "onboardTempKelvin",
-              "isPK": false
-            },
-            {
-              "name": "downlinkTime",
+              "name": "tempKelvin",
               "isPK": false
             }
           ]
@@ -4534,21 +4106,21 @@ _scope.EER_CLIENTS_101_150 = [
           "entity2": "SatelliteOrbiter",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Manages"
+          "name": "Rel1"
         },
         {
           "entity1": "SatelliteOrbiter",
           "entity2": "GroundStation",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "name": "Rel2"
         },
         {
           "entity1": "GroundStation",
           "entity2": "MissionTelemetry",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Records"
+          "name": "Rel3"
         }
       ]
     }

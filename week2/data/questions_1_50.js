@@ -3,13 +3,13 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 1,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Temur Karimov",
-    "clientRole": "Aviatsiya Texnik Direktori",
+    "clientRole": "Aviapark Texnik Direktori",
     "clientAvatar": "mentor",
-    "title": "Aviakompaniya Aviatsiya Parki (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Aircraft** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Fuqaro Aviatsiyasi amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Aircraft** superklassidan ikkita maxsus subklass ajratiladi: **PassengerPlane** (`seatCount`, `entertainmentSystem`) va **CargoPlane** (`maxPayloadTons`, `cargoDoorType`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit tailNo ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'Aircraft' superklassidan ISA uchburchagi orqali 'PassengerPlane' va 'CargoPlane' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Aviakompaniya Havo Kemalarini Hisobga Olish (Relatsion Sxema)",
+    "story": "1-haftada yaratilgan **Aircraft** konseptual modeli endi relyatsion ma'lumotlar bazasiga o'tkazilmoqda. Tizimda samolyotlarning asosiy jadvali SQL relyatsion qoidalariga muvofiq Birlamchi Kalit [PK] ustuni bilan shakllantirilishi lozim.",
+    "instruction": "'Aircraft' entitiysini SQL relyatsion jadvaliga aylantiring va 'tailNo' ustuniga Birlamchi Kalit [PK] maqomini bering.",
     "starterDiagram": {
       "entities": [
         {
@@ -62,51 +62,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Aircraft",
-        "subs": [
-          {
-            "name": "PassengerPlane",
-            "attributes": [
-              {
-                "name": "seatCount",
-                "isPK": false
-              },
-              {
-                "name": "entertainmentSystem",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "CargoPlane",
-            "attributes": [
-              {
-                "name": "maxPayloadTons",
-                "isPK": false
-              },
-              {
-                "name": "cargoDoorType",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 2,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Dr. Aziza Rahimova",
     "clientRole": "Bosh Shifokor Muovini",
     "clientAvatar": "mentor",
-    "title": "Markaziy Shifoxona Bemorlar Reyestri (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Patient** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Tibbiyot & Sog'liqni Saqlash amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Patient** superklassidan ikkita maxsus subklass ajratiladi: **InPatient** (`bedNumber`, `admissionDate`) va **OutPatient** (`clinicVisitDate`, `doctorNotes`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit patientId ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'Patient' superklassidan ISA uchburchagi orqali 'InPatient' va 'OutPatient' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Kardiologiya Markazi Bemorlar Elektron Kartasi (Relatsion Sxema)",
+    "story": "Kardiologiya markazining bemorlar reyestri relyatsion modelga o'tkazilmoqda. Bemorlar jadvalini yaratib, har bir bemor yozuvining takrorlanmasligini ta'minlovchi Birlamchi Kalit [PK] ustunini belgilang.",
+    "instruction": "'Patient' jadvalini shakllantiring va 'patientId' ustunini Birlamchi Kalit [PK] deb belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -167,51 +135,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Patient",
-        "subs": [
-          {
-            "name": "InPatient",
-            "attributes": [
-              {
-                "name": "bedNumber",
-                "isPK": false
-              },
-              {
-                "name": "admissionDate",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "OutPatient",
-            "attributes": [
-              {
-                "name": "clinicVisitDate",
-                "isPK": false
-              },
-              {
-                "name": "doctorNotes",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 3,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Bobur Mansurov",
-    "clientRole": "Akademik Registrator",
+    "clientRole": "Bosh Registrator",
     "clientAvatar": "mentor",
-    "title": "Universitet Talabalar Akademik Reyestri (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Student** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Oliy Ta'lim amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Student** superklassidan ikkita maxsus subklass ajratiladi: **Undergraduate** (`highSchoolDiploma`, `creditsCompleted`) va **Postgraduate** (`bachelorDegreeNo`, `thesisTopic`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit studentId ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'Student' superklassidan ISA uchburchagi orqali 'Undergraduate' va 'Postgraduate' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Xalqaro Universitet Talabalar Akademik Reyestri (Relatsion Sxema)",
+    "story": "Universitet talabalar ma'lumotlar bazasi relyatsion arxitekturaga tayyorlanmoqda. Talabalar jadvalini yaratib, har bir talaba yozuvini aniqlovchi Birlamchi Kalit [PK] ni belgilang.",
+    "instruction": "'Student' jadvalini relyatsion shaklda yarating va 'studentId' ustuniga Birlamchi Kalit [PK] belgisini qo'ying.",
     "starterDiagram": {
       "entities": [
         {
@@ -272,51 +208,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Student",
-        "subs": [
-          {
-            "name": "Undergraduate",
-            "attributes": [
-              {
-                "name": "highSchoolDiploma",
-                "isPK": false
-              },
-              {
-                "name": "creditsCompleted",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "Postgraduate",
-            "attributes": [
-              {
-                "name": "bachelorDegreeNo",
-                "isPK": false
-              },
-              {
-                "name": "thesisTopic",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 4,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Gulnora Karimova",
     "clientRole": "Bosh Bibliograf",
     "clientAvatar": "mentor",
-    "title": "Davlat Ilmiy Kutubxonasi Kitob Fondi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Book** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Kutubxona & Fond amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Book** superklassidan ikkita maxsus subklass ajratiladi: **EBook** (`fileFormat`, `fileSizeBytes`) va **PrintBook** (`shelfLocation`, `coverType`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit isbn ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'Book' superklassidan ISA uchburchagi orqali 'EBook' va 'PrintBook' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Davlat Ilmiy Kutubxonasi Kitoblar Fondi (Relatsion Sxema)",
+    "story": "Kutubxona fondini SQL ma'lumotlar bazasiga o'tkazish uchun 'Book' entitiysini Birlamchi Kalit [PK] ustuni bilan relyatsion jadval sifatida aks ettiring.",
+    "instruction": "'Book' relyatsion jadvalini yarating va 'isbn' ustunini [PK] sifatida belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -377,51 +281,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Book",
-        "subs": [
-          {
-            "name": "EBook",
-            "attributes": [
-              {
-                "name": "fileFormat",
-                "isPK": false
-              },
-              {
-                "name": "fileSizeBytes",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "PrintBook",
-            "attributes": [
-              {
-                "name": "shelfLocation",
-                "isPK": false
-              },
-              {
-                "name": "coverType",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 5,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Rustam Aliyev",
-    "clientRole": "Avtosalon Savdo Direktori",
+    "clientRole": "Savdo Direktori",
     "clientAvatar": "mentor",
-    "title": "Avtosalon Transport Vositalari Reyestri (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Vehicle** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Avtomobilsozlik & Dilerlik amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Vehicle** superklassidan ikkita maxsus subklass ajratiladi: **ElectricVehicle** (`batteryKwh`, `chargingTimeHrs`) va **CombustionCar** (`fuelTankLiters`, `emissionClass`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit vin ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'Vehicle' superklassidan ISA uchburchagi orqali 'ElectricVehicle' va 'CombustionCar' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Avtosalon Transport Vositalari Katalogi (Relatsion Sxema)",
+    "story": "Avtosalon katalogini relieshon jadvallarga aylantiring. 'Vehicle' jadvali o'zining Birlamchi Kaliti [PK] orqali transport vositasini takrorlanmas qiladi.",
+    "instruction": "'Vehicle' jadvalini shakllantirib, 'vin' ustuniga Birlamchi Kalit [PK] maqomini bering.",
     "starterDiagram": {
       "entities": [
         {
@@ -482,51 +354,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Vehicle",
-        "subs": [
-          {
-            "name": "ElectricVehicle",
-            "attributes": [
-              {
-                "name": "batteryKwh",
-                "isPK": false
-              },
-              {
-                "name": "chargingTimeHrs",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "CombustionCar",
-            "attributes": [
-              {
-                "name": "fuelTankLiters",
-                "isPK": false
-              },
-              {
-                "name": "emissionClass",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 6,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Jamshid Qodirov",
     "clientRole": "Bosh Buxgalter",
     "clientAvatar": "mentor",
-    "title": "Tijorat Banki Depozit va Hisoblar Tizimi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **BankAccount** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Bank & Moliya amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **BankAccount** superklassidan ikkita maxsus subklass ajratiladi: **SavingsAccount** (`interestRatePercent`, `minBalance`) va **CheckingAccount** (`overdraftLimit`, `checkbookNo`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit accountNo ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'BankAccount' superklassidan ISA uchburchagi orqali 'SavingsAccount' va 'CheckingAccount' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Tijorat Banki Mijozlar Hisob Raqamlari (Relatsion Sxema)",
+    "story": "Bank hisoblari jadvalini relyatsion modelga o'tkazing va 'accountNo' ustuniga Birlamchi Kalit [PK] sifatida belgi qo'ying.",
+    "instruction": "'BankAccount' jadvalini yarating va 'accountNo' ustunini [PK] deb belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -587,51 +427,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "BankAccount",
-        "subs": [
-          {
-            "name": "SavingsAccount",
-            "attributes": [
-              {
-                "name": "interestRatePercent",
-                "isPK": false
-              },
-              {
-                "name": "minBalance",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "CheckingAccount",
-            "attributes": [
-              {
-                "name": "overdraftLimit",
-                "isPK": false
-              },
-              {
-                "name": "checkbookNo",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 7,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Malika Yusupova",
-    "clientRole": "Mehmonxona Boshqaruvchisi",
+    "clientRole": "Boshqaruvchi",
     "clientAvatar": "mentor",
-    "title": "Besh Yulduzli Mehmonxona Xonalar Fondi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **HotelRoom** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Mehmonxona & Turizm amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **HotelRoom** superklassidan ikkita maxsus subklass ajratiladi: **StandardRoom** (`singleBedCount`, `hasBalcony`) va **PresidentialSuite** (`livingRoomCount`, `hasJacuzzi`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit roomNo ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'HotelRoom' superklassidan ISA uchburchagi orqali 'StandardRoom' va 'PresidentialSuite' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Mehmonxona Xonalar Fondi Reyestri (Relatsion Sxema)",
+    "story": "Mehmonxona xonalar fondi relyatsion jadval sifatida SQLga tayyorlanmoqda. 'HotelRoom' jadvalida 'roomNo' ustunini Birlamchi Kalit [PK] qilib belgilang.",
+    "instruction": "'HotelRoom' relyatsion jadvalini shakllantiring va 'roomNo' ustunini [PK] qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -692,51 +500,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "HotelRoom",
-        "subs": [
-          {
-            "name": "StandardRoom",
-            "attributes": [
-              {
-                "name": "singleBedCount",
-                "isPK": false
-              },
-              {
-                "name": "hasBalcony",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "PresidentialSuite",
-            "attributes": [
-              {
-                "name": "livingRoomCount",
-                "isPK": false
-              },
-              {
-                "name": "hasJacuzzi",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 8,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Otabek Sodiqov",
     "clientRole": "Bosh Oshpaz",
     "clientAvatar": "mentor",
-    "title": "Premium Restoran Taomnomasi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **MenuItem** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Restoran & Katering amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **MenuItem** superklassidan ikkita maxsus subklass ajratiladi: **VegetarianDish** (`organicCertified`, `dairyFree`) va **MeatDish** (`meatType`, `cookTimeMin`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit itemId ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'MenuItem' superklassidan ISA uchburchagi orqali 'VegetarianDish' va 'MeatDish' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Premium Restoran Mualliflik Taomnomasi (Relatsion Sxema)",
+    "story": "Restoran menyusini relieshon jadval ko'rinishiga o'tkazing. 'itemId' ustunini Birlamchi Kalit [PK] qilib belgilang.",
+    "instruction": "'MenuItem' jadvalini yarating va 'itemId' ni [PK] deb belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -797,51 +573,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "MenuItem",
-        "subs": [
-          {
-            "name": "VegetarianDish",
-            "attributes": [
-              {
-                "name": "organicCertified",
-                "isPK": false
-              },
-              {
-                "name": "dairyFree",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "MeatDish",
-            "attributes": [
-              {
-                "name": "meatType",
-                "isPK": false
-              },
-              {
-                "name": "cookTimeMin",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 9,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Farhod Ergashev",
     "clientRole": "Texnik Direktor (CTO)",
     "clientAvatar": "mentor",
-    "title": "IT Kompaniyasi Muhandislik Shtati (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Developer** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. IT & Dasturiy Ta'minot amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Developer** superklassidan ikkita maxsus subklass ajratiladi: **FrontendDev** (`uiFramework`, `designSkillLevel`) va **BackendDev** (`dbEngine`, `cloudCertified`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit devId ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'Developer' superklassidan ISA uchburchagi orqali 'FrontendDev' va 'BackendDev' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "IT Kompaniyasi Muhandislik Shtati (Relatsion Sxema)",
+    "story": "Dasturchilar reyestrini relyatsion jadval shakliga keltiring. 'devId' ustuniga Birlamchi Kalit [PK] belgisini o'rnating.",
+    "instruction": "'Developer' jadvalini shakllantiring va 'devId' ustunini [PK] deb belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -902,51 +646,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Developer",
-        "subs": [
-          {
-            "name": "FrontendDev",
-            "attributes": [
-              {
-                "name": "uiFramework",
-                "isPK": false
-              },
-              {
-                "name": "designSkillLevel",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "BackendDev",
-            "attributes": [
-              {
-                "name": "dbEngine",
-                "isPK": false
-              },
-              {
-                "name": "cloudCertified",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 10,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Shahnoza Karimova",
-    "clientRole": "Mahsulot Bosh Menejeri",
+    "clientRole": "Katalog Menejeri",
     "clientAvatar": "mentor",
-    "title": "Onlayn Gipermarket Tovar Katalogi (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Product** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. E-Commerce & Savdo amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Product** superklassidan ikkita maxsus subklass ajratiladi: **DigitalProduct** (`downloadUrl`, `licenseKeyCount`) va **PhysicalProduct** (`dimensionsCm`, `shippingFee`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit sku ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'Product' superklassidan ISA uchburchagi orqali 'DigitalProduct' va 'PhysicalProduct' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Onlayn Gipermarket Tovar Artikullari (Relatsion Sxema)",
+    "story": "Tovarlar katalogini relyatsion ma'lumotlar bazasiga o'tkazing va 'sku' ustunini Birlamchi Kalit [PK] qilib belgilang.",
+    "instruction": "'Product' jadvalini relyatsion tarzda yarating va 'sku' ustunini [PK] deb belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1007,51 +719,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Product",
-        "subs": [
-          {
-            "name": "DigitalProduct",
-            "attributes": [
-              {
-                "name": "downloadUrl",
-                "isPK": false
-              },
-              {
-                "name": "licenseKeyCount",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "PhysicalProduct",
-            "attributes": [
-              {
-                "name": "dimensionsCm",
-                "isPK": false
-              },
-              {
-                "name": "shippingFee",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 11,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Akmal Shokirov",
     "clientRole": "Kinoprokat Boshqaruvchisi",
     "clientAvatar": "mentor",
-    "title": "Kinoteatrlar Tarmog'i Filmlar Jadvali (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Movie** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Kino & Ko'ngilochar amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Movie** superklassidan ikkita maxsus subklass ajratiladi: **FeatureFilm** (`boxOfficeMillions`, `aspectRatio`) va **DocumentaryFilm** (`historicalTopic`, `narratorName`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit movieId ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'Movie' superklassidan ISA uchburchagi orqali 'FeatureFilm' va 'DocumentaryFilm' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Kinoteatrlar Tarmog'i Filmlar Jadvali (Relatsion Sxema)",
+    "story": "Filmlar katalogini relyatsion jadvalga o'tkazing. 'movieId' ustunini Birlamchi Kalit [PK] sifatida belgilang.",
+    "instruction": "'Movie' jadvalini shakllantiring va 'movieId' ustuniga [PK] belgisini bering.",
     "starterDiagram": {
       "entities": [
         {
@@ -1112,51 +792,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Movie",
-        "subs": [
-          {
-            "name": "FeatureFilm",
-            "attributes": [
-              {
-                "name": "boxOfficeMillions",
-                "isPK": false
-              },
-              {
-                "name": "aspectRatio",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "DocumentaryFilm",
-            "attributes": [
-              {
-                "name": "historicalTopic",
-                "isPK": false
-              },
-              {
-                "name": "narratorName",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 12,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Umida Zokirova",
     "clientRole": "Bosh Provisor",
     "clientAvatar": "mentor",
-    "title": "Markaziy Dorixona Dori Vositalari Inventari (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Medicine** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Farmatsevtika & Dorixona amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **Medicine** superklassidan ikkita maxsus subklass ajratiladi: **PrescriptionDrug** (`controlledSchedule`, `doctorReq`) va **OtcDrug** (`flavor`, `ageLimitYears`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit barcode ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'Medicine' superklassidan ISA uchburchagi orqali 'PrescriptionDrug' va 'OtcDrug' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Markaziy Dorixona Dori Vositalari Inventari (Relatsion Sxema)",
+    "story": "Dori vositalari inventarini relyatsion jadval shakliga keltiring. 'barcode' ustunini Birlamchi Kalit [PK] sifatida ko'rsating.",
+    "instruction": "'Medicine' jadvalini yarating va 'barcode' ustuniga [PK] maqomini bering.",
     "starterDiagram": {
       "entities": [
         {
@@ -1217,51 +865,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Medicine",
-        "subs": [
-          {
-            "name": "PrescriptionDrug",
-            "attributes": [
-              {
-                "name": "controlledSchedule",
-                "isPK": false
-              },
-              {
-                "name": "doctorReq",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "OtcDrug",
-            "attributes": [
-              {
-                "name": "flavor",
-                "isPK": false
-              },
-              {
-                "name": "ageLimitYears",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 13,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Sanjar Normatov",
-    "clientRole": "Logistika Floti Rahbari",
+    "clientRole": "Logistika Floti Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Trans-Kontinental Yuk Tashish Avtoparki (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **CargoTruck** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Logistika & Yuk Tashish amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **CargoTruck** superklassidan ikkita maxsus subklass ajratiladi: **RefrigeratedTruck** (`minTempCelsius`, `compressorPower`) va **FlatbedTruck** (`bedLengthMeters`, `maxAxleWeight`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit plateNo ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'CargoTruck' superklassidan ISA uchburchagi orqali 'RefrigeratedTruck' va 'FlatbedTruck' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Trans-Kontinental Yuk Mashinalari Avtoparki (Relatsion Sxema)",
+    "story": "Yuk mashinalari parkini relyatsion jadval sifatida aks ettiring va 'plateNo' ustuniga Birlamchi Kalit [PK] belgisini qo'ying.",
+    "instruction": "'CargoTruck' jadvalini yarating va 'plateNo' ustunini [PK] deb belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1322,51 +938,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "CargoTruck",
-        "subs": [
-          {
-            "name": "RefrigeratedTruck",
-            "attributes": [
-              {
-                "name": "minTempCelsius",
-                "isPK": false
-              },
-              {
-                "name": "compressorPower",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "FlatbedTruck",
-            "attributes": [
-              {
-                "name": "bedLengthMeters",
-                "isPK": false
-              },
-              {
-                "name": "maxAxleWeight",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 14,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Nilufar Rahimova",
-    "clientRole": "Mijozlar Xizmati Rahbari",
+    "clientRole": "Mijozlar Xizmati Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Premium Fitnes Klub A'zolari Reyestri (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **ClubMember** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Sport & Fitnes amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **ClubMember** superklassidan ikkita maxsus subklass ajratiladi: **VipMember** (`personalTrainerId`, `spaAccessLevel`) va **RegularMember** (`lockerAssigned`, `timeSlot`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit memberCardNo ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'ClubMember' superklassidan ISA uchburchagi orqali 'VipMember' va 'RegularMember' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Premium Fitnes Klub A'zolari Reyestri (Relatsion Sxema)",
+    "story": "Fitnes klub a'zolari bazasini relyatsion jadval ko'rinishida hosil qiling va 'memberCardNo' ustunini Birlamchi Kalit [PK] qilib belgilang.",
+    "instruction": "'ClubMember' jadvalini shakllantiring va 'memberCardNo' ustuniga [PK] belgisini bering.",
     "starterDiagram": {
       "entities": [
         {
@@ -1427,51 +1011,19 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "ClubMember",
-        "subs": [
-          {
-            "name": "VipMember",
-            "attributes": [
-              {
-                "name": "personalTrainerId",
-                "isPK": false
-              },
-              {
-                "name": "spaAccessLevel",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "RegularMember",
-            "attributes": [
-              {
-                "name": "lockerAssigned",
-                "isPK": false
-              },
-              {
-                "name": "timeSlot",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 15,
     "sector": 1,
-    "difficulty": "1-Qavat • EER Kengaytirish",
+    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
     "clientName": "Davron Karimov",
-    "clientRole": "Bosh Energetik Muhandis",
+    "clientRole": "Bosh Energetik",
     "clientAvatar": "mentor",
-    "title": "Quyosh Fotoelektr Stansiyasi Invertorlari (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **SolarInverter** modeli asosida tashkilot yangi ixtisoslashuv talablarini joriy etmoqda. Yashil Energetika amaliyotida umumiy parametrlardan tashqari har bir maxsus yo'nalish o'zining noyob xususiyatlariga ega bo'lishi shart.\n\nPolotnodagi mavjud **SolarInverter** superklassidan ikkita maxsus subklass ajratiladi: **CentralInverter** (`transformerRatingKva`, `coolingSystem`) va **MicroInverter** (`mpptChannels`, `efficiencyRating`).\n\nBiznes qoidalariga ko'ra, har bir obyekt majburiy ravishda ushbu ikki toifadan aynan bittasiga kirishi shart ({Mandatory, Or}). Subklasslar umumiy superklassdan birlamchi kalit serialNo ni meros qilib oladi.",
-    "instruction": "Polotnodagi mavjud 'SolarInverter' superklassidan ISA uchburchagi orqali 'CentralInverter' va 'MicroInverter' subklasslarini {Mandatory, Or} cheklovi bilan bog'lang.",
+    "title": "Quyosh Fotoelektr Stansiyasi Invertorlari (Relatsion Sxema)",
+    "story": "Invertorlar texnik bazasini relieshon jadval ko'rinishida shakllantiring va 'serialNo' ustunini Birlamchi Kalit [PK] deb belgilang.",
+    "instruction": "'SolarInverter' jadvalini yarating va 'serialNo' ustunini [PK] deb belgilang.",
     "starterDiagram": {
       "entities": [
         {
@@ -1532,93 +1084,61 @@ _scope.QUESTIONS_1_50 = [
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "SolarInverter",
-        "subs": [
-          {
-            "name": "CentralInverter",
-            "attributes": [
-              {
-                "name": "transformerRatingKva",
-                "isPK": false
-              },
-              {
-                "name": "coolingSystem",
-                "isPK": false
-              }
-            ]
-          },
-          {
-            "name": "MicroInverter",
-            "attributes": [
-              {
-                "name": "mpptChannels",
-                "isPK": false
-              },
-              {
-                "name": "efficiencyRating",
-                "isPK": false
-              }
-            ]
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "relationships": []
     }
   },
   {
     "id": 16,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
-    "clientName": "Polkovnik Botir Rahmonov",
-    "clientRole": "DYXX Bosh Inspektor",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
+    "clientName": "Kapitan Anvar Salimov",
+    "clientRole": "Flot Admiral Shtabi",
     "clientAvatar": "mentor",
-    "title": "Avtomobil Haydovchisi va Haydovchilik Guvohnomasi (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **Driver** va **DriverLicense** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **Driver** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **Driver** entitiysi superklassga aylantirilib, undan **DriverPremium** va **DriverStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud Driver va DriverLicense o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'Driver' superklassiga 'DriverPremium' va 'DriverStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Harbiy Kema va Kema Komandiri (Relatsion Sxema)",
+    "story": "Harbiy kema va kema komandiri o'rtasidagi yagona vakolatli munosabatni relyatsion jadvallarga o'tkazish talab etiladi. Munosabatni ifodalash uchun 'Warship' jadvaliga Tashqi Kalit [FK] sifatida 'captainId' ustunini qo'shing va uni 'Captain' jadvalining Birlamchi Kalitiga bog'lang.",
+    "instruction": "'Warship' jadvaliga 'captainId' [FK1] ustunini kiriting va uni 'Captain' jadvalining 'officerId' [PK] ustuniga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Driver",
-          "pk": "driverId",
+          "name": "Warship",
+          "pk": "hullNo",
           "attributes": [
             {
-              "name": "driverId",
+              "name": "hullNo",
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "shipName",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "displacementTons",
               "isPK": false
             },
             {
-              "name": "bloodGroup",
+              "name": "commissionYear",
               "isPK": false
             }
           ]
         },
         {
-          "name": "DriverLicense",
-          "pk": "licenseNo",
+          "name": "Captain",
+          "pk": "officerId",
           "attributes": [
             {
-              "name": "licenseNo",
+              "name": "officerId",
               "isPK": true
             },
             {
-              "name": "categories",
+              "name": "officerName",
               "isPK": false
             },
             {
-              "name": "issueDate",
+              "name": "rankGrade",
               "isPK": false
             },
             {
-              "name": "expiryDate",
+              "name": "serviceYears",
               "isPK": false
             }
           ]
@@ -1626,56 +1146,60 @@ _scope.QUESTIONS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "Driver",
-          "entity2": "DriverLicense",
+          "entity1": "Warship",
+          "entity2": "Captain",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "Holds"
+          "name": "CommandedBy"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Driver",
-          "pk": "driverId",
+          "name": "Warship",
+          "pk": "hullNo",
           "attributes": [
             {
-              "name": "driverId",
+              "name": "hullNo",
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "shipName",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "displacementTons",
               "isPK": false
             },
             {
-              "name": "bloodGroup",
+              "name": "commissionYear",
               "isPK": false
+            },
+            {
+              "name": "captainId",
+              "isFK": true
             }
           ]
         },
         {
-          "name": "DriverLicense",
-          "pk": "licenseNo",
+          "name": "Captain",
+          "pk": "officerId",
           "attributes": [
             {
-              "name": "licenseNo",
+              "name": "officerId",
               "isPK": true
             },
             {
-              "name": "categories",
+              "name": "officerName",
               "isPK": false
             },
             {
-              "name": "issueDate",
+              "name": "rankGrade",
               "isPK": false
             },
             {
-              "name": "expiryDate",
+              "name": "serviceYears",
               "isPK": false
             }
           ]
@@ -1683,47 +1207,33 @@ _scope.QUESTIONS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "Driver",
-          "entity2": "DriverLicense",
+          "entity1": "Warship",
+          "entity2": "Captain",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "Holds"
+          "name": "CommandedBy"
         }
-      ],
-      "subclasses": {
-        "superclass": "Driver",
-        "subs": [
-          {
-            "name": "DriverPremium",
-            "attributes": []
-          },
-          {
-            "name": "DriverStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 17,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
-    "clientName": "Mayor Sherzod Aliyev",
-    "clientRole": "Pasport Bo'limi Boshlig'i",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
+    "clientName": "Polkovnik Botir Rahmonov",
+    "clientRole": "DYXX Bosh Inspektor",
     "clientAvatar": "mentor",
-    "title": "Fuqaro va Biometrik Identifikatsiya Pasporti (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **Citizen** va **Passport** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **Citizen** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **Citizen** entitiysi superklassga aylantirilib, undan **CitizenPremium** va **CitizenStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud Citizen va Passport o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'Citizen' superklassiga 'CitizenPremium' va 'CitizenStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Avtomobil Haydovchisi va Haydovchilik Guvohnomasi (Relatsion Sxema)",
+    "story": "Haydovchi va uning guvohnomasi o'rtasidagi to'g'ridan-to'g'ri bog'lanish relyatsion modelga o'tkazilmoqda. 'DriverLicense' jadvaliga 'driverId' Tashqi Kalitini [FK1] qo'shing va uni 'Driver' jadvaliga ulang.",
+    "instruction": "'DriverLicense' jadvalida 'driverId' [FK1] ustunini belgilang va 'Driver' jadvaliga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Citizen",
-          "pk": "pinfl",
+          "name": "Driver",
+          "pk": "driverId",
           "attributes": [
             {
-              "name": "pinfl",
+              "name": "driverId",
               "isPK": true
             },
             {
@@ -1731,33 +1241,33 @@ _scope.QUESTIONS_1_50 = [
               "isPK": false
             },
             {
-              "name": "birthDate",
+              "name": "phone",
               "isPK": false
             },
             {
-              "name": "nationality",
+              "name": "bloodGroup",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Passport",
-          "pk": "passportNo",
+          "name": "DriverLicense",
+          "pk": "licenseNo",
           "attributes": [
             {
-              "name": "passportNo",
+              "name": "licenseNo",
               "isPK": true
             },
             {
+              "name": "categories",
+              "isPK": false
+            },
+            {
+              "name": "issueDate",
+              "isPK": false
+            },
+            {
               "name": "expiryDate",
-              "isPK": false
-            },
-            {
-              "name": "issuedBy",
-              "isPK": false
-            },
-            {
-              "name": "chipVersion",
               "isPK": false
             }
           ]
@@ -1765,22 +1275,22 @@ _scope.QUESTIONS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "Citizen",
-          "entity2": "Passport",
+          "entity1": "Driver",
+          "entity2": "DriverLicense",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "IssuedTo"
+          "name": "Holds"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Citizen",
-          "pk": "pinfl",
+          "name": "Driver",
+          "pk": "driverId",
           "attributes": [
             {
-              "name": "pinfl",
+              "name": "driverId",
               "isPK": true
             },
             {
@@ -1788,115 +1298,105 @@ _scope.QUESTIONS_1_50 = [
               "isPK": false
             },
             {
-              "name": "birthDate",
+              "name": "phone",
               "isPK": false
             },
             {
-              "name": "nationality",
+              "name": "bloodGroup",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Passport",
-          "pk": "passportNo",
+          "name": "DriverLicense",
+          "pk": "licenseNo",
           "attributes": [
             {
-              "name": "passportNo",
+              "name": "licenseNo",
               "isPK": true
+            },
+            {
+              "name": "categories",
+              "isPK": false
+            },
+            {
+              "name": "issueDate",
+              "isPK": false
             },
             {
               "name": "expiryDate",
               "isPK": false
             },
             {
-              "name": "issuedBy",
-              "isPK": false
-            },
-            {
-              "name": "chipVersion",
-              "isPK": false
+              "name": "driverId",
+              "isFK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Citizen",
-          "entity2": "Passport",
+          "entity1": "Driver",
+          "entity2": "DriverLicense",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "IssuedTo"
+          "name": "Holds"
         }
-      ],
-      "subclasses": {
-        "superclass": "Citizen",
-        "subs": [
-          {
-            "name": "CitizenPremium",
-            "attributes": []
-          },
-          {
-            "name": "CitizenStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 18,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
-    "clientName": "Nodir Hakimov",
-    "clientRole": "Soliq Inspeksiyasi Rahbari",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
+    "clientName": "Mayor Sherzod Aliyev",
+    "clientRole": "Pasport Bo'limi Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Kompaniya va Soliq Ro'yxatdan O'tish Guvohnomasi (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **Company** va **TaxCertificate** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **Company** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **Company** entitiysi superklassga aylantirilib, undan **CompanyPremium** va **CompanyStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud Company va TaxCertificate o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'Company' superklassiga 'CompanyPremium' va 'CompanyStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Fuqaro va Biometrik ID Pasport (Relatsion Sxema)",
+    "story": "Fuqaro va pasport munosabatini relyatsion modelga o'tkazish uchun 'Passport' jadvaliga 'citizenPinfl' Tashqi Kalit [FK1] ustunini qo'shib, uni 'Citizen' jadvalining 'pinfl' kalitiga bog'lang.",
+    "instruction": "'Passport' jadvaliga 'citizenPinfl' [FK1] ustunini qo'shing va 'Citizen' jadvaliga havola chizig'ini torting.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Company",
-          "pk": "tin",
+          "name": "Citizen",
+          "pk": "pinfl",
           "attributes": [
             {
-              "name": "tin",
+              "name": "pinfl",
               "isPK": true
             },
             {
-              "name": "companyName",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "legalAddress",
+              "name": "birthDate",
               "isPK": false
             },
             {
-              "name": "industryType",
+              "name": "nationality",
               "isPK": false
             }
           ]
         },
         {
-          "name": "TaxCertificate",
-          "pk": "certId",
+          "name": "Passport",
+          "pk": "passportNo",
           "attributes": [
             {
-              "name": "certId",
+              "name": "passportNo",
               "isPK": true
             },
             {
-              "name": "taxRegime",
+              "name": "expiryDate",
               "isPK": false
             },
             {
-              "name": "effectiveDate",
+              "name": "issuedBy",
               "isPK": false
             },
             {
-              "name": "regNumber",
+              "name": "chipVersion",
               "isPK": false
             }
           ]
@@ -1904,138 +1404,128 @@ _scope.QUESTIONS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "Company",
-          "entity2": "TaxCertificate",
+          "entity1": "Citizen",
+          "entity2": "Passport",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "CertifiedBy"
+          "name": "IssuedTo"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Company",
-          "pk": "tin",
+          "name": "Citizen",
+          "pk": "pinfl",
           "attributes": [
             {
-              "name": "tin",
+              "name": "pinfl",
               "isPK": true
             },
             {
-              "name": "companyName",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "legalAddress",
+              "name": "birthDate",
               "isPK": false
             },
             {
-              "name": "industryType",
+              "name": "nationality",
               "isPK": false
             }
           ]
         },
         {
-          "name": "TaxCertificate",
-          "pk": "certId",
+          "name": "Passport",
+          "pk": "passportNo",
           "attributes": [
             {
-              "name": "certId",
+              "name": "passportNo",
               "isPK": true
             },
             {
-              "name": "taxRegime",
+              "name": "expiryDate",
               "isPK": false
             },
             {
-              "name": "effectiveDate",
+              "name": "issuedBy",
               "isPK": false
             },
             {
-              "name": "regNumber",
+              "name": "chipVersion",
               "isPK": false
+            },
+            {
+              "name": "citizenPinfl",
+              "isFK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Company",
-          "entity2": "TaxCertificate",
+          "entity1": "Citizen",
+          "entity2": "Passport",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "CertifiedBy"
+          "name": "IssuedTo"
         }
-      ],
-      "subclasses": {
-        "superclass": "Company",
-        "subs": [
-          {
-            "name": "CompanyPremium",
-            "attributes": []
-          },
-          {
-            "name": "CompanyStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 19,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
-    "clientName": "Prof. Hasan Umarov",
-    "clientRole": "Bosh Shifokor",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
+    "clientName": "Nodir Hakimov",
+    "clientRole": "Soliq Inspeksiyasi Rahbari",
     "clientAvatar": "mentor",
-    "title": "Shifoxona Bo'limi va Bo'lim Bosh Shifokori (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **HospitalDept** va **HeadDoctor** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **HospitalDept** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **HospitalDept** entitiysi superklassga aylantirilib, undan **HospitalDeptPremium** va **HospitalDeptStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud HospitalDept va HeadDoctor o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'HospitalDept' superklassiga 'HospitalDeptPremium' va 'HospitalDeptStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Kompaniya va Davlat Soliq Ro'yxat Guvohnomasi (Relatsion Sxema)",
+    "story": "Kompaniya va soliq guvohnomasi o'rtasidagi yagona guvohnoma munosabatini ifodalash uchun 'TaxCertificate' jadvaliga 'companyTin' [FK1] ustunini joylashtiring va 'Company' jadvaliga ulang.",
+    "instruction": "'TaxCertificate' jadvalida 'companyTin' [FK1] ni belgilang va uni 'Company' ning 'tin' [PK] ustuniga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "HospitalDept",
-          "pk": "deptCode",
+          "name": "Company",
+          "pk": "tin",
           "attributes": [
             {
-              "name": "deptCode",
+              "name": "tin",
               "isPK": true
             },
             {
-              "name": "deptName",
+              "name": "companyName",
               "isPK": false
             },
             {
-              "name": "floorNo",
+              "name": "legalAddress",
               "isPK": false
             },
             {
-              "name": "bedQuota",
+              "name": "industryType",
               "isPK": false
             }
           ]
         },
         {
-          "name": "HeadDoctor",
-          "pk": "licenseId",
+          "name": "TaxCertificate",
+          "pk": "certId",
           "attributes": [
             {
-              "name": "licenseId",
+              "name": "certId",
               "isPK": true
             },
             {
-              "name": "doctorName",
+              "name": "taxRegime",
               "isPK": false
             },
             {
-              "name": "specialtyField",
+              "name": "effectiveDate",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "regNumber",
               "isPK": false
             }
           ]
@@ -2043,138 +1533,128 @@ _scope.QUESTIONS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "HospitalDept",
-          "entity2": "HeadDoctor",
+          "entity1": "Company",
+          "entity2": "TaxCertificate",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "HeadedBy"
+          "name": "CertifiedBy"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "HospitalDept",
-          "pk": "deptCode",
+          "name": "Company",
+          "pk": "tin",
           "attributes": [
             {
-              "name": "deptCode",
+              "name": "tin",
               "isPK": true
             },
             {
-              "name": "deptName",
+              "name": "companyName",
               "isPK": false
             },
             {
-              "name": "floorNo",
+              "name": "legalAddress",
               "isPK": false
             },
             {
-              "name": "bedQuota",
+              "name": "industryType",
               "isPK": false
             }
           ]
         },
         {
-          "name": "HeadDoctor",
-          "pk": "licenseId",
+          "name": "TaxCertificate",
+          "pk": "certId",
           "attributes": [
             {
-              "name": "licenseId",
+              "name": "certId",
               "isPK": true
             },
             {
-              "name": "doctorName",
+              "name": "taxRegime",
               "isPK": false
             },
             {
-              "name": "specialtyField",
+              "name": "effectiveDate",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "regNumber",
               "isPK": false
+            },
+            {
+              "name": "companyTin",
+              "isFK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "HospitalDept",
-          "entity2": "HeadDoctor",
+          "entity1": "Company",
+          "entity2": "TaxCertificate",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "HeadedBy"
+          "name": "CertifiedBy"
         }
-      ],
-      "subclasses": {
-        "superclass": "HospitalDept",
-        "subs": [
-          {
-            "name": "HospitalDeptPremium",
-            "attributes": []
-          },
-          {
-            "name": "HospitalDeptStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 20,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
-    "clientName": "Javohir Qosimov",
-    "clientRole": "IT Aktivlar Menejeri",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
+    "clientName": "Prof. Hasan Umarov",
+    "clientRole": "Bosh Shifokor",
     "clientAvatar": "mentor",
-    "title": "Kompaniya Xodimi va Xizmat Noutbuki (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **StaffMember** va **AssignedLaptop** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **StaffMember** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **StaffMember** entitiysi superklassga aylantirilib, undan **StaffMemberPremium** va **StaffMemberStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud StaffMember va AssignedLaptop o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'StaffMember' superklassiga 'StaffMemberPremium' va 'StaffMemberStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Shifoxona Bo'limi va Bo'lim Bosh Vrachi (Relatsion Sxema)",
+    "story": "Bo'lim va bosh vrach munosabatini relyatsion jadvalga o'tkazish uchun 'HospitalDept' jadvaliga 'headDoctorId' [FK1] ustunini kiriting va 'HeadDoctor' jadvaliga bog'lang.",
+    "instruction": "'HospitalDept' jadvaliga 'headDoctorId' [FK1] ustunini qo'shib, 'HeadDoctor' jadvaliga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "StaffMember",
-          "pk": "staffId",
+          "name": "HospitalDept",
+          "pk": "deptCode",
           "attributes": [
             {
-              "name": "staffId",
+              "name": "deptCode",
               "isPK": true
             },
             {
-              "name": "staffName",
+              "name": "deptName",
               "isPK": false
             },
             {
-              "name": "jobTitle",
+              "name": "floorNo",
               "isPK": false
             },
             {
-              "name": "workEmail",
+              "name": "bedQuota",
               "isPK": false
             }
           ]
         },
         {
-          "name": "AssignedLaptop",
-          "pk": "assetTag",
+          "name": "HeadDoctor",
+          "pk": "licenseId",
           "attributes": [
             {
-              "name": "assetTag",
+              "name": "licenseId",
               "isPK": true
             },
             {
-              "name": "serialNo",
+              "name": "doctorName",
               "isPK": false
             },
             {
-              "name": "modelName",
+              "name": "specialtyField",
               "isPK": false
             },
             {
-              "name": "ramGb",
+              "name": "phone",
               "isPK": false
             }
           ]
@@ -2182,56 +1662,60 @@ _scope.QUESTIONS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "StaffMember",
-          "entity2": "AssignedLaptop",
+          "entity1": "HospitalDept",
+          "entity2": "HeadDoctor",
           "mult1": "1..1",
-          "mult2": "0..1",
-          "name": "AssignedTo"
+          "mult2": "1..1",
+          "name": "HeadedBy"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "StaffMember",
-          "pk": "staffId",
+          "name": "HospitalDept",
+          "pk": "deptCode",
           "attributes": [
             {
-              "name": "staffId",
+              "name": "deptCode",
               "isPK": true
             },
             {
-              "name": "staffName",
+              "name": "deptName",
               "isPK": false
             },
             {
-              "name": "jobTitle",
+              "name": "floorNo",
               "isPK": false
             },
             {
-              "name": "workEmail",
+              "name": "bedQuota",
               "isPK": false
+            },
+            {
+              "name": "headDoctorId",
+              "isFK": true
             }
           ]
         },
         {
-          "name": "AssignedLaptop",
-          "pk": "assetTag",
+          "name": "HeadDoctor",
+          "pk": "licenseId",
           "attributes": [
             {
-              "name": "assetTag",
+              "name": "licenseId",
               "isPK": true
             },
             {
-              "name": "serialNo",
+              "name": "doctorName",
               "isPK": false
             },
             {
-              "name": "modelName",
+              "name": "specialtyField",
               "isPK": false
             },
             {
-              "name": "ramGb",
+              "name": "phone",
               "isPK": false
             }
           ]
@@ -2239,81 +1723,67 @@ _scope.QUESTIONS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "StaffMember",
-          "entity2": "AssignedLaptop",
+          "entity1": "HospitalDept",
+          "entity2": "HeadDoctor",
           "mult1": "1..1",
-          "mult2": "0..1",
-          "name": "AssignedTo"
+          "mult2": "1..1",
+          "name": "HeadedBy"
         }
-      ],
-      "subclasses": {
-        "superclass": "StaffMember",
-        "subs": [
-          {
-            "name": "StaffMemberPremium",
-            "attributes": []
-          },
-          {
-            "name": "StaffMemberStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 21,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
-    "clientName": "Shavkat Toirov",
-    "clientRole": "Devonxona Boshlig'i",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
+    "clientName": "Javohir Qosimov",
+    "clientRole": "IT Aktivlar Menejeri",
     "clientAvatar": "mentor",
-    "title": "Vazirlik Boshqarmasi va Soha Vaziri (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **Ministry** va **Minister** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **Ministry** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **Ministry** entitiysi superklassga aylantirilib, undan **MinistryPremium** va **MinistryStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud Ministry va Minister o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'Ministry' superklassiga 'MinistryPremium' va 'MinistryStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Kompaniya Xodimi va Xizmat Noutbuki (Relatsion Sxema)",
+    "story": "Xodim va unga biriktirilgan noutbuk munosabatini relyatsion jadvalga o'tkazing: 'AssignedLaptop' jadvaliga 'assignedStaffId' Tashqi Kalitini [FK1] qo'shib, 'StaffMember' jadvaliga ulang.",
+    "instruction": "'AssignedLaptop' jadvaliga 'assignedStaffId' [FK1] ustunini qo'shing va 'StaffMember' ga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Ministry",
-          "pk": "ministryId",
+          "name": "StaffMember",
+          "pk": "staffId",
           "attributes": [
             {
-              "name": "ministryId",
+              "name": "staffId",
               "isPK": true
             },
             {
-              "name": "officialTitle",
+              "name": "staffName",
               "isPK": false
             },
             {
-              "name": "budgetBillion",
+              "name": "jobTitle",
               "isPK": false
             },
             {
-              "name": "location",
+              "name": "workEmail",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Minister",
-          "pk": "ministerId",
+          "name": "AssignedLaptop",
+          "pk": "assetTag",
           "attributes": [
             {
-              "name": "ministerId",
+              "name": "assetTag",
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "serialNo",
               "isPK": false
             },
             {
-              "name": "appointedDate",
+              "name": "modelName",
               "isPK": false
             },
             {
-              "name": "decreeNo",
+              "name": "ramGb",
               "isPK": false
             }
           ]
@@ -2321,138 +1791,128 @@ _scope.QUESTIONS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "Ministry",
-          "entity2": "Minister",
+          "entity1": "StaffMember",
+          "entity2": "AssignedLaptop",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "LedBy"
+          "mult2": "0..1",
+          "name": "AssignedTo"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Ministry",
-          "pk": "ministryId",
+          "name": "StaffMember",
+          "pk": "staffId",
           "attributes": [
             {
-              "name": "ministryId",
+              "name": "staffId",
               "isPK": true
             },
             {
-              "name": "officialTitle",
+              "name": "staffName",
               "isPK": false
             },
             {
-              "name": "budgetBillion",
+              "name": "jobTitle",
               "isPK": false
             },
             {
-              "name": "location",
+              "name": "workEmail",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Minister",
-          "pk": "ministerId",
+          "name": "AssignedLaptop",
+          "pk": "assetTag",
           "attributes": [
             {
-              "name": "ministerId",
+              "name": "assetTag",
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "serialNo",
               "isPK": false
             },
             {
-              "name": "appointedDate",
+              "name": "modelName",
               "isPK": false
             },
             {
-              "name": "decreeNo",
+              "name": "ramGb",
               "isPK": false
+            },
+            {
+              "name": "assignedStaffId",
+              "isFK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Ministry",
-          "entity2": "Minister",
+          "entity1": "StaffMember",
+          "entity2": "AssignedLaptop",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "LedBy"
+          "mult2": "0..1",
+          "name": "AssignedTo"
         }
-      ],
-      "subclasses": {
-        "superclass": "Ministry",
-        "subs": [
-          {
-            "name": "MinistryPremium",
-            "attributes": []
-          },
-          {
-            "name": "MinistryStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 22,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
-    "clientName": "Kapitan Anvar Salimov",
-    "clientRole": "Flot Admiral Shtabi",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
+    "clientName": "Shavkat Toirov",
+    "clientRole": "Devonxona Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Dengiz Harbiylashgan Kemasi va Kema Kapitani (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **Warship** va **Captain** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **Warship** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **Warship** entitiysi superklassga aylantirilib, undan **WarshipPremium** va **WarshipStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud Warship va Captain o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'Warship' superklassiga 'WarshipPremium' va 'WarshipStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Vazirlik va Soha Vaziri (Relatsion Sxema)",
+    "story": "Vazirlik va vazir o'rtasidagi yagona rahbarlik munosabatini relyatsion ko'rinishga keltiring: 'Ministry' jadvaliga 'currentMinisterId' [FK1] ustunini qo'shib, 'Minister' jadvaliga bog'lang.",
+    "instruction": "'Ministry' jadvalida 'currentMinisterId' [FK1] ustunini belgilang va 'Minister' ning 'ministerId' [PK] ustuniga ulang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Warship",
-          "pk": "hullNo",
+          "name": "Ministry",
+          "pk": "ministryId",
           "attributes": [
             {
-              "name": "hullNo",
+              "name": "ministryId",
               "isPK": true
             },
             {
-              "name": "shipName",
+              "name": "officialTitle",
               "isPK": false
             },
             {
-              "name": "displacementTons",
+              "name": "budgetBillion",
               "isPK": false
             },
             {
-              "name": "commissionYear",
+              "name": "location",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Captain",
-          "pk": "officerId",
+          "name": "Minister",
+          "pk": "ministerId",
           "attributes": [
             {
-              "name": "officerId",
+              "name": "ministerId",
               "isPK": true
             },
             {
-              "name": "officerName",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "rankGrade",
+              "name": "appointedDate",
               "isPK": false
             },
             {
-              "name": "serviceYears",
+              "name": "decreeNo",
               "isPK": false
             }
           ]
@@ -2460,56 +1920,60 @@ _scope.QUESTIONS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "Warship",
-          "entity2": "Captain",
+          "entity1": "Ministry",
+          "entity2": "Minister",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "CommandedBy"
+          "name": "LedBy"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Warship",
-          "pk": "hullNo",
+          "name": "Ministry",
+          "pk": "ministryId",
           "attributes": [
             {
-              "name": "hullNo",
+              "name": "ministryId",
               "isPK": true
             },
             {
-              "name": "shipName",
+              "name": "officialTitle",
               "isPK": false
             },
             {
-              "name": "displacementTons",
+              "name": "budgetBillion",
               "isPK": false
             },
             {
-              "name": "commissionYear",
+              "name": "location",
               "isPK": false
+            },
+            {
+              "name": "currentMinisterId",
+              "isFK": true
             }
           ]
         },
         {
-          "name": "Captain",
-          "pk": "officerId",
+          "name": "Minister",
+          "pk": "ministerId",
           "attributes": [
             {
-              "name": "officerId",
+              "name": "ministerId",
               "isPK": true
             },
             {
-              "name": "officerName",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "rankGrade",
+              "name": "appointedDate",
               "isPK": false
             },
             {
-              "name": "serviceYears",
+              "name": "decreeNo",
               "isPK": false
             }
           ]
@@ -2517,39 +1981,25 @@ _scope.QUESTIONS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "Warship",
-          "entity2": "Captain",
+          "entity1": "Ministry",
+          "entity2": "Minister",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "CommandedBy"
+          "name": "LedBy"
         }
-      ],
-      "subclasses": {
-        "superclass": "Warship",
-        "subs": [
-          {
-            "name": "WarshipPremium",
-            "attributes": []
-          },
-          {
-            "name": "WarshipStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 23,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
     "clientName": "Muzaffar Jo'rayev",
-    "clientRole": "Kadastr Muhandisi",
+    "clientRole": "Bosh Kadastr Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Mulkdor va Ko'chmas Mulk Kadastr Pasporti (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **PropertyOwner** va **CadastreDeed** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **PropertyOwner** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **PropertyOwner** entitiysi superklassga aylantirilib, undan **PropertyOwnerPremium** va **PropertyOwnerStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud PropertyOwner va CadastreDeed o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'PropertyOwner' superklassiga 'PropertyOwnerPremium' va 'PropertyOwnerStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Mulkdor va Kadastr Pasporti (Relatsion Sxema)",
+    "story": "Kadastr pasporti jadvaliga 'ownerId' [FK1] Tashqi Kalit ustunini qo'shib, uni 'PropertyOwner' jadvaliga relyatsion bog'lang.",
+    "instruction": "'CadastreDeed' jadvaliga 'ownerId' [FK1] ustunini joylashtiring va 'PropertyOwner' jadvaliga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -2650,6 +2100,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "registeredDate",
               "isPK": false
+            },
+            {
+              "name": "ownerId",
+              "isFK": true
             }
           ]
         }
@@ -2662,33 +2116,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..1",
           "name": "DeededWith"
         }
-      ],
-      "subclasses": {
-        "superclass": "PropertyOwner",
-        "subs": [
-          {
-            "name": "PropertyOwnerPremium",
-            "attributes": []
-          },
-          {
-            "name": "PropertyOwnerStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 24,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
     "clientName": "Sardor Saidov",
-    "clientRole": "Kassa Texnik Mutaxassisi",
+    "clientRole": "Kassa Texnik Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Kassa Shoxobchasi va Bank POS Terminali (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **CheckoutLane** va **PosTerminal** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **CheckoutLane** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **CheckoutLane** entitiysi superklassga aylantirilib, undan **CheckoutLanePremium** va **CheckoutLaneStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud CheckoutLane va PosTerminal o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'CheckoutLane' superklassiga 'CheckoutLanePremium' va 'CheckoutLaneStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Kassa Yo'lagi va Bank POS Terminali (Relatsion Sxema)",
+    "story": "Kassa yo'lagi va terminal o'rtasidagi bog'lanishni ifodalash uchun 'CheckoutLane' jadvaliga 'posTerminalId' [FK1] ustunini qo'shing va 'PosTerminal' jadvaliga bog'lang.",
+    "instruction": "'CheckoutLane' jadvalida 'posTerminalId' [FK1] ustunini belgilang va uni 'PosTerminal' jadvaliga ulang.",
     "starterDiagram": {
       "entities": [
         {
@@ -2767,6 +2207,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "status",
               "isPK": false
+            },
+            {
+              "name": "posTerminalId",
+              "isFK": true
             }
           ]
         },
@@ -2801,33 +2245,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..1",
           "name": "EquippedWith"
         }
-      ],
-      "subclasses": {
-        "superclass": "CheckoutLane",
-        "subs": [
-          {
-            "name": "CheckoutLanePremium",
-            "attributes": []
-          },
-          {
-            "name": "CheckoutLaneStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 25,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
     "clientName": "Munira Fayzullayeva",
     "clientRole": "Maktab Mudiri",
     "clientAvatar": "mentor",
-    "title": "Maktab O'quvchisi va Shaxsiy Saqlash Shkafchasi (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **Pupil** va **SchoolLocker** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **Pupil** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **Pupil** entitiysi superklassga aylantirilib, undan **PupilPremium** va **PupilStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud Pupil va SchoolLocker o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'Pupil' superklassiga 'PupilPremium' va 'PupilStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "O'quvchi va Shaxsiy Saqlash Shkafchasi (Relatsion Sxema)",
+    "story": "Shkafchalar jadvaliga 'pupilId' [FK1] ustunini qo'shib, uni 'Pupil' jadvalining Birlamchi Kalitiga relyatsion tarzda bog'lang.",
+    "instruction": "'SchoolLocker' jadvalida 'pupilId' [FK1] ustunini oching va 'Pupil' jadvaliga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -2928,6 +2358,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "shelfCount",
               "isPK": false
+            },
+            {
+              "name": "pupilId",
+              "isFK": true
             }
           ]
         }
@@ -2940,33 +2374,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "0..1",
           "name": "Allocated"
         }
-      ],
-      "subclasses": {
-        "superclass": "Pupil",
-        "subs": [
-          {
-            "name": "PupilPremium",
-            "attributes": []
-          },
-          {
-            "name": "PupilStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 26,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
     "clientName": "Oleg Smirnov",
-    "clientRole": "Avia Nazorat Inspeksiyasi",
+    "clientRole": "Avia Inspektor",
     "clientAvatar": "mentor",
-    "title": "Yo'lovchi Samolyoti va Qora Quti Yozuv Uskunasi (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **Airplane** va **FlightRecorder** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **Airplane** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **Airplane** entitiysi superklassga aylantirilib, undan **AirplanePremium** va **AirplaneStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud Airplane va FlightRecorder o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'Airplane' superklassiga 'AirplanePremium' va 'AirplaneStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Samolyot va Bort Qora Qutisi (Relatsion Sxema)",
+    "story": "Bort yozuvchisi jadvaliga 'airframeNo' [FK1] Tashqi Kalitini qo'shib, uni 'Airplane' jadvalining 'airframeNo' [PK] ustuniga bog'lang.",
+    "instruction": "'FlightRecorder' jadvalida 'airframeNo' [FK1] ustunini belgilang va 'Airplane' jadvaliga ulang.",
     "starterDiagram": {
       "entities": [
         {
@@ -3067,6 +2487,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "batteryExpiry",
               "isPK": false
+            },
+            {
+              "name": "airframeNo",
+              "isFK": true
             }
           ]
         }
@@ -3079,33 +2503,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..1",
           "name": "MonitoredBy"
         }
-      ],
-      "subclasses": {
-        "superclass": "Airplane",
-        "subs": [
-          {
-            "name": "AirplanePremium",
-            "attributes": []
-          },
-          {
-            "name": "AirplaneStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 27,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
     "clientName": "Ibrohim Rustamov",
-    "clientRole": "Yer Resurslari Boshlig'i",
+    "clientRole": "Yer Resurslari Mudiri",
     "clientAvatar": "mentor",
-    "title": "Fermer Xo'jaligi va Yer Ijara Shartnomasi (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **Farm** va **LandLeaseContract** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **Farm** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **Farm** entitiysi superklassga aylantirilib, undan **FarmPremium** va **FarmStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud Farm va LandLeaseContract o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'Farm' superklassiga 'FarmPremium' va 'FarmStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Fermer Xo'jaligi va Yer Ijara Shartnomasi (Relatsion Sxema)",
+    "story": "Yer ijara shartnomasi jadvaliga 'farmRegNo' [FK1] ustunini qo'shib, uni 'Farm' jadvaliga relyatsion tarzda bog'lang.",
+    "instruction": "'LandLeaseContract' jadvalida 'farmRegNo' [FK1] ustunini oching va 'Farm' jadvaliga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -3206,6 +2616,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "regDate",
               "isPK": false
+            },
+            {
+              "name": "farmRegNo",
+              "isFK": true
             }
           ]
         }
@@ -3218,33 +2632,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..1",
           "name": "ContractedUnder"
         }
-      ],
-      "subclasses": {
-        "superclass": "Farm",
-        "subs": [
-          {
-            "name": "FarmPremium",
-            "attributes": []
-          },
-          {
-            "name": "FarmStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 28,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
     "clientName": "Kamol Boboyev",
-    "clientRole": "Protokol Xizmati Rahbari",
+    "clientRole": "Protokol Rahbari",
     "clientAvatar": "mentor",
-    "title": "Diplomatik Elchixona va Favqulodda Muxtor Elchi (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **Embassy** va **Ambassador** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **Embassy** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **Embassy** entitiysi superklassga aylantirilib, undan **EmbassyPremium** va **EmbassyStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud Embassy va Ambassador o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'Embassy' superklassiga 'EmbassyPremium' va 'EmbassyStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Diplomatik Elchixona va Favqulodda Elchi (Relatsion Sxema)",
+    "story": "Elchixona jadvaliga 'ambassadorId' [FK1] Tashqi Kalitini qo'shib, uni 'Ambassador' jadvalining 'diplomatId' [PK] ustuniga bog'lang.",
+    "instruction": "'Embassy' jadvaliga 'ambassadorId' [FK1] ustunini qo'shing va 'Ambassador' jadvaliga ulang.",
     "starterDiagram": {
       "entities": [
         {
@@ -3323,6 +2723,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "establishedYear",
               "isPK": false
+            },
+            {
+              "name": "ambassadorId",
+              "isFK": true
             }
           ]
         },
@@ -3357,33 +2761,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..1",
           "name": "RepresentedBy"
         }
-      ],
-      "subclasses": {
-        "superclass": "Embassy",
-        "subs": [
-          {
-            "name": "EmbassyPremium",
-            "attributes": []
-          },
-          {
-            "name": "EmbassyStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 29,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
     "clientName": "Akmal Fayziyev",
-    "clientRole": "Bank Inkassatsiya Boshlig'i",
+    "clientRole": "Inkassatsiya Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Bank Filiali va Asosiy Naqd Pul Seyfi (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **BankBranch** va **MainVault** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **BankBranch** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **BankBranch** entitiysi superklassga aylantirilib, undan **BankBranchPremium** va **BankBranchStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud BankBranch va MainVault o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'BankBranch' superklassiga 'BankBranchPremium' va 'BankBranchStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Bank Filiali va Markaziy Pul Seyfi (Relatsion Sxema)",
+    "story": "Seyf jadvaliga 'branchNo' [FK1] ustunini qo'shib, uni 'BankBranch' jadvaliga relyatsion tarzda bog'lang.",
+    "instruction": "'MainVault' jadvaliga 'branchNo' [FK1] ustunini joylashtiring va 'BankBranch' jadvaliga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -3484,6 +2874,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "alarmCode",
               "isPK": false
+            },
+            {
+              "name": "branchNo",
+              "isFK": true
             }
           ]
         }
@@ -3496,33 +2890,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..1",
           "name": "SecuredWith"
         }
-      ],
-      "subclasses": {
-        "superclass": "BankBranch",
-        "subs": [
-          {
-            "name": "BankBranchPremium",
-            "attributes": []
-          },
-          {
-            "name": "BankBranchStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 30,
     "sector": 2,
-    "difficulty": "2-Qavat • EER Kengaytirish",
+    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
     "clientName": "Dilorom Ismoilova",
     "clientRole": "Antidoping Komissari",
     "clientAvatar": "mentor",
-    "title": "Professional Atlet va Biologik Doping Pasporti (EER Bosqichi)",
-    "story": "1-haftada o'rnatilgan **Athlete** va **DopingPassport** o'rtasidagi 1..1 munosabat muvaffaqiyatli ishga tushirildi. Endi biznes tahlilchilar **Athlete** xizmat ko'rsatish darajasini ixtisoslashtirishni talab qilmoqda.\n\nPolotnodagi mavjud **Athlete** entitiysi superklassga aylantirilib, undan **AthletePremium** va **AthleteStandard** subklasslari ajratilishi lozim ({Mandatory, Or} cheklovi).\n\nMavjud Athlete va DopingPassport o'rtasidagi 1..1 aloqasi saqlanib qoladi va yangi subklasslar merosxo'rlik ierarxiyasiga qo'shiladi.",
-    "instruction": "Mavjud 'Athlete' superklassiga 'AthletePremium' va 'AthleteStandard' subklasslarini {Mandatory, Or} qoidasi bilan joylashtiring.",
+    "title": "Professional Atlet va Biologik Doping Pasporti (Relatsion Sxema)",
+    "story": "Doping pasporti jadvaliga 'athleteLicenseId' [FK1] ustunini qo'shib, uni 'Athlete' jadvaliga bog'lang.",
+    "instruction": "'DopingPassport' jadvalida 'athleteLicenseId' [FK1] ustunini oching va 'Athlete' jadvaliga ulang.",
     "starterDiagram": {
       "entities": [
         {
@@ -3623,6 +3003,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "labCode",
               "isPK": false
+            },
+            {
+              "name": "athleteLicenseId",
+              "isFK": true
             }
           ]
         }
@@ -3635,33 +3019,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..1",
           "name": "TrackedBy"
         }
-      ],
-      "subclasses": {
-        "superclass": "Athlete",
-        "subs": [
-          {
-            "name": "AthletePremium",
-            "attributes": []
-          },
-          {
-            "name": "AthleteStandard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 31,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Prof. Dilshod Karimov",
-    "clientRole": "Fakultet Dekani",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Universitet Kafedrasi va Professor-O'qituvchilar (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **Department** va **Lecturer** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **Lecturer** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **Lecturer** entitiysidan ikkita subklass: **SeniorLecturer** va **JuniorLecturer** ajratiladi. Har bir Lecturer qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **Department** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'Lecturer' entitiysini superklass qilib, unga 'SeniorLecturer' va 'JuniorLecturer' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "Department va Lecturer Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi Department va Lecturer o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'Lecturer' jadvaliga 'departmentId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'Lecturer' jadvaliga 'departmentId' [FK1] ustunini qo'shing va uni 'Department' ning 'deptCode' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -3754,6 +3124,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "salary",
               "isPK": false
+            },
+            {
+              "name": "departmentId",
+              "isFK": true
             }
           ]
         }
@@ -3766,33 +3140,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "Employs"
         }
-      ],
-      "subclasses": {
-        "superclass": "Lecturer",
-        "subs": [
-          {
-            "name": "SeniorLecturer",
-            "attributes": []
-          },
-          {
-            "name": "JuniorLecturer",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 32,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Feruza Mahmudova",
-    "clientRole": "Bosh Muharrir",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Nashriyot Uyi va Chop Etilgan Kitob Nashrlari (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **Publisher** va **BookEdition** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **BookEdition** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **BookEdition** entitiysidan ikkita subklass: **SeniorBookEdition** va **JuniorBookEdition** ajratiladi. Har bir BookEdition qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **Publisher** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'BookEdition' entitiysini superklass qilib, unga 'SeniorBookEdition' va 'JuniorBookEdition' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "Publisher va BookEdition Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi Publisher va BookEdition o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'BookEdition' jadvaliga 'publisherId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'BookEdition' jadvaliga 'publisherId' [FK1] ustunini qo'shing va uni 'Publisher' ning 'publisherId' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -3893,6 +3253,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "price",
               "isPK": false
+            },
+            {
+              "name": "publisherId",
+              "isFK": true
             }
           ]
         }
@@ -3905,33 +3269,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "Publishes"
         }
-      ],
-      "subclasses": {
-        "superclass": "BookEdition",
-        "subs": [
-          {
-            "name": "SeniorBookEdition",
-            "attributes": []
-          },
-          {
-            "name": "JuniorBookEdition",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 33,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Ulug'bek Sobirov",
-    "clientRole": "Karta Boshqarmasi Rahbari",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Bank Mijozi va Unga Biriktirilgan Plastik Kartalar (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **Customer** va **PaymentCard** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **PaymentCard** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **PaymentCard** entitiysidan ikkita subklass: **SeniorPaymentCard** va **JuniorPaymentCard** ajratiladi. Har bir PaymentCard qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **Customer** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'PaymentCard' entitiysini superklass qilib, unga 'SeniorPaymentCard' va 'JuniorPaymentCard' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "Customer va PaymentCard Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi Customer va PaymentCard o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'PaymentCard' jadvaliga 'customerId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'PaymentCard' jadvaliga 'customerId' [FK1] ustunini qo'shing va uni 'Customer' ning 'customerId' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -4032,6 +3382,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "cvvHash",
               "isPK": false
+            },
+            {
+              "name": "customerId",
+              "isFK": true
             }
           ]
         }
@@ -4044,33 +3398,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "Owns"
         }
-      ],
-      "subclasses": {
-        "superclass": "PaymentCard",
-        "subs": [
-          {
-            "name": "SeniorPaymentCard",
-            "attributes": []
-          },
-          {
-            "name": "JuniorPaymentCard",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 34,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Mansur Jo'rayev",
-    "clientRole": "Transport Garaji Boshlig'i",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Avtobus Saroyi va Shahar Avtobuslari Floti (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **BusDepot** va **CityBus** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **CityBus** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **CityBus** entitiysidan ikkita subklass: **SeniorCityBus** va **JuniorCityBus** ajratiladi. Har bir CityBus qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **BusDepot** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'CityBus' entitiysini superklass qilib, unga 'SeniorCityBus' va 'JuniorCityBus' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "BusDepot va CityBus Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi BusDepot va CityBus o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'CityBus' jadvaliga 'busdepotId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'CityBus' jadvaliga 'busdepotId' [FK1] ustunini qo'shing va uni 'BusDepot' ning 'depotId' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -4171,6 +3511,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "routeNo",
               "isPK": false
+            },
+            {
+              "name": "busdepotId",
+              "isFK": true
             }
           ]
         }
@@ -4183,33 +3527,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "Houses"
         }
-      ],
-      "subclasses": {
-        "superclass": "CityBus",
-        "subs": [
-          {
-            "name": "SeniorCityBus",
-            "attributes": []
-          },
-          {
-            "name": "JuniorCityBus",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 35,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Nargiza Odilova",
-    "clientRole": "HR Bosh Menejeri",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Kompaniya Filiali va Unda Ishlovchi Xodimlar (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **Branch** va **Staff** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **Staff** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **Staff** entitiysidan ikkita subklass: **SeniorStaff** va **JuniorStaff** ajratiladi. Har bir Staff qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **Branch** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'Staff' entitiysini superklass qilib, unga 'SeniorStaff' va 'JuniorStaff' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "Branch va Staff Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi Branch va Staff o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'Staff' jadvaliga 'branchId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'Staff' jadvaliga 'branchId' [FK1] ustunini qo'shing va uni 'Branch' ning 'branchNo' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -4318,6 +3648,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "salary",
               "isPK": false
+            },
+            {
+              "name": "branchId",
+              "isFK": true
             }
           ]
         }
@@ -4330,33 +3664,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "Operates"
         }
-      ],
-      "subclasses": {
-        "superclass": "Staff",
-        "subs": [
-          {
-            "name": "SeniorStaff",
-            "attributes": []
-          },
-          {
-            "name": "JuniorStaff",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 36,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Shohida Olimova",
-    "clientRole": "Bosh Hamshira",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Shifoxona Bo'limi va Unga Qarashli Palatalar (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **HospitalWard** va **PatientRoom** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **PatientRoom** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **PatientRoom** entitiysidan ikkita subklass: **SeniorPatientRoom** va **JuniorPatientRoom** ajratiladi. Har bir PatientRoom qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **HospitalWard** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'PatientRoom' entitiysini superklass qilib, unga 'SeniorPatientRoom' va 'JuniorPatientRoom' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "HospitalWard va PatientRoom Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi HospitalWard va PatientRoom o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'PatientRoom' jadvaliga 'hospitalwardId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'PatientRoom' jadvaliga 'hospitalwardId' [FK1] ustunini qo'shing va uni 'HospitalWard' ning 'wardId' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -4457,6 +3777,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "dailyRate",
               "isPK": false
+            },
+            {
+              "name": "hospitalwardId",
+              "isFK": true
             }
           ]
         }
@@ -4469,33 +3793,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "Contains"
         }
-      ],
-      "subclasses": {
-        "superclass": "PatientRoom",
-        "subs": [
-          {
-            "name": "SeniorPatientRoom",
-            "attributes": []
-          },
-          {
-            "name": "JuniorPatientRoom",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 37,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Ravshan Yusupov",
-    "clientRole": "Parvozlar Bosh Dispetcheri",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Aviakompaniya va Xalqaro Parvoz Reyslari (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **Airline** va **FlightSchedule** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **FlightSchedule** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **FlightSchedule** entitiysidan ikkita subklass: **SeniorFlightSchedule** va **JuniorFlightSchedule** ajratiladi. Har bir FlightSchedule qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **Airline** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'FlightSchedule' entitiysini superklass qilib, unga 'SeniorFlightSchedule' va 'JuniorFlightSchedule' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "Airline va FlightSchedule Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi Airline va FlightSchedule o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'FlightSchedule' jadvaliga 'airlineId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'FlightSchedule' jadvaliga 'airlineId' [FK1] ustunini qo'shing va uni 'Airline' ning 'airlineCode' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -4596,6 +3906,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "departureTime",
               "isPK": false
+            },
+            {
+              "name": "airlineId",
+              "isFK": true
             }
           ]
         }
@@ -4608,33 +3922,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "Operates"
         }
-      ],
-      "subclasses": {
-        "superclass": "FlightSchedule",
-        "subs": [
-          {
-            "name": "SeniorFlightSchedule",
-            "attributes": []
-          },
-          {
-            "name": "JuniorFlightSchedule",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 38,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Zilola Ergasheva",
-    "clientRole": "Restoran Administratori",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Restoran Stoli va Buyurtma Cheklari (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **DiningTable** va **OrderTicket** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **OrderTicket** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **OrderTicket** entitiysidan ikkita subklass: **SeniorOrderTicket** va **JuniorOrderTicket** ajratiladi. Har bir OrderTicket qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **DiningTable** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'OrderTicket' entitiysini superklass qilib, unga 'SeniorOrderTicket' va 'JuniorOrderTicket' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "DiningTable va OrderTicket Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi DiningTable va OrderTicket o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'OrderTicket' jadvaliga 'diningtableId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'OrderTicket' jadvaliga 'diningtableId' [FK1] ustunini qo'shing va uni 'DiningTable' ning 'tableNo' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -4687,7 +3987,7 @@ _scope.QUESTIONS_1_50 = [
           "entity1": "DiningTable",
           "entity2": "OrderTicket",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "Places"
         }
       ]
@@ -4735,6 +4035,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "paymentStatus",
               "isPK": false
+            },
+            {
+              "name": "diningtableId",
+              "isFK": true
             }
           ]
         }
@@ -4744,36 +4048,22 @@ _scope.QUESTIONS_1_50 = [
           "entity1": "DiningTable",
           "entity2": "OrderTicket",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "Places"
         }
-      ],
-      "subclasses": {
-        "superclass": "OrderTicket",
-        "subs": [
-          {
-            "name": "SeniorOrderTicket",
-            "attributes": []
-          },
-          {
-            "name": "JuniorOrderTicket",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 39,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Sevara Shokirova",
-    "clientRole": "Mehmonxona Qabul Rahbari",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Mehmonxona Majmuasi va Xonalar Boshqaruvi (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **Hotel** va **Room** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **Room** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **Room** entitiysidan ikkita subklass: **SeniorRoom** va **JuniorRoom** ajratiladi. Har bir Room qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **Hotel** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'Room' entitiysini superklass qilib, unga 'SeniorRoom' va 'JuniorRoom' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "Hotel va Room Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi Hotel va Room o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'Room' jadvaliga 'hotelId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'Room' jadvaliga 'hotelId' [FK1] ustunini qo'shing va uni 'Hotel' ning 'hotelId' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -4874,6 +4164,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "isCleaned",
               "isPK": false
+            },
+            {
+              "name": "hotelId",
+              "isFK": true
             }
           ]
         }
@@ -4886,33 +4180,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "Has"
         }
-      ],
-      "subclasses": {
-        "superclass": "Room",
-        "subs": [
-          {
-            "name": "SeniorRoom",
-            "attributes": []
-          },
-          {
-            "name": "JuniorRoom",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 40,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Rustam Mirzayev",
-    "clientRole": "Sahna Rejissyori",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Teatr Spektakli va Badiiy Rollar Fonotekasi (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **TheatrePlay** va **CharacterRole** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **CharacterRole** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **CharacterRole** entitiysidan ikkita subklass: **SeniorCharacterRole** va **JuniorCharacterRole** ajratiladi. Har bir CharacterRole qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **TheatrePlay** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'CharacterRole' entitiysini superklass qilib, unga 'SeniorCharacterRole' va 'JuniorCharacterRole' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "TheatrePlay va CharacterRole Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi TheatrePlay va CharacterRole o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'CharacterRole' jadvaliga 'theatreplayId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'CharacterRole' jadvaliga 'theatreplayId' [FK1] ustunini qo'shing va uni 'TheatrePlay' ning 'playCode' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -5013,6 +4293,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "actCount",
               "isPK": false
+            },
+            {
+              "name": "theatreplayId",
+              "isFK": true
             }
           ]
         }
@@ -5025,33 +4309,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "Features"
         }
-      ],
-      "subclasses": {
-        "superclass": "CharacterRole",
-        "subs": [
-          {
-            "name": "SeniorCharacterRole",
-            "attributes": []
-          },
-          {
-            "name": "JuniorCharacterRole",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 41,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Madina Alimova",
-    "clientRole": "Bosh Muharrir SMM",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Telegram Blog Kanali va Nashr Qilingan Postlar (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **Channel** va **ChannelPost** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **ChannelPost** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **ChannelPost** entitiysidan ikkita subklass: **SeniorChannelPost** va **JuniorChannelPost** ajratiladi. Har bir ChannelPost qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **Channel** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'ChannelPost' entitiysini superklass qilib, unga 'SeniorChannelPost' va 'JuniorChannelPost' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "Channel va ChannelPost Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi Channel va ChannelPost o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'ChannelPost' jadvaliga 'channelId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'ChannelPost' jadvaliga 'channelId' [FK1] ustunini qo'shing va uni 'Channel' ning 'channelHandle' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -5104,7 +4374,7 @@ _scope.QUESTIONS_1_50 = [
           "entity1": "Channel",
           "entity2": "ChannelPost",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "Publishes"
         }
       ]
@@ -5152,6 +4422,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "postText",
               "isPK": false
+            },
+            {
+              "name": "channelId",
+              "isFK": true
             }
           ]
         }
@@ -5161,36 +4435,22 @@ _scope.QUESTIONS_1_50 = [
           "entity1": "Channel",
           "entity2": "ChannelPost",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "Publishes"
         }
-      ],
-      "subclasses": {
-        "superclass": "ChannelPost",
-        "subs": [
-          {
-            "name": "SeniorChannelPost",
-            "attributes": []
-          },
-          {
-            "name": "JuniorChannelPost",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 42,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Oybek Mahmudov",
-    "clientRole": "Ombor Mudiri",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Logistika Omborxonasi va Saqlash Bo'lmalari (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **Warehouse** va **StorageBay** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **StorageBay** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **StorageBay** entitiysidan ikkita subklass: **SeniorStorageBay** va **JuniorStorageBay** ajratiladi. Har bir StorageBay qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **Warehouse** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'StorageBay' entitiysini superklass qilib, unga 'SeniorStorageBay' va 'JuniorStorageBay' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "Warehouse va StorageBay Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi Warehouse va StorageBay o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'StorageBay' jadvaliga 'warehouseId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'StorageBay' jadvaliga 'warehouseId' [FK1] ustunini qo'shing va uni 'Warehouse' ning 'warehouseCode' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -5291,6 +4551,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "temperatureZone",
               "isPK": false
+            },
+            {
+              "name": "warehouseId",
+              "isFK": true
             }
           ]
         }
@@ -5303,33 +4567,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "ConsistsOf"
         }
-      ],
-      "subclasses": {
-        "superclass": "StorageBay",
-        "subs": [
-          {
-            "name": "SeniorStorageBay",
-            "attributes": []
-          },
-          {
-            "name": "JuniorStorageBay",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 43,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Botir Tursunov",
-    "clientRole": "Shahar Hokimiyati",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Viloyat Shahri va Unga Tegishli Tumanlar (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **City** va **District** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **District** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **District** entitiysidan ikkita subklass: **SeniorDistrict** va **JuniorDistrict** ajratiladi. Har bir District qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **City** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'District' entitiysini superklass qilib, unga 'SeniorDistrict' va 'JuniorDistrict' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "City va District Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi City va District o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'District' jadvaliga 'cityId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'District' jadvaliga 'cityId' [FK1] ustunini qo'shing va uni 'City' ning 'cityId' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -5430,6 +4680,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "areaSqKm",
               "isPK": false
+            },
+            {
+              "name": "cityId",
+              "isFK": true
             }
           ]
         }
@@ -5442,33 +4696,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "DividedInto"
         }
-      ],
-      "subclasses": {
-        "superclass": "District",
-        "subs": [
-          {
-            "name": "SeniorDistrict",
-            "attributes": []
-          },
-          {
-            "name": "JuniorDistrict",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 44,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Gulzoda Salimova",
-    "clientRole": "Sug'urta Kompaniyasi Menejeri",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Sug'urta Agenti va Rasmiylashtirilgan Sug'urta Polislari (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **InsuranceBroker** va **Policy** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **Policy** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **Policy** entitiysidan ikkita subklass: **SeniorPolicy** va **JuniorPolicy** ajratiladi. Har bir Policy qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **InsuranceBroker** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'Policy' entitiysini superklass qilib, unga 'SeniorPolicy' va 'JuniorPolicy' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "InsuranceBroker va Policy Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi InsuranceBroker va Policy o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'Policy' jadvaliga 'insurancebrokerId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'Policy' jadvaliga 'insurancebrokerId' [FK1] ustunini qo'shing va uni 'InsuranceBroker' ning 'brokerId' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -5521,7 +4761,7 @@ _scope.QUESTIONS_1_50 = [
           "entity1": "InsuranceBroker",
           "entity2": "Policy",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "Underwrites"
         }
       ]
@@ -5569,6 +4809,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "premiumAmount",
               "isPK": false
+            },
+            {
+              "name": "insurancebrokerId",
+              "isFK": true
             }
           ]
         }
@@ -5578,36 +4822,22 @@ _scope.QUESTIONS_1_50 = [
           "entity1": "InsuranceBroker",
           "entity2": "Policy",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "Underwrites"
         }
-      ],
-      "subclasses": {
-        "superclass": "Policy",
-        "subs": [
-          {
-            "name": "SeniorPolicy",
-            "attributes": []
-          },
-          {
-            "name": "JuniorPolicy",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 45,
     "sector": 3,
-    "difficulty": "3-Qavat • EER Kengaytirish",
-    "clientName": "Eldor Vohidov",
-    "clientRole": "Radio Tarmoq Muhandisi",
+    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
+    "clientName": "Bosh Maslahatchi",
+    "clientRole": "Tizim Me'mori",
     "clientAvatar": "mentor",
-    "title": "Mobil Aloqa Minorasi va Antenna Sektorlari (EER Bosqichi)",
-    "story": "1-haftada tuzilgan **CellTower** va **AntennaSector** o'rtasidagi 1..* (birga-ko'p) ierarxiya amaliyotga tatbiq etildi. Endi tashkilot **AntennaSector** xodim/birliklarini toifalar bo'yicha ajratishni maqsad qildi.\n\nPolotnodagi **AntennaSector** entitiysidan ikkita subklass: **SeniorAntennaSector** va **JuniorAntennaSector** ajratiladi. Har bir AntennaSector qat'iy ravishda bitta toifaga tegishli bo'lishi shart ({Mandatory, Or}).\n\nOta **CellTower** bilan bo'lgan 1..* bog'lanish o'z kuchida qoladi.",
-    "instruction": "'AntennaSector' entitiysini superklass qilib, unga 'SeniorAntennaSector' va 'JuniorAntennaSector' subklasslarini {Mandatory, Or} cheklovi bilan ulang.",
+    "title": "CellTower va AntennaSector Ierarxiyasi (Relatsion Sxema)",
+    "story": "1-haftadagi CellTower va AntennaSector o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'AntennaSector' jadvaliga 'celltowerId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
+    "instruction": "'AntennaSector' jadvaliga 'celltowerId' [FK1] ustunini qo'shing va uni 'CellTower' ning 'towerId' [PK] ustuniga havola qiling.",
     "starterDiagram": {
       "entities": [
         {
@@ -5716,6 +4946,10 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "powerWatt",
               "isPK": false
+            },
+            {
+              "name": "celltowerId",
+              "isFK": true
             }
           ]
         }
@@ -5728,33 +4962,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "1..*",
           "name": "Radiates"
         }
-      ],
-      "subclasses": {
-        "superclass": "AntennaSector",
-        "subs": [
-          {
-            "name": "SeniorAntennaSector",
-            "attributes": []
-          },
-          {
-            "name": "JuniorAntennaSector",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 46,
     "sector": 4,
-    "difficulty": "4-Qavat • EER Kengaytirish",
-    "clientName": "Dr. Lola Sharipova",
-    "clientRole": "Klinika Koordinatori",
+    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Shifokor va Bemor Qabuli (Appointment) (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Doctor** va **Patient** o'rtasidagi assotsiativ **Appointment** entitiysi xizmat darajalari bo'yicha ixtisoslashtirilmoqda.\n\nHar bir **Appointment** amali yo shoshilinch **UrgentAppointment**, yoki rejali **StandardAppointment** toifasiga mansub bo'ladi ({Mandatory, Or}).\n\nMavjud ko'pga-ko'p bog'liqlik saqlangan holda oraliq entitiy EER darajasiga ko'tariladi.",
-    "instruction": "'Appointment' assotsiativ entitiyidan 'UrgentAppointment' va 'StandardAppointment' subklasslarini hosil qiling.",
+    "title": "Doctor va Patient Hamkorligi (Relatsion Sxema)",
+    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'Appointment' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'doctorId' [FK1] va 'patientId' [FK2] sifatida kiritiladi.",
+    "instruction": "'Appointment' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Doctor' hamda 'Patient' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -5764,6 +4984,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "doctorId",
               "isPK": true
+            },
+            {
+              "name": "docName",
+              "isPK": false
+            },
+            {
+              "name": "specialization",
+              "isPK": false
+            },
+            {
+              "name": "roomNumber",
+              "isPK": false
             }
           ]
         },
@@ -5774,6 +5006,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "patientId",
               "isPK": true
+            },
+            {
+              "name": "patientName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "dob",
+              "isPK": false
             }
           ]
         },
@@ -5827,6 +5071,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "doctorId",
               "isPK": true
+            },
+            {
+              "name": "docName",
+              "isPK": false
+            },
+            {
+              "name": "specialization",
+              "isPK": false
+            },
+            {
+              "name": "roomNumber",
+              "isPK": false
             }
           ]
         },
@@ -5837,6 +5093,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "patientId",
               "isPK": true
+            },
+            {
+              "name": "patientName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "dob",
+              "isPK": false
             }
           ]
         },
@@ -5879,33 +5147,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "0..*",
           "name": "SubjectOf"
         }
-      ],
-      "subclasses": {
-        "superclass": "Appointment",
-        "subs": [
-          {
-            "name": "UrgentAppointment",
-            "attributes": []
-          },
-          {
-            "name": "StandardAppointment",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 47,
     "sector": 4,
-    "difficulty": "4-Qavat • EER Kengaytirish",
-    "clientName": "Jasur Qobilov",
-    "clientRole": "Akademik Bo'lim Boshlig'i",
+    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Talaba va Fanlarga Ro'yxatdan O'tish (Enrollment) (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Student** va **Course** o'rtasidagi assotsiativ **Enrollment** entitiysi xizmat darajalari bo'yicha ixtisoslashtirilmoqda.\n\nHar bir **Enrollment** amali yo shoshilinch **UrgentEnrollment**, yoki rejali **StandardEnrollment** toifasiga mansub bo'ladi ({Mandatory, Or}).\n\nMavjud ko'pga-ko'p bog'liqlik saqlangan holda oraliq entitiy EER darajasiga ko'tariladi.",
-    "instruction": "'Enrollment' assotsiativ entitiyidan 'UrgentEnrollment' va 'StandardEnrollment' subklasslarini hosil qiling.",
+    "title": "Student va Course Hamkorligi (Relatsion Sxema)",
+    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'Enrollment' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'studentId' [FK1] va 'courseId' [FK2] sifatida kiritiladi.",
+    "instruction": "'Enrollment' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Student' hamda 'Course' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -5915,6 +5169,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "studentId",
               "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "email",
+              "isPK": false
+            },
+            {
+              "name": "entryYear",
+              "isPK": false
             }
           ]
         },
@@ -5925,6 +5191,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "courseCode",
               "isPK": true
+            },
+            {
+              "name": "courseTitle",
+              "isPK": false
+            },
+            {
+              "name": "credits",
+              "isPK": false
+            },
+            {
+              "name": "syllabusVersion",
+              "isPK": false
             }
           ]
         },
@@ -5978,6 +5256,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "studentId",
               "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "email",
+              "isPK": false
+            },
+            {
+              "name": "entryYear",
+              "isPK": false
             }
           ]
         },
@@ -5988,6 +5278,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "courseCode",
               "isPK": true
+            },
+            {
+              "name": "courseTitle",
+              "isPK": false
+            },
+            {
+              "name": "credits",
+              "isPK": false
+            },
+            {
+              "name": "syllabusVersion",
+              "isPK": false
             }
           ]
         },
@@ -6030,33 +5332,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "0..*",
           "name": "SubjectOf"
         }
-      ],
-      "subclasses": {
-        "superclass": "Enrollment",
-        "subs": [
-          {
-            "name": "UrgentEnrollment",
-            "attributes": []
-          },
-          {
-            "name": "StandardEnrollment",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 48,
     "sector": 4,
-    "difficulty": "4-Qavat • EER Kengaytirish",
-    "clientName": "Gulbahor Karimova",
-    "clientRole": "Adabiy Agent",
+    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Muallif va Kitob Hammuallifligi (Authorship) (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Author** va **Book** o'rtasidagi assotsiativ **Authorship** entitiysi xizmat darajalari bo'yicha ixtisoslashtirilmoqda.\n\nHar bir **Authorship** amali yo shoshilinch **UrgentAuthorship**, yoki rejali **StandardAuthorship** toifasiga mansub bo'ladi ({Mandatory, Or}).\n\nMavjud ko'pga-ko'p bog'liqlik saqlangan holda oraliq entitiy EER darajasiga ko'tariladi.",
-    "instruction": "'Authorship' assotsiativ entitiyidan 'UrgentAuthorship' va 'StandardAuthorship' subklasslarini hosil qiling.",
+    "title": "Author va Book Hamkorligi (Relatsion Sxema)",
+    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'Authorship' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'authorId' [FK1] va 'bookId' [FK2] sifatida kiritiladi.",
+    "instruction": "'Authorship' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Author' hamda 'Book' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -6066,6 +5354,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "authorId",
               "isPK": true
+            },
+            {
+              "name": "penName",
+              "isPK": false
+            },
+            {
+              "name": "country",
+              "isPK": false
+            },
+            {
+              "name": "birthYear",
+              "isPK": false
             }
           ]
         },
@@ -6076,6 +5376,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "isbn",
               "isPK": true
+            },
+            {
+              "name": "bookTitle",
+              "isPK": false
+            },
+            {
+              "name": "pageCount",
+              "isPK": false
+            },
+            {
+              "name": "firstEditionYear",
+              "isPK": false
             }
           ]
         },
@@ -6129,6 +5441,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "authorId",
               "isPK": true
+            },
+            {
+              "name": "penName",
+              "isPK": false
+            },
+            {
+              "name": "country",
+              "isPK": false
+            },
+            {
+              "name": "birthYear",
+              "isPK": false
             }
           ]
         },
@@ -6139,6 +5463,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "isbn",
               "isPK": true
+            },
+            {
+              "name": "bookTitle",
+              "isPK": false
+            },
+            {
+              "name": "pageCount",
+              "isPK": false
+            },
+            {
+              "name": "firstEditionYear",
+              "isPK": false
             }
           ]
         },
@@ -6181,33 +5517,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "0..*",
           "name": "SubjectOf"
         }
-      ],
-      "subclasses": {
-        "superclass": "Authorship",
-        "subs": [
-          {
-            "name": "UrgentAuthorship",
-            "attributes": []
-          },
-          {
-            "name": "StandardAuthorship",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 49,
     "sector": 4,
-    "difficulty": "4-Qavat • EER Kengaytirish",
-    "clientName": "Sardor Ahmedov",
-    "clientRole": "Savdo Tahlilchisi",
+    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Xarid Buyurtmasi va Tovar Tarkibi (OrderItem) (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Order** va **Product** o'rtasidagi assotsiativ **OrderItem** entitiysi xizmat darajalari bo'yicha ixtisoslashtirilmoqda.\n\nHar bir **OrderItem** amali yo shoshilinch **UrgentOrderItem**, yoki rejali **StandardOrderItem** toifasiga mansub bo'ladi ({Mandatory, Or}).\n\nMavjud ko'pga-ko'p bog'liqlik saqlangan holda oraliq entitiy EER darajasiga ko'tariladi.",
-    "instruction": "'OrderItem' assotsiativ entitiyidan 'UrgentOrderItem' va 'StandardOrderItem' subklasslarini hosil qiling.",
+    "title": "Order va Product Hamkorligi (Relatsion Sxema)",
+    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'OrderItem' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'orderId' [FK1] va 'productId' [FK2] sifatida kiritiladi.",
+    "instruction": "'OrderItem' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Order' hamda 'Product' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -6217,6 +5539,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "orderId",
               "isPK": true
+            },
+            {
+              "name": "orderDate",
+              "isPK": false
+            },
+            {
+              "name": "shippingAddress",
+              "isPK": false
+            },
+            {
+              "name": "status",
+              "isPK": false
             }
           ]
         },
@@ -6227,6 +5561,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "sku",
               "isPK": true
+            },
+            {
+              "name": "productName",
+              "isPK": false
+            },
+            {
+              "name": "unitPrice",
+              "isPK": false
+            },
+            {
+              "name": "stockQty",
+              "isPK": false
             }
           ]
         },
@@ -6280,6 +5626,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "orderId",
               "isPK": true
+            },
+            {
+              "name": "orderDate",
+              "isPK": false
+            },
+            {
+              "name": "shippingAddress",
+              "isPK": false
+            },
+            {
+              "name": "status",
+              "isPK": false
             }
           ]
         },
@@ -6290,6 +5648,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "sku",
               "isPK": true
+            },
+            {
+              "name": "productName",
+              "isPK": false
+            },
+            {
+              "name": "unitPrice",
+              "isPK": false
+            },
+            {
+              "name": "stockQty",
+              "isPK": false
             }
           ]
         },
@@ -6332,33 +5702,19 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "0..*",
           "name": "SubjectOf"
         }
-      ],
-      "subclasses": {
-        "superclass": "OrderItem",
-        "subs": [
-          {
-            "name": "UrgentOrderItem",
-            "attributes": []
-          },
-          {
-            "name": "StandardOrderItem",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   },
   {
     "id": 50,
     "sector": 4,
-    "difficulty": "4-Qavat • EER Kengaytirish",
-    "clientName": "Behzod Rahimov",
-    "clientRole": "Scrum Master",
+    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Dasturchi va Dasturiy Loyihalar (ProjectAssignment) (EER Bosqichi)",
-    "story": "1-haftada yaratilgan **Developer** va **Project** o'rtasidagi assotsiativ **ProjectAssignment** entitiysi xizmat darajalari bo'yicha ixtisoslashtirilmoqda.\n\nHar bir **ProjectAssignment** amali yo shoshilinch **UrgentProjectAssignment**, yoki rejali **StandardProjectAssignment** toifasiga mansub bo'ladi ({Mandatory, Or}).\n\nMavjud ko'pga-ko'p bog'liqlik saqlangan holda oraliq entitiy EER darajasiga ko'tariladi.",
-    "instruction": "'ProjectAssignment' assotsiativ entitiyidan 'UrgentProjectAssignment' va 'StandardProjectAssignment' subklasslarini hosil qiling.",
+    "title": "Developer va Project Hamkorligi (Relatsion Sxema)",
+    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'ProjectAssignment' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'developerId' [FK1] va 'projectId' [FK2] sifatida kiritiladi.",
+    "instruction": "'ProjectAssignment' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Developer' hamda 'Project' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
         {
@@ -6368,6 +5724,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "devId",
               "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "seniority",
+              "isPK": false
+            },
+            {
+              "name": "hourlyRate",
+              "isPK": false
             }
           ]
         },
@@ -6378,6 +5746,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "projectCode",
               "isPK": true
+            },
+            {
+              "name": "projectName",
+              "isPK": false
+            },
+            {
+              "name": "deadline",
+              "isPK": false
+            },
+            {
+              "name": "budgetUsd",
+              "isPK": false
             }
           ]
         },
@@ -6431,6 +5811,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "devId",
               "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "seniority",
+              "isPK": false
+            },
+            {
+              "name": "hourlyRate",
+              "isPK": false
             }
           ]
         },
@@ -6441,6 +5833,18 @@ _scope.QUESTIONS_1_50 = [
             {
               "name": "projectCode",
               "isPK": true
+            },
+            {
+              "name": "projectName",
+              "isPK": false
+            },
+            {
+              "name": "deadline",
+              "isPK": false
+            },
+            {
+              "name": "budgetUsd",
+              "isPK": false
             }
           ]
         },
@@ -6483,21 +5887,7 @@ _scope.QUESTIONS_1_50 = [
           "mult2": "0..*",
           "name": "SubjectOf"
         }
-      ],
-      "subclasses": {
-        "superclass": "ProjectAssignment",
-        "subs": [
-          {
-            "name": "UrgentProjectAssignment",
-            "attributes": []
-          },
-          {
-            "name": "StandardProjectAssignment",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      ]
     }
   }
 ];

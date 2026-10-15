@@ -32,24 +32,36 @@
           };
         }
 
-        // Check Primary Key {PK} if expected
+        // Check Primary Key [PK] if expected
         if (expE.pk) {
-          const hasPkAttr = (found.attributes || []).some(a => a.isPK && norm(a.name) === norm(expE.pk));
-          const hasAnyPk = (found.attributes || []).some(a => a.isPK);
+          const hasPkAttr = (found.attributes || []).some(a => (a.isPK || a.isPPK) && norm(a.name) === norm(expE.pk));
+          const hasAnyPk = (found.attributes || []).some(a => a.isPK || a.isPPK);
           const hasAttrByName = (found.attributes || []).some(a => norm(a.name) === norm(expE.pk));
 
           if (!hasPkAttr && !found.pk && !hasAnyPk && !hasAttrByName) {
             return {
               passed: false,
-              feedback: `💡 <strong>'${expE.name}'</strong> entitiysiga <strong>'${expE.pk}'</strong> {PK} birlamchi kalit atributini qo'shishni unutmang!`
+              feedback: `💡 <strong>'${expE.name}'</strong> jadvaliga <strong>'${expE.pk}'</strong> [PK] Birlamchi Kalit ustunini qo'shishni unutmang!`
             };
           }
         }
 
+        // Check Foreign Key [FK] attributes if expected (Crucial for Week 2 Relational Mapping!)
+        const expFks = (expE.attributes || []).filter(a => a.isFK);
+        for (const fk of expFks) {
+          const foundFk = (found.attributes || []).find(a => norm(a.name) === norm(fk.name));
+          if (!foundFk) {
+            return {
+              passed: false,
+              feedback: `⚠️ Relyatsion model talabi: <strong>'${expE.name}'</strong> jadvaliga <strong>'${fk.name}'</strong> Tashqi Kalit [FK] ustunini qo'shing!`
+            };
+          }
+          // If found but not marked as FK, we accept it gracefully or remind them gently
+        }
+
         // Check Weak Entity status if expected
         if (expE.isWeak && !found.isWeak) {
-          // Soft check - encourage making it weak
-          // not strictly blocking if entities are present
+          // Soft check
         }
       }
 
@@ -69,33 +81,8 @@
         if (!foundRel) {
           return {
             passed: false,
-            feedback: `⚠️ <strong>'${expR.entity1}'</strong> va <strong>'${expR.entity2}'</strong> o'rtasida aloqa chizig'i topilmadi. Shakllar panelidagi 'Aloqa Chizig'i' yoki magnit nuqtalar orqali ularni bog'lang.`
+            feedback: `⚠️ <strong>'${expR.entity1}'</strong> va <strong>'${expR.entity2}'</strong> jadvallari o'rtasida relyatsion bog'lanish chizig'i topilmadi. Jadvallarni o'zaro bog'lang.`
           };
-        }
-
-        // Check Multiplicity if specified
-        if (expR.mult1 && expR.mult2) {
-          const uFrom = norm(foundRel.fromEntityName || foundRel.entity1);
-          let uM1 = foundRel.mult1;
-          let uM2 = foundRel.mult2;
-
-          // If reversed direction, swap user multiplicities
-          if (uFrom === e2Norm) {
-            uM1 = foundRel.mult2;
-            uM2 = foundRel.mult1;
-          }
-
-          // Normalize multiplicity (allow slight format differences like 1:1, 1..1, 1..*)
-          const normM = m => (m || '').replace(/:/g, '..').replace(/n/gi, '*').replace(/m/gi, '*');
-          const m1Matches = normM(uM1) === normM(expR.mult1);
-          const m2Matches = normM(uM2) === normM(expR.mult2);
-
-          if (!m1Matches || !m2Matches) {
-            return {
-              passed: false,
-              feedback: `⚠️ Multiplisitiyani tekshiring: <strong>'${expR.entity1}'</strong> (${expR.mult1}) va <strong>'${expR.entity2}'</strong> (${expR.mult2}) bo'lishi kerak. Chiziqdagi sonlar ustiga bosib kerakli qiymatni tanlang!`
-            };
-          }
         }
       }
 

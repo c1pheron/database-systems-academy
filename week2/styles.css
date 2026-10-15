@@ -756,8 +756,63 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .btn-attr-badge {
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
   user-select: none;
+}
+
+.pk-pill {
+  background: rgba(200, 169, 110, 0.2) !important;
+  color: var(--accent-gold, #ffd166) !important;
+  border: 1px solid rgba(200, 169, 110, 0.5) !important;
+  font-size: 9px !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  font-weight: 800 !important;
+}
+
+.fk-pill {
+  background: rgba(86, 182, 194, 0.2) !important;
+  color: #56b6c2 !important;
+  border: 1px solid rgba(86, 182, 194, 0.5) !important;
+  font-size: 9px !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  font-weight: 800 !important;
+}
+
+.pkfk-pill {
+  background: rgba(198, 120, 221, 0.22) !important;
+  color: #c678dd !important;
+  border: 1px solid rgba(198, 120, 221, 0.5) !important;
+  font-size: 9px !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  font-weight: 800 !important;
+}
+
+.ppk-pill {
+  background: rgba(209, 154, 82, 0.2) !important;
+  color: #d19a52 !important;
+  border: 1px dashed rgba(209, 154, 82, 0.6) !important;
+  font-size: 9px !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  font-weight: 800 !important;
+}
+
+.plain-pill {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #888888 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  font-size: 9px !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
 }
 
 .btn-attr-del {

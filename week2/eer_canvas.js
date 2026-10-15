@@ -914,13 +914,19 @@ class EERCanvasEngine {
 
     entity.attributes.forEach((attr, idx) => {
       const row = document.createElement('div');
-      row.className = `attr-item ${attr.isPK ? 'is-pk' : ''}`;
+      row.className = `attr-item ${attr.isPK ? 'is-pk' : ''} ${attr.isFK ? 'is-fk' : ''}`;
 
       let badgeLabel = 'Oddiy';
-      let badgeClass = '';
-      if (attr.isPK) {
+      let badgeClass = 'plain-pill';
+      if (attr.isPK && attr.isFK) {
+        badgeLabel = 'PK, FK';
+        badgeClass = 'pkfk-pill';
+      } else if (attr.isPK) {
         badgeLabel = 'PK';
         badgeClass = 'pk-pill';
+      } else if (attr.isFK) {
+        badgeLabel = 'FK';
+        badgeClass = 'fk-pill';
       } else if (attr.isPPK) {
         badgeLabel = 'PPK';
         badgeClass = 'ppk-pill';
@@ -929,7 +935,7 @@ class EERCanvasEngine {
       row.innerHTML = `
         <span class="attr-name" contenteditable="true" spellcheck="false" title="Nomini o'zgartirish">${attr.name}</span>
         <div style="display:flex; align-items:center; gap:4px;">
-          <button type="button" class="btn-attr-badge ${badgeClass}" title="Kalit turini o'zgartirish (PK/PPK/Oddiy)">${badgeLabel}</button>
+          <button type="button" class="btn-attr-badge ${badgeClass}" title="Kalit turini o'zgartirish (Oddiy → PK → FK → PK,FK → PPK)">${badgeLabel}</button>
           <button class="btn-attr-edit" title="Nomini o'zgartirish">✎</button>
           <button class="btn-attr-del" title="Atributni o'chirish">✕</button>
         </div>
@@ -962,7 +968,7 @@ class EERCanvasEngine {
         }
       });
 
-      // Toggle PK / PPK / none (Works on touch and click)
+      // Toggle PK / FK / PK,FK / PPK / none (Works on touch and click)
       const badgeBtn = row.querySelector('.btn-attr-badge');
       let lastToggleTime = 0;
       const toggleBadge = (e) => {
@@ -972,14 +978,30 @@ class EERCanvasEngine {
         if (now - lastToggleTime < 300) return; // Prevent double trigger from touchend + click
         lastToggleTime = now;
 
-        if (attr.isPK) {
+        if (attr.isPK && attr.isFK) {
+          // Was PK, FK -> toggle to PPK
           attr.isPK = false;
+          attr.isFK = false;
           attr.isPPK = true;
-        } else if (attr.isPPK) {
+        } else if (attr.isFK) {
+          // Was FK -> toggle to PK, FK
+          attr.isPK = true;
+          attr.isFK = true;
+          attr.isPPK = false;
+        } else if (attr.isPK) {
+          // Was PK -> toggle to FK
           attr.isPK = false;
+          attr.isFK = true;
+          attr.isPPK = false;
+        } else if (attr.isPPK) {
+          // Was PPK -> toggle to Oddiy
+          attr.isPK = false;
+          attr.isFK = false;
           attr.isPPK = false;
         } else {
+          // Was Oddiy -> toggle to PK
           attr.isPK = true;
+          attr.isFK = false;
           attr.isPPK = false;
         }
         this.renderEntityAttributes(entity, containerEl);
@@ -2108,6 +2130,7 @@ class EERCanvasEngine {
         attributes: (e.attributes || []).map(a => ({
           name: a.name,
           isPK: !!a.isPK,
+          isFK: !!a.isFK,
           isPPK: !!a.isPPK
         })),
         x: Math.round(x),

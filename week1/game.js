@@ -353,9 +353,23 @@
     // 5. Concept Anatomy Card
     renderConceptAnatomy(q);
 
-    // 6. Load Starter Diagram into EER Canvas Engine
+    // 6. Load Starter Diagram into EER Canvas Engine (or student's saved work)
     if (eerCanvas) {
-      eerCanvas.loadStarterDiagram(q.starterDiagram);
+      const savedUserDiagram = localStorage.getItem(`DS_W1_DIAGRAM_${qId}`);
+      if (savedUserDiagram) {
+        try {
+          const parsed = JSON.parse(savedUserDiagram);
+          if (parsed && parsed.entities && parsed.entities.length > 0) {
+            eerCanvas.loadStarterDiagram(parsed);
+          } else {
+            eerCanvas.loadStarterDiagram(q.starterDiagram);
+          }
+        } catch (e) {
+          eerCanvas.loadStarterDiagram(q.starterDiagram);
+        }
+      } else {
+        eerCanvas.loadStarterDiagram(q.starterDiagram);
+      }
     }
   }
 
@@ -583,7 +597,8 @@
         `;
         elFeedback.style.display = 'block';
 
-        // State updates
+        // State updates & diagram persistence for Week 2 continuity
+        localStorage.setItem(`DS_W1_DIAGRAM_${q.id}`, JSON.stringify(userDiagram));
         if (!STATE.solvedIds.has(q.id)) {
           STATE.solvedIds.add(q.id);
           STATE.score += 100;

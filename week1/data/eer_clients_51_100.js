@@ -3,13 +3,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 51,
     "sector": 4,
-    "difficulty": "4-Qavat • Xalqaro Turizm",
-    "clientName": "Zuhra Alimova",
-    "clientRole": "Sayyohlik Agentligi Direktori",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Sayyoh va Ekskursiya Paketlari (TourBooking)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Xalqaro Turizm amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Tourist** (passportNumber {PK}) va **TourPackage** (packageCode {PK}) qatnashadi. Bir Tourist bir nechta TourPackage bilan, va aksincha, bir TourPackage bir nechta Tourist bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **TourBooking** (bookingRef {PK}, `travelDate`, `adultCount`, `specialMealRequest`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Tourist' va 'TourPackage' o'rtasida assotsiativ 'TourBooking' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Tourist va TourPackage Hamkorligi",
+    "story": "Xalqaro Turizm jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Sayyoh yil davomida bir nechta sayohat paketlarini xarid qilishi mumkin, har bir sayohat paketiga esa ko'plab sayyohlar bron qiladi.\n\nTizimda asosiy ishtirokchilar sifatida **Tourist** (passportNumber {PK}) va **TourPackage** (packageCode {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **TourBooking** (bookingRef {PK}, `travelDate`, `adultCount`, `specialMealRequest`) polotnoda aks ettiriladi.",
+    "instruction": "'Tourist' va 'TourPackage' o'rtasida assotsiativ 'TourBooking' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -23,6 +23,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "passportNumber",
               "isPK": true
+            },
+            {
+              "name": "touristName",
+              "isPK": false
+            },
+            {
+              "name": "citizenship",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
             }
           ]
         },
@@ -33,6 +45,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "packageCode",
               "isPK": true
+            },
+            {
+              "name": "destinationCity",
+              "isPK": false
+            },
+            {
+              "name": "durationDays",
+              "isPK": false
+            },
+            {
+              "name": "basePrice",
+              "isPK": false
             }
           ]
         },
@@ -81,13 +105,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 52,
     "sector": 4,
-    "difficulty": "4-Qavat • Ovoz Yozish Studiyasi",
-    "clientName": "Doniyor Karimov",
-    "clientRole": "Musiqa Produseri",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Musiqachi va Audio Trek Hamkorligi (TrackContribution)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Ovoz Yozish Studiyasi amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Musician** (artistId {PK}) va **Track** (isrcCode {PK}) qatnashadi. Bir Musician bir nechta Track bilan, va aksincha, bir Track bir nechta Musician bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **TrackContribution** (contribId {PK}, `roleType`, `royaltySplitRatio`, `recordingStudio`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Musician' va 'Track' o'rtasida assotsiativ 'TrackContribution' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Musician va Track Hamkorligi",
+    "story": "Ovoz Yozish Studiyasi jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Musiqachi ko'plab audio treklarni yozishda qatnashadi, bitta musiqiy trekda esa bir nechta artistlar hamkorlik qiladi.\n\nTizimda asosiy ishtirokchilar sifatida **Musician** (artistId {PK}) va **Track** (isrcCode {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **TrackContribution** (contribId {PK}, `roleType`, `royaltySplitRatio`, `recordingStudio`) polotnoda aks ettiriladi.",
+    "instruction": "'Musician' va 'Track' o'rtasida assotsiativ 'TrackContribution' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -101,6 +125,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "artistId",
               "isPK": true
+            },
+            {
+              "name": "stageName",
+              "isPK": false
+            },
+            {
+              "name": "instrument",
+              "isPK": false
+            },
+            {
+              "name": "genre",
+              "isPK": false
             }
           ]
         },
@@ -111,6 +147,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "isrcCode",
               "isPK": true
+            },
+            {
+              "name": "trackTitle",
+              "isPK": false
+            },
+            {
+              "name": "durationSeconds",
+              "isPK": false
+            },
+            {
+              "name": "bpmTempo",
+              "isPK": false
             }
           ]
         },
@@ -159,13 +207,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 53,
     "sector": 4,
-    "difficulty": "4-Qavat • Kinematografiya",
-    "clientName": "Nodira Qosimova",
-    "clientRole": "Kasting Direktori",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Aktyor va Film Kasting Shartnomasi (CastingContract)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Kinematografiya amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Actor** (actorCardId {PK}) va **Film** (filmCode {PK}) qatnashadi. Bir Actor bir nechta Film bilan, va aksincha, bir Film bir nechta Actor bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **CastingContract** (contractNo {PK}, `characterName`, `compensationSum`, `isLeadRole`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Actor' va 'Film' o'rtasida assotsiativ 'CastingContract' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Actor va Film Hamkorligi",
+    "story": "Kinematografiya Kasting jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Aktyor bir nechta filmlarda rol ijro etishi mumkin, filmda esa ko'plab aktyorlar jamoasi suratga tushadi.\n\nTizimda asosiy ishtirokchilar sifatida **Actor** (actorCardId {PK}) va **Film** (filmCode {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **CastingContract** (contractNo {PK}, `characterName`, `compensationSum`, `isLeadRole`) polotnoda aks ettiriladi.",
+    "instruction": "'Actor' va 'Film' o'rtasida assotsiativ 'CastingContract' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -179,6 +227,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "actorCardId",
               "isPK": true
+            },
+            {
+              "name": "realName",
+              "isPK": false
+            },
+            {
+              "name": "agentContact",
+              "isPK": false
+            },
+            {
+              "name": "actingUnionId",
+              "isPK": false
             }
           ]
         },
@@ -189,6 +249,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "filmCode",
               "isPK": true
+            },
+            {
+              "name": "filmTitle",
+              "isPK": false
+            },
+            {
+              "name": "producerName",
+              "isPK": false
+            },
+            {
+              "name": "shootingStartYear",
+              "isPK": false
             }
           ]
         },
@@ -237,13 +309,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 54,
     "sector": 4,
-    "difficulty": "4-Qavat • Magistral Logistika",
-    "clientName": "Ilhom Sobirov",
-    "clientRole": "Logistika Dispetcheri",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Yuk Mashinasi va Tranzit Yo'nalishi (DeliveryTrip)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Magistral Logistika amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Truck** (truckPlate {PK}) va **Route** (routeId {PK}) qatnashadi. Bir Truck bir nechta Route bilan, va aksincha, bir Route bir nechta Truck bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **DeliveryTrip** (tripTicketNo {PK}, `dispatchTime`, `fuelLitersUsed`, `driverStaffId`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Truck' va 'Route' o'rtasida assotsiativ 'DeliveryTrip' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Truck va Route Hamkorligi",
+    "story": "Magistral Marshrutlar jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Yuk furasiga turli qatnov yo'nalishlari beriladi, bitta tranzit yo'nalishida esa bir nechta furalar qatnaydi.\n\nTizimda asosiy ishtirokchilar sifatida **Truck** (truckPlate {PK}) va **Route** (routeId {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **DeliveryTrip** (tripTicketNo {PK}, `dispatchTime`, `fuelLitersUsed`, `driverStaffId`) polotnoda aks ettiriladi.",
+    "instruction": "'Truck' va 'Route' o'rtasida assotsiativ 'DeliveryTrip' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -257,6 +329,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "truckPlate",
               "isPK": true
+            },
+            {
+              "name": "model",
+              "isPK": false
+            },
+            {
+              "name": "maxPayloadTons",
+              "isPK": false
+            },
+            {
+              "name": "odometerKm",
+              "isPK": false
             }
           ]
         },
@@ -267,6 +351,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "routeId",
               "isPK": true
+            },
+            {
+              "name": "originHub",
+              "isPK": false
+            },
+            {
+              "name": "destHub",
+              "isPK": false
+            },
+            {
+              "name": "distanceKm",
+              "isPK": false
             }
           ]
         },
@@ -315,13 +411,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 55,
     "sector": 4,
-    "difficulty": "4-Qavat • Ishlab Chiqarish Zavodi",
-    "clientName": "G'ayrat Normatov",
-    "clientRole": "Bosh Texnolog",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Tayyor Mahsulot va Xomashyo Komponentlari (BillOfMaterial)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Ishlab Chiqarish Zavodi amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Product** (productNo {PK}) va **RawMaterial** (materialCode {PK}) qatnashadi. Bir Product bir nechta RawMaterial bilan, va aksincha, bir RawMaterial bir nechta Product bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **BillOfMaterial** (bomItemId {PK}, `requiredQuantity`, `wastageTolerancePercent`, `assemblySequenceNo`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Product' va 'RawMaterial' o'rtasida assotsiativ 'BillOfMaterial' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Product va RawMaterial Hamkorligi",
+    "story": "Zavod Texnologik Xaritasi jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Tayyor mahsulot bir nechta xomashyolardan yig'iladi, bir xomashyo esa turli xil mahsulotlar ishlab chiqarishda ishlatiladi.\n\nTizimda asosiy ishtirokchilar sifatida **Product** (productNo {PK}) va **RawMaterial** (materialCode {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **BillOfMaterial** (bomItemId {PK}, `requiredQuantity`, `wastageTolerancePercent`, `assemblySequenceNo`) polotnoda aks ettiriladi.",
+    "instruction": "'Product' va 'RawMaterial' o'rtasida assotsiativ 'BillOfMaterial' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -335,6 +431,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "productNo",
               "isPK": true
+            },
+            {
+              "name": "name",
+              "isPK": false
+            },
+            {
+              "name": "retailPrice",
+              "isPK": false
+            },
+            {
+              "name": "manufacturingTimeHours",
+              "isPK": false
             }
           ]
         },
@@ -345,6 +453,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "materialCode",
               "isPK": true
+            },
+            {
+              "name": "materialName",
+              "isPK": false
+            },
+            {
+              "name": "unitOfMeasure",
+              "isPK": false
+            },
+            {
+              "name": "costPerUnit",
+              "isPK": false
             }
           ]
         },
@@ -393,13 +513,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 56,
     "sector": 4,
-    "difficulty": "4-Qavat • Xalqaro Sammit",
-    "clientName": "Saida Mirzayeva",
-    "clientRole": "Konferensiya Tashkilotchisi",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Konferensiya Ishtirokchisi va Seminar Sessiyalari (SessionRegistration)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Xalqaro Sammit amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Delegate** (badgeId {PK}) va **WorkshopSession** (sessionCode {PK}) qatnashadi. Bir Delegate bir nechta WorkshopSession bilan, va aksincha, bir WorkshopSession bir nechta Delegate bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **SessionRegistration** (regTicketId {PK}, `registeredAt`, `attendedAttendance`, `feedbackScore`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Delegate' va 'WorkshopSession' o'rtasida assotsiativ 'SessionRegistration' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Delegate va WorkshopSession Hamkorligi",
+    "story": "Xalqaro Kongress jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Kongress delegati bir nechta mahorat darslariga qatnashishi mumkin, har bir seminarga esa ko'plab delegatlar ro'yxatdan o'tadi.\n\nTizimda asosiy ishtirokchilar sifatida **Delegate** (badgeId {PK}) va **WorkshopSession** (sessionCode {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **SessionRegistration** (regTicketId {PK}, `registeredAt`, `attendedAttendance`, `feedbackScore`) polotnoda aks ettiriladi.",
+    "instruction": "'Delegate' va 'WorkshopSession' o'rtasida assotsiativ 'SessionRegistration' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -413,6 +533,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "badgeId",
               "isPK": true
+            },
+            {
+              "name": "delegateName",
+              "isPK": false
+            },
+            {
+              "name": "organization",
+              "isPK": false
+            },
+            {
+              "name": "jobPosition",
+              "isPK": false
             }
           ]
         },
@@ -423,6 +555,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "sessionCode",
               "isPK": true
+            },
+            {
+              "name": "sessionTopic",
+              "isPK": false
+            },
+            {
+              "name": "roomHall",
+              "isPK": false
+            },
+            {
+              "name": "speakerName",
+              "isPK": false
             }
           ]
         },
@@ -471,13 +615,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 57,
     "sector": 4,
-    "difficulty": "4-Qavat • Tashqi Iqtisodiy Faoliyat",
-    "clientName": "Farrux Yusupov",
-    "clientRole": "Bojxona Bosh Nazoratchisi",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Eksportchi Korxona va Bojxona Nazorati Posti (CustomsDeclaration)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Tashqi Iqtisodiy Faoliyat amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Exporter** (exporterInn {PK}) va **CustomsPost** (postCode {PK}) qatnashadi. Bir Exporter bir nechta CustomsPost bilan, va aksincha, bir CustomsPost bir nechta Exporter bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **CustomsDeclaration** (gtdNumber {PK}, `cargoInvoiceSum`, `customsDutyPaid`, `clearanceDate`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Exporter' va 'CustomsPost' o'rtasida assotsiativ 'CustomsDeclaration' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Exporter va CustomsPost Hamkorligi",
+    "story": "Bojxona Deklaratsiyasi jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Eksportchi korxona o'z yuklarini turli bojxona postlari orqali o'tkazishi mumkin, postda esa minglab eksportchilar deklaratsiya topshiradi.\n\nTizimda asosiy ishtirokchilar sifatida **Exporter** (exporterInn {PK}) va **CustomsPost** (postCode {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **CustomsDeclaration** (gtdNumber {PK}, `cargoInvoiceSum`, `customsDutyPaid`, `clearanceDate`) polotnoda aks ettiriladi.",
+    "instruction": "'Exporter' va 'CustomsPost' o'rtasida assotsiativ 'CustomsDeclaration' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -491,6 +635,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "exporterInn",
               "isPK": true
+            },
+            {
+              "name": "companyName",
+              "isPK": false
+            },
+            {
+              "name": "legalAddress",
+              "isPK": false
+            },
+            {
+              "name": "licenseDate",
+              "isPK": false
             }
           ]
         },
@@ -501,6 +657,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "postCode",
               "isPK": true
+            },
+            {
+              "name": "postName",
+              "isPK": false
+            },
+            {
+              "name": "borderRegion",
+              "isPK": false
+            },
+            {
+              "name": "terminalCapacityTons",
+              "isPK": false
             }
           ]
         },
@@ -549,13 +717,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 58,
     "sector": 4,
-    "difficulty": "4-Qavat • Raqamli OAV & Portal",
-    "clientName": "Nilufar Jo'rayeva",
-    "clientRole": "Bosh Redaktor",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Yangilik Maqolasi va Tematik Teglar (ArticleTagMap)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. Raqamli OAV & Portal amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Article** (articleSlug {PK}) va **ContentTag** (tagId {PK}) qatnashadi. Bir Article bir nechta ContentTag bilan, va aksincha, bir ContentTag bir nechta Article bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **ArticleTagMap** (mappingId {PK}, `attachedOrder`, `autoSuggestedByAi`, `relevanceScore`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Article' va 'ContentTag' o'rtasida assotsiativ 'ArticleTagMap' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Article va ContentTag Hamkorligi",
+    "story": "Raqamli OAV Portal jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Yangilik maqolasiga bir nechta tematik teglar biriktiriladi, bitta teg esa yuzlab turli maqolalarda uchraydi.\n\nTizimda asosiy ishtirokchilar sifatida **Article** (articleSlug {PK}) va **ContentTag** (tagId {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **ArticleTagMap** (mappingId {PK}, `attachedOrder`, `autoSuggestedByAi`, `relevanceScore`) polotnoda aks ettiriladi.",
+    "instruction": "'Article' va 'ContentTag' o'rtasida assotsiativ 'ArticleTagMap' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -569,6 +737,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "articleSlug",
               "isPK": true
+            },
+            {
+              "name": "headline",
+              "isPK": false
+            },
+            {
+              "name": "authorName",
+              "isPK": false
+            },
+            {
+              "name": "publishDateTime",
+              "isPK": false
             }
           ]
         },
@@ -579,6 +759,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "tagId",
               "isPK": true
+            },
+            {
+              "name": "tagName",
+              "isPK": false
+            },
+            {
+              "name": "categoryTheme",
+              "isPK": false
+            },
+            {
+              "name": "popularityIndex",
+              "isPK": false
             }
           ]
         },
@@ -627,13 +819,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 59,
     "sector": 4,
-    "difficulty": "4-Qavat • O'quv Markazi",
-    "clientName": "Sanjar Fayziyev",
-    "clientRole": "O'quv Bo'limi Boshlig'i",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "O'qituvchi va O'quv Xonasi Dars Jadvali (LessonSchedule)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. O'quv Markazi amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Instructor** (tutorId {PK}) va **Classroom** (roomCode {PK}) qatnashadi. Bir Instructor bir nechta Classroom bilan, va aksincha, bir Classroom bir nechta Instructor bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **LessonSchedule** (scheduleEntryId {PK}, `dayOfWeek`, `lessonPeriod`, `studyGroupId`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Instructor' va 'Classroom' o'rtasida assotsiativ 'LessonSchedule' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Instructor va Classroom Hamkorligi",
+    "story": "O'quv Markazi Jadvali jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: O'qituvchi haftaning turli kunlarida turli auditoriyalarda dars beradi, bitta auditoriyada esa turli o'qituvchilar navbat bilan mashg'ulot o'tkazadi.\n\nTizimda asosiy ishtirokchilar sifatida **Instructor** (tutorId {PK}) va **Classroom** (roomCode {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **LessonSchedule** (scheduleEntryId {PK}, `dayOfWeek`, `lessonPeriod`, `studyGroupId`) polotnoda aks ettiriladi.",
+    "instruction": "'Instructor' va 'Classroom' o'rtasida assotsiativ 'LessonSchedule' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -647,6 +839,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "tutorId",
               "isPK": true
+            },
+            {
+              "name": "tutorName",
+              "isPK": false
+            },
+            {
+              "name": "subjectExpertise",
+              "isPK": false
+            },
+            {
+              "name": "contactPhone",
+              "isPK": false
             }
           ]
         },
@@ -657,6 +861,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "roomCode",
               "isPK": true
+            },
+            {
+              "name": "buildingWing",
+              "isPK": false
+            },
+            {
+              "name": "projectorModel",
+              "isPK": false
+            },
+            {
+              "name": "seatingCap",
+              "isPK": false
             }
           ]
         },
@@ -705,13 +921,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 60,
     "sector": 4,
-    "difficulty": "4-Qavat • B2B Savdo Tarmog'i",
-    "clientName": "Shohruh Vohidov",
-    "clientRole": "Ta'minot Boshqaruvchisi",
+    "difficulty": "4-Qavat • Yuqori (*..*)",
+    "clientName": "Yetakchi Tahlilchi",
+    "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Chakana Savdo Tarmog'i va Dilerlik Shartnomasi (SupplyContract)",
-    "story": "Kompaniyada ikki tomonlama erkin hamkorlikni ta'minlovchi ko'pga-ko'p (*..*) munosabatlarni hisobga olish tizimi joriy etilmoqda. B2B Savdo Tarmog'i amaliyotida ushbu jarayonlar maxsus oraliq hujjatlar orqali rasmiylashtiriladi.\n\nTizimda mustaqil ishtirokchilar sifatida **Retailer** (storeChainId {PK}) va **Supplier** (supplierInn {PK}) qatnashadi. Bir Retailer bir nechta Supplier bilan, va aksincha, bir Supplier bir nechta Retailer bilan o'zaro aloqada bo'lishi mumkin.\n\nMunosabatning o'ziga xos atributlarini saqlash uchun assotsiativ entitiy **SupplyContract** (contractDocNo {PK}, `monthlyOrderMinimum`, `paymentTermDays`, `penaltyRatePercent`) kiritiladi. Ushbu entitiy ikki tomonni birlashtiradi.",
-    "instruction": "'Retailer' va 'Supplier' o'rtasida assotsiativ 'SupplyContract' entitiysini joylashtiring va munosabatlarni to'g'ri bog'lang.",
+    "title": "Retailer va Supplier Hamkorligi",
+    "story": "B2B Ta'minot Shartnomalari jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Chakana savdo tarmog'i yuzlab yetkazib beruvchilar bilan shartnoma tuzadi, yirik yetkazib beruvchi ham turli do'konlar tarmog'iga mahsulot beradi.\n\nTizimda asosiy ishtirokchilar sifatida **Retailer** (storeChainId {PK}) va **Supplier** (supplierInn {PK}) qatnashadi.\n\nIkki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **SupplyContract** (contractDocNo {PK}, `monthlyOrderMinimum`, `paymentTermDays`, `penaltyRatePercent`) polotnoda aks ettiriladi.",
+    "instruction": "'Retailer' va 'Supplier' o'rtasida assotsiativ 'SupplyContract' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -725,6 +941,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "storeChainId",
               "isPK": true
+            },
+            {
+              "name": "chainName",
+              "isPK": false
+            },
+            {
+              "name": "outletCount",
+              "isPK": false
+            },
+            {
+              "name": "cityHq",
+              "isPK": false
             }
           ]
         },
@@ -735,6 +963,18 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "supplierInn",
               "isPK": true
+            },
+            {
+              "name": "vendorName",
+              "isPK": false
+            },
+            {
+              "name": "warehouseLocation",
+              "isPK": false
+            },
+            {
+              "name": "reliabilityScore",
+              "isPK": false
             }
           ]
         },
@@ -783,13 +1023,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 61,
     "sector": 5,
-    "difficulty": "5-Qavat • Mehmonxona Xonalari",
-    "clientName": "Zulfiya Karimova",
-    "clientRole": "Xonalar Menejeri",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Mehmonxona va Xonalar (Zaif Entitiy)",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Mehmonxona Xonalari sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **Hotel** (hotelId {PK}, `hotelName`, `starRating`, `city`) qayd etiladi. Uning tarkibida esa zaif entitiy **Room** hisobga olinadi.\n\nZaif entitiy **Room** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `roomNo`) va `bedCount`, `floorNo`, `dailyPrice` atributlariga ega. Ota **Hotel** yo'qolsa, uning barcha **Room** lari ham o'chib ketadi. Bog'lanish: **HasRoom** (1..1 : 1..*).",
-    "instruction": "'Hotel' kuchli entitiysini va unga bo'ysunuvchi zaif 'Room' entitiysini chizing, 'roomNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "Hotel va Room (Zaif Bog'liqlik)",
+    "story": "Mehmonxona Xonalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Xona mustaqil holda mavjud bo'la olmaydi; uning xona raqami faqat bitta mehmonxona binosi ichida ma'noga ega bo'lib, qisman kalit (discriminator) hisoblanadi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **Hotel** (hotelId {PK}, `hotelName`, `starRating`, `city`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **Room** bo'lib, uning qisman kaliti (discriminator / PPK) `roomNo` va boshqa atributlari: `bedCount`, `floorNo`, `dailyPrice`. Ular o'rtasida identifikatsiyalovchi **HasRoom** aloqasi o'rnatiladi.",
+    "instruction": "'Hotel' kuchli entitiysini va unga qaram zaif 'Room' entitiysini chizing, 'roomNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -857,13 +1097,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 62,
     "sector": 5,
-    "difficulty": "5-Qavat • Bino Qavatlari",
-    "clientName": "Rustam Mahmudov",
-    "clientRole": "Bino Boshqaruvchisi",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Biznes Markaz Binosi va Qavatlari",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Bino Qavatlari sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **Building** (buildingId {PK}, `buildingName`, `streetAddress`, `totalFloors`) qayd etiladi. Uning tarkibida esa zaif entitiy **BuildingFloor** hisobga olinadi.\n\nZaif entitiy **BuildingFloor** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `floorNo`) va `emergencyExitCount`, `usableAreaSqm` atributlariga ega. Ota **Building** yo'qolsa, uning barcha **BuildingFloor** lari ham o'chib ketadi. Bog'lanish: **ContainsFloor** (1..1 : 1..*).",
-    "instruction": "'Building' kuchli entitiysini va unga bo'ysunuvchi zaif 'BuildingFloor' entitiysini chizing, 'floorNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "Building va BuildingFloor (Zaif Bog'liqlik)",
+    "story": "Bino Qavatlari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Qavat faqat o'z binosi doirasida mavjud; qavat raqami bino identifikatorisiz global miqyosda takrorlanuvchi bo'ladi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **Building** (buildingId {PK}, `buildingName`, `streetAddress`, `totalFloors`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **BuildingFloor** bo'lib, uning qisman kaliti (discriminator / PPK) `floorNo` va boshqa atributlari: `emergencyExitCount`, `usableAreaSqm`. Ular o'rtasida identifikatsiyalovchi **ContainsFloor** aloqasi o'rnatiladi.",
+    "instruction": "'Building' kuchli entitiysini va unga qaram zaif 'BuildingFloor' entitiysini chizing, 'floorNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -927,13 +1167,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 63,
     "sector": 5,
-    "difficulty": "5-Qavat • Korporativ Xodimlar Oila A'zolari",
-    "clientName": "Nargiza Sodiqova",
-    "clientRole": "HR Ijtimoiy Himoya Menejeri",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Kompaniya Xodimi va Qaramog'idagilar (Dependent)",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Korporativ Xodimlar Oila A'zolari sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **Employee** (empId {PK}, `empName`, `department`, `salary`) qayd etiladi. Uning tarkibida esa zaif entitiy **Dependent** hisobga olinadi.\n\nZaif entitiy **Dependent** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `depName`) va `relationshipType`, `birthDate`, `gender` atributlariga ega. Ota **Employee** yo'qolsa, uning barcha **Dependent** lari ham o'chib ketadi. Bog'lanish: **HasDependent** (1..1 : 0..*).",
-    "instruction": "'Employee' kuchli entitiysini va unga bo'ysunuvchi zaif 'Dependent' entitiysini chizing, 'depName' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "Employee va Dependent (Zaif Bog'liqlik)",
+    "story": "Xodim Qaramog'idagilar faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Qaramog'idagi oila a'zosi xodimsiz korxona sug'urta tizimida mavjud bo'la olmaydi; xodim ishdan bo'shasa uning qarindoshlari ham reyestrdan o'chiriladi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **Employee** (empId {PK}, `empName`, `department`, `salary`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **Dependent** bo'lib, uning qisman kaliti (discriminator / PPK) `depName` va boshqa atributlari: `relationshipType`, `birthDate`, `gender`. Ular o'rtasida identifikatsiyalovchi **HasDependent** aloqasi o'rnatiladi.",
+    "instruction": "'Employee' kuchli entitiysini va unga qaram zaif 'Dependent' entitiysini chizing, 'depName' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -991,7 +1231,7 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "Employee",
           "entity2": "Dependent",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "HasDependent",
           "isIdentifying": true
         }
@@ -1001,13 +1241,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 64,
     "sector": 5,
-    "difficulty": "5-Qavat • Kutubxona Nusxalari",
-    "clientName": "Mansur Aliyev",
-    "clientRole": "Fond Boshqaruvchisi",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Kitob Asari va Uning Fizik Nusxalari (BookCopy)",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Kutubxona Nusxalari sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **BookTitle** (isbn {PK}, `title`, `author`, `editionYear`) qayd etiladi. Uning tarkibida esa zaif entitiy **BookCopy** hisobga olinadi.\n\nZaif entitiy **BookCopy** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `copyNo`) va `conditionStatus`, `shelfBay`, `isAvailable` atributlariga ega. Ota **BookTitle** yo'qolsa, uning barcha **BookCopy** lari ham o'chib ketadi. Bog'lanish: **HasCopy** (1..1 : 1..*).",
-    "instruction": "'BookTitle' kuchli entitiysini va unga bo'ysunuvchi zaif 'BookCopy' entitiysini chizing, 'copyNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "BookTitle va BookCopy (Zaif Bog'liqlik)",
+    "story": "Kutubxona Nusxalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Fizik kitob nusxasi ma'lum bir kitob asariga bog'liq; nusxa raqami (1, 2, 3...) faqat o'sha ISBN ichida ma'noga ega.\n\nTizimda kuchli ega (Owner) entitiy sifatida **BookTitle** (isbn {PK}, `title`, `author`, `editionYear`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **BookCopy** bo'lib, uning qisman kaliti (discriminator / PPK) `copyNo` va boshqa atributlari: `conditionStatus`, `shelfBay`, `isAvailable`. Ular o'rtasida identifikatsiyalovchi **HasCopy** aloqasi o'rnatiladi.",
+    "instruction": "'BookTitle' kuchli entitiysini va unga qaram zaif 'BookCopy' entitiysini chizing, 'copyNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1075,13 +1315,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 65,
     "sector": 5,
-    "difficulty": "5-Qavat • Bank Tranzaksiyalari",
-    "clientName": "Alisher Toirov",
-    "clientRole": "Audit Boshlig'i",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Bank Hisobi va Tranzaksiya Yozuvlari",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Bank Tranzaksiyalari sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **BankAccount** (accountNo {PK}, `holderName`, `currency`, `balance`) qayd etiladi. Uning tarkibida esa zaif entitiy **AccountTransaction** hisobga olinadi.\n\nZaif entitiy **AccountTransaction** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `txSeqNo`) va `txAmount`, `txTimestamp`, `terminalCode` atributlariga ega. Ota **BankAccount** yo'qolsa, uning barcha **AccountTransaction** lari ham o'chib ketadi. Bog'lanish: **LogsTx** (1..1 : 0..*).",
-    "instruction": "'BankAccount' kuchli entitiysini va unga bo'ysunuvchi zaif 'AccountTransaction' entitiysini chizing, 'txSeqNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "BankAccount va AccountTransaction (Zaif Bog'liqlik)",
+    "story": "Bank Hisob Tranzaksiyalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Hisob tranzaksiyasi hisobsiz mavjud bo'lmaydi; har bir tranzaksiya tartib raqami o'sha hisob doirasida 1 dan boshlab hisoblanadi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **BankAccount** (accountNo {PK}, `holderName`, `currency`, `balance`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **AccountTransaction** bo'lib, uning qisman kaliti (discriminator / PPK) `txSeqNo` va boshqa atributlari: `txAmount`, `txTimestamp`, `terminalCode`. Ular o'rtasida identifikatsiyalovchi **LogsTx** aloqasi o'rnatiladi.",
+    "instruction": "'BankAccount' kuchli entitiysini va unga qaram zaif 'AccountTransaction' entitiysini chizing, 'txSeqNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1139,7 +1379,7 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "BankAccount",
           "entity2": "AccountTransaction",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "LogsTx",
           "isIdentifying": true
         }
@@ -1149,13 +1389,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 66,
     "sector": 5,
-    "difficulty": "5-Qavat • Aviaparvoz Chiptalari",
-    "clientName": "Oleg Petrov",
-    "clientRole": "Parvoz Boshqaruvchisi",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Aviaparvoz Reysi va Parvoz Chiptalari",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Aviaparvoz Chiptalari sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **FlightSchedule** (flightNo {PK}, `originIata`, `destIata`, `depTime`) qayd etiladi. Uning tarkibida esa zaif entitiy **BoardingPass** hisobga olinadi.\n\nZaif entitiy **BoardingPass** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `seatNo`) va `passengerName`, `gateNumber`, `boardingGroup` atributlariga ega. Ota **FlightSchedule** yo'qolsa, uning barcha **BoardingPass** lari ham o'chib ketadi. Bog'lanish: **IssuesPass** (1..1 : 1..*).",
-    "instruction": "'FlightSchedule' kuchli entitiysini va unga bo'ysunuvchi zaif 'BoardingPass' entitiysini chizing, 'seatNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "FlightSchedule va BoardingPass (Zaif Bog'liqlik)",
+    "story": "Aviaparvoz Chiptalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Bortga chiqish taloni parvoz reysisiz mavjud emas; joy raqami faqat ushbu samolyot reysi ichida noyobdir.\n\nTizimda kuchli ega (Owner) entitiy sifatida **FlightSchedule** (flightNo {PK}, `originIata`, `destIata`, `depTime`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **BoardingPass** bo'lib, uning qisman kaliti (discriminator / PPK) `seatNo` va boshqa atributlari: `passengerName`, `gateNumber`, `boardingGroup`. Ular o'rtasida identifikatsiyalovchi **IssuesPass** aloqasi o'rnatiladi.",
+    "instruction": "'FlightSchedule' kuchli entitiysini va unga qaram zaif 'BoardingPass' entitiysini chizing, 'seatNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1223,13 +1463,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 67,
     "sector": 5,
-    "difficulty": "5-Qavat • Turar-Joy Majmuasi",
-    "clientName": "Sherzod Qodirov",
-    "clientRole": "Uy-Joy Boshqarmasi",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Turar-Joy Binosi va Kvartiralar Reyestri",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Turar-Joy Majmuasi sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **ApartmentComplex** (complexId {PK}, `complexName`, `street`, `blockLetter`) qayd etiladi. Uning tarkibida esa zaif entitiy **FlatUnit** hisobga olinadi.\n\nZaif entitiy **FlatUnit** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `flatNo`) va `roomsCount`, `areaSqm`, `floorLevel` atributlariga ega. Ota **ApartmentComplex** yo'qolsa, uning barcha **FlatUnit** lari ham o'chib ketadi. Bog'lanish: **ComprisesFlat** (1..1 : 1..*).",
-    "instruction": "'ApartmentComplex' kuchli entitiysini va unga bo'ysunuvchi zaif 'FlatUnit' entitiysini chizing, 'flatNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "ApartmentComplex va FlatUnit (Zaif Bog'liqlik)",
+    "story": "Turar-Joy Kvartiralari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Xonadon faqat o'z turar-joy majmuasi ichida mavjud; kvartira raqami majmuasiz shahar bo'yicha noyob bo'lolmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **ApartmentComplex** (complexId {PK}, `complexName`, `street`, `blockLetter`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **FlatUnit** bo'lib, uning qisman kaliti (discriminator / PPK) `flatNo` va boshqa atributlari: `roomsCount`, `areaSqm`, `floorLevel`. Ular o'rtasida identifikatsiyalovchi **ComprisesFlat** aloqasi o'rnatiladi.",
+    "instruction": "'ApartmentComplex' kuchli entitiysini va unga qaram zaif 'FlatUnit' entitiysini chizing, 'flatNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1297,13 +1537,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 68,
     "sector": 5,
-    "difficulty": "5-Qavat • Farmatsevtika Partiyalari",
-    "clientName": "Kamola Umarova",
-    "clientRole": "Sifat Nazorati Boshlig'i",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Dori Formulari va Ishlab Chiqarish Partiyalari (Batch)",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Farmatsevtika Partiyalari sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **DrugFormula** (formulaCode {PK}, `chemicalName`, `patentExpDate`, `dosageMg`) qayd etiladi. Uning tarkibida esa zaif entitiy **BatchLot** hisobga olinadi.\n\nZaif entitiy **BatchLot** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `lotNumber`) va `prodDate`, `expiryDate`, `labTechStaffId` atributlariga ega. Ota **DrugFormula** yo'qolsa, uning barcha **BatchLot** lari ham o'chib ketadi. Bog'lanish: **ProducedInLot** (1..1 : 1..*).",
-    "instruction": "'DrugFormula' kuchli entitiysini va unga bo'ysunuvchi zaif 'BatchLot' entitiysini chizing, 'lotNumber' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "DrugFormula va BatchLot (Zaif Bog'liqlik)",
+    "story": "Dori Ishlab Chiqarish Partiyalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Ishlab chiqarilgan dori partiyasi uning kimyoviy formulasiga bog'liq; partiya raqami faqat shu preparat doirasida qisman kalit sanaladi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **DrugFormula** (formulaCode {PK}, `chemicalName`, `patentExpDate`, `dosageMg`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **BatchLot** bo'lib, uning qisman kaliti (discriminator / PPK) `lotNumber` va boshqa atributlari: `prodDate`, `expiryDate`, `labTechStaffId`. Ular o'rtasida identifikatsiyalovchi **ProducedInLot** aloqasi o'rnatiladi.",
+    "instruction": "'DrugFormula' kuchli entitiysini va unga qaram zaif 'BatchLot' entitiysini chizing, 'lotNumber' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1371,13 +1611,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 69,
     "sector": 5,
-    "difficulty": "5-Qavat • Onlayn Kurs Darslari",
-    "clientName": "Jaloliddin Sobirov",
-    "clientRole": "Metodist",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Onlayn Kurs va Uning Dars Modullari",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Onlayn Kurs Darslari sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **OnlineCourse** (courseId {PK}, `courseTitle`, `authorName`, `priceUsd`) qayd etiladi. Uning tarkibida esa zaif entitiy **CourseLesson** hisobga olinadi.\n\nZaif entitiy **CourseLesson** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `lessonSeqNo`) va `videoDurationMin`, `lessonTitle`, `isFreePreview` atributlariga ega. Ota **OnlineCourse** yo'qolsa, uning barcha **CourseLesson** lari ham o'chib ketadi. Bog'lanish: **ContainsLesson** (1..1 : 1..*).",
-    "instruction": "'OnlineCourse' kuchli entitiysini va unga bo'ysunuvchi zaif 'CourseLesson' entitiysini chizing, 'lessonSeqNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "OnlineCourse va CourseLesson (Zaif Bog'liqlik)",
+    "story": "Onlayn Kurs Modullari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Video darslik mustaqil mavjud bo'lmaydi; darsning ketma-ketlik raqami faqat o'sha o'quv kursi ichida tartiblangan.\n\nTizimda kuchli ega (Owner) entitiy sifatida **OnlineCourse** (courseId {PK}, `courseTitle`, `authorName`, `priceUsd`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **CourseLesson** bo'lib, uning qisman kaliti (discriminator / PPK) `lessonSeqNo` va boshqa atributlari: `videoDurationMin`, `lessonTitle`, `isFreePreview`. Ular o'rtasida identifikatsiyalovchi **ContainsLesson** aloqasi o'rnatiladi.",
+    "instruction": "'OnlineCourse' kuchli entitiysini va unga qaram zaif 'CourseLesson' entitiysini chizing, 'lessonSeqNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1445,13 +1685,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 70,
     "sector": 5,
-    "difficulty": "5-Qavat • Temir Yo'l Vagonlari",
-    "clientName": "Bahrom Rustamov",
-    "clientRole": "Vagon Deposi Boshlig'i",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Poyezd Marshruti va Biriktirilgan Vagonlar",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Temir Yo'l Vagonlari sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **TrainRoute** (trainNo {PK}, `routeTitle`, `departureStation`, `arrivalStation`) qayd etiladi. Uning tarkibida esa zaif entitiy **CarriageUnit** hisobga olinadi.\n\nZaif entitiy **CarriageUnit** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `coachNumber`) va `classType`, `berthCapacity`, `manufactureYear` atributlariga ega. Ota **TrainRoute** yo'qolsa, uning barcha **CarriageUnit** lari ham o'chib ketadi. Bog'lanish: **IncludesCarriage** (1..1 : 1..*).",
-    "instruction": "'TrainRoute' kuchli entitiysini va unga bo'ysunuvchi zaif 'CarriageUnit' entitiysini chizing, 'coachNumber' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "TrainRoute va CarriageUnit (Zaif Bog'liqlik)",
+    "story": "Poyezd Tarkibi Vagonlari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Vagon poyezd tarkibisiz marshrutda qatnamaydi; vagon raqami poyezd lokomotivi kodi bilan birga to'liq identifikatsiyalanadi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **TrainRoute** (trainNo {PK}, `routeTitle`, `departureStation`, `arrivalStation`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **CarriageUnit** bo'lib, uning qisman kaliti (discriminator / PPK) `coachNumber` va boshqa atributlari: `classType`, `berthCapacity`, `manufactureYear`. Ular o'rtasida identifikatsiyalovchi **IncludesCarriage** aloqasi o'rnatiladi.",
+    "instruction": "'TrainRoute' kuchli entitiysini va unga qaram zaif 'CarriageUnit' entitiysini chizing, 'coachNumber' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1519,13 +1759,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 71,
     "sector": 5,
-    "difficulty": "5-Qavat • Tibbiy Diagnostika",
-    "clientName": "Dr. Nodir Fayzullayev",
-    "clientRole": "Laboratoriya Mudiri",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Laboratoriya Namunasi va Tahlil Natijalari",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Tibbiy Diagnostika sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **LabSample** (sampleBarcode {PK}, `patientId`, `collectionTime`, `sampleType`) qayd etiladi. Uning tarkibida esa zaif entitiy **TestResultItem** hisobga olinadi.\n\nZaif entitiy **TestResultItem** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `testMetricCode`) va `measuredValue`, `normalRange`, `unitMeasure` atributlariga ega. Ota **LabSample** yo'qolsa, uning barcha **TestResultItem** lari ham o'chib ketadi. Bog'lanish: **YieldsResult** (1..1 : 1..*).",
-    "instruction": "'LabSample' kuchli entitiysini va unga bo'ysunuvchi zaif 'TestResultItem' entitiysini chizing, 'testMetricCode' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "LabSample va TestResultItem (Zaif Bog'liqlik)",
+    "story": "Klinik Tahlil Parametrlari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Tahlil natijasi olingan qon/namuna probirkasisiz mavjud emas; parametr kodi probirka shtrix-kodi bilan birikadi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **LabSample** (sampleBarcode {PK}, `patientId`, `collectionTime`, `sampleType`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **TestResultItem** bo'lib, uning qisman kaliti (discriminator / PPK) `testMetricCode` va boshqa atributlari: `measuredValue`, `normalRange`, `unitMeasure`. Ular o'rtasida identifikatsiyalovchi **YieldsResult** aloqasi o'rnatiladi.",
+    "instruction": "'LabSample' kuchli entitiysini va unga qaram zaif 'TestResultItem' entitiysini chizing, 'testMetricCode' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1593,13 +1833,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 72,
     "sector": 5,
-    "difficulty": "5-Qavat • Mashinasozlik Korxonasi",
-    "clientName": "Ixtiyor Hakimov",
-    "clientRole": "Texnik Xizmat Muhandisi",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Sanoat Stanogi va Texnik Ehtiyot Qismlari",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Mashinasozlik Korxonasi sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **IndustrialMachine** (machineId {PK}, `modelName`, `installDate`, `powerKw`) qayd etiladi. Uning tarkibida esa zaif entitiy **ComponentSlot** hisobga olinadi.\n\nZaif entitiy **ComponentSlot** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `slotCode`) va `installedPartSerial`, `serviceLifeHours`, `lastReplaced` atributlariga ega. Ota **IndustrialMachine** yo'qolsa, uning barcha **ComponentSlot** lari ham o'chib ketadi. Bog'lanish: **FittedWith** (1..1 : 1..*).",
-    "instruction": "'IndustrialMachine' kuchli entitiysini va unga bo'ysunuvchi zaif 'ComponentSlot' entitiysini chizing, 'slotCode' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "IndustrialMachine va ComponentSlot (Zaif Bog'liqlik)",
+    "story": "Sanoat Stanogi Detal Uyasi faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Uskuna uyasi stanok konstruksiyasidan ajralmas; uya kodi faqat o'sha stanok pasporti ichida ma'noga ega.\n\nTizimda kuchli ega (Owner) entitiy sifatida **IndustrialMachine** (machineId {PK}, `modelName`, `installDate`, `powerKw`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **ComponentSlot** bo'lib, uning qisman kaliti (discriminator / PPK) `slotCode` va boshqa atributlari: `installedPartSerial`, `serviceLifeHours`, `lastReplaced`. Ular o'rtasida identifikatsiyalovchi **FittedWith** aloqasi o'rnatiladi.",
+    "instruction": "'IndustrialMachine' kuchli entitiysini va unga qaram zaif 'ComponentSlot' entitiysini chizing, 'slotCode' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1667,13 +1907,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 73,
     "sector": 5,
-    "difficulty": "5-Qavat • Teatr Zoli",
-    "clientName": "Shoira Vohidova",
-    "clientRole": "Chiptaxonalar Boshlig'i",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Teatr Zoli va Tomoshabin O'rindiqlari",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Teatr Zoli sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **AuditoriumHall** (hallId {PK}, `hallName`, `soundAcousticGrade`, `screenType`) qayd etiladi. Uning tarkibida esa zaif entitiy **HallSeat** hisobga olinadi.\n\nZaif entitiy **HallSeat** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `seatNumber`) va `rowLetter`, `seatTier`, `isVipZone` atributlariga ega. Ota **AuditoriumHall** yo'qolsa, uning barcha **HallSeat** lari ham o'chib ketadi. Bog'lanish: **HasSeat** (1..1 : 1..*).",
-    "instruction": "'AuditoriumHall' kuchli entitiysini va unga bo'ysunuvchi zaif 'HallSeat' entitiysini chizing, 'seatNumber' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "AuditoriumHall va HallSeat (Zaif Bog'liqlik)",
+    "story": "Teatr Zoli Joylari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: O'rindiq teatr zolisiz mavjud bo'lmaydi; o'rindiq raqami faqat ma'lum bir zal ichida takrorlanmas hisoblanadi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **AuditoriumHall** (hallId {PK}, `hallName`, `soundAcousticGrade`, `screenType`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **HallSeat** bo'lib, uning qisman kaliti (discriminator / PPK) `seatNumber` va boshqa atributlari: `rowLetter`, `seatTier`, `isVipZone`. Ular o'rtasida identifikatsiyalovchi **HasSeat** aloqasi o'rnatiladi.",
+    "instruction": "'AuditoriumHall' kuchli entitiysini va unga qaram zaif 'HallSeat' entitiysini chizing, 'seatNumber' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1741,13 +1981,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 74,
     "sector": 5,
-    "difficulty": "5-Qavat • Elektronika Zavodi",
-    "clientName": "Farhod Mirzayev",
-    "clientRole": "Mahsulot Arxitektori",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Smartfon Modeli va Qurilma Modifikatsiyalari",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Elektronika Zavodi sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **SmartphoneModel** (modelCode {PK}, `marketingName`, `releaseYear`, `baseSocCpu`) qayd etiladi. Uning tarkibida esa zaif entitiy **HardwareConfig** hisobga olinadi.\n\nZaif entitiy **HardwareConfig** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `configCode`) va `storageGb`, `ramGb`, `colorVariant` atributlariga ega. Ota **SmartphoneModel** yo'qolsa, uning barcha **HardwareConfig** lari ham o'chib ketadi. Bog'lanish: **ConfiguredAs** (1..1 : 1..*).",
-    "instruction": "'SmartphoneModel' kuchli entitiysini va unga bo'ysunuvchi zaif 'HardwareConfig' entitiysini chizing, 'configCode' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "SmartphoneModel va HardwareConfig (Zaif Bog'liqlik)",
+    "story": "Smartfon Xotira Variantlari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Modifikatsiya smartfon modelisiz ma'nosiz; konfiguratsiya kodi faqat o'sha smartfon modeli doirasida amal qiladi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **SmartphoneModel** (modelCode {PK}, `marketingName`, `releaseYear`, `baseSocCpu`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **HardwareConfig** bo'lib, uning qisman kaliti (discriminator / PPK) `configCode` va boshqa atributlari: `storageGb`, `ramGb`, `colorVariant`. Ular o'rtasida identifikatsiyalovchi **ConfiguredAs** aloqasi o'rnatiladi.",
+    "instruction": "'SmartphoneModel' kuchli entitiysini va unga qaram zaif 'HardwareConfig' entitiysini chizing, 'configCode' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1815,13 +2055,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 75,
     "sector": 5,
-    "difficulty": "5-Qavat • Ilmiy Nashrlar",
-    "clientName": "Prof. Dilnoza Rahimova",
-    "clientRole": "Ilmiy Kotib",
+    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
+    "clientName": "Loyiha Nazoratchisi",
+    "clientRole": "Tizim Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Ilmiy Tadqiqot Maqolasi va Ilova Fayllari",
-    "story": "Tashkilotda obyektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar (Weak Entity) tizimi loyihalashtirilmoqda. Ilmiy Nashrlar sohasida ayrim obyektlar o'z egasisiz mustaqil mavjud bo'la olmaydi.\n\nTizimda kuchli ega (Owner) entitiy sifatida **ResearchPaper** (doiCode {PK}, `paperTitle`, `primaryAuthor`, `submissionDate`) qayd etiladi. Uning tarkibida esa zaif entitiy **SupplementaryFile** hisobga olinadi.\n\nZaif entitiy **SupplementaryFile** ning to'liq global birlamchi kaliti yo'q, u faqat qisman kalit (discriminator / PPK: `fileIndex`) va `fileChecksum`, `mimeType`, `dataSizeBytes` atributlariga ega. Ota **ResearchPaper** yo'qolsa, uning barcha **SupplementaryFile** lari ham o'chib ketadi. Bog'lanish: **AccompaniedBy** (1..1 : 0..*).",
-    "instruction": "'ResearchPaper' kuchli entitiysini va unga bo'ysunuvchi zaif 'SupplementaryFile' entitiysini chizing, 'fileIndex' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan ulang.",
+    "title": "ResearchPaper va SupplementaryFile (Zaif Bog'liqlik)",
+    "story": "Ilmiy Maqola Qo'shimchalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Ilova fayli maqolasiz mavjud bo'lolmaydi; ilova raqami (1-ilova, 2-ilova...) maqolaning DOI raqamiga bog'liq.\n\nTizimda kuchli ega (Owner) entitiy sifatida **ResearchPaper** (doiCode {PK}, `paperTitle`, `primaryAuthor`, `submissionDate`) ro'yxatga olinadi.\n\nUnga to'liq qaram zaif entitiy esa **SupplementaryFile** bo'lib, uning qisman kaliti (discriminator / PPK) `fileIndex` va boshqa atributlari: `fileChecksum`, `mimeType`, `dataSizeBytes`. Ular o'rtasida identifikatsiyalovchi **AccompaniedBy** aloqasi o'rnatiladi.",
+    "instruction": "'ResearchPaper' kuchli entitiysini va unga qaram zaif 'SupplementaryFile' entitiysini chizing, 'fileIndex' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1879,7 +2119,7 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "ResearchPaper",
           "entity2": "SupplementaryFile",
           "mult1": "1..1",
-          "mult2": "0..*",
+          "mult2": "1..*",
           "name": "AccompaniedBy",
           "isIdentifying": true
         }
@@ -1889,13 +2129,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 76,
     "sector": 6,
-    "difficulty": "6-Qavat • Korporativ Boshqaruv",
-    "clientName": "Umar Karimov",
-    "clientRole": "HR Arxitektori",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Kompaniya Xodimlari Boshqaruv Ierarxiyasi",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Korporativ Boshqaruv sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **Employee** (empId {PK}, `fullName`, `jobPosition`, `salary`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **Manages** doirasida bitta **Employee** o'z hamkasbiga nisbatan `supervisor` rolini, ikkinchisi esa `supervisee` rolini bajaradi. Multiplisitiya: **0..1** dan **0..*** gacha.",
-    "instruction": "'Employee' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'Manages' aloqasini (supervisor / supervisee) rollari bilan bog'lang.",
+    "title": "Employee Rekursiv Ierarxiyasi",
+    "story": "Korporativ Rahbariyat tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Xodim o'zidan quyi xodimlarga bevosita rahbarlik qilishi mumkin, har bir xodim esa bitta rahbarga hisobot beradi.\n\nTizimda yagona markaziy entitiy — **Employee** (empId {PK}, `fullName`, `jobPosition`, `salary`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **Manages** rekursiv munosabatiga ega bo'lib, nusxalar `supervisor` va `supervisee` rollarini bajaradi.",
+    "instruction": "'Employee' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'Manages' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1941,13 +2181,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 77,
     "sector": 6,
-    "difficulty": "6-Qavat • E-Commerce Mahsulotlar Daraxti",
-    "clientName": "Shirin Aliyeva",
-    "clientRole": "Katalog Menejeri",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Onlayn Savdo Mahsulot Kategoriyalari Daraxti",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. E-Commerce Mahsulotlar Daraxti sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **ProductCategory** (categoryId {PK}, `categoryName`, `displayOrder`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **ParentCategoryOf** doirasida bitta **ProductCategory** o'z hamkasbiga nisbatan `parentCat` rolini, ikkinchisi esa `subCat` rolini bajaradi. Multiplisitiya: **0..1** dan **0..*** gacha.",
-    "instruction": "'ProductCategory' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'ParentCategoryOf' aloqasini (parentCat / subCat) rollari bilan bog'lang.",
+    "title": "ProductCategory Rekursiv Ierarxiyasi",
+    "story": "Marketpleys Katalogi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Tovar kategoriyasi boshqa bosh kategoriyaning ichki bo'limi bo'lishi mumkin va daraxtsimon ierarxiyani hosil qiladi.\n\nTizimda yagona markaziy entitiy — **ProductCategory** (categoryId {PK}, `categoryName`, `displayOrder`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **SubCategoryOf** rekursiv munosabatiga ega bo'lib, nusxalar `parentCat` va `subCat` rollarini bajaradi.",
+    "instruction": "'ProductCategory' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'SubCategoryOf' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -1979,7 +2219,7 @@ _scope.EER_CLIENTS_51_100 = [
           "entity2": "ProductCategory",
           "mult1": "0..1",
           "mult2": "0..*",
-          "name": "ParentCategoryOf",
+          "name": "SubCategoryOf",
           "role1": "parentCat",
           "role2": "subCat"
         }
@@ -1989,13 +2229,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 78,
     "sector": 6,
-    "difficulty": "6-Qavat • Mashinasozlik Detallari",
-    "clientName": "Temur Salimov",
-    "clientRole": "Bosh Konstruktor",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Sanoat Detallari va Komponentlar Ierarxiyasi",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Mashinasozlik Detallari sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **PartComponent** (partNumber {PK}, `partName`, `unitCost`, `weightKg`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **AssembledFrom** doirasida bitta **PartComponent** o'z hamkasbiga nisbatan `parentAssembly` rolini, ikkinchisi esa `subComponent` rolini bajaradi. Multiplisitiya: **0..*** dan **0..*** gacha.",
-    "instruction": "'PartComponent' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'AssembledFrom' aloqasini (parentAssembly / subComponent) rollari bilan bog'lang.",
+    "title": "PartComponent Rekursiv Ierarxiyasi",
+    "story": "Dvigatel Butlovchi Qismlari tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Bitta yirik mexanik detal o'zidan kichikroq detallar yig'indisidan tashkil topadi.\n\nTizimda yagona markaziy entitiy — **PartComponent** (partNumber {PK}, `partName`, `unitCost`, `weightKg`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **AssembledFrom** rekursiv munosabatiga ega bo'lib, nusxalar `parentAssembly` va `subComponent` rollarini bajaradi.",
+    "instruction": "'PartComponent' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'AssembledFrom' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2029,7 +2269,7 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "PartComponent",
           "entity2": "PartComponent",
-          "mult1": "0..*",
+          "mult1": "0..1",
           "mult2": "0..*",
           "name": "AssembledFrom",
           "role1": "parentAssembly",
@@ -2041,13 +2281,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 79,
     "sector": 6,
-    "difficulty": "6-Qavat • Oliy Ta'lim Dasturlari",
-    "clientName": "Dr. Lola Rahimova",
-    "clientRole": "O'quv-Uslubiy Boshqarma",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Universitet Fanlari va Prerekvizit Talablari",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Oliy Ta'lim Dasturlari sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **AcademicCourse** (courseCode {PK}, `courseTitle`, `creditUnits`, `level`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **RequiresPrereq** doirasida bitta **AcademicCourse** o'z hamkasbiga nisbatan `advancedCourse` rolini, ikkinchisi esa `prerequisiteCourse` rolini bajaradi. Multiplisitiya: **0..*** dan **0..*** gacha.",
-    "instruction": "'AcademicCourse' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'RequiresPrereq' aloqasini (advancedCourse / prerequisiteCourse) rollari bilan bog'lang.",
+    "title": "AcademicCourse Rekursiv Ierarxiyasi",
+    "story": "Oliy Ta'lim Dasturi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Yuqori bosqichdagi fanni o'rganish uchun talabadan quyi bosqichdagi ma'lum fanni muvaffaqiyatli topshirgan bo'lish talab etiladi.\n\nTizimda yagona markaziy entitiy — **AcademicCourse** (courseCode {PK}, `courseTitle`, `creditUnits`, `level`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **RequiresPrereq** rekursiv munosabatiga ega bo'lib, nusxalar `advancedCourse` va `prerequisiteCourse` rollarini bajaradi.",
+    "instruction": "'AcademicCourse' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'RequiresPrereq' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2081,7 +2321,7 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "AcademicCourse",
           "entity2": "AcademicCourse",
-          "mult1": "0..*",
+          "mult1": "0..1",
           "mult2": "0..*",
           "name": "RequiresPrereq",
           "role1": "advancedCourse",
@@ -2093,13 +2333,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 80,
     "sector": 6,
-    "difficulty": "6-Qavat • Fuqarolik Holati Dalolatnomalari",
-    "clientName": "Zulfiya Olimova",
-    "clientRole": "FHDYo Mudiri",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Fuqaro va Qonuniy Nikoh Rishtasi",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Fuqarolik Holati Dalolatnomalari sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **Citizen** (pinfl {PK}, `fullName`, `gender`, `birthDate`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **MarriedTo** doirasida bitta **Citizen** o'z hamkasbiga nisbatan `spouseA` rolini, ikkinchisi esa `spouseB` rolini bajaradi. Multiplisitiya: **0..1** dan **0..1** gacha.",
-    "instruction": "'Citizen' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'MarriedTo' aloqasini (spouseA / spouseB) rollari bilan bog'lang.",
+    "title": "Citizen Rekursiv Ierarxiyasi",
+    "story": "FHDYo Qonuniy Nikohi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Qonunchilikka ko'ra bir fuqaro faqat bitta boshqa fuqaro bilan qonuniy nikohda turishi mumkin.\n\nTizimda yagona markaziy entitiy — **Citizen** (pinfl {PK}, `fullName`, `gender`, `birthDate`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **MarriedTo** rekursiv munosabatiga ega bo'lib, nusxalar `spouseA` va `spouseB` rollarini bajaradi.",
+    "instruction": "'Citizen' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'MarriedTo' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2134,7 +2374,7 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "Citizen",
           "entity2": "Citizen",
           "mult1": "0..1",
-          "mult2": "0..1",
+          "mult2": "0..*",
           "name": "MarriedTo",
           "role1": "spouseA",
           "role2": "spouseB"
@@ -2145,13 +2385,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 81,
     "sector": 6,
-    "difficulty": "6-Qavat • Aviakompaniya Reyslari",
-    "clientName": "Sanjar Vohidov",
-    "clientRole": "Tranzit Dispetcheri",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Tranzit Aviaparvoz Qatnovlari Zanjiri",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Aviakompaniya Reyslari sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **FlightLeg** (legId {PK}, `routeCode`, `depAirport`, `arrAirport`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **ConnectsTo** doirasida bitta **FlightLeg** o'z hamkasbiga nisbatan `inboundLeg` rolini, ikkinchisi esa `outboundConnectingLeg` rolini bajaradi. Multiplisitiya: **0..1** dan **0..1** gacha.",
-    "instruction": "'FlightLeg' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'ConnectsTo' aloqasini (inboundLeg / outboundConnectingLeg) rollari bilan bog'lang.",
+    "title": "FlightLeg Rekursiv Ierarxiyasi",
+    "story": "Tranzit Aviaqatnovlar tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Bitta oraliq parvoz reysi yo'lovchilarni keyingi davom etuvchi tutash reysga o'tkazishi mumkin.\n\nTizimda yagona markaziy entitiy — **FlightLeg** (legId {PK}, `routeCode`, `depAirport`, `arrAirport`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **ConnectsTo** rekursiv munosabatiga ega bo'lib, nusxalar `inboundLeg` va `outboundConnectingLeg` rollarini bajaradi.",
+    "instruction": "'FlightLeg' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'ConnectsTo' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2186,7 +2426,7 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "FlightLeg",
           "entity2": "FlightLeg",
           "mult1": "0..1",
-          "mult2": "0..1",
+          "mult2": "0..*",
           "name": "ConnectsTo",
           "role1": "inboundLeg",
           "role2": "outboundConnectingLeg"
@@ -2197,13 +2437,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 82,
     "sector": 6,
-    "difficulty": "6-Qavat • Dasturiy Paketlar Menejeri",
-    "clientName": "Akmal Saidov",
-    "clientRole": "DevOps Arxitektori",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Dasturiy Modullar Bog'liqlik Grafigi",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Dasturiy Paketlar Menejeri sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **SoftwarePackage** (packageId {PK}, `packageName`, `semanticVersion`, `licenseType`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **DependsOn** doirasida bitta **SoftwarePackage** o'z hamkasbiga nisbatan `dependentModule` rolini, ikkinchisi esa `requiredDependency` rolini bajaradi. Multiplisitiya: **0..*** dan **0..*** gacha.",
-    "instruction": "'SoftwarePackage' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'DependsOn' aloqasini (dependentModule / requiredDependency) rollari bilan bog'lang.",
+    "title": "SoftwarePackage Rekursiv Ierarxiyasi",
+    "story": "Dasturiy Paketlar Kutubxonasi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Dasturiy kutubxona o'z ishlashi uchun boshqa bir qancha kutubxonalarga tayanadi.\n\nTizimda yagona markaziy entitiy — **SoftwarePackage** (packageId {PK}, `packageName`, `semanticVersion`, `licenseType`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **DependsOn** rekursiv munosabatiga ega bo'lib, nusxalar `dependentModule` va `requiredDependency` rollarini bajaradi.",
+    "instruction": "'SoftwarePackage' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'DependsOn' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2237,7 +2477,7 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "SoftwarePackage",
           "entity2": "SoftwarePackage",
-          "mult1": "0..*",
+          "mult1": "0..1",
           "mult2": "0..*",
           "name": "DependsOn",
           "role1": "dependentModule",
@@ -2249,13 +2489,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 83,
     "sector": 6,
-    "difficulty": "6-Qavat • Xalqaro Shaxmat Federatsiyasi",
-    "clientName": "Grossmeyster Rustam Qodirov",
-    "clientRole": "Bosh Hakam",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Shaxmat Musobaqasi Ishtirokchilar Juftligi",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Xalqaro Shaxmat Federatsiyasi sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **ChessMaster** (fideId {PK}, `masterName`, `eloRating`, `federationCountry`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **PlaysMatch** doirasida bitta **ChessMaster** o'z hamkasbiga nisbatan `whitePlayer` rolini, ikkinchisi esa `blackPlayer` rolini bajaradi. Multiplisitiya: **0..*** dan **0..*** gacha.",
-    "instruction": "'ChessMaster' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'PlaysMatch' aloqasini (whitePlayer / blackPlayer) rollari bilan bog'lang.",
+    "title": "ChessMaster Rekursiv Ierarxiyasi",
+    "story": "Shaxmat Musobaqasi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Shaxmatchi musobaqa doirasida boshqa bir shaxmatchiga qarshi oq yoki qora donalarda dona suradi.\n\nTizimda yagona markaziy entitiy — **ChessMaster** (fideId {PK}, `masterName`, `eloRating`, `federationCountry`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **PlaysMatch** rekursiv munosabatiga ega bo'lib, nusxalar `whitePlayer` va `blackPlayer` rollarini bajaradi.",
+    "instruction": "'ChessMaster' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'PlaysMatch' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2289,7 +2529,7 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "ChessMaster",
           "entity2": "ChessMaster",
-          "mult1": "0..*",
+          "mult1": "0..1",
           "mult2": "0..*",
           "name": "PlaysMatch",
           "role1": "whitePlayer",
@@ -2301,13 +2541,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 84,
     "sector": 6,
-    "difficulty": "6-Qavat • Tarixiy Nasabnoma",
-    "clientName": "Bobur Mahmudov",
-    "clientRole": "Shajarashunos Olim",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Tarixiy Shaxslar Nasl-Nasab Shajarasi",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Tarixiy Nasabnoma sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **HistoricalFigure** (personId {PK}, `fullName`, `birthCentury`, `dynastyTitle`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **AncestorOf** doirasida bitta **HistoricalFigure** o'z hamkasbiga nisbatan `parentAncestor` rolini, ikkinchisi esa `childDescendant` rolini bajaradi. Multiplisitiya: **0..*** dan **0..2** gacha.",
-    "instruction": "'HistoricalFigure' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'AncestorOf' aloqasini (parentAncestor / childDescendant) rollari bilan bog'lang.",
+    "title": "HistoricalFigure Rekursiv Ierarxiyasi",
+    "story": "Tarixiy Shajara tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Tarixiy shaxs o'zidan keyingi avlod vakilining bevosita ajdodi bo'lib nasl zanjirini bog'laydi.\n\nTizimda yagona markaziy entitiy — **HistoricalFigure** (personId {PK}, `fullName`, `birthCentury`, `dynastyTitle`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **AncestorOf** rekursiv munosabatiga ega bo'lib, nusxalar `parentAncestor` va `childDescendant` rollarini bajaradi.",
+    "instruction": "'HistoricalFigure' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'AncestorOf' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2341,8 +2581,8 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "HistoricalFigure",
           "entity2": "HistoricalFigure",
-          "mult1": "0..*",
-          "mult2": "0..2",
+          "mult1": "0..1",
+          "mult2": "0..*",
           "name": "AncestorOf",
           "role1": "parentAncestor",
           "role2": "childDescendant"
@@ -2353,13 +2593,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 85,
     "sector": 6,
-    "difficulty": "6-Qavat • Oliy Sud Qonunchiligi",
-    "clientName": "Dilorom Yusupova",
-    "clientRole": "Sudya Konsultanti",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Sud Ishlari va Sud Pretsedenti Iqtiboslari",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Oliy Sud Qonunchiligi sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **LegalPrecedent** (caseNo {PK}, `verdictYear`, `jurisdictionCourt`, `lawArticle`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **CitesPrecedent** doirasida bitta **LegalPrecedent** o'z hamkasbiga nisbatan `currentRulingCase` rolini, ikkinchisi esa `citedPrecedentCase` rolini bajaradi. Multiplisitiya: **0..*** dan **0..*** gacha.",
-    "instruction": "'LegalPrecedent' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'CitesPrecedent' aloqasini (currentRulingCase / citedPrecedentCase) rollari bilan bog'lang.",
+    "title": "LegalPrecedent Rekursiv Ierarxiyasi",
+    "story": "Sud Pretsedenti tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Ko'rilayotgan sud ishi o'tmishda yakunlangan boshqa bir sud pretsedenti qaroriga tayanadi.\n\nTizimda yagona markaziy entitiy — **LegalPrecedent** (caseNo {PK}, `verdictYear`, `jurisdictionCourt`, `lawArticle`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **CitesPrecedent** rekursiv munosabatiga ega bo'lib, nusxalar `currentRulingCase` va `citedPrecedentCase` rollarini bajaradi.",
+    "instruction": "'LegalPrecedent' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'CitesPrecedent' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2393,7 +2633,7 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "LegalPrecedent",
           "entity2": "LegalPrecedent",
-          "mult1": "0..*",
+          "mult1": "0..1",
           "mult2": "0..*",
           "name": "CitesPrecedent",
           "role1": "currentRulingCase",
@@ -2405,13 +2645,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 86,
     "sector": 6,
-    "difficulty": "6-Qavat • Ijtimoiy Tarmoq",
-    "clientName": "Javlon Sharipov",
-    "clientRole": "Ijtimoiy Graf Muhandisi",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Foydalanuvchi va Kuzatuvchilar Tarmog'i",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Ijtimoiy Tarmoq sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **NetworkUser** (userHandle {PK}, `displayName`, `joinDate`, `isVerified`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **FollowsUser** doirasida bitta **NetworkUser** o'z hamkasbiga nisbatan `followerUser` rolini, ikkinchisi esa `followedUser` rolini bajaradi. Multiplisitiya: **0..*** dan **0..*** gacha.",
-    "instruction": "'NetworkUser' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'FollowsUser' aloqasini (followerUser / followedUser) rollari bilan bog'lang.",
+    "title": "NetworkUser Rekursiv Ierarxiyasi",
+    "story": "Ijtimoiy Tarmoq Tarmog'i tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Tarmoq foydalanuvchisi boshqa foydalanuvchining sahifasiga obuna bo'lib uning yangiliklarini kuzatadi.\n\nTizimda yagona markaziy entitiy — **NetworkUser** (userHandle {PK}, `displayName`, `joinDate`, `isVerified`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **FollowsUser** rekursiv munosabatiga ega bo'lib, nusxalar `followerUser` va `followedUser` rollarini bajaradi.",
+    "instruction": "'NetworkUser' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'FollowsUser' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2445,7 +2685,7 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "NetworkUser",
           "entity2": "NetworkUser",
-          "mult1": "0..*",
+          "mult1": "0..1",
           "mult2": "0..*",
           "name": "FollowsUser",
           "role1": "followerUser",
@@ -2457,13 +2697,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 87,
     "sector": 6,
-    "difficulty": "6-Qavat • Xalqaro Xoldinglar",
-    "clientName": "Mansur Toirov",
-    "clientRole": "Korporativ Huquqshunos",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Xalqaro Xolding va Sho''ba Korxonalari",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Xalqaro Xoldinglar sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **CorporateEnterprise** (holdingId {PK}, `corporateName`, `hqCountry`, `capitalUsd`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **SubsidiaryOf** doirasida bitta **CorporateEnterprise** o'z hamkasbiga nisbatan `parentHolding` rolini, ikkinchisi esa `daughterCompany` rolini bajaradi. Multiplisitiya: **0..1** dan **0..*** gacha.",
-    "instruction": "'CorporateEnterprise' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'SubsidiaryOf' aloqasini (parentHolding / daughterCompany) rollari bilan bog'lang.",
+    "title": "CorporateEnterprise Rekursiv Ierarxiyasi",
+    "story": "Xalqaro Xoldinglar tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Kompaniya boshqa bir yirikroq korporativ xoldingning sho''ba korxonasi sifatida unga bo'ysunadi.\n\nTizimda yagona markaziy entitiy — **CorporateEnterprise** (holdingId {PK}, `corporateName`, `hqCountry`, `capitalUsd`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **SubsidiaryOf** rekursiv munosabatiga ega bo'lib, nusxalar `parentHolding` va `daughterCompany` rollarini bajaradi.",
+    "instruction": "'CorporateEnterprise' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'SubsidiaryOf' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2509,13 +2749,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 88,
     "sector": 6,
-    "difficulty": "6-Qavat • Metropoliten Magistrali",
-    "clientName": "Otabek Rustamov",
-    "clientRole": "Metro Boshqaruvchisi",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Metro Bekatlari Ketma-ketlik Zanjiri",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Metropoliten Magistrali sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **MetroStation** (stationCode {PK}, `stationName`, `lineColor`, `zoneNo`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **AdjacentTo** doirasida bitta **MetroStation** o'z hamkasbiga nisbatan `precedingStop` rolini, ikkinchisi esa `succeedingStop` rolini bajaradi. Multiplisitiya: **0..1** dan **0..1** gacha.",
-    "instruction": "'MetroStation' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'AdjacentTo' aloqasini (precedingStop / succeedingStop) rollari bilan bog'lang.",
+    "title": "MetroStation Rekursiv Ierarxiyasi",
+    "story": "Metropoliten Liniyasi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Metro bekati temir yo'l yo'nalishi bo'ylab keyingi qo'shni bekat bilan bevosita tutashgan.\n\nTizimda yagona markaziy entitiy — **MetroStation** (stationCode {PK}, `stationName`, `lineColor`, `zoneNo`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **AdjacentTo** rekursiv munosabatiga ega bo'lib, nusxalar `precedingStop` va `succeedingStop` rollarini bajaradi.",
+    "instruction": "'MetroStation' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'AdjacentTo' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2550,7 +2790,7 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "MetroStation",
           "entity2": "MetroStation",
           "mult1": "0..1",
-          "mult2": "0..1",
+          "mult2": "0..*",
           "name": "AdjacentTo",
           "role1": "precedingStop",
           "role2": "succeedingStop"
@@ -2561,13 +2801,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 89,
     "sector": 6,
-    "difficulty": "6-Qavat • Virusologiya & Epidemiologiya",
-    "clientName": "Dr. Farrux Fayziyev",
-    "clientRole": "Bosh Genetik",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Virus Shtammlari Mutatsiya Ierarxiyasi",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Virusologiya & Epidemiologiya sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **PathogenStrain** (strainId {PK}, `genomeSeqHash`, `isolationDate`, `virulenceRate`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **MutatedFrom** doirasida bitta **PathogenStrain** o'z hamkasbiga nisbatan `ancestralStrain` rolini, ikkinchisi esa `mutantLineage` rolini bajaradi. Multiplisitiya: **0..1** dan **0..*** gacha.",
-    "instruction": "'PathogenStrain' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'MutatedFrom' aloqasini (ancestralStrain / mutantLineage) rollari bilan bog'lang.",
+    "title": "PathogenStrain Rekursiv Ierarxiyasi",
+    "story": "Virusologik Mutatsiya tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Yangi ajratilgan virus shtammi o'zidan oldingi ajdod virus shtammining mutatsiyasidan vujudga keladi.\n\nTizimda yagona markaziy entitiy — **PathogenStrain** (strainId {PK}, `genomeSeqHash`, `isolationDate`, `virulenceRate`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **MutatedFrom** rekursiv munosabatiga ega bo'lib, nusxalar `ancestralStrain` va `mutantLineage` rollarini bajaradi.",
+    "instruction": "'PathogenStrain' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'MutatedFrom' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2613,13 +2853,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 90,
     "sector": 6,
-    "difficulty": "6-Qavat • Qidiruv Tizimi Web Grafigi",
-    "clientName": "Sardor Mirzayev",
-    "clientRole": "Qidiruv Algoritmlari Arxitektori",
+    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
+    "clientName": "Bosh Tahlilchi",
+    "clientRole": "Yetakchi Me'mor",
     "clientAvatar": "mentor",
-    "title": "Internet Veb Sahifalari va Giperhavolalar",
-    "story": "Tashkilot ichki tuzilmasida bir xil turdagi ob'yektlarning o'zaro rekursiv ierarxiyasini modellashtirish talab etiladi. Qidiruv Tizimi Web Grafigi sohasida daraxtsimon tuzilmalar keng uchraydi.\n\nTizimda yagona markaziy entitiy — **WebDocument** (pageUrl {PK}, `pageTitle`, `pageRankScore`, `lastCrawled`) mavjud. Har bir nusxa ushbu entitiyning to'laqonli a'zosi hisoblanadi.\n\nRekursiv munosabat **HyperlinksTo** doirasida bitta **WebDocument** o'z hamkasbiga nisbatan `referringPage` rolini, ikkinchisi esa `targetLinkedPage` rolini bajaradi. Multiplisitiya: **0..*** dan **0..*** gacha.",
-    "instruction": "'WebDocument' entitiysini polotnoga qo'ying va uning o'zidan-o'ziga rekursiv 'HyperlinksTo' aloqasini (referringPage / targetLinkedPage) rollari bilan bog'lang.",
+    "title": "WebDocument Rekursiv Ierarxiyasi",
+    "story": "Internet Veb Sahifalari tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Internet veb sahifasida boshqa bir veb sahifaga o'tuvchi gipermatnli havola joylashtiriladi.\n\nTizimda yagona markaziy entitiy — **WebDocument** (pageUrl {PK}, `pageTitle`, `pageRankScore`, `lastCrawled`) mavjud.\n\nUshbu entitiy o'z-o'ziga bog'lanuvchi **HyperlinksTo** rekursiv munosabatiga ega bo'lib, nusxalar `referringPage` va `targetLinkedPage` rollarini bajaradi.",
+    "instruction": "'WebDocument' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'HyperlinksTo' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2653,7 +2893,7 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "WebDocument",
           "entity2": "WebDocument",
-          "mult1": "0..*",
+          "mult1": "0..1",
           "mult2": "0..*",
           "name": "HyperlinksTo",
           "role1": "referringPage",
@@ -2665,13 +2905,13 @@ _scope.EER_CLIENTS_51_100 = [
   {
     "id": 91,
     "sector": 7,
-    "difficulty": "7-Qavat • Aviatsiya Muhandisligi",
-    "clientName": "Davron Salimov",
-    "clientRole": "Aviapark Boshqaruvchisi",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Temur Karimov",
+    "clientRole": "Aviapark Texnik Direktori",
     "clientAvatar": "mentor",
-    "title": "Havo Kemalarini Disjoint Ixtisoslashtirish",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Aviatsiya Muhandisligi standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **Aircraft** (tailNo {PK}, `model`, `manufacturer`, `capacity`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **PassengerPlane** (`seatCount`, `entertainmentSystem`) va **CargoPlane** (`maxPayloadTons`, `cargoDoorType`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'Aircraft' superklassidan 'PassengerPlane' va 'CargoPlane' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "Aircraft Disjoint Ixtisoslashuvi",
+    "story": "Fuqaro Aviatsiyasi sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **Aircraft** (tailNo {PK}, `model`, `manufacturer`, `capacity`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'Aircraft' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2701,51 +2941,33 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Aircraft",
         "subs": [
           {
-            "name": "PassengerPlane",
-            "attributes": [
-              {
-                "name": "seatCount",
-                "isPK": false
-              },
-              {
-                "name": "entertainmentSystem",
-                "isPK": false
-              }
-            ]
+            "name": "AircraftTypeA",
+            "attributes": []
           },
           {
-            "name": "CargoPlane",
-            "attributes": [
-              {
-                "name": "maxPayloadTons",
-                "isPK": false
-              },
-              {
-                "name": "cargoDoorType",
-                "isPK": false
-              }
-            ]
+            "name": "AircraftTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 92,
     "sector": 7,
-    "difficulty": "7-Qavat • Klinik Gospital",
-    "clientName": "Dr. Malika Ahmedova",
-    "clientRole": "Gospital Bosh Shifokori",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Dr. Aziza Rahimova",
+    "clientRole": "Bosh Shifokor Muovini",
     "clientAvatar": "mentor",
-    "title": "Gospital Bemorlari: InPatient va OutPatient",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Klinik Gospital standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **Patient** (patientId {PK}, `fullName`, `dob`, `bloodType`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **InPatient** (`bedNumber`, `admissionDate`) va **OutPatient** (`clinicVisitDate`, `doctorNotes`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'Patient' superklassidan 'InPatient' va 'OutPatient' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "Patient Disjoint Ixtisoslashuvi",
+    "story": "Tibbiyot & Kardiologiya sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **Patient** (patientId {PK}, `fullName`, `dob`, `bloodType`, `phone`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'Patient' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2771,55 +2993,41 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "bloodType",
               "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Patient",
         "subs": [
           {
-            "name": "InPatient",
-            "attributes": [
-              {
-                "name": "bedNumber",
-                "isPK": false
-              },
-              {
-                "name": "admissionDate",
-                "isPK": false
-              }
-            ]
+            "name": "PatientTypeA",
+            "attributes": []
           },
           {
-            "name": "OutPatient",
-            "attributes": [
-              {
-                "name": "clinicVisitDate",
-                "isPK": false
-              },
-              {
-                "name": "doctorNotes",
-                "isPK": false
-              }
-            ]
+            "name": "PatientTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 93,
     "sector": 7,
-    "difficulty": "7-Qavat • Universitet Talabalari",
-    "clientName": "Jahongir Vohidov",
-    "clientRole": "Registrator Boshlig'i",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Bobur Mansurov",
+    "clientRole": "Bosh Registrator",
     "clientAvatar": "mentor",
-    "title": "Talabalar: Undergraduate va Postgraduate",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Universitet Talabalari standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **Student** (studentId {PK}, `firstName`, `lastName`, `email`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **Undergraduate** (`highSchoolDiploma`, `creditsCompleted`) va **Postgraduate** (`bachelorDegreeNo`, `thesisTopic`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'Student' superklassidan 'Undergraduate' va 'Postgraduate' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "Student Disjoint Ixtisoslashuvi",
+    "story": "Oliy Ta'lim sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **Student** (studentId {PK}, `firstName`, `lastName`, `email`, `gpa`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'Student' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2845,55 +3053,41 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "email",
               "isPK": false
+            },
+            {
+              "name": "gpa",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Student",
         "subs": [
           {
-            "name": "Undergraduate",
-            "attributes": [
-              {
-                "name": "highSchoolDiploma",
-                "isPK": false
-              },
-              {
-                "name": "creditsCompleted",
-                "isPK": false
-              }
-            ]
+            "name": "StudentTypeA",
+            "attributes": []
           },
           {
-            "name": "Postgraduate",
-            "attributes": [
-              {
-                "name": "bachelorDegreeNo",
-                "isPK": false
-              },
-              {
-                "name": "thesisTopic",
-                "isPK": false
-              }
-            ]
+            "name": "StudentTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 94,
     "sector": 7,
-    "difficulty": "7-Qavat • Kutubxona Katalogi",
-    "clientName": "Sevara Karimova",
-    "clientRole": "Elektron Resurslar Mudiri",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Gulnora Karimova",
+    "clientRole": "Bosh Bibliograf",
     "clientAvatar": "mentor",
-    "title": "Kitoblar: EBook va PrintBook Ixtisoslashuvi",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Kutubxona Katalogi standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **Book** (isbn {PK}, `title`, `author`, `publishYear`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **EBook** (`fileFormat`, `fileSizeBytes`) va **PrintBook** (`shelfLocation`, `coverType`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'Book' superklassidan 'EBook' va 'PrintBook' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "Book Disjoint Ixtisoslashuvi",
+    "story": "Kutubxona & Fond sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **Book** (isbn {PK}, `title`, `author`, `publishYear`, `genre`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'Book' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2919,55 +3113,41 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "publishYear",
               "isPK": false
+            },
+            {
+              "name": "genre",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Book",
         "subs": [
           {
-            "name": "EBook",
-            "attributes": [
-              {
-                "name": "fileFormat",
-                "isPK": false
-              },
-              {
-                "name": "fileSizeBytes",
-                "isPK": false
-              }
-            ]
+            "name": "BookTypeA",
+            "attributes": []
           },
           {
-            "name": "PrintBook",
-            "attributes": [
-              {
-                "name": "shelfLocation",
-                "isPK": false
-              },
-              {
-                "name": "coverType",
-                "isPK": false
-              }
-            ]
+            "name": "BookTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 95,
     "sector": 7,
-    "difficulty": "7-Qavat • Avtotransport Logistikasi",
-    "clientName": "Ulug'bek Rustamov",
-    "clientRole": "Avtopark Dispetcheri",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Rustam Aliyev",
+    "clientRole": "Savdo Direktori",
     "clientAvatar": "mentor",
-    "title": "Avtomobillar: ElectricVehicle va CombustionCar",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Avtotransport Logistikasi standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **Vehicle** (vin {PK}, `make`, `model`, `price`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **ElectricVehicle** (`batteryKwh`, `chargingTimeHrs`) va **CombustionCar** (`fuelTankLiters`, `emissionClass`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'Vehicle' superklassidan 'ElectricVehicle' va 'CombustionCar' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "Vehicle Disjoint Ixtisoslashuvi",
+    "story": "Avtosalon & Dilerlik sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **Vehicle** (vin {PK}, `make`, `model`, `prodYear`, `price`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'Vehicle' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -2991,57 +3171,43 @@ _scope.EER_CLIENTS_51_100 = [
               "isPK": false
             },
             {
+              "name": "prodYear",
+              "isPK": false
+            },
+            {
               "name": "price",
               "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Vehicle",
         "subs": [
           {
-            "name": "ElectricVehicle",
-            "attributes": [
-              {
-                "name": "batteryKwh",
-                "isPK": false
-              },
-              {
-                "name": "chargingTimeHrs",
-                "isPK": false
-              }
-            ]
+            "name": "VehicleTypeA",
+            "attributes": []
           },
           {
-            "name": "CombustionCar",
-            "attributes": [
-              {
-                "name": "fuelTankLiters",
-                "isPK": false
-              },
-              {
-                "name": "emissionClass",
-                "isPK": false
-              }
-            ]
+            "name": "VehicleTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 96,
     "sector": 7,
-    "difficulty": "7-Qavat • Bank Hisoblari",
-    "clientName": "Nodir Salimov",
-    "clientRole": "Depozit Bo'limi Boshlig'i",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Jamshid Qodirov",
+    "clientRole": "Bosh Buxgalter",
     "clientAvatar": "mentor",
-    "title": "Bank Hisoblari: SavingsAccount va CheckingAccount",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Bank Hisoblari standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **BankAccount** (accountNo {PK}, `balance`, `currency`, `openDate`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **SavingsAccount** (`interestRatePercent`, `minBalance`) va **CheckingAccount** (`overdraftLimit`, `checkbookNo`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'BankAccount' superklassidan 'SavingsAccount' va 'CheckingAccount' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "BankAccount Disjoint Ixtisoslashuvi",
+    "story": "Bank & Depozitlar sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **BankAccount** (accountNo {PK}, `balance`, `currency`, `openDate`, `branchCode`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'BankAccount' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3067,55 +3233,41 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "openDate",
               "isPK": false
+            },
+            {
+              "name": "branchCode",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "BankAccount",
         "subs": [
           {
-            "name": "SavingsAccount",
-            "attributes": [
-              {
-                "name": "interestRatePercent",
-                "isPK": false
-              },
-              {
-                "name": "minBalance",
-                "isPK": false
-              }
-            ]
+            "name": "BankAccountTypeA",
+            "attributes": []
           },
           {
-            "name": "CheckingAccount",
-            "attributes": [
-              {
-                "name": "overdraftLimit",
-                "isPK": false
-              },
-              {
-                "name": "checkbookNo",
-                "isPK": false
-              }
-            ]
+            "name": "BankAccountTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 97,
     "sector": 7,
-    "difficulty": "7-Qavat • Mehmonxona Joylashtirish",
-    "clientName": "Munira Yusupova",
-    "clientRole": "Bron Qilish Menejeri",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Malika Yusupova",
+    "clientRole": "Boshqaruvchi",
     "clientAvatar": "mentor",
-    "title": "Xonalar: StandardRoom va PresidentialSuite",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Mehmonxona Joylashtirish standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **HotelRoom** (roomNo {PK}, `roomType`, `pricePerNight`, `floorNo`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **StandardRoom** (`singleBedCount`, `hasBalcony`) va **PresidentialSuite** (`livingRoomCount`, `hasJacuzzi`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'HotelRoom' superklassidan 'StandardRoom' va 'PresidentialSuite' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "HotelRoom Disjoint Ixtisoslashuvi",
+    "story": "Mehmonxona & Turizm sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **HotelRoom** (roomNo {PK}, `roomType`, `pricePerNight`, `floorNo`, `capacity`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'HotelRoom' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3141,55 +3293,41 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "floorNo",
               "isPK": false
+            },
+            {
+              "name": "capacity",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "HotelRoom",
         "subs": [
           {
-            "name": "StandardRoom",
-            "attributes": [
-              {
-                "name": "singleBedCount",
-                "isPK": false
-              },
-              {
-                "name": "hasBalcony",
-                "isPK": false
-              }
-            ]
+            "name": "HotelRoomTypeA",
+            "attributes": []
           },
           {
-            "name": "PresidentialSuite",
-            "attributes": [
-              {
-                "name": "livingRoomCount",
-                "isPK": false
-              },
-              {
-                "name": "hasJacuzzi",
-                "isPK": false
-              }
-            ]
+            "name": "HotelRoomTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 98,
     "sector": 7,
-    "difficulty": "7-Qavat • Restoran Taomnomasi",
-    "clientName": "Sanjar Qodirov",
-    "clientRole": "Restoran Shef Oshpazi",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Otabek Sodiqov",
+    "clientRole": "Bosh Oshpaz",
     "clientAvatar": "mentor",
-    "title": "Taomnoma: VegetarianDish va MeatDish",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Restoran Taomnomasi standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **MenuItem** (itemId {PK}, `name`, `category`, `price`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **VegetarianDish** (`organicCertified`, `dairyFree`) va **MeatDish** (`meatType`, `cookTimeMin`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'MenuItem' superklassidan 'VegetarianDish' va 'MeatDish' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "MenuItem Disjoint Ixtisoslashuvi",
+    "story": "Restoran & Taomnoma sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **MenuItem** (itemId {PK}, `name`, `category`, `price`, `calories`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'MenuItem' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3215,55 +3353,41 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "price",
               "isPK": false
+            },
+            {
+              "name": "calories",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "MenuItem",
         "subs": [
           {
-            "name": "VegetarianDish",
-            "attributes": [
-              {
-                "name": "organicCertified",
-                "isPK": false
-              },
-              {
-                "name": "dairyFree",
-                "isPK": false
-              }
-            ]
+            "name": "MenuItemTypeA",
+            "attributes": []
           },
           {
-            "name": "MeatDish",
-            "attributes": [
-              {
-                "name": "meatType",
-                "isPK": false
-              },
-              {
-                "name": "cookTimeMin",
-                "isPK": false
-              }
-            ]
+            "name": "MenuItemTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 99,
     "sector": 7,
-    "difficulty": "7-Qavat • Dasturchilar Jamoasi",
-    "clientName": "Akmal Saidov",
-    "clientRole": "Texnik Lider",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Farhod Ergashev",
+    "clientRole": "Texnik Direktor (CTO)",
     "clientAvatar": "mentor",
-    "title": "Muhandislar: FrontendDev va BackendDev",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Dasturchilar Jamoasi standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **Developer** (devId {PK}, `fullName`, `techStack`, `salary`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **FrontendDev** (`uiFramework`, `designSkillLevel`) va **BackendDev** (`dbEngine`, `cloudCertified`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'Developer' superklassidan 'FrontendDev' va 'BackendDev' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "Developer Disjoint Ixtisoslashuvi",
+    "story": "IT & Dasturiy Ta'minot sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **Developer** (devId {PK}, `fullName`, `role`, `techStack`, `salary`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'Developer' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3283,6 +3407,10 @@ _scope.EER_CLIENTS_51_100 = [
               "isPK": false
             },
             {
+              "name": "role",
+              "isPK": false
+            },
+            {
               "name": "techStack",
               "isPK": false
             },
@@ -3293,51 +3421,33 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Developer",
         "subs": [
           {
-            "name": "FrontendDev",
-            "attributes": [
-              {
-                "name": "uiFramework",
-                "isPK": false
-              },
-              {
-                "name": "designSkillLevel",
-                "isPK": false
-              }
-            ]
+            "name": "DeveloperTypeA",
+            "attributes": []
           },
           {
-            "name": "BackendDev",
-            "attributes": [
-              {
-                "name": "dbEngine",
-                "isPK": false
-              },
-              {
-                "name": "cloudCertified",
-                "isPK": false
-              }
-            ]
+            "name": "DeveloperTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   },
   {
     "id": 100,
     "sector": 7,
-    "difficulty": "7-Qavat • Marketpleys Tovarlari",
-    "clientName": "Shahlo Rahimova",
-    "clientRole": "Elektron Savdo Menejeri",
+    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
+    "clientName": "Shahnoza Karimova",
+    "clientRole": "Katalog Menejeri",
     "clientAvatar": "mentor",
-    "title": "Mahsulotlar: DigitalProduct va PhysicalProduct",
-    "story": "Kompaniya xizmat turlarini mutlaqo alohida, kesishmaydigan ixtisoslashuvlarga ajratishni rejalashtirmoqda. Marketpleys Tovarlari standartlariga ko'ra, umumiy ob'yekt xususiyatlari va tor ixtisoslashgan parametrlar farqlanishi shart.\n\nUmumiy superklass sifatida **Product** (sku {PK}, `title`, `price`, `stockQty`) xizmat qiladi.\n\nUshbu superklassdan ikkita disjoint subklass ajratiladi: **DigitalProduct** (`downloadUrl`, `licenseKeyCount`) va **PhysicalProduct** (`dimensionsCm`, `shippingFee`). Har bir nusxa majburiy ravishda yo birinchisi, yo ikkinchisi bo'ladi: **{Mandatory, Or}**.",
-    "instruction": "'Product' superklassidan 'DigitalProduct' va 'PhysicalProduct' subklasslarini {Mandatory, Or} cheklovi bilan ISA uchburchagi orqali ulang.",
+    "title": "Product Disjoint Ixtisoslashuvi",
+    "story": "E-Commerce sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **Product** (sku {PK}, `title`, `price`, `stockQty`, `weightKg`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "instruction": "'Product' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [],
       "relationships": []
@@ -3363,43 +3473,29 @@ _scope.EER_CLIENTS_51_100 = [
             {
               "name": "stockQty",
               "isPK": false
+            },
+            {
+              "name": "weightKg",
+              "isPK": false
             }
           ]
         }
       ],
+      "relationships": [],
       "subclasses": {
         "superclass": "Product",
         "subs": [
           {
-            "name": "DigitalProduct",
-            "attributes": [
-              {
-                "name": "downloadUrl",
-                "isPK": false
-              },
-              {
-                "name": "licenseKeyCount",
-                "isPK": false
-              }
-            ]
+            "name": "ProductTypeA",
+            "attributes": []
           },
           {
-            "name": "PhysicalProduct",
-            "attributes": [
-              {
-                "name": "dimensionsCm",
-                "isPK": false
-              },
-              {
-                "name": "shippingFee",
-                "isPK": false
-              }
-            ]
+            "name": "ProductTypeB",
+            "attributes": []
           }
         ],
         "constraint": "{Mandatory, Or}"
-      },
-      "relationships": []
+      }
     }
   }
 ];

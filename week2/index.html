@@ -417,15 +417,15 @@
             <div style="font-weight:600; color:var(--accent-gold); margin-bottom:4px; display:flex; align-items:center; gap:6px;">
               <span>📐 EER Kengaytirish Qo'llanmasi</span>
             </div>
-            <div>• <strong>Dastlabki Model:</strong> 1-haftada yaratilgan ER diagramma polotnoda tayyor holda yuklanadi.</div>
-            <div>• <strong>Subklass Qo'shish:</strong> Chap paneldagi <strong>[ISA Uchburchagi]</strong> yoki tepadagi <strong>[➕ Entitiy]</strong> orqali subklasslarni joylang.</div>
-            <div>• <strong>Cheklovlar:</strong> Disjoint <strong>{Mandatory, Or}</strong> yoki Overlapping <strong>{Optional, And}</strong> cheklovlarini to'g'ri tanlang.</div>
-            <div>• <strong>Tekshirish:</strong> Barcha entitiy va bog'lanishlar tayyor bo'lgach, <strong>[✅ EER Modelni Tekshirish]</strong> tugmasini bosing!</div>
+            <div>• <strong>Dastlabki Model:</strong> 1-haftada yaratilgan model polotnoda avtomatik yuklanadi (siz yaratgan diagramma to'g'ridan-to'g'ri davom ettiriladi).</div>
+            <div>• <strong>Relyatsion Bog'lanish:</strong> Multiplicity o'rniga bolalar jadvaliga Tashqi Kalit <strong>[FK]</strong> ustunini qo'shing yoki oraliq jadval yarating.</div>
+            <div>• <strong>Kalitlar:</strong> Atribut yonidagi tugmani bosib <strong>[PK]</strong>, <strong>[FK]</strong> yoki <strong>[PK, FK]</strong> holatlarini belgilang.</div>
+            <div>• <strong>Tekshirish:</strong> Sxema tayyor bo'lgach, <strong>[✅ Sxemani Tekshirish & Tasdiqlash]</strong> tugmasini bosing!</div>
           </div>
 
           <div class="action-bar">
             <div class="action-left">
-              <button id="btnVerifySchema" class="btn btn-primary">✅ EER Modelni Tekshirish</button>
+              <button id="btnVerifySchema" class="btn btn-primary">✅ Sxemani Tekshirish & Tasdiqlash</button>
               <button id="btnToggleHint" class="btn">💡 Maslahat Olish</button>
             </div>
           </div>
