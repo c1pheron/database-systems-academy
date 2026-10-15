@@ -2,53 +2,60 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WIUT OS Week 5 — CPU Scheduling, Paging, Cron & Docker Containers (5COSC041C)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Operating Systems • 5-Modul (Virtual Xotira & Paging) | SeventyPlus Academy</title>
+  
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Xterm.js for Instant Kali Linux Terminal -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
+
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.css" />
 </head>
 <body>
 
   <!-- =========================================================================
-       TOP EXECUTIVE HUD
+       TOP EXECUTIVE HUD (DATABASE SYSTEMS FAMILY ARCHITECTURE)
        ========================================================================= -->
   <header class="top-hud">
-    <div style="display:flex; align-items:center; gap:8px;">
-      <a href="../index.html" class="btn btn-back" id="btnBackHub" title="OS Boshqaruv Xabiga Qaytish">Ortga</a>
-      <button id="btnOpenDictionary" class="btn btn-dictionary" title="Barcha Linux buyruqlari qidiruvi (Ctrl+K)"><span>🔍</span> <span>Qidiruv</span></button>
-    </div>
     <div class="brand-box">
-      <div class="brand-emblem">🐳</div>
+      <a href="../index.html" class="btn btn-back" id="btnBackHub" title="Asosiy Xabga Qaytish">← Asosiy Xab</a>
+      <div class="brand-emblem">🐧</div>
       <div>
         <div class="brand-title">
-          WIUT OS • Week 5 <span class="badge-os">5COSC041C</span>
+          <span>Operating Systems • 5-Modul</span>
+          <span class="badge-module">Virtual Xotira & Paging</span>
         </div>
-        <div class="brand-sub">CPU Scheduling, Paging, Cron Automation & Docker Containers Simulator</div>
+        <div class="brand-sub">Sahifalash, Page Faults, FIFO, LRU, Thrashing va Working Set Model (150 Bosqich)</div>
       </div>
     </div>
 
     <div class="hud-stats">
-      <div class="stat-pill" title="Joriy karyera darajangiz">
+      <div class="stat-pill" title="Sizning joriy kasbiy unvoningiz">
         <span class="stat-label">Lavozim:</span>
-        <span id="hudRankTitle" class="stat-val cyan">Junior Container Trainee</span>
+        <span id="hudRankTitle" class="stat-val cyan">Junior Memory Analyst</span>
       </div>
 
-      <div class="stat-pill" title="Oylik belgilangan maoshingiz">
-        <span class="stat-label">Oylik:</span>
-        <span id="hudSalary" class="stat-val emerald">$2,200/oy</span>
+      <div class="stat-pill" title="Kompaniya sizga to'laydigan oylik maosh">
+        <span class="stat-label">Maosh:</span>
+        <span id="hudSalary" class="stat-val emerald">$2,400/oy</span>
       </div>
 
-      <div class="stat-pill" title="Muvaffaqiyatli topshiriqlar uchun bonus kapital">
+      <div class="stat-pill" title="To'plangan umumiy tizim kapitali">
         <span class="stat-label">Kapital:</span>
         <span id="hudCapital" class="stat-val gold">$0</span>
       </div>
 
-      <div class="stat-pill" title="Yechilgan topshiriqlar soni (jami 150 ta)">
+      <div class="stat-pill" title="Bajarilgan topshiriqlar soni (150 tadan)">
         <span class="stat-label">Bajarildi:</span>
-        <span id="hudSolved" class="stat-val violet">0 / 150</span>
+        <span id="hudSolved" class="stat-val cyan">0 / 150</span>
         <div class="progress-wrap">
           <div id="hudProgressFill" class="progress-fill"></div>
         </div>
@@ -56,60 +63,61 @@
     </div>
 
     <div class="hud-actions">
-      <button id="btnTriggerEvent" class="btn btn-event" title="Kutilmagan server falokatini simulyatsiya qilish">⚡ Voqea (Incident)</button>
-      <button id="btnOpenMap" class="btn" title="Barcha 150 ta savol xaritasini ko'rish">🗺️ Savollar Xaritasi</button>
-      <button id="btnResetProgress" class="btn" title="Natijalarni tozalash (Reset)">🔄</button>
-      <button id="btnToggleSound" class="btn btn-sound" title="Ovoz yoqish/o'chirish">🔊</button>
+      <button id="btnOpenDictionary" class="btn btn-dictionary" title="Barcha Linux buyruqlari qidiruvi (Ctrl+K)"><span>📖</span> <span>Lug'at</span></button>
+      <button id="btnTriggerEvent" class="btn btn-event" title="Server favqulodda hodisasi">🚨 Insident</button>
+      <button id="btnOpenMap" class="btn" title="150 ta savollar xaritasi">🗺️ Xarita</button>
+      <button id="btnResetProgress" class="btn" title="Natijalarni qayta o'rnatish">🔄</button>
+      <button id="btnToggleSound" class="btn" title="Ovozni yoqish / o'chirish">🔊</button>
     </div>
   </header>
 
   <!-- =========================================================================
-       10 SECTOR NAVIGATION BAR
+       10 SECTORS NAVIGATION BAR
        ========================================================================= -->
   <nav class="sector-bar" id="sectorNavList">
-    <!-- Populated dynamically by game.js -->
+    <!-- Injected dynamically by game.js -->
   </nav>
 
   <!-- =========================================================================
-       MAIN 2-COLUMN WORKSPACE (BOUNDED CONTAINER WITH SYMMETRICAL GUTTERS)
+       MAIN 2-COLUMN WORKSPACE (DATABASE SYSTEMS FAMILY ARCHITECTURE)
        ========================================================================= -->
   <main class="main-grid">
 
-    <!-- LEFT COLUMN: 2D NOC & Container Arena + Inspector Tabs -->
+    <!-- LEFT COLUMN: 2D NOC SERVER HALL & TERMINAL WORKBENCH -->
     <section class="left-col">
 
-      <!-- 1. 2D NOC Canvas & Ticker -->
+      <!-- 1. 2D NOC Server Hall Animation Card -->
       <div class="panel-card">
         <div class="panel-header">
           <div class="panel-title">
-            <span>🖥️ Datacenter NOC, CPU Schedulers & Docker Pods</span>
+            <span>🖥️</span>
+            <span id="floorHeaderTitle">Sektor 1: Kirish va Navigatsiya (Debian 12 NOC Hall)</span>
           </div>
-          <button id="btnQuickEvent" class="btn" style="font-size:11px; padding:3px 8px;" title="Professor Turingdan tezkor izoh">💬 Maslahat</button>
+          <div style="font-size: 11.5px; color: var(--text-muted);">
+            Server yoki hamkasb ustiga bosing yoki <b>WASD</b> orqali yuring
+          </div>
         </div>
+
         <div class="canvas-wrap">
-          <canvas id="gameCanvas" width="860" height="380"></canvas>
+          <canvas id="gameCanvas" width="860" height="340"></canvas>
         </div>
+
         <div class="office-ticker">
-          <div class="ticker-text">
-            <span class="ticker-badge" id="tickerSpeaker">PROFESSOR TURING</span>
-            <span id="tickerMessage">Tizimga xush kelibsiz! CPU scheduling, Paging va Docker konteynerlarini boshlaymiz.</span>
-          </div>
+          <span class="ticker-badge" id="tickerSpeaker">PROFESSOR TURING</span>
+          <span id="tickerMessage">Assalomu alaykum! Tizimga xush kelibsiz. Terminalga buyruq kiriting va Linux arxitekturasini egallang.</span>
         </div>
       </div>
 
-      <!-- 2. System & Container Inspector Tabs -->
-      <!-- 2. KALI LINUX TERMINAL & WORKBENCH -->
-      
-      <!-- 2-MODE SEGMENTED BAR: MASALA YECHISH VS ERKIN CLI -->
+      <!-- 2 Modes Switcher: Topshiriqlar vs Erkin Sandbox CLI -->
       <div class="cli-mode-segmented-bar">
-        <button type="button" class="cli-mode-pill active" id="btnModeQuest" title="Topshiriqlar rejimi: 150 ta savolni ketma-ket yechish">
+        <button type="button" class="cli-mode-pill active" id="btnModeQuest">
           <span class="mode-icon">🎯</span>
           <span class="mode-text">
             <span class="mode-title">Masala Yechish Rejimi</span>
             <span class="mode-sub">150 ta vazifani ketma-ket yechish</span>
           </span>
         </button>
-        <button type="button" class="cli-mode-pill" id="btnModeSandbox" title="Erkin CLI rejimi: Istalgan Linux buyrug'ini sinash">
+        <button type="button" class="cli-mode-pill" id="btnModeSandbox">
           <span class="mode-icon">💻</span>
           <span class="mode-text">
             <span class="mode-title">Erkin CLI Rejimi</span>
@@ -117,110 +125,69 @@
           </span>
         </button>
       </div>
-    
-      <div class="panel-card terminal-card" id="terminalWorkbenchCard">
-        <!-- Floating high-contrast exit button for mobile/desktop when fullscreen -->
-        <button type="button" class="btn-floating-exit-fs" id="btnFloatingExitFs" title="Oddiy rejimga qaytish">✕ Chiqish</button>
 
-        <div class="panel-header terminal-panel-header">
+      <!-- 2. Linux Terminal Workbench -->
+      <div class="panel-card terminal-card" id="terminalCard">
+        <div class="panel-header">
           <div class="panel-title">
             <span>🐧</span>
-            <span id="terminalHeaderTitle">Kali Linux Terminal (UserLAnd • Debian 12)</span>
-            <span class="terminal-active-mode-badge" id="terminalActiveModeBadge">🎯 Masalalar</span>
+            <span>Kali Linux Terminal (Debian 12)</span>
           </div>
 
           <div class="terminal-engine-switch">
-            <button class="btn-engine-pill active" id="btnEngineShell" type="button" title="0 soniyada yuklanuvchi virtual shell">⚡ Tezkor Shell</button>
-            <button class="btn-engine-pill" id="btnEngineWasm" type="button" title="Haqiqiy x86 Linux yadrosi (WASM)">🐧 Real Linux</button>
+            <button type="button" class="btn-engine-pill active" id="btnEngineShell" onclick="setTerminalEngine('shell')">
+              ⚡ Tezkor Shell
+            </button>
+            <button type="button" class="btn-engine-pill" id="btnEngineWasm" onclick="setTerminalEngine('wasm')">
+              👾 Real Linux (Kali GNU/Linux)
+            </button>
           </div>
 
-          <div class="terminal-card-tabs">
-            <button class="schema-tab active" id="tabTerminalMode" type="button">🐧 Terminal (CLI)</button>
-            <button class="schema-tab" id="tabFsMode" type="button">📂 Explorer &amp; Strukturalar</button>
-          </div>
-          <div class="terminal-card-actions">
-            <button class="btn btn-xs" id="btnCardBatafsil" type="button" title="Buyruq va bayroqlar batafsil tahlili">📖 Batafsil</button>
-            <button class="btn btn-xs" id="btnCardHint" type="button" title="Yordamchi maslahat">💡 Maslahat</button>
-            <button class="btn btn-xs" id="btnClearTerminal" type="button" title="Terminalni tozalash">🧹 Tozalash</button>
-            <button class="btn btn-xs btn-expand-terminal" id="btnToggleFullscreen" type="button" title="To'liq ekranga yoyish (F11)">⛶ To'liq Ekran</button>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <button type="button" class="btn btn-sm" id="btnClearKaliScreen" title="Terminalni tozalash">
+              🧹 Tozalash
+            </button>
+            <button type="button" class="btn btn-sm" id="btnToggleKaliFs" title="To'liq ekranga yoyish">
+              ⛶ To'liq Ekran
+            </button>
           </div>
         </div>
 
-        <!-- In-Terminal Quick Task & Action Bar (Zero-Scroll on Mobile) -->
-        <div class="terminal-task-bar" id="terminalTaskBar">
-          <div class="tt-text" id="terminalTaskText">📌 #1: Yuklanmoqda...</div>
-          <div class="tt-actions">
-            <button type="button" class="tt-btn" id="btnTtBatafsil" title="Buyruq va bayroqlar batafsil tahlili">📖 Batafsil</button>
-            <button type="button" class="tt-btn" id="btnTtHint" title="Maslahat">💡</button>
-            <button type="button" class="tt-btn" id="btnTtExpected" title="Kutilgan natija">👁</button>
-          </div>
-        </div>
-
-        <!-- FULLSCREEN FLOATING TOP BAR -->
-        <div class="kali-fullscreen-bar" id="kaliFullscreenBar" style="display: none;">
-          <div class="kt-fs-left">
-            <span class="kt-fs-logo">🐧</span>
-            <span class="kt-fs-brand">KALI LINUX</span>
-            <span class="kt-fs-task-badge" id="ktFsTaskBadge">#1: crontab -l</span>
-            <span class="kt-fs-progress" id="ktFsProgress">0 / 150</span>
-          </div>
-          <div class="kt-fs-right">
-            <button class="btn btn-xs" id="btnFsToggleMode" type="button">🎯 Rejim: Topshiriqlar</button>
-            <button class="btn btn-xs" id="btnFsTask" type="button">📋 Vazifa</button>
-            <button class="btn btn-xs" id="btnFsBatafsil" type="button">📖 Batafsil</button>
-            <button class="btn btn-xs" id="btnFsHint" type="button">💡 Maslahat</button>
-            <button class="btn btn-xs" id="btnFsPreview" type="button">👁 Natija</button>
-            <button class="btn btn-xs" id="btnFsMap" type="button">🗺️ Xarita</button>
-            <button class="btn btn-xs btn-exit-fs" id="btnExitFullscreen" type="button" title="Oddiy rejimga qaytish (Esc)">✕ Oddiy Ko'rinish (Esc)</button>
-          </div>
-        </div>
-
-        <!-- PANE A: AUTHENTIC KALI LINUX TERMINAL -->
-        <div class="workbench-pane" id="paneKaliTerminal">
-
-          <!-- WASM Real Linux Screen (v86 + xterm.js) -->
-          <div id="wasmTerminalContainer" class="wasm-term-screen" style="display: none;">
-            <div id="wasmLoader" class="wasm-loader" style="display: none;">
-              <div class="wasm-spinner"></div>
-              <div id="wasmLoaderText">🐧 WebAssembly Real Linux Kernel yuklanmoqda... (SeaBIOS &amp; x86 Linux)</div>
-            </div>
-            <div id="wasmXtermBox" class="wasm-xterm-box"></div>
-          </div>
-    
-          <div class="kali-screen" id="kaliScreen" tabindex="0">
+        <!-- Terminal Container -->
+        <div class="terminal-container" id="terminalContainer">
+          
+          <!-- Mode A: Tezkor Kali Stream Shell -->
+          <div class="kali-screen" id="kaliScreen">
             <div class="kali-stream" id="kaliStream"></div>
-            <div class="kali-active-prompt" id="kaliActivePrompt">
-              <div class="kali-p-row1">
-                <span class="k-green">┌──(</span><span class="k-blue">userland</span><span class="k-white">㉿</span><span class="k-blue">localhost</span><span class="k-green">)-[</span><span class="k-white" id="kaliPromptPath">~</span><span class="k-green">]</span>
-              </div>
-              <div class="kali-p-row2">
-                <span class="k-green">└─$ </span><span class="kali-typed-text" id="kaliTypedText"></span><span class="kali-cursor" id="kaliCursor">█</span>
+            
+            <div class="kali-active-prompt">
+              <span class="k-prompt-line1">┌──(userland💀localhost)-[<span id="kaliPromptPath">~</span>]</span>
+              <div class="k-prompt-line2">
+                <span class="k-arrow">└─$</span>
+                <span class="k-typed" id="kaliTypedText"></span>
+                <span class="k-cursor" id="kaliCursor">█</span>
               </div>
             </div>
-            <input
-              type="text"
-              id="kaliHiddenInput"
-              class="kali-inline-cmd-input"
-              autocomplete="off"
-              autocorrect="off"
-              autocapitalize="off"
-              spellcheck="false"
-              aria-label="Linux buyrug'ini yozing"
-            />
+
+            <input type="text" id="kaliHiddenInput" class="kali-hidden-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
           </div>
 
-          <!-- Mobile Touch Bar -->
+          <!-- Mode B: Real Linux (WASM xterm.js) -->
+          <div class="wasm-term-screen" id="wasmTerminalContainer" style="display: none;">
+            <div class="wasm-xterm-box" id="wasmXtermBox"></div>
+          </div>
+
+          <!-- Mobile Quick Touch Bar -->
           <div class="kali-touch-bar" id="kaliTouchBar">
             <button type="button" class="kt-key-btn" data-key="Tab">Tab ⇥</button>
-            <button type="button" class="kt-key-btn" data-token="crontab -l">crontab -l</button>
-            <button type="button" class="kt-key-btn" data-token="crontab -e">crontab -e</button>
-            <button type="button" class="kt-key-btn" data-token="systemctl daemon-reload">daemon-reload</button>
-            <button type="button" class="kt-key-btn" data-token="systemctl enable --now ">systemctl enable</button>
-            <button type="button" class="kt-key-btn" data-token="docker container ls">docker ls</button>
-            <button type="button" class="kt-key-btn" data-token="docker container ls -a">docker ls -a</button>
-            <button type="button" class="kt-key-btn" data-token="curl localhost:8888">curl :8888</button>
-            <button type="button" class="kt-key-btn" data-token="df / --output=pcent">df --output</button>
-            <button type="button" class="kt-key-btn" data-token="journalctl -u ">journalctl</button>
+            <button type="button" class="kt-key-btn" data-token="|">|</button>
+            <button type="button" class="kt-key-btn" data-token=">">&gt;</button>
+            <button type="button" class="kt-key-btn" data-token=">>">&gt;&gt;</button>
+            <button type="button" class="kt-key-btn" data-token="~">~</button>
+            <button type="button" class="kt-key-btn" data-token="/">/</button>
+            <button type="button" class="kt-key-btn" data-token="-">-</button>
+            <button type="button" class="kt-key-btn" data-token="..">..</button>
+            <button type="button" class="kt-key-btn" data-token="*">*</button>
             <button type="button" class="kt-key-btn" data-token="echo $?">$?</button>
             <button type="button" class="kt-key-btn" data-key="CtrlC">Ctrl+C</button>
             <button type="button" class="kt-key-btn" data-key="clear">clear</button>
@@ -229,147 +196,131 @@
           </div>
         </div>
 
-        <!-- PANE B: LIVE EXPLORER -->
-        <div class="workbench-pane" id="paneFsExplorer" style="display: none;">
-          <div class="schema-tabs">
-            <button class="schema-tab active" data-tab="flags">🏷️ Bayroqlar Qomusi</button>
-            <button class="schema-tab" data-tab="docker">🐳 Docker Pods</button>
-            <button class="schema-tab" data-tab="scheduling">⏱️ CPU Scheduler</button>
-            <button class="schema-tab" data-tab="mmu">🧠 Xotira & MMU</button>
-            <button class="schema-tab" data-tab="timers">⏰ Cron & Timers</button>
-            <button class="schema-tab" data-tab="result">🎯 Natija</button>
-          </div>
-          <div class="table-scroll" id="schemaTableDisplay"></div>
-        </div>
       </div>
 
+    </section>
+
+    <!-- RIGHT COLUMN: MISSION DOSSIER & EVALUATOR (DS STRUCTURE) -->
     <section class="right-col">
 
-      <!-- 1. Mission Dossier & Flag Anatomy Card -->
+      <!-- 1. Mission Dossier Card -->
       <div class="panel-card">
         <div class="panel-header">
           <div class="panel-title">
-            <span id="floorHeaderTitle">Sektor 1: CPU Scheduling Algoritmlari</span>
+            <span id="sectorSubTitle">1-Qavat: Kirish va Navigatsiya</span>
           </div>
           <div style="display:flex; gap:6px; align-items:center;">
-            <button id="btnPrevQ" class="btn" style="padding:3px 8px;">◀ Oldingi</button>
-            <button id="btnNextQ" class="btn" style="padding:3px 8px;">Keyingi ▶</button>
+            <button class="btn" id="btnPrevQ" style="padding:4px 10px;">◀ Oldingi</button>
+            <button class="btn" id="btnNextQ" style="padding:4px 10px;">Keyingi ▶</button>
           </div>
         </div>
 
-        <div class="q-strip" id="floorQuestionStrip">
-          <!-- 15 Dots populated dynamically -->
-        </div>
+        <!-- 15 Dots Strip -->
+        <div class="q-strip" id="floorQuestionStrip"></div>
 
         <div class="mission-body">
-          <div id="sectorSubTitle" style="font-size:11px; color:var(--text-muted); font-weight:600;"></div>
-
           <div class="mission-meta">
-            <span id="qNumberBadge" class="badge-diff">Vazifa #1 / 150</span>
-            <span id="qDifficultyBadge" class="badge-diff">Oson</span>
-            <span id="qSourceBadge" class="badge-source">Seminar 05 Q1</span>
+            <span class="badge-diff" id="qNumberBadge">Topshiriq #1 / 150</span>
+            <span class="badge-diff" id="qDifficultyBadge">1-Qavat • Oson</span>
+            <span class="badge-source" id="qSourceBadge">S01 Task 1 • Navigatsiya</span>
           </div>
 
-          <h3 id="qTitle" class="mission-title">N ta Jarayon Uchun Mumkin Bo'lgan Rejalar Soni</h3>
+          <h3 class="mission-title" id="qTitle">1. Joriy Ishchi Katalogni Aniqlash</h3>
 
-          <div id="qStory" class="mission-story">
-            Bitta protsessorda n ta mustaqil jarayon navbatda turibdi. Non-preemptive muhitda ularni nechta turli xil ketma-ketlikda bajarish mumkin?
-          </div>
+          <!-- Authentic Academic Case Study Dossier (DS Standard) -->
+          <article class="academic-case-dossier" id="academicCaseDossier">
+            <h4 class="case-section-header">
+              <span>📝</span> <span>SAVOL:</span>
+            </h4>
+            <div class="case-narrative-box" id="caseNarrativeBox"></div>
+            <div class="case-tasks-box" id="caseTasksBox"></div>
+          </article>
 
-          <div class="mission-task">
-            <span class="task-label">🎯 VAZIFA TOPSHIRIG'I:</span>
-            <div id="qTask" class="task-code">
-              <code>n!</code>
-            </div>
-          </div>
-
-          <!-- COMMAND & FLAG ANATOMY CARD (INTERACTIVE ACCORDION - MASTER USER FEATURE) -->
+          <!-- 5-Point Concept Anatomy Card -->
           <div class="cmd-info-card" id="cmdInfoCard">
-            <button type="button" class="cmd-card-toggle" id="btnToggleCmdCard" onclick="window.toggleCmdInfoCard()">
+            <button type="button" class="cmd-card-toggle" id="btnToggleCmdCard" onclick="toggleCmdInfoCard()">
               <div class="cmd-card-toggle-left">
-                <span class="cmd-badge-icon">📖</span>
-                <span class="cmd-badge-title">BUYRUQ & BAYROQLAR TAHLILI</span>
-                <code class="cmd-badge-code" id="cmdCardCode">n!</code>
+                <span>📖</span>
+                <span>LINUX NAZARIYASI &amp; BUYRUQ ANATOMIYASI</span>
+                <code style="color:var(--accent-cyan-bright);" id="cmdCardCode">BASH_RULES</code>
               </div>
-              <div class="cmd-card-toggle-right">
-                <span class="cmd-toggle-hint" id="cmdCardToggleHint">Batafsil ko'rish</span>
-                <span class="cmd-toggle-arrow" id="cmdCardToggleArrow">▾</span>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span style="font-size:11px; color:var(--text-muted);" id="cmdCardToggleHint">Tafsilotlar</span>
+                <span id="cmdCardToggleArrow">▾</span>
               </div>
             </button>
             <div class="cmd-card-body" id="cmdCardBody" style="display: none;"></div>
           </div>
 
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:2px;">
-            <button id="btnToggleHint" class="btn-hint">💡 Maslahatni Ko'rish</button>
-          </div>
-
-          <div id="qHintBox" class="hint-box">
-            Maslahat matni.
-          </div>
+          <!-- Hint Box -->
+          <div class="hint-box" id="hintBox"></div>
         </div>
       </div>
 
-      <!-- 2. Bash Terminal Workbench -->
-      <!-- Hidden legacy terminal compatibility hooks for verify script and fallback -->
-      <div style="display: none;" aria-hidden="true">
-        <div id="termScreen"></div>
-        <input type="text" id="termInput" />
-        <button id="btnExecCmd"></button>
-        <div id="tokenToolbar"></div>
+      <!-- 2. Workbench & Evaluation -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>⚙️ Terminal Tekshiruvi &amp; Baholash</span>
+          </div>
+        </div>
+
+        <div class="action-box" style="padding:12px;">
+          <div class="action-bar">
+            <div class="action-left" style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="btn btn-primary" id="btnRunBash">▶ Buyruqni Bajarish (Enter)</button>
+              <button class="btn" id="btnShowHint">💡 Maslahat Olish</button>
+              <button class="btn" id="btnPreviewExpected">👁 Kutilayotgan Chiqish</button>
+            </div>
+          </div>
+
+          <!-- Feedback notification container -->
+          <div id="feedbackBox" class="feedback-box" style="margin-top:10px;"></div>
+        </div>
       </div>
-</section>
+
+    </section>
 
   </main>
 
-  <!-- =========================================================================
-       MODALS
-       ========================================================================= -->
-
-  <!-- 1. Question Map Modal -->
-  <div id="mapModal" class="modal-overlay">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-title">🗺️ 150 ta Savol va 10 ta Sektor Xaritasi</div>
-        <button class="modal-close">&times;</button>
+  <!-- Modals: Map, Incident -->
+  <div class="kali-modal" id="modalOfficeEvent" style="display:none;">
+    <div class="kali-modal-content">
+      <div class="kali-modal-header">
+        <div class="kali-modal-title">
+          <span>🚨</span> <span id="eventTitle">Server Favqulodda Vaziyati</span>
+        </div>
+        <button class="kali-modal-close" id="btnCloseEvent">✕</button>
       </div>
-      <div class="modal-body" id="mapModalBody">
-        <!-- Rendered dynamically -->
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. Cloud & Server Incident Modal -->
-  <div id="eventModal" class="modal-overlay">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-title">⚡ Tizim Falokati & Kutilmagan Hodisa</div>
-        <button class="modal-close">&times;</button>
-      </div>
-      <div class="modal-body" id="eventModalBody">
-        <!-- Rendered dynamically -->
+      <div class="kali-modal-body">
+        <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px;">
+          <div style="font-size:32px;" id="eventAvatar">👨‍💻</div>
+          <div>
+            <div style="font-weight:700; color:var(--accent-cyan-bright);" id="eventSpeaker">Tizim Muhandisi</div>
+            <div style="font-size:11px; color:var(--text-muted);" id="eventRole">NOC Markazi</div>
+          </div>
+        </div>
+        <div style="font-size:13.5px; line-height:1.6; margin-bottom:16px; color:#f8fafc;" id="eventNarrative"></div>
+        <div id="eventChoices" style="display:flex; flex-direction:column; gap:8px;"></div>
       </div>
     </div>
   </div>
 
-  <!-- 3. Final Certificate Modal -->
-  <div id="certModal" class="modal-overlay">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-title">🏆 WIUT OS Cloud & Kernel Architect Sertifikati</div>
-        <button class="modal-close">&times;</button>
+  <div class="kali-modal" id="modalMap" style="display:none;">
+    <div class="kali-modal-content" style="max-width:800px;">
+      <div class="kali-modal-header">
+        <div class="kali-modal-title">
+          <span>🗺️</span> <span>150 ta Topsiriqlar Xaritasi (10 ta Sektor)</span>
+        </div>
+        <button class="kali-modal-close" id="btnCloseMap">✕</button>
       </div>
-      <div class="modal-body" id="certModalBody">
-        <!-- Rendered dynamically -->
+      <div class="kali-modal-body">
+        <div id="mapGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:10px;"></div>
       </div>
     </div>
   </div>
 
-  <!-- Toast Notification Container -->
-  <div id="toastContainer" class="toast-container"></div>
-
-  <!-- =========================================================================
-       SCRIPTS (Loaded in strict logical dependency order)
-       ========================================================================= -->
+  <!-- Scripts -->
   <script src="data/virtual_fs.js"></script>
   <script src="data/questions_1_50.js"></script>
   <script src="data/questions_51_100.js"></script>
@@ -377,58 +328,6 @@
   <script src="data/command_anatomy.js"></script>
   <script src="engine2d.js"></script>
   <script src="../os_dictionary.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/v86@latest/build/libv86.js"></script>
   <script src="game.js"></script>
-
 </body>
-</html><!-- MODALS: TASK DOSSIER & BATAFSIL FOR FULLSCREEN -->
-  <div class="kali-modal" id="modalKtTask">
-    <div class="kali-modal-content">
-      <div class="kali-modal-header">
-        <div class="kali-modal-title">
-          <span>📋</span>
-          <span id="ktModalTaskHeading">Vazifa #1</span>
-        </div>
-        <button class="kali-modal-close" id="btnCloseKtTask">✕</button>
-      </div>
-      <div class="kali-modal-body">
-        <div class="kt-meta-badges">
-          <span class="kt-badge" id="ktModalDiffBadge">1-Qavat • Oson</span>
-          <span class="kt-badge" id="ktModalSourceBadge">WIUT OS</span>
-        </div>
-        <div class="kt-task-story" id="ktModalStory">Laboratoriya topshirig'i...</div>
-        <div class="kt-task-req">
-          <div class="kt-req-label">📌 TEXNIK TOPSHIRIQ:</div>
-          <div class="kt-req-text" id="ktModalTaskText">Buyruqni bajaring.</div>
-        </div>
-        <div class="kt-tags-container" id="ktModalTags"></div>
-        <div class="kt-modal-actions">
-          <button class="btn btn-primary" id="btnKtModalDone">Tushundim, Terminalga Yozaman</button>
-          <button class="btn" id="btnKtModalHint">💡 Maslahat</button>
-          <button class="btn" id="btnKtModalSol">🔑 Namuna Yechim</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="kali-modal" id="modalKtBatafsil">
-    <div class="kali-modal-content kt-modal-lg">
-      <div class="kali-modal-header">
-        <div class="kali-modal-title">
-          <span>📖</span>
-          <span>BUYRUQ VA BAYROQLAR TAHLILI</span>
-          <code class="kt-title-code" id="ktBatafsilCode">crontab -l</code>
-        </div>
-        <button class="kali-modal-close" id="btnCloseKtBatafsil">✕</button>
-      </div>
-      <div class="kali-modal-body" id="ktBatafsilContent">
-        <!-- Rendered dynamically -->
-      </div>
-      <div class="kali-modal-footer">
-        <button class="btn btn-primary" id="btnOkKtBatafsil">Yopish va Terminalga Qaytish</button>
-      </div>
-    </div>
-  </div>
-
-  
+</html>

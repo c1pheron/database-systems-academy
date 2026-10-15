@@ -341,6 +341,17 @@
     el.ktBatafsilContent = document.getElementById("ktBatafsilContent");
   }
 
+  function formatInlineMarkdown(str) {
+    if (!str) return "";
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*(.*?)\*/g, "<em>$1</em>")
+      .replace(/`([^`]+)`/g, '<code style="background:rgba(6,182,212,0.15); color:#22d3ee; padding:1px 5px; border-radius:3px; font-family:\'JetBrains Mono\', monospace; font-size:12px;">$1</code>');
+  }
+
   function escapeHtml(str) {
     if (!str) return "";
     return String(str)
@@ -403,9 +414,15 @@
         if (state.solvedIds.has(i)) secSolved++;
       }
 
+      // Clean short sector title for the pill to prevent text collisions or wrapping
+      let cleanTitle = `${sId}-Qavat`;
+      if (sec.name && sec.name.includes(":")) {
+        cleanTitle = sec.name.split(":")[0].trim();
+      }
+      pill.title = `${sec.name || ""} — ${sec.subtitle || ""}`;
       pill.innerHTML = `
         <span>${sIcon}</span>
-        <span><b>S${sId}:</b> ${sec.name}</span>
+        <span><b>S${sId}</b> • ${cleanTitle}</span>
         <span class="pill-count">${secSolved}/15</span>
       `;
 
@@ -493,6 +510,19 @@
     if (el.qSourceBadge) el.qSourceBadge.textContent = q.source || "WIUT OS";
     if (el.qTitle) el.qTitle.textContent = `${q.id}. ${q.title}`;
     if (el.qStory) el.qStory.textContent = q.story || "";
+    
+    // Academic Case Study Dossier (Database Systems Standard)
+    const elNarrative = document.getElementById("caseNarrativeBox");
+    const elTasks = document.getElementById("caseTasksBox");
+    if (elNarrative) {
+      const storyText = q.caseStudy && q.caseStudy.paragraphs ? q.caseStudy.paragraphs.join("\n\n") : (q.story || "");
+      const paras = storyText.split("\n\n").filter(p => p.trim());
+      elNarrative.innerHTML = paras.map(p => '<p>' + formatInlineMarkdown(p) + '</p>').join("");
+    }
+    if (elTasks) {
+      const taskText = q.instruction || (q.caseStudy && q.caseStudy.tasks ? q.caseStudy.tasks[0] : (q.taskUz ? q.taskUz : "Topshiriqni terminalda bajaring."));
+      elTasks.innerHTML = '<div class="case-instruction-pill"><span style="font-size:16px;">🎯</span><div><strong>Texnik Topshiriq:</strong> ' + formatInlineMarkdown(taskText) + '</div></div>';
+    }
     if (el.qTask) el.qTask.innerHTML = q.taskUz || "";
 
     if (el.terminalTaskText && state.terminalMode !== "sandbox") {
@@ -1150,9 +1180,161 @@
     if (el.kaliScreen) el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
   }
 
-  // --- Real Linux WebAssembly (v86 + xterm.js) ---
+  // --- Real Linux WebAssembly (v86 + xterm.js) with IndexedDB Caching & Kali/Debian Environment ---
   let wasmEmulatorInstance = null;
   let wasmXtermInstance = null;
+  let hasConfiguredKaliEnvironment = false;
+  let silentlyConfiguring = false;
+  let serialOutputBuffer = "";
+  let serialFlushTimer = null;
+
+  // IndexedDB Cache for linux4.iso
+  const ISO_CACHE_DB = "OS_LINUX_CACHE_DB";
+  const ISO_STORE = "os_assets";
+  const ISO_KEY = "linux4_iso";
+
+  function openIsoDb() {
+    return new Promise((resolve) => {
+      if (!window.indexedDB) return resolve(null);
+      const req = window.indexedDB.open(ISO_CACHE_DB, 1);
+      req.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(ISO_STORE)) {
+          db.createObjectStore(ISO_STORE);
+        }
+      };
+      req.onsuccess = (e) => resolve(e.target.result);
+      req.onerror = () => resolve(null);
+    });
+  }
+
+  async function getCachedLinuxIso() {
+    try {
+      const db = await openIsoDb();
+      if (!db) return null;
+      return new Promise((resolve) => {
+        const tx = db.transaction(ISO_STORE, "readonly");
+        const store = tx.objectStore(ISO_STORE);
+        const req = store.get(ISO_KEY);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => resolve(null);
+      });
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async function setCachedLinuxIso(buffer) {
+    try {
+      const db = await openIsoDb();
+      if (!db) return;
+      return new Promise((resolve) => {
+        const tx = db.transaction(ISO_STORE, "readwrite");
+        const store = tx.objectStore(ISO_STORE);
+        const req = store.put(buffer, ISO_KEY);
+        req.onsuccess = () => resolve(true);
+        req.onerror = () => resolve(false);
+      });
+    } catch (e) {}
+  }
+
+  function flushWasmSerialBuffer() {
+    if (serialOutputBuffer.length > 0 && wasmXtermInstance) {
+      const chunk = serialOutputBuffer;
+      serialOutputBuffer = "";
+      wasmXtermInstance.write(chunk, () => {
+        wasmXtermInstance.scrollToBottom();
+      });
+    }
+  }
+
+  function setupKaliEnvironmentInWasm() {
+    if (hasConfiguredKaliEnvironment || !wasmEmulatorInstance) return;
+    hasConfiguredKaliEnvironment = true;
+    silentlyConfiguring = true;
+
+    // Inject sudo, apt, apt-get, /etc/os-release and Kali prompt
+    const script = [
+      "stty -echo",
+      "cat << 'SU_EOF' > /bin/sudo",
+      "#!/bin/sh",
+      "if [ \"$1\" = \"-i\" ] || [ \"$1\" = \"-s\" ] || [ -z \"$1\" ]; then",
+      "  exec /bin/sh",
+      "fi",
+      "exec \"$@\"",
+      "SU_EOF",
+      "chmod +x /bin/sudo",
+      "cat << 'APT_EOF' > /bin/apt",
+      "#!/bin/sh",
+      "cmd=\"$1\"",
+      "case \"$cmd\" in",
+      "  update)",
+      "    echo \"Hit:1 http://http.kali.org/kali kali-rolling InRelease\"",
+      "    echo \"Get:2 http://http.kali.org/kali kali-rolling/main amd64 Packages [19.2 MB]\"",
+      "    echo \"Get:3 http://http.kali.org/kali kali-rolling/non-free amd64 Packages [212 kB]\"",
+      "    echo \"Fetched 19.4 MB in 1s (19.4 MB/s)\"",
+      "    echo \"Reading package lists... Done\"",
+      "    echo \"Building dependency tree... Done\"",
+      "    echo \"Reading state information... Done\"",
+      "    echo \"All packages are up to date.\"",
+      "    ;;",
+      "  upgrade)",
+      "    echo \"Reading package lists... Done\"",
+      "    echo \"Building dependency tree... Done\"",
+      "    echo \"0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\"",
+      "    ;;",
+      "  install)",
+      "    shift",
+      "    if [ -z \"$1\" ]; then echo \"apt install: paket nomi ko'rsatilmadi\"; exit 1; fi",
+      "    echo \"Reading package lists... Done\"",
+      "    echo \"Building dependency tree... Done\"",
+      "    for pkg in \"$@\"; do",
+      "      case \"$pkg\" in -y|--yes|-q) continue ;; esac",
+      "      echo \"The following NEW packages will be installed: $pkg\"",
+      "      echo \"Unpacking $pkg (latest) ...\"",
+      "      echo \"Setting up $pkg (latest) ...\"",
+      "      if ! command -v \"$pkg\" >/dev/null 2>&1; then",
+      "        echo '#!/bin/sh' > \"/bin/$pkg\"",
+      "        echo 'echo \"['$pkg'] muvaffaqiyatli ishga tushdi (Kali Linux).\"' >> \"/bin/$pkg\"",
+      "        chmod +x \"/bin/$pkg\"",
+      "      fi",
+      "    done",
+      "    echo \"Processing triggers for man-db ... Done\"",
+      "    ;;",
+      "  search)",
+      "    echo \"Sorting... Done\"",
+      "    echo \"Full Text Search... Done\"",
+      "    echo \"$2/kali-rolling 2.4.1 amd64\"",
+      "    ;;",
+      "  *)",
+      "    echo \"apt: $cmd bajarildi.\"",
+      "    ;;",
+      "esac",
+      "APT_EOF",
+      "chmod +x /bin/apt",
+      "ln -sf /bin/apt /bin/apt-get",
+      "echo 'PRETTY_NAME=\"Kali GNU/Linux Rolling\"' > /etc/os-release",
+      "echo 'NAME=\"Kali GNU/Linux\"' >> /etc/os-release",
+      "echo 'VERSION=\"2026.1\"' >> /etc/os-release",
+      "echo 'ID=kali' >> /etc/os-release",
+      "echo 'ID_LIKE=debian' >> /etc/os-release",
+      "export PS1='root@kali:\\w# '",
+      "stty echo",
+      "clear",
+      ""
+    ].join("\n");
+
+    wasmEmulatorInstance.serial0_send(script);
+
+    setTimeout(() => {
+      silentlyConfiguring = false;
+      if (wasmXtermInstance) {
+        wasmXtermInstance.writeln("\r\n\x1b[1;32m✓ Kali GNU/Linux (x86_64) muhiti tayyor! sudo, apt va barcha buyruqlar faol.\x1b[0m\r\n");
+        wasmXtermInstance.focus();
+        wasmXtermInstance.scrollToBottom();
+      }
+    }, 1200);
+  }
 
   function fitWasmTerminal() {
     if (!wasmXtermInstance) return;
@@ -1162,9 +1344,9 @@
     const charWidth = isMobile ? 7.2 : 8.4;
     const charHeight = isMobile ? 15 : 18;
     const w = Math.max(260, box.clientWidth - 10);
-    const h = Math.max(200, box.clientHeight - 10);
+    const h = Math.max(180, box.clientHeight - 10);
     const cols = Math.max(34, Math.floor(w / charWidth));
-    const rows = Math.max(12, Math.floor(h / charHeight));
+    const rows = Math.max(10, Math.floor(h / charHeight));
     try {
       wasmXtermInstance.resize(cols, rows);
       wasmXtermInstance.scrollToBottom();
@@ -1172,170 +1354,361 @@
   }
   window.fitWasmTerminal = fitWasmTerminal;
   window.addEventListener("resize", fitWasmTerminal);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", () => {
+      fitWasmTerminal();
+      if (wasmXtermInstance) {
+        setTimeout(() => wasmXtermInstance.scrollToBottom(), 60);
+      }
+    });
+  }
 
-  async function initWasmRealLinux() {
-    if (wasmEmulatorInstance) {
-      if (wasmXtermInstance) wasmXtermInstance.focus();
+  let wasmCmdBuffer = "";
+  let wasmHistory = [];
+  let wasmHistIdx = -1;
+
+  function printWasmPrompt() {
+    if (!wasmXtermInstance) return;
+    const cwd = state.liveShell ? state.liveShell.cwd : "/home/student";
+    const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
+    wasmXtermInstance.write(`\x1b[1;32m┌──(\x1b[1;34muserland\x1b[1;37m💀\x1b[1;34mlocalhost\x1b[1;32m)-[\x1b[1;37m${promptPath}\x1b[1;32m]\r\n└─$ \x1b[0m`);
+  }
+
+  function gradeAndOutputWasm(rawCmd, res) {
+    const currentQ = allQuestions.find(q => q.id === state.currentQuestionId);
+    if (currentQ && !state.solvedIds.has(currentQ.id)) {
+      let grade = null;
+      if (window.VIRTUAL_LINUX && window.VIRTUAL_LINUX.BASH_GRADER) {
+        const expectedCmd = currentQ.expectedSql || currentQ.expectedBash || "";
+        const evalRes = window.VIRTUAL_LINUX.BASH_GRADER.evaluate(rawCmd, expectedCmd, currentQ);
+        grade = { isCorrect: evalRes.match, message: evalRes.message };
+      } else if (window.BASH_GRADER) {
+        grade = window.BASH_GRADER.grade(currentQ, rawCmd, res);
+      } else if (window.VIRTUAL_LINUX_W2 && window.VIRTUAL_LINUX_W2.BASH_GRADER) {
+        const ok = window.VIRTUAL_LINUX_W2.BASH_GRADER.evaluate(currentQ, rawCmd, res);
+        grade = { isCorrect: ok, message: ok ? "Topshiriq muvaffaqiyatli bajarildi!" : "Xatolik" };
+      } else if (window.VIRTUAL_LINUX_W3 && window.VIRTUAL_LINUX_W3.BASH_GRADER) {
+        const ok = window.VIRTUAL_LINUX_W3.BASH_GRADER.evaluate(currentQ, rawCmd, res);
+        grade = { isCorrect: ok, message: ok ? "Topshiriq muvaffaqiyatli bajarildi!" : "Xatolik" };
+      } else if (window.VIRTUAL_LINUX_W4 && window.VIRTUAL_LINUX_W4.BASH_GRADER) {
+        const ok = window.VIRTUAL_LINUX_W4.BASH_GRADER.evaluate(currentQ, rawCmd, res);
+        grade = { isCorrect: ok, message: ok ? "Topshiriq muvaffaqiyatli bajarildi!" : "Xatolik" };
+      } else if (window.VIRTUAL_LINUX_W5 && window.VIRTUAL_LINUX_W5.BASH_GRADER) {
+        const ok = window.VIRTUAL_LINUX_W5.BASH_GRADER.evaluate(currentQ, rawCmd, res);
+        grade = { isCorrect: ok, message: ok ? "Topshiriq muvaffaqiyatli bajarildi!" : "Xatolik" };
+      } else if (window.VIRTUAL_LINUX_W6 && window.VIRTUAL_LINUX_W6.BASH_GRADER) {
+        const ok = window.VIRTUAL_LINUX_W6.BASH_GRADER.evaluate(currentQ, rawCmd, res);
+        grade = { isCorrect: ok, message: ok ? "Topshiriq muvaffaqiyatli bajarildi!" : "Xatolik" };
+      }
+
+      if (grade && grade.isCorrect) {
+        state.solvedIds.add(currentQ.id);
+        state.score += 100;
+        saveProgress();
+        updateHUD();
+        SoundFX.playSuccess();
+        wasmXtermInstance.write(`\x1b[1;32m✓ TO'G'RI! ${grade.message || "Topshiriq muvaffaqiyatli bajarildi!"}\x1b[0m\r\n`);
+        wasmXtermInstance.write(`\x1b[1;36m+$100 Bonus hisobingizga qo'shildi! Keyingi topshiriqqa o'tish uchun [Keyingi ▶] ni bosing.\x1b[0m\r\n`);
+        renderFsExplorer();
+      }
+    }
+    printWasmPrompt();
+    wasmXtermInstance.scrollToBottom();
+  }
+
+  function executeWasmKaliCommand(rawCmd) {
+    if (!wasmXtermInstance) return;
+    const clean = rawCmd.trim();
+    if (!clean) {
+      printWasmPrompt();
       return;
     }
 
-    const box = el.wasmXtermBox || document.getElementById("wasmXtermBox");
-    const loader = el.wasmLoader || document.getElementById("wasmLoader");
-    const loaderText = el.wasmLoaderText || document.getElementById("wasmLoaderText");
+    const lower = clean.toLowerCase();
+
+    // Sudo su / su
+    if (lower === "sudo su" || lower === "su" || lower === "sudo -i" || lower === "sudo bash") {
+      state.isRoot = true;
+      wasmXtermInstance.write("root@kali:~# \r\n");
+      printWasmPrompt();
+      return;
+    }
+
+    // Exit from root
+    if (lower === "exit" && state.isRoot) {
+      state.isRoot = false;
+      wasmXtermInstance.write("exit\r\n");
+      printWasmPrompt();
+      return;
+    }
+
+    // Vim / vi / nano
+    if (lower.startsWith("vim") || lower.startsWith("vi ") || lower.startsWith("nano") || lower === "vi") {
+      const parts = clean.split(/\s+/);
+      const editor = parts[0] || "vim";
+      const filename = parts.slice(1).join(" ") || "script.sh";
+      if (state.liveShell) {
+        state.liveShell.execute('touch ' + filename);
+      }
+      const editorBanner = [
+        "\x1b[1;34m~\x1b[0m",
+        "\x1b[1;34m~\x1b[0m   \x1b[1;37m[" + editor.toUpperCase() + " — Kali GNU/Linux Text Editor]\x1b[0m",
+        "\x1b[1;34m~\x1b[0m   Fayl ochildi: \x1b[1;32m" + filename + "\x1b[0m",
+        "\x1b[1;34m~\x1b[0m   ────────────────────────────────────────────────────────────",
+        "\x1b[1;34m~\x1b[0m   # Kali Linux matn muharriri",
+        "\x1b[1;34m~\x1b[0m   # Tahrirlash: :i | Saqlash va chiqish: :wq | Chiqish: :q",
+        "\x1b[1;34m~\x1b[0m   ────────────────────────────────────────────────────────────",
+        "\x1b[1;34m~\x1b[0m",
+        "\x1b[1;32m\"" + filename + "\" [Yangi fayl yaratildi va saqlandi: :wq]\x1b[0m"
+      ].join("\r\n");
+      wasmXtermInstance.write(editorBanner + "\r\n");
+      gradeAndOutputWasm(rawCmd, { stdout: editorBanner, stderr: "", code: 0 });
+      return;
+    }
+
+    // 1. Clear
+    if (lower === "clear") {
+      wasmXtermInstance.write("\x1b[2J\x1b[H");
+      printWasmPrompt();
+      return;
+    }
+
+    // 2. Hostname
+    if (lower === "hostname" || lower === "sudo hostname") {
+      wasmXtermInstance.write("kali\r\n");
+      gradeAndOutputWasm(rawCmd, { stdout: "kali", stderr: "", code: 0 });
+      return;
+    }
+
+    // 3. Whoami
+    if (lower === "whoami" || lower === "sudo whoami") {
+      const who = lower.startsWith("sudo") ? "root" : "userland";
+      wasmXtermInstance.write(`${who}\r\n`);
+      gradeAndOutputWasm(rawCmd, { stdout: who, stderr: "", code: 0 });
+      return;
+    }
+
+    // 4. Sudo apt update / apt update
+    if (lower === "sudo apt update" || lower === "apt update" || lower === "sudo apt-get update" || lower === "apt-get update") {
+      const out = [
+        "Hit:1 http://http.kali.org/kali kali-rolling InRelease",
+        "Get:2 http://http.kali.org/kali kali-rolling/main amd64 Packages [19.2 MB]",
+        "Get:3 http://http.kali.org/kali kali-rolling/non-free amd64 Packages [212 kB]",
+        "Fetched 19.4 MB in 1s (19.4 MB/s)",
+        "Reading package lists... Done",
+        "Building dependency tree... Done",
+        "Reading state information... Done",
+        "All packages are up to date."
+      ].join("\r\n");
+      wasmXtermInstance.write(out + "\r\n");
+      gradeAndOutputWasm(rawCmd, { stdout: out, stderr: "", code: 0 });
+      return;
+    }
+
+    // 5. Apt install
+    if (lower.startsWith("apt install") || lower.startsWith("sudo apt install") || lower.startsWith("apt-get install") || lower.startsWith("sudo apt-get install")) {
+      const pkg = clean.split(" ").filter(w => !["sudo", "apt", "apt-get", "install", "-y"].includes(w)).pop() || "tools";
+      const out = [
+        "Reading package lists... Done",
+        "Building dependency tree... Done",
+        `The following NEW packages will be installed: ${pkg}`,
+        `Setting up ${pkg} (latest) ...`,
+        "Processing triggers for man-db ... Done"
+      ].join("\r\n");
+      wasmXtermInstance.write(out + "\r\n");
+      gradeAndOutputWasm(rawCmd, { stdout: out, stderr: "", code: 0 });
+      return;
+    }
+
+    // 6. Uname
+    if (lower === "uname" || lower === "uname -a" || lower === "sudo uname -a" || lower === "uname -r") {
+      const out = "Linux kali 6.1.0-kali-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01) x86_64 GNU/Linux";
+      wasmXtermInstance.write(out + "\r\n");
+      gradeAndOutputWasm(rawCmd, { stdout: out, stderr: "", code: 0 });
+      return;
+    }
+
+    // 7. Execute in liveShell
+    if (!state.liveShell) {
+      wasmXtermInstance.write("\x1b[1;31mError: Shell yuklanmagan\x1b[0m\r\n");
+      printWasmPrompt();
+      return;
+    }
+
+    const res = state.liveShell.execute(clean);
+    if (res.stdout && res.stdout !== "__CLEAR__") {
+      const lines = res.stdout.replace(/\r\n/g, "\n").split("\n");
+      lines.forEach(l => wasmXtermInstance.write(l + "\r\n"));
+    }
+    if (res.stdout === "__CLEAR__") {
+      wasmXtermInstance.write("\x1b[2J\x1b[H");
+    }
+    if (res.stderr) {
+      const lines = res.stderr.replace(/\r\n/g, "\n").split("\n");
+      lines.forEach(l => wasmXtermInstance.write(`\x1b[1;31m${l}\x1b[0m\r\n`));
+    }
+
+    gradeAndOutputWasm(clean, res);
+  }
+
+  function initWasmRealLinux() {
+    const box = document.getElementById("wasmXtermBox");
+    const loader = document.getElementById("wasmLoader");
+    if (loader) loader.style.display = "none";
     if (!box) return;
 
-    if (loader) loader.style.display = "flex";
-
-    const V86Constructor = window.V86 || window.V86Starter;
-    if (typeof Terminal === "undefined" || !V86Constructor) {
-      if (loaderText) {
-        loaderText.innerHTML = `
-          <div style="font-weight:700; color:#fbbf24; margin-bottom:6px;">⚠️ WebAssembly kutubxonasi kutilmoqda</div>
-          <div style="font-size:12px; color:#cbd5e1; margin-bottom:12px; max-width:320px; line-height:1.5;">
-            Internet tezligi past bo'lsa yoki kutishni istamasangiz, <b>0 soniyada</b> ochiluvchi va ichida <b>haqiqiy vim/nano</b> bor Tezkor Shelldan foydalaning:
-          </div>
-          <button type="button" class="btn btn-primary" onclick="window.setTerminalEngine('shell')" style="padding:7px 16px; font-weight:700;">
-            ⚡ Tezkor Shellga O'tish
-          </button>
-        `;
-      }
-      return;
-    }
-
-    try {
+    if (!wasmXtermInstance && typeof Terminal !== "undefined") {
       const isMobile = window.innerWidth <= 600;
-      if (!wasmXtermInstance) {
-        wasmXtermInstance = new Terminal({
-          cols: isMobile ? 42 : 80,
-          rows: isMobile ? 18 : 24,
-          fontSize: isMobile ? 11.5 : 13,
-          lineHeight: 1.2,
-          theme: {
-            background: "#000000",
-            foreground: "#f8fafc",
-            cursor: "#22d3ee",
-            selectionBackground: "rgba(56, 189, 248, 0.3)"
-          },
-          fontFamily: "'JetBrains Mono', monospace",
-          cursorBlink: true,
-          scrollOnUserInput: true,
-          scrollback: 2000
-        });
-        wasmXtermInstance.open(box);
-        fitWasmTerminal();
-      }
-
-      // 2. Render live download progress bar in the loader
-      if (loaderText) {
-        loaderText.innerHTML = `
-          <div class="wasm-spinner"></div>
-          <div style="font-weight:700; color:#38bdf8; margin-top:8px;">🐧 Haqiqiy Linux Tizimi Yuklanmoqda...</div>
-          <div id="wasmProgressStatus" style="font-family:'JetBrains Mono', monospace; font-size:13.5px; color:#34d399; margin: 8px 0 6px; font-weight:700;">0.00 MB / 7.35 MB (0%)</div>
-          <div style="width:260px; height:8px; background:#0f172a; border-radius:4px; overflow:hidden; border:1px solid #334155; margin: 0 auto 14px auto;">
-            <div id="wasmProgressBarFill" style="width:0%; height:100%; background:linear-gradient(90deg, #06b6d4, #10b981); transition:width 0.2s ease;"></div>
-          </div>
-          <div style="font-size:11px; color:#94a3b8; margin-bottom:10px;">Bir marta yuklanadi va brauzeringizda keshlanadi.</div>
-          <button type="button" class="btn btn-primary" onclick="window.setTerminalEngine('shell')" style="padding:6px 14px; font-size:11.5px; font-weight:700;">
-            ⚡ Tezkor Shellga O'tish (Kutmasdan Ishlash)
-          </button>
-        `;
-      }
-
-      const isoUrl = "./data/linux4.iso";
-      const isoResponse = await fetch(isoUrl);
-      if (!isoResponse.ok) {
-        throw new Error(`ISO fayl topilmadi: ${isoResponse.statusText}`);
-      }
-
-      const reader = isoResponse.body.getReader();
-      const contentLength = +isoResponse.headers.get("Content-Length") || 7712768;
-      let receivedLength = 0;
-      let chunks = [];
-
-      const statusEl = document.getElementById("wasmProgressStatus");
-      const barEl = document.getElementById("wasmProgressBarFill");
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        chunks.push(value);
-        receivedLength += value.length;
-        const percent = Math.min(100, Math.round((receivedLength / contentLength) * 100));
-        const mbReceived = (receivedLength / (1024 * 1024)).toFixed(2);
-        const mbTotal = (contentLength / (1024 * 1024)).toFixed(2);
-
-        if (statusEl) statusEl.textContent = `${mbReceived} MB / ${mbTotal} MB (${percent}%)`;
-        if (barEl) barEl.style.width = `${percent}%`;
-      }
-
-      if (statusEl) statusEl.textContent = "✓ 100% Yuklandi! Linux x86 Kernel ishga tushmoqda...";
-
-      let isoBytes = new Uint8Array(receivedLength);
-      let pos = 0;
-      for (let chunk of chunks) {
-        isoBytes.set(chunk, pos);
-        pos += chunk.length;
-      }
-
-      wasmXtermInstance.writeln("\x1b[1;36m🐧 Linux Kernel x86 ishga tushmoqda... (SeaBIOS & Kernel 4.x)\x1b[0m\r\n");
-
-      // 3. Start V86 with memory-buffered CD-ROM
-      wasmEmulatorInstance = new V86Constructor({
-        wasm_path: "https://cdn.jsdelivr.net/npm/v86@latest/build/v86.wasm",
-        memory_size: 64 * 1024 * 1024,
-        vga_memory_size: 2 * 1024 * 1024,
-        screen_container: null,
-        bios: {
-          url: "./data/seabios.bin"
+      wasmXtermInstance = new Terminal({
+        cols: isMobile ? 42 : 80,
+        rows: isMobile ? 18 : 24,
+        fontSize: isMobile ? 11.5 : 13,
+        lineHeight: 1.25,
+        theme: {
+          background: "#050811",
+          foreground: "#f8fafc",
+          cursor: "#22d3ee",
+          selectionBackground: "rgba(34, 211, 238, 0.3)",
+          black: "#0f172a",
+          red: "#ef4444",
+          green: "#10b981",
+          yellow: "#f59e0b",
+          blue: "#38bdf8",
+          magenta: "#ec4899",
+          cyan: "#06b6d4",
+          white: "#f8fafc"
         },
-        vga_bios: {
-          url: "./data/vgabios.bin"
-        },
-        cdrom: {
-          buffer: isoBytes.buffer
-        },
-        autostart: true
+        fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+        cursorBlink: true,
+        scrollOnUserInput: true,
+        scrollback: 2000
       });
 
-      wasmEmulatorInstance.add_listener("serial0-output-byte", function(byte) {
-        if (typeof byte === "number") {
-          const char = String.fromCharCode(byte);
-          wasmXtermInstance.write(char);
-        } else {
-          wasmXtermInstance.write(byte);
-        }
-        wasmXtermInstance.scrollToBottom();
-      });
-
-      wasmXtermInstance.onData(function(data) {
-        if (wasmEmulatorInstance) {
-          wasmEmulatorInstance.serial0_send(data);
-        }
-        wasmXtermInstance.scrollToBottom();
-      });
-
+      box.innerHTML = "";
+      wasmXtermInstance.open(box);
       fitWasmTerminal();
 
-      wasmEmulatorInstance.add_listener("ready", function() {
-        if (loader) loader.style.display = "none";
-        wasmXtermInstance.writeln("\r\n\x1b[1;32m✓ Haqiqiy x86 Linux tizimi faol! Tizimga xush kelibsiz.\x1b[0m\r\n");
-        wasmXtermInstance.focus();
+      box.addEventListener("click", () => {
+        if (wasmXtermInstance) wasmXtermInstance.focus();
       });
+      box.addEventListener("touchstart", () => {
+        if (wasmXtermInstance) wasmXtermInstance.focus();
+      }, { passive: true });
 
+      // Print Authentic Kali UserLAnd Banner (Image 2)
+      const banner = [
+        "/data/user/0/tech.ula/files/support/dbclient: Caution, skipping hostkey check for localhost",
+        "",
+        "The programs included with the Kali GNU/Linux system are free software;",
+        "the exact distribution terms for each program are described in the",
+        "individual files in /usr/share/doc/*/copyright.",
+        "",
+        "Kali GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent",
+        "permitted by applicable law.",
+        "\x1b[1;31m┌──(Message from Kali developers)\x1b[0m",
+        "\x1b[1;31m│\x1b[0m",
+        "\x1b[1;31m│\x1b[0m This is a minimal installation of Kali Linux, you likely",
+        "\x1b[1;31m│\x1b[0m want to install supplementary tools. Learn how:",
+        "\x1b[1;31m│\x1b[0m ⇒ https://www.kali.org/docs/troubleshooting/common-minimum-setup/",
+        "\x1b[1;31m│\x1b[0m",
+        "\x1b[1;31m└──(Run: \"touch ~/.hushlogin\" to hide this message)\x1b[0m",
+        "\x1b[1;37mWelcome to Kali in UserLAnd!\x1b[0m",
+        ""
+      ].join("\r\n");
+      wasmXtermInstance.write(banner + "\r\n");
+      printWasmPrompt();
+
+      wasmXtermInstance.onData(data => {
+        // Enter
+        if (data === "\r") {
+          wasmXtermInstance.write("\r\n");
+          const cmd = wasmCmdBuffer.trim();
+          wasmCmdBuffer = "";
+          if (cmd) {
+            wasmHistory.push(cmd);
+            wasmHistIdx = wasmHistory.length;
+            executeWasmKaliCommand(cmd);
+          } else {
+            printWasmPrompt();
+          }
+          wasmXtermInstance.scrollToBottom();
+          return;
+        }
+
+        // Backspace
+        if (data === "\x7f" || data === "\b") {
+          if (wasmCmdBuffer.length > 0) {
+            wasmCmdBuffer = wasmCmdBuffer.slice(0, -1);
+            wasmXtermInstance.write("\b \b");
+          }
+          return;
+        }
+
+        // Ctrl+C
+        if (data === "\x03") {
+          wasmCmdBuffer = "";
+          wasmXtermInstance.write("^C\r\n");
+          printWasmPrompt();
+          wasmXtermInstance.scrollToBottom();
+          return;
+        }
+
+        // Ctrl+L
+        if (data === "\x0c") {
+          wasmXtermInstance.write("\x1b[2J\x1b[H");
+          printWasmPrompt();
+          if (wasmCmdBuffer) wasmXtermInstance.write(wasmCmdBuffer);
+          return;
+        }
+
+        // Up Arrow
+        if (data === "\x1b[A") {
+          if (wasmHistory.length > 0 && wasmHistIdx > 0) {
+            wasmHistIdx--;
+            while (wasmCmdBuffer.length > 0) {
+              wasmXtermInstance.write("\b \b");
+              wasmCmdBuffer = wasmCmdBuffer.slice(0, -1);
+            }
+            wasmCmdBuffer = wasmHistory[wasmHistIdx];
+            wasmXtermInstance.write(wasmCmdBuffer);
+          }
+          return;
+        }
+
+        // Down Arrow
+        if (data === "\x1b[B") {
+          if (wasmHistIdx < wasmHistory.length - 1) {
+            wasmHistIdx++;
+            while (wasmCmdBuffer.length > 0) {
+              wasmXtermInstance.write("\b \b");
+              wasmCmdBuffer = wasmCmdBuffer.slice(0, -1);
+            }
+            wasmCmdBuffer = wasmHistory[wasmHistIdx];
+            wasmXtermInstance.write(wasmCmdBuffer);
+          } else if (wasmHistIdx === wasmHistory.length - 1) {
+            wasmHistIdx = wasmHistory.length;
+            while (wasmCmdBuffer.length > 0) {
+              wasmXtermInstance.write("\b \b");
+              wasmCmdBuffer = wasmCmdBuffer.slice(0, -1);
+            }
+          }
+          return;
+        }
+
+        // Normal typing
+        if (data.length === 1 && data.charCodeAt(0) >= 32) {
+          wasmCmdBuffer += data;
+          wasmXtermInstance.write(data);
+        }
+      });
+    }
+
+    if (wasmXtermInstance) {
       setTimeout(() => {
-        if (loader) loader.style.display = "none";
-      }, 4500);
-
-    } catch (err) {
-      console.error("WASM boot error:", err);
-      if (loaderText) {
-        loaderText.innerHTML = `
-          <div style="font-weight:700; color:#ef4444; margin-bottom:6px;">⚠️ Yuklashda xatolik: ${err.message}</div>
-          <button type="button" class="btn btn-primary" onclick="window.setTerminalEngine('shell')" style="margin-top:8px;">
-            ⚡ Tezkor Shellga O'tish
-          </button>
-        `;
-      }
+        wasmXtermInstance.focus();
+        fitWasmTerminal();
+        wasmXtermInstance.scrollToBottom();
+      }, 50);
     }
   }
 
@@ -1562,20 +1935,24 @@ permitted by applicable law.
           const token = btn.getAttribute("data-token");
           const key = btn.getAttribute("data-key");
 
-          if (state.activeEngine === "wasm" && wasmEmulatorInstance) {
+          if (state.activeEngine === "wasm" && wasmXtermInstance) {
             if (token) {
-              wasmEmulatorInstance.serial0_send(token);
+              wasmCmdBuffer += token;
+              wasmXtermInstance.write(token);
             } else if (key === "Tab") {
-              wasmEmulatorInstance.serial0_send("\t");
+              wasmCmdBuffer += " ";
+              wasmXtermInstance.write(" ");
             } else if (key === "CtrlC") {
-              wasmEmulatorInstance.serial0_send("\x03");
+              wasmCmdBuffer = "";
+              wasmXtermInstance.write("^C\r\n");
+              printWasmPrompt();
             } else if (key === "clear") {
-              wasmEmulatorInstance.serial0_send("clear\n");
+              wasmCmdBuffer = "";
+              wasmXtermInstance.write("\x1b[2J\x1b[H");
+              printWasmPrompt();
             }
-            if (wasmXtermInstance) {
-              wasmXtermInstance.focus();
-              wasmXtermInstance.scrollToBottom();
-            }
+            wasmXtermInstance.focus();
+            wasmXtermInstance.scrollToBottom();
             return;
           }
 

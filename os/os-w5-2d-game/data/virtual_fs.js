@@ -81,7 +81,7 @@
   // Virtual State Data
   const INITIAL_VIRTUAL_STATE = {
     currentUser: "student",
-    currentHost: "wiut-srv05",
+    currentHost: "kali",
     currentDir: "/home/student/os_lab5",
     cronRunning: true,
     cronJobs: [
@@ -287,6 +287,44 @@
 
       if (raw.includes("usermod -aG docker")) {
         return { stdout: "User added to group 'docker'. Run 'newgrp docker' or relogin to activate non-root docker rights.", stderr: "", code: 0 };
+      }
+
+      
+      // Kali commands: vim, nano, sudo, uname, apt
+      if (raw.startsWith("vim") || raw.startsWith("vi ") || raw.startsWith("nano") || raw === "vi") {
+        const parts = raw.split(/\s+/);
+        const editor = parts[0] || "vim";
+        const filename = parts.slice(1).join(" ") || "script.sh";
+        return {
+          stdout: "~\n~   [" + editor.toUpperCase() + " - Kali GNU/Linux Text Editor]\n~   Fayl ochildi: " + filename + "\n~   ------------------------------------------------------------\n~   # Kali Linux matn muharriri\n~   # Tahrirlash: :i | Saqlash va chiqish: :wq | Chiqish: :q\n~   ------------------------------------------------------------\n~\n\"" + filename + "\" [Yangi fayl yaratildi va saqlandi: :wq]",
+          stderr: "",
+          code: 0
+        };
+      }
+      if (raw.startsWith("sudo ")) {
+        const inner = raw.replace(/^sudo\s+/, "");
+        return this.execute(inner);
+      }
+      if (raw === "sudo" || raw === "sudo -h") {
+        return { stdout: "usage: sudo -h | -K | -k | -V\nusage: sudo [command [arg ...]]", stderr: "", code: 0 };
+      }
+      if (raw === "uname" || raw === "uname -a" || raw === "uname -r") {
+        return { stdout: "Linux kali 6.1.0-kali-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01) x86_64 GNU/Linux", stderr: "", code: 0 };
+      }
+      if (raw.includes("apt update") || raw.includes("apt-get update")) {
+        return {
+          stdout: "Hit:1 http://http.kali.org/kali kali-rolling InRelease\nGet:2 http://http.kali.org/kali kali-rolling/main amd64 Packages [19.2 MB]\nFetched 19.4 MB in 1s (19.4 MB/s)\nReading package lists... Done\nBuilding dependency tree... Done\nAll packages are up to date.",
+          stderr: "",
+          code: 0
+        };
+      }
+      if (raw.includes("apt install") || raw.includes("apt-get install")) {
+        const pkg = raw.split(" ").filter(w => !["sudo", "apt", "apt-get", "install", "-y"].includes(w)).pop() || "tools";
+        return {
+          stdout: "Reading package lists... Done\nBuilding dependency tree... Done\nThe following NEW packages will be installed: " + pkg + "\nSetting up " + pkg + " (latest) ...\nProcessing triggers for man-db ... Done",
+          stderr: "",
+          code: 0
+        };
       }
 
       // 5. Standard utility commands

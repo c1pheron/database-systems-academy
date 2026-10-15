@@ -217,6 +217,12 @@ html, body {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hud-actions .btn {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 /* ============================================================================
@@ -279,17 +285,7 @@ html, body {
 /* ============================================================================
    10 SECTORS NAVIGATION BAR
    ============================================================================ */
-.sector-bar {
-  background: #0a101f;
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 6px 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border-cyan) transparent;
-}
+
 
 .sector-bar::-webkit-scrollbar {
   height: 5px;
@@ -300,19 +296,12 @@ html, body {
   border-radius: 4px;
 }
 
-.sector-pill {
-  background: rgba(14, 23, 41, 0.7);
-  border: 1px solid rgba(6, 182, 212, 0.2);
-  border-radius: 6px;
-  padding: 5px 10px;
-  font-size: 12px;
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.2s ease;
+
+
+.sector-pill span {
+  white-space: nowrap !important;
+  display: inline-block !important;
+  line-height: 1 !important;
 }
 
 .sector-pill:hover {
@@ -335,6 +324,7 @@ html, body {
   padding: 1px 6px;
   border-radius: 10px;
   color: var(--accent-cyan-bright);
+  flex-shrink: 0 !important;
 }
 
 /* ============================================================================
@@ -2468,13 +2458,16 @@ html, body {
     display: flex !important;
     flex-wrap: wrap !important;
     width: 100% !important;
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
     gap: 6px !important;
   }
 
   .hud-actions .btn {
-    padding: 5px 9px !important;
-    font-size: 11px !important;
+    padding: 6px 10px !important;
+    font-size: 11.5px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    min-width: max-content !important;
   }
 
   .main-grid {
@@ -2551,10 +2544,31 @@ html, body {
     font-size: 14.5px !important;
   }
 
+  .terminal-card:not(.is-fullscreen) .kali-screen {
+    height: 340px !important;
+  }
+
+  .terminal-card:not(.is-fullscreen) .wasm-term-screen {
+    height: 340px !important;
+  }
+
   .kali-screen {
     padding: 8px 10px !important;
     font-size: 12px !important;
-    height: 340px !important;
+  }
+
+  .terminal-card.is-fullscreen {
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+  }
+
+  .terminal-card.is-fullscreen .kali-screen,
+  .terminal-card.is-fullscreen .wasm-term-screen,
+  .terminal-card.is-fullscreen .wasm-xterm-box {
+    height: 100% !important;
+    flex: 1 !important;
+    min-height: 0 !important;
   }
 
   .kali-touch-bar {
@@ -2579,3 +2593,142 @@ html, body {
   }
 }
 
+
+
+/* ============================================================================
+   ACADEMIC CASE STUDY DOSSIER (DATABASE SYSTEMS STANDARD)
+   ============================================================================ */
+.academic-case-dossier {
+  background: #080e1d !important;
+  border: 1px solid rgba(6, 182, 212, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 14px 16px !important;
+  margin: 10px 0 14px 0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+.case-section-header {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: var(--accent-cyan-bright) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  margin: 0 0 8px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.case-narrative-box {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13.5px !important;
+  line-height: 1.75 !important;
+  color: #f1f5f9 !important;
+  margin-bottom: 12px !important;
+}
+
+.case-narrative-box p {
+  margin: 0 0 10px 0 !important;
+  line-height: 1.7 !important;
+}
+
+.case-narrative-box p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.case-narrative-box strong {
+  color: #38bdf8 !important;
+  font-weight: 600 !important;
+}
+
+.case-tasks-box {
+  border-top: 1px solid rgba(6, 182, 212, 0.25) !important;
+  padding-top: 12px !important;
+}
+
+.case-instruction-pill {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  padding: 10px 14px !important;
+  background: rgba(6, 182, 212, 0.08) !important;
+  border: 1px solid rgba(6, 182, 212, 0.25) !important;
+  border-radius: 6px !important;
+  color: #f8fafc !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+
+.sector-bar {
+  background: #080d1a !important;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.25) !important;
+  padding: 8px 14px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--accent-cyan) transparent !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.sector-bar::-webkit-scrollbar {
+  height: 5px !important;
+}
+
+.sector-bar::-webkit-scrollbar-thumb {
+  background: var(--accent-cyan) !important;
+  border-radius: 4px !important;
+}
+
+.sector-pill {
+  background: rgba(14, 23, 42, 0.8) !important;
+  border: 1px solid rgba(6, 182, 212, 0.3) !important;
+  border-radius: 6px !important;
+  padding: 6px 12px !important;
+  font-size: 11.5px !important;
+  color: #94a3b8 !important;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  height: 32px !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.sector-pill:hover {
+  border-color: var(--accent-cyan-bright) !important;
+  color: #f8fafc !important;
+}
+
+.sector-pill.active {
+  background: rgba(6, 182, 212, 0.22) !important;
+  border-color: #06b6d4 !important;
+  color: #f8fafc !important;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.35) !important;
+}
+
+.sector-pill span {
+  white-space: nowrap !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+}
+
+.sector-pill .pill-count {
+  background: rgba(6, 182, 212, 0.2) !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-size: 10.5px !important;
+  color: #22d3ee !important;
+  font-weight: 600 !important;
+}

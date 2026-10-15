@@ -853,7 +853,7 @@ WantedBy=timers.target
       // Core commands
       if (c === "pwd") return { stdout: this.cwd, stderr: "", code: 0 };
       if (c === "whoami") return { stdout: this.user, stderr: "", code: 0 };
-      if (c === "hostname") return { stdout: "debian-server", stderr: "", code: 0 };
+      if (c === "hostname") return { stdout: "kali", stderr: "", code: 0 };
       if (c === "date") return this.cmdDate(args);
       if (c === "echo") return this.cmdEcho(args);
       if (c === "printf") return this.cmdPrintf(args);

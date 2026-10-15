@@ -81,7 +81,7 @@
   // Virtual State Data for Week 6
   const INITIAL_VIRTUAL_STATE = {
     currentUser: "student",
-    currentHost: "wiut-srv06",
+    currentHost: "kali",
     currentDir: "/home/student/week6-docker",
     dockerInstalled: true,
     dockerImages: [

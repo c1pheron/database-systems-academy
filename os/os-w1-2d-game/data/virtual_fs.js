@@ -176,7 +176,7 @@
       this.cwd = "/home/student";
       this.previousDir = "/home/student";
       this.user = "student";
-      this.hostname = "debian-server";
+      this.hostname = "kali";
       this.outputBuffer = [];
     }
 

@@ -466,7 +466,7 @@ echo "Report saved to: \${output}"
       switch (baseCmd) {
         case "whoami": return { stdout: this.user, stderr: "", code: 0 };
         case "pwd": return { stdout: this.cwd, stderr: "", code: 0 };
-        case "hostname": return { stdout: "debian-server", stderr: "", code: 0 };
+        case "hostname": return { stdout: "kali", stderr: "", code: 0 };
         case "echo": return this.cmdEcho(args);
         case "bash": return this.cmdBash(args);
         case "ps": return this.cmdPs(args);
@@ -492,6 +492,42 @@ echo "Report saved to: \${output}"
         case "printf": return this.cmdPrintf(args);
         case "ls": return this.cmdLs(args);
         case "clear": return { stdout: "", stderr: "", code: 0 };
+        
+        case "vim":
+        case "vi":
+        case "nano": {
+          const target = (args && args[0]) || "script.sh";
+          if (typeof this.cmdTouch === "function") this.cmdTouch([target]);
+          return {
+            stdout: "~\n~   [" + baseCmd.toUpperCase() + " - Kali GNU/Linux Text Editor]\n~   Fayl ochildi: " + target + "\n~   ------------------------------------------------------------\n~   # Kali Linux matn muharriri\n~   # Tahrirlash: :i | Saqlash va chiqish: :wq | Chiqish: :q\n~   ------------------------------------------------------------\n~\n\"" + target + "\" [Yangi fayl yaratildi va saqlandi]",
+            stderr: "",
+            code: 0
+          };
+        }
+        case "uname": {
+          return { stdout: "Linux kali 6.1.0-kali-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01) x86_64 GNU/Linux", stderr: "", code: 0 };
+        }
+        case "hostname": {
+          return { stdout: "kali", stderr: "", code: 0 };
+        }
+        case "apt":
+        case "apt-get": {
+          const sub = (args && args[0] ? args[0] : "").toLowerCase();
+          if (sub === "update") {
+            return {
+              stdout: "Hit:1 http://http.kali.org/kali kali-rolling InRelease\nGet:2 http://http.kali.org/kali kali-rolling/main amd64 Packages [19.2 MB]\nFetched 19.4 MB in 1s (19.4 MB/s)\nReading package lists... Done\nBuilding dependency tree... Done\nAll packages are up to date.",
+              stderr: "",
+              code: 0
+            };
+          }
+          const pkg = (args && args[1]) || "tools";
+          return {
+            stdout: "Reading package lists... Done\nBuilding dependency tree... Done\nThe following NEW packages will be installed: " + pkg + "\nSetting up " + pkg + " (latest) ...\nProcessing triggers for man-db ... Done",
+            stderr: "",
+            code: 0
+          };
+        }
+
         default:
           return { stdout: "", stderr: `bash: ${baseCmd}: command not found`, code: 127 };
       }
