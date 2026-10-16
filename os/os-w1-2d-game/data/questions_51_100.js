@@ -1,6 +1,5 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — QUESTIONS 51 TO 100
-// touch -d, cat, redirection >, >>, head, tail, tail -f, wc -l, wc -w, wc -c.
+// WIUT OPERATING SYSTEMS (5COSC041C) — QUESTIONS_51_100.JS
 // ============================================================================
 
 window.QUESTIONS_51_100 = [
@@ -84,7 +83,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 55,
-    "title": "Fayllar Ro'yxatini Sana Bo'yicha Ko'rish (ls -lt)",
+    "title": "Fayllar Ro'yxatini Sana Bo'yicha Saralash",
     "story": "Yaratilgan fayllar sanalarining farqini uzun formatda tekshiring.",
     "taskUz": "`ls -lt` buyrug'i orqali sanasi bo'yicha saralab chiqaring.",
     "expectedSql": "ls -lt",
@@ -161,7 +160,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 59,
-    "title": "Sinov Fayllarini O'chirish (rm f1.txt f2.txt f3.txt)",
+    "title": "Bir Nechta Sinov Fayllarini O'chirish",
     "story": "Ortiqcha sinov fayllarini tozalab tashlang.",
     "taskUz": "`rm f1.txt f2.txt f3.txt` buyrug'i orqali uchta faylni o'chiring.",
     "expectedSql": "rm f1.txt f2.txt f3.txt",
@@ -199,7 +198,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 61,
-    "title": "Fayl Tarkibini Ekranga Chiqarish (cat readme.txt)",
+    "title": "Fayl Tarkibini Ekranga Chiqarish",
     "story": "Uy katalogidagi `readme.txt` fayli ichidagi xabarni to'liq o'qing.",
     "taskUz": "`cat ~/readme.txt` buyrug'i orqali matnni ekranga chiqaring.",
     "expectedSql": "cat ~/readme.txt",
@@ -219,7 +218,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 62,
-    "title": "Tizim Hostini Ekranga Chiqarish (cat /etc/hostname)",
+    "title": "Tizim Host Nomini Fayldan O'qish",
     "story": "Linux da ko'p parametrlar oddiy fayl ko'rinishida `/etc` da saqlanadi.",
     "taskUz": "`cat /etc/hostname` buyrug'i orqali mashina nomini ko'ring.",
     "expectedSql": "cat /etc/hostname",
@@ -238,7 +237,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 63,
-    "title": "Linux Versiyasini Ko'rish (cat /etc/os-release)",
+    "title": "Linux Versiyasini Fayldan O'qish",
     "story": "Serverda qaysi Debian distributivi o'rnatilganini fayldan o'qing.",
     "taskUz": "`cat /etc/os-release` buyrug'ini bering.",
     "expectedSql": "cat /etc/os-release",
@@ -257,7 +256,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 64,
-    "title": "Foydalanuvchilar Ro'yxatini Ko'rish (cat /etc/passwd)",
+    "title": "Foydalanuvchilar Ro'yxatini Fayldan O'qish",
     "story": "Tizim hisoblari ro'yxatini saqlovchi mashhur `/etc/passwd` faylini o'qing.",
     "taskUz": "`cat /etc/passwd` buyrug'ini bering.",
     "expectedSql": "cat /etc/passwd",
@@ -336,7 +335,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 68,
-    "title": "system.log Faylini O'qish (cat system.log)",
+    "title": "Tizim Jurnali Faylini Ekranga Chiqarish",
     "story": "Yozilgan barcha yangi log yozuvlarini ekranga chiqarib tekshiring.",
     "taskUz": "`cat system.log` buyrug'ini bering.",
     "expectedSql": "cat system.log",
@@ -355,7 +354,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 69,
-    "title": "Qator Raqamlari Bilan Ko'rish (cat -n system.log)",
+    "title": "Qator Raqamlari Bilan Birga Chiqarish",
     "story": "Log qatorlarini qulay sanash uchun har bir qator oldiga raqam qo'ying.",
     "taskUz": "`cat -n system.log` buyrug'i orqali qator raqamlari bilan chiqaring.",
     "expectedSql": "cat -n system.log",
@@ -414,7 +413,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 72,
-    "title": "Ikkita Faylni Birlashtirib Ko'rish (cat system.log auth.log)",
+    "title": "Ikkita Faylni Birlashtirib Ekranga Chiqarish",
     "story": "`cat` (concatenate) buyrug'i bir vaqtda bir nechta faylni ketma-ket ulab chiqaradi.",
     "taskUz": "`cat system.log auth.log` buyrug'ini bering.",
     "expectedSql": "cat system.log auth.log",
@@ -433,7 +432,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 73,
-    "title": "Katta Log Faylini Sahifama-sahifa Ko'rish (more /var/log/syslog)",
+    "title": "Katta Log Faylini Sahifama-sahifa Ko'rish",
     "story": "Ekrandan toshib ketmasligi uchun matnni sahifalab ko'ruvchi `more` ni sinang.",
     "taskUz": "`more /var/log/syslog` buyrug'ini bering.",
     "expectedSql": "more /var/log/syslog",
@@ -452,7 +451,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 74,
-    "title": "Qulay Qidiruv Bilan Matn Ko'rish (less /var/log/syslog)",
+    "title": "Qulay Qidiruv Bilan Matn Ko'rish",
     "story": "Kursor va `/qidiruv` imkoniyatiga ega professional `less` dasturini oching.",
     "taskUz": "`less /var/log/syslog` buyrug'ini bering.",
     "expectedSql": "less /var/log/syslog",
@@ -490,7 +489,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 76,
-    "title": "Faylning Dastlabki 10 Qatorini Ko'rish (head)",
+    "title": "Faylning Dastlabki 10 Qatorini Ko'rish",
     "story": "`head` buyrug'i parametr berilmasa standart dastlabki 10 ta qatorni chiqaradi.",
     "taskUz": "`/var/log/syslog` faylining dastlabki 10 qatorini ekranga chiqaring.",
     "expectedSql": "head /var/log/syslog",
@@ -509,7 +508,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 77,
-    "title": "Faqat Dastlabki 5 Qatorni Ko'rish (head -n 5)",
+    "title": "Faylning Dastlabki 5 Qatorini Ajratib Ko'rish",
     "story": "Seminar 1 topshirig'i: log faylning faqat boshlang'ich 5 qatorini ajratib oling.",
     "taskUz": "`head -n 5 /var/log/syslog` buyrug'ini bering.",
     "expectedSql": "head -n 5 /var/log/syslog",
@@ -529,7 +528,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 78,
-    "title": "Dastlabki 3 Qatorni Ko'rish (head -n 3)",
+    "title": "Faylning Dastlabki 3 Qatorini Ajratib Ko'rish",
     "story": "Tizim yuklanishidagi ilk 3 ta muhim voqeani ajrating.",
     "taskUz": "`head -n 3 /var/log/syslog` buyrug'ini bering.",
     "expectedSql": "head -n 3 /var/log/syslog",
@@ -549,7 +548,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 79,
-    "title": "Faylning Oxirgi 10 Qatorini Ko'rish (tail)",
+    "title": "Faylning Oxirgi 10 Qatorini Ko'rish",
     "story": "`tail` parametri ko'rsatilmasa avtomatik eng oxirgi 10 ta qatorni chiqaradi.",
     "taskUz": "`/var/log/syslog` faylining eng oxirgi 10 ta qatorini chiqaring.",
     "expectedSql": "tail /var/log/syslog",
@@ -568,7 +567,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 80,
-    "title": "Faqat Oxirgi 5 Qatorni Ko'rish (tail -n 5)",
+    "title": "Faylning Oxirgi 5 Qatorini Ajratib Ko'rish",
     "story": "Seminar 1 topshirig'i: Serverdagi eng oxirgi 5 ta voqea yozuvini ko'ring.",
     "taskUz": "`tail -n 5 /var/log/syslog` buyrug'ini bering.",
     "expectedSql": "tail -n 5 /var/log/syslog",
@@ -588,7 +587,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 81,
-    "title": "Faqat Oxirgi 2 Qatorni Ko'rish (tail -n 2)",
+    "title": "Faylning Oxirgi 2 Qatorini Ajratib Ko'rish",
     "story": "Eng oxirgi ikkita faollikni nazorat qiling.",
     "taskUz": "`tail -n 2 /var/log/syslog` buyrug'ini bering.",
     "expectedSql": "tail -n 2 /var/log/syslog",
@@ -628,7 +627,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 83,
-    "title": "Oxirgi Qatorlarni Jonli Kuzatish Rejimi (tail -f)",
+    "title": "Log Faylini Real Vaqtda Jonli Kuzatish",
     "story": "SysAdminlar real vaqtda yangi tushayotgan loglarni `tail -f` (follow) orqali kuzatadi.",
     "taskUz": "`/var/log/syslog` faylini follow rejimida kuzatuvchi `tail -f` buyrug'ini bering.",
     "expectedSql": "tail -f /var/log/syslog",
@@ -648,7 +647,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 84,
-    "title": "Boshlang'ich 1 Qatorni Chiqarish (head -n 1)",
+    "title": "Faylning Eng Birinchi Qatorini Chiqarish",
     "story": "Log faylning eng birinchi ochilish qatorini ajrating.",
     "taskUz": "`head -n 1 /var/log/syslog` buyrug'ini bering.",
     "expectedSql": "head -n 1 /var/log/syslog",
@@ -668,7 +667,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 85,
-    "title": "Eng Oxirgi 1 Qatorni Chiqarish (tail -n 1)",
+    "title": "Faylning Eng Oxirgi Yakuniy Qatorini Chiqarish",
     "story": "Jurnaldagi eng so'nggi yozilgan yagona qatorni oling.",
     "taskUz": "`tail -n 1 /var/log/syslog` buyrug'ini bering.",
     "expectedSql": "tail -n 1 /var/log/syslog",
@@ -783,7 +782,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 91,
-    "title": "Fayl Qatorlari Sonini Sanash (wc -l)",
+    "title": "Fayl Qatorlari Sonini Sanash",
     "story": "Seminar 1: `/var/log/syslog` faylida jami nechta qator borligini aniqlang.",
     "taskUz": "`wc -l /var/log/syslog` buyrug'i orqali qatorlar sonini chiqaring.",
     "expectedSql": "wc -l /var/log/syslog",
@@ -802,7 +801,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 92,
-    "title": "Fayl So'zlar Sonini Sanash (wc -w)",
+    "title": "Fayldagi So'zlar Sonini Hisoblash",
     "story": "Jurnaldagi jami bo'shliqlar bilan ajratilgan so'zlar miqdorini sanang.",
     "taskUz": "`wc -w /var/log/syslog` buyrug'i orqali so'zlar sonini chiqaring.",
     "expectedSql": "wc -w /var/log/syslog",
@@ -821,7 +820,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 93,
-    "title": "Fayl Baytlar (Hajmi) Sonini Sanash (wc -c)",
+    "title": "Fayl Hajmini Baytlarda Sanash",
     "story": "Fayl diskda necha bayt hajmga ega ekanini `wc -c` orqali o'lchang.",
     "taskUz": "`wc -c /var/log/syslog` buyrug'i orqali baytlar sonini chiqaring.",
     "expectedSql": "wc -c /var/log/syslog",
@@ -840,7 +839,7 @@ window.QUESTIONS_51_100 = [
   },
   {
     "id": 94,
-    "title": "To'liq Statistika (wc filename)",
+    "title": "Fayl Bo'yicha To'liq Satr, So'z va Bayt Statistika",
     "story": "Parametrsiz `wc` qatorlar, so'zlar va baytlar sonini bir vaqtda chiqaradi.",
     "taskUz": "`/var/log/syslog` fayliga nisbatan parametrsiz `wc` buyrug'ini bering.",
     "expectedSql": "wc /var/log/syslog",

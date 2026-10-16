@@ -1,11 +1,11 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 4 QUESTIONS 1 TO 50
+// WIUT OPERATING SYSTEMS (5COSC041C) — W4 QUESTIONS_1_50.JS
 // ============================================================================
 
 window.QUESTIONS_1_50_W4 = [
   {
     "id": 1,
-    "title": "Ishchi Katalogni Tayyorlash (mkdir -p)",
+    "title": "Ishchi Katalogni Tayyorlash",
     "story": "Seminar 4 xavfsizlik qoidasi: Tajribalar shaxsiy fayllarga zarar yetkazmasligi uchun alohida katalog oching.",
     "taskUz": "<code>mkdir -p $HOME/os_seminar4/logs $HOME/os_seminar4/backup</code> buyrug'ini bering.",
     "expectedSql": "mkdir -p $HOME/os_seminar4/logs $HOME/os_seminar4/backup",
@@ -38,7 +38,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 2,
-    "title": "Ishchi Papkaga O'tish (cd)",
+    "title": "Ishchi Papkaga O'tish",
     "story": "Barcha laboratoriya vazifalari os_seminar4 papkasida bajarilishi shart.",
     "taskUz": "<code>cd $HOME/os_seminar4</code> buyrug'ini bering.",
     "expectedSql": "cd $HOME/os_seminar4",
@@ -62,7 +62,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 3,
-    "title": "Joriy Manzilni Tasdiqlash (pwd)",
+    "title": "Joriy Manzilni Tasdiqlash",
     "story": "Manzil to'g'riligini tasdiqlash uchun pwd buyrug'ini bering.",
     "taskUz": "<code>pwd</code> buyrug'ini bering.",
     "expectedSql": "pwd",
@@ -85,7 +85,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 4,
-    "title": "Fork.c Manba Kodini O'qish (cat fork.c)",
+    "title": "Fork.c Manba Kodini O'qish",
     "story": "Darslik 2-sahifasi: C tilidagi fork() tizim chaqirig'i kodini o'rganing.",
     "taskUz": "<code>cat fork.c</code> buyrug'ini bering.",
     "expectedSql": "cat fork.c",
@@ -109,7 +109,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 5,
-    "title": "Fork.c Kodini Kompilyatsiya Qilish (gcc -Wall -Wextra)",
+    "title": "Fork.c Kodini Kompilyatsiya Qilish",
     "story": "Darslik 3-sahifasi: Barcha qat'iy ogohlantirishlar bilan xavfsiz kompilyatsiya qiling.",
     "taskUz": "<code>gcc -Wall -Wextra fork.c -o fork.out</code> buyrug'ini bering.",
     "expectedSql": "gcc -Wall -Wextra fork.c -o fork.out",
@@ -156,7 +156,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 6,
-    "title": "Fork Dasturini Ishga Tushirish (./fork.out)",
+    "title": "Fork Dasturini Ishga Tushirish",
     "story": "Darslik 3-sahifasi: Ota va bola jarayonlar PID larini terminalda ko'ring.",
     "taskUz": "<code>./fork.out</code> buyrug'ini bering.",
     "expectedSql": "./fork.out",
@@ -187,7 +187,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 7,
-    "title": "fflush(stdout) Tushunchasini Tekshirish",
+    "title": "fflush Tushunchasini Tekshirish",
     "story": "Darslik 3-sahifasi: fork() oldidan I/O buferini tozalash qatorini toping.",
     "taskUz": "<code>grep fflush fork.c</code> buyrug'ini bering.",
     "expectedSql": "grep fflush fork.c",
@@ -905,7 +905,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 35,
-    "title": "Jarayonlar Chegarasini Ko'rish (ulimit -u)",
+    "title": "Jarayonlar Chegarasini Ko'rish",
     "story": "Linuxda fork bomb halokatlarining oldini olish uchun foydalanuvchiga tegishli protsesslar soni cheklanadi.",
     "taskUz": "<code>ulimit -u</code> buyrug'ini bering.",
     "expectedSql": "ulimit -u",
@@ -937,7 +937,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 36,
-    "title": "Barcha Resurs Cheklovlarini Ko'rish (ulimit -a)",
+    "title": "Barcha Resurs Cheklovlarini Ko'rish",
     "story": "Tizimdagi xotira, stack va protsesslar cheklovlarini to'liq ro'yxatda ko'ring.",
     "taskUz": "<code>ulimit -a</code> buyrug'ini bering.",
     "expectedSql": "ulimit -a",
@@ -1046,7 +1046,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 40,
-    "title": "Forks.out Satrlar Soni Hisoblash (wc -l)",
+    "title": "Forks.out Satrlar Soni Hisoblash",
     "story": "Dastur 6 ta satr chiqarganini quvur (pipe) orqali hisoblang.",
     "taskUz": "<code>./forks.out | wc -l</code> buyrug'ini bering.",
     "expectedSql": "./forks.out | wc -l",
@@ -1194,7 +1194,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 46,
-    "title": "Namunaviy Log Fayllarni Yaratish (touch)",
+    "title": "Namunaviy Log Fayllarni Yaratish",
     "story": "Darslik 4-sahifasi: logs papkasida sinov uchun fayllar yarating.",
     "taskUz": "<code>touch logs/old.log logs/recent.log logs/old.txt</code> buyrug'ini bering.",
     "expectedSql": "touch logs/old.log logs/recent.log logs/old.txt",
@@ -1217,7 +1217,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 47,
-    "title": "Eskirgan Sanani O'rnatish (touch -d '10 days ago')",
+    "title": "Eskirgan Sanani O'rnatish",
     "story": "Darslik 4-sahifasi: old.log va old.txt fayllari sanasini 10 kun oldingi vaqtga o'tkazing.",
     "taskUz": "<code>touch -d '10 days ago' logs/old.log logs/old.txt</code> buyrug'ini bering.",
     "expectedSql": "touch -d '10 days ago' logs/old.log logs/old.txt",
@@ -1274,7 +1274,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 49,
-    "title": "Find Bilan Faqat Oddiy Fayllarni Qidirish (-type f)",
+    "title": "Find Bilan Faqat Oddiy Fayllarni Qidirish",
     "story": "logs katalogidagi barcha oddiy fayllarni toping.",
     "taskUz": "<code>find logs -type f</code> buyrug'ini bering.",
     "expectedSql": "find logs -type f",
@@ -1306,7 +1306,7 @@ window.QUESTIONS_1_50_W4 = [
   },
   {
     "id": 50,
-    "title": "Faqat .log Kengaytmali Fayllarni Topish (-name '*.log')",
+    "title": "Faqat .log Kengaytmali Fayllarni Topish",
     "story": "Nom namunasi bo'yicha qidiruv bering.",
     "taskUz": "<code>find logs -type f -name '*.log'</code> buyrug'ini bering.",
     "expectedSql": "find logs -type f -name '*.log'",

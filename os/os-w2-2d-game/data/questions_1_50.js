@@ -1,5 +1,5 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 2 QUESTIONS 1 TO 50
+// WIUT OPERATING SYSTEMS (5COSC041C) — W2 QUESTIONS_1_50.JS
 // ============================================================================
 
 window.QUESTIONS_1_50_W2 = [
@@ -68,7 +68,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 4,
-    "title": "Foydalanuvchini Uy Papkasi Bilan Yaratish (-m)",
+    "title": "Foydalanuvchini Uy Papkasi Bilan Yaratish",
     "story": "Foydalanuvchi tizimga kirganda shaxsiy fayllarini saqlashi uchun unga uy katalogi ochilishi shart.",
     "taskUz": "<code>developer1</code> nomli yangi foydalanuvchini uy katalogi (<code>-m</code>) bilan birga yarating.",
     "expectedSql": "useradd -m developer1",
@@ -89,7 +89,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 5,
-    "title": "Default Bash Shell Belvash (-s)",
+    "title": "Default Bash Shell Belvash",
     "story": "Standart holatda tizim cheklangan shell berishi mumkin. Foydalanuvchiga <code>/bin/bash</code> belgilash zarur.",
     "taskUz": "Yangi foydalanuvchi <code>developer2</code> ni <code>-s /bin/bash</code> parametr bilan yarating.",
     "expectedSql": "useradd -s /bin/bash developer2",
@@ -110,7 +110,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 6,
-    "title": "Foydalanuvchiga Izoh / To'liq Ism Berish (-c)",
+    "title": "Foydalanuvchiga Izoh / To'liq Ism Berish",
     "story": "Audit jurnallarida xodimning to'liq ism-familiyasi ko'rinib turishi lozim.",
     "taskUz": "<code>qa_tester</code> nomli foydalanuvchini <code>-c \"QA Lead Tester\"</code> izohi bilan yarating.",
     "expectedSql": "useradd -c \"QA Lead Tester\" qa_tester",
@@ -131,7 +131,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 7,
-    "title": "Qo'shimcha Guruhga Qo'shish (-G)",
+    "title": "Qo'shimcha Guruhga Qo'shish",
     "story": "Foydalanuvchi imtiyozli ma'murlar guruhiga a'zo bo'lishi kerak.",
     "taskUz": "Yangi foydalanuvchi <code>sec_admin</code> ni <code>sudo</code> guruhiga (<code>-G sudo</code>) qo'shgan holda yarating.",
     "expectedSql": "useradd -G sudo sec_admin",
@@ -173,7 +173,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 9,
-    "title": "Skeleton (Shablon) Fayllarini Ko'rish",
+    "title": "Skeleton Fayllarini Ko'rish",
     "story": "Yangi ochilgan foydalanuvchilarning uy katalogiga qaysi standart shablon fayllar ko'chirilishini tekshiring.",
     "taskUz": "<code>/etc/skel</code> katalogidagi barcha yashirin fayllarni (<code>-la</code>) ko'ring.",
     "expectedSql": "ls -la /etc/skel",
@@ -359,7 +359,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 18,
-    "title": "Foydalanuvchini Yangi Guruhga Qo'shish (-aG)",
+    "title": "Foydalanuvchini Yangi Guruhga Qo'shish",
     "story": "Seminar 2 talabi: Mavjud guruhlarni o'chirmasdan yangi guruhni append qilish.",
     "taskUz": "<code>student</code> foydalanuvchisini <code>devteam</code> guruhiga qo'shing (<code>-aG</code>).",
     "expectedSql": "usermod -aG devteam student",
@@ -380,7 +380,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 19,
-    "title": "Hisobni Vaqtincha Qulflash (Lock Account -L)",
+    "title": "Hisobni Vaqtincha Qulflash",
     "story": "Xavfsizlik tekshiruvi davrida foydalanuvchining tizimga kirishini vaqtincha to'xtatib turish kerak.",
     "taskUz": "<code>alice</code> foydalanuvchisining hisobini qulflang (<code>-L</code> parametri orqali).",
     "expectedSql": "usermod -L alice",
@@ -401,7 +401,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 20,
-    "title": "Qulflangan Hisobni Qayta Ochish (Unlock Account -U)",
+    "title": "Qulflangan Hisobni Qayta Ochish",
     "story": "Audit muvaffaqiyatli o'tgach, xodimning hisobini qayta faollashtirish zarur.",
     "taskUz": "<code>alice</code> hisobidagi qulfni yeching (<code>-U</code> parametri orqali).",
     "expectedSql": "usermod -U alice",
@@ -422,7 +422,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 21,
-    "title": "Foydalanuvchining Uy Katalogini Ko'chirish (-m -d)",
+    "title": "Foydalanuvchining Uy Katalogini Ko'chirish",
     "story": "Xodimning ish joyi o'zgarganda uning uy papkasi yangi manzilga ko'chiriladi.",
     "taskUz": "<code>student</code> ning uy katalogini <code>/home/student_new</code> ga ko'chiring (<code>-m -d</code>).",
     "expectedSql": "usermod -m -d /home/student_new student",
@@ -569,7 +569,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 28,
-    "title": "Foydalanuvchi Shaxsiy Parolini O'zgartirish (O'zi)",
+    "title": "Foydalanuvchi Shaxsiy Parolini O'zgartirish",
     "story": "Tizimga kirgan foydalanuvchi o'z parolini o'zgartirishi uchun argumentlarsiz buyruq beradi.",
     "taskUz": "Joriy foydalanuvchi parolini o'zgartiruvchi buyruqni bering.",
     "expectedSql": "passwd",
@@ -631,7 +631,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 31,
-    "title": "Standart Skriptga Bajarish Huquqini Qo'shish (+x)",
+    "title": "Standart Skriptga Bajarish Huquqini Qo'shish",
     "story": "Yangi yozilgan Bash skripti standart holatda bajarilmaydi. Unga ijro ruxsatini qo'shish kerak.",
     "taskUz": "<code>readme.txt</code> fayliga bajarish ruxsatini (<code>+x</code>) qo'shing.",
     "expectedSql": "chmod +x readme.txt",
@@ -652,7 +652,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 32,
-    "title": "Skriptdan Ijro Huquqini Olib Tashlash (-x)",
+    "title": "Skriptdan Ijro Huquqini Olib Tashlash",
     "story": "Xavfli buyruqlar tasodifan ishga tushib ketmasligi uchun fayldan execute huquqini oling.",
     "taskUz": "<code>readme.txt</code> faylidan bajarish huquqini (<code>-x</code>) olib tashlang.",
     "expectedSql": "chmod -x readme.txt",
@@ -673,7 +673,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 33,
-    "title": "Oktal Ruxsat: 755 (Egasi To'liq, Boshqalar O'qish/Ijro)",
+    "title": "Oktal Ruxsat: 755",
     "story": "Dasturlar va umumiy kataloglar uchun eng mashhur 755 (rwxr-xr-x) ruxsatini o'rnating.",
     "taskUz": "<code>readme.txt</code> fayliga 755 ruxsatini bering.",
     "expectedSql": "chmod 755 readme.txt",
@@ -693,7 +693,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 34,
-    "title": "Oktal Ruxsat: 644 (Klassik Oddiy Fayl Ruxsati)",
+    "title": "Oktal Ruxsat: 644",
     "story": "Matnli hujjatlar va konfiguratsiya fayllari uchun standart 644 (rw-r--r--) o'rnating.",
     "taskUz": "<code>scores.csv</code> fayliga 644 ruxsatini o'rnating.",
     "expectedSql": "chmod 644 scores.csv",
@@ -713,7 +713,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 35,
-    "title": "Oktal Ruxsat: 700 (Maxfiy Shaxsiy Fayl)",
+    "title": "Oktal Ruxsat: 700",
     "story": "Faqat fayl egasi o'qishi, yozishi va bajarishi mumkin bo'lgan 700 (rwx------) rejimini qo'llang.",
     "taskUz": "<code>inventory.txt</code> fayliga 700 ruxsatini bering.",
     "expectedSql": "chmod 700 inventory.txt",
@@ -733,7 +733,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 36,
-    "title": "Oktal Ruxsat: 664 (Jamoaviy Hamkorlik Hujjati)",
+    "title": "Oktal Ruxsat: 664",
     "story": "Egasi va guruh a'zolari o'qishi va yozishi mumkin, boshqalar esa faqat o'qiydi (rw-rw-r--).",
     "taskUz": "<code>scores.csv</code> fayliga 664 ruxsatini o'rnating.",
     "expectedSql": "chmod 664 scores.csv",
@@ -753,7 +753,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 37,
-    "title": "Oktal Ruxsat: 775 (Jamoaviy Loyiha Papkasi)",
+    "title": "Oktal Ruxsat: 775",
     "story": "Egasi va guruh a'zolari to'liq kirishi va yaratishi mumkin (rwxrwxr-x).",
     "taskUz": "<code>scores.csv</code> fayliga 775 ruxsatini o'rnating.",
     "expectedSql": "chmod 775 scores.csv",
@@ -773,7 +773,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 38,
-    "title": "Oktal Ruxsat: 600 (Maxfiy Kalitlar va Konfiglar)",
+    "title": "Oktal Ruxsat: 600",
     "story": "SSH private kalitlari va maxfiy ma'lumotlar uchun faqat egasiga o'qish/yozish (rw-------).",
     "taskUz": "<code>readme.txt</code> fayliga 600 ruxsatini bering.",
     "expectedSql": "chmod 600 readme.txt",
@@ -793,7 +793,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 39,
-    "title": "Xavfli Ruxsat: 777 (Barchaga To'liq Ruxsat)",
+    "title": "Xavfli Ruxsat: 777",
     "story": "Darslikdagi ogohlantirish: 777 ruxsati barcha foydalanuvchilarga to'liq ruxsat ochadi.",
     "taskUz": "<code>readme.txt</code> fayliga 777 ruxsatini bering.",
     "expectedSql": "chmod 777 readme.txt",
@@ -833,7 +833,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 41,
-    "title": "Katalog Ruxsatini Tekshirish (ls -ld)",
+    "title": "Katalog Ruxsatini Tekshirish",
     "story": "Katalog ichidagi fayllarni emas, katalogning o'z ruxsatlarini ko'rish uchun <code>-d</code> kerak.",
     "taskUz": "Joriy katalog (<code>.</code>) ruxsatlarini <code>ls -ld</code> bilan ko'ring.",
     "expectedSql": "ls -ld .",
@@ -874,7 +874,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 43,
-    "title": "Faqat Guruh Ruxsatini O'zgartirish (g+w)",
+    "title": "Faqat Guruh Ruxsatini O'zgartirish",
     "story": "Simvolik rejim: Egasi va boshqalarga tegmasdan faqat guruhga yozish huquqini qo'shing.",
     "taskUz": "<code>scores.csv</code> fayliga <code>g+w</code> ruxsatini bering.",
     "expectedSql": "chmod g+w scores.csv",
@@ -894,7 +894,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 44,
-    "title": "Boshqalardan O'qish Huquqini Olish (o-r)",
+    "title": "Boshqalardan O'qish Huquqini Olish",
     "story": "Boshqa begona foydalanuvchilar faylni o'qiy olmasligi uchun <code>o-r</code> qiling.",
     "taskUz": "<code>scores.csv</code> faylidan boshqalarning o'qish huquqini (<code>o-r</code>) olib tashlang.",
     "expectedSql": "chmod o-r scores.csv",
@@ -914,7 +914,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 45,
-    "title": "Rekursiv Ruxsat O'zgartirish (-R 755)",
+    "title": "Rekursiv Ruxsat O'zgartirish",
     "story": "Katalog va uning ichidagi barcha fayllarga bir vaqtda ruxsat belgilash.",
     "taskUz": "Joriy katalogdagi barcha fayllarga rekursiv (<code>-R 755</code>) ruxsat bering.",
     "expectedSql": "chmod -R 755 .",
@@ -975,7 +975,7 @@ window.QUESTIONS_1_50_W2 = [
   },
   {
     "id": 48,
-    "title": "Sticky Bit Nima Uchun Kerakligini Anglash (+t)",
+    "title": "Sticky Bit Nima Uchun Kerakligini Anglash",
     "story": "Katalogda Sticky Bit qo'yilganda, faqat fayl egasi yoki root o'z faylini o'chira oladi.",
     "taskUz": "<code>/srv/project</code> katalogiga Sticky Bit (<code>+t</code>) qo'shing.",
     "expectedSql": "chmod +t /srv/project",

@@ -1,5 +1,5 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 4 QUESTIONS 101 TO 150
+// WIUT OPERATING SYSTEMS (5COSC041C) — W4 QUESTIONS_101_150.JS
 // ============================================================================
 
 window.QUESTIONS_101_150_W4 = [
@@ -146,7 +146,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 107,
-    "title": "Process Substitution (< <(...)) Konstruktsiyasini Tahlil Qilish",
+    "title": "Process Substitution (< < Konstruktsiyasini Tahlil Qilish",
     "story": "Darslik 9-sahifasi: Subshell o'zgaruvchilari yo'qolmasligi uchun ishlatilgan < <(find ...) ni ko'ring.",
     "taskUz": "<code>grep '< <(' rotate.sh</code> buyrug'ini bering.",
     "expectedSql": "grep '< <(' rotate.sh",
@@ -202,7 +202,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 109,
-    "title": "Mv Buyrug'idagi Xavfsizlik Belgisini Tekshirish (mv --)",
+    "title": "Mv Buyrug'idagi Xavfsizlik Belgisini Tekshirish",
     "story": "Fayllarni zaxira papkaga ko'chirish qatorini ko'ring.",
     "taskUz": "<code>grep 'mv --' rotate.sh</code> buyrug'ini bering.",
     "expectedSql": "grep 'mv --' rotate.sh",
@@ -319,7 +319,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 114,
-    "title": "Argumentsiz Xato Holatini Sinash (./rotate.sh)",
+    "title": "Argumentsiz Xato Holatini Sinash",
     "story": "Darslik 8-sahifasi: Parametrsiz chaqirilganda Usage xatosi chiqishi kerak.",
     "taskUz": "<code>./rotate.sh</code> buyrug'ini argumentlarsiz bering.",
     "expectedSql": "./rotate.sh",
@@ -612,7 +612,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 126,
-    "title": "Ogohlantirish Shartini Sinash (./disk_check.sh 1)",
+    "title": "Ogohlantirish Shartini Sinash",
     "story": "Darslik 10-sahifasi: 1% chegara berib ALERT yozilishini tekshiring.",
     "taskUz": "<code>./disk_check.sh 1</code> buyrug'ini bering.",
     "expectedSql": "./disk_check.sh 1",
@@ -740,7 +740,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 131,
-    "title": "Faol Xizmatni Tekshirish (./service_check.sh cron.service)",
+    "title": "Faol Xizmatni Tekshirish",
     "story": "Darslik 11-sahifasi: cron.service xizmatini tekshiring (OK: cron.service is active).",
     "taskUz": "<code>./service_check.sh cron.service</code> buyrug'ini bering.",
     "expectedSql": "./service_check.sh cron.service",
@@ -764,7 +764,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 132,
-    "title": "Mavjud Bo'lmagan Xizmatni Tekshirish (invented-service)",
+    "title": "Mavjud Bo'lmagan Xizmatni Tekshirish",
     "story": "Darslik 11-sahifasi: O'rnatilmagan xizmat xatosini tekshiring.",
     "taskUz": "<code>./service_check.sh invented-service.service</code> buyrug'ini bering.",
     "expectedSql": "./service_check.sh invented-service.service",
@@ -923,7 +923,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 138,
-    "title": "Crontab Jadvalini Ko'rish (crontab -l)",
+    "title": "Crontab Jadvalini Ko'rish",
     "story": "Darslik 12-sahifasi: Foydalanuvchining joriy cron vazifalarini ko'ring.",
     "taskUz": "<code>crontab -l</code> buyrug'ini bering.",
     "expectedSql": "crontab -l",
@@ -955,7 +955,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 139,
-    "title": "Yangi Cron Vazifasini O'rnatish (crontab -e)",
+    "title": "Yangi Cron Vazifasini O'rnatish",
     "story": "Darslik 12-sahifasi: '* * * * * ...' har daqiqalik vazifasini o'rnating.",
     "taskUz": "<code>crontab -e</code> buyrug'ini bering.",
     "expectedSql": "crontab -e",
@@ -1058,7 +1058,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 143,
-    "title": "Systemd Konfiguratsiyasini Qayta Yuklash (daemon-reload)",
+    "title": "Systemd Konfiguratsiyasini Qayta Yuklash",
     "story": "Darslik 14-sahifasi: Yangi unit fayllarini yuklash uchun daemon-reload bering.",
     "taskUz": "<code>systemctl --user daemon-reload</code> buyrug'ini bering.",
     "expectedSql": "systemctl --user daemon-reload",
@@ -1119,7 +1119,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 145,
-    "title": "Faol Timerlar Ro'yxatini Ko'rish (list-timers)",
+    "title": "Faol Timerlar Ro'yxatini Ko'rish",
     "story": "Darslik 14-sahifasi: Barcha rejalashtirilgan timerlarni ko'ring.",
     "taskUz": "<code>systemctl --user list-timers --all</code> buyrug'ini bering.",
     "expectedSql": "systemctl --user list-timers --all",
@@ -1152,7 +1152,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 146,
-    "title": "Rejalashtirilgan Chiqish Logini O'qish (ticks.log)",
+    "title": "Rejalashtirilgan Chiqish Logini O'qish",
     "story": "Darslik 14-sahifasi: tail -n 5 ticks.log orqali vaqt tamg'alarini ko'ring.",
     "taskUz": "<code>tail -n 5 $HOME/os_seminar4/ticks.log</code> buyrug'ini bering.",
     "expectedSql": "tail -n 5 $HOME/os_seminar4/ticks.log",
@@ -1177,7 +1177,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 147,
-    "title": "Journalctl Bilan Xizmat Jurnalini O'qish (--no-pager)",
+    "title": "Journalctl Bilan Xizmat Jurnalini O'qish",
     "story": "Darslik 14-sahifasi: journalctl --user -u os-seminar-tick.service -n 10 --no-pager buyrug'ini bering.",
     "taskUz": "<code>journalctl --user -u os-seminar-tick.service -n 10 --no-pager</code> buyrug'ini bering.",
     "expectedSql": "journalctl --user -u os-seminar-tick.service -n 10 --no-pager",
@@ -1216,7 +1216,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 148,
-    "title": "Timerni Xavfsiz To'xtatish (stop)",
+    "title": "Timerni Xavfsiz To'xtatish",
     "story": "Laboratoriya yakunida timerni to'xtating.",
     "taskUz": "<code>systemctl --user stop os-seminar-tick.timer</code> buyrug'ini bering.",
     "expectedSql": "systemctl --user stop os-seminar-tick.timer",
@@ -1239,7 +1239,7 @@ window.QUESTIONS_101_150_W4 = [
   },
   {
     "id": 149,
-    "title": "Crontab Jadvalini Tozalash (crontab -r)",
+    "title": "Crontab Jadvalini Tozalash",
     "story": "Test cron qatorini tozalab tizimni dastlabki holatga qaytaring.",
     "taskUz": "<code>crontab -r</code> buyrug'ini bering.",
     "expectedSql": "crontab -r",

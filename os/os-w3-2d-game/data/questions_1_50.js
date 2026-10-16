@@ -1,5 +1,5 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 3 QUESTIONS 1 TO 50
+// WIUT OPERATING SYSTEMS (5COSC041C) — W3 QUESTIONS_1_50.JS
 // ============================================================================
 
 window.QUESTIONS_1_50_W3 = [
@@ -109,7 +109,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 6,
-    "title": "Server Tarmoq Nomi (Hostname)",
+    "title": "Server Tarmoq Nomi",
     "story": "Debian serverining tarmoqdagi nomini aniqlang.",
     "taskUz": "<code>hostname</code> buyrug'ini bering.",
     "expectedSql": "hostname",
@@ -294,7 +294,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 15,
-    "title": "Yashirin Fayllar Bilan Ko'rish (-la)",
+    "title": "Yashirin Fayllar Bilan Ko'rish",
     "story": "Katalogdagi barcha fayl va nuqta bilan boshlanuvchi yashirin fayllarni batafsil ko'ring.",
     "taskUz": "<code>ls -la</code> buyrug'ini bering.",
     "expectedSql": "ls -la",
@@ -315,7 +315,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 16,
-    "title": "Joriy Terminal Protsesslarini Ko'rish (ps)",
+    "title": "Joriy Terminal Protsesslarini Ko'rish",
     "story": "Darslik 5-sahifasi: Faol terminalga bog'langan protsesslar snapshotini ko'ring.",
     "taskUz": "Oddiy <code>ps</code> buyrug'ini bering.",
     "expectedSql": "ps",
@@ -336,7 +336,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 17,
-    "title": "Barcha Foydalanuvchilar Protsesslari (ps aux)",
+    "title": "Barcha Foydalanuvchilar Protsesslari",
     "story": "Darslik 5-sahifasi: Tizimdagi barcha foydalanuvchilar va fon xizmatlari (daemons) protsesslarini ko'ring.",
     "taskUz": "<code>ps aux</code> buyrug'ini bering.",
     "expectedSql": "ps aux",
@@ -397,7 +397,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 20,
-    "title": "Interaktiv Protsesslar Monitorini Ochish (top)",
+    "title": "Interaktiv Protsesslar Monitorini Ochish",
     "story": "Darslik 5-sahifasi: CPU va xotira yuklamasini jonli ko'rsatuvchi interaktiv monitoring dasturini oching.",
     "taskUz": "<code>top</code> buyrug'ini bering.",
     "expectedSql": "top",
@@ -562,7 +562,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 28,
-    "title": "Faqat Bash PID Raqamini Olish (pgrep bash)",
+    "title": "Faqat Bash PID Raqamini Olish",
     "story": "Boshqa ma'lumotlarsiz faqat toza PID raqamining o'zini olish.",
     "taskUz": "<code>pgrep bash</code> buyrug'ini bering.",
     "expectedSql": "pgrep bash",
@@ -623,7 +623,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 31,
-    "title": "Xavfsiz Test Jarayonini Fonda Boshlash (sleep 300 &)",
+    "title": "Xavfsiz Test Jarayonini Fonda Boshlash",
     "story": "Darslik 5-sahifasi: Terminalni band qilmasdan, 300 soniyalik (5 daqiqa) kutish jarayonini fonda ishga tushiring.",
     "taskUz": "<code>sleep 300 &</code> buyrug'ini bering.",
     "expectedSql": "sleep 300 &",
@@ -643,7 +643,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 32,
-    "title": "Joriy Shell Nazoratidagi Joblarni Ko'rish (jobs -l)",
+    "title": "Joriy Shell Nazoratidagi Joblarni Ko'rish",
     "story": "Darslik 5-sahifasi: Terminal boshqaruvi ostidagi barcha fon va to'xtatilgan vazifalarni PID lari bilan ko'ring.",
     "taskUz": "<code>jobs -l</code> buyrug'ini bering.",
     "expectedSql": "jobs -l",
@@ -663,7 +663,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 33,
-    "title": "Nom Bo'yicha Fon Jarayonini Qidirish (pgrep -a sleep)",
+    "title": "Nom Bo'yicha Fon Jarayonini Qidirish",
     "story": "Darslik 5-sahifasi: Fonda ishlayotgan sleep dasturining PID va parametrlarini toping.",
     "taskUz": "<code>pgrep -a sleep</code> buyrug'ini bering.",
     "expectedSql": "pgrep -a sleep",
@@ -683,7 +683,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 34,
-    "title": "Fon Jarayonini Oldingi Planga Qaytarish (fg %1)",
+    "title": "Fon Jarayonini Oldingi Planga Qaytarish",
     "story": "Darslik 6-sahifasi: Fonda ishlayotgan 1-raqamli jobni yana faol klaviatura nazoratiga qaytaring.",
     "taskUz": "<code>fg %1</code> buyrug'ini bering.",
     "expectedSql": "fg %1",
@@ -704,7 +704,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 35,
-    "title": "To'xtatilgan Jarayonni Fonda Qayta Davom Ettirish (bg %1)",
+    "title": "To'xtatilgan Jarayonni Fonda Qayta Davom Ettirish",
     "story": "Darslik 6-sahifasi: Ctrl+Z orqali to'xtatilgan vazifani fonda davom ettirish.",
     "taskUz": "<code>bg %1</code> buyrug'ini bering.",
     "expectedSql": "bg %1",
@@ -745,7 +745,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 37,
-    "title": "Fon Jarayonini Xushmuomalalik Bilan Yakunlash (kill %1)",
+    "title": "Fon Jarayonini Xushmuomalalik Bilan Yakunlash",
     "story": "Darslik 6-sahifasi: 1-raqamli jobga odatiy tugatish (SIGTERM) signalini yuboring.",
     "taskUz": "<code>kill %1</code> buyrug'ini bering.",
     "expectedSql": "kill %1",
@@ -786,7 +786,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 39,
-    "title": "Yangi Qisqa Fon Jarayoni Boshlash (sleep 60 &)",
+    "title": "Yangi Qisqa Fon Jarayoni Boshlash",
     "story": "Tajriba uchun 60 soniyalik yangi fon jarayonini ishga tushiring.",
     "taskUz": "<code>sleep 60 &</code> buyrug'ini bering.",
     "expectedSql": "sleep 60 &",
@@ -847,7 +847,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 42,
-    "title": "Barcha Sleep Jarayonlarini Nom Bo'yicha Tugatish (pkill sleep)",
+    "title": "Barcha Sleep Jarayonlarini Nom Bo'yicha Tugatish",
     "story": "Darslik 6-sahifasi: Barcha mos keluvchi sleep jarayonlariga signal yuborish.",
     "taskUz": "<code>pkill sleep</code> buyrug'ini bering.",
     "expectedSql": "pkill sleep",
@@ -927,7 +927,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 46,
-    "title": "Protsesslar Daraxtini Vizual Ko'rish (pstree)",
+    "title": "Protsesslar Daraxtini Vizual Ko'rish",
     "story": "Darslik 5-sahifasi: Ota-bola (parent-child) jarayonlar ierarxiyasini daraxt ko'rinishida oching.",
     "taskUz": "<code>pstree</code> buyrug'ini bering.",
     "expectedSql": "pstree",
@@ -948,7 +948,7 @@ window.QUESTIONS_1_50_W3 = [
   },
   {
     "id": 47,
-    "title": "PID Raqamlari Bilan Daraxtni Ko'rish (pstree -p)",
+    "title": "PID Raqamlari Bilan Daraxtni Ko'rish",
     "story": "Darslik 5-sahifasi: Har bir protsess nomi yonida uning aniq PID raqamini ko'rsatuvchi <code>-p</code> bayrog'idan foydalaning.",
     "taskUz": "<code>pstree -p</code> buyrug'ini bering.",
     "expectedSql": "pstree -p",

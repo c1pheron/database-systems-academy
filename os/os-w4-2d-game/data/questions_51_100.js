@@ -1,11 +1,11 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 4 QUESTIONS 51 TO 100
+// WIUT OPERATING SYSTEMS (5COSC041C) — W4 QUESTIONS_51_100.JS
 // ============================================================================
 
 window.QUESTIONS_51_100_W4 = [
   {
     "id": 51,
-    "title": "Mantiqiy YOKI (-o) Bilan .log va .txt Fayllarni Birlashtirish",
+    "title": "Mantiqiy YOKI Bilan .log va .txt Fayllarni Birlashtirish",
     "story": "Darslik 5-sahifasi: -o bayrog'i orqali ikkala kengaytmani qidiring.",
     "taskUz": "<code>find logs -type f \\( -name '*.log' -o -name '*.txt' \\)</code> buyrug'ini bering.",
     "expectedSql": "find logs -type f \\( -name '*.log' -o -name '*.txt' \\)",
@@ -45,7 +45,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 52,
-    "title": "7 Kunda Katta Fayllarni Qidirish (-mmin +10080)",
+    "title": "7 Kunda Katta Fayllarni Qidirish",
     "story": "Darslik 5-sahifasi: 7 kun = 10,080 daqiqa. +10080 orqali eskirgan fayllarni ko'ring.",
     "taskUz": "<code>find logs -type f \\( -name '*.log' -o -name '*.txt' \\) -mmin +10080</code> buyrug'ini bering.",
     "expectedSql": "find logs -type f \\( -name '*.log' -o -name '*.txt' \\) -mmin +10080",
@@ -77,7 +77,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 53,
-    "title": "Eskirgan Fayllarni Batafsil Ko'rish (-ls)",
+    "title": "Eskirgan Fayllarni Batafsil Ko'rish",
     "story": "Darslik 5-sahifasi: Topilgan eski fayllarning inode, ruxsat va hajmini -ls bilan chiqaring.",
     "taskUz": "<code>find logs -type f \\( -name '*.log' -o -name '*.txt' \\) -mmin +10080 -ls</code> buyrug'ini bering.",
     "expectedSql": "find logs -type f \\( -name '*.log' -o -name '*.txt' \\) -mmin +10080 -ls",
@@ -109,7 +109,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 54,
-    "title": "Yangi Fayl (recent.log) Tanlanmaganini Tasdiqlash",
+    "title": "Yangi Fayl Tanlanmaganini Tasdiqlash",
     "story": "recent.log fayli 7 kundan yangi bo'lgani uchun natijada chiqmasligi kerak.",
     "taskUz": "<code>find logs -type f -name 'recent.log' -mmin +10080</code> buyrug'ini bering.",
     "expectedSql": "find logs -type f -name 'recent.log' -mmin +10080",
@@ -132,7 +132,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 55,
-    "title": "Yangi Fayllar Filtri (-mmin -10080)",
+    "title": "Yangi Fayllar Filtri",
     "story": "Minus (-) belgisi berilganda 7 kundan yangi bo'lgan fayllar chiqishini ko'ring.",
     "taskUz": "<code>find logs -type f -mmin -10080</code> buyrug'ini bering.",
     "expectedSql": "find logs -type f -mmin -10080",
@@ -244,7 +244,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 59,
-    "title": "Old.log Faylini O'qib Ko'rish (cat)",
+    "title": "Old.log Faylini O'qib Ko'rish",
     "story": "O'chirishdan oldin uning ichidagi ma'lumotni ko'ring.",
     "taskUz": "<code>cat logs/old.log</code> buyrug'ini bering.",
     "expectedSql": "cat logs/old.log",
@@ -290,7 +290,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 61,
-    "title": "Cleanup.sh Skript Kodini O'qish (cat cleanup.sh)",
+    "title": "Cleanup.sh Skript Kodini O'qish",
     "story": "Darslik 5-sahifasi: Foydalanuvchidan tasdiq so'rab o'chiruvchi cleanup.sh ni o'qing.",
     "taskUz": "<code>cat cleanup.sh</code> buyrug'ini bering.",
     "expectedSql": "cat cleanup.sh",
@@ -370,7 +370,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 64,
-    "title": "Bash Bilan Skriptni Ishga Tushirish (bash cleanup.sh)",
+    "title": "Bash Bilan Skriptni Ishga Tushirish",
     "story": "Ijro huquqi bo'lmaganda ham 'bash' orqali to'g'ridan-to'g'ri ishga tushirish mumkin.",
     "taskUz": "<code>bash cleanup.sh</code> buyrug'ini bering.",
     "expectedSql": "bash cleanup.sh",
@@ -465,7 +465,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 67,
-    "title": "Cleanup.sh Sintaksisini Tekshirish (bash -n)",
+    "title": "Cleanup.sh Sintaksisini Tekshirish",
     "story": "Skriptda sintaktik xato yo'qligini 'bash -n' bilan tekshiring.",
     "taskUz": "<code>bash -n cleanup.sh</code> buyrug'ini bering.",
     "expectedSql": "bash -n cleanup.sh",
@@ -520,7 +520,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 69,
-    "title": "Recent.log Faylining Mavjudligini Tekshirish (-f)",
+    "title": "Recent.log Faylining Mavjudligini Tekshirish",
     "story": "Fayl mavjudligini test buyrug'i bilan tekshiring.",
     "taskUz": "<code>test -f logs/recent.log && echo 'EXISTS'</code> buyrug'ini bering.",
     "expectedSql": "test -f logs/recent.log && echo 'EXISTS'",
@@ -799,7 +799,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 80,
-    "title": "Curl Buyrug'idagi -f (--fail) Bayrog'ini Tekshirish",
+    "title": "Curl Buyrug'idagi -f Bayrog'ini Tekshirish",
     "story": "Darslik 7-sahifasi: Server 404 yoki 500 berganda xato kod qaytaruvchi bayroqni toping.",
     "taskUz": "<code>grep -- '-fLsS' download.sh</code> buyrug'ini bering.",
     "expectedSql": "grep -- '-fLsS' download.sh",
@@ -885,7 +885,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 82,
-    "title": "Curl Bayroqlar Tugash Belgisi (--) Tushunchasi",
+    "title": "Curl Bayroqlar Tugash Belgisi Tushunchasi",
     "story": "URL '-' bilan boshlansa xato bo'lmasligi uchun '--' ishlatilganini ko'ring.",
     "taskUz": "<code>grep -- '-- '$url'' download.sh</code> buyrug'ini bering.",
     "expectedSql": "grep -- '-- \"$url\"' download.sh",
@@ -917,7 +917,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 83,
-    "title": "Yuklangan Fayllar Papkasini Ko'rish (downloads/)",
+    "title": "Yuklangan Fayllar Papkasini Ko'rish",
     "story": "downloads papkasi tarkibini ko'ring.",
     "taskUz": "<code>ls -l downloads</code> buyrug'ini bering.",
     "expectedSql": "ls -l downloads",
@@ -988,7 +988,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 86,
-    "title": "Xatolik Qaytish Statusini Tekshirish (Exit 1)",
+    "title": "Xatolik Qaytish Statusini Tekshirish",
     "story": "Oxirgi xatolik statusini ko'ring.",
     "taskUz": "<code>echo $?</code> buyrug'ini bering.",
     "expectedSql": "echo $?",
@@ -1036,7 +1036,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 88,
-    "title": "Yuklangan Fayl Boshini Ko'rish (head)",
+    "title": "Yuklangan Fayl Boshini Ko'rish",
     "story": "HTML sahifasi boshlanishini ko'ring.",
     "taskUz": "<code>head -n 5 downloads/file_1</code> buyrug'ini bering.",
     "expectedSql": "head -n 5 downloads/file_1",
@@ -1130,7 +1130,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 92,
-    "title": "4 Kun Oldingi Vaqtni O'rnatish (touch -d)",
+    "title": "4 Kun Oldingi Vaqtni O'rnatish",
     "story": "four_days.log fayliga 4 kunlik sanani bering.",
     "taskUz": "<code>touch -d '4 days ago' logs/four_days.log</code> buyrug'ini bering.",
     "expectedSql": "touch -d '4 days ago' logs/four_days.log",
@@ -1155,7 +1155,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 93,
-    "title": "8 Kun Oldingi Vaqtni O'rnatish (touch -d)",
+    "title": "8 Kun Oldingi Vaqtni O'rnatish",
     "story": "eight_days.log fayliga 8 kunlik sanani bering.",
     "taskUz": "<code>touch -d '8 days ago' logs/eight_days.log</code> buyrug'ini bering.",
     "expectedSql": "touch -d '8 days ago' logs/eight_days.log",
@@ -1324,7 +1324,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 99,
-    "title": "Rotate.sh Skriptini Ishga Tushirish (logs backup)",
+    "title": "Rotate.sh Skriptini Ishga Tushirish",
     "story": "Darslik 8-sahifasi: Loglarni siqish va ko'chirishni boshlang.",
     "taskUz": "<code>./rotate.sh logs backup</code> buyrug'ini bering.",
     "expectedSql": "./rotate.sh logs backup",
@@ -1348,7 +1348,7 @@ window.QUESTIONS_51_100_W4 = [
   },
   {
     "id": 100,
-    "title": "Siqilgan Loglarni Ko'rish (.gz)",
+    "title": "Siqilgan Loglarni Ko'rish",
     "story": "logs papkasidagi .gz fayllarni ko'ring.",
     "taskUz": "<code>ls -l logs/*.gz</code> buyrug'ini bering.",
     "expectedSql": "ls -l logs/*.gz",

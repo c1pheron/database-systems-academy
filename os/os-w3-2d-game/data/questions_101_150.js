@@ -1,11 +1,11 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 3 QUESTIONS 101 TO 150
+// WIUT OPERATING SYSTEMS (5COSC041C) — W3 QUESTIONS_101_150.JS
 // ============================================================================
 
 window.QUESTIONS_101_150_W3 = [
   {
     "id": 101,
-    "title": "Darajaga Ko'tarish ($((2 ** 3)))",
+    "title": "Darajaga Ko'tarish",
     "story": "Darslik 10-sahifasi: 2 ning 3-darajasini (kubini) hisoblang.",
     "taskUz": "<code>echo $((2 ** 3))</code> buyrug'ini bering.",
     "expectedSql": "echo $((2 ** 3))",
@@ -148,7 +148,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 108,
-    "title": "O'rtacha Oraliqni Sinash (./classify.sh 25)",
+    "title": "O'rtacha Oraliqni Sinash",
     "story": "Darslik 10-sahifasi: 20 dan 100 gacha oraliqdagi son kiritilganda 'average' chiqadi.",
     "taskUz": "<code>./classify.sh 25</code> buyrug'ini bering.",
     "expectedSql": "./classify.sh 25",
@@ -169,7 +169,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 109,
-    "title": "Kichik Oraliqni Sinash (./classify.sh 5)",
+    "title": "Kichik Oraliqni Sinash",
     "story": "10 dan kichik son kiritilganda 'small' chiqadi.",
     "taskUz": "<code>./classify.sh 5</code> buyrug'ini bering.",
     "expectedSql": "./classify.sh 5",
@@ -190,7 +190,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 110,
-    "title": "Katta Oraliqni Sinash (./classify.sh 105)",
+    "title": "Katta Oraliqni Sinash",
     "story": "100 dan katta son kiritilganda 'large' chiqadi.",
     "taskUz": "<code>./classify.sh 105</code> buyrug'ini bering.",
     "expectedSql": "./classify.sh 105",
@@ -211,7 +211,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 111,
-    "title": "Oraliqdan Tashqari Sonni Sinash (./classify.sh 15)",
+    "title": "Oraliqdan Tashqari Sonni Sinash",
     "story": "10 va 20 orasidagi son kiritilganda 'out of range' chiqadi.",
     "taskUz": "<code>./classify.sh 15</code> buyrug'ini bering.",
     "expectedSql": "./classify.sh 15",
@@ -232,7 +232,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 112,
-    "title": "Fayl Sinovlari Skriptini Ko'rish (filecheck.sh)",
+    "title": "Fayl Sinovlari Skriptini Ko'rish",
     "story": "Darslik 11-12-sahifalari: <code>-e</code>, <code>-f</code>, <code>-s</code> fayl operatorlari bilan ishlovchi skriptni o'qing.",
     "taskUz": "<code>cat filecheck.sh</code> buyrug'ini bering.",
     "expectedSql": "cat filecheck.sh",
@@ -273,7 +273,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 114,
-    "title": "Bo'sh Faylni Tekshirish (./filecheck.sh empty.txt)",
+    "title": "Bo'sh Faylni Tekshirish",
     "story": "Darslik 12-sahifasi: <code>empty.txt</code> tekshirilganda 'The file is empty.' chiqishi kerak.",
     "taskUz": "<code>./filecheck.sh empty.txt</code> buyrug'ini bering.",
     "expectedSql": "./filecheck.sh empty.txt",
@@ -294,7 +294,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 115,
-    "title": "To'la Faylni Tekshirish (./filecheck.sh data.txt)",
+    "title": "To'la Faylni Tekshirish",
     "story": "Darslik 12-sahifasi: <code>data.txt</code> tekshirilganda 'The file is not empty.' chiqishi kerak.",
     "taskUz": "<code>./filecheck.sh data.txt</code> buyrug'ini bering.",
     "expectedSql": "./filecheck.sh data.txt",
@@ -315,7 +315,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 116,
-    "title": "Mavjud Bo'lmagan Fayl Tekshiruvi (./filecheck.sh missing.txt)",
+    "title": "Mavjud Bo'lmagan Fayl Tekshiruvi",
     "story": "Darslik 12-sahifasi: Yo'q fayl kiritilganda 'The path does not exist' xabari va exit 2 qaytadi.",
     "taskUz": "<code>./filecheck.sh missing.txt</code> buyrug'ini bering.",
     "expectedSql": "./filecheck.sh missing.txt",
@@ -336,7 +336,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 117,
-    "title": "Case Strukturasi Skriptini Ko'rish (service_menu.sh)",
+    "title": "Case Strukturasi Skriptini Ko'rish",
     "story": "Darslik 13-sahifasi: <code>case ... esac</code> ko'p tarmoqli tanlov skriptini o'qing.",
     "taskUz": "<code>cat service_menu.sh</code> buyrug'ini bering.",
     "expectedSql": "cat service_menu.sh",
@@ -377,7 +377,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 119,
-    "title": "Start Buyrug'ini Sinash (./service_menu.sh start)",
+    "title": "Start Buyrug'ini Sinash",
     "story": "Darslik 13-sahifasi: start tanlanganda 'Starting the demonstration service...' chiqishi kerak.",
     "taskUz": "<code>./service_menu.sh start</code> buyrug'ini bering.",
     "expectedSql": "./service_menu.sh start",
@@ -398,7 +398,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 120,
-    "title": "Stop Buyrug'ini Sinash (./service_menu.sh stop)",
+    "title": "Stop Buyrug'ini Sinash",
     "story": "stop tanlanganda 'Stopping the demonstration service...' chiqishi kerak.",
     "taskUz": "<code>./service_menu.sh stop</code> buyrug'ini bering.",
     "expectedSql": "./service_menu.sh stop",
@@ -502,7 +502,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 125,
-    "title": "Fayldan Satrma-Satr O'qish Hujjatini Ko'rish (ips.txt)",
+    "title": "Fayldan Satrma-Satr O'qish Hujjatini Ko'rish",
     "story": "Darslik 15-sahifasi: <code>ips.txt</code> faylida 2 ta IP manzil mavjud.",
     "taskUz": "<code>cat ips.txt</code> buyrug'ini bering.",
     "expectedSql": "cat ips.txt",
@@ -807,7 +807,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 140,
-    "title": "Assotsiativ Massiv E'loni (declare -A)",
+    "title": "Assotsiativ Massiv E'loni",
     "story": "Darslik 7-sahifasi: Kalit-qiymat (key-value) juftliklarini yaratish uchun <code>declare -A</code> kerak.",
     "taskUz": "<code>grep \"declare -A\" arrays.sh</code> buyrug'ini bering.",
     "expectedSql": "grep \"declare -A\" arrays.sh",
@@ -827,7 +827,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 141,
-    "title": "Integratsiyalashgan Hisobot Skripti (process_report.sh)",
+    "title": "Integratsiyalashgan Hisobot Skripti",
     "story": "Darslik 16-17-sahifalari: Protsesslar, sana, tizim foydalanuvchisi va xotira auditini birlashtiruvchi skriptni ko'ring.",
     "taskUz": "<code>cat process_report.sh</code> buyrug'ini bering.",
     "expectedSql": "cat process_report.sh",
@@ -868,7 +868,7 @@ window.QUESTIONS_101_150_W3 = [
   },
   {
     "id": 143,
-    "title": "Hisobotni Yangi Faylga Saqlash (./process_report.sh my_process_report.txt)",
+    "title": "Hisobotni Yangi Faylga Saqlash",
     "story": "Darslik 17-sahifasi: <code>my_process_report.txt</code> nomli hisobot faylini yarating.",
     "taskUz": "<code>./process_report.sh my_process_report.txt</code> buyrug'ini bering.",
     "expectedSql": "./process_report.sh my_process_report.txt",

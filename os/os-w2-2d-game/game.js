@@ -494,6 +494,9 @@
     if (!q) return;
 
     state.currentQuestionId = id;
+    if (state.terminalMode !== "sandbox") {
+      updateKaliTaskCard(q);
+    }
     const secNum = Math.ceil(id / 15);
     if (secNum !== state.activeSector) {
       state.activeSector = secNum;
@@ -508,7 +511,8 @@
     if (el.qNumberBadge) el.qNumberBadge.textContent = `Vazifa #${q.id} / 150`;
     if (el.qDifficultyBadge) el.qDifficultyBadge.textContent = q.difficulty || "Standart";
     if (el.qSourceBadge) el.qSourceBadge.textContent = q.source || "WIUT OS";
-    if (el.qTitle) el.qTitle.textContent = `${q.id}. ${q.title}`;
+    const cleanQTitle = (q.title || "").replace(/\s*\([a-z0-9_ -./~*]+\)/gi, "").trim();
+    if (el.qTitle) el.qTitle.textContent = `${q.id}. ${cleanQTitle}`;
     if (el.qStory) el.qStory.textContent = q.story || "";
     
     // Academic Case Study Dossier (Database Systems Standard)
@@ -560,7 +564,7 @@
 
     // Fullscreen Title Update
     if (el.fsQuestionTitle) {
-      el.fsQuestionTitle.textContent = `Vazifa #${q.id}: ${q.title}`;
+      el.fsQuestionTitle.textContent = `Vazifa #${q.id}: ${cleanQTitle}`;
     }
 
     // Update Kali Terminal HUD & Fullscreen Bar & Modals
@@ -577,7 +581,7 @@
     if (el.ktFsProgress) {
       el.ktFsProgress.textContent = `${state.solvedIds.size} / 150`;
     }
-    if (el.ktModalTaskHeading) el.ktModalTaskHeading.textContent = `Vazifa #${q.id}: ${q.title}`;
+    if (el.ktModalTaskHeading) el.ktModalTaskHeading.textContent = `Vazifa #${q.id}: ${cleanQTitle}`;
     if (el.ktModalDiffBadge) el.ktModalDiffBadge.textContent = q.difficulty || "Standart";
     if (el.ktModalSourceBadge) el.ktModalSourceBadge.textContent = q.source || "WIUT OS";
     if (el.ktModalStory) el.ktModalStory.textContent = q.story || "";
@@ -1091,7 +1095,7 @@
     if (state.terminalMode !== "sandbox") {
       const curQ = allQuestions.find(item => item.id === state.currentQuestionId);
       if (curQ) {
-        printKaliTaskCard(curQ);
+        updateKaliTaskCard(curQ);
       }
     }
     scrollKaliToBottom();
@@ -1985,28 +1989,28 @@ permitted by applicable law.
     scrollKaliToBottom();
   }
 
-  function printKaliTaskCard(q) {
+  function updateKaliTaskCard(q) {
     if (!q || !el.kaliStream) return;
-    const card = document.createElement("div");
-    card.className = "kali-meta-card";
-    card.style.borderColor = "rgba(56, 189, 248, 0.4)";
-    card.style.background = "rgba(8, 14, 28, 0.9)";
-    card.style.color = "#38bdf8";
-    card.style.margin = "8px 0";
-    card.style.padding = "9px 13px";
-    card.style.borderRadius = "6px";
-    card.style.borderLeft = "4px solid #38bdf8";
+    if (state.terminalMode === "sandbox") return;
+
+    let card = document.getElementById("kaliCurrentTaskCard");
+    if (!card) {
+      card = document.createElement("div");
+      card.id = "kaliCurrentTaskCard";
+      card.className = "kali-meta-card";
+      el.kaliStream.appendChild(card);
+    }
 
     const cleanTask = q.taskUz ? q.taskUz.replace(/<[^>]*>/g, "") : (q.story || "Topshiriqni bajaring.");
-    card.innerHTML = `<div style="font-weight:700; font-size:13.5px; color:#38bdf8; display:flex; align-items:center; gap:6px;">
-      <span>🎯</span> <span>Topshiriq #${q.id}: ${escapeHtml(q.title)}</span>
-    </div>
-    <div style="font-size:12.5px; color:#cbd5e1; margin-top:5px; line-height:1.45;">
-      <b>Vazifa:</b> ${escapeHtml(cleanTask)}
-    </div>`;
+    const cleanTitle = (q.title || "").replace(/\s*\([a-z0-9_ -./~*]+\)/gi, "").trim();
 
-    el.kaliStream.appendChild(card);
+    card.innerHTML = `<div style="font-weight:700; font-size:12px; color:#38bdf8; display:flex; align-items:center; gap:5px; margin:0; padding:0; line-height:1.25;"><span>🎯</span><span>Topshiriq #${q.id}: ${escapeHtml(cleanTitle)}</span></div><div style="font-size:11.5px; color:#cbd5e1; margin-top:2px; margin-bottom:0; line-height:1.3; white-space:normal;"><b>Vazifa:</b> ${escapeHtml(cleanTask)}</div>`;
+
     scrollKaliToBottom();
+  }
+
+  function printKaliTaskCard(q) {
+    updateKaliTaskCard(q);
   }
 
   function initKaliTerminal() {
@@ -2089,6 +2093,10 @@ permitted by applicable law.
             handleKaliCtrlC();
           } else if (key === "clear") {
             clearKaliTerminal();
+          } else if (btn.id === "btnTouchPrev" || key === "prev") {
+            if (state.currentQuestionId > 1) loadQuestion(state.currentQuestionId - 1);
+          } else if (btn.id === "btnTouchNext" || key === "next") {
+            if (state.currentQuestionId < allQuestions.length) loadQuestion(state.currentQuestionId + 1);
           }
         });
       });
@@ -2518,9 +2526,27 @@ permitted by applicable law.
       return;
     }
 
-    if (lower === "batafsil") {
+    if (lower === "batafsil" || lower.startsWith("batafsil ") || lower.startsWith("man ") || lower.startsWith("dict ")) {
       appendKaliPromptHistory(rawCmd);
-      if (el.modalKtBatafsil) el.modalKtBatafsil.classList.add("active");
+      let targetCmd = "";
+      if (lower.startsWith("batafsil ")) {
+        targetCmd = rawCmd.substring(9).trim();
+      } else if (lower.startsWith("man ")) {
+        targetCmd = rawCmd.substring(4).trim();
+      } else if (lower.startsWith("dict ")) {
+        targetCmd = rawCmd.substring(5).trim();
+      } else {
+        const curQ = allQuestions.find(item => item.id === state.currentQuestionId);
+        if (curQ) {
+          const exp = (curQ.expectedSql || curQ.expectedBash || "").trim();
+          targetCmd = exp.split(/\s+/)[0];
+        }
+      }
+      if (targetCmd) {
+        printCommandAnatomyCard(targetCmd);
+      } else {
+        if (typeof window.openOsDictionary === "function") window.openOsDictionary();
+      }
       return;
     }
 

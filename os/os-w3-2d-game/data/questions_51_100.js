@@ -1,5 +1,5 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 3 QUESTIONS 51 TO 100
+// WIUT OPERATING SYSTEMS (5COSC041C) — W3 QUESTIONS_51_100.JS
 // ============================================================================
 
 window.QUESTIONS_51_100_W3 = [
@@ -25,7 +25,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 52,
-    "title": "Pgrep Bilan Buyruq Matnlarini Birga Chiqarish (-a)",
+    "title": "Pgrep Bilan Buyruq Matnlarini Birga Chiqarish",
     "story": "PID bilan birga to'liq chaqirilgan argumentlarni ham ko'ring.",
     "taskUz": "<code>pgrep -a bash</code> buyrug'ini bering.",
     "expectedSql": "pgrep -a bash",
@@ -227,7 +227,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 62,
-    "title": "Skriptga Bajarish Huquqini Berish (chmod +x)",
+    "title": "Skriptga Bajarish Huquqini Berish",
     "story": "Darslik 7-sahifasi: Skript matnli fayldan ishga tushadigan dasturga aylanishi uchun unga ijro ruxsatini qo'shing.",
     "taskUz": "<code>chmod +x hello.sh</code> buyrug'ini bering.",
     "expectedSql": "chmod +x hello.sh",
@@ -248,7 +248,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 63,
-    "title": "Skriptni Ishga Tushirish (./hello.sh)",
+    "title": "Skriptni Ishga Tushirish",
     "story": "Darslik 7-sahifasi: Joriy katalogdagi skriptni nisbiy yo'l orqali ishga tushiring.",
     "taskUz": "<code>./hello.sh</code> buyrug'ini bering.",
     "expectedSql": "./hello.sh",
@@ -290,7 +290,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 65,
-    "title": "Bash Sintaksisini Tekshirish (bash -n)",
+    "title": "Bash Sintaksisini Tekshirish",
     "story": "Darslik 18-sahifasi: Skriptni ishga tushirmasdan, faqat sintaktik xatolarni tekshirish.",
     "taskUz": "<code>bash -n hello.sh</code> buyrug'ini bering.",
     "expectedSql": "bash -n hello.sh",
@@ -373,7 +373,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 69,
-    "title": "Ruxsatlarni Aniq Ko'rish (ls -l hello.sh)",
+    "title": "Ruxsatlarni Aniq Ko'rish",
     "story": "<code>hello.sh</code> faylining ruxsatlarini ko'ring.",
     "taskUz": "<code>ls -l hello.sh</code> buyrug'ini bering.",
     "expectedSql": "ls -l hello.sh",
@@ -639,7 +639,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 82,
-    "title": "To'g'ri Argument Bilan Ishga Tushirish (./greet.sh Alice)",
+    "title": "To'g'ri Argument Bilan Ishga Tushirish",
     "story": "Darslik 8-sahifasi: 'Alice' argumentini uzatib salomlashuvni oling.",
     "taskUz": "<code>./greet.sh Alice</code> buyrug'ini bering.",
     "expectedSql": "./greet.sh Alice",
@@ -660,7 +660,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 83,
-    "title": "Boshqa Ism Bilan Sinash (./greet.sh Bob)",
+    "title": "Boshqa Ism Bilan Sinash",
     "story": "Parametr o'zgarishini ko'rish uchun Bob argumentini uzating.",
     "taskUz": "<code>./greet.sh Bob</code> buyrug'ini bering.",
     "expectedSql": "./greet.sh Bob",
@@ -681,7 +681,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 84,
-    "title": "Argumentsiz Xato Holatini Sinash (./greet.sh)",
+    "title": "Argumentsiz Xato Holatini Sinash",
     "story": "Darslik 8-sahifasi: Parametrsiz chaqirilganda 'Usage: ./greet.sh <name>' chiqib exit status 1 qaytishi kerak.",
     "taskUz": "<code>./greet.sh</code> buyrug'ini argumentlarsiz bering.",
     "expectedSql": "./greet.sh",
@@ -702,7 +702,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 85,
-    "title": "Xatolik Statusini Tekshirish (Exit 1)",
+    "title": "Xatolik Statusini Tekshirish",
     "story": "Oxirgi xatolik statusini ko'ring.",
     "taskUz": "<code>echo $?</code> buyrug'ini bering.",
     "expectedSql": "echo $?",
@@ -886,7 +886,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 94,
-    "title": "Joriy Yilni Olish (date +%Y)",
+    "title": "Joriy Yilni Olish",
     "story": "Darslik 9-sahifasi: Tizimdan joriy 4 xonali yilni olish uchun <code>date +%Y</code> buyrug'ini bering.",
     "taskUz": "<code>date +%Y</code> buyrug'ini bering.",
     "expectedSql": "date +%Y",
@@ -927,7 +927,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 96,
-    "title": "Qo'shish Arifmetikasi ($((5 + 3)))",
+    "title": "Qo'shish Arifmetikasi",
     "story": "Darslik 10-sahifasi: Bash butun sonlarni hisoblashi uchun <code>$(( ... ))</code> sintaksisidan foydalanadi.",
     "taskUz": "<code>echo $((5 + 3))</code> buyrug'ini bering.",
     "expectedSql": "echo $((5 + 3))",
@@ -948,7 +948,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 97,
-    "title": "Ayirish Arifmetikasi ($((10 - 4)))",
+    "title": "Ayirish Arifmetikasi",
     "story": "Darslik 10-sahifasi: 10 dan 4 ni ayirish amalini bajaring.",
     "taskUz": "<code>echo $((10 - 4))</code> buyrug'ini bering.",
     "expectedSql": "echo $((10 - 4))",
@@ -969,7 +969,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 98,
-    "title": "Ko'paytirish Arifmetikasi ($((6 * 7)))",
+    "title": "Ko'paytirish Arifmetikasi",
     "story": "Darslik 10-sahifasi: 6 ni 7 ga ko'paytirish amali.",
     "taskUz": "<code>echo $((6 * 7))</code> buyrug'ini bering.",
     "expectedSql": "echo $((6 * 7))",
@@ -990,7 +990,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 99,
-    "title": "Bo'lish Arifmetikasi ($((10 / 3)))",
+    "title": "Bo'lish Arifmetikasi",
     "story": "Darslik 10-sahifasi: Bash butun sonli bo'lishni bajaradi (kasr qismini tashlab yuboradi).",
     "taskUz": "<code>echo $((10 / 3))</code> buyrug'ini bering.",
     "expectedSql": "echo $((10 / 3))",
@@ -1011,7 +1011,7 @@ window.QUESTIONS_51_100_W3 = [
   },
   {
     "id": 100,
-    "title": "Qoldiqli Bo'lish ($((10 % 3)))",
+    "title": "Qoldiqli Bo'lish",
     "story": "Darslik 10-sahifasi: Qoldiqni topish (modul amali).",
     "taskUz": "<code>echo $((10 % 3))</code> buyrug'ini bering.",
     "expectedSql": "echo $((10 % 3))",

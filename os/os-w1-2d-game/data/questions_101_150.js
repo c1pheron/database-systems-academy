@@ -1,12 +1,11 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — QUESTIONS 101 TO 150
-// wc metrics, cp, cp -r, mv, rm, rm -r, ln, ln -s, Inodes, find, -mtime, -delete.
+// WIUT OPERATING SYSTEMS (5COSC041C) — QUESTIONS_101_150.JS
 // ============================================================================
 
 window.QUESTIONS_101_150 = [
   {
     "id": 101,
-    "title": "Konfiguratsiyalar (/etc/passwd) Qatorlarini Sanash",
+    "title": "Parollar Fayli Qatorlarini Sanash",
     "story": "Tizimda ro'yxatdan o'tgan foydalanuvchilar qatorlari sonini oling.",
     "taskUz": "`wc -l /etc/passwd` buyrug'ini bering.",
     "expectedSql": "wc -l /etc/passwd",
@@ -25,7 +24,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 102,
-    "title": "Fayl Belgilar (Characters) Sonini Sanash (wc -m)",
+    "title": "Fayldagi Jami Belgilar Sonini Sanash",
     "story": "Harflar va belgilarni hisoblash uchun `-m` bayrog'ini bering.",
     "taskUz": "`wc -m head.txt` buyrug'ini bering.",
     "expectedSql": "wc -m head.txt",
@@ -101,7 +100,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 106,
-    "title": "Fayldan Nusxa Olish (cp system.log to archive)",
+    "title": "Faylni Arxiv Papkasiga Nusxalash",
     "story": "Seminar 1: `system.log` faylini `s01/archive` papkasiga ko'chiring.",
     "taskUz": "`cp system.log ../archive/` buyrug'i orqali nusxa oling.",
     "expectedSql": "cp system.log ../archive/",
@@ -121,7 +120,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 107,
-    "title": "Nusxa Olingan Fayl Nomini O'zgartirish (mv)",
+    "title": "Arxivdagi Fayl Nomini Zaxiraga O'zgartirish",
     "story": "Seminar 1: Arxivdagi nusxani `system.log.bak` deb qayta nomlang.",
     "taskUz": "`mv ../archive/system.log ../archive/system.log.bak` buyrug'ini bering.",
     "expectedSql": "mv ../archive/system.log ../archive/system.log.bak",
@@ -140,7 +139,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 108,
-    "title": "Barcha Loglarni Bitta Buyruqda Nusxalash (cp *.log)",
+    "title": "Barcha Jurnal Fayllarini Bitta Buyruqda Nusxalash",
     "story": "Seminar 1: Barcha `.log` bilan tugovchi fayllarni arxivga nusxalang.",
     "taskUz": "`cp *.log ../archive/` buyrug'ini bering.",
     "expectedSql": "cp *.log ../archive/",
@@ -160,7 +159,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 109,
-    "title": "error.log Faylini O'chirish (rm error.log)",
+    "title": "Xatoliklar Jurnali Faylini O'chirish",
     "story": "Seminar 1: Keraksiz bo'lgan `error.log` faylini xavfsiz o'chiring.",
     "taskUz": "`rm error.log` buyrug'ini bering.",
     "expectedSql": "rm error.log",
@@ -181,7 +180,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 110,
-    "title": "O'chirilganini Tekshirish (ls)",
+    "title": "Fayllar O'chirilganligini Tekshirish",
     "story": "`error.log` haqiqatda yo'qolganini tasdiqlash uchun ro'yxatni ko'ring.",
     "taskUz": "`ls` buyrug'ini bering.",
     "expectedSql": "ls",
@@ -200,7 +199,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 111,
-    "title": "Arxiv Papkasi Tarkibini Tekshirish (ls ../archive)",
+    "title": "Arxiv Papkasi Tarkibini Ro'yxatlab Ko'rish",
     "story": "Arxiv papkasida barcha nusxalangan fayllar borligini tekshiring.",
     "taskUz": "`ls ../archive` buyrug'ini bering.",
     "expectedSql": "ls ../archive",
@@ -239,7 +238,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 113,
-    "title": "Fayl Nomini O'zgartirish (mv system.copy to system.renamed)",
+    "title": "Fayl Nomini Yangi Nomga O'zgartirish",
     "story": "`system.copy` faylini `system.renamed` deb o'zgartiring.",
     "taskUz": "`mv system.copy system.renamed` buyrug'ini bering.",
     "expectedSql": "mv system.copy system.renamed",
@@ -297,7 +296,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 116,
-    "title": "Papkani Butunlay Rekursiv Nusxalash (cp -r)",
+    "title": "Katalogni Barcha Tarkibi Bilan Rekursiv Nusxalash",
     "story": "Eslatma: papkalarni nusxalashda rekursiv `-r` bayrog'i shartdir.",
     "taskUz": "`cp -r ../reports ../reports_backup` buyrug'ini bering.",
     "expectedSql": "cp -r ../reports ../reports_backup",
@@ -316,7 +315,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 117,
-    "title": "Nusxa Olingan Papkani Rekursiv O'chirish (rm -r)",
+    "title": "Nusxalangan Papkani Butunlay Rekursiv O'chirish",
     "story": "Ortiqcha zaxira papkani `rm -r` bilan o'chirib tashlang.",
     "taskUz": "`rm -r ../reports_backup` buyrug'ini bering.",
     "expectedSql": "rm -r ../reports_backup",
@@ -393,7 +392,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 121,
-    "title": "Hard Link Yaratish (ln system.log system_hardlink.log)",
+    "title": "Faylga Qattiq Havola (Hard Link) Yaratish",
     "story": "Seminar 1: `system.log` fayliga aynan bir xil Inodeni bo'lishuvchi Hard Link yarating.",
     "taskUz": "`ln system.log system_hardlink.log` buyrug'i orqali qattiq havola yarating.",
     "expectedSql": "ln system.log system_hardlink.log",
@@ -412,7 +411,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 122,
-    "title": "Soft Link (Symlink) Yaratish (ln -s)",
+    "title": "Faylga Ramziy Havola (Soft Symlink) Yaratish",
     "story": "Seminar 1: `system.log` fayliga yo'naltiruvchi ramziy Soft Link (symlink) yarating.",
     "taskUz": "`ln -s system.log system_softlink.log` buyrug'ini bering.",
     "expectedSql": "ln -s system.log system_softlink.log",
@@ -431,7 +430,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 123,
-    "title": "Havolalarni Uzun Formatda Ko'rish (ls -l)",
+    "title": "Havolalar va Inodelarni Uzun Formatda Ko'rish",
     "story": "Hard link soni 2 ga oshganini va Soft link `->` strelka bilan ko'rsatilganini kuzating.",
     "taskUz": "`ls -l` buyrug'i orqali havolalar holatini chiqaring.",
     "expectedSql": "ls -l",
@@ -450,7 +449,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 124,
-    "title": "Original Fayl Inodesini Ko'rish (stat system.log)",
+    "title": "Original Fayl Inode Raqamini Aniqlash",
     "story": "Original faylning Inode raqami va link count (2 ta) ekanini tasdiqlang.",
     "taskUz": "`stat system.log` buyrug'ini bering.",
     "expectedSql": "stat system.log",
@@ -469,7 +468,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 125,
-    "title": "Hard Link Inodesini Ko'rish (stat system_hardlink.log)",
+    "title": "Qattiq Havola Inode Raqamini Tekshirish",
     "story": "Hard link original bilan 100% bir xil Inode raqamiga egaligini o'z ko'zingiz bilan ko'ring.",
     "taskUz": "`stat system_hardlink.log` buyrug'ini bering.",
     "expectedSql": "stat system_hardlink.log",
@@ -488,7 +487,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 126,
-    "title": "Soft Link Inodesini Ko'rish (stat system_softlink.log)",
+    "title": "Ramziy Havola Inode Raqamini Tekshirish",
     "story": "Soft link alohida yangi Inode raqamiga egaligini tekshiring.",
     "taskUz": "`stat system_softlink.log` buyrug'ini bering.",
     "expectedSql": "stat system_softlink.log",
@@ -545,7 +544,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 129,
-    "title": "Original Faylni O'chirish (rm system.log)",
+    "title": "Original Boshlang'ich Faylni O'chirish",
     "story": "Seminar 1 muhim tajribasi: Original `system.log` faylini ataylab o'chirib tashlang!",
     "taskUz": "`rm system.log` buyrug'ini bering.",
     "expectedSql": "rm system.log",
@@ -564,7 +563,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 130,
-    "title": "Original O'chgach Hard Linkni O'qish (Hali Tirik!)",
+    "title": "Original O'chgach Qattiq Havola Orqali Faylni O'qish",
     "story": "Hayratlanarli natija: Hard link original o'chsa ham ma'lumotlarni to'liq saqlab qoladi!",
     "taskUz": "`cat system_hardlink.log` buyrug'ini bering.",
     "expectedSql": "cat system_hardlink.log",
@@ -583,7 +582,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 131,
-    "title": "Original O'chgach Hard Link Link Soni (1 ga tushdi)",
+    "title": "Qattiq Havolaning Qolgan Bog'lanishlar Sonini Tekshirish",
     "story": "`stat` orqali ko'ring: link count 2 dan 1 ga tushdi, xotira bloki tirik.",
     "taskUz": "`stat system_hardlink.log` buyrug'ini bering.",
     "expectedSql": "stat system_hardlink.log",
@@ -678,7 +677,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 136,
-    "title": "Joriy Papkada .txt Fayllarni Topish (find -name)",
+    "title": "Joriy Papkadagi Barcha .txt Fayllarni Qidirish",
     "story": "Seminar 1: Joriy katalog va uning ichidagi barcha `.txt` kengaytmali fayllarni qidiring.",
     "taskUz": "`find . -name \"*.txt\"` buyrug'i orqali qidiring.",
     "expectedSql": "find . -name \"*.txt\"",
@@ -699,7 +698,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 137,
-    "title": "Faqat Oddiy Fayllarni Qidirish (find -type f)",
+    "title": "Faqat Oddiy Fayl Turiga Ega Bo'lganlarni Qidirish",
     "story": "Kataloglarni emas, faqat oddiy fayllarni (`-type f`) ajrating.",
     "taskUz": "`find . -type f -name \"*.txt\"` buyrug'ini bering.",
     "expectedSql": "find . -type f -name \"*.txt\"",
@@ -719,7 +718,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 138,
-    "title": "7 Kundan Eski Fayllarni Topish (find -mtime +7)",
+    "title": "7 Kundan Oldin O'zgartirilgan Eski Fayllarni Qidirish",
     "story": "Seminar 1: 7 kundan avval o'zgartirilgan (`-mtime +7`) eski fayllarni toping.",
     "taskUz": "`find . -type f -mtime +7` buyrug'ini bering.",
     "expectedSql": "find . -type f -mtime +7",
@@ -759,7 +758,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 140,
-    "title": "Topilgan Fayllarni Batafsil Ro'yxat Bilan Ko'rish (find -ls)",
+    "title": "Topilgan Fayllarning Batafsil Formatdagi Ro'yxatini Ko'rish",
     "story": "Topilgan fayllarni `ls -l` kabi to'liq huquqlari va Inodelari bilan chiqaring.",
     "taskUz": "`find . -name \"*.txt\" -ls` buyrug'ini bering.",
     "expectedSql": "find . -name \"*.txt\" -ls",
@@ -799,7 +798,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 142,
-    "title": "Faqat Papkalarni Qidirish (find -type d)",
+    "title": "Tizimda Faqat Kataloglar Turini Qidirish",
     "story": "Fayllarni emas, faqat kataloglarni topish uchun `-type d` bayrog'ini bering.",
     "taskUz": "`find /etc -type d` buyrug'ini bering.",
     "expectedSql": "find /etc -type d",
@@ -818,7 +817,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 143,
-    "title": "Eski Fayllarni Avtomatik O'chirish (find -delete)",
+    "title": "Topilgan Eski Fayllarni Avtomatik O'chirish",
     "story": "Seminar 1: 7 kundan eski `.txt` fayllarni `-delete` orqali xavfsiz tozalang.",
     "taskUz": "`find . -name \"*.txt\" -mtime +7 -delete` buyrug'ini bering.",
     "expectedSql": "find . -name \"*.txt\" -mtime +7 -delete",
@@ -878,7 +877,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 146,
-    "title": "Katta-Kichik Harfga Sezgir Bo'lmagan Qidiruv (-iname)",
+    "title": "Harf Registriga Sezgir Bo'lmagan Qidiruvni Bajarish",
     "story": "Case-insensitive qidiruv uchun `-iname` bayrog'ini sinang.",
     "taskUz": "`find . -iname \"*.LOG\"` buyrug'ini bering.",
     "expectedSql": "find . -iname \"*.LOG\"",
@@ -898,7 +897,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 147,
-    "title": "So'nggi 7 Kunda O'zgargan Yangi Fayllar (-mtime -7)",
+    "title": "So'nggi 7 Kun Ichida O'zgargan Yangi Fayllarni Topish",
     "story": "Minus `-7` belgisi oxirgi 7 kunda o'zgartirilgan yangi fayllarni topadi.",
     "taskUz": "`find . -type f -mtime -7` buyrug'ini bering.",
     "expectedSql": "find . -type f -mtime -7",
@@ -917,7 +916,7 @@ window.QUESTIONS_101_150 = [
   },
   {
     "id": 148,
-    "title": "Joriy Papkadagi Barcha Fayllarni Ro'yxatlash (find .)",
+    "title": "Joriy Papkadagi Barcha Ob'yektlarni Rekursiv Ro'yxatlash",
     "story": "Joriy katalogdagi hamma obyektlarni to'liq qidirib chiqaring.",
     "taskUz": "`find .` buyrug'ini bering.",
     "expectedSql": "find .",

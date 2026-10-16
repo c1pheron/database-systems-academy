@@ -1,5 +1,5 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 2 QUESTIONS 51 TO 100
+// WIUT OPERATING SYSTEMS (5COSC041C) — W2 QUESTIONS_51_100.JS
 // ============================================================================
 
 window.QUESTIONS_51_100_W2 = [
@@ -26,7 +26,7 @@ window.QUESTIONS_51_100_W2 = [
   },
   {
     "id": 52,
-    "title": "Sticky Bitni Olib Tashlash (-t)",
+    "title": "Sticky Bitni Olib Tashlash",
     "story": "Agar maxsus test uchun sticky bitni o'chirish talab etilsa <code>-t</code> ishlatiladi.",
     "taskUz": "<code>/srv/project</code> katalogidan sticky bitni olib tashlang (<code>-t</code>).",
     "expectedSql": "chmod -t /srv/project",
@@ -232,7 +232,7 @@ window.QUESTIONS_51_100_W2 = [
   },
   {
     "id": 62,
-    "title": "Umaskni Ramziy Formatda Ko'rish (-S)",
+    "title": "Umaskni Ramziy Formatda Ko'rish",
     "story": "Raqamlardan ko'ra ramziy (u=rwx,g=rx,o=rx) shaklda ko'rish osonroq tushuniladi.",
     "taskUz": "<code>umask -S</code> buyrug'ini bering.",
     "expectedSql": "umask -S",
@@ -392,7 +392,7 @@ window.QUESTIONS_51_100_W2 = [
   },
   {
     "id": 70,
-    "title": "Test Papka Ruxsatini Tekshirish (ls -ld)",
+    "title": "Test Papka Ruxsatini Tekshirish",
     "story": "Yangi ochilgan <code>test_dir</code> katalogining ruxsatlarini ko'ring.",
     "taskUz": "<code>ls -ld test_dir</code> buyrug'ini bering.",
     "expectedSql": "ls -ld test_dir",
@@ -412,7 +412,7 @@ window.QUESTIONS_51_100_W2 = [
   },
   {
     "id": 71,
-    "title": "Test Faylni Tozalash (O'chirish)",
+    "title": "Test Faylni Tozalash",
     "story": "Test yakunlangach, ortiqcha faylni tizimdan o'chiring.",
     "taskUz": "<code>rm test_umask.txt</code> buyrug'ini bering.",
     "expectedSql": "rm test_umask.txt",
@@ -839,7 +839,7 @@ window.QUESTIONS_51_100_W2 = [
   },
   {
     "id": 92,
-    "title": "Matnni Teskari Saralash (-r)",
+    "title": "Matnni Teskari Saralash",
     "story": "Satrlarni Z dan A gacha (kamayish tartibida) joylashtirish.",
     "taskUz": "<code>sort -r scores.csv</code> buyrug'ini bering.",
     "expectedSql": "sort -r scores.csv",
@@ -859,7 +859,7 @@ window.QUESTIONS_51_100_W2 = [
   },
   {
     "id": 93,
-    "title": "Takroriy Satrlarni Bittalab Qoldirish (uniq)",
+    "title": "Takroriy Satrlarni Bittalab Qoldirish",
     "story": "Takrorlanuvchi satrlardan faqat bittadan nusxa qoldirish. Eslatma: uniq saralangan matn bilan ishlaydi.",
     "taskUz": "<code>sort scores.csv | uniq</code> buyrug'ini bering.",
     "expectedSql": "sort scores.csv | uniq",
@@ -879,7 +879,7 @@ window.QUESTIONS_51_100_W2 = [
   },
   {
     "id": 94,
-    "title": "Takrorlanishlar Soni Bilan Chiqarish (uniq -c)",
+    "title": "Takrorlanishlar Soni Bilan Chiqarish",
     "story": "Har bir satr necha marta uchraganini hisoblash.",
     "taskUz": "<code>sort scores.csv | uniq -c</code> buyrug'ini bering.",
     "expectedSql": "sort scores.csv | uniq -c",
@@ -899,7 +899,7 @@ window.QUESTIONS_51_100_W2 = [
   },
   {
     "id": 95,
-    "title": "Faqat Takrorlanmagan (Unique) Satrlarni Ko'rish (uniq -u)",
+    "title": "Faqat Takrorlanmagan",
     "story": "Faqat 1 marta uchragan nodir satrlarni ajratib olish.",
     "taskUz": "<code>sort scores.csv | uniq -u</code> buyrug'ini bering.",
     "expectedSql": "sort scores.csv | uniq -u",
@@ -919,7 +919,7 @@ window.QUESTIONS_51_100_W2 = [
   },
   {
     "id": 96,
-    "title": "Faqat Dublikat Satrlarni Ko'rish (uniq -d)",
+    "title": "Faqat Dublikat Satrlarni Ko'rish",
     "story": "Kamida 2 marta uchragan takroriy satrlarni topish.",
     "taskUz": "<code>sort scores.csv | uniq -d</code> buyrug'ini bering.",
     "expectedSql": "sort scores.csv | uniq -d",
@@ -960,7 +960,7 @@ window.QUESTIONS_51_100_W2 = [
   },
   {
     "id": 98,
-    "title": "Foydalanuvchi Nomi Va Shellini Ajratish (-f1,7)",
+    "title": "Foydalanuvchi Nomi Va Shellini Ajratish",
     "story": "Seminar 2 namunasi: 1-ustun (username) va 7-ustun (shell) ni ajratish.",
     "taskUz": "<code>cut -d: -f1,7 /etc/passwd</code> buyrug'ini bering.",
     "expectedSql": "cut -d: -f1,7 /etc/passwd",
@@ -1002,7 +1002,7 @@ window.QUESTIONS_51_100_W2 = [
   },
   {
     "id": 100,
-    "title": "CSV Fayldan Fanlar Ro'yxatini Olish (-f3)",
+    "title": "CSV Fayldan Fanlar Ro'yxatini Olish",
     "story": "<code>scores.csv</code> faylidan 3-ustunni (fan nomini) kesib oling.",
     "taskUz": "<code>cut -d, -f3 scores.csv</code> buyrug'ini bering.",
     "expectedSql": "cut -d, -f3 scores.csv",

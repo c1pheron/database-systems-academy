@@ -1,6 +1,5 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — QUESTIONS 1 TO 50
-// Navigation, pwd, cd, ls, ls -la, mkdir, mkdir -p, rmdir, touch, stat.
+// WIUT OPERATING SYSTEMS (5COSC041C) — QUESTIONS_1_50.JS
 // ============================================================================
 
 window.QUESTIONS_1_50 = [
@@ -46,7 +45,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 3,
-    "title": "Server Nomini (Hostname) Aniqlash",
+    "title": "Server Tarmoq Nomini Aniqlash",
     "story": "Tarmoqdagi serverlar ichida aynan qaysi kompyuterga ulanganingizni tasdiqlang.",
     "taskUz": "Ushbu mashinaning tarmoqdagi nomini (`hostname`) ekranga chiqaring.",
     "expectedSql": "hostname",
@@ -66,7 +65,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 4,
-    "title": "Ildiz (Root) Katalogga O'tish",
+    "title": "Fayl Tizimi Ildiz Katalogiga O'tish",
     "story": "Linux fayl tizimining eng yuqori darajasi — bu ildiz (`/`) katalogidir.",
     "taskUz": "Fayl tizimining eng boshlang'ich ildiz katalogiga (`/`) o'ting.",
     "expectedSql": "cd /",
@@ -125,7 +124,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 7,
-    "title": "Bitta Qavat Yuqoriga Chiqish (cd ..)",
+    "title": "Bitta Qavat Yuqori Papkaga Chiqish",
     "story": "Joriy papkadan bitta qavat yuqoridagi ota katalogga o'ting.",
     "taskUz": "`..` nisbiy belgisidan foydalanib bitta qavat yuqoriga o'ting.",
     "expectedSql": "cd ..",
@@ -144,7 +143,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 8,
-    "title": "Oldingi Tashrif Buyurilgan Katalogga Qaytish (cd -)",
+    "title": "Oldingi Tashrif Buyurilgan Papkaga Qaytish",
     "story": "Linux terminalida oxirgi bo'lingan avvalgi katalogga tezkor qaytish imkoni mavjud.",
     "taskUz": "Oldingi tashrif buyurilgan papkaga qaytish uchun `cd -` buyrug'ini bering.",
     "expectedSql": "cd -",
@@ -182,7 +181,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 10,
-    "title": "Uy Papkasidagi Ichki Yo'l (cd ~/)",
+    "title": "Uy Papkasi Ichidagi Yo'lga O'tish",
     "story": "Qayerda turishingizdan qat'i nazar, uy papkangiz ichidagi yo'lni `~/` orqali ko'rsatish mumkin.",
     "taskUz": "`~/` sintaksisidan foydalanib uy katalogiga o'ting.",
     "expectedSql": "cd ~/",
@@ -221,7 +220,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 12,
-    "title": "Ikki Qavat Yuqoriga Chiqish (cd ../..)",
+    "title": "Ikki Qavat Yuqoriga Chiqish",
     "story": "Chuqur kataloglardan ikki pog'ona yuqoriga sakrash zarur.",
     "taskUz": "Ikki pog'ona yuqoridagi ota katalogga o'tish buyrug'ini bering.",
     "expectedSql": "cd ../..",
@@ -298,7 +297,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 16,
-    "title": "Oddiy Fayllar Ro'yxatini Ko'rish (ls)",
+    "title": "Fayllarning Oddiy Ro'yxatini Ko'rish",
     "story": "Joriy papkada qanday oddiy fayllar borligini ko'zdan kechiring.",
     "taskUz": "Joriy katalogdagi fayllar va papkalar ro'yxatini chiqaring.",
     "expectedSql": "ls",
@@ -317,7 +316,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 17,
-    "title": "Barcha Fayllar, Shu Jumladan Yashirin Fayllar (ls -a)",
+    "title": "Barcha, Shu Jumladan Yashirin Fayllarni Ko'rish",
     "story": "Nuqta bilan boshlanuvchi `.bashrc` va `.profile` kabi yashirin konfiguratsiyalarni ko'rish lozim.",
     "taskUz": "Barcha fayllarni (yashirin fayllar bilan birga) ko'rsatuvchi buyruqni bering.",
     "expectedSql": "ls -a",
@@ -337,7 +336,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 18,
-    "title": "Kengaytirilgan Formatda Chiqarish (ls -l)",
+    "title": "Fayllarni Kengaytirilgan Formatda Chiqarish",
     "story": "Huquqlar (rwx), Inodelar soni, egasi, guruhi va hajmini batafsil ko'rish talab qilinadi.",
     "taskUz": "Fayllar ro'yxatini batafsil uzun formatda (`long format`) chiqaring.",
     "expectedSql": "ls -l",
@@ -356,7 +355,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 19,
-    "title": "Batafsil va Yashirin Fayllar Birlashmasi (ls -la)",
+    "title": "Batafsil va Yashirin Fayllarni Birgalikda Ko'rish",
     "story": "SysAdminlarning eng mashhur va kundalik buyrug'i `ls -la` hisoblanadi.",
     "taskUz": "Ham yashirin fayllarni, ham uzun formatni birlashtirib chiqaring.",
     "expectedSql": "ls -la",
@@ -378,7 +377,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 20,
-    "title": "Inson O'qiy Oladigan O'lchamlar Bilan (ls -lh)",
+    "title": "Fayl O'lchamlarini Inson O'qiy Oladigan Formatda Ko'rish",
     "story": "Fayl hajmini baytlarda emas, balki KB, MB ko'rinishida ko'rish qulay.",
     "taskUz": "Uzun formatda fayl o'lchamlarini inson o'qiy oladigan formatda (`-h`) chiqaring.",
     "expectedSql": "ls -lh",
@@ -399,7 +398,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 21,
-    "title": "O'zgarish Vaqti Bo'yicha Saralash (ls -t)",
+    "title": "Fayllarni O'zgarish Vaqti Bo'yicha Saralash",
     "story": "Eng oxirgi tahrirlangan yangi fayllarni ro'yxat boshida ko'rish kerak.",
     "taskUz": "Fayllarni oxirgi o'zgartirilgan vaqti bo'yicha (eng yangilari birinchi) saralab chiqaring.",
     "expectedSql": "ls -t",
@@ -418,7 +417,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 22,
-    "title": "Vaqt Bo'yicha Teskari Saralash (ls -tr)",
+    "title": "Fayllarni Vaqt Bo'yicha Teskari Tartibda Saralash",
     "story": "Eski fayllardan yangilariga qarab xronologik tartibda ko'rish zarur.",
     "taskUz": "Fayllarni o'zgarish vaqti bo'yicha teskari (eng eskilari tepada) saralab chiqaring.",
     "expectedSql": "ls -tr",
@@ -438,7 +437,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 23,
-    "title": "Hajmi Bo'yicha Saralash (ls -S)",
+    "title": "Fayllarni Hajmi Bo'yicha Saralash",
     "story": "Diskda eng ko'p joy egallayotgan yirik fayllarni aniqlang.",
     "taskUz": "Fayllarni hajmi bo'yicha kamayish tartibida (katta fayllar tepada) saralab chiqaring.",
     "expectedSql": "ls -S",
@@ -457,7 +456,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 24,
-    "title": "Teskari Alifbo Tartibida Saralash (ls -r)",
+    "title": "Fayllarni Teskari Alifbo Tartibida Saralash",
     "story": "Nomlarni Z dan A ga qarab teskari alifboda chiqarish talab etiladi.",
     "taskUz": "Fayllar ro'yxatini teskari tartibda chiqaring.",
     "expectedSql": "ls -r",
@@ -534,7 +533,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 28,
-    "title": "Fayl Turlari Belgisi Bilan Chiqarish (ls -F)",
+    "title": "Fayl Turlarini Maxsus Belgilar Bilan Ko'rsatish",
     "story": "Papkalar orqasiga `/`, skriptlar orqasiga `*` qo'yuvchi `-F` bayrog'ini sinang.",
     "taskUz": "Fayl turlari indikatori (`-F`) bilan fayllarni chiqaring.",
     "expectedSql": "ls -F",
@@ -611,7 +610,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 32,
-    "title": "Ota Papkalari Bilan Birgalikda Yaratish (mkdir -p)",
+    "title": "Ota Papkalari Bilan Birgalikda Ichma-ich Yaratish",
     "story": "Seminar 1 topshirig'i: `s01/logs` ichki papkalarini bitta buyruqda yarating.",
     "taskUz": "`-p` bayrog'i yordamida `s01/logs` papkalar zanjirini yarating.",
     "expectedSql": "mkdir -p s01/logs",
@@ -630,7 +629,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 33,
-    "title": "Arxiv Papkasini Yaratish (mkdir -p s01/archive)",
+    "title": "Arxiv Papkasi Tuzilmasini Yaratish",
     "story": "Eskirgan log fayllar va zaxira nusxalar uchun maxsus papka ajrating.",
     "taskUz": "`s01/archive` katalogini yarating.",
     "expectedSql": "mkdir -p s01/archive",
@@ -650,7 +649,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 34,
-    "title": "Hisobotlar Papkasini Yaratish (mkdir -p s01/reports)",
+    "title": "Hisobotlar Papkasi Tuzilmasini Yaratish",
     "story": "Audit va tahlil xulosalari uchun `reports` papkasini yarating.",
     "taskUz": "`s01/reports` katalogini yarating.",
     "expectedSql": "mkdir -p s01/reports",
@@ -689,7 +688,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 36,
-    "title": "Bo'sh Papkani O'chirish (rmdir test1)",
+    "title": "Bo'sh Test Papkasini O'chirish",
     "story": "Sinov uchun ochilgan bo'sh `test1` papkasini xavfsiz o'chiring.",
     "taskUz": "`rmdir` yordamida bo'sh `test1` katalogini o'chiring.",
     "expectedSql": "rmdir test1",
@@ -708,7 +707,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 37,
-    "title": "Ikkinchi Bo'sh Papkani O'chirish (rmdir test2)",
+    "title": "Ikkinchi Bo'sh Test Papkasini O'chirish",
     "story": "Keraksiz bo'lgan ikkinchi `test2` papkasini ham olib tashlang.",
     "taskUz": "`rmdir` yordamida `test2` katalogini o'chiring.",
     "expectedSql": "rmdir test2",
@@ -727,7 +726,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 38,
-    "title": "Konfiguratsiyalar Papkasini Yaratish (mkdir config)",
+    "title": "Konfiguratsiyalar Papkasini Yaratish",
     "story": "Tizim sozlamalari nusxalari uchun `config` papkasini tayyorlang.",
     "taskUz": "Uy katalogida `config` nomli yangi papka yarating.",
     "expectedSql": "mkdir config",
@@ -746,7 +745,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 39,
-    "title": "Chuqur Tarmoqli Papka Yaratish (mkdir -p a/b/c)",
+    "title": "Chuqur Tarmoqlangan Papkalar Zanjirini Yaratish",
     "story": "3 qavatli chuqur katalog strukturasini bitta buyruqda oching.",
     "taskUz": "`-p` orqali `a/b/c` kataloglar ierarxiyasini yarating.",
     "expectedSql": "mkdir -p a/b/c",
@@ -765,7 +764,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 40,
-    "title": "Chuqur Papka Ichiga Kirish (cd a/b/c)",
+    "title": "Chuqur Tarmoqlangan Papka Ichiga O'tish",
     "story": "Yangi yaratilgan eng chuqur `c` papkasiga o'ting.",
     "taskUz": "`cd a/b/c` buyrug'i orqali ichki katalogga kiring.",
     "expectedSql": "cd a/b/c",
@@ -784,7 +783,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 41,
-    "title": "Qaytadan Uy Papkasiga Qaytish (cd ~)",
+    "title": "Qaytadan Uy Papkasiga Qaytish",
     "story": "Chuqur yo'ldan o'z boshlang'ich uy papkangizga qayting.",
     "taskUz": "`cd ~` buyrug'i orqali uy papkangizga qayting.",
     "expectedSql": "cd ~",
@@ -804,7 +803,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 42,
-    "title": "Kataloglar Daraxtini Ko'rish (tree s01)",
+    "title": "Kataloglar Daraxtimon Ko'rinishini Tekshirish",
     "story": "Yaratilgan `s01` papkasi ierarxiyasini daraxt ko'rinishida ko'zdan kechiring.",
     "taskUz": "`tree s01` buyrug'i orqali papkalar tuzilishini chiqaring.",
     "expectedSql": "tree s01",
@@ -823,7 +822,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 43,
-    "title": "Zaxira Papkasini Yaratish (mkdir backup)",
+    "title": "Zaxira Papkasini Yaratish",
     "story": "Tizim zaxiralari uchun `backup` papkasi kerak bo'ladi.",
     "taskUz": "Yangi `backup` nomli papka yarating.",
     "expectedSql": "mkdir backup",
@@ -842,7 +841,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 44,
-    "title": "Logs Papkasi Ichiga O'tish (cd s01/logs)",
+    "title": "Logs Papkasi Ichiga O'tish",
     "story": "Fayllar yaratish bosqichiga o'tish uchun `s01/logs` papkasiga kiring.",
     "taskUz": "`cd s01/logs` buyrug'i orqali logs papkasiga o'ting.",
     "expectedSql": "cd s01/logs",
@@ -880,7 +879,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 46,
-    "title": "Yangi Bo'sh Fayl Yaratish (touch system.log)",
+    "title": "Yangi Bo'sh Tizim Jurnali Faylini Yaratish",
     "story": "Seminar 1: `s01/logs` papkasi ichida asosiy tizim log faylini oching.",
     "taskUz": "`touch` buyrug'i orqali `system.log` nomli bo'sh fayl yarating.",
     "expectedSql": "touch system.log",
@@ -899,7 +898,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 47,
-    "title": "Autentifikatsiya Logini Yaratish (touch auth.log)",
+    "title": "Autentifikatsiya Jurnali Faylini Yaratish",
     "story": "Foydalanuvchilar kirishini qayd etuvchi `auth.log` faylini oching.",
     "taskUz": "`touch auth.log` buyrug'i orqali fayl yarating.",
     "expectedSql": "touch auth.log",
@@ -918,7 +917,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 48,
-    "title": "Xatoliklar Logini Yaratish (touch error.log)",
+    "title": "Xatoliklar Jurnali Faylini Yaratish",
     "story": "Kritik xatoliklarni yig'uvchi `error.log` faylini yarating.",
     "taskUz": "`touch error.log` buyrug'ini bering.",
     "expectedSql": "touch error.log",
@@ -937,7 +936,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 49,
-    "title": "Fayl Metama'lumotlarini Ko'rish (stat system.log)",
+    "title": "Fayl Inode va Metama'lumotlarini Tahlil Qilish",
     "story": "Faylning Inode raqami, havolalar soni va aniq vaqt tamg'asini ko'ring.",
     "taskUz": "`stat system.log` buyrug'i orqali fayl ma'lumotlarini chiqaring.",
     "expectedSql": "stat system.log",
@@ -956,7 +955,7 @@ window.QUESTIONS_1_50 = [
   },
   {
     "id": 50,
-    "title": "Vaqt Tamg'asini Sun'iy O'zgartirish (touch -d)",
+    "title": "Fayl O'zgarish Vaqtini Sun'iy Belgilash",
     "story": "Seminar 1 topshirig'i: Fayl sanasini o'tmishdagi sanaga o'zgartiring (eski log simulyatsiyasi).",
     "taskUz": "`system.log` fayli sanasini `touch -d \"2025-01-08\" system.log` orqali o'zgartiring.",
     "expectedSql": "touch -d \"2025-01-08\" system.log",

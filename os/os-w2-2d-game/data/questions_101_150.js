@@ -1,5 +1,5 @@
 // ============================================================================
-// WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 2 QUESTIONS 101 TO 150
+// WIUT OPERATING SYSTEMS (5COSC041C) — W2 QUESTIONS_101_150.JS
 // ============================================================================
 
 window.QUESTIONS_101_150_W2 = [
@@ -47,7 +47,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 103,
-    "title": "Satrning Dastlabki 10 Ta Belgi Kesib Olish (-c1-10)",
+    "title": "Satrning Dastlabki 10 Ta Belgi Kesib Olish",
     "story": "Belgilar bo'yicha kesish (masalan sana yoki boshlang'ich identifikator).",
     "taskUz": "<code>cut -c1-10 scores.csv</code> buyrug'ini bering.",
     "expectedSql": "cut -c1-10 scores.csv",
@@ -67,7 +67,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 104,
-    "title": "Protsesslar Ro'yxatini Saralash (Simulyatsiya)",
+    "title": "Protsesslar Ro'yxatini Saralash",
     "story": "Tizim foydalanuvchilarini alifbo tartibida tartiblab birinchi 3 tasini ko'rish.",
     "taskUz": "<code>cut -d: -f1 /etc/passwd | sort | head -n 3</code> buyrug'ini bering.",
     "expectedSql": "cut -d: -f1 /etc/passwd | sort | head -n 3",
@@ -129,7 +129,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 107,
-    "title": "Shubhali IP So'rovlari Soni (-c)",
+    "title": "Shubhali IP So'rovlari Soni",
     "story": "Seminar 2 Case Study 1: Ushbu IP qancha so'rov yuborganligini sanash.",
     "taskUz": "<code>grep -c \"83.149.9.216\" /var/log/apache_logs.txt</code> buyrug'ini bering.",
     "expectedSql": "grep -c \"83.149.9.216\" /var/log/apache_logs.txt",
@@ -170,7 +170,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 109,
-    "title": "Server 500 Xatoliklari Atrofidagi Kontekst (-B 2 -A 2)",
+    "title": "Server 500 Xatoliklari Atrofidagi Kontekst",
     "story": "Seminar 2 Case Study 1: Har bir HTTP 500 xatosidan oldingi va keyingi 2 satrni ko'rish.",
     "taskUz": "<code>grep -B 2 -A 2 \" 500 \" /var/log/apache_logs.txt</code> buyrug'ini bering.",
     "expectedSql": "grep -B 2 -A 2 \" 500 \" /var/log/apache_logs.txt",
@@ -191,7 +191,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 110,
-    "title": "PHP Fayllariga So'rovlarni Topish (Regex)",
+    "title": "PHP Fayllariga So'rovlarni Topish",
     "story": "Seminar 2 Case Study 1: .php fayllariga bo'lgan so'rovlarni topish.",
     "taskUz": "<code>grep -E \"\\.php\" /var/log/apache_logs.txt</code> buyrug'ini bering.",
     "expectedSql": "grep -E \"\\.php\" /var/log/apache_logs.txt",
@@ -252,7 +252,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 113,
-    "title": "Faqat IP Manzillarni Ajratib Olish (grep -oE)",
+    "title": "Faqat IP Manzillarni Ajratib Olish",
     "story": "Seminar 2 Case Study 1: Log satrlarining boshidan faqat IP manzillarni ajratish.",
     "taskUz": "<code>grep -oE \"^[0-9.]+\" /var/log/apache_logs.txt</code> buyrug'ini bering.",
     "expectedSql": "grep -oE \"^[0-9.]+\" /var/log/apache_logs.txt",
@@ -292,7 +292,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 115,
-    "title": "Eng Faol Top 5 IP Manzil (Case Study 1 Yakuni)",
+    "title": "Eng Faol Top 5 IP Manzil",
     "story": "Seminar 2 Case Study 1: Eng ko'p so'rov yuborgan 5 ta IP ni aniqlash.",
     "taskUz": "<code>grep -oE \"^[0-9.]+\" /var/log/apache_logs.txt | sort | uniq -c | sort -nr | head -5</code> buyrug'ini bering.",
     "expectedSql": "grep -oE \"^[0-9.]+\" /var/log/apache_logs.txt | sort | uniq -c | sort -nr | head -5",
@@ -313,7 +313,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 116,
-    "title": "Muvaffaqiyatsiz So'rovlarni Topish (grep -v 200)",
+    "title": "Muvaffaqiyatsiz So'rovlarni Topish",
     "story": "Seminar 2 Case Study 1: HTTP 200 kodiga ega bo'lmagan xatolik so'rovlarini topish.",
     "taskUz": "<code>grep -v \" 200 \" /var/log/apache_logs.txt</code> buyrug'ini bering.",
     "expectedSql": "grep -v \" 200 \" /var/log/apache_logs.txt",
@@ -333,7 +333,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 117,
-    "title": "Katta-Kichik Harflarni Inkor Qilish (grep -i)",
+    "title": "Katta-Kichik Harflarni Inkor Qilish",
     "story": "CPU so'zini har qanday registrda qidirish.",
     "taskUz": "<code>grep -i \"cpu\" /var/log/syslog</code> buyrug'ini bering.",
     "expectedSql": "grep -i \"cpu\" /var/log/syslog",
@@ -354,7 +354,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 118,
-    "title": "Satr Raqamlari Bilan Ko'rsatish (grep -n)",
+    "title": "Satr Raqamlari Bilan Ko'rsatish",
     "story": "Qaysi satrda xato borligini bilish uchun line numberlarni chiqarish.",
     "taskUz": "<code>grep -n \"student\" /etc/passwd</code> buyrug'ini bering.",
     "expectedSql": "grep -n \"student\" /etc/passwd",
@@ -375,7 +375,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 119,
-    "title": "Faqat Fayl Nomlarini Ko'rsatish (grep -l)",
+    "title": "Faqat Fayl Nomlarini Ko'rsatish",
     "story": "Katalog ichidagi qaysi fayllarda izlangan so'z borligini bilish.",
     "taskUz": "<code>grep -l \"root\" /var/log/*</code> buyrug'ini bering.",
     "expectedSql": "grep -l \"root\" /var/log/*",
@@ -416,7 +416,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 121,
-    "title": "Sed Bilan So'zni O'zgartirish (s/old/new/)",
+    "title": "Sed Bilan So'zni O'zgartirish",
     "story": "Seminar 2 ma'ruzasi: Sed orqali birinchi uchragan so'zni almashtirish.",
     "taskUz": "<code>scores.csv</code> faylidagi 'Math' so'zini 'Calculus' ga almashtirib ekranga chiqaring.",
     "expectedSql": "sed 's/Math/Calculus/' scores.csv",
@@ -437,7 +437,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 122,
-    "title": "Global Almashtirish (s/old/new/g)",
+    "title": "Global Almashtirish",
     "story": "Satrdagi barcha takrorlangan so'zlarni global (<code>g</code>) almashtirish.",
     "taskUz": "<code>sed 's/Math/Calculus/g' scores.csv</code> buyrug'ini bering.",
     "expectedSql": "sed 's/Math/Calculus/g' scores.csv",
@@ -458,7 +458,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 123,
-    "title": "Sed Bilan Muayyan Satrni O'chirish (3d)",
+    "title": "Sed Bilan Muayyan Satrni O'chirish",
     "story": "Darslik namunasi: 3-satrni o'chirib qolganlarini ekranga chiqarish.",
     "taskUz": "<code>sed '3d' scores.csv</code> buyrug'ini bering.",
     "expectedSql": "sed '3d' scores.csv",
@@ -479,7 +479,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 124,
-    "title": "Sed Bilan 1-Satrni O'chirish (Header Olib Tashlash)",
+    "title": "Sed Bilan 1-Satrni O'chirish",
     "story": "Sarlavha satrini o'chirish uchun <code>1d</code> buyrug'i qo'llaniladi.",
     "taskUz": "<code>sed '1d' scores.csv</code> buyrug'ini bering.",
     "expectedSql": "sed '1d' scores.csv",
@@ -521,7 +521,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 126,
-    "title": "Awk Bilan 2-Ustunni (IP Manzilni) Olish",
+    "title": "Awk Bilan 2-Ustunni Olish",
     "story": "<code>inventory.txt</code> faylidan server IP manzillarini (2-maydon) ajrating.",
     "taskUz": "<code>awk '{print $2}' inventory.txt</code> buyrug'ini bering.",
     "expectedSql": "awk '{print $2}' inventory.txt",
@@ -563,7 +563,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 128,
-    "title": "Foydalanuvchi Nomi Va Uy Katalogini Birga Chiqarish ($1, $6)",
+    "title": "Foydalanuvchi Nomi Va Uy Katalogini Birga Chiqarish",
     "story": "Foydalanuvchi nomi va uning uy manzilini yonma-yon chiqarish.",
     "taskUz": "<code>awk -F: '{print $1, $6}' /etc/passwd</code> buyrug'ini bering.",
     "expectedSql": "awk -F: '{print $1, $6}' /etc/passwd",
@@ -584,7 +584,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 129,
-    "title": "Foydalanuvchi Nomi Va Shellni Chiqarish ($1, $7)",
+    "title": "Foydalanuvchi Nomi Va Shellni Chiqarish",
     "story": "Seminar 2 rasmiy namunasi: Username va login shellini ajratish.",
     "taskUz": "<code>awk -F: '{print $1, $7}' /etc/passwd</code> buyrug'ini bering.",
     "expectedSql": "awk -F: '{print $1, $7}' /etc/passwd",
@@ -605,7 +605,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 130,
-    "title": "CSV Fayldan Ism Va Ballni Chiqarish (-F,)",
+    "title": "CSV Fayldan Ism Va Ballni Chiqarish",
     "story": "<code>scores.csv</code> faylidan vergul bilan ajratilgan 1- va 2-maydonlarni oling.",
     "taskUz": "<code>awk -F, '{print $1, $2}' scores.csv</code> buyrug'ini bering.",
     "expectedSql": "awk -F, '{print $1, $2}' scores.csv",
@@ -729,7 +729,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 136,
-    "title": "Disk Maydonidan Foydalanishni Tekshirish (df -h)",
+    "title": "Disk Maydonidan Foydalanishni Tekshirish",
     "story": "Seminar 2 Case Study: Server diski to'lib qolayotganini tekshirish uchun fayl tizimlari xotirasini inson o'qiy oladigan formatda ko'ring.",
     "taskUz": "<code>df -h</code> buyrug'ini bering.",
     "expectedSql": "df -h",
@@ -749,7 +749,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 137,
-    "title": "Fayl Tizimi Turi Bilan Ko'rish (df -hT)",
+    "title": "Fayl Tizimi Turi Bilan Ko'rish",
     "story": "Ext4, tmpfs kabi fayl tizimlari turlari bilan birga disk maydonini ko'rish.",
     "taskUz": "<code>df -hT</code> buyrug'ini bering.",
     "expectedSql": "df -hT",
@@ -769,7 +769,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 138,
-    "title": "Kataloglar Xotira Hajmini Aniqlash (du -sh)",
+    "title": "Kataloglar Xotira Hajmini Aniqlash",
     "story": "Seminar 2 Case Study: <code>/var/log</code> katalogi qancha disk maydoni egallayotganini ko'ring.",
     "taskUz": "<code>du -sh /var/log</code> buyrug'ini bering.",
     "expectedSql": "du -sh /var/log",
@@ -789,7 +789,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 139,
-    "title": "100MB dan Katta Log Fayllarni Topish (find -size +100M)",
+    "title": "100MB dan Katta Log Fayllarni Topish",
     "story": "Seminar 2 Disk Emergency: Diskni to'ldirib yuborayotgan 100MB dan katta fayllarni qidirish.",
     "taskUz": "<code>find /var -type f -name \"*.log\" -size +100M</code> buyrug'ini bering.",
     "expectedSql": "find /var -type f -name \"*.log\" -size +100M",
@@ -809,7 +809,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 140,
-    "title": "Fayllarni Arxivlash (tar -cvzf)",
+    "title": "Fayllarni Arxivlash",
     "story": "Auditdan so'ng log fayllarni siqilgan gzip arxivida saqlash lozim.",
     "taskUz": "<code>tar -cvzf logs_backup.tar.gz /var/log</code> buyrug'ini bering.",
     "expectedSql": "tar -cvzf logs_backup.tar.gz /var/log",
@@ -829,7 +829,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 141,
-    "title": "Arxiv Tarkibini Ochmasdan Ko'rish (tar -tvf)",
+    "title": "Arxiv Tarkibini Ochmasdan Ko'rish",
     "story": "Arxiv ichida qanday fayllar borligini tekshirish.",
     "taskUz": "<code>tar -tvf logs_backup.tar.gz</code> buyrug'ini bering.",
     "expectedSql": "tar -tvf logs_backup.tar.gz",
@@ -850,7 +850,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 142,
-    "title": "Arxivni Qayta Ochish (tar -xvzf)",
+    "title": "Arxivni Qayta Ochish",
     "story": "Siqilgan arxivdan fayllarni qaytarib olish.",
     "taskUz": "<code>tar -xvzf logs_backup.tar.gz</code> buyrug'ini bering.",
     "expectedSql": "tar -xvzf logs_backup.tar.gz",
@@ -932,7 +932,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 146,
-    "title": "Xatolik Kodlari (HTTP 500) Soni",
+    "title": "Xatolik Kodlari Soni",
     "story": "Serverda qancha ichki xatolik (HTTP 500) yuz berganini sanang.",
     "taskUz": "<code>grep -c \" 500 \" /var/log/apache_logs.txt</code> buyrug'ini bering.",
     "expectedSql": "grep -c \" 500 \" /var/log/apache_logs.txt",
@@ -972,7 +972,7 @@ window.QUESTIONS_101_150_W2 = [
   },
   {
     "id": 148,
-    "title": "Eng Ko'p So'ralgan Resurslarni Tartiblash (Cut & Sort)",
+    "title": "Eng Ko'p So'ralgan Resurslarni Tartiblash",
     "story": "Logdan URL manzilini (7-maydon) ajratib, saralash.",
     "taskUz": "<code>cut -d' ' -f7 /var/log/apache_logs.txt | sort | uniq -c</code> buyrug'ini bering.",
     "expectedSql": "cut -d' ' -f7 /var/log/apache_logs.txt | sort | uniq -c",
