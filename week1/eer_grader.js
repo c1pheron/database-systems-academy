@@ -9,8 +9,13 @@
 
   const EER_GRADER = {
     grade: function (userDiagram, q) {
+      const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
+
       if (!q || !q.expectedDiagram) {
-        return { passed: true, feedback: "Ajoyib! Diagramma to'g'ri shakllantirildi." };
+        return { 
+          passed: true, 
+          feedback: isEn ? "Great job! The diagram has been structured correctly." : "Ajoyib! Diagramma to'g'ri shakllantirildi." 
+        };
       }
 
       const expected = q.expectedDiagram;
@@ -28,7 +33,9 @@
         if (!found) {
           return {
             passed: false,
-            feedback: `⚠️ <strong>'${expE.name}'</strong> entitiysi topilmadi. Iltimos, shakllar panelidan entitiy qo'shing va nomini '${expE.name}' deb yozing.`
+            feedback: isEn 
+              ? `⚠️ Entity <strong>'${expE.name}'</strong> was not found. Please add an entity from the shapes panel and name it '${expE.name}'.`
+              : `⚠️ <strong>'${expE.name}'</strong> entitiysi topilmadi. Iltimos, shakllar panelidan entitiy qo'shing va nomini '${expE.name}' deb yozing.`
           };
         }
 
@@ -41,15 +48,16 @@
           if (!hasPkAttr && !found.pk && !hasAnyPk && !hasAttrByName) {
             return {
               passed: false,
-              feedback: `💡 <strong>'${expE.name}'</strong> entitiysiga <strong>'${expE.pk}'</strong> {PK} birlamchi kalit atributini qo'shishni unutmang!`
+              feedback: isEn
+                ? `💡 Don't forget to designate <strong>'${expE.pk}'</strong> as the {PK} Primary Key attribute on <strong>'${expE.name}'</strong>!`
+                : `💡 <strong>'${expE.name}'</strong> entitiysiga <strong>'${expE.pk}'</strong> {PK} birlamchi kalit atributini qo'shishni unutmang!`
             };
           }
         }
 
         // Check Weak Entity status if expected
         if (expE.isWeak && !found.isWeak) {
-          // Soft check - encourage making it weak
-          // not strictly blocking if entities are present
+          // Soft check
         }
       }
 
@@ -69,7 +77,9 @@
         if (!foundRel) {
           return {
             passed: false,
-            feedback: `⚠️ <strong>'${expR.entity1}'</strong> va <strong>'${expR.entity2}'</strong> o'rtasida aloqa chizig'i topilmadi. Shakllar panelidagi 'Aloqa Chizig'i' yoki magnit nuqtalar orqali ularni bog'lang.`
+            feedback: isEn
+              ? `⚠️ Relationship line between <strong>'${expR.entity1}'</strong> and <strong>'${expR.entity2}'</strong> not found. Connect them using connector ports or relationship line.`
+              : `⚠️ <strong>'${expR.entity1}'</strong> va <strong>'${expR.entity2}'</strong> o'rtasida aloqa chizig'i topilmadi. Shakllar panelidagi 'Aloqa Chizig'i' yoki magnit nuqtalar orqali ularni bog'lang.`
           };
         }
 
@@ -93,7 +103,9 @@
           if (!m1Matches || !m2Matches) {
             return {
               passed: false,
-              feedback: `⚠️ Multiplisitiyani tekshiring: <strong>'${expR.entity1}'</strong> (${expR.mult1}) va <strong>'${expR.entity2}'</strong> (${expR.mult2}) bo'lishi kerak. Chiziqdagi sonlar ustiga bosib kerakli qiymatni tanlang!`
+              feedback: isEn
+                ? `⚠️ Check multiplicity: it should be <strong>'${expR.entity1}'</strong> (${expR.mult1}) and <strong>'${expR.entity2}'</strong> (${expR.mult2}). Click the badges on the connector line to cycle values!`
+                : `⚠️ Multiplisitiyani tekshiring: <strong>'${expR.entity1}'</strong> (${expR.mult1}) va <strong>'${expR.entity2}'</strong> (${expR.mult2}) bo'lishi kerak. Chiziqdagi sonlar ustiga bosib kerakli qiymatni tanlang!`
             };
           }
         }
@@ -119,7 +131,9 @@
         if (!subFound && expSubs.length > 0) {
           return {
             passed: false,
-            feedback: `⚠️ EER Ixtisoslashuv: <strong>'${expected.subclasses.superclass}'</strong> superklassi ostida <strong>${expected.subclasses.subs.map(s => typeof s === 'string' ? s : s.name).join(', ')}</strong> subklasslarini hosil qilishingiz lozim.`
+            feedback: isEn
+              ? `⚠️ EER Specialization: Subclasses <strong>${expected.subclasses.subs.map(s => typeof s === 'string' ? s : s.name).join(', ')}</strong> must be created under superclass <strong>'${expected.subclasses.superclass}'</strong>.`
+              : `⚠️ EER Ixtisoslashuv: <strong>'${expected.subclasses.superclass}'</strong> superklassi ostida <strong>${expected.subclasses.subs.map(s => typeof s === 'string' ? s : s.name).join(', ')}</strong> subklasslarini hosil qilishingiz lozim.`
           };
         }
       }
@@ -127,7 +141,9 @@
       // If all critical structural elements are verified
       return {
         passed: true,
-        feedback: "A'lo darajada bajarildi! Barcha entitiylar, atributlar va munosabatlar to'g'ri loyihalashtirildi."
+        feedback: isEn 
+          ? "Excellent work! All entities, attributes, primary keys, and relationships have been designed properly."
+          : "A'lo darajada bajarildi! Barcha entitiylar, atributlar va munosabatlar to'g'ri loyihalashtirildi."
       };
     }
   };

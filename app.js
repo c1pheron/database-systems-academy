@@ -135,7 +135,8 @@
 
     const percentage = Math.round((state.totalSolved / state.totalChallenges) * 100);
     if (elProgressFill) elProgressFill.style.width = `${percentage}%`;
-    if (elProgressPercent) elProgressPercent.textContent = `${percentage}% Bajarildi`;
+    const completedText = (window.I18N && window.I18N.t('portal_progress_completed')) || 'Bajarildi';
+    if (elProgressPercent) elProgressPercent.textContent = `${percentage}% ${completedText}`;
 
     // Per-Module Card Progress
     for (let w = 1; w <= 6; w++) {
@@ -145,7 +146,7 @@
         valEl.textContent = `${solved} / 150 (${Math.round((solved / 150) * 100)}%)`;
         if (solved >= 150) {
           valEl.style.color = "#84b89c";
-          valEl.textContent = "Bajarildi ✓ (150/150)";
+          valEl.textContent = `${completedText} ✓ (150/150)`;
         }
       }
     }
@@ -158,6 +159,29 @@
 
   // Initialization on DOM Load
   document.addEventListener("DOMContentLoaded", () => {
+    if (window.I18N) {
+      window.I18N.init();
+
+      const btnUz = document.getElementById("btnLangUz");
+      const btnEn = document.getElementById("btnLangEn");
+      if (btnUz) {
+        btnUz.addEventListener("click", function() {
+          window.I18N.setLang("uz");
+          refresh();
+        });
+      }
+      if (btnEn) {
+        btnEn.addEventListener("click", function() {
+          window.I18N.setLang("en");
+          refresh();
+        });
+      }
+
+      window.onLanguageChange = function() {
+        refresh();
+      };
+    }
+
     initTelegram();
     refresh();
 

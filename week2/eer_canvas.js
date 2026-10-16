@@ -633,8 +633,11 @@ class EERCanvasEngine {
     const sId = sourceNode.id || sourceNode.domId;
     const tId = targetNode.id || targetNode.domId;
 
+    const isEn = window.I18N && window.I18N.getLang() === 'en';
+    const t = (k, fb) => (window.I18N ? window.I18N.t(k, fb) : fb);
+
     if (sId === tId) {
-      this.showToast("Entitiyni o'ziga ulash mumkin emas.");
+      this.showToast(t('toast_conn_self', "Entitiyni o'ziga ulash mumkin emas."));
       return;
     }
 
@@ -650,12 +653,12 @@ class EERCanvasEngine {
         return (fn === sn && tn === targetN) || (fn === targetN && tn === sn);
       });
       if (existing) {
-        this.showToast(`'${sourceNode.name}' va '${targetNode.name}' allaqachon bog'langan!`);
+        this.showToast(isEn ? `'${sourceNode.name}' and '${targetNode.name}' are already connected!` : `'${sourceNode.name}' va '${targetNode.name}' allaqachon bog'langan!`);
         return;
       }
       this.relationships.push({
         id: 'rel_' + Math.random().toString(36).substr(2, 9),
-        name: 'Aloqa',
+        name: isEn ? 'Rel' : 'Aloqa',
         fromEntityId: sId,
         toEntityId: tId,
         fromEntityName: sourceNode.name,
@@ -665,7 +668,7 @@ class EERCanvasEngine {
         isDirect: true
       });
       if (window.playSfx) window.playSfx('success');
-      this.showToast(`✅ '${sourceNode.name}' va '${targetNode.name}' muvaffaqiyatli bog'landi!`);
+      this.showToast(isEn ? `✅ '${sourceNode.name}' and '${targetNode.name}' successfully connected!` : `✅ '${sourceNode.name}' va '${targetNode.name}' muvaffaqiyatli bog'landi!`);
     } else if (sourceType === 'entity' && targetType === 'diamond') {
       const rel = targetNode;
       if (!rel.fromEntityName || rel.fromEntityId === sId) {
@@ -676,7 +679,7 @@ class EERCanvasEngine {
         rel.toEntityName = sourceNode.name;
       }
       if (window.playSfx) window.playSfx('success');
-      this.showToast(`✅ '${sourceNode.name}' va romb bog'landi!`);
+      this.showToast(isEn ? `✅ '${sourceNode.name}' and diamond connected!` : `✅ '${sourceNode.name}' va romb bog'landi!`);
     } else if (sourceType === 'diamond' && targetType === 'entity') {
       const rel = sourceNode;
       if (!rel.fromEntityName || rel.fromEntityId === tId) {
@@ -687,7 +690,7 @@ class EERCanvasEngine {
         rel.toEntityName = targetNode.name;
       }
       if (window.playSfx) window.playSfx('success');
-      this.showToast(`✅ Romb va '${targetNode.name}' bog'landi!`);
+      this.showToast(isEn ? `✅ Diamond and '${targetNode.name}' connected!` : `✅ Romb va '${targetNode.name}' bog'landi!`);
     }
     this.renderLinks();
     this.triggerChange();
@@ -964,7 +967,9 @@ class EERCanvasEngine {
 
     el.querySelector('[data-action="add-attr"]')?.addEventListener('click', (e) => {
       e.stopPropagation();
-      const attrName = prompt("Yangi atribut nomini kiriting:", "yangi_atribut");
+      const isEn = window.I18N && window.I18N.getLang() === 'en';
+      const promptAttr = window.I18N ? window.I18N.t('prompt_attr_name', "Yangi atribut nomini kiriting:") : "Yangi atribut nomini kiriting:";
+      const attrName = prompt(promptAttr, isEn ? "new_attribute" : "yangi_atribut");
       if (attrName) {
         entity.attributes.push({ name: attrName.trim(), isPK: false });
         this.renderEntityAttributes(entity, el.querySelector('.entity-attributes'));
@@ -975,7 +980,8 @@ class EERCanvasEngine {
 
     el.querySelector('[data-action="edit-name"]')?.addEventListener('click', (e) => {
       e.stopPropagation();
-      const newName = prompt("Entitiy nomini o'zgartiring:", entity.name);
+      const promptName = window.I18N ? window.I18N.t('prompt_rename_entity', "Entitiy nomini o'zgartiring:") : "Entitiy nomini o'zgartiring:";
+      const newName = prompt(promptName, entity.name);
       if (newName) {
         const oldName = entity.name;
         entity.name = newName.trim();
@@ -999,7 +1005,9 @@ class EERCanvasEngine {
 
     el.querySelector('[data-action="del-node"]')?.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (confirm(`'${entity.name}' entitiysini o'chirishni xohlaysizmi?`)) {
+      const isEn = window.I18N && window.I18N.getLang() === 'en';
+      const confirmDelete = isEn ? `Delete entity '${entity.name}'?` : `'${entity.name}' entitiysini o'chirishni xohlaysizmi?`;
+      if (confirm(confirmDelete)) {
         this.deleteEntity(entity);
       }
     });
@@ -1050,7 +1058,9 @@ class EERCanvasEngine {
 
       const triggerRename = (e) => {
         e?.stopPropagation();
-        const newName = prompt("Atribut nomini kiriting:", attr.name);
+        const isEn = window.I18N && window.I18N.getLang() === 'en';
+        const promptAttr = window.I18N ? window.I18N.t('prompt_rename_attr', "Atribut nomini kiriting:") : "Atribut nomini kiriting:";
+        const newName = prompt(promptAttr, attr.name);
         if (newName && newName.trim()) {
           attr.name = newName.trim();
           nameEl.textContent = attr.name;
@@ -1237,7 +1247,8 @@ class EERCanvasEngine {
 
     const triggerRelRename = (e) => {
       e.stopPropagation();
-      const newName = prompt("Aloqa nomini o'zgartiring:", rel.name);
+      const promptRel = window.I18N ? window.I18N.t('prompt_rename_rel', "Aloqa nomini o'zgartiring:") : "Aloqa nomini o'zgartiring:";
+      const newName = prompt(promptRel, rel.name);
       if (newName) {
         rel.name = newName.trim();
         el.querySelector('.diamond-text').textContent = rel.name;

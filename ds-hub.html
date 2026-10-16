@@ -15,6 +15,7 @@
   
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="database_dictionary.css">
+  <script src="i18n.js"></script>
 </head>
 <body>
 
@@ -26,14 +27,14 @@
       
       <!-- Brand Identity -->
       <div class="brand-box">
-        <a href="index.html" class="btn-back-hub" title="SeventyPlus Asosiy Portaliga Qaytish" style="background:rgba(39,33,28,0.85); border:1px solid var(--border-subtle); color:var(--text-secondary); font-size:12px; font-weight:600; padding:6px 12px; border-radius:var(--radius-sm); text-decoration:none; display:inline-flex; align-items:center; gap:6px;">← SeventyPlus Portali</a>
+        <a href="index.html" class="btn-back-hub" data-i18n="hub_back_portal" title="SeventyPlus Asosiy Portaliga Qaytish" style="background:rgba(39,33,28,0.85); border:1px solid var(--border-subtle); color:var(--text-secondary); font-size:12px; font-weight:600; padding:6px 12px; border-radius:var(--radius-sm); text-decoration:none; display:inline-flex; align-items:center; gap:6px;">← SeventyPlus Portali</a>
         <div class="brand-emblem">🏛️</div>
         <div>
           <div class="brand-title">
             Database Systems Academy
             <span class="brand-badge">2D Simulyator</span>
           </div>
-          <div class="brand-sub">Konseptual EER, Relyatsion Sxema, Normalizatsiya, SQL & NoSQL</div>
+          <div class="brand-sub" data-i18n="hub_brand_sub">Konseptual EER, Relyatsion Sxema, Normalizatsiya, SQL & NoSQL</div>
         </div>
       </div>
 
@@ -42,24 +43,30 @@
         <div class="hud-profile-pill">
           <div class="profile-avatar">👨‍💻</div>
           <div class="profile-info">
-            <span id="hudUserName" class="profile-name">Ma'lumotlar Me'mori</span>
-            <span id="hudUserRank" class="profile-rank">Kichik Modeler</span>
+            <span id="hudUserName" class="profile-name" data-i18n="hub_user_name">Ma'lumotlar Me'mori</span>
+            <span id="hudUserRank" class="profile-rank" data-i18n="hub_user_rank">Kichik Modeler</span>
           </div>
         </div>
 
         <div class="header-stats">
           <div class="stat-chip">
-            <span class="label">Bajarildi:</span>
+            <span class="label" data-i18n="hub_stat_solved">Bajarildi:</span>
             <span id="hudSolvedTotal" class="val gold">0 / 900</span>
           </div>
           <div class="stat-chip">
-            <span class="label">Umumiy Kapital:</span>
+            <span class="label" data-i18n="hub_stat_capital">Umumiy Kapital:</span>
             <span id="hudXpTotal" class="val sage">$0</span>
           </div>
         </div>
 
+        <!-- BILINGUAL LANGUAGE SWITCHER (UZ / EN) -->
+        <div class="lang-switch-box" id="langSwitchBox">
+          <button id="btnLangUz" class="btn-lang active" type="button" title="O'zbekcha">UZ</button>
+          <button id="btnLangEn" class="btn-lang" type="button" title="English">EN</button>
+        </div>
+
         <button id="btnOpenDictionary" class="btn btn-dictionary" title="Barcha 6 haftalik komandalar lug'ati (Ctrl+K)">
-          <span>🔍</span> <span>Lug'at</span> <span class="kbd-shortcut">Ctrl+K</span>
+          <span>🔍</span> <span data-i18n="btn_dictionary">Lug'at</span> <span class="kbd-shortcut">Ctrl+K</span>
         </button>
       </div>
 
@@ -73,14 +80,14 @@
 
     <!-- Hero / Progress Section -->
     <section class="hero-banner">
-      <h2 class="hero-title">Zamonaviy Ma'lumotlar Bazasi Arxitekturasini Egallang</h2>
-      <p class="hero-desc">
+      <h2 class="hero-title" data-i18n="hub_hero_title">Zamonaviy Ma'lumotlar Bazasi Arxitekturasini Egallang</h2>
+      <p class="hero-desc" data-i18n="hub_hero_desc">
         Xush kelibsiz! Konseptual EER modellashtirish va normalizatsiyadan tortib, korporativ SQL so'rovlar muhandisligi, tranzaksiyalar (ACID) va NoSQL klasterlarigacha bo'lgan 6 ta professional modul va 900 ta amaliy topshiriqni o'z ichiga olgan 2D interaktiv simulyator.
       </p>
 
       <div class="hero-progress-box">
         <div class="progress-header">
-          <span>O'quv Dasturining Umumiy O'zlashtirilishi</span>
+          <span data-i18n="hub_progress_label">O'quv Dasturining Umumiy O'zlashtirilishi</span>
           <span id="overallProgressPercent" style="color:var(--accent-gold-bright); font-family:'JetBrains Mono', monospace;">0% Bajarildi</span>
         </div>
         <div class="progress-track">
@@ -91,8 +98,8 @@
 
     <!-- 6 Modules Quest Map -->
     <div class="section-headline">
-      <h3 class="section-title">🗺️ O'quv Yo'nalishi & 6 ta Korporativ Modul</h3>
-      <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">6 Modul • 900 ta Amaliy Keys</span>
+      <h3 class="section-title" data-i18n="hub_headline">🗺️ O'quv Yo'nalishi & 6 ta Korporativ Modul</h3>
+      <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;" data-i18n="hub_subheadline">6 Modul • 900 ta Amaliy Keys</span>
     </div>
 
     <div class="modules-grid">
@@ -107,8 +114,8 @@
               <span class="badge-tag badge-count">150 Keys</span>
             </div>
           </div>
-          <h4 class="module-card-title">Konseptual EER Modellashtirish</h4>
-          <p class="module-desc">
+          <h4 class="module-card-title" data-i18n="hub_w1_title">Konseptual EER Modellashtirish</h4>
+          <p class="module-desc" data-i18n="hub_w1_desc">
             draw.io uslubidagi vizual polotnoda entitiylar, UML multiplisitiyalari (0..1, 1..*, M:N), zaif entitiylar, romb aloqalar va bog'lanish tuzoqlarini (Fan & Chasm) tahlil qilish.
           </p>
           <div class="module-topics-list">
@@ -120,10 +127,10 @@
         </div>
         <div class="module-card-footer">
           <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
+            <span class="module-stat-text" data-i18n="portal_mastery">O'zlashtirish:</span>
             <span id="w1ProgressVal" class="module-stat-val">0 / 150</span>
           </div>
-          <a href="week1/index.html" class="btn-launch">1-Modulga Kirish →</a>
+          <a href="week1/index.html" class="btn-launch" data-i18n="hub_w1_btn">1-Modulga Kirish →</a>
         </div>
       </article>
 
@@ -137,8 +144,8 @@
               <span class="badge-tag badge-count">150 Keys</span>
             </div>
           </div>
-          <h4 class="module-card-title">Relatsion Sxemaga O'tkazish</h4>
-          <p class="module-desc">
+          <h4 class="module-card-title" data-i18n="hub_w2_title">Relatsion Sxemaga O'tkazish</h4>
+          <p class="module-desc" data-i18n="hub_w2_desc">
             EER modelni relyatsion jadvallar ko'rinishiga o'tkazish (Step 1–8), Birlamchi Kalitlar (PK), Tashqi Kalitlar (FK), Crow's Foot notatsiyasi va Vorislik ({Mandatory, Or}).
           </p>
           <div class="module-topics-list">
@@ -150,10 +157,10 @@
         </div>
         <div class="module-card-footer">
           <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
+            <span class="module-stat-text" data-i18n="portal_mastery">O'zlashtirish:</span>
             <span id="w2ProgressVal" class="module-stat-val">0 / 150</span>
           </div>
-          <a href="week2/index.html" class="btn-launch">2-Modulga Kirish →</a>
+          <a href="week2/index.html" class="btn-launch" data-i18n="hub_w2_btn">2-Modulga Kirish →</a>
         </div>
       </article>
 
@@ -167,8 +174,8 @@
               <span class="badge-tag badge-count">150 Keys</span>
             </div>
           </div>
-          <h4 class="module-card-title">Relyatsion Algebra & Normalizatsiya</h4>
-          <p class="module-desc">
+          <h4 class="module-card-title" data-i18n="hub_w3_title">Relyatsion Algebra & Normalizatsiya</h4>
+          <p class="module-desc" data-i18n="hub_w3_desc">
             Relyatsion algebra amallari (σ, π, ⨝, ⟕), funksional bog'liqliklar (FD), anomaliyalarni yo'qotish va 1NF, 2NF, 3NF hamda BCNF normal formalariga bosqichma-bosqich yoyish.
           </p>
           <div class="module-topics-list">
@@ -180,10 +187,10 @@
         </div>
         <div class="module-card-footer">
           <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
+            <span class="module-stat-text" data-i18n="portal_mastery">O'zlashtirish:</span>
             <span id="w3ProgressVal" class="module-stat-val">0 / 150</span>
           </div>
-          <a href="week3/index.html" class="btn-launch">3-Modulga Kirish →</a>
+          <a href="week3/index.html" class="btn-launch" data-i18n="hub_w3_btn">3-Modulga Kirish →</a>
         </div>
       </article>
 
@@ -197,8 +204,8 @@
               <span class="badge-tag badge-count">150 Keys</span>
             </div>
           </div>
-          <h4 class="module-card-title">Kengaytirilgan SQL & Query Engineering</h4>
-          <p class="module-desc">
+          <h4 class="module-card-title" data-i18n="hub_w4_title">Kengaytirilgan SQL & Query Engineering</h4>
+          <p class="module-desc" data-i18n="hub_w4_desc">
             Haqiqiy SQLite bazasida murakkab DDL, DML, ko'p jadvalli JOINlar, Subquerylar (korrelyatsiyalangan), GROUP BY, HAVING agregatsiyasi va indekslar orqali so'rovlarni tezlashtirish.
           </p>
           <div class="module-topics-list">
@@ -210,10 +217,10 @@
         </div>
         <div class="module-card-footer">
           <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
+            <span class="module-stat-text" data-i18n="portal_mastery">O'zlashtirish:</span>
             <span id="w4ProgressVal" class="module-stat-val">0 / 150</span>
           </div>
-          <a href="week4/index.html" class="btn-launch">4-Modulga Kirish →</a>
+          <a href="week4/index.html" class="btn-launch" data-i18n="hub_w4_btn">4-Modulga Kirish →</a>
         </div>
       </article>
 
@@ -227,8 +234,8 @@
               <span class="badge-tag badge-count">150 Keys</span>
             </div>
           </div>
-          <h4 class="module-card-title">Tranzaksiyalar, Triggers & Views</h4>
-          <p class="module-desc">
+          <h4 class="module-card-title" data-i18n="hub_w5_title">Tranzaksiyalar, Triggers & Views</h4>
+          <p class="module-desc" data-i18n="hub_w5_desc">
             ACID tamoyillari, BEGIN TRANSACTION, COMMIT, ROLLBACK boshqaruvi, avtomatlashtirilgan TRIGGER lar, xavfsiz VIEW larni loyihalash va kesh blokirovkalarini bartaraf qilish.
           </p>
           <div class="module-topics-list">
@@ -240,10 +247,10 @@
         </div>
         <div class="module-card-footer">
           <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
+            <span class="module-stat-text" data-i18n="portal_mastery">O'zlashtirish:</span>
             <span id="w5ProgressVal" class="module-stat-val">0 / 150</span>
           </div>
-          <a href="week5/index.html" class="btn-launch">5-Modulga Kirish →</a>
+          <a href="week5/index.html" class="btn-launch" data-i18n="hub_w5_btn">5-Modulga Kirish →</a>
         </div>
       </article>
 
@@ -257,8 +264,8 @@
               <span class="badge-tag badge-count">150 Keys</span>
             </div>
           </div>
-          <h4 class="module-card-title">NoSQL Klasterlari & Kesh Tizimlari</h4>
-          <p class="module-desc">
+          <h4 class="module-card-title" data-i18n="hub_w6_title">NoSQL Klasterlari & Kesh Tizimlari</h4>
+          <p class="module-desc" data-i18n="hub_w6_desc">
             MongoDB hujjatlar bazasi (JSON/BSON), Aggregation Pipeline, Redis kesh klasterlari, CAP teoremasi, gorizontal Sharding va Katta Ma'lumotlarni taqsimlangan tahlil qilish.
           </p>
           <div class="module-topics-list">
@@ -270,10 +277,10 @@
         </div>
         <div class="module-card-footer">
           <div class="module-progress-info">
-            <span class="module-stat-text">O'zlashtirish:</span>
+            <span class="module-stat-text" data-i18n="portal_mastery">O'zlashtirish:</span>
             <span id="w6ProgressVal" class="module-stat-val">0 / 150</span>
           </div>
-          <a href="week6/index.html" class="btn-launch">6-Modulga Kirish →</a>
+          <a href="week6/index.html" class="btn-launch" data-i18n="hub_w6_btn">6-Modulga Kirish →</a>
         </div>
       </article>
 

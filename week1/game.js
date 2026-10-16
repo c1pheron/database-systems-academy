@@ -90,6 +90,19 @@
   // 2. INITIALIZATION
   // ==========================================================================
   document.addEventListener('DOMContentLoaded', () => {
+    // 0. Initialize I18N Engine
+    if (window.I18N) {
+      window.I18N.init();
+      window.onLanguageChange = function (lang) {
+        updateHUD();
+        renderSectorTabs();
+        loadQuestion(STATE.currentQId);
+        if (eerCanvas && typeof eerCanvas.renderLinks === 'function') {
+          eerCanvas.renderLinks();
+        }
+      };
+    }
+
     // 1. Gather all 150 questions
     const q1 = window.EER_CLIENTS_1_50 || [];
     const q2 = window.EER_CLIENTS_51_100 || [];
@@ -186,13 +199,16 @@
     const total = 150;
     const pct = Math.round((solved / total) * 100);
 
+    const isEn = window.I18N && window.I18N.getLang() === 'en';
+    const t = (k, fb) => (window.I18N ? window.I18N.t(k, fb) : fb);
+
     // Ranks based on solved count
-    let rank = "Kichik Ma'lumotlar Me'mori";
-    if (solved >= 135) rank = "Bosh Arxitektor & Hamkor (Penthouse)";
-    else if (solved >= 105) rank = "Katta EER Tizim Muhandisi";
-    else if (solved >= 75) rank = "Yetakchi Mantiqiy Modeler";
-    else if (solved >= 45) rank = "O'rta Darajali Modeler";
-    else if (solved >= 15) rank = "Kichik Muhandis-Modeler";
+    let rank = t('rank_1', "Kichik Ma'lumotlar Me'mori");
+    if (solved >= 135) rank = t('rank_6', "Bosh Arxitektor & Hamkor (Penthouse)");
+    else if (solved >= 105) rank = t('rank_5', "Katta EER Tizim Muhandisi");
+    else if (solved >= 75) rank = t('rank_4', "Yetakchi Mantiqiy Modeler");
+    else if (solved >= 45) rank = t('rank_3', "O'rta Darajali Modeler");
+    else if (solved >= 15) rank = t('rank_2', "Kichik Muhandis-Modeler");
 
     const elRank = document.getElementById('hudRankTitle');
     const elSalary = document.getElementById('hudSalary');
@@ -201,10 +217,14 @@
     const elProgress = document.getElementById('hudProgressFill');
 
     if (elRank) elRank.textContent = rank;
-    if (elSalary) elSalary.textContent = `$${STATE.salary.toLocaleString()}/oy`;
+    if (elSalary) elSalary.textContent = `$${STATE.salary.toLocaleString()}${t('salary_suffix', '/oy')}`;
     if (elCapital) elCapital.textContent = `$${STATE.score.toLocaleString()}`;
     if (elSolved) elSolved.textContent = `${solved} / ${total}`;
     if (elProgress) elProgress.style.width = `${pct}%`;
+
+    if (window.I18N && typeof window.I18N.applyDOM === 'function') {
+      window.I18N.applyDOM();
+    }
   }
 
   // ==========================================================================
@@ -218,6 +238,8 @@
     const sectors = window.EER_CATALOG.sectors || [];
     const currentQ = allQuestions.find(q => q.id === STATE.currentQId) || allQuestions[0];
     const currentSectorId = currentQ ? (currentQ.sector || Math.ceil(currentQ.id / 15)) : 1;
+
+    const isEn = window.I18N && window.I18N.getLang() === 'en';
 
     sectors.forEach(sec => {
       const tab = document.createElement('button');
@@ -233,7 +255,11 @@
       }
       if (allSolved) tab.classList.add('completed');
 
-      tab.innerHTML = `<span>${sec.badge || `${sec.id}F`}</span> <span>${sec.name.split(':')[1] || sec.name}</span>`;
+      const secBadge = (isEn && window.I18N ? window.I18N.t(`sec_${sec.id}_badge`) : null) || sec.badge || `${sec.id}F`;
+      const fullSecName = (isEn && window.I18N ? window.I18N.t(`sec_${sec.id}_name`) : null) || sec.name;
+      const cleanName = fullSecName.includes(':') ? fullSecName.split(':')[1].trim() : fullSecName;
+
+      tab.innerHTML = `<span>${secBadge}</span> <span>${cleanName}</span>`;
 
       tab.addEventListener('click', () => {
         window.playSfx('click');
@@ -299,12 +325,24 @@
     const elHint = document.getElementById('qHintBox');
     const elFeedback = document.getElementById('feedbackBox');
 
-    if (elFloor) elFloor.textContent = `${secId}-Qavat: Konseptual EER Modellashtirish`;
-    if (elSub) elSub.textContent = q.difficulty || "Amaliy Keys";
-    if (elQNum) elQNum.textContent = `Keys #${q.id} / 150`;
-    if (elDiff) elDiff.textContent = q.difficulty || "O'rta";
+    const isEn = window.I18N && window.I18N.getLang() === 'en';
+    const t = (k, fb) => (window.I18N ? window.I18N.t(k, fb) : fb);
+
+    if (elFloor) elFloor.textContent = isEn ? `Floor ${secId}: Conceptual EER Modeling` : `${secId}-Qavat: Konseptual EER Modellashtirish`;
+    if (elSub) elSub.textContent = isEn ? "Analytical Practical Case" : (q.difficulty || "Amaliy Keys");
+    if (elQNum) elQNum.textContent = `${isEn ? 'Case' : 'Keys'} #${q.id} / 150`;
+    if (elDiff) {
+      let diffText = q.difficulty || "O'rta";
+      if (isEn) {
+        if (/boshlang/i.test(diffText)) diffText = t('diff_basic', 'Beginner');
+        else if (/yuqori|qiyin/i.test(diffText)) diffText = t('diff_hard', 'Advanced');
+        else if (/ekspert/i.test(diffText)) diffText = t('diff_expert', 'Expert');
+        else diffText = t('diff_medium', 'Intermediate');
+      }
+      elDiff.textContent = diffText;
+    }
     if (elSource) elSource.textContent = "Seminar 01 • ERD";
-    if (elTitle) elTitle.textContent = q.title || "EER Modellashtirish";
+    if (elTitle) elTitle.textContent = isEn ? (q.titleEn || q.title || "EER Modeling") : (q.title || "EER Modellashtirish");
 
     // Render Authentic Academic Case Study (Seminar 1 Standard - Image 2)
     const elNarrative = document.getElementById('caseNarrativeBox');
@@ -322,16 +360,20 @@
     }
 
     if (elNarrative) {
-      const paras = q.caseStudy?.paragraphs || (q.story || '').split('\n\n').filter(p => p.trim());
+      const storyRaw = isEn ? (q.storyEn || q.story || '') : (q.story || '');
+      const paras = storyRaw.split('\n\n').filter(p => p.trim());
       elNarrative.innerHTML = paras.map(p => `<p>${formatInlineMarkdown(p)}</p>`).join('');
     }
 
     if (elTasks) {
-      const inst = q.instruction || (q.caseStudy?.tasks ? q.caseStudy.tasks[0] : (q.taskUz ? q.taskUz.split('\n')[0] : "Biznes talablari asosida modelni shakllantiring."));
+      const inst = isEn 
+        ? (q.instructionEn || q.instruction || "Design the conceptual model based on business requirements.")
+        : (q.instruction || (q.caseStudy?.tasks ? q.caseStudy.tasks[0] : (q.taskUz ? q.taskUz.split('\n')[0] : "Biznes talablari asosida modelni shakllantiring.")));
+      
       elTasks.innerHTML = `
         <div class="case-instruction-pill" style="display:flex; align-items:flex-start; gap:8px; padding:10px 14px; background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.25); border-radius:6px; color:#f0f0f0; font-size:13px; line-height:1.5;">
           <span style="font-size:16px;">🎯</span>
-          <div><strong>Topshiriq:</strong> ${formatInlineMarkdown(inst.replace(/^[a-d]\)\s*/i, ''))}</div>
+          <div><strong>${isEn ? 'Task:' : 'Topshiriq:'}</strong> ${formatInlineMarkdown(inst.replace(/^[a-d]\)\s*/i, ''))}</div>
         </div>
       `;
 
@@ -344,7 +386,7 @@
         btnDetail.style.marginTop = '12px';
         elTasks.appendChild(btnDetail);
       }
-      btnDetail.innerHTML = `<span>📖 Batafsil</span> <small style="opacity:0.85;">(Nazariya & Misollar)</small>`;
+      btnDetail.innerHTML = `<span>📖 ${isEn ? 'Detailed' : 'Batafsil'}</span> <small style="opacity:0.85;">(${isEn ? 'Theory & Examples' : 'Nazariya & Misollar'})</small>`;
       btnDetail.onclick = () => {
         if (window.databaseEncyclopedia) {
           window.databaseEncyclopedia.openForQuestion(q, 1);
@@ -355,7 +397,8 @@
     // Hide hints and feedback initially
     if (elHint) {
       elHint.style.display = 'none';
-      elHint.textContent = `💡 Maslahat: ${q.hint || "Talablardagi entitiylar va munosabatlarga e'tibor bering."}`;
+      const hintContent = isEn ? (q.hintEn || q.hint || "Focus on the required entities and their relationship cardinalities.") : (q.hint || "Talablardagi entitiylar va munosabatlarga e'tibor bering.");
+      elHint.textContent = `💡 ${isEn ? 'Hint:' : 'Maslahat:'} ${hintContent}`;
     }
     if (elFeedback) {
       elFeedback.style.display = 'none';
@@ -368,8 +411,8 @@
     }
     const tickerSpeaker = document.getElementById('tickerSpeaker');
     const tickerMessage = document.getElementById('tickerMessage');
-    if (tickerSpeaker) tickerSpeaker.textContent = q.clientRole ? q.clientRole.toUpperCase() : "BOSH ME'MOR ATLAS";
-    if (tickerMessage) tickerMessage.textContent = "Mijoz talablarini o'rganing va quyidagi EER diagrammasini to'g'ri shakllantiring.";
+    if (tickerSpeaker) tickerSpeaker.textContent = q.clientRole ? q.clientRole.toUpperCase() : (isEn ? "CHIEF ARCHITECT ATLAS" : "BOSH ME'MOR ATLAS");
+    if (tickerMessage) tickerMessage.textContent = isEn ? "Analyze the client requirements and design the correct EER diagram below." : "Mijoz talablarini o'rganing va quyidagi EER diagrammasini to'g'ri shakllantiring.";
 
     // 5. Concept Anatomy Card
     renderConceptAnatomy(q);
@@ -500,11 +543,28 @@
       });
     }
 
+    // Language Switcher (UZ / EN)
+    const btnUz = document.getElementById('btnLangUz');
+    const btnEn = document.getElementById('btnLangEn');
+    if (btnUz) {
+      btnUz.addEventListener('click', () => {
+        window.playSfx('click');
+        if (window.I18N) window.I18N.setLang('uz');
+      });
+    }
+    if (btnEn) {
+      btnEn.addEventListener('click', () => {
+        window.playSfx('click');
+        if (window.I18N) window.I18N.setLang('en');
+      });
+    }
+
     const btnClearCanvas = document.getElementById('eerBtnClearCanvas');
     if (btnClearCanvas) {
       btnClearCanvas.addEventListener('click', () => {
         window.playSfx('click');
-        if (confirm("Chizilgan diagrammani tozalashni xohlaysizmi?") && eerCanvas) {
+        const confirmMsg = window.I18N ? window.I18N.t('confirm_clear_canvas', "Chizilgan diagrammani tozalashni xohlaysizmi?") : "Chizilgan diagrammani tozalashni xohlaysizmi?";
+        if (confirm(confirmMsg) && eerCanvas) {
           eerCanvas.clearCanvas();
         }
       });
@@ -561,7 +621,8 @@
     const btnReset = document.getElementById('btnResetProgress');
     if (btnReset) {
       btnReset.addEventListener('click', () => {
-        if (confirm("Haqiqatan ham 1-moduldagi barcha natijalaringizni qayta o'rnatmoqchimisiz?")) {
+        const confirmResetMsg = window.I18N ? window.I18N.t('confirm_reset_all', "Haqiqatan ham barcha natijalaringizni qayta o'rnatmoqchimisiz?") : "Haqiqatan ham barcha natijalaringizni qayta o'rnatmoqchimisiz?";
+        if (confirm(confirmResetMsg)) {
           STATE.solvedIds.clear();
           STATE.score = 0;
           STATE.salary = 2500;
@@ -617,15 +678,17 @@
 
       if (!elFeedback) return;
 
+      const isEn = window.I18N && window.I18N.getLang() === 'en';
+
       if (result.passed) {
         window.playSfx('success');
-        if (atelier2D) atelier2D.triggerSuccess("EER Diagramma Qabul Qilindi!");
+        if (atelier2D) atelier2D.triggerSuccess(isEn ? "EER Model Approved!" : "EER Diagramma Qabul Qilindi!");
 
         elFeedback.className = 'feedback-box success';
         elFeedback.innerHTML = `
-          <strong>🎉 A'lo Natija!</strong> ${result.feedback || "Mijoz siz tuzgan EER modelni to'liq tasdiqladi."}
+          <strong>${isEn ? '🎉 Excellent Result!' : "🎉 A'lo Natija!"}</strong> ${result.feedback || (isEn ? "Client approved your EER model completely." : "Mijoz siz tuzgan EER modelni to'liq tasdiqladi.")}
           <div style="margin-top:8px;">
-            <button id="btnNextChallenge" class="btn btn-primary" style="padding:4px 12px;">Keyingi Topshiriqqa O'tish ▶</button>
+            <button id="btnNextChallenge" class="btn btn-primary" style="padding:4px 12px;">${isEn ? 'Proceed to Next Challenge ▶' : "Keyingi Topshiriqqa O'tish ▶"}</button>
           </div>
         `;
         elFeedback.style.display = 'block';
@@ -652,10 +715,10 @@
         }
       } else {
         window.playSfx('error');
-        if (atelier2D) atelier2D.triggerError("Diagrammada nomutanosiblik bor!");
+        if (atelier2D) atelier2D.triggerError(isEn ? "Discrepancy in diagram!" : "Diagrammada nomutanosiblik bor!");
 
         elFeedback.className = 'feedback-box error';
-        elFeedback.innerHTML = `<strong>⚠️ Diqqat:</strong> ${result.feedback || "Sxemada xatoliklar mavjud. Qaytadan tekshiring."}`;
+        elFeedback.innerHTML = `<strong>${isEn ? '⚠️ Attention:' : '⚠️ Diqqat:'}</strong> ${result.feedback || (isEn ? "Errors found in diagram. Please verify again." : "Sxemada xatoliklar mavjud. Qaytadan tekshiring.")}`;
         elFeedback.style.display = 'block';
       }
     } catch (err) {

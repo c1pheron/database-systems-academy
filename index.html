@@ -12,8 +12,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <script src="i18n.js"></script>
   
   <style>
+    /* Bilingual Language Switcher */
+    .lang-switch-box {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 2px 4px;
+      gap: 2px;
+    }
+    .btn-lang {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s ease;
+    }
+    .btn-lang:hover {
+      color: #fff;
+    }
+    .btn-lang.active {
+      background: linear-gradient(135deg, #0284c7, #7c3aed);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+    }
+
     :root {
       --bg-deep: #060913;
       --bg-panel: #0a1122;
@@ -450,7 +482,7 @@
             SEVENTYPLUS
             <span class="brand-badge">WIUT Academy Portal</span>
           </div>
-          <div class="brand-sub">Westminster 70+ First Class Ekotizimi • 3 Modul • 2,700 ta Amaliy Keys</div>
+          <div class="brand-sub" data-i18n="portal_brand_sub">Westminster 70+ First Class Ekotizimi • 3 Modul • 2,700 ta Amaliy Keys</div>
         </div>
       </div>
 
@@ -459,20 +491,26 @@
         <div class="hud-profile-pill">
           <div style="font-size:18px;">👨‍💻</div>
           <div class="profile-info">
-            <span id="grandUserName" class="profile-name">WIUT Talabasi</span>
-            <span id="grandUserRank" class="profile-rank">⭐ Cyber Intern</span>
+            <span id="grandUserName" class="profile-name" data-i18n="portal_user_name">WIUT Talabasi</span>
+            <span id="grandUserRank" class="profile-rank" data-i18n="portal_user_rank">⭐ Cyber Intern</span>
           </div>
         </div>
 
         <div class="header-stats">
           <div class="stat-chip">
-            <span style="color:var(--text-muted);">Jami Bajarildi:</span>
+            <span style="color:var(--text-muted);" data-i18n="portal_stat_solved">Jami Bajarildi:</span>
             <span id="grandSolvedTotal" class="val" style="color:var(--accent-cyan-bright);">0 / 2,700</span>
           </div>
           <div class="stat-chip">
-            <span style="color:var(--text-muted);">Jami Kapital:</span>
+            <span style="color:var(--text-muted);" data-i18n="portal_stat_capital">Jami Kapital:</span>
             <span id="grandCapitalTotal" class="val" style="color:var(--accent-emerald-bright);">$0</span>
           </div>
+        </div>
+
+        <!-- BILINGUAL LANGUAGE SWITCHER (UZ / EN) -->
+        <div class="lang-switch-box" id="langSwitchBox">
+          <button id="btnLangUz" class="btn-lang active" type="button" title="O'zbekcha">UZ</button>
+          <button id="btnLangEn" class="btn-lang" type="button" title="English">EN</button>
         </div>
       </div>
 
@@ -487,15 +525,15 @@
     <!-- Hero / Progress Section -->
     <section class="hero-banner">
       <h2 class="hero-title">
-        <span>⚡</span> Westminster Xalqaro Universiteti IT Modullari Simulyatori
+        <span>⚡</span> <span data-i18n="portal_hero_title">Westminster Xalqaro Universiteti IT Modullari Simulyatori</span>
       </h2>
-      <p class="hero-desc">
+      <p class="hero-desc" data-i18n="portal_hero_desc">
         Xush kelibsiz! Ushbu platforma WIUT talabalari uchun quruq nazariyadan holi, 100% amaliy va Sokratik ta'lim tizimi asosida ishlab chiqilgan. Quyidagi 3 ta asosiy akademik yo'nalishdan birini tanlang va 1-dan 6-haftagacha bo'lgan chuqur amaliy simulyatorlarga sho'ng'ing:
       </p>
 
       <div class="grand-progress-box">
         <div class="progress-header">
-          <span>Platformaning Umumiy O'zlashtirilishi</span>
+          <span data-i18n="portal_progress_label">Platformaning Umumiy O'zlashtirilishi</span>
           <span id="grandProgressPercent" style="color:var(--accent-cyan-bright); font-family:'JetBrains Mono', monospace;">0% Bajarildi</span>
         </div>
         <div class="progress-track">
@@ -506,7 +544,7 @@
 
     <!-- 3 Grand Module Gateways -->
     <div class="section-title">
-      <span>🏛️</span> O'quv Modullari (3 ta Yo'nalish)
+      <span>🏛️</span> <span data-i18n="portal_sec_title">O'quv Modullari (3 ta Yo'nalish)</span>
     </div>
 
     <div class="gateways-grid">
@@ -519,18 +557,18 @@
             <span class="mentor-tag tag-ds">Prof. Atlas • 5BUIS009C</span>
           </div>
           <h3 class="gateway-title">Database Systems</h3>
-          <div class="gateway-code">CW1 (70%) • Majburiy VIVA Imtihoni</div>
-          <p class="gateway-desc">
+          <div class="gateway-code" data-i18n="portal_ds_cw">CW1 (70%) • Majburiy VIVA Imtihoni</div>
+          <p class="gateway-desc" data-i18n="portal_ds_desc">
             Konseptual EER modellashtirish, relyatsion sxemaga o'tkazish, normalizatsiya (1NF-BCNF), ilg'or SQL so'rovlar, ACID tranzaksiyalari hamda NoSQL (MongoDB, Redis) klasterlari.
           </p>
 
           <div class="gateway-stats-box">
-            <span style="font-size:12px; color:var(--text-muted);">O'zlashtirish:</span>
+            <span style="font-size:12px; color:var(--text-muted);" data-i18n="portal_mastery">O'zlashtirish:</span>
             <span id="dsGrandStat" style="font-weight:700; color:var(--accent-gold-bright); font-family:'JetBrains Mono', monospace;">0 / 900</span>
           </div>
         </div>
 
-        <a href="ds-hub.html" class="btn-gateway btn-gateway-ds">
+        <a href="ds-hub.html" class="btn-gateway btn-gateway-ds" data-i18n="portal_ds_btn">
           🏛️ Database Systemsga Kirish →
         </a>
       </article>
@@ -543,18 +581,18 @@
             <span class="mentor-tag tag-os">Prof. Turing • 5COSC041C</span>
           </div>
           <h3 class="gateway-title">Operating Systems</h3>
-          <div class="gateway-code">CW1 (40%) • Individual Case Study &amp; Bash</div>
-          <p class="gateway-desc">
+          <div class="gateway-code" data-i18n="portal_os_cw">CW1 (40%) • Individual Case Study &amp; Bash</div>
+          <p class="gateway-desc" data-i18n="portal_os_desc">
             Linux Debian 12 arxitekturasi, Inodelar va fayl tizimi, professional Bash avtomatlashtirish, jarayonlar hayoti (Signals), Python fork(), CPU Scheduling, virtual xotira va Docker.
           </p>
 
           <div class="gateway-stats-box">
-            <span style="font-size:12px; color:var(--text-muted);">O'zlashtirish:</span>
+            <span style="font-size:12px; color:var(--text-muted);" data-i18n="portal_mastery">O'zlashtirish:</span>
             <span id="osGrandStat" style="font-weight:700; color:var(--accent-cyan-bright); font-family:'JetBrains Mono', monospace;">0 / 900</span>
           </div>
         </div>
 
-        <a href="os/index.html" class="btn-gateway btn-gateway-os">
+        <a href="os/index.html" class="btn-gateway btn-gateway-os" data-i18n="portal_os_btn">
           🐧 Operating Systemsga Kirish →
         </a>
       </article>
@@ -567,18 +605,18 @@
             <span class="mentor-tag tag-oop">Prof. Ada • 5COSC018C</span>
           </div>
           <h3 class="gateway-title">OOP (Java Architecture)</h3>
-          <div class="gateway-code">CW2 (50%) • Guruh Ishi (Console Order App)</div>
-          <p class="gateway-desc">
+          <div class="gateway-code" data-i18n="portal_oop_cw">CW2 (50%) • Guruh Ishi (Console Order App)</div>
+          <p class="gateway-desc" data-i18n="portal_oop_desc">
             Java Core, Clean Code, SOLID tamoyillari, GoF Design Patterns (Factory, Builder, Singleton, Decorator, Strategy, Observer), UML sinflar diagrammasi va korporativ arxitektura.
           </p>
 
           <div class="gateway-stats-box">
-            <span style="font-size:12px; color:var(--text-muted);">O'zlashtirish:</span>
+            <span style="font-size:12px; color:var(--text-muted);" data-i18n="portal_mastery">O'zlashtirish:</span>
             <span id="oopGrandStat" style="font-weight:700; color:var(--accent-purple-bright); font-family:'JetBrains Mono', monospace;">0 / 900</span>
           </div>
         </div>
 
-        <a href="oop/index.html" class="btn-gateway btn-gateway-oop">
+        <a href="oop/index.html" class="btn-gateway btn-gateway-oop" data-i18n="portal_oop_btn">
           ☕ OOP Moduliga Kirish →
         </a>
       </article>
@@ -698,7 +736,32 @@
 
         const pct = Math.min(100, Math.round((grandTotal / grandTotalPossible) * 100));
         if (progressBar) progressBar.style.width = `${pct}%`;
-        if (progressPercent) progressPercent.textContent = `${pct}% Bajarildi`;
+        const completedText = (window.I18N && window.I18N.t('portal_progress_completed')) || 'Bajarildi';
+        if (progressPercent) progressPercent.textContent = `${pct}% ${completedText}`;
+      }
+
+      // Initialize I18N
+      if (window.I18N) {
+        window.I18N.init();
+
+        const btnUz = document.getElementById("btnLangUz");
+        const btnEn = document.getElementById("btnLangEn");
+        if (btnUz) {
+          btnUz.addEventListener("click", function() {
+            window.I18N.setLang("uz");
+            syncProgress();
+          });
+        }
+        if (btnEn) {
+          btnEn.addEventListener("click", function() {
+            window.I18N.setLang("en");
+            syncProgress();
+          });
+        }
+
+        window.onLanguageChange = function() {
+          syncProgress();
+        };
       }
 
       syncProgress();

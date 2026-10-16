@@ -3564,6 +3564,20 @@
     initModal() {
       if (document.getElementById('encyclopediaModal')) return;
 
+      const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
+      const dictTitle = isEn ? "SQL & Database Systems Encyclopedia" : "SQL & Ma'lumotlar Bazasi Entsiklopedik Lug'ati";
+      const dictSub = isEn ? "All 6 weeks commands, functions, syntax, and rules (100+ items)" : "Barcha 6 haftalik komandalari, funksiyalari, sintaksisi va qoidalari (100+ ta)";
+      const dictCloseTitle = isEn ? "Close (Esc)" : "Yopish (Esc)";
+      const searchPlaceholder = isEn ? "Type command or concept (e.g., COALESCE, NVL, INNER JOIN, BCNF, GROUP BY)..." : "Komanda yoki funksiyani yozing (Masalan: COALESCE, NVL, INNER JOIN, BCNF, GROUP BY)...";
+      const clearTitle = isEn ? "Clear" : "Tozalash";
+      const catAll = isEn ? "All" : "Barchasi";
+      const catW1 = isEn ? "Week 1: EER Model" : "1-Hafta: EER Modeli";
+      const catW2 = isEn ? "Week 2: Relational & 1NF-BCNF" : "2-Hafta: Relatsion & 1NF-BCNF";
+      const catW3 = isEn ? "Week 3: SQL DDL & DML" : "3-Hafta: SQL DDL & DML";
+      const catW4 = isEn ? "Week 4: JOIN & Functions" : "4-Hafta: JOIN & Funksiyalar";
+      const catW5 = isEn ? "Week 5: Subqueries & Analytics" : "5-Hafta: Subquery & Analitik";
+      const catW6 = isEn ? "Week 6: Optimization & CTE" : "6-Hafta: Optimizatsiya & CTE";
+
       const modalHtml = `
         <div class="dict-modal-backdrop" id="encyclopediaModal">
           <div class="dict-modal-card">
@@ -3573,12 +3587,12 @@
                 <div class="dict-emblem">🔍</div>
                 <div>
                   <div class="dict-title">
-                    <span>SQL & Ma'lumotlar Bazasi Entsiklopedik Lug'ati</span>
+                    <span>${dictTitle}</span>
                   </div>
-                  <div class="dict-sub">Barcha 6 haftalik komandalari, funksiyalari, sintaksisi va qoidalari (100+ ta)</div>
+                  <div class="dict-sub">${dictSub}</div>
                 </div>
               </div>
-              <button class="dict-close-btn" id="dictCloseBtn" title="Yopish (Esc)">✕</button>
+              <button class="dict-close-btn" id="dictCloseBtn" title="${dictCloseTitle}">✕</button>
             </div>
 
             <!-- Search Bar & Category Filter -->
@@ -3589,35 +3603,35 @@
                   type="text" 
                   class="dict-search-input" 
                   id="dictSearchInput" 
-                  placeholder="Komanda yoki funksiyani yozing (Masalan: COALESCE, NVL, INNER JOIN, BCNF, GROUP BY)..." 
+                  placeholder="${searchPlaceholder}" 
                   autocomplete="off" 
                   spellcheck="false"
                 />
-                <button class="dict-search-clear" id="dictSearchClear" title="Tozalash">✕</button>
+                <button class="dict-search-clear" id="dictSearchClear" title="${clearTitle}">✕</button>
               </div>
 
               <!-- Category Chips -->
               <div class="dict-filter-chips" id="dictCategoryChips">
                 <button class="dict-chip active" data-cat="all">
-                  Barchasi <span class="dict-chip-count">${this.data.length}</span>
+                  ${catAll} <span class="dict-chip-count">${this.data.length}</span>
                 </button>
                 <button class="dict-chip" data-cat="1">
-                  1-Hafta: EER Modeli <span class="dict-chip-count">${this.data.filter(d => d.week === 1).length}</span>
+                  ${catW1} <span class="dict-chip-count">${this.data.filter(d => d.week === 1).length}</span>
                 </button>
                 <button class="dict-chip" data-cat="2">
-                  2-Hafta: Relatsion & 1NF-BCNF <span class="dict-chip-count">${this.data.filter(d => d.week === 2).length}</span>
+                  ${catW2} <span class="dict-chip-count">${this.data.filter(d => d.week === 2).length}</span>
                 </button>
                 <button class="dict-chip" data-cat="3">
-                  3-Hafta: SQL DDL & DML <span class="dict-chip-count">${this.data.filter(d => d.week === 3).length}</span>
+                  ${catW3} <span class="dict-chip-count">${this.data.filter(d => d.week === 3).length}</span>
                 </button>
                 <button class="dict-chip" data-cat="4">
-                  4-Hafta: JOIN & Funksiyalar <span class="dict-chip-count">${this.data.filter(d => d.week === 4).length}</span>
+                  ${catW4} <span class="dict-chip-count">${this.data.filter(d => d.week === 4).length}</span>
                 </button>
                 <button class="dict-chip" data-cat="5">
-                  5-Hafta: Subquery & Analitik <span class="dict-chip-count">${this.data.filter(d => d.week === 5).length}</span>
+                  ${catW5} <span class="dict-chip-count">${this.data.filter(d => d.week === 5).length}</span>
                 </button>
                 <button class="dict-chip" data-cat="6">
-                  6-Hafta: Optimizatsiya & CTE <span class="dict-chip-count">${this.data.filter(d => d.week === 6).length}</span>
+                  ${catW6} <span class="dict-chip-count">${this.data.filter(d => d.week === 6).length}</span>
                 </button>
               </div>
             </div>
@@ -3795,14 +3809,26 @@
         return `<button class="dict-rel-pill" data-target="${relObj.id}">🔗 ${relObj.name}</button>`;
       }).join('');
 
+      const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
+      const backText = isEn ? "← Back to results list" : "← Natijalar ro'yxatiga qaytish";
+      const weekLabel = isEn ? `${item.week}-WEEK` : `${item.week}-HAFTA`;
+      const copyText = isEn ? "Copy" : "Nusxa olish";
+      const sec1Title = isEn ? "1. What Does It Do? (Core Functionality)" : "1. Nima Ish Qiladi? (Funksional Mohiyati)";
+      const sec2Title = isEn ? "2. When Is It Needed? (Real-World Application)" : "2. Qachon Kerak Bo'ladi? (Real Hayotiy Amaliyot)";
+      const sec3Title = isEn ? "3. How Is It Written (Syntax)?" : "3. Qanday Yoziladi (Sintaksis)?";
+      const sec4Title = isEn ? "4. Modifiers & Combinations" : "4. Qo'shimchalar va Kombinatsiyalar";
+      const sec5Title = isEn ? "5. Live Code Example" : "5. Jonli Amaliy Kod / Misol";
+      const sec6Title = isEn ? "6. Traps to Avoid (Gotchas & Common Errors)" : "6. Diqqat Qilinishi Kerak Bo'lgan Tuzoqlar (Gotchas)";
+      const sec7Title = isEn ? "7. Related Concepts & Commands" : "7. Bog'langan Tushunchalar va Komandalar";
+
       this.detailEl.innerHTML = `
         <button class="dict-mobile-back" id="dictMobileBack">
-          <span>←</span> Natijalar ro'yxatiga qaytish
+          <span>←</span> ${backText}
         </button>
 
         <div class="dict-detail-hero">
           <div class="dict-hero-badge-row">
-            <span class="dict-week-tag ${weekTagClass}">${item.week}-HAFTA</span>
+            <span class="dict-week-tag ${weekTagClass}">${weekLabel}</span>
             <span class="dict-category-badge">${item.category}</span>
           </div>
           <h1 class="dict-detail-title">${item.name}</h1>
@@ -3812,7 +3838,7 @@
         <!-- 1. NIMA ISH QILADI? -->
         <div class="dict-section-block">
           <div class="dict-sec-title">
-            <span>🎯</span> 1. Nima Ish Qiladi? (Funksional Mohiyati)
+            <span>🎯</span> ${sec1Title}
           </div>
           <div class="dict-sec-content">
             <p>${item.whatItDoes}</p>
@@ -3822,7 +3848,7 @@
         <!-- 2. QACHON KERAK BO'LADI? -->
         <div class="dict-section-block">
           <div class="dict-sec-title">
-            <span>🏢</span> 2. Qachon Kerak Bo'ladi? (Real Hayotiy Amaliyot)
+            <span>🏢</span> ${sec2Title}
           </div>
           <div class="dict-sec-content">
             <p>${item.whenToUse}</p>
@@ -3832,10 +3858,10 @@
         <!-- 3. QANDAY YOZILADI (SINTAKSIS)? -->
         <div class="dict-section-block">
           <div class="dict-sec-title">
-            <span>📝</span> 3. Qanday Yoziladi (Sintaksis)?
+            <span>📝</span> ${sec3Title}
           </div>
           <div class="dict-code-box">
-            <button class="dict-copy-btn" data-copy="syntax">Nusxa olish</button>
+            <button class="dict-copy-btn" data-copy="syntax">${copyText}</button>
             <code>${this.escapeHtml(item.syntax)}</code>
           </div>
         </div>
@@ -3843,7 +3869,7 @@
         <!-- 4. QANDAY QO'SHIMCHALAR BILAN ISHLAYDI? -->
         <div class="dict-section-block">
           <div class="dict-sec-title">
-            <span>⚡</span> 4. Qo'shimchalar va Kombinatsiyalar
+            <span>⚡</span> ${sec4Title}
           </div>
           <div class="dict-sec-content">
             <p>${item.combinations}</p>
@@ -3853,10 +3879,10 @@
         <!-- 5. JONLI AMALIY MISOL -->
         <div class="dict-section-block">
           <div class="dict-sec-title">
-            <span>💻</span> 5. Jonli Amaliy Kod / Misol
+            <span>💻</span> ${sec5Title}
           </div>
           <div class="dict-code-box">
-            <button class="dict-copy-btn" data-copy="example">Nusxa olish</button>
+            <button class="dict-copy-btn" data-copy="example">${copyText}</button>
             <code>${this.escapeHtml(item.example)}</code>
           </div>
         </div>
@@ -3864,7 +3890,7 @@
         <!-- 6. DIQQAT / TUZOQLAR -->
         <div class="dict-warning-block">
           <div class="dict-warning-title">
-            <span>⚠️</span> 6. Diqqat Qilinishi Kerak Bo'lgan Tuzoqlar (Gotchas)
+            <span>⚠️</span> ${sec6Title}
           </div>
           <div class="dict-warning-content">
             <p>${item.gotchas}</p>
@@ -3875,7 +3901,7 @@
         ${relatedPillsHtml ? `
           <div class="dict-section-block">
             <div class="dict-sec-title">
-              <span>🔗</span> 7. Bog'langan Tushunchalar va Komandalar
+              <span>🔗</span> ${sec7Title}
             </div>
             <div class="dict-related-wrap">
               ${relatedPillsHtml}

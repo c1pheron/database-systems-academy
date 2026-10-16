@@ -9,8 +9,13 @@
 
   const EER_GRADER = {
     grade: function (userDiagram, q) {
+      const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
+
       if (!q || !q.expectedDiagram) {
-        return { passed: true, feedback: "Ajoyib! Diagramma to'g'ri shakllantirildi." };
+        return { 
+          passed: true, 
+          feedback: isEn ? "Great job! The diagram has been structured correctly." : "Ajoyib! Diagramma to'g'ri shakllantirildi." 
+        };
       }
 
       const expected = q.expectedDiagram;
@@ -28,7 +33,9 @@
         if (!found) {
           return {
             passed: false,
-            feedback: `⚠️ <strong>'${expE.name}'</strong> entitiysi topilmadi. Iltimos, shakllar panelidan entitiy qo'shing va nomini '${expE.name}' deb yozing.`
+            feedback: isEn
+              ? `⚠️ Table/Entity <strong>'${expE.name}'</strong> was not found. Please add it from the shapes panel and name it '${expE.name}'.`
+              : `⚠️ <strong>'${expE.name}'</strong> entitiysi topilmadi. Iltimos, shakllar panelidan entitiy qo'shing va nomini '${expE.name}' deb yozing.`
           };
         }
 
@@ -41,7 +48,9 @@
           if (!hasPkAttr && !found.pk && !hasAnyPk && !hasAttrByName) {
             return {
               passed: false,
-              feedback: `💡 <strong>'${expE.name}'</strong> jadvaliga <strong>'${expE.pk}'</strong> [PK] Birlamchi Kalit ustunini qo'shishni unutmang!`
+              feedback: isEn
+                ? `💡 Don't forget to add <strong>'${expE.pk}'</strong> [PK] Primary Key column to table <strong>'${expE.name}'</strong>!`
+                : `💡 <strong>'${expE.name}'</strong> jadvaliga <strong>'${expE.pk}'</strong> [PK] Birlamchi Kalit ustunini qo'shishni unutmang!`
             };
           }
         }
@@ -53,10 +62,11 @@
           if (!foundFk) {
             return {
               passed: false,
-              feedback: `⚠️ Relyatsion model talabi: <strong>'${expE.name}'</strong> jadvaliga <strong>'${fk.name}'</strong> Tashqi Kalit [FK] ustunini qo'shing!`
+              feedback: isEn
+                ? `⚠️ Relational requirement: Add Foreign Key <strong>'${fk.name}'</strong> [FK] to table <strong>'${expE.name}'</strong>!`
+                : `⚠️ Relyatsion model talabi: <strong>'${expE.name}'</strong> jadvaliga <strong>'${fk.name}'</strong> Tashqi Kalit [FK] ustunini qo'shing!`
             };
           }
-          // If found but not marked as FK, we accept it gracefully or remind them gently
         }
 
         // Check Weak Entity status if expected
@@ -81,7 +91,9 @@
         if (!foundRel) {
           return {
             passed: false,
-            feedback: `⚠️ <strong>'${expR.entity1}'</strong> va <strong>'${expR.entity2}'</strong> jadvallari o'rtasida relyatsion bog'lanish chizig'i topilmadi. Jadvallarni o'zaro bog'lang.`
+            feedback: isEn
+              ? `⚠️ Relational connector line between tables <strong>'${expR.entity1}'</strong> and <strong>'${expR.entity2}'</strong> not found. Connect the tables.`
+              : `⚠️ <strong>'${expR.entity1}'</strong> va <strong>'${expR.entity2}'</strong> jadvallari o'rtasida relyatsion bog'lanish chizig'i topilmadi. Jadvallarni o'zaro bog'lang.`
           };
         }
       }
@@ -106,7 +118,9 @@
         if (!subFound && expSubs.length > 0) {
           return {
             passed: false,
-            feedback: `⚠️ EER Ixtisoslashuv: <strong>'${expected.subclasses.superclass}'</strong> superklassi ostida <strong>${expected.subclasses.subs.map(s => typeof s === 'string' ? s : s.name).join(', ')}</strong> subklasslarini hosil qilishingiz lozim.`
+            feedback: isEn
+              ? `⚠️ EER Specialization: Subclasses <strong>${expected.subclasses.subs.map(s => typeof s === 'string' ? s : s.name).join(', ')}</strong> must be created under superclass <strong>'${expected.subclasses.superclass}'</strong>.`
+              : `⚠️ EER Ixtisoslashuv: <strong>'${expected.subclasses.superclass}'</strong> superklassi ostida <strong>${expected.subclasses.subs.map(s => typeof s === 'string' ? s : s.name).join(', ')}</strong> subklasslarini hosil qilishingiz lozim.`
           };
         }
       }
@@ -114,7 +128,9 @@
       // If all critical structural elements are verified
       return {
         passed: true,
-        feedback: "A'lo darajada bajarildi! Barcha entitiylar, atributlar va munosabatlar to'g'ri loyihalashtirildi."
+        feedback: isEn
+          ? "Excellent work! All entities, attributes, primary/foreign keys, and relationships have been designed properly."
+          : "A'lo darajada bajarildi! Barcha entitiylar, atributlar va munosabatlar to'g'ri loyihalashtirildi."
       };
     }
   };

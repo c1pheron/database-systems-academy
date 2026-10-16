@@ -15,6 +15,7 @@
   
   <link rel="stylesheet" href="styles.css?v=20261016_w2v4">
   <link rel="stylesheet" href="../database_dictionary.css">
+  <script src="../i18n.js"></script>
 </head>
 <body>
 
@@ -25,31 +26,31 @@
     <div class="brand-box">
       <div class="brand-emblem">🏛️</div>
       <div>
-        <div class="brand-title">
-          Database Systems • 2-Modul <span class="badge-module">Relatsion Model</span>
+        <div class="brand-title" id="hudBrandTitle">
+          <span data-i18n="brand_title_w2">Database Systems • 2-Modul</span> <span class="badge-module" data-i18n="brand_badge_w2">Relatsion Model</span>
         </div>
-        <div class="brand-sub">Jadvallar (Tables), Birlamchi Kalit (PK), Tashqi Kalit (FK), Crow's Foot & Vorislik</div>
+        <div class="brand-sub" id="hudBrandSub" data-i18n="brand_sub_w2">Jadvallar (Tables), Birlamchi Kalit (PK), Tashqi Kalit (FK), Crow's Foot & Vorislik</div>
       </div>
     </div>
 
     <div class="hud-stats">
       <div class="stat-pill" title="Sizning joriy kasbiy unvoningiz">
-        <span class="stat-label">Lavozim:</span>
+        <span class="stat-label" data-i18n="stat_rank">Lavozim:</span>
         <span id="hudRankTitle" class="stat-val cyan">Kichik Modeler</span>
       </div>
 
       <div class="stat-pill" title="Kompaniya sizga to'laydigan oylik maosh">
-        <span class="stat-label">Maosh:</span>
+        <span class="stat-label" data-i18n="stat_salary">Maosh:</span>
         <span id="hudSalary" class="stat-val sage">$3,000/oy</span>
       </div>
 
       <div class="stat-pill" title="To'plangan umumiy me'moriy kapital">
-        <span class="stat-label">Kapital:</span>
+        <span class="stat-label" data-i18n="stat_capital">Kapital:</span>
         <span id="hudCapital" class="stat-val gold">$0</span>
       </div>
 
       <div class="stat-pill" title="Bajarilgan topshiriqlar soni (150 tadan)">
-        <span class="stat-label">Bajarildi:</span>
+        <span class="stat-label" data-i18n="stat_solved">Bajarildi:</span>
         <span id="hudSolved" class="stat-val gold">0 / 150</span>
         <div class="progress-wrap">
           <div id="hudProgressFill" class="progress-fill"></div>
@@ -58,12 +59,18 @@
     </div>
 
     <div class="hud-actions">
-      <a href="../index.html" class="btn" title="Asosiy Xabga qaytish">← Asosiy Xab</a>
-      <button id="btnOpenDictionary" class="btn btn-dictionary" title="Barcha komandalar lug'ati (Ctrl+K)"><span>🔍</span> <span>Lug'at</span></button>
-      <button id="btnTriggerEvent" class="btn btn-event" title="Korporativ kutilmagan vaziyat">⚡ Insident</button>
-      <button id="btnOpenMap" class="btn" title="150 ta savollar xaritasi">🗺️ Xarita</button>
-      <button id="btnResetProgress" class="btn" title="Natijalarni qayta o'rnatish">🔄</button>
-      <button id="btnToggleSound" class="btn" title="Ovozni yoqish / o'chirish">🔊</button>
+      <!-- BILINGUAL LANGUAGE SWITCHER (UZ / EN) -->
+      <div class="lang-switch-box" id="langSwitchBox">
+        <button id="btnLangUz" class="btn-lang active" type="button" title="O'zbekcha">UZ</button>
+        <button id="btnLangEn" class="btn-lang" type="button" title="English">EN</button>
+      </div>
+
+      <a href="../index.html" class="btn" id="btnMainHub" data-i18n="btn_main_hub" title="Asosiy Xabga qaytish">← Asosiy Xab</a>
+      <button id="btnOpenDictionary" class="btn btn-dictionary" data-i18n-title="tooltip_dict" title="Barcha komandalar lug'ati (Ctrl+K)"><span>🔍</span> <span data-i18n="btn_dictionary">Lug'at</span></button>
+      <button id="btnTriggerEvent" class="btn btn-event" data-i18n="btn_incident" data-i18n-title="tooltip_event" title="Korporativ kutilmagan vaziyat">⚡ Insident</button>
+      <button id="btnOpenMap" class="btn" data-i18n="btn_map" data-i18n-title="tooltip_map" title="150 ta savollar xaritasi">🗺️ Xarita</button>
+      <button id="btnResetProgress" class="btn" data-i18n-title="tooltip_reset" title="Natijalarni qayta o'rnatish">🔄</button>
+      <button id="btnToggleSound" class="btn" data-i18n-title="tooltip_sound" title="Ovozni yoqish / o'chirish">🔊</button>
     </div>
   </header>
 
@@ -86,15 +93,15 @@
       <div class="panel-card">
         <div class="panel-header">
           <div class="panel-title">
-            <span>🎨 Bosh Me'mor Atlas Relatsion Konsultatsiya Zali</span>
+            <span data-i18n="atelier_title_w2">🎨 Bosh Me'mor Atlas Relatsion Konsultatsiya Zali</span>
           </div>
         </div>
         <div class="consultation-wrap">
           <canvas id="consultCanvas"></canvas>
         </div>
         <div class="office-ticker">
-          <span class="ticker-badge" id="tickerSpeaker">BOSH ME'MOR ATLAS</span>
-          <span id="tickerMessage">Assalomu alaykum! Mantiqiy relyatsion jadvallarni va Crow's Foot aloqalarini shakllantiring.</span>
+          <span class="ticker-badge" id="tickerSpeaker" data-i18n="speaker_atlas">BOSH ME'MOR ATLAS</span>
+          <span id="tickerMessage" data-i18n="ticker_default_w2">Assalomu alaykum! Mantiqiy relyatsion jadvallarni va Crow's Foot aloqalarini shakllantiring.</span>
         </div>
       </div>
 
@@ -102,7 +109,7 @@
       <div class="panel-card" style="flex:1;">
         <div class="panel-header">
           <div class="panel-title">
-            <span>📐 Vizual EER Diagramma Atelesi (draw.io Uslubida)</span>
+            <span data-i18n="studio_title_w2">📐 Vizual EER Diagramma Atelesi (draw.io Uslubida)</span>
           </div>
         </div>
 
@@ -110,28 +117,28 @@
         <div class="eer-toolbar">
           <div class="eer-tool-group">
             <button class="eer-chip-btn" id="btnToggleShapesSidebar" title="Shakllar palitrasini yig'ish / ochish">
-              <span>📐 Shakllar</span>
+              <span data-i18n="tool_shapes">📐 Shakllar</span>
             </button>
             <button class="eer-chip-btn" id="eerBtnAddEntity" title="Yangi to'rtburchak entitiy qo'shish">
-              <span>➕ Entitiy</span>
+              <span data-i18n="tool_add_entity">➕ Entitiy</span>
             </button>
             <button class="eer-chip-btn" id="eerBtnAddRel" title="Yangi aloqa rombi qo'shish">
-              <span>🔷 Romb</span>
+              <span data-i18n="tool_add_diamond">🔷 Romb</span>
             </button>
             <button class="eer-chip-btn" id="eerBtnToggleWeak" title="Tanlangan ob'ektni zaif (Weak) qilish">
-              <span>📦 Zaif Entitiy</span>
+              <span data-i18n="tool_toggle_weak">📦 Zaif Entitiy</span>
             </button>
           </div>
 
           <div class="eer-tool-group">
             <button class="eer-chip-btn" id="eerBtnResetTemplate" title="Dastlabki ER diagrammasini tiklash">
-              <span>📋 Dastlabki ER</span>
+              <span data-i18n="tool_reset_er">📋 Dastlabki ER</span>
             </button>
             <button class="eer-chip-btn" id="eerBtnClearCanvas" title="Polotnoni tozalash">
-              <span>🧹 Tozalash</span>
+              <span data-i18n="tool_clear">🧹 Tozalash</span>
             </button>
             <button class="eer-chip-btn" id="btnExportDrawio" style="border-color:var(--accent-gold); color:var(--accent-gold-bright);" title="Draw.io XML faylni yuklab olish">
-              <span>💾 .drawio XML</span>
+              <span data-i18n="tool_export_drawio">💾 .drawio XML</span>
             </button>
           </div>
         </div>
@@ -141,19 +148,19 @@
           <!-- Collapsible Left Shapes Sidebar (draw.io Standard) -->
           <aside class="drawio-sidebar" id="drawioSidebar">
             <div class="sidebar-header">
-              <span class="sidebar-title">📐 Ob'yektlar & Shakllar</span>
+              <span class="sidebar-title" data-i18n="sidebar_title">📐 Ob'yektlar & Shakllar</span>
               <button class="btn-sidebar-toggle" id="btnToggleSidebar" title="Panelni yig'ish">◀</button>
             </div>
             
             <div class="sidebar-search">
-              <input type="text" id="shapeSearchInput" placeholder="Shakllarni qidirish..." class="shape-search-box">
+              <input type="text" id="shapeSearchInput" placeholder="Shakllarni qidirish..." class="shape-search-box" data-i18n-placeholder="search_shapes_ph">
             </div>
 
             <div class="sidebar-scroll">
               <div class="shape-category open">
                 <div class="cat-header">
                   <span class="cat-arrow">▾</span>
-                  <span class="cat-title">Entitiy Aloqalari (ER & Relyatsion Sxema)</span>
+                  <span class="cat-title" data-i18n="cat_er_relations">Entitiy Aloqalari (ER & Relyatsion Sxema)</span>
                 </div>
                 <div class="shape-grid" id="shapeGridER">
                   <!-- 1. Jadval (Table PK) -->
@@ -163,7 +170,7 @@
                       <div class="shp-row pk"></div>
                       <div class="shp-row"></div>
                     </div>
-                    <span class="shape-label">Jadval</span>
+                    <span class="shape-label" data-i18n="shape_table">Jadval</span>
                   </div>
 
                   <!-- 2. 2-Ustunli Jadval -->
@@ -172,97 +179,97 @@
                       <div class="shp-c1"></div>
                       <div class="shp-c2"></div>
                     </div>
-                    <span class="shape-label">2-Ustun</span>
+                    <span class="shape-label" data-i18n="shape_table_2col">2-Ustun</span>
                   </div>
 
                   <!-- 3. Dumaloq Jadval (Rounded Table) -->
                   <div class="shape-card" data-shape="table-rounded" title="Yumaloq Boshli Jadval">
                     <div class="shape-preview shape-rect-rounded">Jadval</div>
-                    <span class="shape-label">Yumaloq Jadval</span>
+                    <span class="shape-label" data-i18n="shape_table_rounded">Yumaloq Jadval</span>
                   </div>
 
                   <!-- 4. Element (Item Box) -->
                   <div class="shape-card" data-shape="item-box" title="Alohida Element Bloki">
                     <div class="shape-preview shape-item-preview">Item</div>
-                    <span class="shape-label">Element</span>
+                    <span class="shape-label" data-i18n="shape_item_box">Element</span>
                   </div>
 
                   <!-- 5. Oddiy Entitiy (Rectangle) -->
                   <div class="shape-card" data-shape="entity" title="Oddiy Entitiy">
                     <div class="shape-preview shape-rect-preview">Entitiy</div>
-                    <span class="shape-label">Entitiy</span>
+                    <span class="shape-label" data-i18n="shape_entity">Entitiy</span>
                   </div>
 
                   <!-- 6. Yumaloq Entitiy -->
                   <div class="shape-card" data-shape="entity-rounded" title="Yumaloq Burchakli Entitiy">
                     <div class="shape-preview shape-rect-rounded">Entitiy</div>
-                    <span class="shape-label">Yumaloq Ent.</span>
+                    <span class="shape-label" data-i18n="shape_entity_rounded">Yumaloq Ent.</span>
                   </div>
 
                   <!-- 7. Zaif Entitiy (Double Rectangle) -->
                   <div class="shape-card" data-shape="weak-entity" title="Zaif Entitiy">
                     <div class="shape-preview shape-weak-preview">Zaif</div>
-                    <span class="shape-label">Zaif Entitiy</span>
+                    <span class="shape-label" data-i18n="shape_weak_entity">Zaif Entitiy</span>
                   </div>
 
                   <!-- 8. Assotsiativ Entitiy (Diamond in box) -->
                   <div class="shape-card" data-shape="assoc-entity" title="Assotsiativ Entitiy">
                     <div class="shape-preview shape-assoc-preview">◇</div>
-                    <span class="shape-label">Assotsiativ</span>
+                    <span class="shape-label" data-i18n="shape_assoc_entity">Assotsiativ</span>
                   </div>
 
                   <!-- 9. Oddiy Atribut (Oval) -->
                   <div class="shape-card" data-shape="attr-plain" title="Oddiy Atribut (Ellips)">
                     <div class="shape-preview shape-oval-preview">Atribut</div>
-                    <span class="shape-label">Atribut</span>
+                    <span class="shape-label" data-i18n="shape_attr_plain">Atribut</span>
                   </div>
 
                   <!-- 10. PK Atribut (Underlined Oval) -->
                   <div class="shape-card" data-shape="attr-pk" title="Birlamchi Kalit Atribut">
                     <div class="shape-preview shape-oval-preview pk"><u>PK_id</u></div>
-                    <span class="shape-label">PK Kalit</span>
+                    <span class="shape-label" data-i18n="shape_attr_pk">PK Kalit</span>
                   </div>
 
                   <!-- 11. Ko'p Qiymatli Atribut (Double Oval) -->
                   <div class="shape-card" data-shape="attr-multi" title="Ko'p Qiymatli Atribut">
                     <div class="shape-preview shape-oval-double">Ko'p</div>
-                    <span class="shape-label">Ko'p Qiymat</span>
+                    <span class="shape-label" data-i18n="shape_attr_multi">Ko'p Qiymat</span>
                   </div>
 
                   <!-- 12. Hosilaviy Atribut (Dashed Oval) -->
                   <div class="shape-card" data-shape="attr-derived" title="Hosilaviy Atribut">
                     <div class="shape-preview shape-oval-dashed">Hosilaviy</div>
-                    <span class="shape-label">Hosilaviy</span>
+                    <span class="shape-label" data-i18n="shape_attr_derived">Hosilaviy</span>
                   </div>
 
                   <!-- 13. Qisman Kalit (PPK Oval) -->
                   <div class="shape-card" data-shape="attr-partial" title="Qisman Kalit (Zaif Entitiy Uchun)">
                     <div class="shape-preview shape-oval-dotted">PPK</div>
-                    <span class="shape-label">Qisman (PPK)</span>
+                    <span class="shape-label" data-i18n="shape_attr_partial">Qisman (PPK)</span>
                   </div>
 
                   <!-- 14. Kompozit Atribut -->
                   <div class="shape-card" data-shape="attr-composite" title="Kompozit Atribut">
                     <div class="shape-preview shape-composite-preview">Tarmoq</div>
-                    <span class="shape-label">Kompozit</span>
+                    <span class="shape-label" data-i18n="shape_attr_composite">Kompozit</span>
                   </div>
 
                   <!-- 15. Aloqa / Romb (Relationship) -->
                   <div class="shape-card" data-shape="rel-diamond" title="Aloqa (Romb)">
                     <div class="shape-preview shape-diamond-preview">◇</div>
-                    <span class="shape-label">Aloqa Romb</span>
+                    <span class="shape-label" data-i18n="shape_rel_diamond">Aloqa Romb</span>
                   </div>
 
                   <!-- 16. Aniqlashtiruvchi Aloqa (Double Diamond) -->
                   <div class="shape-card" data-shape="rel-identifying" title="Aniqlashtiruvchi Aloqa">
                     <div class="shape-preview shape-diamond-double">◈</div>
-                    <span class="shape-label">Aniqlash</span>
+                    <span class="shape-label" data-i18n="shape_rel_identifying">Aniqlash</span>
                   </div>
 
                   <!-- 17. Tashqi Tizim (Cloud / Domain) -->
                   <div class="shape-card" data-shape="domain-cloud" title="Tashqi Domen / Bulut">
                     <div class="shape-preview shape-cloud-preview">☁️</div>
-                    <span class="shape-label">Bulut (Cloud)</span>
+                    <span class="shape-label" data-i18n="shape_domain_cloud">Bulut (Cloud)</span>
                   </div>
 
                   <!-- 18. Bo'lim / Modul (Partition Box) -->
@@ -271,74 +278,74 @@
                       <div class="shp-c1"></div>
                       <div class="shp-c2"></div>
                     </div>
-                    <span class="shape-label">Bo'lim</span>
+                    <span class="shape-label" data-i18n="shape_partition_box">Bo'lim</span>
                   </div>
 
                   <!-- 19. Meros / ISA Doirasi -->
                   <div class="shape-card" data-shape="isa-circle" title="Meros / ISA (d/o)">
                     <div class="shape-preview shape-isa-preview">(d)</div>
-                    <span class="shape-label">Meros (ISA)</span>
+                    <span class="shape-label" data-i18n="shape_isa_circle">Meros (ISA)</span>
                   </div>
 
                   <!-- 20. Eslatma Qog'ozi (Note) -->
                   <div class="shape-card" data-shape="note-box" title="Eslatma / Izoh Qog'ozi">
                     <div class="shape-preview shape-note-preview">📝</div>
-                    <span class="shape-label">Eslatma</span>
+                    <span class="shape-label" data-i18n="shape_note_box">Eslatma</span>
                   </div>
 
                   <!-- 21. Oddiy To'g'ri Chiziq -->
                   <div class="shape-card" data-shape="conn-plain" title="2 Uchli Magnit To'g'ri Chiziq">
                     <div class="shape-preview shape-line-preview">━━━━━━</div>
-                    <span class="shape-label">To'g'ri Chiziq</span>
+                    <span class="shape-label" data-i18n="shape_conn_plain">To'g'ri Chiziq</span>
                   </div>
 
                   <!-- 22. Uzuk-uzuk Chiziq -->
                   <div class="shape-card" data-shape="conn-dashed" title="2 Uchli Magnit Uzuk Chiziq">
                     <div class="shape-preview shape-line-preview">┄┄┄┄┄┄</div>
-                    <span class="shape-label">Uzuk Chiziq</span>
+                    <span class="shape-label" data-i18n="shape_conn_dashed">Uzuk Chiziq</span>
                   </div>
 
                   <!-- 23. 1..1 Bog'lanish (||) -->
                   <div class="shape-card" data-shape="conn-11" title="2 Uchli Magnit 1..1 Bog'lanish">
                     <div class="shape-preview shape-line-preview">━━||━━</div>
-                    <span class="shape-label">1..1 (||)</span>
+                    <span class="shape-label" data-i18n="shape_conn_11">1..1 (||)</span>
                   </div>
 
                   <!-- 24. 0..1 Bog'lanish (O|) -->
                   <div class="shape-card" data-shape="conn-01" title="2 Uchli Magnit 0..1 Bog'lanish">
                     <div class="shape-preview shape-line-preview">━━○|━━</div>
-                    <span class="shape-label">0..1 (O|)</span>
+                    <span class="shape-label" data-i18n="shape_conn_01">0..1 (O|)</span>
                   </div>
 
                   <!-- 25. 1..* Bog'lanish (|<) -->
                   <div class="shape-card" data-shape="conn-1n" title="2 Uchli Magnit 1..* Bog'lanish">
                     <div class="shape-preview shape-line-preview">━━|<━━</div>
-                    <span class="shape-label">1..* (|<)</span>
+                    <span class="shape-label" data-i18n="shape_conn_1n">1..* (|<)</span>
                   </div>
 
                   <!-- 26. 0..* Bog'lanish (O<) -->
                   <div class="shape-card" data-shape="conn-0n" title="2 Uchli Magnit 0..* Bog'lanish">
                     <div class="shape-preview shape-line-preview">━━○<━━</div>
-                    <span class="shape-label">0..* (O<)</span>
+                    <span class="shape-label" data-i18n="shape_conn_0n">0..* (O<)</span>
                   </div>
 
                   <!-- 27. Pog'onali Bog'lanish (Zigzag) -->
                   <div class="shape-card" data-shape="conn-zigzag" title="2 Uchli Magnit Pog'onali Bog'lanish">
                     <div class="shape-preview shape-line-preview">━┓┗━</div>
-                    <span class="shape-label">Pog'onali</span>
+                    <span class="shape-label" data-i18n="shape_conn_zigzag">Pog'onali</span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="sidebar-footer">
-              <button class="btn-more-shapes" id="btnMoreShapes">+ Ko'proq shakllar</button>
+              <button class="btn-more-shapes" id="btnMoreShapes" data-i18n="btn_more_shapes">+ Ko'proq shakllar</button>
             </div>
           </aside>
 
           <!-- Toggle pill when sidebar is collapsed -->
           <button class="btn-sidebar-unfold" id="btnUnfoldSidebar" title="Shakllar palitrasini ochish">
-            <span>📐 Shakllar</span> <span>▶</span>
+            <span data-i18n="tool_shapes">📐 Shakllar</span> <span>▶</span>
           </button>
 
           <!-- Interactive Diagram Board -->
@@ -350,14 +357,14 @@
         <div class="canvas-bottom-bar">
           <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
             <button id="btnW2Default" class="btn-canvas-default" type="button" title="Diagrammani 1-haftadagi holatiga (Default) qaytarish">
-              <span style="font-size:13px;">↺</span> <span>Default (1-Hafta)</span>
+              <span style="font-size:13px;">↺</span> <span data-i18n="btn_default_w1">Default (1-Hafta)</span>
             </button>
             <div id="w2DiagramSourceBadge" class="w2-diagram-badge">
-              <span style="color:#94a3b8;">📋 Dastlabki shablon faol</span>
+              <span style="color:#94a3b8;" data-i18n="source_default_template">📋 Dastlabki shablon faol</span>
             </div>
           </div>
           <div style="font-size:11px; color:var(--text-muted); display:flex; align-items:center; gap:6px;">
-            <span>💡 <em>Maslahat:</em> 1-hafta modeli asosida EER subklasslar va munosabatlarni kengaytiring.</span>
+            <span data-i18n-html="canvas_tip_w2">💡 <em>Maslahat:</em> 1-hafta modeli asosida EER subklasslar va munosabatlarni kengaytiring.</span>
           </div>
         </div>
       </div>
@@ -371,11 +378,11 @@
       <div class="panel-card">
         <div class="panel-header">
           <div class="panel-title">
-            <span id="floorHeaderTitle">1-Qavat: Yagona Mustaqil Jadvallar</span>
+            <span id="floorHeaderTitle" data-i18n="floor_title_default">1-Qavat: Yagona Mustaqil Jadvallar</span>
           </div>
           <div style="display:flex; gap:6px; align-items:center;">
-            <button id="btnPrevQ" class="btn" style="padding:3px 8px;">◀ Oldingi</button>
-            <button id="btnNextQ" class="btn" style="padding:3px 8px;">Keyingi ▶</button>
+            <button id="btnPrevQ" class="btn" style="padding:3px 8px;" data-i18n="btn_prev">◀ Oldingi</button>
+            <button id="btnNextQ" class="btn" style="padding:3px 8px;" data-i18n="btn_next">Keyingi ▶</button>
           </div>
         </div>
 
@@ -398,7 +405,7 @@
           <!-- Authentic Academic Case Study Dossier (Tutorial 2 Standard) -->
           <article class="academic-case-dossier" id="academicCaseDossier">
             <h4 class="case-section-header" style="font-size:12px; font-weight:700; color:var(--accent-gold); text-transform:uppercase; letter-spacing:0.8px; margin:0 0 8px 0; display:flex; align-items:center; gap:6px;">
-              <span>📝</span> <span>SAVOL:</span>
+              <span>📝</span> <span data-i18n="case_question_hdr">SAVOL:</span>
             </h4>
             <div class="case-narrative-box" id="caseNarrativeBox">
               <!-- Rendered paragraphs -->
@@ -417,25 +424,25 @@
       <div class="panel-card">
         <div class="panel-header">
           <div class="panel-title">
-            <span>⚙️ Sxema Tekshiruvi & draw.io Boshqaruvi</span>
+            <span data-i18n="eval_title_w2">⚙️ Sxema Tekshiruvi & draw.io Boshqaruvi</span>
           </div>
         </div>
 
         <div class="action-box">
           <div class="drawio-quick-guide" style="padding:10px 12px; background:rgba(200, 169, 110, 0.06); border:1px solid var(--border-subtle); border-radius:6px; margin-bottom:12px; font-size:11.5px; line-height:1.6; color:var(--text-secondary);">
             <div style="font-weight:600; color:var(--accent-gold); margin-bottom:4px; display:flex; align-items:center; gap:6px;">
-              <span>📐 EER Kengaytirish Qo'llanmasi</span>
+              <span data-i18n="guide_w2_title">📐 EER Kengaytirish Qo'llanmasi</span>
             </div>
-            <div>• <strong>Dastlabki Model:</strong> 1-haftada yaratilgan model polotnoda avtomatik yuklanadi (siz yaratgan diagramma to'g'ridan-to'g'ri davom ettiriladi).</div>
-            <div>• <strong>Relyatsion Bog'lanish:</strong> Multiplicity o'rniga bolalar jadvaliga Tashqi Kalit <strong>[FK]</strong> ustunini qo'shing yoki oraliq jadval yarating.</div>
-            <div>• <strong>Kalitlar:</strong> Atribut yonidagi tugmani bosib <strong>[PK]</strong>, <strong>[FK]</strong> yoki <strong>[PK, FK]</strong> holatlarini belgilang.</div>
-            <div>• <strong>Tekshirish:</strong> Sxema tayyor bo'lgach, <strong>[✅ Sxemani Tekshirish & Tasdiqlash]</strong> tugmasini bosing!</div>
+            <div data-i18n-html="guide_w2_p1">• <strong>Dastlabki Model:</strong> 1-haftada yaratilgan model polotnoda avtomatik yuklanadi (siz yaratgan diagramma to'g'ridan-to'g'ri davom ettiriladi).</div>
+            <div data-i18n-html="guide_w2_p2">• <strong>Relyatsion Bog'lanish:</strong> Multiplicity o'rniga bolalar jadvaliga Tashqi Kalit <strong>[FK]</strong> ustunini qo'shing yoki oraliq jadval yarating.</div>
+            <div data-i18n-html="guide_w2_p3">• <strong>Kalitlar:</strong> Atribut yonidagi tugmani bosib <strong>[PK]</strong>, <strong>[FK]</strong> yoki <strong>[PK, FK]</strong> holatlarini belgilang.</div>
+            <div data-i18n-html="guide_w2_p4">• <strong>Tekshirish:</strong> Sxema tayyor bo'lgach, <strong>[✅ Sxemani Tekshirish & Tasdiqlash]</strong> tugmasini bosing!</div>
           </div>
 
           <div class="action-bar">
             <div class="action-left">
-              <button id="btnVerifySchema" class="btn btn-primary">✅ Sxemani Tekshirish & Tasdiqlash</button>
-              <button id="btnToggleHint" class="btn">💡 Maslahat Olish</button>
+              <button id="btnVerifySchema" class="btn btn-primary" data-i18n="btn_verify_w2">✅ Sxemani Tekshirish & Tasdiqlash</button>
+              <button id="btnToggleHint" class="btn" data-i18n="btn_get_hint">💡 Maslahat Olish</button>
             </div>
           </div>
 
@@ -456,7 +463,7 @@
   <div id="mapModal" class="modal-backdrop">
     <div class="modal-card">
       <div class="modal-header">
-        <div class="modal-title">🗺️ 150 ta Relyatsion Sxema Topshiriqlari Xaritasi (10 ta Qavat)</div>
+        <div class="modal-title" data-i18n="map_modal_title_w2">🗺️ 150 ta Relyatsion Sxema Topshiriqlari Xaritasi (10 ta Qavat)</div>
         <button class="modal-close" id="btnCloseMap">&times;</button>
       </div>
       <div class="modal-body" id="mapModalBody">
@@ -469,7 +476,7 @@
   <div id="eventModal" class="modal-backdrop">
     <div class="modal-card">
       <div class="modal-header">
-        <div class="modal-title">⚡ Korporativ Arxitektura Insidenti & Voqealik</div>
+        <div class="modal-title" data-i18n="event_modal_title">⚡ Korporativ Arxitektura Insidenti & Voqealik</div>
         <button class="modal-close" id="btnCloseEvent">&times;</button>
       </div>
       <div class="modal-body" id="eventModalBody">
