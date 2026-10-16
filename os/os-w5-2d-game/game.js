@@ -2066,7 +2066,7 @@ permitted by applicable law.
           handleKaliCtrlC();
         } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "l") {
           e.preventDefault();
-          if (el.kaliStream) el.kaliStream.innerHTML = "";
+          clearKaliTerminal();
         }
       });
     }
@@ -2099,8 +2099,7 @@ permitted by applicable law.
     if (btnClearKali) {
       btnClearKali.addEventListener("click", () => {
         SoundFX.playKey();
-        if (el.kaliStream) el.kaliStream.innerHTML = "";
-        focusKaliInput();
+        clearKaliTerminal();
       });
     }
 
@@ -2203,7 +2202,7 @@ permitted by applicable law.
     if (el.btnClearTerminal) {
       el.btnClearTerminal.addEventListener("click", () => {
         SoundFX.playKey();
-        if (el.kaliStream) el.kaliStream.innerHTML = "";
+        clearKaliTerminal();
         if (el.terminalOutput) el.terminalOutput.innerHTML = "";
         if (el.kaliHiddenInput) {
           el.kaliHiddenInput.value = "";
@@ -2774,7 +2773,7 @@ permitted by applicable law.
 
     // Mac-style Window Dots
     if (el.dotClear) el.dotClear.addEventListener("click", () => {
-      if (el.kaliStream) el.kaliStream.innerHTML = "";
+      clearKaliTerminal();
       window.triggerBashKey("clear");
     });
     if (el.dotExpand) el.dotExpand.addEventListener("click", () => toggleTerminalFullscreen());
@@ -2808,7 +2807,7 @@ permitted by applicable law.
         toggleTerminalFullscreen();
       } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "l") {
         e.preventDefault();
-        if (el.kaliStream) el.kaliStream.innerHTML = "";
+        clearKaliTerminal();
         window.triggerBashKey("clear");
       }
     });

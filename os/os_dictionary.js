@@ -12,6 +12,804 @@
 
   const OS_DICTIONARY_DATA = [
   {
+    "cmd": "apt",
+    "name": "Advanced Package Tool (Debian/Ubuntu/Kali Dasturlar Menejeri)",
+    "cat": "system",
+    "catName": "⚙️ Tizim & Boshqaruv",
+    "desc": "Debian va Kali Linux tizimida internetdagi rasmiy repozitoriylardan yangi dastur va paketlarni avtomatik qidirish, yuklab olish, o'rnatish, yangilash va o'chirish vositasi.",
+    "syntax": "sudo apt [HARAKAT] [PAKET_NOMI] [BAYROQLAR]",
+    "syntaxRules": "Muhim: Paketlar ro'yxatini yangilash (update) va o'rnatilgan paketlarni yangilash (upgrade) ikki xil jarayon! Dastur o'rnatishdan oldin har doim 'apt update' qilinadi.",
+    "flags": [
+      {
+        "flag": "update",
+        "desc": "Internet omboridagi barcha paketlar ro'yxatini va yangi versiyalarini tekshirib ro'yxatni yangilash"
+      },
+      {
+        "flag": "upgrade",
+        "desc": "Tizimda o'rnatilgan barcha dasturlarni yangi versiyaga yangilash (upgrade)"
+      },
+      {
+        "flag": "install",
+        "desc": "Yangi paket yoki utilitani o'rnatish (e.g. sudo apt install vim)"
+      },
+      {
+        "flag": "remove",
+        "desc": "Dasturni o'chirish (lekin uning konfiguratsiya sozlamalari saqlanib qoladi)"
+      },
+      {
+        "flag": "purge",
+        "desc": "Dasturni barcha konfiguratsiya fayllari bilan birga butunlay yo'q qilish"
+      },
+      {
+        "flag": "autoremove",
+        "desc": "Boshqa kerak bo'lmagan, keshda qolgan qaramliklarni (unused dependencies) tozalash"
+      },
+      {
+        "flag": "search",
+        "desc": "Kerakli dastur nomi yoki tavsifi bo'yicha repozitoriydan qidirish (e.g. apt search htop)"
+      },
+      {
+        "flag": "show",
+        "desc": "Paket haqida to'liq texnik ma'lumot (versiya, hajm, tavsif) ko'rish"
+      },
+      {
+        "flag": "-y",
+        "desc": "O'rnatish paytidagi so'rovga avtomatik 'Yes' javobini berish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "sudo apt update && sudo apt upgrade -y",
+        "desc": "Butun tizim omborlari va o'rnatilgan dasturlarni bitta buyruqda to'liq yangilash"
+      },
+      {
+        "cmd": "sudo apt install -y vim git curl build-essential",
+        "desc": "Dasturchi uchun zarur bo'lgan asosiy paketlar to'plamini bir vaqtda o'rnatish"
+      },
+      {
+        "cmd": "apt list --installed | grep -i nginx",
+        "desc": "Tizimda Nginx o'rnatilgan yoki yo'qligini tekshirish"
+      },
+      {
+        "cmd": "sudo apt purge apache2 && sudo apt autoremove -y",
+        "desc": "Apache serverini barcha qoldiqlari bilan tizimdan toza chiqarib tashlash"
+      }
+    ],
+    "example": "sudo apt update && sudo apt install -y htop tree",
+    "analogy": "Google Play Store yoki Uzum Market kabi rasmiy internet do'koni — siz qidirgan dastur va unga bog'liq barcha yordamchi kutubxonalarni o'zi topib, serveringizga o'rnatib beradi."
+  },
+  {
+    "cmd": "dpkg",
+    "name": "Debian Package Manager (Quyi Darajali .deb Paket Menejeri)",
+    "cat": "system",
+    "catName": "⚙️ Tizim & Boshqaruv",
+    "desc": "Debian va Kali Linux tizimida mahalliy diskda yuklangan .deb arxiv paketlarini o'rnatish, tekshirish va boshqaruvchi quyi tizim mexanizmi (apt aynan dpkg ustiga qurilgan).",
+    "syntax": "sudo dpkg [BAYROQLAR] [FAYL.deb YOKI PAKET_NOMI]",
+    "syntaxRules": "Eslatma: dpkg internetdan qaramliklarni avtomatik tortmaydi. Agar qaramlik yetishmasa 'sudo apt install -f' orqali yetishmayotgan qismlar tiklanadi.",
+    "flags": [
+      {
+        "flag": "-i",
+        "desc": "Mahalliy .deb faylini tizimga o'rnatish (Install)"
+      },
+      {
+        "flag": "-r",
+        "desc": "O'rnatilgan paketni o'chirish (Remove)"
+      },
+      {
+        "flag": "-P",
+        "desc": "Paketni barcha konfiguratsiya fayllari bilan tozalab o'chirish (Purge)"
+      },
+      {
+        "flag": "-l",
+        "desc": "Tizimga o'rnatilgan barcha paketlar ro'yxatini ko'rish (List)"
+      },
+      {
+        "flag": "-s",
+        "desc": "Ko'rsatilgan paketning o'rnatilganlik holati va versiyasini ko'rish (Status)"
+      },
+      {
+        "flag": "-L",
+        "desc": "Ushbu paket tizimning aynan qaysi papkalariga qanday fayllar yozganini ko'rish (List files)"
+      },
+      {
+        "flag": "-c",
+        "desc": "Paketni o'rnatmasdan oldin uning ichidagi fayllar tarkibini ko'rish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "sudo dpkg -i discord.deb || sudo apt install -f -y",
+        "desc": "Yuklab olingan deb faylni o'rnatish va agar qaramliklar yetishmasa avtomatik to'ldirish"
+      },
+      {
+        "cmd": "dpkg -l | grep -E 'ssh|ssl'",
+        "desc": "Tizimda o'rnatilgan SSH va SSL paketlari ro'yxatini tekshirish"
+      },
+      {
+        "cmd": "dpkg -L nginx | grep bin",
+        "desc": "Nginx ning asosiy ishga tushuvchi binar fayli qayerga joylashganini topish"
+      }
+    ],
+    "example": "dpkg -l | grep bash",
+    "analogy": "Windows'dagi Setup.exe yoki MSI installer — internetdan mustaqil ravishda, qo'lingizdagi faylni to'g'ridan-to'g'ri tizimga joylashtiradi."
+  },
+  {
+    "cmd": "man",
+    "name": "Manual Pages (Linux Rasmiy Dasturchi va Tizim Qo'llanmasi)",
+    "cat": "system",
+    "catName": "⚙️ Tizim & Boshqaruv",
+    "desc": "Linuxdagi har qanday buyruq, C funksiyalari, tizim chaqiriqlari (system calls: fork, read, execve) va konfiguratsiya fayllarining to'liq rasmiy hujjatini terminalda o'qish.",
+    "syntax": "man [BO'LIM_RAQAMI] [BUYRUQ_YOKI_CHAQIRIQ]",
+    "syntaxRules": "1: Oddiy buyruqlar (ls, chmod), 2: Kernel tizim chaqiriqlari (fork, read, write), 3: C kutubxona funksiyalari (printf, malloc), 5: Konfiguratsiya fayllari (/etc/passwd).",
+    "flags": [
+      {
+        "flag": "-k",
+        "desc": "Kalit so'z bo'yicha barcha man sahifalari qisqacha tavsifidan qidirish (apropos bilan bir xil)"
+      },
+      {
+        "flag": "-f",
+        "desc": "Buyruq nima vazifa bajarishini 1 qatorda ko'rsatish (whatis bilan bir xil)"
+      },
+      {
+        "flag": "-a",
+        "desc": "Barcha bo'limlardagi mos keluvchi qo'llanmalarni ketma-ket ko'rsatish"
+      },
+      {
+        "flag": "-w",
+        "desc": "Man sahifasi faylining diskdagi aniq manzilini chiqarish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "man 2 fork",
+        "desc": "Operatsion tizim darajasidagi fork() tizim chaqirig'ining C tilidagi rasmiy hujjatini o'qish"
+      },
+      {
+        "cmd": "man -k 'socket'",
+        "desc": "Tarmoq soketlari bilan bog'liq barcha tizim chaqiriqlari va buyruqlarni qidirish"
+      },
+      {
+        "cmd": "man 5 passwd",
+        "desc": "/etc/passwd faylining ichki tuzilishi va ustunlari qanday ishlashini o'rganish"
+      }
+    ],
+    "example": "man ls",
+    "analogy": "Avtomobil yoki samolyotning zavod tomonidan yozilgan to'liq texnik ensiklopediyasi — har bir vint va funksiyaning rasmiy hujjati."
+  },
+  {
+    "cmd": "md5sum",
+    "name": "MD5 Checksum (Fayl Butunligini Hesh Tekshiruvi)",
+    "cat": "security",
+    "catName": "🔒 Xavfsizlik & Ruxsatlar",
+    "desc": "Faylning MD5 (128-bit) nazorat hesh qiymatini hisoblash yoki oldindan berilgan hesh bilan solishtirib, fayl ko'chirish paytida buzilmaganini yoki o'zgartirilmaganini aniqlash.",
+    "syntax": "md5sum [BAYROQLAR] [FAYL]",
+    "syntaxRules": "Chiqish formati: 32 ta o'n oltilik belgi (hash) va fayl nomi. Agar fayldagi bitta belgi o'zgarsa ham, butun hesh tubdan o'zgaradi.",
+    "flags": [
+      {
+        "flag": "-c",
+        "desc": "Hesh fayli (.md5) ichidagi ro'yxat bo'yicha fayllarning haqiqiyligini tekshirish (Check)"
+      },
+      {
+        "flag": "-b",
+        "desc": "Faylni ikkilik (binary) rejimda o'qish"
+      },
+      {
+        "flag": "--status",
+        "desc": "Natijani ekranga chiqarmasdan, faqat chiqish kodi ($?) orqali natija berish"
+      },
+      {
+        "flag": "-w",
+        "desc": "Noto'g'ri formatlangan qatorlar bo'lsa ogohlantirish berish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "md5sum debian12.iso > debian12.iso.md5",
+        "desc": "Katta ISO tasvirning nazorat heshini faylga saqlab qo'yish"
+      },
+      {
+        "cmd": "md5sum -c debian12.iso.md5",
+        "desc": "Yuklab olingan faylning buzilmaganligini avtomatik tekshirish"
+      },
+      {
+        "cmd": "find /etc -type f -exec md5sum {} + > /tmp/etc_hashes.txt",
+        "desc": "/etc katalogidagi barcha konfiguratsiya fayllarining boshlang'ich hesh bazasini yaratish"
+      }
+    ],
+    "example": "md5sum /bin/bash",
+    "analogy": "Har bir faylning takrorlanmas barmoq izi (fingerprint) — yuklab olish paytida internet uzilib fayl chala qolsa, hesh mos kelmay darhol bilinadi."
+  },
+  {
+    "cmd": "sha256sum",
+    "name": "SHA-256 Checksum (Kriptografik Xavfsiz Hesh Hisoblash)",
+    "cat": "security",
+    "catName": "🔒 Xavfsizlik & Ruxsatlar",
+    "desc": "Fayl uchun 256-bitli SHA-2 oilasiga mansub yuqori darajada xavfsiz kriptografik hesh yaratish va tekshirish (MD5 ga qaraganda kolliziyadan 100% himoyalangan).",
+    "syntax": "sha256sum [BAYROQLAR] [FAYL]",
+    "syntaxRules": "Chiqish formati: 64 ta o'n oltilik belgi. Zamonaviy Linux distributivlari, Docker imidjlar va kriptovalyutalar aynan SHA-256 standartidan foydalanadi.",
+    "flags": [
+      {
+        "flag": "-c",
+        "desc": "Oldindan saqlangan .sha256 fayli asosida tekshirish"
+      },
+      {
+        "flag": "--quiet",
+        "desc": "Faqat xatolik yuz bergandagina ogohlantirish, muvaffaqiyatli fayllarni ko'rsatmaslik"
+      },
+      {
+        "flag": "-b",
+        "desc": "Binar rejimda hisoblash"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "sha256sum backup.tar.gz > backup.tar.gz.sha256",
+        "desc": "Muhim zaxira nusxaning kriptografik nazorat imzosini yaratish"
+      },
+      {
+        "cmd": "sha256sum -c backup.tar.gz.sha256",
+        "desc": "Zaxira nusxaning xakerlar yoki xatoliklar tomonidan o'zgartirilmaganini tasdiqlash"
+      },
+      {
+        "cmd": "echo -n 'parol123' | sha256sum",
+        "desc": "Matn satrining SHA-256 heshini olish"
+      }
+    ],
+    "example": "sha256sum /etc/passwd",
+    "analogy": "Davlat gerbli notarial muhr — agar biron kimsa hujjatdagi bitta nuqtani o'zgartirsa, muhr haqiqiyligini yo'qotadi."
+  },
+  {
+    "cmd": "hostname",
+    "name": "Hostname & Hostnamectl (Server Nomini Boshqarish)",
+    "cat": "system",
+    "catName": "⚙️ Tizim & Boshqaruv",
+    "desc": "Linux serverining tarmoqdagi nomini (hostname) ko'rish, vaqtincha yoki doimiy ravishda o'zgartirish hamda serverning IP manzillarini aniqlash.",
+    "syntax": "hostname [BAYROQLAR] YOKI sudo hostnamectl set-hostname [YANGI_NOM]",
+    "syntaxRules": "Doimiy o'zgartirish uchun systemd boshqaruvidagi tizimlarda 'hostnamectl set-hostname' ishlatiladi (/etc/hostname va /etc/hosts fayllariga yoziladi).",
+    "flags": [
+      {
+        "flag": "-I",
+        "desc": "Serverning barcha tarmoq interfeyslariga biriktirilgan IP manzillarini ko'rsatish"
+      },
+      {
+        "flag": "-i",
+        "desc": "Mahalliy host IP manzilini (odatda 127.0.1.1) ko'rsatish"
+      },
+      {
+        "flag": "-f",
+        "desc": "To'liq domen nomini (FQDN) chiqarish"
+      },
+      {
+        "flag": "-s",
+        "desc": "Faqat qisqa server nomini chiqarish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "hostname -I | awk '{print $1}'",
+        "desc": "Serverning asosiy birlamchi IP manzilini ajratib olish"
+      },
+      {
+        "cmd": "sudo hostnamectl set-hostname node01.uzum.infra",
+        "desc": "Server nomini korporativ standart bo'yicha doimiy o'zgartirish"
+      },
+      {
+        "cmd": "hostname && uname -r",
+        "desc": "Server nomi va joriy ishlayotgan Linux yadro versiyasini birga ko'rish"
+      }
+    ],
+    "example": "hostname -I",
+    "analogy": "Serverning pasportidagi ismi — minglab serverlar ichida aynan qaysi kompyuterda ishlayotganingizni bilish uchun shaxsiy nom."
+  },
+  {
+    "cmd": "shutdown",
+    "name": "Shutdown (Serverni Xavfsiz To'xtatish va O'chirish)",
+    "cat": "system",
+    "catName": "⚙️ Tizim & Boshqaruv",
+    "desc": "Linux tizimida barcha ishlayotgan jarayonlarga SIGTERM va SIGKILL signallarini berib, keshdagi ma'lumotlarni diskka yozib (sync), serverni xavfsiz o'chirish yoki qayta yuklash.",
+    "syntax": "sudo shutdown [BAYROQLAR] [VAQT] [XABAR]",
+    "syntaxRules": "Vaqt: 'now' (darhol), '+15' (15 daqiqadan keyin), yoki '23:30' (aniq soatda). Barcha ulangan foydalanuvchilar ekraniga ogohlantiruvchi xabar boradi.",
+    "flags": [
+      {
+        "flag": "-h",
+        "desc": "Tizimni to'xtatish va quvvatni to'liq o'chirish (Halt/Poweroff)"
+      },
+      {
+        "flag": "-r",
+        "desc": "O'chgandan so'ng serverni qayta ishga tushirish (Reboot)"
+      },
+      {
+        "flag": "-c",
+        "desc": "Oldindan rejalashtirilgan o'chirish jarayonini bekor qilish (Cancel)"
+      },
+      {
+        "flag": "-k",
+        "desc": "Haqiqatda o'chirmasdan, faqat barcha foydalanuvchilarga soxta ogohlantirish xabari jo'natish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "sudo shutdown -h now",
+        "desc": "Serverni darhol barcha ma'lumotlarni saqlab xavfsiz o'chirish"
+      },
+      {
+        "cmd": "sudo shutdown -r +10 'Diqqat: Server 10 daqiqadan keyin texnik profilaktikaga ketadi!'",
+        "desc": "Foydalanuvchilarni ogohlantirib 10 daqiqadan so'ng qayta yuklash"
+      },
+      {
+        "cmd": "sudo shutdown -c",
+        "desc": "Rejalashtirilgan o'chirishni bekor qilish"
+      }
+    ],
+    "example": "sudo shutdown -h now",
+    "analogy": "Katta zavodda ish vaqti tugaganda smenadagi barcha ishchilarni ogohlantirib, dastgohlarni to'xtatib, elektrni xavfsiz o'chirish jarayoni."
+  },
+  {
+    "cmd": "reboot",
+    "name": "Reboot (Serverni Qayta Ishga Tushirish)",
+    "cat": "system",
+    "catName": "⚙️ Tizim & Boshqaruv",
+    "desc": "Operatsion tizimni qayta ishga tushirish (restart qilish). Tizim yangilanishlaridan yoki yadro (kernel) yangilangandan so'ng yangi sozlamalarni faollashtirish uchun ishlatiladi.",
+    "syntax": "sudo reboot [BAYROQLAR]",
+    "syntaxRules": "Zamonaviy systemd tizimlarida bu buyruq 'systemctl reboot' chaqirig'ining qisqartmasi hisoblanadi.",
+    "flags": [
+      {
+        "flag": "-f",
+        "desc": "Majburiy (force) qayta yuklash — jarayonlarning yopilishini kutmasdan darhol qayta yoqish"
+      },
+      {
+        "flag": "-p",
+        "desc": "Qayta yuklash o'rniga to'liq quvvatni o'chirish (poweroff)"
+      },
+      {
+        "flag": "-w",
+        "desc": "Haqiqiy qayta yuklamasdan faqat /var/log/wtmp fayliga yozuv yozish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "sudo reboot",
+        "desc": "Serverni xavfsiz rejimda qayta ishga tushirish"
+      },
+      {
+        "cmd": "sudo reboot -f",
+        "desc": "Qotib qolgan jarayonlarni kutmasdan darhol tizimni majburiy qayta yuklash"
+      }
+    ],
+    "example": "sudo reboot",
+    "analogy": "Kompyuterdagi 'Restart' tugmasi — yangi dastur va drayverlar to'liq kuchga kirishi uchun serverni toza qayta yoqish."
+  },
+  {
+    "cmd": "base64",
+    "name": "Base64 (Ikkilik Ma'lumotlarni Matnga Kodlash va Dekodlash)",
+    "cat": "shell",
+    "catName": "🐚 Shell, Quvurlar & Oqimlar",
+    "desc": "Ikkilik fayllar, parollar, tokenlar va sertifikatlarni faqat ASCII harf va raqamlaridan iborat xavfsiz matn formatiga (Base64) o'tkazish yoki aksincha ochish.",
+    "syntax": "base64 [BAYROQLAR] [KIRISH_FAYLI]",
+    "syntaxRules": "Kirish standart kiritish (pipe `|`) orqali ham berilishi mumkin. Har 3 bayt ikkilik ma'lumot 4 ta ASCII belgisiga aylanadi.",
+    "flags": [
+      {
+        "flag": "-d",
+        "desc": "Base64 matnni asl holatiga qayta dekodlash (Decode)"
+      },
+      {
+        "flag": "-w 0",
+        "desc": "Matnni 76 belgidan keyin bo'lmasdan bitta yaxlit qator qilib chiqarish"
+      },
+      {
+        "flag": "-i",
+        "desc": "Dekodlash paytida begona noto'g'ri belgilarni e'tiborsiz qoldirish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "echo -n 'MaxfiyParol2026' | base64",
+        "desc": "Matnni Base64 formatiga o'tkazish"
+      },
+      {
+        "cmd": "echo 'TWF4Zml5UGFyb2wyMDI2' | base64 -d",
+        "desc": "Base64 qatorini asl matnga qaytarish"
+      },
+      {
+        "cmd": "base64 -w 0 logo.png > logo_base64.txt",
+        "desc": "Rasmni veb sahifalar uchun bitta yaxlit Base64 qatoriga aylantirish"
+      }
+    ],
+    "example": "echo 'Salom WIUT' | base64",
+    "analogy": "Xalqaro pochtada mo'rt yoki suyuq buyumni xavfsiz qutiga joylab, ustiga shtrix-kod va standart yozuvlar yopishtirib jo'natish."
+  },
+  {
+    "cmd": "bzip2",
+    "name": "Bzip2 & Bunzip2 (Kuchli Blokli Siqish Algoritmi)",
+    "cat": "disk",
+    "catName": "💾 Disk, Arxiv & Bloklar",
+    "desc": "Burrows-Wheeler algoritmi asosida ishlovchi kuchli siqish dasturi. Gzip ga qaraganda ko'proq xotira talab qiladi, lekin fayllarni sezilarli kichikroq hajmga keltiradi (.bz2).",
+    "syntax": "bzip2 [BAYROQLAR] [FAYL_NOMI] / bunzip2 [FAYL.bz2]",
+    "syntaxRules": "Diqqat: Odatiy holda bzip2 siqishdan so'ng asl faylni o'chiradi! Asl nusxani saqlab qolish uchun har doim '-k' (keep) bayrog'ini ishlating.",
+    "flags": [
+      {
+        "flag": "-k",
+        "desc": "Asl boshlang'ich faylni o'chirmasdan saqlab qolish (Keep input files)"
+      },
+      {
+        "flag": "-d",
+        "desc": "Siqilgan .bz2 faylni ochish (Decompress / bunzip2)"
+      },
+      {
+        "flag": "-v",
+        "desc": "Har bir faylning siqilish foizini ekranda ko'rsatish (Verbose)"
+      },
+      {
+        "flag": "-9",
+        "desc": "Maksimal darajada kuchli siqish (Eng yaxshi siqish koeffitsiyenti)"
+      },
+      {
+        "flag": "-t",
+        "desc": "Arxivning butunligini ochmasdan tekshirish (Test integrity)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "bzip2 -k -9 katta_baza.sql",
+        "desc": "Katta SQL baza faylini asl nusxasini saqlagan holda maksimal siqish"
+      },
+      {
+        "cmd": "tar -cvjf backup.tar.bz2 /etc",
+        "desc": "Tar bilan birgalikda butun /etc katalogini bz2 orqali arxivlash"
+      },
+      {
+        "cmd": "bunzip2 -k backup.tar.bz2",
+        "desc": ".bz2 arxivni ochish va arxiv faylini saqlab qolish"
+      }
+    ],
+    "example": "bzip2 -k -v katta_fayl.txt",
+    "analogy": "Mebel yoki kiyimlarni vakuumli qopga solib, changyutgich bilan havosini oxirgi tomchisigacha so'rib olib ixchamlashtirish."
+  },
+  {
+    "cmd": "xz",
+    "name": "XZ & Unxz (LZMA2 Asosidagi Zamonaviy Eng Kuchli Siqish)",
+    "cat": "disk",
+    "catName": "💾 Disk, Arxiv & Bloklar",
+    "desc": "LZMA/LZMA2 algoritmi orqali ishlovchi eng zamonaviy va samarali siqish utilitasi (.xz). Linux yadrosi va rasmiy Debian paketlari aynan xz orqali tarqatiladi.",
+    "syntax": "xz [BAYROQLAR] [FAYL_NOMI] / unxz [FAYL.xz]",
+    "syntaxRules": "Ko'p yadroli protsessordan to'liq foydalanish uchun '-T0' (barcha yadrolar) bayrog'i juda katta tezlik beradi.",
+    "flags": [
+      {
+        "flag": "-k",
+        "desc": "Asl kirish faylini o'chirmay saqlash (Keep)"
+      },
+      {
+        "flag": "-d",
+        "desc": "Siqilgan faylni ochish (Decompress)"
+      },
+      {
+        "flag": "-T0",
+        "desc": "Siqish uchun mavjud barcha CPU yadrolarini ishlatish (Multi-threading)"
+      },
+      {
+        "flag": "-9",
+        "desc": "Eng yuqori siqish darajasi (Extreme compression)"
+      },
+      {
+        "flag": "-l",
+        "desc": "Siqilgan .xz fayl haqidagi ma'lumotlarni ko'rish (List metadata)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "tar -cf - /var/log | xz -T0 -9 > logs_backup.tar.xz",
+        "desc": "Barcha CPU yadrolarini ishga solib eng kuchli darajada arxiv yaratish"
+      },
+      {
+        "cmd": "xz -d -k kernel.tar.xz",
+        "desc": ".xz arxivni asl nusxasini o'chirmasdan ochish"
+      },
+      {
+        "cmd": "xz -l linux-6.6.tar.xz",
+        "desc": "Arxiv ichidagi asl fayl hajmi va siqilish koeffitsiyentini ko'rish"
+      }
+    ],
+    "example": "xz -k -T0 data.csv",
+    "analogy": "Super-kompressor — barcha protsessor kuchini jamlab, ma'lumotlarni eng kichik megabaytlarga qadar zichlab beradi."
+  },
+  {
+    "cmd": "ifconfig",
+    "name": "Interface Config (Tarmoq Kartalari va IP Sozlamalari)",
+    "cat": "network",
+    "catName": "🌐 Tarmoq & Aloqa",
+    "desc": "Linux tizimida tarmoq interfeyslarini (eth0, wlan0, lo) ko'rish, IP manzil, maska va MAC manzillarni sozlash hamda tarmoq kartalarini yoqish/o'chirish.",
+    "syntax": "ifconfig [INTERFEYS] [IP_MANZIL] [BAYROQLAR]",
+    "syntaxRules": "Eslatma: Zamonaviy Linux tizimlarida ifconfig o'rniga 'ip addr' tavsiya etiladi, lekin u hali ham barcha korporativ tizimlarda keng ishlatiladi.",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Barcha, jumladan o'chiq bo'lgan tarmoq interfeyslarini ham ko'rsatish"
+      },
+      {
+        "flag": "-s",
+        "desc": "Tarmoq statistikasi haqida qisqacha jadval ko'rinishida chiqarish"
+      },
+      {
+        "flag": "up",
+        "desc": "Ko'rsatilgan tarmoq interfeysini yoqish / faollashtirish"
+      },
+      {
+        "flag": "down",
+        "desc": "Ko'rsatilgan tarmoq interfeysini o'chirish / to'xtatish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "ifconfig eth0",
+        "desc": "Faqat eth0 tarmoq kartasining IP, MAC va paketlar statistikasini ko'rish"
+      },
+      {
+        "cmd": "sudo ifconfig eth0 192.168.1.55 netmask 255.255.255.0 up",
+        "desc": "eth0 kartasiga statik IP va maska biriktirib yoqish"
+      },
+      {
+        "cmd": "sudo ifconfig wlan0 down",
+        "desc": "Simsiz tarmoq modulini xavfsizlik maqsadida o'chirish"
+      }
+    ],
+    "example": "ifconfig",
+    "analogy": "Serveringizga ulangan har bir tarmoq kabeli va Wi-Fi antennasining shaxsiy ko'krak nishoni."
+  },
+  {
+    "cmd": "iptables",
+    "name": "IP Tables (Linux Kernel Xavfsizlik Devori / Firewall)",
+    "cat": "security",
+    "catName": "🔒 Xavfsizlik & Ruxsatlar",
+    "desc": "Linux yadrosining Netfilter quyi tizimi orqali kiruvchi (INPUT), chiquvchi (OUTPUT) va tranzit (FORWARD) tarmoq paketlarini filtrlash va xavfsizlik devorini boshqarish.",
+    "syntax": "sudo iptables [BUYRUQ] [ZANJIR] [QOIDA] -j [HARAKAT]",
+    "syntaxRules": "Asosiy zanjirlar: INPUT (keluvchi), OUTPUT (ketuvchi), FORWARD (yo'naltiriluvchi). Asosiy harakatlar: ACCEPT (ruxsat), DROP (bloklash), REJECT (rad etish).",
+    "flags": [
+      {
+        "flag": "-L",
+        "desc": "Mavjud barcha fayrvoll qoidalarini ro'yxat qilib ko'rsatish (List)"
+      },
+      {
+        "flag": "-v",
+        "desc": "Batafsil ma'lumot (trafik baytlari va paketlar soni)"
+      },
+      {
+        "flag": "-n",
+        "desc": "IP va portlarni raqamli ko'rinishda chiqarish (DNS ga so'rov bermaslik)"
+      },
+      {
+        "flag": "-A",
+        "desc": "Zanjir oxiriga yangi qoida qo'shish (Append)"
+      },
+      {
+        "flag": "-D",
+        "desc": "Ko'rsatilgan qoidani o'chirish (Delete)"
+      },
+      {
+        "flag": "-F",
+        "desc": "Barcha mavjud qoidalarni tozalab tashlash (Flush)"
+      },
+      {
+        "flag": "-p",
+        "desc": "Protokol turini ko'rsatish (tcp, udp, icmp)"
+      },
+      {
+        "flag": "--dport",
+        "desc": "Qabul qiluvchi maqsad porti (masalan 22, 80, 443)"
+      },
+      {
+        "flag": "-j",
+        "desc": "Shart bajarilganda qilinadigan harakat (ACCEPT, DROP, REJECT)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "sudo iptables -L -v -n",
+        "desc": "Hozirgi barcha tarmoq himoya qoidalarini raqamlar bilan batafsil ko'rish"
+      },
+      {
+        "cmd": "sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT",
+        "desc": "SSH portiga (22) barcha ulanishlarga ruxsat berish"
+      },
+      {
+        "cmd": "sudo iptables -A INPUT -s 192.168.1.100 -j DROP",
+        "desc": "Shubhali IP manzildan kelayotgan barcha paketlarni so'zsiz bloklash"
+      },
+      {
+        "cmd": "sudo iptables -F",
+        "desc": "Barcha xavfsizlik qoidalarini tozalash"
+      }
+    ],
+    "example": "sudo iptables -L -n",
+    "analogy": "Bank darvozasidagi qo'riqlash posti — har bir kirayotgan mijozning sumkasi, ruxsatnomasi va pasportini tekshirib, ichkariga kiritadi yoki haydab chiqaradi."
+  },
+  {
+    "cmd": "nslookup",
+    "name": "Name Server Lookup (DNS Serverdan Domen IP Manzilini So'rash)",
+    "cat": "network",
+    "catName": "🌐 Tarmoq & Aloqa",
+    "desc": "DNS serverlariga to'g'ridan-to'g'ri so'rov yuborib, domen nomlarining IP manzillarini (A yozuvlari), pochta serverlarini (MX) va TXT yozuvlarini aniqlash.",
+    "syntax": "nslookup [DOMEN_NOMI] [DNS_SERVER_IP]",
+    "syntaxRules": "Agar DNS server ko'rsatilmasa, tizimning /etc/resolv.conf faylida ko'rsatilgan standart provayder DNS serveriga murojaat qiladi.",
+    "flags": [
+      {
+        "flag": "-type=A",
+        "desc": "Domenning IPv4 manzilini aniqlash"
+      },
+      {
+        "flag": "-type=MX",
+        "desc": "Domenning elektron pochta (Mail Exchange) serverlarini ko'rish"
+      },
+      {
+        "flag": "-type=NS",
+        "desc": "Domenga xizmat ko'rsatuvchi rasmiy Name Serverlarni ko'rish"
+      },
+      {
+        "flag": "-type=TXT",
+        "desc": "SPF, DKIM va domen tasdiqlovchi TXT yozuvlarini ko'rish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "nslookup google.com",
+        "desc": "Google domenining joriy IP manzillarini bilish"
+      },
+      {
+        "cmd": "nslookup -type=MX wiut.uz 8.8.8.8",
+        "desc": "Google DNS (8.8.8.8) orqali WIUT universitetining pochta serverlarini so'rash"
+      },
+      {
+        "cmd": "nslookup 8.8.8.8",
+        "desc": "Teskari DNS — IP manzil kimga tegishli ekanligini topish"
+      }
+    ],
+    "example": "nslookup wiut.uz",
+    "analogy": "Shahar telefon ma'lumotlar byurosi (109) — tashkilot nomini aytsangiz, uning to'g'ri telefon raqamini topib beradi."
+  },
+  {
+    "cmd": "shred",
+    "name": "Shred (Fayllarni Xotiradan Butunlay va Qaytarib Bo'lmas Yo'q Qilish)",
+    "cat": "security",
+    "catName": "🔒 Xavfsizlik & Ruxsatlar",
+    "desc": "Maxfiy fayllarni shunchaki o'chirmasdan (rm faqat inodeni bo'shatadi), fayl egallagan disk sektorlariga bir necha marta tasodifiy ma'lumotlar va nollar yozib, qayta tiklab bo'lmaydigan darajada yo'q qilish.",
+    "syntax": "shred [BAYROQLAR] [FAYL_NOMI]",
+    "syntaxRules": "Muhim: rm buyrug'i faqat inodeni o'chiradi, ma'lumot diskda qoladi. shred esa disk sektorlarini qayta-qayta yozib tozalaydi.",
+    "flags": [
+      {
+        "flag": "-u",
+        "desc": "Ustidan ma'lumot yozib bo'lingach, faylning o'zini ham diskdan o'chirib tashlash (Remove / Unlink)"
+      },
+      {
+        "flag": "-z",
+        "desc": "Oxirgi bosqichda hamma sektorlarga 0 baytlar yozib, fayl shred qilinganini yashirish (Zero out)"
+      },
+      {
+        "flag": "-n",
+        "desc": "Necha marta ustidan tasodifiy sonlar yozish kerakligini belgilash (standart 3 marta)"
+      },
+      {
+        "flag": "-v",
+        "desc": "Har bir tozalash qadamini foizlar bilan ekranda ko'rsatish (Verbose)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "shred -u -z -v -n 5 maxfiy_parollar.txt",
+        "desc": "Maxfiy hujjatni 5 marta tasodifiy sonlar bilan yozib, oxirida nollab diskdan butunlay o'chirish"
+      },
+      {
+        "cmd": "sudo shred -v -n 1 /dev/sdb",
+        "desc": "Eski fleshka yoki qattiq diskdagi barcha ma'lumotlarni to'liq yo'q qilish"
+      }
+    ],
+    "example": "shred -u -z maxfiy.txt",
+    "analogy": "Hujjatlar maydalagich (shredder) apparati — maxfiy qog'ozlarni oddiy axlatga tashlamasdan, maydalab, kukun qilib yoqib yuborish."
+  },
+  {
+    "cmd": "truncate",
+    "name": "Truncate (Fayl Hajmini Qisqartirish yoki Kengaytirish)",
+    "cat": "disk",
+    "catName": "💾 Disk, Arxiv & Bloklar",
+    "desc": "Faylning ichki hajmini berilgan o'lchamga (masalan 0 bayt yoki 100MB) qisqartirish yoki bo'sh joy bilan kengaytirish. Faylni o'chirmasdan uning ichini bir zumda tozalash uchun qulay.",
+    "syntax": "truncate -s [HAJM] [FAYL_NOMI]",
+    "syntaxRules": "Hajm prefikslari: 0 (butunlay bo'shatish), 10K (kilobayt), 50M (megabayt), 2G (gigabayt). Agar fayl mavjud bo'lmasa, yangi bo'sh fayl yaratadi.",
+    "flags": [
+      {
+        "flag": "-s",
+        "desc": "Faylning yangi o'lchamini belgilash (Size: masalan -s 0 yoki -s 10M)"
+      },
+      {
+        "flag": "-c",
+        "desc": "Agar fayl mavjud bo'lmasa yangi fayl yaratmaslik (Do not create)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "sudo truncate -s 0 /var/log/nginx/access.log",
+        "desc": "Nginx ishlab turgan paytda serverni to'xtatmasdan uning gigabaytlik log faylini 0 baytga tushirib tozalash"
+      },
+      {
+        "cmd": "truncate -s 1G virtual_disk.img",
+        "desc": "Virtual mashina uchun 1 Gigabaytlik bo'sh qattiq disk tasvirini bir soniyada yaratish"
+      }
+    ],
+    "example": "truncate -s 0 mylog.txt",
+    "analogy": "Daftarning barcha yozilgan varaqlarini bitta harakatda oqartirib tashlash, lekin muqova va nomini joyida qoldirish."
+  },
+  {
+    "cmd": "cal",
+    "name": "Cal (Terminal Taqvimi / Kalendari)",
+    "cat": "system",
+    "catName": "⚙️ Tizim & Boshqaruv",
+    "desc": "Linux terminalida qulay oylik yoki yillik taqvimni chiqarish, joriy kunni belgilab ko'rsatish va istalgan o'tgan yoki kelgusi yil oylarini ko'rish.",
+    "syntax": "cal [BAYROQLAR] [OY] [YIL]",
+    "syntaxRules": "Oy 1-12 oralig'ida raqam bilan beriladi. Yil to'liq 4 xonali bo'lishi shart (masalan 2026).",
+    "flags": [
+      {
+        "flag": "-3",
+        "desc": "Oldingi oy, joriy oy va keyingi oyni yonma-yon ko'rsatish"
+      },
+      {
+        "flag": "-y",
+        "desc": "Butun yil taqvimini (12 oyni) bitta ekranda chiqarish"
+      },
+      {
+        "flag": "-j",
+        "desc": "Yulian kunlari bo'yicha (1-365) hisoblab chiqarish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "cal",
+        "desc": "Joriy oy taqvimini bugungi kunni rang bilan ajratib ko'rsatish"
+      },
+      {
+        "cmd": "cal -3",
+        "desc": "O'tgan, joriy va kelasi oyni bitta ko'rinishda tekshirish"
+      },
+      {
+        "cmd": "cal 12 2026",
+        "desc": "2026-yil dekabr oyi taqvimini ko'rish"
+      }
+    ],
+    "example": "cal -3",
+    "analogy": "Ish stolingiz ustida turgan klassik devor taqvimi."
+  },
+  {
+    "cmd": "bc",
+    "name": "Basic Calculator (Ixtiyoriy Aniq O'lchamli CLI Kalkulyator)",
+    "cat": "shell",
+    "catName": "🐚 Shell, Quvurlar & Oqimlar",
+    "desc": "Bash shell faqat butun sonlar bilan ishlay olganligi sababli, kasr sonlar (float), darajalar va murakkab matematik amallarni 100% aniqlikda hisoblovchi kalkulyator.",
+    "syntax": "echo '[MATEMATIK_IFODA]' | bc [BAYROQLAR]",
+    "syntaxRules": "Kasr qismini belgilash uchun 'scale=N' parametri ishlatiladi. '-l' bayrog'i standart matematik kutubxonani (sqrt, sin, cos) ulaydi.",
+    "flags": [
+      {
+        "flag": "-l",
+        "desc": "Standart matematik kutubxonani yuklash va scale ni avtomatik 20 xonaga sozlash"
+      },
+      {
+        "flag": "-q",
+        "desc": "Kirishdagi salomlashuv xabarlarini o'chirib jim rejimda ishlash (Quiet)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "echo 'scale=4; 355 / 113' | bc",
+        "desc": "Pi sonini kasr xonalari bilan hisoblash"
+      },
+      {
+        "cmd": "echo '2 ^ 16' | bc",
+        "desc": "2 ning 16-darajasini (65536) hisoblash"
+      },
+      {
+        "cmd": "echo 'sqrt(144)' | bc -l",
+        "desc": "144 ning kvadrat ildizini topish"
+      }
+    ],
+    "example": "echo 'scale=2; 100 / 3' | bc",
+    "analogy": "Muhandislik ilmiy kalkulyatori — murakkab hisob-kitoblarni tiyinigacha aniq chiqarib beruvchi aql."
+  },
+  {
     "cmd": "tar",
     "name": "Tape Archive (Fayl va Katalogni Arxivlash / Qadoqlash)",
     "cat": "disk",
@@ -351,7 +1149,6 @@
     "example": "git status",
     "analogy": "Video o'yindagi 'Save Game' nuqtalari. Istalgan vaqtda avvalgi xatosiz nuqtaga qaytish imkonini beradi."
   },
-
   {
     "cmd": "|",
     "name": "Unix Anonymous Pipe (Quvur / Oqimli Konveyer)",
@@ -3905,6 +4702,49 @@
     `;
   }
 
+  function getScore(item, q) {
+    if (!q) return 1;
+    const cmd = (item.cmd || "").toLowerCase().trim();
+    const name = (item.name || "").toLowerCase();
+    const desc = (item.desc || "").toLowerCase();
+    
+    // Exact command match (Highest priority)
+    if (cmd === q) return 10000;
+    // Command starts with query (e.g. ls -> lsof, lsblk)
+    if (cmd.startsWith(q)) return 5000 + (100 - Math.min(cmd.length, 90));
+    // Command contains query
+    if (cmd.includes(q)) return 2000;
+    
+    // Word match in name (e.g. 'arxiv' or 'terminal')
+    const nameWords = name.replace(/[^a-z0-9_'-]/g, " ").split(/\s+/);
+    if (nameWords.some(w => w === q)) return 1200;
+    if (name.startsWith(q)) return 1000;
+
+    // Exact flag match (e.g. -lh, -a, -p, -czvf)
+    const cleanQ = q.replace(/^-+/, "");
+    if ((item.flags || []).some(f => f.flag.toLowerCase().replace(/^-+/, "") === cleanQ)) return 900;
+    
+    // Combination command contains query as a distinct token
+    if ((item.combinations || []).some(c => c.cmd.toLowerCase().split(/\s+/).includes(q))) return 600;
+
+    // Word match in description
+    const descWords = desc.replace(/[^a-z0-9_'-]/g, " ").split(/\s+/);
+    if (descWords.some(w => w === q)) return 300;
+
+    // If query is longer than 3 characters, allow substring in name or desc
+    if (q.length > 3 && name.includes(q)) return 150;
+    if (q.length > 3 && desc.includes(q)) return 50;
+
+    // General mention in examples/analogies/flags
+    const flagsText = (item.flags || []).map(f => f.flag + " " + f.desc).join(" ");
+    const combosText = (item.combinations || []).map(c => c.cmd + " " + c.desc).join(" ");
+    const haystack = (item.example + " " + item.analogy + " " + flagsText + " " + combosText).toLowerCase();
+    if (haystack.includes(q)) return 10;
+    
+    return 0;
+  }
+  root.getDictionaryScore = getScore;
+
   // Render cards
   function renderDictionaryEntries(filterText = "", activeCategory = "all") {
     const container = document.getElementById("osDictContent");
@@ -3912,38 +4752,6 @@
     if (!container) return;
 
     const query = filterText.toLowerCase().trim();
-
-    function getScore(item, q) {
-      if (!q) return 1;
-      const cmd = (item.cmd || "").toLowerCase().trim();
-      const name = (item.name || "").toLowerCase();
-      const desc = (item.desc || "").toLowerCase();
-      
-      // Exact command match (Highest priority)
-      if (cmd === q) return 10000;
-      // Command starts with query (e.g. ls -> lsof, lsblk)
-      if (cmd.startsWith(q)) return 5000 + (100 - cmd.length);
-      // Word boundary match in command or name
-      if (name.split(/\s+/).some(w => w === q)) return 3000;
-      // Exact flag match (e.g. -lh, -a, -p)
-      const cleanQ = q.replace(/^-+/, '');
-      if ((item.flags || []).some(f => f.flag.toLowerCase().replace(/^-+/, '') === cleanQ)) return 2000;
-      // Command contains query
-      if (cmd.includes(q)) return 1200;
-      // Name contains query
-      if (name.includes(q)) return 800;
-      // Combination exact command
-      if ((item.combinations || []).some(c => c.cmd.toLowerCase().split(/\s+/).includes(q))) return 400;
-      // Word match in description
-      if (desc.split(/\s+/).some(w => w === q)) return 100;
-      // General mention
-      const flagsText = (item.flags || []).map(f => f.flag + ' ' + f.desc).join(' ');
-      const combosText = (item.combinations || []).map(c => c.cmd + ' ' + c.desc).join(' ');
-      const syntaxRulesText = item.syntaxRules || '';
-      const haystack = (cmd + ' ' + name + ' ' + desc + ' ' + item.example + ' ' + item.analogy + ' ' + flagsText + ' ' + combosText + ' ' + syntaxRulesText).toLowerCase();
-      if (haystack.includes(q)) return 10;
-      return 0;
-    }
 
     const matchedItems = OS_DICTIONARY_DATA.filter(item => {
       if (activeCategory !== "all" && item.cat !== activeCategory) {
@@ -4171,7 +4979,11 @@
   };
 
   if (typeof module !== "undefined" && module.exports) {
-    module.exports = { OS_DICTIONARY_DATA };
+    module.exports = { 
+      OS_DICTIONARY_DATA, 
+      findDictionaryCommand: root.findDictionaryCommand,
+      getScore 
+    };
   }
 
 })();
