@@ -1,44 +1,230 @@
-// ============================================================================
-// DATABASE SYSTEMS ACADEMY — EER CLIENT CASE STUDIES
-// Variable: EER_CLIENTS_1_50 (50 Questions)
-// ============================================================================
-
 var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
-
 _scope.EER_CLIENTS_1_50 = [
   {
     "id": 1,
     "sector": 1,
-    "difficulty": "Floor 1 • Beginner",
-    "clientName": "Alisher Zokirov",
-    "clientRole": "'Orient Bank' President & CEO",
-    "clientAvatar": "banker",
-    "title": "Bank Branches and Staff System",
-    "story": "Hello, Architect! In our bankda filiallar (Branch) va ularda ishlovchi xodimlar (Staff) are present. Har bir filialda kamida 1 ta, ko'pi bilan ko'plab xodim ishlaydi. Har bir xodim esa qat'iy ravishda faqat 1 ta filialga biriktiriladi.",
-    "taskUz": "Model 'Branch' and 'Staff' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'.",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Nodirbek Zokirov",
+    "clientRole": "E-Commerce Mahsulot Direktori",
+    "clientAvatar": "mentor",
+    "title": "Uzum Market — Sotuvchi va Mahsulotlar Katalogi (Relatsion Sxema)",
+    "story": "Uzum Market marketplace platformasida har bir rasmiy do'kon sotuvchisi (Seller) ko'plab mahsulotlarni (Product) sotuvga qo'yadi. Har bir mahsulot esa aniq bitta ro'yxatdan o'tgan sotuvchiga tegishli (1..1). Sotuvchida esa kamida bitta yoki undan ko'p tovar bo'lishi shart (1..*).\n\nTizimda 'Seller' (sellerId {PK}) va 'Product' (productId {PK}) kuchli entitiylarini shakllantiring va ular o'rtasidagi 1:N munosabatni o'rnating.",
+    "instruction": "'Seller' va 'Product' entitiylarini binar aloqa chizig'i bilan bog'lang: Seller tomonga '1..1', Product tomonga '1..*' multiplisitiyasini o'rnating.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Branch",
+          "name": "Seller",
+          "isWeak": false,
+          "pk": "sellerId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "branchNo",
-              "isPK": true
+              "name": "sellerId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "city"
+              "name": "shopName",
+              "isPK": false
+            },
+            {
+              "name": "rating",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Staff",
+          "name": "Product",
+          "isWeak": false,
+          "pk": "productId",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "staffNo",
-              "isPK": true
+              "name": "productId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name"
+              "name": "title",
+              "isPK": false
+            },
+            {
+              "name": "price",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Seller",
+          "pk": "sellerId",
+          "isWeak": false
+        },
+        {
+          "name": "Product",
+          "pk": "productId",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Seller",
+          "entity2": "Product",
+          "fromEntityName": "Seller",
+          "toEntityName": "Product",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "sector": 1,
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Aziz Qodirov",
+    "clientRole": "Fintech Tizim Arxitektori",
+    "clientAvatar": "mentor",
+    "title": "Payme To'lov Tizimi — Foydalanuvchi va Bank Kartalari (Relatsion Sxema)",
+    "story": "Payme to'lov ilovasida har bir ro'yxatdan o'tgan foydalanuvchi (User) o'z hisobiga bir nechta Humo yoki Uzcard bank kartalarini (BankCard) ulashi mumkin (0..*). Yangi ro'yxatdan o'tgan mijozda hali karta bo'lmasligi mumkin. Har bir ulangan bank kartasi esa aniq bitta egaga tegishli (1..1).\n\n'User' (userId {PK}) va 'BankCard' (cardId {PK}) entitiylarini o'zaro bog'lang.",
+    "instruction": "'User' va 'BankCard' entitiylarini bog'lang: User tomonga '1..1', BankCard tomonga '0..*' multiplisitiyasini qo'ying.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "User",
+          "isWeak": false,
+          "pk": "userId",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "userId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "BankCard",
+          "isWeak": false,
+          "pk": "cardId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "cardId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "panMasked",
+              "isPK": false
+            },
+            {
+              "name": "expiryDate",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "User",
+          "pk": "userId",
+          "isWeak": false
+        },
+        {
+          "name": "BankCard",
+          "pk": "cardId",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "User",
+          "entity2": "BankCard",
+          "fromEntityName": "User",
+          "toEntityName": "BankCard",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "sector": 1,
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Dilshod Alimov",
+    "clientRole": "Chakana Savdo Operatsion Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Korzinka Savdo Tarmog'i — Filial va Kassirlar Shtati (Relatsion Sxema)",
+    "story": "Korzinka supermarketlar tarmog'ida har bir filialda (Branch) smenada xizmat ko'rsatuvchi bir nechta kassirlar (Cashier) shtati faoliyat yuritadi (1..*). Har bir kassir esa rasmiy mehnat shartnomasiga binoan faqat bitta doimiy filialga biriktirilgan (1..1).\n\n'Branch' (branchId {PK}) va 'Cashier' (cashierId {PK}) o'rtasidagi 1:N aloqani loyihalashtiring.",
+    "instruction": "'Branch' va 'Cashier' o'rtasida aloqa chizing: Branch (1..1), Cashier (1..*).",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Branch",
+          "isWeak": false,
+          "pk": "branchId",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "branchId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "branchName",
+              "isPK": false
+            },
+            {
+              "name": "city",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Cashier",
+          "isWeak": false,
+          "pk": "cashierId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "cashierId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "shiftCode",
+              "isPK": false
             }
           ]
         }
@@ -49,437 +235,82 @@ _scope.EER_CLIENTS_1_50 = [
       "entities": [
         {
           "name": "Branch",
-          "pk": "branchNo"
+          "pk": "branchId",
+          "isWeak": false
         },
         {
-          "name": "Staff",
-          "pk": "staffNo"
+          "name": "Cashier",
+          "pk": "cashierId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
           "entity1": "Branch",
-          "entity2": "Staff",
+          "entity2": "Cashier",
+          "fromEntityName": "Branch",
+          "toEntityName": "Cashier",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Branch' (1..1) to 'Staff' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Branch' (1..1) and 'Staff' (1..*) verified and approved.",
-    "task": "Model 'Branch' and 'Staff' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'."
-  },
-  {
-    "id": 2,
-    "sector": 1,
-    "difficulty": "Floor 1 • Beginner",
-    "clientName": "Dilnoza Rahimova",
-    "clientRole": "University Faculty Dean",
-    "clientAvatar": "dean",
-    "title": "Faculty and Student Registry",
-    "story": "Universitetimizda har bir fakultet (Faculty) o'z talabalariga (Student) ega. Har bir talaba 1 ta fakultetda o'qiydi, fakultet esa ko'plab talabalarga ega.",
-    "taskUz": "Model 'Faculty' and 'Student' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Faculty",
-          "attributes": [
-            {
-              "name": "facultyCode",
-              "isPK": true
-            },
-            {
-              "name": "facultyName"
-            }
-          ]
-        },
-        {
-          "name": "Student",
-          "attributes": [
-            {
-              "name": "studentId",
-              "isPK": true
-            },
-            {
-              "name": "fullName"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Faculty",
-          "pk": "facultyCode"
-        },
-        {
-          "name": "Student",
-          "pk": "studentId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Faculty",
-          "entity2": "Student",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'Faculty' (1..1) to 'Student' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Faculty' (1..1) and 'Student' (1..*) verified and approved.",
-    "task": "Model 'Faculty' and 'Student' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'."
-  },
-  {
-    "id": 3,
-    "sector": 1,
-    "difficulty": "Floor 1 • Beginner",
-    "clientName": "Botir Qodirov",
-    "clientRole": "'Mega Market' Logistika Direktori",
-    "clientAvatar": "logistics",
-    "title": "Toifalar va Mahsulotlar Katalogi",
-    "story": "Do'konimizda har bir toifa (Category) o'z ichiga kamida 1 ta yoki undan ko'p mahsulotlarni (Product) oladi. Har bir mahsulot bitta toifaga kiradi.",
-    "taskUz": "Model 'Category' and 'Product' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Category",
-          "attributes": [
-            {
-              "name": "catId",
-              "isPK": true
-            },
-            {
-              "name": "catName"
-            }
-          ]
-        },
-        {
-          "name": "Product",
-          "attributes": [
-            {
-              "name": "prodCode",
-              "isPK": true
-            },
-            {
-              "name": "price"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Category",
-          "pk": "catId"
-        },
-        {
-          "name": "Product",
-          "pk": "prodCode"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Category",
-          "entity2": "Product",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'Category' (1..1) to 'Product' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Category' (1..1) and 'Product' (1..*) verified and approved.",
-    "task": "Model 'Category' and 'Product' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'."
+    }
   },
   {
     "id": 4,
     "sector": 1,
-    "difficulty": "Floor 1 • Beginner",
-    "clientName": "Nodir Salimov",
-    "clientRole": "'Ziyo Nashr' Bosh Muharriri",
-    "clientAvatar": "publisher",
-    "title": "Nashriyot va Kitoblar Noshirligi",
-    "story": "Nashriyotimiz (Publisher) kitoblar (Book) chop etadi. Har bir kitob aynan 1 ta nashriyotga qarashli, nashriyot esa ko'plab kitob chop etadi.",
-    "taskUz": "Model 'Publisher' and 'Book' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Publisher",
-          "attributes": [
-            {
-              "name": "pubId",
-              "isPK": true
-            },
-            {
-              "name": "pubName"
-            }
-          ]
-        },
-        {
-          "name": "Book",
-          "attributes": [
-            {
-              "name": "isbn",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Publisher",
-          "pk": "pubId"
-        },
-        {
-          "name": "Book",
-          "pk": "isbn"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Publisher",
-          "entity2": "Book",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'Publisher' (1..1) to 'Book' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Publisher' (1..1) and 'Book' (1..*) verified and approved.",
-    "task": "Model 'Publisher' and 'Book' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'."
-  },
-  {
-    "id": 5,
-    "sector": 1,
-    "difficulty": "Floor 1 • Beginner",
-    "clientName": "Malika Yusupova",
-    "clientRole": "'Shifo Med' Bosh Shifokori",
-    "clientAvatar": "doctor",
-    "title": "Kasalxona Bo'limi va Palatalar",
-    "story": "Shifoxonamizda bo'limlar (WardDept) va palatalar (WardRoom) are present. Har bir bo'limda kamida 1 ta yoki ko'p palata bor, palata faqat 1 bo'limga tegishli.",
-    "taskUz": "Model 'WardDept' and 'WardRoom' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "WardDept",
-          "attributes": [
-            {
-              "name": "deptCode",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "WardRoom",
-          "attributes": [
-            {
-              "name": "roomNo",
-              "isPK": true
-            },
-            {
-              "name": "capacity"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "WardDept",
-          "pk": "deptCode"
-        },
-        {
-          "name": "WardRoom",
-          "pk": "roomNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "WardDept",
-          "entity2": "WardRoom",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'WardDept' (1..1) to 'WardRoom' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'WardDept' (1..1) and 'WardRoom' (1..*) verified and approved.",
-    "task": "Model 'WardDept' and 'WardRoom' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'."
-  },
-  {
-    "id": 6,
-    "sector": 1,
-    "difficulty": "Floor 1 • Beginner",
-    "clientName": "Javohir Toirov",
-    "clientRole": "Davlat Ro'yxatga Olish Xizmati",
-    "clientAvatar": "officer",
-    "title": "Fuqaro va Pasport Munosabati",
-    "story": "In our tizimda har bir fuqaro (Citizen) qat'iy ravishda faqat bitta pasportga (Passport) ega bo'lishi shart va har bir pasport faqat 1 ta fuqaroga tegishli.",
-    "taskUz": "Model 'Citizen' and 'Passport' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Citizen",
-          "attributes": [
-            {
-              "name": "pinfl",
-              "isPK": true
-            },
-            {
-              "name": "fullName"
-            }
-          ]
-        },
-        {
-          "name": "Passport",
-          "attributes": [
-            {
-              "name": "passNo",
-              "isPK": true
-            },
-            {
-              "name": "issueDate"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Citizen",
-          "pk": "pinfl"
-        },
-        {
-          "name": "Passport",
-          "pk": "passNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Citizen",
-          "entity2": "Passport",
-          "mult1": "1..1",
-          "mult2": "1..1"
-        }
-      ]
-    },
-    "hint": "Connect 'Citizen' (1..1) to 'Passport' (1..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Citizen' (1..1) and 'Passport' (1..1) verified and approved.",
-    "task": "Model 'Citizen' and 'Passport' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'."
-  },
-  {
-    "id": 7,
-    "sector": 1,
-    "difficulty": "Floor 1 • Beginner",
-    "clientName": "Sanjar Mirzayev",
-    "clientRole": "Futbol Ligasi Komissari",
-    "clientAvatar": "sports",
-    "title": "Futbol Klubi va Stadion Munosabati",
-    "story": "Ligamizda har bir klub (FootballClub) bitta uy stadioniga (Stadium) ega va har bir stadion faqat 1 ta klubga tegishli.",
-    "taskUz": "Model 'FootballClub' and 'Stadium' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "FootballClub",
-          "attributes": [
-            {
-              "name": "clubId",
-              "isPK": true
-            },
-            {
-              "name": "clubName"
-            }
-          ]
-        },
-        {
-          "name": "Stadium",
-          "attributes": [
-            {
-              "name": "stadiumId",
-              "isPK": true
-            },
-            {
-              "name": "seats"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "FootballClub",
-          "pk": "clubId"
-        },
-        {
-          "name": "Stadium",
-          "pk": "stadiumId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "FootballClub",
-          "entity2": "Stadium",
-          "mult1": "1..1",
-          "mult2": "1..1"
-        }
-      ]
-    },
-    "hint": "Connect 'FootballClub' (1..1) to 'Stadium' (1..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'FootballClub' (1..1) and 'Stadium' (1..1) verified and approved.",
-    "task": "Model 'FootballClub' and 'Stadium' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'."
-  },
-  {
-    "id": 8,
-    "sector": 1,
-    "difficulty": "Floor 1 • Beginner",
-    "clientName": "Gulnora Ergasheva",
-    "clientRole": "Avtopark Mudiri",
-    "clientAvatar": "fleet",
-    "title": "Haydovchi va Xizmat Mashinasi",
-    "story": "Korxonamizda har bir maxsus haydovchiga (Driver) aniq 1 ta xizmat avtomobili (Vehicle) biriktirilgan va har bir mashina 1 ta haydovchiga ega.",
-    "taskUz": "Model 'Driver' and 'Vehicle' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'.",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Rustam Saidov",
+    "clientRole": "Taksopark Dispecheri",
+    "clientAvatar": "mentor",
+    "title": "Yandex Go Taksoparki — Haydovchi va Xizmat Avtomobili (1:1) (Relatsion Sxema)",
+    "story": "Yandex Go Comfort+ tarifida har bir litsenziyali haydovchiga (Driver) uning smenasi uchun aniq bitta tekshirilgan xizmat avtomobili (Vehicle) biriktiriladi (1..1). Har bir avtomobil ham ayni paytda faqat 1 ta mas'ul haydovchi ixtiyorida bo'ladi (1..1).\n\n'Driver' (driverId {PK}) va 'Vehicle' (vinCode {PK}) entitiylarini qat'iy 1:1 aloqa bilan bog'lang.",
+    "instruction": "'Driver' va 'Vehicle' entitiylarini 1:1 munosabat bilan bog'lang: Driver (1..1), Vehicle (1..1).",
     "starterDiagram": {
       "entities": [
         {
           "name": "Driver",
+          "isWeak": false,
+          "pk": "driverId",
+          "x": 140,
+          "y": 160,
           "attributes": [
+            {
+              "name": "driverId",
+              "isPK": true,
+              "isPPK": false
+            },
             {
               "name": "licenseNo",
-              "isPK": true
+              "isPK": false
             },
             {
-              "name": "fullName"
+              "name": "rating",
+              "isPK": false
             }
           ]
         },
         {
           "name": "Vehicle",
+          "isWeak": false,
+          "pk": "vinCode",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "vin",
-              "isPK": true
+              "name": "vinCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "model"
+              "name": "plateNo",
+              "isPK": false
+            },
+            {
+              "name": "carModel",
+              "isPK": false
             }
           ]
         }
@@ -490,59 +321,82 @@ _scope.EER_CLIENTS_1_50 = [
       "entities": [
         {
           "name": "Driver",
-          "pk": "licenseNo"
+          "pk": "driverId",
+          "isWeak": false
         },
         {
           "name": "Vehicle",
-          "pk": "vin"
+          "pk": "vinCode",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
           "entity1": "Driver",
           "entity2": "Vehicle",
+          "fromEntityName": "Driver",
+          "toEntityName": "Vehicle",
           "mult1": "1..1",
-          "mult2": "1..1"
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Driver' (1..1) to 'Vehicle' (1..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Driver' (1..1) and 'Vehicle' (1..1) verified and approved.",
-    "task": "Model 'Driver' and 'Vehicle' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'."
+    }
   },
   {
-    "id": 9,
+    "id": 5,
     "sector": 1,
-    "difficulty": "Floor 1 • Beginner",
-    "clientName": "Davron Akbarov",
-    "clientRole": "Dasturiy Ta'minot Company PM",
-    "clientAvatar": "techpm",
-    "title": "Loyiha va Versiya Boshqaruvi",
-    "story": "Kompaniyamizda har bir loyiha (Project) bitta markaziy Git repozitoriysiga (Repository) ega, har bir repozitoriy faqat 1 ta loyihaga xizmat qiladi.",
-    "taskUz": "Model 'Project' and 'Repository' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'.",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Dr. Alisher Vohidov",
+    "clientRole": "Akademik Ishlar Bo'yicha Dekan",
+    "clientAvatar": "mentor",
+    "title": "WIUT Universiteti — Fakultet va Akademik Kafedralar (Relatsion Sxema)",
+    "story": "Westminster International University in Tashkent (WIUT) da har bir fakultet (Faculty) o'z tarkibida kamida bitta yoki bir nechta ixtisoslashgan kafedralarni (Department) birlashtiradi (1..*). Har bir kafedra esa faqat bitta fakultet tasarrufiga kiradi (1..1).\n\n'Faculty' (facultyCode {PK}) va 'Department' (deptId {PK}) entitiylarini bog'lang.",
+    "instruction": "'Faculty' va 'Department' entitiylarini bog'lang: Faculty tomonga '1..1', Department tomonga '1..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Project",
+          "name": "Faculty",
+          "isWeak": false,
+          "pk": "facultyCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "projId",
-              "isPK": true
+              "name": "facultyCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "title"
+              "name": "facultyName",
+              "isPK": false
+            },
+            {
+              "name": "deanEmail",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Repository",
+          "name": "Department",
+          "isWeak": false,
+          "pk": "deptId",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "repoId",
-              "isPK": true
+              "name": "deptId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "repoUrl"
+              "name": "deptTitle",
+              "isPK": false
+            },
+            {
+              "name": "officeRoom",
+              "isPK": false
             }
           ]
         }
@@ -552,60 +406,255 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Project",
-          "pk": "projId"
+          "name": "Faculty",
+          "pk": "facultyCode",
+          "isWeak": false
         },
         {
-          "name": "Repository",
-          "pk": "repoId"
+          "name": "Department",
+          "pk": "deptId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Project",
-          "entity2": "Repository",
+          "entity1": "Faculty",
+          "entity2": "Department",
+          "fromEntityName": "Faculty",
+          "toEntityName": "Department",
           "mult1": "1..1",
-          "mult2": "1..1"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Project' (1..1) to 'Repository' (1..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Project' (1..1) and 'Repository' (1..1) verified and approved.",
-    "task": "Model 'Project' and 'Repository' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'."
+    }
   },
   {
-    "id": 10,
+    "id": 6,
     "sector": 1,
-    "difficulty": "Floor 1 • Beginner",
-    "clientName": "Aziza Karimova",
-    "clientRole": "Mehmonxona Tarmog'i Manager",
-    "clientAvatar": "hotel",
-    "title": "Mehmonxona va Bosh Bino",
-    "story": "Mehmonxona tarmog'imizda har bir filial mehmonxona (Hotel) o'zining asosiy qabulxona binosiga (MainBuilding) ega va har bir bosh bino 1 ta mehmonxonaga qaraydi.",
-    "taskUz": "Model 'Hotel' and 'MainBuilding' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'.",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Dr. Sevara Ismoilova",
+    "clientRole": "Klinika Bosh Vrachi",
+    "clientAvatar": "mentor",
+    "title": "Medion Tibbiyot Markazi — Bo'lim va Bosh Shifokor (1:1) (Relatsion Sxema)",
+    "story": "Ko'p tarmoqli Medion klinikasida har bir tibbiy bo'limni (HospitalDept) boshqarish uchun aniq 1 ta bo'lim bosh shifokori (HeadDoctor) tayinlangan (1..1). Bosh shifokor ham o'z lavozimida faqat bitta bo'lim boshqaruviga javobgar (1..1).\n\n'HospitalDept' (deptCode {PK}) va 'HeadDoctor' (doctorId {PK}) o'rtasida 1:1 aloqa o'rnating.",
+    "instruction": "'HospitalDept' va 'HeadDoctor' entitiylarini 1:1 aloqa bilan bog'lang (1..1 va 1..1).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Hotel",
+          "name": "HospitalDept",
+          "isWeak": false,
+          "pk": "deptCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "hotelId",
-              "isPK": true
+              "name": "deptCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "city"
+              "name": "deptName",
+              "isPK": false
+            },
+            {
+              "name": "floorLevel",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "MainBuilding",
+          "name": "HeadDoctor",
+          "isWeak": false,
+          "pk": "doctorId",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "bldgId",
-              "isPK": true
+              "name": "doctorId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "floors"
+              "name": "doctorName",
+              "isPK": false
+            },
+            {
+              "name": "specialty",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "HospitalDept",
+          "pk": "deptCode",
+          "isWeak": false
+        },
+        {
+          "name": "HeadDoctor",
+          "pk": "doctorId",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "HospitalDept",
+          "entity2": "HeadDoctor",
+          "fromEntityName": "HospitalDept",
+          "toEntityName": "HeadDoctor",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "sector": 1,
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Temur Karimov",
+    "clientRole": "Aviapark Texnik Direktori",
+    "clientAvatar": "mentor",
+    "title": "Uzbekistan Airways — Aviakompaniya va Samolyotlar Floti (Relatsion Sxema)",
+    "story": "Milliy aviakompaniya (Airline) tasarrufida xalqaro va mahalliy reyslarni amalga oshiruvchi o'nlab yo'lovchi samolyotlari (Aircraft) mavjud (1..*). Har bir havo kemasi esa xalqaro reestrga ko'ra qat'iy bitta tashuvchi aviakompaniyaga tegishli (1..1).\n\n'Airline' (iataCode {PK}) va 'Aircraft' (tailNo {PK}) entitiylarini binar aloqa bilan ulang.",
+    "instruction": "'Airline' va 'Aircraft' ni bog'lang: Airline tomonga '1..1', Aircraft tomonga '1..*'.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Airline",
+          "isWeak": false,
+          "pk": "iataCode",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "iataCode",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "airlineName",
+              "isPK": false
+            },
+            {
+              "name": "country",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Aircraft",
+          "isWeak": false,
+          "pk": "tailNo",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "tailNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "model",
+              "isPK": false
+            },
+            {
+              "name": "capacity",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Airline",
+          "pk": "iataCode",
+          "isWeak": false
+        },
+        {
+          "name": "Aircraft",
+          "pk": "tailNo",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Airline",
+          "entity2": "Aircraft",
+          "fromEntityName": "Airline",
+          "toEntityName": "Aircraft",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "sector": 1,
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Nigora Umarova",
+    "clientRole": "Mehmonxona Bosh Boshqaruvchisi",
+    "clientAvatar": "mentor",
+    "title": "Hyatt Regency — Mehmonxona va Xonalar Fondi (Relatsion Sxema)",
+    "story": "Besh yulduzli Hyatt mehmonxonasida (Hotel) mehmonlar istiqomat qilishi uchun yuzlab xonalar (Room) mavjud (1..*). Har bir xona esa faqat bitta aniq mehmonxona majmuasiga qarashlidir (1..1).\n\n'Hotel' (hotelId {PK}) va 'Room' (roomNo {PK}) entitiylarini bog'lang.",
+    "instruction": "'Hotel' va 'Room' entitiylarini bog'lang: Hotel (1..1), Room (1..*).",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Hotel",
+          "isWeak": false,
+          "pk": "hotelId",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "hotelId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "hotelName",
+              "isPK": false
+            },
+            {
+              "name": "starsRating",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Room",
+          "isWeak": false,
+          "pk": "roomNo",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "roomNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "roomType",
+              "isPK": false
+            },
+            {
+              "name": "nightlyRate",
+              "isPK": false
             }
           ]
         }
@@ -616,375 +665,254 @@ _scope.EER_CLIENTS_1_50 = [
       "entities": [
         {
           "name": "Hotel",
-          "pk": "hotelId"
+          "pk": "hotelId",
+          "isWeak": false
         },
         {
-          "name": "MainBuilding",
-          "pk": "bldgId"
+          "name": "Room",
+          "pk": "roomNo",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
           "entity1": "Hotel",
-          "entity2": "MainBuilding",
+          "entity2": "Room",
+          "fromEntityName": "Hotel",
+          "toEntityName": "Room",
           "mult1": "1..1",
-          "mult2": "1..1"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
+    }
+  },
+  {
+    "id": 9,
+    "sector": 1,
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Shuhrat Bekmurodov",
+    "clientRole": "IT Park Inkubatsiya Rahbari",
+    "clientAvatar": "mentor",
+    "title": "IT Texnoparki — Startap Inkubator va Mas'ul Menejer (1:1) (Relatsion Sxema)",
+    "story": "IT Park tuzilmasida har bir startap akseleratsiya markaziga (Incubator) operatsion jarayonni yuritish uchun aniq 1 ta mas'ul boshqaruvchi (Manager) biriktirilgan (1..1). Har bir menejer ham faqat bitta markaz faoliyatini boshqaradi (1..1).\n\n'Incubator' (incId {PK}) va 'Manager' (managerId {PK}) entitiylarini 1:1 munosabat bilan bog'lang.",
+    "instruction": "'Incubator' va 'Manager' entitiyalarini 1:1 aloqa bilan ulang (1..1 va 1..1).",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Incubator",
+          "isWeak": false,
+          "pk": "incId",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "incId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "centerTitle",
+              "isPK": false
+            },
+            {
+              "name": "cityLocation",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Manager",
+          "isWeak": false,
+          "pk": "managerId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "managerId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "managerName",
+              "isPK": false
+            },
+            {
+              "name": "email",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
     },
-    "hint": "Connect 'Hotel' (1..1) to 'MainBuilding' (1..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Hotel' (1..1) and 'MainBuilding' (1..1) verified and approved.",
-    "task": "Model 'Hotel' and 'MainBuilding' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Incubator",
+          "pk": "incId",
+          "isWeak": false
+        },
+        {
+          "name": "Manager",
+          "pk": "managerId",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Incubator",
+          "entity2": "Manager",
+          "fromEntityName": "Incubator",
+          "toEntityName": "Manager",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "sector": 1,
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Munira Sobirova",
+    "clientRole": "Kutubxona Bosh Bibliografi",
+    "clientAvatar": "mentor",
+    "title": "Alisher Navoiy Kutubxonasi — Kitob va Muallif (Relatsion Sxema)",
+    "story": "Davlat kutubxonasi fondida har bir yozuvchi-muallif (Author) qalamiga mansub ko'plab kitoblar (Book) saqlanadi (1..*). Ushbu klassik katalog doirasida har bir kitob bitta bosh muallif tomonidan yozilgan deb hisoblanadi (1..1).\n\n'Author' (authorId {PK}) va 'Book' (isbn {PK}) entitiylarini bog'lang.",
+    "instruction": "'Author' va 'Book' ni bog'lang: Author tomonga '1..1', Book tomonga '1..*'.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Author",
+          "isWeak": false,
+          "pk": "authorId",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "authorId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "authorName",
+              "isPK": false
+            },
+            {
+              "name": "country",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Book",
+          "isWeak": false,
+          "pk": "isbn",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "isbn",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "title",
+              "isPK": false
+            },
+            {
+              "name": "publishedYear",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Author",
+          "pk": "authorId",
+          "isWeak": false
+        },
+        {
+          "name": "Book",
+          "pk": "isbn",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Author",
+          "entity2": "Book",
+          "fromEntityName": "Author",
+          "toEntityName": "Book",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
   },
   {
     "id": 11,
     "sector": 1,
-    "difficulty": "Floor 1 • Intermediate",
-    "clientName": "Otabek G'aniyev",
-    "clientRole": "Temir Yo'l Vokzali Dispetcheri",
-    "clientAvatar": "railway",
-    "title": "Poyezd va Vagonlar Zanjiri",
-    "story": "Temir yo'lda har bir poyezd (Train) bir nechta vagonlardan (Carriage) iborat. Har bir vagon esa ayni paytda faqat 1 ta poyezd tarkibiga ulangan bo'lishi shart.",
-    "taskUz": "Model 'Train' and 'Carriage' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Train",
-          "attributes": [
-            {
-              "name": "trainNo",
-              "isPK": true
-            },
-            {
-              "name": "route"
-            }
-          ]
-        },
-        {
-          "name": "Carriage",
-          "attributes": [
-            {
-              "name": "carriageId",
-              "isPK": true
-            },
-            {
-              "name": "seatsCount"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Train",
-          "pk": "trainNo"
-        },
-        {
-          "name": "Carriage",
-          "pk": "carriageId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Train",
-          "entity2": "Carriage",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'Train' (1..1) to 'Carriage' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Train' (1..1) and 'Carriage' (1..*) verified and approved.",
-    "task": "Model 'Train' and 'Carriage' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'."
-  },
-  {
-    "id": 12,
-    "sector": 1,
-    "difficulty": "Floor 1 • Intermediate",
-    "clientName": "Zuhra Murodova",
-    "clientRole": "Maktab Direktori",
-    "clientAvatar": "principal",
-    "title": "Sinf va O'quvchilar Bog'liqligi",
-    "story": "Maktabimizda har bir sinf (SchoolClass) bir nechta o'quvchilarga (Pupil) ega. Har bir o'quvchi faqat 1 ta sinfda o'qiydi.",
-    "taskUz": "Model 'SchoolClass' and 'Pupil' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "SchoolClass",
-          "attributes": [
-            {
-              "name": "classId",
-              "isPK": true
-            },
-            {
-              "name": "gradeLevel"
-            }
-          ]
-        },
-        {
-          "name": "Pupil",
-          "attributes": [
-            {
-              "name": "pupilId",
-              "isPK": true
-            },
-            {
-              "name": "fullName"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "SchoolClass",
-          "pk": "classId"
-        },
-        {
-          "name": "Pupil",
-          "pk": "pupilId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "SchoolClass",
-          "entity2": "Pupil",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'SchoolClass' (1..1) to 'Pupil' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'SchoolClass' (1..1) and 'Pupil' (1..*) verified and approved.",
-    "task": "Model 'SchoolClass' and 'Pupil' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'."
-  },
-  {
-    "id": 13,
-    "sector": 1,
-    "difficulty": "Floor 1 • Intermediate",
-    "clientName": "Umid Vohidov",
-    "clientRole": "IT Xizmatlar Servis Manager",
-    "clientAvatar": "itsm",
-    "title": "Mijoz va Qo'llab-quvvatlash Chiptasi (Ticket)",
-    "story": "IT xizmatimizda har bir so'rov chiptasi (Ticket) aniq 1 ta mijozga (Client) tegishli. Mijoz esa bir nechta chipta ochgan bo'lishi mumkin.",
-    "taskUz": "Model 'Client' and 'Ticket' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Client",
-          "attributes": [
-            {
-              "name": "clientId",
-              "isPK": true
-            },
-            {
-              "name": "orgName"
-            }
-          ]
-        },
-        {
-          "name": "Ticket",
-          "attributes": [
-            {
-              "name": "ticketNo",
-              "isPK": true
-            },
-            {
-              "name": "issueText"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Client",
-          "pk": "clientId"
-        },
-        {
-          "name": "Ticket",
-          "pk": "ticketNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Client",
-          "entity2": "Ticket",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'Client' (1..1) to 'Ticket' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Client' (1..1) and 'Ticket' (1..*) verified and approved.",
-    "task": "Model 'Client' and 'Ticket' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'."
-  },
-  {
-    "id": 14,
-    "sector": 1,
-    "difficulty": "Floor 1 • Intermediate",
-    "clientName": "Shahnoza Aliyeva",
-    "clientRole": "Library Tarmog'i Head",
-    "clientAvatar": "librarian",
-    "title": "Kutubxona Bo'limi va Tokchalar",
-    "story": "Kutubxonamizda har bir zal bo'limi (LibrarySection) bir nechta kitob tokchalariga (Bookshelf) ega, har bir tokcha aniq 1 ta bo'limda joylashgan.",
-    "taskUz": "Model 'LibrarySection' and 'Bookshelf' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "LibrarySection",
-          "attributes": [
-            {
-              "name": "secId",
-              "isPK": true
-            },
-            {
-              "name": "topic"
-            }
-          ]
-        },
-        {
-          "name": "Bookshelf",
-          "attributes": [
-            {
-              "name": "shelfNo",
-              "isPK": true
-            },
-            {
-              "name": "capacity"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "LibrarySection",
-          "pk": "secId"
-        },
-        {
-          "name": "Bookshelf",
-          "pk": "shelfNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "LibrarySection",
-          "entity2": "Bookshelf",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'LibrarySection' (1..1) to 'Bookshelf' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'LibrarySection' (1..1) and 'Bookshelf' (1..*) verified and approved.",
-    "task": "Model 'LibrarySection' and 'Bookshelf' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'."
-  },
-  {
-    "id": 15,
-    "sector": 1,
-    "difficulty": "Floor 1 • Qiyin (Floor 1 Master Architecti)",
-    "clientName": "Bahriddin Po'latov",
-    "clientRole": "'Apex Corporation' Bosh Ijrochi Direktori",
-    "clientAvatar": "ceo",
-    "title": "1-Qavat Bossi: Korxona Departamenti va Bosh Menejer",
-    "story": "Assalomu alaykum, Bosh Me'mor! Korporatsiyamizda bo'limlar (Department) va xodimlar (Employee) are present. Har bir bo'limda qat'iy ravishda aniq 1 ta Bosh Menejer rahbarlik qiladi va har bir rahbar faqat 1 ta bo'limni boshqaradi. Ushbu 'Manages' 1:1 aloqasini to'liq chizib bering!",
-    "taskUz": "Model 'Department' and 'Employee' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Department",
-          "attributes": [
-            {
-              "name": "deptNo",
-              "isPK": true
-            },
-            {
-              "name": "dName"
-            }
-          ]
-        },
-        {
-          "name": "Employee",
-          "attributes": [
-            {
-              "name": "empNo",
-              "isPK": true
-            },
-            {
-              "name": "fullName"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Department",
-          "pk": "deptNo"
-        },
-        {
-          "name": "Employee",
-          "pk": "empNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Department",
-          "entity2": "Employee",
-          "name": "Manages",
-          "mult1": "1..1",
-          "mult2": "1..1"
-        }
-      ]
-    },
-    "hint": "Connect 'Department' (1..1) to 'Employee' (1..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Department' (1..1) and 'Employee' (1..1) verified and approved.",
-    "task": "Model 'Department' and 'Employee' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'."
-  },
-  {
-    "id": 16,
-    "sector": 2,
-    "difficulty": "Floor 2 • Beginner",
-    "clientName": "Eldor Shokirov",
-    "clientRole": "Avtosalon Savdo Manager",
-    "clientAvatar": "dealer",
-    "title": "Mijoz va Avtomobil Xaridi (Ixtiyoriy 0..*)",
-    "story": "Avtosalonimizda mijozlar (Customer) va avtomobillar (Car) bor. Har bir sotilgan avtomobil aniq 1 ta mijozga tegishli bo'ladi. Lekin ro'yxatdan o'tgan mijoz hali mashina sotib olmagan bo'lishi ham mumkin, ya'ni 0 tadan ko'pgacha mashina xarid qiladi.",
-    "taskUz": "Model 'Customer' and 'Car' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'.",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Bobur Mirzayev",
+    "clientRole": "Chakana Bank Mahsulotlari Menejeri",
+    "clientAvatar": "mentor",
+    "title": "Anorbank — Mijoz va Omonat Depoziti (0..*) (Relatsion Sxema)",
+    "story": "Raqamli bankda ro'yxatdan o'tgan mijoz (Customer) foiz jamg'arish maqsadida bir nechta depozit hisoblarini (DepositAccount) ochishi mumkin (0..*). Har bir depozit hisobi esa qat'iy bitta jismoniy shaxs nomiga ochiladi (1..1).\n\n'Customer' (cifCode {PK}) va 'DepositAccount' (accountNo {PK}) o'rtasidagi ixtiyoriy 1:N munosabatni o'rnating.",
+    "instruction": "'Customer' va 'DepositAccount' ni bog'lang: Customer (1..1), DepositAccount (0..*).",
     "starterDiagram": {
       "entities": [
         {
           "name": "Customer",
+          "isWeak": false,
+          "pk": "cifCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "custId",
-              "isPK": true
+              "name": "cifCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name"
+              "name": "customerName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Car",
+          "name": "DepositAccount",
+          "isWeak": false,
+          "pk": "accountNo",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "vin",
-              "isPK": true
+              "name": "accountNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "model"
+              "name": "interestRate",
+              "isPK": false
+            },
+            {
+              "name": "balance",
+              "isPK": false
             }
           ]
         }
@@ -995,59 +923,571 @@ _scope.EER_CLIENTS_1_50 = [
       "entities": [
         {
           "name": "Customer",
-          "pk": "custId"
+          "pk": "cifCode",
+          "isWeak": false
         },
         {
-          "name": "Car",
-          "pk": "vin"
+          "name": "DepositAccount",
+          "pk": "accountNo",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
           "entity1": "Customer",
-          "entity2": "Car",
+          "entity2": "DepositAccount",
+          "fromEntityName": "Customer",
+          "toEntityName": "DepositAccount",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
+    }
+  },
+  {
+    "id": 12,
+    "sector": 1,
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Otabek G'aniyev",
+    "clientRole": "Toshshahartransxizmat Muhandisi",
+    "clientAvatar": "mentor",
+    "title": "Toshkent Jamoat Transporti — Marshrut va Shahar Avtobuslari (Relatsion Sxema)",
+    "story": "Poytaxt yo'lovchi transportida har bir belgilangan marshrut (BusRoute) bo'ylab bir nechta shahar avtobuslari (CityBus) harakatlanadi (1..*). Har bir avtobus esa navbatchilik rejasiga ko'ra ayni paytda bitta marshrutga biriktirilgan (1..1).\n\n'BusRoute' (routeNo {PK}) va 'CityBus' (busId {PK}) entitiylarini bog'lang.",
+    "instruction": "'BusRoute' va 'CityBus' ni bog'lang: BusRoute (1..1), CityBus (1..*).",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "BusRoute",
+          "isWeak": false,
+          "pk": "routeNo",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "routeNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "startPoint",
+              "isPK": false
+            },
+            {
+              "name": "endPoint",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CityBus",
+          "isWeak": false,
+          "pk": "busId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "busId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "plateNumber",
+              "isPK": false
+            },
+            {
+              "name": "capacity",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
     },
-    "hint": "Connect 'Customer' (1..1) to 'Car' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Customer' (1..1) and 'Car' (0..*) verified and approved.",
-    "task": "Model 'Customer' and 'Car' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "BusRoute",
+          "pk": "routeNo",
+          "isWeak": false
+        },
+        {
+          "name": "CityBus",
+          "pk": "busId",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "BusRoute",
+          "entity2": "CityBus",
+          "fromEntityName": "BusRoute",
+          "toEntityName": "CityBus",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "sector": 1,
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Jamshid Ergashov",
+    "clientRole": "Dilerlik Tarmog'i Sotuv Direktori",
+    "clientAvatar": "mentor",
+    "title": "UzAuto Motors Dileri — Avtosalon va Avtomobillar Zaxirasi (Relatsion Sxema)",
+    "story": "Rasmiy dilerlik markazida (Dealership) sotuvga chiqarilgan ko'plab yangi avtomobillar (Automobile) mavjud (1..*). Har bir avtomobil qaysi dilerlik markazi avtosalonida turgani bilan qat'iy bog'langan (1..1).\n\n'Dealership' (dealerCode {PK}) va 'Automobile' (vinNumber {PK}) o'rtasidagi aloqani o'rnating.",
+    "instruction": "'Dealership' va 'Automobile' ni bog'lang: Dealership (1..1), Automobile (1..*).",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Dealership",
+          "isWeak": false,
+          "pk": "dealerCode",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "dealerCode",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "dealerName",
+              "isPK": false
+            },
+            {
+              "name": "cityAddress",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Automobile",
+          "isWeak": false,
+          "pk": "vinNumber",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "vinNumber",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "model",
+              "isPK": false
+            },
+            {
+              "name": "price",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Dealership",
+          "pk": "dealerCode",
+          "isWeak": false
+        },
+        {
+          "name": "Automobile",
+          "pk": "vinNumber",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Dealership",
+          "entity2": "Automobile",
+          "fromEntityName": "Dealership",
+          "toEntityName": "Automobile",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "sector": 1,
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Gulnora Ergasheva",
+    "clientRole": "Maktab O'quv Bo'limi Mudiri",
+    "clientAvatar": "mentor",
+    "title": "Maktab Ta'limi — Sinf va Sinf Rahbari (1:1) (Relatsion Sxema)",
+    "story": "Umumta'lim maktabida har bir sinfga (SchoolClass, masalan 10-A) o'quvchilar tarbiyasi uchun aniq 1 ta sinf rahbari bo'lgan ustoz (ClassTeacher) biriktiriladi (1..1). Har bir o'qituvchi ham faqat bitta sinfga rahbarlik qiladi (1..1).\n\n'SchoolClass' (classCode {PK}) va 'ClassTeacher' (teacherId {PK}) entitiylarini 1:1 aloqa bilan bog'lang.",
+    "instruction": "'SchoolClass' va 'ClassTeacher' o'rtasida 1:1 aloqa chizing (1..1 va 1..1).",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "SchoolClass",
+          "isWeak": false,
+          "pk": "classCode",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "classCode",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "gradeNumber",
+              "isPK": false
+            },
+            {
+              "name": "academicYear",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ClassTeacher",
+          "isWeak": false,
+          "pk": "teacherId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "teacherId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "teacherName",
+              "isPK": false
+            },
+            {
+              "name": "subject",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "SchoolClass",
+          "pk": "classCode",
+          "isWeak": false
+        },
+        {
+          "name": "ClassTeacher",
+          "pk": "teacherId",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "SchoolClass",
+          "entity2": "ClassTeacher",
+          "fromEntityName": "SchoolClass",
+          "toEntityName": "ClassTeacher",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "sector": 1,
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Sherzod Jo'rayev",
+    "clientRole": "Farm Ta'minot Logistika Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Farmatsevtika Tarmog'i — Markaziy Ombor va Dorixonalar (Relatsion Sxema)",
+    "story": "Farmatsevtika tarmog'ida bitta yirik ta'minot ombori (CentralWarehouse) o'z tasarrufidagi ko'plab dorixona filiallarini (PharmacyStore) dori vositalari bilan ta'minlaydi (1..*). Har bir dorixona esa dori partiyalarini aniq 1 ta markaziy ombordan qabul qiladi (1..1).\n\n'CentralWarehouse' (warehouseCode {PK}) va 'PharmacyStore' (pharmacyId {PK}) o'rtasida 1:N aloqa chizing.",
+    "instruction": "'CentralWarehouse' va 'PharmacyStore' ni bog'lang: CentralWarehouse (1..1), PharmacyStore (1..*).",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "CentralWarehouse",
+          "isWeak": false,
+          "pk": "warehouseCode",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "warehouseCode",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "cityName",
+              "isPK": false
+            },
+            {
+              "name": "totalArea",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PharmacyStore",
+          "isWeak": false,
+          "pk": "pharmacyId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "pharmacyId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "storeTitle",
+              "isPK": false
+            },
+            {
+              "name": "address",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "CentralWarehouse",
+          "pk": "warehouseCode",
+          "isWeak": false
+        },
+        {
+          "name": "PharmacyStore",
+          "pk": "pharmacyId",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "CentralWarehouse",
+          "entity2": "PharmacyStore",
+          "fromEntityName": "CentralWarehouse",
+          "toEntityName": "PharmacyStore",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Kamron Rustamov",
+    "clientRole": "Marketplace Operatsiyalar Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Uzum Market Buyurtmalar Zanjiri (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Uzum Market platformasida mijoz (Customer) bir nechta buyurtmalar (Order) berishi mumkin (0..*). Har bir buyurtma esa aniq bitta to'lov kvitansiyasiga (Payment) ega bo'ladi (1..1).\n\n'Customer', 'Order' va 'Payment' entitiylarini zanjirsimon bog'lang: Customer (1..1) <-> (0..*) Order va Order (1..1) <-> (1..1) Payment.",
+    "instruction": "'Customer' -> 'Order' (1..1 <-> 0..*) va 'Order' -> 'Payment' (1..1 <-> 1..1) aloqalarini chizing.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Customer",
+          "isWeak": false,
+          "pk": "customerId",
+          "x": 100,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "customerId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "name",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Order",
+          "isWeak": false,
+          "pk": "orderNo",
+          "x": 440,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "orderNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "orderDate",
+              "isPK": false
+            },
+            {
+              "name": "totalSum",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Payment",
+          "isWeak": false,
+          "pk": "paymentId",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "paymentId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "payType",
+              "isPK": false
+            },
+            {
+              "name": "status",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Customer",
+          "pk": "customerId",
+          "isWeak": false
+        },
+        {
+          "name": "Order",
+          "pk": "orderNo",
+          "isWeak": false
+        },
+        {
+          "name": "Payment",
+          "pk": "paymentId",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Customer",
+          "entity2": "Order",
+          "fromEntityName": "Customer",
+          "toEntityName": "Order",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Order",
+          "entity2": "Payment",
+          "fromEntityName": "Order",
+          "toEntityName": "Payment",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
   },
   {
     "id": 17,
     "sector": 2,
-    "difficulty": "Floor 2 • Beginner",
-    "clientName": "Nargiza Rustamova",
-    "clientRole": "Universitet O'quv Department Head",
-    "clientAvatar": "academic",
-    "title": "Professor va Ilmiy Maqolalar Tizimi",
-    "story": "Universitetimizda professorlar (Professor) va ilmiy maqolalar (Article) are present. Har bir maqola 1 ta muallifga tegishli. Lekin yangi ishga kirgan professor hali maqola chop etmagan bo'lishi mumkin.",
-    "taskUz": "Model 'Professor' and 'Article' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'.",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Bobur Tursunov",
+    "clientRole": "Fintech Platforma Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Click / Payme Tranzaksiyalar Ekotizimi (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Foydalanuvchi (User) o'z ilovasiga kamida bitta yoki bir nechta bank kartasini (BankCard) ulaydi (1..*). Har bir karta orqali esa ko'plab to'lov tranzaksiyalari (Transaction) bajariladi (0..*).\n\n'User' -> 'BankCard' (1..1 <-> 1..*) va 'BankCard' -> 'Transaction' (1..1 <-> 0..*) aloqalarini o'rnating.",
+    "instruction": "'User' ni 'BankCard' ga (1..1 <-> 1..*), 'BankCard' ni 'Transaction' ga (1..1 <-> 0..*) ulang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Professor",
+          "name": "User",
+          "isWeak": false,
+          "pk": "userId",
+          "x": 100,
+          "y": 160,
           "attributes": [
             {
-              "name": "profId",
-              "isPK": true
+              "name": "userId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name"
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "userName",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Article",
+          "name": "BankCard",
+          "isWeak": false,
+          "pk": "cardId",
+          "x": 440,
+          "y": 160,
           "attributes": [
             {
-              "name": "articleId",
-              "isPK": true
+              "name": "cardId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "title"
+              "name": "panMasked",
+              "isPK": false
+            },
+            {
+              "name": "bankName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Transaction",
+          "isWeak": false,
+          "pk": "txId",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "txId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "amount",
+              "isPK": false
+            },
+            {
+              "name": "timestamp",
+              "isPK": false
             }
           ]
         }
@@ -1057,60 +1497,120 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Professor",
-          "pk": "profId"
+          "name": "User",
+          "pk": "userId",
+          "isWeak": false
         },
         {
-          "name": "Article",
-          "pk": "articleId"
+          "name": "BankCard",
+          "pk": "cardId",
+          "isWeak": false
+        },
+        {
+          "name": "Transaction",
+          "pk": "txId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Professor",
-          "entity2": "Article",
+          "entity1": "User",
+          "entity2": "BankCard",
+          "fromEntityName": "User",
+          "toEntityName": "BankCard",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "BankCard",
+          "entity2": "Transaction",
+          "fromEntityName": "BankCard",
+          "toEntityName": "Transaction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Professor' (1..1) to 'Article' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Professor' (1..1) and 'Article' (0..*) verified and approved.",
-    "task": "Model 'Professor' and 'Article' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'."
+    }
   },
   {
     "id": 18,
     "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
-    "clientName": "Bobur Ismoilov",
-    "clientRole": "HR Boshqarmasi Director",
-    "clientAvatar": "hrmanager",
-    "title": "Xodim va Xizmat Noutbuki Tizimi",
-    "story": "Korxonamizda har bir xodim (Employee) va xizmat noutbuki (Laptop) bor. Har bir noutbuk faqat 1 ta xodimga biriktiriladi. Biroq har bir xodimga ham noutbuk berilmaydi (ayrimlari statsionar kompyuterda ishlaydi), ya'ni xodim ko'pi bilan 1 ta yoki 0 ta noutbukka ega bo'lishi mumkin.",
-    "taskUz": "Model 'Employee' and 'Laptop' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'.",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Farrux Yusupov",
+    "clientRole": "Taksi Agregator Muhandisi",
+    "clientAvatar": "mentor",
+    "title": "Yandex Go Safarlar Tizimi (3 ta Entitiy — Fan-In Bog'lanish) (Relatsion Sxema)",
+    "story": "Yandex Go tizimida markaziy ob'yekt — bu Safar (RideTrip). Yo'lovchi (Passenger) bir nechta safarlar buyurtma qilishi mumkin (0..*). Haydovchi (Driver) ham ko'plab safarlarni qabul qiladi (0..*). Har bir safarda esa 1 ta yo'lovchi va 1 ta haydovchi qatnashadi (1..1).\n\n'Passenger' va 'Driver' entitiyalarining har ikkalasini 'RideTrip' ga ulang.",
+    "instruction": "'Passenger' -> 'RideTrip' (1..1 <-> 0..*) va 'Driver' -> 'RideTrip' (1..1 <-> 0..*) aloqalarini chizing.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Employee",
+          "name": "Passenger",
+          "isWeak": false,
+          "pk": "passengerId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "empNo",
-              "isPK": true
+              "name": "passengerId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name"
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "rating",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Laptop",
+          "name": "Driver",
+          "isWeak": false,
+          "pk": "driverId",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "serialNo",
-              "isPK": true
+              "name": "driverId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "model"
+              "name": "licenseNo",
+              "isPK": false
+            },
+            {
+              "name": "carModel",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "RideTrip",
+          "isWeak": false,
+          "pk": "tripId",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "tripId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "fareAmount",
+              "isPK": false
+            },
+            {
+              "name": "tripDate",
+              "isPK": false
             }
           ]
         }
@@ -1120,64 +1620,116 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Employee",
-          "pk": "empNo"
+          "name": "Passenger",
+          "pk": "passengerId",
+          "isWeak": false
         },
         {
-          "name": "Laptop",
-          "pk": "serialNo"
+          "name": "Driver",
+          "pk": "driverId",
+          "isWeak": false
+        },
+        {
+          "name": "RideTrip",
+          "pk": "tripId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Employee",
-          "entity2": "Laptop",
+          "entity1": "Passenger",
+          "entity2": "RideTrip",
+          "fromEntityName": "Passenger",
+          "toEntityName": "RideTrip",
           "mult1": "1..1",
-          "mult2": "0..1"
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Driver",
+          "entity2": "RideTrip",
+          "fromEntityName": "Driver",
+          "toEntityName": "RideTrip",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Employee' (1..1) to 'Laptop' (0..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Employee' (1..1) and 'Laptop' (0..1) verified and approved.",
-    "task": "Model 'Employee' and 'Laptop' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'."
+    }
   },
   {
     "id": 19,
     "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
+    "difficulty": "2-Qavat • O'rta",
     "clientName": "Nargiza Yo'ldosheva",
-    "clientRole": "IT Akademiya Kurs Manager",
-    "clientAvatar": "academic",
-    "title": "O'quvchi va Sertifikat Tizimi",
-    "story": "Akademiyamizda har bir sertifikat (Certificate) bitirgan 1 ta o'quvchiga (Student) beriladi. Lekin har bir o'quvchi ham kursni yakunlab sertifikat ololmasligi mumkin.",
-    "taskUz": "Model 'Student' and 'Certificate' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'.",
+    "clientRole": "WIUT Akademik Menejeri",
+    "clientAvatar": "mentor",
+    "title": "WIUT Modul va Baholash Arxitekturasi (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Westminster universitetida har bir kafedra (Department) bir nechta fan-modullarni (Module) o'qitadi (1..*). Har bir modulda esa talabalar baholanadigan kamida 1 ta yoki bir nechta Coursework (Coursework, masalan CW1 va CW2) mavjud (1..*).\n\n'Department' -> 'Module' -> 'Coursework' ierarxiyasini loyihalashtiring.",
+    "instruction": "'Department' -> 'Module' (1..1 <-> 1..*) va 'Module' -> 'Coursework' (1..1 <-> 1..*) zanjirini bog'lang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Student",
-          "x": 120,
-          "y": 150,
+          "name": "Department",
+          "isWeak": false,
+          "pk": "deptCode",
+          "x": 100,
+          "y": 160,
           "attributes": [
             {
-              "name": "studentId",
-              "isPK": true
+              "name": "deptCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name"
+              "name": "deptName",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Certificate",
-          "x": 480,
-          "y": 150,
+          "name": "Module",
+          "isWeak": false,
+          "pk": "moduleCode",
+          "x": 440,
+          "y": 160,
           "attributes": [
             {
-              "name": "certId",
-              "isPK": true
+              "name": "moduleCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "issueDate"
+              "name": "moduleTitle",
+              "isPK": false
+            },
+            {
+              "name": "credits",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Coursework",
+          "isWeak": false,
+          "pk": "cwId",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "cwId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "weightPercent",
+              "isPK": false
+            },
+            {
+              "name": "dueDate",
+              "isPK": false
             }
           ]
         }
@@ -1187,64 +1739,116 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Student",
-          "pk": "studentId"
+          "name": "Department",
+          "pk": "deptCode",
+          "isWeak": false
         },
         {
-          "name": "Certificate",
-          "pk": "certId"
+          "name": "Module",
+          "pk": "moduleCode",
+          "isWeak": false
+        },
+        {
+          "name": "Coursework",
+          "pk": "cwId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Student",
-          "entity2": "Certificate",
+          "entity1": "Department",
+          "entity2": "Module",
+          "fromEntityName": "Department",
+          "toEntityName": "Module",
           "mult1": "1..1",
-          "mult2": "0..1"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Module",
+          "entity2": "Coursework",
+          "fromEntityName": "Module",
+          "toEntityName": "Coursework",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Student' (1..1) to 'Certificate' (0..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Student' (1..1) and 'Certificate' (0..1) verified and approved.",
-    "task": "Model 'Student' and 'Certificate' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'."
+    }
   },
   {
     "id": 20,
     "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
+    "difficulty": "2-Qavat • O'rta",
     "clientName": "Farhod Karimov",
-    "clientRole": "Library Tizimi Engineer",
-    "clientAvatar": "librarian",
-    "title": "Kitobxon va Jarimalar Tizimi",
-    "story": "Kutubxonamizda a'zo kitobxon (Member) va jarima cheklari (Fine) are present. Har bir jarima aniq 1 ta a'zoga yoziladi. Lekin intizomli a'zoda umuman jarima bo'lmasligi mumkin.",
-    "taskUz": "Model 'Member' and 'Fine' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'.",
+    "clientRole": "HR Bosh Maslahatchisi",
+    "clientAvatar": "mentor",
+    "title": "Korxona Departamentlari va Boshqaruv Rahbari (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Kompaniyada (Company) bir nechta departamentlar (Department) faoliyat yuritadi (1..*). Har bir departamentni esa aniq 1 ta tayinlangan boshqaruvchi menejer (Manager) boshqaradi (1..1).\n\n'Company' -> 'Department' (1..1 <-> 1..*) va 'Department' -> 'Manager' (1..1 <-> 1..1) aloqalarini o'rnating.",
+    "instruction": "'Company' ni 'Department' ga (1..1 <-> 1..*), 'Department' ni 'Manager' ga (1..1 <-> 1..1) ulang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Member",
-          "x": 120,
-          "y": 150,
+          "name": "Company",
+          "isWeak": false,
+          "pk": "companyRegNo",
+          "x": 100,
+          "y": 160,
           "attributes": [
             {
-              "name": "memberId",
-              "isPK": true
+              "name": "companyRegNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name"
+              "name": "companyName",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Fine",
-          "x": 480,
-          "y": 150,
+          "name": "Department",
+          "isWeak": false,
+          "pk": "deptId",
+          "x": 440,
+          "y": 160,
           "attributes": [
             {
-              "name": "fineId",
-              "isPK": true
+              "name": "deptId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "amount"
+              "name": "deptTitle",
+              "isPK": false
+            },
+            {
+              "name": "floor",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Manager",
+          "isWeak": false,
+          "pk": "managerId",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "managerId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "managerName",
+              "isPK": false
+            },
+            {
+              "name": "email",
+              "isPK": false
             }
           ]
         }
@@ -1254,64 +1858,120 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Member",
-          "pk": "memberId"
+          "name": "Company",
+          "pk": "companyRegNo",
+          "isWeak": false
         },
         {
-          "name": "Fine",
-          "pk": "fineId"
+          "name": "Department",
+          "pk": "deptId",
+          "isWeak": false
+        },
+        {
+          "name": "Manager",
+          "pk": "managerId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Member",
-          "entity2": "Fine",
+          "entity1": "Company",
+          "entity2": "Department",
+          "fromEntityName": "Company",
+          "toEntityName": "Department",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Department",
+          "entity2": "Manager",
+          "fromEntityName": "Department",
+          "toEntityName": "Manager",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Member' (1..1) to 'Fine' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Member' (1..1) and 'Fine' (0..*) verified and approved.",
-    "task": "Model 'Member' and 'Fine' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'."
+    }
   },
   {
     "id": 21,
     "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
-    "clientName": "Sevara Normatova",
-    "clientRole": "Clinic Ro'yxatga Olish Department",
-    "clientAvatar": "doctor",
-    "title": "Bemor va Retseptlar Tizimi",
-    "story": "Klinikamizda har bir dori retsepti (Prescription) 1 ta bemorga (Patient) tegishli. Sog'lom profilaktikaga kelgan bemorga esa dori yozilmasligi mumkin.",
-    "taskUz": "Model 'Patient' and 'Prescription' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'.",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Dr. Nodira Rahimova",
+    "clientRole": "Klinika Axborot Tizimi Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Shifoxona Bemor Qabuli va Tibbiy Karta (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Har bir bemorga (Patient) shifoxonada 1 ta elektron tibbiy karta (MedicalCard) ochiladi (1..1). Shifokor (Doctor) esa bir nechta bemorlarning tibbiy kartalarini nazorat qiladi (0..*).\n\n'Patient' -> 'MedicalCard' (1..1 <-> 1..1) va 'Doctor' -> 'MedicalCard' (1..1 <-> 0..*) aloqalarini chizing.",
+    "instruction": "'Patient' ni 'MedicalCard' ga (1..1 <-> 1..1), 'Doctor' ni 'MedicalCard' ga (1..1 <-> 0..*) ulang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Patient",
-          "x": 120,
-          "y": 150,
+          "name": "Doctor",
+          "isWeak": false,
+          "pk": "doctorId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "patientId",
-              "isPK": true
+              "name": "doctorId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name"
+              "name": "doctorName",
+              "isPK": false
+            },
+            {
+              "name": "specialty",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Prescription",
-          "x": 480,
-          "y": 150,
+          "name": "Patient",
+          "isWeak": false,
+          "pk": "patientId",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "rxNo",
-              "isPK": true
+              "name": "patientId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "date"
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "dob",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MedicalCard",
+          "isWeak": false,
+          "pk": "cardNo",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "cardNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "diagnosis",
+              "isPK": false
+            },
+            {
+              "name": "openedDate",
+              "isPK": false
             }
           ]
         }
@@ -1321,64 +1981,904 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Patient",
-          "pk": "patientId"
+          "name": "Doctor",
+          "pk": "doctorId",
+          "isWeak": false
         },
         {
-          "name": "Prescription",
-          "pk": "rxNo"
+          "name": "Patient",
+          "pk": "patientId",
+          "isWeak": false
+        },
+        {
+          "name": "MedicalCard",
+          "pk": "cardNo",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
           "entity1": "Patient",
-          "entity2": "Prescription",
+          "entity2": "MedicalCard",
+          "fromEntityName": "Patient",
+          "toEntityName": "MedicalCard",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Doctor",
+          "entity2": "MedicalCard",
+          "fromEntityName": "Doctor",
+          "toEntityName": "MedicalCard",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Patient' (1..1) to 'Prescription' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Patient' (1..1) and 'Prescription' (0..*) verified and approved.",
-    "task": "Model 'Patient' and 'Prescription' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'."
+    }
   },
   {
     "id": 22,
     "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
+    "difficulty": "2-Qavat • O'rta",
     "clientName": "Akmal Rahmonov",
-    "clientRole": "Uy-joy Agency Broker",
-    "clientAvatar": "broker",
-    "title": "Mulk Egasi va Kvartiralar Tizimi",
-    "story": "Agentligimizda ro'yxatdan o'tgan har bir mulk egasi (Owner) kamida 1 ta yoki bir nechta kvartiraga (Property) ega bo'lishi shart. Har bir kvartira esa 1 ta egaga qarashli.",
-    "taskUz": "Model 'Owner' and 'Property' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'.",
+    "clientRole": "Rent-a-Car Operatsion Boshlig'i",
+    "clientAvatar": "mentor",
+    "title": "Avtomobil Ijarasi Tizimi (Rent-a-Car — 3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Avtomobil ijarasi xizmatida har bir filialda (Branch) bir nechta avtomobillar (RentalCar) mavjud (1..*). Har bir avtomobil esa bir nechta ijara shartnomalari (RentalContract) bo'yicha mijozlarga beriladi (0..*).\n\n'Branch' -> 'RentalCar' (1..1 <-> 1..*) va 'RentalCar' -> 'RentalContract' (1..1 <-> 0..*) zanjirini bog'lang.",
+    "instruction": "'Branch' ni 'RentalCar' ga (1..1 <-> 1..*), 'RentalCar' ni 'RentalContract' ga (1..1 <-> 0..*) ulang.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Branch",
+          "isWeak": false,
+          "pk": "branchId",
+          "x": 100,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "branchId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "city",
+              "isPK": false
+            },
+            {
+              "name": "address",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "RentalCar",
+          "isWeak": false,
+          "pk": "carId",
+          "x": 440,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "carId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "model",
+              "isPK": false
+            },
+            {
+              "name": "dailyPrice",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "RentalContract",
+          "isWeak": false,
+          "pk": "contractNo",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "contractNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "startDate",
+              "isPK": false
+            },
+            {
+              "name": "totalCost",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Branch",
+          "pk": "branchId",
+          "isWeak": false
+        },
+        {
+          "name": "RentalCar",
+          "pk": "carId",
+          "isWeak": false
+        },
+        {
+          "name": "RentalContract",
+          "pk": "contractNo",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Branch",
+          "entity2": "RentalCar",
+          "fromEntityName": "Branch",
+          "toEntityName": "RentalCar",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "RentalCar",
+          "entity2": "RentalContract",
+          "fromEntityName": "RentalCar",
+          "toEntityName": "RentalContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Oydin Mirvaliyeva",
+    "clientRole": "Avia Bronlash Markazi Rahbari",
+    "clientAvatar": "mentor",
+    "title": "Aviabiletlar Bronlash Portali (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Aviatsiya portalida har bir reysga (Flight) ko'plab chipta bronlari (Booking) rasmiylashtiriladi (0..*). Yo'lovchi (Passenger) esa kamida bitta yoki bir nechta reysga bron ochadi (1..*). Har bir bron 1 ta yo'lovchi va 1 ta reysga tegishli (1..1).\n\n'Flight' -> 'Booking' (1..1 <-> 0..*) va 'Passenger' -> 'Booking' (1..1 <-> 1..*) aloqalarini chizing.",
+    "instruction": "'Flight' va 'Passenger' entitiyalarini 'Booking' ga ulang: Flight (1..1 <-> 0..*) va Passenger (1..1 <-> 1..*).",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Flight",
+          "isWeak": false,
+          "pk": "flightNo",
+          "x": 140,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "flightNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "origin",
+              "isPK": false
+            },
+            {
+              "name": "destination",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Passenger",
+          "isWeak": false,
+          "pk": "passportNo",
+          "x": 540,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "passportNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "nationality",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Booking",
+          "isWeak": false,
+          "pk": "bookingRef",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "bookingRef",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "seatNo",
+              "isPK": false
+            },
+            {
+              "name": "pricePaid",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Flight",
+          "pk": "flightNo",
+          "isWeak": false
+        },
+        {
+          "name": "Passenger",
+          "pk": "passportNo",
+          "isWeak": false
+        },
+        {
+          "name": "Booking",
+          "pk": "bookingRef",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Flight",
+          "entity2": "Booking",
+          "fromEntityName": "Flight",
+          "toEntityName": "Booking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Passenger",
+          "entity2": "Booking",
+          "fromEntityName": "Passenger",
+          "toEntityName": "Booking",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 24,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Jahongir Qosimov",
+    "clientRole": "Hotel Front-Office Menejeri",
+    "clientAvatar": "mentor",
+    "title": "Mehmonxona Rezervatsiyalari (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Mehmonxonada mehmon (Guest) bir nechta xona rezervatsiyalarini (Reservation) amalga oshirishi mumkin (1..*). Har bir xona (Room) esa turli vaqtlarda ko'plab rezervatsiyalarga xizmat ko'rsatadi (0..*).\n\n'Guest' -> 'Reservation' (1..1 <-> 1..*) va 'Room' -> 'Reservation' (1..1 <-> 0..*) aloqalarini o'rnating.",
+    "instruction": "'Guest' ni 'Reservation' ga (1..1 <-> 1..*), 'Room' ni 'Reservation' ga (1..1 <-> 0..*) ulang.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Guest",
+          "isWeak": false,
+          "pk": "guestId",
+          "x": 140,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "guestId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "passport",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Room",
+          "isWeak": false,
+          "pk": "roomNo",
+          "x": 540,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "roomNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "roomType",
+              "isPK": false
+            },
+            {
+              "name": "floor",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Reservation",
+          "isWeak": false,
+          "pk": "resNo",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "resNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "checkIn",
+              "isPK": false
+            },
+            {
+              "name": "checkOut",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Guest",
+          "pk": "guestId",
+          "isWeak": false
+        },
+        {
+          "name": "Room",
+          "pk": "roomNo",
+          "isWeak": false
+        },
+        {
+          "name": "Reservation",
+          "pk": "resNo",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Guest",
+          "entity2": "Reservation",
+          "fromEntityName": "Guest",
+          "toEntityName": "Reservation",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Room",
+          "entity2": "Reservation",
+          "fromEntityName": "Room",
+          "toEntityName": "Reservation",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 25,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Sardor Olimov",
+    "clientRole": "Scrum Master & Texnik Lider",
+    "clientAvatar": "mentor",
+    "title": "IT Mahsulot Loyihasi — Sprints & Tasks (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "IT dasturiy loyihasida (Project) bir nechta rivojlantirish sprintlari (Sprint) rejalashtiriladi (1..*). Har bir sprint tarkibida esa jamoa bajaradigan ko'plab vazifalar (IssueTask) mavjud (0..*).\n\n'Project' -> 'Sprint' (1..1 <-> 1..*) va 'Sprint' -> 'IssueTask' (1..1 <-> 0..*) aloqalarini chizing.",
+    "instruction": "'Project' ni 'Sprint' ga (1..1 <-> 1..*), 'Sprint' ni 'IssueTask' ga (1..1 <-> 0..*) ulang.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Project",
+          "isWeak": false,
+          "pk": "projectKey",
+          "x": 100,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "projectKey",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "projectName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Sprint",
+          "isWeak": false,
+          "pk": "sprintId",
+          "x": 440,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "sprintId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "sprintGoal",
+              "isPK": false
+            },
+            {
+              "name": "endDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "IssueTask",
+          "isWeak": false,
+          "pk": "taskId",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "taskId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "taskTitle",
+              "isPK": false
+            },
+            {
+              "name": "storyPoints",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Project",
+          "pk": "projectKey",
+          "isWeak": false
+        },
+        {
+          "name": "Sprint",
+          "pk": "sprintId",
+          "isWeak": false
+        },
+        {
+          "name": "IssueTask",
+          "pk": "taskId",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Project",
+          "entity2": "Sprint",
+          "fromEntityName": "Project",
+          "toEntityName": "Sprint",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Sprint",
+          "entity2": "IssueTask",
+          "fromEntityName": "Sprint",
+          "toEntityName": "IssueTask",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Madina Shokirova",
+    "clientRole": "Bank Kredit Departamenti Direktori",
+    "clientAvatar": "mentor",
+    "title": "Bank Kredit Portfeli (4 ta Entitiy!) (Relatsion Sxema)",
+    "story": "Bank filialida (BankBranch) kredit mutaxassislari (LoanOfficer) ishlaydi (1..*). Har bir mutaxassis bir nechta kredit hisoblarini (LoanAccount) nazorat qiladi (0..*). Qarz oluvchi mijoz (Borrower) esa kamida bitta kreditga ega bo'ladi (1..*).\n\n'BankBranch' -> 'LoanOfficer' (1..1 <-> 1..*), 'LoanOfficer' -> 'LoanAccount' (1..1 <-> 0..*) va 'Borrower' -> 'LoanAccount' (1..1 <-> 1..*) to'rtta entitiyli modelni quring.",
+    "instruction": "BankBranch -> LoanOfficer (1..1 <-> 1..*), LoanOfficer -> LoanAccount (1..1 <-> 0..*), Borrower -> LoanAccount (1..1 <-> 1..*) aloqalarini chizing.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "BankBranch",
+          "isWeak": false,
+          "pk": "branchNo",
+          "x": 120,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "branchNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "city",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "LoanOfficer",
+          "isWeak": false,
+          "pk": "officerId",
+          "x": 480,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "officerId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "officerName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "LoanAccount",
+          "isWeak": false,
+          "pk": "loanId",
+          "x": 480,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "loanId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "amount",
+              "isPK": false
+            },
+            {
+              "name": "interestRate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Borrower",
+          "isWeak": false,
+          "pk": "cifCode",
+          "x": 120,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "cifCode",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "borrowerName",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "BankBranch",
+          "pk": "branchNo",
+          "isWeak": false
+        },
+        {
+          "name": "LoanOfficer",
+          "pk": "officerId",
+          "isWeak": false
+        },
+        {
+          "name": "LoanAccount",
+          "pk": "loanId",
+          "isWeak": false
+        },
+        {
+          "name": "Borrower",
+          "pk": "cifCode",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "BankBranch",
+          "entity2": "LoanOfficer",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "LoanOfficer",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "LoanOfficer",
+          "entity2": "LoanAccount",
+          "fromEntityName": "LoanOfficer",
+          "toEntityName": "LoanAccount",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Borrower",
+          "entity2": "LoanAccount",
+          "fromEntityName": "Borrower",
+          "toEntityName": "LoanAccount",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Zafar Yoqubov",
+    "clientRole": "Korzinka ERP Arxitektori",
+    "clientAvatar": "mentor",
+    "title": "Korzinka Savdo Kvitansiyasi (4 ta Entitiy!) (Relatsion Sxema)",
+    "story": "Supermarket tarmog'ida do'konda (Store) kassirlar (Cashier) ishlaydi (1..*). Kassir xarid cheklari (Receipt) chiqaradi (0..*). Xaridor (Customer) chekka ixtiyoriy ravishda bog'lanadi (0..1), chunki kartasiz mijozlar ham xarid qilishi mumkin.\n\n'Store' -> 'Cashier' (1..1 <-> 1..*), 'Cashier' -> 'Receipt' (1..1 <-> 0..*) va 'Customer' -> 'Receipt' (0..1 <-> 0..*) aloqalarini yarating.",
+    "instruction": "Store -> Cashier (1..1 <-> 1..*), Cashier -> Receipt (1..1 <-> 0..*), Customer -> Receipt (0..1 <-> 0..*) aloqalarini ulang.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Store",
+          "isWeak": false,
+          "pk": "storeId",
+          "x": 120,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "storeId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "storeName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Cashier",
+          "isWeak": false,
+          "pk": "cashierId",
+          "x": 480,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "cashierId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "cashierName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Receipt",
+          "isWeak": false,
+          "pk": "receiptNo",
+          "x": 480,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "receiptNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "totalSum",
+              "isPK": false
+            },
+            {
+              "name": "payDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Customer",
+          "isWeak": false,
+          "pk": "loyaltyId",
+          "x": 120,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "loyaltyId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Store",
+          "pk": "storeId",
+          "isWeak": false
+        },
+        {
+          "name": "Cashier",
+          "pk": "cashierId",
+          "isWeak": false
+        },
+        {
+          "name": "Receipt",
+          "pk": "receiptNo",
+          "isWeak": false
+        },
+        {
+          "name": "Customer",
+          "pk": "loyaltyId",
+          "isWeak": false
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Store",
+          "entity2": "Cashier",
+          "fromEntityName": "Store",
+          "toEntityName": "Cashier",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Cashier",
+          "entity2": "Receipt",
+          "fromEntityName": "Cashier",
+          "toEntityName": "Receipt",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Customer",
+          "entity2": "Receipt",
+          "fromEntityName": "Customer",
+          "toEntityName": "Receipt",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "sector": 2,
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Sanjar Karimberdiyev",
+    "clientRole": "Rieltorlik Bosh Agentligi",
+    "clientAvatar": "mentor",
+    "title": "Ko'chmas Mulk Savdosi (3 ta Entitiy — Ixtiyoriy Agent 0..1) (Relatsion Sxema)",
+    "story": "Mulk egasi (Owner) kamida 1 ta ko'chmas mulkka (Property) ega (1..*). Mulkni sotish esa ixtiyoriy ravishda 1 ta rieltor agentga (EstateAgent) topshirilishi mumkin (0..1). Agent bir nechta ob'yektlarni sotuvga chiqaradi (0..*).\n\n'Owner' -> 'Property' (1..1 <-> 1..*) va 'EstateAgent' -> 'Property' (0..1 <-> 0..*) aloqalarini bog'lang.",
+    "instruction": "Owner -> Property (1..1 <-> 1..*) va EstateAgent -> Property (0..1 <-> 0..*) aloqalarini chizing.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Owner",
-          "x": 120,
-          "y": 150,
+          "isWeak": false,
+          "pk": "ownerId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "ownerNo",
-              "isPK": true
+              "name": "ownerId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name"
+              "name": "ownerName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "EstateAgent",
+          "isWeak": false,
+          "pk": "agentId",
+          "x": 540,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "agentId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "agentName",
+              "isPK": false
+            },
+            {
+              "name": "commission",
+              "isPK": false
             }
           ]
         },
         {
           "name": "Property",
-          "x": 480,
-          "y": 150,
+          "isWeak": false,
+          "pk": "propertyNo",
+          "x": 340,
+          "y": 320,
           "attributes": [
             {
-              "name": "propNo",
-              "isPK": true
+              "name": "propertyNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "address"
+              "name": "address",
+              "isPK": false
+            },
+            {
+              "name": "price",
+              "isPK": false
             }
           ]
         }
@@ -1389,461 +2889,119 @@ _scope.EER_CLIENTS_1_50 = [
       "entities": [
         {
           "name": "Owner",
-          "pk": "ownerNo"
+          "pk": "ownerId",
+          "isWeak": false
+        },
+        {
+          "name": "EstateAgent",
+          "pk": "agentId",
+          "isWeak": false
         },
         {
           "name": "Property",
-          "pk": "propNo"
+          "pk": "propertyNo",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
           "entity1": "Owner",
           "entity2": "Property",
+          "fromEntityName": "Owner",
+          "toEntityName": "Property",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "EstateAgent",
+          "entity2": "Property",
+          "fromEntityName": "EstateAgent",
+          "toEntityName": "Property",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Owner' (1..1) to 'Property' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Owner' (1..1) and 'Property' (1..*) verified and approved.",
-    "task": "Model 'Owner' and 'Property' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'."
-  },
-  {
-    "id": 23,
-    "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
-    "clientName": "Jamshid Tursunov",
-    "clientRole": "Restoranlar Tarmog'i Bosh Oshpazi",
-    "clientAvatar": "chef",
-    "title": "Taom va Retsept Masalliqlari Tizimi",
-    "story": "Menyumizdagi har bir taom (Dish) kamida 1 ta yoki undan ko'p tarkibiy masalliqqa (Ingredient) ega bo'lishi shart. Har bir masalliq esa menyudagi 1 ta asosiy retseptga tegishli.",
-    "taskUz": "Model 'Dish' and 'Ingredient' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Dish",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "dishId",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        },
-        {
-          "name": "Ingredient",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "ingId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Dish",
-          "pk": "dishId"
-        },
-        {
-          "name": "Ingredient",
-          "pk": "ingId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Dish",
-          "entity2": "Ingredient",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'Dish' (1..1) to 'Ingredient' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Dish' (1..1) and 'Ingredient' (1..*) verified and approved.",
-    "task": "Model 'Dish' and 'Ingredient' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..*'."
-  },
-  {
-    "id": 24,
-    "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
-    "clientName": "Malika Zufarova",
-    "clientRole": "Mobil Aloqa Company Billing Mutaxassisi",
-    "clientAvatar": "telecom",
-    "title": "Abonent va SIM-karta Tizimi",
-    "story": "Har bir SIM-karta (SIMCard) 1 ta abonentga (Subscriber) biriktirilgan. Yangi shartnoma tuzgan abonentga esa hali SIM berilmagan bo'lishi mumkin.",
-    "taskUz": "Model 'Subscriber' and 'SIMCard' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Subscriber",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "subId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "SIMCard",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "iccid",
-              "isPK": true
-            },
-            {
-              "name": "msisdn"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Subscriber",
-          "pk": "subId"
-        },
-        {
-          "name": "SIMCard",
-          "pk": "iccid"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Subscriber",
-          "entity2": "SIMCard",
-          "mult1": "1..1",
-          "mult2": "0..1"
-        }
-      ]
-    },
-    "hint": "Connect 'Subscriber' (1..1) to 'SIMCard' (0..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Subscriber' (1..1) and 'SIMCard' (0..1) verified and approved.",
-    "task": "Model 'Subscriber' and 'SIMCard' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'."
-  },
-  {
-    "id": 25,
-    "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
-    "clientName": "Madina Hakimova",
-    "clientRole": "Tibbiy Sug'urta Company",
-    "clientAvatar": "insurance",
-    "title": "Mijoz va Sug'urta Polisi Tizimi",
-    "story": "Kompaniyamizda fuqaro (Person) va tibbiy sug'urta polisi (Policy) are present. Har bir polis aniq 1 kishiga beriladi. Lekin fuqaro hali polis sotib olmagan bo'lishi mumkin.",
-    "taskUz": "Model 'Person' and 'Policy' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Person",
-          "attributes": [
-            {
-              "name": "personId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Policy",
-          "attributes": [
-            {
-              "name": "policyNo",
-              "isPK": true
-            },
-            {
-              "name": "coverage"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Person",
-          "pk": "personId"
-        },
-        {
-          "name": "Policy",
-          "pk": "policyNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Person",
-          "entity2": "Policy",
-          "mult1": "1..1",
-          "mult2": "0..1"
-        }
-      ]
-    },
-    "hint": "Connect 'Person' (1..1) to 'Policy' (0..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Person' (1..1) and 'Policy' (0..1) verified and approved.",
-    "task": "Model 'Person' and 'Policy' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'."
-  },
-  {
-    "id": 26,
-    "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
-    "clientName": "G'ayrat Ergashev",
-    "clientRole": "Yuk Tashish Company Dispetcheri",
-    "clientAvatar": "logistics",
-    "title": "Konteyner va Yuk Jo'natmasi Tizimi",
-    "story": "Logistika parkimizda konteyner (Container) va jo'natma (Shipment) are present. Har bir yuk 1 ta konteynerga yuklanadi. Zaxiradagi bo'sh konteyner esa yuklanmagan bo'lishi mumkin.",
-    "taskUz": "Model 'Shipment' and 'Container' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Shipment",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "shipmentId",
-              "isPK": true
-            },
-            {
-              "name": "weight"
-            }
-          ]
-        },
-        {
-          "name": "Container",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "containerNo",
-              "isPK": true
-            },
-            {
-              "name": "capacity"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Shipment",
-          "pk": "shipmentId"
-        },
-        {
-          "name": "Container",
-          "pk": "containerNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Shipment",
-          "entity2": "Container",
-          "mult1": "1..1",
-          "mult2": "0..1"
-        }
-      ]
-    },
-    "hint": "Connect 'Shipment' (1..1) to 'Container' (0..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Shipment' (1..1) and 'Container' (0..1) verified and approved.",
-    "task": "Model 'Shipment' and 'Container' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'."
-  },
-  {
-    "id": 27,
-    "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
-    "clientName": "Zokir Usmonov",
-    "clientRole": "Kredit Byurosi Director",
-    "clientAvatar": "banker",
-    "title": "Mijoz va Garov Mulki Tizimi",
-    "story": "Bankimizda har bir garov mulki (Collateral) 1 ta mijozga (Client) tegishli. Lekin oddiy mikroqarz olgan mijoz garov qo'ymasligi mumkin.",
-    "taskUz": "Model 'Client' and 'Collateral' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Client",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "clientId",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Collateral",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "collateralId",
-              "isPK": true
-            },
-            {
-              "name": "appraisedValue"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Client",
-          "pk": "clientId"
-        },
-        {
-          "name": "Collateral",
-          "pk": "collateralId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Client",
-          "entity2": "Collateral",
-          "mult1": "1..1",
-          "mult2": "0..*"
-        }
-      ]
-    },
-    "hint": "Connect 'Client' (1..1) to 'Collateral' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Client' (1..1) and 'Collateral' (0..*) verified and approved.",
-    "task": "Model 'Client' and 'Collateral' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'."
-  },
-  {
-    "id": 28,
-    "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
-    "clientName": "Shoira Valiyeva",
-    "clientRole": "Farmatsevtika Ombori Mudiri",
-    "clientAvatar": "pharmacist",
-    "title": "Dori Partiyasi va Sifat Sertifikati Tizimi",
-    "story": "Omborimizda har bir dori partiyasi (MedicineBatch) majburiy ravishda aniq 1 ta sifat sertifikatiga (QualityCert) ega va har bir sertifikat 1 ta partiyaga beriladi.",
-    "taskUz": "Model 'MedicineBatch' and 'QualityCert' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "MedicineBatch",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "batchNo",
-              "isPK": true
-            },
-            {
-              "name": "mfgDate"
-            }
-          ]
-        },
-        {
-          "name": "QualityCert",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "certNo",
-              "isPK": true
-            },
-            {
-              "name": "labResult"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "MedicineBatch",
-          "pk": "batchNo"
-        },
-        {
-          "name": "QualityCert",
-          "pk": "certNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "MedicineBatch",
-          "entity2": "QualityCert",
-          "mult1": "1..1",
-          "mult2": "1..1"
-        }
-      ]
-    },
-    "hint": "Connect 'MedicineBatch' (1..1) to 'QualityCert' (1..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'MedicineBatch' (1..1) and 'QualityCert' (1..1) verified and approved.",
-    "task": "Model 'MedicineBatch' and 'QualityCert' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '1..1'."
+    }
   },
   {
     "id": 29,
     "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
-    "clientName": "Rustam Mirzayev",
-    "clientRole": "Avtoturargoh Kompleksi Boshqaruvchisi",
-    "clientAvatar": "parking",
-    "title": "Mashina va Avtoturargoh Joyi Tizimi",
-    "story": "Biznes markazimizda har bir band turargoh joyi (ParkingSpot) 1 ta ro'yxatdagi avtomobilga (Car) tegishli. Lekin mashina ko'chada yurgan paytda turargohda joy egallamasligi mumkin.",
-    "taskUz": "Model 'Car' and 'ParkingSpot' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'.",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Gavhar Mahmudova",
+    "clientRole": "Kutubxona Tizim Boshqaruvchisi",
+    "clientAvatar": "mentor",
+    "title": "Universitet Kutubxonasi Abonementi (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Talaba (Student) kutubxonadan kitob olishi (BookLoan) mumkin (0..*). Har bir aniq kitob nusxasi (BookCopy) ham vaqti-vaqti bilan ijaraga beriladi (0..*). Har bir ijara kvitansiyasi 1 ta talaba va 1 ta kitob nusxasiga tegishli (1..1).\n\n'Student' -> 'BookLoan' (1..1 <-> 0..*) va 'BookCopy' -> 'BookLoan' (1..1 <-> 0..*) aloqalarini chizing.",
+    "instruction": "Student -> BookLoan (1..1 <-> 0..*) va BookCopy -> BookLoan (1..1 <-> 0..*) bog'lanishlarini o'rnating.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Car",
-          "x": 120,
-          "y": 150,
+          "name": "Student",
+          "isWeak": false,
+          "pk": "studentId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "plateNo",
-              "isPK": true
+              "name": "studentId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "model"
+              "name": "studentName",
+              "isPK": false
+            },
+            {
+              "name": "faculty",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "ParkingSpot",
-          "x": 480,
-          "y": 150,
+          "name": "BookCopy",
+          "isWeak": false,
+          "pk": "barcode",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "slotNo",
-              "isPK": true
+              "name": "barcode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "floor"
+              "name": "editionYear",
+              "isPK": false
+            },
+            {
+              "name": "shelfLocation",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "BookLoan",
+          "isWeak": false,
+          "pk": "loanId",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "loanId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "issueDate",
+              "isPK": false
+            },
+            {
+              "name": "returnDue",
+              "isPK": false
             }
           ]
         }
@@ -1853,60 +3011,142 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Car",
-          "pk": "plateNo"
+          "name": "Student",
+          "pk": "studentId",
+          "isWeak": false
         },
         {
-          "name": "ParkingSpot",
-          "pk": "slotNo"
+          "name": "BookCopy",
+          "pk": "barcode",
+          "isWeak": false
+        },
+        {
+          "name": "BookLoan",
+          "pk": "loanId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Car",
-          "entity2": "ParkingSpot",
+          "entity1": "Student",
+          "entity2": "BookLoan",
+          "fromEntityName": "Student",
+          "toEntityName": "BookLoan",
           "mult1": "1..1",
-          "mult2": "0..1"
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "BookCopy",
+          "entity2": "BookLoan",
+          "fromEntityName": "BookCopy",
+          "toEntityName": "BookLoan",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Car' (1..1) to 'ParkingSpot' (0..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Car' (1..1) and 'ParkingSpot' (0..1) verified and approved.",
-    "task": "Model 'Car' and 'ParkingSpot' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..1'."
+    }
   },
   {
     "id": 30,
     "sector": 2,
-    "difficulty": "Floor 2 • Qiyin (Floor 2 Master Architecti)",
-    "clientName": "Sherzod Jo'rayev",
-    "clientRole": "'Apex Aero' Parvozlar Xavfsizligi Direktori",
-    "clientAvatar": "airline",
-    "title": "2-Qavat Bossi: Samolyot va Parvozlar Jadvali Tizimi",
-    "story": "Aviakompaniyamizda samolyotlar (Aircraft) va rejalashtirilgan parvozlar (Flight) are present. Har bir parvoz qat'iy ravishda aniq 1 ta samolyotga biriktirilishi shart. Lekin ba'zi yangi yoki ta'mirdagi samolyotlar hali birorta ham parvozga qo'yilmagan bo'lishi mumkin. Ushbu parvoz jadvalini to'liq chizing!",
-    "taskUz": "Model 'Aircraft' and 'Flight' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'.",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Ulug'bek Nazarov",
+    "clientRole": "Xalqaro Logistika Bosh Muhandisi",
+    "clientAvatar": "mentor",
+    "title": "Logistika va Yetkazib Berish Zanjiri (4 ta Entitiy!) (Relatsion Sxema)",
+    "story": "Markaziy logistika omboriga (Warehouse) bir nechta yuk mashinalari (CargoTruck) biriktiriladi (1..*). Har bir yuk mashinasiga aniq 1 ta shtatdagi haydovchi (Driver) javobgar (1..1). Yuk mashinasi esa bir nechta marshrut reyslarini (DeliveryRoute) bajaradi (0..*).\n\n'Warehouse' -> 'CargoTruck' (1..1 <-> 1..*), 'CargoTruck' -> 'Driver' (1..1 <-> 1..1) va 'CargoTruck' -> 'DeliveryRoute' (1..1 <-> 0..*) to'rtta entitiyli tizimni quring.",
+    "instruction": "Warehouse -> CargoTruck (1..1 <-> 1..*), CargoTruck -> Driver (1..1 <-> 1..1), CargoTruck -> DeliveryRoute (1..1 <-> 0..*) aloqalarini chizing.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Aircraft",
+          "name": "Warehouse",
+          "isWeak": false,
+          "pk": "whCode",
+          "x": 120,
+          "y": 100,
           "attributes": [
             {
-              "name": "tailNumber",
-              "isPK": true
+              "name": "whCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "model"
+              "name": "whName",
+              "isPK": false
+            },
+            {
+              "name": "city",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Flight",
+          "name": "CargoTruck",
+          "isWeak": false,
+          "pk": "truckId",
+          "x": 480,
+          "y": 100,
           "attributes": [
             {
-              "name": "flightNo",
-              "isPK": true
+              "name": "truckId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "destAirport"
+              "name": "plateNumber",
+              "isPK": false
+            },
+            {
+              "name": "capacityTons",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Driver",
+          "isWeak": false,
+          "pk": "licenseNo",
+          "x": 120,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "licenseNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "driverName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DeliveryRoute",
+          "isWeak": false,
+          "pk": "routeId",
+          "x": 480,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "routeId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "routeDestination",
+              "isPK": false
+            },
+            {
+              "name": "departTime",
+              "isPK": false
             }
           ]
         }
@@ -1916,61 +3156,109 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Aircraft",
-          "pk": "tailNumber"
+          "name": "Warehouse",
+          "pk": "whCode",
+          "isWeak": false
         },
         {
-          "name": "Flight",
-          "pk": "flightNo"
+          "name": "CargoTruck",
+          "pk": "truckId",
+          "isWeak": false
+        },
+        {
+          "name": "Driver",
+          "pk": "licenseNo",
+          "isWeak": false
+        },
+        {
+          "name": "DeliveryRoute",
+          "pk": "routeId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Aircraft",
-          "entity2": "Flight",
+          "entity1": "Warehouse",
+          "entity2": "CargoTruck",
+          "fromEntityName": "Warehouse",
+          "toEntityName": "CargoTruck",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "CargoTruck",
+          "entity2": "Driver",
+          "fromEntityName": "CargoTruck",
+          "toEntityName": "Driver",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "CargoTruck",
+          "entity2": "DeliveryRoute",
+          "fromEntityName": "CargoTruck",
+          "toEntityName": "DeliveryRoute",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Aircraft' (1..1) to 'Flight' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Aircraft' (1..1) and 'Flight' (0..*) verified and approved.",
-    "task": "Model 'Aircraft' and 'Flight' entities, designate primary keys {PK}, and connect them with multiplicities '1..1' and '0..*'."
+    }
   },
   {
     "id": 31,
     "sector": 3,
-    "difficulty": "Floor 3 • Beginner",
-    "clientName": "Kamoliddin Fayzullayev",
-    "clientRole": "Ijtimoiy Himoya Boshqarmasi",
-    "clientAvatar": "social",
-    "title": "Xodim va Farzandlari (Weak Entity Child)",
-    "story": "Xodimlarimiz (Staff) va ularning qaramog'idagi farzandlari (Child) are present. Farzand alohida yashay olmaydi — u ota xodimiga bog'liq Weak Entity (Weak Entity) hisoblanadi. Farzandning o'ziga xos qisman kaliti {PPK} faqat uning ismi (fName) hisoblanadi. Har bir farzand aniq 1 ta xodimga tegishli, xodim esa 0 tadan ko'pgacha farzandga ega bo'lishi mumkin.",
-    "taskUz": "Model 'Staff' and weak entity 'Child' with partial key, mark 'Child' as Weak Entity, and link with '1..1' and '0..*'.",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Mehmonxona va Xonalar (Zaif Entitiy) (Relatsion Sxema)",
+    "story": "'HotelRoom' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Hotel' (hotelId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'roomNo' {PPK} hisoblanadi.\n\n'Hotel' (1..1) va 'HotelRoom' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Hotel' va zaif 'HotelRoom' entitiylarini identifikatsion aloqa bilan bog'lang (Hotel 1..1, HotelRoom 1..*). 'HotelRoom' entitiyida 'Zaif {W}' rejimini yoqing va 'roomNo' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Staff",
+          "name": "Hotel",
+          "isWeak": false,
+          "pk": "hotelId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "staffNo",
-              "isPK": true
+              "name": "hotelId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name"
+              "name": "hotelName",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Child",
+          "name": "HotelRoom",
           "isWeak": true,
+          "pk": "roomNo",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "fName",
+              "name": "roomNo",
+              "isPK": true,
               "isPPK": true
             },
             {
-              "name": "age"
+              "name": "roomType",
+              "isPK": false
+            },
+            {
+              "name": "price",
+              "isPK": false
             }
           ]
         }
@@ -1980,61 +3268,79 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Staff",
-          "pk": "staffNo"
+          "name": "Hotel",
+          "pk": "hotelId",
+          "isWeak": false
         },
         {
-          "name": "Child",
+          "name": "HotelRoom",
+          "pk": "roomNo",
           "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Staff",
-          "entity2": "Child",
+          "entity1": "Hotel",
+          "entity2": "HotelRoom",
+          "fromEntityName": "Hotel",
+          "toEntityName": "HotelRoom",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Staff' (1..1) to 'Child' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Staff' (1..1) and 'Child' (0..*) verified and approved.",
-    "task": "Model 'Staff' and weak entity 'Child' with partial key, mark 'Child' as Weak Entity, and link with '1..1' and '0..*'."
+    }
   },
   {
     "id": 32,
     "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Ulug'bek Samatov",
-    "clientRole": "E-tijorat Ombor Manager",
-    "clientAvatar": "warehouse",
-    "title": "Buyurtma va Buyurtma Qatorlari (OrderLine)",
-    "story": "Har bir buyurtma (Order) bir nechta qatorlardan (OrderLine) iborat. OrderLine mustaqil are present bo'la olmaydi (Weak Entity). Uning qisman kaliti {PPK} qator raqami (lineNo). Har bir buyurtma kamida 1 ta qatorga ega, qator esa aniq 1 ta buyurtmaga tegishli.",
-    "taskUz": "Model 'Order' and weak entity 'OrderLine' with partial key, mark 'OrderLine' as Weak Entity, and link with '1..1' and '1..*'.",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Buyurtma va Buyurtma Qatorlari (OrderItem) (Relatsion Sxema)",
+    "story": "'OrderItem' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Order' (orderNo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'itemSeq' {PPK} hisoblanadi.\n\n'Order' (1..1) va 'OrderItem' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Order' va zaif 'OrderItem' entitiylarini identifikatsion aloqa bilan bog'lang (Order 1..1, OrderItem 1..*). 'OrderItem' entitiyida 'Zaif {W}' rejimini yoqing va 'itemSeq' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Order",
+          "isWeak": false,
+          "pk": "orderNo",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "orderId",
-              "isPK": true
+              "name": "orderNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "orderDate"
+              "name": "orderDate",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "OrderLine",
+          "name": "OrderItem",
           "isWeak": true,
+          "pk": "itemSeq",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "lineNo",
+              "name": "itemSeq",
+              "isPK": true,
               "isPPK": true
             },
             {
-              "name": "quantity"
+              "name": "qty",
+              "isPK": false
+            },
+            {
+              "name": "unitPrice",
+              "isPK": false
             }
           ]
         }
@@ -2045,196 +3351,74 @@ _scope.EER_CLIENTS_1_50 = [
       "entities": [
         {
           "name": "Order",
-          "pk": "orderId"
+          "pk": "orderNo",
+          "isWeak": false
         },
         {
-          "name": "OrderLine",
+          "name": "OrderItem",
+          "pk": "itemSeq",
           "isWeak": true
         }
       ],
       "relationships": [
         {
           "entity1": "Order",
-          "entity2": "OrderLine",
+          "entity2": "OrderItem",
+          "fromEntityName": "Order",
+          "toEntityName": "OrderItem",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Order' (1..1) to 'OrderLine' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Order' (1..1) and 'OrderLine' (1..*) verified and approved.",
-    "task": "Model 'Order' and weak entity 'OrderLine' with partial key, mark 'OrderLine' as Weak Entity, and link with '1..1' and '1..*'."
+    }
   },
   {
     "id": 33,
     "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Bobur Hakimov",
-    "clientRole": "IT Loyihalar Manager",
-    "clientAvatar": "techpm",
-    "title": "Loyiha va Bosqichlar (Milestone Weak Entity)",
-    "story": "Kompaniyamizda har bir loyiha (Project) bir nechta oraliq bosqichlarga (Milestone) ega. Milestone loyihasiz mustaqil are present bo'lmaydi (Weak Entity). Uning qisman kaliti {PPK} bosqich tartib raqami (milestoneNo). Har bir loyiha 1 tadan ko'p bosqichga ega, bosqich esa aniq 1 ta loyihaga qarashli.",
-    "taskUz": "Model 'Project' and weak entity 'Milestone' with partial key, mark 'Milestone' as Weak Entity, and link with '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Project",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "projId",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        },
-        {
-          "name": "Milestone",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "milestoneNo",
-              "isPPK": true
-            },
-            {
-              "name": "targetDate"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Project",
-          "pk": "projId"
-        },
-        {
-          "name": "Milestone",
-          "isWeak": true
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Project",
-          "entity2": "Milestone",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'Project' (1..1) to 'Milestone' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Project' (1..1) and 'Milestone' (1..*) verified and approved.",
-    "task": "Model 'Project' and weak entity 'Milestone' with partial key, mark 'Milestone' as Weak Entity, and link with '1..1' and '1..*'."
-  },
-  {
-    "id": 34,
-    "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Nilufar Qosimova",
-    "clientRole": "Sug'urta Da'volari Boshqarmasi",
-    "clientAvatar": "insurance",
-    "title": "Sug'urta Polisi va Zarar Da'volari (Claim Weak Entity)",
-    "story": "Sug'urta kompaniyamizda har bir polis (Policy) bo'yicha zarar da'volari (Claim) tushadi. Da'vo polissiz are present bo'la olmaydi (Weak Entity). Qisman kalit {PPK} da'vo ketma-ket raqami (claimSeq). Polis 0 tadan ko'pgacha da'voga ega, da'vo esa 1 ta polisga tegishli.",
-    "taskUz": "Model 'Policy' and weak entity 'Claim' with partial key, mark 'Claim' as Weak Entity, and link with '1..1' and '0..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Policy",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "policyNo",
-              "isPK": true
-            },
-            {
-              "name": "holder"
-            }
-          ]
-        },
-        {
-          "name": "Claim",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "claimSeq",
-              "isPPK": true
-            },
-            {
-              "name": "amount"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Policy",
-          "pk": "policyNo"
-        },
-        {
-          "name": "Claim",
-          "isWeak": true
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Policy",
-          "entity2": "Claim",
-          "mult1": "1..1",
-          "mult2": "0..*"
-        }
-      ]
-    },
-    "hint": "Connect 'Policy' (1..1) to 'Claim' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Policy' (1..1) and 'Claim' (0..*) verified and approved.",
-    "task": "Model 'Policy' and weak entity 'Claim' with partial key, mark 'Claim' as Weak Entity, and link with '1..1' and '0..*'."
-  },
-  {
-    "id": 35,
-    "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Ravshan Usmonov",
-    "clientRole": "Mehmonxona Arxitektori",
-    "clientAvatar": "architect",
-    "title": "Building and Rooms (Room Weak Entity)",
-    "story": "Mehmonxona binosi (Building) va undagi xonalar (Room) bor. Xona faqat shu bino ichida are present (Weak Entity). Bino ichidagi qisman kalit {PPK} xona raqamidir (roomNo). Bino 1 tadan ko'p xonaga ega, xona esa bitta binoga tegishli.",
-    "taskUz": "Model 'Building' and weak entity 'Room' with partial key, mark 'Room' as Weak Entity, and link with '1..1' and '1..*'.",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Bino va Qavatlar (Zaif Bog'liqlik) (Relatsion Sxema)",
+    "story": "'Floor' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Building' (buildingCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'floorNo' {PPK} hisoblanadi.\n\n'Building' (1..1) va 'Floor' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Building' va zaif 'Floor' entitiylarini identifikatsion aloqa bilan bog'lang (Building 1..1, Floor 1..*). 'Floor' entitiyida 'Zaif {W}' rejimini yoqing va 'floorNo' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Building",
+          "isWeak": false,
+          "pk": "buildingCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "bldgNo",
-              "isPK": true
+              "name": "buildingCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "city"
+              "name": "address",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Room",
+          "name": "Floor",
           "isWeak": true,
+          "pk": "floorNo",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "roomNo",
+              "name": "floorNo",
+              "isPK": true,
               "isPPK": true
             },
             {
-              "name": "floor"
+              "name": "areaSqM",
+              "isPK": false
             }
           ]
         }
@@ -2245,200 +3429,242 @@ _scope.EER_CLIENTS_1_50 = [
       "entities": [
         {
           "name": "Building",
-          "pk": "bldgNo"
+          "pk": "buildingCode",
+          "isWeak": false
         },
         {
-          "name": "Room",
+          "name": "Floor",
+          "pk": "floorNo",
           "isWeak": true
         }
       ],
       "relationships": [
         {
           "entity1": "Building",
-          "entity2": "Room",
+          "entity2": "Floor",
+          "fromEntityName": "Building",
+          "toEntityName": "Floor",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
+    }
+  },
+  {
+    "id": 34,
+    "sector": 3,
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Xodim va Qaramog'idagilar (Dependent) (Relatsion Sxema)",
+    "story": "'Dependent' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Employee' (empId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'depName' {PPK} hisoblanadi.\n\n'Employee' (1..1) va 'Dependent' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Employee' va zaif 'Dependent' entitiylarini identifikatsion aloqa bilan bog'lang (Employee 1..1, Dependent 1..*). 'Dependent' entitiyida 'Zaif {W}' rejimini yoqing va 'depName' kalitini {PPK} belgilang.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Employee",
+          "isWeak": false,
+          "pk": "empId",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "empId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Dependent",
+          "isWeak": true,
+          "pk": "depName",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "depName",
+              "isPK": true,
+              "isPPK": true
+            },
+            {
+              "name": "relationship",
+              "isPK": false
+            },
+            {
+              "name": "birthDate",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
     },
-    "hint": "Connect 'Building' (1..1) to 'Room' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Building' (1..1) and 'Room' (1..*) verified and approved.",
-    "task": "Model 'Building' and weak entity 'Room' with partial key, mark 'Room' as Weak Entity, and link with '1..1' and '1..*'."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Employee",
+          "pk": "empId",
+          "isWeak": false
+        },
+        {
+          "name": "Dependent",
+          "pk": "depName",
+          "isWeak": true
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Employee",
+          "entity2": "Dependent",
+          "fromEntityName": "Employee",
+          "toEntityName": "Dependent",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 35,
+    "sector": 3,
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Bank Hisob va Oylik Ko'chirmalar (Relatsion Sxema)",
+    "story": "'AccountStatement' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'BankAccount' (accountNo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'statementSeq' {PPK} hisoblanadi.\n\n'BankAccount' (1..1) va 'AccountStatement' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'BankAccount' va zaif 'AccountStatement' entitiylarini identifikatsion aloqa bilan bog'lang (BankAccount 1..1, AccountStatement 1..*). 'AccountStatement' entitiyida 'Zaif {W}' rejimini yoqing va 'statementSeq' kalitini {PPK} belgilang.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "BankAccount",
+          "isWeak": false,
+          "pk": "accountNo",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "accountNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "currency",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "AccountStatement",
+          "isWeak": true,
+          "pk": "statementSeq",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "statementSeq",
+              "isPK": true,
+              "isPPK": true
+            },
+            {
+              "name": "statementMonth",
+              "isPK": false
+            },
+            {
+              "name": "totalInflow",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "BankAccount",
+          "pk": "accountNo",
+          "isWeak": false
+        },
+        {
+          "name": "AccountStatement",
+          "pk": "statementSeq",
+          "isWeak": true
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "BankAccount",
+          "entity2": "AccountStatement",
+          "fromEntityName": "BankAccount",
+          "toEntityName": "AccountStatement",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ]
+    }
   },
   {
     "id": 36,
     "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Otabek Ergashev",
-    "clientRole": "Shifoxona Bosh Vrachi",
-    "clientAvatar": "doctor",
-    "title": "Palata va Karavotlar (Bed Weak Entity)",
-    "story": "Shifoxonamizda palatalar (Ward) va karavotlar (Bed) are present. Karavot faqat shu palata ichida raqamlanadi (Weak Entity, {PPK} bedNo). Palata 1 tadan ko'p karavotga ega, karavot esa bitta palataga tegishli.",
-    "taskUz": "Model 'Ward' and weak entity 'Bed' with partial key, mark 'Bed' as Weak Entity, and link with '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Ward",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "wardNo",
-              "isPK": true
-            },
-            {
-              "name": "dept"
-            }
-          ]
-        },
-        {
-          "name": "Bed",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "bedNo",
-              "isPPK": true
-            },
-            {
-              "name": "type"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Ward",
-          "pk": "wardNo"
-        },
-        {
-          "name": "Bed",
-          "isWeak": true
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Ward",
-          "entity2": "Bed",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'Ward' (1..1) to 'Bed' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Ward' (1..1) and 'Bed' (1..*) verified and approved.",
-    "task": "Model 'Ward' and weak entity 'Bed' with partial key, mark 'Bed' as Weak Entity, and link with '1..1' and '1..*'."
-  },
-  {
-    "id": 37,
-    "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Lobar Sayfullayeva",
-    "clientRole": "O'quv Nashriyoti Tahririyati",
-    "clientAvatar": "publisher",
-    "title": "Kitob va Boblar (Chapter Weak Entity)",
-    "story": "Nashriyotimizda kitob (Book) va uning boblari (Chapter) bor. Bob kitobsiz yashay olmaydi (Weak Entity). Uning qisman kaliti {PPK} bob tartib raqami (chapterNo). Kitob kamida bitta yoki bir nechta bobga ega bo'ladi, har bir bob esa aniq bitta kitobga tegishli.",
-    "taskUz": "Model 'Book' and weak entity 'Chapter' with partial key, mark 'Chapter' as Weak Entity, and link with '1..1' and '1..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Book",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "isbn",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        },
-        {
-          "name": "Chapter",
-          "isWeak": true,
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "chapterNo",
-              "isPPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Book",
-          "pk": "isbn"
-        },
-        {
-          "name": "Chapter",
-          "isWeak": true
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Book",
-          "entity2": "Chapter",
-          "mult1": "1..1",
-          "mult2": "1..*"
-        }
-      ]
-    },
-    "hint": "Connect 'Book' (1..1) to 'Chapter' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Book' (1..1) and 'Chapter' (1..*) verified and approved.",
-    "task": "Model 'Book' and weak entity 'Chapter' with partial key, mark 'Chapter' as Weak Entity, and link with '1..1' and '1..*'."
-  },
-  {
-    "id": 38,
-    "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Jahongir To'xtayev",
-    "clientRole": "Aviakompaniya Engineer",
-    "clientAvatar": "airline",
-    "title": "Parvoz va Reys Segmentlari (FlightLeg Weak Entity)",
-    "story": "Aviakompaniyada asosiy parvoz (Flight) bir nechta oraliq uchish qismlaridan (FlightLeg) iborat bo'lishi mumkin (Weak Entity, {PPK} legNo). Parvoz bir nechta oraliq uchish qismlariga ega bo'lishi mumkin, har bir qism aniq bitta parvozga qarashli.",
-    "taskUz": "Model 'Flight' and weak entity 'FlightLeg' with partial key, mark 'FlightLeg' as Weak Entity, and link with '1..1' and '1..*'.",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Aviaqatnov va Parvoz Bosqichlari (FlightLeg) (Relatsion Sxema)",
+    "story": "'FlightLeg' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Flight' (flightNo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'legNumber' {PPK} hisoblanadi.\n\n'Flight' (1..1) va 'FlightLeg' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Flight' va zaif 'FlightLeg' entitiylarini identifikatsion aloqa bilan bog'lang (Flight 1..1, FlightLeg 1..*). 'FlightLeg' entitiyida 'Zaif {W}' rejimini yoqing va 'legNumber' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Flight",
-          "x": 120,
-          "y": 150,
+          "isWeak": false,
+          "pk": "flightNo",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
               "name": "flightNo",
-              "isPK": true
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "airline"
+              "name": "airlineCode",
+              "isPK": false
             }
           ]
         },
         {
           "name": "FlightLeg",
           "isWeak": true,
-          "x": 480,
-          "y": 150,
+          "pk": "legNumber",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "legNo",
+              "name": "legNumber",
+              "isPK": true,
               "isPPK": true
             },
             {
-              "name": "depTime"
+              "name": "originAir",
+              "isPK": false
+            },
+            {
+              "name": "destAir",
+              "isPK": false
             }
           ]
         }
@@ -2449,10 +3675,12 @@ _scope.EER_CLIENTS_1_50 = [
       "entities": [
         {
           "name": "Flight",
-          "pk": "flightNo"
+          "pk": "flightNo",
+          "isWeak": false
         },
         {
           "name": "FlightLeg",
+          "pk": "legNumber",
           "isWeak": true
         }
       ],
@@ -2460,53 +3688,229 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "entity1": "Flight",
           "entity2": "FlightLeg",
+          "fromEntityName": "Flight",
+          "toEntityName": "FlightLeg",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
+    }
+  },
+  {
+    "id": 37,
+    "sector": 3,
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Shifoxona Palatasi va Yotoq O'rinlari (Relatsion Sxema)",
+    "story": "'WardBed' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'HospitalWard' (wardCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'bedNumber' {PPK} hisoblanadi.\n\n'HospitalWard' (1..1) va 'WardBed' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'HospitalWard' va zaif 'WardBed' entitiylarini identifikatsion aloqa bilan bog'lang (HospitalWard 1..1, WardBed 1..*). 'WardBed' entitiyida 'Zaif {W}' rejimini yoqing va 'bedNumber' kalitini {PPK} belgilang.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "HospitalWard",
+          "isWeak": false,
+          "pk": "wardCode",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "wardCode",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "floorLevel",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "WardBed",
+          "isWeak": true,
+          "pk": "bedNumber",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "bedNumber",
+              "isPK": true,
+              "isPPK": true
+            },
+            {
+              "name": "isOccupied",
+              "isPK": false
+            },
+            {
+              "name": "bedType",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
     },
-    "hint": "Connect 'Flight' (1..1) to 'FlightLeg' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Flight' (1..1) and 'FlightLeg' (1..*) verified and approved.",
-    "task": "Model 'Flight' and weak entity 'FlightLeg' with partial key, mark 'FlightLeg' as Weak Entity, and link with '1..1' and '1..*'."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "HospitalWard",
+          "pk": "wardCode",
+          "isWeak": false
+        },
+        {
+          "name": "WardBed",
+          "pk": "bedNumber",
+          "isWeak": true
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "HospitalWard",
+          "entity2": "WardBed",
+          "fromEntityName": "HospitalWard",
+          "toEntityName": "WardBed",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 38,
+    "sector": 3,
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Kitob va Boblar Tuzilmasi (BookChapter) (Relatsion Sxema)",
+    "story": "'BookChapter' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'PublishingBook' (bookIsbn {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'chapterNo' {PPK} hisoblanadi.\n\n'PublishingBook' (1..1) va 'BookChapter' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'PublishingBook' va zaif 'BookChapter' entitiylarini identifikatsion aloqa bilan bog'lang (PublishingBook 1..1, BookChapter 1..*). 'BookChapter' entitiyida 'Zaif {W}' rejimini yoqing va 'chapterNo' kalitini {PPK} belgilang.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "PublishingBook",
+          "isWeak": false,
+          "pk": "bookIsbn",
+          "x": 140,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "bookIsbn",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "bookTitle",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "BookChapter",
+          "isWeak": true,
+          "pk": "chapterNo",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "chapterNo",
+              "isPK": true,
+              "isPPK": true
+            },
+            {
+              "name": "chapterTitle",
+              "isPK": false
+            },
+            {
+              "name": "pageCount",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "PublishingBook",
+          "pk": "bookIsbn",
+          "isWeak": false
+        },
+        {
+          "name": "BookChapter",
+          "pk": "chapterNo",
+          "isWeak": true
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "PublishingBook",
+          "entity2": "BookChapter",
+          "fromEntityName": "PublishingBook",
+          "toEntityName": "BookChapter",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ]
+    }
   },
   {
     "id": 39,
     "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Doniyor Ziyoyev",
-    "clientRole": "Dasturiy Mahsulot Arxitektori",
-    "clientAvatar": "techpm",
-    "title": "Dasturiy Paket va Modullar (Module Weak Entity)",
-    "story": "Dasturimiz (SoftwarePackage) bir nechta modullardan (Module) iborat. Modul dastursiz are present emas (Weak Entity, {PPK} modCode). Paket bir nechta modullardan iborat bo'ladi, har bir modul esa aniq bitta paketga tegishli.",
-    "taskUz": "Model 'SoftwarePackage' and weak entity 'Module' with partial key, mark 'Module' as Weak Entity, and link with '1..1' and '1..*'.",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Konteyner Kemasi va Yuk Bo'limlari (Relatsion Sxema)",
+    "story": "'CargoContainer' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'CargoShip' (shipImo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'containerSlot' {PPK} hisoblanadi.\n\n'CargoShip' (1..1) va 'CargoContainer' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'CargoShip' va zaif 'CargoContainer' entitiylarini identifikatsion aloqa bilan bog'lang (CargoShip 1..1, CargoContainer 1..*). 'CargoContainer' entitiyida 'Zaif {W}' rejimini yoqing va 'containerSlot' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "SoftwarePackage",
-          "x": 120,
-          "y": 150,
+          "name": "CargoShip",
+          "isWeak": false,
+          "pk": "shipImo",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "pkgId",
-              "isPK": true
+              "name": "shipImo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name"
+              "name": "shipName",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Module",
+          "name": "CargoContainer",
           "isWeak": true,
-          "x": 480,
-          "y": 150,
+          "pk": "containerSlot",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "modCode",
+              "name": "containerSlot",
+              "isPK": true,
               "isPPK": true
             },
             {
-              "name": "version"
+              "name": "cargoType",
+              "isPK": false
+            },
+            {
+              "name": "weightTons",
+              "isPK": false
             }
           ]
         }
@@ -2516,65 +3920,79 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "SoftwarePackage",
-          "pk": "pkgId"
+          "name": "CargoShip",
+          "pk": "shipImo",
+          "isWeak": false
         },
         {
-          "name": "Module",
+          "name": "CargoContainer",
+          "pk": "containerSlot",
           "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "SoftwarePackage",
-          "entity2": "Module",
+          "entity1": "CargoShip",
+          "entity2": "CargoContainer",
+          "fromEntityName": "CargoShip",
+          "toEntityName": "CargoContainer",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'SoftwarePackage' (1..1) to 'Module' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'SoftwarePackage' (1..1) and 'Module' (1..*) verified and approved.",
-    "task": "Model 'SoftwarePackage' and weak entity 'Module' with partial key, mark 'Module' as Weak Entity, and link with '1..1' and '1..*'."
+    }
   },
   {
     "id": 40,
     "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Gulzoda Islomova",
-    "clientRole": "Teatr Bosh Ma'muri",
-    "clientAvatar": "arts",
-    "title": "Teatr Zali va Qatorlar (SeatRow Weak Entity)",
-    "story": "Teatrimizda tomosha zali (Hall) va undagi o'rindiqlar qatori (SeatRow) are present. Qator zalsiz are present bo'lmaydi (Weak Entity, {PPK} rowNo). Zal bir nechta qatorlarga ega bo'ladi, har bir qator aniq bitta tomosha zaliga qarashli.",
-    "taskUz": "Model 'Hall' and weak entity 'SeatRow' with partial key, mark 'SeatRow' as Weak Entity, and link with '1..1' and '1..*'.",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Universitet Fani va Guruh Potoklari (Relatsion Sxema)",
+    "story": "'CourseSection' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'UniversityCourse' (courseCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'sectionCode' {PPK} hisoblanadi.\n\n'UniversityCourse' (1..1) va 'CourseSection' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'UniversityCourse' va zaif 'CourseSection' entitiylarini identifikatsion aloqa bilan bog'lang (UniversityCourse 1..1, CourseSection 1..*). 'CourseSection' entitiyida 'Zaif {W}' rejimini yoqing va 'sectionCode' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Hall",
-          "x": 120,
-          "y": 150,
+          "name": "UniversityCourse",
+          "isWeak": false,
+          "pk": "courseCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "hallId",
-              "isPK": true
+              "name": "courseCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "hallName"
+              "name": "courseName",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "SeatRow",
+          "name": "CourseSection",
           "isWeak": true,
-          "x": 480,
-          "y": 150,
+          "pk": "sectionCode",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "rowNo",
+              "name": "sectionCode",
+              "isPK": true,
               "isPPK": true
             },
             {
-              "name": "seatCount"
+              "name": "semester",
+              "isPK": false
+            },
+            {
+              "name": "maxStudents",
+              "isPK": false
             }
           ]
         }
@@ -2584,65 +4002,79 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Hall",
-          "pk": "hallId"
+          "name": "UniversityCourse",
+          "pk": "courseCode",
+          "isWeak": false
         },
         {
-          "name": "SeatRow",
+          "name": "CourseSection",
+          "pk": "sectionCode",
           "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Hall",
-          "entity2": "SeatRow",
+          "entity1": "UniversityCourse",
+          "entity2": "CourseSection",
+          "fromEntityName": "UniversityCourse",
+          "toEntityName": "CourseSection",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Hall' (1..1) to 'SeatRow' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Hall' (1..1) and 'SeatRow' (1..*) verified and approved.",
-    "task": "Model 'Hall' and weak entity 'SeatRow' with partial key, mark 'SeatRow' as Weak Entity, and link with '1..1' and '1..*'."
+    }
   },
   {
     "id": 41,
     "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Bexruz Normurodov",
-    "clientRole": "Chiptaxona Head",
-    "clientAvatar": "retailer",
-    "title": "Chipta va Chipta Kuponlari (Coupon Weak Entity)",
-    "story": "Xalqaro poyezd chiptasi (Ticket) bir nechta kupon varaqlaridan (Coupon) iborat (Weak Entity, {PPK} couponNo). Chipta bir nechta kuponlardan iborat bo'ladi, har bir kupon esa aniq bitta chiptaga tegishli.",
-    "taskUz": "Model 'Ticket' and weak entity 'Coupon' with partial key, mark 'Coupon' as Weak Entity, and link with '1..1' and '1..*'.",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Dori Retsepti va Qabul Qilish Dozalari (Relatsion Sxema)",
+    "story": "'DoseSchedule' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Prescription' (rxId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'doseIndex' {PPK} hisoblanadi.\n\n'Prescription' (1..1) va 'DoseSchedule' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Prescription' va zaif 'DoseSchedule' entitiylarini identifikatsion aloqa bilan bog'lang (Prescription 1..1, DoseSchedule 1..*). 'DoseSchedule' entitiyida 'Zaif {W}' rejimini yoqing va 'doseIndex' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Ticket",
-          "x": 120,
-          "y": 150,
+          "name": "Prescription",
+          "isWeak": false,
+          "pk": "rxId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "ticketId",
-              "isPK": true
+              "name": "rxId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "price"
+              "name": "prescribedDate",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Coupon",
+          "name": "DoseSchedule",
           "isWeak": true,
-          "x": 480,
-          "y": 150,
+          "pk": "doseIndex",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "couponNo",
+              "name": "doseIndex",
+              "isPK": true,
               "isPPK": true
             },
             {
-              "name": "validDate"
+              "name": "timeOfDay",
+              "isPK": false
+            },
+            {
+              "name": "doseAmount",
+              "isPK": false
             }
           ]
         }
@@ -2652,65 +4084,79 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Ticket",
-          "pk": "ticketId"
+          "name": "Prescription",
+          "pk": "rxId",
+          "isWeak": false
         },
         {
-          "name": "Coupon",
+          "name": "DoseSchedule",
+          "pk": "doseIndex",
           "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Ticket",
-          "entity2": "Coupon",
+          "entity1": "Prescription",
+          "entity2": "DoseSchedule",
+          "fromEntityName": "Prescription",
+          "toEntityName": "DoseSchedule",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Ticket' (1..1) to 'Coupon' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Ticket' (1..1) and 'Coupon' (1..*) verified and approved.",
-    "task": "Model 'Ticket' and weak entity 'Coupon' with partial key, mark 'Coupon' as Weak Entity, and link with '1..1' and '1..*'."
+    }
   },
   {
     "id": 42,
     "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Maftuna Alimova",
-    "clientRole": "Bank Kartalari Monitoringi",
-    "clientAvatar": "banker",
-    "title": "Plastik Karta va PIN-Konvert (PinEnvelope Weak Entity)",
-    "story": "Bank plastik kartasi (BankCard) o'zining himoyalangan PIN-konvertiga (PinEnvelope) ega (Weak Entity, {PPK} envSeq). Karta ko'pi bilan bitta PIN-konvertga ega bo'lishi mumkin, konvert esa faqat bitta kartaga tegishli.",
-    "taskUz": "Model 'BankCard' and weak entity 'PinEnvelope' with partial key, mark 'PinEnvelope' as Weak Entity, and link with '1..1' and '0..1'.",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Ombor Yo'lagi va Saqlash Yacheykalari (Relatsion Sxema)",
+    "story": "'StorageBin' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'WarehouseAisle' (aisleCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'binNumber' {PPK} hisoblanadi.\n\n'WarehouseAisle' (1..1) va 'StorageBin' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'WarehouseAisle' va zaif 'StorageBin' entitiylarini identifikatsion aloqa bilan bog'lang (WarehouseAisle 1..1, StorageBin 1..*). 'StorageBin' entitiyida 'Zaif {W}' rejimini yoqing va 'binNumber' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "BankCard",
-          "x": 120,
-          "y": 150,
+          "name": "WarehouseAisle",
+          "isWeak": false,
+          "pk": "aisleCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "cardNo",
-              "isPK": true
+              "name": "aisleCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "expDate"
+              "name": "zoneCategory",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "PinEnvelope",
+          "name": "StorageBin",
           "isWeak": true,
-          "x": 480,
-          "y": 150,
+          "pk": "binNumber",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "envSeq",
+              "name": "binNumber",
+              "isPK": true,
               "isPPK": true
             },
             {
-              "name": "salt"
+              "name": "shelfTier",
+              "isPK": false
+            },
+            {
+              "name": "capacityKg",
+              "isPK": false
             }
           ]
         }
@@ -2720,65 +4166,79 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "BankCard",
-          "pk": "cardNo"
+          "name": "WarehouseAisle",
+          "pk": "aisleCode",
+          "isWeak": false
         },
         {
-          "name": "PinEnvelope",
+          "name": "StorageBin",
+          "pk": "binNumber",
           "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "BankCard",
-          "entity2": "PinEnvelope",
+          "entity1": "WarehouseAisle",
+          "entity2": "StorageBin",
+          "fromEntityName": "WarehouseAisle",
+          "toEntityName": "StorageBin",
           "mult1": "1..1",
-          "mult2": "0..1"
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'BankCard' (1..1) to 'PinEnvelope' (0..1) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'BankCard' (1..1) and 'PinEnvelope' (0..1) verified and approved.",
-    "task": "Model 'BankCard' and weak entity 'PinEnvelope' with partial key, mark 'PinEnvelope' as Weak Entity, and link with '1..1' and '0..1'."
+    }
   },
   {
     "id": 43,
     "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Nodir Mahmudov",
-    "clientRole": "Yuk Kemasi Kapitani",
-    "clientAvatar": "logistics",
-    "title": "Kema va Kema Xonalari (Cabin Weak Entity)",
-    "story": "Yuk kemasida (Ship) kayutalar (Cabin) are present (Weak Entity, {PPK} cabinNo). Kema bir nechta kayutalarga ega bo'ladi, har bir kayuta esa faqat bitta kemaga tegishli.",
-    "taskUz": "Model 'Ship' and weak entity 'Cabin' with partial key, mark 'Cabin' as Weak Entity, and link with '1..1' and '1..*'.",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Dasturiy Loyiha va Bosqich Marralari (Relatsion Sxema)",
+    "story": "'ProjectMilestone' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'SoftwareProject' (projectKey {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'milestoneSeq' {PPK} hisoblanadi.\n\n'SoftwareProject' (1..1) va 'ProjectMilestone' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'SoftwareProject' va zaif 'ProjectMilestone' entitiylarini identifikatsion aloqa bilan bog'lang (SoftwareProject 1..1, ProjectMilestone 1..*). 'ProjectMilestone' entitiyida 'Zaif {W}' rejimini yoqing va 'milestoneSeq' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Ship",
-          "x": 120,
-          "y": 150,
+          "name": "SoftwareProject",
+          "isWeak": false,
+          "pk": "projectKey",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "imoNumber",
-              "isPK": true
+              "name": "projectKey",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name"
+              "name": "projectName",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Cabin",
+          "name": "ProjectMilestone",
           "isWeak": true,
-          "x": 480,
-          "y": 150,
+          "pk": "milestoneSeq",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "cabinNo",
+              "name": "milestoneSeq",
+              "isPK": true,
               "isPPK": true
             },
             {
-              "name": "beds"
+              "name": "milestoneTitle",
+              "isPK": false
+            },
+            {
+              "name": "dueDate",
+              "isPK": false
             }
           ]
         }
@@ -2788,65 +4248,79 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Ship",
-          "pk": "imoNumber"
+          "name": "SoftwareProject",
+          "pk": "projectKey",
+          "isWeak": false
         },
         {
-          "name": "Cabin",
+          "name": "ProjectMilestone",
+          "pk": "milestoneSeq",
           "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Ship",
-          "entity2": "Cabin",
+          "entity1": "SoftwareProject",
+          "entity2": "ProjectMilestone",
+          "fromEntityName": "SoftwareProject",
+          "toEntityName": "ProjectMilestone",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Ship' (1..1) to 'Cabin' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Ship' (1..1) and 'Cabin' (1..*) verified and approved.",
-    "task": "Model 'Ship' and weak entity 'Cabin' with partial key, mark 'Cabin' as Weak Entity, and link with '1..1' and '1..*'."
+    }
   },
   {
     "id": 44,
     "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "clientName": "Zuhra Shodiyeva",
-    "clientRole": "Kollej O'quv Rejalari Head",
-    "clientAvatar": "principal",
-    "title": "Fan Sillabusi va Dars Mavzulari (Topic Weak Entity)",
-    "story": "Fan sillabusida (Syllabus) dars mavzulari (Topic) bor (Weak Entity, {PPK} topicNo). Sillabus bir nechta mavzulardan iborat bo'ladi, har bir mavzu esa faqat bitta sillabusga qarashli.",
-    "taskUz": "Model 'Syllabus' and weak entity 'Topic' with partial key, mark 'Topic' as Weak Entity, and link with '1..1' and '1..*'.",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Ilmiy Konferensiya va Seksiyalar (Relatsion Sxema)",
+    "story": "'ConferenceSession' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Conference' (confCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'sessionNo' {PPK} hisoblanadi.\n\n'Conference' (1..1) va 'ConferenceSession' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Conference' va zaif 'ConferenceSession' entitiylarini identifikatsion aloqa bilan bog'lang (Conference 1..1, ConferenceSession 1..*). 'ConferenceSession' entitiyida 'Zaif {W}' rejimini yoqing va 'sessionNo' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Syllabus",
-          "x": 120,
-          "y": 150,
+          "name": "Conference",
+          "isWeak": false,
+          "pk": "confCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "sylId",
-              "isPK": true
+              "name": "confCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "subject"
+              "name": "confTitle",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Topic",
+          "name": "ConferenceSession",
           "isWeak": true,
-          "x": 480,
-          "y": 150,
+          "pk": "sessionNo",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "topicNo",
+              "name": "sessionNo",
+              "isPK": true,
               "isPPK": true
             },
             {
-              "name": "hours"
+              "name": "topicName",
+              "isPK": false
+            },
+            {
+              "name": "startTime",
+              "isPK": false
             }
           ]
         }
@@ -2856,61 +4330,79 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Syllabus",
-          "pk": "sylId"
+          "name": "Conference",
+          "pk": "confCode",
+          "isWeak": false
         },
         {
-          "name": "Topic",
+          "name": "ConferenceSession",
+          "pk": "sessionNo",
           "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Syllabus",
-          "entity2": "Topic",
+          "entity1": "Conference",
+          "entity2": "ConferenceSession",
+          "fromEntityName": "Conference",
+          "toEntityName": "ConferenceSession",
           "mult1": "1..1",
-          "mult2": "1..*"
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Syllabus' (1..1) to 'Topic' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Syllabus' (1..1) and 'Topic' (1..*) verified and approved.",
-    "task": "Model 'Syllabus' and weak entity 'Topic' with partial key, mark 'Topic' as Weak Entity, and link with '1..1' and '1..*'."
+    }
   },
   {
     "id": 45,
     "sector": 3,
-    "difficulty": "Floor 3 • Qiyin (Floor 3 Master Architecti)",
-    "clientName": "Sardor Ahmedov",
-    "clientRole": "Bank IT Direktori",
-    "clientAvatar": "bankit",
-    "title": "3-Qavat Bossi: Hisob Raqam va Tranzaksiyalar (Transaction)",
-    "story": "Assalomu alaykum! Bankimizda hisob raqamlari (Account) va har bir harakat (Transaction) are present. Tranzaksiya o'zicha mustaqil are present bo'lmaydi (Weak Entity). Uning qisman kaliti {PPK} tranzaksiya ketma-ketlik raqamidir (txSeq). Har bir hisob raqam 0 tadan ko'pgacha tranzaksiyaga ega bo'lishi mumkin, tranzaksiya esa qat'iy ravishda 1 ta hisobga tegishli. Ushbu zaif munosabatni chizing!",
-    "taskUz": "Model 'Account' and weak entity 'Transaction' with partial key, mark 'Transaction' as Weak Entity, and link with '1..1' and '0..*'.",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Aloqa Minoralari va Antennalar Sektori (Relatsion Sxema)",
+    "story": "'AntennaSector' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'CellTower' (towerId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'sectorCode' {PPK} hisoblanadi.\n\n'CellTower' (1..1) va 'AntennaSector' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'CellTower' va zaif 'AntennaSector' entitiylarini identifikatsion aloqa bilan bog'lang (CellTower 1..1, AntennaSector 1..*). 'AntennaSector' entitiyida 'Zaif {W}' rejimini yoqing va 'sectorCode' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Account",
+          "name": "CellTower",
+          "isWeak": false,
+          "pk": "towerId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "accNo",
-              "isPK": true
+              "name": "towerId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "balance"
+              "name": "locationGps",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "Transaction",
+          "name": "AntennaSector",
           "isWeak": true,
+          "pk": "sectorCode",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "txSeq",
+              "name": "sectorCode",
+              "isPK": true,
               "isPPK": true
             },
             {
-              "name": "amount"
+              "name": "azimuthAngle",
+              "isPK": false
+            },
+            {
+              "name": "frequencyMhz",
+              "isPK": false
             }
           ]
         }
@@ -2920,267 +4412,81 @@ _scope.EER_CLIENTS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Account",
-          "pk": "accNo"
+          "name": "CellTower",
+          "pk": "towerId",
+          "isWeak": false
         },
         {
-          "name": "Transaction",
+          "name": "AntennaSector",
+          "pk": "sectorCode",
           "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Account",
-          "entity2": "Transaction",
+          "entity1": "CellTower",
+          "entity2": "AntennaSector",
+          "fromEntityName": "CellTower",
+          "toEntityName": "AntennaSector",
           "mult1": "1..1",
-          "mult2": "0..*"
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Account' (1..1) to 'Transaction' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Account' (1..1) and 'Transaction' (0..*) verified and approved.",
-    "task": "Model 'Account' and weak entity 'Transaction' with partial key, mark 'Transaction' as Weak Entity, and link with '1..1' and '0..*'."
+    }
   },
   {
     "id": 46,
     "sector": 4,
-    "difficulty": "Floor 4 • Intermediate",
-    "clientName": "Mansur Jo'rayev",
-    "clientRole": "IT Korxona Direktori",
-    "clientAvatar": "itdirector",
-    "title": "Xodim va Loyiha: Ish Soati Atributi (WorksOn)",
-    "story": "Korxonamizda xodimlar (Employee) va loyihalar (Project) o'rtasida ko'pdan-ko'pga munosabat bor: har bir xodim 1 tadan 5 tagacha loyihada ishlaydi (1..5), har bir loyihada kamida 1 ta yoki ko'p xodim ishlaydi. Eng muhimi: har bir xodimning loyihada ishlagan soati (hours) aynan shu 'WorksOn' aloqasining o'ziga xos atributi (Association Class) hisoblanadi!",
-    "taskUz": "Model 'Employee' and 'Project' entities, designate primary keys {PK}, and connect them with multiplicities '1..*' and '1..5'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Employee",
-          "attributes": [
-            {
-              "name": "empNo",
-              "isPK": true
-            },
-            {
-              "name": "name"
-            }
-          ]
-        },
-        {
-          "name": "Project",
-          "attributes": [
-            {
-              "name": "projNo",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Employee",
-          "pk": "empNo"
-        },
-        {
-          "name": "Project",
-          "pk": "projNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Employee",
-          "entity2": "Project",
-          "name": "WorksOn",
-          "mult1": "1..*",
-          "mult2": "1..5",
-          "associationClass": true
-        }
-      ]
-    },
-    "hint": "Connect 'Employee' (1..*) to 'Project' (1..5) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Employee' (1..*) and 'Project' (1..5) verified and approved.",
-    "task": "Model 'Employee' and 'Project' entities, designate primary keys {PK}, and connect them with multiplicities '1..*' and '1..5'."
-  },
-  {
-    "id": 47,
-    "sector": 4,
-    "difficulty": "Floor 4 • Intermediate",
-    "clientName": "Rustam Fayziyev",
-    "clientRole": "Avtomobil Plant Ta'minot Manager",
-    "clientAvatar": "automotive",
-    "title": "Yetkazib Beruvchi va Detallar (Supplies - narx Atributi)",
-    "story": "Zavodimizda ta'minotchi (Supplier) va detallar (Part) o'rtasida 'Supplies' ko'pdan-ko'pga aloqasi are present. Bir ta'minotchi ko'plab detal yetkazadi, har bir detal ko'plab ta'minotchidan olinishi mumkin. Yetkazib berish narxi (unitPrice) aynan shu aloqaga tegishli (Association Class)!",
-    "taskUz": "Model 'Supplier' and 'Part' entities, designate primary keys {PK}, and connect them with multiplicities '1..*' and '0..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Supplier",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "supplierId",
-              "isPK": true
-            },
-            {
-              "name": "companyName"
-            }
-          ]
-        },
-        {
-          "name": "Part",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "partNo",
-              "isPK": true
-            },
-            {
-              "name": "description"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Supplier",
-          "pk": "supplierId"
-        },
-        {
-          "name": "Part",
-          "pk": "partNo"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Supplier",
-          "entity2": "Part",
-          "name": "Supplies",
-          "mult1": "1..*",
-          "mult2": "0..*",
-          "associationClass": true
-        }
-      ]
-    },
-    "hint": "Connect 'Supplier' (1..*) to 'Part' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Supplier' (1..*) and 'Part' (0..*) verified and approved.",
-    "task": "Model 'Supplier' and 'Part' entities, designate primary keys {PK}, and connect them with multiplicities '1..*' and '0..*'."
-  },
-  {
-    "id": 48,
-    "sector": 4,
-    "difficulty": "Floor 4 • Intermediate",
-    "clientName": "Shohrux Mirzohidov",
-    "clientRole": "Library Tarmog'i Ma'muri",
-    "clientAvatar": "librarian",
-    "title": "A'zo va Kitob Ijarasi (Borrow - borrowDate Atributi)",
-    "story": "Kutubxonamizda a'zo kitobxon (Member) va kitob nusxasi (Book) o'rtasida 'Borrows' aloqasi bor. A'zo ko'p kitob olishi, kitob esa ko'p marta berilishi mumkin. Olingan sana (borrowDate) va qaytarish muddati (dueDate) aloqaning Association Class atributlaridir.",
-    "taskUz": "Model 'Member' and 'Book' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Member",
-          "x": 120,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "memberId",
-              "isPK": true
-            },
-            {
-              "name": "fullName"
-            }
-          ]
-        },
-        {
-          "name": "Book",
-          "x": 480,
-          "y": 150,
-          "attributes": [
-            {
-              "name": "bookId",
-              "isPK": true
-            },
-            {
-              "name": "title"
-            }
-          ]
-        }
-      ],
-      "relationships": []
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Member",
-          "pk": "memberId"
-        },
-        {
-          "name": "Book",
-          "pk": "bookId"
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Member",
-          "entity2": "Book",
-          "name": "Borrows",
-          "mult1": "0..*",
-          "mult2": "0..*",
-          "associationClass": true
-        }
-      ]
-    },
-    "hint": "Connect 'Member' (0..*) to 'Book' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Member' (0..*) and 'Book' (0..*) verified and approved.",
-    "task": "Model 'Member' and 'Book' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
-  },
-  {
-    "id": 49,
-    "sector": 4,
-    "difficulty": "Floor 4 • Intermediate",
-    "clientName": "Dilorom Yusupova",
-    "clientRole": "Kasalxona Konsultatsiya Department",
-    "clientAvatar": "doctor",
-    "title": "Shifokor va Bemor Qabuli (Consults - konsultatsiya Tashxisi)",
-    "story": "Shifokor (Doctor) va bemor (Patient) o'rtasida 'Consults' aloqasi are present. Shifokor ko'p bemorni ko'radi, bemor ko'p shifokorga uchrashishi mumkin. Konsultatsiya natijasidagi tashxis (diagnosis) va to'lov (fee) aynan aloqa atributidir (Association Class).",
-    "taskUz": "Model 'Doctor' and 'Patient' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
+    "difficulty": "4-Qavat • Assotsiativ",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Shifokor va Bemor Qabuli (Appointment Assotsiativ Entitiy) (Relatsion Sxema)",
+    "story": "Doctor va Patient o'rtasida ko'pdan-ko'pga (*:*) munosabat mavjud. Ushbu munosabat mustaqil 'Appointment' assotsiativ entitiysi orqali parchalanadi. Doctor (1..1 <-> 0..*) Appointment va Patient (1..1 <-> 0..*) Appointment.",
+    "instruction": "'Doctor' ni 'Appointment' ga (1..1 <-> 0..*) va 'Patient' ni 'Appointment' ga (1..1 <-> 0..*) bog'lang.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Doctor",
-          "x": 120,
-          "y": 150,
+          "isWeak": false,
+          "pk": "doctorId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "docId",
-              "isPK": true
-            },
-            {
-              "name": "specialty"
+              "name": "doctorId",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
           "name": "Patient",
-          "x": 480,
-          "y": 150,
+          "isWeak": false,
+          "pk": "patientId",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
               "name": "patientId",
-              "isPK": true
-            },
+              "isPK": true,
+              "isPPK": false
+            }
+          ]
+        },
+        {
+          "name": "Appointment",
+          "isWeak": false,
+          "pk": "appId",
+          "x": 340,
+          "y": 320,
+          "attributes": [
             {
-              "name": "fullName"
+              "name": "appId",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         }
@@ -3191,61 +4497,92 @@ _scope.EER_CLIENTS_1_50 = [
       "entities": [
         {
           "name": "Doctor",
-          "pk": "docId"
+          "pk": "doctorId"
         },
         {
           "name": "Patient",
           "pk": "patientId"
+        },
+        {
+          "name": "Appointment",
+          "pk": "appId"
         }
       ],
       "relationships": [
         {
           "entity1": "Doctor",
-          "entity2": "Patient",
-          "name": "Consults",
-          "mult1": "0..*",
+          "entity2": "Appointment",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Appointment",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "associationClass": true
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Patient",
+          "entity2": "Appointment",
+          "fromEntityName": "Patient",
+          "toEntityName": "Appointment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
-    },
-    "hint": "Connect 'Doctor' (0..*) to 'Patient' (0..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Doctor' (0..*) and 'Patient' (0..*) verified and approved.",
-    "task": "Model 'Doctor' and 'Patient' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
+    }
   },
   {
-    "id": 50,
+    "id": 47,
     "sector": 4,
-    "difficulty": "Floor 4 • Qiyin (Floor 4 Master Architecti)",
-    "clientName": "Shuhrat Saidov",
-    "clientRole": "Universitet Registratori",
-    "clientAvatar": "registrar",
-    "title": "4-Qavat Bossi: Talaba va Fan Ro'yxatdan O'tishi (grade Atributi)",
-    "story": "Universitetimizda talaba (Student) va o'quv fani (Course) o'rtasida 'Registers' aloqasi bor. Talaba bir nechta fanga yoziladi, fanda ko'plab talaba o'qiydi. Aloqaning o'zida yakuniy ball (grade) va semestr (semester) atributlari saqlanadi (Association Class). Ushbu modelni to'liq taqdim eting!",
-    "taskUz": "Model 'Student' and 'Course' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '1..*'.",
+    "difficulty": "4-Qavat • Assotsiativ",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Talaba va Fan Kurslari (Enrollment Assotsiativ Entitiy) (Relatsion Sxema)",
+    "story": "Student va Course o'rtasida ko'pdan-ko'pga (*:*) o'qish munosabati mavjud. Bu munosabat 'Enrollment' assotsiativ entitiysi orqali bog'lanadi. Student (1..1 <-> 0..*) Enrollment va Course (1..1 <-> 0..*) Enrollment.",
+    "instruction": "'Student' ni 'Enrollment' ga (1..1 <-> 0..*) va 'Course' ni 'Enrollment' ga (1..1 <-> 0..*) bog'lang.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Student",
+          "isWeak": false,
+          "pk": "studentId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
               "name": "studentId",
-              "isPK": true
-            },
-            {
-              "name": "name"
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
           "name": "Course",
+          "isWeak": false,
+          "pk": "courseCode",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
               "name": "courseCode",
-              "isPK": true
-            },
+              "isPK": true,
+              "isPPK": false
+            }
+          ]
+        },
+        {
+          "name": "Enrollment",
+          "isWeak": false,
+          "pk": "enrollmentId",
+          "x": 340,
+          "y": 320,
+          "attributes": [
             {
-              "name": "title"
+              "name": "enrollmentId",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         }
@@ -3261,22 +4598,323 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Course",
           "pk": "courseCode"
+        },
+        {
+          "name": "Enrollment",
+          "pk": "enrollmentId"
         }
       ],
       "relationships": [
         {
           "entity1": "Student",
-          "entity2": "Course",
-          "name": "Registers",
-          "mult1": "0..*",
-          "mult2": "1..*",
-          "associationClass": true
+          "entity2": "Enrollment",
+          "fromEntityName": "Student",
+          "toEntityName": "Enrollment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Course",
+          "entity2": "Enrollment",
+          "fromEntityName": "Course",
+          "toEntityName": "Enrollment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
+    }
+  },
+  {
+    "id": 48,
+    "sector": 4,
+    "difficulty": "4-Qavat • Assotsiativ",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Dasturchi va Loyihalar (Assignment Assotsiativ Entitiy) (Relatsion Sxema)",
+    "story": "Developer va Project o'rtasidagi *:* munosabat 'ProjectAssignment' entitiysi orqali yechiladi. Developer (1..1 <-> 0..*) ProjectAssignment va Project (1..1 <-> 0..*) ProjectAssignment.",
+    "instruction": "'Developer' ni 'ProjectAssignment' ga (1..1 <-> 0..*) va 'Project' ni 'ProjectAssignment' ga (1..1 <-> 0..*) bog'lang.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Developer",
+          "isWeak": false,
+          "pk": "devId",
+          "x": 140,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "devId",
+              "isPK": true,
+              "isPPK": false
+            }
+          ]
+        },
+        {
+          "name": "Project",
+          "isWeak": false,
+          "pk": "projectKey",
+          "x": 540,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "projectKey",
+              "isPK": true,
+              "isPPK": false
+            }
+          ]
+        },
+        {
+          "name": "ProjectAssignment",
+          "isWeak": false,
+          "pk": "assignmentId",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "assignmentId",
+              "isPK": true,
+              "isPPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
     },
-    "hint": "Connect 'Student' (0..*) to 'Course' (1..*) and ensure Primary Keys {PK} are set.",
-    "explanation": "Relationship between 'Student' (0..*) and 'Course' (1..*) verified and approved.",
-    "task": "Model 'Student' and 'Course' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '1..*'."
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Developer",
+          "pk": "devId"
+        },
+        {
+          "name": "Project",
+          "pk": "projectKey"
+        },
+        {
+          "name": "ProjectAssignment",
+          "pk": "assignmentId"
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Developer",
+          "entity2": "ProjectAssignment",
+          "fromEntityName": "Developer",
+          "toEntityName": "ProjectAssignment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Project",
+          "entity2": "ProjectAssignment",
+          "fromEntityName": "Project",
+          "toEntityName": "ProjectAssignment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 49,
+    "sector": 4,
+    "difficulty": "4-Qavat • Assotsiativ",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Yetkazib Beruvchi va Detallar (SupplyContract Assotsiativ Entitiy) (Relatsion Sxema)",
+    "story": "Supplier va Part o'rtasidagi *:* ta'minot munosabati 'SupplyContract' orqali yechiladi. Supplier (1..1 <-> 0..*) SupplyContract va Part (1..1 <-> 0..*) SupplyContract.",
+    "instruction": "'Supplier' ni 'SupplyContract' ga (1..1 <-> 0..*) va 'Part' ni 'SupplyContract' ga (1..1 <-> 0..*) bog'lang.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Supplier",
+          "isWeak": false,
+          "pk": "supplierId",
+          "x": 140,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "supplierId",
+              "isPK": true,
+              "isPPK": false
+            }
+          ]
+        },
+        {
+          "name": "Part",
+          "isWeak": false,
+          "pk": "partNumber",
+          "x": 540,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "partNumber",
+              "isPK": true,
+              "isPPK": false
+            }
+          ]
+        },
+        {
+          "name": "SupplyContract",
+          "isWeak": false,
+          "pk": "contractId",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "contractId",
+              "isPK": true,
+              "isPPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Supplier",
+          "pk": "supplierId"
+        },
+        {
+          "name": "Part",
+          "pk": "partNumber"
+        },
+        {
+          "name": "SupplyContract",
+          "pk": "contractId"
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Supplier",
+          "entity2": "SupplyContract",
+          "fromEntityName": "Supplier",
+          "toEntityName": "SupplyContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Part",
+          "entity2": "SupplyContract",
+          "fromEntityName": "Part",
+          "toEntityName": "SupplyContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 50,
+    "sector": 4,
+    "difficulty": "4-Qavat • Assotsiativ",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
+    "clientAvatar": "mentor",
+    "title": "Xaridor va Mahsulot Sharhlari (ProductReview Assotsiativ Entitiy) (Relatsion Sxema)",
+    "story": "Customer va Product o'rtasidagi *:* sharh munosabati 'ProductReview' assotsiativ entitiysi orqali amalga oshiriladi. Customer (1..1 <-> 0..*) ProductReview va Product (1..1 <-> 0..*) ProductReview.",
+    "instruction": "'Customer' ni 'ProductReview' ga (1..1 <-> 0..*) va 'Product' ni 'ProductReview' ga (1..1 <-> 0..*) bog'lang.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Customer",
+          "isWeak": false,
+          "pk": "customerId",
+          "x": 140,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "customerId",
+              "isPK": true,
+              "isPPK": false
+            }
+          ]
+        },
+        {
+          "name": "Product",
+          "isWeak": false,
+          "pk": "productId",
+          "x": 540,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "productId",
+              "isPK": true,
+              "isPPK": false
+            }
+          ]
+        },
+        {
+          "name": "ProductReview",
+          "isWeak": false,
+          "pk": "reviewId",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "reviewId",
+              "isPK": true,
+              "isPPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": []
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Customer",
+          "pk": "customerId"
+        },
+        {
+          "name": "Product",
+          "pk": "productId"
+        },
+        {
+          "name": "ProductReview",
+          "pk": "reviewId"
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Customer",
+          "entity2": "ProductReview",
+          "fromEntityName": "Customer",
+          "toEntityName": "ProductReview",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Product",
+          "entity2": "ProductReview",
+          "fromEntityName": "Product",
+          "toEntityName": "ProductReview",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
+    }
   }
 ];
 

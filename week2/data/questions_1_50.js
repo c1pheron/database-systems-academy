@@ -3,33 +3,55 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 1,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Temur Karimov",
-    "clientRole": "Aviapark Texnik Direktori",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Nodirbek Zokirov",
+    "clientRole": "E-Commerce Mahsulot Direktori",
     "clientAvatar": "mentor",
-    "title": "Aviakompaniya Havo Kemalarini Hisobga Olish (Relatsion Sxema)",
-    "story": "1-haftada yaratilgan **Aircraft** konseptual modeli endi relyatsion ma'lumotlar bazasiga o'tkazilmoqda. Tizimda samolyotlarning asosiy jadvali SQL relyatsion qoidalariga muvofiq Birlamchi Kalit [PK] ustuni bilan shakllantirilishi lozim.",
-    "instruction": "'Aircraft' entitiysini SQL relyatsion jadvaliga aylantiring va 'tailNo' ustuniga Birlamchi Kalit [PK] maqomini bering.",
+    "title": "Uzum Market — Sotuvchi va Mahsulotlar Katalogi (Relatsion Sxema)",
+    "story": "Uzum Market marketplace platformasida har bir rasmiy do'kon sotuvchisi (Seller) ko'plab mahsulotlarni (Product) sotuvga qo'yadi. Har bir mahsulot esa aniq bitta ro'yxatdan o'tgan sotuvchiga tegishli (1..1). Sotuvchida esa kamida bitta yoki undan ko'p tovar bo'lishi shart (1..*).\n\nTizimda 'Seller' (sellerId {PK}) va 'Product' (productId {PK}) kuchli entitiylarini shakllantiring va ular o'rtasidagi 1:N munosabatni o'rnating.",
+    "instruction": "'Seller' va 'Product' entitiylarini binar aloqa chizig'i bilan bog'lang: Seller tomonga '1..1', Product tomonga '1..*' multiplisitiyasini o'rnating.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Aircraft",
-          "pk": "tailNo",
+          "name": "Seller",
+          "isWeak": false,
+          "pk": "sellerId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "tailNo",
-              "isPK": true
+              "name": "sellerId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "model",
+              "name": "shopName",
               "isPK": false
             },
             {
-              "name": "manufacturer",
+              "name": "rating",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Product",
+          "isWeak": false,
+          "pk": "productId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "productId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "title",
               "isPK": false
             },
             {
-              "name": "capacity",
+              "name": "price",
               "isPK": false
             }
           ]
@@ -40,65 +62,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Aircraft",
-          "pk": "tailNo",
-          "attributes": [
-            {
-              "name": "tailNo",
-              "isPK": true
-            },
-            {
-              "name": "model",
-              "isPK": false
-            },
-            {
-              "name": "manufacturer",
-              "isPK": false
-            },
-            {
-              "name": "capacity",
-              "isPK": false
-            }
-          ]
+          "name": "Seller",
+          "pk": "sellerId",
+          "isWeak": false
+        },
+        {
+          "name": "Product",
+          "pk": "productId",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "Seller",
+          "entity2": "Product",
+          "fromEntityName": "Seller",
+          "toEntityName": "Product",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 2,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Dr. Aziza Rahimova",
-    "clientRole": "Bosh Shifokor Muovini",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Aziz Qodirov",
+    "clientRole": "Fintech Tizim Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Kardiologiya Markazi Bemorlar Elektron Kartasi (Relatsion Sxema)",
-    "story": "Kardiologiya markazining bemorlar reyestri relyatsion modelga o'tkazilmoqda. Bemorlar jadvalini yaratib, har bir bemor yozuvining takrorlanmasligini ta'minlovchi Birlamchi Kalit [PK] ustunini belgilang.",
-    "instruction": "'Patient' jadvalini shakllantiring va 'patientId' ustunini Birlamchi Kalit [PK] deb belgilang.",
+    "title": "Payme To'lov Tizimi — Foydalanuvchi va Bank Kartalari (Relatsion Sxema)",
+    "story": "Payme to'lov ilovasida har bir ro'yxatdan o'tgan foydalanuvchi (User) o'z hisobiga bir nechta Humo yoki Uzcard bank kartalarini (BankCard) ulashi mumkin (0..*). Yangi ro'yxatdan o'tgan mijozda hali karta bo'lmasligi mumkin. Har bir ulangan bank kartasi esa aniq bitta egaga tegishli (1..1).\n\n'User' (userId {PK}) va 'BankCard' (cardId {PK}) entitiylarini o'zaro bog'lang.",
+    "instruction": "'User' va 'BankCard' entitiylarini bog'lang: User tomonga '1..1', BankCard tomonga '0..*' multiplisitiyasini qo'ying.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Patient",
-          "pk": "patientId",
+          "name": "User",
+          "isWeak": false,
+          "pk": "userId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "patientId",
-              "isPK": true
+              "name": "userId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
             },
             {
               "name": "fullName",
               "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "BankCard",
+          "isWeak": false,
+          "pk": "cardId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "cardId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "dob",
+              "name": "panMasked",
               "isPK": false
             },
             {
-              "name": "bloodType",
-              "isPK": false
-            },
-            {
-              "name": "phone",
+              "name": "expiryDate",
               "isPK": false
             }
           ]
@@ -109,69 +148,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Patient",
-          "pk": "patientId",
-          "attributes": [
-            {
-              "name": "patientId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "dob",
-              "isPK": false
-            },
-            {
-              "name": "bloodType",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            }
-          ]
+          "name": "User",
+          "pk": "userId",
+          "isWeak": false
+        },
+        {
+          "name": "BankCard",
+          "pk": "cardId",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "User",
+          "entity2": "BankCard",
+          "fromEntityName": "User",
+          "toEntityName": "BankCard",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 3,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Bobur Mansurov",
-    "clientRole": "Bosh Registrator",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Dilshod Alimov",
+    "clientRole": "Chakana Savdo Operatsion Rahbari",
     "clientAvatar": "mentor",
-    "title": "Xalqaro Universitet Talabalar Akademik Reyestri (Relatsion Sxema)",
-    "story": "Universitet talabalar ma'lumotlar bazasi relyatsion arxitekturaga tayyorlanmoqda. Talabalar jadvalini yaratib, har bir talaba yozuvini aniqlovchi Birlamchi Kalit [PK] ni belgilang.",
-    "instruction": "'Student' jadvalini relyatsion shaklda yarating va 'studentId' ustuniga Birlamchi Kalit [PK] belgisini qo'ying.",
+    "title": "Korzinka Savdo Tarmog'i — Filial va Kassirlar Shtati (Relatsion Sxema)",
+    "story": "Korzinka supermarketlar tarmog'ida har bir filialda (Branch) smenada xizmat ko'rsatuvchi bir nechta kassirlar (Cashier) shtati faoliyat yuritadi (1..*). Har bir kassir esa rasmiy mehnat shartnomasiga binoan faqat bitta doimiy filialga biriktirilgan (1..1).\n\n'Branch' (branchId {PK}) va 'Cashier' (cashierId {PK}) o'rtasidagi 1:N aloqani loyihalashtiring.",
+    "instruction": "'Branch' va 'Cashier' o'rtasida aloqa chizing: Branch (1..1), Cashier (1..*).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Student",
-          "pk": "studentId",
+          "name": "Branch",
+          "isWeak": false,
+          "pk": "branchId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "studentId",
-              "isPK": true
+              "name": "branchId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "firstName",
+              "name": "branchName",
               "isPK": false
             },
             {
-              "name": "lastName",
+              "name": "city",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Cashier",
+          "isWeak": false,
+          "pk": "cashierId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "cashierId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "email",
-              "isPK": false
-            },
-            {
-              "name": "gpa",
+              "name": "shiftCode",
               "isPK": false
             }
           ]
@@ -182,69 +234,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Student",
-          "pk": "studentId",
-          "attributes": [
-            {
-              "name": "studentId",
-              "isPK": true
-            },
-            {
-              "name": "firstName",
-              "isPK": false
-            },
-            {
-              "name": "lastName",
-              "isPK": false
-            },
-            {
-              "name": "email",
-              "isPK": false
-            },
-            {
-              "name": "gpa",
-              "isPK": false
-            }
-          ]
+          "name": "Branch",
+          "pk": "branchId",
+          "isWeak": false
+        },
+        {
+          "name": "Cashier",
+          "pk": "cashierId",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "Branch",
+          "entity2": "Cashier",
+          "fromEntityName": "Branch",
+          "toEntityName": "Cashier",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 4,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Gulnora Karimova",
-    "clientRole": "Bosh Bibliograf",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Rustam Saidov",
+    "clientRole": "Taksopark Dispecheri",
     "clientAvatar": "mentor",
-    "title": "Davlat Ilmiy Kutubxonasi Kitoblar Fondi (Relatsion Sxema)",
-    "story": "Kutubxona fondini SQL ma'lumotlar bazasiga o'tkazish uchun 'Book' entitiysini Birlamchi Kalit [PK] ustuni bilan relyatsion jadval sifatida aks ettiring.",
-    "instruction": "'Book' relyatsion jadvalini yarating va 'isbn' ustunini [PK] sifatida belgilang.",
+    "title": "Yandex Go Taksoparki — Haydovchi va Xizmat Avtomobili (1:1) (Relatsion Sxema)",
+    "story": "Yandex Go Comfort+ tarifida har bir litsenziyali haydovchiga (Driver) uning smenasi uchun aniq bitta tekshirilgan xizmat avtomobili (Vehicle) biriktiriladi (1..1). Har bir avtomobil ham ayni paytda faqat 1 ta mas'ul haydovchi ixtiyorida bo'ladi (1..1).\n\n'Driver' (driverId {PK}) va 'Vehicle' (vinCode {PK}) entitiylarini qat'iy 1:1 aloqa bilan bog'lang.",
+    "instruction": "'Driver' va 'Vehicle' entitiylarini 1:1 munosabat bilan bog'lang: Driver (1..1), Vehicle (1..1).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Book",
-          "pk": "isbn",
+          "name": "Driver",
+          "isWeak": false,
+          "pk": "driverId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "isbn",
-              "isPK": true
+              "name": "driverId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "title",
+              "name": "licenseNo",
               "isPK": false
             },
             {
-              "name": "author",
+              "name": "rating",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Vehicle",
+          "isWeak": false,
+          "pk": "vinCode",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "vinCode",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "plateNo",
               "isPK": false
             },
             {
-              "name": "publishYear",
-              "isPK": false
-            },
-            {
-              "name": "genre",
+              "name": "carModel",
               "isPK": false
             }
           ]
@@ -255,69 +320,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Book",
-          "pk": "isbn",
-          "attributes": [
-            {
-              "name": "isbn",
-              "isPK": true
-            },
-            {
-              "name": "title",
-              "isPK": false
-            },
-            {
-              "name": "author",
-              "isPK": false
-            },
-            {
-              "name": "publishYear",
-              "isPK": false
-            },
-            {
-              "name": "genre",
-              "isPK": false
-            }
-          ]
+          "name": "Driver",
+          "pk": "driverId",
+          "isWeak": false
+        },
+        {
+          "name": "Vehicle",
+          "pk": "vinCode",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "Driver",
+          "entity2": "Vehicle",
+          "fromEntityName": "Driver",
+          "toEntityName": "Vehicle",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 5,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Rustam Aliyev",
-    "clientRole": "Savdo Direktori",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Dr. Alisher Vohidov",
+    "clientRole": "Akademik Ishlar Bo'yicha Dekan",
     "clientAvatar": "mentor",
-    "title": "Avtosalon Transport Vositalari Katalogi (Relatsion Sxema)",
-    "story": "Avtosalon katalogini relieshon jadvallarga aylantiring. 'Vehicle' jadvali o'zining Birlamchi Kaliti [PK] orqali transport vositasini takrorlanmas qiladi.",
-    "instruction": "'Vehicle' jadvalini shakllantirib, 'vin' ustuniga Birlamchi Kalit [PK] maqomini bering.",
+    "title": "WIUT Universiteti — Fakultet va Akademik Kafedralar (Relatsion Sxema)",
+    "story": "Westminster International University in Tashkent (WIUT) da har bir fakultet (Faculty) o'z tarkibida kamida bitta yoki bir nechta ixtisoslashgan kafedralarni (Department) birlashtiradi (1..*). Har bir kafedra esa faqat bitta fakultet tasarrufiga kiradi (1..1).\n\n'Faculty' (facultyCode {PK}) va 'Department' (deptId {PK}) entitiylarini bog'lang.",
+    "instruction": "'Faculty' va 'Department' entitiylarini bog'lang: Faculty tomonga '1..1', Department tomonga '1..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Vehicle",
-          "pk": "vin",
+          "name": "Faculty",
+          "isWeak": false,
+          "pk": "facultyCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "vin",
-              "isPK": true
+              "name": "facultyCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "make",
+              "name": "facultyName",
               "isPK": false
             },
             {
-              "name": "model",
+              "name": "deanEmail",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Department",
+          "isWeak": false,
+          "pk": "deptId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "deptId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "deptTitle",
               "isPK": false
             },
             {
-              "name": "prodYear",
-              "isPK": false
-            },
-            {
-              "name": "price",
+              "name": "officeRoom",
               "isPK": false
             }
           ]
@@ -328,69 +406,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Vehicle",
-          "pk": "vin",
-          "attributes": [
-            {
-              "name": "vin",
-              "isPK": true
-            },
-            {
-              "name": "make",
-              "isPK": false
-            },
-            {
-              "name": "model",
-              "isPK": false
-            },
-            {
-              "name": "prodYear",
-              "isPK": false
-            },
-            {
-              "name": "price",
-              "isPK": false
-            }
-          ]
+          "name": "Faculty",
+          "pk": "facultyCode",
+          "isWeak": false
+        },
+        {
+          "name": "Department",
+          "pk": "deptId",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "Faculty",
+          "entity2": "Department",
+          "fromEntityName": "Faculty",
+          "toEntityName": "Department",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 6,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Jamshid Qodirov",
-    "clientRole": "Bosh Buxgalter",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Dr. Sevara Ismoilova",
+    "clientRole": "Klinika Bosh Vrachi",
     "clientAvatar": "mentor",
-    "title": "Tijorat Banki Mijozlar Hisob Raqamlari (Relatsion Sxema)",
-    "story": "Bank hisoblari jadvalini relyatsion modelga o'tkazing va 'accountNo' ustuniga Birlamchi Kalit [PK] sifatida belgi qo'ying.",
-    "instruction": "'BankAccount' jadvalini yarating va 'accountNo' ustunini [PK] deb belgilang.",
+    "title": "Medion Tibbiyot Markazi — Bo'lim va Bosh Shifokor (1:1) (Relatsion Sxema)",
+    "story": "Ko'p tarmoqli Medion klinikasida har bir tibbiy bo'limni (HospitalDept) boshqarish uchun aniq 1 ta bo'lim bosh shifokori (HeadDoctor) tayinlangan (1..1). Bosh shifokor ham o'z lavozimida faqat bitta bo'lim boshqaruviga javobgar (1..1).\n\n'HospitalDept' (deptCode {PK}) va 'HeadDoctor' (doctorId {PK}) o'rtasida 1:1 aloqa o'rnating.",
+    "instruction": "'HospitalDept' va 'HeadDoctor' entitiylarini 1:1 aloqa bilan bog'lang (1..1 va 1..1).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "BankAccount",
-          "pk": "accountNo",
+          "name": "HospitalDept",
+          "isWeak": false,
+          "pk": "deptCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "accountNo",
-              "isPK": true
+              "name": "deptCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "balance",
+              "name": "deptName",
               "isPK": false
             },
             {
-              "name": "currency",
+              "name": "floorLevel",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "HeadDoctor",
+          "isWeak": false,
+          "pk": "doctorId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "doctorId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "doctorName",
               "isPK": false
             },
             {
-              "name": "openDate",
-              "isPK": false
-            },
-            {
-              "name": "branchCode",
+              "name": "specialty",
               "isPK": false
             }
           ]
@@ -401,65 +492,78 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "BankAccount",
-          "pk": "accountNo",
-          "attributes": [
-            {
-              "name": "accountNo",
-              "isPK": true
-            },
-            {
-              "name": "balance",
-              "isPK": false
-            },
-            {
-              "name": "currency",
-              "isPK": false
-            },
-            {
-              "name": "openDate",
-              "isPK": false
-            },
-            {
-              "name": "branchCode",
-              "isPK": false
-            }
-          ]
+          "name": "HospitalDept",
+          "pk": "deptCode",
+          "isWeak": false
+        },
+        {
+          "name": "HeadDoctor",
+          "pk": "doctorId",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "HospitalDept",
+          "entity2": "HeadDoctor",
+          "fromEntityName": "HospitalDept",
+          "toEntityName": "HeadDoctor",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 7,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Malika Yusupova",
-    "clientRole": "Boshqaruvchi",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Temur Karimov",
+    "clientRole": "Aviapark Texnik Direktori",
     "clientAvatar": "mentor",
-    "title": "Mehmonxona Xonalar Fondi Reyestri (Relatsion Sxema)",
-    "story": "Mehmonxona xonalar fondi relyatsion jadval sifatida SQLga tayyorlanmoqda. 'HotelRoom' jadvalida 'roomNo' ustunini Birlamchi Kalit [PK] qilib belgilang.",
-    "instruction": "'HotelRoom' relyatsion jadvalini shakllantiring va 'roomNo' ustunini [PK] qiling.",
+    "title": "Uzbekistan Airways — Aviakompaniya va Samolyotlar Floti (Relatsion Sxema)",
+    "story": "Milliy aviakompaniya (Airline) tasarrufida xalqaro va mahalliy reyslarni amalga oshiruvchi o'nlab yo'lovchi samolyotlari (Aircraft) mavjud (1..*). Har bir havo kemasi esa xalqaro reestrga ko'ra qat'iy bitta tashuvchi aviakompaniyaga tegishli (1..1).\n\n'Airline' (iataCode {PK}) va 'Aircraft' (tailNo {PK}) entitiylarini binar aloqa bilan ulang.",
+    "instruction": "'Airline' va 'Aircraft' ni bog'lang: Airline tomonga '1..1', Aircraft tomonga '1..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "HotelRoom",
-          "pk": "roomNo",
+          "name": "Airline",
+          "isWeak": false,
+          "pk": "iataCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "roomNo",
-              "isPK": true
+              "name": "iataCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "roomType",
+              "name": "airlineName",
               "isPK": false
             },
             {
-              "name": "pricePerNight",
+              "name": "country",
               "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Aircraft",
+          "isWeak": false,
+          "pk": "tailNo",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "tailNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "floorNo",
+              "name": "model",
               "isPK": false
             },
             {
@@ -474,69 +578,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "HotelRoom",
-          "pk": "roomNo",
-          "attributes": [
-            {
-              "name": "roomNo",
-              "isPK": true
-            },
-            {
-              "name": "roomType",
-              "isPK": false
-            },
-            {
-              "name": "pricePerNight",
-              "isPK": false
-            },
-            {
-              "name": "floorNo",
-              "isPK": false
-            },
-            {
-              "name": "capacity",
-              "isPK": false
-            }
-          ]
+          "name": "Airline",
+          "pk": "iataCode",
+          "isWeak": false
+        },
+        {
+          "name": "Aircraft",
+          "pk": "tailNo",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "Airline",
+          "entity2": "Aircraft",
+          "fromEntityName": "Airline",
+          "toEntityName": "Aircraft",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 8,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Otabek Sodiqov",
-    "clientRole": "Bosh Oshpaz",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Nigora Umarova",
+    "clientRole": "Mehmonxona Bosh Boshqaruvchisi",
     "clientAvatar": "mentor",
-    "title": "Premium Restoran Mualliflik Taomnomasi (Relatsion Sxema)",
-    "story": "Restoran menyusini relieshon jadval ko'rinishiga o'tkazing. 'itemId' ustunini Birlamchi Kalit [PK] qilib belgilang.",
-    "instruction": "'MenuItem' jadvalini yarating va 'itemId' ni [PK] deb belgilang.",
+    "title": "Hyatt Regency — Mehmonxona va Xonalar Fondi (Relatsion Sxema)",
+    "story": "Besh yulduzli Hyatt mehmonxonasida (Hotel) mehmonlar istiqomat qilishi uchun yuzlab xonalar (Room) mavjud (1..*). Har bir xona esa faqat bitta aniq mehmonxona majmuasiga qarashlidir (1..1).\n\n'Hotel' (hotelId {PK}) va 'Room' (roomNo {PK}) entitiylarini bog'lang.",
+    "instruction": "'Hotel' va 'Room' entitiylarini bog'lang: Hotel (1..1), Room (1..*).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "MenuItem",
-          "pk": "itemId",
+          "name": "Hotel",
+          "isWeak": false,
+          "pk": "hotelId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "itemId",
-              "isPK": true
+              "name": "hotelId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name",
+              "name": "hotelName",
               "isPK": false
             },
             {
-              "name": "category",
+              "name": "starsRating",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Room",
+          "isWeak": false,
+          "pk": "roomNo",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "roomNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "roomType",
               "isPK": false
             },
             {
-              "name": "price",
-              "isPK": false
-            },
-            {
-              "name": "calories",
+              "name": "nightlyRate",
               "isPK": false
             }
           ]
@@ -547,69 +664,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "MenuItem",
-          "pk": "itemId",
-          "attributes": [
-            {
-              "name": "itemId",
-              "isPK": true
-            },
-            {
-              "name": "name",
-              "isPK": false
-            },
-            {
-              "name": "category",
-              "isPK": false
-            },
-            {
-              "name": "price",
-              "isPK": false
-            },
-            {
-              "name": "calories",
-              "isPK": false
-            }
-          ]
+          "name": "Hotel",
+          "pk": "hotelId",
+          "isWeak": false
+        },
+        {
+          "name": "Room",
+          "pk": "roomNo",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "Hotel",
+          "entity2": "Room",
+          "fromEntityName": "Hotel",
+          "toEntityName": "Room",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 9,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Farhod Ergashev",
-    "clientRole": "Texnik Direktor (CTO)",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Shuhrat Bekmurodov",
+    "clientRole": "IT Park Inkubatsiya Rahbari",
     "clientAvatar": "mentor",
-    "title": "IT Kompaniyasi Muhandislik Shtati (Relatsion Sxema)",
-    "story": "Dasturchilar reyestrini relyatsion jadval shakliga keltiring. 'devId' ustuniga Birlamchi Kalit [PK] belgisini o'rnating.",
-    "instruction": "'Developer' jadvalini shakllantiring va 'devId' ustunini [PK] deb belgilang.",
+    "title": "IT Texnoparki — Startap Inkubator va Mas'ul Menejer (1:1) (Relatsion Sxema)",
+    "story": "IT Park tuzilmasida har bir startap akseleratsiya markaziga (Incubator) operatsion jarayonni yuritish uchun aniq 1 ta mas'ul boshqaruvchi (Manager) biriktirilgan (1..1). Har bir menejer ham faqat bitta markaz faoliyatini boshqaradi (1..1).\n\n'Incubator' (incId {PK}) va 'Manager' (managerId {PK}) entitiylarini 1:1 munosabat bilan bog'lang.",
+    "instruction": "'Incubator' va 'Manager' entitiyalarini 1:1 aloqa bilan ulang (1..1 va 1..1).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Developer",
-          "pk": "devId",
+          "name": "Incubator",
+          "isWeak": false,
+          "pk": "incId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "devId",
-              "isPK": true
+              "name": "incId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "fullName",
+              "name": "centerTitle",
               "isPK": false
             },
             {
-              "name": "role",
+              "name": "cityLocation",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Manager",
+          "isWeak": false,
+          "pk": "managerId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "managerId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "managerName",
               "isPK": false
             },
             {
-              "name": "techStack",
-              "isPK": false
-            },
-            {
-              "name": "salary",
+              "name": "email",
               "isPK": false
             }
           ]
@@ -620,69 +750,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Developer",
-          "pk": "devId",
-          "attributes": [
-            {
-              "name": "devId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "role",
-              "isPK": false
-            },
-            {
-              "name": "techStack",
-              "isPK": false
-            },
-            {
-              "name": "salary",
-              "isPK": false
-            }
-          ]
+          "name": "Incubator",
+          "pk": "incId",
+          "isWeak": false
+        },
+        {
+          "name": "Manager",
+          "pk": "managerId",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "Incubator",
+          "entity2": "Manager",
+          "fromEntityName": "Incubator",
+          "toEntityName": "Manager",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 10,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Shahnoza Karimova",
-    "clientRole": "Katalog Menejeri",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Munira Sobirova",
+    "clientRole": "Kutubxona Bosh Bibliografi",
     "clientAvatar": "mentor",
-    "title": "Onlayn Gipermarket Tovar Artikullari (Relatsion Sxema)",
-    "story": "Tovarlar katalogini relyatsion ma'lumotlar bazasiga o'tkazing va 'sku' ustunini Birlamchi Kalit [PK] qilib belgilang.",
-    "instruction": "'Product' jadvalini relyatsion tarzda yarating va 'sku' ustunini [PK] deb belgilang.",
+    "title": "Alisher Navoiy Kutubxonasi — Kitob va Muallif (Relatsion Sxema)",
+    "story": "Davlat kutubxonasi fondida har bir yozuvchi-muallif (Author) qalamiga mansub ko'plab kitoblar (Book) saqlanadi (1..*). Ushbu klassik katalog doirasida har bir kitob bitta bosh muallif tomonidan yozilgan deb hisoblanadi (1..1).\n\n'Author' (authorId {PK}) va 'Book' (isbn {PK}) entitiylarini bog'lang.",
+    "instruction": "'Author' va 'Book' ni bog'lang: Author tomonga '1..1', Book tomonga '1..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Product",
-          "pk": "sku",
+          "name": "Author",
+          "isWeak": false,
+          "pk": "authorId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "sku",
-              "isPK": true
+              "name": "authorId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "authorName",
+              "isPK": false
+            },
+            {
+              "name": "country",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Book",
+          "isWeak": false,
+          "pk": "isbn",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "isbn",
+              "isPK": true,
+              "isPPK": false
             },
             {
               "name": "title",
               "isPK": false
             },
             {
-              "name": "price",
-              "isPK": false
-            },
-            {
-              "name": "stockQty",
-              "isPK": false
-            },
-            {
-              "name": "weightKg",
+              "name": "publishedYear",
               "isPK": false
             }
           ]
@@ -693,69 +836,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Product",
-          "pk": "sku",
-          "attributes": [
-            {
-              "name": "sku",
-              "isPK": true
-            },
-            {
-              "name": "title",
-              "isPK": false
-            },
-            {
-              "name": "price",
-              "isPK": false
-            },
-            {
-              "name": "stockQty",
-              "isPK": false
-            },
-            {
-              "name": "weightKg",
-              "isPK": false
-            }
-          ]
+          "name": "Author",
+          "pk": "authorId",
+          "isWeak": false
+        },
+        {
+          "name": "Book",
+          "pk": "isbn",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "Author",
+          "entity2": "Book",
+          "fromEntityName": "Author",
+          "toEntityName": "Book",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 11,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Akmal Shokirov",
-    "clientRole": "Kinoprokat Boshqaruvchisi",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Bobur Mirzayev",
+    "clientRole": "Chakana Bank Mahsulotlari Menejeri",
     "clientAvatar": "mentor",
-    "title": "Kinoteatrlar Tarmog'i Filmlar Jadvali (Relatsion Sxema)",
-    "story": "Filmlar katalogini relyatsion jadvalga o'tkazing. 'movieId' ustunini Birlamchi Kalit [PK] sifatida belgilang.",
-    "instruction": "'Movie' jadvalini shakllantiring va 'movieId' ustuniga [PK] belgisini bering.",
+    "title": "Anorbank — Mijoz va Omonat Depoziti (0..*) (Relatsion Sxema)",
+    "story": "Raqamli bankda ro'yxatdan o'tgan mijoz (Customer) foiz jamg'arish maqsadida bir nechta depozit hisoblarini (DepositAccount) ochishi mumkin (0..*). Har bir depozit hisobi esa qat'iy bitta jismoniy shaxs nomiga ochiladi (1..1).\n\n'Customer' (cifCode {PK}) va 'DepositAccount' (accountNo {PK}) o'rtasidagi ixtiyoriy 1:N munosabatni o'rnating.",
+    "instruction": "'Customer' va 'DepositAccount' ni bog'lang: Customer (1..1), DepositAccount (0..*).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Movie",
-          "pk": "movieId",
+          "name": "Customer",
+          "isWeak": false,
+          "pk": "cifCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "movieId",
-              "isPK": true
+              "name": "cifCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "title",
+              "name": "customerName",
               "isPK": false
             },
             {
-              "name": "director",
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DepositAccount",
+          "isWeak": false,
+          "pk": "accountNo",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "accountNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "interestRate",
               "isPK": false
             },
             {
-              "name": "durationMin",
-              "isPK": false
-            },
-            {
-              "name": "ageRating",
+              "name": "balance",
               "isPK": false
             }
           ]
@@ -766,69 +922,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Movie",
-          "pk": "movieId",
-          "attributes": [
-            {
-              "name": "movieId",
-              "isPK": true
-            },
-            {
-              "name": "title",
-              "isPK": false
-            },
-            {
-              "name": "director",
-              "isPK": false
-            },
-            {
-              "name": "durationMin",
-              "isPK": false
-            },
-            {
-              "name": "ageRating",
-              "isPK": false
-            }
-          ]
+          "name": "Customer",
+          "pk": "cifCode",
+          "isWeak": false
+        },
+        {
+          "name": "DepositAccount",
+          "pk": "accountNo",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "Customer",
+          "entity2": "DepositAccount",
+          "fromEntityName": "Customer",
+          "toEntityName": "DepositAccount",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 12,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Umida Zokirova",
-    "clientRole": "Bosh Provisor",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Otabek G'aniyev",
+    "clientRole": "Toshshahartransxizmat Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Markaziy Dorixona Dori Vositalari Inventari (Relatsion Sxema)",
-    "story": "Dori vositalari inventarini relyatsion jadval shakliga keltiring. 'barcode' ustunini Birlamchi Kalit [PK] sifatida ko'rsating.",
-    "instruction": "'Medicine' jadvalini yarating va 'barcode' ustuniga [PK] maqomini bering.",
+    "title": "Toshkent Jamoat Transporti — Marshrut va Shahar Avtobuslari (Relatsion Sxema)",
+    "story": "Poytaxt yo'lovchi transportida har bir belgilangan marshrut (BusRoute) bo'ylab bir nechta shahar avtobuslari (CityBus) harakatlanadi (1..*). Har bir avtobus esa navbatchilik rejasiga ko'ra ayni paytda bitta marshrutga biriktirilgan (1..1).\n\n'BusRoute' (routeNo {PK}) va 'CityBus' (busId {PK}) entitiylarini bog'lang.",
+    "instruction": "'BusRoute' va 'CityBus' ni bog'lang: BusRoute (1..1), CityBus (1..*).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Medicine",
-          "pk": "barcode",
+          "name": "BusRoute",
+          "isWeak": false,
+          "pk": "routeNo",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "barcode",
-              "isPK": true
+              "name": "routeNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "name",
+              "name": "startPoint",
               "isPK": false
             },
             {
-              "name": "dosageMg",
+              "name": "endPoint",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CityBus",
+          "isWeak": false,
+          "pk": "busId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "busId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "plateNumber",
               "isPK": false
             },
             {
-              "name": "manufacturer",
-              "isPK": false
-            },
-            {
-              "name": "expDate",
+              "name": "capacity",
               "isPK": false
             }
           ]
@@ -839,69 +1008,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Medicine",
-          "pk": "barcode",
-          "attributes": [
-            {
-              "name": "barcode",
-              "isPK": true
-            },
-            {
-              "name": "name",
-              "isPK": false
-            },
-            {
-              "name": "dosageMg",
-              "isPK": false
-            },
-            {
-              "name": "manufacturer",
-              "isPK": false
-            },
-            {
-              "name": "expDate",
-              "isPK": false
-            }
-          ]
+          "name": "BusRoute",
+          "pk": "routeNo",
+          "isWeak": false
+        },
+        {
+          "name": "CityBus",
+          "pk": "busId",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "BusRoute",
+          "entity2": "CityBus",
+          "fromEntityName": "BusRoute",
+          "toEntityName": "CityBus",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 13,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Sanjar Normatov",
-    "clientRole": "Logistika Floti Boshlig'i",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Jamshid Ergashov",
+    "clientRole": "Dilerlik Tarmog'i Sotuv Direktori",
     "clientAvatar": "mentor",
-    "title": "Trans-Kontinental Yuk Mashinalari Avtoparki (Relatsion Sxema)",
-    "story": "Yuk mashinalari parkini relyatsion jadval sifatida aks ettiring va 'plateNo' ustuniga Birlamchi Kalit [PK] belgisini qo'ying.",
-    "instruction": "'CargoTruck' jadvalini yarating va 'plateNo' ustunini [PK] deb belgilang.",
+    "title": "UzAuto Motors Dileri — Avtosalon va Avtomobillar Zaxirasi (Relatsion Sxema)",
+    "story": "Rasmiy dilerlik markazida (Dealership) sotuvga chiqarilgan ko'plab yangi avtomobillar (Automobile) mavjud (1..*). Har bir avtomobil qaysi dilerlik markazi avtosalonida turgani bilan qat'iy bog'langan (1..1).\n\n'Dealership' (dealerCode {PK}) va 'Automobile' (vinNumber {PK}) o'rtasidagi aloqani o'rnating.",
+    "instruction": "'Dealership' va 'Automobile' ni bog'lang: Dealership (1..1), Automobile (1..*).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "CargoTruck",
-          "pk": "plateNo",
+          "name": "Dealership",
+          "isWeak": false,
+          "pk": "dealerCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "plateNo",
-              "isPK": true
+              "name": "dealerCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "capacityTons",
+              "name": "dealerName",
               "isPK": false
             },
             {
-              "name": "fuelType",
+              "name": "cityAddress",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Automobile",
+          "isWeak": false,
+          "pk": "vinNumber",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "vinNumber",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "model",
               "isPK": false
             },
             {
-              "name": "mileageKm",
-              "isPK": false
-            },
-            {
-              "name": "status",
+              "name": "price",
               "isPK": false
             }
           ]
@@ -912,69 +1094,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "CargoTruck",
-          "pk": "plateNo",
-          "attributes": [
-            {
-              "name": "plateNo",
-              "isPK": true
-            },
-            {
-              "name": "capacityTons",
-              "isPK": false
-            },
-            {
-              "name": "fuelType",
-              "isPK": false
-            },
-            {
-              "name": "mileageKm",
-              "isPK": false
-            },
-            {
-              "name": "status",
-              "isPK": false
-            }
-          ]
+          "name": "Dealership",
+          "pk": "dealerCode",
+          "isWeak": false
+        },
+        {
+          "name": "Automobile",
+          "pk": "vinNumber",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "Dealership",
+          "entity2": "Automobile",
+          "fromEntityName": "Dealership",
+          "toEntityName": "Automobile",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 14,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Nilufar Rahimova",
-    "clientRole": "Mijozlar Xizmati Boshlig'i",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Gulnora Ergasheva",
+    "clientRole": "Maktab O'quv Bo'limi Mudiri",
     "clientAvatar": "mentor",
-    "title": "Premium Fitnes Klub A'zolari Reyestri (Relatsion Sxema)",
-    "story": "Fitnes klub a'zolari bazasini relyatsion jadval ko'rinishida hosil qiling va 'memberCardNo' ustunini Birlamchi Kalit [PK] qilib belgilang.",
-    "instruction": "'ClubMember' jadvalini shakllantiring va 'memberCardNo' ustuniga [PK] belgisini bering.",
+    "title": "Maktab Ta'limi — Sinf va Sinf Rahbari (1:1) (Relatsion Sxema)",
+    "story": "Umumta'lim maktabida har bir sinfga (SchoolClass, masalan 10-A) o'quvchilar tarbiyasi uchun aniq 1 ta sinf rahbari bo'lgan ustoz (ClassTeacher) biriktiriladi (1..1). Har bir o'qituvchi ham faqat bitta sinfga rahbarlik qiladi (1..1).\n\n'SchoolClass' (classCode {PK}) va 'ClassTeacher' (teacherId {PK}) entitiylarini 1:1 aloqa bilan bog'lang.",
+    "instruction": "'SchoolClass' va 'ClassTeacher' o'rtasida 1:1 aloqa chizing (1..1 va 1..1).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "ClubMember",
-          "pk": "memberCardNo",
+          "name": "SchoolClass",
+          "isWeak": false,
+          "pk": "classCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "memberCardNo",
-              "isPK": true
+              "name": "classCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "fullName",
+              "name": "gradeNumber",
               "isPK": false
             },
             {
-              "name": "membershipType",
+              "name": "academicYear",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ClassTeacher",
+          "isWeak": false,
+          "pk": "teacherId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "teacherId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "teacherName",
               "isPK": false
             },
             {
-              "name": "expiryDate",
-              "isPK": false
-            },
-            {
-              "name": "phone",
+              "name": "subject",
               "isPK": false
             }
           ]
@@ -985,69 +1180,82 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "ClubMember",
-          "pk": "memberCardNo",
-          "attributes": [
-            {
-              "name": "memberCardNo",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "membershipType",
-              "isPK": false
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            }
-          ]
+          "name": "SchoolClass",
+          "pk": "classCode",
+          "isWeak": false
+        },
+        {
+          "name": "ClassTeacher",
+          "pk": "teacherId",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "SchoolClass",
+          "entity2": "ClassTeacher",
+          "fromEntityName": "SchoolClass",
+          "toEntityName": "ClassTeacher",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 15,
     "sector": 1,
-    "difficulty": "1-Qavat • Boshlang'ich • Relational Mapping",
-    "clientName": "Davron Karimov",
-    "clientRole": "Bosh Energetik",
+    "difficulty": "1-Qavat • Binar ER",
+    "clientName": "Sherzod Jo'rayev",
+    "clientRole": "Farm Ta'minot Logistika Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Quyosh Fotoelektr Stansiyasi Invertorlari (Relatsion Sxema)",
-    "story": "Invertorlar texnik bazasini relieshon jadval ko'rinishida shakllantiring va 'serialNo' ustunini Birlamchi Kalit [PK] deb belgilang.",
-    "instruction": "'SolarInverter' jadvalini yarating va 'serialNo' ustunini [PK] deb belgilang.",
+    "title": "Farmatsevtika Tarmog'i — Markaziy Ombor va Dorixonalar (Relatsion Sxema)",
+    "story": "Farmatsevtika tarmog'ida bitta yirik ta'minot ombori (CentralWarehouse) o'z tasarrufidagi ko'plab dorixona filiallarini (PharmacyStore) dori vositalari bilan ta'minlaydi (1..*). Har bir dorixona esa dori partiyalarini aniq 1 ta markaziy ombordan qabul qiladi (1..1).\n\n'CentralWarehouse' (warehouseCode {PK}) va 'PharmacyStore' (pharmacyId {PK}) o'rtasida 1:N aloqa chizing.",
+    "instruction": "'CentralWarehouse' va 'PharmacyStore' ni bog'lang: CentralWarehouse (1..1), PharmacyStore (1..*).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "SolarInverter",
-          "pk": "serialNo",
+          "name": "CentralWarehouse",
+          "isWeak": false,
+          "pk": "warehouseCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "serialNo",
-              "isPK": true
+              "name": "warehouseCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "peakPowerKw",
+              "name": "cityName",
               "isPK": false
             },
             {
-              "name": "voltageInput",
+              "name": "totalArea",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PharmacyStore",
+          "isWeak": false,
+          "pk": "pharmacyId",
+          "x": 520,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "pharmacyId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "storeTitle",
               "isPK": false
             },
             {
-              "name": "installDate",
-              "isPK": false
-            },
-            {
-              "name": "efficiency",
+              "name": "address",
               "isPK": false
             }
           ]
@@ -1058,160 +1266,149 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "SolarInverter",
-          "pk": "serialNo",
-          "attributes": [
-            {
-              "name": "serialNo",
-              "isPK": true
-            },
-            {
-              "name": "peakPowerKw",
-              "isPK": false
-            },
-            {
-              "name": "voltageInput",
-              "isPK": false
-            },
-            {
-              "name": "installDate",
-              "isPK": false
-            },
-            {
-              "name": "efficiency",
-              "isPK": false
-            }
-          ]
+          "name": "CentralWarehouse",
+          "pk": "warehouseCode",
+          "isWeak": false
+        },
+        {
+          "name": "PharmacyStore",
+          "pk": "pharmacyId",
+          "isWeak": false
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "entity1": "CentralWarehouse",
+          "entity2": "PharmacyStore",
+          "fromEntityName": "CentralWarehouse",
+          "toEntityName": "PharmacyStore",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ]
     }
   },
   {
     "id": 16,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Kapitan Anvar Salimov",
-    "clientRole": "Flot Admiral Shtabi",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Kamron Rustamov",
+    "clientRole": "Marketplace Operatsiyalar Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Harbiy Kema va Kema Komandiri (Relatsion Sxema)",
-    "story": "Harbiy kema va kema komandiri o'rtasidagi yagona vakolatli munosabatni relyatsion jadvallarga o'tkazish talab etiladi. Munosabatni ifodalash uchun 'Warship' jadvaliga Tashqi Kalit [FK] sifatida 'captainId' ustunini qo'shing va uni 'Captain' jadvalining Birlamchi Kalitiga bog'lang.",
-    "instruction": "'Warship' jadvaliga 'captainId' [FK1] ustunini kiriting va uni 'Captain' jadvalining 'officerId' [PK] ustuniga bog'lang.",
+    "title": "Uzum Market Buyurtmalar Zanjiri (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Uzum Market platformasida mijoz (Customer) bir nechta buyurtmalar (Order) berishi mumkin (0..*). Har bir buyurtma esa aniq bitta to'lov kvitansiyasiga (Payment) ega bo'ladi (1..1).\n\n'Customer', 'Order' va 'Payment' entitiylarini zanjirsimon bog'lang: Customer (1..1) <-> (0..*) Order va Order (1..1) <-> (1..1) Payment.",
+    "instruction": "'Customer' -> 'Order' (1..1 <-> 0..*) va 'Order' -> 'Payment' (1..1 <-> 1..1) aloqalarini chizing.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Warship",
-          "pk": "hullNo",
+          "name": "Customer",
+          "isWeak": false,
+          "pk": "customerId",
+          "x": 100,
+          "y": 160,
           "attributes": [
             {
-              "name": "hullNo",
-              "isPK": true
+              "name": "customerId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "shipName",
+              "name": "phone",
               "isPK": false
             },
             {
-              "name": "displacementTons",
-              "isPK": false
-            },
-            {
-              "name": "commissionYear",
+              "name": "name",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Captain",
-          "pk": "officerId",
+          "name": "Order",
+          "isWeak": false,
+          "pk": "orderNo",
+          "x": 440,
+          "y": 160,
           "attributes": [
             {
-              "name": "officerId",
-              "isPK": true
+              "name": "orderNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "officerName",
+              "name": "orderDate",
               "isPK": false
             },
             {
-              "name": "rankGrade",
+              "name": "totalSum",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Payment",
+          "isWeak": false,
+          "pk": "paymentId",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "paymentId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "payType",
               "isPK": false
             },
             {
-              "name": "serviceYears",
+              "name": "status",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Warship",
-          "entity2": "Captain",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "CommandedBy"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Warship",
-          "pk": "hullNo",
-          "attributes": [
-            {
-              "name": "hullNo",
-              "isPK": true
-            },
-            {
-              "name": "shipName",
-              "isPK": false
-            },
-            {
-              "name": "displacementTons",
-              "isPK": false
-            },
-            {
-              "name": "commissionYear",
-              "isPK": false
-            },
-            {
-              "name": "captainId",
-              "isFK": true
-            }
-          ]
+          "name": "Customer",
+          "pk": "customerId",
+          "isWeak": false
         },
         {
-          "name": "Captain",
-          "pk": "officerId",
-          "attributes": [
-            {
-              "name": "officerId",
-              "isPK": true
-            },
-            {
-              "name": "officerName",
-              "isPK": false
-            },
-            {
-              "name": "rankGrade",
-              "isPK": false
-            },
-            {
-              "name": "serviceYears",
-              "isPK": false
-            }
-          ]
+          "name": "Order",
+          "pk": "orderNo",
+          "isWeak": false
+        },
+        {
+          "name": "Payment",
+          "pk": "paymentId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Warship",
-          "entity2": "Captain",
+          "entity1": "Customer",
+          "entity2": "Order",
+          "fromEntityName": "Customer",
+          "toEntityName": "Order",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Order",
+          "entity2": "Payment",
+          "fromEntityName": "Order",
+          "toEntityName": "Payment",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "CommandedBy"
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -1219,128 +1416,122 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 17,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Polkovnik Botir Rahmonov",
-    "clientRole": "DYXX Bosh Inspektor",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Bobur Tursunov",
+    "clientRole": "Fintech Platforma Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Avtomobil Haydovchisi va Haydovchilik Guvohnomasi (Relatsion Sxema)",
-    "story": "Haydovchi va uning guvohnomasi o'rtasidagi to'g'ridan-to'g'ri bog'lanish relyatsion modelga o'tkazilmoqda. 'DriverLicense' jadvaliga 'driverId' Tashqi Kalitini [FK1] qo'shing va uni 'Driver' jadvaliga ulang.",
-    "instruction": "'DriverLicense' jadvalida 'driverId' [FK1] ustunini belgilang va 'Driver' jadvaliga havola qiling.",
+    "title": "Click / Payme Tranzaksiyalar Ekotizimi (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Foydalanuvchi (User) o'z ilovasiga kamida bitta yoki bir nechta bank kartasini (BankCard) ulaydi (1..*). Har bir karta orqali esa ko'plab to'lov tranzaksiyalari (Transaction) bajariladi (0..*).\n\n'User' -> 'BankCard' (1..1 <-> 1..*) va 'BankCard' -> 'Transaction' (1..1 <-> 0..*) aloqalarini o'rnating.",
+    "instruction": "'User' ni 'BankCard' ga (1..1 <-> 1..*), 'BankCard' ni 'Transaction' ga (1..1 <-> 0..*) ulang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Driver",
-          "pk": "driverId",
+          "name": "User",
+          "isWeak": false,
+          "pk": "userId",
+          "x": 100,
+          "y": 160,
           "attributes": [
             {
-              "name": "driverId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
+              "name": "userId",
+              "isPK": true,
+              "isPPK": false
             },
             {
               "name": "phone",
               "isPK": false
             },
             {
-              "name": "bloodGroup",
+              "name": "userName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "DriverLicense",
-          "pk": "licenseNo",
+          "name": "BankCard",
+          "isWeak": false,
+          "pk": "cardId",
+          "x": 440,
+          "y": 160,
           "attributes": [
             {
-              "name": "licenseNo",
-              "isPK": true
+              "name": "cardId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "categories",
+              "name": "panMasked",
               "isPK": false
             },
             {
-              "name": "issueDate",
+              "name": "bankName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Transaction",
+          "isWeak": false,
+          "pk": "txId",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "txId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "amount",
               "isPK": false
             },
             {
-              "name": "expiryDate",
+              "name": "timestamp",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Driver",
-          "entity2": "DriverLicense",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "Holds"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Driver",
-          "pk": "driverId",
-          "attributes": [
-            {
-              "name": "driverId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            },
-            {
-              "name": "bloodGroup",
-              "isPK": false
-            }
-          ]
+          "name": "User",
+          "pk": "userId",
+          "isWeak": false
         },
         {
-          "name": "DriverLicense",
-          "pk": "licenseNo",
-          "attributes": [
-            {
-              "name": "licenseNo",
-              "isPK": true
-            },
-            {
-              "name": "categories",
-              "isPK": false
-            },
-            {
-              "name": "issueDate",
-              "isPK": false
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false
-            },
-            {
-              "name": "driverId",
-              "isFK": true
-            }
-          ]
+          "name": "BankCard",
+          "pk": "cardId",
+          "isWeak": false
+        },
+        {
+          "name": "Transaction",
+          "pk": "txId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Driver",
-          "entity2": "DriverLicense",
+          "entity1": "User",
+          "entity2": "BankCard",
+          "fromEntityName": "User",
+          "toEntityName": "BankCard",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "Holds"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "BankCard",
+          "entity2": "Transaction",
+          "fromEntityName": "BankCard",
+          "toEntityName": "Transaction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -1348,128 +1539,122 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 18,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Mayor Sherzod Aliyev",
-    "clientRole": "Pasport Bo'limi Boshlig'i",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Farrux Yusupov",
+    "clientRole": "Taksi Agregator Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Fuqaro va Biometrik ID Pasport (Relatsion Sxema)",
-    "story": "Fuqaro va pasport munosabatini relyatsion modelga o'tkazish uchun 'Passport' jadvaliga 'citizenPinfl' Tashqi Kalit [FK1] ustunini qo'shib, uni 'Citizen' jadvalining 'pinfl' kalitiga bog'lang.",
-    "instruction": "'Passport' jadvaliga 'citizenPinfl' [FK1] ustunini qo'shing va 'Citizen' jadvaliga havola chizig'ini torting.",
+    "title": "Yandex Go Safarlar Tizimi (3 ta Entitiy — Fan-In Bog'lanish) (Relatsion Sxema)",
+    "story": "Yandex Go tizimida markaziy ob'yekt — bu Safar (RideTrip). Yo'lovchi (Passenger) bir nechta safarlar buyurtma qilishi mumkin (0..*). Haydovchi (Driver) ham ko'plab safarlarni qabul qiladi (0..*). Har bir safarda esa 1 ta yo'lovchi va 1 ta haydovchi qatnashadi (1..1).\n\n'Passenger' va 'Driver' entitiyalarining har ikkalasini 'RideTrip' ga ulang.",
+    "instruction": "'Passenger' -> 'RideTrip' (1..1 <-> 0..*) va 'Driver' -> 'RideTrip' (1..1 <-> 0..*) aloqalarini chizing.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Citizen",
-          "pk": "pinfl",
+          "name": "Passenger",
+          "isWeak": false,
+          "pk": "passengerId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "pinfl",
-              "isPK": true
+              "name": "passengerId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "fullName",
+              "name": "phone",
               "isPK": false
             },
             {
-              "name": "birthDate",
-              "isPK": false
-            },
-            {
-              "name": "nationality",
+              "name": "rating",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Passport",
-          "pk": "passportNo",
+          "name": "Driver",
+          "isWeak": false,
+          "pk": "driverId",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "passportNo",
-              "isPK": true
+              "name": "driverId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "expiryDate",
+              "name": "licenseNo",
               "isPK": false
             },
             {
-              "name": "issuedBy",
+              "name": "carModel",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "RideTrip",
+          "isWeak": false,
+          "pk": "tripId",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "tripId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "fareAmount",
               "isPK": false
             },
             {
-              "name": "chipVersion",
+              "name": "tripDate",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Citizen",
-          "entity2": "Passport",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "IssuedTo"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Citizen",
-          "pk": "pinfl",
-          "attributes": [
-            {
-              "name": "pinfl",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "birthDate",
-              "isPK": false
-            },
-            {
-              "name": "nationality",
-              "isPK": false
-            }
-          ]
+          "name": "Passenger",
+          "pk": "passengerId",
+          "isWeak": false
         },
         {
-          "name": "Passport",
-          "pk": "passportNo",
-          "attributes": [
-            {
-              "name": "passportNo",
-              "isPK": true
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false
-            },
-            {
-              "name": "issuedBy",
-              "isPK": false
-            },
-            {
-              "name": "chipVersion",
-              "isPK": false
-            },
-            {
-              "name": "citizenPinfl",
-              "isFK": true
-            }
-          ]
+          "name": "Driver",
+          "pk": "driverId",
+          "isWeak": false
+        },
+        {
+          "name": "RideTrip",
+          "pk": "tripId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Citizen",
-          "entity2": "Passport",
+          "entity1": "Passenger",
+          "entity2": "RideTrip",
+          "fromEntityName": "Passenger",
+          "toEntityName": "RideTrip",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "IssuedTo"
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Driver",
+          "entity2": "RideTrip",
+          "fromEntityName": "Driver",
+          "toEntityName": "RideTrip",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -1477,128 +1662,118 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 19,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Nodir Hakimov",
-    "clientRole": "Soliq Inspeksiyasi Rahbari",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Nargiza Yo'ldosheva",
+    "clientRole": "WIUT Akademik Menejeri",
     "clientAvatar": "mentor",
-    "title": "Kompaniya va Davlat Soliq Ro'yxat Guvohnomasi (Relatsion Sxema)",
-    "story": "Kompaniya va soliq guvohnomasi o'rtasidagi yagona guvohnoma munosabatini ifodalash uchun 'TaxCertificate' jadvaliga 'companyTin' [FK1] ustunini joylashtiring va 'Company' jadvaliga ulang.",
-    "instruction": "'TaxCertificate' jadvalida 'companyTin' [FK1] ni belgilang va uni 'Company' ning 'tin' [PK] ustuniga bog'lang.",
+    "title": "WIUT Modul va Baholash Arxitekturasi (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Westminster universitetida har bir kafedra (Department) bir nechta fan-modullarni (Module) o'qitadi (1..*). Har bir modulda esa talabalar baholanadigan kamida 1 ta yoki bir nechta Coursework (Coursework, masalan CW1 va CW2) mavjud (1..*).\n\n'Department' -> 'Module' -> 'Coursework' ierarxiyasini loyihalashtiring.",
+    "instruction": "'Department' -> 'Module' (1..1 <-> 1..*) va 'Module' -> 'Coursework' (1..1 <-> 1..*) zanjirini bog'lang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Company",
-          "pk": "tin",
+          "name": "Department",
+          "isWeak": false,
+          "pk": "deptCode",
+          "x": 100,
+          "y": 160,
           "attributes": [
             {
-              "name": "tin",
-              "isPK": true
+              "name": "deptCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "companyName",
-              "isPK": false
-            },
-            {
-              "name": "legalAddress",
-              "isPK": false
-            },
-            {
-              "name": "industryType",
+              "name": "deptName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "TaxCertificate",
-          "pk": "certId",
+          "name": "Module",
+          "isWeak": false,
+          "pk": "moduleCode",
+          "x": 440,
+          "y": 160,
           "attributes": [
             {
-              "name": "certId",
-              "isPK": true
+              "name": "moduleCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "taxRegime",
+              "name": "moduleTitle",
               "isPK": false
             },
             {
-              "name": "effectiveDate",
+              "name": "credits",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Coursework",
+          "isWeak": false,
+          "pk": "cwId",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "cwId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "weightPercent",
               "isPK": false
             },
             {
-              "name": "regNumber",
+              "name": "dueDate",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Company",
-          "entity2": "TaxCertificate",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "CertifiedBy"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Company",
-          "pk": "tin",
-          "attributes": [
-            {
-              "name": "tin",
-              "isPK": true
-            },
-            {
-              "name": "companyName",
-              "isPK": false
-            },
-            {
-              "name": "legalAddress",
-              "isPK": false
-            },
-            {
-              "name": "industryType",
-              "isPK": false
-            }
-          ]
+          "name": "Department",
+          "pk": "deptCode",
+          "isWeak": false
         },
         {
-          "name": "TaxCertificate",
-          "pk": "certId",
-          "attributes": [
-            {
-              "name": "certId",
-              "isPK": true
-            },
-            {
-              "name": "taxRegime",
-              "isPK": false
-            },
-            {
-              "name": "effectiveDate",
-              "isPK": false
-            },
-            {
-              "name": "regNumber",
-              "isPK": false
-            },
-            {
-              "name": "companyTin",
-              "isFK": true
-            }
-          ]
+          "name": "Module",
+          "pk": "moduleCode",
+          "isWeak": false
+        },
+        {
+          "name": "Coursework",
+          "pk": "cwId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Company",
-          "entity2": "TaxCertificate",
+          "entity1": "Department",
+          "entity2": "Module",
+          "fromEntityName": "Department",
+          "toEntityName": "Module",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "CertifiedBy"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Module",
+          "entity2": "Coursework",
+          "fromEntityName": "Module",
+          "toEntityName": "Coursework",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -1606,128 +1781,118 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 20,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Prof. Hasan Umarov",
-    "clientRole": "Bosh Shifokor",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Farhod Karimov",
+    "clientRole": "HR Bosh Maslahatchisi",
     "clientAvatar": "mentor",
-    "title": "Shifoxona Bo'limi va Bo'lim Bosh Vrachi (Relatsion Sxema)",
-    "story": "Bo'lim va bosh vrach munosabatini relyatsion jadvalga o'tkazish uchun 'HospitalDept' jadvaliga 'headDoctorId' [FK1] ustunini kiriting va 'HeadDoctor' jadvaliga bog'lang.",
-    "instruction": "'HospitalDept' jadvaliga 'headDoctorId' [FK1] ustunini qo'shib, 'HeadDoctor' jadvaliga bog'lang.",
+    "title": "Korxona Departamentlari va Boshqaruv Rahbari (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Kompaniyada (Company) bir nechta departamentlar (Department) faoliyat yuritadi (1..*). Har bir departamentni esa aniq 1 ta tayinlangan boshqaruvchi menejer (Manager) boshqaradi (1..1).\n\n'Company' -> 'Department' (1..1 <-> 1..*) va 'Department' -> 'Manager' (1..1 <-> 1..1) aloqalarini o'rnating.",
+    "instruction": "'Company' ni 'Department' ga (1..1 <-> 1..*), 'Department' ni 'Manager' ga (1..1 <-> 1..1) ulang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "HospitalDept",
-          "pk": "deptCode",
+          "name": "Company",
+          "isWeak": false,
+          "pk": "companyRegNo",
+          "x": 100,
+          "y": 160,
           "attributes": [
             {
-              "name": "deptCode",
-              "isPK": true
+              "name": "companyRegNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "deptName",
-              "isPK": false
-            },
-            {
-              "name": "floorNo",
-              "isPK": false
-            },
-            {
-              "name": "bedQuota",
+              "name": "companyName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "HeadDoctor",
-          "pk": "licenseId",
+          "name": "Department",
+          "isWeak": false,
+          "pk": "deptId",
+          "x": 440,
+          "y": 160,
           "attributes": [
             {
-              "name": "licenseId",
-              "isPK": true
+              "name": "deptId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "doctorName",
+              "name": "deptTitle",
               "isPK": false
             },
             {
-              "name": "specialtyField",
+              "name": "floor",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Manager",
+          "isWeak": false,
+          "pk": "managerId",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "managerId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "managerName",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "email",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "HospitalDept",
-          "entity2": "HeadDoctor",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "HeadedBy"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "HospitalDept",
-          "pk": "deptCode",
-          "attributes": [
-            {
-              "name": "deptCode",
-              "isPK": true
-            },
-            {
-              "name": "deptName",
-              "isPK": false
-            },
-            {
-              "name": "floorNo",
-              "isPK": false
-            },
-            {
-              "name": "bedQuota",
-              "isPK": false
-            },
-            {
-              "name": "headDoctorId",
-              "isFK": true
-            }
-          ]
+          "name": "Company",
+          "pk": "companyRegNo",
+          "isWeak": false
         },
         {
-          "name": "HeadDoctor",
-          "pk": "licenseId",
-          "attributes": [
-            {
-              "name": "licenseId",
-              "isPK": true
-            },
-            {
-              "name": "doctorName",
-              "isPK": false
-            },
-            {
-              "name": "specialtyField",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            }
-          ]
+          "name": "Department",
+          "pk": "deptId",
+          "isWeak": false
+        },
+        {
+          "name": "Manager",
+          "pk": "managerId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "HospitalDept",
-          "entity2": "HeadDoctor",
+          "entity1": "Company",
+          "entity2": "Department",
+          "fromEntityName": "Company",
+          "toEntityName": "Department",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Department",
+          "entity2": "Manager",
+          "fromEntityName": "Department",
+          "toEntityName": "Manager",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "HeadedBy"
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -1735,128 +1900,122 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 21,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Javohir Qosimov",
-    "clientRole": "IT Aktivlar Menejeri",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Dr. Nodira Rahimova",
+    "clientRole": "Klinika Axborot Tizimi Rahbari",
     "clientAvatar": "mentor",
-    "title": "Kompaniya Xodimi va Xizmat Noutbuki (Relatsion Sxema)",
-    "story": "Xodim va unga biriktirilgan noutbuk munosabatini relyatsion jadvalga o'tkazing: 'AssignedLaptop' jadvaliga 'assignedStaffId' Tashqi Kalitini [FK1] qo'shib, 'StaffMember' jadvaliga ulang.",
-    "instruction": "'AssignedLaptop' jadvaliga 'assignedStaffId' [FK1] ustunini qo'shing va 'StaffMember' ga havola qiling.",
+    "title": "Shifoxona Bemor Qabuli va Tibbiy Karta (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Har bir bemorga (Patient) shifoxonada 1 ta elektron tibbiy karta (MedicalCard) ochiladi (1..1). Shifokor (Doctor) esa bir nechta bemorlarning tibbiy kartalarini nazorat qiladi (0..*).\n\n'Patient' -> 'MedicalCard' (1..1 <-> 1..1) va 'Doctor' -> 'MedicalCard' (1..1 <-> 0..*) aloqalarini chizing.",
+    "instruction": "'Patient' ni 'MedicalCard' ga (1..1 <-> 1..1), 'Doctor' ni 'MedicalCard' ga (1..1 <-> 0..*) ulang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "StaffMember",
-          "pk": "staffId",
+          "name": "Doctor",
+          "isWeak": false,
+          "pk": "doctorId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "staffId",
-              "isPK": true
+              "name": "doctorId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "staffName",
+              "name": "doctorName",
               "isPK": false
             },
             {
-              "name": "jobTitle",
-              "isPK": false
-            },
-            {
-              "name": "workEmail",
+              "name": "specialty",
               "isPK": false
             }
           ]
         },
         {
-          "name": "AssignedLaptop",
-          "pk": "assetTag",
+          "name": "Patient",
+          "isWeak": false,
+          "pk": "patientId",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "assetTag",
-              "isPK": true
+              "name": "patientId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "serialNo",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "modelName",
+              "name": "dob",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MedicalCard",
+          "isWeak": false,
+          "pk": "cardNo",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "cardNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "diagnosis",
               "isPK": false
             },
             {
-              "name": "ramGb",
+              "name": "openedDate",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "StaffMember",
-          "entity2": "AssignedLaptop",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "name": "AssignedTo"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "StaffMember",
-          "pk": "staffId",
-          "attributes": [
-            {
-              "name": "staffId",
-              "isPK": true
-            },
-            {
-              "name": "staffName",
-              "isPK": false
-            },
-            {
-              "name": "jobTitle",
-              "isPK": false
-            },
-            {
-              "name": "workEmail",
-              "isPK": false
-            }
-          ]
+          "name": "Doctor",
+          "pk": "doctorId",
+          "isWeak": false
         },
         {
-          "name": "AssignedLaptop",
-          "pk": "assetTag",
-          "attributes": [
-            {
-              "name": "assetTag",
-              "isPK": true
-            },
-            {
-              "name": "serialNo",
-              "isPK": false
-            },
-            {
-              "name": "modelName",
-              "isPK": false
-            },
-            {
-              "name": "ramGb",
-              "isPK": false
-            },
-            {
-              "name": "assignedStaffId",
-              "isFK": true
-            }
-          ]
+          "name": "Patient",
+          "pk": "patientId",
+          "isWeak": false
+        },
+        {
+          "name": "MedicalCard",
+          "pk": "cardNo",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "StaffMember",
-          "entity2": "AssignedLaptop",
+          "entity1": "Patient",
+          "entity2": "MedicalCard",
+          "fromEntityName": "Patient",
+          "toEntityName": "MedicalCard",
           "mult1": "1..1",
-          "mult2": "0..1",
-          "name": "AssignedTo"
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Doctor",
+          "entity2": "MedicalCard",
+          "fromEntityName": "Doctor",
+          "toEntityName": "MedicalCard",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -1864,128 +2023,122 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 22,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Shavkat Toirov",
-    "clientRole": "Devonxona Boshlig'i",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Akmal Rahmonov",
+    "clientRole": "Rent-a-Car Operatsion Boshlig'i",
     "clientAvatar": "mentor",
-    "title": "Vazirlik va Soha Vaziri (Relatsion Sxema)",
-    "story": "Vazirlik va vazir o'rtasidagi yagona rahbarlik munosabatini relyatsion ko'rinishga keltiring: 'Ministry' jadvaliga 'currentMinisterId' [FK1] ustunini qo'shib, 'Minister' jadvaliga bog'lang.",
-    "instruction": "'Ministry' jadvalida 'currentMinisterId' [FK1] ustunini belgilang va 'Minister' ning 'ministerId' [PK] ustuniga ulang.",
+    "title": "Avtomobil Ijarasi Tizimi (Rent-a-Car — 3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Avtomobil ijarasi xizmatida har bir filialda (Branch) bir nechta avtomobillar (RentalCar) mavjud (1..*). Har bir avtomobil esa bir nechta ijara shartnomalari (RentalContract) bo'yicha mijozlarga beriladi (0..*).\n\n'Branch' -> 'RentalCar' (1..1 <-> 1..*) va 'RentalCar' -> 'RentalContract' (1..1 <-> 0..*) zanjirini bog'lang.",
+    "instruction": "'Branch' ni 'RentalCar' ga (1..1 <-> 1..*), 'RentalCar' ni 'RentalContract' ga (1..1 <-> 0..*) ulang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Ministry",
-          "pk": "ministryId",
+          "name": "Branch",
+          "isWeak": false,
+          "pk": "branchId",
+          "x": 100,
+          "y": 160,
           "attributes": [
             {
-              "name": "ministryId",
-              "isPK": true
+              "name": "branchId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "officialTitle",
+              "name": "city",
               "isPK": false
             },
             {
-              "name": "budgetBillion",
-              "isPK": false
-            },
-            {
-              "name": "location",
+              "name": "address",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Minister",
-          "pk": "ministerId",
+          "name": "RentalCar",
+          "isWeak": false,
+          "pk": "carId",
+          "x": 440,
+          "y": 160,
           "attributes": [
             {
-              "name": "ministerId",
-              "isPK": true
+              "name": "carId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "fullName",
+              "name": "model",
               "isPK": false
             },
             {
-              "name": "appointedDate",
+              "name": "dailyPrice",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "RentalContract",
+          "isWeak": false,
+          "pk": "contractNo",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "contractNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "startDate",
               "isPK": false
             },
             {
-              "name": "decreeNo",
+              "name": "totalCost",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Ministry",
-          "entity2": "Minister",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "LedBy"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Ministry",
-          "pk": "ministryId",
-          "attributes": [
-            {
-              "name": "ministryId",
-              "isPK": true
-            },
-            {
-              "name": "officialTitle",
-              "isPK": false
-            },
-            {
-              "name": "budgetBillion",
-              "isPK": false
-            },
-            {
-              "name": "location",
-              "isPK": false
-            },
-            {
-              "name": "currentMinisterId",
-              "isFK": true
-            }
-          ]
+          "name": "Branch",
+          "pk": "branchId",
+          "isWeak": false
         },
         {
-          "name": "Minister",
-          "pk": "ministerId",
-          "attributes": [
-            {
-              "name": "ministerId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "appointedDate",
-              "isPK": false
-            },
-            {
-              "name": "decreeNo",
-              "isPK": false
-            }
-          ]
+          "name": "RentalCar",
+          "pk": "carId",
+          "isWeak": false
+        },
+        {
+          "name": "RentalContract",
+          "pk": "contractNo",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Ministry",
-          "entity2": "Minister",
+          "entity1": "Branch",
+          "entity2": "RentalCar",
+          "fromEntityName": "Branch",
+          "toEntityName": "RentalCar",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "LedBy"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "RentalCar",
+          "entity2": "RentalContract",
+          "fromEntityName": "RentalCar",
+          "toEntityName": "RentalContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -1993,128 +2146,122 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 23,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Muzaffar Jo'rayev",
-    "clientRole": "Bosh Kadastr Muhandisi",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Oydin Mirvaliyeva",
+    "clientRole": "Avia Bronlash Markazi Rahbari",
     "clientAvatar": "mentor",
-    "title": "Mulkdor va Kadastr Pasporti (Relatsion Sxema)",
-    "story": "Kadastr pasporti jadvaliga 'ownerId' [FK1] Tashqi Kalit ustunini qo'shib, uni 'PropertyOwner' jadvaliga relyatsion bog'lang.",
-    "instruction": "'CadastreDeed' jadvaliga 'ownerId' [FK1] ustunini joylashtiring va 'PropertyOwner' jadvaliga havola qiling.",
+    "title": "Aviabiletlar Bronlash Portali (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Aviatsiya portalida har bir reysga (Flight) ko'plab chipta bronlari (Booking) rasmiylashtiriladi (0..*). Yo'lovchi (Passenger) esa kamida bitta yoki bir nechta reysga bron ochadi (1..*). Har bir bron 1 ta yo'lovchi va 1 ta reysga tegishli (1..1).\n\n'Flight' -> 'Booking' (1..1 <-> 0..*) va 'Passenger' -> 'Booking' (1..1 <-> 1..*) aloqalarini chizing.",
+    "instruction": "'Flight' va 'Passenger' entitiyalarini 'Booking' ga ulang: Flight (1..1 <-> 0..*) va Passenger (1..1 <-> 1..*).",
     "starterDiagram": {
       "entities": [
         {
-          "name": "PropertyOwner",
-          "pk": "ownerId",
+          "name": "Flight",
+          "isWeak": false,
+          "pk": "flightNo",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "ownerId",
-              "isPK": true
+              "name": "flightNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "ownerName",
+              "name": "origin",
               "isPK": false
             },
             {
-              "name": "phone",
-              "isPK": false
-            },
-            {
-              "name": "taxPayerCode",
+              "name": "destination",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CadastreDeed",
-          "pk": "deedNo",
+          "name": "Passenger",
+          "isWeak": false,
+          "pk": "passportNo",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "deedNo",
-              "isPK": true
+              "name": "passportNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "cadastralZone",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "landAreaSqm",
+              "name": "nationality",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Booking",
+          "isWeak": false,
+          "pk": "bookingRef",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "bookingRef",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "seatNo",
               "isPK": false
             },
             {
-              "name": "registeredDate",
+              "name": "pricePaid",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "PropertyOwner",
-          "entity2": "CadastreDeed",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "DeededWith"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "PropertyOwner",
-          "pk": "ownerId",
-          "attributes": [
-            {
-              "name": "ownerId",
-              "isPK": true
-            },
-            {
-              "name": "ownerName",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            },
-            {
-              "name": "taxPayerCode",
-              "isPK": false
-            }
-          ]
+          "name": "Flight",
+          "pk": "flightNo",
+          "isWeak": false
         },
         {
-          "name": "CadastreDeed",
-          "pk": "deedNo",
-          "attributes": [
-            {
-              "name": "deedNo",
-              "isPK": true
-            },
-            {
-              "name": "cadastralZone",
-              "isPK": false
-            },
-            {
-              "name": "landAreaSqm",
-              "isPK": false
-            },
-            {
-              "name": "registeredDate",
-              "isPK": false
-            },
-            {
-              "name": "ownerId",
-              "isFK": true
-            }
-          ]
+          "name": "Passenger",
+          "pk": "passportNo",
+          "isWeak": false
+        },
+        {
+          "name": "Booking",
+          "pk": "bookingRef",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "PropertyOwner",
-          "entity2": "CadastreDeed",
+          "entity1": "Flight",
+          "entity2": "Booking",
+          "fromEntityName": "Flight",
+          "toEntityName": "Booking",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "DeededWith"
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Passenger",
+          "entity2": "Booking",
+          "fromEntityName": "Passenger",
+          "toEntityName": "Booking",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -2122,128 +2269,122 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 24,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Sardor Saidov",
-    "clientRole": "Kassa Texnik Muhandisi",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Jahongir Qosimov",
+    "clientRole": "Hotel Front-Office Menejeri",
     "clientAvatar": "mentor",
-    "title": "Kassa Yo'lagi va Bank POS Terminali (Relatsion Sxema)",
-    "story": "Kassa yo'lagi va terminal o'rtasidagi bog'lanishni ifodalash uchun 'CheckoutLane' jadvaliga 'posTerminalId' [FK1] ustunini qo'shing va 'PosTerminal' jadvaliga bog'lang.",
-    "instruction": "'CheckoutLane' jadvalida 'posTerminalId' [FK1] ustunini belgilang va uni 'PosTerminal' jadvaliga ulang.",
+    "title": "Mehmonxona Rezervatsiyalari (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Mehmonxonada mehmon (Guest) bir nechta xona rezervatsiyalarini (Reservation) amalga oshirishi mumkin (1..*). Har bir xona (Room) esa turli vaqtlarda ko'plab rezervatsiyalarga xizmat ko'rsatadi (0..*).\n\n'Guest' -> 'Reservation' (1..1 <-> 1..*) va 'Room' -> 'Reservation' (1..1 <-> 0..*) aloqalarini o'rnating.",
+    "instruction": "'Guest' ni 'Reservation' ga (1..1 <-> 1..*), 'Room' ni 'Reservation' ga (1..1 <-> 0..*) ulang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "CheckoutLane",
-          "pk": "laneNo",
+          "name": "Guest",
+          "isWeak": false,
+          "pk": "guestId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "laneNo",
-              "isPK": true
+              "name": "guestId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "deskCode",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "supervisorName",
-              "isPK": false
-            },
-            {
-              "name": "status",
+              "name": "passport",
               "isPK": false
             }
           ]
         },
         {
-          "name": "PosTerminal",
-          "pk": "terminalId",
+          "name": "Room",
+          "isWeak": false,
+          "pk": "roomNo",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "terminalId",
-              "isPK": true
+              "name": "roomNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "ipAddress",
+              "name": "roomType",
               "isPK": false
             },
             {
-              "name": "merchantCode",
+              "name": "floor",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Reservation",
+          "isWeak": false,
+          "pk": "resNo",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "resNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "checkIn",
               "isPK": false
             },
             {
-              "name": "serialNumber",
+              "name": "checkOut",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "CheckoutLane",
-          "entity2": "PosTerminal",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "EquippedWith"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "CheckoutLane",
-          "pk": "laneNo",
-          "attributes": [
-            {
-              "name": "laneNo",
-              "isPK": true
-            },
-            {
-              "name": "deskCode",
-              "isPK": false
-            },
-            {
-              "name": "supervisorName",
-              "isPK": false
-            },
-            {
-              "name": "status",
-              "isPK": false
-            },
-            {
-              "name": "posTerminalId",
-              "isFK": true
-            }
-          ]
+          "name": "Guest",
+          "pk": "guestId",
+          "isWeak": false
         },
         {
-          "name": "PosTerminal",
-          "pk": "terminalId",
-          "attributes": [
-            {
-              "name": "terminalId",
-              "isPK": true
-            },
-            {
-              "name": "ipAddress",
-              "isPK": false
-            },
-            {
-              "name": "merchantCode",
-              "isPK": false
-            },
-            {
-              "name": "serialNumber",
-              "isPK": false
-            }
-          ]
+          "name": "Room",
+          "pk": "roomNo",
+          "isWeak": false
+        },
+        {
+          "name": "Reservation",
+          "pk": "resNo",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "CheckoutLane",
-          "entity2": "PosTerminal",
+          "entity1": "Guest",
+          "entity2": "Reservation",
+          "fromEntityName": "Guest",
+          "toEntityName": "Reservation",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "EquippedWith"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Room",
+          "entity2": "Reservation",
+          "fromEntityName": "Room",
+          "toEntityName": "Reservation",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -2251,128 +2392,118 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 25,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Munira Fayzullayeva",
-    "clientRole": "Maktab Mudiri",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Sardor Olimov",
+    "clientRole": "Scrum Master & Texnik Lider",
     "clientAvatar": "mentor",
-    "title": "O'quvchi va Shaxsiy Saqlash Shkafchasi (Relatsion Sxema)",
-    "story": "Shkafchalar jadvaliga 'pupilId' [FK1] ustunini qo'shib, uni 'Pupil' jadvalining Birlamchi Kalitiga relyatsion tarzda bog'lang.",
-    "instruction": "'SchoolLocker' jadvalida 'pupilId' [FK1] ustunini oching va 'Pupil' jadvaliga havola qiling.",
+    "title": "IT Mahsulot Loyihasi — Sprints & Tasks (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "IT dasturiy loyihasida (Project) bir nechta rivojlantirish sprintlari (Sprint) rejalashtiriladi (1..*). Har bir sprint tarkibida esa jamoa bajaradigan ko'plab vazifalar (IssueTask) mavjud (0..*).\n\n'Project' -> 'Sprint' (1..1 <-> 1..*) va 'Sprint' -> 'IssueTask' (1..1 <-> 0..*) aloqalarini chizing.",
+    "instruction": "'Project' ni 'Sprint' ga (1..1 <-> 1..*), 'Sprint' ni 'IssueTask' ga (1..1 <-> 0..*) ulang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Pupil",
-          "pk": "pupilId",
+          "name": "Project",
+          "isWeak": false,
+          "pk": "projectKey",
+          "x": 100,
+          "y": 160,
           "attributes": [
             {
-              "name": "pupilId",
-              "isPK": true
+              "name": "projectKey",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "gradeLevel",
-              "isPK": false
-            },
-            {
-              "name": "classRoom",
+              "name": "projectName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "SchoolLocker",
-          "pk": "lockerNo",
+          "name": "Sprint",
+          "isWeak": false,
+          "pk": "sprintId",
+          "x": 440,
+          "y": 160,
           "attributes": [
             {
-              "name": "lockerNo",
-              "isPK": true
+              "name": "sprintId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "hallwayWing",
+              "name": "sprintGoal",
               "isPK": false
             },
             {
-              "name": "combinationCode",
+              "name": "endDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "IssueTask",
+          "isWeak": false,
+          "pk": "taskId",
+          "x": 780,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "taskId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "taskTitle",
               "isPK": false
             },
             {
-              "name": "shelfCount",
+              "name": "storyPoints",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Pupil",
-          "entity2": "SchoolLocker",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "name": "Allocated"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Pupil",
-          "pk": "pupilId",
-          "attributes": [
-            {
-              "name": "pupilId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "gradeLevel",
-              "isPK": false
-            },
-            {
-              "name": "classRoom",
-              "isPK": false
-            }
-          ]
+          "name": "Project",
+          "pk": "projectKey",
+          "isWeak": false
         },
         {
-          "name": "SchoolLocker",
-          "pk": "lockerNo",
-          "attributes": [
-            {
-              "name": "lockerNo",
-              "isPK": true
-            },
-            {
-              "name": "hallwayWing",
-              "isPK": false
-            },
-            {
-              "name": "combinationCode",
-              "isPK": false
-            },
-            {
-              "name": "shelfCount",
-              "isPK": false
-            },
-            {
-              "name": "pupilId",
-              "isFK": true
-            }
-          ]
+          "name": "Sprint",
+          "pk": "sprintId",
+          "isWeak": false
+        },
+        {
+          "name": "IssueTask",
+          "pk": "taskId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Pupil",
-          "entity2": "SchoolLocker",
+          "entity1": "Project",
+          "entity2": "Sprint",
+          "fromEntityName": "Project",
+          "toEntityName": "Sprint",
           "mult1": "1..1",
-          "mult2": "0..1",
-          "name": "Allocated"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Sprint",
+          "entity2": "IssueTask",
+          "fromEntityName": "Sprint",
+          "toEntityName": "IssueTask",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -2380,128 +2511,147 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 26,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Oleg Smirnov",
-    "clientRole": "Avia Inspektor",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Madina Shokirova",
+    "clientRole": "Bank Kredit Departamenti Direktori",
     "clientAvatar": "mentor",
-    "title": "Samolyot va Bort Qora Qutisi (Relatsion Sxema)",
-    "story": "Bort yozuvchisi jadvaliga 'airframeNo' [FK1] Tashqi Kalitini qo'shib, uni 'Airplane' jadvalining 'airframeNo' [PK] ustuniga bog'lang.",
-    "instruction": "'FlightRecorder' jadvalida 'airframeNo' [FK1] ustunini belgilang va 'Airplane' jadvaliga ulang.",
+    "title": "Bank Kredit Portfeli (4 ta Entitiy!) (Relatsion Sxema)",
+    "story": "Bank filialida (BankBranch) kredit mutaxassislari (LoanOfficer) ishlaydi (1..*). Har bir mutaxassis bir nechta kredit hisoblarini (LoanAccount) nazorat qiladi (0..*). Qarz oluvchi mijoz (Borrower) esa kamida bitta kreditga ega bo'ladi (1..*).\n\n'BankBranch' -> 'LoanOfficer' (1..1 <-> 1..*), 'LoanOfficer' -> 'LoanAccount' (1..1 <-> 0..*) va 'Borrower' -> 'LoanAccount' (1..1 <-> 1..*) to'rtta entitiyli modelni quring.",
+    "instruction": "BankBranch -> LoanOfficer (1..1 <-> 1..*), LoanOfficer -> LoanAccount (1..1 <-> 0..*), Borrower -> LoanAccount (1..1 <-> 1..*) aloqalarini chizing.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Airplane",
-          "pk": "airframeNo",
+          "name": "BankBranch",
+          "isWeak": false,
+          "pk": "branchNo",
+          "x": 120,
+          "y": 100,
           "attributes": [
             {
-              "name": "airframeNo",
-              "isPK": true
+              "name": "branchNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "tailNumber",
-              "isPK": false
-            },
-            {
-              "name": "modelCode",
-              "isPK": false
-            },
-            {
-              "name": "serviceHours",
+              "name": "city",
               "isPK": false
             }
           ]
         },
         {
-          "name": "FlightRecorder",
-          "pk": "recorderId",
+          "name": "LoanOfficer",
+          "isWeak": false,
+          "pk": "officerId",
+          "x": 480,
+          "y": 100,
           "attributes": [
             {
-              "name": "recorderId",
-              "isPK": true
+              "name": "officerId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "beaconFrequency",
+              "name": "officerName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "LoanAccount",
+          "isWeak": false,
+          "pk": "loanId",
+          "x": 480,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "loanId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "amount",
               "isPK": false
             },
             {
-              "name": "memoryCapacityGb",
+              "name": "interestRate",
               "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Borrower",
+          "isWeak": false,
+          "pk": "cifCode",
+          "x": 120,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "cifCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "batteryExpiry",
+              "name": "borrowerName",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Airplane",
-          "entity2": "FlightRecorder",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "MonitoredBy"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Airplane",
-          "pk": "airframeNo",
-          "attributes": [
-            {
-              "name": "airframeNo",
-              "isPK": true
-            },
-            {
-              "name": "tailNumber",
-              "isPK": false
-            },
-            {
-              "name": "modelCode",
-              "isPK": false
-            },
-            {
-              "name": "serviceHours",
-              "isPK": false
-            }
-          ]
+          "name": "BankBranch",
+          "pk": "branchNo",
+          "isWeak": false
         },
         {
-          "name": "FlightRecorder",
-          "pk": "recorderId",
-          "attributes": [
-            {
-              "name": "recorderId",
-              "isPK": true
-            },
-            {
-              "name": "beaconFrequency",
-              "isPK": false
-            },
-            {
-              "name": "memoryCapacityGb",
-              "isPK": false
-            },
-            {
-              "name": "batteryExpiry",
-              "isPK": false
-            },
-            {
-              "name": "airframeNo",
-              "isFK": true
-            }
-          ]
+          "name": "LoanOfficer",
+          "pk": "officerId",
+          "isWeak": false
+        },
+        {
+          "name": "LoanAccount",
+          "pk": "loanId",
+          "isWeak": false
+        },
+        {
+          "name": "Borrower",
+          "pk": "cifCode",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Airplane",
-          "entity2": "FlightRecorder",
+          "entity1": "BankBranch",
+          "entity2": "LoanOfficer",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "LoanOfficer",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "MonitoredBy"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "LoanOfficer",
+          "entity2": "LoanAccount",
+          "fromEntityName": "LoanOfficer",
+          "toEntityName": "LoanAccount",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Borrower",
+          "entity2": "LoanAccount",
+          "fromEntityName": "Borrower",
+          "toEntityName": "LoanAccount",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -2509,128 +2659,147 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 27,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Ibrohim Rustamov",
-    "clientRole": "Yer Resurslari Mudiri",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Zafar Yoqubov",
+    "clientRole": "Korzinka ERP Arxitektori",
     "clientAvatar": "mentor",
-    "title": "Fermer Xo'jaligi va Yer Ijara Shartnomasi (Relatsion Sxema)",
-    "story": "Yer ijara shartnomasi jadvaliga 'farmRegNo' [FK1] ustunini qo'shib, uni 'Farm' jadvaliga relyatsion tarzda bog'lang.",
-    "instruction": "'LandLeaseContract' jadvalida 'farmRegNo' [FK1] ustunini oching va 'Farm' jadvaliga havola qiling.",
+    "title": "Korzinka Savdo Kvitansiyasi (4 ta Entitiy!) (Relatsion Sxema)",
+    "story": "Supermarket tarmog'ida do'konda (Store) kassirlar (Cashier) ishlaydi (1..*). Kassir xarid cheklari (Receipt) chiqaradi (0..*). Xaridor (Customer) chekka ixtiyoriy ravishda bog'lanadi (0..1), chunki kartasiz mijozlar ham xarid qilishi mumkin.\n\n'Store' -> 'Cashier' (1..1 <-> 1..*), 'Cashier' -> 'Receipt' (1..1 <-> 0..*) va 'Customer' -> 'Receipt' (0..1 <-> 0..*) aloqalarini yarating.",
+    "instruction": "Store -> Cashier (1..1 <-> 1..*), Cashier -> Receipt (1..1 <-> 0..*), Customer -> Receipt (0..1 <-> 0..*) aloqalarini ulang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Farm",
-          "pk": "farmRegNo",
+          "name": "Store",
+          "isWeak": false,
+          "pk": "storeId",
+          "x": 120,
+          "y": 100,
           "attributes": [
             {
-              "name": "farmRegNo",
-              "isPK": true
+              "name": "storeId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "farmName",
-              "isPK": false
-            },
-            {
-              "name": "province",
-              "isPK": false
-            },
-            {
-              "name": "cropType",
+              "name": "storeName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "LandLeaseContract",
-          "pk": "contractId",
+          "name": "Cashier",
+          "isWeak": false,
+          "pk": "cashierId",
+          "x": 480,
+          "y": 100,
           "attributes": [
             {
-              "name": "contractId",
-              "isPK": true
+              "name": "cashierId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "hectares",
+              "name": "cashierName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Receipt",
+          "isWeak": false,
+          "pk": "receiptNo",
+          "x": 480,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "receiptNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "totalSum",
               "isPK": false
             },
             {
-              "name": "leaseEndDate",
+              "name": "payDate",
               "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Customer",
+          "isWeak": false,
+          "pk": "loyaltyId",
+          "x": 120,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "loyaltyId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "regDate",
+              "name": "phone",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Farm",
-          "entity2": "LandLeaseContract",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "ContractedUnder"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Farm",
-          "pk": "farmRegNo",
-          "attributes": [
-            {
-              "name": "farmRegNo",
-              "isPK": true
-            },
-            {
-              "name": "farmName",
-              "isPK": false
-            },
-            {
-              "name": "province",
-              "isPK": false
-            },
-            {
-              "name": "cropType",
-              "isPK": false
-            }
-          ]
+          "name": "Store",
+          "pk": "storeId",
+          "isWeak": false
         },
         {
-          "name": "LandLeaseContract",
-          "pk": "contractId",
-          "attributes": [
-            {
-              "name": "contractId",
-              "isPK": true
-            },
-            {
-              "name": "hectares",
-              "isPK": false
-            },
-            {
-              "name": "leaseEndDate",
-              "isPK": false
-            },
-            {
-              "name": "regDate",
-              "isPK": false
-            },
-            {
-              "name": "farmRegNo",
-              "isFK": true
-            }
-          ]
+          "name": "Cashier",
+          "pk": "cashierId",
+          "isWeak": false
+        },
+        {
+          "name": "Receipt",
+          "pk": "receiptNo",
+          "isWeak": false
+        },
+        {
+          "name": "Customer",
+          "pk": "loyaltyId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Farm",
-          "entity2": "LandLeaseContract",
+          "entity1": "Store",
+          "entity2": "Cashier",
+          "fromEntityName": "Store",
+          "toEntityName": "Cashier",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "ContractedUnder"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Cashier",
+          "entity2": "Receipt",
+          "fromEntityName": "Cashier",
+          "toEntityName": "Receipt",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "Customer",
+          "entity2": "Receipt",
+          "fromEntityName": "Customer",
+          "toEntityName": "Receipt",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -2638,128 +2807,122 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 28,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Kamol Boboyev",
-    "clientRole": "Protokol Rahbari",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Sanjar Karimberdiyev",
+    "clientRole": "Rieltorlik Bosh Agentligi",
     "clientAvatar": "mentor",
-    "title": "Diplomatik Elchixona va Favqulodda Elchi (Relatsion Sxema)",
-    "story": "Elchixona jadvaliga 'ambassadorId' [FK1] Tashqi Kalitini qo'shib, uni 'Ambassador' jadvalining 'diplomatId' [PK] ustuniga bog'lang.",
-    "instruction": "'Embassy' jadvaliga 'ambassadorId' [FK1] ustunini qo'shing va 'Ambassador' jadvaliga ulang.",
+    "title": "Ko'chmas Mulk Savdosi (3 ta Entitiy — Ixtiyoriy Agent 0..1) (Relatsion Sxema)",
+    "story": "Mulk egasi (Owner) kamida 1 ta ko'chmas mulkka (Property) ega (1..*). Mulkni sotish esa ixtiyoriy ravishda 1 ta rieltor agentga (EstateAgent) topshirilishi mumkin (0..1). Agent bir nechta ob'yektlarni sotuvga chiqaradi (0..*).\n\n'Owner' -> 'Property' (1..1 <-> 1..*) va 'EstateAgent' -> 'Property' (0..1 <-> 0..*) aloqalarini bog'lang.",
+    "instruction": "Owner -> Property (1..1 <-> 1..*) va EstateAgent -> Property (0..1 <-> 0..*) aloqalarini chizing.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Embassy",
-          "pk": "embassyId",
+          "name": "Owner",
+          "isWeak": false,
+          "pk": "ownerId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "embassyId",
-              "isPK": true
+              "name": "ownerId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "hostCountry",
+              "name": "ownerName",
               "isPK": false
             },
             {
-              "name": "cityLocation",
-              "isPK": false
-            },
-            {
-              "name": "establishedYear",
+              "name": "phone",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Ambassador",
-          "pk": "diplomatId",
+          "name": "EstateAgent",
+          "isWeak": false,
+          "pk": "agentId",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "diplomatId",
-              "isPK": true
+              "name": "agentId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "fullName",
+              "name": "agentName",
               "isPK": false
             },
             {
-              "name": "credentialDate",
+              "name": "commission",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Property",
+          "isWeak": false,
+          "pk": "propertyNo",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "propertyNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "address",
               "isPK": false
             },
             {
-              "name": "diplomaticRank",
+              "name": "price",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Embassy",
-          "entity2": "Ambassador",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "RepresentedBy"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Embassy",
-          "pk": "embassyId",
-          "attributes": [
-            {
-              "name": "embassyId",
-              "isPK": true
-            },
-            {
-              "name": "hostCountry",
-              "isPK": false
-            },
-            {
-              "name": "cityLocation",
-              "isPK": false
-            },
-            {
-              "name": "establishedYear",
-              "isPK": false
-            },
-            {
-              "name": "ambassadorId",
-              "isFK": true
-            }
-          ]
+          "name": "Owner",
+          "pk": "ownerId",
+          "isWeak": false
         },
         {
-          "name": "Ambassador",
-          "pk": "diplomatId",
-          "attributes": [
-            {
-              "name": "diplomatId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "credentialDate",
-              "isPK": false
-            },
-            {
-              "name": "diplomaticRank",
-              "isPK": false
-            }
-          ]
+          "name": "EstateAgent",
+          "pk": "agentId",
+          "isWeak": false
+        },
+        {
+          "name": "Property",
+          "pk": "propertyNo",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Embassy",
-          "entity2": "Ambassador",
+          "entity1": "Owner",
+          "entity2": "Property",
+          "fromEntityName": "Owner",
+          "toEntityName": "Property",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "RepresentedBy"
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "EstateAgent",
+          "entity2": "Property",
+          "fromEntityName": "EstateAgent",
+          "toEntityName": "Property",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -2767,128 +2930,122 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 29,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Akmal Fayziyev",
-    "clientRole": "Inkassatsiya Boshlig'i",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Gavhar Mahmudova",
+    "clientRole": "Kutubxona Tizim Boshqaruvchisi",
     "clientAvatar": "mentor",
-    "title": "Bank Filiali va Markaziy Pul Seyfi (Relatsion Sxema)",
-    "story": "Seyf jadvaliga 'branchNo' [FK1] ustunini qo'shib, uni 'BankBranch' jadvaliga relyatsion tarzda bog'lang.",
-    "instruction": "'MainVault' jadvaliga 'branchNo' [FK1] ustunini joylashtiring va 'BankBranch' jadvaliga havola qiling.",
+    "title": "Universitet Kutubxonasi Abonementi (3 ta Entitiy) (Relatsion Sxema)",
+    "story": "Talaba (Student) kutubxonadan kitob olishi (BookLoan) mumkin (0..*). Har bir aniq kitob nusxasi (BookCopy) ham vaqti-vaqti bilan ijaraga beriladi (0..*). Har bir ijara kvitansiyasi 1 ta talaba va 1 ta kitob nusxasiga tegishli (1..1).\n\n'Student' -> 'BookLoan' (1..1 <-> 0..*) va 'BookCopy' -> 'BookLoan' (1..1 <-> 0..*) aloqalarini chizing.",
+    "instruction": "Student -> BookLoan (1..1 <-> 0..*) va BookCopy -> BookLoan (1..1 <-> 0..*) bog'lanishlarini o'rnating.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "BankBranch",
-          "pk": "branchNo",
+          "name": "Student",
+          "isWeak": false,
+          "pk": "studentId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "branchNo",
-              "isPK": true
+              "name": "studentId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "street",
+              "name": "studentName",
               "isPK": false
             },
             {
-              "name": "city",
-              "isPK": false
-            },
-            {
-              "name": "phone",
+              "name": "faculty",
               "isPK": false
             }
           ]
         },
         {
-          "name": "MainVault",
-          "pk": "vaultId",
+          "name": "BookCopy",
+          "isWeak": false,
+          "pk": "barcode",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "vaultId",
-              "isPK": true
+              "name": "barcode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "securityGrade",
+              "name": "editionYear",
               "isPK": false
             },
             {
-              "name": "capacityKg",
+              "name": "shelfLocation",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "BookLoan",
+          "isWeak": false,
+          "pk": "loanId",
+          "x": 340,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "loanId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "issueDate",
               "isPK": false
             },
             {
-              "name": "alarmCode",
+              "name": "returnDue",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "BankBranch",
-          "entity2": "MainVault",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "SecuredWith"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "BankBranch",
-          "pk": "branchNo",
-          "attributes": [
-            {
-              "name": "branchNo",
-              "isPK": true
-            },
-            {
-              "name": "street",
-              "isPK": false
-            },
-            {
-              "name": "city",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            }
-          ]
+          "name": "Student",
+          "pk": "studentId",
+          "isWeak": false
         },
         {
-          "name": "MainVault",
-          "pk": "vaultId",
-          "attributes": [
-            {
-              "name": "vaultId",
-              "isPK": true
-            },
-            {
-              "name": "securityGrade",
-              "isPK": false
-            },
-            {
-              "name": "capacityKg",
-              "isPK": false
-            },
-            {
-              "name": "alarmCode",
-              "isPK": false
-            },
-            {
-              "name": "branchNo",
-              "isFK": true
-            }
-          ]
+          "name": "BookCopy",
+          "pk": "barcode",
+          "isWeak": false
+        },
+        {
+          "name": "BookLoan",
+          "pk": "loanId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "BankBranch",
-          "entity2": "MainVault",
+          "entity1": "Student",
+          "entity2": "BookLoan",
+          "fromEntityName": "Student",
+          "toEntityName": "BookLoan",
           "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "SecuredWith"
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "BookCopy",
+          "entity2": "BookLoan",
+          "fromEntityName": "BookCopy",
+          "toEntityName": "BookLoan",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -2896,128 +3053,159 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 30,
     "sector": 2,
-    "difficulty": "2-Qavat • O'rta (1..1) • Relational Mapping",
-    "clientName": "Dilorom Ismoilova",
-    "clientRole": "Antidoping Komissari",
+    "difficulty": "2-Qavat • O'rta",
+    "clientName": "Ulug'bek Nazarov",
+    "clientRole": "Xalqaro Logistika Bosh Muhandisi",
     "clientAvatar": "mentor",
-    "title": "Professional Atlet va Biologik Doping Pasporti (Relatsion Sxema)",
-    "story": "Doping pasporti jadvaliga 'athleteLicenseId' [FK1] ustunini qo'shib, uni 'Athlete' jadvaliga bog'lang.",
-    "instruction": "'DopingPassport' jadvalida 'athleteLicenseId' [FK1] ustunini oching va 'Athlete' jadvaliga ulang.",
+    "title": "Logistika va Yetkazib Berish Zanjiri (4 ta Entitiy!) (Relatsion Sxema)",
+    "story": "Markaziy logistika omboriga (Warehouse) bir nechta yuk mashinalari (CargoTruck) biriktiriladi (1..*). Har bir yuk mashinasiga aniq 1 ta shtatdagi haydovchi (Driver) javobgar (1..1). Yuk mashinasi esa bir nechta marshrut reyslarini (DeliveryRoute) bajaradi (0..*).\n\n'Warehouse' -> 'CargoTruck' (1..1 <-> 1..*), 'CargoTruck' -> 'Driver' (1..1 <-> 1..1) va 'CargoTruck' -> 'DeliveryRoute' (1..1 <-> 0..*) to'rtta entitiyli tizimni quring.",
+    "instruction": "Warehouse -> CargoTruck (1..1 <-> 1..*), CargoTruck -> Driver (1..1 <-> 1..1), CargoTruck -> DeliveryRoute (1..1 <-> 0..*) aloqalarini chizing.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Athlete",
-          "pk": "licenseId",
+          "name": "Warehouse",
+          "isWeak": false,
+          "pk": "whCode",
+          "x": 120,
+          "y": 100,
           "attributes": [
             {
-              "name": "licenseId",
-              "isPK": true
+              "name": "whCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "athleteName",
+              "name": "whName",
               "isPK": false
             },
             {
-              "name": "sportDiscipline",
-              "isPK": false
-            },
-            {
-              "name": "countryCode",
+              "name": "city",
               "isPK": false
             }
           ]
         },
         {
-          "name": "DopingPassport",
-          "pk": "passportCode",
+          "name": "CargoTruck",
+          "isWeak": false,
+          "pk": "truckId",
+          "x": 480,
+          "y": 100,
           "attributes": [
             {
-              "name": "passportCode",
-              "isPK": true
+              "name": "truckId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "biologicalProfile",
+              "name": "plateNumber",
               "isPK": false
             },
             {
-              "name": "lastTestDate",
+              "name": "capacityTons",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Driver",
+          "isWeak": false,
+          "pk": "licenseNo",
+          "x": 120,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "licenseNo",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "driverName",
               "isPK": false
             },
             {
-              "name": "labCode",
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DeliveryRoute",
+          "isWeak": false,
+          "pk": "routeId",
+          "x": 480,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "routeId",
+              "isPK": true,
+              "isPPK": false
+            },
+            {
+              "name": "routeDestination",
+              "isPK": false
+            },
+            {
+              "name": "departTime",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Athlete",
-          "entity2": "DopingPassport",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "TrackedBy"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Athlete",
-          "pk": "licenseId",
-          "attributes": [
-            {
-              "name": "licenseId",
-              "isPK": true
-            },
-            {
-              "name": "athleteName",
-              "isPK": false
-            },
-            {
-              "name": "sportDiscipline",
-              "isPK": false
-            },
-            {
-              "name": "countryCode",
-              "isPK": false
-            }
-          ]
+          "name": "Warehouse",
+          "pk": "whCode",
+          "isWeak": false
         },
         {
-          "name": "DopingPassport",
-          "pk": "passportCode",
-          "attributes": [
-            {
-              "name": "passportCode",
-              "isPK": true
-            },
-            {
-              "name": "biologicalProfile",
-              "isPK": false
-            },
-            {
-              "name": "lastTestDate",
-              "isPK": false
-            },
-            {
-              "name": "labCode",
-              "isPK": false
-            },
-            {
-              "name": "athleteLicenseId",
-              "isFK": true
-            }
-          ]
+          "name": "CargoTruck",
+          "pk": "truckId",
+          "isWeak": false
+        },
+        {
+          "name": "Driver",
+          "pk": "licenseNo",
+          "isWeak": false
+        },
+        {
+          "name": "DeliveryRoute",
+          "pk": "routeId",
+          "isWeak": false
         }
       ],
       "relationships": [
         {
-          "entity1": "Athlete",
-          "entity2": "DopingPassport",
+          "entity1": "Warehouse",
+          "entity2": "CargoTruck",
+          "fromEntityName": "Warehouse",
+          "toEntityName": "CargoTruck",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "CargoTruck",
+          "entity2": "Driver",
+          "fromEntityName": "CargoTruck",
+          "toEntityName": "Driver",
           "mult1": "1..1",
           "mult2": "1..1",
-          "name": "TrackedBy"
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "entity1": "CargoTruck",
+          "entity2": "DeliveryRoute",
+          "fromEntityName": "CargoTruck",
+          "toEntityName": "DeliveryRoute",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -3025,120 +3213,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 31,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Department va Lecturer Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi Department va Lecturer o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'Lecturer' jadvaliga 'departmentId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'Lecturer' jadvaliga 'departmentId' [FK1] ustunini qo'shing va uni 'Department' ning 'deptCode' [PK] ustuniga havola qiling.",
+    "title": "Mehmonxona va Xonalar (Zaif Entitiy) (Relatsion Sxema)",
+    "story": "'HotelRoom' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Hotel' (hotelId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'roomNo' {PPK} hisoblanadi.\n\n'Hotel' (1..1) va 'HotelRoom' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Hotel' va zaif 'HotelRoom' entitiylarini identifikatsion aloqa bilan bog'lang (Hotel 1..1, HotelRoom 1..*). 'HotelRoom' entitiyida 'Zaif {W}' rejimini yoqing va 'roomNo' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Department",
-          "pk": "deptCode",
+          "name": "Hotel",
+          "isWeak": false,
+          "pk": "hotelId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "deptCode",
-              "isPK": true
+              "name": "hotelId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "deptName",
-              "isPK": false
-            },
-            {
-              "name": "officeRoom",
+              "name": "hotelName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Lecturer",
-          "pk": "lecturerId",
+          "name": "HotelRoom",
+          "isWeak": true,
+          "pk": "roomNo",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "lecturerId",
-              "isPK": true
+              "name": "roomNo",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "fullName",
+              "name": "roomType",
               "isPK": false
             },
             {
-              "name": "academicRank",
-              "isPK": false
-            },
-            {
-              "name": "salary",
+              "name": "price",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Department",
-          "entity2": "Lecturer",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Employs"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Department",
-          "pk": "deptCode",
-          "attributes": [
-            {
-              "name": "deptCode",
-              "isPK": true
-            },
-            {
-              "name": "deptName",
-              "isPK": false
-            },
-            {
-              "name": "officeRoom",
-              "isPK": false
-            }
-          ]
+          "name": "Hotel",
+          "pk": "hotelId",
+          "isWeak": false
         },
         {
-          "name": "Lecturer",
-          "pk": "lecturerId",
-          "attributes": [
-            {
-              "name": "lecturerId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "academicRank",
-              "isPK": false
-            },
-            {
-              "name": "salary",
-              "isPK": false
-            },
-            {
-              "name": "departmentId",
-              "isFK": true
-            }
-          ]
+          "name": "HotelRoom",
+          "pk": "roomNo",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Department",
-          "entity2": "Lecturer",
+          "entity1": "Hotel",
+          "entity2": "HotelRoom",
+          "fromEntityName": "Hotel",
+          "toEntityName": "HotelRoom",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Employs"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -3146,128 +3295,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 32,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Publisher va BookEdition Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi Publisher va BookEdition o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'BookEdition' jadvaliga 'publisherId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'BookEdition' jadvaliga 'publisherId' [FK1] ustunini qo'shing va uni 'Publisher' ning 'publisherId' [PK] ustuniga havola qiling.",
+    "title": "Buyurtma va Buyurtma Qatorlari (OrderItem) (Relatsion Sxema)",
+    "story": "'OrderItem' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Order' (orderNo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'itemSeq' {PPK} hisoblanadi.\n\n'Order' (1..1) va 'OrderItem' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Order' va zaif 'OrderItem' entitiylarini identifikatsion aloqa bilan bog'lang (Order 1..1, OrderItem 1..*). 'OrderItem' entitiyida 'Zaif {W}' rejimini yoqing va 'itemSeq' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Publisher",
-          "pk": "publisherId",
+          "name": "Order",
+          "isWeak": false,
+          "pk": "orderNo",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "publisherId",
-              "isPK": true
+              "name": "orderNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "companyName",
-              "isPK": false
-            },
-            {
-              "name": "address",
-              "isPK": false
-            },
-            {
-              "name": "phone",
+              "name": "orderDate",
               "isPK": false
             }
           ]
         },
         {
-          "name": "BookEdition",
-          "pk": "editionIsbn",
+          "name": "OrderItem",
+          "isWeak": true,
+          "pk": "itemSeq",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "editionIsbn",
-              "isPK": true
+              "name": "itemSeq",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "title",
+              "name": "qty",
               "isPK": false
             },
             {
-              "name": "printRun",
-              "isPK": false
-            },
-            {
-              "name": "price",
+              "name": "unitPrice",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Publisher",
-          "entity2": "BookEdition",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Publishes"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Publisher",
-          "pk": "publisherId",
-          "attributes": [
-            {
-              "name": "publisherId",
-              "isPK": true
-            },
-            {
-              "name": "companyName",
-              "isPK": false
-            },
-            {
-              "name": "address",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            }
-          ]
+          "name": "Order",
+          "pk": "orderNo",
+          "isWeak": false
         },
         {
-          "name": "BookEdition",
-          "pk": "editionIsbn",
-          "attributes": [
-            {
-              "name": "editionIsbn",
-              "isPK": true
-            },
-            {
-              "name": "title",
-              "isPK": false
-            },
-            {
-              "name": "printRun",
-              "isPK": false
-            },
-            {
-              "name": "price",
-              "isPK": false
-            },
-            {
-              "name": "publisherId",
-              "isFK": true
-            }
-          ]
+          "name": "OrderItem",
+          "pk": "itemSeq",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Publisher",
-          "entity2": "BookEdition",
+          "entity1": "Order",
+          "entity2": "OrderItem",
+          "fromEntityName": "Order",
+          "toEntityName": "OrderItem",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Publishes"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -3275,128 +3377,77 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 33,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Customer va PaymentCard Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi Customer va PaymentCard o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'PaymentCard' jadvaliga 'customerId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'PaymentCard' jadvaliga 'customerId' [FK1] ustunini qo'shing va uni 'Customer' ning 'customerId' [PK] ustuniga havola qiling.",
+    "title": "Bino va Qavatlar (Zaif Bog'liqlik) (Relatsion Sxema)",
+    "story": "'Floor' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Building' (buildingCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'floorNo' {PPK} hisoblanadi.\n\n'Building' (1..1) va 'Floor' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Building' va zaif 'Floor' entitiylarini identifikatsion aloqa bilan bog'lang (Building 1..1, Floor 1..*). 'Floor' entitiyida 'Zaif {W}' rejimini yoqing va 'floorNo' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Customer",
-          "pk": "customerId",
+          "name": "Building",
+          "isWeak": false,
+          "pk": "buildingCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "customerId",
-              "isPK": true
+              "name": "buildingCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            },
-            {
-              "name": "email",
+              "name": "address",
               "isPK": false
             }
           ]
         },
         {
-          "name": "PaymentCard",
-          "pk": "cardNumber",
+          "name": "Floor",
+          "isWeak": true,
+          "pk": "floorNo",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "cardNumber",
-              "isPK": true
+              "name": "floorNo",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "cardType",
-              "isPK": false
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false
-            },
-            {
-              "name": "cvvHash",
+              "name": "areaSqM",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Customer",
-          "entity2": "PaymentCard",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Owns"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Customer",
-          "pk": "customerId",
-          "attributes": [
-            {
-              "name": "customerId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            },
-            {
-              "name": "email",
-              "isPK": false
-            }
-          ]
+          "name": "Building",
+          "pk": "buildingCode",
+          "isWeak": false
         },
         {
-          "name": "PaymentCard",
-          "pk": "cardNumber",
-          "attributes": [
-            {
-              "name": "cardNumber",
-              "isPK": true
-            },
-            {
-              "name": "cardType",
-              "isPK": false
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false
-            },
-            {
-              "name": "cvvHash",
-              "isPK": false
-            },
-            {
-              "name": "customerId",
-              "isFK": true
-            }
-          ]
+          "name": "Floor",
+          "pk": "floorNo",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Customer",
-          "entity2": "PaymentCard",
+          "entity1": "Building",
+          "entity2": "Floor",
+          "fromEntityName": "Building",
+          "toEntityName": "Floor",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Owns"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -3404,128 +3455,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 34,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "BusDepot va CityBus Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi BusDepot va CityBus o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'CityBus' jadvaliga 'busdepotId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'CityBus' jadvaliga 'busdepotId' [FK1] ustunini qo'shing va uni 'BusDepot' ning 'depotId' [PK] ustuniga havola qiling.",
+    "title": "Xodim va Qaramog'idagilar (Dependent) (Relatsion Sxema)",
+    "story": "'Dependent' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Employee' (empId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'depName' {PPK} hisoblanadi.\n\n'Employee' (1..1) va 'Dependent' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Employee' va zaif 'Dependent' entitiylarini identifikatsion aloqa bilan bog'lang (Employee 1..1, Dependent 1..*). 'Dependent' entitiyida 'Zaif {W}' rejimini yoqing va 'depName' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "BusDepot",
-          "pk": "depotId",
+          "name": "Employee",
+          "isWeak": false,
+          "pk": "empId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "depotId",
-              "isPK": true
+              "name": "empId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "depotName",
-              "isPK": false
-            },
-            {
-              "name": "garageCapacity",
-              "isPK": false
-            },
-            {
-              "name": "cityZone",
+              "name": "fullName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CityBus",
-          "pk": "busRegNo",
+          "name": "Dependent",
+          "isWeak": true,
+          "pk": "depName",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "busRegNo",
-              "isPK": true
+              "name": "depName",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "model",
+              "name": "relationship",
               "isPK": false
             },
             {
-              "name": "seatCapacity",
-              "isPK": false
-            },
-            {
-              "name": "routeNo",
+              "name": "birthDate",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "BusDepot",
-          "entity2": "CityBus",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Houses"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "BusDepot",
-          "pk": "depotId",
-          "attributes": [
-            {
-              "name": "depotId",
-              "isPK": true
-            },
-            {
-              "name": "depotName",
-              "isPK": false
-            },
-            {
-              "name": "garageCapacity",
-              "isPK": false
-            },
-            {
-              "name": "cityZone",
-              "isPK": false
-            }
-          ]
+          "name": "Employee",
+          "pk": "empId",
+          "isWeak": false
         },
         {
-          "name": "CityBus",
-          "pk": "busRegNo",
-          "attributes": [
-            {
-              "name": "busRegNo",
-              "isPK": true
-            },
-            {
-              "name": "model",
-              "isPK": false
-            },
-            {
-              "name": "seatCapacity",
-              "isPK": false
-            },
-            {
-              "name": "routeNo",
-              "isPK": false
-            },
-            {
-              "name": "busdepotId",
-              "isFK": true
-            }
-          ]
+          "name": "Dependent",
+          "pk": "depName",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "BusDepot",
-          "entity2": "CityBus",
+          "entity1": "Employee",
+          "entity2": "Dependent",
+          "fromEntityName": "Employee",
+          "toEntityName": "Dependent",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Houses"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -3533,136 +3537,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 35,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Branch va Staff Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi Branch va Staff o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'Staff' jadvaliga 'branchId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'Staff' jadvaliga 'branchId' [FK1] ustunini qo'shing va uni 'Branch' ning 'branchNo' [PK] ustuniga havola qiling.",
+    "title": "Bank Hisob va Oylik Ko'chirmalar (Relatsion Sxema)",
+    "story": "'AccountStatement' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'BankAccount' (accountNo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'statementSeq' {PPK} hisoblanadi.\n\n'BankAccount' (1..1) va 'AccountStatement' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'BankAccount' va zaif 'AccountStatement' entitiylarini identifikatsion aloqa bilan bog'lang (BankAccount 1..1, AccountStatement 1..*). 'AccountStatement' entitiyida 'Zaif {W}' rejimini yoqing va 'statementSeq' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Branch",
-          "pk": "branchNo",
+          "name": "BankAccount",
+          "isWeak": false,
+          "pk": "accountNo",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "branchNo",
-              "isPK": true
+              "name": "accountNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "city",
-              "isPK": false
-            },
-            {
-              "name": "street",
-              "isPK": false
-            },
-            {
-              "name": "phone",
+              "name": "currency",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Staff",
-          "pk": "staffNo",
+          "name": "AccountStatement",
+          "isWeak": true,
+          "pk": "statementSeq",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "staffNo",
-              "isPK": true
+              "name": "statementSeq",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "fName",
+              "name": "statementMonth",
               "isPK": false
             },
             {
-              "name": "lName",
-              "isPK": false
-            },
-            {
-              "name": "position",
-              "isPK": false
-            },
-            {
-              "name": "salary",
+              "name": "totalInflow",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Operates"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Branch",
-          "pk": "branchNo",
-          "attributes": [
-            {
-              "name": "branchNo",
-              "isPK": true
-            },
-            {
-              "name": "city",
-              "isPK": false
-            },
-            {
-              "name": "street",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            }
-          ]
+          "name": "BankAccount",
+          "pk": "accountNo",
+          "isWeak": false
         },
         {
-          "name": "Staff",
-          "pk": "staffNo",
-          "attributes": [
-            {
-              "name": "staffNo",
-              "isPK": true
-            },
-            {
-              "name": "fName",
-              "isPK": false
-            },
-            {
-              "name": "lName",
-              "isPK": false
-            },
-            {
-              "name": "position",
-              "isPK": false
-            },
-            {
-              "name": "salary",
-              "isPK": false
-            },
-            {
-              "name": "branchId",
-              "isFK": true
-            }
-          ]
+          "name": "AccountStatement",
+          "pk": "statementSeq",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Branch",
-          "entity2": "Staff",
+          "entity1": "BankAccount",
+          "entity2": "AccountStatement",
+          "fromEntityName": "BankAccount",
+          "toEntityName": "AccountStatement",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -3670,128 +3619,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 36,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "HospitalWard va PatientRoom Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi HospitalWard va PatientRoom o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'PatientRoom' jadvaliga 'hospitalwardId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'PatientRoom' jadvaliga 'hospitalwardId' [FK1] ustunini qo'shing va uni 'HospitalWard' ning 'wardId' [PK] ustuniga havola qiling.",
+    "title": "Aviaqatnov va Parvoz Bosqichlari (FlightLeg) (Relatsion Sxema)",
+    "story": "'FlightLeg' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Flight' (flightNo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'legNumber' {PPK} hisoblanadi.\n\n'Flight' (1..1) va 'FlightLeg' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Flight' va zaif 'FlightLeg' entitiylarini identifikatsion aloqa bilan bog'lang (Flight 1..1, FlightLeg 1..*). 'FlightLeg' entitiyida 'Zaif {W}' rejimini yoqing va 'legNumber' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "HospitalWard",
-          "pk": "wardId",
+          "name": "Flight",
+          "isWeak": false,
+          "pk": "flightNo",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "wardId",
-              "isPK": true
+              "name": "flightNo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "wardName",
-              "isPK": false
-            },
-            {
-              "name": "floorLevel",
-              "isPK": false
-            },
-            {
-              "name": "nurseStation",
+              "name": "airlineCode",
               "isPK": false
             }
           ]
         },
         {
-          "name": "PatientRoom",
-          "pk": "roomNumber",
+          "name": "FlightLeg",
+          "isWeak": true,
+          "pk": "legNumber",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "roomNumber",
-              "isPK": true
+              "name": "legNumber",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "bedCount",
+              "name": "originAir",
               "isPK": false
             },
             {
-              "name": "isOxygenEquipped",
-              "isPK": false
-            },
-            {
-              "name": "dailyRate",
+              "name": "destAir",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "HospitalWard",
-          "entity2": "PatientRoom",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Contains"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "HospitalWard",
-          "pk": "wardId",
-          "attributes": [
-            {
-              "name": "wardId",
-              "isPK": true
-            },
-            {
-              "name": "wardName",
-              "isPK": false
-            },
-            {
-              "name": "floorLevel",
-              "isPK": false
-            },
-            {
-              "name": "nurseStation",
-              "isPK": false
-            }
-          ]
+          "name": "Flight",
+          "pk": "flightNo",
+          "isWeak": false
         },
         {
-          "name": "PatientRoom",
-          "pk": "roomNumber",
-          "attributes": [
-            {
-              "name": "roomNumber",
-              "isPK": true
-            },
-            {
-              "name": "bedCount",
-              "isPK": false
-            },
-            {
-              "name": "isOxygenEquipped",
-              "isPK": false
-            },
-            {
-              "name": "dailyRate",
-              "isPK": false
-            },
-            {
-              "name": "hospitalwardId",
-              "isFK": true
-            }
-          ]
+          "name": "FlightLeg",
+          "pk": "legNumber",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "HospitalWard",
-          "entity2": "PatientRoom",
+          "entity1": "Flight",
+          "entity2": "FlightLeg",
+          "fromEntityName": "Flight",
+          "toEntityName": "FlightLeg",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Contains"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -3799,128 +3701,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 37,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Airline va FlightSchedule Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi Airline va FlightSchedule o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'FlightSchedule' jadvaliga 'airlineId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'FlightSchedule' jadvaliga 'airlineId' [FK1] ustunini qo'shing va uni 'Airline' ning 'airlineCode' [PK] ustuniga havola qiling.",
+    "title": "Shifoxona Palatasi va Yotoq O'rinlari (Relatsion Sxema)",
+    "story": "'WardBed' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'HospitalWard' (wardCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'bedNumber' {PPK} hisoblanadi.\n\n'HospitalWard' (1..1) va 'WardBed' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'HospitalWard' va zaif 'WardBed' entitiylarini identifikatsion aloqa bilan bog'lang (HospitalWard 1..1, WardBed 1..*). 'WardBed' entitiyida 'Zaif {W}' rejimini yoqing va 'bedNumber' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Airline",
-          "pk": "airlineCode",
+          "name": "HospitalWard",
+          "isWeak": false,
+          "pk": "wardCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "airlineCode",
-              "isPK": true
+              "name": "wardCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "airlineName",
-              "isPK": false
-            },
-            {
-              "name": "countryOrigin",
-              "isPK": false
-            },
-            {
-              "name": "alliance",
+              "name": "floorLevel",
               "isPK": false
             }
           ]
         },
         {
-          "name": "FlightSchedule",
-          "pk": "flightNo",
+          "name": "WardBed",
+          "isWeak": true,
+          "pk": "bedNumber",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "flightNo",
-              "isPK": true
+              "name": "bedNumber",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "originIata",
+              "name": "isOccupied",
               "isPK": false
             },
             {
-              "name": "destIata",
-              "isPK": false
-            },
-            {
-              "name": "departureTime",
+              "name": "bedType",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Airline",
-          "entity2": "FlightSchedule",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Operates"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Airline",
-          "pk": "airlineCode",
-          "attributes": [
-            {
-              "name": "airlineCode",
-              "isPK": true
-            },
-            {
-              "name": "airlineName",
-              "isPK": false
-            },
-            {
-              "name": "countryOrigin",
-              "isPK": false
-            },
-            {
-              "name": "alliance",
-              "isPK": false
-            }
-          ]
+          "name": "HospitalWard",
+          "pk": "wardCode",
+          "isWeak": false
         },
         {
-          "name": "FlightSchedule",
-          "pk": "flightNo",
-          "attributes": [
-            {
-              "name": "flightNo",
-              "isPK": true
-            },
-            {
-              "name": "originIata",
-              "isPK": false
-            },
-            {
-              "name": "destIata",
-              "isPK": false
-            },
-            {
-              "name": "departureTime",
-              "isPK": false
-            },
-            {
-              "name": "airlineId",
-              "isFK": true
-            }
-          ]
+          "name": "WardBed",
+          "pk": "bedNumber",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Airline",
-          "entity2": "FlightSchedule",
+          "entity1": "HospitalWard",
+          "entity2": "WardBed",
+          "fromEntityName": "HospitalWard",
+          "toEntityName": "WardBed",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Operates"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -3928,128 +3783,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 38,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "DiningTable va OrderTicket Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi DiningTable va OrderTicket o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'OrderTicket' jadvaliga 'diningtableId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'OrderTicket' jadvaliga 'diningtableId' [FK1] ustunini qo'shing va uni 'DiningTable' ning 'tableNo' [PK] ustuniga havola qiling.",
+    "title": "Kitob va Boblar Tuzilmasi (BookChapter) (Relatsion Sxema)",
+    "story": "'BookChapter' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'PublishingBook' (bookIsbn {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'chapterNo' {PPK} hisoblanadi.\n\n'PublishingBook' (1..1) va 'BookChapter' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'PublishingBook' va zaif 'BookChapter' entitiylarini identifikatsion aloqa bilan bog'lang (PublishingBook 1..1, BookChapter 1..*). 'BookChapter' entitiyida 'Zaif {W}' rejimini yoqing va 'chapterNo' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "DiningTable",
-          "pk": "tableNo",
+          "name": "PublishingBook",
+          "isWeak": false,
+          "pk": "bookIsbn",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "tableNo",
-              "isPK": true
+              "name": "bookIsbn",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "seatingCapacity",
-              "isPK": false
-            },
-            {
-              "name": "zoneArea",
-              "isPK": false
-            },
-            {
-              "name": "isReserved",
+              "name": "bookTitle",
               "isPK": false
             }
           ]
         },
         {
-          "name": "OrderTicket",
-          "pk": "orderId",
+          "name": "BookChapter",
+          "isWeak": true,
+          "pk": "chapterNo",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "orderId",
-              "isPK": true
+              "name": "chapterNo",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "orderTime",
+              "name": "chapterTitle",
               "isPK": false
             },
             {
-              "name": "totalSum",
-              "isPK": false
-            },
-            {
-              "name": "paymentStatus",
+              "name": "pageCount",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "DiningTable",
-          "entity2": "OrderTicket",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Places"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "DiningTable",
-          "pk": "tableNo",
-          "attributes": [
-            {
-              "name": "tableNo",
-              "isPK": true
-            },
-            {
-              "name": "seatingCapacity",
-              "isPK": false
-            },
-            {
-              "name": "zoneArea",
-              "isPK": false
-            },
-            {
-              "name": "isReserved",
-              "isPK": false
-            }
-          ]
+          "name": "PublishingBook",
+          "pk": "bookIsbn",
+          "isWeak": false
         },
         {
-          "name": "OrderTicket",
-          "pk": "orderId",
-          "attributes": [
-            {
-              "name": "orderId",
-              "isPK": true
-            },
-            {
-              "name": "orderTime",
-              "isPK": false
-            },
-            {
-              "name": "totalSum",
-              "isPK": false
-            },
-            {
-              "name": "paymentStatus",
-              "isPK": false
-            },
-            {
-              "name": "diningtableId",
-              "isFK": true
-            }
-          ]
+          "name": "BookChapter",
+          "pk": "chapterNo",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "DiningTable",
-          "entity2": "OrderTicket",
+          "entity1": "PublishingBook",
+          "entity2": "BookChapter",
+          "fromEntityName": "PublishingBook",
+          "toEntityName": "BookChapter",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Places"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -4057,128 +3865,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 39,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Hotel va Room Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi Hotel va Room o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'Room' jadvaliga 'hotelId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'Room' jadvaliga 'hotelId' [FK1] ustunini qo'shing va uni 'Hotel' ning 'hotelId' [PK] ustuniga havola qiling.",
+    "title": "Konteyner Kemasi va Yuk Bo'limlari (Relatsion Sxema)",
+    "story": "'CargoContainer' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'CargoShip' (shipImo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'containerSlot' {PPK} hisoblanadi.\n\n'CargoShip' (1..1) va 'CargoContainer' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'CargoShip' va zaif 'CargoContainer' entitiylarini identifikatsion aloqa bilan bog'lang (CargoShip 1..1, CargoContainer 1..*). 'CargoContainer' entitiyida 'Zaif {W}' rejimini yoqing va 'containerSlot' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Hotel",
-          "pk": "hotelId",
+          "name": "CargoShip",
+          "isWeak": false,
+          "pk": "shipImo",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "hotelId",
-              "isPK": true
+              "name": "shipImo",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "hotelName",
-              "isPK": false
-            },
-            {
-              "name": "starRating",
-              "isPK": false
-            },
-            {
-              "name": "cityAddress",
+              "name": "shipName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Room",
-          "pk": "roomNo",
+          "name": "CargoContainer",
+          "isWeak": true,
+          "pk": "containerSlot",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "roomNo",
-              "isPK": true
+              "name": "containerSlot",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "type",
+              "name": "cargoType",
               "isPK": false
             },
             {
-              "name": "price",
-              "isPK": false
-            },
-            {
-              "name": "isCleaned",
+              "name": "weightTons",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Hotel",
-          "entity2": "Room",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Has"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Hotel",
-          "pk": "hotelId",
-          "attributes": [
-            {
-              "name": "hotelId",
-              "isPK": true
-            },
-            {
-              "name": "hotelName",
-              "isPK": false
-            },
-            {
-              "name": "starRating",
-              "isPK": false
-            },
-            {
-              "name": "cityAddress",
-              "isPK": false
-            }
-          ]
+          "name": "CargoShip",
+          "pk": "shipImo",
+          "isWeak": false
         },
         {
-          "name": "Room",
-          "pk": "roomNo",
-          "attributes": [
-            {
-              "name": "roomNo",
-              "isPK": true
-            },
-            {
-              "name": "type",
-              "isPK": false
-            },
-            {
-              "name": "price",
-              "isPK": false
-            },
-            {
-              "name": "isCleaned",
-              "isPK": false
-            },
-            {
-              "name": "hotelId",
-              "isFK": true
-            }
-          ]
+          "name": "CargoContainer",
+          "pk": "containerSlot",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Hotel",
-          "entity2": "Room",
+          "entity1": "CargoShip",
+          "entity2": "CargoContainer",
+          "fromEntityName": "CargoShip",
+          "toEntityName": "CargoContainer",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Has"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -4186,128 +3947,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 40,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "TheatrePlay va CharacterRole Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi TheatrePlay va CharacterRole o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'CharacterRole' jadvaliga 'theatreplayId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'CharacterRole' jadvaliga 'theatreplayId' [FK1] ustunini qo'shing va uni 'TheatrePlay' ning 'playCode' [PK] ustuniga havola qiling.",
+    "title": "Universitet Fani va Guruh Potoklari (Relatsion Sxema)",
+    "story": "'CourseSection' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'UniversityCourse' (courseCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'sectionCode' {PPK} hisoblanadi.\n\n'UniversityCourse' (1..1) va 'CourseSection' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'UniversityCourse' va zaif 'CourseSection' entitiylarini identifikatsion aloqa bilan bog'lang (UniversityCourse 1..1, CourseSection 1..*). 'CourseSection' entitiyida 'Zaif {W}' rejimini yoqing va 'sectionCode' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "TheatrePlay",
-          "pk": "playCode",
+          "name": "UniversityCourse",
+          "isWeak": false,
+          "pk": "courseCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "playCode",
-              "isPK": true
+              "name": "courseCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "title",
-              "isPK": false
-            },
-            {
-              "name": "authorPlaywright",
-              "isPK": false
-            },
-            {
-              "name": "genre",
+              "name": "courseName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CharacterRole",
-          "pk": "roleId",
+          "name": "CourseSection",
+          "isWeak": true,
+          "pk": "sectionCode",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "roleId",
-              "isPK": true
+              "name": "sectionCode",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "characterName",
+              "name": "semester",
               "isPK": false
             },
             {
-              "name": "importanceTier",
-              "isPK": false
-            },
-            {
-              "name": "actCount",
+              "name": "maxStudents",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "TheatrePlay",
-          "entity2": "CharacterRole",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Features"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "TheatrePlay",
-          "pk": "playCode",
-          "attributes": [
-            {
-              "name": "playCode",
-              "isPK": true
-            },
-            {
-              "name": "title",
-              "isPK": false
-            },
-            {
-              "name": "authorPlaywright",
-              "isPK": false
-            },
-            {
-              "name": "genre",
-              "isPK": false
-            }
-          ]
+          "name": "UniversityCourse",
+          "pk": "courseCode",
+          "isWeak": false
         },
         {
-          "name": "CharacterRole",
-          "pk": "roleId",
-          "attributes": [
-            {
-              "name": "roleId",
-              "isPK": true
-            },
-            {
-              "name": "characterName",
-              "isPK": false
-            },
-            {
-              "name": "importanceTier",
-              "isPK": false
-            },
-            {
-              "name": "actCount",
-              "isPK": false
-            },
-            {
-              "name": "theatreplayId",
-              "isFK": true
-            }
-          ]
+          "name": "CourseSection",
+          "pk": "sectionCode",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "TheatrePlay",
-          "entity2": "CharacterRole",
+          "entity1": "UniversityCourse",
+          "entity2": "CourseSection",
+          "fromEntityName": "UniversityCourse",
+          "toEntityName": "CourseSection",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Features"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -4315,128 +4029,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 41,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Channel va ChannelPost Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi Channel va ChannelPost o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'ChannelPost' jadvaliga 'channelId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'ChannelPost' jadvaliga 'channelId' [FK1] ustunini qo'shing va uni 'Channel' ning 'channelHandle' [PK] ustuniga havola qiling.",
+    "title": "Dori Retsepti va Qabul Qilish Dozalari (Relatsion Sxema)",
+    "story": "'DoseSchedule' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Prescription' (rxId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'doseIndex' {PPK} hisoblanadi.\n\n'Prescription' (1..1) va 'DoseSchedule' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Prescription' va zaif 'DoseSchedule' entitiylarini identifikatsion aloqa bilan bog'lang (Prescription 1..1, DoseSchedule 1..*). 'DoseSchedule' entitiyida 'Zaif {W}' rejimini yoqing va 'doseIndex' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Channel",
-          "pk": "channelHandle",
+          "name": "Prescription",
+          "isWeak": false,
+          "pk": "rxId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "channelHandle",
-              "isPK": true
+              "name": "rxId",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "channelTitle",
-              "isPK": false
-            },
-            {
-              "name": "subscribersCount",
-              "isPK": false
-            },
-            {
-              "name": "createdDate",
+              "name": "prescribedDate",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ChannelPost",
-          "pk": "postId",
+          "name": "DoseSchedule",
+          "isWeak": true,
+          "pk": "doseIndex",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "postId",
-              "isPK": true
+              "name": "doseIndex",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "publishedAt",
+              "name": "timeOfDay",
               "isPK": false
             },
             {
-              "name": "viewCount",
-              "isPK": false
-            },
-            {
-              "name": "postText",
+              "name": "doseAmount",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Channel",
-          "entity2": "ChannelPost",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Publishes"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Channel",
-          "pk": "channelHandle",
-          "attributes": [
-            {
-              "name": "channelHandle",
-              "isPK": true
-            },
-            {
-              "name": "channelTitle",
-              "isPK": false
-            },
-            {
-              "name": "subscribersCount",
-              "isPK": false
-            },
-            {
-              "name": "createdDate",
-              "isPK": false
-            }
-          ]
+          "name": "Prescription",
+          "pk": "rxId",
+          "isWeak": false
         },
         {
-          "name": "ChannelPost",
-          "pk": "postId",
-          "attributes": [
-            {
-              "name": "postId",
-              "isPK": true
-            },
-            {
-              "name": "publishedAt",
-              "isPK": false
-            },
-            {
-              "name": "viewCount",
-              "isPK": false
-            },
-            {
-              "name": "postText",
-              "isPK": false
-            },
-            {
-              "name": "channelId",
-              "isFK": true
-            }
-          ]
+          "name": "DoseSchedule",
+          "pk": "doseIndex",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Channel",
-          "entity2": "ChannelPost",
+          "entity1": "Prescription",
+          "entity2": "DoseSchedule",
+          "fromEntityName": "Prescription",
+          "toEntityName": "DoseSchedule",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Publishes"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -4444,128 +4111,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 42,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Warehouse va StorageBay Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi Warehouse va StorageBay o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'StorageBay' jadvaliga 'warehouseId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'StorageBay' jadvaliga 'warehouseId' [FK1] ustunini qo'shing va uni 'Warehouse' ning 'warehouseCode' [PK] ustuniga havola qiling.",
+    "title": "Ombor Yo'lagi va Saqlash Yacheykalari (Relatsion Sxema)",
+    "story": "'StorageBin' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'WarehouseAisle' (aisleCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'binNumber' {PPK} hisoblanadi.\n\n'WarehouseAisle' (1..1) va 'StorageBin' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'WarehouseAisle' va zaif 'StorageBin' entitiylarini identifikatsion aloqa bilan bog'lang (WarehouseAisle 1..1, StorageBin 1..*). 'StorageBin' entitiyida 'Zaif {W}' rejimini yoqing va 'binNumber' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Warehouse",
-          "pk": "warehouseCode",
+          "name": "WarehouseAisle",
+          "isWeak": false,
+          "pk": "aisleCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "warehouseCode",
-              "isPK": true
+              "name": "aisleCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "facilityName",
-              "isPK": false
-            },
-            {
-              "name": "totalVolumeM3",
-              "isPK": false
-            },
-            {
-              "name": "address",
+              "name": "zoneCategory",
               "isPK": false
             }
           ]
         },
         {
-          "name": "StorageBay",
-          "pk": "bayBarcode",
+          "name": "StorageBin",
+          "isWeak": true,
+          "pk": "binNumber",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "bayBarcode",
-              "isPK": true
+              "name": "binNumber",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "aisleNo",
+              "name": "shelfTier",
               "isPK": false
             },
             {
-              "name": "maxWeightKg",
-              "isPK": false
-            },
-            {
-              "name": "temperatureZone",
+              "name": "capacityKg",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Warehouse",
-          "entity2": "StorageBay",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "ConsistsOf"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Warehouse",
-          "pk": "warehouseCode",
-          "attributes": [
-            {
-              "name": "warehouseCode",
-              "isPK": true
-            },
-            {
-              "name": "facilityName",
-              "isPK": false
-            },
-            {
-              "name": "totalVolumeM3",
-              "isPK": false
-            },
-            {
-              "name": "address",
-              "isPK": false
-            }
-          ]
+          "name": "WarehouseAisle",
+          "pk": "aisleCode",
+          "isWeak": false
         },
         {
-          "name": "StorageBay",
-          "pk": "bayBarcode",
-          "attributes": [
-            {
-              "name": "bayBarcode",
-              "isPK": true
-            },
-            {
-              "name": "aisleNo",
-              "isPK": false
-            },
-            {
-              "name": "maxWeightKg",
-              "isPK": false
-            },
-            {
-              "name": "temperatureZone",
-              "isPK": false
-            },
-            {
-              "name": "warehouseId",
-              "isFK": true
-            }
-          ]
+          "name": "StorageBin",
+          "pk": "binNumber",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "Warehouse",
-          "entity2": "StorageBay",
+          "entity1": "WarehouseAisle",
+          "entity2": "StorageBin",
+          "fromEntityName": "WarehouseAisle",
+          "toEntityName": "StorageBin",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "ConsistsOf"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -4573,128 +4193,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 43,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "City va District Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi City va District o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'District' jadvaliga 'cityId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'District' jadvaliga 'cityId' [FK1] ustunini qo'shing va uni 'City' ning 'cityId' [PK] ustuniga havola qiling.",
+    "title": "Dasturiy Loyiha va Bosqich Marralari (Relatsion Sxema)",
+    "story": "'ProjectMilestone' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'SoftwareProject' (projectKey {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'milestoneSeq' {PPK} hisoblanadi.\n\n'SoftwareProject' (1..1) va 'ProjectMilestone' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'SoftwareProject' va zaif 'ProjectMilestone' entitiylarini identifikatsion aloqa bilan bog'lang (SoftwareProject 1..1, ProjectMilestone 1..*). 'ProjectMilestone' entitiyida 'Zaif {W}' rejimini yoqing va 'milestoneSeq' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "City",
-          "pk": "cityId",
+          "name": "SoftwareProject",
+          "isWeak": false,
+          "pk": "projectKey",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "cityId",
-              "isPK": true
+              "name": "projectKey",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "cityName",
-              "isPK": false
-            },
-            {
-              "name": "regionName",
-              "isPK": false
-            },
-            {
-              "name": "population",
+              "name": "projectName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "District",
-          "pk": "districtId",
+          "name": "ProjectMilestone",
+          "isWeak": true,
+          "pk": "milestoneSeq",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "districtId",
-              "isPK": true
+              "name": "milestoneSeq",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "districtName",
+              "name": "milestoneTitle",
               "isPK": false
             },
             {
-              "name": "postalIndex",
-              "isPK": false
-            },
-            {
-              "name": "areaSqKm",
+              "name": "dueDate",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "City",
-          "entity2": "District",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "DividedInto"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "City",
-          "pk": "cityId",
-          "attributes": [
-            {
-              "name": "cityId",
-              "isPK": true
-            },
-            {
-              "name": "cityName",
-              "isPK": false
-            },
-            {
-              "name": "regionName",
-              "isPK": false
-            },
-            {
-              "name": "population",
-              "isPK": false
-            }
-          ]
+          "name": "SoftwareProject",
+          "pk": "projectKey",
+          "isWeak": false
         },
         {
-          "name": "District",
-          "pk": "districtId",
-          "attributes": [
-            {
-              "name": "districtId",
-              "isPK": true
-            },
-            {
-              "name": "districtName",
-              "isPK": false
-            },
-            {
-              "name": "postalIndex",
-              "isPK": false
-            },
-            {
-              "name": "areaSqKm",
-              "isPK": false
-            },
-            {
-              "name": "cityId",
-              "isFK": true
-            }
-          ]
+          "name": "ProjectMilestone",
+          "pk": "milestoneSeq",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "City",
-          "entity2": "District",
+          "entity1": "SoftwareProject",
+          "entity2": "ProjectMilestone",
+          "fromEntityName": "SoftwareProject",
+          "toEntityName": "ProjectMilestone",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "DividedInto"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -4702,128 +4275,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 44,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "InsuranceBroker va Policy Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi InsuranceBroker va Policy o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'Policy' jadvaliga 'insurancebrokerId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'Policy' jadvaliga 'insurancebrokerId' [FK1] ustunini qo'shing va uni 'InsuranceBroker' ning 'brokerId' [PK] ustuniga havola qiling.",
+    "title": "Ilmiy Konferensiya va Seksiyalar (Relatsion Sxema)",
+    "story": "'ConferenceSession' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Conference' (confCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'sessionNo' {PPK} hisoblanadi.\n\n'Conference' (1..1) va 'ConferenceSession' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'Conference' va zaif 'ConferenceSession' entitiylarini identifikatsion aloqa bilan bog'lang (Conference 1..1, ConferenceSession 1..*). 'ConferenceSession' entitiyida 'Zaif {W}' rejimini yoqing va 'sessionNo' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "InsuranceBroker",
-          "pk": "brokerId",
+          "name": "Conference",
+          "isWeak": false,
+          "pk": "confCode",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
-              "name": "brokerId",
-              "isPK": true
+              "name": "confCode",
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "brokerName",
-              "isPK": false
-            },
-            {
-              "name": "licenseNo",
-              "isPK": false
-            },
-            {
-              "name": "commissionRate",
+              "name": "confTitle",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Policy",
-          "pk": "policyNo",
+          "name": "ConferenceSession",
+          "isWeak": true,
+          "pk": "sessionNo",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "policyNo",
-              "isPK": true
+              "name": "sessionNo",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "startDate",
+              "name": "topicName",
               "isPK": false
             },
             {
-              "name": "endDate",
-              "isPK": false
-            },
-            {
-              "name": "premiumAmount",
+              "name": "startTime",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "InsuranceBroker",
-          "entity2": "Policy",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Underwrites"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "InsuranceBroker",
-          "pk": "brokerId",
-          "attributes": [
-            {
-              "name": "brokerId",
-              "isPK": true
-            },
-            {
-              "name": "brokerName",
-              "isPK": false
-            },
-            {
-              "name": "licenseNo",
-              "isPK": false
-            },
-            {
-              "name": "commissionRate",
-              "isPK": false
-            }
-          ]
+          "name": "Conference",
+          "pk": "confCode",
+          "isWeak": false
         },
         {
-          "name": "Policy",
-          "pk": "policyNo",
-          "attributes": [
-            {
-              "name": "policyNo",
-              "isPK": true
-            },
-            {
-              "name": "startDate",
-              "isPK": false
-            },
-            {
-              "name": "endDate",
-              "isPK": false
-            },
-            {
-              "name": "premiumAmount",
-              "isPK": false
-            },
-            {
-              "name": "insurancebrokerId",
-              "isFK": true
-            }
-          ]
+          "name": "ConferenceSession",
+          "pk": "sessionNo",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
-          "entity1": "InsuranceBroker",
-          "entity2": "Policy",
+          "entity1": "Conference",
+          "entity2": "ConferenceSession",
+          "fromEntityName": "Conference",
+          "toEntityName": "ConferenceSession",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Underwrites"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -4831,136 +4357,81 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 45,
     "sector": 3,
-    "difficulty": "3-Qavat • O'rta (1..*) • Relational Mapping",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Me'mori",
+    "difficulty": "3-Qavat • Zaif Entitiy",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "CellTower va AntennaSector Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi CellTower va AntennaSector o'rtasidagi ierarxik modelni relyatsion jadvallarga o'tkazing: bo'ysunuvchi 'AntennaSector' jadvaliga 'celltowerId' Tashqi Kalit [FK1] ustunini qo'shing va ota jadvalga bog'lang.",
-    "instruction": "'AntennaSector' jadvaliga 'celltowerId' [FK1] ustunini qo'shing va uni 'CellTower' ning 'towerId' [PK] ustuniga havola qiling.",
+    "title": "Aloqa Minoralari va Antennalar Sektori (Relatsion Sxema)",
+    "story": "'AntennaSector' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'CellTower' (towerId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'sectorCode' {PPK} hisoblanadi.\n\n'CellTower' (1..1) va 'AntennaSector' (1..*) o'rtasida identifikatsion aloqani o'rnating.",
+    "instruction": "'CellTower' va zaif 'AntennaSector' entitiylarini identifikatsion aloqa bilan bog'lang (CellTower 1..1, AntennaSector 1..*). 'AntennaSector' entitiyida 'Zaif {W}' rejimini yoqing va 'sectorCode' kalitini {PPK} belgilang.",
     "starterDiagram": {
       "entities": [
         {
           "name": "CellTower",
+          "isWeak": false,
           "pk": "towerId",
+          "x": 140,
+          "y": 160,
           "attributes": [
             {
               "name": "towerId",
-              "isPK": true
+              "isPK": true,
+              "isPPK": false
             },
             {
-              "name": "towerName",
-              "isPK": false
-            },
-            {
-              "name": "latitude",
-              "isPK": false
-            },
-            {
-              "name": "longitude",
-              "isPK": false
-            },
-            {
-              "name": "heightMeters",
+              "name": "locationGps",
               "isPK": false
             }
           ]
         },
         {
           "name": "AntennaSector",
-          "pk": "sectorId",
+          "isWeak": true,
+          "pk": "sectorCode",
+          "x": 520,
+          "y": 160,
           "attributes": [
             {
-              "name": "sectorId",
-              "isPK": true
+              "name": "sectorCode",
+              "isPK": true,
+              "isPPK": true
             },
             {
-              "name": "azimuthDegree",
+              "name": "azimuthAngle",
               "isPK": false
             },
             {
-              "name": "frequencyBandMhz",
-              "isPK": false
-            },
-            {
-              "name": "powerWatt",
+              "name": "frequencyMhz",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "CellTower",
-          "entity2": "AntennaSector",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Radiates"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
           "name": "CellTower",
           "pk": "towerId",
-          "attributes": [
-            {
-              "name": "towerId",
-              "isPK": true
-            },
-            {
-              "name": "towerName",
-              "isPK": false
-            },
-            {
-              "name": "latitude",
-              "isPK": false
-            },
-            {
-              "name": "longitude",
-              "isPK": false
-            },
-            {
-              "name": "heightMeters",
-              "isPK": false
-            }
-          ]
+          "isWeak": false
         },
         {
           "name": "AntennaSector",
-          "pk": "sectorId",
-          "attributes": [
-            {
-              "name": "sectorId",
-              "isPK": true
-            },
-            {
-              "name": "azimuthDegree",
-              "isPK": false
-            },
-            {
-              "name": "frequencyBandMhz",
-              "isPK": false
-            },
-            {
-              "name": "powerWatt",
-              "isPK": false
-            },
-            {
-              "name": "celltowerId",
-              "isFK": true
-            }
-          ]
+          "pk": "sectorCode",
+          "isWeak": true
         }
       ],
       "relationships": [
         {
           "entity1": "CellTower",
           "entity2": "AntennaSector",
+          "fromEntityName": "CellTower",
+          "toEntityName": "AntennaSector",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Radiates"
+          "isIdentifying": true,
+          "isDirect": true
         }
       ]
     }
@@ -4968,184 +4439,95 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 46,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
+    "difficulty": "4-Qavat • Assotsiativ",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Doctor va Patient Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'Appointment' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'doctorId' [FK1] va 'patientId' [FK2] sifatida kiritiladi.",
-    "instruction": "'Appointment' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Doctor' hamda 'Patient' jadvallariga bog'lang.",
+    "title": "Shifokor va Bemor Qabuli (Appointment Assotsiativ Entitiy) (Relatsion Sxema)",
+    "story": "Doctor va Patient o'rtasida ko'pdan-ko'pga (*:*) munosabat mavjud. Ushbu munosabat mustaqil 'Appointment' assotsiativ entitiysi orqali parchalanadi. Doctor (1..1 <-> 0..*) Appointment va Patient (1..1 <-> 0..*) Appointment.",
+    "instruction": "'Doctor' ni 'Appointment' ga (1..1 <-> 0..*) va 'Patient' ni 'Appointment' ga (1..1 <-> 0..*) bog'lang.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Doctor",
+          "isWeak": false,
           "pk": "doctorId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
               "name": "doctorId",
-              "isPK": true
-            },
-            {
-              "name": "docName",
-              "isPK": false
-            },
-            {
-              "name": "specialization",
-              "isPK": false
-            },
-            {
-              "name": "roomNumber",
-              "isPK": false
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
           "name": "Patient",
+          "isWeak": false,
           "pk": "patientId",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
               "name": "patientId",
-              "isPK": true
-            },
-            {
-              "name": "patientName",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            },
-            {
-              "name": "dob",
-              "isPK": false
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
           "name": "Appointment",
-          "pk": "appointId",
-          "isAssociative": true,
+          "isWeak": false,
+          "pk": "appId",
+          "x": 340,
+          "y": 320,
           "attributes": [
             {
-              "name": "appointId",
-              "isPK": true
-            },
-            {
-              "name": "appointTime",
-              "isPK": false
-            },
-            {
-              "name": "diagnosisNotes",
-              "isPK": false
-            },
-            {
-              "name": "cost",
-              "isPK": false
+              "name": "appId",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Doctor",
-          "entity2": "Appointment",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "InvolvedIn"
-        },
-        {
-          "entity1": "Patient",
-          "entity2": "Appointment",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "SubjectOf"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
           "name": "Doctor",
-          "pk": "doctorId",
-          "attributes": [
-            {
-              "name": "doctorId",
-              "isPK": true
-            },
-            {
-              "name": "docName",
-              "isPK": false
-            },
-            {
-              "name": "specialization",
-              "isPK": false
-            },
-            {
-              "name": "roomNumber",
-              "isPK": false
-            }
-          ]
+          "pk": "doctorId"
         },
         {
           "name": "Patient",
-          "pk": "patientId",
-          "attributes": [
-            {
-              "name": "patientId",
-              "isPK": true
-            },
-            {
-              "name": "patientName",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            },
-            {
-              "name": "dob",
-              "isPK": false
-            }
-          ]
+          "pk": "patientId"
         },
         {
           "name": "Appointment",
-          "pk": "appointId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "appointId",
-              "isPK": true
-            },
-            {
-              "name": "appointTime",
-              "isPK": false
-            },
-            {
-              "name": "diagnosisNotes",
-              "isPK": false
-            },
-            {
-              "name": "cost",
-              "isPK": false
-            }
-          ]
+          "pk": "appId"
         }
       ],
       "relationships": [
         {
           "entity1": "Doctor",
           "entity2": "Appointment",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Appointment",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true
         },
         {
           "entity1": "Patient",
           "entity2": "Appointment",
+          "fromEntityName": "Patient",
+          "toEntityName": "Appointment",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -5153,184 +4535,95 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 47,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
+    "difficulty": "4-Qavat • Assotsiativ",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Student va Course Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'Enrollment' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'studentId' [FK1] va 'courseId' [FK2] sifatida kiritiladi.",
-    "instruction": "'Enrollment' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Student' hamda 'Course' jadvallariga bog'lang.",
+    "title": "Talaba va Fan Kurslari (Enrollment Assotsiativ Entitiy) (Relatsion Sxema)",
+    "story": "Student va Course o'rtasida ko'pdan-ko'pga (*:*) o'qish munosabati mavjud. Bu munosabat 'Enrollment' assotsiativ entitiysi orqali bog'lanadi. Student (1..1 <-> 0..*) Enrollment va Course (1..1 <-> 0..*) Enrollment.",
+    "instruction": "'Student' ni 'Enrollment' ga (1..1 <-> 0..*) va 'Course' ni 'Enrollment' ga (1..1 <-> 0..*) bog'lang.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Student",
+          "isWeak": false,
           "pk": "studentId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
               "name": "studentId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "email",
-              "isPK": false
-            },
-            {
-              "name": "entryYear",
-              "isPK": false
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
           "name": "Course",
+          "isWeak": false,
           "pk": "courseCode",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
               "name": "courseCode",
-              "isPK": true
-            },
-            {
-              "name": "courseTitle",
-              "isPK": false
-            },
-            {
-              "name": "credits",
-              "isPK": false
-            },
-            {
-              "name": "syllabusVersion",
-              "isPK": false
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
           "name": "Enrollment",
+          "isWeak": false,
           "pk": "enrollmentId",
-          "isAssociative": true,
+          "x": 340,
+          "y": 320,
           "attributes": [
             {
               "name": "enrollmentId",
-              "isPK": true
-            },
-            {
-              "name": "semester",
-              "isPK": false
-            },
-            {
-              "name": "gradeLetter",
-              "isPK": false
-            },
-            {
-              "name": "attendanceScore",
-              "isPK": false
+              "isPK": true,
+              "isPPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Student",
-          "entity2": "Enrollment",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "InvolvedIn"
-        },
-        {
-          "entity1": "Course",
-          "entity2": "Enrollment",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "SubjectOf"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
           "name": "Student",
-          "pk": "studentId",
-          "attributes": [
-            {
-              "name": "studentId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "email",
-              "isPK": false
-            },
-            {
-              "name": "entryYear",
-              "isPK": false
-            }
-          ]
+          "pk": "studentId"
         },
         {
           "name": "Course",
-          "pk": "courseCode",
-          "attributes": [
-            {
-              "name": "courseCode",
-              "isPK": true
-            },
-            {
-              "name": "courseTitle",
-              "isPK": false
-            },
-            {
-              "name": "credits",
-              "isPK": false
-            },
-            {
-              "name": "syllabusVersion",
-              "isPK": false
-            }
-          ]
+          "pk": "courseCode"
         },
         {
           "name": "Enrollment",
-          "pk": "enrollmentId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "enrollmentId",
-              "isPK": true
-            },
-            {
-              "name": "semester",
-              "isPK": false
-            },
-            {
-              "name": "gradeLetter",
-              "isPK": false
-            },
-            {
-              "name": "attendanceScore",
-              "isPK": false
-            }
-          ]
+          "pk": "enrollmentId"
         }
       ],
       "relationships": [
         {
           "entity1": "Student",
           "entity2": "Enrollment",
+          "fromEntityName": "Student",
+          "toEntityName": "Enrollment",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true
         },
         {
           "entity1": "Course",
           "entity2": "Enrollment",
+          "fromEntityName": "Course",
+          "toEntityName": "Enrollment",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -5338,184 +4631,95 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 48,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
+    "difficulty": "4-Qavat • Assotsiativ",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Author va Book Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'Authorship' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'authorId' [FK1] va 'bookId' [FK2] sifatida kiritiladi.",
-    "instruction": "'Authorship' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Author' hamda 'Book' jadvallariga bog'lang.",
+    "title": "Dasturchi va Loyihalar (Assignment Assotsiativ Entitiy) (Relatsion Sxema)",
+    "story": "Developer va Project o'rtasidagi *:* munosabat 'ProjectAssignment' entitiysi orqali yechiladi. Developer (1..1 <-> 0..*) ProjectAssignment va Project (1..1 <-> 0..*) ProjectAssignment.",
+    "instruction": "'Developer' ni 'ProjectAssignment' ga (1..1 <-> 0..*) va 'Project' ni 'ProjectAssignment' ga (1..1 <-> 0..*) bog'lang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Author",
-          "pk": "authorId",
+          "name": "Developer",
+          "isWeak": false,
+          "pk": "devId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "authorId",
-              "isPK": true
-            },
-            {
-              "name": "penName",
-              "isPK": false
-            },
-            {
-              "name": "country",
-              "isPK": false
-            },
-            {
-              "name": "birthYear",
-              "isPK": false
+              "name": "devId",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
-          "name": "Book",
-          "pk": "isbn",
+          "name": "Project",
+          "isWeak": false,
+          "pk": "projectKey",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "isbn",
-              "isPK": true
-            },
-            {
-              "name": "bookTitle",
-              "isPK": false
-            },
-            {
-              "name": "pageCount",
-              "isPK": false
-            },
-            {
-              "name": "firstEditionYear",
-              "isPK": false
+              "name": "projectKey",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
-          "name": "Authorship",
-          "pk": "authorshipId",
-          "isAssociative": true,
+          "name": "ProjectAssignment",
+          "isWeak": false,
+          "pk": "assignmentId",
+          "x": 340,
+          "y": 320,
           "attributes": [
             {
-              "name": "authorshipId",
-              "isPK": true
-            },
-            {
-              "name": "royaltySharePercent",
-              "isPK": false
-            },
-            {
-              "name": "contributionChapter",
-              "isPK": false
-            },
-            {
-              "name": "contractSignDate",
-              "isPK": false
+              "name": "assignmentId",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Author",
-          "entity2": "Authorship",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "InvolvedIn"
-        },
-        {
-          "entity1": "Book",
-          "entity2": "Authorship",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "SubjectOf"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Author",
-          "pk": "authorId",
-          "attributes": [
-            {
-              "name": "authorId",
-              "isPK": true
-            },
-            {
-              "name": "penName",
-              "isPK": false
-            },
-            {
-              "name": "country",
-              "isPK": false
-            },
-            {
-              "name": "birthYear",
-              "isPK": false
-            }
-          ]
+          "name": "Developer",
+          "pk": "devId"
         },
         {
-          "name": "Book",
-          "pk": "isbn",
-          "attributes": [
-            {
-              "name": "isbn",
-              "isPK": true
-            },
-            {
-              "name": "bookTitle",
-              "isPK": false
-            },
-            {
-              "name": "pageCount",
-              "isPK": false
-            },
-            {
-              "name": "firstEditionYear",
-              "isPK": false
-            }
-          ]
+          "name": "Project",
+          "pk": "projectKey"
         },
         {
-          "name": "Authorship",
-          "pk": "authorshipId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "authorshipId",
-              "isPK": true
-            },
-            {
-              "name": "royaltySharePercent",
-              "isPK": false
-            },
-            {
-              "name": "contributionChapter",
-              "isPK": false
-            },
-            {
-              "name": "contractSignDate",
-              "isPK": false
-            }
-          ]
+          "name": "ProjectAssignment",
+          "pk": "assignmentId"
         }
       ],
       "relationships": [
         {
-          "entity1": "Author",
-          "entity2": "Authorship",
+          "entity1": "Developer",
+          "entity2": "ProjectAssignment",
+          "fromEntityName": "Developer",
+          "toEntityName": "ProjectAssignment",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true
         },
         {
-          "entity1": "Book",
-          "entity2": "Authorship",
+          "entity1": "Project",
+          "entity2": "ProjectAssignment",
+          "fromEntityName": "Project",
+          "toEntityName": "ProjectAssignment",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -5523,184 +4727,95 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 49,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
+    "difficulty": "4-Qavat • Assotsiativ",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Order va Product Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'OrderItem' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'orderId' [FK1] va 'productId' [FK2] sifatida kiritiladi.",
-    "instruction": "'OrderItem' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Order' hamda 'Product' jadvallariga bog'lang.",
+    "title": "Yetkazib Beruvchi va Detallar (SupplyContract Assotsiativ Entitiy) (Relatsion Sxema)",
+    "story": "Supplier va Part o'rtasidagi *:* ta'minot munosabati 'SupplyContract' orqali yechiladi. Supplier (1..1 <-> 0..*) SupplyContract va Part (1..1 <-> 0..*) SupplyContract.",
+    "instruction": "'Supplier' ni 'SupplyContract' ga (1..1 <-> 0..*) va 'Part' ni 'SupplyContract' ga (1..1 <-> 0..*) bog'lang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Order",
-          "pk": "orderId",
+          "name": "Supplier",
+          "isWeak": false,
+          "pk": "supplierId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "orderId",
-              "isPK": true
-            },
-            {
-              "name": "orderDate",
-              "isPK": false
-            },
-            {
-              "name": "shippingAddress",
-              "isPK": false
-            },
-            {
-              "name": "status",
-              "isPK": false
+              "name": "supplierId",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
-          "name": "Product",
-          "pk": "sku",
+          "name": "Part",
+          "isWeak": false,
+          "pk": "partNumber",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "sku",
-              "isPK": true
-            },
-            {
-              "name": "productName",
-              "isPK": false
-            },
-            {
-              "name": "unitPrice",
-              "isPK": false
-            },
-            {
-              "name": "stockQty",
-              "isPK": false
+              "name": "partNumber",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
-          "name": "OrderItem",
-          "pk": "itemId",
-          "isAssociative": true,
+          "name": "SupplyContract",
+          "isWeak": false,
+          "pk": "contractId",
+          "x": 340,
+          "y": 320,
           "attributes": [
             {
-              "name": "itemId",
-              "isPK": true
-            },
-            {
-              "name": "quantity",
-              "isPK": false
-            },
-            {
-              "name": "appliedDiscount",
-              "isPK": false
-            },
-            {
-              "name": "lineTotal",
-              "isPK": false
+              "name": "contractId",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Order",
-          "entity2": "OrderItem",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "InvolvedIn"
-        },
-        {
-          "entity1": "Product",
-          "entity2": "OrderItem",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "SubjectOf"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Order",
-          "pk": "orderId",
-          "attributes": [
-            {
-              "name": "orderId",
-              "isPK": true
-            },
-            {
-              "name": "orderDate",
-              "isPK": false
-            },
-            {
-              "name": "shippingAddress",
-              "isPK": false
-            },
-            {
-              "name": "status",
-              "isPK": false
-            }
-          ]
+          "name": "Supplier",
+          "pk": "supplierId"
         },
         {
-          "name": "Product",
-          "pk": "sku",
-          "attributes": [
-            {
-              "name": "sku",
-              "isPK": true
-            },
-            {
-              "name": "productName",
-              "isPK": false
-            },
-            {
-              "name": "unitPrice",
-              "isPK": false
-            },
-            {
-              "name": "stockQty",
-              "isPK": false
-            }
-          ]
+          "name": "Part",
+          "pk": "partNumber"
         },
         {
-          "name": "OrderItem",
-          "pk": "itemId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "itemId",
-              "isPK": true
-            },
-            {
-              "name": "quantity",
-              "isPK": false
-            },
-            {
-              "name": "appliedDiscount",
-              "isPK": false
-            },
-            {
-              "name": "lineTotal",
-              "isPK": false
-            }
-          ]
+          "name": "SupplyContract",
+          "pk": "contractId"
         }
       ],
       "relationships": [
         {
-          "entity1": "Order",
-          "entity2": "OrderItem",
+          "entity1": "Supplier",
+          "entity2": "SupplyContract",
+          "fromEntityName": "Supplier",
+          "toEntityName": "SupplyContract",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true
         },
         {
-          "entity1": "Product",
-          "entity2": "OrderItem",
+          "entity1": "Part",
+          "entity2": "SupplyContract",
+          "fromEntityName": "Part",
+          "toEntityName": "SupplyContract",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
@@ -5708,186 +4823,101 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 50,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
+    "difficulty": "4-Qavat • Assotsiativ",
+    "clientName": "Professor Atlas",
+    "clientRole": "Ma'lumotlar Bazasi Me'mori",
     "clientAvatar": "mentor",
-    "title": "Developer va Project Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'ProjectAssignment' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'developerId' [FK1] va 'projectId' [FK2] sifatida kiritiladi.",
-    "instruction": "'ProjectAssignment' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Developer' hamda 'Project' jadvallariga bog'lang.",
+    "title": "Xaridor va Mahsulot Sharhlari (ProductReview Assotsiativ Entitiy) (Relatsion Sxema)",
+    "story": "Customer va Product o'rtasidagi *:* sharh munosabati 'ProductReview' assotsiativ entitiysi orqali amalga oshiriladi. Customer (1..1 <-> 0..*) ProductReview va Product (1..1 <-> 0..*) ProductReview.",
+    "instruction": "'Customer' ni 'ProductReview' ga (1..1 <-> 0..*) va 'Product' ni 'ProductReview' ga (1..1 <-> 0..*) bog'lang.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Developer",
-          "pk": "devId",
+          "name": "Customer",
+          "isWeak": false,
+          "pk": "customerId",
+          "x": 140,
+          "y": 100,
           "attributes": [
             {
-              "name": "devId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "seniority",
-              "isPK": false
-            },
-            {
-              "name": "hourlyRate",
-              "isPK": false
+              "name": "customerId",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
-          "name": "Project",
-          "pk": "projectCode",
+          "name": "Product",
+          "isWeak": false,
+          "pk": "productId",
+          "x": 540,
+          "y": 100,
           "attributes": [
             {
-              "name": "projectCode",
-              "isPK": true
-            },
-            {
-              "name": "projectName",
-              "isPK": false
-            },
-            {
-              "name": "deadline",
-              "isPK": false
-            },
-            {
-              "name": "budgetUsd",
-              "isPK": false
+              "name": "productId",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         },
         {
-          "name": "ProjectAssignment",
-          "pk": "assignId",
-          "isAssociative": true,
+          "name": "ProductReview",
+          "isWeak": false,
+          "pk": "reviewId",
+          "x": 340,
+          "y": 320,
           "attributes": [
             {
-              "name": "assignId",
-              "isPK": true
-            },
-            {
-              "name": "assignedRole",
-              "isPK": false
-            },
-            {
-              "name": "hoursPerWeek",
-              "isPK": false
-            },
-            {
-              "name": "startDate",
-              "isPK": false
+              "name": "reviewId",
+              "isPK": true,
+              "isPPK": false
             }
           ]
         }
       ],
-      "relationships": [
-        {
-          "entity1": "Developer",
-          "entity2": "ProjectAssignment",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "InvolvedIn"
-        },
-        {
-          "entity1": "Project",
-          "entity2": "ProjectAssignment",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "SubjectOf"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Developer",
-          "pk": "devId",
-          "attributes": [
-            {
-              "name": "devId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "seniority",
-              "isPK": false
-            },
-            {
-              "name": "hourlyRate",
-              "isPK": false
-            }
-          ]
+          "name": "Customer",
+          "pk": "customerId"
         },
         {
-          "name": "Project",
-          "pk": "projectCode",
-          "attributes": [
-            {
-              "name": "projectCode",
-              "isPK": true
-            },
-            {
-              "name": "projectName",
-              "isPK": false
-            },
-            {
-              "name": "deadline",
-              "isPK": false
-            },
-            {
-              "name": "budgetUsd",
-              "isPK": false
-            }
-          ]
+          "name": "Product",
+          "pk": "productId"
         },
         {
-          "name": "ProjectAssignment",
-          "pk": "assignId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "assignId",
-              "isPK": true
-            },
-            {
-              "name": "assignedRole",
-              "isPK": false
-            },
-            {
-              "name": "hoursPerWeek",
-              "isPK": false
-            },
-            {
-              "name": "startDate",
-              "isPK": false
-            }
-          ]
+          "name": "ProductReview",
+          "pk": "reviewId"
         }
       ],
       "relationships": [
         {
-          "entity1": "Developer",
-          "entity2": "ProjectAssignment",
+          "entity1": "Customer",
+          "entity2": "ProductReview",
+          "fromEntityName": "Customer",
+          "toEntityName": "ProductReview",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true
         },
         {
-          "entity1": "Project",
-          "entity2": "ProjectAssignment",
+          "entity1": "Product",
+          "entity2": "ProductReview",
+          "fromEntityName": "Product",
+          "toEntityName": "ProductReview",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true
         }
       ]
     }
   }
 ];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = _scope.QUESTIONS_1_50;
+}
