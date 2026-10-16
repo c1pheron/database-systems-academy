@@ -47,9 +47,9 @@
 
         if (tg.enableClosingConfirmation) tg.enableClosingConfirmation();
 
-        // Obsidian Slate Header & Background colors
-        if (tg.setHeaderColor) tg.setHeaderColor("#0b1121");
-        if (tg.setBackgroundColor) tg.setBackgroundColor("#080b11");
+        // Luxury Walnut Header & Background colors
+        if (tg.setHeaderColor) tg.setHeaderColor("#1b1713");
+        if (tg.setBackgroundColor) tg.setBackgroundColor("#151210");
 
         // Grab user profile
         const user = tg.initDataUnsafe && tg.initDataUnsafe.user;
