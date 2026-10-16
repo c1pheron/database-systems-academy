@@ -6,34 +6,34 @@
    ============================================================================ */
 
 :root {
-  --bg-deep: #080c0a;
-  --bg-panel: #0e1411;
-  --bg-card: #131b16;
-  --bg-card-hover: #18241d;
-  --bg-hud: rgba(14, 20, 17, 0.96);
+  --bg-deep: #1a1b26;
+  --bg-panel: #1f2335;
+  --bg-card: #24283b;
+  --bg-card-hover: #292e42;
+  --bg-hud: rgba(26, 27, 38, 0.96);
 
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-cyan: rgba(16, 185, 129, 0.3);
-  --border-emerald: rgba(16, 185, 129, 0.45);
+  --border-cyan: rgba(187, 154, 247, 0.35);
+  --border-emerald: rgba(115, 218, 202, 0.4);
 
-  --text-primary: #f0fdf4;
-  --text-secondary: #c0cfc5;
-  --text-muted: #738479;
+  --text-primary: #c0caf5;
+  --text-secondary: #a9b1d6;
+  --text-muted: #565f89;
 
-  --accent-cyan: #059669;
-  --accent-cyan-bright: #34d399;
-  --accent-emerald: #10b981;
-  --accent-emerald-bright: #00ff88;
-  --accent-amber: #f59e0b;
-  --accent-amber-bright: #fbbf24;
-  --accent-rose: #f43f5e;
+  --accent-cyan: #7aa2f7;
+  --accent-cyan-bright: #bb9af7;
+  --accent-emerald: #73daca;
+  --accent-emerald-bright: #73daca;
+  --accent-amber: #ff9e64;
+  --accent-amber-bright: #e0af68;
+  --accent-rose: #f7768e;
 
   --radius-lg: 12px;
   --radius-md: 10px;
   --radius-sm: 6px;
 
-  --shadow-cyber: 0 10px 28px rgba(0, 0, 0, 0.7);
-  --shadow-card-hover: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 20px rgba(16, 185, 129, 0.25);
+  --shadow-cyber: 0 10px 28px rgba(0, 0, 0, 0.65);
+  --shadow-card-hover: 0 16px 36px rgba(0, 0, 0, 0.75), 0 0 20px rgba(187, 154, 247, 0.3);
 }
 
 * {
@@ -44,7 +44,7 @@
 
 html, body {
   background-color: var(--bg-deep);
-  background-image: radial-gradient(circle at 50% 0%, #15241b 0%, #080c0a 85%);
+  background-image: radial-gradient(circle at 50% 0%, #24283b 0%, #16161e 85%);
   color: var(--text-primary);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 14px;

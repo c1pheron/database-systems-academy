@@ -150,9 +150,9 @@
 }
 
 .os-cat-pill.active {
-  background: #059669;
+  background: #7aa2f7;
   color: #fff;
-  border-color: #34d399;
+  border-color: #bb9af7;
   font-weight: 600;
 }
 
@@ -264,7 +264,7 @@
 
 .os-analogy-box {
   background: rgba(5, 150, 105, 0.1);
-  border-left: 3px solid #059669;
+  border-left: 3px solid #7aa2f7;
   padding: 8px 12px;
   border-radius: 0 4px 4px 0;
   font-size: 12px;
@@ -284,9 +284,9 @@
 }
 
 .btn-copy-cmd:hover {
-  background: #059669;
+  background: #7aa2f7;
   color: #fff;
-  border-color: #34d399;
+  border-color: #bb9af7;
 }
 
 /* Modal Footer */
@@ -314,9 +314,9 @@
 
 .os-copy-btn:hover,
 .os-copy-btn:active {
-  background: #059669;
+  background: #7aa2f7;
   color: #fff;
-  border-color: #34d399;
+  border-color: #bb9af7;
 }
 
 @media (max-width: 640px) {
