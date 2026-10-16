@@ -105,6 +105,18 @@
     }
     if (window.EERCanvasEngine) {
       eerCanvas = new window.EERCanvasEngine('eerCanvasContainer');
+
+      // W1 Real-Time Auto-Save: Persists model continuously for seamless W2 continuity
+      let autoSaveW1Timer = null;
+      eerCanvas.onChange = function(diagram) {
+        if (autoSaveW1Timer) clearTimeout(autoSaveW1Timer);
+        autoSaveW1Timer = setTimeout(() => {
+          if (STATE.currentQId && diagram && diagram.entities && diagram.entities.length > 0) {
+            localStorage.setItem('DS_W1_DIAGRAM_' + STATE.currentQId, JSON.stringify(diagram));
+            localStorage.setItem('DS_W1_UPDATED_' + STATE.currentQId, Date.now().toString());
+          }
+        }, 200);
+      };
     }
 
     // 4. Render 10 Floors & HUD
@@ -238,6 +250,15 @@
   function loadQuestion(qId) {
     const q = allQuestions.find(item => item.id === qId);
     if (!q) return;
+
+    // Immediately save current question before switching
+    if (STATE.currentQId && eerCanvas && STATE.currentQId !== qId) {
+      const cur = eerCanvas.exportCurrentDiagram();
+      if (cur && cur.entities && cur.entities.length > 0) {
+        localStorage.setItem('DS_W1_DIAGRAM_' + STATE.currentQId, JSON.stringify(cur));
+        localStorage.setItem('DS_W1_UPDATED_' + STATE.currentQId, Date.now().toString());
+      }
+    }
 
     STATE.currentQId = qId;
     saveState();
@@ -472,6 +493,8 @@
         window.playSfx('click');
         const q = allQuestions.find(item => item.id === STATE.currentQId);
         if (q && eerCanvas) {
+          localStorage.removeItem('DS_W1_DIAGRAM_' + STATE.currentQId);
+          localStorage.setItem('DS_W1_UPDATED_' + STATE.currentQId, Date.now().toString());
           eerCanvas.loadStarterDiagram(q.starterDiagram);
         }
       });
@@ -552,6 +575,16 @@
     // Modals: Map & Incident
     setupModals();
   }
+
+  window.addEventListener('beforeunload', () => {
+    if (STATE.currentQId && eerCanvas) {
+      const cur = eerCanvas.exportCurrentDiagram();
+      if (cur && cur.entities && cur.entities.length > 0) {
+        localStorage.setItem('DS_W1_DIAGRAM_' + STATE.currentQId, JSON.stringify(cur));
+        localStorage.setItem('DS_W1_UPDATED_' + STATE.currentQId, Date.now().toString());
+      }
+    }
+  });
 
   // ==========================================================================
   // 8. DIAGRAM VERIFICATION & GRADING

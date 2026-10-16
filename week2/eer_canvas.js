@@ -58,6 +58,10 @@ class EERCanvasEngine {
     // Magnetic snap target candidate
     this.snapCandidate = null;
 
+    // Event hooks & load lock
+    this.onChange = null;
+    this.isLoadingStarter = false;
+
     this.initDOM();
     this.attachEvents();
     this.initSidebar();
@@ -440,6 +444,7 @@ class EERCanvasEngine {
   }
 
   onPointerUp(e) {
+    const hadStateChange = !!(this.isDraggingNode || this.draggingHandle || this.draggingFreeLine || this.draggingWholeLine || this.isResizing || this.isConnecting);
     if (this.isPanning) {
       this.isPanning = false;
       this.container.style.cursor = 'default';
@@ -542,6 +547,9 @@ class EERCanvasEngine {
     if (this.isConnecting) {
       this.finishConnection(e);
     }
+    if (hadStateChange) {
+      this.triggerChange();
+    }
   }
 
   // ==========================================================================
@@ -642,6 +650,7 @@ class EERCanvasEngine {
       if (window.playSfx) window.playSfx('success');
     }
     this.renderLinks();
+    this.triggerChange();
   }
 
   finishConnection(e) {
@@ -785,6 +794,7 @@ class EERCanvasEngine {
     this.entities.push(entity);
     this.createEntityDOM(entity);
     this.renderLinks();
+    this.triggerChange();
     return entity;
   }
 
@@ -868,6 +878,7 @@ class EERCanvasEngine {
         entity.attributes.push({ name: attrName.trim(), isPK: false });
         this.renderEntityAttributes(entity, el.querySelector('.entity-attributes'));
         this.renderLinks();
+        this.triggerChange();
       }
     });
 
@@ -883,6 +894,7 @@ class EERCanvasEngine {
           if (r.toEntityName === oldName) r.toEntityName = entity.name;
         });
         this.renderLinks();
+        this.triggerChange();
       }
     });
 
@@ -891,6 +903,7 @@ class EERCanvasEngine {
       entity.isWeak = !entity.isWeak;
       if (entity.isWeak) el.classList.add('weak-entity');
       else el.classList.remove('weak-entity');
+      this.triggerChange();
     });
 
     el.querySelector('[data-action="del-node"]')?.addEventListener('click', (e) => {
@@ -951,6 +964,7 @@ class EERCanvasEngine {
           attr.name = newName.trim();
           nameEl.textContent = attr.name;
           this.renderLinks();
+          this.triggerChange();
         }
       };
 
@@ -959,7 +973,9 @@ class EERCanvasEngine {
       nameEl.addEventListener('dblclick', triggerRename);
 
       nameEl.addEventListener('blur', () => {
+        const oldName = attr.name;
         attr.name = nameEl.textContent.trim() || attr.name;
+        if (attr.name !== oldName) this.triggerChange();
       });
       nameEl.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
@@ -1006,6 +1022,7 @@ class EERCanvasEngine {
         }
         this.renderEntityAttributes(entity, containerEl);
         this.renderLinks();
+        this.triggerChange();
         if (window.playSfx) window.playSfx('click');
       };
 
@@ -1017,6 +1034,7 @@ class EERCanvasEngine {
         entity.attributes.splice(idx, 1);
         this.renderEntityAttributes(entity, containerEl);
         this.renderLinks();
+        this.triggerChange();
       });
 
       containerEl.appendChild(row);
@@ -1039,6 +1057,7 @@ class EERCanvasEngine {
       if (r.toEntityName === entity.name) r.toEntityName = '';
     });
     this.renderLinks();
+    this.triggerChange();
   }
 
   // ==========================================================================
@@ -1064,6 +1083,7 @@ class EERCanvasEngine {
     this.relationships.push(rel);
     this.createRelationshipDOM(rel);
     this.renderLinks();
+    this.triggerChange();
     return rel;
   }
 
@@ -1134,6 +1154,7 @@ class EERCanvasEngine {
     this.relationships = this.relationships.filter(r => r.id !== rel.id);
     document.getElementById(rel.domId)?.remove();
     this.renderLinks();
+    this.triggerChange();
   }
 
   // ==========================================================================
@@ -1890,6 +1911,7 @@ class EERCanvasEngine {
           rel[activeKey] = val;
           popover.style.display = 'none';
           this.renderLinks();
+          this.triggerChange();
           this.showToast(`✅ Multiplicity o'rnatildi: ${activeKey === 'mult1' ? label1 : label2} (${val})`);
           if (window.playSfx) window.playSfx('click');
         });
@@ -2075,6 +2097,7 @@ class EERCanvasEngine {
       this.renderLinks();
       this.showToast(`2 ta magnit uchli chiziq tushirildi (${mult1}). Har ikkala chetini kerakli entitiyga ulab oling!`);
     }
+    this.triggerChange();
     if (window.playSfx) window.playSfx('click');
   }
 
@@ -2099,8 +2122,10 @@ class EERCanvasEngine {
   // STARTER DIAGRAM & MODEL EXPORT
   // ==========================================================================
   loadStarterDiagram(diagram) {
-    this.clearCanvas();
-    if (!diagram) return;
+    this.isLoadingStarter = true;
+    try {
+      this.clearCanvas();
+      if (!diagram) return;
 
     const w = 800;
     const h = 460;
@@ -2186,6 +2211,9 @@ class EERCanvasEngine {
         }
       }, 50);
     }
+    } finally {
+      this.isLoadingStarter = false;
+    }
   }
 
   clearCanvas() {
@@ -2197,6 +2225,20 @@ class EERCanvasEngine {
     this.nodesLayer.innerHTML = '';
     this.svg.innerHTML = '';
     this.selectedNode = null;
+    if (!this.isLoadingStarter) {
+      this.triggerChange();
+    }
+  }
+
+  triggerChange() {
+    if (this.isLoadingStarter) return;
+    if (typeof this.onChange === 'function') {
+      try {
+        this.onChange(this.exportCurrentDiagram());
+      } catch (err) {
+        console.error('EERCanvasEngine triggerChange error:', err);
+      }
+    }
   }
 
   exportCurrentDiagram() {
@@ -2223,7 +2265,14 @@ class EERCanvasEngine {
         name: e.name,
         pk: (e.attributes?.find(a => a.isPK) || {}).name,
         isWeak: !!e.isWeak,
-        attributes: e.attributes || []
+        attributes: (e.attributes || []).map(a => ({
+          name: a.name,
+          isPK: !!a.isPK,
+          isFK: !!a.isFK,
+          isPPK: !!a.isPPK
+        })),
+        x: typeof e.x === 'number' ? Math.round(e.x) : undefined,
+        y: typeof e.y === 'number' ? Math.round(e.y) : undefined
       })),
       relationships: rels.map(r => ({
         name: r.name,

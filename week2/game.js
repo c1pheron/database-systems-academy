@@ -107,6 +107,19 @@
     }
     if (window.EERCanvasEngine) {
       eerCanvas = new window.EERCanvasEngine('eerCanvasContainer');
+
+      // W2 Real-Time Auto-Save: Strictly saves to W2! NEVER affects W1!
+      let autoSaveW2Timer = null;
+      eerCanvas.onChange = function(diagram) {
+        if (autoSaveW2Timer) clearTimeout(autoSaveW2Timer);
+        autoSaveW2Timer = setTimeout(() => {
+          if (STATE.currentQId && diagram && diagram.entities && diagram.entities.length > 0) {
+            localStorage.setItem('DS_W2_DIAGRAM_' + STATE.currentQId, JSON.stringify(diagram));
+            localStorage.setItem('DS_W2_UPDATED_' + STATE.currentQId, Date.now().toString());
+            updateW2DiagramBanner('w2');
+          }
+        }, 200);
+      };
     }
 
     // 4. Render 10 Floors & HUD
@@ -259,11 +272,81 @@
   }
 
   // ==========================================================================
+  // Update diagram badge status
+  function updateW2DiagramBanner(sourceInfo) {
+    const badge = document.getElementById('w2DiagramSourceBadge');
+    if (!badge) return;
+    if (sourceInfo === 'w1') {
+      badge.innerHTML = '<span style="color:#38bdf8; font-weight:600;">🔗 1-hafta modeli faol (Asl nusxa)</span>';
+      badge.title = "Ushbu diagramma 1-haftadan avtomatik yuklandi. Siz uni bemalol EER ga o'girishingiz mumkin.";
+    } else if (sourceInfo === 'w2') {
+      badge.innerHTML = '<span style="color:#ffd166; font-weight:600;">✏️ 2-hafta EER tahriri (1-hafta daxlsiz)</span>';
+      badge.title = "2-haftadagi o'zgartirishlaringiz alohida saqlanmoqda, 1-hafta o'zgarmaydi.";
+    } else {
+      badge.innerHTML = '<span style="color:#94a3b8;">📋 Dastlabki shablon faol</span>';
+    }
+  }
+
+  // Reset W2 diagram strictly back to Week 1 state (Default)
+  function resetW2ToW1Default() {
+    const qId = STATE.currentQId;
+    const q = allQuestions.find(item => item.id === qId);
+    if (!q) return;
+
+    // 1. Remove W2 custom edit
+    localStorage.removeItem('DS_W2_DIAGRAM_' + qId);
+    localStorage.removeItem('DS_W2_UPDATED_' + qId);
+
+    // 2. Fetch W1 diagram
+    const savedW1 = localStorage.getItem('DS_W1_DIAGRAM_' + qId);
+    let targetDiagram = null;
+    let sourceInfo = 'starter';
+
+    if (savedW1) {
+      try {
+        const parsed1 = JSON.parse(savedW1);
+        if (parsed1 && parsed1.entities && parsed1.entities.length > 0) {
+          targetDiagram = parsed1;
+          sourceInfo = 'w1';
+        }
+      } catch (e) {}
+    }
+
+    if (!targetDiagram) {
+      targetDiagram = q.starterDiagram || q.expectedDiagram;
+      sourceInfo = 'starter';
+    }
+
+    if (eerCanvas && targetDiagram) {
+      eerCanvas.loadStarterDiagram(targetDiagram);
+      updateW2DiagramBanner(sourceInfo);
+      if (window.playSfx) window.playSfx('click');
+
+      if (sourceInfo === 'w1') {
+        eerCanvas.showToast("↺ Diagramma 1-haftadagi holatiga (Default) qaytarildi!");
+      } else {
+        eerCanvas.showToast("↺ Diagramma dastlabki shablon holatiga qaytarildi!");
+      }
+    }
+  }
+
   // 6. QUESTION STRIP & DOSSIER
   // ==========================================================================
   function loadQuestion(qId) {
     const q = allQuestions.find(item => item.id === qId);
     if (!q) return;
+
+    // Save previous question W2 edits if modified
+    if (STATE.currentQId && eerCanvas && STATE.currentQId !== qId) {
+      const cur = eerCanvas.exportCurrentDiagram();
+      if (cur && cur.entities && cur.entities.length > 0) {
+        const savedW1 = localStorage.getItem('DS_W1_DIAGRAM_' + STATE.currentQId);
+        if (savedW1 !== JSON.stringify(cur)) {
+          localStorage.setItem('DS_W2_DIAGRAM_' + STATE.currentQId, JSON.stringify(cur));
+          localStorage.setItem('DS_W2_UPDATED_' + STATE.currentQId, Date.now().toString());
+        }
+      }
+    }
 
     STATE.currentQId = qId;
     saveState();
@@ -369,29 +452,46 @@
     if (tickerSpeaker) tickerSpeaker.textContent = q.clientRole ? q.clientRole.toUpperCase() : "BOSH ME'MOR ATLAS";
     if (tickerMessage) tickerMessage.textContent = "1-haftada yaratilgan model asosida yangi EER talablarini to'ldiring.";
 
-    // Load Starter Diagram into EER Canvas (Harmonious continuation of Week 1!)
+    // Load Starter Diagram into EER Canvas (One-way Inheritance from Week 1!)
     if (eerCanvas) {
-      const savedW2 = localStorage.getItem(`DS_W2_DIAGRAM_${qId}`);
-      const savedW1 = localStorage.getItem(`DS_W1_DIAGRAM_${qId}`);
-      let chosenDiagram = q.starterDiagram || q.expectedDiagram;
+      const savedW2 = localStorage.getItem('DS_W2_DIAGRAM_' + qId);
+      const savedW1 = localStorage.getItem('DS_W1_DIAGRAM_' + qId);
+      const w1Updated = parseInt(localStorage.getItem('DS_W1_UPDATED_' + qId) || "0", 10);
+      const w2Updated = parseInt(localStorage.getItem('DS_W2_UPDATED_' + qId) || "0", 10);
 
-      if (savedW2) {
+      let chosenDiagram = null;
+      let sourceInfo = "starter";
+
+      // 1. If W2 has custom edits and W1 wasn't updated AFTER W2
+      if (savedW2 && w2Updated >= w1Updated) {
         try {
           const parsed2 = JSON.parse(savedW2);
           if (parsed2 && parsed2.entities && parsed2.entities.length > 0) {
             chosenDiagram = parsed2;
-          }
-        } catch (e) {}
-      } else if (savedW1) {
-        try {
-          const parsed1 = JSON.parse(savedW1);
-          if (parsed1 && parsed1.entities && parsed1.entities.length > 0) {
-            chosenDiagram = parsed1;
+            sourceInfo = "w2";
           }
         } catch (e) {}
       }
 
+      // 2. If no W2 edit, or W1 has newer changes -> Load W1 Diagram!
+      if (!chosenDiagram && savedW1) {
+        try {
+          const parsed1 = JSON.parse(savedW1);
+          if (parsed1 && parsed1.entities && parsed1.entities.length > 0) {
+            chosenDiagram = parsed1;
+            sourceInfo = "w1";
+          }
+        } catch (e) {}
+      }
+
+      // 3. Fallback to default starter
+      if (!chosenDiagram) {
+        chosenDiagram = q.starterDiagram || q.expectedDiagram;
+        sourceInfo = "starter";
+      }
+
       eerCanvas.loadStarterDiagram(chosenDiagram);
+      updateW2DiagramBanner(sourceInfo);
     }
   }
 
@@ -444,15 +544,15 @@
       });
     }
 
+    // Default Button (Under Diagram & Top Toolbar)
+    const btnW2Default = document.getElementById('btnW2Default');
+    if (btnW2Default) {
+      btnW2Default.addEventListener('click', resetW2ToW1Default);
+    }
+
     const btnResetTemplate = document.getElementById('eerBtnResetTemplate');
     if (btnResetTemplate) {
-      btnResetTemplate.addEventListener('click', () => {
-        window.playSfx('click');
-        const q = allQuestions.find(item => item.id === STATE.currentQId);
-        if (q && eerCanvas) {
-          eerCanvas.loadStarterDiagram(q.starterDiagram || q.expectedDiagram);
-        }
-      });
+      btnResetTemplate.addEventListener('click', resetW2ToW1Default);
     }
 
     const btnClearCanvas = document.getElementById('eerBtnClearCanvas');
