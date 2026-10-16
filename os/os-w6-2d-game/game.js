@@ -380,7 +380,7 @@
     const rank = getCurrentRank(solved);
 
     if (el.hudRankTitle) el.hudRankTitle.textContent = `${rank.badge} ${rank.title}`;
-    if (el.hudSalary) el.hudSalary.textContent = rank.salary;
+    if (el.hudSalary) el.hudSalary.textContent = "";
     if (el.hudCapital) el.hudCapital.textContent = `$${state.bonusCapital.toLocaleString()}`;
     if (el.hudSolved) el.hudSolved.textContent = `${solved} / ${total}`;
 
@@ -555,11 +555,12 @@
     // Render Command & Flag Anatomy Card (Master User Feature)
     if (el.cmdCardBody && window.COMMAND_ANATOMY) {
       const anatomy = window.COMMAND_ANATOMY.analyze(q.expectedSql || q.expectedBash, q);
-      if (el.cmdCardCode) el.cmdCardCode.textContent = anatomy.fullCommand || (q.expectedSql || q.expectedBash);
       el.cmdCardBody.innerHTML = window.COMMAND_ANATOMY.renderCardHtml(anatomy);
       el.cmdCardBody.style.display = "none";
       if (el.btnToggleCmdCard) el.btnToggleCmdCard.classList.remove("open");
-      if (el.cmdCardToggleHint) el.cmdCardToggleHint.textContent = "Batafsil ko'rish";
+      if (el.cmdCardToggleHint) el.cmdCardToggleHint.textContent = "Ko'rish";
+      const arrow = document.getElementById("cmdCardToggleArrow");
+      if (arrow) arrow.textContent = "▾";
     }
 
     // Fullscreen Title Update
@@ -1472,7 +1473,7 @@ Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls
         updateHUD();
         SoundFX.playSuccess();
         wasmXtermInstance.write(`\x1b[1;32m✓ TO'G'RI! ${grade.message || "Topshiriq muvaffaqiyatli bajarildi!"}\x1b[0m\r\n`);
-        wasmXtermInstance.write(`\x1b[1;36m+$100 Bonus hisobingizga qo'shildi! Keyingi topshiriqqa o'tish uchun [Keyingi ▶] ni bosing.\x1b[0m\r\n`);
+        wasmXtermInstance.write(`\x1b[1;36m+100 Ball reytingingizga qo'shildi! Keyingi topshiriqqa o'tish uchun [Keyingi ▶] ni bosing.\x1b[0m\r\n`);
         renderFsExplorer();
       }
     }
@@ -1803,6 +1804,7 @@ Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls
     const cardBody = document.getElementById("cmdCardBody");
     const toggleBtn = document.getElementById("btnToggleCmdCard");
     const hint = document.getElementById("cmdCardToggleHint");
+    const arrow = document.getElementById("cmdCardToggleArrow");
     if (!cardBody) return;
 
     SoundFX.playKey();
@@ -1810,13 +1812,14 @@ Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls
       cardBody.style.display = "flex";
       if (toggleBtn) toggleBtn.classList.add("open");
       if (hint) hint.textContent = "Yopish";
+      if (arrow) arrow.textContent = "▴";
     } else {
       cardBody.style.display = "none";
       if (toggleBtn) toggleBtn.classList.remove("open");
-      if (hint) hint.textContent = "Batafsil ko'rish";
+      if (hint) hint.textContent = "Ko'rish";
+      if (arrow) arrow.textContent = "▾";
     }
   };
-
   // High-Fidelity Linux Tab Autocompletion
   function handleTabAutocompletion() {
     if (!el.bashInput) return;
@@ -2753,7 +2756,7 @@ permitted by applicable law.
 
       // 1-Martalik Chiroyli Toast Xabarnoma (Terminalga katta yashil quti qo'shilmaydi!)
       showFloatingToast("<span style='font-size:13px; font-weight:900;'>✓</span> <span style='font-size:11px;'>+$100</span>", false);
-      showFeedback(true, "<b>✓ " + grade.message + "</b><br><span style='color:#a7f3d0; font-size:12px;'>+$100 Bonus hisobingizga qo'shildi!</span>");
+      showFeedback(true, "<b>✓ " + grade.message + "</b><br><span style='color:#a7f3d0; font-size:12px;'>+100 Ball reytingingizga qo'shildi!</span>");
       checkOfficeEventTrigger(currentQ.id);
 
       // Terminalda yashil xabar o'rniga DARHOL KEYINGI MASALA (Ko'k karta) chiqadi!

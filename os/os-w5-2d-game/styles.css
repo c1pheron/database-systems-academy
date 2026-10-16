@@ -5,31 +5,31 @@
    ============================================================================ */
 
 :root {
-  --bg-deep: #080c14;
-  --bg-panel: #0d1424;
-  --bg-card: #121c32;
-  --bg-card-hover: #182642;
-  --bg-input: #090e1a;
-  --bg-terminal: #050811;
+  --bg-deep: #0d1117;
+  --bg-panel: #161b22;
+  --bg-card: #1c2128;
+  --bg-card-hover: #262c36;
+  --bg-input: #0d1117;
+  --bg-terminal: #090d13;
 
-  --border-subtle: rgba(6, 182, 212, 0.22);
-  --border-cyan: rgba(6, 182, 212, 0.55);
-  --border-emerald: rgba(16, 185, 129, 0.55);
-  --border-amber: rgba(245, 158, 11, 0.5);
-  --border-active: #22d3ee;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-cyan: rgba(56, 189, 248, 0.28);
+  --border-emerald: rgba(52, 211, 153, 0.35);
+  --border-amber: rgba(245, 158, 11, 0.4);
+  --border-active: #38bdf8;
 
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #8494ab;
+  --text-primary: #f0f6fc;
+  --text-secondary: #c9d1d9;
+  --text-muted: #8b949e;
 
-  --accent-cyan: #06b6d4;
-  --accent-cyan-bright: #22d3ee;
+  --accent-cyan: #0284c7;
+  --accent-cyan-bright: #38bdf8;
   --accent-emerald: #10b981;
   --accent-emerald-bright: #34d399;
-  --accent-emerald-soft: rgba(16, 185, 129, 0.15);
-  --accent-amber: #f59e0b;
+  --accent-emerald-soft: rgba(16, 185, 129, 0.12);
+  --accent-amber: #d97706;
   --accent-amber-bright: #fbbf24;
-  --accent-ruby: #ef4444;
+  --accent-ruby: #f43f5e;
 
   --shadow-matrix: 0 10px 30px rgba(0, 0, 0, 0.65);
   --radius-md: 10px;
@@ -48,7 +48,7 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-deep);
-  background-image: radial-gradient(circle at 50% 0%, #111a2f 0%, #080c14 80%);
+  background-image: radial-gradient(circle at 50% 0%, #1c2128 0%, #0d1117 85%);
   color: var(--text-primary);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 13.5px;
@@ -62,8 +62,10 @@ html, body {
    TOP EXECUTIVE HUD
    ============================================================================ */
 .top-hud {
-  background: linear-gradient(180deg, #10182c 0%, #0b1120 100%);
-  border-bottom: 1px solid var(--border-cyan);
+  background: rgba(22, 27, 34, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
   padding: 10px 18px;
   display: flex;
   align-items: center;
@@ -76,10 +78,10 @@ html, body {
 }
 
 .btn-back {
-  background: #14223d !important;
-  border: 1px solid var(--accent-cyan) !important;
-  color: var(--accent-cyan-bright) !important;
-  font-weight: 700 !important;
+  background: #1c2128 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
   padding: 6px 12px !important;
   border-radius: 6px !important;
   text-decoration: none !important;
@@ -92,8 +94,9 @@ html, body {
 }
 
 .btn-back:hover {
-  background: var(--accent-cyan) !important;
-  color: #080c14 !important;
+  background: #262c36 !important;
+  border-color: var(--accent-cyan-bright) !important;
+  color: #fff !important;
 }
 
 .btn-dictionary {
@@ -164,8 +167,8 @@ html, body {
 }
 
 .stat-pill {
-  background: rgba(5, 8, 17, 0.55);
-  border: 1px solid var(--border-subtle);
+  background: rgba(28, 33, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   padding: 5px 12px;
   display: flex;
@@ -1027,11 +1030,11 @@ html, body {
    COMMAND & FLAG ANATOMY INTERACTIVE ACCORDION CARD (BATAFSIL)
    ============================================================================ */
 .cmd-info-card {
-  margin: 6px 0 10px 0;
+  margin: 10px 0;
   border-radius: 8px;
-  background: #09101f;
-  border: 1px solid rgba(6, 182, 212, 0.35);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  background: #161b22;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   transition: all 0.2s ease;
 }
@@ -1042,22 +1045,31 @@ html, body {
 
 .cmd-card-toggle {
   width: 100%;
-  background: linear-gradient(135deg, #0e182e 0%, #09101e 100%);
+  background: #1c2128;
   border: none;
-  padding: 8px 12px;
+  padding: 10px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
   color: var(--text-primary);
   font-family: inherit;
-  font-size: 12px;
-  text-align: left;
+  font-size: 13px;
   transition: background 0.15s ease;
 }
 
 .cmd-card-toggle:hover {
-  background: linear-gradient(135deg, #152445 0%, #0d172c 100%);
+  background: #262c36;
+}
+
+.cmd-card-toggle.open {
+  background: #21262d;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cmd-card-toggle.open {
+  background: #21262d;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .cmd-card-toggle-left {
@@ -3423,4 +3435,10 @@ input.kali-inline-cmd-input {
   background: #dc2626 !important;
   border-color: #f87171 !important;
   box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4) !important;
+}
+
+
+/* Clean Minimal HUD: Floor Sector Navigation Bar Hidden */
+.sector-bar, #sectorNavList {
+  display: none !important;
 }

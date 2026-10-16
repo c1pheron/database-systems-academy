@@ -45,9 +45,9 @@
 
         if (tg.enableClosingConfirmation) tg.enableClosingConfirmation();
 
-        // Obsidian & Dark Cyan Header & Background colors
-        if (tg.setHeaderColor) tg.setHeaderColor("#0a101f");
-        if (tg.setBackgroundColor) tg.setBackgroundColor("#060913");
+        // Carbon Titanium Header & Background colors
+        if (tg.setHeaderColor) tg.setHeaderColor("#161b22");
+        if (tg.setBackgroundColor) tg.setBackgroundColor("#0d1117");
 
         // Grab user profile
         const user = tg.initDataUnsafe && tg.initDataUnsafe.user;
@@ -112,7 +112,7 @@
     if (nameEl) nameEl.textContent = state.userName;
     if (rankEl) rankEl.textContent = `${currentRank.avatar} ${currentRank.title}`;
     if (solvedTotalEl) solvedTotalEl.textContent = `${state.totalSolved} / ${state.totalChallenges}`;
-    if (xpTotalEl) xpTotalEl.textContent = `$${state.totalCapital.toLocaleString()}`;
+    if (xpTotalEl) xpTotalEl.textContent = `${state.totalCapital.toLocaleString()} Ball`;
 
     // Overall Progress Bar
     const pct = Math.min(100, Math.round((state.totalSolved / state.totalChallenges) * 100));
