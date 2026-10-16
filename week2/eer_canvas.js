@@ -2135,7 +2135,7 @@ class EERCanvasEngine {
     entList.forEach((e, idx) => {
       let x = e.x;
       let y = e.y;
-      if (x === undefined || y === undefined) {
+      if (x === undefined || y === undefined || isNaN(x) || isNaN(y)) {
         if (count === 1) {
           x = w / 2 - 85;
           y = h / 2 - 50;
@@ -2190,19 +2190,21 @@ class EERCanvasEngine {
       setTimeout(() => {
         const containerW = this.container.clientWidth || 360;
         const containerH = this.container.clientHeight || 440;
-        if (containerW < 768) {
-          let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-          this.entities.forEach(e => {
-            minX = Math.min(minX, e.x);
-            minY = Math.min(minY, e.y);
-            maxX = Math.max(maxX, e.x + (e.width || 200));
-            maxY = Math.max(maxY, e.y + (e.height || 120));
-          });
-          const contentW = Math.max(200, maxX - minX + 50);
-          const contentH = Math.max(160, maxY - minY + 50);
+        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+        this.entities.forEach(e => {
+          const ex = (typeof e.x === 'number' && !isNaN(e.x)) ? e.x : 100;
+          const ey = (typeof e.y === 'number' && !isNaN(e.y)) ? e.y : 100;
+          minX = Math.min(minX, ex);
+          minY = Math.min(minY, ey);
+          maxX = Math.max(maxX, ex + (e.width || 170));
+          maxY = Math.max(maxY, ey + (e.height || 100));
+        });
+        if (minX !== Infinity && maxX > minX) {
+          const contentW = Math.max(200, maxX - minX + 80);
+          const contentH = Math.max(160, maxY - minY + 80);
           const sX = containerW / contentW;
           const sY = containerH / contentH;
-          this.zoom = Math.min(1.0, Math.max(0.55, Math.min(sX, sY)));
+          this.zoom = Math.min(1.0, Math.max(0.65, Math.min(sX, sY)));
           const midWorldX = (minX + maxX) / 2;
           const midWorldY = (minY + maxY) / 2;
           this.panX = Math.round(containerW / 2 - midWorldX * this.zoom);
@@ -2271,8 +2273,8 @@ class EERCanvasEngine {
           isFK: !!a.isFK,
           isPPK: !!a.isPPK
         })),
-        x: typeof e.x === 'number' ? Math.round(e.x) : undefined,
-        y: typeof e.y === 'number' ? Math.round(e.y) : undefined
+        x: (typeof e.x === 'number' && !isNaN(e.x)) ? Math.round(e.x) : undefined,
+        y: (typeof e.y === 'number' && !isNaN(e.y)) ? Math.round(e.y) : undefined
       })),
       relationships: rels.map(r => ({
         name: r.name,

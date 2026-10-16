@@ -524,7 +524,10 @@
     if (btnAddEntity) {
       btnAddEntity.addEventListener('click', () => {
         window.playSfx('click');
-        if (eerCanvas) eerCanvas.spawnEntity();
+        const name = prompt("Yangi Entitiy nomini kiriting:", "Kompaniya");
+        if (name && eerCanvas) {
+          eerCanvas.addEntity({ name: name.trim() });
+        }
       });
     }
 
@@ -532,7 +535,10 @@
     if (btnAddRel) {
       btnAddRel.addEventListener('click', () => {
         window.playSfx('click');
-        if (eerCanvas) eerCanvas.spawnRelationship();
+        const name = prompt("Aloqa (Romb) nomini kiriting:", "Boshqaradi");
+        if (name && eerCanvas) {
+          eerCanvas.addRelationship({ name: name.trim() });
+        }
       });
     }
 
@@ -560,7 +566,7 @@
       btnClearCanvas.addEventListener('click', () => {
         window.playSfx('click');
         if (confirm("Haqiqatan ham polotnoni tozalamoqchimisiz?")) {
-          if (eerCanvas) eerCanvas.clear();
+          if (eerCanvas) eerCanvas.clearCanvas();
         }
       });
     }
