@@ -382,26 +382,44 @@ class EERCanvasEngine {
       }
 
       this.snapCandidate = null;
+      let bestCand = null;
+      let bestDist = Infinity;
+
       for (const ent of this.entities) {
-        const cx = ent.x + (ent.width || 170) / 2;
-        const cy = ent.y + (ent.height || 100) / 2;
-        const dist = Math.hypot(world.x - cx, world.y - cy);
-        if (dist < 100) {
-          this.snapCandidate = { target: ent, type: 'entity', handle: this.draggingHandle.handle, line };
+        if (this.draggingHandle.handle === 'end' && line.startSnapped?.node?.domId === ent.domId) continue;
+        if (this.draggingHandle.handle === 'start' && line.endSnapped?.node?.domId === ent.domId) continue;
+
+        const w = ent.width || 170;
+        const h = ent.height || 100;
+        const inBounds = world.x >= ent.x && world.x <= ent.x + w &&
+                         world.y >= ent.y && world.y <= ent.y + h;
+        if (inBounds) {
+          bestCand = { target: ent, type: 'entity', handle: this.draggingHandle.handle, line };
+          bestDist = 0;
           break;
         }
+
+        const cx = ent.x + w / 2;
+        const cy = ent.y + h / 2;
+        const dist = Math.hypot(world.x - cx, world.y - cy);
+        if (dist < 110 && dist < bestDist) {
+          bestDist = dist;
+          bestCand = { target: ent, type: 'entity', handle: this.draggingHandle.handle, line };
+        }
       }
-      if (!this.snapCandidate) {
+
+      if (!bestCand) {
         for (const rel of this.relationships) {
           const cx = rel.x + 45;
           const cy = rel.y + 45;
           const dist = Math.hypot(world.x - cx, world.y - cy);
-          if (dist < 85) {
-            this.snapCandidate = { target: rel, type: 'diamond', handle: this.draggingHandle.handle, line };
-            break;
+          if (dist < 80 && dist < bestDist) {
+            bestDist = dist;
+            bestCand = { target: rel, type: 'diamond', handle: this.draggingHandle.handle, line };
           }
         }
       }
+      this.snapCandidate = bestCand;
 
       this.renderLinks();
       return;
@@ -612,11 +630,25 @@ class EERCanvasEngine {
   }
 
   completeConnection(sourceNode, sourceType, targetNode, targetType) {
+    const sId = sourceNode.id || sourceNode.domId;
+    const tId = targetNode.id || targetNode.domId;
+
+    if (sId === tId) {
+      this.showToast("Entitiyni o'ziga ulash mumkin emas.");
+      return;
+    }
+
     if (sourceType === 'entity' && targetType === 'entity') {
-      const existing = this.relationships.find(r => 
-        (r.fromEntityName.toLowerCase() === sourceNode.name.toLowerCase() && r.toEntityName.toLowerCase() === targetNode.name.toLowerCase()) ||
-        (r.fromEntityName.toLowerCase() === targetNode.name.toLowerCase() && r.toEntityName.toLowerCase() === sourceNode.name.toLowerCase())
-      );
+      const existing = this.relationships.find(r => {
+        if (r.fromEntityId && r.toEntityId) {
+          return (r.fromEntityId === sId && r.toEntityId === tId) || (r.fromEntityId === tId && r.toEntityId === sId);
+        }
+        const fn = (r.fromEntityName || '').toLowerCase();
+        const tn = (r.toEntityName || '').toLowerCase();
+        const sn = (sourceNode.name || '').toLowerCase();
+        const targetN = (targetNode.name || '').toLowerCase();
+        return (fn === sn && tn === targetN) || (fn === targetN && tn === sn);
+      });
       if (existing) {
         this.showToast(`'${sourceNode.name}' va '${targetNode.name}' allaqachon bog'langan!`);
         return;
@@ -624,6 +656,8 @@ class EERCanvasEngine {
       this.relationships.push({
         id: 'rel_' + Math.random().toString(36).substr(2, 9),
         name: 'Aloqa',
+        fromEntityId: sId,
+        toEntityId: tId,
         fromEntityName: sourceNode.name,
         toEntityName: targetNode.name,
         mult1: '1..1',
@@ -631,23 +665,29 @@ class EERCanvasEngine {
         isDirect: true
       });
       if (window.playSfx) window.playSfx('success');
-      this.showToast(`'${sourceNode.name}' va '${targetNode.name}' to'g'ridan-to'g'ri bog'landi. Chiziq o'rtasidagi so'zni bosib aloqa nomini o'zgartirishingiz mumkin.`);
+      this.showToast(`✅ '${sourceNode.name}' va '${targetNode.name}' muvaffaqiyatli bog'landi!`);
     } else if (sourceType === 'entity' && targetType === 'diamond') {
       const rel = targetNode;
-      if (!rel.fromEntityName || rel.fromEntityName === sourceNode.name) {
+      if (!rel.fromEntityName || rel.fromEntityId === sId) {
+        rel.fromEntityId = sId;
         rel.fromEntityName = sourceNode.name;
       } else {
+        rel.toEntityId = sId;
         rel.toEntityName = sourceNode.name;
       }
       if (window.playSfx) window.playSfx('success');
+      this.showToast(`✅ '${sourceNode.name}' va romb bog'landi!`);
     } else if (sourceType === 'diamond' && targetType === 'entity') {
       const rel = sourceNode;
-      if (!rel.fromEntityName) {
+      if (!rel.fromEntityName || rel.fromEntityId === tId) {
+        rel.fromEntityId = tId;
         rel.fromEntityName = targetNode.name;
       } else {
+        rel.toEntityId = tId;
         rel.toEntityName = targetNode.name;
       }
       if (window.playSfx) window.playSfx('success');
+      this.showToast(`✅ Romb va '${targetNode.name}' bog'landi!`);
     }
     this.renderLinks();
     this.triggerChange();
@@ -672,32 +712,72 @@ class EERCanvasEngine {
     if (clientX !== undefined && clientY !== undefined && this.connectSource) {
       const targetEl = document.elementFromPoint(clientX, clientY);
       const targetBox = targetEl ? targetEl.closest('.eer-entity-box, .eer-diamond-box') : null;
+      const sourceId = this.connectSource.node.domId || this.connectSource.node.id;
 
-      if (targetBox && targetBox.id !== this.connectSource.node.domId) {
+      if (targetBox && targetBox.id !== sourceId) {
         const isTargetEntity = targetBox.classList.contains('eer-entity-box');
         const targetType = isTargetEntity ? 'entity' : 'diamond';
         const targetNode = isTargetEntity
-          ? this.entities.find(ent => ent.domId === targetBox.id)
-          : this.relationships.find(rel => rel.domId === targetBox.id);
+          ? this.entities.find(ent => ent.domId === targetBox.id || ent.id === targetBox.id)
+          : this.relationships.find(rel => rel.domId === targetBox.id || rel.id === targetBox.id);
 
         if (targetNode) {
           this.completeConnection(this.connectSource.node, this.connectSource.type, targetNode, targetType);
           this.cancelConnecting();
           return;
         }
-      } else {
-        const world = this.screenToWorld(clientX, clientY);
-        for (const ent of this.entities) {
-          if (ent.domId === this.connectSource.node.domId) continue;
-          const cx = ent.x + (ent.width || 170) / 2;
-          const cy = ent.y + (ent.height || 100) / 2;
-          if (Math.hypot(world.x - cx, world.y - cy) < 140) {
-            this.completeConnection(this.connectSource.node, this.connectSource.type, ent, 'entity');
-            this.showToast(`🧲 Magnit: ${this.connectSource.node.name} va ${ent.name} bog'landi!`);
-            this.cancelConnecting();
-            return;
+      }
+
+      // Fallback: search closest entity/diamond in world coordinates (never pick first random node)
+      const world = this.screenToWorld(clientX, clientY);
+      let bestTarget = null;
+      let bestDist = Infinity;
+      let bestType = 'entity';
+
+      for (const ent of this.entities) {
+        const entId = ent.domId || ent.id;
+        if (entId === sourceId) continue;
+
+        const w = ent.width || 170;
+        const h = ent.height || 100;
+        const inBounds = world.x >= ent.x && world.x <= ent.x + w &&
+                         world.y >= ent.y && world.y <= ent.y + h;
+        if (inBounds) {
+          bestTarget = ent;
+          bestDist = 0;
+          bestType = 'entity';
+          break;
+        }
+
+        const cx = ent.x + w / 2;
+        const cy = ent.y + h / 2;
+        const dist = Math.hypot(world.x - cx, world.y - cy);
+        if (dist < 110 && dist < bestDist) {
+          bestDist = dist;
+          bestTarget = ent;
+          bestType = 'entity';
+        }
+      }
+
+      if (bestDist > 0) {
+        for (const rel of this.relationships) {
+          const relId = rel.domId || rel.id;
+          if (relId === sourceId) continue;
+          const cx = rel.x + 45;
+          const cy = rel.y + 45;
+          const dist = Math.hypot(world.x - cx, world.y - cy);
+          if (dist < 80 && dist < bestDist) {
+            bestDist = dist;
+            bestTarget = rel;
+            bestType = 'diamond';
           }
         }
+      }
+
+      if (bestTarget) {
+        this.completeConnection(this.connectSource.node, this.connectSource.type, bestTarget, bestType);
+        this.cancelConnecting();
+        return;
       }
 
       if (this.connectMovedDist > 20) {
@@ -730,7 +810,9 @@ class EERCanvasEngine {
     this.draggingHandle = null;
 
     if (this.isConnecting && this.connectSource) {
-      if (this.connectSource.node.domId !== node.domId) {
+      const srcId = this.connectSource.node.domId || this.connectSource.node.id;
+      const targetId = node.domId || node.id;
+      if (srcId !== targetId) {
         this.completeConnection(this.connectSource.node, this.connectSource.type, node, type);
       }
       this.cancelConnecting();
@@ -776,10 +858,19 @@ class EERCanvasEngine {
   // ==========================================================================
   addEntity(data = {}) {
     const id = 'ent_' + Math.random().toString(36).substr(2, 9);
+
+    let baseName = data.name || 'Entitiy';
+    let uniqueName = baseName;
+    let counter = 2;
+    while (this.entities.some(e => e.name.toLowerCase() === uniqueName.toLowerCase())) {
+      uniqueName = `${baseName}_${counter}`;
+      counter++;
+    }
+
     const entity = {
       id: id,
       domId: id,
-      name: data.name || 'YangiEntitiy',
+      name: uniqueName,
       isWeak: !!data.isWeak,
       attributes: data.attributes ? JSON.parse(JSON.stringify(data.attributes)) : [
         { name: 'id', isPK: true, isPPK: false },
@@ -890,8 +981,8 @@ class EERCanvasEngine {
         entity.name = newName.trim();
         el.querySelector('.entity-title-text').textContent = entity.name;
         this.relationships.forEach(r => {
-          if (r.fromEntityName === oldName) r.fromEntityName = entity.name;
-          if (r.toEntityName === oldName) r.toEntityName = entity.name;
+          if (r.fromEntityId === entity.id || r.fromEntityId === entity.domId || r.fromEntityName === oldName) r.fromEntityName = entity.name;
+          if (r.toEntityId === entity.id || r.toEntityId === entity.domId || r.toEntityName === oldName) r.toEntityName = entity.name;
         });
         this.renderLinks();
         this.triggerChange();
@@ -1052,9 +1143,21 @@ class EERCanvasEngine {
     this.entities = this.entities.filter(e => e.id !== entity.id);
     document.getElementById(entity.domId)?.remove();
 
+    this.relationships = this.relationships.filter(r => {
+      const isConnected = (r.fromEntityId === entity.id || r.fromEntityId === entity.domId || r.fromEntityName === entity.name ||
+                           r.toEntityId === entity.id || r.toEntityId === entity.domId || r.toEntityName === entity.name);
+      return !(r.isDirect && isConnected);
+    });
+
     this.relationships.forEach(r => {
-      if (r.fromEntityName === entity.name) r.fromEntityName = '';
-      if (r.toEntityName === entity.name) r.toEntityName = '';
+      if (r.fromEntityId === entity.id || r.fromEntityId === entity.domId || r.fromEntityName === entity.name) {
+        r.fromEntityName = '';
+        r.fromEntityId = null;
+      }
+      if (r.toEntityId === entity.id || r.toEntityId === entity.domId || r.toEntityName === entity.name) {
+        r.toEntityName = '';
+        r.toEntityId = null;
+      }
     });
     this.renderLinks();
     this.triggerChange();
@@ -1203,8 +1306,10 @@ class EERCanvasEngine {
     this.nodesLayer.querySelectorAll('.mult-pill, .rel-line-badge, .free-line-end-handle, .magnetic-end-handle, .conn-port-dom-handle').forEach(p => p.remove());
 
     this.relationships.forEach(rel => {
-      const fromEnt = this.entities.find(e => e.name.toLowerCase() === (rel.fromEntityName || '').toLowerCase());
-      const toEnt = this.entities.find(e => e.name.toLowerCase() === (rel.toEntityName || '').toLowerCase());
+      const fromEnt = this.entities.find(e => (rel.fromEntityId && (e.id === rel.fromEntityId || e.domId === rel.fromEntityId))) ||
+                      this.entities.find(e => e.name.toLowerCase() === (rel.fromEntityName || '').toLowerCase());
+      const toEnt = this.entities.find(e => (rel.toEntityId && (e.id === rel.toEntityId || e.domId === rel.toEntityId))) ||
+                    this.entities.find(e => e.name.toLowerCase() === (rel.toEntityName || '').toLowerCase());
 
       const diamondEl = document.getElementById(rel.domId);
       const isDirectLine = rel.isDirect || !diamondEl;
@@ -1281,8 +1386,16 @@ class EERCanvasEngine {
           this.renderLinks();
         };
 
-        this.renderConnectionPortHandle(borderF.x, borderF.y, onStartHandleDrag, onDblClickRel);
-        this.renderConnectionPortHandle(borderT.x, borderT.y, onEndHandleDrag, onDblClickRel);
+        const dx = borderT.x - borderF.x;
+        const dy = borderT.y - borderF.y;
+        const lineLen = Math.hypot(dx, dy) || 1;
+        const hFx = borderF.x + (dx / lineLen) * 18;
+        const hFy = borderF.y + (dy / lineLen) * 18;
+        const hTx = borderT.x - (dx / lineLen) * 18;
+        const hTy = borderT.y - (dy / lineLen) * 18;
+
+        this.renderConnectionPortHandle(hFx, hFy, onStartHandleDrag, onDblClickRel);
+        this.renderConnectionPortHandle(hTx, hTy, onEndHandleDrag, onDblClickRel);
 
         // 1. Multiplicity for fromEnt (positioned cleanly ABOVE/OUTSIDE the connector line)
         const mPos1 = this.computeMultiplicityPos(borderF, 38, 18);
@@ -1305,6 +1418,7 @@ class EERCanvasEngine {
           const onDblClickFrom = () => {
             if (confirm(`'${fromEnt.name}' va '${rel.name}' o'rtasidagi bog'lanish chizig'ini o'chirishni xohlaysizmi?`)) {
               rel.fromEntityName = '';
+              rel.fromEntityId = null;
               this.renderLinks();
               if (window.playSfx) window.playSfx('click');
             }
@@ -1328,6 +1442,7 @@ class EERCanvasEngine {
           const onDblClickTo = () => {
             if (confirm(`'${rel.name}' va '${toEnt.name}' o'rtasidagi bog'lanish chizig'ini o'chirishni xohlaysizmi?`)) {
               rel.toEntityName = '';
+              rel.toEntityId = null;
               this.renderLinks();
               if (window.playSfx) window.playSfx('click');
             }
@@ -2167,13 +2282,18 @@ class EERCanvasEngine {
     relList.forEach(r => {
       const fromName = r.fromEntityName || r.entity1 || '';
       const toName = r.toEntityName || r.entity2 || '';
+      const fromEnt = this.entities.find(e => (r.fromEntityId && (e.id === r.fromEntityId || e.domId === r.fromEntityId)) || e.name.toLowerCase() === fromName.toLowerCase());
+      const toEnt = this.entities.find(e => (r.toEntityId && (e.id === r.toEntityId || e.domId === r.toEntityId)) || e.name.toLowerCase() === toName.toLowerCase());
+
       this.relationships.push({
-        id: 'rel_' + Math.random().toString(36).substr(2, 9),
+        id: r.id || ('rel_' + Math.random().toString(36).substr(2, 9)),
         name: r.name || 'Aloqa',
-        fromEntityName: fromName,
-        toEntityName: toName,
-        mult1: r.mult1 || '?',
-        mult2: r.mult2 || '?',
+        fromEntityId: fromEnt ? (fromEnt.id || fromEnt.domId) : r.fromEntityId,
+        toEntityId: toEnt ? (toEnt.id || toEnt.domId) : r.toEntityId,
+        fromEntityName: fromEnt ? fromEnt.name : fromName,
+        toEntityName: toEnt ? toEnt.name : toName,
+        mult1: r.mult1 || '1..1',
+        mult2: r.mult2 || '1..*',
         isIdentifying: !!r.isIdentifying,
         isDirect: true
       });
@@ -2277,7 +2397,10 @@ class EERCanvasEngine {
         y: (typeof e.y === 'number' && !isNaN(e.y)) ? Math.round(e.y) : undefined
       })),
       relationships: rels.map(r => ({
+        id: r.id,
         name: r.name,
+        fromEntityId: r.fromEntityId,
+        toEntityId: r.toEntityId,
         entity1: r.fromEntityName,
         entity2: r.toEntityName,
         fromEntityName: r.fromEntityName,

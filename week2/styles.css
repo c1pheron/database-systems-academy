@@ -489,11 +489,12 @@ input, textarea, select, [contenteditable="true"] {
   cursor: crosshair;
   opacity: 0;
   transition: opacity 0.18s ease, transform 0.18s ease, background 0.18s ease;
-  z-index: 25;
-  pointer-events: auto;
+  z-index: 50 !important;
+  pointer-events: auto !important;
   user-select: none;
   touch-action: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  opacity: 0.85 !important;
 }
 
 .rel-table-box:hover .port-arrow {
