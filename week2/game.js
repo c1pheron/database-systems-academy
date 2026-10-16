@@ -232,8 +232,9 @@
     const elProgress = document.getElementById('hudProgressFill');
 
     if (elRank) elRank.textContent = rank;
-    if (elSalary) elSalary.textContent = `$${STATE.salary.toLocaleString()}${t('salary_suffix', '/oy')}`;
-    if (elCapital) elCapital.textContent = `$${STATE.score.toLocaleString()}`;
+    const ballSuffix = t('salary_suffix', ' Ball');
+    if (elSalary) elSalary.textContent = `${STATE.salary.toLocaleString()}${ballSuffix}`;
+    if (elCapital) elCapital.textContent = `${STATE.score.toLocaleString()}${ballSuffix}`;
     if (elSolved) elSolved.textContent = `${solved} / ${total}`;
     if (elProgress) elProgress.style.width = `${pct}%`;
 

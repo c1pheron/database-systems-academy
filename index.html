@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>SeventyPlus — WIUT Academic Master Portal (70+ First Class)</title>
+  <title>Computer Science — SeventyOne+ Academic Platform (70+ First Class)</title>
   
   <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -479,10 +479,10 @@
         <div class="brand-emblem">🎓</div>
         <div>
           <div class="brand-title">
-            SEVENTYPLUS
-            <span class="brand-badge">WIUT Academy Portal</span>
+            COMPUTER SCIENCE
+            <span class="brand-badge">SeventyOne+</span>
           </div>
-          <div class="brand-sub" data-i18n="portal_brand_sub">Westminster 70+ First Class Ekotizimi • 3 Modul • 2,700 ta Amaliy Keys</div>
+          <div class="brand-sub" data-i18n="portal_brand_sub">Computer Science 70+ Ekotizimi • 3 Modul • 2,700 ta Amaliy Keys</div>
         </div>
       </div>
 
@@ -491,7 +491,7 @@
         <div class="hud-profile-pill">
           <div style="font-size:18px;">👨‍💻</div>
           <div class="profile-info">
-            <span id="grandUserName" class="profile-name" data-i18n="portal_user_name">WIUT Talabasi</span>
+            <span id="grandUserName" class="profile-name" data-i18n="portal_user_name">CS Muhandisi</span>
             <span id="grandUserRank" class="profile-rank" data-i18n="portal_user_rank">⭐ Cyber Intern</span>
           </div>
         </div>
@@ -502,8 +502,8 @@
             <span id="grandSolvedTotal" class="val" style="color:var(--accent-cyan-bright);">0 / 2,700</span>
           </div>
           <div class="stat-chip">
-            <span style="color:var(--text-muted);" data-i18n="portal_stat_capital">Jami Kapital:</span>
-            <span id="grandCapitalTotal" class="val" style="color:var(--accent-emerald-bright);">$0</span>
+            <span style="color:var(--text-muted);" data-i18n="portal_stat_capital">Jami Ball:</span>
+            <span id="grandCapitalTotal" class="val" style="color:var(--accent-emerald-bright);">0 Ball</span>
           </div>
         </div>
 
@@ -732,7 +732,8 @@
         if (osEl) osEl.textContent = `${osTotal} / 900`;
         if (oopEl) oopEl.textContent = `${oopTotal} / 900`;
         if (grandSolvedEl) grandSolvedEl.textContent = `${grandTotal} / ${grandTotalPossible}`;
-        if (grandCapitalEl) grandCapitalEl.textContent = `$${totalCapital.toLocaleString()}`;
+        const ballSuffix = (window.I18N && window.I18N.t('salary_suffix')) || ' Ball';
+        if (grandCapitalEl) grandCapitalEl.textContent = `${totalCapital.toLocaleString()}${ballSuffix}`;
 
         const pct = Math.min(100, Math.round((grandTotal / grandTotalPossible) * 100));
         if (progressBar) progressBar.style.width = `${pct}%`;

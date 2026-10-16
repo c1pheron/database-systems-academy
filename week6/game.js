@@ -103,8 +103,8 @@
     const progressFillEl = document.getElementById("hudProgressFill");
 
     if (rankTitleEl) rankTitleEl.textContent = `${rank.badge} ${rank.title}`;
-    if (salaryEl) salaryEl.textContent = rank.salary;
-    if (capitalEl) capitalEl.textContent = `$${state.bonusCapital.toLocaleString()}`;
+    if (salaryEl) salaryEl.textContent = rank.salary ? rank.salary.replace('$', '').replace('/oy', ' Ball') : `${(solvedCount * 20 + 2000)} Ball`;
+    if (capitalEl) capitalEl.textContent = `${state.bonusCapital.toLocaleString()} Ball`;
     if (solvedEl) solvedEl.textContent = `${solvedCount} / ${TOTAL_QUESTIONS}`;
 
     const pct = Math.min(100, Math.round((solvedCount / TOTAL_QUESTIONS) * 100));
@@ -366,11 +366,11 @@
           saveState();
 
           if (arena) arena.triggerExplosion(arena.width / 2, arena.height / 2, "#38bdf8");
-          if (arena) arena.addFloatingText(`+$${bonusEarned} MUKOFOT!`, arena.player.x, arena.player.y - 40, "#10b981");
+          if (arena) arena.addFloatingText(`+${bonusEarned} Ball!`, arena.player.x, arena.player.y - 40, "#10b981");
 
           feedbackBox.innerHTML = `
             <strong>🎉 Ajoyib Natija! Topshiriq Muvaffaqiyatli Bajarildi!</strong><br>
-            Barcha ustunlar va qatorlar kutilganidek aniq chiqdi. Hisobingizga <strong>+$${bonusEarned}</strong> bonus kapital qo'shildi!
+            Barcha ustunlar va qatorlar kutilganidek aniq chiqdi. Hisobingizga <strong>+${bonusEarned} Ball</strong> qo'shildi!
           `;
 
           checkOfficeEventTrigger(q.id);

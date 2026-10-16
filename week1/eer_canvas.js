@@ -1958,17 +1958,84 @@ class EERCanvasEngine {
   }
 
   createMultiplicityPill(x, y, rel, multKey, entityName) {
+    const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
+    const val = (rel[multKey] || '').trim();
+    const hasVal = val !== '' && val !== '?';
+
     const pill = document.createElement('div');
-    pill.className = 'mult-pill';
-    pill.textContent = (rel[multKey] && rel[multKey] !== '?') ? rel[multKey] : '?';
+    pill.className = hasVal ? 'mult-pill' : 'mult-pill add-pill';
+    pill.textContent = hasVal ? val : '+';
     pill.style.position = 'absolute';
     pill.style.left = x + 'px';
     pill.style.top = y + 'px';
     pill.style.transform = 'translate(-50%, -50%)';
-    pill.title = `${entityName} tomonidagi multiplisitiyani o'zgartirish uchun bosing (Hozir: ${rel[multKey] || '?'})`;
+    pill.title = hasVal
+      ? (isEn ? `${entityName} multiplicity (${val}). Hold 0.5s to delete, click to edit.` : `${entityName} multiplisitiyasi (${val}). O'chirish uchun 0.5 soniya bosib turing, o'zgartirish uchun bosing.`)
+      : (isEn ? `Click to add multiplicity to ${entityName} (+)` : `${entityName} tomoniga multiplicity qo'shish uchun bosing (+)`);
+
+    let holdTimer = null;
+    let didHold = false;
+
+    const startHold = (e) => {
+      if (!hasVal) return;
+      didHold = false;
+      holdTimer = setTimeout(() => {
+        didHold = true;
+        rel[multKey] = '';
+        this.renderLinks();
+        this.triggerChange();
+        const msg = isEn ? `🗑️ Multiplicity deleted from ${entityName}` : `🗑️ ${entityName} multiplicitysi o'chirildi!`;
+        this.showToast(msg);
+        if (window.playSfx) window.playSfx('click');
+      }, 500);
+    };
+
+    const cancelHold = () => {
+      if (holdTimer) {
+        clearTimeout(holdTimer);
+        holdTimer = null;
+      }
+    };
+
+    pill.addEventListener('mousedown', startHold);
+    pill.addEventListener('mouseup', cancelHold);
+    pill.addEventListener('mouseleave', cancelHold);
+    pill.addEventListener('touchstart', startHold, { passive: true });
+    pill.addEventListener('touchend', (e) => {
+      cancelHold();
+      if (didHold) {
+        e.stopPropagation();
+        if (e.cancelable) e.preventDefault();
+      }
+    });
+    pill.addEventListener('touchcancel', cancelHold);
+
+    // Right-click contextmenu to delete immediately
+    pill.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (hasVal) {
+        rel[multKey] = '';
+        this.renderLinks();
+        this.triggerChange();
+        const msg = isEn ? `🗑️ Multiplicity deleted from ${entityName}` : `🗑️ ${entityName} multiplicitysi o'chirildi!`;
+        this.showToast(msg);
+        if (window.playSfx) window.playSfx('click');
+      }
+    });
 
     pill.addEventListener('click', (e) => {
+      if (didHold) {
+        didHold = false;
+        return;
+      }
       e.stopPropagation();
+      if (!hasVal) {
+        // If clicking '+' to add, default to 1..1 and open picker
+        rel[multKey] = '1..1';
+        this.renderLinks();
+        this.triggerChange();
+      }
       this.openMultiplicitySelector(rel, multKey, e);
     });
 
@@ -1976,6 +2043,7 @@ class EERCanvasEngine {
   }
 
   openMultiplicitySelector(rel, multKey = 'mult1', e) {
+    const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
     let popover = document.getElementById('eerMultiplicityPopover');
     if (!popover) {
       popover = document.createElement('div');
@@ -1987,29 +2055,35 @@ class EERCanvasEngine {
     let activeKey = multKey || 'mult1';
 
     const renderPopContent = () => {
-      const current = rel[activeKey] || '1..1';
-      const label1 = rel.fromEntityName || rel.startSnapped?.node?.name || '1-Tomon';
-      const label2 = rel.toEntityName || rel.endSnapped?.node?.name || '2-Tomon';
+      const current = rel[activeKey] || '';
+      const label1 = rel.fromEntityName || rel.startSnapped?.node?.name || (isEn ? 'Side 1' : '1-Tomon');
+      const label2 = rel.toEntityName || rel.endSnapped?.node?.name || (isEn ? 'Side 2' : '2-Tomon');
 
       popover.innerHTML = `
         <div class="mult-pop-header">
-          <span class="mult-pop-title">Multiplicity Tanlash</span>
+          <span class="mult-pop-title">${isEn ? "Select Multiplicity" : "Multiplicity Tanlash"}</span>
           <button class="mult-pop-close" id="btnCloseEerMultPop">✕</button>
         </div>
         <div style="display:flex; gap:6px; padding:6px 10px; background:rgba(0,0,0,0.3); border-bottom:1px solid rgba(212,175,55,0.2);">
           <button type="button" id="tabMult1" style="flex:1; padding:5px 8px; font-size:11px; font-weight:700; border-radius:4px; cursor:pointer; background:${activeKey === 'mult1' ? 'var(--accent-gold, #d4af37)' : '#221c16'}; color:${activeKey === 'mult1' ? '#14110e' : '#ffd166'}; border:1px solid #d4af37;">
-            ${label1}: <strong>${rel.mult1 || '1..1'}</strong>
+            ${label1}: <strong>${rel.mult1 || (isEn ? '(None)' : '(Yo\'q)')}</strong>
           </button>
           <button type="button" id="tabMult2" style="flex:1; padding:5px 8px; font-size:11px; font-weight:700; border-radius:4px; cursor:pointer; background:${activeKey === 'mult2' ? 'var(--accent-gold, #d4af37)' : '#221c16'}; color:${activeKey === 'mult2' ? '#14110e' : '#ffd166'}; border:1px solid #d4af37;">
-            ${label2}: <strong>${rel.mult2 || '1..*'}</strong>
+            ${label2}: <strong>${rel.mult2 || (isEn ? '(None)' : '(Yo\'q)')}</strong>
           </button>
         </div>
         <div class="mult-pop-body">
           <div class="mult-options-grid">
-            <button class="btn-mult-opt ${current === '1..1' ? 'active' : ''}" data-val="1..1"><span>1..1</span> Majburiy bitta</button>
-            <button class="btn-mult-opt ${current === '0..1' ? 'active' : ''}" data-val="0..1"><span>0..1</span> Ixtiyoriy bitta</button>
-            <button class="btn-mult-opt ${current === '1..*' ? 'active' : ''}" data-val="1..*"><span>1..*</span> Kamida bitta</button>
-            <button class="btn-mult-opt ${current === '0..*' ? 'active' : ''}" data-val="0..*"><span>0..*</span> Ixtiyoriy ko'p</button>
+            <button class="btn-mult-opt ${current === '1..1' ? 'active' : ''}" data-val="1..1"><span>1..1</span> ${isEn ? "Exactly one" : "Majburiy bitta"}</button>
+            <button class="btn-mult-opt ${current === '0..1' ? 'active' : ''}" data-val="0..1"><span>0..1</span> ${isEn ? "Zero or one" : "Ixtiyoriy bitta"}</button>
+            <button class="btn-mult-opt ${current === '1..*' ? 'active' : ''}" data-val="1..*"><span>1..*</span> ${isEn ? "One or more" : "Kamida bitta"}</button>
+            <button class="btn-mult-opt ${current === '0..*' ? 'active' : ''}" data-val="0..*"><span>0..*</span> ${isEn ? "Zero or more" : "Ixtiyoriy ko'p"}</button>
+          </div>
+          <div style="padding-top:10px; margin-top:8px; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center;">
+            <button type="button" id="btnDeleteActiveMult" style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); color:#f87171; font-size:11px; font-weight:700; padding:5px 12px; border-radius:6px; cursor:pointer; display:flex; align-items:center; gap:4px;">
+              🗑️ ${isEn ? "Remove Multiplicity" : "Multiplicityni O'chirish"}
+            </button>
+            <small style="color:#94a3b8; font-size:10px;">${isEn ? "Or hold pill 0.5s" : "Yoki ustiga 0.5s bosib turing"}</small>
           </div>
         </div>
       `;
@@ -2030,6 +2104,17 @@ class EERCanvasEngine {
         renderPopContent();
       });
 
+      popover.querySelector('#btnDeleteActiveMult')?.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        rel[activeKey] = '';
+        popover.style.display = 'none';
+        this.renderLinks();
+        this.triggerChange();
+        const sideName = activeKey === 'mult1' ? label1 : label2;
+        this.showToast(isEn ? `🗑️ Multiplicity removed from ${sideName}` : `🗑️ ${sideName} multiplicitysi o'chirildi!`);
+        if (window.playSfx) window.playSfx('click');
+      });
+
       popover.querySelectorAll('.btn-mult-opt').forEach(btn => {
         btn.addEventListener('click', (ev) => {
           ev.stopPropagation();
@@ -2038,7 +2123,8 @@ class EERCanvasEngine {
           popover.style.display = 'none';
           this.renderLinks();
           this.triggerChange();
-          this.showToast(`✅ Multiplicity o'rnatildi: ${activeKey === 'mult1' ? label1 : label2} (${val})`);
+          const sideName = activeKey === 'mult1' ? label1 : label2;
+          this.showToast(isEn ? `✅ Multiplicity set: ${sideName} (${val})` : `✅ Multiplicity o'rnatildi: ${sideName} (${val})`);
           if (window.playSfx) window.playSfx('click');
         });
       });

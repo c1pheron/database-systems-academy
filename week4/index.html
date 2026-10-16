@@ -27,14 +27,13 @@
       <div class="stat-pill">
         <span class="stat-label">Lavozim:</span>
         <span class="stat-val gold" id="hudRankTitle">Stajyor-Tahlilchi</span>
+      <div class="stat-pill">
+        <span class="stat-label">Reyting:</span>
+        <span class="stat-val sage" id="hudSalary">1,200 Ball</span>
       </div>
       <div class="stat-pill">
-        <span class="stat-label">Maosh:</span>
-        <span class="stat-val sage" id="hudSalary">$1,200/oy</span>
-      </div>
-      <div class="stat-pill">
-        <span class="stat-label">Bonus:</span>
-        <span class="stat-val gold" id="hudCapital">$0</span>
+        <span class="stat-label">Jami Ball:</span>
+        <span class="stat-val gold" id="hudCapital">0 Ball</span>
       </div>
       <div class="stat-pill">
         <span class="stat-label">Bajarildi:</span>
@@ -46,6 +45,7 @@
     </div>
 
     <div class="hud-actions">
+      <button type="button" class="btn btn-back" id="btnNavBack" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href = '../ds-hub.html'; }" title="Orqaga qaytish">← Orqaga</button>
       <a href="../index.html" class="btn" style="text-decoration:none;" title="Asosiy Xabga qaytish">← Asosiy Xab</a>
       <button id="btnOpenDictionary" class="btn btn-dictionary" title="Barcha komandalar lug'ati (Ctrl+K)"><span>🔍</span> <span>Lug'at</span></button>
       <button class="btn btn-event" id="btnTriggerEvent" title="Hamkasblar bilan ofis voqeasi va suhbat">

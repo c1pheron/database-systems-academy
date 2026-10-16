@@ -223,7 +223,7 @@
 
     hudProgressText.textContent = `${solved} / ${total} (${pct}%)`;
     hudProgressBar.style.width = `${pct}%`;
-    hudXpText.textContent = `${state.xp} XP`;
+    hudXpText.textContent = `${state.xp} Ball`;
   }
 
   function renderFloorRail() {

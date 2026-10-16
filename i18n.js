@@ -23,10 +23,10 @@
       brand_sub_w2: "Relyatsion Sxema, Tashqi Kalitlar {FK}, Normalizatsiya (1NF-BCNF)",
       
       stat_rank: "Lavozim:",
-      stat_salary: "Maosh:",
-      stat_capital: "Kapital:",
+      stat_salary: "Reyting Bali:",
+      stat_capital: "Jami Ball:",
       stat_solved: "Bajarildi:",
-      salary_suffix: "/oy",
+      salary_suffix: " Ball",
 
       rank_1: "Kichik Ma'lumotlar Me'mori",
       rank_2: "Kichik Muhandis-Modeler",
@@ -35,6 +35,7 @@
       rank_5: "Katta EER Tizim Muhandisi",
       rank_6: "Bosh Arxitektor & Hamkor (Penthouse)",
 
+      btn_back: "← Orqaga",
       btn_main_hub: "← Asosiy Xab",
       btn_dictionary: "Lug'at",
       btn_incident: "⚡ Insident",
@@ -211,13 +212,13 @@
       sec_10_badge: "10F • Enterprise",
 
       // Portal (index.html)
-      portal_brand_sub: "Westminster 70+ First Class Ekotizimi • 3 Modul • 2,700 ta Amaliy Keys",
-      portal_user_name: "WIUT Talabasi",
+      portal_brand_sub: "Computer Science 70+ Ekotizimi • 3 Modul • 2,700 ta Amaliy Keys",
+      portal_user_name: "CS Muhandisi",
       portal_user_rank: "⭐ Cyber Intern",
       portal_stat_solved: "Jami Bajarildi:",
-      portal_stat_capital: "Jami Kapital:",
-      portal_hero_title: "Westminster Xalqaro Universiteti IT Modullari Simulyatori",
-      portal_hero_desc: "Xush kelibsiz! Ushbu platforma WIUT talabalari uchun quruq nazariyadan holi, 100% amaliy va Sokratik ta'lim tizimi asosida ishlab chiqilgan. Quyidagi 3 ta asosiy akademik yo'nalishdan birini tanlang va 1-dan 6-haftagacha bo'lgan chuqur amaliy simulyatorlarga sho'ng'ing:",
+      portal_stat_capital: "Jami Ball:",
+      portal_hero_title: "Computer Science Interaktiv IT Modullari Simulyatori",
+      portal_hero_desc: "Xush kelibsiz! Ushbu platforma talabalar uchun quruq nazariyadan holi, 100% amaliy va Sokratik ta'lim tizimi asosida ishlab chiqilgan. Quyidagi 3 ta asosiy akademik yo'nalishdan birini tanlang va 1-dan 6-haftagacha bo'lgan chuqur amaliy simulyatorlarga sho'ng'ing:",
       portal_progress_label: "Platformaning Umumiy O'zlashtirilishi",
       portal_progress_completed: "Bajarildi",
       portal_sec_title: "O'quv Modullari (3 ta Yo'nalish)",
@@ -233,12 +234,12 @@
       portal_oop_btn: "☕ OOP Moduliga Kirish →",
 
       // DS Hub (ds-hub.html)
-      hub_back_portal: "← SeventyPlus Portali",
+      hub_back_portal: "← SeventyOne+ Portali",
       hub_brand_sub: "Konseptual EER, Relyatsion Sxema, Normalizatsiya, SQL & NoSQL",
       hub_user_name: "Ma'lumotlar Me'mori",
       hub_user_rank: "Kichik Modeler",
       hub_stat_solved: "Bajarildi:",
-      hub_stat_capital: "Umumiy Kapital:",
+      hub_stat_capital: "Umumiy Ball:",
       hub_hero_title: "Zamonaviy Ma'lumotlar Bazasi Arxitekturasini Egallang",
       hub_hero_desc: "Xush kelibsiz! Konseptual EER modellashtirish va normalizatsiyadan tortib, korporativ SQL so'rovlar muhandisligi, tranzaksiyalar (ACID) va NoSQL klasterlarigacha bo'lgan 6 ta professional modul va 900 ta amaliy topshiriqni o'z ichiga olgan 2D interaktiv simulyator.",
       hub_progress_label: "O'quv Dasturining Umumiy O'zlashtirilishi",
@@ -274,10 +275,10 @@
       brand_sub_w2: "Relational Schema, Foreign Keys {FK}, Normalization (1NF-BCNF)",
 
       stat_rank: "Rank:",
-      stat_salary: "Salary:",
-      stat_capital: "Capital:",
+      stat_salary: "Rank Score:",
+      stat_capital: "Total Score:",
       stat_solved: "Solved:",
-      salary_suffix: "/mo",
+      salary_suffix: " Pts",
 
       rank_1: "Junior Database Architect",
       rank_2: "Junior Engineer-Modeler",
@@ -286,6 +287,7 @@
       rank_5: "Senior EER Systems Engineer",
       rank_6: "Chief Architect & Partner (Penthouse)",
 
+      btn_back: "← Back",
       btn_main_hub: "← Main Hub",
       btn_dictionary: "Dictionary",
       btn_incident: "⚡ Incident",
@@ -462,13 +464,13 @@
       sec_10_badge: "10F • Enterprise",
 
       // Portal (index.html)
-      portal_brand_sub: "Westminster 70+ First Class Ecosystem • 3 Modules • 2,700 Practical Cases",
-      portal_user_name: "WIUT Student",
+      portal_brand_sub: "Computer Science 70+ Ecosystem • 3 Modules • 2,700 Practical Cases",
+      portal_user_name: "CS Engineer",
       portal_user_rank: "⭐ Cyber Intern",
       portal_stat_solved: "Total Solved:",
-      portal_stat_capital: "Total Capital:",
-      portal_hero_title: "Westminster International University IT Modules Simulator",
-      portal_hero_desc: "Welcome! This platform is designed for WIUT students based on a 100% hands-on and Socratic pedagogy free from dry theory. Select one of the 3 core academic tracks below and dive into in-depth practical simulators spanning Weeks 1 through 6:",
+      portal_stat_capital: "Total Score:",
+      portal_hero_title: "Computer Science Interactive IT Modules Simulator",
+      portal_hero_desc: "Welcome! This platform is designed based on a 100% hands-on and Socratic pedagogy free from dry theory. Select one of the 3 core academic tracks below and dive into in-depth practical simulators spanning Weeks 1 through 6:",
       portal_progress_label: "Overall Platform Mastery",
       portal_progress_completed: "Completed",
       portal_sec_title: "Academic Modules (3 Tracks)",
@@ -484,12 +486,12 @@
       portal_oop_btn: "☕ Enter OOP Module →",
 
       // DS Hub (ds-hub.html)
-      hub_back_portal: "← SeventyPlus Portal",
+      hub_back_portal: "← SeventyOne+ Portal",
       hub_brand_sub: "Conceptual EER, Relational Schema, Normalization, SQL & NoSQL",
       hub_user_name: "Database Architect",
       hub_user_rank: "Junior Modeler",
       hub_stat_solved: "Solved:",
-      hub_stat_capital: "Total Capital:",
+      hub_stat_capital: "Total Score:",
       hub_hero_title: "Master Modern Database Architecture",
       hub_hero_desc: "Welcome! An interactive 2D simulator covering 6 professional modules and 900 practical tasks, spanning conceptual EER modeling and normalization to enterprise SQL query engineering, ACID transactions, and NoSQL clusters.",
       hub_progress_label: "Curriculum Overall Mastery",

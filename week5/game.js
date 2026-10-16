@@ -96,8 +96,8 @@
     const rank = getCareerRank(solvedCount);
 
     document.getElementById("hudRankTitle").textContent = `${rank.badge} ${rank.title}`;
-    document.getElementById("hudSalary").textContent = rank.salary;
-    document.getElementById("hudCapital").textContent = `$${state.bonusCapital.toLocaleString()}`;
+    document.getElementById("hudSalary").textContent = rank.salary ? rank.salary.replace('$', '').replace('/oy', ' Ball') : `${(solvedCount * 20 + 1500)} Ball`;
+    document.getElementById("hudCapital").textContent = `${state.bonusCapital.toLocaleString()} Ball`;
     document.getElementById("hudSolved").textContent = `${solvedCount} / ${TOTAL_QUESTIONS}`;
 
     const pct = Math.min(100, Math.round((solvedCount / TOTAL_QUESTIONS) * 100));
@@ -439,11 +439,11 @@
         state.bonusCapital += bonusEarned;
         saveState();
 
-        if (arena) arena.spawnBonusEffect(`+$${bonusEarned} Mukofot!`);
+        if (arena) arena.spawnBonusEffect(`+${bonusEarned} Ball!`);
 
         feedbackBox.innerHTML = `
           <strong>🎉 Ajoyib Natija! Topshiriq Muvaffaqiyatli Bajarildi!</strong><br>
-          Barcha ustunlar va qatorlar kutilganidek aniq chiqdi. Hisobingizga <strong>+$${bonusEarned}</strong> bonus kapital qo'shildi!
+          Barcha ustunlar va qatorlar kutilganidek aniq chiqdi. Hisobingizga <strong>+${bonusEarned} Ball</strong> qo'shildi!
         `;
 
         checkOfficeEventTrigger(q.id);

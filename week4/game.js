@@ -112,8 +112,8 @@
     const rank = getCareerRank(solvedCount);
 
     document.getElementById("hudRankTitle").textContent = `${rank.badge} ${rank.title}`;
-    document.getElementById("hudSalary").textContent = rank.salary;
-    document.getElementById("hudCapital").textContent = `$${state.bonusCapital.toLocaleString()}`;
+    document.getElementById("hudSalary").textContent = rank.salary ? rank.salary.replace('$', '').replace('/oy', ' Ball') : `${(solvedCount * 20 + 1200)} Ball`;
+    document.getElementById("hudCapital").textContent = `${state.bonusCapital.toLocaleString()} Ball`;
     document.getElementById("hudSolved").textContent = `${solvedCount} / ${TOTAL_QUESTIONS}`;
 
     const pct = Math.min(100, Math.round((solvedCount / TOTAL_QUESTIONS) * 100));
@@ -416,7 +416,7 @@
           <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
             <div>
               <strong>✓ Hisobot Tasdiqlandi!</strong> ${formatInlineMarkdown(gradeRes.feedback)}
-              ${isFirstTime ? `<span style="color:var(--accent-gold-bright); font-weight:600;"> (+$${reward} Bonus Kapital)</span>` : ""}
+              ${isFirstTime ? `<span style="color:var(--accent-gold-bright); font-weight:600;"> (+${reward} Ball)</span>` : ""}
             </div>
             ${
               nextQ
@@ -538,7 +538,7 @@
           if (isFirstCompletion) state.completedEvents.push(ev.id);
           saveState();
           renderHUD();
-          outcomeBox.innerHTML = `${formatInlineMarkdown(ch.outcome)} <br><strong style="color:var(--accent-gold-bright);">+$${bonus} Korporativ Bonus Kapital qo'shildi!</strong>`;
+          outcomeBox.innerHTML = `${formatInlineMarkdown(ch.outcome)} <br><strong style="color:var(--accent-gold-bright);">+${bonus} Ball qo'shildi!</strong>`;
         } else {
           btn.classList.add("wrong-choice");
           outcomeBox.className = "feedback-box error";

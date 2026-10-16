@@ -2028,6 +2028,26 @@ input, textarea, select, [contenteditable="true"] {
   box-shadow: 0 0 14px rgba(255, 209, 102, 0.7) !important;
 }
 
+.mult-pill.add-pill {
+  background: rgba(20, 17, 14, 0.9) !important;
+  border: 1.5px dashed var(--accent-gold, #d4af37) !important;
+  color: #ffd166 !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  padding: 1px 7px !important;
+  line-height: 1.1 !important;
+  opacity: 0.9;
+}
+
+.mult-pill.add-pill:hover, .mult-pill.add-pill:active {
+  background: var(--accent-gold, #d4af37) !important;
+  color: #14110e !important;
+  border-style: solid !important;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.25) !important;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.9) !important;
+}
+
 /* INTERACTIVE LINE ACTION TOOLBAR (MULTIPLICITY + DELETE) */
 .line-action-toolbar {
   position: absolute;

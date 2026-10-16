@@ -1,37 +1,38 @@
 /* ============================================================================
-   DATABASE SYSTEMS ACADEMY — MASTER HUB STYLES (LUXURY EXECUTIVE THEME)
-   Tabiiy yong'oq daraxti (Walnut #151210), Shampan Oltini (#c8a96e),
-   Tabiiy Mavrak Yashil (#5c8d73), Iliq Fil Suyagi (#f2ede4)
-   Hech qanday neon ranglar yo'q — barcha 6 ta modul yagona korporativ uslubda!
+   DATABASE SYSTEMS ACADEMY — MASTER HUB STYLES (OBSIDIAN DEVELOPER THEME)
+   Deep Obsidian Slate (#080b11), Midnight Navy (#0f172a), High-Tech Slate (#131d31)
+   Electric Cyan (#38bdf8 / #00f2fe), Neon Emerald (#10b981), Pure White (#f8fafc)
+   Modern, ultra-sharp, high-contrast developer workspace across all 6 modules.
    ============================================================================ */
 
 :root {
-  --bg-deep: #151210;
-  --bg-panel: #1e1916;
-  --bg-card: #27211c;
-  --bg-card-hover: #302822;
-  --bg-hud: rgba(27, 23, 19, 0.94);
+  --bg-deep: #080b11;
+  --bg-panel: #0d1527;
+  --bg-card: #131d31;
+  --bg-card-hover: #1c2b48;
+  --bg-hud: rgba(11, 17, 33, 0.94);
 
-  --border-subtle: rgba(200, 169, 110, 0.18);
-  --border-gold: rgba(200, 169, 110, 0.45);
+  --border-subtle: rgba(56, 189, 248, 0.16);
+  --border-gold: rgba(56, 189, 248, 0.35);
 
-  --text-primary: #f2ede4;
-  --text-secondary: #c4bbb0;
-  --text-muted: #8c8276;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
 
-  --accent-gold: #c8a96e;
-  --accent-gold-bright: #dfc288;
-  --accent-sage: #5c8d73;
-  --accent-sage-soft: rgba(92, 141, 115, 0.18);
-  --accent-terracotta: #c46d58;
-  --accent-amber: #d19a52;
+  --accent-gold: #38bdf8;
+  --accent-gold-bright: #00f2fe;
+  --accent-sage: #10b981;
+  --accent-sage-soft: rgba(16, 185, 129, 0.18);
+  --accent-terracotta: #f43f5e;
+  --accent-amber: #f59e0b;
+  --accent-purple: #a855f7;
 
-  --radius-lg: 12px;
+  --radius-lg: 14px;
   --radius-md: 10px;
   --radius-sm: 6px;
 
-  --shadow-luxury: 0 10px 28px rgba(0, 0, 0, 0.45);
-  --shadow-card-hover: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 18px rgba(200, 169, 110, 0.15);
+  --shadow-luxury: 0 10px 28px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.2);
 }
 
 * {
@@ -42,7 +43,7 @@
 
 html, body {
   background-color: var(--bg-deep);
-  background-image: radial-gradient(circle at 50% 0%, #26201a 0%, #151210 75%);
+  background-image: radial-gradient(circle at 50% 0%, #0d1a33 0%, #080b11 85%);
   color: var(--text-primary);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 14px;
@@ -70,14 +71,14 @@ input, textarea, select, [contenteditable="true"] {
    ============================================================================ */
 .master-header {
   background: var(--bg-hud);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-gold);
   position: sticky;
   top: 0;
   z-index: 50;
   padding: 10px 20px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .header-container {
@@ -97,23 +98,24 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .brand-emblem {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #382c21, #211a14);
-  border: 1px solid var(--accent-gold);
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0284c7, #7c3aed);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  color: var(--accent-gold);
+  color: #fff;
   flex-shrink: 0;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
 }
 
 .brand-title {
   font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
   color: var(--text-primary);
   display: flex;
   align-items: center;
@@ -122,24 +124,25 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .brand-badge {
-  background: rgba(200, 169, 110, 0.16);
+  background: rgba(56, 189, 248, 0.15);
   border: 1px solid var(--border-gold);
   color: var(--accent-gold-bright);
-  font-size: 11px;
+  font-size: 10.5px;
   padding: 2px 7px;
   border-radius: 4px;
-  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
 }
 
 .brand-sub {
   font-size: 11.5px;
-  color: var(--accent-gold);
+  color: var(--text-muted);
 }
 
 .hud-profile-pill {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -157,14 +160,15 @@ input, textarea, select, [contenteditable="true"] {
 
 .profile-name {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
 .profile-rank {
   font-size: 10.5px;
-  color: var(--accent-gold);
-  font-weight: 500;
+  color: var(--accent-gold-bright);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
 }
 
 .header-stats {
@@ -190,7 +194,8 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .stat-chip .val {
-  font-weight: 600;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .stat-chip .val.gold {
@@ -198,7 +203,30 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .stat-chip .val.sage {
-  color: #84b89c;
+  color: var(--accent-sage);
+}
+
+/* Back Navigation Button */
+.btn-back-hub, .btn-back {
+  background: rgba(19, 29, 49, 0.9) !important;
+  border: 1px solid var(--border-gold) !important;
+  color: var(--text-primary) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  padding: 6px 12px !important;
+  border-radius: var(--radius-sm) !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-back-hub:hover, .btn-back:hover {
+  background: rgba(56, 189, 248, 0.2) !important;
+  border-color: var(--accent-gold-bright) !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.35) !important;
 }
 
 /* ============================================================================
@@ -207,12 +235,12 @@ input, textarea, select, [contenteditable="true"] {
 .lang-switch-box {
   display: inline-flex;
   align-items: center;
-  background: rgba(21, 18, 16, 0.95);
-  border: 1px solid var(--border-subtle);
+  background: rgba(13, 21, 39, 0.95);
+  border: 1px solid var(--border-gold);
   border-radius: 8px;
   padding: 2px;
   gap: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .btn-lang {
@@ -234,14 +262,14 @@ input, textarea, select, [contenteditable="true"] {
 
 .btn-lang:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .btn-lang.active {
-  background: var(--accent-gold);
-  color: #120e0b !important;
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: #080b11 !important;
   font-weight: 800;
-  box-shadow: 0 0 10px rgba(200, 169, 110, 0.45);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
 }
 
 /* ============================================================================
@@ -259,7 +287,7 @@ input, textarea, select, [contenteditable="true"] {
 
 /* HERO SECTION */
 .hero-banner {
-  background: linear-gradient(180deg, #27211c 0%, #1e1916 100%);
+  background: linear-gradient(135deg, rgba(19, 29, 49, 0.95) 0%, rgba(13, 21, 39, 0.95) 100%);
   border: 1px solid var(--border-gold);
   border-radius: var(--radius-lg);
   padding: 28px 24px;
@@ -275,16 +303,19 @@ input, textarea, select, [contenteditable="true"] {
   right: -20%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(200, 169, 110, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .hero-title {
   font-size: 24px;
   font-weight: 800;
-  color: var(--accent-gold-bright);
+  color: var(--text-primary);
   letter-spacing: 0.3px;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .hero-desc {
@@ -296,7 +327,7 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .hero-progress-box {
-  background: #171311;
+  background: rgba(8, 11, 17, 0.8);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 12px 16px;
@@ -311,16 +342,17 @@ input, textarea, select, [contenteditable="true"] {
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--text-secondary);
 }
 
 .progress-track {
   width: 100%;
   height: 8px;
-  background: #241e19;
+  background: #080b11;
   border-radius: 99px;
   overflow: hidden;
-  border: 1px solid rgba(200, 169, 110, 0.15);
+  border: 1px solid var(--border-subtle);
 }
 
 .progress-bar-fill {
@@ -342,7 +374,7 @@ input, textarea, select, [contenteditable="true"] {
 
 .section-title {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--accent-gold);
   display: flex;
   align-items: center;
@@ -350,7 +382,7 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 /* ============================================================================
-   6 MODULES GRID (WARM LUXURY CARDS)
+   6 MODULES GRID (OBSIDIAN CARDS)
    ============================================================================ */
 .modules-grid {
   display: grid;
@@ -362,7 +394,7 @@ input, textarea, select, [contenteditable="true"] {
   background: var(--bg-panel);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 22px;
   box-shadow: var(--shadow-luxury);
   transition: all 0.25s ease;
   display: flex;
@@ -371,6 +403,16 @@ input, textarea, select, [contenteditable="true"] {
   gap: 16px;
   position: relative;
   overflow: hidden;
+}
+
+.module-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
 }
 
 .module-card:hover {
@@ -392,13 +434,14 @@ input, textarea, select, [contenteditable="true"] {
   width: 44px;
   height: 44px;
   border-radius: 8px;
-  background: #27211c;
+  background: #080b11;
   border: 1px solid var(--border-gold);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 22px;
   flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
 }
 
 .module-badges {
@@ -412,24 +455,25 @@ input, textarea, select, [contenteditable="true"] {
   font-size: 10.5px;
   padding: 2px 7px;
   border-radius: 4px;
-  font-weight: 600;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .badge-week {
-  background: rgba(200, 169, 110, 0.15);
+  background: rgba(56, 189, 248, 0.15);
   border: 1px solid var(--border-gold);
   color: var(--accent-gold-bright);
 }
 
 .badge-count {
-  background: rgba(92, 141, 115, 0.15);
-  border: 1px solid rgba(92, 141, 115, 0.35);
-  color: #9ec4a5;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: var(--accent-sage);
 }
 
 .module-card-title {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 6px;
   line-height: 1.35;
@@ -450,9 +494,9 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .topic-chip {
-  background: #1c1815;
-  border: 1px solid rgba(200, 169, 110, 0.14);
-  color: var(--text-muted);
+  background: #080b11;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
   font-size: 10.5px;
   padding: 3px 7px;
   border-radius: 3px;
@@ -480,28 +524,32 @@ input, textarea, select, [contenteditable="true"] {
 
 .module-stat-val {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--accent-gold-bright);
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .btn-launch {
-  background: linear-gradient(180deg, #b89555 0%, #99783d 100%);
-  color: #14110e;
-  border: 1px solid #d4b67b;
-  font-weight: 600;
-  padding: 7px 14px;
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: #080b11;
+  border: 1px solid #7dd3fc;
+  font-weight: 700;
+  padding: 8px 16px;
   border-radius: var(--radius-sm);
   font-size: 12px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: all 0.18s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
 }
 
 .btn-launch:hover {
-  background: linear-gradient(180deg, #c9a664 0%, #ab8849 100%);
-  color: #0f0c0a;
+  background: #38bdf8;
+  color: #080b11;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.5);
+  transform: translateY(-1px);
 }
 
 /* ============================================================================
@@ -534,7 +582,7 @@ input, textarea, select, [contenteditable="true"] {
 
 .career-card.current {
   border-color: var(--accent-gold);
-  background: rgba(200, 169, 110, 0.08);
+  background: rgba(56, 189, 248, 0.08);
 }
 
 .career-rank-title {

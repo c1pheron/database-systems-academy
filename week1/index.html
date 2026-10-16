@@ -39,14 +39,14 @@
         <span id="hudRankTitle" class="stat-val cyan">Kichik Modeler</span>
       </div>
 
-      <div class="stat-pill" title="Kompaniya sizga to'laydigan oylik maosh">
-        <span class="stat-label" data-i18n="stat_salary">Maosh:</span>
-        <span id="hudSalary" class="stat-val sage">$2,500/oy</span>
+      <div class="stat-pill" title="Sizning me'moriy malaka ko'rsatkichingiz">
+        <span class="stat-label" data-i18n="stat_salary">Reyting Bali:</span>
+        <span id="hudSalary" class="stat-val sage">2,500 Ball</span>
       </div>
 
-      <div class="stat-pill" title="To'plangan umumiy me'moriy kapital">
-        <span class="stat-label" data-i18n="stat_capital">Kapital:</span>
-        <span id="hudCapital" class="stat-val gold">$0</span>
+      <div class="stat-pill" title="To'plangan umumiy ballar">
+        <span class="stat-label" data-i18n="stat_capital">Jami Ball:</span>
+        <span id="hudCapital" class="stat-val gold">0 Ball</span>
       </div>
 
       <div class="stat-pill" title="Bajarilgan topshiriqlar soni (150 tadan)">
@@ -65,6 +65,7 @@
         <button id="btnLangEn" class="btn-lang" type="button" title="English">EN</button>
       </div>
 
+      <button type="button" class="btn btn-back" id="btnNavBack" data-i18n="btn_back" onclick="if(window.history.length > 1) { window.history.back(); } else { window.location.href = '../ds-hub.html'; }" title="Orqaga qaytish">← Orqaga</button>
       <a href="../index.html" class="btn" id="btnMainHub" data-i18n="btn_main_hub" title="Asosiy Xabga qaytish">← Asosiy Xab</a>
       <button id="btnOpenDictionary" class="btn btn-dictionary" data-i18n-title="tooltip_dict" title="Barcha komandalar lug'ati (Ctrl+K)"><span>🔍</span> <span data-i18n="btn_dictionary">Lug'at</span></button>
       <button id="btnTriggerEvent" class="btn btn-event" data-i18n="btn_incident" data-i18n-title="tooltip_event" title="Korporativ kutilmagan vaziyat">⚡ Insident</button>
