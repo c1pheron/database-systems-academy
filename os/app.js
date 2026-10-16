@@ -46,8 +46,8 @@
         if (tg.enableClosingConfirmation) tg.enableClosingConfirmation();
 
         // Carbon Titanium Header & Background colors
-        if (tg.setHeaderColor) tg.setHeaderColor("#1f2335");
-        if (tg.setBackgroundColor) tg.setBackgroundColor("#1a1b26");
+        if (tg.setHeaderColor) tg.setHeaderColor("#0c1322");
+        if (tg.setBackgroundColor) tg.setBackgroundColor("#070b14");
 
         // Grab user profile
         const user = tg.initDataUnsafe && tg.initDataUnsafe.user;

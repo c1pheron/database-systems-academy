@@ -349,7 +349,7 @@
       .replace(/>/g, "&gt;")
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
       .replace(/\*(.*?)\*/g, "<em>$1</em>")
-      .replace(/`([^`]+)`/g, '<code style="background:rgba(16, 185, 129, 0.15); color:#73daca; padding:1px 5px; border-radius:3px; font-family:\'JetBrains Mono\', monospace; font-size:12px;">$1</code>');
+      .replace(/`([^`]+)`/g, '<code style="background:rgba(16, 185, 129, 0.15); color:#34d399; padding:1px 5px; border-radius:3px; font-family:\'JetBrains Mono\', monospace; font-size:12px;">$1</code>');
   }
 
   function escapeHtml(str) {
@@ -951,7 +951,7 @@
         html += `<div style="color:var(--text-muted);">Hali hech qanday buyruq bajarilmadi.</div>`;
       } else {
         state.commandHistory.forEach((cmd, idx) => {
-          html += `<div style="padding:3px 0; border-bottom:1px solid rgba(255,255,255,0.04);"><span style="color:#64748b;">${idx + 1}</span> <code style="color:#bb9af7;">${cmd}</code></div>`;
+          html += `<div style="padding:3px 0; border-bottom:1px solid rgba(255,255,255,0.04);"><span style="color:#64748b;">${idx + 1}</span> <code style="color:#38bdf8;">${cmd}</code></div>`;
         });
       }
       html += `</div>`;
@@ -968,10 +968,10 @@
         const expShell = new window.VIRTUAL_LINUX_W3.VirtualLinuxShell();
         const expRes = expShell.execute(q.expectedSql || q.expectedBash || "");
         html += `<div style="margin-bottom:10px;"><b>Topshiriq #${q.id}:</b> ${q.title}</div>`;
-        html += `<div style="margin-bottom:6px; color:#bb9af7;">Kutilgan buyruq: <code>${q.expectedSql || q.expectedBash}</code></div>`;
+        html += `<div style="margin-bottom:6px; color:#38bdf8;">Kutilgan buyruq: <code>${q.expectedSql || q.expectedBash}</code></div>`;
         html += `<div style="background:#090e1c; padding:8px; border-radius:4px; margin-bottom:10px; border:1px solid rgba(6,182,212,0.3);">
           <div style="font-size:11px; color:#94a3b8; margin-bottom:4px;">Kutilayotgan Chiqish (stdout):</div>
-          <pre style="color:#bb9af7; font-size:11.5px; white-space:pre-wrap;">${expRes.stdout || "(bo'sh chiqish / fayl tizimi o'zgarishi)"}</pre>
+          <pre style="color:#38bdf8; font-size:11.5px; white-space:pre-wrap;">${expRes.stdout || "(bo'sh chiqish / fayl tizimi o'zgarishi)"}</pre>
         </div>`;
       }
       html += `</div>`;
@@ -1791,7 +1791,7 @@ Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls
       if (el.btnEngineShell) el.btnEngineShell.classList.add("active");
       if (el.btnEngineWasm) el.btnEngineWasm.classList.remove("active");
       if (el.kaliStream) {
-        el.kaliStream.innerHTML = `<div style="color:#bb9af7; margin: 4px 0 8px 0; font-size:12.5px; font-weight:600;">[*] ⚡ Tezkor Kali Shell faol. Topshiriq buyrug'ini kiriting yoki 'help' deb yozing:</div>`;
+        el.kaliStream.innerHTML = `<div style="color:#38bdf8; margin: 4px 0 8px 0; font-size:12.5px; font-weight:600;">[*] ⚡ Tezkor Kali Shell faol. Topshiriq buyrug'ini kiriting yoki 'help' deb yozing:</div>`;
       }
     }
     updateTerminalPrompt();
@@ -1931,7 +1931,7 @@ permitted by applicable law.
 <span style="color:#64748b">│</span>
 <span style="color:#e2e8f0">│ This is a minimal installation of Kali Linux, you likely</span>
 <span style="color:#e2e8f0">│ want to install supplementary tools. Learn how:</span>
-<span style="color:#bb9af7">│ ⇒ https://www.kali.org/docs/troubleshooting/common-minimum-setup/</span>
+<span style="color:#38bdf8">│ ⇒ https://www.kali.org/docs/troubleshooting/common-minimum-setup/</span>
 <span style="color:#64748b">│</span>
 <span style="color:#64748b">└──(Run: "touch ~/.hushlogin" to hide this message)</span>
 <span style="color:#f8fafc">Welcome to Kali in UserLAnd!</span>\n`;
@@ -1966,19 +1966,19 @@ permitted by applicable law.
 
     let flagsHtml = "";
     if (entry.flags && entry.flags.length > 0) {
-      flagsHtml = "<div style='margin-top:6px; color:#bb9af7; font-weight:700; font-size:12px;'>🚩 Asosiy Bayroqlar:</div>" +
+      flagsHtml = "<div style='margin-top:6px; color:#38bdf8; font-weight:700; font-size:12px;'>🚩 Asosiy Bayroqlar:</div>" +
         entry.flags.slice(0, 8).map(f => "<div style='font-size:11.5px; color:#cbd5e1; margin-left:8px;'><code>" + escapeHtml(f.flag) + "</code> : " + escapeHtml(f.desc) + "</div>").join("");
     }
 
     let combosHtml = "";
     if (entry.combinations && entry.combinations.length > 0) {
-      combosHtml = "<div style='margin-top:6px; color:#bb9af7; font-weight:700; font-size:12px;'>⚡ Ishlatilish Kombinatsiyalari:</div>" +
+      combosHtml = "<div style='margin-top:6px; color:#38bdf8; font-weight:700; font-size:12px;'>⚡ Ishlatilish Kombinatsiyalari:</div>" +
         entry.combinations.slice(0, 4).map(c => "<div style='font-size:11.5px; color:#a7f3d0; margin-left:8px;'>• <code>" + escapeHtml(c.cmd) + "</code><br><span style='color:#94a3b8; font-size:10.5px;'>(" + escapeHtml(c.desc) + ")</span></div>").join("");
     }
 
     card.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1e293b; padding-bottom:5px;">
-        <span style="font-size:14px; font-weight:800; color:#bb9af7;">📖 ${escapeHtml(entry.cmd)} — ${escapeHtml(entry.name)}</span>
+        <span style="font-size:14px; font-weight:800; color:#38bdf8;">📖 ${escapeHtml(entry.cmd)} — ${escapeHtml(entry.name)}</span>
         <span style="font-size:10.5px; background:#1e293b; color:#94a3b8; padding:2px 6px; border-radius:4px;">${escapeHtml(entry.catName || 'Linux')}</span>
       </div>
       <div style="font-size:12px; color:#f1f5f9; margin-top:6px; line-height:1.45;">${escapeHtml(entry.desc)}</div>
@@ -2009,7 +2009,7 @@ permitted by applicable law.
     const cleanTask = q.taskUz ? q.taskUz.replace(/<[^>]*>/g, "") : (q.story || "Topshiriqni bajaring.");
     const cleanTitle = (q.title || "").replace(/\s*\([a-z0-9_ -./~*]+\)/gi, "").trim();
 
-    card.innerHTML = `<div style="font-weight:700; font-size:12px; color:#bb9af7; display:flex; align-items:center; gap:5px; margin:0; padding:0; line-height:1.25;"><span>🎯</span><span>Topshiriq #${q.id}: ${escapeHtml(cleanTitle)}</span></div><div style="font-size:11.5px; color:#cbd5e1; margin-top:2px; margin-bottom:0; line-height:1.3; white-space:normal;"><b>Vazifa:</b> ${escapeHtml(cleanTask)}</div>`;
+    card.innerHTML = `<div style="font-weight:700; font-size:12px; color:#38bdf8; display:flex; align-items:center; gap:5px; margin:0; padding:0; line-height:1.25;"><span>🎯</span><span>Topshiriq #${q.id}: ${escapeHtml(cleanTitle)}</span></div><div style="font-size:11.5px; color:#cbd5e1; margin-top:2px; margin-bottom:0; line-height:1.3; white-space:normal;"><b>Vazifa:</b> ${escapeHtml(cleanTask)}</div>`;
 
     el.kaliStream.appendChild(card);
     scrollKaliToBottom();
@@ -2961,7 +2961,7 @@ permitted by applicable law.
         SoundFX.playKey();
         const expShell = new window.VIRTUAL_LINUX_W3.VirtualLinuxShell();
         const res = expShell.execute(q.expectedSql || q.expectedBash || "");
-        showFeedback(true, `<b>👁 Kutilayotgan Natija (Chiqish):</b><br><pre style="background:#040711; padding:6px; border-radius:4px; color:#bb9af7; margin-top:4px;">${res.stdout || "(Fayl tizimida o'zgarish sodir bo'ladi)"}</pre>`);
+        showFeedback(true, `<b>👁 Kutilayotgan Natija (Chiqish):</b><br><pre style="background:#040711; padding:6px; border-radius:4px; color:#38bdf8; margin-top:4px;">${res.stdout || "(Fayl tizimida o'zgarish sodir bo'ladi)"}</pre>`);
       });
     }
 
