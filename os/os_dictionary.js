@@ -12,6 +12,347 @@
 
   const OS_DICTIONARY_DATA = [
   {
+    "cmd": "tar",
+    "name": "Tape Archive (Fayl va Katalogni Arxivlash / Qadoqlash)",
+    "cat": "disk",
+    "catName": "💾 Disk, Arxiv & Bloklar",
+    "desc": "Linux tizimida bir nechta fayl va butun kataloglarni bitta arxiv fayliga (.tar, .tar.gz, .tar.bz2) qadoqlash yoki arxivdan qayta chiqarish (extract).",
+    "syntax": "tar [BAYROQLAR] [ARXIV_NOMI.tar.gz] [FAYLLAR_YOKI_PAPKALAR]",
+    "syntaxRules": "Yodlash qoidasi: 'c' = Create (yaratish), 'x' = eXtract (ochish), 'z' = gZip (siqish), 'v' = Verbose (ko'rsatish), 'f' = File (fayl nomi darhol keyin keladi!).",
+    "flags": [
+      {
+        "flag": "-c",
+        "desc": "Yangi arxiv fayli yaratish (Create)"
+      },
+      {
+        "flag": "-x",
+        "desc": "Arxiv ichidagilarni chiqarib olish (eXtract)"
+      },
+      {
+        "flag": "-z",
+        "desc": "Arxivni gzip orqali siqish (.tar.gz)"
+      },
+      {
+        "flag": "-j",
+        "desc": "Arxivni bzip2 orqali kuchliroq siqish (.tar.bz2)"
+      },
+      {
+        "flag": "-v",
+        "desc": "Jarayon davomida arxivlanayotgan har bir faylni ekranga chiqarish (Verbose)"
+      },
+      {
+        "flag": "-f",
+        "desc": "Arxiv fayl nomini ko'rsatish (har doim bayroqlar oxirida turishi shart!)"
+      },
+      {
+        "flag": "-t",
+        "desc": "Arxivni ochmasdan ichidagi fayllar ro'yxatini ko'rish (List content)"
+      },
+      {
+        "flag": "-C",
+        "desc": "Fayllarni boshqa ko'rsatilgan katalogga ochish (Destination directory)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "tar -czvf loyiha_backup.tar.gz /var/www/myproject",
+        "desc": "Katalogni barcha fayllari bilan gzip siqilgan arxivga o'rash"
+      },
+      {
+        "cmd": "tar -xzvf loyiha_backup.tar.gz -C /opt/deployed/",
+        "desc": "Arxivni /opt/deployed katalogiga ochish"
+      },
+      {
+        "cmd": "tar -tzvf backup.tar.gz | grep 'config.php'",
+        "desc": "Arxivni ochmasdan ichida config.php bor-yo'qligini tekshirish"
+      }
+    ],
+    "example": "tar -czvf site_backup_$(date +%Y%m%d).tar.gz /var/www/html",
+    "analogy": "Sayoxatga ketayotganda barcha kiyimlarni bitta chamadonga solib, ustidan vakuum qop bilan qisib havosini chiqarib olish."
+  },
+  {
+    "cmd": "gzip",
+    "name": "GNU Zip (Fayllarni Siqish / Hajmini Kichraytirish)",
+    "cat": "disk",
+    "catName": "💾 Disk, Arxiv & Bloklar",
+    "desc": "Alohida fayllarning hajmini Lempel-Ziv (LZ77) algoritmi yordamida sezilarli darajada kichraytiradi (.gz kengaytma beradi).",
+    "syntax": "gzip [BAYROQLAR] [FAYL]",
+    "syntaxRules": "DIQQAT: gzip asl faylni o'rniga .gz yaratadi. Asl faylni saqlash uchun -k (keep) bayrog'ini ishlating.",
+    "flags": [
+      {
+        "flag": "-k",
+        "desc": "Asl faylni o'chirib yubormasdan saqlab qolish (--keep)"
+      },
+      {
+        "flag": "-d",
+        "desc": "Siqilgan .gz faylni qayta ochish (decompress / gunzip bilan teng)"
+      },
+      {
+        "flag": "-9",
+        "desc": "Maksimal darajada qattiq siqish (eng kichik hajm, sekinroq)"
+      },
+      {
+        "flag": "-1",
+        "desc": "Eng tezkor siqish (tez, lekin hajm kattaroq)"
+      },
+      {
+        "flag": "-r",
+        "desc": "Katalog ichidagi barcha fayllarni rekursiv siqish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "gzip -9 -k database_dump.sql",
+        "desc": "SQL bazani asl nusxasini saqlab eng yuqori darajada siqish"
+      },
+      {
+        "cmd": "gzip -d database_dump.sql.gz",
+        "desc": "Siqilgan bazani qayta ochish"
+      }
+    ],
+    "example": "gzip -k /var/log/nginx/access.log",
+    "analogy": "Paxtani yoki kiyimni maxsus press ostida qisib, uning oladigan joyini 5 baravar kamaytirish."
+  },
+  {
+    "cmd": "gunzip",
+    "name": "GNU Unzip (Siqilgan .gz Fayllarni Qayta Ochish)",
+    "cat": "disk",
+    "catName": "💾 Disk, Arxiv & Bloklar",
+    "desc": "gzip yordamida siqilgan .gz fayllarni ochib, asl holatiga qaytaradi.",
+    "syntax": "gunzip [BAYROQLAR] [FAYL.gz]",
+    "syntaxRules": "gunzip file.gz buyrug'i 'gzip -d file.gz' bilan 100% bir xil ishlaydi.",
+    "flags": [
+      {
+        "flag": "-k",
+        "desc": ".gz arxivini o'chirib yubormay saqlab qolish"
+      },
+      {
+        "flag": "-f",
+        "desc": "Mavjud fayl ustiga majburiy yozish (force)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "gunzip -k access.log.gz",
+        "desc": "Log arxivini ochib, arxivning o'zini ham saqlab qolish"
+      }
+    ],
+    "example": "gunzip backup.sql.gz",
+    "analogy": "Vakuumlangan paketni ochib, ichidagi buyumlarni to'liq asl hajmiga qaytarish."
+  },
+  {
+    "cmd": "zip",
+    "name": "Package and Compress Files (.zip Arxivlash)",
+    "cat": "disk",
+    "catName": "💾 Disk, Arxiv & Bloklar",
+    "desc": "Windows va macOS bilan 100% mos keluvchi .zip arxivlarini yaratish va fayllarni siqish.",
+    "syntax": "zip [BAYROQLAR] arxiv.zip fayl1 fayl2 ...",
+    "syntaxRules": "Papkani to'liq siqish uchun majburiy -r (rekursiv) bayrog'i qo'yilishi shart!",
+    "flags": [
+      {
+        "flag": "-r",
+        "desc": "Katalog va uning barcha ichki fayllarini rekursiv siqish"
+      },
+      {
+        "flag": "-e",
+        "desc": "Arxivga parol o'rnatish (shifrlash)"
+      },
+      {
+        "flag": "-q",
+        "desc": "Jim rejim (ekranga log chiqarmaslik)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "zip -r loyiha.zip ./src ./package.json",
+        "desc": "Loyiha kodlarini Windows foydalanuvchilariga jo'natish uchun zip qilish"
+      }
+    ],
+    "example": "zip -r -e maxfiy_arxiv.zip /home/student/hujjatlar",
+    "analogy": "Hujjatlarni fermuarli (zamokli) qalin jildga solib yopish."
+  },
+  {
+    "cmd": "unzip",
+    "name": "Extract Compressed Files from ZIP Archive (.zip Arxivni Ochish)",
+    "cat": "disk",
+    "catName": "💾 Disk, Arxiv & Bloklar",
+    "desc": ".zip fayllar ichidagi ma'lumotlarni chiqarib olish yoki ichini ko'rish.",
+    "syntax": "unzip [BAYROQLAR] arxiv.zip",
+    "syntaxRules": "Boshqa katalogga ochish uchun -d parametrini bering.",
+    "flags": [
+      {
+        "flag": "-l",
+        "desc": "Arxivni ochmasdan ichidagi fayllar ro'yxatini ko'rish"
+      },
+      {
+        "flag": "-d",
+        "desc": "Fayllar ochilishi kerak bo'lgan katalog yo'li"
+      },
+      {
+        "flag": "-q",
+        "desc": "Jim rejim (quiet)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "unzip -l darsliklar.zip",
+        "desc": "Arxiv ichidagi barcha fayllar ro'yxati va hajmini ko'rish"
+      },
+      {
+        "cmd": "unzip darsliklar.zip -d /home/student/wiut/",
+        "desc": "Arxivni ko'rsatilgan /home/student/wiut papkasiga ochish"
+      }
+    ],
+    "example": "unzip archive.zip -d ./extracted/",
+    "analogy": "Pochta qutisini ochib, ichidagi kitoblarni ajratib javonga terish."
+  },
+  {
+    "cmd": "date",
+    "name": "Display or Set System Date and Time (Tizim Vaqti va Sanasi)",
+    "cat": "bash",
+    "catName": "⚡ Bash, Vaqt & Skriptlar",
+    "desc": "Serverning joriy vaqtini, sanasini, vaqt mintaqasini (timezone) ko'rsatadi yoki skriptlarda maxsus formatda chiqaradi.",
+    "syntax": "date [FORMAT]",
+    "syntaxRules": "Format har doim + belgisi bilan boshlanadi: date '+%Y-%m-%d %H:%M:%S'",
+    "flags": [
+      {
+        "flag": "+%Y-%m-%d",
+        "desc": "Yil-Oy-Kun formatida chiqarish (masalan: 2026-10-16)"
+      },
+      {
+        "flag": "+%H:%M:%S",
+        "desc": "Soat:Daqiqa:Soniya formatida chiqarish"
+      },
+      {
+        "flag": "-u",
+        "desc": "UTC (Grinvich) xalqaro vaqti bo'yicha ko'rsatish"
+      },
+      {
+        "flag": "+%s",
+        "desc": "Unix Epoch timestamp (1970-yildan beri o'tgan soniyalar soni)"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "echo \"[$(date '+%Y-%m-%d %H:%M:%S')] Zaxiralash boshlandi\" >> /var/log/backup.log",
+        "desc": "Log faylga vaqt muhri (timestamp) bilan xabar yozish"
+      },
+      {
+        "cmd": "tar -czvf app_$(date +%F).tar.gz /app",
+        "desc": "Bugungi sana bilan avtomatik arxiv fayli nomini yaratish"
+      }
+    ],
+    "example": "date '+%Y-%m-%d %H:%M:%S'",
+    "analogy": "Devordagi soat va taqvimga qarab bugungi sana va soniyani bilish."
+  },
+  {
+    "cmd": "groups",
+    "name": "Show User Group Memberships (Foydalanuvchi Guruhlarini Ko'rish)",
+    "cat": "perm",
+    "catName": "🔒 Ruxsatlar & Xavfsizlik",
+    "desc": "Ko'rsatilgan foydalanuvchi yoki joriy sessiyaning qaysi xavfsizlik guruhlariga (sudo, docker, www-data va boshqalar) tegishli ekanligini ko'rsatadi.",
+    "syntax": "groups [FOYDALANUVCHI]",
+    "syntaxRules": "Agar foydalanuvchi nomi berilmasa, joriy tizimdagi foydalanuvchining guruhlarini chiqaradi.",
+    "flags": [],
+    "combinations": [
+      {
+        "cmd": "groups student",
+        "desc": "student foydalanuvchisi sudo yoki docker guruhida borligini tekshirish"
+      }
+    ],
+    "example": "groups student",
+    "analogy": "Xodimning ID kartasiga qarab qaysi bo'limlarga (Moliya, IT, Boshqaruv) kirish huquqi borligini ko'rish."
+  },
+  {
+    "cmd": "unalias",
+    "name": "Remove Command Alias (Taxallus / Aliasni O'chirish)",
+    "cat": "bash",
+    "catName": "⚡ Bash, Vaqt & Skriptlar",
+    "desc": "Ilgari yaratilgan qisqartma buyruq (alias) taxallusini sessiyadan olib tashlaydi.",
+    "syntax": "unalias [ALIAS_NOMI]",
+    "syntaxRules": "Barcha aliaslarni o'chirish uchun -a (all) bayrog'ini ishlating.",
+    "flags": [
+      {
+        "flag": "-a",
+        "desc": "Sessiyadagi barcha aliaslarni tozalash"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "unalias ll",
+        "desc": "ll qisqartmasini o'chirib, standart ls ga qaytarish"
+      }
+    ],
+    "example": "unalias mycmd",
+    "analogy": "Telefon kitobidagi qisqa raqam yoki tezkor terish laqabini o'chirib tashlash."
+  },
+  {
+    "cmd": "clear",
+    "name": "Clear Terminal Screen (Terminal Ekranini Tozalash)",
+    "cat": "nav",
+    "catName": "📁 Navigatsiya & Tizim",
+    "desc": "Terminal ekranidagi eski buyruqlar va chiqishlarni yuqoriga surib, toza ishchi maydon yaratadi (Ctrl+L tugmasi bilan bir xil).",
+    "syntax": "clear",
+    "syntaxRules": "Terminalni tozalaydi, lekin operativ xotiradagi o'zgaruvchilar va fayllarga daxl qilmaydi.",
+    "flags": [],
+    "combinations": [
+      {
+        "cmd": "clear && pwd && ls -la",
+        "desc": "Ekranni tozalab, joriy katalog va uning fayllarini ko'rish"
+      }
+    ],
+    "example": "clear",
+    "analogy": "Sinf doskasidagi yozuvlarni gubka bilan o'chirib, yangi mavzuni toza doskadan boshlash."
+  },
+  {
+    "cmd": "git",
+    "name": "Fast, Scalable, Distributed Revision Control System (Versiyalar Boshqaruvi)",
+    "cat": "devops",
+    "catName": "🐳 Docker & DevOps",
+    "desc": "Dastur kodlaridagi har bir o'zgarishni kuzatib boruvchi, filiallar (branches) yaratuvchi va GitHub/GitLab bilan sinxronlashuvchi global tizim.",
+    "syntax": "git [BUYRUQ] [PARAMETRLAR]",
+    "syntaxRules": "Asosiy sikl: git status -> git add . -> git commit -m '...' -> git push",
+    "flags": [
+      {
+        "flag": "status",
+        "desc": "O'zgargan va qo'shilgan fayllar holatini ko'rish"
+      },
+      {
+        "flag": "add",
+        "desc": "Fayllarni saqlash hududiga (Staging area) qo'shish"
+      },
+      {
+        "flag": "commit",
+        "desc": "O'zgarishlarni izoh bilan lokal bazaga muhrlash"
+      },
+      {
+        "flag": "push",
+        "desc": "Lokal o'zgarishlarni masofaviy GitHub/GitLab serveriga yuborish"
+      },
+      {
+        "flag": "pull",
+        "desc": "Serverdagi yangi o'zgarishlarni yuklab olish"
+      },
+      {
+        "flag": "log",
+        "desc": "Commitlar tarixini ko'rish"
+      }
+    ],
+    "combinations": [
+      {
+        "cmd": "git add . && git commit -m 'feat: initial setup' && git push origin main",
+        "desc": "Barcha kodlarni bitta buyruq bilan GitHub ga yuborish"
+      },
+      {
+        "cmd": "git status -s",
+        "desc": "O'zgargan fayllarning ixcham ro'yxatini ko'rish"
+      }
+    ],
+    "example": "git status",
+    "analogy": "Video o'yindagi 'Save Game' nuqtalari. Istalgan vaqtda avvalgi xatosiz nuqtaga qaytish imkonini beradi."
+  },
+
+  {
     "cmd": "|",
     "name": "Unix Anonymous Pipe (Quvur / Oqimli Konveyer)",
     "cat": "combos",
@@ -3572,19 +3913,49 @@
 
     const query = filterText.toLowerCase().trim();
 
-    const filtered = OS_DICTIONARY_DATA.filter(item => {
-      // Category filter
-      if (activeCategory !== "all" && item.cat !== activeCategory) {
-        return false;
-      }
-      // Text search
-      if (!query) return true;
+    function getScore(item, q) {
+      if (!q) return 1;
+      const cmd = (item.cmd || "").toLowerCase().trim();
+      const name = (item.name || "").toLowerCase();
+      const desc = (item.desc || "").toLowerCase();
+      
+      // Exact command match (Highest priority)
+      if (cmd === q) return 10000;
+      // Command starts with query (e.g. ls -> lsof, lsblk)
+      if (cmd.startsWith(q)) return 5000 + (100 - cmd.length);
+      // Word boundary match in command or name
+      if (name.split(/\s+/).some(w => w === q)) return 3000;
+      // Exact flag match (e.g. -lh, -a, -p)
+      const cleanQ = q.replace(/^-+/, '');
+      if ((item.flags || []).some(f => f.flag.toLowerCase().replace(/^-+/, '') === cleanQ)) return 2000;
+      // Command contains query
+      if (cmd.includes(q)) return 1200;
+      // Name contains query
+      if (name.includes(q)) return 800;
+      // Combination exact command
+      if ((item.combinations || []).some(c => c.cmd.toLowerCase().split(/\s+/).includes(q))) return 400;
+      // Word match in description
+      if (desc.split(/\s+/).some(w => w === q)) return 100;
+      // General mention
       const flagsText = (item.flags || []).map(f => f.flag + ' ' + f.desc).join(' ');
       const combosText = (item.combinations || []).map(c => c.cmd + ' ' + c.desc).join(' ');
       const syntaxRulesText = item.syntaxRules || '';
-      const haystack = `${item.cmd} ${item.name} ${item.desc} ${item.example} ${item.analogy} ${flagsText} ${combosText} ${syntaxRulesText}`.toLowerCase();
-      return haystack.includes(query);
+      const haystack = (cmd + ' ' + name + ' ' + desc + ' ' + item.example + ' ' + item.analogy + ' ' + flagsText + ' ' + combosText + ' ' + syntaxRulesText).toLowerCase();
+      if (haystack.includes(q)) return 10;
+      return 0;
+    }
+
+    const matchedItems = OS_DICTIONARY_DATA.filter(item => {
+      if (activeCategory !== "all" && item.cat !== activeCategory) {
+        return false;
+      }
+      if (!query) return true;
+      return getScore(item, query) > 0;
     });
+
+    const filtered = query 
+      ? matchedItems.sort((a, b) => getScore(b, query) - getScore(a, query))
+      : matchedItems;
 
     if (counter) {
       counter.textContent = `Ko'rsatilmoqda: ${filtered.length} ta buyruq va tushuncha`;
@@ -3793,6 +4164,11 @@
       }
     });
   }
+
+  root.OS_DICTIONARY_DATA = OS_DICTIONARY_DATA;
+  root.findDictionaryCommand = function(cmdName) {
+    return OS_DICTIONARY_DATA.find(x => x.cmd.toLowerCase() === (cmdName||'').toLowerCase().trim());
+  };
 
   if (typeof module !== "undefined" && module.exports) {
     module.exports = { OS_DICTIONARY_DATA };

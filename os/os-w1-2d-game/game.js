@@ -1085,6 +1085,19 @@
     }, 2400);
   }
 
+  
+  function clearKaliTerminal() {
+    if (el.kaliStream) el.kaliStream.innerHTML = "";
+    if (state.terminalMode !== "sandbox") {
+      const curQ = allQuestions.find(item => item.id === state.currentQuestionId);
+      if (curQ) {
+        printKaliTaskCard(curQ);
+      }
+    }
+    scrollKaliToBottom();
+    focusKaliInput();
+  }
+
   function scrollKaliToBottom() {
     if (!el.kaliScreen) return;
     el.kaliScreen.scrollTop = el.kaliScreen.scrollHeight;
@@ -1918,6 +1931,60 @@ permitted by applicable law.
   }
 
   
+  
+  function printCommandAnatomyCard(cmdName) {
+    if (!el.kaliStream) return;
+    const qName = (cmdName || "").toLowerCase().trim();
+    let entry = null;
+
+    if (window.findDictionaryCommand) {
+      entry = window.findDictionaryCommand(qName);
+    }
+    if (!entry && window.OS_DICTIONARY_DATA) {
+      entry = window.OS_DICTIONARY_DATA.find(x => x.cmd.toLowerCase() === qName);
+    }
+
+    if (!entry) {
+      printKaliInfo("[!] Buyruq '" + qName + "' topilmadi. Barcha buyruqlarni ko'rish uchun 'dict' deb yozing.");
+      return;
+    }
+
+    const card = document.createElement("div");
+    card.className = "kali-meta-card";
+    card.style.borderColor = "#38bdf8";
+    card.style.background = "#050b18";
+    card.style.padding = "10px 14px";
+    card.style.margin = "8px 0";
+    card.style.borderRadius = "8px";
+
+    let flagsHtml = "";
+    if (entry.flags && entry.flags.length > 0) {
+      flagsHtml = "<div style='margin-top:6px; color:#38bdf8; font-weight:700; font-size:12px;'>🚩 Asosiy Bayroqlar:</div>" +
+        entry.flags.slice(0, 8).map(f => "<div style='font-size:11.5px; color:#cbd5e1; margin-left:8px;'><code>" + escapeHtml(f.flag) + "</code> : " + escapeHtml(f.desc) + "</div>").join("");
+    }
+
+    let combosHtml = "";
+    if (entry.combinations && entry.combinations.length > 0) {
+      combosHtml = "<div style='margin-top:6px; color:#34d399; font-weight:700; font-size:12px;'>⚡ Ishlatilish Kombinatsiyalari:</div>" +
+        entry.combinations.slice(0, 4).map(c => "<div style='font-size:11.5px; color:#a7f3d0; margin-left:8px;'>• <code>" + escapeHtml(c.cmd) + "</code><br><span style='color:#94a3b8; font-size:10.5px;'>(" + escapeHtml(c.desc) + ")</span></div>").join("");
+    }
+
+    card.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1e293b; padding-bottom:5px;">
+        <span style="font-size:14px; font-weight:800; color:#38bdf8;">📖 ${escapeHtml(entry.cmd)} — ${escapeHtml(entry.name)}</span>
+        <span style="font-size:10.5px; background:#1e293b; color:#94a3b8; padding:2px 6px; border-radius:4px;">${escapeHtml(entry.catName || 'Linux')}</span>
+      </div>
+      <div style="font-size:12px; color:#f1f5f9; margin-top:6px; line-height:1.45;">${escapeHtml(entry.desc)}</div>
+      <div style="font-size:12px; color:#e2e8f0; margin-top:6px;"><b>📌 Sintaksis:</b> <code>${escapeHtml(entry.syntax)}</code></div>
+      ${flagsHtml}
+      ${combosHtml}
+      <div style="margin-top:6px; font-size:11px; color:#64748b; font-style:italic;">💡 O'xshatish: ${escapeHtml(entry.analogy || '')}</div>
+    `;
+
+    el.kaliStream.appendChild(card);
+    scrollKaliToBottom();
+  }
+
   function printKaliTaskCard(q) {
     if (!q || !el.kaliStream) return;
     const card = document.createElement("div");
@@ -2021,9 +2088,7 @@ permitted by applicable law.
           } else if (key === "CtrlC") {
             handleKaliCtrlC();
           } else if (key === "clear") {
-            if (el.kaliStream) el.kaliStream.innerHTML = "";
-            if (el.kaliHiddenInput) el.kaliHiddenInput.value = "";
-            focusKaliInput();
+            clearKaliTerminal();
           }
         });
       });
@@ -2080,9 +2145,7 @@ permitted by applicable law.
     if (btnFsClear) {
       btnFsClear.addEventListener("click", () => {
         SoundFX.playKey();
-        if (el.kaliStream) el.kaliStream.innerHTML = "";
-        scrollKaliToBottom();
-        focusKaliInput();
+        clearKaliTerminal();
       });
     }
     if (btnFloatExit) {
@@ -2507,7 +2570,8 @@ permitted by applicable law.
     }
 
     if (lower === "clear") {
-      if (el.kaliStream) el.kaliStream.innerHTML = "";
+      appendKaliPromptHistory(rawCmd);
+      clearKaliTerminal();
       return;
     }
 
@@ -2660,7 +2724,7 @@ permitted by applicable law.
       }
 
       // 1-Martalik Chiroyli Toast Xabarnoma (Terminalga katta yashil quti qo'shilmaydi!)
-      showFloatingToast("✓ TO'G'RI! +$100 Bonus hisobingizga qo'shildi!", false);
+      showFloatingToast("<span style='font-size:13px; font-weight:900;'>✓</span> <span style='font-size:11px;'>+$100</span>", false);
       showFeedback(true, "<b>✓ " + grade.message + "</b><br><span style='color:#a7f3d0; font-size:12px;'>+$100 Bonus hisobingizga qo'shildi!</span>");
       checkOfficeEventTrigger(currentQ.id);
 
