@@ -1989,28 +1989,31 @@ permitted by applicable law.
     scrollKaliToBottom();
   }
 
-  function updateKaliTaskCard(q) {
+  function printKaliTaskCard(q) {
     if (!q || !el.kaliStream) return;
     if (state.terminalMode === "sandbox") return;
 
-    let card = document.getElementById("kaliCurrentTaskCard");
-    if (!card) {
-      card = document.createElement("div");
-      card.id = "kaliCurrentTaskCard";
-      card.className = "kali-meta-card";
-      el.kaliStream.appendChild(card);
+    // Remove any previous active task card from higher up in the stream so it is never stuck "abadiy tepada"
+    const oldCard = document.getElementById("kaliCurrentTaskCard");
+    if (oldCard && oldCard.parentNode) {
+      oldCard.parentNode.removeChild(oldCard);
     }
+
+    const card = document.createElement("div");
+    card.id = "kaliCurrentTaskCard";
+    card.className = "kali-meta-card";
 
     const cleanTask = q.taskUz ? q.taskUz.replace(/<[^>]*>/g, "") : (q.story || "Topshiriqni bajaring.");
     const cleanTitle = (q.title || "").replace(/\s*\([a-z0-9_ -./~*]+\)/gi, "").trim();
 
     card.innerHTML = `<div style="font-weight:700; font-size:12px; color:#38bdf8; display:flex; align-items:center; gap:5px; margin:0; padding:0; line-height:1.25;"><span>🎯</span><span>Topshiriq #${q.id}: ${escapeHtml(cleanTitle)}</span></div><div style="font-size:11.5px; color:#cbd5e1; margin-top:2px; margin-bottom:0; line-height:1.3; white-space:normal;"><b>Vazifa:</b> ${escapeHtml(cleanTask)}</div>`;
 
+    el.kaliStream.appendChild(card);
     scrollKaliToBottom();
   }
 
-  function printKaliTaskCard(q) {
-    updateKaliTaskCard(q);
+  function updateKaliTaskCard(q) {
+    printKaliTaskCard(q);
   }
 
   function initKaliTerminal() {
@@ -2758,10 +2761,6 @@ permitted by applicable law.
         if (state.currentQuestionId < allQuestions.length) {
           const nextId = state.currentQuestionId + 1;
           loadQuestion(nextId);
-          const nextQ = allQuestions.find(item => item.id === nextId);
-          if (nextQ) {
-            printKaliTaskCard(nextQ);
-          }
           focusKaliInput();
         } else {
           const winCard = document.createElement("div");
@@ -2775,10 +2774,15 @@ permitted by applicable law.
       SoundFX.playError();
       const errDiv = document.createElement("div");
       errDiv.className = "kali-grade-error";
-      errDiv.innerHTML = `✕ DIQQAT: ${escapeHtml(grade.message)}<br><span style="color:#fca5a5; font-size:11.5px;">Tizim xatolikni qaytardi yoki kutilgan natija boshqacha. Maslahat ko'rish uchun <b>'hint'</b> yoki <b>'batafsil'</b> deb yozing.</span>`;
+      errDiv.innerHTML = `<div style="font-weight:700; color:#f87171; display:flex; align-items:center; gap:5px; margin:0; padding:0; line-height:1.25;"><span>✕</span><span>Diqqat: ${escapeHtml(grade.message)}</span></div><div style="font-size:11px; color:#fca5a5; margin-top:2px; line-height:1.3; white-space:normal;">Kutilgan natija boshqacha bo'ldi. Yordam uchun <b>'batafsil'</b> yoki <b>'hint'</b> deb yozing.</div>`;
       el.kaliStream.appendChild(errDiv);
 
       showFeedback(false, `<b>✕ Diqqat:</b> ${grade.message}<br><span style="color:#fca5a5; font-size:11.5px;">Tizim xatolikni qaytardi yoki kutilgan natija boshqacha. "💡 Maslahat" yoki "👁 Kutilayotgan Natija" tugmasidan foydalaning.</span>`);
+
+      // Xato yozganda qizil tepada, pastda esa ko'k masala yozuvi darhol qayta chiqadi!
+      if (state.terminalMode !== "sandbox") {
+        printKaliTaskCard(currentQ);
+      }
     }
 
     if (el.kaliScreen) {
