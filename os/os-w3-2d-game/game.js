@@ -349,7 +349,7 @@
       .replace(/>/g, "&gt;")
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
       .replace(/\*(.*?)\*/g, "<em>$1</em>")
-      .replace(/`([^`]+)`/g, '<code style="background:rgba(6,182,212,0.15); color:#22d3ee; padding:1px 5px; border-radius:3px; font-family:\'JetBrains Mono\', monospace; font-size:12px;">$1</code>');
+      .replace(/`([^`]+)`/g, '<code style="background:rgba(16, 185, 129, 0.15); color:#00ff88; padding:1px 5px; border-radius:3px; font-family:\'JetBrains Mono\', monospace; font-size:12px;">$1</code>');
   }
 
   function escapeHtml(str) {
@@ -658,7 +658,7 @@
     if (!el.terminalOutput) return;
     const div = document.createElement("div");
     if (type === "cmd") {
-      div.style.color = "#38bdf8";
+      div.style.color = "#34d399";
       div.textContent = line;
     } else if (type === "error") {
       div.style.color = "#ef4444";
@@ -951,7 +951,7 @@
         html += `<div style="color:var(--text-muted);">Hali hech qanday buyruq bajarilmadi.</div>`;
       } else {
         state.commandHistory.forEach((cmd, idx) => {
-          html += `<div style="padding:3px 0; border-bottom:1px solid rgba(255,255,255,0.04);"><span style="color:#64748b;">${idx + 1}</span> <code style="color:#38bdf8;">${cmd}</code></div>`;
+          html += `<div style="padding:3px 0; border-bottom:1px solid rgba(255,255,255,0.04);"><span style="color:#64748b;">${idx + 1}</span> <code style="color:#34d399;">${cmd}</code></div>`;
         });
       }
       html += `</div>`;
@@ -968,7 +968,7 @@
         const expShell = new window.VIRTUAL_LINUX_W3.VirtualLinuxShell();
         const expRes = expShell.execute(q.expectedSql || q.expectedBash || "");
         html += `<div style="margin-bottom:10px;"><b>Topshiriq #${q.id}:</b> ${q.title}</div>`;
-        html += `<div style="margin-bottom:6px; color:#38bdf8;">Kutilgan buyruq: <code>${q.expectedSql || q.expectedBash}</code></div>`;
+        html += `<div style="margin-bottom:6px; color:#34d399;">Kutilgan buyruq: <code>${q.expectedSql || q.expectedBash}</code></div>`;
         html += `<div style="background:#090e1c; padding:8px; border-radius:4px; margin-bottom:10px; border:1px solid rgba(6,182,212,0.3);">
           <div style="font-size:11px; color:#94a3b8; margin-bottom:4px;">Kutilayotgan Chiqish (stdout):</div>
           <pre style="color:#34d399; font-size:11.5px; white-space:pre-wrap;">${expRes.stdout || "(bo'sh chiqish / fayl tizimi o'zgarishi)"}</pre>
@@ -1129,7 +1129,7 @@
       const card = document.createElement("div");
       card.className = "kali-meta-card";
       card.style.borderColor = "rgba(56, 189, 248, 0.4)";
-      card.style.color = "#38bdf8";
+      card.style.color = "#34d399";
       card.style.margin = "6px 0";
       card.innerHTML = `<b>💻 Erkin CLI (Sandbox) Rejimi Faol!</b><br>
 Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls -la</code>, <code>mkdir demo</code>, <code>cat /etc/os-release</code>, <code>sudo apt update</code>, <code>whoami</code>, <code>hostname</code>, <code>uname -a</code>...<br>
@@ -1147,7 +1147,7 @@ Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls
       const card = document.createElement("div");
       card.className = "kali-meta-card";
       card.style.borderColor = "rgba(34, 211, 238, 0.4)";
-      card.style.color = "#22d3ee";
+      card.style.color = "#00ff88";
       card.style.margin = "6px 0";
       if (q) printKaliTaskCard(q);
       if (el.kaliScreen) scrollKaliToBottom();
@@ -1632,15 +1632,15 @@ Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls
         theme: {
           background: "#050811",
           foreground: "#f8fafc",
-          cursor: "#22d3ee",
+          cursor: "#00ff88",
           selectionBackground: "rgba(34, 211, 238, 0.3)",
           black: "#0f172a",
           red: "#ef4444",
           green: "#10b981",
           yellow: "#f59e0b",
-          blue: "#38bdf8",
+          blue: "#34d399",
           magenta: "#ec4899",
-          cyan: "#06b6d4",
+          cyan: "#10b981",
           white: "#f8fafc"
         },
         fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
@@ -1791,7 +1791,7 @@ Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls
       if (el.btnEngineShell) el.btnEngineShell.classList.add("active");
       if (el.btnEngineWasm) el.btnEngineWasm.classList.remove("active");
       if (el.kaliStream) {
-        el.kaliStream.innerHTML = `<div style="color:#38bdf8; margin: 4px 0 8px 0; font-size:12.5px; font-weight:600;">[*] ⚡ Tezkor Kali Shell faol. Topshiriq buyrug'ini kiriting yoki 'help' deb yozing:</div>`;
+        el.kaliStream.innerHTML = `<div style="color:#34d399; margin: 4px 0 8px 0; font-size:12.5px; font-weight:600;">[*] ⚡ Tezkor Kali Shell faol. Topshiriq buyrug'ini kiriting yoki 'help' deb yozing:</div>`;
       }
     }
     updateTerminalPrompt();
@@ -1931,7 +1931,7 @@ permitted by applicable law.
 <span style="color:#64748b">│</span>
 <span style="color:#e2e8f0">│ This is a minimal installation of Kali Linux, you likely</span>
 <span style="color:#e2e8f0">│ want to install supplementary tools. Learn how:</span>
-<span style="color:#38bdf8">│ ⇒ https://www.kali.org/docs/troubleshooting/common-minimum-setup/</span>
+<span style="color:#34d399">│ ⇒ https://www.kali.org/docs/troubleshooting/common-minimum-setup/</span>
 <span style="color:#64748b">│</span>
 <span style="color:#64748b">└──(Run: "touch ~/.hushlogin" to hide this message)</span>
 <span style="color:#f8fafc">Welcome to Kali in UserLAnd!</span>\n`;
@@ -1958,7 +1958,7 @@ permitted by applicable law.
 
     const card = document.createElement("div");
     card.className = "kali-meta-card";
-    card.style.borderColor = "#38bdf8";
+    card.style.borderColor = "#34d399";
     card.style.background = "#050b18";
     card.style.padding = "10px 14px";
     card.style.margin = "8px 0";
@@ -1966,7 +1966,7 @@ permitted by applicable law.
 
     let flagsHtml = "";
     if (entry.flags && entry.flags.length > 0) {
-      flagsHtml = "<div style='margin-top:6px; color:#38bdf8; font-weight:700; font-size:12px;'>🚩 Asosiy Bayroqlar:</div>" +
+      flagsHtml = "<div style='margin-top:6px; color:#34d399; font-weight:700; font-size:12px;'>🚩 Asosiy Bayroqlar:</div>" +
         entry.flags.slice(0, 8).map(f => "<div style='font-size:11.5px; color:#cbd5e1; margin-left:8px;'><code>" + escapeHtml(f.flag) + "</code> : " + escapeHtml(f.desc) + "</div>").join("");
     }
 
@@ -1978,7 +1978,7 @@ permitted by applicable law.
 
     card.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1e293b; padding-bottom:5px;">
-        <span style="font-size:14px; font-weight:800; color:#38bdf8;">📖 ${escapeHtml(entry.cmd)} — ${escapeHtml(entry.name)}</span>
+        <span style="font-size:14px; font-weight:800; color:#34d399;">📖 ${escapeHtml(entry.cmd)} — ${escapeHtml(entry.name)}</span>
         <span style="font-size:10.5px; background:#1e293b; color:#94a3b8; padding:2px 6px; border-radius:4px;">${escapeHtml(entry.catName || 'Linux')}</span>
       </div>
       <div style="font-size:12px; color:#f1f5f9; margin-top:6px; line-height:1.45;">${escapeHtml(entry.desc)}</div>
@@ -2009,7 +2009,7 @@ permitted by applicable law.
     const cleanTask = q.taskUz ? q.taskUz.replace(/<[^>]*>/g, "") : (q.story || "Topshiriqni bajaring.");
     const cleanTitle = (q.title || "").replace(/\s*\([a-z0-9_ -./~*]+\)/gi, "").trim();
 
-    card.innerHTML = `<div style="font-weight:700; font-size:12px; color:#38bdf8; display:flex; align-items:center; gap:5px; margin:0; padding:0; line-height:1.25;"><span>🎯</span><span>Topshiriq #${q.id}: ${escapeHtml(cleanTitle)}</span></div><div style="font-size:11.5px; color:#cbd5e1; margin-top:2px; margin-bottom:0; line-height:1.3; white-space:normal;"><b>Vazifa:</b> ${escapeHtml(cleanTask)}</div>`;
+    card.innerHTML = `<div style="font-weight:700; font-size:12px; color:#34d399; display:flex; align-items:center; gap:5px; margin:0; padding:0; line-height:1.25;"><span>🎯</span><span>Topshiriq #${q.id}: ${escapeHtml(cleanTitle)}</span></div><div style="font-size:11.5px; color:#cbd5e1; margin-top:2px; margin-bottom:0; line-height:1.3; white-space:normal;"><b>Vazifa:</b> ${escapeHtml(cleanTask)}</div>`;
 
     el.kaliStream.appendChild(card);
     scrollKaliToBottom();
@@ -2712,7 +2712,7 @@ permitted by applicable law.
       const succMsg = document.createElement("div");
       succMsg.className = "kali-meta-card";
       succMsg.style.borderColor = "rgba(56, 189, 248, 0.4)";
-      succMsg.style.color = "#38bdf8";
+      succMsg.style.color = "#34d399";
       succMsg.textContent = `[💻 Sandbox: Buyruq bajarildi • Exit code: ${state.lastExitCode}]`;
       el.kaliStream.appendChild(succMsg);
       if (el.kaliScreen) scrollKaliToBottom();

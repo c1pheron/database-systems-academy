@@ -150,9 +150,9 @@
 }
 
 .os-cat-pill.active {
-  background: #0284c7;
+  background: #059669;
   color: #fff;
-  border-color: #38bdf8;
+  border-color: #34d399;
   font-weight: 600;
 }
 
@@ -284,9 +284,9 @@
 }
 
 .btn-copy-cmd:hover {
-  background: #0284c7;
+  background: #059669;
   color: #fff;
-  border-color: #38bdf8;
+  border-color: #34d399;
 }
 
 /* Modal Footer */
@@ -314,9 +314,9 @@
 
 .os-copy-btn:hover,
 .os-copy-btn:active {
-  background: #0284c7;
+  background: #059669;
   color: #fff;
-  border-color: #38bdf8;
+  border-color: #34d399;
 }
 
 @media (max-width: 640px) {
