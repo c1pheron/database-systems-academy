@@ -18,6 +18,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Seller",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "sellerId",
           "x": 140,
           "y": 160,
@@ -25,21 +26,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "sellerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "shopName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "rating",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Product",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "productId",
           "x": 520,
           "y": 160,
@@ -47,20 +54,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "productId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "title",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "price",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Seller",
+          "entity2": "Product",
+          "fromEntityName": "Seller",
+          "toEntityName": "Product",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -107,6 +133,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "User",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "userId",
           "x": 140,
           "y": 160,
@@ -114,21 +141,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "userId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "BankCard",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cardId",
           "x": 520,
           "y": 160,
@@ -136,20 +169,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cardId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "panMasked",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "expiryDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "User",
+          "entity2": "BankCard",
+          "fromEntityName": "User",
+          "toEntityName": "BankCard",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -196,6 +248,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Branch",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "branchId",
           "x": 140,
           "y": 160,
@@ -203,21 +256,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "branchId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "branchName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "city",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Cashier",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cashierId",
           "x": 520,
           "y": 160,
@@ -225,20 +284,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cashierId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "shiftCode",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Branch",
+          "entity2": "Cashier",
+          "fromEntityName": "Branch",
+          "toEntityName": "Cashier",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -285,6 +363,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Driver",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "driverId",
           "x": 140,
           "y": 160,
@@ -292,21 +371,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "driverId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "licenseNo",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "rating",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Vehicle",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "vinCode",
           "x": 520,
           "y": 160,
@@ -314,20 +399,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "vinCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "plateNo",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "carModel",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Driver",
+          "entity2": "Vehicle",
+          "fromEntityName": "Driver",
+          "toEntityName": "Vehicle",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -374,6 +478,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Faculty",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "facultyCode",
           "x": 140,
           "y": 160,
@@ -381,21 +486,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "facultyCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "facultyName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "deanEmail",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Department",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "deptId",
           "x": 520,
           "y": 160,
@@ -403,20 +514,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "deptId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "deptTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "officeRoom",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Faculty",
+          "entity2": "Department",
+          "fromEntityName": "Faculty",
+          "toEntityName": "Department",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -463,6 +593,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "HospitalDept",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "deptCode",
           "x": 140,
           "y": 160,
@@ -470,21 +601,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "deptCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "deptName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "floorLevel",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "HeadDoctor",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "doctorId",
           "x": 520,
           "y": 160,
@@ -492,20 +629,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "doctorId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "doctorName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "specialty",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "HospitalDept",
+          "entity2": "HeadDoctor",
+          "fromEntityName": "HospitalDept",
+          "toEntityName": "HeadDoctor",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -552,6 +708,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Airline",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "iataCode",
           "x": 140,
           "y": 160,
@@ -559,21 +716,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "iataCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "airlineName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "country",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Aircraft",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "tailNo",
           "x": 520,
           "y": 160,
@@ -581,20 +744,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "tailNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "model",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "capacity",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Airline",
+          "entity2": "Aircraft",
+          "fromEntityName": "Airline",
+          "toEntityName": "Aircraft",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -641,6 +823,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Hotel",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "hotelId",
           "x": 140,
           "y": 160,
@@ -648,21 +831,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "hotelId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "hotelName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "starsRating",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Room",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "roomNo",
           "x": 520,
           "y": 160,
@@ -670,20 +859,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "roomNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "roomType",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "nightlyRate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Hotel",
+          "entity2": "Room",
+          "fromEntityName": "Hotel",
+          "toEntityName": "Room",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -730,6 +938,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Incubator",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "incId",
           "x": 140,
           "y": 160,
@@ -737,21 +946,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "incId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "centerTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "cityLocation",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Manager",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "managerId",
           "x": 520,
           "y": 160,
@@ -759,20 +974,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "managerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "managerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "email",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Incubator",
+          "entity2": "Manager",
+          "fromEntityName": "Incubator",
+          "toEntityName": "Manager",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -819,6 +1053,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Author",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "authorId",
           "x": 140,
           "y": 160,
@@ -826,21 +1061,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "authorId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "authorName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "country",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Book",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "isbn",
           "x": 520,
           "y": 160,
@@ -848,20 +1089,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "isbn",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "title",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "publishedYear",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Author",
+          "entity2": "Book",
+          "fromEntityName": "Author",
+          "toEntityName": "Book",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -908,6 +1168,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Customer",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cifCode",
           "x": 140,
           "y": 160,
@@ -915,21 +1176,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cifCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "customerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "DepositAccount",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "accountNo",
           "x": 520,
           "y": 160,
@@ -937,20 +1204,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "accountNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "interestRate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "balance",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Customer",
+          "entity2": "DepositAccount",
+          "fromEntityName": "Customer",
+          "toEntityName": "DepositAccount",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -997,6 +1283,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "BusRoute",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "routeNo",
           "x": 140,
           "y": 160,
@@ -1004,21 +1291,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "routeNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "startPoint",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "endPoint",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "CityBus",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "busId",
           "x": 520,
           "y": 160,
@@ -1026,20 +1319,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "busId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "plateNumber",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "capacity",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "BusRoute",
+          "entity2": "CityBus",
+          "fromEntityName": "BusRoute",
+          "toEntityName": "CityBus",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1086,6 +1398,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Dealership",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "dealerCode",
           "x": 140,
           "y": 160,
@@ -1093,21 +1406,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "dealerCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "dealerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "cityAddress",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Automobile",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "vinNumber",
           "x": 520,
           "y": 160,
@@ -1115,20 +1434,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "vinNumber",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "model",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "price",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Dealership",
+          "entity2": "Automobile",
+          "fromEntityName": "Dealership",
+          "toEntityName": "Automobile",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1175,6 +1513,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "SchoolClass",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "classCode",
           "x": 140,
           "y": 160,
@@ -1182,21 +1521,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "classCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "gradeNumber",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "academicYear",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "ClassTeacher",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "teacherId",
           "x": 520,
           "y": 160,
@@ -1204,20 +1549,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "teacherId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "teacherName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "subject",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "SchoolClass",
+          "entity2": "ClassTeacher",
+          "fromEntityName": "SchoolClass",
+          "toEntityName": "ClassTeacher",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1264,6 +1628,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "CentralWarehouse",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "warehouseCode",
           "x": 140,
           "y": 160,
@@ -1271,21 +1636,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "warehouseCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "cityName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "totalArea",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "PharmacyStore",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "pharmacyId",
           "x": 520,
           "y": 160,
@@ -1293,20 +1664,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "pharmacyId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "storeTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "address",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "CentralWarehouse",
+          "entity2": "PharmacyStore",
+          "fromEntityName": "CentralWarehouse",
+          "toEntityName": "PharmacyStore",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1353,6 +1743,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Customer",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "customerId",
           "x": 100,
           "y": 160,
@@ -1360,21 +1751,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "customerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "name",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Order",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "orderNo",
           "x": 440,
           "y": 160,
@@ -1382,21 +1779,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "orderNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "orderDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "totalSum",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Payment",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "paymentId",
           "x": 780,
           "y": 160,
@@ -1404,20 +1807,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "paymentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "payType",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "status",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Customer",
+          "entity2": "Order",
+          "fromEntityName": "Customer",
+          "toEntityName": "Order",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Order",
+          "entity2": "Payment",
+          "fromEntityName": "Order",
+          "toEntityName": "Payment",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1479,6 +1913,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "User",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "userId",
           "x": 100,
           "y": 160,
@@ -1486,21 +1921,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "userId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "userName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "BankCard",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cardId",
           "x": 440,
           "y": 160,
@@ -1508,21 +1949,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cardId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "panMasked",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "bankName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Transaction",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "txId",
           "x": 780,
           "y": 160,
@@ -1530,20 +1977,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "txId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "amount",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "timestamp",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "User",
+          "entity2": "BankCard",
+          "fromEntityName": "User",
+          "toEntityName": "BankCard",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "BankCard",
+          "entity2": "Transaction",
+          "fromEntityName": "BankCard",
+          "toEntityName": "Transaction",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1605,6 +2083,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Passenger",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "passengerId",
           "x": 140,
           "y": 100,
@@ -1612,21 +2091,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "passengerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "rating",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Driver",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "driverId",
           "x": 540,
           "y": 100,
@@ -1634,21 +2119,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "driverId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "licenseNo",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "carModel",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "RideTrip",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "tripId",
           "x": 340,
           "y": 320,
@@ -1656,20 +2147,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "tripId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fareAmount",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "tripDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Passenger",
+          "entity2": "RideTrip",
+          "fromEntityName": "Passenger",
+          "toEntityName": "RideTrip",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Driver",
+          "entity2": "RideTrip",
+          "fromEntityName": "Driver",
+          "toEntityName": "RideTrip",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1731,6 +2253,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Department",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "deptCode",
           "x": 100,
           "y": 160,
@@ -1738,17 +2261,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "deptCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "deptName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Module",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "moduleCode",
           "x": 440,
           "y": 160,
@@ -1756,21 +2283,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "moduleCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "moduleTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "credits",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Coursework",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cwId",
           "x": 780,
           "y": 160,
@@ -1778,20 +2311,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cwId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "weightPercent",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "dueDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Department",
+          "entity2": "Module",
+          "fromEntityName": "Department",
+          "toEntityName": "Module",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Module",
+          "entity2": "Coursework",
+          "fromEntityName": "Module",
+          "toEntityName": "Coursework",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1853,6 +2417,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Company",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "companyRegNo",
           "x": 100,
           "y": 160,
@@ -1860,17 +2425,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "companyRegNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "companyName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Department",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "deptId",
           "x": 440,
           "y": 160,
@@ -1878,21 +2447,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "deptId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "deptTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "floor",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Manager",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "managerId",
           "x": 780,
           "y": 160,
@@ -1900,20 +2475,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "managerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "managerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "email",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Company",
+          "entity2": "Department",
+          "fromEntityName": "Company",
+          "toEntityName": "Department",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Department",
+          "entity2": "Manager",
+          "fromEntityName": "Department",
+          "toEntityName": "Manager",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1975,6 +2581,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Doctor",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "doctorId",
           "x": 140,
           "y": 100,
@@ -1982,21 +2589,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "doctorId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "doctorName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "specialty",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Patient",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "patientId",
           "x": 540,
           "y": 100,
@@ -2004,21 +2617,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "patientId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "dob",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "MedicalCard",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cardNo",
           "x": 340,
           "y": 320,
@@ -2026,20 +2645,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cardNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "diagnosis",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "openedDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Patient",
+          "entity2": "MedicalCard",
+          "fromEntityName": "Patient",
+          "toEntityName": "MedicalCard",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Doctor",
+          "entity2": "MedicalCard",
+          "fromEntityName": "Doctor",
+          "toEntityName": "MedicalCard",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2101,6 +2751,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Branch",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "branchId",
           "x": 100,
           "y": 160,
@@ -2108,21 +2759,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "branchId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "city",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "address",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "RentalCar",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "carId",
           "x": 440,
           "y": 160,
@@ -2130,21 +2787,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "carId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "model",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "dailyPrice",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "RentalContract",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "contractNo",
           "x": 780,
           "y": 160,
@@ -2152,20 +2815,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "contractNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "startDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "totalCost",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Branch",
+          "entity2": "RentalCar",
+          "fromEntityName": "Branch",
+          "toEntityName": "RentalCar",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "RentalCar",
+          "entity2": "RentalContract",
+          "fromEntityName": "RentalCar",
+          "toEntityName": "RentalContract",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2227,6 +2921,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Flight",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "flightNo",
           "x": 140,
           "y": 100,
@@ -2234,21 +2929,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "flightNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "origin",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "destination",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Passenger",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "passportNo",
           "x": 540,
           "y": 100,
@@ -2256,21 +2957,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "passportNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "nationality",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Booking",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "bookingRef",
           "x": 340,
           "y": 320,
@@ -2278,20 +2985,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "bookingRef",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "seatNo",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "pricePaid",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Flight",
+          "entity2": "Booking",
+          "fromEntityName": "Flight",
+          "toEntityName": "Booking",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Passenger",
+          "entity2": "Booking",
+          "fromEntityName": "Passenger",
+          "toEntityName": "Booking",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2353,6 +3091,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Guest",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "guestId",
           "x": 140,
           "y": 100,
@@ -2360,21 +3099,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "guestId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "passport",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Room",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "roomNo",
           "x": 540,
           "y": 100,
@@ -2382,21 +3127,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "roomNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "roomType",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "floor",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Reservation",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "resNo",
           "x": 340,
           "y": 320,
@@ -2404,20 +3155,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "resNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "checkIn",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "checkOut",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Guest",
+          "entity2": "Reservation",
+          "fromEntityName": "Guest",
+          "toEntityName": "Reservation",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Room",
+          "entity2": "Reservation",
+          "fromEntityName": "Room",
+          "toEntityName": "Reservation",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2479,6 +3261,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Project",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "projectKey",
           "x": 100,
           "y": 160,
@@ -2486,17 +3269,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "projectKey",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "projectName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Sprint",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "sprintId",
           "x": 440,
           "y": 160,
@@ -2504,21 +3291,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "sprintId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "sprintGoal",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "endDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "IssueTask",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "taskId",
           "x": 780,
           "y": 160,
@@ -2526,20 +3319,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "taskId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "taskTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "storyPoints",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Project",
+          "entity2": "Sprint",
+          "fromEntityName": "Project",
+          "toEntityName": "Sprint",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Sprint",
+          "entity2": "IssueTask",
+          "fromEntityName": "Sprint",
+          "toEntityName": "IssueTask",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2601,6 +3425,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "BankBranch",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "branchNo",
           "x": 120,
           "y": 100,
@@ -2608,17 +3433,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "branchNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "city",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "LoanOfficer",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "officerId",
           "x": 480,
           "y": 100,
@@ -2626,17 +3455,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "officerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "officerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "LoanAccount",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "loanId",
           "x": 480,
           "y": 320,
@@ -2644,21 +3477,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "loanId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "amount",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "interestRate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Borrower",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cifCode",
           "x": 120,
           "y": 320,
@@ -2666,16 +3505,57 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cifCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "borrowerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "BankBranch",
+          "entity2": "LoanOfficer",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "LoanOfficer",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "LoanOfficer",
+          "entity2": "LoanAccount",
+          "fromEntityName": "LoanOfficer",
+          "toEntityName": "LoanAccount",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_3",
+          "name": "Aloqa",
+          "entity1": "Borrower",
+          "entity2": "LoanAccount",
+          "fromEntityName": "Borrower",
+          "toEntityName": "LoanAccount",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2752,6 +3632,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Store",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "storeId",
           "x": 120,
           "y": 100,
@@ -2759,17 +3640,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "storeId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "storeName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Cashier",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cashierId",
           "x": 480,
           "y": 100,
@@ -2777,17 +3662,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cashierId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "cashierName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Receipt",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "receiptNo",
           "x": 480,
           "y": 320,
@@ -2795,21 +3684,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "receiptNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "totalSum",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "payDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Customer",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "loyaltyId",
           "x": 120,
           "y": 320,
@@ -2817,16 +3712,57 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "loyaltyId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Store",
+          "entity2": "Cashier",
+          "fromEntityName": "Store",
+          "toEntityName": "Cashier",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Cashier",
+          "entity2": "Receipt",
+          "fromEntityName": "Cashier",
+          "toEntityName": "Receipt",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_3",
+          "name": "Aloqa",
+          "entity1": "Customer",
+          "entity2": "Receipt",
+          "fromEntityName": "Customer",
+          "toEntityName": "Receipt",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2903,6 +3839,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Owner",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "ownerId",
           "x": 140,
           "y": 100,
@@ -2910,21 +3847,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "ownerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "ownerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "EstateAgent",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "agentId",
           "x": 540,
           "y": 100,
@@ -2932,21 +3875,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "agentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "agentName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "commission",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Property",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "propertyNo",
           "x": 340,
           "y": 320,
@@ -2954,20 +3903,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "propertyNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "address",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "price",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Owner",
+          "entity2": "Property",
+          "fromEntityName": "Owner",
+          "toEntityName": "Property",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "EstateAgent",
+          "entity2": "Property",
+          "fromEntityName": "EstateAgent",
+          "toEntityName": "Property",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3029,6 +4009,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Student",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "studentId",
           "x": 140,
           "y": 100,
@@ -3036,21 +4017,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "studentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "studentName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "faculty",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "BookCopy",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "barcode",
           "x": 540,
           "y": 100,
@@ -3058,21 +4045,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "barcode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "editionYear",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "shelfLocation",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "BookLoan",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "loanId",
           "x": 340,
           "y": 320,
@@ -3080,20 +4073,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "loanId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "issueDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "returnDue",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Student",
+          "entity2": "BookLoan",
+          "fromEntityName": "Student",
+          "toEntityName": "BookLoan",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "BookCopy",
+          "entity2": "BookLoan",
+          "fromEntityName": "BookCopy",
+          "toEntityName": "BookLoan",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3155,6 +4179,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Warehouse",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "whCode",
           "x": 120,
           "y": 100,
@@ -3162,21 +4187,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "whCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "whName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "city",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "CargoTruck",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "truckId",
           "x": 480,
           "y": 100,
@@ -3184,21 +4215,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "truckId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "plateNumber",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "capacityTons",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Driver",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "licenseNo",
           "x": 120,
           "y": 320,
@@ -3206,21 +4243,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "licenseNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "driverName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "DeliveryRoute",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "routeId",
           "x": 480,
           "y": 320,
@@ -3228,20 +4271,63 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "routeId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "routeDestination",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "departTime",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Warehouse",
+          "entity2": "CargoTruck",
+          "fromEntityName": "Warehouse",
+          "toEntityName": "CargoTruck",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "CargoTruck",
+          "entity2": "Driver",
+          "fromEntityName": "CargoTruck",
+          "toEntityName": "Driver",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_3",
+          "name": "Aloqa",
+          "entity1": "CargoTruck",
+          "entity2": "DeliveryRoute",
+          "fromEntityName": "CargoTruck",
+          "toEntityName": "DeliveryRoute",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3318,6 +4404,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Hotel",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "hotelId",
           "x": 140,
           "y": 160,
@@ -3325,17 +4412,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "hotelId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "hotelName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "HotelRoom",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "roomNo",
           "x": 520,
           "y": 160,
@@ -3343,20 +4434,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "roomNo",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "roomType",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "price",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Hotel",
+          "entity2": "HotelRoom",
+          "fromEntityName": "Hotel",
+          "toEntityName": "HotelRoom",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3403,6 +4513,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Order",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "orderNo",
           "x": 140,
           "y": 160,
@@ -3410,17 +4521,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "orderNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "orderDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "OrderItem",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "itemSeq",
           "x": 520,
           "y": 160,
@@ -3428,20 +4543,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "itemSeq",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "qty",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "unitPrice",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Order",
+          "entity2": "OrderItem",
+          "fromEntityName": "Order",
+          "toEntityName": "OrderItem",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3488,6 +4622,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Building",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "buildingCode",
           "x": 140,
           "y": 160,
@@ -3495,17 +4630,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "buildingCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "address",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Floor",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "floorNo",
           "x": 520,
           "y": 160,
@@ -3513,16 +4652,33 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "floorNo",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "areaSqM",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Building",
+          "entity2": "Floor",
+          "fromEntityName": "Building",
+          "toEntityName": "Floor",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3569,6 +4725,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Employee",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "empId",
           "x": 140,
           "y": 160,
@@ -3576,17 +4733,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "empId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Dependent",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "depName",
           "x": 520,
           "y": 160,
@@ -3594,20 +4755,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "depName",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "relationship",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "birthDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Employee",
+          "entity2": "Dependent",
+          "fromEntityName": "Employee",
+          "toEntityName": "Dependent",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3654,6 +4834,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "BankAccount",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "accountNo",
           "x": 140,
           "y": 160,
@@ -3661,17 +4842,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "accountNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "currency",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "AccountStatement",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "statementSeq",
           "x": 520,
           "y": 160,
@@ -3679,20 +4864,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "statementSeq",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "statementMonth",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "totalInflow",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "BankAccount",
+          "entity2": "AccountStatement",
+          "fromEntityName": "BankAccount",
+          "toEntityName": "AccountStatement",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3739,6 +4943,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Flight",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "flightNo",
           "x": 140,
           "y": 160,
@@ -3746,17 +4951,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "flightNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "airlineCode",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "FlightLeg",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "legNumber",
           "x": 520,
           "y": 160,
@@ -3764,20 +4973,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "legNumber",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "originAir",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "destAir",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Flight",
+          "entity2": "FlightLeg",
+          "fromEntityName": "Flight",
+          "toEntityName": "FlightLeg",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3824,6 +5052,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "HospitalWard",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "wardCode",
           "x": 140,
           "y": 160,
@@ -3831,17 +5060,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "wardCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "floorLevel",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "WardBed",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "bedNumber",
           "x": 520,
           "y": 160,
@@ -3849,20 +5082,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "bedNumber",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "isOccupied",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "bedType",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "HospitalWard",
+          "entity2": "WardBed",
+          "fromEntityName": "HospitalWard",
+          "toEntityName": "WardBed",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3909,6 +5161,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "PublishingBook",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "bookIsbn",
           "x": 140,
           "y": 160,
@@ -3916,17 +5169,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "bookIsbn",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "bookTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "BookChapter",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "chapterNo",
           "x": 520,
           "y": 160,
@@ -3934,20 +5191,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "chapterNo",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "chapterTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "pageCount",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "PublishingBook",
+          "entity2": "BookChapter",
+          "fromEntityName": "PublishingBook",
+          "toEntityName": "BookChapter",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3994,6 +5270,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "CargoShip",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "shipImo",
           "x": 140,
           "y": 160,
@@ -4001,17 +5278,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "shipImo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "shipName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "CargoContainer",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "containerSlot",
           "x": 520,
           "y": 160,
@@ -4019,20 +5300,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "containerSlot",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "cargoType",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "weightTons",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "CargoShip",
+          "entity2": "CargoContainer",
+          "fromEntityName": "CargoShip",
+          "toEntityName": "CargoContainer",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4079,6 +5379,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "UniversityCourse",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "courseCode",
           "x": 140,
           "y": 160,
@@ -4086,17 +5387,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "courseCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "courseName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "CourseSection",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "sectionCode",
           "x": 520,
           "y": 160,
@@ -4104,20 +5409,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "sectionCode",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "semester",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "maxStudents",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "UniversityCourse",
+          "entity2": "CourseSection",
+          "fromEntityName": "UniversityCourse",
+          "toEntityName": "CourseSection",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4164,6 +5488,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Prescription",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "rxId",
           "x": 140,
           "y": 160,
@@ -4171,17 +5496,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "rxId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "prescribedDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "DoseSchedule",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "doseIndex",
           "x": 520,
           "y": 160,
@@ -4189,20 +5518,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "doseIndex",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "timeOfDay",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "doseAmount",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Prescription",
+          "entity2": "DoseSchedule",
+          "fromEntityName": "Prescription",
+          "toEntityName": "DoseSchedule",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4249,6 +5597,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "WarehouseAisle",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "aisleCode",
           "x": 140,
           "y": 160,
@@ -4256,17 +5605,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "aisleCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "zoneCategory",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "StorageBin",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "binNumber",
           "x": 520,
           "y": 160,
@@ -4274,20 +5627,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "binNumber",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "shelfTier",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "capacityKg",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "WarehouseAisle",
+          "entity2": "StorageBin",
+          "fromEntityName": "WarehouseAisle",
+          "toEntityName": "StorageBin",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4334,6 +5706,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "SoftwareProject",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "projectKey",
           "x": 140,
           "y": 160,
@@ -4341,17 +5714,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "projectKey",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "projectName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "ProjectMilestone",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "milestoneSeq",
           "x": 520,
           "y": 160,
@@ -4359,20 +5736,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "milestoneSeq",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "milestoneTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "dueDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "SoftwareProject",
+          "entity2": "ProjectMilestone",
+          "fromEntityName": "SoftwareProject",
+          "toEntityName": "ProjectMilestone",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4419,6 +5815,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Conference",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "confCode",
           "x": 140,
           "y": 160,
@@ -4426,17 +5823,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "confCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "confTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "ConferenceSession",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "sessionNo",
           "x": 520,
           "y": 160,
@@ -4444,20 +5845,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "sessionNo",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "topicName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "startTime",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Conference",
+          "entity2": "ConferenceSession",
+          "fromEntityName": "Conference",
+          "toEntityName": "ConferenceSession",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4504,6 +5924,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "CellTower",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "towerId",
           "x": 140,
           "y": 160,
@@ -4511,17 +5932,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "towerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "locationGps",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "AntennaSector",
           "isWeak": true,
+          "isAssociative": false,
           "pk": "sectorCode",
           "x": 520,
           "y": 160,
@@ -4529,20 +5954,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "sectorCode",
               "isPK": true,
-              "isPPK": true
+              "isPPK": true,
+              "isFK": false
             },
             {
               "name": "azimuthAngle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "frequencyMhz",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "CellTower",
+          "entity2": "AntennaSector",
+          "fromEntityName": "CellTower",
+          "toEntityName": "AntennaSector",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": true,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4589,6 +6033,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Doctor",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "doctorId",
           "x": 140,
           "y": 100,
@@ -4596,13 +6041,15 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "doctorId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Patient",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "patientId",
           "x": 540,
           "y": 100,
@@ -4610,13 +6057,15 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "patientId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Appointment",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "appId",
           "x": 340,
           "y": 320,
@@ -4624,12 +6073,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "appId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Doctor",
+          "entity2": "Appointment",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Appointment",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Patient",
+          "entity2": "Appointment",
+          "fromEntityName": "Patient",
+          "toEntityName": "Appointment",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4688,6 +6164,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Student",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "studentId",
           "x": 140,
           "y": 100,
@@ -4695,13 +6172,15 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "studentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Course",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "courseCode",
           "x": 540,
           "y": 100,
@@ -4709,13 +6188,15 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "courseCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Enrollment",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "enrollmentId",
           "x": 340,
           "y": 320,
@@ -4723,12 +6204,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "enrollmentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Student",
+          "entity2": "Enrollment",
+          "fromEntityName": "Student",
+          "toEntityName": "Enrollment",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Course",
+          "entity2": "Enrollment",
+          "fromEntityName": "Course",
+          "toEntityName": "Enrollment",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4787,6 +6295,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Developer",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "devId",
           "x": 140,
           "y": 100,
@@ -4794,13 +6303,15 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "devId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Project",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "projectKey",
           "x": 540,
           "y": 100,
@@ -4808,13 +6319,15 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "projectKey",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "ProjectAssignment",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "assignmentId",
           "x": 340,
           "y": 320,
@@ -4822,12 +6335,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "assignmentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Developer",
+          "entity2": "ProjectAssignment",
+          "fromEntityName": "Developer",
+          "toEntityName": "ProjectAssignment",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Project",
+          "entity2": "ProjectAssignment",
+          "fromEntityName": "Project",
+          "toEntityName": "ProjectAssignment",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4886,6 +6426,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Supplier",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "supplierId",
           "x": 140,
           "y": 100,
@@ -4893,13 +6434,15 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "supplierId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Part",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "partNumber",
           "x": 540,
           "y": 100,
@@ -4907,13 +6450,15 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "partNumber",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "SupplyContract",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "contractId",
           "x": 340,
           "y": 320,
@@ -4921,12 +6466,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "contractId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Supplier",
+          "entity2": "SupplyContract",
+          "fromEntityName": "Supplier",
+          "toEntityName": "SupplyContract",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Part",
+          "entity2": "SupplyContract",
+          "fromEntityName": "Part",
+          "toEntityName": "SupplyContract",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4985,6 +6557,7 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Customer",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "customerId",
           "x": 140,
           "y": 100,
@@ -4992,13 +6565,15 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "customerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Product",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "productId",
           "x": 540,
           "y": 100,
@@ -5006,13 +6581,15 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "productId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "ProductReview",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "reviewId",
           "x": 340,
           "y": 320,
@@ -5020,12 +6597,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "reviewId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Customer",
+          "entity2": "ProductReview",
+          "fromEntityName": "Customer",
+          "toEntityName": "ProductReview",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Product",
+          "entity2": "ProductReview",
+          "fromEntityName": "Product",
+          "toEntityName": "ProductReview",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -5067,7 +6671,3 @@ _scope.EER_CLIENTS_1_50 = [
     }
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = _scope.EER_CLIENTS_1_50;
-}

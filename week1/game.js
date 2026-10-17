@@ -424,7 +424,15 @@
       if (savedUserDiagram) {
         try {
           const parsed = JSON.parse(savedUserDiagram);
-          if (parsed && parsed.entities && parsed.entities.length > 0) {
+          const stEntCount = (q.starterDiagram && q.starterDiagram.entities) ? q.starterDiagram.entities.length : 0;
+          const stRelCount = (q.starterDiagram && q.starterDiagram.relationships) ? q.starterDiagram.relationships.length : 0;
+          const userEntCount = (parsed && parsed.entities) ? parsed.entities.length : 0;
+          const userRelCount = (parsed && parsed.relationships) ? parsed.relationships.length : 0;
+
+          // If question is unsolved and previously saved diagram was missing entities or relationships from before update
+          if (!STATE.solvedIds.has(qId) && (userEntCount < stEntCount || userRelCount < stRelCount)) {
+            eerCanvas.loadStarterDiagram(q.starterDiagram);
+          } else if (parsed && parsed.entities && parsed.entities.length > 0) {
             eerCanvas.loadStarterDiagram(parsed);
           } else {
             eerCanvas.loadStarterDiagram(q.starterDiagram);

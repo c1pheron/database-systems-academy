@@ -101,11 +101,16 @@
           const m2Matches = normM(uM2) === normM(expR.mult2);
 
           if (!m1Matches || !m2Matches) {
+            const hasUnset = !uM1 || uM1 === '+' || uM1 === '?' || !uM2 || uM2 === '+' || uM2 === '?';
             return {
               passed: false,
               feedback: isEn
-                ? `⚠️ Check multiplicity: it should be <strong>'${expR.entity1}'</strong> (${expR.mult1}) and <strong>'${expR.entity2}'</strong> (${expR.mult2}). Click the badges on the connector line to cycle values!`
-                : `⚠️ Multiplisitiyani tekshiring: <strong>'${expR.entity1}'</strong> (${expR.mult1}) va <strong>'${expR.entity2}'</strong> (${expR.mult2}) bo'lishi kerak. Chiziqdagi sonlar ustiga bosib kerakli qiymatni tanlang!`
+                ? (hasUnset
+                    ? `💡 Click the <strong>[ + ]</strong> button on the connector line between <strong>'${expR.entity1}'</strong> and <strong>'${expR.entity2}'</strong> to set the multiplicity!`
+                    : `⚠️ Check multiplicity: it should be <strong>'${expR.entity1}'</strong> (${expR.mult1}) and <strong>'${expR.entity2}'</strong> (${expR.mult2}). Click the badge to adjust!`)
+                : (hasUnset
+                    ? `💡 <strong>'${expR.entity1}'</strong> va <strong>'${expR.entity2}'</strong> o'rtasidagi chiziqda turgan <strong>[ + ]</strong> tugmachasini bosib multiplisitiyani o'rnating!`
+                    : `⚠️ Multiplisitiyani to'g'ri tanlang: <strong>'${expR.entity1}'</strong> (${expR.mult1}) va <strong>'${expR.entity2}'</strong> (${expR.mult2}) bo'lishi kerak. Chiziqdagi qiymat ustiga bosib o'zgartiring!`)
             };
           }
         }

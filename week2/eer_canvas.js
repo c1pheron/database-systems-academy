@@ -1960,7 +1960,7 @@ class EERCanvasEngine {
   createMultiplicityPill(x, y, rel, multKey, entityName) {
     const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
     const val = (rel[multKey] || '').trim();
-    const hasVal = val !== '' && val !== '?';
+    const hasVal = val !== '' && val !== '?' && val !== '+';
 
     const pill = document.createElement('div');
     pill.className = hasVal ? 'mult-pill' : 'mult-pill add-pill';
@@ -1971,7 +1971,7 @@ class EERCanvasEngine {
     pill.style.transform = 'translate(-50%, -50%)';
     pill.title = hasVal
       ? (isEn ? `${entityName} multiplicity (${val}). Hold 0.5s to delete, click to edit.` : `${entityName} multiplisitiyasi (${val}). O'chirish uchun 0.5 soniya bosib turing, o'zgartirish uchun bosing.`)
-      : (isEn ? `Click to add multiplicity to ${entityName} (+)` : `${entityName} tomoniga multiplicity qo'shish uchun bosing (+)`);
+      : (isEn ? `Click to choose multiplicity for ${entityName} (+)` : `${entityName} tomoniga multiplicity tanlash uchun bosing (+)`);
 
     let holdTimer = null;
     let didHold = false;
@@ -2030,12 +2030,6 @@ class EERCanvasEngine {
         return;
       }
       e.stopPropagation();
-      if (!hasVal) {
-        // If clicking '+' to add, default to 1..1 and open picker
-        rel[multKey] = '1..1';
-        this.renderLinks();
-        this.triggerChange();
-      }
       this.openMultiplicitySelector(rel, multKey, e);
     });
 
@@ -2389,8 +2383,8 @@ class EERCanvasEngine {
         toEntityId: toEnt ? (toEnt.id || toEnt.domId) : r.toEntityId,
         fromEntityName: fromEnt ? fromEnt.name : fromName,
         toEntityName: toEnt ? toEnt.name : toName,
-        mult1: r.mult1 || '1..1',
-        mult2: r.mult2 || '1..*',
+        mult1: (r.mult1 !== undefined && r.mult1 !== null) ? r.mult1 : '',
+        mult2: (r.mult2 !== undefined && r.mult2 !== null) ? r.mult2 : '',
         isIdentifying: !!r.isIdentifying,
         isDirect: true
       });
