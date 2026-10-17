@@ -1,0 +1,619 @@
+/**
+ * ============================================================================
+ * DATABASE SYSTEMS ACADEMY — HIGH-PRECISION EER DIAGRAM DIAGNOSTICS ENGINE
+ * Professor Atlas's Pinpoint Visual Diagram & Multiplicity Verifier
+ * ============================================================================
+ * EER va Relyatsion diagrammalarda aniq entitiy, atribut, {PK}, aloqa chizig'i,
+ * multiplisitiya va subklasslar nomutanosibligini detallashtirilgan tarzda tahlil qiluvchi modul.
+ */
+
+(function () {
+  'use strict';
+
+  // Common entity typos dictionary for fuzzy matching
+  const ENTITY_TYPOS = {
+    'custmer': 'Customer',
+    'cust': 'Customer',
+    'clients': 'Client',
+    'client': 'Customer',
+    'sellers': 'Seller',
+    'seler': 'Seller',
+    'products': 'Product',
+    'praduct': 'Product',
+    'orders': 'Order',
+    'ordr': 'Order',
+    'users': 'User',
+    'usr': 'User',
+    'employees': 'Employee',
+    'employe': 'Employee',
+    'emp': 'Employee',
+    'departments': 'Department',
+    'departmnt': 'Department',
+    'dept': 'Department',
+    'courses': 'Course',
+    'cours': 'Course',
+    'students': 'Student',
+    'studnt': 'Student',
+    'orderitems': 'OrderItem',
+    'orderitem': 'OrderItem',
+    'items': 'OrderItem',
+    'payments': 'Payment',
+    'paymnt': 'Payment',
+    'cards': 'BankCard',
+    'card': 'BankCard',
+    'accounts': 'Account',
+    'acc': 'Account',
+    'categories': 'Category',
+    'category': 'Category',
+    'invoices': 'Invoice',
+    'suppliers': 'Supplier',
+    'shipments': 'Shipment',
+    'drivers': 'Driver',
+    'vehicles': 'Vehicle',
+    'branches': 'Branch',
+    'transactions': 'Transaction'
+  };
+
+  const DatabaseDiagramDiagnostics = {
+    // Normalization helper
+    norm(str) {
+      if (!str) return '';
+      return str.toString().trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+    },
+
+    // Multiplicity normalization helper
+    normMult(m) {
+      if (!m) return '';
+      let s = m.toString().trim().toLowerCase();
+      s = s.replace(/m|n/g, '*').replace(/:/g, '..');
+      if (s === '1') return '1..1';
+      if (s === '*') return '0..*';
+      return s;
+    },
+
+    // HTML escape utility
+    escapeHTML(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    },
+
+    /**
+     * Main diagnosis entry point
+     * @param {object} userDiagram - { entities: [], relationships: [], subclasses: ... }
+     * @param {object} question - question object containing expectedDiagram
+     * @param {string} mode - 'eer' | 'relational' | 'auto'
+     * @returns {object} - { passed, errors: [], passedItems: [], formattedHTML, formattedReport }
+     */
+    diagnose(userDiagram, question, mode = 'auto') {
+      const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
+      const errors = [];
+      const passedItems = [];
+
+      if (!question || !question.expectedDiagram) {
+        return {
+          passed: true,
+          errors: [],
+          passedItems: [{ name: isEn ? "Status" : "Holat", detail: isEn ? "Freeform workspace" : "Erkin ish maydoni" }],
+          formattedHTML: this.formatSuccessHTML(isEn),
+          formattedReport: isEn ? "Diagram accepted." : "Diagramma qabul qilindi."
+        };
+      }
+
+      const expected = question.expectedDiagram;
+      const uEntities = (userDiagram && userDiagram.entities) || [];
+      const uRels = (userDiagram && userDiagram.relationships) || [];
+      const uSubclasses = userDiagram && userDiagram.subclasses;
+
+      // 0. EMPTY CANVAS CHECK
+      if (uEntities.length === 0) {
+        const emptyErr = {
+          category: 'empty',
+          target: isEn ? 'Canvas' : 'Doska',
+          title: isEn ? 'Canvas is completely empty!' : "Doska bo'm-bo'sh!",
+          message: isEn 
+            ? "No entities were found on the canvas. Please place required entities from the shapes palette."
+            : "Polotnoda birorta ham entitiy topilmadi. Iltimos, chapdagi shakllar panelidan kerakli entitiylarni doskaga olib chiqing.",
+          userVal: isEn ? 'Empty canvas' : "Bo'sh doska",
+          expectedVal: (expected.entities || []).map(e => e.name || e).join(', '),
+          fix: isEn 
+            ? "Drag and drop the entities onto the canvas, configure their names, and connect them with relationship lines."
+            : "Shakllar panelidan to'rtburchak entitiylarni doskaga torting, nomlarini yozing va aloqa chizig'i bilan bog'lang."
+        };
+        errors.push(emptyErr);
+
+        return {
+          passed: false,
+          errors,
+          passedItems,
+          formattedHTML: this.formatReportHTML({ passed: false, errors, passedItems }, isEn),
+          formattedReport: this.formatReportText({ passed: false, errors, passedItems }, isEn)
+        };
+      }
+
+      // 1. CHECK REQUIRED ENTITIES & PRIMARY KEYS
+      this.checkEntities(uEntities, expected.entities || [], errors, passedItems, isEn);
+
+      // 2. CHECK RELATIONSHIPS & MULTIPLICITIES
+      this.checkRelationships(uEntities, uRels, expected.relationships || [], errors, passedItems, isEn);
+
+      // 3. CHECK SUBCLASSES & EER SPECIALISATION (if present in expectedDiagram)
+      if (expected.subclasses) {
+        this.checkSubclasses(uEntities, uSubclasses, expected.subclasses, errors, passedItems, isEn);
+      }
+
+      const passed = errors.length === 0;
+
+      return {
+        passed,
+        errors,
+        passedItems,
+        formattedHTML: passed 
+          ? this.formatSuccessHTML(isEn, passedItems) 
+          : this.formatReportHTML({ passed: false, errors, passedItems }, isEn),
+        formattedReport: this.formatReportText({ passed, errors, passedItems }, isEn)
+      };
+    },
+
+    // 1. ENTITIES AUDIT
+    checkEntities(uEntities, expEntities, errors, passedItems, isEn) {
+      for (const expEnt of expEntities) {
+        const expName = typeof expEnt === 'string' ? expEnt : expEnt.name;
+        const expPk = typeof expEnt === 'object' ? expEnt.pk : null;
+        const expWeak = typeof expEnt === 'object' ? !!expEnt.isWeak : false;
+
+        const normExp = this.norm(expName);
+
+        // Exact match search
+        let found = uEntities.find(ue => this.norm(ue.name) === normExp);
+
+        // Fuzzy match search for typos
+        if (!found) {
+          const fuzzy = uEntities.find(ue => {
+            const uNorm = this.norm(ue.name);
+            if (ENTITY_TYPOS[uNorm] && this.norm(ENTITY_TYPOS[uNorm]) === normExp) return true;
+            if (uNorm.startsWith(normExp) || normExp.startsWith(uNorm)) return true;
+            return false;
+          });
+
+          if (fuzzy) {
+            errors.push({
+              category: 'entity_typo',
+              target: `${isEn ? 'Entity Name' : 'Entitiy Nomi'}: ${fuzzy.name}`,
+              title: isEn ? `Typo in entity name '${fuzzy.name}'` : `'${fuzzy.name}' entitiy nomida orfografik xatolik`,
+              message: isEn 
+                ? `You named the entity '${fuzzy.name}', but the architectural requirement specifies '${expName}'.`
+                : `Siz entitiyni '${fuzzy.name}' deb nomlagansiz, lekin talab bo'yicha u aniq '${expName}' deb nomlanishi shart.`,
+              userVal: fuzzy.name,
+              expectedVal: expName,
+              fix: isEn 
+                ? `Rename entity '${fuzzy.name}' to '${expName}'.`
+                : `'${fuzzy.name}' kartochkasi sarlavhasiga ikki marta bosib, nomini '${expName}' ga o'zgartiring.`
+            });
+            continue;
+          } else {
+            errors.push({
+              category: 'entity_missing',
+              target: `${isEn ? 'Missing Entity' : 'Yetishmayotgan Entitiy'}: ${expName}`,
+              title: isEn ? `Entity '${expName}' is missing from canvas` : `'${expName}' entitiysi polotnoda topilmadi`,
+              message: isEn 
+                ? `The scenario requires entity '${expName}', but it was not found on the canvas.`
+                : `Mijoz talabidagi asosiy '${expName}' entitiysi polotnoda mavjud emas.`,
+              userVal: isEn ? 'Not created' : "Qo'shilmagan",
+              expectedVal: expName,
+              fix: isEn 
+                ? `Add an entity block to the canvas from the shapes palette and label it '${expName}'.`
+                : `Chapdagi shakllar panelidan to'rtburchakni doskaga sudrab o'ting va unga '${expName}' nomini bering.`
+            });
+            continue;
+          }
+        }
+
+        // Entity exists! Check its Primary Key {PK}
+        if (expPk) {
+          const hasPkAttr = (found.attributes || []).some(a => a.isPK && this.norm(a.name) === this.norm(expPk));
+          const hasAnyPk = (found.attributes || []).some(a => a.isPK);
+          const hasPkByName = (found.attributes || []).some(a => this.norm(a.name) === this.norm(expPk));
+          const cardHasPk = found.pk && this.norm(found.pk) === this.norm(expPk);
+
+          if (!hasPkAttr && !cardHasPk && !hasAnyPk) {
+            errors.push({
+              category: 'pk_missing',
+              target: `${isEn ? 'Primary Key' : 'Birlamchi Kalit {PK}'}: ${expName}`,
+              title: isEn ? `Primary Key {PK} not marked on '${expName}'` : `'${expName}' entitiysida Birlamchi Kalit {PK} belgilanmagan`,
+              message: isEn 
+                ? `In the relational model, every strong entity must have a designated {PK} primary key attribute ('${expPk}').`
+                : `Relyatsion modelda har bir mustaqil entitiy o'zining yagona identifikatori — {PK} birlamchi kalitiga ('${expPk}') ega bo'lishi shart.`,
+              userVal: isEn ? 'No {PK} set' : "{PK} belgilanmagan",
+              expectedVal: `${expPk} {PK}`,
+              fix: isEn 
+                ? `Add attribute '${expPk}' and click the {PK} badge beside it on '${expName}'.`
+                : `'${expName}' kartochkasida '${expPk}' atributi yonidagi {PK} tugmasini bosing.`
+            });
+          } else {
+            passedItems.push({
+              name: `${expName} {PK}`,
+              detail: expPk
+            });
+          }
+        }
+
+        // Check Weak Entity status
+        if (expWeak && !found.isWeak) {
+          errors.push({
+            category: 'weak_entity',
+            target: `${isEn ? 'Entity Kind' : 'Entitiy Turi'}: ${expName}`,
+            title: isEn ? `'${expName}' should be a Weak Entity` : `'${expName}' Zaif Entitiy (Weak Entity) bo'lishi kerak`,
+            message: isEn 
+              ? `'${expName}' cannot exist without its owner entity and lacks a full independent key.`
+              : `'${expName}' o'z ota entitiysisiz mustaqil mavjud bo'la olmaydi (kompozit kalitga ega zaif entitiy).`,
+            userVal: isEn ? 'Strong Entity (Single line)' : "Mustaqil entitiy (oddiy to'rtburchak)",
+            expectedVal: isEn ? 'Weak Entity (Double line)' : "Zaif entitiy (qo'shaloq to'rtburchak)",
+            fix: isEn 
+              ? `Toggle the 'Weak Entity' switch on '${expName}' card.`
+              : `'${expName}' kartochkasidagi 'Zaif Entitiy' (qo'shaloq hoshiya) tugmasini yoqing.`
+          });
+        }
+
+        passedItems.push({
+          name: isEn ? "Entity" : "Entitiy",
+          detail: expName
+        });
+      }
+    },
+
+    // 2. RELATIONSHIPS & MULTIPLICITY AUDIT
+    checkRelationships(uEntities, uRels, expRels, errors, passedItems, isEn) {
+      for (const expR of expRels) {
+        const e1Norm = this.norm(expR.entity1);
+        const e2Norm = this.norm(expR.entity2);
+
+        // Find relationship in either direction
+        const foundRel = uRels.find(ur => {
+          const uFrom = this.norm(ur.fromEntityName || ur.entity1);
+          const uTo = this.norm(ur.toEntityName || ur.entity2);
+          return (uFrom === e1Norm && uTo === e2Norm) || (uFrom === e2Norm && uTo === e1Norm);
+        });
+
+        const relLabel = `${expR.entity1} ⟷ ${expR.entity2}`;
+
+        if (!foundRel) {
+          // Check if user connected entity1 to an incorrect entity instead
+          const wrongRel = uRels.find(ur => {
+            const uFrom = this.norm(ur.fromEntityName || ur.entity1);
+            const uTo = this.norm(ur.toEntityName || ur.entity2);
+            return uFrom === e1Norm || uTo === e1Norm || uFrom === e2Norm || uTo === e2Norm;
+          });
+
+          if (wrongRel && (this.norm(wrongRel.fromEntityName || wrongRel.entity1) !== e2Norm && this.norm(wrongRel.toEntityName || wrongRel.entity2) !== e2Norm)) {
+            const fromN = wrongRel.fromEntityName || wrongRel.entity1;
+            const toN = wrongRel.toEntityName || wrongRel.entity2;
+            errors.push({
+              category: 'rel_wrong_entity',
+              target: `${isEn ? 'Relationship' : 'Aloqa'}: ${relLabel}`,
+              title: isEn ? `Misdirected relationship: ${fromN} ⟷ ${toN}` : `Noto'g'ri entitiylar bog'langan: ${fromN} ⟷ ${toN}`,
+              message: isEn 
+                ? `You connected '${fromN}' to '${toN}', but business rules require a direct relationship between '${expR.entity1}' and '${expR.entity2}'.`
+                : `Siz '${fromN}' va '${toN}' ni o'zaro bog'lagansiz. Aslida esa biznes arxitekturasi bo'yicha '${expR.entity1}' to'g'ridan-to'g'ri '${expR.entity2}' bilan bog'lanishi shart!`,
+              userVal: `${fromN} ⟷ ${toN}`,
+              expectedVal: relLabel,
+              fix: isEn 
+                ? `Delete the incorrect line and connect '${expR.entity1}' directly to '${expR.entity2}'.`
+                : `Noto'g'ri chiziqni o'chiring va '${expR.entity1}' dan '${expR.entity2}' ga to'g'ridan-to'g'ri aloqa chizig'ini torting.`
+            });
+          } else {
+            errors.push({
+              category: 'rel_missing',
+              target: `${isEn ? 'Missing Connection' : "Aloqa Chizig'i Yetishmayapti"}: ${relLabel}`,
+              title: isEn ? `No relationship line between '${expR.entity1}' and '${expR.entity2}'` : `'${expR.entity1}' va '${expR.entity2}' o'rtasida aloqa chizig'i yo'q`,
+              message: isEn 
+                ? `These two entities must be connected according to business specifications.`
+                : `Ushbu ikki entitiy o'rtasida munosabat mavjud, lekin ularni bog'lovchi chiziq chizilmagan.`,
+              userVal: isEn ? 'Disconnected' : "Bog'lanmagan",
+              expectedVal: relLabel,
+              fix: isEn 
+                ? `Select the 'Relationship Line' tool or drag between connector ports to link '${expR.entity1}' and '${expR.entity2}'.`
+                : `Shakllar panelidagi 'Aloqa Chizig'i' vositasi yordamida '${expR.entity1}' va '${expR.entity2}' kartochkalarini bir-biriga ulang.`
+            });
+          }
+          continue;
+        }
+
+        // Connection exists! Audit Multiplicities
+        if (expR.mult1 && expR.mult2) {
+          const uFrom = this.norm(foundRel.fromEntityName || foundRel.entity1);
+          let uM1 = foundRel.mult1;
+          let uM2 = foundRel.mult2;
+
+          // Align user orientation with expected orientation
+          let isReversed = false;
+          if (uFrom === e2Norm) {
+            uM1 = foundRel.mult2;
+            uM2 = foundRel.mult1;
+            isReversed = true;
+          }
+
+          const normUserM1 = this.normMult(uM1);
+          const normUserM2 = this.normMult(uM2);
+          const normExpM1 = this.normMult(expR.mult1);
+          const normExpM2 = this.normMult(expR.mult2);
+
+          // Check if unconfigured ('+' or '?' or empty)
+          const isUnset = !uM1 || uM1 === '+' || uM1 === '?' || !uM2 || uM2 === '+' || uM2 === '?' || !normUserM1 || !normUserM2;
+
+          if (isUnset) {
+            errors.push({
+              category: 'mult_unset',
+              target: `${isEn ? 'Multiplicity' : 'Multiplisitiya'}: ${relLabel}`,
+              title: isEn ? `Multiplicity constraints not set on ${relLabel}` : `${relLabel} aloqasida multiplisitiya o'rnatilmagan`,
+              message: isEn 
+                ? `The connector line exists, but multiplicity boundaries (e.g. 1..1, 0..*, 1..*) are still unconfigured.`
+                : `Aloqa chizig'i tortilgan, ammo uning ikki tomonidagi multiplisitiya chegaralari (1..1, 0..*, 1..*) hali tanlanmagan.`,
+              userVal: `[ + ] / ?`,
+              expectedVal: `${expR.entity1} (${expR.mult1}) ⟷ ${expR.entity2} (${expR.mult2})`,
+              fix: isEn 
+                ? `Click the [ + ] badge on the connector line to choose the correct multiplicity for both ends.`
+                : `Chiziqdagi [ + ] nishonini bosing va har ikki tomon uchun to'g'ri multiplisitiya qiymatini tanlang.`
+            });
+            continue;
+          }
+
+          // Check if reversed (student placed values on the wrong ends)
+          if (normUserM1 === normExpM2 && normUserM2 === normExpM1 && normExpM1 !== normExpM2) {
+            errors.push({
+              category: 'mult_reversed',
+              target: `${isEn ? 'Reversed Multiplicity' : 'Teskari Multiplisitiya'}: ${relLabel}`,
+              title: isEn ? `Multiplicity orientation inverted on ${relLabel}` : `${relLabel} aloqasida multiplisitiya tomonlari almashtirib qo'yilgan!`,
+              message: isEn 
+                ? `You assigned '${expR.mult2}' to '${expR.entity1}' and '${expR.mult1}' to '${expR.entity2}'. The logic is inverted!`
+                : `Siz '${expR.entity1}' tomoniga '${expR.mult2}', '${expR.entity2}' tomoniga esa '${expR.mult1}' qo'ygansiz. Munosabat mantiqi teskari bo'lib qolgan!`,
+              userVal: `${expR.entity1} (${uM1}) ⟷ ${expR.entity2} (${uM2})`,
+              expectedVal: `${expR.entity1} (${expR.mult1}) ⟷ ${expR.entity2} (${expR.mult2})`,
+              fix: isEn 
+                ? `Swap the multiplicity values: '${expR.entity1}' side must be (${expR.mult1}), and '${expR.entity2}' side must be (${expR.mult2}).`
+                : `Tomonlarni almashtiring: '${expR.entity1}' tomoniga (${expR.mult1}), '${expR.entity2}' tomoniga esa (${expR.mult2}) qiymatini belgilang.`
+            });
+            continue;
+          }
+
+          // Check specific end mismatch
+          const m1Matches = normUserM1 === normExpM1;
+          const m2Matches = normUserM2 === normExpM2;
+
+          if (!m1Matches || !m2Matches) {
+            let specificReason = "";
+            if (!m1Matches && !m2Matches) {
+              specificReason = isEn 
+                ? `Both ends have mismatched bounds.`
+                : `Har ikkala tomon multiplisitiyasi ham noto'g'ri tanlangan.`;
+            } else if (!m1Matches) {
+              specificReason = isEn 
+                ? `The bound on '${expR.entity1}' side is incorrect (Found: '${uM1}', Expected: '${expR.mult1}').`
+                : `'${expR.entity1}' tomonidagi chegara noto'g'ri (Sizda: '${uM1}', Kutilgan: '${expR.mult1}').`;
+            } else {
+              specificReason = isEn 
+                ? `The bound on '${expR.entity2}' side is incorrect (Found: '${uM2}', Expected: '${expR.mult2}').`
+                : `'${expR.entity2}' tomonidagi chegara noto'g'ri (Sizda: '${uM2}', Kutilgan: '${expR.mult2}').`;
+            }
+
+            // Pedagogical explanation for common business cases
+            let pedagogicalTip = "";
+            if (normExpM1 === '1..1' && normExpM2 === '0..*') {
+              pedagogicalTip = isEn 
+                ? `Each '${expR.entity2}' belongs to exactly ONE '${expR.entity1}' (1..1), while ONE '${expR.entity1}' can have zero or more '${expR.entity2}' (0..*).`
+                : `Har bir '${expR.entity2}' aniq BITTA '${expR.entity1}' ga tegishli (1..1). Bitta '${expR.entity1}' esa 0 yoki undan ko'p '${expR.entity2}' ga ega bo'lishi mumkin (0..*).`;
+            } else if (normExpM1 === '1..1' && normExpM2 === '1..*') {
+              pedagogicalTip = isEn 
+                ? `Mandatory 1:N: Each '${expR.entity2}' must belong to ONE '${expR.entity1}' (1..1), and each '${expR.entity1}' MUST have at least one or more '${expR.entity2}' (1..*).`
+                : `Majburiy 1:N: Har bir '${expR.entity2}' bitta '${expR.entity1}' ga tegishli (1..1), va har bir '${expR.entity1}' kamida bitta yoki undan ko'p '${expR.entity2}' ga ega bo'lishi shart (1..*).`;
+            } else if (normExpM1 === '1..1' && normExpM2 === '0..1') {
+              pedagogicalTip = isEn 
+                ? `1:1 Relationship: An instance of '${expR.entity1}' may optionally link to at most one '${expR.entity2}' (0..1).`
+                : `1:1 Aloqa: '${expR.entity1}' ixtiyoriy ravishda ko'pi bilan bitta '${expR.entity2}' ga ulanishi mumkin (0..1).`;
+            } else {
+              pedagogicalTip = isEn 
+                ? `Click the multiplicity value badge on the line to adjust it to match architectural requirements.`
+                : `Chiziqdagi multiplisitiya nishonini bosib, uni talabga mos qiymatga o'zgartiring.`;
+            }
+
+            errors.push({
+              category: 'mult_mismatch',
+              target: `${isEn ? 'Multiplicity Mismatch' : 'Multiplisitiya Nomutanosibligi'}: ${relLabel}`,
+              title: isEn ? `Multiplicity mismatch on ${relLabel}` : `${relLabel} aloqasida multiplisitiya noto'g'ri`,
+              message: `${specificReason} ${pedagogicalTip}`,
+              userVal: `${expR.entity1} (${uM1 || '?'}) ⟷ ${expR.entity2} (${uM2 || '?'})`,
+              expectedVal: `${expR.entity1} (${expR.mult1}) ⟷ ${expR.entity2} (${expR.mult2})`,
+              fix: isEn 
+                ? `Set '${expR.entity1}' to (${expR.mult1}) and '${expR.entity2}' to (${expR.mult2}).`
+                : `'${expR.entity1}' tomoniga (${expR.mult1}), '${expR.entity2}' tomoniga esa (${expR.mult2}) ni tanlang.`
+            });
+            continue;
+          }
+
+          passedItems.push({
+            name: `${isEn ? 'Multiplicity' : 'Multiplisitiya'}: ${relLabel}`,
+            detail: `${expR.mult1} ⟷ ${expR.mult2}`
+          });
+        }
+      }
+    },
+
+    // 3. SUBCLASSES & EER SPECIALISATION AUDIT (Week 2)
+    checkSubclasses(uEntities, uSubclasses, expSub, errors, passedItems, isEn) {
+      const expSuper = this.norm(expSub.superclass);
+      const expSubs = (expSub.subs || expSub.subclasses || []).map(s => this.norm(typeof s === 'string' ? s : s.name));
+      const expSubNames = (expSub.subs || expSub.subclasses || []).map(s => typeof s === 'string' ? s : s.name);
+
+      let subFound = false;
+
+      // Check via explicit subclass hierarchy model
+      if (uSubclasses && Array.isArray(uSubclasses)) {
+        const matchingGroup = uSubclasses.find(s => this.norm(s.superclass) === expSuper);
+        if (matchingGroup) {
+          subFound = true;
+          // Check constraint if required
+          if (expSub.constraint) {
+            const expConstraintNorm = this.norm(expSub.constraint);
+            const userConstraintNorm = this.norm(matchingGroup.constraint);
+            if (userConstraintNorm !== expConstraintNorm) {
+              errors.push({
+                category: 'subclass_constraint',
+                target: `${isEn ? 'EER Constraint' : 'Subklass Cheklovi'}: ${expSub.superclass}`,
+                title: isEn ? `Specialization constraint mismatch` : `Ixtisoslashuv (Specialization) cheklovi noto'g'ri`,
+                message: isEn 
+                  ? `Expected constraint '${expSub.constraint}', but found '${matchingGroup.constraint || "none"}'.`
+                  : `Kutilgan cheklov: '${expSub.constraint}' (Sizda: '${matchingGroup.constraint || "belgilanmagan"}').`,
+                userVal: matchingGroup.constraint || "none",
+                expectedVal: expSub.constraint,
+                fix: isEn 
+                  ? `Configure the subclass group constraint to '${expSub.constraint}' (Disjoint vs Overlapping).`
+                  : `Subklass bog'lamida cheklovni '${expSub.constraint}' (Disjoint 'Or' yoki Overlapping 'And') holatiga o'tkazing.`
+              });
+            }
+          }
+        }
+      } else if (uSubclasses && typeof uSubclasses === 'object' && this.norm(uSubclasses.superclass) === expSuper) {
+        subFound = true;
+      }
+
+      // Fallback: check if user added them as child entities on canvas
+      if (!subFound) {
+        const allSubsExistAsEntities = expSubs.every(es => uEntities.some(ue => this.norm(ue.name) === es));
+        if (allSubsExistAsEntities) {
+          subFound = true;
+        }
+      }
+
+      if (!subFound && expSubs.length > 0) {
+        errors.push({
+          category: 'subclasses_missing',
+          target: `${isEn ? 'EER Specialization' : 'EER Ixtisoslashuv'}: ${expSub.superclass}`,
+          title: isEn ? `Subclasses missing under '${expSub.superclass}'` : `'${expSub.superclass}' ostida subklasslar yetishmayapti`,
+          message: isEn 
+            ? `Specialization requires sub-entities (${expSubNames.join(', ')}) under superclass '${expSub.superclass}'.`
+            : `'${expSub.superclass}' superklassi ostida ${expSubNames.join(', ')} subklasslari loyihalashtirilishi lozim.`,
+          userVal: isEn ? 'Not created' : "Yaratilmagan",
+          expectedVal: `${expSub.superclass} ➔ [${expSubNames.join(', ')}]`,
+          fix: isEn 
+            ? `Open the Subclass Tool or create entity nodes for ${expSubNames.join(', ')}.`
+            : `Subklasslar vositasi orqali ${expSubNames.join(', ')} subklasslarini hosil qiling.`
+        });
+      } else {
+        passedItems.push({
+          name: isEn ? "EER Specialization" : "EER Subklasslar",
+          detail: `${expSub.superclass} (${expSubNames.join(', ')})`
+        });
+      }
+    },
+
+    // Format high-contrast HTML report for UI
+    formatReportHTML(res, isEn) {
+      let html = `<div style="display:flex; flex-direction:column; gap:8px; font-family:var(--font-mono, monospace); font-size:12px; line-height:1.45;">`;
+
+      html += `
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; border-bottom:1px solid rgba(239,68,68,0.3); padding-bottom:6px;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="background:rgba(239,68,68,0.25); border:1px solid #ef4444; color:#fca5a5; padding:2px 7px; border-radius:4px; font-size:11px; font-weight:700;">
+              ❌ ${isEn ? "DIAGRAM ERROR" : "DIAGRAMMA NOMUTANOSIBLIGI"}
+            </span>
+            <span style="color:#fecaca; font-weight:600; font-size:12px;">${isEn ? "Professor Atlas Pinpoint Diagnostics" : "Professor Atlas Aniq Diagnostikasi"}</span>
+          </div>
+          <span style="color:#94a3b8; font-size:11px;">${res.errors.length} ta xatolik</span>
+        </div>
+      `;
+
+      res.errors.forEach(err => {
+        html += `
+          <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(239,68,68,0.25); border-left:3px solid #ef4444; border-radius:4px; padding:8px 10px;">
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:5px; flex-wrap:wrap;">
+              <span style="background:rgba(239,68,68,0.3); border:1px solid #ef4444; color:#fca5a5; padding:1px 6px; border-radius:3px; font-weight:700; font-size:11px;">
+                📍 ${this.escapeHTML(err.target)}
+              </span>
+              <span style="color:#fecaca; font-weight:600;">${this.escapeHTML(err.title)}</span>
+            </div>
+
+            <div style="color:#e2e8f0; font-size:12px; margin-bottom:6px;">
+              ${this.escapeHTML(err.message)}
+            </div>
+
+            ${(err.userVal || err.expectedVal) ? `
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; background:rgba(15,23,42,0.85); border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:6px 10px; margin-bottom:6px; font-size:11.5px;">
+                <div>
+                  <span style="color:#ef4444; font-weight:600;">✕ ${isEn ? 'Your Diagram:' : 'Siz qo\'ygan:'}</span><br>
+                  <code style="color:#f87171;">${this.escapeHTML(err.userVal || '—')}</code>
+                </div>
+                <div>
+                  <span style="color:#22c55e; font-weight:600;">✓ ${isEn ? 'Required Architecture:' : 'To\'g\'ri me\'moriy qoida:'}</span><br>
+                  <code style="color:#4ade80;">${this.escapeHTML(err.expectedVal || '—')}</code>
+                </div>
+              </div>
+            ` : ''}
+
+            ${err.fix ? `
+              <div style="color:#fde047; font-size:11.5px; display:flex; align-items:flex-start; gap:6px;">
+                <span>💡</span>
+                <span><strong>${isEn ? 'Fix Recommendation' : 'Tuzatish tavsiyasi'}:</strong> ${this.escapeHTML(err.fix)}</span>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      });
+
+      if (res.passedItems && res.passedItems.length > 0) {
+        html += `
+          <div style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.2); border-radius:4px; padding:6px 10px; color:#86efac; font-size:11.5px;">
+            <div style="font-weight:600; color:#4ade80; margin-bottom:3px;">${isEn ? "✔️ Correctly designed elements:" : "✔️ To'g'ri loyihalashtirilgan qismlar:"}</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px;">
+              ${res.passedItems.map(it => `<span style="background:rgba(34,197,94,0.15); padding:1px 6px; border-radius:3px;">${this.escapeHTML(it.name)}: ${this.escapeHTML(it.detail)}</span>`).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      html += `</div>`;
+      return html;
+    },
+
+    // Format success HTML report
+    formatSuccessHTML(isEn, passedItems = []) {
+      return `
+        <div style="background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.3); border-radius:6px; padding:10px 14px; color:#bbf7d0; font-family:var(--font-mono, monospace); font-size:12.5px; line-height:1.5;">
+          <div style="font-weight:700; color:#4ade80; display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span>🎉</span> <span>${isEn ? "EER DIAGRAM APPROVED BY CHIEF ARCHITECT!" : "EER DIAGRAMMA BOSH ARXITEKTOR TOMONIDAN TO'LIQ TASDIQLANDI!"}</span>
+          </div>
+          <div style="color:#86efac; font-size:12px; margin-bottom:6px;">
+            ${isEn ? "All entities, {PK} keys, relationship links, and multiplicities are structurally flawless." : "Barcha entitiylar, {PK} birlamchi kalitlari, aloqa chiziqlari va multiplisitiyalar to'liq to'g'ri loyihalashtirildi."}
+          </div>
+          ${passedItems.length > 0 ? `
+            <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;">
+              ${passedItems.map(it => `<span style="background:rgba(34,197,94,0.2); border:1px solid rgba(34,197,94,0.3); padding:1px 6px; border-radius:3px; font-size:11px;">✓ ${this.escapeHTML(it.name)}</span>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `;
+    },
+
+    // Format plaintext report
+    formatReportText(res, isEn) {
+      if (res.passed) {
+        return isEn ? "All diagram checks passed!" : "Barcha diagramma tekshiruvlaridan muvaffaqiyatli o'tdi!";
+      }
+      let txt = (isEn ? "DIAGRAM ERRORS DETECTED:\n" : "DIAGRAMMADA XATOLIKLAR ANIQLANDI:\n");
+      res.errors.forEach(err => {
+        txt += `\n• [${err.target}]: ${err.title}\n  ${err.message}\n  Tavsiya: ${err.fix}\n`;
+      });
+      return txt;
+    }
+  };
+
+  if (typeof window !== 'undefined') {
+    window.DatabaseDiagramDiagnostics = DatabaseDiagramDiagnostics;
+  }
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = DatabaseDiagramDiagnostics;
+  }
+})();

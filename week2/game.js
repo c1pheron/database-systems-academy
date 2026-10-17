@@ -770,9 +770,9 @@
 
         elFeedback.className = 'feedback-box success';
         elFeedback.innerHTML = `
-          <strong>${isEn ? '🎉 Excellent Result!' : "🎉 A'lo Natija!"}</strong> ${result.feedback || (isEn ? "EER extensions and subclasses completely approved." : "EER kengaytirishlari va subklasslar to'liq tasdiqlandi.")}
-          <div style="margin-top:8px;">
-            <button id="btnNextChallenge" class="btn btn-primary" style="padding:4px 12px;">${isEn ? 'Proceed to Next Challenge ▶' : "Keyingi Topshiriqqa O'tish ▶"}</button>
+          ${result.feedbackHTML || `<strong>${isEn ? '🎉 Excellent Result!' : "🎉 A'lo Natija!"}</strong> ${result.feedback || (isEn ? "EER extensions and subclasses completely approved." : "EER kengaytirishlari va subklasslar to'liq tasdiqlandi.")}`}
+          <div style="margin-top:10px;">
+            <button id="btnNextChallenge" class="btn btn-primary" style="padding:5px 14px; font-weight:600;">${isEn ? 'Proceed to Next Challenge ▶' : "Keyingi Topshiriqqa O'tish ▶"}</button>
           </div>
         `;
         elFeedback.style.display = 'block';
@@ -801,7 +801,7 @@
       } else {
         window.playSfx('error');
         elFeedback.className = 'feedback-box error';
-        elFeedback.innerHTML = result.feedback;
+        elFeedback.innerHTML = result.feedbackHTML || `<strong>${isEn ? '⚠️ Attention:' : '⚠️ Diqqat:'}</strong> ${result.feedback || (isEn ? "Errors found in diagram. Please verify again." : "Sxemada xatoliklar mavjud. Qaytadan tekshiring.")}`;
         elFeedback.style.display = 'block';
       }
     } catch (err) {

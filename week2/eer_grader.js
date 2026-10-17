@@ -11,6 +11,18 @@
     grade: function (userDiagram, q) {
       const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
 
+      // First priority: High-precision diagram diagnostics engine
+      if (typeof window !== 'undefined' && window.DatabaseDiagramDiagnostics) {
+        const diag = window.DatabaseDiagramDiagnostics.diagnose(userDiagram, q, 'relational');
+        return {
+          passed: diag.passed,
+          feedback: diag.formattedReport,
+          feedbackHTML: diag.formattedHTML,
+          errors: diag.errors,
+          passedItems: diag.passedItems
+        };
+      }
+
       if (!q || !q.expectedDiagram) {
         return { 
           passed: true, 

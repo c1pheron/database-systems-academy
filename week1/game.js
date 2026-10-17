@@ -695,9 +695,9 @@
 
         elFeedback.className = 'feedback-box success';
         elFeedback.innerHTML = `
-          <strong>${isEn ? '🎉 Excellent Result!' : "🎉 A'lo Natija!"}</strong> ${result.feedback || (isEn ? "Client approved your EER model completely." : "Mijoz siz tuzgan EER modelni to'liq tasdiqladi.")}
-          <div style="margin-top:8px;">
-            <button id="btnNextChallenge" class="btn btn-primary" style="padding:4px 12px;">${isEn ? 'Proceed to Next Challenge ▶' : "Keyingi Topshiriqqa O'tish ▶"}</button>
+          ${result.feedbackHTML || `<strong>${isEn ? '🎉 Excellent Result!' : "🎉 A'lo Natija!"}</strong> ${result.feedback || (isEn ? "Client approved your EER model completely." : "Mijoz siz tuzgan EER modelni to'liq tasdiqladi.")}`}
+          <div style="margin-top:10px;">
+            <button id="btnNextChallenge" class="btn btn-primary" style="padding:5px 14px; font-weight:600;">${isEn ? 'Proceed to Next Challenge ▶' : "Keyingi Topshiriqqa O'tish ▶"}</button>
           </div>
         `;
         elFeedback.style.display = 'block';
@@ -727,7 +727,7 @@
         if (atelier2D) atelier2D.triggerError(isEn ? "Discrepancy in diagram!" : "Diagrammada nomutanosiblik bor!");
 
         elFeedback.className = 'feedback-box error';
-        elFeedback.innerHTML = `<strong>${isEn ? '⚠️ Attention:' : '⚠️ Diqqat:'}</strong> ${result.feedback || (isEn ? "Errors found in diagram. Please verify again." : "Sxemada xatoliklar mavjud. Qaytadan tekshiring.")}`;
+        elFeedback.innerHTML = result.feedbackHTML || `<strong>${isEn ? '⚠️ Attention:' : '⚠️ Diqqat:'}</strong> ${result.feedback || (isEn ? "Errors found in diagram. Please verify again." : "Sxemada xatoliklar mavjud. Qaytadan tekshiring.")}`;
         elFeedback.style.display = 'block';
       }
     } catch (err) {
