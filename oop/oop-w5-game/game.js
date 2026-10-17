@@ -1,5 +1,5 @@
 // ============================================================================
-// OOP ACADEMY — 5-Modul GAME LOGIC: INTERFACE, IMPLEMENTS, MULTIPLE INTERFACES VA DEPENDENCY INJECTION
+// OOP ACADEMY — 5-Modul GAME LOGIC: INTERFEYSLAR & BO'SH BOG'LANISH (LOOSE COUPLING)
 // Professor Ada's Interactive Java IDE Simulator • WIUT 5COSC018C
 // ============================================================================
 
@@ -12,221 +12,773 @@
   let solvedQuestions = new Set();
 
   const CHALLENGES = [
-  {
-    "id": 1,
-    "title": {
-      "uz": "1. Birinchi Interfeys ('interface')",
-      "en": "1. First Interface Declaration"
+    {
+      id: 1,
+      title: {
+        uz: "1. Birinchi Java Interfeysi ('interface')",
+        en: "1. First Java Interface Contract"
+      },
+      scenario: {
+        uz: "Interfeys — klass nima qilishi kerakligini belgilovchi 100% shartnomadir. `Printable` interfeysini yarating va unga `void print();` metodini qo'shing.",
+        en: "Declare pure abstract contract with `interface Printable { void print(); }`."
+      },
+      requirements: {
+        classes: ["Printable"],
+        methods: ["print"]
+      },
+      starterCode: `// Printable interfeysini e'lon qiling
+interface Printable {
+    void print();
+}
+
+class Invoice implements Printable {
+    @Override
+    public void print() {
+        System.out.println("📄 To'lov kvitansiyasi chop etildi!");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Printable p = new Invoice();
+        p.print();
+    }
+}`,
+      solution: `interface Printable {
+    void print();
+}
+
+class Invoice implements Printable {
+    @Override
+    public void print() {
+        System.out.println("📄 To'lov kvitansiyasi chop etildi!");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Printable p = new Invoice();
+        p.print();
+    }
+}`,
+      detailedSolution: {
+        theory: "Interfeys — klasslar o'rtasida shartnoma (contract) vazifasini bajaradi. U 'nima qilish kerak' degan savolga javob beradi, 'qanday qilish' esa uni `implements` qiluvchi klass zimmasiga yuklatiladi.",
+        theoryEn: "Interfaces establish pure abstract behavioral specifications, decoupling method contracts from concrete implementations.",
+        cleanCode: `interface Printable {
+    void print();
+}`,
+        breakdown: [
+          "<code>interface Printable</code>: Interfeys e'loni.",
+          "<code>void print();</code>: Avtomatik ravishda `public abstract` hisoblanadi."
+        ],
+        pitfalls: "Interfeysni amalga oshirayotganda metod oldiga `public` so'zini yozmaslik (chunki interfeys metodlari doimo public).",
+        cw2Viva: "Westminster CW2 baholash jadvalida GoF patternlari (Strategy, Observer, Factory) interfeyslarga tayanadi."
+      }
     },
-    "scenario": {
-      "uz": "`PaymentMethod` interfeysini e'lon qiling va unga `void pay(double amount);` metodini qo'shing.",
-      "en": "Declare `PaymentMethod` interface with contract `void pay(double amount);`."
+    {
+      id: 2,
+      title: {
+        uz: "2. Ko'p Karrali Amalga Oshirish (Multiple Interfaces)",
+        en: "2. Multiple Interface Implementation"
+      },
+      scenario: {
+        uz: "Java'da bitta klass bir nechta interfeysni amalga oshirishi mumkin! `Report` klassi ham `Printable`, ham `Exportable` interfeyslarini `implements` qilsin.",
+        en: "Implement multiple interfaces: `class Report implements Printable, Exportable`."
+      },
+      requirements: {
+        classes: ["Printable", "Exportable", "Report"],
+        methods: ["print", "exportToJson"],
+        keywords: ["implements"]
+      },
+      starterCode: `interface Printable {
+    void print();
+}
+
+interface Exportable {
+    void exportToJson();
+}
+
+// Ikkala interfeysni implements qiling
+class Report implements Printable, Exportable {
+    @Override
+    public void print() {
+        System.out.println("Hisobot qog'ozda chop etildi");
+    }
+
+    @Override
+    public void exportToJson() {
+        System.out.println("Hisobot JSON formatga eksport qilindi");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Report rep = new Report();
+        rep.print();
+        rep.exportToJson();
+    }
+}`,
+      solution: `interface Printable {
+    void print();
+}
+
+interface Exportable {
+    void exportToJson();
+}
+
+class Report implements Printable, Exportable {
+    @Override
+    public void print() {
+        System.out.println("Hisobot qog'ozda chop etildi");
+    }
+
+    @Override
+    public void exportToJson() {
+        System.out.println("Hisobot JSON formatga eksport qilindi");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Report rep = new Report();
+        rep.print();
+        rep.exportToJson();
+    }
+}`,
+      detailedSolution: {
+        theory: "Java klasslar darajasida Multiple Inheritance (ko'p ota) ga ruxsat bermaydi (Diamond Problem xavfi tufayli), lekin Interfeyslar orqali ko'p karrali shartnomani bemalol amalga oshirish mumkin.",
+        theoryEn: "Multiple interface implementation overcomes single-inheritance limitations without inheriting the fragile Diamond Problem ambiguity.",
+        cleanCode: `class Report implements Printable, Exportable {
+    @Override public void print() { ... }
+    @Override public void exportToJson() { ... }
+}`,
+        breakdown: [
+          "`implements Printable, Exportable`: Vergul bilan istalgancha interfeyslarni sanab o'tish mumkin.",
+          "Klass har ikkala interfeysning barcha metodlarini to'liq yozishi shart."
+        ],
+        pitfalls: "Interfeyslardan birortasining metodi unutilsa, klass kompilyatsiya bo'lmaydi.",
+        cw2Viva: "Viva savoli: 'Nega klasslarda multiple inheritance yo'q, lekin interfeyslarda bor?' Metodlar to'qnashuvi (Diamond Problem) bo'lmasligi uchun!"
+      }
     },
-    "requirements": {
-      "classes": [
-        "PaymentMethod"
-      ],
-      "methods": [
-        "pay"
-      ]
+    {
+      id: 3,
+      title: {
+        uz: "3. 'default' Metodlar (Java 8+ Imkoniyati)",
+        en: "3. Interface Default Methods"
+      },
+      scenario: {
+        uz: "Mavjud klasslarni buzmasdan interfeysga tayyor metod qo'shish uchun `default void log()` sintaksisidan foydalaning.",
+        en: "Augment interfaces without breaking implementers using `default void log()`."
+      },
+      requirements: {
+        classes: ["Logger"],
+        keywords: ["default"]
+      },
+      starterCode: `interface Logger {
+    void log(String message);
+
+    // default metod: tayyor tanaga ega
+    default void logError(String err) {
+        log("❌ [XATOLIK]: " + err);
+    }
+}
+
+class ConsoleLogger implements Logger {
+    @Override
+    public void log(String message) {
+        System.out.println(message);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Logger l = new ConsoleLogger();
+        l.log("Oddiy xabar");
+        l.logError("Serverga ulanib bo'lmadi");
+    }
+}`,
+      solution: `interface Logger {
+    void log(String message);
+
+    default void logError(String err) {
+        log("❌ [XATOLIK]: " + err);
+    }
+}
+
+class ConsoleLogger implements Logger {
+    @Override
+    public void log(String message) {
+        System.out.println(message);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Logger l = new ConsoleLogger();
+        l.log("Oddiy xabar");
+        l.logError("Serverga ulanib bo'lmadi");
+    }
+}`,
+      detailedSolution: {
+        theory: "Java 8 da kiritilgan `default` metodlar interfeys ichida tayyor realizatsiyani taqdim etadi. Bu eski klasslarni buzmasdan yangi metod qo'shish (Backward Compatibility) imkonini beradi.",
+        theoryEn: "Default methods facilitate evolutionary API expansion without breaking backward compatibility for existing client implementers.",
+        cleanCode: `default void logError(String err) {
+    log("❌ [XATOLIK]: " + err);
+}`,
+        breakdown: [
+          "`default` kalit so'zi interfeys metodiga tana `{ ... }` berishga imkon yaratadi.",
+          "`ConsoleLogger` ushbu metodni qayta yozmasdan to'g'ridan-to'g'ri meros qilib oladi."
+        ],
+        pitfalls: "Default metod ichida obyekt maydonlariga murojaat qilib bo'lmaydi (chunki interfeysda non-static maydonlar yo'q).",
+        cw2Viva: "Java Collections Framework (`List.sort()`, `Collection.stream()`) aynan default metodlar orqali kengaytirilgan."
+      }
     },
-    "starterCode": "interface PaymentMethod {\n    void pay(double amount);\n}\n\nclass Main {\n    public static void main(String[] args) {\n        System.out.println(\"Interfeys yaratildi!\");\n    }\n}",
-    "solution": "interface PaymentMethod {\n    void pay(double amount);\n}\n\nclass Main {\n    public static void main(String[] args) {\n        System.out.println(\"Interfeys yaratildi!\");\n    }\n}"
-  },
-  {
-    "id": 2,
-    "title": {
-      "uz": "2. Interfeysni Amalga Oshirish ('implements')",
-      "en": "2. Interface Implementation with 'implements'"
+    {
+      id: 4,
+      title: {
+        uz: "4. Bo'sh Bog'lanish (Loose Coupling & Dependency Injection)",
+        en: "4. Loose Coupling via Interface Injection"
+      },
+      scenario: {
+        uz: "`NotificationService` aniq SMS yoki Email ga qattiq bog'lanmasligi kerak. Uni `Notifier` interfeysiga suyanadigan qilib bog'lang (Dependency Injection).",
+        en: "Decouple services using constructor injection over interface contracts."
+      },
+      requirements: {
+        classes: ["Notifier", "SmsNotifier", "EmailNotifier", "NotificationService"],
+        methods: ["send"]
+      },
+      starterCode: `interface Notifier {
+    void send(String msg);
+}
+
+class SmsNotifier implements Notifier {
+    @Override public void send(String msg) {
+        System.out.println("📱 SMS yuborildi: " + msg);
+    }
+}
+
+class EmailNotifier implements Notifier {
+    @Override public void send(String msg) {
+        System.out.println("📧 Email yuborildi: " + msg);
+    }
+}
+
+class NotificationService {
+    // Aniq klassga emas, Interfeysga bog'lanamiz!
+    private Notifier notifier;
+
+    public NotificationService(Notifier notifier) {
+        this.notifier = notifier;
+    }
+
+    public void notifyUser(String text) {
+        notifier.send(text);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        NotificationService service1 = new NotificationService(new SmsNotifier());
+        service1.notifyUser("Buyurtmangiz qabul qilindi!");
+
+        NotificationService service2 = new NotificationService(new EmailNotifier());
+        service2.notifyUser("Chek pochtangizga tashlandi.");
+    }
+}`,
+      solution: `interface Notifier {
+    void send(String msg);
+}
+
+class SmsNotifier implements Notifier {
+    @Override public void send(String msg) {
+        System.out.println("📱 SMS yuborildi: " + msg);
+    }
+}
+
+class EmailNotifier implements Notifier {
+    @Override public void send(String msg) {
+        System.out.println("📧 Email yuborildi: " + msg);
+    }
+}
+
+class NotificationService {
+    private Notifier notifier;
+
+    public NotificationService(Notifier notifier) {
+        this.notifier = notifier;
+    }
+
+    public void notifyUser(String text) {
+        notifier.send(text);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        NotificationService service1 = new NotificationService(new SmsNotifier());
+        service1.notifyUser("Buyurtmangiz qabul qilindi!");
+
+        NotificationService service2 = new NotificationService(new EmailNotifier());
+        service2.notifyUser("Chek pochtangizga tashlandi.");
+    }
+}`,
+      detailedSolution: {
+        theory: "Dependency Inversion Principle (SOLID): 'Yuqori darajadagi modullar quyi modullarga emas, abstraksiyaga suyanishi kerak'. `NotificationService` SMS yoki Email qanday ishlashini bilmaydi, u faqat `Notifier` interfeysini taniydi.",
+        theoryEn: "Dependency Inversion establishes loose coupling by injecting interface contracts rather than concrete implementations.",
+        cleanCode: `public NotificationService(Notifier notifier) {
+    this.notifier = notifier;
+}`,
+        breakdown: [
+          "Xizmat qattiq bog'lanmagan (`new SmsNotifier()` ichida yozilmagan).",
+          "Test qilish (Mocking) va kelajakda TelegramNotifier qo'shish juda oson."
+        ],
+        pitfalls: "Xizmat ichida `this.notifier = new SmsNotifier();` deb yozish — Dependency Injection ni yo'qotadi.",
+        cw2Viva: "Westminster CW2 baholash mezonida 'Code Quality & Loose Coupling' uchun yuqori ball beriladi."
+      }
     },
-    "scenario": {
-      "uz": "`PaymePayment` klassi `PaymentMethod` interfeysini amalga oshirsin (implements).",
-      "en": "Implement contract using `class PaymePayment implements PaymentMethod`."
+    {
+      id: 5,
+      title: {
+        uz: "5. Interfeyslarda Statik Metodlar",
+        en: "5. Interface Static Helper Methods"
+      },
+      scenario: {
+        uz: "Interfeys ichida yordamchi fabrika metodlarini `static` qilib yozish mumkin. `Payment.createDefaultPayment()` static metodini e'lon qiling.",
+        en: "Expose utility factory helpers via `static` methods inside interfaces."
+      },
+      requirements: {
+        classes: ["Payment"],
+        keywords: ["static", "interface"]
+      },
+      starterCode: `interface Payment {
+    void pay(double amount);
+
+    // static yordamchi metod
+    static Payment createDefault() {
+        return new CashPayment();
+    }
+}
+
+class CashPayment implements Payment {
+    @Override
+    public void pay(double amount) {
+        System.out.println("💵 Naqd pulda to'landi: $" + amount);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Payment p = Payment.createDefault();
+        p.pay(50.0);
+    }
+}`,
+      solution: `interface Payment {
+    void pay(double amount);
+
+    static Payment createDefault() {
+        return new CashPayment();
+    }
+}
+
+class CashPayment implements Payment {
+    @Override
+    public void pay(double amount) {
+        System.out.println("💵 Naqd pulda to'landi: $" + amount);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Payment p = Payment.createDefault();
+        p.pay(50.0);
+    }
+}`,
+      detailedSolution: {
+        theory: "Java 8 dan boshlab interfeyslar ichida `static` metodlar yozish mumkin. Bu alohida `PaymentHelper` yoki `PaymentFactory` klassini ochmasdan, to'g'ridan-to'g'ri interfeys orqali yordamchi amallarni bajarishga imkon beradi.",
+        theoryEn: "Static interface methods package cohesive utility or factory logic directly inside the abstraction contract.",
+        cleanCode: `static Payment createDefault() {
+    return new CashPayment();
+}`,
+        breakdown: [
+          "`Payment.createDefault()`: Hech qanday obyekt yaratmasdan to'g'ridan-to'g'ri interfeys nomi orqali chaqiriladi.",
+          "Obyekt yaratish logikasini inkapsulyatsiya qiladi."
+        ],
+        pitfalls: "Static metodlar voris klasslar tomonidan `@Override` qilinmaydi.",
+        cw2Viva: "Java 8 dagi `Comparator.naturalOrder()`, `Stream.of()` aynan interfeysdagi static metodlardir."
+      }
     },
-    "requirements": {
-      "classes": [
-        "PaymentMethod",
-        "PaymePayment"
-      ],
-      "keywords": [
-        "implements"
-      ]
+    {
+      id: 6,
+      title: {
+        uz: "6. Interfeys Konstandalari (public static final)",
+        en: "6. Implicit Constants in Interfaces"
+      },
+      scenario: {
+        uz: "Interfeys ichidagi barcha o'zgaruvchilar avtomatik tarzda `public static final` bo'ladi. `TaxCalculator` interfeysiga soliq stavkasini qo'shing.",
+        en: "Understand implicit constants in interfaces: `double VAT_RATE = 0.12;`."
+      },
+      requirements: {
+        classes: ["TaxCalculator"]
+      },
+      starterCode: `interface TaxCalculator {
+    // Avtomatik public static final
+    double VAT_RATE = 0.12; // 12% QQS
+
+    default double calculateTax(double amount) {
+        return amount * VAT_RATE;
+    }
+}
+
+class RestaurantOrder implements TaxCalculator {}
+
+class Main {
+    public static void main(String[] args) {
+        RestaurantOrder order = new RestaurantOrder();
+        System.out.println("QQS summasi: $" + order.calculateTax(200.0));
+    }
+}`,
+      solution: `interface TaxCalculator {
+    double VAT_RATE = 0.12;
+
+    default double calculateTax(double amount) {
+        return amount * VAT_RATE;
+    }
+}
+
+class RestaurantOrder implements TaxCalculator {}
+
+class Main {
+    public static void main(String[] args) {
+        RestaurantOrder order = new RestaurantOrder();
+        System.out.println("QQS summasi: $" + order.calculateTax(200.0));
+    }
+}`,
+      detailedSolution: {
+        theory: "Interfeysda e'lon qilingan har qanday maydon (hatto kalit so'zlari yozilmagan bo'lsa ham) avtomatik ravishda konstanta hisoblanadi. Uni keyinchalik o'zgartirib bo'lmaydi.",
+        theoryEn: "Fields declared inside interfaces are implicitly public, static, and final, serving as immutable constants.",
+        cleanCode: `double VAT_RATE = 0.12;`,
+        breakdown: [
+          "`VAT_RATE` o'zgarmas doimiy ko'rsatkich.",
+          "Barcha amalga oshiruvchi klasslar ushbu yagona konstantadan foydalanadi."
+        ],
+        pitfalls: "Interfeysda o'zgaruvchan holat (non-final field) saqlashga urinish — Java kompilyatori buni qat'iy taqiqlaydi.",
+        cw2Viva: "Global konstantalarni interfeysga tiqish 'Constant Interface Anti-pattern' deb atalishi mumkin, shuning uchun faqat shu shartnomaga tegishli bo'lgan konstantalar qo'yilishi kerak."
+      }
     },
-    "starterCode": "interface PaymentMethod {\n    void pay(double amount);\n}\n\nclass PaymePayment implements PaymentMethod {\n    public void pay(double amount) {\n        System.out.println(\"Payme orqali to'landi: $\" + amount);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentMethod pm = new PaymePayment();\n        pm.pay(75.0);\n    }\n}",
-    "solution": "interface PaymentMethod {\n    void pay(double amount);\n}\n\nclass PaymePayment implements PaymentMethod {\n    public void pay(double amount) {\n        System.out.println(\"Payme orqali to'landi: $\" + amount);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentMethod pm = new PaymePayment();\n        pm.pay(75.0);\n    }\n}"
-  },
-  {
-    "id": 3,
-    "title": {
-      "uz": "3. Bir Nechta To'lov Usullari (Pluggable Architecture)",
-      "en": "3. Pluggable Payment Methods"
+    {
+      id: 7,
+      title: {
+        uz: "7. Obyektlarni Saralash: 'Comparable' Interfeysi",
+        en: "7. Sorting Objects with 'Comparable<T>'"
+      },
+      scenario: {
+        uz: "Buyurtmalarni narxi bo'yicha avtomatik saralash uchun Java standart `Comparable<Product>` interfeysini va uning `compareTo(Product other)` metodini realizatsiya qiling.",
+        en: "Implement standard Java `Comparable<Product>` to enable automatic sorting."
+      },
+      requirements: {
+        classes: ["Product"],
+        methods: ["compareTo"],
+        keywords: ["implements"]
+      },
+      starterCode: `class Product implements Comparable<Product> {
+    String name;
+    double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    @Override
+    public int compareTo(Product other) {
+        return Double.compare(this.price, other.price);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p1 = new Product("Choy", 5.0);
+        Product p2 = new Product("Qahva", 12.0);
+        System.out.println("Taqqoslash natijasi: " + p1.compareTo(p2));
+    }
+}`,
+      solution: `class Product implements Comparable<Product> {
+    String name;
+    double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    @Override
+    public int compareTo(Product other) {
+        return Double.compare(this.price, other.price);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p1 = new Product("Choy", 5.0);
+        Product p2 = new Product("Qahva", 12.0);
+        System.out.println("Taqqoslash natijasi: " + p1.compareTo(p2));
+    }
+}`,
+      detailedSolution: {
+        theory: "`Comparable<T>` interfeysi obyektlarning tabiiy tartibini (Natural Ordering) belgilaydi. `Double.compare(a, b)` manfiy (a < b), 0 (a == b) yoki musbat (a > b) qiymat qaytaradi.",
+        theoryEn: "`Comparable` defines natural ordering, enabling Java's sort algorithms (`Collections.sort`) to sort custom domain entities effortlessly.",
+        cleanCode: `public int compareTo(Product other) {
+    return Double.compare(this.price, other.price);
+}`,
+        breakdown: [
+          "`compareTo` orqali `Collections.sort(products)` chaqirilganda ro'yxat avtomatik narx bo'yicha tartiblanadi.",
+          "Clean Code konvensiyasiga mos."
+        ],
+        pitfalls: "Narxlarni to'g'ridan-to'g'ri `(int)(this.price - other.price)` qilish xatolikka olib kelishi mumkin (masalan 12.5 va 12.2 bo'lganda 0 qaytib qoladi). Doimo `Double.compare` ishlating!",
+        cw2Viva: "Kurs ishingizda buyurtmalarni narxi yoki vaqti bo'yicha saralab chiqarish (Sorting Feature) 6 ball beradi."
+      }
     },
-    "scenario": {
-      "uz": "`ClickPayment` va `CashPayment` klasslarini ham bir xil `PaymentMethod` orqali yarating.",
-      "en": "Add multiple pluggable providers honoring the same interface contract."
+    {
+      id: 8,
+      title: {
+        uz: "8. Interfeyslar o'rtasida Merosxo'rlik ('extends')",
+        en: "8. Interface Inheritance with 'extends'"
+      },
+      scenario: {
+        uz: "Bitta interfeys boshqa interfeysdan meros olishi mumkin! `AdvancedNotifier extends BasicNotifier` qilib yangi metod qo'shing.",
+        en: "Interfaces extend other interfaces to build modular layered contracts."
+      },
+      requirements: {
+        classes: ["BasicNotifier", "AdvancedNotifier"],
+        keywords: ["extends", "interface"]
+      },
+      starterCode: `interface BasicNotifier {
+    void sendText(String text);
+}
+
+// AdvancedNotifier BasicNotifier dan voris olsin
+interface AdvancedNotifier extends BasicNotifier {
+    void sendWithAttachment(String text, String file);
+}
+
+class SuperNotificationSystem implements AdvancedNotifier {
+    @Override public void sendText(String text) {
+        System.out.println("Matn: " + text);
+    }
+    @Override public void sendWithAttachment(String text, String file) {
+        System.out.println("Matn: " + text + " | Fayl: " + file);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        AdvancedNotifier n = new SuperNotificationSystem();
+        n.sendText("Salom!");
+        n.sendWithAttachment("Hisobot", "doc.pdf");
+    }
+}`,
+      solution: `interface BasicNotifier {
+    void sendText(String text);
+}
+
+interface AdvancedNotifier extends BasicNotifier {
+    void sendWithAttachment(String text, String file);
+}
+
+class SuperNotificationSystem implements AdvancedNotifier {
+    @Override public void sendText(String text) {
+        System.out.println("Matn: " + text);
+    }
+    @Override public void sendWithAttachment(String text, String file) {
+        System.out.println("Matn: " + text + " | Fayl: " + file);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        AdvancedNotifier n = new SuperNotificationSystem();
+        n.sendText("Salom!");
+        n.sendWithAttachment("Hisobot", "doc.pdf");
+    }
+}`,
+      detailedSolution: {
+        theory: "Interfeyslar ham klasslar kabi `extends` orqali kengaytiriladi. Bola interfeys ota interfeysning barcha metodlarini o'zida birlashtiradi.",
+        theoryEn: "Interface inheritance synthesizes cohesive contract tiers, enabling specialized extensions without polluting core abstractions.",
+        cleanCode: `interface AdvancedNotifier extends BasicNotifier {
+    void sendWithAttachment(String text, String file);
+}`,
+        breakdown: [
+          "`AdvancedNotifier` ni `implements` qilgan klass har ikkala metodni yozishi shart.",
+          "Interfeys bir nechta interfeysdan bir vaqtda `extends` qila oladi: `interface C extends A, B`."
+        ],
+        pitfalls: "Interfeys klassdan `extends` qila olmaydi, faqat boshqa interfeysdan `extends` qilishi mumkin.",
+        cw2Viva: "Interface Segregation Principle (SOLID): Katta interfeyslarni kichik va modulli interfeyslarga bo'lish tavsiya etiladi."
+      }
     },
-    "requirements": {
-      "classes": [
-        "PaymentMethod",
-        "ClickPayment",
-        "CashPayment"
-      ]
+    {
+      id: 9,
+      title: {
+        uz: "9. Funksional Interfeys va Lambda (@FunctionalInterface)",
+        en: "9. Functional Interface & Lambdas"
+      },
+      scenario: {
+        uz: "Faqat bitta abstrakt metodga ega interfeys — Funksional interfeys deyiladi. `DiscountCalculator` interfeysini yarating va uni Lambda ifodasi orqali ishlating.",
+        en: "Declare `@FunctionalInterface` and instantiate cleanly using Java Lambdas."
+      },
+      requirements: {
+        classes: ["DiscountCalculator"],
+        keywords: ["@FunctionalInterface", "->"]
+      },
+      starterCode: `@FunctionalInterface
+interface DiscountCalculator {
+    double apply(double price);
+}
+
+class Main {
+    public static void main(String[] args) {
+        // Lambda orqali 15% chegirma
+        DiscountCalculator disc = price -> price * 0.85;
+
+        System.out.println("Chegirmali narx: $" + disc.apply(100.0));
+    }
+}`,
+      solution: `@FunctionalInterface
+interface DiscountCalculator {
+    double apply(double price);
+}
+
+class Main {
+    public static void main(String[] args) {
+        DiscountCalculator disc = price -> price * 0.85;
+
+        System.out.println("Chegirmali narx: $" + disc.apply(100.0));
+    }
+}`,
+      detailedSolution: {
+        theory: "Java 8 Lambdalar faqat bitta abstrakt metodga ega interfeyslar bilan ishlaydi. Bu kodni 5 qatorli klass ochmasdan, 1 qatorda yozish (Modern Java) imkonini beradi.",
+        theoryEn: "Functional interfaces permit concise lambda expression instantiation, streamlining boilerplate anonymous classes.",
+        cleanCode: `DiscountCalculator disc = price -> price * 0.85;`,
+        breakdown: [
+          "`@FunctionalInterface`: Kompilyatorga faqat 1 ta metod bo'lishini qat'iy nazorat qilishni aytadi.",
+          "`price -> price * 0.85`: Lambda funksiyasi."
+        ],
+        pitfalls: "Interfeysga ikkinchi abstrakt metod qo'shilsa, `@FunctionalInterface` kompilyatsiya xatosi beradi.",
+        cw2Viva: "Viva savoli: 'Lambda nima?' Bu bitta metodli funksional interfeysning anonim realizatsiyasidir."
+      }
     },
-    "starterCode": "interface PaymentMethod { void pay(double amount); }\nclass ClickPayment implements PaymentMethod { public void pay(double a) { System.out.println(\"Click: $\" + a); } }\nclass CashPayment implements PaymentMethod { public void pay(double a) { System.out.println(\"Naqd: $\" + a); } }\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentMethod p1 = new ClickPayment();\n        PaymentMethod p2 = new CashPayment();\n        p1.pay(50.0); p2.pay(20.0);\n    }\n}",
-    "solution": "interface PaymentMethod { void pay(double amount); }\nclass ClickPayment implements PaymentMethod { public void pay(double a) { System.out.println(\"Click: $\" + a); } }\nclass CashPayment implements PaymentMethod { public void pay(double a) { System.out.println(\"Naqd: $\" + a); } }\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentMethod p1 = new ClickPayment();\n        PaymentMethod p2 = new CashPayment();\n        p1.pay(50.0); p2.pay(20.0);\n    }\n}"
-  },
-  {
-    "id": 4,
-    "title": {
-      "uz": "4. Bir Nechta Interfeysni Qo'llash (Multiple Interfaces)",
-      "en": "4. Implementing Multiple Interfaces"
-    },
-    "scenario": {
-      "uz": "Java'da bir vaqtning o'zida bir nechta interfeysni qo'llash mumkin: `implements Printable, Exportable`.",
-      "en": "Implement multiple interfaces simultaneously on a single class."
-    },
-    "requirements": {
-      "classes": [
-        "Printable",
-        "Exportable",
-        "Receipt"
-      ],
-      "keywords": [
-        "implements"
-      ]
-    },
-    "starterCode": "interface Printable { void print(); }\ninterface Exportable { void exportPDF(); }\n\nclass Receipt implements Printable, Exportable {\n    public void print() { System.out.println(\"Chop etildi.\"); }\n    public void exportPDF() { System.out.println(\"PDF eksport qilindi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Receipt r = new Receipt();\n        r.print(); r.exportPDF();\n    }\n}",
-    "solution": "interface Printable { void print(); }\ninterface Exportable { void exportPDF(); }\n\nclass Receipt implements Printable, Exportable {\n    public void print() { System.out.println(\"Chop etildi.\"); }\n    public void exportPDF() { System.out.println(\"PDF eksport qilindi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Receipt r = new Receipt();\n        r.print(); r.exportPDF();\n    }\n}"
-  },
-  {
-    "id": 5,
-    "title": {
-      "uz": "5. Bo'shliq (Loose Coupling) & Dependency Injection",
-      "en": "5. Loose Coupling & Dependency Injection"
-    },
-    "scenario": {
-      "uz": "`OrderService` aniq bir to'lov turiga qotib qolmasin. U konstruktori orqali `PaymentMethod` interfeysini qabul qilsin.",
-      "en": "Inject interface dependencies via constructor decoupling business services."
-    },
-    "requirements": {
-      "classes": [
-        "PaymentMethod",
-        "OrderService"
-      ],
-      "constructors": [
-        "OrderService"
-      ]
-    },
-    "starterCode": "interface PaymentMethod { void pay(double amount); }\nclass CardPayment implements PaymentMethod { public void pay(double a) { System.out.println(\"Karta: $\" + a); } }\n\nclass OrderService {\n    private PaymentMethod paymentMethod;\n    public OrderService(PaymentMethod paymentMethod) { this.paymentMethod = paymentMethod; }\n    public void checkout(double total) { paymentMethod.pay(total); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        OrderService service = new OrderService(new CardPayment());\n        service.checkout(120.0);\n    }\n}",
-    "solution": "interface PaymentMethod { void pay(double amount); }\nclass CardPayment implements PaymentMethod { public void pay(double a) { System.out.println(\"Karta: $\" + a); } }\n\nclass OrderService {\n    private PaymentMethod paymentMethod;\n    public OrderService(PaymentMethod paymentMethod) { this.paymentMethod = paymentMethod; }\n    public void checkout(double total) { paymentMethod.pay(total); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        OrderService service = new OrderService(new CardPayment());\n        service.checkout(120.0);\n    }\n}"
-  },
-  {
-    "id": 6,
-    "title": {
-      "uz": "6. Bildirishnoma Tizimi (Notifier Interface)",
-      "en": "6. Notification System (Notifier Interface)"
-    },
-    "scenario": {
-      "uz": "`interface Notifier { void notifyUser(String msg); }` interfeysi va `TelegramNotifier` sinfi.",
-      "en": "Model notification contracts via `Notifier`."
-    },
-    "requirements": {
-      "classes": [
-        "Notifier",
-        "TelegramNotifier"
-      ]
-    },
-    "starterCode": "interface Notifier { void notifyUser(String msg); }\nclass TelegramNotifier implements Notifier {\n    public void notifyUser(String msg) { System.out.println(\"TG Xabar: \" + msg); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Notifier n = new TelegramNotifier();\n        n.notifyUser(\"Buyurtmangiz yetkazildi!\");\n    }\n}",
-    "solution": "interface Notifier { void notifyUser(String msg); }\nclass TelegramNotifier implements Notifier {\n    public void notifyUser(String msg) { System.out.println(\"TG Xabar: \" + msg); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Notifier n = new TelegramNotifier();\n        n.notifyUser(\"Buyurtmangiz yetkazildi!\");\n    }\n}"
-  },
-  {
-    "id": 7,
-    "title": {
-      "uz": "7. Interfeysda Standart Metodlar ('default')",
-      "en": "7. Interface Default Methods"
-    },
-    "scenario": {
-      "uz": "Mavjud klasslarni buzmasdan interfeysga umumiy metod qo'shish: `default void log() { ... }`.",
-      "en": "Add non-breaking behavior contracts using `default` interface methods."
-    },
-    "requirements": {
-      "classes": [
-        "AuditLog"
-      ],
-      "keywords": [
-        "default"
-      ]
-    },
-    "starterCode": "interface AuditLog {\n    default void log(String event) {\n        System.out.println(\"[AUDIT]: \" + event);\n    }\n}\n\nclass OrderProcessor implements AuditLog {}\n\nclass Main {\n    public static void main(String[] args) {\n        new OrderProcessor().log(\"Buyurtma yaratildi\");\n    }\n}",
-    "solution": "interface AuditLog {\n    default void log(String event) {\n        System.out.println(\"[AUDIT]: \" + event);\n    }\n}\n\nclass OrderProcessor implements AuditLog {}\n\nclass Main {\n    public static void main(String[] args) {\n        new OrderProcessor().log(\"Buyurtma yaratildi\");\n    }\n}"
-  },
-  {
-    "id": 8,
-    "title": {
-      "uz": "8. Interfeyslararo Merosxo'rlik ('extends')",
-      "en": "8. Interfaces Extending Interfaces"
-    },
-    "scenario": {
-      "uz": "Interfeys boshqa interfeysdan meros olishi mumkin: `interface AdvancedPayment extends PaymentMethod`.",
-      "en": "Extend interface contracts using `extends`."
-    },
-    "requirements": {
-      "classes": [
-        "PaymentMethod",
-        "RefundablePayment"
-      ],
-      "keywords": [
-        "extends"
-      ]
-    },
-    "starterCode": "interface PaymentMethod { void pay(double amt); }\ninterface RefundablePayment extends PaymentMethod { void refund(double amt); }\n\nclass ModernGateway implements RefundablePayment {\n    public void pay(double amt) { System.out.println(\"To'landi: \" + amt); }\n    public void refund(double amt) { System.out.println(\"Qaytarildi: \" + amt); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ModernGateway mg = new ModernGateway();\n        mg.pay(10); mg.refund(10);\n    }\n}",
-    "solution": "interface PaymentMethod { void pay(double amt); }\ninterface RefundablePayment extends PaymentMethod { void refund(double amt); }\n\nclass ModernGateway implements RefundablePayment {\n    public void pay(double amt) { System.out.println(\"To'landi: \" + amt); }\n    public void refund(double amt) { System.out.println(\"Qaytarildi: \" + amt); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ModernGateway mg = new ModernGateway();\n        mg.pay(10); mg.refund(10);\n    }\n}"
-  },
-  {
-    "id": 9,
-    "title": {
-      "uz": "9. Taqqoslash Interfeysi (Comparable)",
-      "en": "9. Comparable Contract Implementation"
-    },
-    "scenario": {
-      "uz": "Java standard kutubxonasidagi `Comparable<Product>` interfeysini narx bo'yicha saralash uchun qo'llang.",
-      "en": "Implement Java core `Comparable` interface contract."
-    },
-    "requirements": {
-      "classes": [
-        "Product"
-      ],
-      "keywords": [
-        "Comparable"
-      ]
-    },
-    "starterCode": "class Product implements Comparable<Product> {\n    double price;\n    public Product(double price) { this.price = price; }\n    public int compareTo(Product other) {\n        return Double.compare(this.price, other.price);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p1 = new Product(10.0);\n        Product p2 = new Product(20.0);\n        System.out.println(\"Taqqoslash natijasi: \" + p1.compareTo(p2));\n    }\n}",
-    "solution": "class Product implements Comparable<Product> {\n    double price;\n    public Product(double price) { this.price = price; }\n    public int compareTo(Product other) {\n        return Double.compare(this.price, other.price);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p1 = new Product(10.0);\n        Product p2 = new Product(20.0);\n        System.out.println(\"Taqqoslash natijasi: \" + p1.compareTo(p2));\n    }\n}"
-  },
-  {
-    "id": 10,
-    "title": {
-      "uz": "10. CW2 Kurs Ishi Modeli: Customizer Interfeysi",
-      "en": "10. CW2 Customizer Interface Contract"
-    },
-    "scenario": {
-      "uz": "Assessment 2 (50%) talabi: Buyurtma modifikatsiyalari uchun shartnoma: `interface Customizer` (`double getCost()`, `String getLabel()`).",
-      "en": "Build extensible customizer contract for CW2 architecture."
-    },
-    "requirements": {
-      "classes": [
-        "Customizer",
-        "SyrupCustomizer"
-      ],
-      "methods": [
-        "getCost",
-        "getLabel"
-      ]
-    },
-    "starterCode": "interface Customizer {\n    double getCost();\n    String getLabel();\n}\n\nclass SyrupCustomizer implements Customizer {\n    public double getCost() { return 0.75; }\n    public String getLabel() { return \"Vanil siropi\"; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Customizer c = new SyrupCustomizer();\n        System.out.println(c.getLabel() + \" qo'shimcha narxi: $\" + c.getCost());\n    }\n}",
-    "solution": "interface Customizer {\n    double getCost();\n    String getLabel();\n}\n\nclass SyrupCustomizer implements Customizer {\n    public double getCost() { return 0.75; }\n    public String getLabel() { return \"Vanil siropi\"; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Customizer c = new SyrupCustomizer();\n        System.out.println(c.getLabel() + \" qo'shimcha narxi: $\" + c.getCost());\n    }\n}"
-  }
-];
+    {
+      id: 10,
+      title: {
+        uz: "10. CW2 Kurs Ishi Modeli: DiscountStrategy Interfeysi",
+        en: "10. CW2 DiscountStrategy Interface Model"
+      },
+      scenario: {
+        uz: "Assessment 2 (50%) Kurs Ishidagi GoF Behavioural Pattern (9 ball) uchun fundament: `DiscountStrategy` interfeysini (`double applyDiscount(double subtotal);`) yarating va `StudentDiscount` (10%) hamda `NoDiscount` strategiyalarini amalga oshiring!",
+        en: "Build full CW2 Assessment 2 Strategy pattern: `DiscountStrategy` interface with `StudentDiscount` and `NoDiscount` implementations."
+      },
+      requirements: {
+        classes: ["DiscountStrategy", "StudentDiscount", "NoDiscount"],
+        methods: ["applyDiscount"],
+        keywords: ["interface", "implements"]
+      },
+      starterCode: `interface DiscountStrategy {
+    double applyDiscount(double subtotal);
+}
+
+class StudentDiscount implements DiscountStrategy {
+    @Override
+    public double applyDiscount(double subtotal) {
+        return subtotal * 0.90; // 10% talaba chegirmasi
+    }
+}
+
+class NoDiscount implements DiscountStrategy {
+    @Override
+    public double applyDiscount(double subtotal) {
+        return subtotal;
+    }
+}
+
+class Order {
+    private double total;
+    private DiscountStrategy strategy;
+
+    public Order(double total, DiscountStrategy strategy) {
+        this.total = total;
+        this.strategy = strategy;
+    }
+
+    public double getFinalPrice() {
+        return strategy.applyDiscount(total);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Order o1 = new Order(50.0, new StudentDiscount());
+        Order o2 = new Order(50.0, new NoDiscount());
+
+        System.out.println("Talaba buyurtmasi: $" + o1.getFinalPrice());
+        System.out.println("Oddiy buyurtma: $" + o2.getFinalPrice());
+    }
+}`,
+      solution: `interface DiscountStrategy {
+    double applyDiscount(double subtotal);
+}
+
+class StudentDiscount implements DiscountStrategy {
+    @Override
+    public double applyDiscount(double subtotal) {
+        return subtotal * 0.90;
+    }
+}
+
+class NoDiscount implements DiscountStrategy {
+    @Override
+    public double applyDiscount(double subtotal) {
+        return subtotal;
+    }
+}
+
+class Order {
+    private double total;
+    private DiscountStrategy strategy;
+
+    public Order(double total, DiscountStrategy strategy) {
+        this.total = total;
+        this.strategy = strategy;
+    }
+
+    public double getFinalPrice() {
+        return strategy.applyDiscount(total);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Order o1 = new Order(50.0, new StudentDiscount());
+        Order o2 = new Order(50.0, new NoDiscount());
+
+        System.out.println("Talaba buyurtmasi: $" + o1.getFinalPrice());
+        System.out.println("Oddiy buyurtma: $" + o2.getFinalPrice());
+    }
+}`,
+      detailedSolution: {
+        theory: "Ajoyib g'alaba! Siz 5-Modulni to'liq tugatdingiz. Westminster 5COSC018C Coursework (50%) talabidagi 'Behavioural Pattern' (9 ball) uchun eng mashhur Strategy Patternini noldan professional tarzda qura oldingiz!",
+        theoryEn: "Congratulations! You have mastered Interfaces, loose coupling, dependency injection, and delivered the full GoF Strategy pattern required for CW2 Assessment 2.",
+        cleanCode: `interface DiscountStrategy {
+    double applyDiscount(double subtotal);
+}`,
+        breakdown: [
+          "`DiscountStrategy`: Umumiy chegirma interfeysi.",
+          "`StudentDiscount`, `NoDiscount`: Almashtiriluvchi polimorfik algoritmlar.",
+          "`Order` klassi strategiyani konstruktor orqali qabul qiladi (Dependency Injection)."
+        ],
+        pitfalls: "6-modulda bu model Creational (Factory, Singleton, Builder) va Structural (Decorator) patternlar bilan to'liq birlashtiriladi.",
+        cw2Viva: "Viva imtihonida: 'Nega Strategy patternni tanladingiz?' deb so'raladi. Javob: Kelajakda yangi chegirmalar (VIP, Bayram) qo'shilganda Order klassini o'zgartirmasdan, Open-Closed prinsipiga amal qilish uchun!"
+      }
+    }
+  ];
 
   function loadSolved() {
     try {
@@ -277,14 +829,28 @@
     const elBadge = document.getElementById("problemBadge");
     const elTitle = document.getElementById("problemTitle");
     const elScenario = document.getElementById("problemScenario");
-    const elSolutionText = document.getElementById("solutionContent");
     const elSolutionCard = document.getElementById("solutionContentCard");
+    const elToggleHint = document.getElementById("solutionToggleHint");
 
     if (elBadge) elBadge.textContent = `5-Modul • ${ch.id}-Topshiriq`;
     if (elTitle) elTitle.textContent = ch.title[currentLang];
     if (elScenario) elScenario.textContent = ch.scenario[currentLang];
-    if (elSolutionText) elSolutionText.textContent = ch.solution;
+
+    if (window.SolutionRenderer) {
+      window.SolutionRenderer.render(ch, "solutionContentCard", currentLang);
+    }
     if (elSolutionCard) elSolutionCard.style.display = "none";
+    if (elToggleHint) elToggleHint.textContent = "[Ko'rish ▾]";
+
+    const reqList = document.getElementById("taskReqList");
+    if (reqList) {
+      let reqHtml = "";
+      if (ch.requirements.classes) reqHtml += `<li><strong>Interfeys/Klass:</strong> <code>${ch.requirements.classes.join(", ")}</code> tuzilsin.</li>`;
+      if (ch.requirements.keywords) reqHtml += `<li><strong>Kalit so'zlar:</strong> <code>${ch.requirements.keywords.join(", ")}</code> qo'llansin.</li>`;
+      if (ch.requirements.methods && ch.requirements.methods.length > 0) reqHtml += `<li><strong>Metodlar:</strong> <code>${ch.requirements.methods.join("(), ")}()</code> metodi e'lon qilinsin.</li>`;
+      reqHtml += `<li>Sintaksis xatolarisiz va Clean Code qoidalariga rioya qiling.</li>`;
+      reqList.innerHTML = reqHtml;
+    }
 
     const codeArea = document.getElementById("codeEditor");
     if (codeArea) codeArea.value = ch.starterCode;
@@ -323,20 +889,51 @@
 
     const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch.requirements);
 
-    let report = "=== TEZKOR TEKSHIRUV NATIJASI ===\n";
-    validation.tests.forEach(t => {
-      report += (t.passed ? "✅ " : "❌ ") + t.name + ": " + t.feedback + "\n";
-    });
+    let report = "==================================================\n";
+    report += "🔍 SINTAKSIS VA OOP DIAGNOSTIKA NATIJASI\n";
+    report += "==================================================\n\n";
 
     if (validation.passed) {
+      report += "✅ BARCHA OOP VA SINTAKSIS SHARTLARI BAJARILDI! (+50 Ball)\n\n";
+      if (validation.passedItems && validation.passedItems.length > 0) {
+        validation.passedItems.forEach(item => {
+          report += `✔️ ${item.name}: ${item.detail}\n`;
+        });
+      }
+      report += `\n🎉 TABRIKLAYMIZ! Barcha shartlar to'liq va xatosiz bajarildi!\n💡 Endi xohlasangiz '☕ Ishga tushirish (OpenJDK 21)' orqali dasturni real konsolda sinab ko'ring!`;
+      consoleOut.className = "console-output success";
       solvedQuestions.add(ch.id);
       saveSolved();
       renderHUD();
-      consoleOut.className = "console-output success";
-      report += `\n🎉 TABRIKLAYMIZ! Barcha shartlar to'liq bajarildi! (+50 Ball)\n💡 '☕ Ishga tushirish (OpenJDK 21)' orqali real konsol natijasini ko'rishingiz mumkin!`;
     } else {
       consoleOut.className = "console-output error";
-      report += `\n⚠️ Ba'zi shartlar hali to'liq emas. Kodni qayta ko'rib chiqing.`;
+      report += "❌ ANIQLANGAN XATOLIKLAR JOYI:\n";
+
+      if (validation.syntaxErrors && validation.syntaxErrors.length > 0) {
+        validation.syntaxErrors.forEach(err => {
+          report += `\n📍 [${err.line}-Qator]: ${err.message}\n`;
+          if (err.snippet) report += `   Kodingiz: ${err.snippet}\n`;
+          if (err.fix) report += `   💡 Tavsiya: ${err.fix}\n`;
+        });
+      }
+
+      if (validation.semanticIssues && validation.semanticIssues.length > 0) {
+        validation.semanticIssues.forEach(iss => {
+          const linePrefix = iss.line ? `[${iss.line}-Qator]: ` : "";
+          report += `\n📍 ${linePrefix}${iss.message}\n`;
+          if (iss.fix) report += `   💡 Tavsiya: ${iss.fix}\n`;
+        });
+      }
+
+      if (validation.passedItems && validation.passedItems.length > 0) {
+        report += "\n--------------------------------------------------\n";
+        report += "✔️ TO'G'RI BAJARILGAN QISMLAR:\n";
+        validation.passedItems.forEach(item => {
+          report += `   • ${item.name} (${item.detail})\n`;
+        });
+      }
+
+      report += "\n💡 Professor Ada Maslahati: Yuqorida ko'rsatilgan qatorlardagi xatoliklarni tuzatib, qayta tekshiring!";
     }
 
     consoleOut.textContent = report;
@@ -355,10 +952,23 @@
 
     if (res.success) {
       consoleOut.className = "console-output success";
-      consoleOut.textContent = `=== OPENJDK 21 CHIQISHI (STDOUT) ===\n\n${res.output || "(Dastur chiqishsiz muvaffaqiyatli yakunlandi)"}\n\n✅ Kod muvaffaqiyatli kompilyatsiya qilindi va bajarildi!`;
+      consoleOut.textContent = `==================================================\n✅ OPENJDK 21 CHIQISHI (STDOUT)\n==================================================\n\n${res.output || "(Chiqish yo'q, dastur muvaffaqiyatli yakunlandi)"}\n\n✅ Kod muvaffaqiyatli kompilyatsiya qilindi va bajarildi!`;
     } else {
       consoleOut.className = "console-output error";
-      consoleOut.textContent = `=== KOMPILYATOR XATOLIGI (JAVAC) ===\n\n${res.errors || "Noma'lum kompilyatsiya xatosi"}`;
+      let report = "==================================================\n";
+      report += "❌ KOMPILYATOR XATOLIGI (JAVAC OPENJDK 21)\n";
+      report += "==================================================\n\n";
+
+      if (res.diagnostics && res.diagnostics.length > 0) {
+        report += "📍 ANIQLANGAN QATORLAR:\n";
+        res.diagnostics.forEach(d => {
+          report += `• [${d.line}-Qator]: ${d.uzbek}\n  💡 Tavsiya: ${d.tip}\n\n`;
+        });
+        report += "--- To'liq Javac Kompilyator Xabari ---\n";
+      }
+
+      report += res.errors || "Noma'lum xatolik";
+      consoleOut.textContent = report;
     }
   }
 
@@ -394,6 +1004,7 @@
     const btnReset = document.getElementById("btnResetCode");
     const btnNext = document.getElementById("btnNextChallenge");
     const btnToggleSol = document.getElementById("btnToggleSolution");
+    const elToggleHint = document.getElementById("solutionToggleHint");
 
     if (btnTest) btnTest.addEventListener("click", handleInstantTest);
     if (btnRun) btnRun.addEventListener("click", handleCloudRun);
@@ -412,7 +1023,11 @@
 
     if (btnToggleSol) btnToggleSol.addEventListener("click", () => {
       const card = document.getElementById("solutionContentCard");
-      if (card) card.style.display = card.style.display === "none" ? "block" : "none";
+      if (card) {
+        const isHidden = card.style.display === "none";
+        card.style.display = isHidden ? "block" : "none";
+        if (elToggleHint) elToggleHint.textContent = isHidden ? "[Yopish ▴]" : "[Ko'rish ▾]";
+      }
     });
 
     const codeArea = document.getElementById("codeEditor");

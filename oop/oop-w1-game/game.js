@@ -11,7 +11,7 @@
   let currentQIndex = 0;
   let solvedQuestions = new Set();
 
-  // 10 Progressive Java Core Challenges
+  // 10 Progressive Java Core Challenges with Detailed Solutions & Precise Requirements
   const CHALLENGES = [
     {
       id: 1,
@@ -25,7 +25,10 @@
       },
       requirements: {
         classes: ["Product"],
-        methods: []
+        fields: [
+          { name: "name", type: "String" },
+          { name: "price", type: "double" }
+        ]
       },
       starterCode: `// Uzum Market mahsulot klassini yarating
 class Product {
@@ -48,9 +51,27 @@ class Main {
         System.out.println("Product klassi yaratildi!");
     }
 }`,
-      explanation: {
-        uz: "Klass — bu obyektning chizmasi (blueprint). `String name;` va `double price;` har bir mahsulot ega bo'ladigan holat (state) hisoblanadi.",
-        en: "A class is a blueprint for objects. Fields represent the state that each product instance holds in memory."
+      detailedSolution: {
+        theory: "Klass — obyektning chizmasi (blueprint). Uzum Market kabi yirik elektron tijorat tizimlarida millionlab tovarlar aynan bitta Product klassi asosida Heap xotirada yaratiladi.",
+        theoryEn: "A class is an object blueprint. In massive e-commerce systems like Uzum Market, millions of product entities are instantiated on Heap memory using a single clean Product class.",
+        cleanCode: `class Product {
+    String name;
+    double price;
+}
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Product klassi yaratildi!");
+    }
+}`,
+        breakdown: [
+          "<code>class Product { ... }</code>: Mahsulot ma'lumotlarini saqlovchi yangi tur (klass) e'lon qilinmoqda.",
+          "<code>String name;</code>: Tovarning nomi (matnli holat) maydoni.",
+          "<code>double price;</code>: Tovarning narxi (haqiqiy son, tiyinlari bilan) maydoni.",
+          "<code>System.out.println(...);</code>: Konsolga dastur muvaffaqiyatli ishlaganini bildiruvchi xabar chiqarish."
+        ],
+        pitfalls: "Maydon nomini kichik harf bilan ('name', 'price') boshlash va to'g'ri tur ('double', 'String') tanlash muhim. 'double' o'rniga 'int' tanlansa, 12.99 narxli tovarlarni saqlab bo'lmaydi.",
+        cw2Viva: "Viva imtihonida: 'Class va Object o'rtasidagi farq nima?' degan savol tushadi. Javob: Class — bu xotirada mavjud bo'lmagan shablon; Object — bu Heap xotiradan joy olgan aniq bir nusxa."
       }
     },
     {
@@ -65,7 +86,11 @@ class Main {
       },
       requirements: {
         classes: ["Product"],
-        keywords: ["new"]
+        keywords: ["new"],
+        fields: [
+          { name: "name", type: "String" },
+          { name: "price", type: "double" }
+        ]
       },
       starterCode: `class Product {
     String name;
@@ -104,9 +129,36 @@ class Main {
         System.out.println(p2.name + " narxi: $" + p2.price);
     }
 }`,
-      explanation: {
-        uz: "`new` operatori Heap xotiradan yangi obyekt uchun joy ajratadi va uning xotira manzilini (reference) `p1` yoki `p2` o'zgaruvchisiga biriktiradi.",
-        en: "The `new` operator dynamically allocates memory on the Heap and returns a reference stored in the stack variable."
+      detailedSolution: {
+        theory: "`new` operatori Heap xotiradan yangi obyekt uchun joy ajratadi va uning xotira manzilini (reference) `p1` yoki `p2` o'zgaruvchisiga biriktiradi. Ikkala obyekt bir-biridan mustaqil yashaydi.",
+        theoryEn: "The `new` operator dynamically allocates memory on the Heap and assigns references to `p1` and `p2`. Each instance maintains independent state.",
+        cleanCode: `class Product {
+    String name;
+    double price;
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p1 = new Product();
+        p1.name = "iPhone 15";
+        p1.price = 1200.0;
+
+        Product p2 = new Product();
+        p2.name = "MacBook";
+        p2.price = 1400.0;
+
+        System.out.println(p1.name + " narxi: $" + p1.price);
+        System.out.println(p2.name + " narxi: $" + p2.price);
+    }
+}`,
+        breakdown: [
+          "<code>Product p1 = new Product();</code>: Heap xotirada 1-tovar yaratildi, p1 uning manzilini ushlab turibdi.",
+          "<code>p1.name = \"iPhone 15\";</code>: p1 obyektining name maydoniga qiymat yuklandi.",
+          "<code>Product p2 = new Product();</code>: Heap xotirada butunlay boshqa manzilga ega 2-tovar yaratildi.",
+          "<code>System.out.println(...)</code>: Har ikkala tovar holati konsolga chop etildi."
+        ],
+        pitfalls: "Agar `Product p1;` deb e'lon qilib, `new Product()` yozilmasa, `p1` o'zgaruvchisi `null` bo'lib turadi va `p1.name` deyilganda `NullPointerException` otiladi.",
+        cw2Viva: "Viva imtihonida: 'Nega p1 va p2 ning narxlari bir-biriga ta'sir qilmaydi?' deb so'ralganda, 'Chunki ular Heap xotirada ikki xil alohida manzilda joylashgan' deb javob beriladi."
       }
     },
     {
@@ -122,7 +174,11 @@ class Main {
       requirements: {
         classes: ["Product"],
         constructors: ["Product"],
-        keywords: ["this"]
+        keywords: ["this"],
+        fields: [
+          { name: "name", type: "String" },
+          { name: "price", type: "double" }
+        ]
       },
       starterCode: `class Product {
     String name;
@@ -156,9 +212,32 @@ class Main {
         System.out.println(p.name + ": $" + p.price);
     }
 }`,
-      explanation: {
-        uz: "`this` kalit so'zi joriy obyekt nusxasiga ishora qiladi. Bu parametr nomi bilan maydon nomi bir xil bo'lib qolganida chalkashlikni bartaraf etadi.",
-        en: "`this` refers to the current object instance, disambiguating instance fields from constructor parameter arguments."
+      detailedSolution: {
+        theory: "Konstruktor — obyekt 'tug'ilgan' ondayoq uning barcha zaruriy xususiyatlarini xavfsiz initsializatsiya qiladi. `this` kalit so'zi joriy obyektga ko'rsatkich bo'lib, parametr va maydon nomlari bir xil bo'lganda chalkashlikni yo'qotadi.",
+        theoryEn: "Constructors guarantee initialization safety at creation time. `this` refers to the current instance, eliminating variable shadowing.",
+        cleanCode: `class Product {
+    String name;
+    double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product("AirPods Pro", 250.0);
+        System.out.println(p.name + ": $" + p.price);
+    }
+}`,
+        breakdown: [
+          "<code>public Product(String name, double price)</code>: Konstruktor nomi klass nomi bilan 100% bir xil bo'ladi va qaytaruvchi turga (void, int) ega bo'lmaydi.",
+          "<code>this.name = name;</code>: O'ng tarafdagi `name` — kirib kelgan parametr, chap tarafdagi `this.name` — klassning ichki maydoni.",
+          "<code>this.price = price;</code>: Narx maydoniga parametr qiymati yuklandi."
+        ],
+        pitfalls: "`this.name = name` o'rniga `name = name` deb yozish — parametr o'zini o'ziga tenglashtiradi va maydon o'zgarmasdan null/0.0 bo'lib qoladi.",
+        cw2Viva: "Kurs ishida har bir buyurtma (Coffee, Order) parametrli konstruktor orqali xavfsiz yaratilishi shart (Assessment 2 talabi)."
       }
     },
     {
@@ -220,9 +299,39 @@ class Main {
         System.out.println(p2.name + " narxi: $" + p2.price);
     }
 }`,
-      explanation: {
-        uz: "Konstruktor overloading — bir xil nomli, ammo har xil parametrlar ro'yxatiga ega bo'lgan bir nechta konstruktor yaratish imkoniyatidir.",
-        en: "Constructor overloading allows a class to have multiple constructors differing in their parameter signatures."
+      detailedSolution: {
+        theory: "Overloading (qayta yuklash) — bir xil nomli, lekin parametrlari soni yoki turlari bilan farq qiluvchi konstruktor yoki metodlar tuzishdir. Bu dasturchiga moslashuvchanlik beradi.",
+        theoryEn: "Constructor overloading empowers client code to initialize objects in varied valid states depending on available data.",
+        cleanCode: `class Product {
+    String name;
+    double price;
+
+    public Product(String name) {
+        this.name = name;
+        this.price = 0.0;
+    }
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p1 = new Product("Kutilayotgan Tovarlar");
+        Product p2 = new Product("Samsung S24", 950.0);
+        System.out.println(p1.name + " narxi: $" + p1.price);
+        System.out.println(p2.name + " narxi: $" + p2.price);
+    }
+}`,
+        breakdown: [
+          "<code>public Product(String name)</code>: Bir parametrli konstruktor — narx kiritilmasa 0.0 qilib qo'yadi.",
+          "<code>public Product(String name, double price)</code>: Ikki parametrli to'liq konstruktor.",
+          "<code>new Product(...)</code> chaqirilganda Java argumentlar soniga qarab qaysi konstruktorni chaqirishni o'zi avtomatik hal qiladi."
+        ],
+        pitfalls: "Bir xil parametrlar soni va turlariga ega 2 ta konstruktor yozish mumkin emas (kompilyator ularni ajrata olmaydi).",
+        cw2Viva: "O'qituvchi: 'Overloading bilan Overriding o'rtasidagi farq nima?' Overloading — bir sinfda parametrlar farqi (Compile-time); Overriding — merosxo'rlikda ota metodni bola klassda qayta yozish (Runtime)."
       }
     },
     {
@@ -252,13 +361,14 @@ class Main {
 class Main {
     public static void main(String[] args) {
         Product p1 = new Product("Qahva", 20.0);
-        // p2 ga p1 referensini bering
+        // p2 ga p1 ning manzilini bering
         Product p2 = p1;
 
-        // p2 orqali narxni 25.0 qiling
+        // p2 orqali narxni 25.0 qilib o'zgartiring
         p2.price = 25.0;
 
-        System.out.println("p1 narxi: $" + p1.price);
+        // p1.price ni chop eting
+        System.out.println("p1 narxi: " + p1.price);
     }
 }`,
       solution: `class Product {
@@ -278,27 +388,52 @@ class Main {
 
         p2.price = 25.0;
 
-        System.out.println("p1 narxi: $" + p1.price);
+        System.out.println("p1 narxi: " + p1.price);
     }
 }`,
-      explanation: {
-        uz: "`p1` va `p2` ikkalasi ham Stack xotirada joylashgan bo'lib, Heap xotiradagi aynan bitta obyekt manziliga ko'rsatib turadi.",
-        en: "Both `p1` and `p2` reside on the Stack and hold references pointing to the exact same object on the Heap."
+      detailedSolution: {
+        theory: "Java'da primitiv turlar (int, double) qiymat bo'yicha (by value), obyektlar esa havola (by reference) bo'yicha ishlaydi. `p2 = p1` qilinganda yangi obyekt yaratilmaydi, ikkala o'zgaruvchi Heap'dagi bitta obyektga qaraydi.",
+        theoryEn: "In Java, assigning an object variable copies the memory address reference, not the object body on the Heap.",
+        cleanCode: `class Product {
+    String name;
+    double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p1 = new Product("Qahva", 20.0);
+        Product p2 = p1;
+        p2.price = 25.0;
+        System.out.println("p1 narxi: " + p1.price);
+    }
+}`,
+        breakdown: [
+          "<code>Product p1 = new Product(\"Qahva\", 20.0);</code>: Heap xotirada 1 ta obyekt ochildi, p1 unga ko'rsatmoqda.",
+          "<code>Product p2 = p1;</code>: p2 ham xuddi shu Heap manziliga ulandi.",
+          "<code>p2.price = 25.0;</code>: O'sha bitta obyektning narxi yangilandi. p1 chaqirilsa ham 25.0 ko'rinadi."
+        ],
+        pitfalls: "Obyektni klonlash o'rniga shunchaki tenglashtirib qo'yish dasturda kutilmagan Side-Effect xatoliklariga olib keladi.",
+        cw2Viva: "Viva savoli: 'Pass-by-value va Pass-by-reference farqi nima?' Java qat'iy Pass-by-value tilidir, lekin obyektlar uzatilganda ularning havolasi qiymat sifatida uzatiladi."
       }
     },
     {
       id: 6,
       title: {
-        uz: "6. Instans Metodlar va Chegirma Hisoblash",
-        en: "6. Instance Methods & Discount Logic"
+        uz: "6. Metodlar va Xatti-harakat (Behavior)",
+        en: "6. Methods & Object Behavior"
       },
       scenario: {
-        uz: "Obyekt faqat ma'lumot saqlabgina qolmay, xatti-harakatga ham ega bo'lishi kerak. `Product` klassiga `getDiscountedPrice(double percent)` metodini qo'shing. U foiz bo'yicha arzonlashtirilgan narxni hisoblab qaytarsin.",
-        en: "Add a business method `getDiscountedPrice(double percent)` to `Product` returning `price - (price * percent / 100)`."
+        uz: "Obyekt faqat ma'lumot saqlabgina qolmay, harakatlarni ham bajara olishi kerak. `Product` klassiga `display()` metodini qo'shing. Bu metod tovar nomi va narxini chiroyli formatda konsolga chiqarsin.",
+        en: "Objects combine state with behavior. Add a `display()` method to `Product` that prints formatted information about the product to stdout."
       },
       requirements: {
         classes: ["Product"],
-        methods: ["getDiscountedPrice"]
+        methods: ["display"]
       },
       starterCode: `class Product {
     String name;
@@ -309,17 +444,16 @@ class Main {
         this.price = price;
     }
 
-    // getDiscountedPrice metodini yarating
-    public double getDiscountedPrice(double percent) {
-        return this.price - (this.price * percent / 100.0);
+    // display() metodini yarating
+    public void display() {
+        System.out.println("Mahsulot: " + name + " | Narx: $" + price);
     }
 }
 
 class Main {
     public static void main(String[] args) {
-        Product p = new Product("Smart TV", 500.0);
-        double salePrice = p.getDiscountedPrice(10.0); // 10% chegirma
-        System.out.println("Aksiya narxi: $" + salePrice);
+        Product p = new Product("Smartfon", 800.0);
+        p.display();
     }
 }`,
       solution: `class Product {
@@ -331,108 +465,57 @@ class Main {
         this.price = price;
     }
 
-    public double getDiscountedPrice(double percent) {
-        return this.price - (this.price * percent / 100.0);
+    public void display() {
+        System.out.println("Mahsulot: " + name + " | Narx: $" + price);
     }
 }
 
 class Main {
     public static void main(String[] args) {
-        Product p = new Product("Smart TV", 500.0);
-        double salePrice = p.getDiscountedPrice(10.0);
-        System.out.println("Aksiya narxi: $" + salePrice);
+        Product p = new Product("Smartfon", 800.0);
+        p.display();
     }
 }`,
-      explanation: {
-        uz: "Instans metodlar chaqirilgan obyektning ichki maydonlari (`this.price`) bilan bevosita ishlaydi.",
-        en: "Instance methods operate directly upon the internal state of the invoking object instance."
+      detailedSolution: {
+        theory: "OOP ning asosiy mohiyati: ma'lumotlar va ular ustida bajariluvchi amallarni bitta obyekt ichida jamlashdir. display() metodi tovarning ichki holatiga kirib, uni formatlaydi.",
+        theoryEn: "Encapsulating state together with its pertinent operations represents the core tenet of object-oriented design.",
+        cleanCode: `class Product {
+    String name;
+    double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public void display() {
+        System.out.println("Mahsulot: " + name + " | Narx: $" + price);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product("Smartfon", 800.0);
+        p.display();
+    }
+}`,
+        breakdown: [
+          "<code>public void display()</code>: Hech narsa qaytarmaydigan (void), hamma uchun ochiq (public) metod.",
+          "Metod ichida <code>name</code> va <code>price</code> maydonlariga to'g'ridan-to'g'ri murojaat qilinadi."
+        ],
+        pitfalls: "Metod ichida `static` so'zini yozib qo'yish — natijada u obyekt maydonlariga (`name`, `price`) murojaat qila olmay qoladi.",
+        cw2Viva: "Coursework konsol ilovasida har bir buyurtma itemi o'zining tafsilotlarini chiqaruvchi formatlash metodiga ega bo'lishi kerak."
       }
     },
     {
       id: 7,
       title: {
-        uz: "7. Obyektlar Hamkorligi: Customer & Product",
-        en: "7. Object Collaboration: Customer & Product"
+        uz: "7. 'static' Kalit So'zi va Umumiy Hisoblagich",
+        en: "7. 'static' Keyword & Shared Counters"
       },
       scenario: {
-        uz: "Real dasturlarda klasslar bir-biri bilan muloqot qiladi. `Customer` klassini yarating (`String fullName`). Unda `buyProduct(Product p)` metodi bo'lsin va ekranga `fullName + \" xarid qildi: \" + p.name` deb chiqarsin.",
-        en: "Create a `Customer` class with `String fullName` and a `buyProduct(Product p)` method printing the purchase action."
-      },
-      requirements: {
-        classes: ["Customer", "Product"],
-        methods: ["buyProduct"]
-      },
-      starterCode: `class Product {
-    String name;
-    double price;
-
-    public Product(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
-}
-
-class Customer {
-    String fullName;
-
-    public Customer(String fullName) {
-        this.fullName = fullName;
-    }
-
-    // buyProduct(Product p) metodini yarating
-    
-}
-
-class Main {
-    public static void main(String[] args) {
-        Customer c = new Customer("Aziz Rahimov");
-        Product p = new Product("Sony Naushnik", 150.0);
-        c.buyProduct(p);
-    }
-}`,
-      solution: `class Product {
-    String name;
-    double price;
-
-    public Product(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
-}
-
-class Customer {
-    String fullName;
-
-    public Customer(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public void buyProduct(Product p) {
-        System.out.println(fullName + " xarid qildi: " + p.name);
-    }
-}
-
-class Main {
-    public static void main(String[] args) {
-        Customer c = new Customer("Aziz Rahimov");
-        Product p = new Product("Sony Naushnik", 150.0);
-        c.buyProduct(p);
-    }
-}`,
-      explanation: {
-        uz: "Metodga boshqa obyekt referensini argument sifatida uzatish orqali klasslar o'rtasida Assotsiatsiya (bog'liqlik) o'rnatiladi.",
-        en: "Passing object references as parameters creates association relationships between collaborating classes."
-      }
-    },
-    {
-      id: 8,
-      title: {
-        uz: "8. 'static' Maydon va Global Hisoblagich",
-        en: "8. Static Fields & Shared Counters"
-      },
-      scenario: {
-        uz: "Do'konda jami nechta tovar yaratilganini bilishimiz kerak. Har bir obyekt alohida emas, butun klass bo'yicha bitta umumiy o'zgaruvchi kerak. `Product` klassiga `static int totalCount = 0;` qo'shing va har bir konstruktor chaqirilganda `totalCount++` qiling.",
-        en: "Track total products instantiated globally. Add `static int totalCount = 0;` to `Product`, incrementing it in the constructor."
+        uz: "Har bir tovar alohida, lekin do'konda jami nechta tovar yaratilganini bilish kerak. Buning uchun barcha obyektlar uchun umumiy bo'lgan `static int count = 0;` o'zgaruvchisini qo'shing va konstruktorda `count++` qiling.",
+        en: "Track total products across all instances. Add a class-level shared `static int count = 0;` incremented inside the constructor."
       },
       requirements: {
         classes: ["Product"],
@@ -441,59 +524,169 @@ class Main {
       starterCode: `class Product {
     String name;
     double price;
-    // static hisoblagichni e'lon qiling
-    static int totalCount = 0;
+    // static hisoblagich maydoni qo'shing
+    public static int count = 0;
 
     public Product(String name, double price) {
         this.name = name;
         this.price = price;
-        // hisoblagichni oshiring
-        totalCount++;
+        // count ni oshiring
+        count++;
     }
 }
 
 class Main {
     public static void main(String[] args) {
-        new Product("A", 10);
-        new Product("B", 20);
-        new Product("C", 30);
-        System.out.println("Jami tovarlar soni: " + Product.totalCount);
+        Product p1 = new Product("T-Shirt", 20.0);
+        Product p2 = new Product("Jeans", 50.0);
+        Product p3 = new Product("Cap", 15.0);
+
+        System.out.println("Jami mahsulotlar soni: " + Product.count);
     }
 }`,
       solution: `class Product {
     String name;
     double price;
-    static int totalCount = 0;
+    public static int count = 0;
 
     public Product(String name, double price) {
         this.name = name;
         this.price = price;
-        totalCount++;
+        count++;
     }
 }
 
 class Main {
     public static void main(String[] args) {
-        new Product("A", 10);
-        new Product("B", 20);
-        new Product("C", 30);
-        System.out.println("Jami tovarlar soni: " + Product.totalCount);
+        Product p1 = new Product("T-Shirt", 20.0);
+        Product p2 = new Product("Jeans", 50.0);
+        Product p3 = new Product("Cap", 15.0);
+
+        System.out.println("Jami mahsulotlar soni: " + Product.count);
     }
 }`,
-      explanation: {
-        uz: "`static` a'zolar biron bir obyektga emas, klassning o'ziga tegishli bo'ladi va barcha nusxalar uchun xotirada faqat bitta bo'ladi.",
-        en: "Static members belong to the class itself rather than individual instances, shared uniformly across all objects."
+      detailedSolution: {
+        theory: "`static` modifikatori maydonni obyektga emas, bevosita klassga bog'laydi. U Metaspace/Classloader xotirasida bitta nusxada saqlanadi va barcha obyektlar bu maydondan birgalikda foydalanadi.",
+        theoryEn: "`static` members belong to the class blueprint itself, shared across all instantiated instances.",
+        cleanCode: `class Product {
+    String name;
+    double price;
+    public static int count = 0;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+        count++;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p1 = new Product("T-Shirt", 20.0);
+        Product p2 = new Product("Jeans", 50.0);
+        Product p3 = new Product("Cap", 15.0);
+
+        System.out.println("Jami mahsulotlar soni: " + Product.count);
+    }
+}`,
+        breakdown: [
+          "<code>public static int count = 0;</code>: Klass xotirasida bitta bo'lgan umumiy sanagich.",
+          "<code>count++;</code>: Har gal yangi tovar yaratilganda sanagich 1 taga oshadi.",
+          "<code>Product.count</code>: Obyekt nomisiz to'g'ridan-to'g'ri klass nomi orqali murojaat qilinadi."
+        ],
+        pitfalls: "Obyektga xos bo'lgan maydonlarni (narx, balans) adashib static qilib qo'yish butun dasturni buzadi.",
+        cw2Viva: "Viva savoli: 'Static metod ichidan non-static maydonga nega murojaat qilib bo'lmaydi?' Chunki static metod ishlaganda hali birorta obyekt yaratilmagan bo'lishi mumkin!"
+      }
+    },
+    {
+      id: 8,
+      title: {
+        uz: "8. 'final' va O'zgarmas Maydonlar (Immutability)",
+        en: "8. 'final' Keyword & Immutable Fields"
+      },
+      scenario: {
+        uz: "Har bir tovarning unikal identifikatori (id) bo'lishi va u bir marta berilgach qayta o'zgarmasligi shart. `Product` klassida `final int id;` maydonini e'lon qiling va uni konstruktor orqali initsializatsiya qiling.",
+        en: "Ensure data integrity by making identity immutable. Declare `final int id;` initialized strictly via constructor."
+      },
+      requirements: {
+        classes: ["Product"],
+        keywords: ["final"]
+      },
+      starterCode: `class Product {
+    // final maydon: id
+    final int id;
+    String name;
+    double price;
+
+    public Product(int id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product(101, "Monitor", 300.0);
+        System.out.println("ID: " + p.id + ", Nomi: " + p.name);
+    }
+}`,
+      solution: `class Product {
+    final int id;
+    String name;
+    double price;
+
+    public Product(int id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product(101, "Monitor", 300.0);
+        System.out.println("ID: " + p.id + ", Nomi: " + p.name);
+    }
+}`,
+      detailedSolution: {
+        theory: "`final` kalit so'zi o'zgaruvchini konstantaga aylantiradi. Uni faqat e'lon qilinganda yoki konstruktor ichida 1 marta o'zlashtirish mumkin. Bu ma'lumotlar butunligini (data integrity) kafolatlaydi.",
+        theoryEn: "The `final` keyword secures state by enforcing write-once immutability, eliminating accidental state mutations.",
+        cleanCode: `class Product {
+    final int id;
+    String name;
+    double price;
+
+    public Product(int id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product(101, "Monitor", 300.0);
+        System.out.println("ID: " + p.id + ", Nomi: " + p.name);
+    }
+}`,
+        breakdown: [
+          "<code>final int id;</code>: Bir marta qiymat olgach, qayta o'zgartirib bo'lmaydigan maydon.",
+          "<code>this.id = id;</code>: Konstruktorda qiymat biriktirildi. Boshqa hech qaysi metodda `p.id = 200` qilib bo'lmaydi."
+        ],
+        pitfalls: "Final maydonga konstruktorda qiymat berishni unutib qoldirsangiz, Java kompilyatori 'variable id might not have been initialized' xatosini beradi.",
+        cw2Viva: "Kurs ishida buyurtma ID raqamlari va yaratilgan vaqti (timestamp) doim `final` qilib belgilanadi."
       }
     },
     {
       id: 9,
       title: {
-        uz: "9. NullPointer'dan Himoyalanish (Null-Safety)",
-        en: "9. NullPointer Defense & Validation"
+        uz: "9. NullPointerException dan Himoyalanish",
+        en: "9. Defensive Null Checking"
       },
       scenario: {
-        uz: "Agar mijoz hali tovar tanlamagan bo'lsa, `product` o'zgaruvchisi `null` bo'ladi. `p.name` ni tekshiruvsiz chaqirish dasturni buzadi (NullPointerException). Metodda `if (p != null)` tekshiruvini amalga oshiring.",
-        en: "Prevent NullPointerException when handling uninitialized objects. Write defensive checks using `if (p != null)`."
+        uz: "Clean Code qoidasi: hech qachon obyektning null emasligini tekshirmasdan uning metodini chaqirmang! `printProductSafe(Product p)` metodini yozing, agar `p != null` bo'lsa nomini, aks holda 'Mahsulot yo'q' deb chiqarsin.",
+        en: "Defensive null-checking is essential. Implement a null-safe method verifying references before member dereferencing."
       },
       requirements: {
         classes: ["Product"],
@@ -511,7 +704,7 @@ class Main {
 
 class Main {
     public static void printProductSafe(Product p) {
-        // Agar p null bo'lmasa, nomini chiqaring. Aks holda "Mahsulot topilmadi" deb yozing
+        // null tekshiruvini qo'shing
         if (p != null) {
             System.out.println("Mahsulot: " + p.name);
         } else {
@@ -554,9 +747,42 @@ class Main {
         printProductSafe(p2);
     }
 }`,
-      explanation: {
-        uz: "Har qanday obyekt referensini chaqirishdan oldin uning `null` emasligiga ishonch hosil qilish Clean Code va dastur barqarorligining oltin qoidasidir.",
-        en: "Defensive null-checking is a cornerstone of robust clean software development in Java."
+      detailedSolution: {
+        theory: "NullPointerException — Java olamidagi eng mashhur xato (Tony Hoare: 'Billion Dollar Mistake'). Har qanday obyekt havolasini ishlatishdan oldin uning mavjudligini tekshirish dastur barqarorligining ustunidir.",
+        theoryEn: "Defensive programming prevents unexpected runtime crashes by validating parameter references before invocation.",
+        cleanCode: `class Product {
+    String name;
+    double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Main {
+    public static void printProductSafe(Product p) {
+        if (p != null) {
+            System.out.println("Mahsulot: " + p.name);
+        } else {
+            System.out.println("Mahsulot tanlanmagan (null)!");
+        }
+    }
+
+    public static void main(String[] args) {
+        Product p1 = new Product("Kitob", 15.0);
+        Product p2 = null;
+
+        printProductSafe(p1);
+        printProductSafe(p2);
+    }
+}`,
+        breakdown: [
+          "<code>if (p != null)</code>: Havola bo'sh emasligini kafolatlaydi.",
+          "Agar p null bo'lsa, xatolik berib qulamasdan xavfsiz else bloki ishlaydi."
+        ],
+        pitfalls: "Agar `p.name` ni tekshiruvsiz chaqirsangiz va p null bo'lsa, dastur butunlay to'xtaydi.",
+        cw2Viva: "Viva imtihonida konsol ilovangizda noto'g'ri qiymat kiritilganda dastur qulab tushmasligi (Exception Handling) 6 ball beradi."
       }
     },
     {
@@ -572,7 +798,12 @@ class Main {
       requirements: {
         classes: ["Coffee"],
         methods: ["displayOrder"],
-        constructors: ["Coffee"]
+        constructors: ["Coffee"],
+        fields: [
+          { name: "type", type: "String" },
+          { name: "size", type: "String" },
+          { name: "basePrice", type: "double" }
+        ]
       },
       starterCode: `class Coffee {
     String type;
@@ -618,9 +849,38 @@ class Main {
         order1.displayOrder();
     }
 }`,
-      explanation: {
-        uz: "Tabriklaymiz! Siz 1-Modulni to'liq tamomladingiz va Kurs Ishidagi Buyurtma modelining birinchi qismini muvaffaqiyatli qura oldingiz!",
-        en: "Congratulations! You have mastered Module 1 and laid the first solid architectural brick for the Assessment 2 coursework."
+      detailedSolution: {
+        theory: "Tabriklaymiz! Siz 1-Modulning barcha Java Core konseptlarini egalladingiz va Westminster CW2 Coursework talabidagi konsol qahvaxona buyurtmasi modelini muvaffaqiyatli qura oldingiz!",
+        theoryEn: "Congratulations! You have mastered Java Core, memory mechanics, and laid the first architectural model for the WIUT CW2 50% Coursework application.",
+        cleanCode: `class Coffee {
+    String type;
+    String size;
+    double basePrice;
+
+    public Coffee(String type, String size, double basePrice) {
+        this.type = type;
+        this.size = size;
+        this.basePrice = basePrice;
+    }
+
+    public void displayOrder() {
+        System.out.println("☕ Buyurtma: " + type + " (" + size + ") - Narx: $" + basePrice);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Coffee order1 = new Coffee("Cappuccino", "Medium", 4.5);
+        order1.displayOrder();
+    }
+}`,
+        breakdown: [
+          "<code>class Coffee</code>: Kurs ishining asosiy domen modeli.",
+          "<code>String type, size; double basePrice;</code>: Ichimlik holat parametrlari.",
+          "<code>displayOrder()</code>: Konsol menyusida buyurtma chekini ko'rsatish metodi."
+        ],
+        pitfalls: "2-modulda ushbu maydonlar 'private' qilinadi va inkapsulyatsiya qat'iy joriy etiladi.",
+        cw2Viva: "Bu klass 2-haftadan 6-haftagacha Factory Method, Decorator va Strategy patternlari bilan to'liq kurs ishi darajasiga yetkaziladi."
       }
     }
   ];
@@ -683,14 +943,46 @@ class Main {
     const elBadge = document.getElementById("problemBadge");
     const elTitle = document.getElementById("problemTitle");
     const elScenario = document.getElementById("problemScenario");
-    const elSolutionText = document.getElementById("solutionContent");
     const elSolutionCard = document.getElementById("solutionContentCard");
+    const elToggleHint = document.getElementById("solutionToggleHint");
 
     if (elBadge) elBadge.textContent = `1-Modul • ${ch.id}-Topshiriq`;
     if (elTitle) elTitle.textContent = ch.title[currentLang];
     if (elScenario) elScenario.textContent = ch.scenario[currentLang];
-    if (elSolutionText) elSolutionText.textContent = ch.solution;
+
+    // Render Rich Solution View via SolutionRenderer
+    if (window.SolutionRenderer) {
+      window.SolutionRenderer.render(ch, "solutionContentCard", currentLang);
+    }
     if (elSolutionCard) elSolutionCard.style.display = "none";
+    if (elToggleHint) elToggleHint.textContent = "[Ko'rish ▾]";
+
+    // Update requirements list
+    const reqList = document.getElementById("taskReqList");
+    if (reqList) {
+      let reqHtml = "";
+      if (ch.requirements.classes) {
+        reqHtml += `<li><strong>Klasslar:</strong> <code>${ch.requirements.classes.join(", ")}</code> sinfi e'lon qilinishi shart.</li>`;
+      }
+      if (ch.requirements.fields) {
+        const fieldStr = ch.requirements.fields.map(f => `<code>${f.type} ${f.name}</code>`).join(", ");
+        reqHtml += `<li><strong>Maydonlar:</strong> ${fieldStr} maydonlari to'g'ri turda yozilsin.</li>`;
+      }
+      if (ch.requirements.privateFields) {
+        reqHtml += `<li><strong>Inkapsulyatsiya:</strong> <code>${ch.requirements.privateFields.join(", ")}</code> maydonlari <code>private</code> bo'lsin.</li>`;
+      }
+      if (ch.requirements.methods && ch.requirements.methods.length > 0) {
+        reqHtml += `<li><strong>Metodlar:</strong> <code>${ch.requirements.methods.join("(), ")}()</code> metodi yaratilsin.</li>`;
+      }
+      if (ch.requirements.constructors) {
+        reqHtml += `<li><strong>Konstruktor:</strong> <code>${ch.requirements.constructors.join(", ")}</code> klassi uchun konstruktor tuzilsin.</li>`;
+      }
+      if (ch.requirements.keywords) {
+        reqHtml += `<li><strong>Kalit so'zlar:</strong> <code>${ch.requirements.keywords.join(", ")}</code> qo'llanilishi kerak.</li>`;
+      }
+      reqHtml += `<li>Sintaksis xatolarisiz va Clean Code qoidalariga mos yozing.</li>`;
+      reqList.innerHTML = reqHtml;
+    }
 
     // Set code editor
     const codeArea = document.getElementById("codeEditor");
@@ -723,7 +1015,7 @@ class Main {
     renderChallenge();
   }
 
-  // 4. Code Execution & Testing
+  // 4. Code Execution & Testing with Line-by-Line Diagnostics
   async function handleInstantTest() {
     const ch = CHALLENGES[currentQIndex];
     const codeArea = document.getElementById("codeEditor");
@@ -735,20 +1027,51 @@ class Main {
 
     const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch.requirements);
 
-    let report = "=== TEZKOR TEKSHIRUV NATIJASI ===\n";
-    validation.tests.forEach(t => {
-      report += (t.passed ? "✅ " : "❌ ") + t.name + ": " + t.feedback + "\n";
-    });
+    let report = "==================================================\n";
+    report += "🔍 SINTAKSIS VA OOP DIAGNOSTIKA NATIJASI\n";
+    report += "==================================================\n\n";
 
     if (validation.passed) {
+      report += "✅ BARCHA OOP VA SINTAKSIS SHARTLARI BAJARILDI! (+50 Ball)\n\n";
+      if (validation.passedItems && validation.passedItems.length > 0) {
+        validation.passedItems.forEach(item => {
+          report += `✔️ ${item.name}: ${item.detail}\n`;
+        });
+      }
+      report += `\n🎉 TABRIKLAYMIZ! Barcha shartlar to'liq va xatosiz bajarildi!\n💡 Endi xohlasangiz '☕ Ishga tushirish (OpenJDK 21)' orqali dasturni real konsolda sinab ko'ring!`;
+      consoleOut.className = "console-output success";
       solvedQuestions.add(ch.id);
       saveSolved();
       renderHUD();
-      consoleOut.className = "console-output success";
-      report += `\n🎉 TABRIKLAYMIZ! Barcha shartlar bajarildi! (+50 Ball)\n💡 Endi xohlasangiz '☕ Ishga tushirish (OpenJDK 21)' orqali real natijani ko'ring!`;
     } else {
       consoleOut.className = "console-output error";
-      report += `\n⚠️ Ba'zi shartlar hali to'liq emas. Yuqoridagi xabarlarni ko'rib chiqing va tuzating.`;
+      report += "❌ ANIQLANGAN XATOLIKLAR JOYI:\n";
+
+      if (validation.syntaxErrors && validation.syntaxErrors.length > 0) {
+        validation.syntaxErrors.forEach(err => {
+          report += `\n📍 [${err.line}-Qator]: ${err.message}\n`;
+          if (err.snippet) report += `   Kodingiz: ${err.snippet}\n`;
+          if (err.fix) report += `   💡 Tavsiya: ${err.fix}\n`;
+        });
+      }
+
+      if (validation.semanticIssues && validation.semanticIssues.length > 0) {
+        validation.semanticIssues.forEach(iss => {
+          const linePrefix = iss.line ? `[${iss.line}-Qator]: ` : "";
+          report += `\n📍 ${linePrefix}${iss.message}\n`;
+          if (iss.fix) report += `   💡 Tavsiya: ${iss.fix}\n`;
+        });
+      }
+
+      if (validation.passedItems && validation.passedItems.length > 0) {
+        report += "\n--------------------------------------------------\n";
+        report += "✔️ TO'G'RI BAJARILGAN QISMLAR:\n";
+        validation.passedItems.forEach(item => {
+          report += `   • ${item.name} (${item.detail})\n`;
+        });
+      }
+
+      report += "\n💡 Professor Ada Maslahati: Yuqorida ko'rsatilgan qatorlardagi xatoliklarni tuzatib, qayta tekshiring!";
     }
 
     consoleOut.textContent = report;
@@ -767,10 +1090,23 @@ class Main {
 
     if (res.success) {
       consoleOut.className = "console-output success";
-      consoleOut.textContent = `=== OPENJDK 21 CHIQISHI (STDOUT) ===\n\n${res.output || "(Chiqish yo'q, dastur muvaffaqiyatli yakunlandi)"}\n\n✅ Kod muvaffaqiyatli kompilyatsiya qilindi va bajarildi!`;
+      consoleOut.textContent = `==================================================\n✅ OPENJDK 21 CHIQISHI (STDOUT)\n==================================================\n\n${res.output || "(Chiqish yo'q, dastur muvaffaqiyatli yakunlandi)"}\n\n✅ Kod muvaffaqiyatli kompilyatsiya qilindi va bajarildi!`;
     } else {
       consoleOut.className = "console-output error";
-      consoleOut.textContent = `=== KOMPILYATOR XATOLIGI (JAVAC) ===\n\n${res.errors || "Noma'lum xatolik"}`;
+      let report = "==================================================\n";
+      report += "❌ KOMPILYATOR XATOLIGI (JAVAC OPENJDK 21)\n";
+      report += "==================================================\n\n";
+
+      if (res.diagnostics && res.diagnostics.length > 0) {
+        report += "📍 ANIQLANGAN QATORLAR:\n";
+        res.diagnostics.forEach(d => {
+          report += `• [${d.line}-Qator]: ${d.uzbek}\n  💡 Tavsiya: ${d.tip}\n\n`;
+        });
+        report += "--- To'liq Javac Kompilyator Xabari ---\n";
+      }
+
+      report += res.errors || "Noma'lum xatolik";
+      consoleOut.textContent = report;
     }
   }
 
@@ -809,6 +1145,7 @@ class Main {
     const btnReset = document.getElementById("btnResetCode");
     const btnNext = document.getElementById("btnNextChallenge");
     const btnToggleSol = document.getElementById("btnToggleSolution");
+    const elToggleHint = document.getElementById("solutionToggleHint");
 
     if (btnTest) btnTest.addEventListener("click", handleInstantTest);
     if (btnRun) btnRun.addEventListener("click", handleCloudRun);
@@ -830,7 +1167,11 @@ class Main {
     if (btnToggleSol) btnToggleSol.addEventListener("click", () => {
       const card = document.getElementById("solutionContentCard");
       if (card) {
-        card.style.display = card.style.display === "none" ? "block" : "none";
+        const isHidden = card.style.display === "none";
+        card.style.display = isHidden ? "block" : "none";
+        if (elToggleHint) {
+          elToggleHint.textContent = isHidden ? "[Yopish ▴]" : "[Ko'rish ▾]";
+        }
       }
     });
 

@@ -33,6 +33,11 @@
     </div>
 
     <div class="hud-actions">
+      <!-- LUG'AT & QIDIRUV (CTRL+K) -->
+      <button id="btnOpenDictionary" class="btn-dictionary" title="Barcha Java va OOP tushunchalari qidiruvi (Ctrl+K)">
+        <span>📖</span> <span>Lug'at &amp; Qidiruv</span>
+      </button>
+
       <!-- BILINGUAL LANGUAGE SWITCHER -->
       <div class="lang-switch-box">
         <button id="btnLangUz" class="btn-lang active" type="button">UZ</button>
@@ -89,11 +94,9 @@
         <div class="solution-toggle-card">
           <button id="btnToggleSolution" class="solution-btn">
             <span>💡 Batafsil Yechim</span>
-            <span style="font-size:11px; color:#8b83ba;">[Ko'rish ▾]</span>
+            <span id="solutionToggleHint" style="font-size:11px; color:#c084fc; font-weight:700;">[Ko'rish ▾]</span>
           </button>
-          <div id="solutionContentCard" style="display:none;">
-            <pre id="solutionContent" class="solution-content"></pre>
-          </div>
+          <div id="solutionContentCard" style="display:none;"></div>
         </div>
       </div>
 
@@ -137,8 +140,11 @@
   </main>
 
   <!-- Shared Engines & Game Script -->
+  <script src="../shared/java-analyzer.js?v=20261017_oop_w1"></script>
   <script src="../shared/java-runner.js?v=20261017_oop_w1"></script>
   <script src="../shared/uml-renderer.js?v=20261017_oop_w1"></script>
+  <script src="../shared/solution-renderer.js?v=20261017_oop_w1"></script>
+  <script src="../shared/oop-dictionary.js?v=20261017_oop_w1"></script>
   <script src="game.js?v=20261017_oop_w1"></script>
 
 </body>

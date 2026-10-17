@@ -1,5 +1,5 @@
 // ============================================================================
-// OOP ACADEMY — 2-Modul GAME LOGIC: ACCESS MODIFIERS, GETTERS/SETTERS, VALIDATSIYA VA IMMUTABILITY
+// OOP ACADEMY — 2-Modul GAME LOGIC: INKAPSULYATSIYA, GETTERS/SETTERS & VALIDATSIYA
 // Professor Ada's Interactive Java IDE Simulator • WIUT 5COSC018C
 // ============================================================================
 
@@ -12,225 +12,882 @@
   let solvedQuestions = new Set();
 
   const CHALLENGES = [
-  {
-    "id": 1,
-    "title": {
-      "uz": "1. 'private' Modifikatori va Inkapsulyatsiya",
-      "en": "1. 'private' Modifier & Encapsulation"
+    {
+      id: 1,
+      title: {
+        uz: "1. 'private' Modifikatori va Inkapsulyatsiya",
+        en: "1. 'private' Modifier & Encapsulation"
+      },
+      scenario: {
+        uz: "Do'konda tovar narxini har kim o'zboshimchalik bilan manfiy qilib o'zgartira olmasligi kerak. Maydonlarni 'private' qilib berkitish orqali to'g'ridan-to'g'ri tashqaridan kirishni taqiqlang.",
+        en: "Protect fields from unauthorized modification by declaring `private double price;`."
+      },
+      requirements: {
+        classes: ["Product"],
+        privateFields: ["price"],
+        fields: [
+          { name: "name", type: "String" },
+          { name: "price", type: "double" }
+        ]
+      },
+      starterCode: `class Product {
+    public String name;
+    // price maydonini private qiling
+    private double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product("Smartfon", 800.0);
+        System.out.println("Mahsulot: " + p.name);
+    }
+}`,
+      solution: `class Product {
+    public String name;
+    private double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product("Smartfon", 800.0);
+        System.out.println("Mahsulot: " + p.name);
+    }
+}`,
+      detailedSolution: {
+        theory: "Inkapsulyatsiya — obyekt ma'lumotlarini (state) tashqi to'g'ridan-to'g'ri aralashuvdan himoyalashdir. 'private' maydonlarga faqat klass ichidagi metodlar kira oladi.",
+        theoryEn: "Encapsulation safeguards internal state from arbitrary mutation by scoping fields with 'private' access modifiers.",
+        cleanCode: `class Product {
+    public String name;
+    private double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product("Smartfon", 800.0);
+        System.out.println("Mahsulot: " + p.name);
+    }
+}`,
+        breakdown: [
+          "<code>private double price;</code>: 'price' maydoni tashqi dunyodan yashirildi.",
+          "<code>Main.main()</code> da <code>p.price = -100</code> deb to'g'ridan-to'g'ri yozib bo'lmaydi (kompilyator taqiqlaydi)."
+        ],
+        pitfalls: "Maydonlarni 'public' yoki default (package-private) qoldirish xavfsizlikni yo'qotadi.",
+        cw2Viva: "Westminster CW2 baholash mezonida 'Encapsulation' uchun qat'iy 6 ball ajratilgan. Barcha model maydonlari 'private' bo'lishi shart."
+      }
     },
-    "scenario": {
-      "uz": "Do'konda tovar narxini har kim o'zboshimchalik bilan manfiy qilib o'zgartira olmasligi kerak. Maydonlarni 'private' qilib berkitish orqali to'g'ridan-to'g'ri tashqaridan kirishni taqiqlang.",
-      "en": "Protect fields from unauthorized modification by declaring `private double price;`."
+    {
+      id: 2,
+      title: {
+        uz: "2. Getter Metodi orqali O'qish",
+        en: "2. Getter Method for Safe Reading"
+      },
+      scenario: {
+        uz: "Narx 'private' bo'lgani sababli, endi uni xavfsiz o'qish uchun `public double getPrice()` getter metodini yarating.",
+        en: "Expose encapsulated state safely via `public double getPrice()`."
+      },
+      requirements: {
+        classes: ["Product"],
+        methods: ["getPrice"],
+        privateFields: ["price"]
+      },
+      starterCode: `class Product {
+    private double price;
+
+    public Product(double price) {
+        this.price = price;
+    }
+
+    // getPrice metodini yarating
+    public double getPrice() {
+        return this.price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product(450.0);
+        System.out.println("Narx: $" + p.getPrice());
+    }
+}`,
+      solution: `class Product {
+    private double price;
+
+    public Product(double price) {
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return this.price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product(450.0);
+        System.out.println("Narx: $" + p.getPrice());
+    }
+}`,
+      detailedSolution: {
+        theory: "Getter (Accessor) metodi — tashqi dunyoga private maydon qiymatini o'qish huquqini beradi, lekin uni o'zgartirishga yo'l qo'ymaydi (Read-Only nazorati).",
+        theoryEn: "Getter methods expose controlled read access to private variables without granting write mutability.",
+        cleanCode: `class Product {
+    private double price;
+
+    public Product(double price) {
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return this.price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product(450.0);
+        System.out.println("Narx: $" + p.getPrice());
+    }
+}`,
+        breakdown: [
+          "<code>public double getPrice()</code>: Maydon turiga mos 'double' qaytaruvchi ochiq metod.",
+          "<code>return this.price;</code>: Yashirin narx qiymatini chaqiruvchiga uzatadi."
+        ],
+        pitfalls: "Getter metodini 'void' deb belgilash yoki maydon turidan boshqa tur (masalan String) qaytarish.",
+        cw2Viva: "JavaBeans konvensiyasiga ko'ra getter nomi 'get' prefiksi va maydonning bosh harfi bilan boshlanadi: 'getPrice'."
+      }
     },
-    "requirements": {
-      "classes": [
-        "Product"
-      ],
-      "privateFields": [
-        "price"
-      ]
+    {
+      id: 3,
+      title: {
+        uz: "3. Setter Metodi va Narx Validatsiyasi",
+        en: "3. Setter & Price Validation"
+      },
+      scenario: {
+        uz: "Narx hech qachon manfiy bo'lmasligi kerak. `setPrice(double price)` setter metodida agar `price >= 0` bo'lsa o'zgartiring, aks holda ogohlantirish chiqaring.",
+        en: "Add `setPrice(double price)` with business logic ensuring price is non-negative."
+      },
+      requirements: {
+        classes: ["Product"],
+        methods: ["setPrice", "getPrice"],
+        privateFields: ["price"]
+      },
+      starterCode: `class Product {
+    private double price;
+
+    public void setPrice(double price) {
+        if (price >= 0) {
+            this.price = price;
+        } else {
+            System.out.println("Xato: Narx manfiy bo'lishi mumkin emas!");
+        }
+    }
+
+    public double getPrice() {
+        return this.price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product();
+        p.setPrice(100.0);
+        p.setPrice(-50.0); // Xatolik tekshiruvi
+        System.out.println("Yakuniy narx: $" + p.getPrice());
+    }
+}`,
+      solution: `class Product {
+    private double price;
+
+    public void setPrice(double price) {
+        if (price >= 0) {
+            this.price = price;
+        } else {
+            System.out.println("Xato: Narx manfiy bo'lishi mumkin emas!");
+        }
+    }
+
+    public double getPrice() {
+        return this.price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product();
+        p.setPrice(100.0);
+        p.setPrice(-50.0);
+        System.out.println("Yakuniy narx: $" + p.getPrice());
+    }
+}`,
+      detailedSolution: {
+        theory: "Setter (Mutator) metodi — maydonga qiymat yozishdan oldin biznes qoidalarini (validatsiya) tekshiruvchi darvoza vazifasini o'taydi.",
+        theoryEn: "Mutator setters act as defensive gates validating incoming data against domain rules prior to assigning state.",
+        cleanCode: `class Product {
+    private double price;
+
+    public void setPrice(double price) {
+        if (price >= 0) {
+            this.price = price;
+        } else {
+            System.out.println("Xato: Narx manfiy bo'lishi mumkin emas!");
+        }
+    }
+
+    public double getPrice() {
+        return this.price;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product();
+        p.setPrice(100.0);
+        p.setPrice(-50.0);
+        System.out.println("Yakuniy narx: $" + p.getPrice());
+    }
+}`,
+        breakdown: [
+          "<code>if (price >= 0)</code>: Narx 0 yoki musbat ekanligi tekshiriladi.",
+          "Manfiy qiymat kelsa, obyekt o'zining avvalgi to'g'ri holatini saqlab qoladi."
+        ],
+        pitfalls: "Tekshiruvsiz 'this.price = price;' deb to'g'ridan-to'g'ri yozish inkapsulyatsiya xavfsizligini barbod qiladi.",
+        cw2Viva: "Viva imtihonida: 'Nega public maydon o'rniga setter ishlatamiz?' deb so'raladi. Javob: Validatsiya qilish va kelajakda kodni buzmasdan ichki logikani o'zgartirish uchun!"
+      }
     },
-    "starterCode": "class Product {\n    public String name;\n    // price maydonini private qiling\n    private double price;\n\n    public Product(String name, double price) {\n        this.name = name;\n        this.price = price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product(\"Smartfon\", 800.0);\n        System.out.println(\"Mahsulot: \" + p.name);\n    }\n}",
-    "solution": "class Product {\n    public String name;\n    private double price;\n\n    public Product(String name, double price) {\n        this.name = name;\n        this.price = price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product(\"Smartfon\", 800.0);\n        System.out.println(\"Mahsulot: \" + p.name);\n    }\n}"
-  },
-  {
-    "id": 2,
-    "title": {
-      "uz": "2. Getter Metodi orqali O'qish",
-      "en": "2. Getter Method for Safe Reading"
+    {
+      id: 4,
+      title: {
+        uz: "4. Ism Validatsiyasi (Null & Empty Check)",
+        en: "4. Name Validation (Null & Empty Check)"
+      },
+      scenario: {
+        uz: "Tovar nomi bo'sh yoki `null` bo'lishi mumkin emas. `setName(String name)` metodida tekshiruv o'rnating.",
+        en: "Enforce valid non-empty string in `setName(String name)`."
+      },
+      requirements: {
+        classes: ["Product"],
+        methods: ["setName", "getName"],
+        privateFields: ["name"]
+      },
+      starterCode: `class Product {
+    private String name;
+
+    public void setName(String name) {
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
+        } else {
+            System.out.println("Xato: Nomi bo'sh bo'lishi mumkin emas!");
+        }
+    }
+
+    public String getName() {
+        return this.name;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product();
+        p.setName("Planshet");
+        System.out.println("Mahsulot: " + p.getName());
+    }
+}`,
+      solution: `class Product {
+    private String name;
+
+    public void setName(String name) {
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
+        } else {
+            System.out.println("Xato: Nomi bo'sh bo'lishi mumkin emas!");
+        }
+    }
+
+    public String getName() {
+        return this.name;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product();
+        p.setName("Planshet");
+        System.out.println("Mahsulot: " + p.getName());
+    }
+}`,
+      detailedSolution: {
+        theory: "String parametrlarini tekshirishda ikkita muhim shart bor: 1) `name != null` (NullPointer bo'lmasligi uchun), 2) `!name.trim().isEmpty()` (faqat probellardan iborat bo'lmasligi uchun).",
+        theoryEn: "Robust string validation requires null-safety checks followed by whitespace-trimmed emptiness checks.",
+        cleanCode: `class Product {
+    private String name;
+
+    public void setName(String name) {
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
+        } else {
+            System.out.println("Xato: Nomi bo'sh bo'lishi mumkin emas!");
+        }
+    }
+
+    public String getName() {
+        return this.name;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product();
+        p.setName("Planshet");
+        System.out.println("Mahsulot: " + p.getName());
+    }
+}`,
+        breakdown: [
+          "<code>name != null</code> birinchi tekshiriladi (Short-circuit evaluation).",
+          "<code>name.trim().isEmpty()</code> '   ' kabi soxta bo'sh ismlarni ham cheklaydi."
+        ],
+        pitfalls: "`name.isEmpty()` ni null tekshiruvidan oldin chaqirish `NullPointerException` keltirib chiqaradi.",
+        cw2Viva: "Kurs ishi dasturida mijoz ismi yoki buyurtma nomi bo'sh kiritilganda konsolda xatolik berib, qayta so'rash shart."
+      }
     },
-    "scenario": {
-      "uz": "Narx 'private' bo'lgani sababli, endi uni xavfsiz o'qish uchun `public double getPrice()` getter metodini yarating.",
-      "en": "Expose encapsulated state safely via `public double getPrice()`."
+    {
+      id: 5,
+      title: {
+        uz: "5. O'zgarmas Klass (Immutable Class)",
+        en: "5. Immutable Class"
+      },
+      scenario: {
+        uz: "To'lov cheki (`Receipt`) kabi ma'lumotlar yaratilgandan keyin hech qachon o'zgarmasligi kerak. Maydonlarni `final` qilib, hech qanday setter yaratmang.",
+        en: "Create an immutable `Receipt` class with `final` fields and no mutator setters."
+      },
+      requirements: {
+        classes: ["Receipt"],
+        keywords: ["final"]
+      },
+      starterCode: `final class Receipt {
+    private final String transactionId;
+    private final double amount;
+
+    public Receipt(String transactionId, double amount) {
+        this.transactionId = transactionId;
+        this.amount = amount;
+    }
+
+    public String getTransactionId() { return transactionId; }
+    public double getAmount() { return amount; }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Receipt r = new Receipt("TXN-9842", 250.0);
+        System.out.println("Chek: " + r.getTransactionId() + " -> $" + r.getAmount());
+    }
+}`,
+      solution: `final class Receipt {
+    private final String transactionId;
+    private final double amount;
+
+    public Receipt(String transactionId, double amount) {
+        this.transactionId = transactionId;
+        this.amount = amount;
+    }
+
+    public String getTransactionId() { return transactionId; }
+    public double getAmount() { return amount; }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Receipt r = new Receipt("TXN-9842", 250.0);
+        System.out.println("Chek: " + r.getTransactionId() + " -> $" + r.getAmount());
+    }
+}`,
+      detailedSolution: {
+        theory: "Immutable (o'zgarmas) obyektlar ko'p oqimli (Multithreaded) tizimlarda 100% xavfsiz (Thread-safe) hisoblanadi. Java'dagi `String`, `Integer` klasslari aynan shu tamoyilda qurilgan.",
+        theoryEn: "Immutable classes guarantee thread-safety and eliminate side effects by forbidding any post-instantiation state mutation.",
+        cleanCode: `final class Receipt {
+    private final String transactionId;
+    private final double amount;
+
+    public Receipt(String transactionId, double amount) {
+        this.transactionId = transactionId;
+        this.amount = amount;
+    }
+
+    public String getTransactionId() { return transactionId; }
+    public double getAmount() { return amount; }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Receipt r = new Receipt("TXN-9842", 250.0);
+        System.out.println("Chek: " + r.getTransactionId() + " -> $" + r.getAmount());
+    }
+}`,
+        breakdown: [
+          "<code>final class Receipt</code>: Klassdan voris olib, uning xulqini o'zgartirib bo'lmaydi.",
+          "<code>private final ...</code>: Maydonlar faqat konstruktorda 1 marta yoziladi.",
+          "Hech qanday setter metodlari mavjud emas."
+        ],
+        pitfalls: "Immutable klassga setter qo'shish yoki mutable obyektlarni havolasi bilan tashqariga berib yuborish.",
+        cw2Viva: "Viva savoli: 'String klassi nega immutable qilingan?' Xavfsizlik, xotirani tejash (String Pool) va Thread-safety uchun!"
+      }
     },
-    "requirements": {
-      "classes": [
-        "Product"
-      ],
-      "methods": [
-        "getPrice"
-      ],
-      "privateFields": [
-        "price"
-      ]
+    {
+      id: 6,
+      title: {
+        uz: "6. Bank Hisobi va Balans Himoyasi",
+        en: "6. BankAccount Balance Protection"
+      },
+      scenario: {
+        uz: "Bank hisobi (`BankAccount`): balansni to'g'ridan-to'g'ri o'zgartirib bo'lmaydi. Faqat `deposit(double amt)` va `withdraw(double amt)` metodlari orqali operatsiya qilinadi.",
+        en: "Encapsulate `BankAccount` balance, exposing only `deposit` and `withdraw` methods."
+      },
+      requirements: {
+        classes: ["BankAccount"],
+        methods: ["deposit", "withdraw", "getBalance"],
+        privateFields: ["balance"]
+      },
+      starterCode: `class BankAccount {
+    private double balance;
+
+    public void deposit(double amount) {
+        if (amount > 0) balance += amount;
+    }
+
+    public boolean withdraw(double amount) {
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        BankAccount acc = new BankAccount();
+        acc.deposit(500.0);
+        acc.withdraw(200.0);
+        System.out.println("Balans: $" + acc.getBalance());
+    }
+}`,
+      solution: `class BankAccount {
+    private double balance;
+
+    public void deposit(double amount) {
+        if (amount > 0) balance += amount;
+    }
+
+    public boolean withdraw(double amount) {
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        BankAccount acc = new BankAccount();
+        acc.deposit(500.0);
+        acc.withdraw(200.0);
+        System.out.println("Balans: $" + acc.getBalance());
+    }
+}`,
+      detailedSolution: {
+        theory: "Haqiqiy biznes obyektlarida oddiy `setBalance()` umuman bo'lmasligi kerak! Uning o'rniga domen amallari: `deposit()` va `withdraw()` bo'lishi lozim.",
+        theoryEn: "Domain models should express meaningful operations rather than generic setters, securing invariants naturally.",
+        cleanCode: `class BankAccount {
+    private double balance;
+
+    public void deposit(double amount) {
+        if (amount > 0) balance += amount;
+    }
+
+    public boolean withdraw(double amount) {
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+            return true;
+        }
+        return false;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        BankAccount acc = new BankAccount();
+        acc.deposit(500.0);
+        acc.withdraw(200.0);
+        System.out.println("Balans: $" + acc.getBalance());
+    }
+}`,
+        breakdown: [
+          "<code>deposit()</code> faqat musbat summani qabul qiladi.",
+          "<code>withdraw()</code> hisobdagi mablag' yetarli bo'lsagina pul yechishga ruxsat beradi (Invariant protection)."
+        ],
+        pitfalls: "Balansni yetarli emasligini tekshirmasdan ayirib yuborish (manfiy balans xatosi).",
+        cw2Viva: "Kurs ishida ombordagi tovar sonini (stock) kamaytirishda ham xuddi shu prinsip qo'llaniladi."
+      }
     },
-    "starterCode": "class Product {\n    private double price;\n\n    public Product(double price) {\n        this.price = price;\n    }\n\n    // getPrice metodini yarating\n    public double getPrice() {\n        return this.price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product(450.0);\n        System.out.println(\"Narx: $\" + p.getPrice());\n    }\n}",
-    "solution": "class Product {\n    private double price;\n\n    public Product(double price) {\n        this.price = price;\n    }\n\n    public double getPrice() {\n        return this.price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product(450.0);\n        System.out.println(\"Narx: $\" + p.getPrice());\n    }\n}"
-  },
-  {
-    "id": 3,
-    "title": {
-      "uz": "3. Setter Metodi va Narx Validatsiyasi",
-      "en": "3. Setter & Price Validation"
+    {
+      id: 7,
+      title: {
+        uz: "7. Konstruktor Ichida Validatsiya",
+        en: "7. Constructor Validation"
+      },
+      scenario: {
+        uz: "Obyekt noto'g'ri holatda yaratilishining oldini oling. Konstruktor ichida narx manfiy kelsa, uni 0.0 qilib to'g'rilang.",
+        en: "Enforce validation immediately inside constructor parameters."
+      },
+      requirements: {
+        classes: ["Product"],
+        constructors: ["Product"],
+        privateFields: ["price"]
+      },
+      starterCode: `class Product {
+    private double price;
+
+    public Product(double price) {
+        if (price < 0) {
+            this.price = 0.0;
+        } else {
+            this.price = price;
+        }
+    }
+
+    public double getPrice() { return price; }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product(-20.0);
+        System.out.println("Xavfsiz narx: $" + p.getPrice());
+    }
+}`,
+      solution: `class Product {
+    private double price;
+
+    public Product(double price) {
+        if (price < 0) {
+            this.price = 0.0;
+        } else {
+            this.price = price;
+        }
+    }
+
+    public double getPrice() { return price; }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product(-20.0);
+        System.out.println("Xavfsiz narx: $" + p.getPrice());
+    }
+}`,
+      detailedSolution: {
+        theory: "Obyekt hech qachon noto'g'ri (invalid) holatda dunyoga kelmasligi kerak. Konstruktor validatsiyasi buni 100% kafolatlaydi.",
+        theoryEn: "Enforcing invariant checks in constructors guarantees that no object can ever be instantiated in an illegal state.",
+        cleanCode: `class Product {
+    private double price;
+
+    public Product(double price) {
+        if (price < 0) {
+            this.price = 0.0;
+        } else {
+            this.price = price;
+        }
+    }
+
+    public double getPrice() { return price; }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product(-20.0);
+        System.out.println("Xavfsiz narx: $" + p.getPrice());
+    }
+}`,
+        breakdown: [
+          "Konstruktorda `price < 0` bo'lsa xavfsiz 0.0 o'rnatiladi yoki xatolik otiladi.",
+          "Obyekt doimo ishonchli va tekshirilgan ma'lumotga ega bo'ladi."
+        ],
+        pitfalls: "Faqat setterda tekshirib, konstruktorda to'g'ridan-to'g'ri `this.price = price` deb qo'yish.",
+        cw2Viva: "Viva imtihonida o'qituvchi `new OrderItem(\"Coffee\", -5, -10.0)` berib sinab ko'radi — dastur bunga yo'l qo'ymasligi shart!"
+      }
     },
-    "scenario": {
-      "uz": "Narx hech qachon manfiy bo'lmasligi kerak. `setPrice(double price)` setter metodida agar `price >= 0` bo'lsa o'zgartiring, aks holda xatolik chiqaring.",
-      "en": "Add `setPrice(double price)` with business logic ensuring price is non-negative."
+    {
+      id: 8,
+      title: {
+        uz: "8. Boolean Getter (isAvailable Konvensiyasi)",
+        en: "8. Boolean Getters Convention"
+      },
+      scenario: {
+        uz: "Java'da boolean maydonlar uchun getter `isAvailable()` yoki `isInStock()` deb nomlanadi. `inStock` maydoni uchun `isInStock()` yozing.",
+        en: "Follow Java Bean conventions using `isInStock()` for boolean getters."
+      },
+      requirements: {
+        classes: ["Product"],
+        methods: ["isInStock"],
+        privateFields: ["inStock"]
+      },
+      starterCode: `class Product {
+    private boolean inStock = true;
+
+    public boolean isInStock() {
+        return this.inStock;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product();
+        System.out.println("Mavjudmi: " + p.isInStock());
+    }
+}`,
+      solution: `class Product {
+    private boolean inStock = true;
+
+    public boolean isInStock() {
+        return this.inStock;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product();
+        System.out.println("Mavjudmi: " + p.isInStock());
+    }
+}`,
+      detailedSolution: {
+        theory: "JavaBeans va Clean Code standartlarida mantiqiy (boolean) maydonlar getteri uchun `get` emas, `is` yoki `has` prefiksi ishlatiladi: `isAvailable()`, `hasDiscount()`.",
+        theoryEn: "JavaBean standards specify the 'is' prefix for boolean getters, producing intuitive fluent reading.",
+        cleanCode: `class Product {
+    private boolean inStock = true;
+
+    public boolean isInStock() {
+        return this.inStock;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Product p = new Product();
+        System.out.println("Mavjudmi: " + p.isInStock());
+    }
+}`,
+        breakdown: [
+          "<code>private boolean inStock = true;</code>: Tovar omborda bor-yo'qligi.",
+          "<code>public boolean isInStock()</code>: Tabiiy ingliz tili grammatikasiga mos getter."
+        ],
+        pitfalls: "`getInStock()` deb nomlash sintaktik xato bo'lmasa-da, Clean Code va professional Java arxitekturasiga to'g'ri kelmaydi.",
+        cw2Viva: "Assessment 2 kod uslubi (Coding style & Conventions) bo'yicha baholashda bu kabi detallar inobatga olinadi."
+      }
     },
-    "requirements": {
-      "classes": [
-        "Product"
-      ],
-      "methods": [
-        "setPrice",
-        "getPrice"
-      ]
+    {
+      id: 9,
+      title: {
+        uz: "9. Inkapsulyatsiyalangan Hisob-Kitob (Read-Only)",
+        en: "9. Calculated Read-Only Property"
+      },
+      scenario: {
+        uz: "`OrderItem` klassi: `quantity` va `unitPrice` maydonlarini inkapsulyatsiya qilib, umumiy narxni hisoblovchi `getTotalPrice()` getterini yarating.",
+        en: "Create calculated property `getTotalPrice()` from private `quantity` and `unitPrice`."
+      },
+      requirements: {
+        classes: ["OrderItem"],
+        methods: ["getTotalPrice"],
+        privateFields: ["quantity", "unitPrice"]
+      },
+      starterCode: `class OrderItem {
+    private int quantity;
+    private double unitPrice;
+
+    public OrderItem(int quantity, double unitPrice) {
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+    }
+
+    public double getTotalPrice() {
+        return this.quantity * this.unitPrice;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        OrderItem item = new OrderItem(3, 12.0);
+        System.out.println("Jami summa: $" + item.getTotalPrice());
+    }
+}`,
+      solution: `class OrderItem {
+    private int quantity;
+    private double unitPrice;
+
+    public OrderItem(int quantity, double unitPrice) {
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+    }
+
+    public double getTotalPrice() {
+        return this.quantity * this.unitPrice;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        OrderItem item = new OrderItem(3, 12.0);
+        System.out.println("Jami summa: $" + item.getTotalPrice());
+    }
+}`,
+      detailedSolution: {
+        theory: "Maydon sifatida saqlash shart bo'lmagan, boshqa maydonlardan hisoblanadigan qiymatlar (masalan jami summa) alohida maydon qilinmaydi, getter orqali hisoblanadi. Bu ma'lumotlar sinxronligini saqlaydi.",
+        theoryEn: "Calculated properties avoid redundant state storage and synchronization anomalies by calculating values dynamically on demand.",
+        cleanCode: `class OrderItem {
+    private int quantity;
+    private double unitPrice;
+
+    public OrderItem(int quantity, double unitPrice) {
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+    }
+
+    public double getTotalPrice() {
+        return this.quantity * this.unitPrice;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        OrderItem item = new OrderItem(3, 12.0);
+        System.out.println("Jami summa: $" + item.getTotalPrice());
+    }
+}`,
+        breakdown: [
+          "<code>totalPrice</code> degan alohida maydon yo'q.",
+          "<code>getTotalPrice()</code> har doim joriy quantity va unitPrice ni ko'paytirib eng aniq natijani qaytaradi."
+        ],
+        pitfalls: "Alohida `totalPrice` maydoni ochib, keyinchalik quantity o'zgarganda totalPrice ni yangilashni unutish.",
+        cw2Viva: "Buyurtma umumiy summasi har safar savatdagi tovarlar bo'yicha qayta hisoblanishi kerak (Coursework logikasi)."
+      }
     },
-    "starterCode": "class Product {\n    private double price;\n\n    public void setPrice(double price) {\n        if (price >= 0) {\n            this.price = price;\n        } else {\n            System.out.println(\"Xato: Narx manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getPrice() {\n        return this.price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product();\n        p.setPrice(100.0);\n        p.setPrice(-50.0); // Xatolik tekshiruvi\n        System.out.println(\"Yakuniy narx: $\" + p.getPrice());\n    }\n}",
-    "solution": "class Product {\n    private double price;\n\n    public void setPrice(double price) {\n        if (price >= 0) {\n            this.price = price;\n        } else {\n            System.out.println(\"Xato: Narx manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getPrice() {\n        return this.price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product();\n        p.setPrice(100.0);\n        p.setPrice(-50.0);\n        System.out.println(\"Yakuniy narx: $\" + p.getPrice());\n    }\n}"
-  },
-  {
-    "id": 4,
-    "title": {
-      "uz": "4. Ism Validatsiyasi (Null & Empty Check)",
-      "en": "4. Name Validation (Null & Empty Check)"
-    },
-    "scenario": {
-      "uz": "Tovar nomi bo'sh yoki `null` bo'lishi mumkin emas. `setName(String name)` metodida tekshiruv o'rnating.",
-      "en": "Enforce valid non-empty string in `setName(String name)`."
-    },
-    "requirements": {
-      "classes": [
-        "Product"
-      ],
-      "methods": [
-        "setName",
-        "getName"
-      ]
-    },
-    "starterCode": "class Product {\n    private String name;\n\n    public void setName(String name) {\n        if (name != null && !name.trim().isEmpty()) {\n            this.name = name;\n        } else {\n            System.out.println(\"Xato: Nomi bo'sh bo'lishi mumkin emas!\");\n        }\n    }\n\n    public String getName() {\n        return this.name;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product();\n        p.setName(\"Planshet\");\n        System.out.println(\"Mahsulot: \" + p.getName());\n    }\n}",
-    "solution": "class Product {\n    private String name;\n\n    public void setName(String name) {\n        if (name != null && !name.trim().isEmpty()) {\n            this.name = name;\n        } else {\n            System.out.println(\"Xato: Nomi bo'sh bo'lishi mumkin emas!\");\n        }\n    }\n\n    public String getName() {\n        return this.name;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product();\n        p.setName(\"Planshet\");\n        System.out.println(\"Mahsulot: \" + p.getName());\n    }\n}"
-  },
-  {
-    "id": 5,
-    "title": {
-      "uz": "5. O'zgarmas Klass (Immutable Class)",
-      "en": "5. Immutable Class"
-    },
-    "scenario": {
-      "uz": "To'lov cheki (`Receipt`) kabi ma'lumotlar yaratilgandan keyin hech qachon o'zgarmasligi kerak. Maydonlarni `final` qilib, hech qanday setter yaratmang.",
-      "en": "Create an immutable `Receipt` class with `final` fields and no mutator setters."
-    },
-    "requirements": {
-      "classes": [
-        "Receipt"
-      ],
-      "keywords": [
-        "final"
-      ]
-    },
-    "starterCode": "final class Receipt {\n    private final String transactionId;\n    private final double amount;\n\n    public Receipt(String transactionId, double amount) {\n        this.transactionId = transactionId;\n        this.amount = amount;\n    }\n\n    public String getTransactionId() { return transactionId; }\n    public double getAmount() { return amount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Receipt r = new Receipt(\"TXN-9842\", 250.0);\n        System.out.println(\"Chek: \" + r.getTransactionId() + \" -> $\" + r.getAmount());\n    }\n}",
-    "solution": "final class Receipt {\n    private final String transactionId;\n    private final double amount;\n\n    public Receipt(String transactionId, double amount) {\n        this.transactionId = transactionId;\n        this.amount = amount;\n    }\n\n    public String getTransactionId() { return transactionId; }\n    public double getAmount() { return amount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Receipt r = new Receipt(\"TXN-9842\", 250.0);\n        System.out.println(\"Chek: \" + r.getTransactionId() + \" -> $\" + r.getAmount());\n    }\n}"
-  },
-  {
-    "id": 6,
-    "title": {
-      "uz": "6. Bank Hisobi va Balans Himoyasi",
-      "en": "6. BankAccount Balance Protection"
-    },
-    "scenario": {
-      "uz": "Bank hisobi (`BankAccount`): balansni to'g'ridan-to'g'ri o'zgartirib bo'lmaydi. Faqat `deposit(double amt)` va `withdraw(double amt)` metodlari orqali operatsiya qilinadi.",
-      "en": "Encapsulate `BankAccount` balance, exposing only `deposit` and `withdraw` methods."
-    },
-    "requirements": {
-      "classes": [
-        "BankAccount"
-      ],
-      "methods": [
-        "deposit",
-        "withdraw",
-        "getBalance"
-      ]
-    },
-    "starterCode": "class BankAccount {\n    private double balance;\n\n    public void deposit(double amount) {\n        if (amount > 0) balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && balance >= amount) {\n            balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankAccount acc = new BankAccount();\n        acc.deposit(500.0);\n        acc.withdraw(200.0);\n        System.out.println(\"Balans: $\" + acc.getBalance());\n    }\n}",
-    "solution": "class BankAccount {\n    private double balance;\n\n    public void deposit(double amount) {\n        if (amount > 0) balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && balance >= amount) {\n            balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankAccount acc = new BankAccount();\n        acc.deposit(500.0);\n        acc.withdraw(200.0);\n        System.out.println(\"Balans: $\" + acc.getBalance());\n    }\n}"
-  },
-  {
-    "id": 7,
-    "title": {
-      "uz": "7. Maxsus Konstruktor Ichida Validatsiya",
-      "en": "7. Constructor Validation"
-    },
-    "scenario": {
-      "uz": "Obyekt noto'g'ri holatda yaratilishining oldini oling. Konstruktor ichida `setPrice` yoki to'g'ridan-to'g'ri validatsiya qo'llang.",
-      "en": "Enforce validation immediately inside constructor parameters."
-    },
-    "requirements": {
-      "classes": [
-        "Product"
-      ],
-      "constructors": [
-        "Product"
-      ]
-    },
-    "starterCode": "class Product {\n    private double price;\n\n    public Product(double price) {\n        if (price < 0) {\n            this.price = 0.0;\n        } else {\n            this.price = price;\n        }\n    }\n\n    public double getPrice() { return price; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product(-20.0);\n        System.out.println(\"Xavfsiz narx: $\" + p.getPrice());\n    }\n}",
-    "solution": "class Product {\n    private double price;\n\n    public Product(double price) {\n        if (price < 0) {\n            this.price = 0.0;\n        } else {\n            this.price = price;\n        }\n    }\n\n    public double getPrice() { return price; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product(-20.0);\n        System.out.println(\"Xavfsiz narx: $\" + p.getPrice());\n    }\n}"
-  },
-  {
-    "id": 8,
-    "title": {
-      "uz": "8. Boolean Getter (isAvailable Konvensiyasi)",
-      "en": "8. Boolean Getters Convention"
-    },
-    "scenario": {
-      "uz": "Java'da boolean maydonlar uchun getter `isAvailable()` yoki `isActive()` deb nomlanadi. `inStock` maydoni uchun `isInStock()` yozing.",
-      "en": "Follow Java Bean conventions using `isInStock()` for boolean getters."
-    },
-    "requirements": {
-      "classes": [
-        "Product"
-      ],
-      "methods": [
-        "isInStock"
-      ]
-    },
-    "starterCode": "class Product {\n    private boolean inStock = true;\n\n    public boolean isInStock() {\n        return this.inStock;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product();\n        System.out.println(\"Mavjudmi: \" + p.isInStock());\n    }\n}",
-    "solution": "class Product {\n    private boolean inStock = true;\n\n    public boolean isInStock() {\n        return this.inStock;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product();\n        System.out.println(\"Mavjudmi: \" + p.isInStock());\n    }\n}"
-  },
-  {
-    "id": 9,
-    "title": {
-      "uz": "9. Inkapsulyatsiyalangan Hisob-Kitob",
-      "en": "9. Calculated Read-Only Property"
-    },
-    "scenario": {
-      "uz": "`OrderItem` klassi: `quantity` va `unitPrice` maydonlarini inkapsulyatsiya qilib, umumiy narxni hisoblovchi `getTotalPrice()` getterini yarating.",
-      "en": "Create calculated property `getTotalPrice()` from private `quantity` and `unitPrice`."
-    },
-    "requirements": {
-      "classes": [
-        "OrderItem"
-      ],
-      "methods": [
-        "getTotalPrice"
-      ]
-    },
-    "starterCode": "class OrderItem {\n    private int quantity;\n    private double unitPrice;\n\n    public OrderItem(int quantity, double unitPrice) {\n        this.quantity = quantity;\n        this.unitPrice = unitPrice;\n    }\n\n    public double getTotalPrice() {\n        return this.quantity * this.unitPrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        OrderItem item = new OrderItem(3, 12.0);\n        System.out.println(\"Jami summa: $\" + item.getTotalPrice());\n    }\n}",
-    "solution": "class OrderItem {\n    private int quantity;\n    private double unitPrice;\n\n    public OrderItem(int quantity, double unitPrice) {\n        this.quantity = quantity;\n        this.unitPrice = unitPrice;\n    }\n\n    public double getTotalPrice() {\n        return this.quantity * this.unitPrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        OrderItem item = new OrderItem(3, 12.0);\n        System.out.println(\"Jami summa: $\" + item.getTotalPrice());\n    }\n}"
-  },
-  {
-    "id": 10,
-    "title": {
-      "uz": "10. CW2 Kurs Ishi Modeli: Xavfsiz Buyurtma",
-      "en": "10. CW2 Safe Order Item Model"
-    },
-    "scenario": {
-      "uz": "Assessment 2 (50%) talabidagi to'liq inkapsulyatsiyalangan `OrderItem` modelini quring: `itemName`, `quantity` (> 0 bo'lishi shart) va `price` bilan.",
-      "en": "Build full encapsulated `OrderItem` model fulfilling CW2 Encapsulation criteria (6 marks)."
-    },
-    "requirements": {
-      "classes": [
-        "OrderItem"
-      ],
-      "methods": [
-        "getTotal",
-        "getQuantity"
-      ]
-    },
-    "starterCode": "class OrderItem {\n    private String itemName;\n    private int quantity;\n    private double price;\n\n    public OrderItem(String itemName, int quantity, double price) {\n        this.itemName = itemName;\n        this.quantity = (quantity > 0) ? quantity : 1;\n        this.price = (price >= 0) ? price : 0.0;\n    }\n\n    public int getQuantity() { return quantity; }\n    public double getTotal() { return quantity * price; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        OrderItem order = new OrderItem(\"Latte\", 2, 4.5);\n        System.out.println(\"Buyurtma jami: $\" + order.getTotal());\n    }\n}",
-    "solution": "class OrderItem {\n    private String itemName;\n    private int quantity;\n    private double price;\n\n    public OrderItem(String itemName, int quantity, double price) {\n        this.itemName = itemName;\n        this.quantity = (quantity > 0) ? quantity : 1;\n        this.price = (price >= 0) ? price : 0.0;\n    }\n\n    public int getQuantity() { return quantity; }\n    public double getTotal() { return quantity * price; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        OrderItem order = new OrderItem(\"Latte\", 2, 4.5);\n        System.out.println(\"Buyurtma jami: $\" + order.getTotal());\n    }\n}"
-  }
-];
+    {
+      id: 10,
+      title: {
+        uz: "10. CW2 Kurs Ishi Modeli: Xavfsiz Buyurtma",
+        en: "10. CW2 Safe Order Item Model"
+      },
+      scenario: {
+        uz: "Assessment 2 (50%) talabidagi to'liq inkapsulyatsiyalangan `OrderItem` modelini quring: `itemName`, `quantity` (> 0 bo'lishi shart) va `price` bilan.",
+        en: "Build full encapsulated `OrderItem` model fulfilling CW2 Encapsulation criteria (6 marks)."
+      },
+      requirements: {
+        classes: ["OrderItem"],
+        methods: ["getTotal", "getQuantity"],
+        privateFields: ["itemName", "quantity", "price"]
+      },
+      starterCode: `class OrderItem {
+    private String itemName;
+    private int quantity;
+    private double price;
+
+    public OrderItem(String itemName, int quantity, double price) {
+        this.itemName = itemName;
+        this.quantity = (quantity > 0) ? quantity : 1;
+        this.price = (price >= 0) ? price : 0.0;
+    }
+
+    public int getQuantity() { return quantity; }
+    public double getTotal() { return quantity * price; }
+}
+
+class Main {
+    public static void main(String[] args) {
+        OrderItem order = new OrderItem("Latte", 2, 4.5);
+        System.out.println("Buyurtma jami: $" + order.getTotal());
+    }
+}`,
+      solution: `class OrderItem {
+    private String itemName;
+    private int quantity;
+    private double price;
+
+    public OrderItem(String itemName, int quantity, double price) {
+        this.itemName = itemName;
+        this.quantity = (quantity > 0) ? quantity : 1;
+        this.price = (price >= 0) ? price : 0.0;
+    }
+
+    public int getQuantity() { return quantity; }
+    public double getTotal() { return quantity * price; }
+}
+
+class Main {
+    public static void main(String[] args) {
+        OrderItem order = new OrderItem("Latte", 2, 4.5);
+        System.out.println("Buyurtma jami: $" + order.getTotal());
+    }
+}`,
+      detailedSolution: {
+        theory: "Tabriklaymiz! Siz 2-Modulni to'liq muvaffaqiyatli yakunladingiz! Ushbu model Westminster 5COSC018C CW2 mezonidagi 'Encapsulation' talabiga 100% mos keladi.",
+        theoryEn: "Congratulations! You have mastered Encapsulation, defensive validation, immutability, and built a robust OrderItem model for your CW2 coursework.",
+        cleanCode: `class OrderItem {
+    private String itemName;
+    private int quantity;
+    private double price;
+
+    public OrderItem(String itemName, int quantity, double price) {
+        this.itemName = itemName;
+        this.quantity = (quantity > 0) ? quantity : 1;
+        this.price = (price >= 0) ? price : 0.0;
+    }
+
+    public int getQuantity() { return quantity; }
+    public double getTotal() { return quantity * price; }
+}
+
+class Main {
+    public static void main(String[] args) {
+        OrderItem order = new OrderItem("Latte", 2, 4.5);
+        System.out.println("Buyurtma jami: $" + order.getTotal());
+    }
+}`,
+        breakdown: [
+          "Barcha maydonlar 'private' bilan to'liq himoyalangan.",
+          "Konstruktorda ternary operator orqali xavfsiz default qiymatlar ta'minlangan.",
+          "getTotal() orqali dinamik hisoblanadi."
+        ],
+        pitfalls: "3-modulda bu model Merosxo'rlik (Inheritance) va Polimorfizm bilan kengaytiriladi.",
+        cw2Viva: "CW2 hisobotingizda (Report) ushbu modelning UML klass diagrammasini taqdim etishingiz va Viva'da inkapsulyatsiyani himoya qilishingiz kerak bo'ladi."
+      }
+    }
+  ];
 
   function loadSolved() {
     try {
@@ -281,14 +938,33 @@
     const elBadge = document.getElementById("problemBadge");
     const elTitle = document.getElementById("problemTitle");
     const elScenario = document.getElementById("problemScenario");
-    const elSolutionText = document.getElementById("solutionContent");
     const elSolutionCard = document.getElementById("solutionContentCard");
+    const elToggleHint = document.getElementById("solutionToggleHint");
 
     if (elBadge) elBadge.textContent = `2-Modul • ${ch.id}-Topshiriq`;
     if (elTitle) elTitle.textContent = ch.title[currentLang];
     if (elScenario) elScenario.textContent = ch.scenario[currentLang];
-    if (elSolutionText) elSolutionText.textContent = ch.solution;
+
+    if (window.SolutionRenderer) {
+      window.SolutionRenderer.render(ch, "solutionContentCard", currentLang);
+    }
     if (elSolutionCard) elSolutionCard.style.display = "none";
+    if (elToggleHint) elToggleHint.textContent = "[Ko'rish ▾]";
+
+    const reqList = document.getElementById("taskReqList");
+    if (reqList) {
+      let reqHtml = "";
+      if (ch.requirements.classes) reqHtml += `<li><strong>Klasslar:</strong> <code>${ch.requirements.classes.join(", ")}</code> sinfi bo'lishi shart.</li>`;
+      if (ch.requirements.privateFields) reqHtml += `<li><strong>Inkapsulyatsiya:</strong> <code>${ch.requirements.privateFields.join(", ")}</code> maydonlari <code>private</code> bo'lsin.</li>`;
+      if (ch.requirements.fields) {
+        const fieldStr = ch.requirements.fields.map(f => `<code>${f.type} ${f.name}</code>`).join(", ");
+        reqHtml += `<li><strong>Maydonlar:</strong> ${fieldStr} to'g'ri turda e'lon qilinsin.</li>`;
+      }
+      if (ch.requirements.methods && ch.requirements.methods.length > 0) reqHtml += `<li><strong>Metodlar:</strong> <code>${ch.requirements.methods.join("(), ")}()</code> metodlari tuzilsin.</li>`;
+      if (ch.requirements.constructors) reqHtml += `<li><strong>Konstruktor:</strong> <code>${ch.requirements.constructors.join(", ")}</code> konstruktori bo'lsin.</li>`;
+      reqHtml += `<li>Clean code qoidalariga rioya qiling.</li>`;
+      reqList.innerHTML = reqHtml;
+    }
 
     const codeArea = document.getElementById("codeEditor");
     if (codeArea) codeArea.value = ch.starterCode;
@@ -327,20 +1003,51 @@
 
     const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch.requirements);
 
-    let report = "=== TEZKOR TEKSHIRUV NATIJASI ===\n";
-    validation.tests.forEach(t => {
-      report += (t.passed ? "✅ " : "❌ ") + t.name + ": " + t.feedback + "\n";
-    });
+    let report = "==================================================\n";
+    report += "🔍 SINTAKSIS VA OOP DIAGNOSTIKA NATIJASI\n";
+    report += "==================================================\n\n";
 
     if (validation.passed) {
+      report += "✅ BARCHA OOP VA SINTAKSIS SHARTLARI BAJARILDI! (+50 Ball)\n\n";
+      if (validation.passedItems && validation.passedItems.length > 0) {
+        validation.passedItems.forEach(item => {
+          report += `✔️ ${item.name}: ${item.detail}\n`;
+        });
+      }
+      report += `\n🎉 TABRIKLAYMIZ! Barcha shartlar to'liq va xatosiz bajarildi!\n💡 Endi xohlasangiz '☕ Ishga tushirish (OpenJDK 21)' orqali dasturni real konsolda sinab ko'ring!`;
+      consoleOut.className = "console-output success";
       solvedQuestions.add(ch.id);
       saveSolved();
       renderHUD();
-      consoleOut.className = "console-output success";
-      report += `\n🎉 TABRIKLAYMIZ! Barcha shartlar to'liq bajarildi! (+50 Ball)\n💡 '☕ Ishga tushirish (OpenJDK 21)' orqali real konsol natijasini ko'rishingiz mumkin!`;
     } else {
       consoleOut.className = "console-output error";
-      report += `\n⚠️ Ba'zi shartlar hali to'liq emas. Kodni qayta ko'rib chiqing.`;
+      report += "❌ ANIQLANGAN XATOLIKLAR JOYI:\n";
+
+      if (validation.syntaxErrors && validation.syntaxErrors.length > 0) {
+        validation.syntaxErrors.forEach(err => {
+          report += `\n📍 [${err.line}-Qator]: ${err.message}\n`;
+          if (err.snippet) report += `   Kodingiz: ${err.snippet}\n`;
+          if (err.fix) report += `   💡 Tavsiya: ${err.fix}\n`;
+        });
+      }
+
+      if (validation.semanticIssues && validation.semanticIssues.length > 0) {
+        validation.semanticIssues.forEach(iss => {
+          const linePrefix = iss.line ? `[${iss.line}-Qator]: ` : "";
+          report += `\n📍 ${linePrefix}${iss.message}\n`;
+          if (iss.fix) report += `   💡 Tavsiya: ${iss.fix}\n`;
+        });
+      }
+
+      if (validation.passedItems && validation.passedItems.length > 0) {
+        report += "\n--------------------------------------------------\n";
+        report += "✔️ TO'G'RI BAJARILGAN QISMLAR:\n";
+        validation.passedItems.forEach(item => {
+          report += `   • ${item.name} (${item.detail})\n`;
+        });
+      }
+
+      report += "\n💡 Professor Ada Maslahati: Yuqorida ko'rsatilgan qatorlardagi xatoliklarni tuzatib, qayta tekshiring!";
     }
 
     consoleOut.textContent = report;
@@ -359,10 +1066,23 @@
 
     if (res.success) {
       consoleOut.className = "console-output success";
-      consoleOut.textContent = `=== OPENJDK 21 CHIQISHI (STDOUT) ===\n\n${res.output || "(Dastur chiqishsiz muvaffaqiyatli yakunlandi)"}\n\n✅ Kod muvaffaqiyatli kompilyatsiya qilindi va bajarildi!`;
+      consoleOut.textContent = `==================================================\n✅ OPENJDK 21 CHIQISHI (STDOUT)\n==================================================\n\n${res.output || "(Chiqish yo'q, dastur muvaffaqiyatli yakunlandi)"}\n\n✅ Kod muvaffaqiyatli kompilyatsiya qilindi va bajarildi!`;
     } else {
       consoleOut.className = "console-output error";
-      consoleOut.textContent = `=== KOMPILYATOR XATOLIGI (JAVAC) ===\n\n${res.errors || "Noma'lum kompilyatsiya xatosi"}`;
+      let report = "==================================================\n";
+      report += "❌ KOMPILYATOR XATOLIGI (JAVAC OPENJDK 21)\n";
+      report += "==================================================\n\n";
+
+      if (res.diagnostics && res.diagnostics.length > 0) {
+        report += "📍 ANIQLANGAN QATORLAR:\n";
+        res.diagnostics.forEach(d => {
+          report += `• [${d.line}-Qator]: ${d.uzbek}\n  💡 Tavsiya: ${d.tip}\n\n`;
+        });
+        report += "--- To'liq Javac Kompilyator Xabari ---\n";
+      }
+
+      report += res.errors || "Noma'lum xatolik";
+      consoleOut.textContent = report;
     }
   }
 
@@ -398,6 +1118,7 @@
     const btnReset = document.getElementById("btnResetCode");
     const btnNext = document.getElementById("btnNextChallenge");
     const btnToggleSol = document.getElementById("btnToggleSolution");
+    const elToggleHint = document.getElementById("solutionToggleHint");
 
     if (btnTest) btnTest.addEventListener("click", handleInstantTest);
     if (btnRun) btnRun.addEventListener("click", handleCloudRun);
@@ -416,7 +1137,11 @@
 
     if (btnToggleSol) btnToggleSol.addEventListener("click", () => {
       const card = document.getElementById("solutionContentCard");
-      if (card) card.style.display = card.style.display === "none" ? "block" : "none";
+      if (card) {
+        const isHidden = card.style.display === "none";
+        card.style.display = isHidden ? "block" : "none";
+        if (elToggleHint) elToggleHint.textContent = isHidden ? "[Yopish ▴]" : "[Ko'rish ▾]";
+      }
     });
 
     const codeArea = document.getElementById("codeEditor");

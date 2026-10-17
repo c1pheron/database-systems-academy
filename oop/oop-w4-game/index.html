@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>OOP Academy • 4-Modul | SeventyOne+ Academy</title>
+  <title>OOP Academy • 4-Modul (Polimorfizm & Abstraksiya) | SeventyOne+ Academy</title>
   
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,13 +20,18 @@
       <div class="brand-emblem">☕</div>
       <div>
         <div class="brand-title">
-          4-Modul: Polimorfizm & Abstrakt Sinflar
+          4-Modul: Polimorfizm &amp; Abstrakt Sinflar
           <span class="brand-badge">OpenJDK 21 • 150 Keys</span>
         </div>
       </div>
     </div>
 
     <div class="hud-actions">
+      <!-- LUG'AT & QIDIRUV (CTRL+K) -->
+      <button id="btnOpenDictionary" class="btn-dictionary" title="Barcha Java va OOP tushunchalari qidiruvi (Ctrl+K)">
+        <span>📖</span> <span>Lug'at &amp; Qidiruv</span>
+      </button>
+
       <div class="lang-switch-box">
         <button id="btnLangUz" class="btn-lang active" type="button">UZ</button>
         <button id="btnLangEn" class="btn-lang" type="button">EN</button>
@@ -69,11 +74,9 @@
         <div class="solution-toggle-card">
           <button id="btnToggleSolution" class="solution-btn">
             <span>💡 Batafsil Yechim</span>
-            <span style="font-size:11px; color:#8b83ba;">[Ko'rish ▾]</span>
+            <span id="solutionToggleHint" style="font-size:11px; color:#c084fc; font-weight:700;">[Ko'rish ▾]</span>
           </button>
-          <div id="solutionContentCard" style="display:none;">
-            <pre id="solutionContent" class="solution-content"></pre>
-          </div>
+          <div id="solutionContentCard" style="display:none;"></div>
         </div>
       </div>
 
@@ -112,8 +115,11 @@
     </section>
   </main>
 
+  <script src="../shared/java-analyzer.js?v=20261017_oop_w4"></script>
   <script src="../shared/java-runner.js?v=20261017_oop_w4"></script>
   <script src="../shared/uml-renderer.js?v=20261017_oop_w4"></script>
+  <script src="../shared/solution-renderer.js?v=20261017_oop_w4"></script>
+  <script src="../shared/oop-dictionary.js?v=20261017_oop_w4"></script>
   <script src="game.js?v=20261017_oop_w4"></script>
 
 </body>
