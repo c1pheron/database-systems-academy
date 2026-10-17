@@ -13,6 +13,9 @@
     currentLang = lang;
     renderHUD();
     renderChallenge();
+    if (window.JavaEditorEnhancer) {
+      window.JavaEditorEnhancer.init("codeEditor", CHALLENGES[currentQIndex]);
+    }
   };
   let currentQIndex = 0;
   let currentSector = "all";
@@ -177,6 +180,9 @@
 
     // Render UML preview
     updateUML();
+    if (window.JavaEditorEnhancer) {
+      window.JavaEditorEnhancer.setChallenge(ch);
+    }
   }
 
   function updateUML() {
@@ -538,16 +544,7 @@
         updateUML();
       });
 
-      // Enable Tab indentation inside textarea
-      codeArea.addEventListener("keydown", (e) => {
-        if (e.key === "Tab") {
-          e.preventDefault();
-          const start = codeArea.selectionStart;
-          const end = codeArea.selectionEnd;
-          codeArea.value = codeArea.value.substring(0, start) + "    " + codeArea.value.substring(end);
-          codeArea.selectionStart = codeArea.selectionEnd = start + 4;
-        }
-      });
+      // Note: Advanced Indentation, Tab, Enter & Autocomplete handled by JavaEditorEnhancer
     }
 
     // Language switch buttons
