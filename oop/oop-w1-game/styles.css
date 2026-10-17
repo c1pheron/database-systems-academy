@@ -189,6 +189,74 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 /* ============================================================================
+   150 PROGRESSIVE QUESTIONS SECTOR TABS & MAP
+   ============================================================================ */
+.sector-tabs-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #0d0b1a;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sector-tabs-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.sector-tab-pill {
+  background: #15112b;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.sector-tab-pill:hover {
+  background: #201a40;
+  color: #fff;
+  border-color: #c084fc;
+}
+
+.sector-tab-pill.active {
+  background: #7c3aed;
+  border-color: #c084fc;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+}
+
+.btn-map-overview {
+  background: #201a40;
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  color: #c084fc;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.btn-map-overview:hover {
+  background: #2d2459;
+  color: #fff;
+}
+
+/* ============================================================================
    QUESTION PROGRESS DOTS STRIP
    ============================================================================ */
 .q-strip {
