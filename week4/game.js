@@ -368,7 +368,45 @@
     const fb = document.getElementById("feedbackBox");
     try {
       const q = getCurrentQuestion();
-      const rawSql = document.getElementById("sqlInput").value;
+      const rawSql = (document.getElementById("sqlInput")?.value || "").trim();
+      if (!rawSql) {
+        if (fb) {
+          fb.className = "feedback-box error";
+          fb.style.display = "block";
+          fb.innerHTML = `<strong>⚠️ Bo'sh terminal:</strong> Iltimos, SQL so'rovingizni yozing va 'Hisobotni Tekshirish' tugmasini bosing!`;
+        }
+        return;
+      }
+
+      // 1. High-precision syntax & diagnostics check
+      if (window.DatabaseSQLDiagnostics) {
+        const diag = window.DatabaseSQLDiagnostics.diagnose(rawSql, q, 'dml');
+        if (!diag.passed) {
+          fb.className = "feedback-box error";
+          fb.style.display = "block";
+          fb.innerHTML = `
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              ${diag.formattedHTML || `<pre style="white-space:pre-wrap; font-size:12px;">${diag.formattedReport}</pre>`}
+              <div style="font-size:12px; color:var(--text-secondary); display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:4px;">
+                <span>Yechishga yordam:</span>
+                <button class="btn" style="padding:3px 9px; font-size:11.5px;" id="btnInlinePreviewExpected">👁 Kutilayotgan Natijani Ko'rish</button>
+                <button class="btn" style="padding:3px 9px; font-size:11.5px;" id="btnInlineHint">💡 Maslahatni Ochish</button>
+              </div>
+            </div>
+          `;
+          document.getElementById("btnInlinePreviewExpected")?.addEventListener("click", () => {
+            document.getElementById("btnPreviewExpected")?.click();
+          });
+          document.getElementById("btnInlineHint")?.addEventListener("click", () => {
+            const hb = document.getElementById("hintBox");
+            if (hb) hb.style.display = "block";
+          });
+          if (arena) {
+            arena.triggerErrorEffect(diag.errors[0]?.message || "Sintaksis xatosi");
+          }
+          return;
+        }
+      }
 
       if (!window.SQL_GRADER) {
         if (fb) {

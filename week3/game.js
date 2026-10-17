@@ -411,7 +411,22 @@
         return;
       }
 
-      // Run in DDL_GRADER
+      // Run high-precision line-by-line syntax & structure diagnostics
+      if (window.DatabaseSQLDiagnostics) {
+        const diag = window.DatabaseSQLDiagnostics.diagnose(sqlEditor.value, q, 'ddl');
+        if (!diag.passed) {
+          audio.playError();
+          consoleCard.className = 'console-card error';
+          consoleIcon.textContent = '❌';
+          consoleText.innerHTML = diag.formattedHTML || diag.formattedReport;
+          if (canvasEngine) {
+            canvasEngine.triggerErrorAlert(diag.errors[0]?.message || "Sintaksis xatosi");
+          }
+          return;
+        }
+      }
+
+      // Run in DDL_GRADER for relational schema verification
       const result = grader.grade(code, q);
 
       if (result.passed) {
@@ -442,7 +457,16 @@
         audio.playError();
         consoleCard.className = 'console-card error';
         consoleIcon.textContent = '❌';
-        consoleText.innerHTML = `<strong>Kompilyatsiya Xatosi:</strong> ${result.feedback}`;
+        consoleText.innerHTML = `
+          <div style="display:flex; flex-direction:column; gap:6px; font-family:var(--font-mono, monospace);">
+            <div style="display:flex; align-items:center; gap:6px; font-weight:700; color:#f87171;">
+              <span style="background:rgba(239,68,68,0.2); border:1px solid #ef4444; color:#fca5a5; padding:2px 7px; border-radius:4px; font-size:11px;">
+                ❌ Relyatsion Model Talabi
+              </span>
+            </div>
+            <div style="color:#fecaca; font-size:12.5px;">${result.feedback}</div>
+          </div>
+        `;
 
         if (canvasEngine) {
           canvasEngine.triggerErrorAlert(result.feedback);

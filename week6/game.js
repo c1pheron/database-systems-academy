@@ -301,25 +301,44 @@
     try {
       const q = getCurrentQuestion();
       const sqlInput = document.getElementById("sqlInput");
-      const rawSql = sqlInput ? sqlInput.value.trim() : "";
+      const rawSql = (sqlInput ? sqlInput.value : "").trim();
 
       state.savedQueries[q.id] = rawSql;
       saveState();
+
+      if (!rawSql) {
+        if (feedbackBox) {
+          feedbackBox.className = "feedback-box error";
+          feedbackBox.innerHTML = `<strong>⚠️ Bo'sh terminal:</strong> Iltimos, SQL so'rovingizni yozing va 'Hisobotni Tekshirish' tugmasini bosing!`;
+        }
+        return;
+      }
+
+      // 1. High-precision syntax & diagnostics check
+      if (window.DatabaseSQLDiagnostics) {
+        const diag = window.DatabaseSQLDiagnostics.diagnose(rawSql, q, 'dml');
+        if (!diag.passed) {
+          if (feedbackBox) {
+            feedbackBox.className = "feedback-box error";
+            feedbackBox.innerHTML = diag.formattedHTML || `<pre style="white-space:pre-wrap; font-size:12px;">${diag.formattedReport}</pre>`;
+          }
+          return;
+        }
+      } else if (window.SQL_GRADER) {
+        const diag = window.SQL_GRADER.detectDiagnostics(rawSql, q);
+        if (diag) {
+          if (feedbackBox) {
+            feedbackBox.className = "feedback-box error";
+            feedbackBox.innerHTML = `<strong>⚠️ Sintaksis Ogohlantirishi:</strong><br>${diag}`;
+          }
+          return;
+        }
+      }
 
       if (!window.SQL_GRADER) {
         if (feedbackBox) {
           feedbackBox.className = "feedback-box error";
           feedbackBox.innerHTML = `<strong>⚠️ Xatolik:</strong> SQL Grader moduli yuklanmadi.`;
-        }
-        return;
-      }
-
-      // 1. Diagnostics check
-      const diag = window.SQL_GRADER.detectDiagnostics(rawSql, q);
-      if (diag) {
-        if (feedbackBox) {
-          feedbackBox.className = "feedback-box error";
-          feedbackBox.innerHTML = `<strong>⚠️ Sintaksis Ogohlantirishi:</strong><br>${diag}`;
         }
         return;
       }
