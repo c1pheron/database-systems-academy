@@ -1,32 +1,45 @@
 /* ============================================================================
    ACADEMY DATABASE SYSTEMS (MODULE) — WEEK 3
-   Foundry & Data Architecture — Luxury Technical Theme
-   Colors: Obsidian (#121418), Walnut (#2b221a), Brass (#c8a96e), Sage (#57b882)
+   Foundry & Data Architecture — Luxury Executive Theme
+   Tabiiy, jiddiy, ko'zga yoqimli ranglar: Yong'oq daraxti (Walnut #151210),
+   To'q Konyak/Espresso (#1e1916), Shampan Oltini (#c8a96e),
+   Tabiiy Mavrak Yashil (#5c8d73) va Iliq Fil Suyagi (#f2ede4).
    ============================================================================ */
 
 :root {
-  --bg-main: #0e1013;
-  --bg-surface: #16191f;
-  --bg-card: #1c2027;
-  --bg-input: #121418;
-  --bg-walnut: #2a221b;
-  --border-subtle: #2b313d;
+  --bg-main: #151210;
+  --bg-deep: #151210;
+  --bg-surface: #1e1916;
+  --bg-panel: #1e1916;
+  --bg-card: #27211c;
+  --bg-card-hover: #302822;
+  --bg-input: #171311;
+  --bg-walnut: #332922;
+
+  --border-subtle: rgba(200, 169, 110, 0.18);
+  --border-gold: rgba(200, 169, 110, 0.45);
   --border-brass: #c8a96e;
-  --border-brass-dim: #7a653f;
+  --border-brass-dim: rgba(200, 169, 110, 0.35);
+
   --accent-gold: #c8a96e;
-  --accent-gold-hover: #dec38c;
-  --accent-sage: #57b882;
-  --accent-sage-bg: rgba(87, 184, 130, 0.12);
-  --accent-amber: #d9822b;
-  --accent-amber-bg: rgba(217, 130, 43, 0.12);
-  --accent-red: #c94a4a;
-  --text-primary: #ede8df;
-  --text-secondary: #9da5b4;
-  --text-muted: #676f7d;
-  --text-gold: #e6cb97;
+  --accent-gold-bright: #dfc288;
+  --accent-gold-hover: #dfc288;
+  --accent-sage: #5c8d73;
+  --accent-sage-bg: rgba(92, 141, 115, 0.18);
+  --accent-amber: #d19a52;
+  --accent-amber-bg: rgba(209, 154, 82, 0.15);
+  --accent-terracotta: #c46d58;
+  --accent-red: #c46d58;
+
+  --text-primary: #f2ede4;
+  --text-secondary: #c4bbb0;
+  --text-muted: #8c8276;
+  --text-gold: #dfc288;
+
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.45);
+  --shadow-card: 0 10px 28px rgba(0, 0, 0, 0.45);
+  --shadow-luxury: 0 10px 28px rgba(0, 0, 0, 0.45);
 }
 
 * {
@@ -36,16 +49,14 @@
 }
 
 body {
-  background-color: var(--bg-main);
+  background-color: var(--bg-deep);
   color: var(--text-primary);
   font-family: var(--font-sans);
   line-height: 1.5;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: 
-    radial-gradient(circle at 15% 10%, rgba(200, 169, 110, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 85% 90%, rgba(87, 184, 130, 0.03) 0%, transparent 40%);
+  background-image: radial-gradient(circle at 50% 0%, #26201a 0%, #151210 75%);
   background-attachment: fixed;
   overflow-x: hidden;
   max-width: 100vw;
@@ -72,13 +83,13 @@ input, textarea, select, [contenteditable="true"] {
    1. TOP EXECUTIVE HUD
    ---------------------------------------------------------------------------- */
 .exec-header {
-  background: linear-gradient(180deg, #181c22 0%, #13151a 100%);
-  border-bottom: 2px solid var(--border-brass-dim);
+  background: linear-gradient(180deg, #1e1916 0%, #171311 100%);
+  border-bottom: 1px solid var(--border-subtle);
   padding: 10px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.45);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -92,7 +103,7 @@ input, textarea, select, [contenteditable="true"] {
 
 .brand-badge {
   background: var(--bg-walnut);
-  border: 1px solid var(--border-brass);
+  border: 1px solid var(--border-gold);
   color: var(--accent-gold);
   padding: 4px 10px;
   border-radius: 4px;
@@ -135,14 +146,14 @@ input, textarea, select, [contenteditable="true"] {
 .stat-value {
   font-size: 14px;
   font-weight: 700;
-  color: var(--accent-gold);
+  color: var(--accent-gold-bright);
   font-family: var(--font-mono);
 }
 
 .hud-progress-wrap {
   width: 130px;
   height: 8px;
-  background: #232832;
+  background: #171311;
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
@@ -191,7 +202,7 @@ input, textarea, select, [contenteditable="true"] {
    2. 10-FLOOR SECTOR RAIL
    ---------------------------------------------------------------------------- */
 .floor-rail-wrap {
-  background: #111418;
+  background: #181411;
   border-bottom: 1px solid var(--border-subtle);
   padding: 8px 24px;
   overflow-x: auto;
@@ -205,7 +216,7 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .floor-btn {
-  background: #181c23;
+  background: #231c18;
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
   padding: 5px 12px;
@@ -222,7 +233,7 @@ input, textarea, select, [contenteditable="true"] {
 .floor-btn:hover {
   border-color: var(--accent-gold);
   color: var(--text-primary);
-  background: #202630;
+  background: #2d241f;
 }
 
 .floor-btn.active {
@@ -236,7 +247,7 @@ input, textarea, select, [contenteditable="true"] {
   font-size: 9px;
   padding: 1px 4px;
   border-radius: 3px;
-  background: #242b36;
+  background: #2d241f;
 }
 
 .floor-btn.active .floor-badge {
@@ -282,7 +293,7 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .panel-header {
-  background: #171b22;
+  background: #221c18;
   padding: 8px 14px;
   display: flex;
   align-items: center;
@@ -336,7 +347,7 @@ input, textarea, select, [contenteditable="true"] {
 .canvas-wrap {
   width: 100%;
   aspect-ratio: 960 / 420;
-  background: #121418;
+  background: #171311;
 }
 
 #foundryCanvas {
@@ -550,8 +561,9 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .tag-difficulty {
-  background: #1c222c;
+  background: #231c18;
   color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
   font-size: 10px;
   font-weight: 600;
   padding: 2px 7px;
@@ -571,7 +583,7 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .nav-btn-mini {
-  background: #14171d;
+  background: #231c18;
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
   width: 28px;
@@ -607,9 +619,9 @@ input, textarea, select, [contenteditable="true"] {
 
 .dossier-story {
   font-size: 13px;
-  color: #c4ccd9;
+  color: #ded6cb;
   line-height: 1.5;
-  background: rgba(22, 25, 32, 0.6);
+  background: rgba(23, 19, 17, 0.7);
   padding: 10px 14px;
   border-radius: 6px;
   border-left: 2px solid var(--accent-gold);
@@ -624,8 +636,8 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .dossier-task code {
-  background: #13171e;
-  border: 1px solid #2b3340;
+  background: #171311;
+  border: 1px solid var(--border-subtle);
   padding: 1px 6px;
   border-radius: 3px;
   font-family: var(--font-mono);
@@ -654,9 +666,9 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .chip-btn {
-  background: #171b22;
+  background: #231c18;
   border: 1px solid var(--border-subtle);
-  color: #a4b0c2;
+  color: var(--text-secondary);
   font-family: var(--font-mono);
   font-size: 11px;
   padding: 3px 8px;
@@ -684,7 +696,7 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .editor-head {
-  background: #171a21;
+  background: #221c18;
   padding: 8px 14px;
   display: flex;
   align-items: center;
@@ -715,7 +727,7 @@ input, textarea, select, [contenteditable="true"] {
 
 .editor-wrap {
   position: relative;
-  background: #101318;
+  background: #171311;
 }
 
 #sqlEditor {
@@ -734,7 +746,7 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 #sqlEditor::placeholder {
-  color: #4f5766;
+  color: #8c8276;
 }
 
 /* ACTION BUTTONS BAR */
@@ -753,7 +765,7 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .btn-action {
-  background: #171a22;
+  background: #231c18;
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
   padding: 9px 15px;
@@ -768,8 +780,8 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .btn-action:hover {
-  background: #202530;
-  border-color: #4a5468;
+  background: #2d241f;
+  border-color: var(--border-brass);
   color: var(--text-primary);
 }
 
@@ -796,12 +808,12 @@ input, textarea, select, [contenteditable="true"] {
 
 /* HINT CARD */
 .hint-card {
-  background: #181d26;
+  background: #231c18;
   border: 1px solid var(--border-brass-dim);
   border-radius: 6px;
   padding: 12px 16px;
   font-size: 12.5px;
-  color: #deb97f;
+  color: #dfc288;
   line-height: 1.5;
   display: none;
   animation: fadeIn 0.2s ease;
@@ -813,7 +825,7 @@ input, textarea, select, [contenteditable="true"] {
 
 /* DIAGNOSTIC CONSOLE */
 .console-card {
-  background: #111419;
+  background: #171311;
   border: 1px solid var(--border-subtle);
   border-radius: 6px;
   padding: 12px 16px;
@@ -878,7 +890,7 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .modal-dialog {
-  background: #171b22;
+  background: #1e1916;
   border: 1.5px solid var(--border-brass);
   border-radius: 10px;
   width: 100%;
@@ -945,7 +957,7 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .map-cell {
-  background: #101318;
+  background: #171311;
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
   height: 38px;
@@ -963,7 +975,7 @@ input, textarea, select, [contenteditable="true"] {
 .map-cell:hover {
   border-color: var(--accent-gold);
   color: var(--accent-gold);
-  background: #202632;
+  background: #2d241f;
 }
 
 .map-cell.current {
@@ -981,7 +993,7 @@ input, textarea, select, [contenteditable="true"] {
 
 /* EVENT CARDS */
 .event-card {
-  background: #12151b;
+  background: #221c18;
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
   padding: 16px;
@@ -997,7 +1009,7 @@ input, textarea, select, [contenteditable="true"] {
 
 .event-desc {
   font-size: 13px;
-  color: #bdc5d1;
+  color: #ded6cb;
   margin-bottom: 12px;
   line-height: 1.5;
 }
@@ -1009,7 +1021,7 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .event-choice-btn {
-  background: #181c24;
+  background: #27211c;
   border: 1px solid var(--border-subtle);
   color: var(--text-primary);
   padding: 10px 14px;
@@ -1031,7 +1043,7 @@ input, textarea, select, [contenteditable="true"] {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background: #181d26;
+  background: #221c18;
   border: 1.5px solid var(--border-brass);
   color: var(--text-primary);
   padding: 12px 20px;

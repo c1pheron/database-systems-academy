@@ -7,7 +7,13 @@
   "use strict";
 
   const STORAGE_KEY = "WIUT_OOP_W1_PROGRESS";
-  let currentLang = "uz";
+  let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
+
+  window.onOopLanguageChange = function (lang) {
+    currentLang = lang;
+    renderHUD();
+    renderChallenge();
+  };
   let currentQIndex = 0;
   let currentSector = "all";
   let solvedQuestions = new Set();
@@ -85,7 +91,8 @@
     // Rating score
     const elPoints = document.getElementById("hudRatingPoints");
     if (elPoints) {
-      elPoints.textContent = solvedQuestions.size * 50 + " Ball";
+      const isEn = currentLang === "en";
+      elPoints.textContent = solvedQuestions.size * 50 + (isEn ? " Pts" : " Ball");
     }
   }
 
@@ -100,41 +107,56 @@
     const elSolutionCard = document.getElementById("solutionContentCard");
     const elToggleHint = document.getElementById("solutionToggleHint");
 
-    if (elBadge) elBadge.textContent = "1-Modul • " + ch.id + "-Topshiriq";
-    if (elTitle) elTitle.textContent = ch.title[currentLang];
-    if (elScenario) elScenario.textContent = ch.scenario[currentLang];
+    const isEn = currentLang === "en";
+    if (elBadge) elBadge.textContent = isEn ? ("Module 1 • Challenge " + ch.id) : ("1-Modul • " + ch.id + "-Topshiriq");
+    if (elTitle) elTitle.textContent = (ch.title && ch.title[currentLang]) ? ch.title[currentLang] : (ch.title?.uz || "");
+    if (elScenario) elScenario.textContent = (ch.scenario && ch.scenario[currentLang]) ? ch.scenario[currentLang] : (ch.scenario?.uz || "");
 
     // Render Rich Solution View via SolutionRenderer
     if (window.SolutionRenderer) {
       window.SolutionRenderer.render(ch, "solutionContentCard", currentLang);
     }
     if (elSolutionCard) elSolutionCard.style.display = "none";
-    if (elToggleHint) elToggleHint.textContent = "[Ko'rish ▾]";
+    if (elToggleHint) elToggleHint.textContent = isEn ? "[View ▾]" : "[Ko'rish ▾]";
 
     // Update requirements list
     const reqList = document.getElementById("taskReqList");
     if (reqList) {
       let reqHtml = "";
       if (ch.requirements.classes) {
-        reqHtml += "<li><strong>Klasslar:</strong> <code>" + ch.requirements.classes.join(", ") + "</code> sinfi e'lon qilinishi shart.</li>";
+        reqHtml += isEn
+          ? "<li><strong>Classes:</strong> Declare class <code>" + ch.requirements.classes.join(", ") + "</code>.</li>"
+          : "<li><strong>Klasslar:</strong> <code>" + ch.requirements.classes.join(", ") + "</code> sinfi e'lon qilinishi shart.</li>";
       }
       if (ch.requirements.fields) {
         const fieldStr = ch.requirements.fields.map(f => "<code>" + f.type + " " + f.name + "</code>").join(", ");
-        reqHtml += "<li><strong>Maydonlar:</strong> " + fieldStr + " maydonlari to'g'ri turda yozilsin.</li>";
+        reqHtml += isEn
+          ? "<li><strong>Fields:</strong> Define <code>" + fieldStr + "</code> with appropriate types.</li>"
+          : "<li><strong>Maydonlar:</strong> " + fieldStr + " maydonlari to'g'ri turda yozilsin.</li>";
       }
       if (ch.requirements.privateFields) {
-        reqHtml += "<li><strong>Inkapsulyatsiya:</strong> <code>" + ch.requirements.privateFields.join(", ") + "</code> maydonlari <code>private</code> bo'lsin.</li>";
+        reqHtml += isEn
+          ? "<li><strong>Encapsulation:</strong> Fields <code>" + ch.requirements.privateFields.join(", ") + "</code> must be <code>private</code>.</li>"
+          : "<li><strong>Inkapsulyatsiya:</strong> <code>" + ch.requirements.privateFields.join(", ") + "</code> maydonlari <code>private</code> bo'lsin.</li>";
       }
       if (ch.requirements.methods && ch.requirements.methods.length > 0) {
-        reqHtml += "<li><strong>Metodlar:</strong> <code>" + ch.requirements.methods.join("(), ") + "()</code> metodi yaratilsin.</li>";
+        reqHtml += isEn
+          ? "<li><strong>Methods:</strong> Implement <code>" + ch.requirements.methods.join("(), ") + "()</code> method(s).</li>"
+          : "<li><strong>Metodlar:</strong> <code>" + ch.requirements.methods.join("(), ") + "()</code> metodi yaratilsin.</li>";
       }
       if (ch.requirements.constructors) {
-        reqHtml += "<li><strong>Konstruktor:</strong> <code>" + ch.requirements.constructors.join(", ") + "</code> klassi uchun konstruktor tuzilsin.</li>";
+        reqHtml += isEn
+          ? "<li><strong>Constructor:</strong> Create constructor for <code>" + ch.requirements.constructors.join(", ") + "</code>.</li>"
+          : "<li><strong>Konstruktor:</strong> <code>" + ch.requirements.constructors.join(", ") + "</code> klassi uchun konstruktor tuzilsin.</li>";
       }
       if (ch.requirements.keywords) {
-        reqHtml += "<li><strong>Kalit so'zlar:</strong> <code>" + ch.requirements.keywords.join(", ") + "</code> qo'llanilishi kerak.</li>";
+        reqHtml += isEn
+          ? "<li><strong>Keywords:</strong> Must use keyword(s) <code>" + ch.requirements.keywords.join(", ") + "</code>.</li>"
+          : "<li><strong>Kalit so'zlar:</strong> <code>" + ch.requirements.keywords.join(", ") + "</code> qo'llanilishi kerak.</li>";
       }
-      reqHtml += "<li>Sintaksis xatolarisiz va Clean Code qoidalariga mos yozing.</li>";
+      reqHtml += isEn
+        ? "<li>Ensure zero syntax errors and follow Clean Code conventions.</li>"
+        : "<li>Sintaksis xatolarisiz va Clean Code qoidalariga mos yozing.</li>";
       reqList.innerHTML = reqHtml;
     }
 
@@ -148,7 +170,9 @@
     const consoleOut = document.getElementById("consoleOutput");
     if (consoleOut) {
       consoleOut.className = "console-output";
-      consoleOut.textContent = "Java konsoli tayyor. '▶ Kodni Tekshirish' yoki '☕ Ishga tushirish (OpenJDK 21)' tugmasini bosing.";
+      consoleOut.textContent = isEn
+        ? "Java console ready. Click '▶ Verify Code' or '☕ Run (OpenJDK 21)'."
+        : "Java konsoli tayyor. '▶ Kodni Tekshirish' yoki '☕ Ishga tushirish (OpenJDK 21)' tugmasini bosing.";
     }
 
     // Render UML preview
@@ -278,12 +302,16 @@
     if (!ch || !codeArea || !consoleOut) return;
 
     consoleOut.className = "console-output";
-    consoleOut.textContent = "🔍 Mahalliy OOP qoidalari va sintaksis tekshirilmoqda...";
+    const isEn = currentLang === "en";
+    consoleOut.className = "console-output";
+    consoleOut.textContent = isEn
+      ? "🔍 Verifying OOP rules and Java syntax..."
+      : "🔍 Mahalliy OOP qoidalari va sintaksis tekshirilmoqda...";
 
     const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch.requirements);
 
     let report = "==================================================\n";
-    report += "🔎 MAHALLIY TEKSHIRUV NATIJASI (PROFESSOR ADA)\n";
+    report += isEn ? "🔎 LOCAL VERIFICATION RESULTS (PROFESSOR ADA)\n" : "🔎 MAHALLIY TEKSHIRUV NATIJASI (PROFESSOR ADA)\n";
     report += "==================================================\n\n";
 
     if (validation.passed) {
@@ -292,40 +320,49 @@
       saveSolved();
       renderHUD();
 
-      report += "🎉 TABRIKLAYMIZ! BARCHA TALABLAR TO'G'RI BAJARILDI!\n\n";
-      report += "✔️ OOP Shartlari To'liq Qanoatlantirildi\n";
-      report += "✔️ Sintaktik xatolar aniqlanmadi\n";
-      report += "⭐ Reytingga +50 Ball qo'shildi!\n\n";
-      report += "💡 Maslahat: '☕ Ishga tushirish (OpenJDK 21)' tugmasini bosib, real JVM natijasini ko'rishingiz mumkin.";
+      report += isEn
+        ? "🎉 CONGRATULATIONS! ALL REQUIREMENTS MET SUCCESSFULLY!\n\n" +
+          "✔️ All OOP Conditions Fully Satisfied\n" +
+          "✔️ Zero Syntax Errors Detected\n" +
+          "⭐ +50 Points Added to Rating Score!\n\n" +
+          "💡 Tip: Click '☕ Run (OpenJDK 21)' to view real JVM execution output."
+        : "🎉 TABRIKLAYMIZ! BARCHA TALABLAR TO'G'RI BAJARILDI!\n\n" +
+          "✔️ OOP Shartlari To'liq Qanoatlantirildi\n" +
+          "✔️ Sintaktik xatolar aniqlanmadi\n" +
+          "⭐ Reytingga +50 Ball qo'shildi!\n\n" +
+          "💡 Maslahat: '☕ Ishga tushirish (OpenJDK 21)' tugmasini bosib, real JVM natijasini ko'rishingiz mumkin.";
     } else {
       consoleOut.className = "console-output error";
-      report += "❌ KODDA XATOLIKLAR ANIQLANDI:\n";
+      report += isEn ? "❌ ISSUES DETECTED IN YOUR CODE:\n" : "❌ KODDA XATOLIKLAR ANIQLANDI:\n";
 
       if (validation.syntaxErrors && validation.syntaxErrors.length > 0) {
         validation.syntaxErrors.forEach(err => {
-          report += "\n📍 [" + err.line + "-Qator]: " + err.message + "\n";
-          if (err.snippet) report += "   Kodingiz: " + err.snippet + "\n";
-          if (err.fix) report += "   💡 Tavsiya: " + err.fix + "\n";
+          const lineStr = isEn ? `[Line ${err.line}]` : `[${err.line}-Qator]`;
+          report += "\n📍 " + lineStr + ": " + err.message + "\n";
+          if (err.snippet) report += (isEn ? "   Your code: " : "   Kodingiz: ") + err.snippet + "\n";
+          if (err.fix) report += (isEn ? "   💡 Tip: " : "   💡 Tavsiya: ") + err.fix + "\n";
         });
       }
 
       if (validation.semanticIssues && validation.semanticIssues.length > 0) {
         validation.semanticIssues.forEach(iss => {
-          const linePrefix = iss.line ? "[" + iss.line + "-Qator]: " : "";
+          const linePrefix = iss.line ? (isEn ? "[Line " + iss.line + "]: " : "[" + iss.line + "-Qator]: ") : "";
           report += "\n📍 " + linePrefix + iss.message + "\n";
-          if (iss.fix) report += "   💡 Tavsiya: " + iss.fix + "\n";
+          if (iss.fix) report += (isEn ? "   💡 Tip: " : "   💡 Tavsiya: ") + iss.fix + "\n";
         });
       }
 
       if (validation.passedItems && validation.passedItems.length > 0) {
         report += "\n--------------------------------------------------\n";
-        report += "✔️ TO'G'RI BAJARILGAN QISMLAR:\n";
+        report += isEn ? "✔️ CORRECTLY IMPLEMENTED PARTS:\n" : "✔️ TO'G'RI BAJARILGAN QISMLAR:\n";
         validation.passedItems.forEach(item => {
           report += "   • " + item.name + " (" + item.detail + ")\n";
         });
       }
 
-      report += "\n💡 Professor Ada Maslahati: Yuqorida ko'rsatilgan qatorlardagi xatoliklarni tuzatib, qayta tekshiring!";
+      report += isEn
+        ? "\n💡 Professor Ada Advice: Fix the highlighted issues above and verify again!"
+        : "\n💡 Professor Ada Maslahati: Yuqorida ko'rsatilgan qatorlardagi xatoliklarni tuzatib, qayta tekshiring!";
     }
 
     consoleOut.textContent = report;
@@ -338,28 +375,38 @@
     if (!codeArea || !consoleOut) return;
 
     consoleOut.className = "console-output";
-    consoleOut.textContent = "🚀 Real OpenJDK 21 kompilyatoriga yuborilmoqda (Wandbox Cloud)...";
+    const isEn = currentLang === "en";
+    consoleOut.className = "console-output";
+    consoleOut.textContent = isEn
+      ? "🚀 Submitting to real OpenJDK 21 compiler (Wandbox Cloud)..."
+      : "🚀 Real OpenJDK 21 kompilyatoriga yuborilmoqda (Wandbox Cloud)...";
 
     const res = await window.JavaRunner.runOnOpenJDK21(codeArea.value);
 
     if (res.success) {
       consoleOut.className = "console-output success";
-      consoleOut.textContent = "==================================================\n✅ OPENJDK 21 CHIQISHI (STDOUT)\n==================================================\n\n" + (res.output || "(Chiqish yo'q, dastur muvaffaqiyatli yakunlandi)") + "\n\n✅ Kod muvaffaqiyatli kompilyatsiya qilindi va bajarildi!";
+      consoleOut.textContent = "==================================================\n" +
+        (isEn ? "✅ OPENJDK 21 OUTPUT (STDOUT)\n" : "✅ OPENJDK 21 CHIQISHI (STDOUT)\n") +
+        "==================================================\n\n" +
+        (res.output || (isEn ? "(No output, program finished with returncode 0)" : "(Chiqish yo'q, dastur muvaffaqiyatli yakunlandi)")) +
+        (isEn ? "\n\n✅ Code successfully compiled and executed!" : "\n\n✅ Kod muvaffaqiyatli kompilyatsiya qilindi va bajarildi!");
     } else {
       consoleOut.className = "console-output error";
       let report = "==================================================\n";
-      report += "❌ KOMPILYATOR XATOLIGI (JAVAC OPENJDK 21)\n";
+      report += isEn ? "❌ COMPILER ERROR (JAVAC OPENJDK 21)\n" : "❌ KOMPILYATOR XATOLIGI (JAVAC OPENJDK 21)\n";
       report += "==================================================\n\n";
 
       if (res.diagnostics && res.diagnostics.length > 0) {
-        report += "📍 ANIQLANGAN QATORLAR:\n";
+        report += isEn ? "📍 PINPOINTED LINES:\n" : "📍 ANIQLANGAN QATORLAR:\n";
         res.diagnostics.forEach(d => {
-          report += "• [" + d.line + "-Qator]: " + d.uzbek + "\n  💡 Tavsiya: " + d.tip + "\n\n";
+          const lineStr = isEn ? `[Line ${d.line}]` : `[${d.line}-Qator]`;
+          const msg = isEn ? (d.original || d.uzbek) : d.uzbek;
+          report += "• " + lineStr + ": " + msg + "\n  💡 " + (isEn ? "Tip: " : "Tavsiya: ") + d.tip + "\n\n";
         });
-        report += "--- To'liq Javac Kompilyator Xabari ---\n";
+        report += isEn ? "--- Full Javac Compiler Message ---\n" : "--- To'liq Javac Kompilyator Xabari ---\n";
       }
 
-      report += res.errors || "Noma'lum xatolik";
+      report += res.errors || (isEn ? "Unknown error" : "Noma'lum xatolik");
       consoleOut.textContent = report;
     }
   }
@@ -478,7 +525,8 @@
         const isHidden = card.style.display === "none";
         card.style.display = isHidden ? "block" : "none";
         if (elToggleHint) {
-          elToggleHint.textContent = isHidden ? "[Yopish ▴]" : "[Ko'rish ▾]";
+          const isEn = currentLang === "en";
+        elToggleHint.textContent = isHidden ? (isEn ? "[Close ▴]" : "[Yopish ▴]") : (isEn ? "[View ▾]" : "[Ko'rish ▾]");
         }
       }
     });
@@ -507,16 +555,26 @@
     const btnEn = document.getElementById("btnLangEn");
     if (btnUz && btnEn) {
       btnUz.addEventListener("click", () => {
-        currentLang = "uz";
-        btnUz.classList.add("active");
-        btnEn.classList.remove("active");
-        renderChallenge();
+        if (window.OOP_I18N) {
+          window.OOP_I18N.setLang("uz");
+        } else {
+          currentLang = "uz";
+          btnUz.classList.add("active");
+          btnEn.classList.remove("active");
+          renderHUD();
+          renderChallenge();
+        }
       });
       btnEn.addEventListener("click", () => {
-        currentLang = "en";
-        btnEn.classList.add("active");
-        btnUz.classList.remove("active");
-        renderChallenge();
+        if (window.OOP_I18N) {
+          window.OOP_I18N.setLang("en");
+        } else {
+          currentLang = "en";
+          btnEn.classList.add("active");
+          btnUz.classList.remove("active");
+          renderHUD();
+          renderChallenge();
+        }
       });
     }
   });

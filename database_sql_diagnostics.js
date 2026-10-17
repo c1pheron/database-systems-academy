@@ -922,14 +922,12 @@
       `;
 
       res.errors.forEach((err) => {
-        const lineBadge = err.line 
-          ? `<span style="background:rgba(239,68,68,0.3); border:1px solid #ef4444; color:#fca5a5; padding:1px 6px; border-radius:3px; font-weight:700; font-size:11px; margin-right:6px;">${isEn ? `Line ${err.line}` : `${err.line}-Qator`}</span>`
-          : "";
+        const lineText = err.line ? `<strong style="color:#f87171;">(${isEn ? `Line ${err.line}` : `${err.line}-qator`})</strong> ` : "";
 
         html += `
           <div style="background:rgba(0,0,0,0.32); border:1px solid rgba(239,68,68,0.25); border-left:3px solid #ef4444; border-radius:4px; padding:7px 10px;">
             <div style="color:#fecaca; font-weight:600; margin-bottom:4px;">
-              ${lineBadge}${this.escapeHTML(err.message)}
+              ${lineText}${this.escapeHTML(err.message)}
             </div>
             ${err.snippet ? `<div style="background:rgba(15,23,42,0.85); border:1px solid rgba(255,255,255,0.08); border-radius:3px; padding:4px 8px; color:#f1f5f9; font-size:11.5px; margin-bottom:4px; overflow-x:auto;"><code>${this.escapeHTML(err.snippet)}</code></div>` : ""}
             ${err.fix ? `<div style="color:#fde047; font-size:11.5px; display:flex; align-items:flex-start; gap:5px;"><span>💡</span><span><strong>${isEn ? "Fix tip" : "Tuzatish tavsiyasi"}:</strong> ${this.escapeHTML(err.fix)}</span></div>` : ""}

@@ -6,14 +6,14 @@
 (function () {
   "use strict";
 
-  // Java OOP Karyera Pog'onalari
+  // Java OOP Karyera Pog'onalari (Bilingual)
   const CAREER_LADDER = [
-    { threshold: 0,   title: "Java Junior Coder (Boshlovchi)", avatar: "🌱" },
-    { threshold: 100, title: "Clean Code & Encapsulation Pro", avatar: "🛡️" },
-    { threshold: 250, title: "Inheritance & Polymorphism Engineer", avatar: "⚡" },
-    { threshold: 450, title: "Interface & Loose Coupling Specialist", avatar: "🔬" },
-    { threshold: 650, title: "GoF Design Pattern Architect", avatar: "☕" },
-    { threshold: 850, title: "Bosh Tizim Arxitektori (Chief Java Architect)", avatar: "👑" }
+    { threshold: 0,   titleUz: "Java Junior Coder (Boshlovchi)", titleEn: "Java Junior Coder", avatar: "🌱" },
+    { threshold: 100, titleUz: "Clean Code & Encapsulation Pro", titleEn: "Clean Code & Encapsulation Pro", avatar: "🛡️" },
+    { threshold: 250, titleUz: "Inheritance & Polymorphism Engineer", titleEn: "Inheritance & Polymorphism Engineer", avatar: "⚡" },
+    { threshold: 450, titleUz: "Interface & Loose Coupling Specialist", titleEn: "Interface & Decoupling Specialist", avatar: "🔬" },
+    { threshold: 650, titleUz: "GoF Design Pattern Architect", titleEn: "GoF Design Pattern Architect", avatar: "☕" },
+    { threshold: 850, titleUz: "Bosh Tizim Arxitektori (Chief Java Architect)", titleEn: "Chief Enterprise Java Architect", avatar: "👑" }
   ];
 
   const MODULE_STORAGE_KEYS = {
@@ -34,6 +34,15 @@
     totalPoints: 0,
     moduleProgress: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }
   };
+
+  function getLang() {
+    if (window.OOP_I18N) return window.OOP_I18N.getLang();
+    try {
+      const saved = localStorage.getItem("OOP_LANG") || localStorage.getItem("DS_ACADEMY_LANG");
+      if (saved === "en" || saved === "uz") return saved;
+    } catch (e) {}
+    return "uz";
+  }
 
   // 1. Initialize Telegram Mini App SDK
   function initTelegram() {
@@ -90,6 +99,8 @@
 
   // 3. Render HUD and Badges
   function renderUI() {
+    const isEn = getLang() === "en";
+
     // User name & rank
     const elName = document.getElementById("hudUserName");
     const elRank = document.getElementById("hudUserRank");
@@ -103,20 +114,21 @@
         break;
       }
     }
-    if (elRank) elRank.textContent = `${currentCareer.avatar} ${currentCareer.title}`;
+    const rankTitle = isEn ? currentCareer.titleEn : currentCareer.titleUz;
+    if (elRank) elRank.textContent = `${currentCareer.avatar} ${rankTitle}`;
 
     // Total Solved & Score
     const elSolved = document.getElementById("hudSolvedTotal");
     const elPoints = document.getElementById("hudPointsTotal");
     if (elSolved) elSolved.textContent = `${state.totalSolved} / ${state.totalChallenges}`;
-    if (elPoints) elPoints.textContent = `${state.totalPoints.toLocaleString()} Ball`;
+    if (elPoints) elPoints.textContent = `${state.totalPoints.toLocaleString()} ${isEn ? "Pts" : "Ball"}`;
 
     // Overall Progress bar
     const percent = Math.min(100, Math.round((state.totalSolved / state.totalChallenges) * 100));
     const elBar = document.getElementById("overallProgressBar");
     const elPercent = document.getElementById("overallProgressPercent");
     if (elBar) elBar.style.width = `${percent}%`;
-    if (elPercent) elPercent.textContent = `${percent}% Bajarildi`;
+    if (elPercent) elPercent.textContent = `${percent}% ${isEn ? "Completed" : "Bajarildi"}`;
 
     // Week Module Stat values
     for (let w = 1; w <= 6; w++) {
@@ -126,6 +138,11 @@
       }
     }
   }
+
+  // Listen to Language Change
+  window.onOopLanguageChange = function () {
+    renderUI();
+  };
 
   // Lifecycle
   document.addEventListener("DOMContentLoaded", () => {

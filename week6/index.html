@@ -156,27 +156,9 @@
 
           <div class="q-tags" id="qTagsList" style="margin-bottom: 12px; display: flex; gap: 6px; flex-wrap: wrap;"></div>
 
-          <!-- Quick Token Bar for SQL keywords -->
-          <div class="token-bar" id="tokenBar" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;">
-            <button class="btn" type="button" onclick="insertToken('SELECT ')" style="padding: 2px 7px; font-size: 11px;">SELECT</button>
-            <button class="btn" type="button" onclick="insertToken('FROM ')" style="padding: 2px 7px; font-size: 11px;">FROM</button>
-            <button class="btn" type="button" onclick="insertToken('WHERE ')" style="padding: 2px 7px; font-size: 11px;">WHERE</button>
-            <button class="btn" type="button" onclick="insertToken('IN (SELECT ')" style="padding: 2px 7px; font-size: 11px;">IN (SELECT...)</button>
-            <button class="btn" type="button" onclick="insertToken('NOT IN (SELECT ')" style="padding: 2px 7px; font-size: 11px;">NOT IN</button>
-            <button class="btn" type="button" onclick="insertToken('> ANY (SELECT ')" style="padding: 2px 7px; font-size: 11px;">> ANY</button>
-            <button class="btn" type="button" onclick="insertToken('> ALL (SELECT ')" style="padding: 2px 7px; font-size: 11px;">> ALL</button>
-            <button class="btn" type="button" onclick="insertToken('EXISTS (SELECT 1 FROM ')" style="padding: 2px 7px; font-size: 11px;">EXISTS</button>
-            <button class="btn" type="button" onclick="insertToken('NOT EXISTS (SELECT 1 FROM ')" style="padding: 2px 7px; font-size: 11px;">NOT EXISTS</button>
-            <button class="btn" type="button" onclick="insertToken('UNION ')" style="padding: 2px 7px; font-size: 11px;">UNION</button>
-            <button class="btn" type="button" onclick="insertToken('UNION ALL ')" style="padding: 2px 7px; font-size: 11px;">UNION ALL</button>
-            <button class="btn" type="button" onclick="insertToken('INTERSECT ')" style="padding: 2px 7px; font-size: 11px;">INTERSECT</button>
-            <button class="btn" type="button" onclick="insertToken('EXCEPT ')" style="padding: 2px 7px; font-size: 11px;">EXCEPT</button>
-            <button class="btn" type="button" onclick="insertToken('CREATE VIEW ')" style="padding: 2px 7px; font-size: 11px;">CREATE VIEW</button>
-            <button class="btn" type="button" onclick="insertToken('EXPLAIN ')" style="padding: 2px 7px; font-size: 11px;">EXPLAIN</button>
-          </div>
-
           <!-- SQL Editor -->
           <div class="editor-wrap">
+            <div class="token-bar" id="tokenBar" style="display: none;"></div>
             <textarea
               id="sqlInput"
               spellcheck="false"
