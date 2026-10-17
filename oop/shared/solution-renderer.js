@@ -126,6 +126,12 @@
               btnLoad.innerHTML = `<span>📥</span> <span>${isEn ? "Load to Editor" : "Muharrirga yuklash"}</span>`;
             }, 1800);
 
+            // Auto-switch to editor view on mobile devices
+            const btnMobEdit = document.getElementById("btnTabMobileEditor");
+            if (btnMobEdit && window.innerWidth <= 768) {
+              btnMobEdit.click();
+            }
+
             // Focus editor
             editor.focus();
           }

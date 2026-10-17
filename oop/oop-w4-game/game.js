@@ -986,6 +986,54 @@ for (MenuItem item : basket) {
     renderHUD();
     renderChallenge();
 
+    // Mobile Segmented Switcher Handlers
+    const btnMobProb = document.getElementById("btnTabMobileProblem");
+    const btnMobEdit = document.getElementById("btnTabMobileEditor");
+    const workspace = document.getElementById("ideWorkspace") || document.querySelector(".ide-workspace");
+
+    if (btnMobProb && btnMobEdit && workspace) {
+      btnMobProb.addEventListener("click", () => {
+        btnMobProb.classList.add("active");
+        btnMobEdit.classList.remove("active");
+        workspace.classList.add("mobile-show-problem");
+        workspace.classList.remove("mobile-show-editor");
+      });
+
+      btnMobEdit.addEventListener("click", () => {
+        btnMobEdit.classList.add("active");
+        btnMobProb.classList.remove("active");
+        workspace.classList.add("mobile-show-editor");
+        workspace.classList.remove("mobile-show-problem");
+      });
+    }
+
+    // Mobile Java Quick-Access Keys Handlers
+    document.querySelectorAll(".quick-key-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const insertText = btn.getAttribute("data-insert");
+        const codeArea = document.getElementById("codeEditor");
+        if (!insertText || !codeArea) return;
+
+        const start = codeArea.selectionStart;
+        const end = codeArea.selectionEnd;
+        const val = codeArea.value;
+
+        codeArea.value = val.substring(0, start) + insertText + val.substring(end);
+
+        let cursorOffset = insertText.length;
+        if (insertText === "{}" || insertText === "()" || insertText === "\"\"" || insertText === "[]") {
+          cursorOffset = 1;
+        } else if (insertText === "System.out.println();") {
+          cursorOffset = 19;
+        }
+
+        codeArea.selectionStart = codeArea.selectionEnd = start + cursorOffset;
+        codeArea.focus();
+        updateUML();
+      });
+    });
+
     const tabProblem = document.getElementById("tabProblem");
     const tabUML = document.getElementById("tabUML");
     const contentProblem = document.getElementById("contentProblem");
@@ -1005,6 +1053,11 @@ for (MenuItem item : basket) {
         if (contentProblem) contentProblem.style.display = "none";
         if (contentUML) contentUML.style.display = "block";
         updateUML();
+        setTimeout(() => {
+          if (window.UMLRenderer && window.UMLRenderer.fitToView) {
+            window.UMLRenderer.fitToView("umlContainer");
+          }
+        }, 60);
       });
     }
 

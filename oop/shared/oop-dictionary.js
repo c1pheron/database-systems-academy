@@ -380,6 +380,22 @@
       .oop-dict-card:hover {
         border-color: #6d28d9;
       }
+      @media (max-width: 600px) {
+        #oopDictionaryCard {
+          max-height: 94vh !important;
+          border-radius: 12px !important;
+        }
+        .esc-hint {
+          display: none !important;
+        }
+        .oop-dict-cat {
+          padding: 4px 8px !important;
+          font-size: 10.5px !important;
+        }
+        .oop-dict-card {
+          padding: 12px !important;
+        }
+      }
     `;
     document.head.appendChild(style);
 

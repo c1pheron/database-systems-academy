@@ -483,9 +483,30 @@ input, textarea, select, [contenteditable="true"] {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .master-header { padding: 10px 14px; }
+  .master-header { padding: 10px 12px; }
+  .header-container { gap: 10px; }
+  .brand-sub { display: none; }
   .main-wrapper { padding: 14px 12px 36px; }
-  .hero-banner { padding: 20px 16px; }
-  .hero-title { font-size: 18px; }
-  .modules-grid { grid-template-columns: 1fr; }
+  .hero-banner { padding: 18px 14px; }
+  .hero-title { font-size: 17px; }
+  .hero-desc { font-size: 12.5px; }
+  .hero-stats-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .modules-grid { grid-template-columns: 1fr; gap: 14px; }
+  .module-card { padding: 16px; }
+}
+
+@media (max-width: 480px) {
+  .brand-title { font-size: 13px; }
+  .brand-badge { display: none; }
+  .brand-emblem { width: 32px; height: 32px; font-size: 16px; }
+  .btn-back-hub { font-size: 11px; padding: 4px 8px; }
+  .hud-profile-pill { padding: 4px 8px; }
+  .profile-name { font-size: 12px; }
+  .profile-rank { font-size: 10px; }
+  .stat-chip { padding: 4px 8px; }
+  .stat-chip .label { font-size: 10px; }
+  .stat-chip .val { font-size: 11px; }
+  .btn-dictionary { padding: 5px 8px !important; font-size: 11px !important; }
+  .btn-launch { width: 100%; justify-content: center; }
+  .module-card-footer { flex-direction: column; align-items: stretch; gap: 10px; }
 }
