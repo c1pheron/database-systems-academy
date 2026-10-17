@@ -701,20 +701,21 @@
           } catch (e) {}
         }
 
-        // 3. OOP
-        try {
-          const raw = localStorage.getItem("WIUT_OOP_PROGRESS");
-          if (raw) {
-            const p = JSON.parse(raw);
-            let count = 0;
-            if (Array.isArray(p.solvedIds)) count = p.solvedIds.length;
-            else if (p.solvedIds && typeof p.solvedIds === "object") count = Object.keys(p.solvedIds).length;
-            else if (typeof p.solvedCount === "number") count = p.solvedCount;
-
-            oopTotal = count;
-            totalCapital += (p.capital || oopTotal * 100);
-          }
-        } catch (e) {}
+        // 3. OOP (1-6)
+        for (let w = 1; w <= 6; w++) {
+          try {
+            const raw = localStorage.getItem(`WIUT_OOP_W${w}_PROGRESS`);
+            if (raw) {
+              const p = JSON.parse(raw);
+              let count = 0;
+              if (Array.isArray(p.solvedIds)) count = p.solvedIds.length;
+              else if (Array.isArray(p.solvedList)) count = p.solvedList.length;
+              else if (typeof p.solvedCount === "number") count = p.solvedCount;
+              oopTotal += count;
+              totalCapital += (count * 50);
+            }
+          } catch (e) {}
+        }
 
         // Render
         const grandTotal = dsTotal + osTotal + oopTotal;

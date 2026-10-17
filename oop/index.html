@@ -5,225 +5,279 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>OOP Academy — Bosh Boshqaruv Markazi (Java Architecture Hub)</title>
   
+  <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   
-  <style>
-    :root {
-      --bg-deep: #0e0c1a;
-      --bg-panel: #151226;
-      --bg-card: #1c1833;
-      --bg-card-hover: #262145;
-      --bg-hud: rgba(21, 18, 38, 0.95);
-      --border-subtle: rgba(192, 132, 252, 0.2);
-      --border-purple: rgba(192, 132, 252, 0.45);
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #8b83ba;
-      --accent-purple: #9333ea;
-      --accent-purple-bright: #c084fc;
-      --accent-emerald-bright: #34d399;
-      --radius-lg: 12px;
-      --radius-md: 10px;
-      --radius-sm: 6px;
-      --shadow-card-hover: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 20px rgba(192, 132, 252, 0.2);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
-      background-color: var(--bg-deep);
-      background-image: radial-gradient(circle at 50% 0%, #20183b 0%, #0e0c1a 80%);
-      color: var(--text-primary);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    .master-header {
-      background: var(--bg-hud);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-purple);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      padding: 10px 20px;
-    }
-    .header-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .brand-box { display: flex; align-items: center; gap: 12px; }
-    .brand-emblem {
-      width: 42px; height: 42px;
-      background: linear-gradient(135deg, #7c3aed, #1c1833);
-      border: 1px solid var(--accent-purple-bright);
-      border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-    }
-    .brand-title { font-size: 16px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
-    .brand-badge {
-      font-size: 10px; background: rgba(192, 132, 252, 0.15); color: var(--accent-purple-bright);
-      border: 1px solid rgba(192, 132, 252, 0.35); padding: 2px 7px; border-radius: 4px;
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .btn-back-hub {
-      background: rgba(28, 24, 51, 0.85); border: 1px solid var(--border-subtle);
-      color: var(--text-secondary); font-size: 12px; font-weight: 600; padding: 6px 12px;
-      border-radius: var(--radius-sm); text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
-    }
-    .btn-back-hub:hover { border-color: var(--accent-purple-bright); color: #fff; }
-    .main-wrapper { max-width: 1400px; margin: 0 auto; padding: 24px 20px 48px; width: 100%; flex: 1; }
-    .hero-banner {
-      background: linear-gradient(135deg, rgba(28, 24, 51, 0.95), rgba(14, 12, 26, 0.98));
-      border: 1px solid var(--border-purple); border-radius: var(--radius-lg); padding: 28px 32px;
-      margin-bottom: 32px;
-    }
-    .hero-title { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
-    .hero-desc { font-size: 13.5px; line-height: 1.65; color: var(--text-secondary); max-width: 900px; margin-bottom: 20px; }
-    .modules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; }
-    .module-card {
-      background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
-      padding: 22px; display: flex; flex-direction: column; justify-content: space-between;
-      transition: all 0.25s ease;
-    }
-    .module-card:hover { transform: translateY(-3px); border-color: var(--accent-purple-bright); background: var(--bg-card-hover); box-shadow: var(--shadow-card-hover); }
-    .module-card-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .module-desc { font-size: 12.5px; line-height: 1.55; color: var(--text-secondary); margin-bottom: 16px; }
-    .topic-chip { background: #0e0c1a; color: #c4b5fd; border: 1px solid rgba(255, 255, 255, 0.08); padding: 2px 7px; border-radius: 4px; font-size: 11px; font-family: 'JetBrains Mono', monospace; margin: 2px; display: inline-block; }
-    .btn-launch {
-      background: linear-gradient(135deg, #7c3aed, #9333ea); color: #fff; border: 1px solid var(--accent-purple-bright);
-      padding: 8px 16px; border-radius: var(--radius-sm); font-size: 12.5px; font-weight: 700; text-decoration: none;
-      cursor: pointer; display: inline-block; text-align: center;
-    }
-    .btn-launch:hover { background: #a855f7; box-shadow: 0 0 14px rgba(192, 132, 252, 0.4); }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=20261017_oop_v1">
 </head>
 <body>
+
+  <!-- =========================================================================
+       TOP EXECUTIVE HUD / NAVBAR
+       ========================================================================= -->
   <header class="master-header">
     <div class="header-container">
+      
+      <!-- Brand Identity -->
       <div class="brand-box">
-        <a href="../index.html" class="btn-back-hub">← SeventyPlus Portali</a>
+        <a href="../index.html" class="btn-back-hub" title="SeventyOne+ Asosiy Portaliga Qaytish">← SeventyOne+ Portali</a>
         <div class="brand-emblem">☕</div>
         <div>
-          <div class="brand-title">Object-Oriented Programming Academy <span class="brand-badge">Java • GoF Patterns</span></div>
+          <div class="brand-title">
+            Object-Oriented Programming Academy
+            <span class="brand-badge">Java • GoF Patterns</span>
+          </div>
           <div class="brand-sub">Clean Code, SOLID, Creational, Structural &amp; Behavioural Dizayn Patternlar</div>
         </div>
       </div>
-      <div>
-        <span class="brand-badge">Prof. Ada • 5COSC018C</span>
+
+      <!-- User Profile & Stats -->
+      <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div class="hud-profile-pill">
+          <div class="profile-avatar">👨‍💻</div>
+          <div class="profile-info">
+            <span id="hudUserName" class="profile-name">Java Developer</span>
+            <span id="hudUserRank" class="profile-rank">🌱 Java Junior Coder</span>
+          </div>
+        </div>
+
+        <div class="header-stats">
+          <div class="stat-chip">
+            <span class="label">Bajarildi:</span>
+            <span id="hudSolvedTotal" class="val purple">0 / 900</span>
+          </div>
+          <div class="stat-chip">
+            <span class="label">Reyting Bali:</span>
+            <span id="hudPointsTotal" class="val emerald">0 Ball</span>
+          </div>
+        </div>
       </div>
+
     </div>
   </header>
 
+  <!-- =========================================================================
+       MAIN WORKSPACE CONTAINER
+       ========================================================================= -->
   <main class="main-wrapper">
+
+    <!-- Hero / Progress Section -->
     <section class="hero-banner">
-      <h2 class="hero-title">☕ Java Core, GoF Design Patterns &amp; Clean Code Arxitekturasi</h2>
+      <h2 class="hero-title">
+        <span>☕</span> Java Core, GoF Design Patterns &amp; Clean Code Arxitekturasi
+      </h2>
       <p class="hero-desc">
-        Westminster 5COSC018C moduli bo'yicha to'liq amaliy tayyorgarlik: Inkapsulyatsiya, Polimorfizm, SOLID tamoyillari, Factory, Builder, Singleton, Decorator, Strategy, Observer kabi 23 ta GoF patternlari hamda Assessment 2 Console Order tizimini qurish.
+        Xush kelibsiz! Ushbu platforma Westminster 5COSC018C (OOP) moduli bo'yicha to'liq amaliy tayyorgarlik uchun yaratilgan: Haqiqiy OpenJDK 21 kompilyatori, jonli UML klass diagrammasi, inkapsulyatsiya, polimorfizm, 23 ta GoF dizayn patternlari hamda Assessment 2 (50%) Console Order tizimini qurish bo'yicha 6 ta modul va 900 ta amaliy vazifa!
       </p>
+
+      <div class="hero-progress-box">
+        <div class="progress-header">
+          <span>OOP Modulining Umumiy O'zlashtirilishi</span>
+          <span id="overallProgressPercent" style="color:var(--accent-purple-bright); font-family:'JetBrains Mono', monospace;">0% Bajarildi</span>
+        </div>
+        <div class="progress-track">
+          <div id="overallProgressBar" class="progress-bar-fill"></div>
+        </div>
+      </div>
     </section>
 
-    <div class="modules-grid">
-      <article class="module-card">
-        <div>
-          <h4 class="module-card-title">1-Modul: Java Core &amp; OOP Ustunlari</h4>
-          <p class="module-desc">Encapsulation, Inheritance, Polymorphism, Abstraction, Java Memory Model (Heap &amp; Stack) va Immutability.</p>
-          <div>
-            <span class="topic-chip">Classes &amp; Objects</span>
-            <span class="topic-chip">Polymorphism</span>
-            <span class="topic-chip">Heap &amp; Stack</span>
-          </div>
-        </div>
-        <div style="margin-top:16px;">
-          <a href="#" class="btn-launch" onclick="alert('OOP 1-Modul interfeysi tayyorlanmoqda!')">1-Modulga Kirish →</a>
-        </div>
-      </article>
-
-      <article class="module-card">
-        <div>
-          <h4 class="module-card-title">2-Modul: SOLID Tamoyillari &amp; Clean Code</h4>
-          <p class="module-desc">Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation va Dependency Inversion.</p>
-          <div>
-            <span class="topic-chip">SOLID</span>
-            <span class="topic-chip">Clean Code</span>
-            <span class="topic-chip">Refactoring</span>
-          </div>
-        </div>
-        <div style="margin-top:16px;">
-          <a href="#" class="btn-launch" onclick="alert('OOP 2-Modul interfeysi tayyorlanmoqda!')">2-Modulga Kirish →</a>
-        </div>
-      </article>
-
-      <article class="module-card">
-        <div>
-          <h4 class="module-card-title">3-Modul: Creational Design Patterns</h4>
-          <p class="module-desc">Factory Method, Abstract Factory, Builder, Prototype va Thread-Safe Singleton patternlari.</p>
-          <div>
-            <span class="topic-chip">Factory Method</span>
-            <span class="topic-chip">Builder Pattern</span>
-            <span class="topic-chip">Singleton</span>
-          </div>
-        </div>
-        <div style="margin-top:16px;">
-          <a href="#" class="btn-launch" onclick="alert('OOP 3-Modul interfeysi tayyorlanmoqda!')">3-Modulga Kirish →</a>
-        </div>
-      </article>
-
-      <article class="module-card">
-        <div>
-          <h4 class="module-card-title">4-Modul: Structural Design Patterns</h4>
-          <p class="module-desc">Adapter, Bridge, Composite, Decorator, Facade va Proxy patternlari amaliy misollarda.</p>
-          <div>
-            <span class="topic-chip">Adapter</span>
-            <span class="topic-chip">Decorator</span>
-            <span class="topic-chip">Facade</span>
-          </div>
-        </div>
-        <div style="margin-top:16px;">
-          <a href="#" class="btn-launch" onclick="alert('OOP 4-Modul interfeysi tayyorlanmoqda!')">4-Modulga Kirish →</a>
-        </div>
-      </article>
-
-      <article class="module-card">
-        <div>
-          <h4 class="module-card-title">5-Modul: Behavioural Design Patterns</h4>
-          <p class="module-desc">Chain of Responsibility, Command, Iterator, Observer, State va Strategy patternlari.</p>
-          <div>
-            <span class="topic-chip">Strategy Pattern</span>
-            <span class="topic-chip">Observer Pattern</span>
-            <span class="topic-chip">Command</span>
-          </div>
-        </div>
-        <div style="margin-top:16px;">
-          <a href="#" class="btn-launch" onclick="alert('OOP 5-Modul interfeysi tayyorlanmoqda!')">5-Modulga Kirish →</a>
-        </div>
-      </article>
-
-      <article class="module-card">
-        <div>
-          <h4 class="module-card-title">6-Modul: Console Order App (CW2 Tizimi)</h4>
-          <p class="module-desc">Assessment 2 (50%) talablariga mos to'liq Java Console Order ilovasi va UML diagrammalari.</p>
-          <div>
-            <span class="topic-chip">Console App</span>
-            <span class="topic-chip">UML Diagrams</span>
-            <span class="topic-chip">Order System</span>
-          </div>
-        </div>
-        <div style="margin-top:16px;">
-          <a href="#" class="btn-launch" onclick="alert('OOP 6-Modul interfeysi tayyorlanmoqda!')">6-Modulga Kirish →</a>
-        </div>
-      </article>
+    <!-- 6 Modules Quest Map -->
+    <div class="section-headline">
+      <h3 class="section-title">🗺️ O'quv Yo'nalishi &amp; 6 ta Korporativ Modul</h3>
+      <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">6 Modul • 900 ta Keys • Haqiqiy OpenJDK 21</span>
     </div>
+
+    <div class="modules-grid">
+
+      <!-- Week 1 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">🌱</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">1-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Java Core, Xotira Modeli &amp; Sinflar</h4>
+          <p class="module-desc">
+            Sinf (Class) va Obyekt (Object), Heap va Stack xotirasining real ishlashi, `new` kalit so'zi, Default &amp; Parameterized konstruktorlar hamda `this` murojaati.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">Classes &amp; Objects</span>
+            <span class="topic-chip">Heap vs Stack</span>
+            <span class="topic-chip">Constructors</span>
+            <span class="topic-chip">this keyword</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w1ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="oop-w1-game/index.html" class="btn-launch">1-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 2 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">🛡️</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">2-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Inkapsulyatsiya &amp; Ma'lumotlarni Himoyalash</h4>
+          <p class="module-desc">
+            Access Modifiers (private, protected, public, package-private), Getters &amp; Setters bilan validatsiya, ma'lumotlar yaxlitligi va Immutability (O'zgarmas sinflar).
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">private &amp; public</span>
+            <span class="topic-chip">Getters &amp; Setters</span>
+            <span class="topic-chip">Data Validation</span>
+            <span class="topic-chip">Immutable Classes</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w2ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="oop-w2-game/index.html" class="btn-launch">2-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 3 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">⚡</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">3-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Merosxo'rlik &amp; Kompozitsiya (Inheritance)</h4>
+          <p class="module-desc">
+            Klass iyerarxiyasi (`extends`), `super()` konstruktor va metod chaqiruvlari, metodlarni qayta aniqlash (@Override), "Is-A" va "Has-A" tamoyillari.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">extends &amp; super()</span>
+            <span class="topic-chip">Method Overriding</span>
+            <span class="topic-chip">Is-A vs Has-A</span>
+            <span class="topic-chip">Composition</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w3ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="oop-w3-game/index.html" class="btn-launch">3-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 4 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">🔬</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">4-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Polimorfizm &amp; Abstrakt Sinflar</h4>
+          <p class="module-desc">
+            Dinamik metod chaqiruvi (Runtime Polymorphism), `abstract class` va abstrakt metodlar, turli xil obyektlarni bitta umumiy ro'yxatda boshqarish (`List&lt;Product&gt;`).
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">Dynamic Dispatch</span>
+            <span class="topic-chip">abstract class</span>
+            <span class="topic-chip">Heterogenous Lists</span>
+            <span class="topic-chip">Upcasting / Downcasting</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w4ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="oop-w4-game/index.html" class="btn-launch">4-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 5 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">🧩</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">5-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Interfeyslar &amp; Bo'shliq (Loose Coupling)</h4>
+          <p class="module-desc">
+            `interface` va `implements`, ko'p interfeyslarni qo'llash, to'lov tizimlari abstraksiyasi (PaymentMethod), xabarnomalar (Notifiable) va Dependency Injection.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">interface &amp; implements</span>
+            <span class="topic-chip">Multiple Interfaces</span>
+            <span class="topic-chip">Loose Coupling</span>
+            <span class="topic-chip">Dependency Injection</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w5ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="oop-w5-game/index.html" class="btn-launch">5-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 6 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">☕</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">6-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">GoF Dizayn Patternlari &amp; CW2 Console App</h4>
+          <p class="module-desc">
+            Assessment 2 (50%) Kurs Ishi: Creational (Singleton, Factory, Builder), Structural (Decorator, Adapter), Behavioural (Strategy, Observer) hamda Buyurtma Tizimi.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">Singleton &amp; Factory</span>
+            <span class="topic-chip">Decorator Pattern</span>
+            <span class="topic-chip">Strategy Pattern</span>
+            <span class="topic-chip">CW2 Console Order</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w6ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="oop-w6-game/index.html" class="btn-launch">6-Modulga Kirish →</a>
+        </div>
+      </article>
+
+    </div>
+
   </main>
+
+  <script src="app.js?v=20261017_oop_v1"></script>
 </body>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>OOP Academy • 6-Modul | SeventyOne+ Academy</title>
+  
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../oop-w1-game/styles.css?v=20261017_oop_w6">
+</head>
+<body>
+
+  <header class="top-hud">
+    <div class="brand-box">
+      <a href="../index.html" class="btn-back" title="OOP Hubga Qaytish">← OOP Hubga Qaytish</a>
+      <div class="brand-emblem">☕</div>
+      <div>
+        <div class="brand-title">
+          6-Modul: GoF Dizayn Patternlari & CW2 Buyurtma Tizimi
+          <span class="brand-badge">OpenJDK 21 • 150 Keys</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hud-actions">
+      <div class="lang-switch-box">
+        <button id="btnLangUz" class="btn-lang active" type="button">UZ</button>
+        <button id="btnLangEn" class="btn-lang" type="button">EN</button>
+      </div>
+
+      <div class="stat-pill">
+        <span style="color:var(--text-muted);">Reyting Bali:</span>
+        <span id="hudRatingPoints" style="font-weight:700; color:var(--accent-emerald-bright); font-family:'JetBrains Mono', monospace;">0 Ball</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="q-strip" id="qStrip"></nav>
+
+  <main class="ide-workspace">
+    <section class="pane-left">
+      <div class="pane-tabs">
+        <button id="tabProblem" class="tab-btn active"><span>📝</span> <span>Masala Sharti</span></button>
+        <button id="tabUML" class="tab-btn"><span>📊</span> <span>Jonli UML Diagrammasi</span></button>
+      </div>
+
+      <div id="contentProblem" class="pane-tab-content">
+        <div class="problem-header">
+          <span id="problemBadge" class="problem-badge">6-Modul • 1-Topshiriq</span>
+          <h2 id="problemTitle" class="problem-title">Topshiriq Sarlavhasi</h2>
+        </div>
+
+        <div class="feynman-box">
+          <p id="problemScenario"></p>
+        </div>
+
+        <div class="task-requirements">
+          <h4>Vazifa Talablari:</h4>
+          <ul id="taskReqList">
+            <li>Sinf, interfeys va metodlarni belgilanganidek to'g'ri yozing.</li>
+            <li>Sintaksis xatolarisiz va clean code qoidalariga amal qiling.</li>
+          </ul>
+        </div>
+
+        <div class="solution-toggle-card">
+          <button id="btnToggleSolution" class="solution-btn">
+            <span>💡 Batafsil Yechim</span>
+            <span style="font-size:11px; color:#8b83ba;">[Ko'rish ▾]</span>
+          </button>
+          <div id="solutionContentCard" style="display:none;">
+            <pre id="solutionContent" class="solution-content"></pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="contentUML" class="pane-tab-content" style="display:none; padding:10px; height:100%;">
+        <div id="umlContainer" style="width:100%; height:100%; min-height:350px;"></div>
+      </div>
+    </section>
+
+    <section class="pane-right">
+      <div class="editor-toolbar">
+        <div class="editor-filename">
+          <span>☕</span> <span>Main.java</span>
+        </div>
+
+        <div class="btn-group">
+          <button id="btnResetCode" class="btn btn-secondary">↺ Asliga qaytarish</button>
+          <button id="btnInstantTest" class="btn btn-primary">▶ Kodni Tekshirish</button>
+          <button id="btnCloudRun" class="btn btn-cloud">☕ Ishga tushirish (OpenJDK 21)</button>
+          <button id="btnNextChallenge" class="btn btn-secondary">Keyingi →</button>
+        </div>
+      </div>
+
+      <div class="editor-wrapper">
+        <textarea id="codeEditor" class="code-textarea" spellcheck="false"></textarea>
+      </div>
+
+      <div class="console-section">
+        <div class="console-header">
+          <div class="console-tabs">
+            <button class="c-tab active">💻 Java Konsoli (Terminal)</button>
+          </div>
+          <span style="font-size:11px; color:#64748b; font-family:'JetBrains Mono', monospace;">OpenJDK 21 Environment</span>
+        </div>
+        <div id="consoleOutput" class="console-output">Java konsoli tayyor. '▶ Kodni Tekshirish' yoki '☕ Ishga tushirish (OpenJDK 21)' tugmasini bosing.</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../shared/java-runner.js?v=20261017_oop_w6"></script>
+  <script src="../shared/uml-renderer.js?v=20261017_oop_w6"></script>
+  <script src="game.js?v=20261017_oop_w6"></script>
+
+</body>
+</html>
