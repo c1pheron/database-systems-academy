@@ -1,20 +1,60 @@
 // ============================================================================
-// OOP ACADEMY — SMART JAVA EDITOR ENHANCER (PROFESSOR ADA)
-// 1. Intelligent Auto-Indentation on Enter (4 spaces inside classes & methods)
-// 2. Bracket splitting & expansion ({|} -> creates indented block)
-// 3. Dynamic Class Autocomplete & IntelliSense Variants
-// 4. Smart Quick Suggestion Chips Bar (one-tap insertion for classes & keywords)
-// 5. Smart Backspace & Auto-Closing Bracket Pairs
+// OOP ACADEMY — SMART JAVA EDITOR & SYNTAX HIGHLIGHTER (PROFESSOR ADA)
+// 1. IntelliJ IDEA Darcula Syntax Highlighting Engine (Keywords, Types, Classes, Strings, Numbers)
+// 2. Glowing Red Error Detector with Wavy Underlines (Detects 'class Name(', typos, unclosed quotes, etc.)
+// 3. Synchronized Line Numbers Gutter with Error Dots
+// 4. Intelligent Auto-Indentation on Enter (4 spaces inside classes & methods)
+// 5. Bracket Splitting & Expansion ({|} -> creates 4-space indented block)
+// 6. Dynamic Class Autocomplete & IntelliSense Variants
+// 7. Smart Suggestion Chips Bar (One-click tokens for classes, new, sout)
 // ============================================================================
 
 (function (global) {
   "use strict";
 
+  const KEYWORDS = new Set([
+    "abstract", "assert", "break", "case", "catch", "class", "const",
+    "continue", "default", "do", "else", "enum", "extends", "final",
+    "finally", "for", "goto", "if", "implements", "import", "instanceof",
+    "interface", "native", "new", "package", "private", "protected",
+    "public", "record", "return", "sealed", "static", "strictfp",
+    "super", "switch", "synchronized", "this", "throw", "throws",
+    "transient", "try", "var", "void", "volatile", "while", "yield"
+  ]);
+
+  const TYPES = new Set([
+    "boolean", "byte", "char", "double", "float", "int", "long", "short", "void",
+    "String", "Integer", "Double", "Boolean", "Character", "Long", "Float", "Byte", "Short",
+    "Object", "Class", "System", "Scanner", "Math", "List", "ArrayList", "Map", "HashMap", "Set", "HashSet",
+    "Arrays", "Collections", "StringBuilder", "StringBuffer", "Exception", "Throwable"
+  ]);
+
+  const TYPO_KEYWORDS = {
+    "pubic": "public",
+    "plublic": "public",
+    "pbulic": "public",
+    "clas": "class",
+    "clss": "class",
+    "sattic": "static",
+    "staitc": "static",
+    "viod": "void",
+    "privte": "private",
+    "pravite": "private",
+    "retun": "return",
+    "reutrn": "return",
+    "prntln": "println",
+    "sytem": "System"
+  };
+
   const JavaEditorEnhancer = {
     codeArea: null,
+    surfaceEl: null,
+    gutterEl: null,
+    backdropEl: null,
+    codeContentEl: null,
     dropdownEl: null,
     chipsBarEl: null,
-    mirrorEl: null,
+    errorBadgeEl: null,
     currentChallenge: null,
     knownClasses: new Set(["Main"]),
     suggestions: [],
@@ -28,10 +68,13 @@
       if (!this.codeArea) return;
 
       this.currentChallenge = challenge || null;
+      this.injectStyles();
+      this.setupHighlighterSurface();
       this.createUIElements();
       this.bindEvents();
       this.scanCodeForClasses();
       this.renderChipsBar();
+      this.updateHighlighting();
     },
 
     setChallenge(ch) {
@@ -42,20 +85,112 @@
       this.currentChallenge = ch;
       this.scanCodeForClasses();
       this.renderChipsBar();
+      this.updateHighlighting();
+    },
+
+    // --------------------------------------------------------------------------
+    // DUAL-LAYER HIGHLIGHTER SURFACE SETUP
+    // --------------------------------------------------------------------------
+
+    setupHighlighterSurface() {
+      if (this.surfaceEl || !this.codeArea) return;
+      const parent = this.codeArea.parentElement;
+      if (!parent) return;
+
+      if (parent.id === "codeViewport") {
+        this.surfaceEl = document.getElementById("codeEditorSurface");
+        this.gutterEl = document.getElementById("editorGutter");
+        this.backdropEl = document.getElementById("codeHighlightBackdrop");
+        this.codeContentEl = document.getElementById("codeHighlightContent");
+        return;
+      }
+
+      // Container surface
+      const surface = document.createElement("div");
+      surface.className = "code-editor-surface";
+      surface.id = "codeEditorSurface";
+
+      // Line numbers gutter
+      const gutter = document.createElement("div");
+      gutter.className = "editor-gutter";
+      gutter.id = "editorGutter";
+      gutter.setAttribute("aria-hidden", "true");
+
+      // Viewport wrapper
+      const viewport = document.createElement("div");
+      viewport.className = "code-viewport";
+      viewport.id = "codeViewport";
+
+      // Highlight backdrop
+      const backdrop = document.createElement("pre");
+      backdrop.className = "code-highlight-backdrop";
+      backdrop.id = "codeHighlightBackdrop";
+      backdrop.setAttribute("aria-hidden", "true");
+
+      const codeContent = document.createElement("code");
+      codeContent.id = "codeHighlightContent";
+      backdrop.appendChild(codeContent);
+
+      // Re-parent textarea
+      parent.insertBefore(surface, this.codeArea);
+      surface.appendChild(gutter);
+      surface.appendChild(viewport);
+      viewport.appendChild(backdrop);
+      viewport.appendChild(this.codeArea);
+
+      this.surfaceEl = surface;
+      this.gutterEl = gutter;
+      this.backdropEl = backdrop;
+      this.codeContentEl = codeContent;
+
+      // Add IntelliJ theme indicator & error pill to toolbar if present
+      const toolbar = parent.closest(".pane-right")?.querySelector(".editor-toolbar") || document.querySelector(".editor-toolbar");
+      if (toolbar && !document.getElementById("editorThemeIndicator")) {
+        const badgeBox = document.createElement("div");
+        badgeBox.id = "editorThemeIndicator";
+        badgeBox.style.cssText = "display: flex; align-items: center; gap: 8px;";
+        badgeBox.innerHTML = `
+          <span class="intellij-theme-badge" title="IntelliJ IDEA Darcula Syntax Engine">
+            <span class="intellij-dot"></span> IntelliJ Highlighting
+          </span>
+          <span id="editorErrorIndicator" class="editor-error-badge" style="display:none;" title="Aniqlangan sintaktik xatoliklar"></span>
+        `;
+        const fn = toolbar.querySelector(".editor-filename");
+        if (fn) {
+          fn.insertAdjacentElement("afterend", badgeBox);
+        } else {
+          toolbar.insertBefore(badgeBox, toolbar.firstChild);
+        }
+        this.errorBadgeEl = document.getElementById("editorErrorIndicator");
+      }
+
+      // Scroll synchronization
+      this.codeArea.addEventListener("scroll", () => this.syncScroll(), { passive: true });
+    },
+
+    syncScroll() {
+      if (!this.codeArea) return;
+      if (this.backdropEl) {
+        this.backdropEl.scrollTop = this.codeArea.scrollTop;
+        this.backdropEl.scrollLeft = this.codeArea.scrollLeft;
+      }
+      if (this.gutterEl) {
+        this.gutterEl.scrollTop = this.codeArea.scrollTop;
+      }
     },
 
     createUIElements() {
-      // 1. Create Smart Suggestion Chips Bar if not exists
       const wrapper = this.codeArea.closest(".editor-wrapper");
       if (wrapper && !document.getElementById("smartSuggestionChipsBar")) {
         const chipsBar = document.createElement("div");
         chipsBar.id = "smartSuggestionChipsBar";
         chipsBar.className = "smart-suggestion-chips-bar";
 
-        // Insert right above textarea (or right below quick-keys bar)
         const quickKeys = wrapper.querySelector(".editor-quick-keys");
         if (quickKeys) {
           quickKeys.insertAdjacentElement("afterend", chipsBar);
+        } else if (this.surfaceEl) {
+          wrapper.insertBefore(chipsBar, this.surfaceEl);
         } else {
           wrapper.insertBefore(chipsBar, this.codeArea);
         }
@@ -64,7 +199,6 @@
         this.chipsBarEl = document.getElementById("smartSuggestionChipsBar");
       }
 
-      // 2. Create Autocomplete Dropdown if not exists
       if (wrapper && !document.getElementById("codeAutocompleteDropdown")) {
         const dropdown = document.createElement("div");
         dropdown.id = "codeAutocompleteDropdown";
@@ -75,9 +209,6 @@
       } else {
         this.dropdownEl = document.getElementById("codeAutocompleteDropdown");
       }
-
-      // 3. Inject CSS Styles dynamically
-      this.injectStyles();
     },
 
     injectStyles() {
@@ -85,6 +216,209 @@
       const style = document.createElement("style");
       style.id = "javaEditorEnhancerStyles";
       style.textContent = `
+        /* Dual-layer IntelliJ Code Editor Surface */
+        .code-editor-surface {
+          position: relative;
+          display: flex;
+          width: 100%;
+          height: 100%;
+          min-height: 290px;
+          background: #110d24;
+          border: 1px solid rgba(168, 85, 247, 0.3);
+          border-radius: 0 0 8px 8px;
+          overflow: hidden;
+          box-sizing: border-box;
+        }
+
+        .editor-gutter {
+          width: 44px;
+          background: #090715;
+          border-right: 1px solid rgba(168, 85, 247, 0.2);
+          padding: 14px 6px 14px 0;
+          text-align: right;
+          font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+          font-size: 13px;
+          line-height: 22px;
+          color: #4b5563;
+          user-select: none;
+          overflow: hidden;
+          box-sizing: border-box;
+          flex-shrink: 0;
+        }
+
+        .gutter-line {
+          height: 22px;
+          line-height: 22px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 4px;
+        }
+        .gutter-line.has-error {
+          color: #ef4444;
+          font-weight: 700;
+        }
+        .gutter-err-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #ef4444;
+          box-shadow: 0 0 6px rgba(239, 68, 68, 0.9);
+          display: inline-block;
+        }
+
+        .code-viewport {
+          position: relative;
+          flex: 1;
+          height: 100%;
+          min-height: 290px;
+          overflow: hidden;
+          background: #0e0b1f;
+        }
+
+        .code-highlight-backdrop,
+        .code-textarea {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding: 14px 16px !important;
+          margin: 0 !important;
+          box-sizing: border-box !important;
+          font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace !important;
+          font-size: 13.5px !important;
+          line-height: 22px !important;
+          tab-size: 4 !important;
+          -moz-tab-size: 4 !important;
+          letter-spacing: 0px !important;
+          white-space: pre !important;
+          overflow: auto !important;
+          border: none !important;
+          font-feature-settings: "liga" 0 !important;
+        }
+
+        .code-highlight-backdrop {
+          pointer-events: none !important;
+          z-index: 1 !important;
+          color: #abb2bf !important;
+          background: transparent !important;
+        }
+
+        .code-textarea {
+          z-index: 2 !important;
+          background: transparent !important;
+          color: transparent !important;
+          caret-color: #38bdf8 !important;
+          resize: none !important;
+          outline: none !important;
+        }
+
+        .code-textarea::selection {
+          background: rgba(124, 58, 237, 0.45) !important;
+          color: transparent !important;
+        }
+
+        /* IntelliJ IDEA Darcula Token Colors */
+        .tok-keyword {
+          color: #cc7832 !important; /* IntelliJ Orange */
+          font-weight: 700 !important;
+        }
+        .tok-type {
+          color: #4ec9b0 !important; /* IntelliJ Turquoise */
+          font-weight: 600 !important;
+        }
+        .tok-class {
+          color: #ffc66d !important; /* IntelliJ Class Name (Gold/Amber) */
+          font-weight: 700 !important;
+        }
+        .tok-method {
+          color: #e5c07b !important; /* IntelliJ Yellow */
+        }
+        .tok-string {
+          color: #6a8759 !important; /* IntelliJ Green */
+        }
+        .tok-char {
+          color: #6a8759 !important;
+        }
+        .tok-number {
+          color: #6897bb !important; /* IntelliJ Blue */
+        }
+        .tok-comment {
+          color: #808080 !important; /* Muted Grey */
+          font-style: italic !important;
+        }
+        .tok-annotation {
+          color: #bbb529 !important; /* Gold */
+        }
+        .tok-operator {
+          color: #e2e8f0 !important;
+        }
+        .tok-bracket {
+          color: #cbd5e1 !important;
+        }
+        .tok-ident {
+          color: #f8fafc !important;
+        }
+
+        /* Error token styling - glowing red & wavy underline */
+        .tok-error {
+          color: #ff4d4f !important;
+          background: rgba(239, 68, 68, 0.28) !important;
+          border-bottom: 2px wavy #ef4444 !important;
+          border-radius: 3px !important;
+          padding: 0 2px !important;
+          font-weight: 700 !important;
+          animation: tokErrorPulse 1.4s infinite alternate !important;
+        }
+        @keyframes tokErrorPulse {
+          from { background: rgba(239, 68, 68, 0.2); box-shadow: 0 0 6px rgba(239, 68, 68, 0.4); }
+          to { background: rgba(239, 68, 68, 0.42); box-shadow: 0 0 12px rgba(239, 68, 68, 0.75); }
+        }
+
+        /* IntelliJ Theme Badge in Toolbar */
+        .intellij-theme-badge {
+          background: #1e183a;
+          border: 1px solid rgba(168, 85, 247, 0.45);
+          color: #c084fc;
+          font-size: 11px;
+          font-weight: 700;
+          padding: 2px 8px;
+          border-radius: 12px;
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          font-family: 'JetBrains Mono', monospace;
+          user-select: none;
+        }
+        .intellij-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #a855f7;
+          box-shadow: 0 0 8px #a855f7;
+          display: inline-block;
+        }
+        .editor-error-badge {
+          background: rgba(239, 68, 68, 0.2);
+          border: 1px solid #ef4444;
+          color: #fca5a5;
+          font-size: 11px;
+          font-weight: 700;
+          padding: 2px 8px;
+          border-radius: 12px;
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          font-family: 'JetBrains Mono', monospace;
+          cursor: pointer;
+          animation: errorBadgePulse 1.5s infinite alternate;
+        }
+        @keyframes errorBadgePulse {
+          from { border-color: #ef4444; }
+          to { border-color: #f87171; box-shadow: 0 0 10px rgba(239, 68, 68, 0.6); }
+        }
+
         /* Smart Suggestion Chips Bar */
         .smart-suggestion-chips-bar {
           display: flex;
@@ -273,17 +607,15 @@
     bindEvents() {
       if (!this.codeArea) return;
 
-      // 1. Keydown: Smart Indent, Tab, Backspace, Brackets, Navigation
       this.codeArea.addEventListener("keydown", (e) => this.handleKeyDown(e));
 
-      // 2. Input: Autocomplete triggers & Live class scanning
       this.codeArea.addEventListener("input", () => {
+        this.updateHighlighting();
         this.scanCodeForClasses();
         this.triggerAutocomplete();
         this.renderChipsBar();
       });
 
-      // 3. Click / Focus / Blur
       this.codeArea.addEventListener("click", () => {
         setTimeout(() => this.triggerAutocomplete(), 30);
       });
@@ -295,8 +627,185 @@
       });
     },
 
+    // --------------------------------------------------------------------------
+    // SYNTAX HIGHLIGHTING & ERROR RENDERING
+    // --------------------------------------------------------------------------
+
+    updateHighlighting() {
+      if (!this.codeArea || !this.codeContentEl) return;
+      const code = this.codeArea.value || "";
+
+      let lintErrors = [];
+      if (global.JavaAnalyzer && typeof global.JavaAnalyzer.lintSyntax === "function") {
+        try {
+          const lintRes = global.JavaAnalyzer.lintSyntax(code);
+          if (lintRes && Array.isArray(lintRes.errors)) {
+            lintErrors = lintRes.errors;
+          }
+        } catch (e) {}
+      }
+
+      const { html, lineCount, errorCount, errorLines } = this.tokenizeJavaCode(code, lintErrors);
+      this.codeContentEl.innerHTML = html;
+      this.updateGutter(lineCount, errorLines);
+      this.updateErrorBadge(errorCount);
+      this.syncScroll();
+    },
+
+    tokenizeJavaCode(code, lintErrors) {
+      const lines = code.split("\n");
+      const highlightedLines = [];
+      let totalErrors = 0;
+      const errorLines = new Set();
+      const errorTipsByLine = {};
+
+      if (Array.isArray(lintErrors)) {
+        lintErrors.forEach(err => {
+          if (err && err.line) {
+            errorLines.add(err.line);
+            totalErrors++;
+            errorTipsByLine[err.line] = err.message || err.tip || "Sintaktik xatolik";
+          }
+        });
+      }
+
+      const tokenRegex = /(\/\/[^\n]*)|("(?:[^"\\]|\\.)*"|"[^"\n]*)|('(?:[^'\\]|\\.)*')|(@[A-Za-z0-9_]+)|(\b\d+(?:\.\d+)?[fFdDlL]?\b)|([a-zA-Z0-9_]+)|([^\s\w])/g;
+
+      for (let i = 0; i < lines.length; i++) {
+        const lineNum = i + 1;
+        const line = lines[i];
+        let lineHtml = "";
+        let match;
+        let lastIndex = 0;
+
+        tokenRegex.lastIndex = 0;
+        while ((match = tokenRegex.exec(line)) !== null) {
+          if (match.index > lastIndex) {
+            lineHtml += this.escapeHTML(line.substring(lastIndex, match.index));
+          }
+          lastIndex = tokenRegex.lastIndex;
+
+          const [raw, comment, str, ch, annotation, number, word, punct] = match;
+
+          if (comment) {
+            lineHtml += `<span class="tok-comment">${this.escapeHTML(comment)}</span>`;
+          } else if (str) {
+            if (!str.endsWith('"') || str.length === 1) {
+              totalErrors++;
+              errorLines.add(lineNum);
+              lineHtml += `<span class="tok-error" title="Sintaksis xatosi: Yopilmagan matn satri (qo'shtirnoq yetishmaydi)">${this.escapeHTML(str)}</span>`;
+            } else {
+              lineHtml += `<span class="tok-string">${this.escapeHTML(str)}</span>`;
+            }
+          } else if (ch) {
+            lineHtml += `<span class="tok-char">${this.escapeHTML(ch)}</span>`;
+          } else if (annotation) {
+            lineHtml += `<span class="tok-annotation">${this.escapeHTML(annotation)}</span>`;
+          } else if (number) {
+            lineHtml += `<span class="tok-number">${this.escapeHTML(number)}</span>`;
+          } else if (word) {
+            if (TYPO_KEYWORDS[word.toLowerCase()]) {
+              totalErrors++;
+              errorLines.add(lineNum);
+              const correct = TYPO_KEYWORDS[word.toLowerCase()];
+              lineHtml += `<span class="tok-error" title="Xatolik: '${word}' emas, '${correct}' deb yoziladi!">${this.escapeHTML(word)}</span>`;
+            } else if (KEYWORDS.has(word)) {
+              lineHtml += `<span class="tok-keyword">${this.escapeHTML(word)}</span>`;
+            } else if (TYPES.has(word)) {
+              lineHtml += `<span class="tok-type">${this.escapeHTML(word)}</span>`;
+            } else if (/^[A-Z][a-zA-Z0-9_]*$/.test(word)) {
+              lineHtml += `<span class="tok-class">${this.escapeHTML(word)}</span>`;
+            } else {
+              const restOfLine = line.substring(tokenRegex.lastIndex);
+              if (/^\s*\(/.test(restOfLine)) {
+                lineHtml += `<span class="tok-method">${this.escapeHTML(word)}</span>`;
+              } else {
+                lineHtml += `<span class="tok-ident">${this.escapeHTML(word)}</span>`;
+              }
+            }
+          } else if (punct) {
+            // Fatal mistake: 'class Name (' instead of '{'
+            const textBefore = line.substring(0, match.index).trim();
+            if (punct === "(" && /^class\s+[A-Za-z0-9_]+$/.test(textBefore)) {
+              totalErrors++;
+              errorLines.add(lineNum);
+              lineHtml += `<span class="tok-error" title="Sintaksis xatosi: Klass e'lonida '(' emas, '{' qavs bo'lishi shart!">(</span>`;
+            } else {
+              lineHtml += `<span class="tok-bracket">${this.escapeHTML(punct)}</span>`;
+            }
+          }
+        }
+
+        if (lastIndex < line.length) {
+          lineHtml += this.escapeHTML(line.substring(lastIndex));
+        }
+
+        // Check for missing semicolon on field/variable declaration
+        const trimmed = line.trim();
+        if (/^(?:private|public|protected)?\s*(?:static\s+)?(?:final\s+)?(?:int|double|float|long|short|byte|char|boolean|String|[A-Z][a-zA-Z0-9_]*)\s+[a-zA-Z0-9_]+(?:\s*=\s*[^;,\{\}]+)?$/.test(trimmed)) {
+          if (!trimmed.endsWith(";") && !trimmed.endsWith("{")) {
+            totalErrors++;
+            errorLines.add(lineNum);
+            lineHtml += `<span class="tok-error" title="Nuqta-vergul ';' kutilmoqda. Qator oxirida ';' qo'yilishi shart."> ;?</span>`;
+          }
+        }
+
+        highlightedLines.push(lineHtml);
+      }
+
+      let finalHtml = highlightedLines.join("\n");
+      // Add trailing space if ending with newline to keep caret heights identical
+      if (code.endsWith("\n")) {
+        finalHtml += "\n ";
+      }
+
+      return {
+        html: finalHtml,
+        lineCount: lines.length,
+        errorCount: totalErrors,
+        errorLines: errorLines
+      };
+    },
+
+    updateGutter(lineCount, errorLines) {
+      if (!this.gutterEl) return;
+      let gutterHtml = "";
+      for (let i = 1; i <= lineCount; i++) {
+        const hasErr = errorLines.has(i);
+        gutterHtml += `
+          <div class="gutter-line ${hasErr ? "has-error" : ""}" title="${hasErr ? "Ushbu qatorda xatolik aniqlandi" : ""}">
+            ${hasErr ? '<span class="gutter-err-dot"></span>' : ""}${i}
+          </div>
+        `;
+      }
+      this.gutterEl.innerHTML = gutterHtml;
+    },
+
+    updateErrorBadge(errorCount) {
+      if (!this.errorBadgeEl) {
+        this.errorBadgeEl = document.getElementById("editorErrorIndicator");
+      }
+      if (!this.errorBadgeEl) return;
+
+      if (errorCount > 0) {
+        this.errorBadgeEl.style.display = "inline-flex";
+        this.errorBadgeEl.textContent = `🔴 ${errorCount} xatolik`;
+        this.errorBadgeEl.title = `${errorCount} ta sintaktik xatolik aniqlandi. Qizil bilan belgilangan joylarni tekshiring!`;
+      } else {
+        this.errorBadgeEl.style.display = "inline-flex";
+        this.errorBadgeEl.style.background = "rgba(34, 197, 94, 0.15)";
+        this.errorBadgeEl.style.borderColor = "rgba(34, 197, 94, 0.5)";
+        this.errorBadgeEl.style.color = "#86efac";
+        this.errorBadgeEl.textContent = `🟢 Sintaksis toza`;
+        this.errorBadgeEl.title = `Kodda sintaksis xatoliklari aniqlanmadi`;
+      }
+    },
+
+    // --------------------------------------------------------------------------
+    // SMART INDENTATION, ENTER, TAB & BRACKETS
+    // --------------------------------------------------------------------------
+
     handleKeyDown(e) {
-      // If Autocomplete Dropdown is Open
       if (this.isOpen) {
         if (e.key === "ArrowDown") {
           e.preventDefault();
@@ -322,29 +831,24 @@
         }
       }
 
-      // 1. SMART ENTER INDENTATION
       if (e.key === "Enter" && !e.shiftKey && !e.ctrlKey && !e.altKey && !e.metaKey) {
         this.handleSmartEnter(e);
         return;
       }
 
-      // 2. SMART TAB & SHIFT+TAB
       if (e.key === "Tab") {
         e.preventDefault();
         this.handleTab(e.shiftKey);
         return;
       }
 
-      // 3. SMART BACKSPACE (deletes 4 spaces at once on indentation)
       if (e.key === "Backspace") {
         this.handleSmartBackspace(e);
         return;
       }
 
-      // 4. AUTO-CLOSING PAIRS & AUTO-SKIP
       this.handleAutoPairs(e);
 
-      // 5. Ctrl+Space: Force Autocomplete Trigger
       if ((e.ctrlKey || e.metaKey) && (e.code === "Space" || e.key === " ")) {
         e.preventDefault();
         this.triggerAutocomplete(true);
@@ -358,16 +862,14 @@
       const start = textarea.selectionStart;
       const end = textarea.selectionEnd;
 
-      // Extract current line text before cursor
       const lineStart = val.lastIndexOf("\n", start - 1) + 1;
       const lineBefore = val.substring(lineStart, start);
       const indentMatch = lineBefore.match(/^[ \t]*/);
       const baseIndent = indentMatch ? indentMatch[0] : "";
       const trimmedBefore = lineBefore.trim();
-
       const charAfter = val.charAt(start);
 
-      // Case A: Cursor is between opening and closing braces: '{|}'
+      // Between braces: '{|}'
       if ((trimmedBefore.endsWith("{") || lineBefore.endsWith("{")) && charAfter === "}") {
         const extraIndent = "    ";
         const insertText = "\n" + baseIndent + extraIndent + "\n" + baseIndent;
@@ -378,7 +880,7 @@
         return;
       }
 
-      // Case B: Line ends with an opening brace '{' or '(' or '['
+      // Ends with '{', '(', '['
       if (/[\{\(\[]$/.test(trimmedBefore)) {
         const extraIndent = "    ";
         const insertText = "\n" + baseIndent + extraIndent;
@@ -389,9 +891,8 @@
         return;
       }
 
-      // Case C: Standard Line — Preserve Current Indentation Level
+      // Normal line
       let nextIndent = baseIndent;
-      // If the character right after cursor is closing '}', unindent if already indented
       if (charAfter === "}" && nextIndent.length >= 4) {
         nextIndent = nextIndent.slice(4);
       }
@@ -410,11 +911,9 @@
       const end = textarea.selectionEnd;
 
       if (start === end) {
-        // Single cursor: insert 4 spaces
         this.insertTextAtCursor("    ", start, end);
         textarea.selectionStart = textarea.selectionEnd = start + 4;
       } else {
-        // Multi-line block indentation
         const lineStart = val.lastIndexOf("\n", start - 1) + 1;
         const lineEnd = val.indexOf("\n", end);
         const endOfBlock = lineEnd === -1 ? val.length : lineEnd;
@@ -446,7 +945,6 @@
       const lineStart = val.lastIndexOf("\n", start - 1) + 1;
       const lineBefore = val.substring(lineStart, start);
 
-      // If text before cursor consists solely of spaces and ends with a 4-space block
       if (/^[ ]+$/.test(lineBefore) && lineBefore.length % 4 === 0 && lineBefore.length >= 4) {
         e.preventDefault();
         textarea.value = val.substring(0, start - 4) + val.substring(end);
@@ -462,7 +960,6 @@
       const end = textarea.selectionEnd;
       const charAfter = val.charAt(start);
 
-      // 1. Skip past closing bracket if user types it and it already exists
       if ((e.key === "}" && charAfter === "}") ||
           (e.key === ")" && charAfter === ")") ||
           (e.key === "]" && charAfter === "]") ||
@@ -473,7 +970,6 @@
         return;
       }
 
-      // 2. Auto-close curly brace '{' -> '{ }'
       if (e.key === "{" && start === end) {
         e.preventDefault();
         this.insertTextAtCursor("{}", start, end);
@@ -482,7 +978,6 @@
         return;
       }
 
-      // 3. Auto-close round parenthesis '(' -> '()'
       if (e.key === "(" && start === end) {
         e.preventDefault();
         this.insertTextAtCursor("()", start, end);
@@ -491,7 +986,6 @@
         return;
       }
 
-      // 4. Auto-close square bracket '[' -> '[]'
       if (e.key === "[" && start === end) {
         e.preventDefault();
         this.insertTextAtCursor("[]", start, end);
@@ -500,7 +994,6 @@
         return;
       }
 
-      // 5. Auto-close double quote '"' -> '""'
       if (e.key === "\"" && start === end) {
         e.preventDefault();
         this.insertTextAtCursor("\"\"", start, end);
@@ -535,14 +1028,12 @@
       const code = this.codeArea.value || "";
       this.knownClasses = new Set(["Main"]);
 
-      // 1. Add classes required by current challenge
       if (this.currentChallenge && this.currentChallenge.requirements && this.currentChallenge.requirements.classes) {
         this.currentChallenge.requirements.classes.forEach(c => {
           if (c && typeof c === "string") this.knownClasses.add(c.trim());
         });
       }
 
-      // 2. Scan code for user-defined classes / interfaces / records
       const regex = /(?:class|interface|record|enum)\s+([A-Za-z0-9_]+)/g;
       let match;
       while ((match = regex.exec(code)) !== null) {
@@ -557,18 +1048,14 @@
       const pos = this.codeArea.selectionStart;
       const val = this.codeArea.value;
 
-      // Extract preceding text on current line up to cursor
       const lineStart = val.lastIndexOf("\n", pos - 1) + 1;
       const lineText = val.substring(lineStart, pos);
 
-      // Determine current word being typed
       const wordMatch = lineText.match(/([A-Za-z0-9_]+)$/);
       const currentWord = wordMatch ? wordMatch[1] : "";
       this.currentFilterWord = currentWord;
       this.wordStartIndex = pos - currentWord.length;
 
-      // Check context
-      const trimmedLine = lineText.trim();
       const isAfterClassKeyword = /class\s+$/i.test(lineText) || /class\s+([A-Za-z0-9_]*)$/i.test(lineText);
       const isAfterNewKeyword = /new\s+$/i.test(lineText) || /new\s+([A-Za-z0-9_]*)$/i.test(lineText);
 
@@ -577,7 +1064,6 @@
         return;
       }
 
-      // Build suggestions list
       const list = this.buildSuggestions(currentWord, isAfterClassKeyword, isAfterNewKeyword);
 
       if (list.length === 0) {
@@ -596,7 +1082,6 @@
       const results = [];
       const classesList = Array.from(this.knownClasses).filter(c => c !== "Main");
 
-      // Context 1: User just typed 'class ' -> Give class name suggestions and templates
       if (isAfterClass) {
         classesList.forEach(cls => {
           if (!q || cls.toLowerCase().startsWith(q)) {
@@ -605,7 +1090,7 @@
               type: "class",
               badge: "Class",
               insertText: cls + " {\n    \n}",
-              cursorOffset: cls.length + 7, // inside class body with indent
+              cursorOffset: cls.length + 7,
               hint: "Class blueprint"
             });
           }
@@ -613,7 +1098,6 @@
         return results;
       }
 
-      // Context 2: User just typed 'new ' -> Give object instantiation suggestions
       if (isAfterNew) {
         classesList.forEach(cls => {
           if (!q || cls.toLowerCase().startsWith(q)) {
@@ -630,12 +1114,8 @@
         return results;
       }
 
-      // Context 3: General Java code context (e.g. typing class name, new, sout, types)
-
-      // A. Classes Defined in Code / Requirements (HIGHEST PRIORITY)
       classesList.forEach(cls => {
         if (!q || cls.toLowerCase().includes(q)) {
-          // 1. Pure class name
           results.push({
             name: cls,
             type: "class",
@@ -645,7 +1125,6 @@
             hint: "Custom Class"
           });
 
-          // 2. Class instantiation statement: e.g. "Customer cust = new Customer();"
           const varName = cls.charAt(0).toLowerCase() + cls.slice(1);
           results.push({
             name: `${cls} ${varName} = new ${cls}();`,
@@ -658,7 +1137,6 @@
         }
       });
 
-      // B. Required Fields / Methods from challenge
       if (this.currentChallenge && this.currentChallenge.requirements) {
         const reqs = this.currentChallenge.requirements;
         if (reqs.fields) {
@@ -692,7 +1170,6 @@
         }
       }
 
-      // C. Standard Java Keywords & Snippets
       const COMMON_ITEMS = [
         { name: "class [Name] { }", type: "snippet", badge: "Class", insertText: "class Name {\n    \n}", cursorOffset: 6, hint: "New class declaration" },
         { name: "sout (println)", type: "snippet", badge: "Print", insertText: "System.out.println();", cursorOffset: 19, hint: "Standard output" },
@@ -716,7 +1193,7 @@
         }
       });
 
-      return results.slice(0, 8); // Top 8 most relevant suggestions
+      return results.slice(0, 8);
     },
 
     renderDropdown() {
@@ -743,10 +1220,9 @@
       this.dropdownEl.style.display = "block";
       this.isOpen = true;
 
-      // Bind click handlers to items
       this.dropdownEl.querySelectorAll(".ac-item").forEach(el => {
         el.addEventListener("mousedown", (e) => {
-          e.preventDefault(); // prevent blur
+          e.preventDefault();
           const idx = parseInt(el.dataset.idx, 10);
           if (!isNaN(idx)) {
             this.selectedIndex = idx;
@@ -773,14 +1249,12 @@
       const wrapper = this.codeArea.closest(".editor-wrapper");
       const wrapperRect = wrapper ? wrapper.getBoundingClientRect() : { top: 0, left: 0, width: 600, height: 400 };
 
-      // Relative to wrapper
       let top = coords.top - wrapperRect.top + 6;
       let left = coords.left - wrapperRect.left;
 
-      // Keep within bounds
       if (left < 10) left = 10;
       if (left + 280 > wrapperRect.width) left = Math.max(10, wrapperRect.width - 290);
-      if (top + 230 > wrapperRect.height) top = Math.max(10, top - 245); // flip above if overflowing
+      if (top + 230 > wrapperRect.height) top = Math.max(10, top - 245);
 
       this.dropdownEl.style.top = top + "px";
       this.dropdownEl.style.left = left + "px";
@@ -795,7 +1269,6 @@
       const start = this.wordStartIndex;
       const end = textarea.selectionEnd;
 
-      // Replace from wordStartIndex to current cursor end
       const insertStr = item.insertText;
       textarea.value = val.substring(0, start) + insertStr + val.substring(end);
 
@@ -805,6 +1278,7 @@
       this.closeDropdown();
       this.scanCodeForClasses();
       this.renderChipsBar();
+      this.updateHighlighting();
       this.triggerInputEvent();
       textarea.focus();
     },
@@ -818,7 +1292,7 @@
     },
 
     // --------------------------------------------------------------------------
-    // SMART SUGGESTION CHIPS BAR (DESKTOP & MOBILE ONE-CLICK TOKENS)
+    // SMART SUGGESTION CHIPS BAR
     // --------------------------------------------------------------------------
 
     renderChipsBar() {
@@ -829,7 +1303,6 @@
       const classesList = Array.from(this.knownClasses).filter(c => c !== "Main");
       let html = `<span class="chip-label-prefix">${isEn ? "⚡ Variants:" : "⚡ Variantlar:"}</span>`;
 
-      // 1. Challenge / Discovered Class Chips
       if (classesList.length > 0) {
         classesList.forEach(cls => {
           html += `
@@ -852,22 +1325,20 @@
         `;
       }
 
-      // 2. sout & common getters/setters
       html += `
-        <button type="button" class="smart-chip-btn" data-action="insert" data-text="System.out.println();" data-offset="19" title="Chiqarish buyrug'i">
+        <button type="button" class="smart-chip-btn" data-action="insert" data-text="System.out.println();" data-offset="19" title="${isEn ? "Standard print statement" : "Chiqarish buyrug'i"}">
           <span>🖨️</span> sout
         </button>
-        <button type="button" class="smart-chip-btn" data-action="insert" data-text="private " title="private modifikatori">
+        <button type="button" class="smart-chip-btn" data-action="insert" data-text="private " title="${isEn ? "private modifier" : "private modifikatori"}">
           private
         </button>
-        <button type="button" class="smart-chip-btn" data-action="insert" data-text="public " title="public modifikatori">
+        <button type="button" class="smart-chip-btn" data-action="insert" data-text="public " title="${isEn ? "public modifier" : "public modifikatori"}">
           public
         </button>
       `;
 
       this.chipsBarEl.innerHTML = html;
 
-      // Bind Chip click handlers
       this.chipsBarEl.querySelectorAll(".smart-chip-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
@@ -888,7 +1359,7 @@
             const cls = btn.dataset.cls || "Model";
             const template = `class ${cls} {\n    \n}\n`;
             textarea.value = val.substring(0, start) + template + val.substring(end);
-            textarea.selectionStart = textarea.selectionEnd = start + cls.length + 12; // inside class body
+            textarea.selectionStart = textarea.selectionEnd = start + cls.length + 12;
           } else if (action === "generic-class") {
             const template = `class Model {\n    \n}\n`;
             textarea.value = val.substring(0, start) + template + val.substring(end);
@@ -898,13 +1369,14 @@
           textarea.focus();
           this.scanCodeForClasses();
           this.renderChipsBar();
+          this.updateHighlighting();
           this.triggerInputEvent();
         });
       });
     },
 
     // --------------------------------------------------------------------------
-    // CARET COORDINATES MIRROR HELPER
+    // CARET COORDINATES MIRROR
     // --------------------------------------------------------------------------
 
     getCaretCoordinates(textarea, position) {
@@ -920,9 +1392,7 @@
       mirror.style.top = "-9999px";
       mirror.style.left = "-9999px";
       mirror.style.visibility = "hidden";
-      mirror.style.whiteSpace = "pre-wrap";
-      mirror.style.wordWrap = "break-word";
-      mirror.style.width = textarea.clientWidth + "px";
+      mirror.style.whiteSpace = "pre";
       mirror.style.fontFamily = style.fontFamily;
       mirror.style.fontSize = style.fontSize;
       mirror.style.lineHeight = style.lineHeight;
@@ -958,7 +1428,6 @@
 
   global.JavaEditorEnhancer = JavaEditorEnhancer;
 
-  // Auto-bootstrap on DOMContentLoaded if textarea#codeEditor is present
   if (typeof document !== "undefined") {
     const bootstrap = () => {
       const area = document.getElementById("codeEditor");
@@ -973,7 +1442,6 @@
     }
   }
 
-  // Hook into language change for bilingual chips bar updates
   const origOnLang = global.onOopLanguageChange;
   global.onOopLanguageChange = function (lang) {
     if (typeof origOnLang === "function") {
