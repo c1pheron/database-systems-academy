@@ -25,7 +25,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ProductService {\n    public void execute() {\n        System.out.println(\"Uzum Market tayanch xizmati\");\n    }\n}\n\nclass OnlineProductService extends ProductService {\n    @Override\n    public void execute() {\n        System.out.println(\"Uzum Market onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductService ref = new OnlineProductService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class ProductService {\n    public void execute() {\n        System.out.println(\"Uzum Market tayanch xizmati\");\n    }\n}\n\nclass OnlineProductService extends ProductService {\n    @Override\n    public void execute() {\n        System.out.println(\"Uzum Market onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductService ref = new OnlineProductService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -63,7 +63,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class WalletUserService {\n    public void execute() {\n        System.out.println(\"Payme Wallet tayanch xizmati\");\n    }\n}\n\nclass OnlineWalletUserService extends WalletUserService {\n    @Override\n    public void execute() {\n        System.out.println(\"Payme Wallet onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserService ref = new OnlineWalletUserService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUserService {\n    public void execute() {\n        System.out.println(\"Payme Wallet tayanch xizmati\");\n    }\n}\n\nclass OnlineWalletUserService extends WalletUserService {\n    @Override\n    public void execute() {\n        System.out.println(\"Payme Wallet onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserService ref = new OnlineWalletUserService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -101,7 +101,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class TaxiRideService {\n    public void execute() {\n        System.out.println(\"Yandex Go tayanch xizmati\");\n    }\n}\n\nclass OnlineTaxiRideService extends TaxiRideService {\n    @Override\n    public void execute() {\n        System.out.println(\"Yandex Go onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideService ref = new OnlineTaxiRideService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRideService {\n    public void execute() {\n        System.out.println(\"Yandex Go tayanch xizmati\");\n    }\n}\n\nclass OnlineTaxiRideService extends TaxiRideService {\n    @Override\n    public void execute() {\n        System.out.println(\"Yandex Go onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideService ref = new OnlineTaxiRideService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -139,7 +139,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class LoyaltyCardService {\n    public void execute() {\n        System.out.println(\"Korzinka Go tayanch xizmati\");\n    }\n}\n\nclass OnlineLoyaltyCardService extends LoyaltyCardService {\n    @Override\n    public void execute() {\n        System.out.println(\"Korzinka Go onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardService ref = new OnlineLoyaltyCardService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCardService {\n    public void execute() {\n        System.out.println(\"Korzinka Go tayanch xizmati\");\n    }\n}\n\nclass OnlineLoyaltyCardService extends LoyaltyCardService {\n    @Override\n    public void execute() {\n        System.out.println(\"Korzinka Go onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardService ref = new OnlineLoyaltyCardService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -177,7 +177,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class StudentService {\n    public void execute() {\n        System.out.println(\"WIUT Portal tayanch xizmati\");\n    }\n}\n\nclass OnlineStudentService extends StudentService {\n    @Override\n    public void execute() {\n        System.out.println(\"WIUT Portal onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentService ref = new OnlineStudentService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class StudentService {\n    public void execute() {\n        System.out.println(\"WIUT Portal tayanch xizmati\");\n    }\n}\n\nclass OnlineStudentService extends StudentService {\n    @Override\n    public void execute() {\n        System.out.println(\"WIUT Portal onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentService ref = new OnlineStudentService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -215,7 +215,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class PaymentTxnService {\n    public void execute() {\n        System.out.println(\"Click Pay tayanch xizmati\");\n    }\n}\n\nclass OnlinePaymentTxnService extends PaymentTxnService {\n    @Override\n    public void execute() {\n        System.out.println(\"Click Pay onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnService ref = new OnlinePaymentTxnService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxnService {\n    public void execute() {\n        System.out.println(\"Click Pay tayanch xizmati\");\n    }\n}\n\nclass OnlinePaymentTxnService extends PaymentTxnService {\n    @Override\n    public void execute() {\n        System.out.println(\"Click Pay onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnService ref = new OnlinePaymentTxnService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -253,7 +253,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class BotMessageService {\n    public void execute() {\n        System.out.println(\"Telegram Bot tayanch xizmati\");\n    }\n}\n\nclass OnlineBotMessageService extends BotMessageService {\n    @Override\n    public void execute() {\n        System.out.println(\"Telegram Bot onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageService ref = new OnlineBotMessageService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessageService {\n    public void execute() {\n        System.out.println(\"Telegram Bot tayanch xizmati\");\n    }\n}\n\nclass OnlineBotMessageService extends BotMessageService {\n    @Override\n    public void execute() {\n        System.out.println(\"Telegram Bot onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageService ref = new OnlineBotMessageService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -291,7 +291,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class FlightTicketService {\n    public void execute() {\n        System.out.println(\"UzAirways tayanch xizmati\");\n    }\n}\n\nclass OnlineFlightTicketService extends FlightTicketService {\n    @Override\n    public void execute() {\n        System.out.println(\"UzAirways onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketService ref = new OnlineFlightTicketService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicketService {\n    public void execute() {\n        System.out.println(\"UzAirways tayanch xizmati\");\n    }\n}\n\nclass OnlineFlightTicketService extends FlightTicketService {\n    @Override\n    public void execute() {\n        System.out.println(\"UzAirways onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketService ref = new OnlineFlightTicketService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -329,7 +329,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class BootcampCourseService {\n    public void execute() {\n        System.out.println(\"IT Park Academy tayanch xizmati\");\n    }\n}\n\nclass OnlineBootcampCourseService extends BootcampCourseService {\n    @Override\n    public void execute() {\n        System.out.println(\"IT Park Academy onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseService ref = new OnlineBootcampCourseService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourseService {\n    public void execute() {\n        System.out.println(\"IT Park Academy tayanch xizmati\");\n    }\n}\n\nclass OnlineBootcampCourseService extends BootcampCourseService {\n    @Override\n    public void execute() {\n        System.out.println(\"IT Park Academy onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseService ref = new OnlineBootcampCourseService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -367,7 +367,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class DebitCardService {\n    public void execute() {\n        System.out.println(\"Anorbank tayanch xizmati\");\n    }\n}\n\nclass OnlineDebitCardService extends DebitCardService {\n    @Override\n    public void execute() {\n        System.out.println(\"Anorbank onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardService ref = new OnlineDebitCardService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCardService {\n    public void execute() {\n        System.out.println(\"Anorbank tayanch xizmati\");\n    }\n}\n\nclass OnlineDebitCardService extends DebitCardService {\n    @Override\n    public void execute() {\n        System.out.println(\"Anorbank onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardService ref = new OnlineDebitCardService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -405,7 +405,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class MedicineService {\n    public void execute() {\n        System.out.println(\"Oson Apteka tayanch xizmati\");\n    }\n}\n\nclass OnlineMedicineService extends MedicineService {\n    @Override\n    public void execute() {\n        System.out.println(\"Oson Apteka onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineService ref = new OnlineMedicineService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class MedicineService {\n    public void execute() {\n        System.out.println(\"Oson Apteka tayanch xizmati\");\n    }\n}\n\nclass OnlineMedicineService extends MedicineService {\n    @Override\n    public void execute() {\n        System.out.println(\"Oson Apteka onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineService ref = new OnlineMedicineService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -443,7 +443,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class FoodOrderService {\n    public void execute() {\n        System.out.println(\"Evos FastFood tayanch xizmati\");\n    }\n}\n\nclass OnlineFoodOrderService extends FoodOrderService {\n    @Override\n    public void execute() {\n        System.out.println(\"Evos FastFood onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderService ref = new OnlineFoodOrderService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrderService {\n    public void execute() {\n        System.out.println(\"Evos FastFood tayanch xizmati\");\n    }\n}\n\nclass OnlineFoodOrderService extends FoodOrderService {\n    @Override\n    public void execute() {\n        System.out.println(\"Evos FastFood onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderService ref = new OnlineFoodOrderService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -481,7 +481,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class PizzaOrderService {\n    public void execute() {\n        System.out.println(\"Bellissimo Pizza tayanch xizmati\");\n    }\n}\n\nclass OnlinePizzaOrderService extends PizzaOrderService {\n    @Override\n    public void execute() {\n        System.out.println(\"Bellissimo Pizza onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderService ref = new OnlinePizzaOrderService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrderService {\n    public void execute() {\n        System.out.println(\"Bellissimo Pizza tayanch xizmati\");\n    }\n}\n\nclass OnlinePizzaOrderService extends PizzaOrderService {\n    @Override\n    public void execute() {\n        System.out.println(\"Bellissimo Pizza onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderService ref = new OnlinePizzaOrderService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -519,7 +519,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class BroadcastShowService {\n    public void execute() {\n        System.out.println(\"Milliy TV tayanch xizmati\");\n    }\n}\n\nclass OnlineBroadcastShowService extends BroadcastShowService {\n    @Override\n    public void execute() {\n        System.out.println(\"Milliy TV onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowService ref = new OnlineBroadcastShowService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShowService {\n    public void execute() {\n        System.out.println(\"Milliy TV tayanch xizmati\");\n    }\n}\n\nclass OnlineBroadcastShowService extends BroadcastShowService {\n    @Override\n    public void execute() {\n        System.out.println(\"Milliy TV onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowService ref = new OnlineBroadcastShowService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -557,7 +557,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class AudioTrackService {\n    public void execute() {\n        System.out.println(\"Spotify Sound tayanch xizmati\");\n    }\n}\n\nclass OnlineAudioTrackService extends AudioTrackService {\n    @Override\n    public void execute() {\n        System.out.println(\"Spotify Sound onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackService ref = new OnlineAudioTrackService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrackService {\n    public void execute() {\n        System.out.println(\"Spotify Sound tayanch xizmati\");\n    }\n}\n\nclass OnlineAudioTrackService extends AudioTrackService {\n    @Override\n    public void execute() {\n        System.out.println(\"Spotify Sound onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackService ref = new OnlineAudioTrackService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -595,7 +595,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ThermostatService {\n    public void execute() {\n        System.out.println(\"Smart Thermostat tayanch xizmati\");\n    }\n}\n\nclass OnlineThermostatService extends ThermostatService {\n    @Override\n    public void execute() {\n        System.out.println(\"Smart Thermostat onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatService ref = new OnlineThermostatService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class ThermostatService {\n    public void execute() {\n        System.out.println(\"Smart Thermostat tayanch xizmati\");\n    }\n}\n\nclass OnlineThermostatService extends ThermostatService {\n    @Override\n    public void execute() {\n        System.out.println(\"Smart Thermostat onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatService ref = new OnlineThermostatService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -633,7 +633,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class DeliveryDroneService {\n    public void execute() {\n        System.out.println(\"Drone Delivery tayanch xizmati\");\n    }\n}\n\nclass OnlineDeliveryDroneService extends DeliveryDroneService {\n    @Override\n    public void execute() {\n        System.out.println(\"Drone Delivery onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneService ref = new OnlineDeliveryDroneService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDroneService {\n    public void execute() {\n        System.out.println(\"Drone Delivery tayanch xizmati\");\n    }\n}\n\nclass OnlineDeliveryDroneService extends DeliveryDroneService {\n    @Override\n    public void execute() {\n        System.out.println(\"Drone Delivery onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneService ref = new OnlineDeliveryDroneService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -671,7 +671,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class StorageBayService {\n    public void execute() {\n        System.out.println(\"Smart Warehouse tayanch xizmati\");\n    }\n}\n\nclass OnlineStorageBayService extends StorageBayService {\n    @Override\n    public void execute() {\n        System.out.println(\"Smart Warehouse onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayService ref = new OnlineStorageBayService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBayService {\n    public void execute() {\n        System.out.println(\"Smart Warehouse tayanch xizmati\");\n    }\n}\n\nclass OnlineStorageBayService extends StorageBayService {\n    @Override\n    public void execute() {\n        System.out.println(\"Smart Warehouse onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayService ref = new OnlineStorageBayService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -709,7 +709,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class CryptoAssetService {\n    public void execute() {\n        System.out.println(\"Crypto Wallet tayanch xizmati\");\n    }\n}\n\nclass OnlineCryptoAssetService extends CryptoAssetService {\n    @Override\n    public void execute() {\n        System.out.println(\"Crypto Wallet onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetService ref = new OnlineCryptoAssetService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAssetService {\n    public void execute() {\n        System.out.println(\"Crypto Wallet tayanch xizmati\");\n    }\n}\n\nclass OnlineCryptoAssetService extends CryptoAssetService {\n    @Override\n    public void execute() {\n        System.out.println(\"Crypto Wallet onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetService ref = new OnlineCryptoAssetService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -747,7 +747,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class CatalogBookService {\n    public void execute() {\n        System.out.println(\"National Library tayanch xizmati\");\n    }\n}\n\nclass OnlineCatalogBookService extends CatalogBookService {\n    @Override\n    public void execute() {\n        System.out.println(\"National Library onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookService ref = new OnlineCatalogBookService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBookService {\n    public void execute() {\n        System.out.println(\"National Library tayanch xizmati\");\n    }\n}\n\nclass OnlineCatalogBookService extends CatalogBookService {\n    @Override\n    public void execute() {\n        System.out.println(\"National Library onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookService ref = new OnlineCatalogBookService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -785,7 +785,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class GymMemberService {\n    public void execute() {\n        System.out.println(\"BeFit Club tayanch xizmati\");\n    }\n}\n\nclass OnlineGymMemberService extends GymMemberService {\n    @Override\n    public void execute() {\n        System.out.println(\"BeFit Club onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberService ref = new OnlineGymMemberService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMemberService {\n    public void execute() {\n        System.out.println(\"BeFit Club tayanch xizmati\");\n    }\n}\n\nclass OnlineGymMemberService extends GymMemberService {\n    @Override\n    public void execute() {\n        System.out.println(\"BeFit Club onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberService ref = new OnlineGymMemberService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -823,7 +823,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ParkingBayService {\n    public void execute() {\n        System.out.println(\"Tashkent Parking tayanch xizmati\");\n    }\n}\n\nclass OnlineParkingBayService extends ParkingBayService {\n    @Override\n    public void execute() {\n        System.out.println(\"Tashkent Parking onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayService ref = new OnlineParkingBayService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBayService {\n    public void execute() {\n        System.out.println(\"Tashkent Parking tayanch xizmati\");\n    }\n}\n\nclass OnlineParkingBayService extends ParkingBayService {\n    @Override\n    public void execute() {\n        System.out.println(\"Tashkent Parking onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayService ref = new OnlineParkingBayService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -861,7 +861,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class PatientRecordService {\n    public void execute() {\n        System.out.println(\"Medion Clinic tayanch xizmati\");\n    }\n}\n\nclass OnlinePatientRecordService extends PatientRecordService {\n    @Override\n    public void execute() {\n        System.out.println(\"Medion Clinic onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordService ref = new OnlinePatientRecordService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecordService {\n    public void execute() {\n        System.out.println(\"Medion Clinic tayanch xizmati\");\n    }\n}\n\nclass OnlinePatientRecordService extends PatientRecordService {\n    @Override\n    public void execute() {\n        System.out.println(\"Medion Clinic onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordService ref = new OnlinePatientRecordService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -899,7 +899,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class HotelReservationService {\n    public void execute() {\n        System.out.println(\"Hyatt Regency tayanch xizmati\");\n    }\n}\n\nclass OnlineHotelReservationService extends HotelReservationService {\n    @Override\n    public void execute() {\n        System.out.println(\"Hyatt Regency onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationService ref = new OnlineHotelReservationService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservationService {\n    public void execute() {\n        System.out.println(\"Hyatt Regency tayanch xizmati\");\n    }\n}\n\nclass OnlineHotelReservationService extends HotelReservationService {\n    @Override\n    public void execute() {\n        System.out.println(\"Hyatt Regency onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationService ref = new OnlineHotelReservationService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -937,7 +937,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class CinemaTicketService {\n    public void execute() {\n        System.out.println(\"Premier Cinema tayanch xizmati\");\n    }\n}\n\nclass OnlineCinemaTicketService extends CinemaTicketService {\n    @Override\n    public void execute() {\n        System.out.println(\"Premier Cinema onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketService ref = new OnlineCinemaTicketService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicketService {\n    public void execute() {\n        System.out.println(\"Premier Cinema tayanch xizmati\");\n    }\n}\n\nclass OnlineCinemaTicketService extends CinemaTicketService {\n    @Override\n    public void execute() {\n        System.out.println(\"Premier Cinema onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketService ref = new OnlineCinemaTicketService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -975,7 +975,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ElectricScooterService {\n    public void execute() {\n        System.out.println(\"Yandex Scooter tayanch xizmati\");\n    }\n}\n\nclass OnlineElectricScooterService extends ElectricScooterService {\n    @Override\n    public void execute() {\n        System.out.println(\"Yandex Scooter onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterService ref = new OnlineElectricScooterService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooterService {\n    public void execute() {\n        System.out.println(\"Yandex Scooter tayanch xizmati\");\n    }\n}\n\nclass OnlineElectricScooterService extends ElectricScooterService {\n    @Override\n    public void execute() {\n        System.out.println(\"Yandex Scooter onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterService ref = new OnlineElectricScooterService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -1013,7 +1013,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class MeteoStationService {\n    public void execute() {\n        System.out.println(\"Weather Network tayanch xizmati\");\n    }\n}\n\nclass OnlineMeteoStationService extends MeteoStationService {\n    @Override\n    public void execute() {\n        System.out.println(\"Weather Network onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationService ref = new OnlineMeteoStationService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStationService {\n    public void execute() {\n        System.out.println(\"Weather Network tayanch xizmati\");\n    }\n}\n\nclass OnlineMeteoStationService extends MeteoStationService {\n    @Override\n    public void execute() {\n        System.out.println(\"Weather Network onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationService ref = new OnlineMeteoStationService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -1051,7 +1051,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class AuctionLotService {\n    public void execute() {\n        System.out.println(\"OpenMarket Auction tayanch xizmati\");\n    }\n}\n\nclass OnlineAuctionLotService extends AuctionLotService {\n    @Override\n    public void execute() {\n        System.out.println(\"OpenMarket Auction onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotService ref = new OnlineAuctionLotService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLotService {\n    public void execute() {\n        System.out.println(\"OpenMarket Auction tayanch xizmati\");\n    }\n}\n\nclass OnlineAuctionLotService extends AuctionLotService {\n    @Override\n    public void execute() {\n        System.out.println(\"OpenMarket Auction onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotService ref = new OnlineAuctionLotService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -1089,7 +1089,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class SolarInverterService {\n    public void execute() {\n        System.out.println(\"Solar Energy Grid tayanch xizmati\");\n    }\n}\n\nclass OnlineSolarInverterService extends SolarInverterService {\n    @Override\n    public void execute() {\n        System.out.println(\"Solar Energy Grid onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterService ref = new OnlineSolarInverterService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverterService {\n    public void execute() {\n        System.out.println(\"Solar Energy Grid tayanch xizmati\");\n    }\n}\n\nclass OnlineSolarInverterService extends SolarInverterService {\n    @Override\n    public void execute() {\n        System.out.println(\"Solar Energy Grid onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterService ref = new OnlineSolarInverterService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -1127,7 +1127,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class TrainRouteService {\n    public void execute() {\n        System.out.println(\"O'zbekiston Temir Yo'llari tayanch xizmati\");\n    }\n}\n\nclass OnlineTrainRouteService extends TrainRouteService {\n    @Override\n    public void execute() {\n        System.out.println(\"O'zbekiston Temir Yo'llari onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteService ref = new OnlineTrainRouteService();\n        ref.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRouteService {\n    public void execute() {\n        System.out.println(\"O'zbekiston Temir Yo'llari tayanch xizmati\");\n    }\n}\n\nclass OnlineTrainRouteService extends TrainRouteService {\n    @Override\n    public void execute() {\n        System.out.println(\"O'zbekiston Temir Yo'llari onlayn xizmati\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteService ref = new OnlineTrainRouteService();\n        ref.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Polimorfizm (ko'p shakllilik) — bitta umumiy ota havola (reference) orqali turli avlod ob'yektlariga bir xil buyruq berish qobiliyatidir.",
@@ -1166,7 +1166,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ProductHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardProductHandler extends ProductHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Uzum Market: Standart\");\n    }\n}\n\nclass ExpressProductHandler extends ProductHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Uzum Market: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductHandler[] list = new ProductHandler[] { new StandardProductHandler(), new ExpressProductHandler() };\n        for (ProductHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class ProductHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardProductHandler extends ProductHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Uzum Market: Standart\");\n    }\n}\n\nclass ExpressProductHandler extends ProductHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Uzum Market: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductHandler[] list = new ProductHandler[] { new StandardProductHandler(), new ExpressProductHandler() };\n        for (ProductHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1205,7 +1205,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class WalletUserHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardWalletUserHandler extends WalletUserHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Payme Wallet: Standart\");\n    }\n}\n\nclass ExpressWalletUserHandler extends WalletUserHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Payme Wallet: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserHandler[] list = new WalletUserHandler[] { new StandardWalletUserHandler(), new ExpressWalletUserHandler() };\n        for (WalletUserHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUserHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardWalletUserHandler extends WalletUserHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Payme Wallet: Standart\");\n    }\n}\n\nclass ExpressWalletUserHandler extends WalletUserHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Payme Wallet: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserHandler[] list = new WalletUserHandler[] { new StandardWalletUserHandler(), new ExpressWalletUserHandler() };\n        for (WalletUserHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1244,7 +1244,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class TaxiRideHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardTaxiRideHandler extends TaxiRideHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Yandex Go: Standart\");\n    }\n}\n\nclass ExpressTaxiRideHandler extends TaxiRideHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Yandex Go: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideHandler[] list = new TaxiRideHandler[] { new StandardTaxiRideHandler(), new ExpressTaxiRideHandler() };\n        for (TaxiRideHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRideHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardTaxiRideHandler extends TaxiRideHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Yandex Go: Standart\");\n    }\n}\n\nclass ExpressTaxiRideHandler extends TaxiRideHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Yandex Go: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideHandler[] list = new TaxiRideHandler[] { new StandardTaxiRideHandler(), new ExpressTaxiRideHandler() };\n        for (TaxiRideHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1283,7 +1283,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class LoyaltyCardHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardLoyaltyCardHandler extends LoyaltyCardHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Korzinka Go: Standart\");\n    }\n}\n\nclass ExpressLoyaltyCardHandler extends LoyaltyCardHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Korzinka Go: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardHandler[] list = new LoyaltyCardHandler[] { new StandardLoyaltyCardHandler(), new ExpressLoyaltyCardHandler() };\n        for (LoyaltyCardHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCardHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardLoyaltyCardHandler extends LoyaltyCardHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Korzinka Go: Standart\");\n    }\n}\n\nclass ExpressLoyaltyCardHandler extends LoyaltyCardHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Korzinka Go: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardHandler[] list = new LoyaltyCardHandler[] { new StandardLoyaltyCardHandler(), new ExpressLoyaltyCardHandler() };\n        for (LoyaltyCardHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1322,7 +1322,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class StudentHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardStudentHandler extends StudentHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"WIUT Portal: Standart\");\n    }\n}\n\nclass ExpressStudentHandler extends StudentHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"WIUT Portal: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentHandler[] list = new StudentHandler[] { new StandardStudentHandler(), new ExpressStudentHandler() };\n        for (StudentHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class StudentHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardStudentHandler extends StudentHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"WIUT Portal: Standart\");\n    }\n}\n\nclass ExpressStudentHandler extends StudentHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"WIUT Portal: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentHandler[] list = new StudentHandler[] { new StandardStudentHandler(), new ExpressStudentHandler() };\n        for (StudentHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1361,7 +1361,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class PaymentTxnHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardPaymentTxnHandler extends PaymentTxnHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Click Pay: Standart\");\n    }\n}\n\nclass ExpressPaymentTxnHandler extends PaymentTxnHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Click Pay: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnHandler[] list = new PaymentTxnHandler[] { new StandardPaymentTxnHandler(), new ExpressPaymentTxnHandler() };\n        for (PaymentTxnHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxnHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardPaymentTxnHandler extends PaymentTxnHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Click Pay: Standart\");\n    }\n}\n\nclass ExpressPaymentTxnHandler extends PaymentTxnHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Click Pay: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnHandler[] list = new PaymentTxnHandler[] { new StandardPaymentTxnHandler(), new ExpressPaymentTxnHandler() };\n        for (PaymentTxnHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1400,7 +1400,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class BotMessageHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardBotMessageHandler extends BotMessageHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Telegram Bot: Standart\");\n    }\n}\n\nclass ExpressBotMessageHandler extends BotMessageHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Telegram Bot: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageHandler[] list = new BotMessageHandler[] { new StandardBotMessageHandler(), new ExpressBotMessageHandler() };\n        for (BotMessageHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessageHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardBotMessageHandler extends BotMessageHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Telegram Bot: Standart\");\n    }\n}\n\nclass ExpressBotMessageHandler extends BotMessageHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Telegram Bot: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageHandler[] list = new BotMessageHandler[] { new StandardBotMessageHandler(), new ExpressBotMessageHandler() };\n        for (BotMessageHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1439,7 +1439,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class FlightTicketHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardFlightTicketHandler extends FlightTicketHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"UzAirways: Standart\");\n    }\n}\n\nclass ExpressFlightTicketHandler extends FlightTicketHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"UzAirways: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketHandler[] list = new FlightTicketHandler[] { new StandardFlightTicketHandler(), new ExpressFlightTicketHandler() };\n        for (FlightTicketHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicketHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardFlightTicketHandler extends FlightTicketHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"UzAirways: Standart\");\n    }\n}\n\nclass ExpressFlightTicketHandler extends FlightTicketHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"UzAirways: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketHandler[] list = new FlightTicketHandler[] { new StandardFlightTicketHandler(), new ExpressFlightTicketHandler() };\n        for (FlightTicketHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1478,7 +1478,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class BootcampCourseHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardBootcampCourseHandler extends BootcampCourseHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"IT Park Academy: Standart\");\n    }\n}\n\nclass ExpressBootcampCourseHandler extends BootcampCourseHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"IT Park Academy: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseHandler[] list = new BootcampCourseHandler[] { new StandardBootcampCourseHandler(), new ExpressBootcampCourseHandler() };\n        for (BootcampCourseHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourseHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardBootcampCourseHandler extends BootcampCourseHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"IT Park Academy: Standart\");\n    }\n}\n\nclass ExpressBootcampCourseHandler extends BootcampCourseHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"IT Park Academy: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseHandler[] list = new BootcampCourseHandler[] { new StandardBootcampCourseHandler(), new ExpressBootcampCourseHandler() };\n        for (BootcampCourseHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1517,7 +1517,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class DebitCardHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardDebitCardHandler extends DebitCardHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Anorbank: Standart\");\n    }\n}\n\nclass ExpressDebitCardHandler extends DebitCardHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Anorbank: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardHandler[] list = new DebitCardHandler[] { new StandardDebitCardHandler(), new ExpressDebitCardHandler() };\n        for (DebitCardHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCardHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardDebitCardHandler extends DebitCardHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Anorbank: Standart\");\n    }\n}\n\nclass ExpressDebitCardHandler extends DebitCardHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Anorbank: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardHandler[] list = new DebitCardHandler[] { new StandardDebitCardHandler(), new ExpressDebitCardHandler() };\n        for (DebitCardHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1556,7 +1556,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class MedicineHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardMedicineHandler extends MedicineHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Oson Apteka: Standart\");\n    }\n}\n\nclass ExpressMedicineHandler extends MedicineHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Oson Apteka: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineHandler[] list = new MedicineHandler[] { new StandardMedicineHandler(), new ExpressMedicineHandler() };\n        for (MedicineHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class MedicineHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardMedicineHandler extends MedicineHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Oson Apteka: Standart\");\n    }\n}\n\nclass ExpressMedicineHandler extends MedicineHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Oson Apteka: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineHandler[] list = new MedicineHandler[] { new StandardMedicineHandler(), new ExpressMedicineHandler() };\n        for (MedicineHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1595,7 +1595,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class FoodOrderHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardFoodOrderHandler extends FoodOrderHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Evos FastFood: Standart\");\n    }\n}\n\nclass ExpressFoodOrderHandler extends FoodOrderHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Evos FastFood: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderHandler[] list = new FoodOrderHandler[] { new StandardFoodOrderHandler(), new ExpressFoodOrderHandler() };\n        for (FoodOrderHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrderHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardFoodOrderHandler extends FoodOrderHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Evos FastFood: Standart\");\n    }\n}\n\nclass ExpressFoodOrderHandler extends FoodOrderHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Evos FastFood: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderHandler[] list = new FoodOrderHandler[] { new StandardFoodOrderHandler(), new ExpressFoodOrderHandler() };\n        for (FoodOrderHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1634,7 +1634,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class PizzaOrderHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardPizzaOrderHandler extends PizzaOrderHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Bellissimo Pizza: Standart\");\n    }\n}\n\nclass ExpressPizzaOrderHandler extends PizzaOrderHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Bellissimo Pizza: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderHandler[] list = new PizzaOrderHandler[] { new StandardPizzaOrderHandler(), new ExpressPizzaOrderHandler() };\n        for (PizzaOrderHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrderHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardPizzaOrderHandler extends PizzaOrderHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Bellissimo Pizza: Standart\");\n    }\n}\n\nclass ExpressPizzaOrderHandler extends PizzaOrderHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Bellissimo Pizza: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderHandler[] list = new PizzaOrderHandler[] { new StandardPizzaOrderHandler(), new ExpressPizzaOrderHandler() };\n        for (PizzaOrderHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1673,7 +1673,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class BroadcastShowHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardBroadcastShowHandler extends BroadcastShowHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Milliy TV: Standart\");\n    }\n}\n\nclass ExpressBroadcastShowHandler extends BroadcastShowHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Milliy TV: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowHandler[] list = new BroadcastShowHandler[] { new StandardBroadcastShowHandler(), new ExpressBroadcastShowHandler() };\n        for (BroadcastShowHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShowHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardBroadcastShowHandler extends BroadcastShowHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Milliy TV: Standart\");\n    }\n}\n\nclass ExpressBroadcastShowHandler extends BroadcastShowHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Milliy TV: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowHandler[] list = new BroadcastShowHandler[] { new StandardBroadcastShowHandler(), new ExpressBroadcastShowHandler() };\n        for (BroadcastShowHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1712,7 +1712,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class AudioTrackHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardAudioTrackHandler extends AudioTrackHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Spotify Sound: Standart\");\n    }\n}\n\nclass ExpressAudioTrackHandler extends AudioTrackHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Spotify Sound: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackHandler[] list = new AudioTrackHandler[] { new StandardAudioTrackHandler(), new ExpressAudioTrackHandler() };\n        for (AudioTrackHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrackHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardAudioTrackHandler extends AudioTrackHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Spotify Sound: Standart\");\n    }\n}\n\nclass ExpressAudioTrackHandler extends AudioTrackHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Spotify Sound: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackHandler[] list = new AudioTrackHandler[] { new StandardAudioTrackHandler(), new ExpressAudioTrackHandler() };\n        for (AudioTrackHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1751,7 +1751,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ThermostatHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardThermostatHandler extends ThermostatHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Smart Thermostat: Standart\");\n    }\n}\n\nclass ExpressThermostatHandler extends ThermostatHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Smart Thermostat: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatHandler[] list = new ThermostatHandler[] { new StandardThermostatHandler(), new ExpressThermostatHandler() };\n        for (ThermostatHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class ThermostatHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardThermostatHandler extends ThermostatHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Smart Thermostat: Standart\");\n    }\n}\n\nclass ExpressThermostatHandler extends ThermostatHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Smart Thermostat: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatHandler[] list = new ThermostatHandler[] { new StandardThermostatHandler(), new ExpressThermostatHandler() };\n        for (ThermostatHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1790,7 +1790,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class DeliveryDroneHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardDeliveryDroneHandler extends DeliveryDroneHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Drone Delivery: Standart\");\n    }\n}\n\nclass ExpressDeliveryDroneHandler extends DeliveryDroneHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Drone Delivery: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneHandler[] list = new DeliveryDroneHandler[] { new StandardDeliveryDroneHandler(), new ExpressDeliveryDroneHandler() };\n        for (DeliveryDroneHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDroneHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardDeliveryDroneHandler extends DeliveryDroneHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Drone Delivery: Standart\");\n    }\n}\n\nclass ExpressDeliveryDroneHandler extends DeliveryDroneHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Drone Delivery: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneHandler[] list = new DeliveryDroneHandler[] { new StandardDeliveryDroneHandler(), new ExpressDeliveryDroneHandler() };\n        for (DeliveryDroneHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1829,7 +1829,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class StorageBayHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardStorageBayHandler extends StorageBayHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Smart Warehouse: Standart\");\n    }\n}\n\nclass ExpressStorageBayHandler extends StorageBayHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Smart Warehouse: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayHandler[] list = new StorageBayHandler[] { new StandardStorageBayHandler(), new ExpressStorageBayHandler() };\n        for (StorageBayHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBayHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardStorageBayHandler extends StorageBayHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Smart Warehouse: Standart\");\n    }\n}\n\nclass ExpressStorageBayHandler extends StorageBayHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Smart Warehouse: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayHandler[] list = new StorageBayHandler[] { new StandardStorageBayHandler(), new ExpressStorageBayHandler() };\n        for (StorageBayHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1868,7 +1868,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class CryptoAssetHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardCryptoAssetHandler extends CryptoAssetHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Crypto Wallet: Standart\");\n    }\n}\n\nclass ExpressCryptoAssetHandler extends CryptoAssetHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Crypto Wallet: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetHandler[] list = new CryptoAssetHandler[] { new StandardCryptoAssetHandler(), new ExpressCryptoAssetHandler() };\n        for (CryptoAssetHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAssetHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardCryptoAssetHandler extends CryptoAssetHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Crypto Wallet: Standart\");\n    }\n}\n\nclass ExpressCryptoAssetHandler extends CryptoAssetHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Crypto Wallet: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetHandler[] list = new CryptoAssetHandler[] { new StandardCryptoAssetHandler(), new ExpressCryptoAssetHandler() };\n        for (CryptoAssetHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1907,7 +1907,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class CatalogBookHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardCatalogBookHandler extends CatalogBookHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"National Library: Standart\");\n    }\n}\n\nclass ExpressCatalogBookHandler extends CatalogBookHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"National Library: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookHandler[] list = new CatalogBookHandler[] { new StandardCatalogBookHandler(), new ExpressCatalogBookHandler() };\n        for (CatalogBookHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBookHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardCatalogBookHandler extends CatalogBookHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"National Library: Standart\");\n    }\n}\n\nclass ExpressCatalogBookHandler extends CatalogBookHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"National Library: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookHandler[] list = new CatalogBookHandler[] { new StandardCatalogBookHandler(), new ExpressCatalogBookHandler() };\n        for (CatalogBookHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1946,7 +1946,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class GymMemberHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardGymMemberHandler extends GymMemberHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"BeFit Club: Standart\");\n    }\n}\n\nclass ExpressGymMemberHandler extends GymMemberHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"BeFit Club: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberHandler[] list = new GymMemberHandler[] { new StandardGymMemberHandler(), new ExpressGymMemberHandler() };\n        for (GymMemberHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMemberHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardGymMemberHandler extends GymMemberHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"BeFit Club: Standart\");\n    }\n}\n\nclass ExpressGymMemberHandler extends GymMemberHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"BeFit Club: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberHandler[] list = new GymMemberHandler[] { new StandardGymMemberHandler(), new ExpressGymMemberHandler() };\n        for (GymMemberHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -1985,7 +1985,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ParkingBayHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardParkingBayHandler extends ParkingBayHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Tashkent Parking: Standart\");\n    }\n}\n\nclass ExpressParkingBayHandler extends ParkingBayHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Tashkent Parking: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayHandler[] list = new ParkingBayHandler[] { new StandardParkingBayHandler(), new ExpressParkingBayHandler() };\n        for (ParkingBayHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBayHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardParkingBayHandler extends ParkingBayHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Tashkent Parking: Standart\");\n    }\n}\n\nclass ExpressParkingBayHandler extends ParkingBayHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Tashkent Parking: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayHandler[] list = new ParkingBayHandler[] { new StandardParkingBayHandler(), new ExpressParkingBayHandler() };\n        for (ParkingBayHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -2024,7 +2024,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class PatientRecordHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardPatientRecordHandler extends PatientRecordHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Medion Clinic: Standart\");\n    }\n}\n\nclass ExpressPatientRecordHandler extends PatientRecordHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Medion Clinic: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordHandler[] list = new PatientRecordHandler[] { new StandardPatientRecordHandler(), new ExpressPatientRecordHandler() };\n        for (PatientRecordHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecordHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardPatientRecordHandler extends PatientRecordHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Medion Clinic: Standart\");\n    }\n}\n\nclass ExpressPatientRecordHandler extends PatientRecordHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Medion Clinic: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordHandler[] list = new PatientRecordHandler[] { new StandardPatientRecordHandler(), new ExpressPatientRecordHandler() };\n        for (PatientRecordHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -2063,7 +2063,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class HotelReservationHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardHotelReservationHandler extends HotelReservationHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Hyatt Regency: Standart\");\n    }\n}\n\nclass ExpressHotelReservationHandler extends HotelReservationHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Hyatt Regency: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationHandler[] list = new HotelReservationHandler[] { new StandardHotelReservationHandler(), new ExpressHotelReservationHandler() };\n        for (HotelReservationHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservationHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardHotelReservationHandler extends HotelReservationHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Hyatt Regency: Standart\");\n    }\n}\n\nclass ExpressHotelReservationHandler extends HotelReservationHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Hyatt Regency: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationHandler[] list = new HotelReservationHandler[] { new StandardHotelReservationHandler(), new ExpressHotelReservationHandler() };\n        for (HotelReservationHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -2102,7 +2102,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class CinemaTicketHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardCinemaTicketHandler extends CinemaTicketHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Premier Cinema: Standart\");\n    }\n}\n\nclass ExpressCinemaTicketHandler extends CinemaTicketHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Premier Cinema: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketHandler[] list = new CinemaTicketHandler[] { new StandardCinemaTicketHandler(), new ExpressCinemaTicketHandler() };\n        for (CinemaTicketHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicketHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardCinemaTicketHandler extends CinemaTicketHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Premier Cinema: Standart\");\n    }\n}\n\nclass ExpressCinemaTicketHandler extends CinemaTicketHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Premier Cinema: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketHandler[] list = new CinemaTicketHandler[] { new StandardCinemaTicketHandler(), new ExpressCinemaTicketHandler() };\n        for (CinemaTicketHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -2141,7 +2141,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ElectricScooterHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardElectricScooterHandler extends ElectricScooterHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Yandex Scooter: Standart\");\n    }\n}\n\nclass ExpressElectricScooterHandler extends ElectricScooterHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Yandex Scooter: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterHandler[] list = new ElectricScooterHandler[] { new StandardElectricScooterHandler(), new ExpressElectricScooterHandler() };\n        for (ElectricScooterHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooterHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardElectricScooterHandler extends ElectricScooterHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Yandex Scooter: Standart\");\n    }\n}\n\nclass ExpressElectricScooterHandler extends ElectricScooterHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Yandex Scooter: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterHandler[] list = new ElectricScooterHandler[] { new StandardElectricScooterHandler(), new ExpressElectricScooterHandler() };\n        for (ElectricScooterHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -2180,7 +2180,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class MeteoStationHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardMeteoStationHandler extends MeteoStationHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Weather Network: Standart\");\n    }\n}\n\nclass ExpressMeteoStationHandler extends MeteoStationHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Weather Network: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationHandler[] list = new MeteoStationHandler[] { new StandardMeteoStationHandler(), new ExpressMeteoStationHandler() };\n        for (MeteoStationHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStationHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardMeteoStationHandler extends MeteoStationHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Weather Network: Standart\");\n    }\n}\n\nclass ExpressMeteoStationHandler extends MeteoStationHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Weather Network: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationHandler[] list = new MeteoStationHandler[] { new StandardMeteoStationHandler(), new ExpressMeteoStationHandler() };\n        for (MeteoStationHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -2219,7 +2219,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class AuctionLotHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardAuctionLotHandler extends AuctionLotHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"OpenMarket Auction: Standart\");\n    }\n}\n\nclass ExpressAuctionLotHandler extends AuctionLotHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"OpenMarket Auction: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotHandler[] list = new AuctionLotHandler[] { new StandardAuctionLotHandler(), new ExpressAuctionLotHandler() };\n        for (AuctionLotHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLotHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardAuctionLotHandler extends AuctionLotHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"OpenMarket Auction: Standart\");\n    }\n}\n\nclass ExpressAuctionLotHandler extends AuctionLotHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"OpenMarket Auction: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotHandler[] list = new AuctionLotHandler[] { new StandardAuctionLotHandler(), new ExpressAuctionLotHandler() };\n        for (AuctionLotHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -2258,7 +2258,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class SolarInverterHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardSolarInverterHandler extends SolarInverterHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Solar Energy Grid: Standart\");\n    }\n}\n\nclass ExpressSolarInverterHandler extends SolarInverterHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Solar Energy Grid: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterHandler[] list = new SolarInverterHandler[] { new StandardSolarInverterHandler(), new ExpressSolarInverterHandler() };\n        for (SolarInverterHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverterHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardSolarInverterHandler extends SolarInverterHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Solar Energy Grid: Standart\");\n    }\n}\n\nclass ExpressSolarInverterHandler extends SolarInverterHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"Solar Energy Grid: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterHandler[] list = new SolarInverterHandler[] { new StandardSolarInverterHandler(), new ExpressSolarInverterHandler() };\n        for (SolarInverterHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -2297,7 +2297,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class TrainRouteHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardTrainRouteHandler extends TrainRouteHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"O'zbekiston Temir Yo'llari: Standart\");\n    }\n}\n\nclass ExpressTrainRouteHandler extends TrainRouteHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"O'zbekiston Temir Yo'llari: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteHandler[] list = new TrainRouteHandler[] { new StandardTrainRouteHandler(), new ExpressTrainRouteHandler() };\n        for (TrainRouteHandler h : list) {\n            h.handle();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRouteHandler {\n    public void handle() {\n        System.out.println(\"Oddiy\");\n    }\n}\n\nclass StandardTrainRouteHandler extends TrainRouteHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"O'zbekiston Temir Yo'llari: Standart\");\n    }\n}\n\nclass ExpressTrainRouteHandler extends TrainRouteHandler {\n    @Override\n    public void handle() {\n        System.out.println(\"O'zbekiston Temir Yo'llari: Tezkor\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteHandler[] list = new TrainRouteHandler[] { new StandardTrainRouteHandler(), new ExpressTrainRouteHandler() };\n        for (TrainRouteHandler h : list) {\n            h.handle();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Dinamik bog'lanish (Dynamic Method Dispatch) orqali JVM qaysi metodni ishga tushirishni kompilyatsiyada emas, dastur ishlab turgan paytda haqiqiy ob'yektga qarab hal qiladi.",
@@ -2336,7 +2336,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractProduct {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteProduct extends AbstractProduct {\n    public ConcreteProduct(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractProduct obj = new ConcreteProduct(\"Uzum Market Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractProduct {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteProduct extends AbstractProduct {\n    public ConcreteProduct(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractProduct obj = new ConcreteProduct(\"Uzum Market Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2375,7 +2375,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractWalletUser {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteWalletUser extends AbstractWalletUser {\n    public ConcreteWalletUser(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractWalletUser obj = new ConcreteWalletUser(\"Payme Wallet Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractWalletUser {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteWalletUser extends AbstractWalletUser {\n    public ConcreteWalletUser(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractWalletUser obj = new ConcreteWalletUser(\"Payme Wallet Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2414,7 +2414,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractTaxiRide {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteTaxiRide extends AbstractTaxiRide {\n    public ConcreteTaxiRide(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractTaxiRide obj = new ConcreteTaxiRide(\"Yandex Go Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractTaxiRide {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteTaxiRide extends AbstractTaxiRide {\n    public ConcreteTaxiRide(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractTaxiRide obj = new ConcreteTaxiRide(\"Yandex Go Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2453,7 +2453,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractLoyaltyCard {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteLoyaltyCard extends AbstractLoyaltyCard {\n    public ConcreteLoyaltyCard(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractLoyaltyCard obj = new ConcreteLoyaltyCard(\"Korzinka Go Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractLoyaltyCard {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteLoyaltyCard extends AbstractLoyaltyCard {\n    public ConcreteLoyaltyCard(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractLoyaltyCard obj = new ConcreteLoyaltyCard(\"Korzinka Go Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2492,7 +2492,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractStudent {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteStudent extends AbstractStudent {\n    public ConcreteStudent(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractStudent obj = new ConcreteStudent(\"WIUT Portal Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractStudent {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteStudent extends AbstractStudent {\n    public ConcreteStudent(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractStudent obj = new ConcreteStudent(\"WIUT Portal Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2531,7 +2531,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractPaymentTxn {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcretePaymentTxn extends AbstractPaymentTxn {\n    public ConcretePaymentTxn(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractPaymentTxn obj = new ConcretePaymentTxn(\"Click Pay Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractPaymentTxn {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcretePaymentTxn extends AbstractPaymentTxn {\n    public ConcretePaymentTxn(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractPaymentTxn obj = new ConcretePaymentTxn(\"Click Pay Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2570,7 +2570,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractBotMessage {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteBotMessage extends AbstractBotMessage {\n    public ConcreteBotMessage(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractBotMessage obj = new ConcreteBotMessage(\"Telegram Bot Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractBotMessage {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteBotMessage extends AbstractBotMessage {\n    public ConcreteBotMessage(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractBotMessage obj = new ConcreteBotMessage(\"Telegram Bot Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2609,7 +2609,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractFlightTicket {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteFlightTicket extends AbstractFlightTicket {\n    public ConcreteFlightTicket(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractFlightTicket obj = new ConcreteFlightTicket(\"UzAirways Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractFlightTicket {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteFlightTicket extends AbstractFlightTicket {\n    public ConcreteFlightTicket(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractFlightTicket obj = new ConcreteFlightTicket(\"UzAirways Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2648,7 +2648,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractBootcampCourse {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteBootcampCourse extends AbstractBootcampCourse {\n    public ConcreteBootcampCourse(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractBootcampCourse obj = new ConcreteBootcampCourse(\"IT Park Academy Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractBootcampCourse {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteBootcampCourse extends AbstractBootcampCourse {\n    public ConcreteBootcampCourse(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractBootcampCourse obj = new ConcreteBootcampCourse(\"IT Park Academy Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2687,7 +2687,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractDebitCard {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteDebitCard extends AbstractDebitCard {\n    public ConcreteDebitCard(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractDebitCard obj = new ConcreteDebitCard(\"Anorbank Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractDebitCard {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteDebitCard extends AbstractDebitCard {\n    public ConcreteDebitCard(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractDebitCard obj = new ConcreteDebitCard(\"Anorbank Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2726,7 +2726,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractMedicine {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteMedicine extends AbstractMedicine {\n    public ConcreteMedicine(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractMedicine obj = new ConcreteMedicine(\"Oson Apteka Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractMedicine {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteMedicine extends AbstractMedicine {\n    public ConcreteMedicine(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractMedicine obj = new ConcreteMedicine(\"Oson Apteka Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2765,7 +2765,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractFoodOrder {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteFoodOrder extends AbstractFoodOrder {\n    public ConcreteFoodOrder(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractFoodOrder obj = new ConcreteFoodOrder(\"Evos FastFood Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractFoodOrder {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteFoodOrder extends AbstractFoodOrder {\n    public ConcreteFoodOrder(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractFoodOrder obj = new ConcreteFoodOrder(\"Evos FastFood Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2804,7 +2804,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractPizzaOrder {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcretePizzaOrder extends AbstractPizzaOrder {\n    public ConcretePizzaOrder(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractPizzaOrder obj = new ConcretePizzaOrder(\"Bellissimo Pizza Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractPizzaOrder {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcretePizzaOrder extends AbstractPizzaOrder {\n    public ConcretePizzaOrder(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractPizzaOrder obj = new ConcretePizzaOrder(\"Bellissimo Pizza Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2843,7 +2843,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractBroadcastShow {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteBroadcastShow extends AbstractBroadcastShow {\n    public ConcreteBroadcastShow(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractBroadcastShow obj = new ConcreteBroadcastShow(\"Milliy TV Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractBroadcastShow {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteBroadcastShow extends AbstractBroadcastShow {\n    public ConcreteBroadcastShow(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractBroadcastShow obj = new ConcreteBroadcastShow(\"Milliy TV Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2882,7 +2882,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractAudioTrack {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteAudioTrack extends AbstractAudioTrack {\n    public ConcreteAudioTrack(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractAudioTrack obj = new ConcreteAudioTrack(\"Spotify Sound Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractAudioTrack {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteAudioTrack extends AbstractAudioTrack {\n    public ConcreteAudioTrack(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractAudioTrack obj = new ConcreteAudioTrack(\"Spotify Sound Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2921,7 +2921,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractThermostat {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteThermostat extends AbstractThermostat {\n    public ConcreteThermostat(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractThermostat obj = new ConcreteThermostat(\"Smart Thermostat Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractThermostat {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteThermostat extends AbstractThermostat {\n    public ConcreteThermostat(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractThermostat obj = new ConcreteThermostat(\"Smart Thermostat Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2960,7 +2960,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractDeliveryDrone {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteDeliveryDrone extends AbstractDeliveryDrone {\n    public ConcreteDeliveryDrone(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractDeliveryDrone obj = new ConcreteDeliveryDrone(\"Drone Delivery Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractDeliveryDrone {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteDeliveryDrone extends AbstractDeliveryDrone {\n    public ConcreteDeliveryDrone(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractDeliveryDrone obj = new ConcreteDeliveryDrone(\"Drone Delivery Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -2999,7 +2999,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractStorageBay {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteStorageBay extends AbstractStorageBay {\n    public ConcreteStorageBay(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractStorageBay obj = new ConcreteStorageBay(\"Smart Warehouse Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractStorageBay {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteStorageBay extends AbstractStorageBay {\n    public ConcreteStorageBay(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractStorageBay obj = new ConcreteStorageBay(\"Smart Warehouse Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3038,7 +3038,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractCryptoAsset {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteCryptoAsset extends AbstractCryptoAsset {\n    public ConcreteCryptoAsset(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractCryptoAsset obj = new ConcreteCryptoAsset(\"Crypto Wallet Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractCryptoAsset {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteCryptoAsset extends AbstractCryptoAsset {\n    public ConcreteCryptoAsset(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractCryptoAsset obj = new ConcreteCryptoAsset(\"Crypto Wallet Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3077,7 +3077,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractCatalogBook {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteCatalogBook extends AbstractCatalogBook {\n    public ConcreteCatalogBook(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractCatalogBook obj = new ConcreteCatalogBook(\"National Library Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractCatalogBook {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteCatalogBook extends AbstractCatalogBook {\n    public ConcreteCatalogBook(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractCatalogBook obj = new ConcreteCatalogBook(\"National Library Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3116,7 +3116,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractGymMember {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteGymMember extends AbstractGymMember {\n    public ConcreteGymMember(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractGymMember obj = new ConcreteGymMember(\"BeFit Club Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractGymMember {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteGymMember extends AbstractGymMember {\n    public ConcreteGymMember(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractGymMember obj = new ConcreteGymMember(\"BeFit Club Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3155,7 +3155,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractParkingBay {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteParkingBay extends AbstractParkingBay {\n    public ConcreteParkingBay(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractParkingBay obj = new ConcreteParkingBay(\"Tashkent Parking Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractParkingBay {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteParkingBay extends AbstractParkingBay {\n    public ConcreteParkingBay(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractParkingBay obj = new ConcreteParkingBay(\"Tashkent Parking Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3194,7 +3194,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractPatientRecord {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcretePatientRecord extends AbstractPatientRecord {\n    public ConcretePatientRecord(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractPatientRecord obj = new ConcretePatientRecord(\"Medion Clinic Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractPatientRecord {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcretePatientRecord extends AbstractPatientRecord {\n    public ConcretePatientRecord(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractPatientRecord obj = new ConcretePatientRecord(\"Medion Clinic Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3233,7 +3233,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractHotelReservation {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteHotelReservation extends AbstractHotelReservation {\n    public ConcreteHotelReservation(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractHotelReservation obj = new ConcreteHotelReservation(\"Hyatt Regency Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractHotelReservation {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteHotelReservation extends AbstractHotelReservation {\n    public ConcreteHotelReservation(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractHotelReservation obj = new ConcreteHotelReservation(\"Hyatt Regency Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3272,7 +3272,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractCinemaTicket {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteCinemaTicket extends AbstractCinemaTicket {\n    public ConcreteCinemaTicket(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractCinemaTicket obj = new ConcreteCinemaTicket(\"Premier Cinema Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractCinemaTicket {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteCinemaTicket extends AbstractCinemaTicket {\n    public ConcreteCinemaTicket(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractCinemaTicket obj = new ConcreteCinemaTicket(\"Premier Cinema Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3311,7 +3311,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractElectricScooter {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteElectricScooter extends AbstractElectricScooter {\n    public ConcreteElectricScooter(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractElectricScooter obj = new ConcreteElectricScooter(\"Yandex Scooter Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractElectricScooter {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteElectricScooter extends AbstractElectricScooter {\n    public ConcreteElectricScooter(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractElectricScooter obj = new ConcreteElectricScooter(\"Yandex Scooter Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3350,7 +3350,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractMeteoStation {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteMeteoStation extends AbstractMeteoStation {\n    public ConcreteMeteoStation(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractMeteoStation obj = new ConcreteMeteoStation(\"Weather Network Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractMeteoStation {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteMeteoStation extends AbstractMeteoStation {\n    public ConcreteMeteoStation(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractMeteoStation obj = new ConcreteMeteoStation(\"Weather Network Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3389,7 +3389,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractAuctionLot {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteAuctionLot extends AbstractAuctionLot {\n    public ConcreteAuctionLot(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractAuctionLot obj = new ConcreteAuctionLot(\"OpenMarket Auction Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractAuctionLot {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteAuctionLot extends AbstractAuctionLot {\n    public ConcreteAuctionLot(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractAuctionLot obj = new ConcreteAuctionLot(\"OpenMarket Auction Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3428,7 +3428,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractSolarInverter {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteSolarInverter extends AbstractSolarInverter {\n    public ConcreteSolarInverter(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractSolarInverter obj = new ConcreteSolarInverter(\"Solar Energy Grid Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractSolarInverter {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteSolarInverter extends AbstractSolarInverter {\n    public ConcreteSolarInverter(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractSolarInverter obj = new ConcreteSolarInverter(\"Solar Energy Grid Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3467,7 +3467,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AbstractTrainRoute {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteTrainRoute extends AbstractTrainRoute {\n    public ConcreteTrainRoute(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractTrainRoute obj = new ConcreteTrainRoute(\"O'zbekiston Temir Yo'llari Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AbstractTrainRoute {\n    public String name;\n    public abstract double calculateRate();\n}\n\nclass ConcreteTrainRoute extends AbstractTrainRoute {\n    public ConcreteTrainRoute(String name) {\n        this.name = name;\n    }\n\n    @Override\n    public double calculateRate() {\n        return 88.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AbstractTrainRoute obj = new ConcreteTrainRoute(\"O'zbekiston Temir Yo'llari Maxsus\");\n        System.out.println(obj.name + \" tarifi: $\" + obj.calculateRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Abstrakt sinfdan to'g'ridan-to'g'ri 'new' orqali ob'yekt yaratib bo'lmaydi. U o'zida ham tayyor kodlarni (maydonlar, oddiy metodlar), ham bolalari majburan yozishi shart bo'lgan qoidalarni (abstrakt metodlar) birlashtiradi.",
@@ -3506,7 +3506,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ProductBase {}\n\nclass ProductPremium extends ProductBase {\n    public void applyVipBonus() {\n        System.out.println(\"Uzum Market: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductBase obj = new ProductPremium();\n        if (obj instanceof ProductPremium) {\n            ProductPremium downcasted = (ProductPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class ProductBase {}\n\nclass ProductPremium extends ProductBase {\n    public void applyVipBonus() {\n        System.out.println(\"Uzum Market: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductBase obj = new ProductPremium();\n        if (obj instanceof ProductPremium) {\n            ProductPremium downcasted = (ProductPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3545,7 +3545,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class WalletUserBase {}\n\nclass WalletUserPremium extends WalletUserBase {\n    public void applyVipBonus() {\n        System.out.println(\"Payme Wallet: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserBase obj = new WalletUserPremium();\n        if (obj instanceof WalletUserPremium) {\n            WalletUserPremium downcasted = (WalletUserPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUserBase {}\n\nclass WalletUserPremium extends WalletUserBase {\n    public void applyVipBonus() {\n        System.out.println(\"Payme Wallet: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserBase obj = new WalletUserPremium();\n        if (obj instanceof WalletUserPremium) {\n            WalletUserPremium downcasted = (WalletUserPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3584,7 +3584,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class TaxiRideBase {}\n\nclass TaxiRidePremium extends TaxiRideBase {\n    public void applyVipBonus() {\n        System.out.println(\"Yandex Go: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideBase obj = new TaxiRidePremium();\n        if (obj instanceof TaxiRidePremium) {\n            TaxiRidePremium downcasted = (TaxiRidePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRideBase {}\n\nclass TaxiRidePremium extends TaxiRideBase {\n    public void applyVipBonus() {\n        System.out.println(\"Yandex Go: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideBase obj = new TaxiRidePremium();\n        if (obj instanceof TaxiRidePremium) {\n            TaxiRidePremium downcasted = (TaxiRidePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3623,7 +3623,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class LoyaltyCardBase {}\n\nclass LoyaltyCardPremium extends LoyaltyCardBase {\n    public void applyVipBonus() {\n        System.out.println(\"Korzinka Go: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardBase obj = new LoyaltyCardPremium();\n        if (obj instanceof LoyaltyCardPremium) {\n            LoyaltyCardPremium downcasted = (LoyaltyCardPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCardBase {}\n\nclass LoyaltyCardPremium extends LoyaltyCardBase {\n    public void applyVipBonus() {\n        System.out.println(\"Korzinka Go: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardBase obj = new LoyaltyCardPremium();\n        if (obj instanceof LoyaltyCardPremium) {\n            LoyaltyCardPremium downcasted = (LoyaltyCardPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3662,7 +3662,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class StudentBase {}\n\nclass StudentPremium extends StudentBase {\n    public void applyVipBonus() {\n        System.out.println(\"WIUT Portal: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentBase obj = new StudentPremium();\n        if (obj instanceof StudentPremium) {\n            StudentPremium downcasted = (StudentPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class StudentBase {}\n\nclass StudentPremium extends StudentBase {\n    public void applyVipBonus() {\n        System.out.println(\"WIUT Portal: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentBase obj = new StudentPremium();\n        if (obj instanceof StudentPremium) {\n            StudentPremium downcasted = (StudentPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3701,7 +3701,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class PaymentTxnBase {}\n\nclass PaymentTxnPremium extends PaymentTxnBase {\n    public void applyVipBonus() {\n        System.out.println(\"Click Pay: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnBase obj = new PaymentTxnPremium();\n        if (obj instanceof PaymentTxnPremium) {\n            PaymentTxnPremium downcasted = (PaymentTxnPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxnBase {}\n\nclass PaymentTxnPremium extends PaymentTxnBase {\n    public void applyVipBonus() {\n        System.out.println(\"Click Pay: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnBase obj = new PaymentTxnPremium();\n        if (obj instanceof PaymentTxnPremium) {\n            PaymentTxnPremium downcasted = (PaymentTxnPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3740,7 +3740,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class BotMessageBase {}\n\nclass BotMessagePremium extends BotMessageBase {\n    public void applyVipBonus() {\n        System.out.println(\"Telegram Bot: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageBase obj = new BotMessagePremium();\n        if (obj instanceof BotMessagePremium) {\n            BotMessagePremium downcasted = (BotMessagePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessageBase {}\n\nclass BotMessagePremium extends BotMessageBase {\n    public void applyVipBonus() {\n        System.out.println(\"Telegram Bot: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageBase obj = new BotMessagePremium();\n        if (obj instanceof BotMessagePremium) {\n            BotMessagePremium downcasted = (BotMessagePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3779,7 +3779,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class FlightTicketBase {}\n\nclass FlightTicketPremium extends FlightTicketBase {\n    public void applyVipBonus() {\n        System.out.println(\"UzAirways: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketBase obj = new FlightTicketPremium();\n        if (obj instanceof FlightTicketPremium) {\n            FlightTicketPremium downcasted = (FlightTicketPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicketBase {}\n\nclass FlightTicketPremium extends FlightTicketBase {\n    public void applyVipBonus() {\n        System.out.println(\"UzAirways: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketBase obj = new FlightTicketPremium();\n        if (obj instanceof FlightTicketPremium) {\n            FlightTicketPremium downcasted = (FlightTicketPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3818,7 +3818,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class BootcampCourseBase {}\n\nclass BootcampCoursePremium extends BootcampCourseBase {\n    public void applyVipBonus() {\n        System.out.println(\"IT Park Academy: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseBase obj = new BootcampCoursePremium();\n        if (obj instanceof BootcampCoursePremium) {\n            BootcampCoursePremium downcasted = (BootcampCoursePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourseBase {}\n\nclass BootcampCoursePremium extends BootcampCourseBase {\n    public void applyVipBonus() {\n        System.out.println(\"IT Park Academy: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseBase obj = new BootcampCoursePremium();\n        if (obj instanceof BootcampCoursePremium) {\n            BootcampCoursePremium downcasted = (BootcampCoursePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3857,7 +3857,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class DebitCardBase {}\n\nclass DebitCardPremium extends DebitCardBase {\n    public void applyVipBonus() {\n        System.out.println(\"Anorbank: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardBase obj = new DebitCardPremium();\n        if (obj instanceof DebitCardPremium) {\n            DebitCardPremium downcasted = (DebitCardPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCardBase {}\n\nclass DebitCardPremium extends DebitCardBase {\n    public void applyVipBonus() {\n        System.out.println(\"Anorbank: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardBase obj = new DebitCardPremium();\n        if (obj instanceof DebitCardPremium) {\n            DebitCardPremium downcasted = (DebitCardPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3896,7 +3896,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class MedicineBase {}\n\nclass MedicinePremium extends MedicineBase {\n    public void applyVipBonus() {\n        System.out.println(\"Oson Apteka: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineBase obj = new MedicinePremium();\n        if (obj instanceof MedicinePremium) {\n            MedicinePremium downcasted = (MedicinePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class MedicineBase {}\n\nclass MedicinePremium extends MedicineBase {\n    public void applyVipBonus() {\n        System.out.println(\"Oson Apteka: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineBase obj = new MedicinePremium();\n        if (obj instanceof MedicinePremium) {\n            MedicinePremium downcasted = (MedicinePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3935,7 +3935,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class FoodOrderBase {}\n\nclass FoodOrderPremium extends FoodOrderBase {\n    public void applyVipBonus() {\n        System.out.println(\"Evos FastFood: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderBase obj = new FoodOrderPremium();\n        if (obj instanceof FoodOrderPremium) {\n            FoodOrderPremium downcasted = (FoodOrderPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrderBase {}\n\nclass FoodOrderPremium extends FoodOrderBase {\n    public void applyVipBonus() {\n        System.out.println(\"Evos FastFood: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderBase obj = new FoodOrderPremium();\n        if (obj instanceof FoodOrderPremium) {\n            FoodOrderPremium downcasted = (FoodOrderPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -3974,7 +3974,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class PizzaOrderBase {}\n\nclass PizzaOrderPremium extends PizzaOrderBase {\n    public void applyVipBonus() {\n        System.out.println(\"Bellissimo Pizza: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderBase obj = new PizzaOrderPremium();\n        if (obj instanceof PizzaOrderPremium) {\n            PizzaOrderPremium downcasted = (PizzaOrderPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrderBase {}\n\nclass PizzaOrderPremium extends PizzaOrderBase {\n    public void applyVipBonus() {\n        System.out.println(\"Bellissimo Pizza: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderBase obj = new PizzaOrderPremium();\n        if (obj instanceof PizzaOrderPremium) {\n            PizzaOrderPremium downcasted = (PizzaOrderPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4013,7 +4013,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class BroadcastShowBase {}\n\nclass BroadcastShowPremium extends BroadcastShowBase {\n    public void applyVipBonus() {\n        System.out.println(\"Milliy TV: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowBase obj = new BroadcastShowPremium();\n        if (obj instanceof BroadcastShowPremium) {\n            BroadcastShowPremium downcasted = (BroadcastShowPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShowBase {}\n\nclass BroadcastShowPremium extends BroadcastShowBase {\n    public void applyVipBonus() {\n        System.out.println(\"Milliy TV: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowBase obj = new BroadcastShowPremium();\n        if (obj instanceof BroadcastShowPremium) {\n            BroadcastShowPremium downcasted = (BroadcastShowPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4052,7 +4052,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class AudioTrackBase {}\n\nclass AudioTrackPremium extends AudioTrackBase {\n    public void applyVipBonus() {\n        System.out.println(\"Spotify Sound: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackBase obj = new AudioTrackPremium();\n        if (obj instanceof AudioTrackPremium) {\n            AudioTrackPremium downcasted = (AudioTrackPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrackBase {}\n\nclass AudioTrackPremium extends AudioTrackBase {\n    public void applyVipBonus() {\n        System.out.println(\"Spotify Sound: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackBase obj = new AudioTrackPremium();\n        if (obj instanceof AudioTrackPremium) {\n            AudioTrackPremium downcasted = (AudioTrackPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4091,7 +4091,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ThermostatBase {}\n\nclass ThermostatPremium extends ThermostatBase {\n    public void applyVipBonus() {\n        System.out.println(\"Smart Thermostat: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatBase obj = new ThermostatPremium();\n        if (obj instanceof ThermostatPremium) {\n            ThermostatPremium downcasted = (ThermostatPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class ThermostatBase {}\n\nclass ThermostatPremium extends ThermostatBase {\n    public void applyVipBonus() {\n        System.out.println(\"Smart Thermostat: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatBase obj = new ThermostatPremium();\n        if (obj instanceof ThermostatPremium) {\n            ThermostatPremium downcasted = (ThermostatPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4130,7 +4130,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class DeliveryDroneBase {}\n\nclass DeliveryDronePremium extends DeliveryDroneBase {\n    public void applyVipBonus() {\n        System.out.println(\"Drone Delivery: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneBase obj = new DeliveryDronePremium();\n        if (obj instanceof DeliveryDronePremium) {\n            DeliveryDronePremium downcasted = (DeliveryDronePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDroneBase {}\n\nclass DeliveryDronePremium extends DeliveryDroneBase {\n    public void applyVipBonus() {\n        System.out.println(\"Drone Delivery: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneBase obj = new DeliveryDronePremium();\n        if (obj instanceof DeliveryDronePremium) {\n            DeliveryDronePremium downcasted = (DeliveryDronePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4169,7 +4169,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class StorageBayBase {}\n\nclass StorageBayPremium extends StorageBayBase {\n    public void applyVipBonus() {\n        System.out.println(\"Smart Warehouse: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayBase obj = new StorageBayPremium();\n        if (obj instanceof StorageBayPremium) {\n            StorageBayPremium downcasted = (StorageBayPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBayBase {}\n\nclass StorageBayPremium extends StorageBayBase {\n    public void applyVipBonus() {\n        System.out.println(\"Smart Warehouse: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayBase obj = new StorageBayPremium();\n        if (obj instanceof StorageBayPremium) {\n            StorageBayPremium downcasted = (StorageBayPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4208,7 +4208,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class CryptoAssetBase {}\n\nclass CryptoAssetPremium extends CryptoAssetBase {\n    public void applyVipBonus() {\n        System.out.println(\"Crypto Wallet: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetBase obj = new CryptoAssetPremium();\n        if (obj instanceof CryptoAssetPremium) {\n            CryptoAssetPremium downcasted = (CryptoAssetPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAssetBase {}\n\nclass CryptoAssetPremium extends CryptoAssetBase {\n    public void applyVipBonus() {\n        System.out.println(\"Crypto Wallet: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetBase obj = new CryptoAssetPremium();\n        if (obj instanceof CryptoAssetPremium) {\n            CryptoAssetPremium downcasted = (CryptoAssetPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4247,7 +4247,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class CatalogBookBase {}\n\nclass CatalogBookPremium extends CatalogBookBase {\n    public void applyVipBonus() {\n        System.out.println(\"National Library: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookBase obj = new CatalogBookPremium();\n        if (obj instanceof CatalogBookPremium) {\n            CatalogBookPremium downcasted = (CatalogBookPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBookBase {}\n\nclass CatalogBookPremium extends CatalogBookBase {\n    public void applyVipBonus() {\n        System.out.println(\"National Library: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookBase obj = new CatalogBookPremium();\n        if (obj instanceof CatalogBookPremium) {\n            CatalogBookPremium downcasted = (CatalogBookPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4286,7 +4286,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class GymMemberBase {}\n\nclass GymMemberPremium extends GymMemberBase {\n    public void applyVipBonus() {\n        System.out.println(\"BeFit Club: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberBase obj = new GymMemberPremium();\n        if (obj instanceof GymMemberPremium) {\n            GymMemberPremium downcasted = (GymMemberPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMemberBase {}\n\nclass GymMemberPremium extends GymMemberBase {\n    public void applyVipBonus() {\n        System.out.println(\"BeFit Club: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberBase obj = new GymMemberPremium();\n        if (obj instanceof GymMemberPremium) {\n            GymMemberPremium downcasted = (GymMemberPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4325,7 +4325,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ParkingBayBase {}\n\nclass ParkingBayPremium extends ParkingBayBase {\n    public void applyVipBonus() {\n        System.out.println(\"Tashkent Parking: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayBase obj = new ParkingBayPremium();\n        if (obj instanceof ParkingBayPremium) {\n            ParkingBayPremium downcasted = (ParkingBayPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBayBase {}\n\nclass ParkingBayPremium extends ParkingBayBase {\n    public void applyVipBonus() {\n        System.out.println(\"Tashkent Parking: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayBase obj = new ParkingBayPremium();\n        if (obj instanceof ParkingBayPremium) {\n            ParkingBayPremium downcasted = (ParkingBayPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4364,7 +4364,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class PatientRecordBase {}\n\nclass PatientRecordPremium extends PatientRecordBase {\n    public void applyVipBonus() {\n        System.out.println(\"Medion Clinic: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordBase obj = new PatientRecordPremium();\n        if (obj instanceof PatientRecordPremium) {\n            PatientRecordPremium downcasted = (PatientRecordPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecordBase {}\n\nclass PatientRecordPremium extends PatientRecordBase {\n    public void applyVipBonus() {\n        System.out.println(\"Medion Clinic: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordBase obj = new PatientRecordPremium();\n        if (obj instanceof PatientRecordPremium) {\n            PatientRecordPremium downcasted = (PatientRecordPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4403,7 +4403,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class HotelReservationBase {}\n\nclass HotelReservationPremium extends HotelReservationBase {\n    public void applyVipBonus() {\n        System.out.println(\"Hyatt Regency: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationBase obj = new HotelReservationPremium();\n        if (obj instanceof HotelReservationPremium) {\n            HotelReservationPremium downcasted = (HotelReservationPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservationBase {}\n\nclass HotelReservationPremium extends HotelReservationBase {\n    public void applyVipBonus() {\n        System.out.println(\"Hyatt Regency: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationBase obj = new HotelReservationPremium();\n        if (obj instanceof HotelReservationPremium) {\n            HotelReservationPremium downcasted = (HotelReservationPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4442,7 +4442,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class CinemaTicketBase {}\n\nclass CinemaTicketPremium extends CinemaTicketBase {\n    public void applyVipBonus() {\n        System.out.println(\"Premier Cinema: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketBase obj = new CinemaTicketPremium();\n        if (obj instanceof CinemaTicketPremium) {\n            CinemaTicketPremium downcasted = (CinemaTicketPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicketBase {}\n\nclass CinemaTicketPremium extends CinemaTicketBase {\n    public void applyVipBonus() {\n        System.out.println(\"Premier Cinema: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketBase obj = new CinemaTicketPremium();\n        if (obj instanceof CinemaTicketPremium) {\n            CinemaTicketPremium downcasted = (CinemaTicketPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4481,7 +4481,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class ElectricScooterBase {}\n\nclass ElectricScooterPremium extends ElectricScooterBase {\n    public void applyVipBonus() {\n        System.out.println(\"Yandex Scooter: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterBase obj = new ElectricScooterPremium();\n        if (obj instanceof ElectricScooterPremium) {\n            ElectricScooterPremium downcasted = (ElectricScooterPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooterBase {}\n\nclass ElectricScooterPremium extends ElectricScooterBase {\n    public void applyVipBonus() {\n        System.out.println(\"Yandex Scooter: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterBase obj = new ElectricScooterPremium();\n        if (obj instanceof ElectricScooterPremium) {\n            ElectricScooterPremium downcasted = (ElectricScooterPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4520,7 +4520,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class MeteoStationBase {}\n\nclass MeteoStationPremium extends MeteoStationBase {\n    public void applyVipBonus() {\n        System.out.println(\"Weather Network: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationBase obj = new MeteoStationPremium();\n        if (obj instanceof MeteoStationPremium) {\n            MeteoStationPremium downcasted = (MeteoStationPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStationBase {}\n\nclass MeteoStationPremium extends MeteoStationBase {\n    public void applyVipBonus() {\n        System.out.println(\"Weather Network: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationBase obj = new MeteoStationPremium();\n        if (obj instanceof MeteoStationPremium) {\n            MeteoStationPremium downcasted = (MeteoStationPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4559,7 +4559,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class AuctionLotBase {}\n\nclass AuctionLotPremium extends AuctionLotBase {\n    public void applyVipBonus() {\n        System.out.println(\"OpenMarket Auction: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotBase obj = new AuctionLotPremium();\n        if (obj instanceof AuctionLotPremium) {\n            AuctionLotPremium downcasted = (AuctionLotPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLotBase {}\n\nclass AuctionLotPremium extends AuctionLotBase {\n    public void applyVipBonus() {\n        System.out.println(\"OpenMarket Auction: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotBase obj = new AuctionLotPremium();\n        if (obj instanceof AuctionLotPremium) {\n            AuctionLotPremium downcasted = (AuctionLotPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4598,7 +4598,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class SolarInverterBase {}\n\nclass SolarInverterPremium extends SolarInverterBase {\n    public void applyVipBonus() {\n        System.out.println(\"Solar Energy Grid: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterBase obj = new SolarInverterPremium();\n        if (obj instanceof SolarInverterPremium) {\n            SolarInverterPremium downcasted = (SolarInverterPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverterBase {}\n\nclass SolarInverterPremium extends SolarInverterBase {\n    public void applyVipBonus() {\n        System.out.println(\"Solar Energy Grid: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterBase obj = new SolarInverterPremium();\n        if (obj instanceof SolarInverterPremium) {\n            SolarInverterPremium downcasted = (SolarInverterPremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4637,7 +4637,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "class TrainRouteBase {}\n\nclass TrainRoutePremium extends TrainRouteBase {\n    public void applyVipBonus() {\n        System.out.println(\"O'zbekiston Temir Yo'llari: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteBase obj = new TrainRoutePremium();\n        if (obj instanceof TrainRoutePremium) {\n            TrainRoutePremium downcasted = (TrainRoutePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRouteBase {}\n\nclass TrainRoutePremium extends TrainRouteBase {\n    public void applyVipBonus() {\n        System.out.println(\"O'zbekiston Temir Yo'llari: VIP bonus qo'shildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteBase obj = new TrainRoutePremium();\n        if (obj instanceof TrainRoutePremium) {\n            TrainRoutePremium downcasted = (TrainRoutePremium) obj;\n            downcasted.applyVipBonus();\n        }\n    }\n}",
     "detailedSolution": {
       "theory": "Downcasting (otadan bolaga pastlash) xavfli operatsiyadir. Agar ob'yekt haqiqatda o'sha turda bo'lmasa, 'ClassCastException' otiladi. Shuning uchun har doim 'instanceof' bilan tekshiriladi.",
@@ -4679,7 +4679,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class ProductPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Uzum Market: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass ProductExecution extends ProductPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductPipeline pipe = new ProductExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class ProductPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Uzum Market: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass ProductExecution extends ProductPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductPipeline pipe = new ProductExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -4721,7 +4721,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class WalletUserPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Payme Wallet: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass WalletUserExecution extends WalletUserPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserPipeline pipe = new WalletUserExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class WalletUserPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Payme Wallet: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass WalletUserExecution extends WalletUserPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserPipeline pipe = new WalletUserExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -4763,7 +4763,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class TaxiRidePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Yandex Go: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass TaxiRideExecution extends TaxiRidePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRidePipeline pipe = new TaxiRideExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class TaxiRidePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Yandex Go: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass TaxiRideExecution extends TaxiRidePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRidePipeline pipe = new TaxiRideExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -4805,7 +4805,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class LoyaltyCardPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Korzinka Go: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass LoyaltyCardExecution extends LoyaltyCardPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardPipeline pipe = new LoyaltyCardExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class LoyaltyCardPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Korzinka Go: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass LoyaltyCardExecution extends LoyaltyCardPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardPipeline pipe = new LoyaltyCardExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -4847,7 +4847,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class StudentPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"WIUT Portal: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass StudentExecution extends StudentPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentPipeline pipe = new StudentExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class StudentPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"WIUT Portal: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass StudentExecution extends StudentPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentPipeline pipe = new StudentExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -4889,7 +4889,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class PaymentTxnPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Click Pay: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass PaymentTxnExecution extends PaymentTxnPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnPipeline pipe = new PaymentTxnExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class PaymentTxnPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Click Pay: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass PaymentTxnExecution extends PaymentTxnPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnPipeline pipe = new PaymentTxnExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -4931,7 +4931,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class BotMessagePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Telegram Bot: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass BotMessageExecution extends BotMessagePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessagePipeline pipe = new BotMessageExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class BotMessagePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Telegram Bot: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass BotMessageExecution extends BotMessagePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessagePipeline pipe = new BotMessageExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -4973,7 +4973,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class FlightTicketPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"UzAirways: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass FlightTicketExecution extends FlightTicketPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketPipeline pipe = new FlightTicketExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class FlightTicketPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"UzAirways: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass FlightTicketExecution extends FlightTicketPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketPipeline pipe = new FlightTicketExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5015,7 +5015,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class BootcampCoursePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"IT Park Academy: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass BootcampCourseExecution extends BootcampCoursePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCoursePipeline pipe = new BootcampCourseExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class BootcampCoursePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"IT Park Academy: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass BootcampCourseExecution extends BootcampCoursePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCoursePipeline pipe = new BootcampCourseExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5057,7 +5057,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class DebitCardPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Anorbank: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass DebitCardExecution extends DebitCardPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardPipeline pipe = new DebitCardExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class DebitCardPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Anorbank: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass DebitCardExecution extends DebitCardPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardPipeline pipe = new DebitCardExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5099,7 +5099,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class MedicinePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Oson Apteka: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass MedicineExecution extends MedicinePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicinePipeline pipe = new MedicineExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class MedicinePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Oson Apteka: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass MedicineExecution extends MedicinePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicinePipeline pipe = new MedicineExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5141,7 +5141,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class FoodOrderPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Evos FastFood: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass FoodOrderExecution extends FoodOrderPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderPipeline pipe = new FoodOrderExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class FoodOrderPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Evos FastFood: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass FoodOrderExecution extends FoodOrderPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderPipeline pipe = new FoodOrderExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5183,7 +5183,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class PizzaOrderPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Bellissimo Pizza: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass PizzaOrderExecution extends PizzaOrderPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderPipeline pipe = new PizzaOrderExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class PizzaOrderPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Bellissimo Pizza: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass PizzaOrderExecution extends PizzaOrderPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderPipeline pipe = new PizzaOrderExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5225,7 +5225,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class BroadcastShowPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Milliy TV: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass BroadcastShowExecution extends BroadcastShowPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowPipeline pipe = new BroadcastShowExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class BroadcastShowPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Milliy TV: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass BroadcastShowExecution extends BroadcastShowPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowPipeline pipe = new BroadcastShowExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5267,7 +5267,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AudioTrackPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Spotify Sound: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass AudioTrackExecution extends AudioTrackPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackPipeline pipe = new AudioTrackExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AudioTrackPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Spotify Sound: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass AudioTrackExecution extends AudioTrackPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackPipeline pipe = new AudioTrackExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5309,7 +5309,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class ThermostatPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Smart Thermostat: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass ThermostatExecution extends ThermostatPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatPipeline pipe = new ThermostatExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class ThermostatPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Smart Thermostat: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass ThermostatExecution extends ThermostatPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatPipeline pipe = new ThermostatExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5351,7 +5351,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class DeliveryDronePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Drone Delivery: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass DeliveryDroneExecution extends DeliveryDronePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDronePipeline pipe = new DeliveryDroneExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class DeliveryDronePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Drone Delivery: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass DeliveryDroneExecution extends DeliveryDronePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDronePipeline pipe = new DeliveryDroneExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5393,7 +5393,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class StorageBayPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Smart Warehouse: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass StorageBayExecution extends StorageBayPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayPipeline pipe = new StorageBayExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class StorageBayPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Smart Warehouse: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass StorageBayExecution extends StorageBayPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayPipeline pipe = new StorageBayExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5435,7 +5435,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class CryptoAssetPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Crypto Wallet: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass CryptoAssetExecution extends CryptoAssetPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetPipeline pipe = new CryptoAssetExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class CryptoAssetPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Crypto Wallet: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass CryptoAssetExecution extends CryptoAssetPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetPipeline pipe = new CryptoAssetExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5477,7 +5477,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class CatalogBookPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"National Library: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass CatalogBookExecution extends CatalogBookPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookPipeline pipe = new CatalogBookExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class CatalogBookPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"National Library: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass CatalogBookExecution extends CatalogBookPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookPipeline pipe = new CatalogBookExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5519,7 +5519,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class GymMemberPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"BeFit Club: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass GymMemberExecution extends GymMemberPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberPipeline pipe = new GymMemberExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class GymMemberPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"BeFit Club: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass GymMemberExecution extends GymMemberPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberPipeline pipe = new GymMemberExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5561,7 +5561,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class ParkingBayPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Tashkent Parking: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass ParkingBayExecution extends ParkingBayPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayPipeline pipe = new ParkingBayExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class ParkingBayPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Tashkent Parking: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass ParkingBayExecution extends ParkingBayPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayPipeline pipe = new ParkingBayExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5603,7 +5603,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class PatientRecordPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Medion Clinic: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass PatientRecordExecution extends PatientRecordPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordPipeline pipe = new PatientRecordExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class PatientRecordPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Medion Clinic: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass PatientRecordExecution extends PatientRecordPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordPipeline pipe = new PatientRecordExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5645,7 +5645,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class HotelReservationPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Hyatt Regency: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass HotelReservationExecution extends HotelReservationPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationPipeline pipe = new HotelReservationExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class HotelReservationPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Hyatt Regency: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass HotelReservationExecution extends HotelReservationPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationPipeline pipe = new HotelReservationExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5687,7 +5687,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class CinemaTicketPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Premier Cinema: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass CinemaTicketExecution extends CinemaTicketPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketPipeline pipe = new CinemaTicketExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class CinemaTicketPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Premier Cinema: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass CinemaTicketExecution extends CinemaTicketPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketPipeline pipe = new CinemaTicketExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5729,7 +5729,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class ElectricScooterPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Yandex Scooter: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass ElectricScooterExecution extends ElectricScooterPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterPipeline pipe = new ElectricScooterExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class ElectricScooterPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Yandex Scooter: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass ElectricScooterExecution extends ElectricScooterPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterPipeline pipe = new ElectricScooterExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5771,7 +5771,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class MeteoStationPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Weather Network: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass MeteoStationExecution extends MeteoStationPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationPipeline pipe = new MeteoStationExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class MeteoStationPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Weather Network: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass MeteoStationExecution extends MeteoStationPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationPipeline pipe = new MeteoStationExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5813,7 +5813,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class AuctionLotPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"OpenMarket Auction: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass AuctionLotExecution extends AuctionLotPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotPipeline pipe = new AuctionLotExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class AuctionLotPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"OpenMarket Auction: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass AuctionLotExecution extends AuctionLotPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotPipeline pipe = new AuctionLotExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5855,7 +5855,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class SolarInverterPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Solar Energy Grid: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass SolarInverterExecution extends SolarInverterPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterPipeline pipe = new SolarInverterExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class SolarInverterPipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"Solar Energy Grid: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass SolarInverterExecution extends SolarInverterPipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterPipeline pipe = new SolarInverterExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",
@@ -5897,7 +5897,7 @@ window.OOP_CHALLENGES_W4 = [
         "extends"
       ]
     },
-    "starterCode": "abstract class TrainRoutePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"O'zbekiston Temir Yo'llari: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass TrainRouteExecution extends TrainRoutePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoutePipeline pipe = new TrainRouteExecution();\n        pipe.process();\n    }\n}",
+    "starterCode": "",
     "solution": "abstract class TrainRoutePipeline {\n    public abstract void validate();\n    public abstract void executeStep();\n\n    public final void process() {\n        validate();\n        executeStep();\n        System.out.println(\"O'zbekiston Temir Yo'llari: Jarayon muvaffaqiyatli yakunlandi.\");\n    }\n}\n\nclass TrainRouteExecution extends TrainRoutePipeline {\n    @Override public void validate() { System.out.println(\"Tekshiruv o'tdi.\"); }\n    @Override public void executeStep() { System.out.println(\"Asosiy amal bajarildi.\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoutePipeline pipe = new TrainRouteExecution();\n        pipe.process();\n    }\n}",
     "detailedSolution": {
       "theory": "Template Method patterni algoritm skeletini ota sinfda 'final' metod sifatida qotirib qo'yadi va alohida qadamlarni avlod sinflarga topshiradi. Algoritm tuzilishi hech qachon buzilmaydi.",

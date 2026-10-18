@@ -117,10 +117,19 @@
           const editor = document.getElementById("codeEditor");
           if (editor) {
             editor.value = cleanCode;
+            if (global.JavaEditorEnhancer) {
+              global.JavaEditorEnhancer.updateHighlighting();
+              global.JavaEditorEnhancer.scanCodeForClasses();
+              global.JavaEditorEnhancer.renderChipsBar();
+            }
             if (global.UMLRenderer) {
               const classes = global.UMLRenderer.parseJavaToUML(cleanCode);
               global.UMLRenderer.renderSVG(classes, "umlContainer");
             }
+            try {
+              editor.dispatchEvent(new Event("input", { bubbles: true }));
+            } catch (e) {}
+
             btnLoad.innerHTML = `<span>✅</span> <span>${isEn ? "Loaded!" : "Yuklandi!"}</span>`;
             setTimeout(() => {
               btnLoad.innerHTML = `<span>📥</span> <span>${isEn ? "Load to Editor" : "Muharrirga yuklash"}</span>`;

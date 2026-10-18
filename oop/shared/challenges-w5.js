@@ -26,7 +26,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IProductService {\n    void executeService();\n}\n\nclass ProductServiceImpl implements IProductService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Uzum Market: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IProductService svc = new ProductServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IProductService {\n    void executeService();\n}\n\nclass ProductServiceImpl implements IProductService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Uzum Market: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IProductService svc = new ProductServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -65,7 +65,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IWalletUserService {\n    void executeService();\n}\n\nclass WalletUserServiceImpl implements IWalletUserService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Payme Wallet: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IWalletUserService svc = new WalletUserServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IWalletUserService {\n    void executeService();\n}\n\nclass WalletUserServiceImpl implements IWalletUserService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Payme Wallet: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IWalletUserService svc = new WalletUserServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -104,7 +104,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ITaxiRideService {\n    void executeService();\n}\n\nclass TaxiRideServiceImpl implements ITaxiRideService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Yandex Go: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ITaxiRideService svc = new TaxiRideServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ITaxiRideService {\n    void executeService();\n}\n\nclass TaxiRideServiceImpl implements ITaxiRideService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Yandex Go: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ITaxiRideService svc = new TaxiRideServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -143,7 +143,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ILoyaltyCardService {\n    void executeService();\n}\n\nclass LoyaltyCardServiceImpl implements ILoyaltyCardService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Korzinka Go: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ILoyaltyCardService svc = new LoyaltyCardServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ILoyaltyCardService {\n    void executeService();\n}\n\nclass LoyaltyCardServiceImpl implements ILoyaltyCardService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Korzinka Go: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ILoyaltyCardService svc = new LoyaltyCardServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -182,7 +182,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IStudentService {\n    void executeService();\n}\n\nclass StudentServiceImpl implements IStudentService {\n    @Override\n    public void executeService() {\n        System.out.println(\"WIUT Portal: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IStudentService svc = new StudentServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IStudentService {\n    void executeService();\n}\n\nclass StudentServiceImpl implements IStudentService {\n    @Override\n    public void executeService() {\n        System.out.println(\"WIUT Portal: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IStudentService svc = new StudentServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -221,7 +221,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPaymentTxnService {\n    void executeService();\n}\n\nclass PaymentTxnServiceImpl implements IPaymentTxnService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Click Pay: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IPaymentTxnService svc = new PaymentTxnServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPaymentTxnService {\n    void executeService();\n}\n\nclass PaymentTxnServiceImpl implements IPaymentTxnService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Click Pay: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IPaymentTxnService svc = new PaymentTxnServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -260,7 +260,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBotMessageService {\n    void executeService();\n}\n\nclass BotMessageServiceImpl implements IBotMessageService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Telegram Bot: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IBotMessageService svc = new BotMessageServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBotMessageService {\n    void executeService();\n}\n\nclass BotMessageServiceImpl implements IBotMessageService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Telegram Bot: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IBotMessageService svc = new BotMessageServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -299,7 +299,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IFlightTicketService {\n    void executeService();\n}\n\nclass FlightTicketServiceImpl implements IFlightTicketService {\n    @Override\n    public void executeService() {\n        System.out.println(\"UzAirways: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IFlightTicketService svc = new FlightTicketServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IFlightTicketService {\n    void executeService();\n}\n\nclass FlightTicketServiceImpl implements IFlightTicketService {\n    @Override\n    public void executeService() {\n        System.out.println(\"UzAirways: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IFlightTicketService svc = new FlightTicketServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -338,7 +338,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBootcampCourseService {\n    void executeService();\n}\n\nclass BootcampCourseServiceImpl implements IBootcampCourseService {\n    @Override\n    public void executeService() {\n        System.out.println(\"IT Park Academy: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IBootcampCourseService svc = new BootcampCourseServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBootcampCourseService {\n    void executeService();\n}\n\nclass BootcampCourseServiceImpl implements IBootcampCourseService {\n    @Override\n    public void executeService() {\n        System.out.println(\"IT Park Academy: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IBootcampCourseService svc = new BootcampCourseServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -377,7 +377,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IDebitCardService {\n    void executeService();\n}\n\nclass DebitCardServiceImpl implements IDebitCardService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Anorbank: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IDebitCardService svc = new DebitCardServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IDebitCardService {\n    void executeService();\n}\n\nclass DebitCardServiceImpl implements IDebitCardService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Anorbank: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IDebitCardService svc = new DebitCardServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -416,7 +416,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IMedicineService {\n    void executeService();\n}\n\nclass MedicineServiceImpl implements IMedicineService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Oson Apteka: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IMedicineService svc = new MedicineServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IMedicineService {\n    void executeService();\n}\n\nclass MedicineServiceImpl implements IMedicineService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Oson Apteka: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IMedicineService svc = new MedicineServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -455,7 +455,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IFoodOrderService {\n    void executeService();\n}\n\nclass FoodOrderServiceImpl implements IFoodOrderService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Evos FastFood: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IFoodOrderService svc = new FoodOrderServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IFoodOrderService {\n    void executeService();\n}\n\nclass FoodOrderServiceImpl implements IFoodOrderService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Evos FastFood: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IFoodOrderService svc = new FoodOrderServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -494,7 +494,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPizzaOrderService {\n    void executeService();\n}\n\nclass PizzaOrderServiceImpl implements IPizzaOrderService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Bellissimo Pizza: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IPizzaOrderService svc = new PizzaOrderServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPizzaOrderService {\n    void executeService();\n}\n\nclass PizzaOrderServiceImpl implements IPizzaOrderService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Bellissimo Pizza: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IPizzaOrderService svc = new PizzaOrderServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -533,7 +533,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBroadcastShowService {\n    void executeService();\n}\n\nclass BroadcastShowServiceImpl implements IBroadcastShowService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Milliy TV: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IBroadcastShowService svc = new BroadcastShowServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBroadcastShowService {\n    void executeService();\n}\n\nclass BroadcastShowServiceImpl implements IBroadcastShowService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Milliy TV: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IBroadcastShowService svc = new BroadcastShowServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -572,7 +572,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IAudioTrackService {\n    void executeService();\n}\n\nclass AudioTrackServiceImpl implements IAudioTrackService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Spotify Sound: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IAudioTrackService svc = new AudioTrackServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IAudioTrackService {\n    void executeService();\n}\n\nclass AudioTrackServiceImpl implements IAudioTrackService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Spotify Sound: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IAudioTrackService svc = new AudioTrackServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -611,7 +611,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IThermostatService {\n    void executeService();\n}\n\nclass ThermostatServiceImpl implements IThermostatService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Smart Thermostat: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IThermostatService svc = new ThermostatServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IThermostatService {\n    void executeService();\n}\n\nclass ThermostatServiceImpl implements IThermostatService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Smart Thermostat: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IThermostatService svc = new ThermostatServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -650,7 +650,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IDeliveryDroneService {\n    void executeService();\n}\n\nclass DeliveryDroneServiceImpl implements IDeliveryDroneService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Drone Delivery: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IDeliveryDroneService svc = new DeliveryDroneServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IDeliveryDroneService {\n    void executeService();\n}\n\nclass DeliveryDroneServiceImpl implements IDeliveryDroneService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Drone Delivery: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IDeliveryDroneService svc = new DeliveryDroneServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -689,7 +689,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IStorageBayService {\n    void executeService();\n}\n\nclass StorageBayServiceImpl implements IStorageBayService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Smart Warehouse: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IStorageBayService svc = new StorageBayServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IStorageBayService {\n    void executeService();\n}\n\nclass StorageBayServiceImpl implements IStorageBayService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Smart Warehouse: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IStorageBayService svc = new StorageBayServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -728,7 +728,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICryptoAssetService {\n    void executeService();\n}\n\nclass CryptoAssetServiceImpl implements ICryptoAssetService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Crypto Wallet: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ICryptoAssetService svc = new CryptoAssetServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICryptoAssetService {\n    void executeService();\n}\n\nclass CryptoAssetServiceImpl implements ICryptoAssetService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Crypto Wallet: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ICryptoAssetService svc = new CryptoAssetServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -767,7 +767,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICatalogBookService {\n    void executeService();\n}\n\nclass CatalogBookServiceImpl implements ICatalogBookService {\n    @Override\n    public void executeService() {\n        System.out.println(\"National Library: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ICatalogBookService svc = new CatalogBookServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICatalogBookService {\n    void executeService();\n}\n\nclass CatalogBookServiceImpl implements ICatalogBookService {\n    @Override\n    public void executeService() {\n        System.out.println(\"National Library: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ICatalogBookService svc = new CatalogBookServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -806,7 +806,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IGymMemberService {\n    void executeService();\n}\n\nclass GymMemberServiceImpl implements IGymMemberService {\n    @Override\n    public void executeService() {\n        System.out.println(\"BeFit Club: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IGymMemberService svc = new GymMemberServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IGymMemberService {\n    void executeService();\n}\n\nclass GymMemberServiceImpl implements IGymMemberService {\n    @Override\n    public void executeService() {\n        System.out.println(\"BeFit Club: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IGymMemberService svc = new GymMemberServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -845,7 +845,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IParkingBayService {\n    void executeService();\n}\n\nclass ParkingBayServiceImpl implements IParkingBayService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Tashkent Parking: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IParkingBayService svc = new ParkingBayServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IParkingBayService {\n    void executeService();\n}\n\nclass ParkingBayServiceImpl implements IParkingBayService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Tashkent Parking: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IParkingBayService svc = new ParkingBayServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -884,7 +884,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPatientRecordService {\n    void executeService();\n}\n\nclass PatientRecordServiceImpl implements IPatientRecordService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Medion Clinic: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IPatientRecordService svc = new PatientRecordServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPatientRecordService {\n    void executeService();\n}\n\nclass PatientRecordServiceImpl implements IPatientRecordService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Medion Clinic: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IPatientRecordService svc = new PatientRecordServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -923,7 +923,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IHotelReservationService {\n    void executeService();\n}\n\nclass HotelReservationServiceImpl implements IHotelReservationService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Hyatt Regency: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IHotelReservationService svc = new HotelReservationServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IHotelReservationService {\n    void executeService();\n}\n\nclass HotelReservationServiceImpl implements IHotelReservationService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Hyatt Regency: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IHotelReservationService svc = new HotelReservationServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -962,7 +962,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICinemaTicketService {\n    void executeService();\n}\n\nclass CinemaTicketServiceImpl implements ICinemaTicketService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Premier Cinema: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ICinemaTicketService svc = new CinemaTicketServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICinemaTicketService {\n    void executeService();\n}\n\nclass CinemaTicketServiceImpl implements ICinemaTicketService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Premier Cinema: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ICinemaTicketService svc = new CinemaTicketServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -1001,7 +1001,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IElectricScooterService {\n    void executeService();\n}\n\nclass ElectricScooterServiceImpl implements IElectricScooterService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Yandex Scooter: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IElectricScooterService svc = new ElectricScooterServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IElectricScooterService {\n    void executeService();\n}\n\nclass ElectricScooterServiceImpl implements IElectricScooterService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Yandex Scooter: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IElectricScooterService svc = new ElectricScooterServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -1040,7 +1040,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IMeteoStationService {\n    void executeService();\n}\n\nclass MeteoStationServiceImpl implements IMeteoStationService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Weather Network: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IMeteoStationService svc = new MeteoStationServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IMeteoStationService {\n    void executeService();\n}\n\nclass MeteoStationServiceImpl implements IMeteoStationService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Weather Network: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IMeteoStationService svc = new MeteoStationServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -1079,7 +1079,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IAuctionLotService {\n    void executeService();\n}\n\nclass AuctionLotServiceImpl implements IAuctionLotService {\n    @Override\n    public void executeService() {\n        System.out.println(\"OpenMarket Auction: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IAuctionLotService svc = new AuctionLotServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IAuctionLotService {\n    void executeService();\n}\n\nclass AuctionLotServiceImpl implements IAuctionLotService {\n    @Override\n    public void executeService() {\n        System.out.println(\"OpenMarket Auction: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        IAuctionLotService svc = new AuctionLotServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -1118,7 +1118,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ISolarInverterService {\n    void executeService();\n}\n\nclass SolarInverterServiceImpl implements ISolarInverterService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Solar Energy Grid: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ISolarInverterService svc = new SolarInverterServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ISolarInverterService {\n    void executeService();\n}\n\nclass SolarInverterServiceImpl implements ISolarInverterService {\n    @Override\n    public void executeService() {\n        System.out.println(\"Solar Energy Grid: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ISolarInverterService svc = new SolarInverterServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -1157,7 +1157,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ITrainRouteService {\n    void executeService();\n}\n\nclass TrainRouteServiceImpl implements ITrainRouteService {\n    @Override\n    public void executeService() {\n        System.out.println(\"O'zbekiston Temir Yo'llari: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ITrainRouteService svc = new TrainRouteServiceImpl();\n        svc.executeService();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ITrainRouteService {\n    void executeService();\n}\n\nclass TrainRouteServiceImpl implements ITrainRouteService {\n    @Override\n    public void executeService() {\n        System.out.println(\"O'zbekiston Temir Yo'llari: Xizmat bajarildi!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ITrainRouteService svc = new TrainRouteServiceImpl();\n        svc.executeService();\n    }\n}",
     "detailedSolution": {
       "theory": "Interfeys — 100% abstrakt shartnoma. U 'NIMA qilinishi kerak'ligini aytadi, lekin 'QANDAY qilinishi'ni har bir sinf o'zi hal qiladi.",
@@ -1197,7 +1197,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IProductHelper {\n    default void printLog() {\n        System.out.println(\"Uzum Market: Tizim jurnali yozildi.\");\n    }\n}\n\nclass ProductHelperImpl implements IProductHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IProductHelper h = new ProductHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IProductHelper {\n    default void printLog() {\n        System.out.println(\"Uzum Market: Tizim jurnali yozildi.\");\n    }\n}\n\nclass ProductHelperImpl implements IProductHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IProductHelper h = new ProductHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1237,7 +1237,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IWalletUserHelper {\n    default void printLog() {\n        System.out.println(\"Payme Wallet: Tizim jurnali yozildi.\");\n    }\n}\n\nclass WalletUserHelperImpl implements IWalletUserHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IWalletUserHelper h = new WalletUserHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IWalletUserHelper {\n    default void printLog() {\n        System.out.println(\"Payme Wallet: Tizim jurnali yozildi.\");\n    }\n}\n\nclass WalletUserHelperImpl implements IWalletUserHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IWalletUserHelper h = new WalletUserHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1277,7 +1277,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ITaxiRideHelper {\n    default void printLog() {\n        System.out.println(\"Yandex Go: Tizim jurnali yozildi.\");\n    }\n}\n\nclass TaxiRideHelperImpl implements ITaxiRideHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ITaxiRideHelper h = new TaxiRideHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ITaxiRideHelper {\n    default void printLog() {\n        System.out.println(\"Yandex Go: Tizim jurnali yozildi.\");\n    }\n}\n\nclass TaxiRideHelperImpl implements ITaxiRideHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ITaxiRideHelper h = new TaxiRideHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1317,7 +1317,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ILoyaltyCardHelper {\n    default void printLog() {\n        System.out.println(\"Korzinka Go: Tizim jurnali yozildi.\");\n    }\n}\n\nclass LoyaltyCardHelperImpl implements ILoyaltyCardHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ILoyaltyCardHelper h = new LoyaltyCardHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ILoyaltyCardHelper {\n    default void printLog() {\n        System.out.println(\"Korzinka Go: Tizim jurnali yozildi.\");\n    }\n}\n\nclass LoyaltyCardHelperImpl implements ILoyaltyCardHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ILoyaltyCardHelper h = new LoyaltyCardHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1357,7 +1357,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IStudentHelper {\n    default void printLog() {\n        System.out.println(\"WIUT Portal: Tizim jurnali yozildi.\");\n    }\n}\n\nclass StudentHelperImpl implements IStudentHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IStudentHelper h = new StudentHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IStudentHelper {\n    default void printLog() {\n        System.out.println(\"WIUT Portal: Tizim jurnali yozildi.\");\n    }\n}\n\nclass StudentHelperImpl implements IStudentHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IStudentHelper h = new StudentHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1397,7 +1397,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPaymentTxnHelper {\n    default void printLog() {\n        System.out.println(\"Click Pay: Tizim jurnali yozildi.\");\n    }\n}\n\nclass PaymentTxnHelperImpl implements IPaymentTxnHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IPaymentTxnHelper h = new PaymentTxnHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPaymentTxnHelper {\n    default void printLog() {\n        System.out.println(\"Click Pay: Tizim jurnali yozildi.\");\n    }\n}\n\nclass PaymentTxnHelperImpl implements IPaymentTxnHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IPaymentTxnHelper h = new PaymentTxnHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1437,7 +1437,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBotMessageHelper {\n    default void printLog() {\n        System.out.println(\"Telegram Bot: Tizim jurnali yozildi.\");\n    }\n}\n\nclass BotMessageHelperImpl implements IBotMessageHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IBotMessageHelper h = new BotMessageHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBotMessageHelper {\n    default void printLog() {\n        System.out.println(\"Telegram Bot: Tizim jurnali yozildi.\");\n    }\n}\n\nclass BotMessageHelperImpl implements IBotMessageHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IBotMessageHelper h = new BotMessageHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1477,7 +1477,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IFlightTicketHelper {\n    default void printLog() {\n        System.out.println(\"UzAirways: Tizim jurnali yozildi.\");\n    }\n}\n\nclass FlightTicketHelperImpl implements IFlightTicketHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IFlightTicketHelper h = new FlightTicketHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IFlightTicketHelper {\n    default void printLog() {\n        System.out.println(\"UzAirways: Tizim jurnali yozildi.\");\n    }\n}\n\nclass FlightTicketHelperImpl implements IFlightTicketHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IFlightTicketHelper h = new FlightTicketHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1517,7 +1517,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBootcampCourseHelper {\n    default void printLog() {\n        System.out.println(\"IT Park Academy: Tizim jurnali yozildi.\");\n    }\n}\n\nclass BootcampCourseHelperImpl implements IBootcampCourseHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IBootcampCourseHelper h = new BootcampCourseHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBootcampCourseHelper {\n    default void printLog() {\n        System.out.println(\"IT Park Academy: Tizim jurnali yozildi.\");\n    }\n}\n\nclass BootcampCourseHelperImpl implements IBootcampCourseHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IBootcampCourseHelper h = new BootcampCourseHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1557,7 +1557,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IDebitCardHelper {\n    default void printLog() {\n        System.out.println(\"Anorbank: Tizim jurnali yozildi.\");\n    }\n}\n\nclass DebitCardHelperImpl implements IDebitCardHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IDebitCardHelper h = new DebitCardHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IDebitCardHelper {\n    default void printLog() {\n        System.out.println(\"Anorbank: Tizim jurnali yozildi.\");\n    }\n}\n\nclass DebitCardHelperImpl implements IDebitCardHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IDebitCardHelper h = new DebitCardHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1597,7 +1597,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IMedicineHelper {\n    default void printLog() {\n        System.out.println(\"Oson Apteka: Tizim jurnali yozildi.\");\n    }\n}\n\nclass MedicineHelperImpl implements IMedicineHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IMedicineHelper h = new MedicineHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IMedicineHelper {\n    default void printLog() {\n        System.out.println(\"Oson Apteka: Tizim jurnali yozildi.\");\n    }\n}\n\nclass MedicineHelperImpl implements IMedicineHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IMedicineHelper h = new MedicineHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1637,7 +1637,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IFoodOrderHelper {\n    default void printLog() {\n        System.out.println(\"Evos FastFood: Tizim jurnali yozildi.\");\n    }\n}\n\nclass FoodOrderHelperImpl implements IFoodOrderHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IFoodOrderHelper h = new FoodOrderHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IFoodOrderHelper {\n    default void printLog() {\n        System.out.println(\"Evos FastFood: Tizim jurnali yozildi.\");\n    }\n}\n\nclass FoodOrderHelperImpl implements IFoodOrderHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IFoodOrderHelper h = new FoodOrderHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1677,7 +1677,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPizzaOrderHelper {\n    default void printLog() {\n        System.out.println(\"Bellissimo Pizza: Tizim jurnali yozildi.\");\n    }\n}\n\nclass PizzaOrderHelperImpl implements IPizzaOrderHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IPizzaOrderHelper h = new PizzaOrderHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPizzaOrderHelper {\n    default void printLog() {\n        System.out.println(\"Bellissimo Pizza: Tizim jurnali yozildi.\");\n    }\n}\n\nclass PizzaOrderHelperImpl implements IPizzaOrderHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IPizzaOrderHelper h = new PizzaOrderHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1717,7 +1717,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBroadcastShowHelper {\n    default void printLog() {\n        System.out.println(\"Milliy TV: Tizim jurnali yozildi.\");\n    }\n}\n\nclass BroadcastShowHelperImpl implements IBroadcastShowHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IBroadcastShowHelper h = new BroadcastShowHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBroadcastShowHelper {\n    default void printLog() {\n        System.out.println(\"Milliy TV: Tizim jurnali yozildi.\");\n    }\n}\n\nclass BroadcastShowHelperImpl implements IBroadcastShowHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IBroadcastShowHelper h = new BroadcastShowHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1757,7 +1757,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IAudioTrackHelper {\n    default void printLog() {\n        System.out.println(\"Spotify Sound: Tizim jurnali yozildi.\");\n    }\n}\n\nclass AudioTrackHelperImpl implements IAudioTrackHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IAudioTrackHelper h = new AudioTrackHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IAudioTrackHelper {\n    default void printLog() {\n        System.out.println(\"Spotify Sound: Tizim jurnali yozildi.\");\n    }\n}\n\nclass AudioTrackHelperImpl implements IAudioTrackHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IAudioTrackHelper h = new AudioTrackHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1797,7 +1797,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IThermostatHelper {\n    default void printLog() {\n        System.out.println(\"Smart Thermostat: Tizim jurnali yozildi.\");\n    }\n}\n\nclass ThermostatHelperImpl implements IThermostatHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IThermostatHelper h = new ThermostatHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IThermostatHelper {\n    default void printLog() {\n        System.out.println(\"Smart Thermostat: Tizim jurnali yozildi.\");\n    }\n}\n\nclass ThermostatHelperImpl implements IThermostatHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IThermostatHelper h = new ThermostatHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1837,7 +1837,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IDeliveryDroneHelper {\n    default void printLog() {\n        System.out.println(\"Drone Delivery: Tizim jurnali yozildi.\");\n    }\n}\n\nclass DeliveryDroneHelperImpl implements IDeliveryDroneHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IDeliveryDroneHelper h = new DeliveryDroneHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IDeliveryDroneHelper {\n    default void printLog() {\n        System.out.println(\"Drone Delivery: Tizim jurnali yozildi.\");\n    }\n}\n\nclass DeliveryDroneHelperImpl implements IDeliveryDroneHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IDeliveryDroneHelper h = new DeliveryDroneHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1877,7 +1877,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IStorageBayHelper {\n    default void printLog() {\n        System.out.println(\"Smart Warehouse: Tizim jurnali yozildi.\");\n    }\n}\n\nclass StorageBayHelperImpl implements IStorageBayHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IStorageBayHelper h = new StorageBayHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IStorageBayHelper {\n    default void printLog() {\n        System.out.println(\"Smart Warehouse: Tizim jurnali yozildi.\");\n    }\n}\n\nclass StorageBayHelperImpl implements IStorageBayHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IStorageBayHelper h = new StorageBayHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1917,7 +1917,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICryptoAssetHelper {\n    default void printLog() {\n        System.out.println(\"Crypto Wallet: Tizim jurnali yozildi.\");\n    }\n}\n\nclass CryptoAssetHelperImpl implements ICryptoAssetHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ICryptoAssetHelper h = new CryptoAssetHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICryptoAssetHelper {\n    default void printLog() {\n        System.out.println(\"Crypto Wallet: Tizim jurnali yozildi.\");\n    }\n}\n\nclass CryptoAssetHelperImpl implements ICryptoAssetHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ICryptoAssetHelper h = new CryptoAssetHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1957,7 +1957,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICatalogBookHelper {\n    default void printLog() {\n        System.out.println(\"National Library: Tizim jurnali yozildi.\");\n    }\n}\n\nclass CatalogBookHelperImpl implements ICatalogBookHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ICatalogBookHelper h = new CatalogBookHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICatalogBookHelper {\n    default void printLog() {\n        System.out.println(\"National Library: Tizim jurnali yozildi.\");\n    }\n}\n\nclass CatalogBookHelperImpl implements ICatalogBookHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ICatalogBookHelper h = new CatalogBookHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -1997,7 +1997,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IGymMemberHelper {\n    default void printLog() {\n        System.out.println(\"BeFit Club: Tizim jurnali yozildi.\");\n    }\n}\n\nclass GymMemberHelperImpl implements IGymMemberHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IGymMemberHelper h = new GymMemberHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IGymMemberHelper {\n    default void printLog() {\n        System.out.println(\"BeFit Club: Tizim jurnali yozildi.\");\n    }\n}\n\nclass GymMemberHelperImpl implements IGymMemberHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IGymMemberHelper h = new GymMemberHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -2037,7 +2037,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IParkingBayHelper {\n    default void printLog() {\n        System.out.println(\"Tashkent Parking: Tizim jurnali yozildi.\");\n    }\n}\n\nclass ParkingBayHelperImpl implements IParkingBayHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IParkingBayHelper h = new ParkingBayHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IParkingBayHelper {\n    default void printLog() {\n        System.out.println(\"Tashkent Parking: Tizim jurnali yozildi.\");\n    }\n}\n\nclass ParkingBayHelperImpl implements IParkingBayHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IParkingBayHelper h = new ParkingBayHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -2077,7 +2077,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPatientRecordHelper {\n    default void printLog() {\n        System.out.println(\"Medion Clinic: Tizim jurnali yozildi.\");\n    }\n}\n\nclass PatientRecordHelperImpl implements IPatientRecordHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IPatientRecordHelper h = new PatientRecordHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPatientRecordHelper {\n    default void printLog() {\n        System.out.println(\"Medion Clinic: Tizim jurnali yozildi.\");\n    }\n}\n\nclass PatientRecordHelperImpl implements IPatientRecordHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IPatientRecordHelper h = new PatientRecordHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -2117,7 +2117,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IHotelReservationHelper {\n    default void printLog() {\n        System.out.println(\"Hyatt Regency: Tizim jurnali yozildi.\");\n    }\n}\n\nclass HotelReservationHelperImpl implements IHotelReservationHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IHotelReservationHelper h = new HotelReservationHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IHotelReservationHelper {\n    default void printLog() {\n        System.out.println(\"Hyatt Regency: Tizim jurnali yozildi.\");\n    }\n}\n\nclass HotelReservationHelperImpl implements IHotelReservationHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IHotelReservationHelper h = new HotelReservationHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -2157,7 +2157,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICinemaTicketHelper {\n    default void printLog() {\n        System.out.println(\"Premier Cinema: Tizim jurnali yozildi.\");\n    }\n}\n\nclass CinemaTicketHelperImpl implements ICinemaTicketHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ICinemaTicketHelper h = new CinemaTicketHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICinemaTicketHelper {\n    default void printLog() {\n        System.out.println(\"Premier Cinema: Tizim jurnali yozildi.\");\n    }\n}\n\nclass CinemaTicketHelperImpl implements ICinemaTicketHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ICinemaTicketHelper h = new CinemaTicketHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -2197,7 +2197,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IElectricScooterHelper {\n    default void printLog() {\n        System.out.println(\"Yandex Scooter: Tizim jurnali yozildi.\");\n    }\n}\n\nclass ElectricScooterHelperImpl implements IElectricScooterHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IElectricScooterHelper h = new ElectricScooterHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IElectricScooterHelper {\n    default void printLog() {\n        System.out.println(\"Yandex Scooter: Tizim jurnali yozildi.\");\n    }\n}\n\nclass ElectricScooterHelperImpl implements IElectricScooterHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IElectricScooterHelper h = new ElectricScooterHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -2237,7 +2237,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IMeteoStationHelper {\n    default void printLog() {\n        System.out.println(\"Weather Network: Tizim jurnali yozildi.\");\n    }\n}\n\nclass MeteoStationHelperImpl implements IMeteoStationHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IMeteoStationHelper h = new MeteoStationHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IMeteoStationHelper {\n    default void printLog() {\n        System.out.println(\"Weather Network: Tizim jurnali yozildi.\");\n    }\n}\n\nclass MeteoStationHelperImpl implements IMeteoStationHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IMeteoStationHelper h = new MeteoStationHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -2277,7 +2277,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IAuctionLotHelper {\n    default void printLog() {\n        System.out.println(\"OpenMarket Auction: Tizim jurnali yozildi.\");\n    }\n}\n\nclass AuctionLotHelperImpl implements IAuctionLotHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IAuctionLotHelper h = new AuctionLotHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IAuctionLotHelper {\n    default void printLog() {\n        System.out.println(\"OpenMarket Auction: Tizim jurnali yozildi.\");\n    }\n}\n\nclass AuctionLotHelperImpl implements IAuctionLotHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        IAuctionLotHelper h = new AuctionLotHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -2317,7 +2317,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ISolarInverterHelper {\n    default void printLog() {\n        System.out.println(\"Solar Energy Grid: Tizim jurnali yozildi.\");\n    }\n}\n\nclass SolarInverterHelperImpl implements ISolarInverterHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ISolarInverterHelper h = new SolarInverterHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ISolarInverterHelper {\n    default void printLog() {\n        System.out.println(\"Solar Energy Grid: Tizim jurnali yozildi.\");\n    }\n}\n\nclass SolarInverterHelperImpl implements ISolarInverterHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ISolarInverterHelper h = new SolarInverterHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -2357,7 +2357,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ITrainRouteHelper {\n    default void printLog() {\n        System.out.println(\"O'zbekiston Temir Yo'llari: Tizim jurnali yozildi.\");\n    }\n}\n\nclass TrainRouteHelperImpl implements ITrainRouteHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ITrainRouteHelper h = new TrainRouteHelperImpl();\n        h.printLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ITrainRouteHelper {\n    default void printLog() {\n        System.out.println(\"O'zbekiston Temir Yo'llari: Tizim jurnali yozildi.\");\n    }\n}\n\nclass TrainRouteHelperImpl implements ITrainRouteHelper {}\n\nclass Main {\n    public static void main(String[] args) {\n        ITrainRouteHelper h = new TrainRouteHelperImpl();\n        h.printLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java 8 dan boshlab 'default' kalit so'zi orqali interfeyslar ichida tayyor kodli metodlar yaratish mumkin. Bu eski sinflarni buzmasdan interfeysni boyitishga xizmat qiladi.",
@@ -2394,7 +2394,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IProductPrintable { void printData(); }\ninterface IProductAuditable { void auditLog(); }\n\nclass ProductNode implements IProductPrintable, IProductAuditable {\n    @Override public void printData() { System.out.println(\"Uzum Market: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Uzum Market: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductNode node = new ProductNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IProductPrintable { void printData(); }\ninterface IProductAuditable { void auditLog(); }\n\nclass ProductNode implements IProductPrintable, IProductAuditable {\n    @Override public void printData() { System.out.println(\"Uzum Market: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Uzum Market: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductNode node = new ProductNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2431,7 +2431,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IWalletUserPrintable { void printData(); }\ninterface IWalletUserAuditable { void auditLog(); }\n\nclass WalletUserNode implements IWalletUserPrintable, IWalletUserAuditable {\n    @Override public void printData() { System.out.println(\"Payme Wallet: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Payme Wallet: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserNode node = new WalletUserNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IWalletUserPrintable { void printData(); }\ninterface IWalletUserAuditable { void auditLog(); }\n\nclass WalletUserNode implements IWalletUserPrintable, IWalletUserAuditable {\n    @Override public void printData() { System.out.println(\"Payme Wallet: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Payme Wallet: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserNode node = new WalletUserNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2468,7 +2468,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ITaxiRidePrintable { void printData(); }\ninterface ITaxiRideAuditable { void auditLog(); }\n\nclass TaxiRideNode implements ITaxiRidePrintable, ITaxiRideAuditable {\n    @Override public void printData() { System.out.println(\"Yandex Go: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Yandex Go: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideNode node = new TaxiRideNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ITaxiRidePrintable { void printData(); }\ninterface ITaxiRideAuditable { void auditLog(); }\n\nclass TaxiRideNode implements ITaxiRidePrintable, ITaxiRideAuditable {\n    @Override public void printData() { System.out.println(\"Yandex Go: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Yandex Go: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideNode node = new TaxiRideNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2505,7 +2505,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ILoyaltyCardPrintable { void printData(); }\ninterface ILoyaltyCardAuditable { void auditLog(); }\n\nclass LoyaltyCardNode implements ILoyaltyCardPrintable, ILoyaltyCardAuditable {\n    @Override public void printData() { System.out.println(\"Korzinka Go: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Korzinka Go: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardNode node = new LoyaltyCardNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ILoyaltyCardPrintable { void printData(); }\ninterface ILoyaltyCardAuditable { void auditLog(); }\n\nclass LoyaltyCardNode implements ILoyaltyCardPrintable, ILoyaltyCardAuditable {\n    @Override public void printData() { System.out.println(\"Korzinka Go: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Korzinka Go: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardNode node = new LoyaltyCardNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2542,7 +2542,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IStudentPrintable { void printData(); }\ninterface IStudentAuditable { void auditLog(); }\n\nclass StudentNode implements IStudentPrintable, IStudentAuditable {\n    @Override public void printData() { System.out.println(\"WIUT Portal: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"WIUT Portal: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentNode node = new StudentNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IStudentPrintable { void printData(); }\ninterface IStudentAuditable { void auditLog(); }\n\nclass StudentNode implements IStudentPrintable, IStudentAuditable {\n    @Override public void printData() { System.out.println(\"WIUT Portal: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"WIUT Portal: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentNode node = new StudentNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2579,7 +2579,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPaymentTxnPrintable { void printData(); }\ninterface IPaymentTxnAuditable { void auditLog(); }\n\nclass PaymentTxnNode implements IPaymentTxnPrintable, IPaymentTxnAuditable {\n    @Override public void printData() { System.out.println(\"Click Pay: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Click Pay: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnNode node = new PaymentTxnNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPaymentTxnPrintable { void printData(); }\ninterface IPaymentTxnAuditable { void auditLog(); }\n\nclass PaymentTxnNode implements IPaymentTxnPrintable, IPaymentTxnAuditable {\n    @Override public void printData() { System.out.println(\"Click Pay: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Click Pay: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnNode node = new PaymentTxnNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2616,7 +2616,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBotMessagePrintable { void printData(); }\ninterface IBotMessageAuditable { void auditLog(); }\n\nclass BotMessageNode implements IBotMessagePrintable, IBotMessageAuditable {\n    @Override public void printData() { System.out.println(\"Telegram Bot: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Telegram Bot: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageNode node = new BotMessageNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBotMessagePrintable { void printData(); }\ninterface IBotMessageAuditable { void auditLog(); }\n\nclass BotMessageNode implements IBotMessagePrintable, IBotMessageAuditable {\n    @Override public void printData() { System.out.println(\"Telegram Bot: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Telegram Bot: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageNode node = new BotMessageNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2653,7 +2653,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IFlightTicketPrintable { void printData(); }\ninterface IFlightTicketAuditable { void auditLog(); }\n\nclass FlightTicketNode implements IFlightTicketPrintable, IFlightTicketAuditable {\n    @Override public void printData() { System.out.println(\"UzAirways: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"UzAirways: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketNode node = new FlightTicketNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IFlightTicketPrintable { void printData(); }\ninterface IFlightTicketAuditable { void auditLog(); }\n\nclass FlightTicketNode implements IFlightTicketPrintable, IFlightTicketAuditable {\n    @Override public void printData() { System.out.println(\"UzAirways: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"UzAirways: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketNode node = new FlightTicketNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2690,7 +2690,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBootcampCoursePrintable { void printData(); }\ninterface IBootcampCourseAuditable { void auditLog(); }\n\nclass BootcampCourseNode implements IBootcampCoursePrintable, IBootcampCourseAuditable {\n    @Override public void printData() { System.out.println(\"IT Park Academy: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"IT Park Academy: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseNode node = new BootcampCourseNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBootcampCoursePrintable { void printData(); }\ninterface IBootcampCourseAuditable { void auditLog(); }\n\nclass BootcampCourseNode implements IBootcampCoursePrintable, IBootcampCourseAuditable {\n    @Override public void printData() { System.out.println(\"IT Park Academy: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"IT Park Academy: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseNode node = new BootcampCourseNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2727,7 +2727,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IDebitCardPrintable { void printData(); }\ninterface IDebitCardAuditable { void auditLog(); }\n\nclass DebitCardNode implements IDebitCardPrintable, IDebitCardAuditable {\n    @Override public void printData() { System.out.println(\"Anorbank: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Anorbank: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardNode node = new DebitCardNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IDebitCardPrintable { void printData(); }\ninterface IDebitCardAuditable { void auditLog(); }\n\nclass DebitCardNode implements IDebitCardPrintable, IDebitCardAuditable {\n    @Override public void printData() { System.out.println(\"Anorbank: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Anorbank: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardNode node = new DebitCardNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2764,7 +2764,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IMedicinePrintable { void printData(); }\ninterface IMedicineAuditable { void auditLog(); }\n\nclass MedicineNode implements IMedicinePrintable, IMedicineAuditable {\n    @Override public void printData() { System.out.println(\"Oson Apteka: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Oson Apteka: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineNode node = new MedicineNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IMedicinePrintable { void printData(); }\ninterface IMedicineAuditable { void auditLog(); }\n\nclass MedicineNode implements IMedicinePrintable, IMedicineAuditable {\n    @Override public void printData() { System.out.println(\"Oson Apteka: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Oson Apteka: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineNode node = new MedicineNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2801,7 +2801,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IFoodOrderPrintable { void printData(); }\ninterface IFoodOrderAuditable { void auditLog(); }\n\nclass FoodOrderNode implements IFoodOrderPrintable, IFoodOrderAuditable {\n    @Override public void printData() { System.out.println(\"Evos FastFood: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Evos FastFood: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderNode node = new FoodOrderNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IFoodOrderPrintable { void printData(); }\ninterface IFoodOrderAuditable { void auditLog(); }\n\nclass FoodOrderNode implements IFoodOrderPrintable, IFoodOrderAuditable {\n    @Override public void printData() { System.out.println(\"Evos FastFood: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Evos FastFood: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderNode node = new FoodOrderNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2838,7 +2838,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPizzaOrderPrintable { void printData(); }\ninterface IPizzaOrderAuditable { void auditLog(); }\n\nclass PizzaOrderNode implements IPizzaOrderPrintable, IPizzaOrderAuditable {\n    @Override public void printData() { System.out.println(\"Bellissimo Pizza: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Bellissimo Pizza: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderNode node = new PizzaOrderNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPizzaOrderPrintable { void printData(); }\ninterface IPizzaOrderAuditable { void auditLog(); }\n\nclass PizzaOrderNode implements IPizzaOrderPrintable, IPizzaOrderAuditable {\n    @Override public void printData() { System.out.println(\"Bellissimo Pizza: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Bellissimo Pizza: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderNode node = new PizzaOrderNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2875,7 +2875,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBroadcastShowPrintable { void printData(); }\ninterface IBroadcastShowAuditable { void auditLog(); }\n\nclass BroadcastShowNode implements IBroadcastShowPrintable, IBroadcastShowAuditable {\n    @Override public void printData() { System.out.println(\"Milliy TV: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Milliy TV: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowNode node = new BroadcastShowNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBroadcastShowPrintable { void printData(); }\ninterface IBroadcastShowAuditable { void auditLog(); }\n\nclass BroadcastShowNode implements IBroadcastShowPrintable, IBroadcastShowAuditable {\n    @Override public void printData() { System.out.println(\"Milliy TV: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Milliy TV: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowNode node = new BroadcastShowNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2912,7 +2912,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IAudioTrackPrintable { void printData(); }\ninterface IAudioTrackAuditable { void auditLog(); }\n\nclass AudioTrackNode implements IAudioTrackPrintable, IAudioTrackAuditable {\n    @Override public void printData() { System.out.println(\"Spotify Sound: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Spotify Sound: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackNode node = new AudioTrackNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IAudioTrackPrintable { void printData(); }\ninterface IAudioTrackAuditable { void auditLog(); }\n\nclass AudioTrackNode implements IAudioTrackPrintable, IAudioTrackAuditable {\n    @Override public void printData() { System.out.println(\"Spotify Sound: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Spotify Sound: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackNode node = new AudioTrackNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2949,7 +2949,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IThermostatPrintable { void printData(); }\ninterface IThermostatAuditable { void auditLog(); }\n\nclass ThermostatNode implements IThermostatPrintable, IThermostatAuditable {\n    @Override public void printData() { System.out.println(\"Smart Thermostat: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Smart Thermostat: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatNode node = new ThermostatNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IThermostatPrintable { void printData(); }\ninterface IThermostatAuditable { void auditLog(); }\n\nclass ThermostatNode implements IThermostatPrintable, IThermostatAuditable {\n    @Override public void printData() { System.out.println(\"Smart Thermostat: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Smart Thermostat: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatNode node = new ThermostatNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -2986,7 +2986,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IDeliveryDronePrintable { void printData(); }\ninterface IDeliveryDroneAuditable { void auditLog(); }\n\nclass DeliveryDroneNode implements IDeliveryDronePrintable, IDeliveryDroneAuditable {\n    @Override public void printData() { System.out.println(\"Drone Delivery: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Drone Delivery: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneNode node = new DeliveryDroneNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IDeliveryDronePrintable { void printData(); }\ninterface IDeliveryDroneAuditable { void auditLog(); }\n\nclass DeliveryDroneNode implements IDeliveryDronePrintable, IDeliveryDroneAuditable {\n    @Override public void printData() { System.out.println(\"Drone Delivery: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Drone Delivery: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneNode node = new DeliveryDroneNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3023,7 +3023,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IStorageBayPrintable { void printData(); }\ninterface IStorageBayAuditable { void auditLog(); }\n\nclass StorageBayNode implements IStorageBayPrintable, IStorageBayAuditable {\n    @Override public void printData() { System.out.println(\"Smart Warehouse: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Smart Warehouse: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayNode node = new StorageBayNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IStorageBayPrintable { void printData(); }\ninterface IStorageBayAuditable { void auditLog(); }\n\nclass StorageBayNode implements IStorageBayPrintable, IStorageBayAuditable {\n    @Override public void printData() { System.out.println(\"Smart Warehouse: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Smart Warehouse: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayNode node = new StorageBayNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3060,7 +3060,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICryptoAssetPrintable { void printData(); }\ninterface ICryptoAssetAuditable { void auditLog(); }\n\nclass CryptoAssetNode implements ICryptoAssetPrintable, ICryptoAssetAuditable {\n    @Override public void printData() { System.out.println(\"Crypto Wallet: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Crypto Wallet: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetNode node = new CryptoAssetNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICryptoAssetPrintable { void printData(); }\ninterface ICryptoAssetAuditable { void auditLog(); }\n\nclass CryptoAssetNode implements ICryptoAssetPrintable, ICryptoAssetAuditable {\n    @Override public void printData() { System.out.println(\"Crypto Wallet: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Crypto Wallet: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetNode node = new CryptoAssetNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3097,7 +3097,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICatalogBookPrintable { void printData(); }\ninterface ICatalogBookAuditable { void auditLog(); }\n\nclass CatalogBookNode implements ICatalogBookPrintable, ICatalogBookAuditable {\n    @Override public void printData() { System.out.println(\"National Library: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"National Library: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookNode node = new CatalogBookNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICatalogBookPrintable { void printData(); }\ninterface ICatalogBookAuditable { void auditLog(); }\n\nclass CatalogBookNode implements ICatalogBookPrintable, ICatalogBookAuditable {\n    @Override public void printData() { System.out.println(\"National Library: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"National Library: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookNode node = new CatalogBookNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3134,7 +3134,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IGymMemberPrintable { void printData(); }\ninterface IGymMemberAuditable { void auditLog(); }\n\nclass GymMemberNode implements IGymMemberPrintable, IGymMemberAuditable {\n    @Override public void printData() { System.out.println(\"BeFit Club: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"BeFit Club: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberNode node = new GymMemberNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IGymMemberPrintable { void printData(); }\ninterface IGymMemberAuditable { void auditLog(); }\n\nclass GymMemberNode implements IGymMemberPrintable, IGymMemberAuditable {\n    @Override public void printData() { System.out.println(\"BeFit Club: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"BeFit Club: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberNode node = new GymMemberNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3171,7 +3171,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IParkingBayPrintable { void printData(); }\ninterface IParkingBayAuditable { void auditLog(); }\n\nclass ParkingBayNode implements IParkingBayPrintable, IParkingBayAuditable {\n    @Override public void printData() { System.out.println(\"Tashkent Parking: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Tashkent Parking: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayNode node = new ParkingBayNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IParkingBayPrintable { void printData(); }\ninterface IParkingBayAuditable { void auditLog(); }\n\nclass ParkingBayNode implements IParkingBayPrintable, IParkingBayAuditable {\n    @Override public void printData() { System.out.println(\"Tashkent Parking: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Tashkent Parking: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayNode node = new ParkingBayNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3208,7 +3208,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPatientRecordPrintable { void printData(); }\ninterface IPatientRecordAuditable { void auditLog(); }\n\nclass PatientRecordNode implements IPatientRecordPrintable, IPatientRecordAuditable {\n    @Override public void printData() { System.out.println(\"Medion Clinic: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Medion Clinic: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordNode node = new PatientRecordNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPatientRecordPrintable { void printData(); }\ninterface IPatientRecordAuditable { void auditLog(); }\n\nclass PatientRecordNode implements IPatientRecordPrintable, IPatientRecordAuditable {\n    @Override public void printData() { System.out.println(\"Medion Clinic: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Medion Clinic: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordNode node = new PatientRecordNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3245,7 +3245,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IHotelReservationPrintable { void printData(); }\ninterface IHotelReservationAuditable { void auditLog(); }\n\nclass HotelReservationNode implements IHotelReservationPrintable, IHotelReservationAuditable {\n    @Override public void printData() { System.out.println(\"Hyatt Regency: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Hyatt Regency: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationNode node = new HotelReservationNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IHotelReservationPrintable { void printData(); }\ninterface IHotelReservationAuditable { void auditLog(); }\n\nclass HotelReservationNode implements IHotelReservationPrintable, IHotelReservationAuditable {\n    @Override public void printData() { System.out.println(\"Hyatt Regency: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Hyatt Regency: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationNode node = new HotelReservationNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3282,7 +3282,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICinemaTicketPrintable { void printData(); }\ninterface ICinemaTicketAuditable { void auditLog(); }\n\nclass CinemaTicketNode implements ICinemaTicketPrintable, ICinemaTicketAuditable {\n    @Override public void printData() { System.out.println(\"Premier Cinema: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Premier Cinema: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketNode node = new CinemaTicketNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICinemaTicketPrintable { void printData(); }\ninterface ICinemaTicketAuditable { void auditLog(); }\n\nclass CinemaTicketNode implements ICinemaTicketPrintable, ICinemaTicketAuditable {\n    @Override public void printData() { System.out.println(\"Premier Cinema: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Premier Cinema: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketNode node = new CinemaTicketNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3319,7 +3319,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IElectricScooterPrintable { void printData(); }\ninterface IElectricScooterAuditable { void auditLog(); }\n\nclass ElectricScooterNode implements IElectricScooterPrintable, IElectricScooterAuditable {\n    @Override public void printData() { System.out.println(\"Yandex Scooter: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Yandex Scooter: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterNode node = new ElectricScooterNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IElectricScooterPrintable { void printData(); }\ninterface IElectricScooterAuditable { void auditLog(); }\n\nclass ElectricScooterNode implements IElectricScooterPrintable, IElectricScooterAuditable {\n    @Override public void printData() { System.out.println(\"Yandex Scooter: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Yandex Scooter: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterNode node = new ElectricScooterNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3356,7 +3356,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IMeteoStationPrintable { void printData(); }\ninterface IMeteoStationAuditable { void auditLog(); }\n\nclass MeteoStationNode implements IMeteoStationPrintable, IMeteoStationAuditable {\n    @Override public void printData() { System.out.println(\"Weather Network: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Weather Network: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationNode node = new MeteoStationNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IMeteoStationPrintable { void printData(); }\ninterface IMeteoStationAuditable { void auditLog(); }\n\nclass MeteoStationNode implements IMeteoStationPrintable, IMeteoStationAuditable {\n    @Override public void printData() { System.out.println(\"Weather Network: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Weather Network: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationNode node = new MeteoStationNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3393,7 +3393,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IAuctionLotPrintable { void printData(); }\ninterface IAuctionLotAuditable { void auditLog(); }\n\nclass AuctionLotNode implements IAuctionLotPrintable, IAuctionLotAuditable {\n    @Override public void printData() { System.out.println(\"OpenMarket Auction: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"OpenMarket Auction: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotNode node = new AuctionLotNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IAuctionLotPrintable { void printData(); }\ninterface IAuctionLotAuditable { void auditLog(); }\n\nclass AuctionLotNode implements IAuctionLotPrintable, IAuctionLotAuditable {\n    @Override public void printData() { System.out.println(\"OpenMarket Auction: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"OpenMarket Auction: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotNode node = new AuctionLotNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3430,7 +3430,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ISolarInverterPrintable { void printData(); }\ninterface ISolarInverterAuditable { void auditLog(); }\n\nclass SolarInverterNode implements ISolarInverterPrintable, ISolarInverterAuditable {\n    @Override public void printData() { System.out.println(\"Solar Energy Grid: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Solar Energy Grid: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterNode node = new SolarInverterNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ISolarInverterPrintable { void printData(); }\ninterface ISolarInverterAuditable { void auditLog(); }\n\nclass SolarInverterNode implements ISolarInverterPrintable, ISolarInverterAuditable {\n    @Override public void printData() { System.out.println(\"Solar Energy Grid: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"Solar Energy Grid: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterNode node = new SolarInverterNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3467,7 +3467,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ITrainRoutePrintable { void printData(); }\ninterface ITrainRouteAuditable { void auditLog(); }\n\nclass TrainRouteNode implements ITrainRoutePrintable, ITrainRouteAuditable {\n    @Override public void printData() { System.out.println(\"O'zbekiston Temir Yo'llari: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"O'zbekiston Temir Yo'llari: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteNode node = new TrainRouteNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ITrainRoutePrintable { void printData(); }\ninterface ITrainRouteAuditable { void auditLog(); }\n\nclass TrainRouteNode implements ITrainRoutePrintable, ITrainRouteAuditable {\n    @Override public void printData() { System.out.println(\"O'zbekiston Temir Yo'llari: Chop etildi\"); }\n    @Override public void auditLog() { System.out.println(\"O'zbekiston Temir Yo'llari: Audit qilindi\"); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteNode node = new TrainRouteNode();\n        node.printData();\n        node.auditLog();\n    }\n}",
     "detailedSolution": {
       "theory": "Java sinflar uchun ko'p merosxo'rlikni taqiqlasa-da, interfeyslar orqali ko'p shartnomani bemalol amalga oshirishga ruxsat beradi (Multiple Inheritance of Type).",
@@ -3507,7 +3507,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IProductGateway { void send(); }\n\nclass LocalProductGateway implements IProductGateway {\n    @Override public void send() { System.out.println(\"Uzum Market: Xabar yuborildi.\"); }\n}\n\nclass ProductClient {\n    private IProductGateway gateway;\n    public ProductClient(IProductGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductClient app = new ProductClient(new LocalProductGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IProductGateway { void send(); }\n\nclass LocalProductGateway implements IProductGateway {\n    @Override public void send() { System.out.println(\"Uzum Market: Xabar yuborildi.\"); }\n}\n\nclass ProductClient {\n    private IProductGateway gateway;\n    public ProductClient(IProductGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductClient app = new ProductClient(new LocalProductGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3547,7 +3547,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IWalletUserGateway { void send(); }\n\nclass LocalWalletUserGateway implements IWalletUserGateway {\n    @Override public void send() { System.out.println(\"Payme Wallet: Xabar yuborildi.\"); }\n}\n\nclass WalletUserClient {\n    private IWalletUserGateway gateway;\n    public WalletUserClient(IWalletUserGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserClient app = new WalletUserClient(new LocalWalletUserGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IWalletUserGateway { void send(); }\n\nclass LocalWalletUserGateway implements IWalletUserGateway {\n    @Override public void send() { System.out.println(\"Payme Wallet: Xabar yuborildi.\"); }\n}\n\nclass WalletUserClient {\n    private IWalletUserGateway gateway;\n    public WalletUserClient(IWalletUserGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserClient app = new WalletUserClient(new LocalWalletUserGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3587,7 +3587,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ITaxiRideGateway { void send(); }\n\nclass LocalTaxiRideGateway implements ITaxiRideGateway {\n    @Override public void send() { System.out.println(\"Yandex Go: Xabar yuborildi.\"); }\n}\n\nclass TaxiRideClient {\n    private ITaxiRideGateway gateway;\n    public TaxiRideClient(ITaxiRideGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideClient app = new TaxiRideClient(new LocalTaxiRideGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ITaxiRideGateway { void send(); }\n\nclass LocalTaxiRideGateway implements ITaxiRideGateway {\n    @Override public void send() { System.out.println(\"Yandex Go: Xabar yuborildi.\"); }\n}\n\nclass TaxiRideClient {\n    private ITaxiRideGateway gateway;\n    public TaxiRideClient(ITaxiRideGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideClient app = new TaxiRideClient(new LocalTaxiRideGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3627,7 +3627,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ILoyaltyCardGateway { void send(); }\n\nclass LocalLoyaltyCardGateway implements ILoyaltyCardGateway {\n    @Override public void send() { System.out.println(\"Korzinka Go: Xabar yuborildi.\"); }\n}\n\nclass LoyaltyCardClient {\n    private ILoyaltyCardGateway gateway;\n    public LoyaltyCardClient(ILoyaltyCardGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardClient app = new LoyaltyCardClient(new LocalLoyaltyCardGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ILoyaltyCardGateway { void send(); }\n\nclass LocalLoyaltyCardGateway implements ILoyaltyCardGateway {\n    @Override public void send() { System.out.println(\"Korzinka Go: Xabar yuborildi.\"); }\n}\n\nclass LoyaltyCardClient {\n    private ILoyaltyCardGateway gateway;\n    public LoyaltyCardClient(ILoyaltyCardGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardClient app = new LoyaltyCardClient(new LocalLoyaltyCardGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3667,7 +3667,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IStudentGateway { void send(); }\n\nclass LocalStudentGateway implements IStudentGateway {\n    @Override public void send() { System.out.println(\"WIUT Portal: Xabar yuborildi.\"); }\n}\n\nclass StudentClient {\n    private IStudentGateway gateway;\n    public StudentClient(IStudentGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentClient app = new StudentClient(new LocalStudentGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IStudentGateway { void send(); }\n\nclass LocalStudentGateway implements IStudentGateway {\n    @Override public void send() { System.out.println(\"WIUT Portal: Xabar yuborildi.\"); }\n}\n\nclass StudentClient {\n    private IStudentGateway gateway;\n    public StudentClient(IStudentGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentClient app = new StudentClient(new LocalStudentGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3707,7 +3707,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPaymentTxnGateway { void send(); }\n\nclass LocalPaymentTxnGateway implements IPaymentTxnGateway {\n    @Override public void send() { System.out.println(\"Click Pay: Xabar yuborildi.\"); }\n}\n\nclass PaymentTxnClient {\n    private IPaymentTxnGateway gateway;\n    public PaymentTxnClient(IPaymentTxnGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnClient app = new PaymentTxnClient(new LocalPaymentTxnGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPaymentTxnGateway { void send(); }\n\nclass LocalPaymentTxnGateway implements IPaymentTxnGateway {\n    @Override public void send() { System.out.println(\"Click Pay: Xabar yuborildi.\"); }\n}\n\nclass PaymentTxnClient {\n    private IPaymentTxnGateway gateway;\n    public PaymentTxnClient(IPaymentTxnGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnClient app = new PaymentTxnClient(new LocalPaymentTxnGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3747,7 +3747,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBotMessageGateway { void send(); }\n\nclass LocalBotMessageGateway implements IBotMessageGateway {\n    @Override public void send() { System.out.println(\"Telegram Bot: Xabar yuborildi.\"); }\n}\n\nclass BotMessageClient {\n    private IBotMessageGateway gateway;\n    public BotMessageClient(IBotMessageGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageClient app = new BotMessageClient(new LocalBotMessageGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBotMessageGateway { void send(); }\n\nclass LocalBotMessageGateway implements IBotMessageGateway {\n    @Override public void send() { System.out.println(\"Telegram Bot: Xabar yuborildi.\"); }\n}\n\nclass BotMessageClient {\n    private IBotMessageGateway gateway;\n    public BotMessageClient(IBotMessageGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageClient app = new BotMessageClient(new LocalBotMessageGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3787,7 +3787,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IFlightTicketGateway { void send(); }\n\nclass LocalFlightTicketGateway implements IFlightTicketGateway {\n    @Override public void send() { System.out.println(\"UzAirways: Xabar yuborildi.\"); }\n}\n\nclass FlightTicketClient {\n    private IFlightTicketGateway gateway;\n    public FlightTicketClient(IFlightTicketGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketClient app = new FlightTicketClient(new LocalFlightTicketGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IFlightTicketGateway { void send(); }\n\nclass LocalFlightTicketGateway implements IFlightTicketGateway {\n    @Override public void send() { System.out.println(\"UzAirways: Xabar yuborildi.\"); }\n}\n\nclass FlightTicketClient {\n    private IFlightTicketGateway gateway;\n    public FlightTicketClient(IFlightTicketGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketClient app = new FlightTicketClient(new LocalFlightTicketGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3827,7 +3827,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBootcampCourseGateway { void send(); }\n\nclass LocalBootcampCourseGateway implements IBootcampCourseGateway {\n    @Override public void send() { System.out.println(\"IT Park Academy: Xabar yuborildi.\"); }\n}\n\nclass BootcampCourseClient {\n    private IBootcampCourseGateway gateway;\n    public BootcampCourseClient(IBootcampCourseGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseClient app = new BootcampCourseClient(new LocalBootcampCourseGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBootcampCourseGateway { void send(); }\n\nclass LocalBootcampCourseGateway implements IBootcampCourseGateway {\n    @Override public void send() { System.out.println(\"IT Park Academy: Xabar yuborildi.\"); }\n}\n\nclass BootcampCourseClient {\n    private IBootcampCourseGateway gateway;\n    public BootcampCourseClient(IBootcampCourseGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseClient app = new BootcampCourseClient(new LocalBootcampCourseGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3867,7 +3867,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IDebitCardGateway { void send(); }\n\nclass LocalDebitCardGateway implements IDebitCardGateway {\n    @Override public void send() { System.out.println(\"Anorbank: Xabar yuborildi.\"); }\n}\n\nclass DebitCardClient {\n    private IDebitCardGateway gateway;\n    public DebitCardClient(IDebitCardGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardClient app = new DebitCardClient(new LocalDebitCardGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IDebitCardGateway { void send(); }\n\nclass LocalDebitCardGateway implements IDebitCardGateway {\n    @Override public void send() { System.out.println(\"Anorbank: Xabar yuborildi.\"); }\n}\n\nclass DebitCardClient {\n    private IDebitCardGateway gateway;\n    public DebitCardClient(IDebitCardGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardClient app = new DebitCardClient(new LocalDebitCardGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3907,7 +3907,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IMedicineGateway { void send(); }\n\nclass LocalMedicineGateway implements IMedicineGateway {\n    @Override public void send() { System.out.println(\"Oson Apteka: Xabar yuborildi.\"); }\n}\n\nclass MedicineClient {\n    private IMedicineGateway gateway;\n    public MedicineClient(IMedicineGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineClient app = new MedicineClient(new LocalMedicineGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IMedicineGateway { void send(); }\n\nclass LocalMedicineGateway implements IMedicineGateway {\n    @Override public void send() { System.out.println(\"Oson Apteka: Xabar yuborildi.\"); }\n}\n\nclass MedicineClient {\n    private IMedicineGateway gateway;\n    public MedicineClient(IMedicineGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineClient app = new MedicineClient(new LocalMedicineGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3947,7 +3947,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IFoodOrderGateway { void send(); }\n\nclass LocalFoodOrderGateway implements IFoodOrderGateway {\n    @Override public void send() { System.out.println(\"Evos FastFood: Xabar yuborildi.\"); }\n}\n\nclass FoodOrderClient {\n    private IFoodOrderGateway gateway;\n    public FoodOrderClient(IFoodOrderGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderClient app = new FoodOrderClient(new LocalFoodOrderGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IFoodOrderGateway { void send(); }\n\nclass LocalFoodOrderGateway implements IFoodOrderGateway {\n    @Override public void send() { System.out.println(\"Evos FastFood: Xabar yuborildi.\"); }\n}\n\nclass FoodOrderClient {\n    private IFoodOrderGateway gateway;\n    public FoodOrderClient(IFoodOrderGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderClient app = new FoodOrderClient(new LocalFoodOrderGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -3987,7 +3987,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPizzaOrderGateway { void send(); }\n\nclass LocalPizzaOrderGateway implements IPizzaOrderGateway {\n    @Override public void send() { System.out.println(\"Bellissimo Pizza: Xabar yuborildi.\"); }\n}\n\nclass PizzaOrderClient {\n    private IPizzaOrderGateway gateway;\n    public PizzaOrderClient(IPizzaOrderGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderClient app = new PizzaOrderClient(new LocalPizzaOrderGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPizzaOrderGateway { void send(); }\n\nclass LocalPizzaOrderGateway implements IPizzaOrderGateway {\n    @Override public void send() { System.out.println(\"Bellissimo Pizza: Xabar yuborildi.\"); }\n}\n\nclass PizzaOrderClient {\n    private IPizzaOrderGateway gateway;\n    public PizzaOrderClient(IPizzaOrderGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderClient app = new PizzaOrderClient(new LocalPizzaOrderGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4027,7 +4027,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IBroadcastShowGateway { void send(); }\n\nclass LocalBroadcastShowGateway implements IBroadcastShowGateway {\n    @Override public void send() { System.out.println(\"Milliy TV: Xabar yuborildi.\"); }\n}\n\nclass BroadcastShowClient {\n    private IBroadcastShowGateway gateway;\n    public BroadcastShowClient(IBroadcastShowGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowClient app = new BroadcastShowClient(new LocalBroadcastShowGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IBroadcastShowGateway { void send(); }\n\nclass LocalBroadcastShowGateway implements IBroadcastShowGateway {\n    @Override public void send() { System.out.println(\"Milliy TV: Xabar yuborildi.\"); }\n}\n\nclass BroadcastShowClient {\n    private IBroadcastShowGateway gateway;\n    public BroadcastShowClient(IBroadcastShowGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowClient app = new BroadcastShowClient(new LocalBroadcastShowGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4067,7 +4067,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IAudioTrackGateway { void send(); }\n\nclass LocalAudioTrackGateway implements IAudioTrackGateway {\n    @Override public void send() { System.out.println(\"Spotify Sound: Xabar yuborildi.\"); }\n}\n\nclass AudioTrackClient {\n    private IAudioTrackGateway gateway;\n    public AudioTrackClient(IAudioTrackGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackClient app = new AudioTrackClient(new LocalAudioTrackGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IAudioTrackGateway { void send(); }\n\nclass LocalAudioTrackGateway implements IAudioTrackGateway {\n    @Override public void send() { System.out.println(\"Spotify Sound: Xabar yuborildi.\"); }\n}\n\nclass AudioTrackClient {\n    private IAudioTrackGateway gateway;\n    public AudioTrackClient(IAudioTrackGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackClient app = new AudioTrackClient(new LocalAudioTrackGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4107,7 +4107,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IThermostatGateway { void send(); }\n\nclass LocalThermostatGateway implements IThermostatGateway {\n    @Override public void send() { System.out.println(\"Smart Thermostat: Xabar yuborildi.\"); }\n}\n\nclass ThermostatClient {\n    private IThermostatGateway gateway;\n    public ThermostatClient(IThermostatGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatClient app = new ThermostatClient(new LocalThermostatGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IThermostatGateway { void send(); }\n\nclass LocalThermostatGateway implements IThermostatGateway {\n    @Override public void send() { System.out.println(\"Smart Thermostat: Xabar yuborildi.\"); }\n}\n\nclass ThermostatClient {\n    private IThermostatGateway gateway;\n    public ThermostatClient(IThermostatGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatClient app = new ThermostatClient(new LocalThermostatGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4147,7 +4147,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IDeliveryDroneGateway { void send(); }\n\nclass LocalDeliveryDroneGateway implements IDeliveryDroneGateway {\n    @Override public void send() { System.out.println(\"Drone Delivery: Xabar yuborildi.\"); }\n}\n\nclass DeliveryDroneClient {\n    private IDeliveryDroneGateway gateway;\n    public DeliveryDroneClient(IDeliveryDroneGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneClient app = new DeliveryDroneClient(new LocalDeliveryDroneGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IDeliveryDroneGateway { void send(); }\n\nclass LocalDeliveryDroneGateway implements IDeliveryDroneGateway {\n    @Override public void send() { System.out.println(\"Drone Delivery: Xabar yuborildi.\"); }\n}\n\nclass DeliveryDroneClient {\n    private IDeliveryDroneGateway gateway;\n    public DeliveryDroneClient(IDeliveryDroneGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneClient app = new DeliveryDroneClient(new LocalDeliveryDroneGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4187,7 +4187,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IStorageBayGateway { void send(); }\n\nclass LocalStorageBayGateway implements IStorageBayGateway {\n    @Override public void send() { System.out.println(\"Smart Warehouse: Xabar yuborildi.\"); }\n}\n\nclass StorageBayClient {\n    private IStorageBayGateway gateway;\n    public StorageBayClient(IStorageBayGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayClient app = new StorageBayClient(new LocalStorageBayGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IStorageBayGateway { void send(); }\n\nclass LocalStorageBayGateway implements IStorageBayGateway {\n    @Override public void send() { System.out.println(\"Smart Warehouse: Xabar yuborildi.\"); }\n}\n\nclass StorageBayClient {\n    private IStorageBayGateway gateway;\n    public StorageBayClient(IStorageBayGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayClient app = new StorageBayClient(new LocalStorageBayGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4227,7 +4227,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICryptoAssetGateway { void send(); }\n\nclass LocalCryptoAssetGateway implements ICryptoAssetGateway {\n    @Override public void send() { System.out.println(\"Crypto Wallet: Xabar yuborildi.\"); }\n}\n\nclass CryptoAssetClient {\n    private ICryptoAssetGateway gateway;\n    public CryptoAssetClient(ICryptoAssetGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetClient app = new CryptoAssetClient(new LocalCryptoAssetGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICryptoAssetGateway { void send(); }\n\nclass LocalCryptoAssetGateway implements ICryptoAssetGateway {\n    @Override public void send() { System.out.println(\"Crypto Wallet: Xabar yuborildi.\"); }\n}\n\nclass CryptoAssetClient {\n    private ICryptoAssetGateway gateway;\n    public CryptoAssetClient(ICryptoAssetGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetClient app = new CryptoAssetClient(new LocalCryptoAssetGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4267,7 +4267,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICatalogBookGateway { void send(); }\n\nclass LocalCatalogBookGateway implements ICatalogBookGateway {\n    @Override public void send() { System.out.println(\"National Library: Xabar yuborildi.\"); }\n}\n\nclass CatalogBookClient {\n    private ICatalogBookGateway gateway;\n    public CatalogBookClient(ICatalogBookGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookClient app = new CatalogBookClient(new LocalCatalogBookGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICatalogBookGateway { void send(); }\n\nclass LocalCatalogBookGateway implements ICatalogBookGateway {\n    @Override public void send() { System.out.println(\"National Library: Xabar yuborildi.\"); }\n}\n\nclass CatalogBookClient {\n    private ICatalogBookGateway gateway;\n    public CatalogBookClient(ICatalogBookGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookClient app = new CatalogBookClient(new LocalCatalogBookGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4307,7 +4307,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IGymMemberGateway { void send(); }\n\nclass LocalGymMemberGateway implements IGymMemberGateway {\n    @Override public void send() { System.out.println(\"BeFit Club: Xabar yuborildi.\"); }\n}\n\nclass GymMemberClient {\n    private IGymMemberGateway gateway;\n    public GymMemberClient(IGymMemberGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberClient app = new GymMemberClient(new LocalGymMemberGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IGymMemberGateway { void send(); }\n\nclass LocalGymMemberGateway implements IGymMemberGateway {\n    @Override public void send() { System.out.println(\"BeFit Club: Xabar yuborildi.\"); }\n}\n\nclass GymMemberClient {\n    private IGymMemberGateway gateway;\n    public GymMemberClient(IGymMemberGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberClient app = new GymMemberClient(new LocalGymMemberGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4347,7 +4347,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IParkingBayGateway { void send(); }\n\nclass LocalParkingBayGateway implements IParkingBayGateway {\n    @Override public void send() { System.out.println(\"Tashkent Parking: Xabar yuborildi.\"); }\n}\n\nclass ParkingBayClient {\n    private IParkingBayGateway gateway;\n    public ParkingBayClient(IParkingBayGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayClient app = new ParkingBayClient(new LocalParkingBayGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IParkingBayGateway { void send(); }\n\nclass LocalParkingBayGateway implements IParkingBayGateway {\n    @Override public void send() { System.out.println(\"Tashkent Parking: Xabar yuborildi.\"); }\n}\n\nclass ParkingBayClient {\n    private IParkingBayGateway gateway;\n    public ParkingBayClient(IParkingBayGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayClient app = new ParkingBayClient(new LocalParkingBayGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4387,7 +4387,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IPatientRecordGateway { void send(); }\n\nclass LocalPatientRecordGateway implements IPatientRecordGateway {\n    @Override public void send() { System.out.println(\"Medion Clinic: Xabar yuborildi.\"); }\n}\n\nclass PatientRecordClient {\n    private IPatientRecordGateway gateway;\n    public PatientRecordClient(IPatientRecordGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordClient app = new PatientRecordClient(new LocalPatientRecordGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IPatientRecordGateway { void send(); }\n\nclass LocalPatientRecordGateway implements IPatientRecordGateway {\n    @Override public void send() { System.out.println(\"Medion Clinic: Xabar yuborildi.\"); }\n}\n\nclass PatientRecordClient {\n    private IPatientRecordGateway gateway;\n    public PatientRecordClient(IPatientRecordGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordClient app = new PatientRecordClient(new LocalPatientRecordGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4427,7 +4427,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IHotelReservationGateway { void send(); }\n\nclass LocalHotelReservationGateway implements IHotelReservationGateway {\n    @Override public void send() { System.out.println(\"Hyatt Regency: Xabar yuborildi.\"); }\n}\n\nclass HotelReservationClient {\n    private IHotelReservationGateway gateway;\n    public HotelReservationClient(IHotelReservationGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationClient app = new HotelReservationClient(new LocalHotelReservationGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IHotelReservationGateway { void send(); }\n\nclass LocalHotelReservationGateway implements IHotelReservationGateway {\n    @Override public void send() { System.out.println(\"Hyatt Regency: Xabar yuborildi.\"); }\n}\n\nclass HotelReservationClient {\n    private IHotelReservationGateway gateway;\n    public HotelReservationClient(IHotelReservationGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationClient app = new HotelReservationClient(new LocalHotelReservationGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4467,7 +4467,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ICinemaTicketGateway { void send(); }\n\nclass LocalCinemaTicketGateway implements ICinemaTicketGateway {\n    @Override public void send() { System.out.println(\"Premier Cinema: Xabar yuborildi.\"); }\n}\n\nclass CinemaTicketClient {\n    private ICinemaTicketGateway gateway;\n    public CinemaTicketClient(ICinemaTicketGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketClient app = new CinemaTicketClient(new LocalCinemaTicketGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ICinemaTicketGateway { void send(); }\n\nclass LocalCinemaTicketGateway implements ICinemaTicketGateway {\n    @Override public void send() { System.out.println(\"Premier Cinema: Xabar yuborildi.\"); }\n}\n\nclass CinemaTicketClient {\n    private ICinemaTicketGateway gateway;\n    public CinemaTicketClient(ICinemaTicketGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketClient app = new CinemaTicketClient(new LocalCinemaTicketGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4507,7 +4507,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IElectricScooterGateway { void send(); }\n\nclass LocalElectricScooterGateway implements IElectricScooterGateway {\n    @Override public void send() { System.out.println(\"Yandex Scooter: Xabar yuborildi.\"); }\n}\n\nclass ElectricScooterClient {\n    private IElectricScooterGateway gateway;\n    public ElectricScooterClient(IElectricScooterGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterClient app = new ElectricScooterClient(new LocalElectricScooterGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IElectricScooterGateway { void send(); }\n\nclass LocalElectricScooterGateway implements IElectricScooterGateway {\n    @Override public void send() { System.out.println(\"Yandex Scooter: Xabar yuborildi.\"); }\n}\n\nclass ElectricScooterClient {\n    private IElectricScooterGateway gateway;\n    public ElectricScooterClient(IElectricScooterGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterClient app = new ElectricScooterClient(new LocalElectricScooterGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4547,7 +4547,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IMeteoStationGateway { void send(); }\n\nclass LocalMeteoStationGateway implements IMeteoStationGateway {\n    @Override public void send() { System.out.println(\"Weather Network: Xabar yuborildi.\"); }\n}\n\nclass MeteoStationClient {\n    private IMeteoStationGateway gateway;\n    public MeteoStationClient(IMeteoStationGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationClient app = new MeteoStationClient(new LocalMeteoStationGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IMeteoStationGateway { void send(); }\n\nclass LocalMeteoStationGateway implements IMeteoStationGateway {\n    @Override public void send() { System.out.println(\"Weather Network: Xabar yuborildi.\"); }\n}\n\nclass MeteoStationClient {\n    private IMeteoStationGateway gateway;\n    public MeteoStationClient(IMeteoStationGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationClient app = new MeteoStationClient(new LocalMeteoStationGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4587,7 +4587,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface IAuctionLotGateway { void send(); }\n\nclass LocalAuctionLotGateway implements IAuctionLotGateway {\n    @Override public void send() { System.out.println(\"OpenMarket Auction: Xabar yuborildi.\"); }\n}\n\nclass AuctionLotClient {\n    private IAuctionLotGateway gateway;\n    public AuctionLotClient(IAuctionLotGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotClient app = new AuctionLotClient(new LocalAuctionLotGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface IAuctionLotGateway { void send(); }\n\nclass LocalAuctionLotGateway implements IAuctionLotGateway {\n    @Override public void send() { System.out.println(\"OpenMarket Auction: Xabar yuborildi.\"); }\n}\n\nclass AuctionLotClient {\n    private IAuctionLotGateway gateway;\n    public AuctionLotClient(IAuctionLotGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotClient app = new AuctionLotClient(new LocalAuctionLotGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4627,7 +4627,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ISolarInverterGateway { void send(); }\n\nclass LocalSolarInverterGateway implements ISolarInverterGateway {\n    @Override public void send() { System.out.println(\"Solar Energy Grid: Xabar yuborildi.\"); }\n}\n\nclass SolarInverterClient {\n    private ISolarInverterGateway gateway;\n    public SolarInverterClient(ISolarInverterGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterClient app = new SolarInverterClient(new LocalSolarInverterGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ISolarInverterGateway { void send(); }\n\nclass LocalSolarInverterGateway implements ISolarInverterGateway {\n    @Override public void send() { System.out.println(\"Solar Energy Grid: Xabar yuborildi.\"); }\n}\n\nclass SolarInverterClient {\n    private ISolarInverterGateway gateway;\n    public SolarInverterClient(ISolarInverterGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterClient app = new SolarInverterClient(new LocalSolarInverterGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4667,7 +4667,7 @@ window.OOP_CHALLENGES_W5 = [
         "implements"
       ]
     },
-    "starterCode": "interface ITrainRouteGateway { void send(); }\n\nclass LocalTrainRouteGateway implements ITrainRouteGateway {\n    @Override public void send() { System.out.println(\"O'zbekiston Temir Yo'llari: Xabar yuborildi.\"); }\n}\n\nclass TrainRouteClient {\n    private ITrainRouteGateway gateway;\n    public TrainRouteClient(ITrainRouteGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteClient app = new TrainRouteClient(new LocalTrainRouteGateway());\n        app.execute();\n    }\n}",
+    "starterCode": "",
     "solution": "interface ITrainRouteGateway { void send(); }\n\nclass LocalTrainRouteGateway implements ITrainRouteGateway {\n    @Override public void send() { System.out.println(\"O'zbekiston Temir Yo'llari: Xabar yuborildi.\"); }\n}\n\nclass TrainRouteClient {\n    private ITrainRouteGateway gateway;\n    public TrainRouteClient(ITrainRouteGateway gateway) {\n        this.gateway = gateway;\n    }\n    public void execute() { gateway.send(); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteClient app = new TrainRouteClient(new LocalTrainRouteGateway());\n        app.execute();\n    }\n}",
     "detailedSolution": {
       "theory": "Dependency Inversion (D in SOLID): Yuqori darajadagi modullar past darajadagi aniq sinflarga emas, balki abstraksiyaga (interfeysga) bog'lanishi kerak. Bu tizimni oson sinovdan o'tkazish (unit testing) imkonini beradi.",
@@ -4705,7 +4705,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnProductCompletedListener {\n    void onComplete(String msg);\n}\n\nclass ProductNotifier {\n    public void triggerEvent(OnProductCompletedListener listener) {\n        System.out.println(\"Uzum Market: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductNotifier d = new ProductNotifier();\n        d.triggerEvent(new OnProductCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnProductCompletedListener {\n    void onComplete(String msg);\n}\n\nclass ProductNotifier {\n    public void triggerEvent(OnProductCompletedListener listener) {\n        System.out.println(\"Uzum Market: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductNotifier d = new ProductNotifier();\n        d.triggerEvent(new OnProductCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -4743,7 +4743,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnWalletUserCompletedListener {\n    void onComplete(String msg);\n}\n\nclass WalletUserNotifier {\n    public void triggerEvent(OnWalletUserCompletedListener listener) {\n        System.out.println(\"Payme Wallet: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserNotifier d = new WalletUserNotifier();\n        d.triggerEvent(new OnWalletUserCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnWalletUserCompletedListener {\n    void onComplete(String msg);\n}\n\nclass WalletUserNotifier {\n    public void triggerEvent(OnWalletUserCompletedListener listener) {\n        System.out.println(\"Payme Wallet: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserNotifier d = new WalletUserNotifier();\n        d.triggerEvent(new OnWalletUserCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -4781,7 +4781,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnTaxiRideCompletedListener {\n    void onComplete(String msg);\n}\n\nclass TaxiRideNotifier {\n    public void triggerEvent(OnTaxiRideCompletedListener listener) {\n        System.out.println(\"Yandex Go: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideNotifier d = new TaxiRideNotifier();\n        d.triggerEvent(new OnTaxiRideCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnTaxiRideCompletedListener {\n    void onComplete(String msg);\n}\n\nclass TaxiRideNotifier {\n    public void triggerEvent(OnTaxiRideCompletedListener listener) {\n        System.out.println(\"Yandex Go: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideNotifier d = new TaxiRideNotifier();\n        d.triggerEvent(new OnTaxiRideCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -4819,7 +4819,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnLoyaltyCardCompletedListener {\n    void onComplete(String msg);\n}\n\nclass LoyaltyCardNotifier {\n    public void triggerEvent(OnLoyaltyCardCompletedListener listener) {\n        System.out.println(\"Korzinka Go: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardNotifier d = new LoyaltyCardNotifier();\n        d.triggerEvent(new OnLoyaltyCardCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnLoyaltyCardCompletedListener {\n    void onComplete(String msg);\n}\n\nclass LoyaltyCardNotifier {\n    public void triggerEvent(OnLoyaltyCardCompletedListener listener) {\n        System.out.println(\"Korzinka Go: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardNotifier d = new LoyaltyCardNotifier();\n        d.triggerEvent(new OnLoyaltyCardCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -4857,7 +4857,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnStudentCompletedListener {\n    void onComplete(String msg);\n}\n\nclass StudentNotifier {\n    public void triggerEvent(OnStudentCompletedListener listener) {\n        System.out.println(\"WIUT Portal: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentNotifier d = new StudentNotifier();\n        d.triggerEvent(new OnStudentCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnStudentCompletedListener {\n    void onComplete(String msg);\n}\n\nclass StudentNotifier {\n    public void triggerEvent(OnStudentCompletedListener listener) {\n        System.out.println(\"WIUT Portal: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentNotifier d = new StudentNotifier();\n        d.triggerEvent(new OnStudentCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -4895,7 +4895,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnPaymentTxnCompletedListener {\n    void onComplete(String msg);\n}\n\nclass PaymentTxnNotifier {\n    public void triggerEvent(OnPaymentTxnCompletedListener listener) {\n        System.out.println(\"Click Pay: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnNotifier d = new PaymentTxnNotifier();\n        d.triggerEvent(new OnPaymentTxnCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnPaymentTxnCompletedListener {\n    void onComplete(String msg);\n}\n\nclass PaymentTxnNotifier {\n    public void triggerEvent(OnPaymentTxnCompletedListener listener) {\n        System.out.println(\"Click Pay: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnNotifier d = new PaymentTxnNotifier();\n        d.triggerEvent(new OnPaymentTxnCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -4933,7 +4933,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnBotMessageCompletedListener {\n    void onComplete(String msg);\n}\n\nclass BotMessageNotifier {\n    public void triggerEvent(OnBotMessageCompletedListener listener) {\n        System.out.println(\"Telegram Bot: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageNotifier d = new BotMessageNotifier();\n        d.triggerEvent(new OnBotMessageCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnBotMessageCompletedListener {\n    void onComplete(String msg);\n}\n\nclass BotMessageNotifier {\n    public void triggerEvent(OnBotMessageCompletedListener listener) {\n        System.out.println(\"Telegram Bot: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageNotifier d = new BotMessageNotifier();\n        d.triggerEvent(new OnBotMessageCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -4971,7 +4971,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnFlightTicketCompletedListener {\n    void onComplete(String msg);\n}\n\nclass FlightTicketNotifier {\n    public void triggerEvent(OnFlightTicketCompletedListener listener) {\n        System.out.println(\"UzAirways: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketNotifier d = new FlightTicketNotifier();\n        d.triggerEvent(new OnFlightTicketCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnFlightTicketCompletedListener {\n    void onComplete(String msg);\n}\n\nclass FlightTicketNotifier {\n    public void triggerEvent(OnFlightTicketCompletedListener listener) {\n        System.out.println(\"UzAirways: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketNotifier d = new FlightTicketNotifier();\n        d.triggerEvent(new OnFlightTicketCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5009,7 +5009,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnBootcampCourseCompletedListener {\n    void onComplete(String msg);\n}\n\nclass BootcampCourseNotifier {\n    public void triggerEvent(OnBootcampCourseCompletedListener listener) {\n        System.out.println(\"IT Park Academy: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseNotifier d = new BootcampCourseNotifier();\n        d.triggerEvent(new OnBootcampCourseCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnBootcampCourseCompletedListener {\n    void onComplete(String msg);\n}\n\nclass BootcampCourseNotifier {\n    public void triggerEvent(OnBootcampCourseCompletedListener listener) {\n        System.out.println(\"IT Park Academy: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseNotifier d = new BootcampCourseNotifier();\n        d.triggerEvent(new OnBootcampCourseCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5047,7 +5047,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnDebitCardCompletedListener {\n    void onComplete(String msg);\n}\n\nclass DebitCardNotifier {\n    public void triggerEvent(OnDebitCardCompletedListener listener) {\n        System.out.println(\"Anorbank: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardNotifier d = new DebitCardNotifier();\n        d.triggerEvent(new OnDebitCardCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnDebitCardCompletedListener {\n    void onComplete(String msg);\n}\n\nclass DebitCardNotifier {\n    public void triggerEvent(OnDebitCardCompletedListener listener) {\n        System.out.println(\"Anorbank: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardNotifier d = new DebitCardNotifier();\n        d.triggerEvent(new OnDebitCardCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5085,7 +5085,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnMedicineCompletedListener {\n    void onComplete(String msg);\n}\n\nclass MedicineNotifier {\n    public void triggerEvent(OnMedicineCompletedListener listener) {\n        System.out.println(\"Oson Apteka: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineNotifier d = new MedicineNotifier();\n        d.triggerEvent(new OnMedicineCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnMedicineCompletedListener {\n    void onComplete(String msg);\n}\n\nclass MedicineNotifier {\n    public void triggerEvent(OnMedicineCompletedListener listener) {\n        System.out.println(\"Oson Apteka: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineNotifier d = new MedicineNotifier();\n        d.triggerEvent(new OnMedicineCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5123,7 +5123,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnFoodOrderCompletedListener {\n    void onComplete(String msg);\n}\n\nclass FoodOrderNotifier {\n    public void triggerEvent(OnFoodOrderCompletedListener listener) {\n        System.out.println(\"Evos FastFood: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderNotifier d = new FoodOrderNotifier();\n        d.triggerEvent(new OnFoodOrderCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnFoodOrderCompletedListener {\n    void onComplete(String msg);\n}\n\nclass FoodOrderNotifier {\n    public void triggerEvent(OnFoodOrderCompletedListener listener) {\n        System.out.println(\"Evos FastFood: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderNotifier d = new FoodOrderNotifier();\n        d.triggerEvent(new OnFoodOrderCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5161,7 +5161,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnPizzaOrderCompletedListener {\n    void onComplete(String msg);\n}\n\nclass PizzaOrderNotifier {\n    public void triggerEvent(OnPizzaOrderCompletedListener listener) {\n        System.out.println(\"Bellissimo Pizza: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderNotifier d = new PizzaOrderNotifier();\n        d.triggerEvent(new OnPizzaOrderCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnPizzaOrderCompletedListener {\n    void onComplete(String msg);\n}\n\nclass PizzaOrderNotifier {\n    public void triggerEvent(OnPizzaOrderCompletedListener listener) {\n        System.out.println(\"Bellissimo Pizza: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderNotifier d = new PizzaOrderNotifier();\n        d.triggerEvent(new OnPizzaOrderCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5199,7 +5199,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnBroadcastShowCompletedListener {\n    void onComplete(String msg);\n}\n\nclass BroadcastShowNotifier {\n    public void triggerEvent(OnBroadcastShowCompletedListener listener) {\n        System.out.println(\"Milliy TV: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowNotifier d = new BroadcastShowNotifier();\n        d.triggerEvent(new OnBroadcastShowCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnBroadcastShowCompletedListener {\n    void onComplete(String msg);\n}\n\nclass BroadcastShowNotifier {\n    public void triggerEvent(OnBroadcastShowCompletedListener listener) {\n        System.out.println(\"Milliy TV: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowNotifier d = new BroadcastShowNotifier();\n        d.triggerEvent(new OnBroadcastShowCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5237,7 +5237,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnAudioTrackCompletedListener {\n    void onComplete(String msg);\n}\n\nclass AudioTrackNotifier {\n    public void triggerEvent(OnAudioTrackCompletedListener listener) {\n        System.out.println(\"Spotify Sound: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackNotifier d = new AudioTrackNotifier();\n        d.triggerEvent(new OnAudioTrackCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnAudioTrackCompletedListener {\n    void onComplete(String msg);\n}\n\nclass AudioTrackNotifier {\n    public void triggerEvent(OnAudioTrackCompletedListener listener) {\n        System.out.println(\"Spotify Sound: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackNotifier d = new AudioTrackNotifier();\n        d.triggerEvent(new OnAudioTrackCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5275,7 +5275,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnThermostatCompletedListener {\n    void onComplete(String msg);\n}\n\nclass ThermostatNotifier {\n    public void triggerEvent(OnThermostatCompletedListener listener) {\n        System.out.println(\"Smart Thermostat: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatNotifier d = new ThermostatNotifier();\n        d.triggerEvent(new OnThermostatCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnThermostatCompletedListener {\n    void onComplete(String msg);\n}\n\nclass ThermostatNotifier {\n    public void triggerEvent(OnThermostatCompletedListener listener) {\n        System.out.println(\"Smart Thermostat: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatNotifier d = new ThermostatNotifier();\n        d.triggerEvent(new OnThermostatCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5313,7 +5313,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnDeliveryDroneCompletedListener {\n    void onComplete(String msg);\n}\n\nclass DeliveryDroneNotifier {\n    public void triggerEvent(OnDeliveryDroneCompletedListener listener) {\n        System.out.println(\"Drone Delivery: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneNotifier d = new DeliveryDroneNotifier();\n        d.triggerEvent(new OnDeliveryDroneCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnDeliveryDroneCompletedListener {\n    void onComplete(String msg);\n}\n\nclass DeliveryDroneNotifier {\n    public void triggerEvent(OnDeliveryDroneCompletedListener listener) {\n        System.out.println(\"Drone Delivery: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneNotifier d = new DeliveryDroneNotifier();\n        d.triggerEvent(new OnDeliveryDroneCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5351,7 +5351,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnStorageBayCompletedListener {\n    void onComplete(String msg);\n}\n\nclass StorageBayNotifier {\n    public void triggerEvent(OnStorageBayCompletedListener listener) {\n        System.out.println(\"Smart Warehouse: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayNotifier d = new StorageBayNotifier();\n        d.triggerEvent(new OnStorageBayCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnStorageBayCompletedListener {\n    void onComplete(String msg);\n}\n\nclass StorageBayNotifier {\n    public void triggerEvent(OnStorageBayCompletedListener listener) {\n        System.out.println(\"Smart Warehouse: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayNotifier d = new StorageBayNotifier();\n        d.triggerEvent(new OnStorageBayCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5389,7 +5389,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnCryptoAssetCompletedListener {\n    void onComplete(String msg);\n}\n\nclass CryptoAssetNotifier {\n    public void triggerEvent(OnCryptoAssetCompletedListener listener) {\n        System.out.println(\"Crypto Wallet: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetNotifier d = new CryptoAssetNotifier();\n        d.triggerEvent(new OnCryptoAssetCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnCryptoAssetCompletedListener {\n    void onComplete(String msg);\n}\n\nclass CryptoAssetNotifier {\n    public void triggerEvent(OnCryptoAssetCompletedListener listener) {\n        System.out.println(\"Crypto Wallet: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetNotifier d = new CryptoAssetNotifier();\n        d.triggerEvent(new OnCryptoAssetCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5427,7 +5427,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnCatalogBookCompletedListener {\n    void onComplete(String msg);\n}\n\nclass CatalogBookNotifier {\n    public void triggerEvent(OnCatalogBookCompletedListener listener) {\n        System.out.println(\"National Library: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookNotifier d = new CatalogBookNotifier();\n        d.triggerEvent(new OnCatalogBookCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnCatalogBookCompletedListener {\n    void onComplete(String msg);\n}\n\nclass CatalogBookNotifier {\n    public void triggerEvent(OnCatalogBookCompletedListener listener) {\n        System.out.println(\"National Library: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookNotifier d = new CatalogBookNotifier();\n        d.triggerEvent(new OnCatalogBookCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5465,7 +5465,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnGymMemberCompletedListener {\n    void onComplete(String msg);\n}\n\nclass GymMemberNotifier {\n    public void triggerEvent(OnGymMemberCompletedListener listener) {\n        System.out.println(\"BeFit Club: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberNotifier d = new GymMemberNotifier();\n        d.triggerEvent(new OnGymMemberCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnGymMemberCompletedListener {\n    void onComplete(String msg);\n}\n\nclass GymMemberNotifier {\n    public void triggerEvent(OnGymMemberCompletedListener listener) {\n        System.out.println(\"BeFit Club: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberNotifier d = new GymMemberNotifier();\n        d.triggerEvent(new OnGymMemberCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5503,7 +5503,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnParkingBayCompletedListener {\n    void onComplete(String msg);\n}\n\nclass ParkingBayNotifier {\n    public void triggerEvent(OnParkingBayCompletedListener listener) {\n        System.out.println(\"Tashkent Parking: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayNotifier d = new ParkingBayNotifier();\n        d.triggerEvent(new OnParkingBayCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnParkingBayCompletedListener {\n    void onComplete(String msg);\n}\n\nclass ParkingBayNotifier {\n    public void triggerEvent(OnParkingBayCompletedListener listener) {\n        System.out.println(\"Tashkent Parking: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayNotifier d = new ParkingBayNotifier();\n        d.triggerEvent(new OnParkingBayCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5541,7 +5541,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnPatientRecordCompletedListener {\n    void onComplete(String msg);\n}\n\nclass PatientRecordNotifier {\n    public void triggerEvent(OnPatientRecordCompletedListener listener) {\n        System.out.println(\"Medion Clinic: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordNotifier d = new PatientRecordNotifier();\n        d.triggerEvent(new OnPatientRecordCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnPatientRecordCompletedListener {\n    void onComplete(String msg);\n}\n\nclass PatientRecordNotifier {\n    public void triggerEvent(OnPatientRecordCompletedListener listener) {\n        System.out.println(\"Medion Clinic: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordNotifier d = new PatientRecordNotifier();\n        d.triggerEvent(new OnPatientRecordCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5579,7 +5579,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnHotelReservationCompletedListener {\n    void onComplete(String msg);\n}\n\nclass HotelReservationNotifier {\n    public void triggerEvent(OnHotelReservationCompletedListener listener) {\n        System.out.println(\"Hyatt Regency: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationNotifier d = new HotelReservationNotifier();\n        d.triggerEvent(new OnHotelReservationCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnHotelReservationCompletedListener {\n    void onComplete(String msg);\n}\n\nclass HotelReservationNotifier {\n    public void triggerEvent(OnHotelReservationCompletedListener listener) {\n        System.out.println(\"Hyatt Regency: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationNotifier d = new HotelReservationNotifier();\n        d.triggerEvent(new OnHotelReservationCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5617,7 +5617,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnCinemaTicketCompletedListener {\n    void onComplete(String msg);\n}\n\nclass CinemaTicketNotifier {\n    public void triggerEvent(OnCinemaTicketCompletedListener listener) {\n        System.out.println(\"Premier Cinema: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketNotifier d = new CinemaTicketNotifier();\n        d.triggerEvent(new OnCinemaTicketCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnCinemaTicketCompletedListener {\n    void onComplete(String msg);\n}\n\nclass CinemaTicketNotifier {\n    public void triggerEvent(OnCinemaTicketCompletedListener listener) {\n        System.out.println(\"Premier Cinema: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketNotifier d = new CinemaTicketNotifier();\n        d.triggerEvent(new OnCinemaTicketCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5655,7 +5655,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnElectricScooterCompletedListener {\n    void onComplete(String msg);\n}\n\nclass ElectricScooterNotifier {\n    public void triggerEvent(OnElectricScooterCompletedListener listener) {\n        System.out.println(\"Yandex Scooter: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterNotifier d = new ElectricScooterNotifier();\n        d.triggerEvent(new OnElectricScooterCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnElectricScooterCompletedListener {\n    void onComplete(String msg);\n}\n\nclass ElectricScooterNotifier {\n    public void triggerEvent(OnElectricScooterCompletedListener listener) {\n        System.out.println(\"Yandex Scooter: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterNotifier d = new ElectricScooterNotifier();\n        d.triggerEvent(new OnElectricScooterCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5693,7 +5693,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnMeteoStationCompletedListener {\n    void onComplete(String msg);\n}\n\nclass MeteoStationNotifier {\n    public void triggerEvent(OnMeteoStationCompletedListener listener) {\n        System.out.println(\"Weather Network: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationNotifier d = new MeteoStationNotifier();\n        d.triggerEvent(new OnMeteoStationCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnMeteoStationCompletedListener {\n    void onComplete(String msg);\n}\n\nclass MeteoStationNotifier {\n    public void triggerEvent(OnMeteoStationCompletedListener listener) {\n        System.out.println(\"Weather Network: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationNotifier d = new MeteoStationNotifier();\n        d.triggerEvent(new OnMeteoStationCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5731,7 +5731,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnAuctionLotCompletedListener {\n    void onComplete(String msg);\n}\n\nclass AuctionLotNotifier {\n    public void triggerEvent(OnAuctionLotCompletedListener listener) {\n        System.out.println(\"OpenMarket Auction: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotNotifier d = new AuctionLotNotifier();\n        d.triggerEvent(new OnAuctionLotCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnAuctionLotCompletedListener {\n    void onComplete(String msg);\n}\n\nclass AuctionLotNotifier {\n    public void triggerEvent(OnAuctionLotCompletedListener listener) {\n        System.out.println(\"OpenMarket Auction: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotNotifier d = new AuctionLotNotifier();\n        d.triggerEvent(new OnAuctionLotCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5769,7 +5769,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnSolarInverterCompletedListener {\n    void onComplete(String msg);\n}\n\nclass SolarInverterNotifier {\n    public void triggerEvent(OnSolarInverterCompletedListener listener) {\n        System.out.println(\"Solar Energy Grid: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterNotifier d = new SolarInverterNotifier();\n        d.triggerEvent(new OnSolarInverterCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnSolarInverterCompletedListener {\n    void onComplete(String msg);\n}\n\nclass SolarInverterNotifier {\n    public void triggerEvent(OnSolarInverterCompletedListener listener) {\n        System.out.println(\"Solar Energy Grid: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterNotifier d = new SolarInverterNotifier();\n        d.triggerEvent(new OnSolarInverterCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",
@@ -5807,7 +5807,7 @@ window.OOP_CHALLENGES_W5 = [
         "interface"
       ]
     },
-    "starterCode": "interface OnTrainRouteCompletedListener {\n    void onComplete(String msg);\n}\n\nclass TrainRouteNotifier {\n    public void triggerEvent(OnTrainRouteCompletedListener listener) {\n        System.out.println(\"O'zbekiston Temir Yo'llari: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteNotifier d = new TrainRouteNotifier();\n        d.triggerEvent(new OnTrainRouteCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
+    "starterCode": "",
     "solution": "interface OnTrainRouteCompletedListener {\n    void onComplete(String msg);\n}\n\nclass TrainRouteNotifier {\n    public void triggerEvent(OnTrainRouteCompletedListener listener) {\n        System.out.println(\"O'zbekiston Temir Yo'llari: Operatsiya bajarilmoqda...\");\n        if (listener != null) listener.onComplete(\"Muvaffaqiyatli!\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteNotifier d = new TrainRouteNotifier();\n        d.triggerEvent(new OnTrainRouteCompletedListener() {\n            @Override public void onComplete(String msg) {\n                System.out.println(\"Hodisa tutildi: \" + msg);\n            }\n        });\n    }\n}",
     "detailedSolution": {
       "theory": "Callback mexanizmi orqali bitta ob'yekt boshqa ob'yektga 'bu ish tugaganda mening ushbu metodimni chaqirib qo'y' deb o'z interfeysini taqdim etadi. Bu asinxron va hodisalarga asoslangan arxitekturaning negizidir.",

@@ -10,7 +10,149 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../oop-w1-game/styles.css?v=20261017_oop_w6">
+  <link rel="stylesheet" href="../oop-w1-game/styles.css?v=20261018_v3">
+  <style id="criticalEditorStyles">
+    .editor-wrapper {
+      position: relative;
+      flex: 1;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+    }
+    .code-editor-surface {
+      position: relative;
+      display: flex;
+      flex: 1;
+      width: 100%;
+      min-height: 280px;
+      background: #110d24;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .editor-gutter {
+      width: 44px;
+      background: #090715;
+      border-right: 1px solid rgba(168, 85, 247, 0.2);
+      padding: 14px 6px 14px 0;
+      text-align: right;
+      font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+      font-size: 13px;
+      line-height: 22px;
+      color: #4b5563;
+      user-select: none;
+      overflow: hidden;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+    .gutter-line {
+      height: 22px;
+      line-height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+    }
+    .gutter-line.has-error {
+      color: #ef4444;
+      font-weight: 700;
+    }
+    .gutter-err-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ef4444;
+      box-shadow: 0 0 6px rgba(239, 68, 68, 0.9);
+      display: inline-block;
+    }
+    .code-viewport {
+      position: relative;
+      flex: 1;
+      height: 100%;
+      min-height: 280px;
+      overflow: hidden;
+      background: #0e0b1f;
+    }
+    .code-highlight-backdrop,
+    .code-editor-surface .code-textarea {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      padding: 14px 16px !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+      font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace !important;
+      font-size: 13.5px !important;
+      line-height: 22px !important;
+      tab-size: 4 !important;
+      -moz-tab-size: 4 !important;
+      letter-spacing: 0px !important;
+      white-space: pre !important;
+      overflow: auto !important;
+      border: none !important;
+      font-feature-settings: 'liga' 0 !important;
+    }
+    .code-highlight-backdrop {
+      pointer-events: none !important;
+      z-index: 1 !important;
+      color: #abb2bf !important;
+      background: transparent !important;
+    }
+    .code-editor-surface .code-textarea {
+      z-index: 2 !important;
+      background: transparent !important;
+      color: transparent !important;
+      -webkit-text-fill-color: transparent !important;
+      caret-color: #38bdf8 !important;
+      resize: none !important;
+      outline: none !important;
+    }
+    .code-editor-surface .code-textarea::placeholder {
+      color: #64748b !important;
+      -webkit-text-fill-color: #64748b !important;
+      font-style: italic !important;
+    }
+    .code-editor-surface .code-textarea::selection {
+      background: rgba(124, 58, 237, 0.45) !important;
+      color: transparent !important;
+      -webkit-text-fill-color: transparent !important;
+    }
+    .tok-keyword { color: #cc7832 !important; font-weight: 700 !important; }
+    .tok-type { color: #4ec9b0 !important; font-weight: 600 !important; }
+    .tok-class { color: #ffc66d !important; font-weight: 700 !important; }
+    .tok-method { color: #e5c07b !important; }
+    .tok-string { color: #6a8759 !important; }
+    .tok-char { color: #6a8759 !important; }
+    .tok-number { color: #6897bb !important; }
+    .tok-comment { color: #808080 !important; font-style: italic !important; }
+    .tok-annotation { color: #bbb529 !important; }
+    .tok-operator { color: #e2e8f0 !important; }
+    .tok-bracket { color: #cbd5e1 !important; }
+    .tok-ident { color: #f8fafc !important; }
+    .tok-error {
+      color: #ff4d4f !important;
+      -webkit-text-fill-color: #ff4d4f !important;
+      background: rgba(239, 68, 68, 0.28) !important;
+      border-bottom: 2px wavy #ef4444 !important;
+      border-radius: 3px !important;
+      padding: 0 2px !important;
+      font-weight: 700 !important;
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.6) !important;
+    }
+    .btn-sol-toggle {
+      background: rgba(168, 85, 247, 0.15) !important;
+      border-color: rgba(168, 85, 247, 0.45) !important;
+      color: #d8b4fe !important;
+    }
+    .btn-sol-toggle:hover {
+      background: rgba(168, 85, 247, 0.3) !important;
+      color: #fff !important;
+      border-color: #a855f7 !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -116,6 +258,9 @@
           <button id="btnResetCode" class="btn btn-secondary">
             <span>↺</span> <span class="btn-text-full">Asliga qaytarish</span><span class="btn-text-short">Asliga</span>
           </button>
+          <button id="btnToolbarSolution" class="btn btn-secondary btn-sol-toggle" title="To'g'ri javob va yechimni ko'rish">
+            <span>💡</span> <span class="btn-text-full">Yechim</span><span class="btn-text-short">Yechim</span>
+          </button>
           <button id="btnInstantTest" class="btn btn-primary">
             <span>▶</span> <span class="btn-text-full">Kodni Tekshirish</span><span class="btn-text-short">Tekshirish</span>
           </button>
@@ -145,7 +290,20 @@
           <button type="button" class="quick-key-btn" data-insert="public ">public</button>
           <button type="button" class="quick-key-btn" data-insert="class ">class</button>
         </div>
-        <textarea id="codeEditor" class="code-textarea" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off"></textarea>
+
+        <!-- SMART INTELLISENSE VARIANT CHIPS BAR -->
+        <div id="smartSuggestionChipsBar" class="smart-suggestion-chips-bar"></div>
+
+        <!-- DUAL-LAYER INTELLIJ DARCULA EDITOR SURFACE -->
+        <div class="code-editor-surface" id="codeEditorSurface">
+          <div class="editor-gutter" id="editorGutter" aria-hidden="true"></div>
+          <div class="code-viewport" id="codeViewport">
+            <pre class="code-highlight-backdrop" id="codeHighlightBackdrop" aria-hidden="true"><code id="codeHighlightContent"></code></pre>
+            <textarea id="codeEditor" class="code-textarea" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off" placeholder="// Java kodingizni bu yerga yozing..."></textarea>
+          </div>
+        </div>
+
+        <div id="codeAutocompleteDropdown" class="code-autocomplete-dropdown" style="display:none;"></div>
       </div>
 
       <div class="console-section">
@@ -155,20 +313,20 @@
           </div>
           <span style="font-size:11px; color:#64748b; font-family:'JetBrains Mono', monospace;">OpenJDK 21 Environment</span>
         </div>
-        <div id="consoleOutput" class="console-output">Java konsoli tayyor. '▶ Kodni Tekshirish' yoki '☕ Ishga tushirish (OpenJDK 21)' tugmasini bosing.</div>
+        <div id="consoleOutput" class="console-output"></div>
       </div>
     </section>
   </main>
 
-  <script src="../shared/java-analyzer.js?v=20261017_oop_w6"></script>
-  <script src="../shared/java-runner.js?v=20261017_oop_w6"></script>
-  <script src="../shared/uml-renderer.js?v=20261017_oop_w6"></script>
-  <script src="../shared/solution-renderer.js?v=20261017_oop_w6"></script>
-    <script src="../shared/oop-i18n.js?v=20261017_oop_v2"></script>
-<script src="../shared/oop-dictionary.js?v=20261017_oop_w6"></script>
-  <script src="../shared/challenges-w6.js?v=20261017_150"></script>
-    <script src="../shared/java-editor-enhancer.js?v=20261018_v1"></script>
-  <script src="game.js?v=20261017_oop_w6"></script>
+  <script src="../shared/java-analyzer.js?v=20261018_v3"></script>
+  <script src="../shared/java-runner.js?v=20261018_v3"></script>
+  <script src="../shared/uml-renderer.js?v=20261018_v3"></script>
+  <script src="../shared/solution-renderer.js?v=20261018_v3"></script>
+    <script src="../shared/oop-i18n.js?v=20261018_v3"></script>
+<script src="../shared/oop-dictionary.js?v=20261018_v3"></script>
+  <script src="../shared/challenges-w6.js?v=20261018_v3"></script>
+    <script src="../shared/java-editor-enhancer.js?v=20261018_v3"></script>
+  <script src="game.js?v=20261018_v3"></script>
 
 </body>
 </html>

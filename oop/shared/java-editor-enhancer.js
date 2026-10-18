@@ -93,58 +93,64 @@
     // --------------------------------------------------------------------------
 
     setupHighlighterSurface() {
-      if (this.surfaceEl || !this.codeArea) return;
-      const parent = this.codeArea.parentElement;
-      if (!parent) return;
+      this.surfaceEl = document.getElementById("codeEditorSurface");
+      this.gutterEl = document.getElementById("editorGutter");
+      this.backdropEl = document.getElementById("codeHighlightBackdrop");
+      this.codeContentEl = document.getElementById("codeHighlightContent");
 
-      if (parent.id === "codeViewport") {
-        this.surfaceEl = document.getElementById("codeEditorSurface");
-        this.gutterEl = document.getElementById("editorGutter");
-        this.backdropEl = document.getElementById("codeHighlightBackdrop");
-        this.codeContentEl = document.getElementById("codeHighlightContent");
-        return;
+      if (!this.surfaceEl || !this.gutterEl || !this.backdropEl || !this.codeContentEl) {
+        if (!this.codeArea) return;
+        const parent = this.codeArea.parentElement;
+        if (!parent) return;
+
+        if (parent.id === "codeViewport") {
+          this.surfaceEl = document.getElementById("codeEditorSurface");
+          this.gutterEl = document.getElementById("editorGutter");
+          this.backdropEl = document.getElementById("codeHighlightBackdrop");
+          this.codeContentEl = document.getElementById("codeHighlightContent");
+        } else {
+          // Fallback container surface
+          const surface = document.createElement("div");
+          surface.className = "code-editor-surface";
+          surface.id = "codeEditorSurface";
+
+          // Line numbers gutter
+          const gutter = document.createElement("div");
+          gutter.className = "editor-gutter";
+          gutter.id = "editorGutter";
+          gutter.setAttribute("aria-hidden", "true");
+
+          // Viewport wrapper
+          const viewport = document.createElement("div");
+          viewport.className = "code-viewport";
+          viewport.id = "codeViewport";
+
+          // Highlight backdrop
+          const backdrop = document.createElement("pre");
+          backdrop.className = "code-highlight-backdrop";
+          backdrop.id = "codeHighlightBackdrop";
+          backdrop.setAttribute("aria-hidden", "true");
+
+          const codeContent = document.createElement("code");
+          codeContent.id = "codeHighlightContent";
+          backdrop.appendChild(codeContent);
+
+          // Re-parent textarea
+          parent.insertBefore(surface, this.codeArea);
+          surface.appendChild(gutter);
+          surface.appendChild(viewport);
+          viewport.appendChild(backdrop);
+          viewport.appendChild(this.codeArea);
+
+          this.surfaceEl = surface;
+          this.gutterEl = gutter;
+          this.backdropEl = backdrop;
+          this.codeContentEl = codeContent;
+        }
       }
 
-      // Container surface
-      const surface = document.createElement("div");
-      surface.className = "code-editor-surface";
-      surface.id = "codeEditorSurface";
-
-      // Line numbers gutter
-      const gutter = document.createElement("div");
-      gutter.className = "editor-gutter";
-      gutter.id = "editorGutter";
-      gutter.setAttribute("aria-hidden", "true");
-
-      // Viewport wrapper
-      const viewport = document.createElement("div");
-      viewport.className = "code-viewport";
-      viewport.id = "codeViewport";
-
-      // Highlight backdrop
-      const backdrop = document.createElement("pre");
-      backdrop.className = "code-highlight-backdrop";
-      backdrop.id = "codeHighlightBackdrop";
-      backdrop.setAttribute("aria-hidden", "true");
-
-      const codeContent = document.createElement("code");
-      codeContent.id = "codeHighlightContent";
-      backdrop.appendChild(codeContent);
-
-      // Re-parent textarea
-      parent.insertBefore(surface, this.codeArea);
-      surface.appendChild(gutter);
-      surface.appendChild(viewport);
-      viewport.appendChild(backdrop);
-      viewport.appendChild(this.codeArea);
-
-      this.surfaceEl = surface;
-      this.gutterEl = gutter;
-      this.backdropEl = backdrop;
-      this.codeContentEl = codeContent;
-
       // Add IntelliJ theme indicator & error pill to toolbar if present
-      const toolbar = parent.closest(".pane-right")?.querySelector(".editor-toolbar") || document.querySelector(".editor-toolbar");
+      const toolbar = document.querySelector(".editor-toolbar");
       if (toolbar && !document.getElementById("editorThemeIndicator")) {
         const badgeBox = document.createElement("div");
         badgeBox.id = "editorThemeIndicator";
@@ -165,7 +171,12 @@
       }
 
       // Scroll synchronization
-      this.codeArea.addEventListener("scroll", () => this.syncScroll(), { passive: true });
+      if (this.codeArea) {
+        if (!this._hasScrollHandler) {
+          this.codeArea.addEventListener("scroll", () => this.syncScroll(), { passive: true });
+          this._hasScrollHandler = true;
+        }
+      }
     },
 
     syncScroll() {
@@ -309,14 +320,22 @@
           z-index: 2 !important;
           background: transparent !important;
           color: transparent !important;
+          -webkit-text-fill-color: transparent !important;
           caret-color: #38bdf8 !important;
           resize: none !important;
           outline: none !important;
         }
 
+        .code-textarea::placeholder {
+          color: #64748b !important;
+          -webkit-text-fill-color: #64748b !important;
+          font-style: italic !important;
+        }
+
         .code-textarea::selection {
           background: rgba(124, 58, 237, 0.45) !important;
           color: transparent !important;
+          -webkit-text-fill-color: transparent !important;
         }
 
         /* IntelliJ IDEA Darcula Token Colors */
@@ -364,6 +383,7 @@
         /* Error token styling - glowing red & wavy underline */
         .tok-error {
           color: #ff4d4f !important;
+          -webkit-text-fill-color: #ff4d4f !important;
           background: rgba(239, 68, 68, 0.28) !important;
           border-bottom: 2px wavy #ef4444 !important;
           border-radius: 3px !important;

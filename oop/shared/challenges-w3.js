@@ -22,7 +22,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Product {\n    public String title = \"Uzum Market Base\";\n}\n\nclass PremiumProduct extends Product {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumProduct item = new PremiumProduct();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    public String title = \"Uzum Market Base\";\n}\n\nclass PremiumProduct extends Product {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumProduct item = new PremiumProduct();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -57,7 +57,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class WalletUser {\n    public String title = \"Payme Wallet Base\";\n}\n\nclass PremiumWalletUser extends WalletUser {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumWalletUser item = new PremiumWalletUser();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    public String title = \"Payme Wallet Base\";\n}\n\nclass PremiumWalletUser extends WalletUser {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumWalletUser item = new PremiumWalletUser();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -92,7 +92,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class TaxiRide {\n    public String title = \"Yandex Go Base\";\n}\n\nclass PremiumTaxiRide extends TaxiRide {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumTaxiRide item = new PremiumTaxiRide();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    public String title = \"Yandex Go Base\";\n}\n\nclass PremiumTaxiRide extends TaxiRide {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumTaxiRide item = new PremiumTaxiRide();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -127,7 +127,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class LoyaltyCard {\n    public String title = \"Korzinka Go Base\";\n}\n\nclass PremiumLoyaltyCard extends LoyaltyCard {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumLoyaltyCard item = new PremiumLoyaltyCard();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    public String title = \"Korzinka Go Base\";\n}\n\nclass PremiumLoyaltyCard extends LoyaltyCard {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumLoyaltyCard item = new PremiumLoyaltyCard();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -162,7 +162,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Student {\n    public String title = \"WIUT Portal Base\";\n}\n\nclass PremiumStudent extends Student {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumStudent item = new PremiumStudent();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    public String title = \"WIUT Portal Base\";\n}\n\nclass PremiumStudent extends Student {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumStudent item = new PremiumStudent();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -197,7 +197,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class PaymentTxn {\n    public String title = \"Click Pay Base\";\n}\n\nclass PremiumPaymentTxn extends PaymentTxn {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumPaymentTxn item = new PremiumPaymentTxn();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    public String title = \"Click Pay Base\";\n}\n\nclass PremiumPaymentTxn extends PaymentTxn {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumPaymentTxn item = new PremiumPaymentTxn();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -232,7 +232,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class BotMessage {\n    public String title = \"Telegram Bot Base\";\n}\n\nclass PremiumBotMessage extends BotMessage {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumBotMessage item = new PremiumBotMessage();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    public String title = \"Telegram Bot Base\";\n}\n\nclass PremiumBotMessage extends BotMessage {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumBotMessage item = new PremiumBotMessage();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -267,7 +267,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class FlightTicket {\n    public String title = \"UzAirways Base\";\n}\n\nclass PremiumFlightTicket extends FlightTicket {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumFlightTicket item = new PremiumFlightTicket();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    public String title = \"UzAirways Base\";\n}\n\nclass PremiumFlightTicket extends FlightTicket {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumFlightTicket item = new PremiumFlightTicket();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -302,7 +302,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class BootcampCourse {\n    public String title = \"IT Park Academy Base\";\n}\n\nclass PremiumBootcampCourse extends BootcampCourse {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumBootcampCourse item = new PremiumBootcampCourse();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    public String title = \"IT Park Academy Base\";\n}\n\nclass PremiumBootcampCourse extends BootcampCourse {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumBootcampCourse item = new PremiumBootcampCourse();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -337,7 +337,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class DebitCard {\n    public String title = \"Anorbank Base\";\n}\n\nclass PremiumDebitCard extends DebitCard {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumDebitCard item = new PremiumDebitCard();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    public String title = \"Anorbank Base\";\n}\n\nclass PremiumDebitCard extends DebitCard {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumDebitCard item = new PremiumDebitCard();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -372,7 +372,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Medicine {\n    public String title = \"Oson Apteka Base\";\n}\n\nclass PremiumMedicine extends Medicine {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumMedicine item = new PremiumMedicine();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    public String title = \"Oson Apteka Base\";\n}\n\nclass PremiumMedicine extends Medicine {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumMedicine item = new PremiumMedicine();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -407,7 +407,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class FoodOrder {\n    public String title = \"Evos FastFood Base\";\n}\n\nclass PremiumFoodOrder extends FoodOrder {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumFoodOrder item = new PremiumFoodOrder();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    public String title = \"Evos FastFood Base\";\n}\n\nclass PremiumFoodOrder extends FoodOrder {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumFoodOrder item = new PremiumFoodOrder();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -442,7 +442,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class PizzaOrder {\n    public String title = \"Bellissimo Pizza Base\";\n}\n\nclass PremiumPizzaOrder extends PizzaOrder {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumPizzaOrder item = new PremiumPizzaOrder();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    public String title = \"Bellissimo Pizza Base\";\n}\n\nclass PremiumPizzaOrder extends PizzaOrder {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumPizzaOrder item = new PremiumPizzaOrder();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -477,7 +477,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class BroadcastShow {\n    public String title = \"Milliy TV Base\";\n}\n\nclass PremiumBroadcastShow extends BroadcastShow {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumBroadcastShow item = new PremiumBroadcastShow();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    public String title = \"Milliy TV Base\";\n}\n\nclass PremiumBroadcastShow extends BroadcastShow {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumBroadcastShow item = new PremiumBroadcastShow();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -512,7 +512,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class AudioTrack {\n    public String title = \"Spotify Sound Base\";\n}\n\nclass PremiumAudioTrack extends AudioTrack {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumAudioTrack item = new PremiumAudioTrack();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    public String title = \"Spotify Sound Base\";\n}\n\nclass PremiumAudioTrack extends AudioTrack {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumAudioTrack item = new PremiumAudioTrack();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -547,7 +547,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Thermostat {\n    public String title = \"Smart Thermostat Base\";\n}\n\nclass PremiumThermostat extends Thermostat {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumThermostat item = new PremiumThermostat();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    public String title = \"Smart Thermostat Base\";\n}\n\nclass PremiumThermostat extends Thermostat {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumThermostat item = new PremiumThermostat();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -582,7 +582,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class DeliveryDrone {\n    public String title = \"Drone Delivery Base\";\n}\n\nclass PremiumDeliveryDrone extends DeliveryDrone {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumDeliveryDrone item = new PremiumDeliveryDrone();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    public String title = \"Drone Delivery Base\";\n}\n\nclass PremiumDeliveryDrone extends DeliveryDrone {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumDeliveryDrone item = new PremiumDeliveryDrone();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -617,7 +617,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class StorageBay {\n    public String title = \"Smart Warehouse Base\";\n}\n\nclass PremiumStorageBay extends StorageBay {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumStorageBay item = new PremiumStorageBay();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    public String title = \"Smart Warehouse Base\";\n}\n\nclass PremiumStorageBay extends StorageBay {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumStorageBay item = new PremiumStorageBay();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -652,7 +652,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class CryptoAsset {\n    public String title = \"Crypto Wallet Base\";\n}\n\nclass PremiumCryptoAsset extends CryptoAsset {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumCryptoAsset item = new PremiumCryptoAsset();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    public String title = \"Crypto Wallet Base\";\n}\n\nclass PremiumCryptoAsset extends CryptoAsset {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumCryptoAsset item = new PremiumCryptoAsset();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -687,7 +687,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class CatalogBook {\n    public String title = \"National Library Base\";\n}\n\nclass PremiumCatalogBook extends CatalogBook {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumCatalogBook item = new PremiumCatalogBook();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    public String title = \"National Library Base\";\n}\n\nclass PremiumCatalogBook extends CatalogBook {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumCatalogBook item = new PremiumCatalogBook();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -722,7 +722,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class GymMember {\n    public String title = \"BeFit Club Base\";\n}\n\nclass PremiumGymMember extends GymMember {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumGymMember item = new PremiumGymMember();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    public String title = \"BeFit Club Base\";\n}\n\nclass PremiumGymMember extends GymMember {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumGymMember item = new PremiumGymMember();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -757,7 +757,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class ParkingBay {\n    public String title = \"Tashkent Parking Base\";\n}\n\nclass PremiumParkingBay extends ParkingBay {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumParkingBay item = new PremiumParkingBay();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    public String title = \"Tashkent Parking Base\";\n}\n\nclass PremiumParkingBay extends ParkingBay {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumParkingBay item = new PremiumParkingBay();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -792,7 +792,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class PatientRecord {\n    public String title = \"Medion Clinic Base\";\n}\n\nclass PremiumPatientRecord extends PatientRecord {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumPatientRecord item = new PremiumPatientRecord();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    public String title = \"Medion Clinic Base\";\n}\n\nclass PremiumPatientRecord extends PatientRecord {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumPatientRecord item = new PremiumPatientRecord();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -827,7 +827,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class HotelReservation {\n    public String title = \"Hyatt Regency Base\";\n}\n\nclass PremiumHotelReservation extends HotelReservation {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumHotelReservation item = new PremiumHotelReservation();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    public String title = \"Hyatt Regency Base\";\n}\n\nclass PremiumHotelReservation extends HotelReservation {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumHotelReservation item = new PremiumHotelReservation();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -862,7 +862,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class CinemaTicket {\n    public String title = \"Premier Cinema Base\";\n}\n\nclass PremiumCinemaTicket extends CinemaTicket {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumCinemaTicket item = new PremiumCinemaTicket();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    public String title = \"Premier Cinema Base\";\n}\n\nclass PremiumCinemaTicket extends CinemaTicket {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumCinemaTicket item = new PremiumCinemaTicket();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -897,7 +897,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class ElectricScooter {\n    public String title = \"Yandex Scooter Base\";\n}\n\nclass PremiumElectricScooter extends ElectricScooter {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumElectricScooter item = new PremiumElectricScooter();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    public String title = \"Yandex Scooter Base\";\n}\n\nclass PremiumElectricScooter extends ElectricScooter {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumElectricScooter item = new PremiumElectricScooter();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -932,7 +932,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class MeteoStation {\n    public String title = \"Weather Network Base\";\n}\n\nclass PremiumMeteoStation extends MeteoStation {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumMeteoStation item = new PremiumMeteoStation();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    public String title = \"Weather Network Base\";\n}\n\nclass PremiumMeteoStation extends MeteoStation {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumMeteoStation item = new PremiumMeteoStation();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -967,7 +967,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class AuctionLot {\n    public String title = \"OpenMarket Auction Base\";\n}\n\nclass PremiumAuctionLot extends AuctionLot {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumAuctionLot item = new PremiumAuctionLot();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    public String title = \"OpenMarket Auction Base\";\n}\n\nclass PremiumAuctionLot extends AuctionLot {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumAuctionLot item = new PremiumAuctionLot();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -1002,7 +1002,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class SolarInverter {\n    public String title = \"Solar Energy Grid Base\";\n}\n\nclass PremiumSolarInverter extends SolarInverter {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumSolarInverter item = new PremiumSolarInverter();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    public String title = \"Solar Energy Grid Base\";\n}\n\nclass PremiumSolarInverter extends SolarInverter {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumSolarInverter item = new PremiumSolarInverter();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -1037,7 +1037,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class TrainRoute {\n    public String title = \"O'zbekiston Temir Yo'llari Base\";\n}\n\nclass PremiumTrainRoute extends TrainRoute {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumTrainRoute item = new PremiumTrainRoute();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    public String title = \"O'zbekiston Temir Yo'llari Base\";\n}\n\nclass PremiumTrainRoute extends TrainRoute {\n    public String vipPerk = \"Chegirma\";\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PremiumTrainRoute item = new PremiumTrainRoute();\n        System.out.println(item.title + \" -> \" + item.vipPerk);\n    }\n}",
     "detailedSolution": {
       "theory": "Merosxo'rlik (Inheritance) kodni takrorlamasdan tayanch sinfdagi barcha ochiq maydon va metodlarni avlod sinfga o'tkazish imkonini beradi (IS-A munosabati).",
@@ -1076,7 +1076,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialProduct"
       ]
     },
-    "starterCode": "class Product {\n    public String name;\n    public Product(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialProduct extends Product {\n    public int extraPoints;\n    public SpecialProduct(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialProduct obj = new SpecialProduct(\"Uzum Market Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    public String name;\n    public Product(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialProduct extends Product {\n    public int extraPoints;\n    public SpecialProduct(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialProduct obj = new SpecialProduct(\"Uzum Market Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1115,7 +1115,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialWalletUser"
       ]
     },
-    "starterCode": "class WalletUser {\n    public String name;\n    public WalletUser(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialWalletUser extends WalletUser {\n    public int extraPoints;\n    public SpecialWalletUser(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialWalletUser obj = new SpecialWalletUser(\"Payme Wallet Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    public String name;\n    public WalletUser(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialWalletUser extends WalletUser {\n    public int extraPoints;\n    public SpecialWalletUser(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialWalletUser obj = new SpecialWalletUser(\"Payme Wallet Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1154,7 +1154,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialTaxiRide"
       ]
     },
-    "starterCode": "class TaxiRide {\n    public String name;\n    public TaxiRide(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialTaxiRide extends TaxiRide {\n    public int extraPoints;\n    public SpecialTaxiRide(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialTaxiRide obj = new SpecialTaxiRide(\"Yandex Go Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    public String name;\n    public TaxiRide(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialTaxiRide extends TaxiRide {\n    public int extraPoints;\n    public SpecialTaxiRide(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialTaxiRide obj = new SpecialTaxiRide(\"Yandex Go Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1193,7 +1193,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialLoyaltyCard"
       ]
     },
-    "starterCode": "class LoyaltyCard {\n    public String name;\n    public LoyaltyCard(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialLoyaltyCard extends LoyaltyCard {\n    public int extraPoints;\n    public SpecialLoyaltyCard(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialLoyaltyCard obj = new SpecialLoyaltyCard(\"Korzinka Go Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    public String name;\n    public LoyaltyCard(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialLoyaltyCard extends LoyaltyCard {\n    public int extraPoints;\n    public SpecialLoyaltyCard(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialLoyaltyCard obj = new SpecialLoyaltyCard(\"Korzinka Go Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1232,7 +1232,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialStudent"
       ]
     },
-    "starterCode": "class Student {\n    public String name;\n    public Student(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialStudent extends Student {\n    public int extraPoints;\n    public SpecialStudent(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialStudent obj = new SpecialStudent(\"WIUT Portal Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    public String name;\n    public Student(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialStudent extends Student {\n    public int extraPoints;\n    public SpecialStudent(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialStudent obj = new SpecialStudent(\"WIUT Portal Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1271,7 +1271,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialPaymentTxn"
       ]
     },
-    "starterCode": "class PaymentTxn {\n    public String name;\n    public PaymentTxn(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialPaymentTxn extends PaymentTxn {\n    public int extraPoints;\n    public SpecialPaymentTxn(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialPaymentTxn obj = new SpecialPaymentTxn(\"Click Pay Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    public String name;\n    public PaymentTxn(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialPaymentTxn extends PaymentTxn {\n    public int extraPoints;\n    public SpecialPaymentTxn(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialPaymentTxn obj = new SpecialPaymentTxn(\"Click Pay Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1310,7 +1310,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialBotMessage"
       ]
     },
-    "starterCode": "class BotMessage {\n    public String name;\n    public BotMessage(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialBotMessage extends BotMessage {\n    public int extraPoints;\n    public SpecialBotMessage(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialBotMessage obj = new SpecialBotMessage(\"Telegram Bot Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    public String name;\n    public BotMessage(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialBotMessage extends BotMessage {\n    public int extraPoints;\n    public SpecialBotMessage(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialBotMessage obj = new SpecialBotMessage(\"Telegram Bot Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1349,7 +1349,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialFlightTicket"
       ]
     },
-    "starterCode": "class FlightTicket {\n    public String name;\n    public FlightTicket(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialFlightTicket extends FlightTicket {\n    public int extraPoints;\n    public SpecialFlightTicket(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialFlightTicket obj = new SpecialFlightTicket(\"UzAirways Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    public String name;\n    public FlightTicket(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialFlightTicket extends FlightTicket {\n    public int extraPoints;\n    public SpecialFlightTicket(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialFlightTicket obj = new SpecialFlightTicket(\"UzAirways Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1388,7 +1388,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialBootcampCourse"
       ]
     },
-    "starterCode": "class BootcampCourse {\n    public String name;\n    public BootcampCourse(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialBootcampCourse extends BootcampCourse {\n    public int extraPoints;\n    public SpecialBootcampCourse(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialBootcampCourse obj = new SpecialBootcampCourse(\"IT Park Academy Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    public String name;\n    public BootcampCourse(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialBootcampCourse extends BootcampCourse {\n    public int extraPoints;\n    public SpecialBootcampCourse(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialBootcampCourse obj = new SpecialBootcampCourse(\"IT Park Academy Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1427,7 +1427,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialDebitCard"
       ]
     },
-    "starterCode": "class DebitCard {\n    public String name;\n    public DebitCard(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialDebitCard extends DebitCard {\n    public int extraPoints;\n    public SpecialDebitCard(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialDebitCard obj = new SpecialDebitCard(\"Anorbank Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    public String name;\n    public DebitCard(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialDebitCard extends DebitCard {\n    public int extraPoints;\n    public SpecialDebitCard(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialDebitCard obj = new SpecialDebitCard(\"Anorbank Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1466,7 +1466,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialMedicine"
       ]
     },
-    "starterCode": "class Medicine {\n    public String name;\n    public Medicine(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialMedicine extends Medicine {\n    public int extraPoints;\n    public SpecialMedicine(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialMedicine obj = new SpecialMedicine(\"Oson Apteka Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    public String name;\n    public Medicine(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialMedicine extends Medicine {\n    public int extraPoints;\n    public SpecialMedicine(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialMedicine obj = new SpecialMedicine(\"Oson Apteka Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1505,7 +1505,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialFoodOrder"
       ]
     },
-    "starterCode": "class FoodOrder {\n    public String name;\n    public FoodOrder(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialFoodOrder extends FoodOrder {\n    public int extraPoints;\n    public SpecialFoodOrder(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialFoodOrder obj = new SpecialFoodOrder(\"Evos FastFood Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    public String name;\n    public FoodOrder(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialFoodOrder extends FoodOrder {\n    public int extraPoints;\n    public SpecialFoodOrder(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialFoodOrder obj = new SpecialFoodOrder(\"Evos FastFood Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1544,7 +1544,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialPizzaOrder"
       ]
     },
-    "starterCode": "class PizzaOrder {\n    public String name;\n    public PizzaOrder(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialPizzaOrder extends PizzaOrder {\n    public int extraPoints;\n    public SpecialPizzaOrder(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialPizzaOrder obj = new SpecialPizzaOrder(\"Bellissimo Pizza Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    public String name;\n    public PizzaOrder(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialPizzaOrder extends PizzaOrder {\n    public int extraPoints;\n    public SpecialPizzaOrder(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialPizzaOrder obj = new SpecialPizzaOrder(\"Bellissimo Pizza Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1583,7 +1583,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialBroadcastShow"
       ]
     },
-    "starterCode": "class BroadcastShow {\n    public String name;\n    public BroadcastShow(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialBroadcastShow extends BroadcastShow {\n    public int extraPoints;\n    public SpecialBroadcastShow(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialBroadcastShow obj = new SpecialBroadcastShow(\"Milliy TV Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    public String name;\n    public BroadcastShow(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialBroadcastShow extends BroadcastShow {\n    public int extraPoints;\n    public SpecialBroadcastShow(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialBroadcastShow obj = new SpecialBroadcastShow(\"Milliy TV Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1622,7 +1622,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialAudioTrack"
       ]
     },
-    "starterCode": "class AudioTrack {\n    public String name;\n    public AudioTrack(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialAudioTrack extends AudioTrack {\n    public int extraPoints;\n    public SpecialAudioTrack(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialAudioTrack obj = new SpecialAudioTrack(\"Spotify Sound Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    public String name;\n    public AudioTrack(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialAudioTrack extends AudioTrack {\n    public int extraPoints;\n    public SpecialAudioTrack(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialAudioTrack obj = new SpecialAudioTrack(\"Spotify Sound Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1661,7 +1661,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialThermostat"
       ]
     },
-    "starterCode": "class Thermostat {\n    public String name;\n    public Thermostat(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialThermostat extends Thermostat {\n    public int extraPoints;\n    public SpecialThermostat(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialThermostat obj = new SpecialThermostat(\"Smart Thermostat Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    public String name;\n    public Thermostat(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialThermostat extends Thermostat {\n    public int extraPoints;\n    public SpecialThermostat(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialThermostat obj = new SpecialThermostat(\"Smart Thermostat Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1700,7 +1700,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialDeliveryDrone"
       ]
     },
-    "starterCode": "class DeliveryDrone {\n    public String name;\n    public DeliveryDrone(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialDeliveryDrone extends DeliveryDrone {\n    public int extraPoints;\n    public SpecialDeliveryDrone(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialDeliveryDrone obj = new SpecialDeliveryDrone(\"Drone Delivery Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    public String name;\n    public DeliveryDrone(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialDeliveryDrone extends DeliveryDrone {\n    public int extraPoints;\n    public SpecialDeliveryDrone(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialDeliveryDrone obj = new SpecialDeliveryDrone(\"Drone Delivery Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1739,7 +1739,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialStorageBay"
       ]
     },
-    "starterCode": "class StorageBay {\n    public String name;\n    public StorageBay(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialStorageBay extends StorageBay {\n    public int extraPoints;\n    public SpecialStorageBay(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialStorageBay obj = new SpecialStorageBay(\"Smart Warehouse Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    public String name;\n    public StorageBay(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialStorageBay extends StorageBay {\n    public int extraPoints;\n    public SpecialStorageBay(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialStorageBay obj = new SpecialStorageBay(\"Smart Warehouse Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1778,7 +1778,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialCryptoAsset"
       ]
     },
-    "starterCode": "class CryptoAsset {\n    public String name;\n    public CryptoAsset(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialCryptoAsset extends CryptoAsset {\n    public int extraPoints;\n    public SpecialCryptoAsset(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialCryptoAsset obj = new SpecialCryptoAsset(\"Crypto Wallet Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    public String name;\n    public CryptoAsset(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialCryptoAsset extends CryptoAsset {\n    public int extraPoints;\n    public SpecialCryptoAsset(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialCryptoAsset obj = new SpecialCryptoAsset(\"Crypto Wallet Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1817,7 +1817,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialCatalogBook"
       ]
     },
-    "starterCode": "class CatalogBook {\n    public String name;\n    public CatalogBook(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialCatalogBook extends CatalogBook {\n    public int extraPoints;\n    public SpecialCatalogBook(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialCatalogBook obj = new SpecialCatalogBook(\"National Library Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    public String name;\n    public CatalogBook(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialCatalogBook extends CatalogBook {\n    public int extraPoints;\n    public SpecialCatalogBook(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialCatalogBook obj = new SpecialCatalogBook(\"National Library Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1856,7 +1856,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialGymMember"
       ]
     },
-    "starterCode": "class GymMember {\n    public String name;\n    public GymMember(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialGymMember extends GymMember {\n    public int extraPoints;\n    public SpecialGymMember(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialGymMember obj = new SpecialGymMember(\"BeFit Club Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    public String name;\n    public GymMember(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialGymMember extends GymMember {\n    public int extraPoints;\n    public SpecialGymMember(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialGymMember obj = new SpecialGymMember(\"BeFit Club Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1895,7 +1895,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialParkingBay"
       ]
     },
-    "starterCode": "class ParkingBay {\n    public String name;\n    public ParkingBay(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialParkingBay extends ParkingBay {\n    public int extraPoints;\n    public SpecialParkingBay(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialParkingBay obj = new SpecialParkingBay(\"Tashkent Parking Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    public String name;\n    public ParkingBay(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialParkingBay extends ParkingBay {\n    public int extraPoints;\n    public SpecialParkingBay(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialParkingBay obj = new SpecialParkingBay(\"Tashkent Parking Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1934,7 +1934,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialPatientRecord"
       ]
     },
-    "starterCode": "class PatientRecord {\n    public String name;\n    public PatientRecord(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialPatientRecord extends PatientRecord {\n    public int extraPoints;\n    public SpecialPatientRecord(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialPatientRecord obj = new SpecialPatientRecord(\"Medion Clinic Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    public String name;\n    public PatientRecord(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialPatientRecord extends PatientRecord {\n    public int extraPoints;\n    public SpecialPatientRecord(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialPatientRecord obj = new SpecialPatientRecord(\"Medion Clinic Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -1973,7 +1973,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialHotelReservation"
       ]
     },
-    "starterCode": "class HotelReservation {\n    public String name;\n    public HotelReservation(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialHotelReservation extends HotelReservation {\n    public int extraPoints;\n    public SpecialHotelReservation(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialHotelReservation obj = new SpecialHotelReservation(\"Hyatt Regency Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    public String name;\n    public HotelReservation(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialHotelReservation extends HotelReservation {\n    public int extraPoints;\n    public SpecialHotelReservation(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialHotelReservation obj = new SpecialHotelReservation(\"Hyatt Regency Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -2012,7 +2012,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialCinemaTicket"
       ]
     },
-    "starterCode": "class CinemaTicket {\n    public String name;\n    public CinemaTicket(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialCinemaTicket extends CinemaTicket {\n    public int extraPoints;\n    public SpecialCinemaTicket(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialCinemaTicket obj = new SpecialCinemaTicket(\"Premier Cinema Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    public String name;\n    public CinemaTicket(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialCinemaTicket extends CinemaTicket {\n    public int extraPoints;\n    public SpecialCinemaTicket(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialCinemaTicket obj = new SpecialCinemaTicket(\"Premier Cinema Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -2051,7 +2051,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialElectricScooter"
       ]
     },
-    "starterCode": "class ElectricScooter {\n    public String name;\n    public ElectricScooter(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialElectricScooter extends ElectricScooter {\n    public int extraPoints;\n    public SpecialElectricScooter(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialElectricScooter obj = new SpecialElectricScooter(\"Yandex Scooter Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    public String name;\n    public ElectricScooter(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialElectricScooter extends ElectricScooter {\n    public int extraPoints;\n    public SpecialElectricScooter(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialElectricScooter obj = new SpecialElectricScooter(\"Yandex Scooter Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -2090,7 +2090,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialMeteoStation"
       ]
     },
-    "starterCode": "class MeteoStation {\n    public String name;\n    public MeteoStation(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialMeteoStation extends MeteoStation {\n    public int extraPoints;\n    public SpecialMeteoStation(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialMeteoStation obj = new SpecialMeteoStation(\"Weather Network Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    public String name;\n    public MeteoStation(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialMeteoStation extends MeteoStation {\n    public int extraPoints;\n    public SpecialMeteoStation(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialMeteoStation obj = new SpecialMeteoStation(\"Weather Network Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -2129,7 +2129,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialAuctionLot"
       ]
     },
-    "starterCode": "class AuctionLot {\n    public String name;\n    public AuctionLot(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialAuctionLot extends AuctionLot {\n    public int extraPoints;\n    public SpecialAuctionLot(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialAuctionLot obj = new SpecialAuctionLot(\"OpenMarket Auction Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    public String name;\n    public AuctionLot(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialAuctionLot extends AuctionLot {\n    public int extraPoints;\n    public SpecialAuctionLot(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialAuctionLot obj = new SpecialAuctionLot(\"OpenMarket Auction Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -2168,7 +2168,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialSolarInverter"
       ]
     },
-    "starterCode": "class SolarInverter {\n    public String name;\n    public SolarInverter(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialSolarInverter extends SolarInverter {\n    public int extraPoints;\n    public SpecialSolarInverter(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialSolarInverter obj = new SpecialSolarInverter(\"Solar Energy Grid Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    public String name;\n    public SolarInverter(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialSolarInverter extends SolarInverter {\n    public int extraPoints;\n    public SpecialSolarInverter(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialSolarInverter obj = new SpecialSolarInverter(\"Solar Energy Grid Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -2207,7 +2207,7 @@ window.OOP_CHALLENGES_W3 = [
         "SpecialTrainRoute"
       ]
     },
-    "starterCode": "class TrainRoute {\n    public String name;\n    public TrainRoute(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialTrainRoute extends TrainRoute {\n    public int extraPoints;\n    public SpecialTrainRoute(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialTrainRoute obj = new SpecialTrainRoute(\"O'zbekiston Temir Yo'llari Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    public String name;\n    public TrainRoute(String name) {\n        this.name = name;\n    }\n}\n\nclass SpecialTrainRoute extends TrainRoute {\n    public int extraPoints;\n    public SpecialTrainRoute(String name, int extraPoints) {\n        super(name);\n        this.extraPoints = extraPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SpecialTrainRoute obj = new SpecialTrainRoute(\"O'zbekiston Temir Yo'llari Max\", 50);\n        System.out.println(obj.name + \" (\" + obj.extraPoints + \" ball)\");\n    }\n}",
     "detailedSolution": {
       "theory": "'super()' chaqirig'i har doim avlod sinf konstruktorining eng birinchi qatorida turishi shart. Ota sinf to'liq initsializatsiya bo'lmaguncha bola sinf maydonlari yaratilmaydi.",
@@ -2245,7 +2245,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Product {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomProduct extends Product {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product item = new CustomProduct();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomProduct extends Product {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product item = new CustomProduct();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2283,7 +2283,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class WalletUser {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomWalletUser extends WalletUser {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser item = new CustomWalletUser();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomWalletUser extends WalletUser {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser item = new CustomWalletUser();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2321,7 +2321,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class TaxiRide {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomTaxiRide extends TaxiRide {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide item = new CustomTaxiRide();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomTaxiRide extends TaxiRide {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide item = new CustomTaxiRide();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2359,7 +2359,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class LoyaltyCard {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomLoyaltyCard extends LoyaltyCard {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard item = new CustomLoyaltyCard();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomLoyaltyCard extends LoyaltyCard {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard item = new CustomLoyaltyCard();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2397,7 +2397,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Student {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomStudent extends Student {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student item = new CustomStudent();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomStudent extends Student {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student item = new CustomStudent();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2435,7 +2435,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class PaymentTxn {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomPaymentTxn extends PaymentTxn {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn item = new CustomPaymentTxn();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomPaymentTxn extends PaymentTxn {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn item = new CustomPaymentTxn();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2473,7 +2473,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class BotMessage {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomBotMessage extends BotMessage {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage item = new CustomBotMessage();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomBotMessage extends BotMessage {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage item = new CustomBotMessage();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2511,7 +2511,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class FlightTicket {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomFlightTicket extends FlightTicket {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket item = new CustomFlightTicket();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomFlightTicket extends FlightTicket {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket item = new CustomFlightTicket();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2549,7 +2549,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class BootcampCourse {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomBootcampCourse extends BootcampCourse {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse item = new CustomBootcampCourse();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomBootcampCourse extends BootcampCourse {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse item = new CustomBootcampCourse();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2587,7 +2587,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class DebitCard {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomDebitCard extends DebitCard {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard item = new CustomDebitCard();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomDebitCard extends DebitCard {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard item = new CustomDebitCard();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2625,7 +2625,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Medicine {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomMedicine extends Medicine {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine item = new CustomMedicine();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomMedicine extends Medicine {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine item = new CustomMedicine();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2663,7 +2663,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class FoodOrder {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomFoodOrder extends FoodOrder {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder item = new CustomFoodOrder();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomFoodOrder extends FoodOrder {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder item = new CustomFoodOrder();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2701,7 +2701,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class PizzaOrder {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomPizzaOrder extends PizzaOrder {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder item = new CustomPizzaOrder();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomPizzaOrder extends PizzaOrder {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder item = new CustomPizzaOrder();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2739,7 +2739,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class BroadcastShow {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomBroadcastShow extends BroadcastShow {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow item = new CustomBroadcastShow();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomBroadcastShow extends BroadcastShow {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow item = new CustomBroadcastShow();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2777,7 +2777,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class AudioTrack {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomAudioTrack extends AudioTrack {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack item = new CustomAudioTrack();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomAudioTrack extends AudioTrack {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack item = new CustomAudioTrack();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2815,7 +2815,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Thermostat {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomThermostat extends Thermostat {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat item = new CustomThermostat();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomThermostat extends Thermostat {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat item = new CustomThermostat();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2853,7 +2853,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class DeliveryDrone {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomDeliveryDrone extends DeliveryDrone {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone item = new CustomDeliveryDrone();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomDeliveryDrone extends DeliveryDrone {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone item = new CustomDeliveryDrone();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2891,7 +2891,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class StorageBay {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomStorageBay extends StorageBay {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay item = new CustomStorageBay();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomStorageBay extends StorageBay {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay item = new CustomStorageBay();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2929,7 +2929,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class CryptoAsset {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomCryptoAsset extends CryptoAsset {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset item = new CustomCryptoAsset();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomCryptoAsset extends CryptoAsset {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset item = new CustomCryptoAsset();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -2967,7 +2967,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class CatalogBook {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomCatalogBook extends CatalogBook {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook item = new CustomCatalogBook();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomCatalogBook extends CatalogBook {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook item = new CustomCatalogBook();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -3005,7 +3005,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class GymMember {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomGymMember extends GymMember {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember item = new CustomGymMember();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomGymMember extends GymMember {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember item = new CustomGymMember();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -3043,7 +3043,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class ParkingBay {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomParkingBay extends ParkingBay {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay item = new CustomParkingBay();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomParkingBay extends ParkingBay {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay item = new CustomParkingBay();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -3081,7 +3081,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class PatientRecord {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomPatientRecord extends PatientRecord {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord item = new CustomPatientRecord();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomPatientRecord extends PatientRecord {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord item = new CustomPatientRecord();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -3119,7 +3119,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class HotelReservation {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomHotelReservation extends HotelReservation {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation item = new CustomHotelReservation();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomHotelReservation extends HotelReservation {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation item = new CustomHotelReservation();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -3157,7 +3157,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class CinemaTicket {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomCinemaTicket extends CinemaTicket {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket item = new CustomCinemaTicket();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomCinemaTicket extends CinemaTicket {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket item = new CustomCinemaTicket();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -3195,7 +3195,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class ElectricScooter {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomElectricScooter extends ElectricScooter {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter item = new CustomElectricScooter();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomElectricScooter extends ElectricScooter {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter item = new CustomElectricScooter();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -3233,7 +3233,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class MeteoStation {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomMeteoStation extends MeteoStation {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation item = new CustomMeteoStation();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomMeteoStation extends MeteoStation {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation item = new CustomMeteoStation();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -3271,7 +3271,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class AuctionLot {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomAuctionLot extends AuctionLot {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot item = new CustomAuctionLot();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomAuctionLot extends AuctionLot {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot item = new CustomAuctionLot();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -3309,7 +3309,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class SolarInverter {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomSolarInverter extends SolarInverter {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter item = new CustomSolarInverter();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomSolarInverter extends SolarInverter {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter item = new CustomSolarInverter();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -3347,7 +3347,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class TrainRoute {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomTrainRoute extends TrainRoute {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute item = new CustomTrainRoute();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    public double calculatePrice() {\n        return 100.0;\n    }\n}\n\nclass CustomTrainRoute extends TrainRoute {\n    @Override\n    public double calculatePrice() {\n        return 150.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute item = new CustomTrainRoute();\n        System.out.println(\"Narx: $\" + item.calculatePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Metodni qayta yozish (@Override) avlod sinfga ota sinfdagi umumiy metodni o'ziga mos maxsus xatti-harakat bilan almashtirish imkonini beradi.",
@@ -3386,7 +3386,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Product {\n    public String level1 = \"A\";\n}\n\nclass MidProduct extends Product {\n    public String level2 = \"B\";\n}\n\nclass TopProduct extends MidProduct {\n    @Override\n    public String toString() {\n        return \"Uzum Market [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopProduct obj = new TopProduct();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    public String level1 = \"A\";\n}\n\nclass MidProduct extends Product {\n    public String level2 = \"B\";\n}\n\nclass TopProduct extends MidProduct {\n    @Override\n    public String toString() {\n        return \"Uzum Market [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopProduct obj = new TopProduct();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3425,7 +3425,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class WalletUser {\n    public String level1 = \"A\";\n}\n\nclass MidWalletUser extends WalletUser {\n    public String level2 = \"B\";\n}\n\nclass TopWalletUser extends MidWalletUser {\n    @Override\n    public String toString() {\n        return \"Payme Wallet [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopWalletUser obj = new TopWalletUser();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    public String level1 = \"A\";\n}\n\nclass MidWalletUser extends WalletUser {\n    public String level2 = \"B\";\n}\n\nclass TopWalletUser extends MidWalletUser {\n    @Override\n    public String toString() {\n        return \"Payme Wallet [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopWalletUser obj = new TopWalletUser();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3464,7 +3464,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class TaxiRide {\n    public String level1 = \"A\";\n}\n\nclass MidTaxiRide extends TaxiRide {\n    public String level2 = \"B\";\n}\n\nclass TopTaxiRide extends MidTaxiRide {\n    @Override\n    public String toString() {\n        return \"Yandex Go [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopTaxiRide obj = new TopTaxiRide();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    public String level1 = \"A\";\n}\n\nclass MidTaxiRide extends TaxiRide {\n    public String level2 = \"B\";\n}\n\nclass TopTaxiRide extends MidTaxiRide {\n    @Override\n    public String toString() {\n        return \"Yandex Go [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopTaxiRide obj = new TopTaxiRide();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3503,7 +3503,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class LoyaltyCard {\n    public String level1 = \"A\";\n}\n\nclass MidLoyaltyCard extends LoyaltyCard {\n    public String level2 = \"B\";\n}\n\nclass TopLoyaltyCard extends MidLoyaltyCard {\n    @Override\n    public String toString() {\n        return \"Korzinka Go [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopLoyaltyCard obj = new TopLoyaltyCard();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    public String level1 = \"A\";\n}\n\nclass MidLoyaltyCard extends LoyaltyCard {\n    public String level2 = \"B\";\n}\n\nclass TopLoyaltyCard extends MidLoyaltyCard {\n    @Override\n    public String toString() {\n        return \"Korzinka Go [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopLoyaltyCard obj = new TopLoyaltyCard();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3542,7 +3542,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Student {\n    public String level1 = \"A\";\n}\n\nclass MidStudent extends Student {\n    public String level2 = \"B\";\n}\n\nclass TopStudent extends MidStudent {\n    @Override\n    public String toString() {\n        return \"WIUT Portal [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopStudent obj = new TopStudent();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    public String level1 = \"A\";\n}\n\nclass MidStudent extends Student {\n    public String level2 = \"B\";\n}\n\nclass TopStudent extends MidStudent {\n    @Override\n    public String toString() {\n        return \"WIUT Portal [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopStudent obj = new TopStudent();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3581,7 +3581,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class PaymentTxn {\n    public String level1 = \"A\";\n}\n\nclass MidPaymentTxn extends PaymentTxn {\n    public String level2 = \"B\";\n}\n\nclass TopPaymentTxn extends MidPaymentTxn {\n    @Override\n    public String toString() {\n        return \"Click Pay [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopPaymentTxn obj = new TopPaymentTxn();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    public String level1 = \"A\";\n}\n\nclass MidPaymentTxn extends PaymentTxn {\n    public String level2 = \"B\";\n}\n\nclass TopPaymentTxn extends MidPaymentTxn {\n    @Override\n    public String toString() {\n        return \"Click Pay [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopPaymentTxn obj = new TopPaymentTxn();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3620,7 +3620,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class BotMessage {\n    public String level1 = \"A\";\n}\n\nclass MidBotMessage extends BotMessage {\n    public String level2 = \"B\";\n}\n\nclass TopBotMessage extends MidBotMessage {\n    @Override\n    public String toString() {\n        return \"Telegram Bot [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopBotMessage obj = new TopBotMessage();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    public String level1 = \"A\";\n}\n\nclass MidBotMessage extends BotMessage {\n    public String level2 = \"B\";\n}\n\nclass TopBotMessage extends MidBotMessage {\n    @Override\n    public String toString() {\n        return \"Telegram Bot [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopBotMessage obj = new TopBotMessage();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3659,7 +3659,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class FlightTicket {\n    public String level1 = \"A\";\n}\n\nclass MidFlightTicket extends FlightTicket {\n    public String level2 = \"B\";\n}\n\nclass TopFlightTicket extends MidFlightTicket {\n    @Override\n    public String toString() {\n        return \"UzAirways [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopFlightTicket obj = new TopFlightTicket();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    public String level1 = \"A\";\n}\n\nclass MidFlightTicket extends FlightTicket {\n    public String level2 = \"B\";\n}\n\nclass TopFlightTicket extends MidFlightTicket {\n    @Override\n    public String toString() {\n        return \"UzAirways [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopFlightTicket obj = new TopFlightTicket();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3698,7 +3698,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class BootcampCourse {\n    public String level1 = \"A\";\n}\n\nclass MidBootcampCourse extends BootcampCourse {\n    public String level2 = \"B\";\n}\n\nclass TopBootcampCourse extends MidBootcampCourse {\n    @Override\n    public String toString() {\n        return \"IT Park Academy [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopBootcampCourse obj = new TopBootcampCourse();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    public String level1 = \"A\";\n}\n\nclass MidBootcampCourse extends BootcampCourse {\n    public String level2 = \"B\";\n}\n\nclass TopBootcampCourse extends MidBootcampCourse {\n    @Override\n    public String toString() {\n        return \"IT Park Academy [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopBootcampCourse obj = new TopBootcampCourse();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3737,7 +3737,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class DebitCard {\n    public String level1 = \"A\";\n}\n\nclass MidDebitCard extends DebitCard {\n    public String level2 = \"B\";\n}\n\nclass TopDebitCard extends MidDebitCard {\n    @Override\n    public String toString() {\n        return \"Anorbank [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopDebitCard obj = new TopDebitCard();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    public String level1 = \"A\";\n}\n\nclass MidDebitCard extends DebitCard {\n    public String level2 = \"B\";\n}\n\nclass TopDebitCard extends MidDebitCard {\n    @Override\n    public String toString() {\n        return \"Anorbank [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopDebitCard obj = new TopDebitCard();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3776,7 +3776,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Medicine {\n    public String level1 = \"A\";\n}\n\nclass MidMedicine extends Medicine {\n    public String level2 = \"B\";\n}\n\nclass TopMedicine extends MidMedicine {\n    @Override\n    public String toString() {\n        return \"Oson Apteka [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopMedicine obj = new TopMedicine();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    public String level1 = \"A\";\n}\n\nclass MidMedicine extends Medicine {\n    public String level2 = \"B\";\n}\n\nclass TopMedicine extends MidMedicine {\n    @Override\n    public String toString() {\n        return \"Oson Apteka [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopMedicine obj = new TopMedicine();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3815,7 +3815,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class FoodOrder {\n    public String level1 = \"A\";\n}\n\nclass MidFoodOrder extends FoodOrder {\n    public String level2 = \"B\";\n}\n\nclass TopFoodOrder extends MidFoodOrder {\n    @Override\n    public String toString() {\n        return \"Evos FastFood [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopFoodOrder obj = new TopFoodOrder();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    public String level1 = \"A\";\n}\n\nclass MidFoodOrder extends FoodOrder {\n    public String level2 = \"B\";\n}\n\nclass TopFoodOrder extends MidFoodOrder {\n    @Override\n    public String toString() {\n        return \"Evos FastFood [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopFoodOrder obj = new TopFoodOrder();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3854,7 +3854,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class PizzaOrder {\n    public String level1 = \"A\";\n}\n\nclass MidPizzaOrder extends PizzaOrder {\n    public String level2 = \"B\";\n}\n\nclass TopPizzaOrder extends MidPizzaOrder {\n    @Override\n    public String toString() {\n        return \"Bellissimo Pizza [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopPizzaOrder obj = new TopPizzaOrder();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    public String level1 = \"A\";\n}\n\nclass MidPizzaOrder extends PizzaOrder {\n    public String level2 = \"B\";\n}\n\nclass TopPizzaOrder extends MidPizzaOrder {\n    @Override\n    public String toString() {\n        return \"Bellissimo Pizza [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopPizzaOrder obj = new TopPizzaOrder();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3893,7 +3893,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class BroadcastShow {\n    public String level1 = \"A\";\n}\n\nclass MidBroadcastShow extends BroadcastShow {\n    public String level2 = \"B\";\n}\n\nclass TopBroadcastShow extends MidBroadcastShow {\n    @Override\n    public String toString() {\n        return \"Milliy TV [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopBroadcastShow obj = new TopBroadcastShow();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    public String level1 = \"A\";\n}\n\nclass MidBroadcastShow extends BroadcastShow {\n    public String level2 = \"B\";\n}\n\nclass TopBroadcastShow extends MidBroadcastShow {\n    @Override\n    public String toString() {\n        return \"Milliy TV [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopBroadcastShow obj = new TopBroadcastShow();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3932,7 +3932,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class AudioTrack {\n    public String level1 = \"A\";\n}\n\nclass MidAudioTrack extends AudioTrack {\n    public String level2 = \"B\";\n}\n\nclass TopAudioTrack extends MidAudioTrack {\n    @Override\n    public String toString() {\n        return \"Spotify Sound [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopAudioTrack obj = new TopAudioTrack();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    public String level1 = \"A\";\n}\n\nclass MidAudioTrack extends AudioTrack {\n    public String level2 = \"B\";\n}\n\nclass TopAudioTrack extends MidAudioTrack {\n    @Override\n    public String toString() {\n        return \"Spotify Sound [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopAudioTrack obj = new TopAudioTrack();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -3971,7 +3971,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class Thermostat {\n    public String level1 = \"A\";\n}\n\nclass MidThermostat extends Thermostat {\n    public String level2 = \"B\";\n}\n\nclass TopThermostat extends MidThermostat {\n    @Override\n    public String toString() {\n        return \"Smart Thermostat [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopThermostat obj = new TopThermostat();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    public String level1 = \"A\";\n}\n\nclass MidThermostat extends Thermostat {\n    public String level2 = \"B\";\n}\n\nclass TopThermostat extends MidThermostat {\n    @Override\n    public String toString() {\n        return \"Smart Thermostat [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopThermostat obj = new TopThermostat();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4010,7 +4010,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class DeliveryDrone {\n    public String level1 = \"A\";\n}\n\nclass MidDeliveryDrone extends DeliveryDrone {\n    public String level2 = \"B\";\n}\n\nclass TopDeliveryDrone extends MidDeliveryDrone {\n    @Override\n    public String toString() {\n        return \"Drone Delivery [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopDeliveryDrone obj = new TopDeliveryDrone();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    public String level1 = \"A\";\n}\n\nclass MidDeliveryDrone extends DeliveryDrone {\n    public String level2 = \"B\";\n}\n\nclass TopDeliveryDrone extends MidDeliveryDrone {\n    @Override\n    public String toString() {\n        return \"Drone Delivery [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopDeliveryDrone obj = new TopDeliveryDrone();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4049,7 +4049,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class StorageBay {\n    public String level1 = \"A\";\n}\n\nclass MidStorageBay extends StorageBay {\n    public String level2 = \"B\";\n}\n\nclass TopStorageBay extends MidStorageBay {\n    @Override\n    public String toString() {\n        return \"Smart Warehouse [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopStorageBay obj = new TopStorageBay();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    public String level1 = \"A\";\n}\n\nclass MidStorageBay extends StorageBay {\n    public String level2 = \"B\";\n}\n\nclass TopStorageBay extends MidStorageBay {\n    @Override\n    public String toString() {\n        return \"Smart Warehouse [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopStorageBay obj = new TopStorageBay();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4088,7 +4088,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class CryptoAsset {\n    public String level1 = \"A\";\n}\n\nclass MidCryptoAsset extends CryptoAsset {\n    public String level2 = \"B\";\n}\n\nclass TopCryptoAsset extends MidCryptoAsset {\n    @Override\n    public String toString() {\n        return \"Crypto Wallet [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopCryptoAsset obj = new TopCryptoAsset();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    public String level1 = \"A\";\n}\n\nclass MidCryptoAsset extends CryptoAsset {\n    public String level2 = \"B\";\n}\n\nclass TopCryptoAsset extends MidCryptoAsset {\n    @Override\n    public String toString() {\n        return \"Crypto Wallet [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopCryptoAsset obj = new TopCryptoAsset();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4127,7 +4127,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class CatalogBook {\n    public String level1 = \"A\";\n}\n\nclass MidCatalogBook extends CatalogBook {\n    public String level2 = \"B\";\n}\n\nclass TopCatalogBook extends MidCatalogBook {\n    @Override\n    public String toString() {\n        return \"National Library [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopCatalogBook obj = new TopCatalogBook();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    public String level1 = \"A\";\n}\n\nclass MidCatalogBook extends CatalogBook {\n    public String level2 = \"B\";\n}\n\nclass TopCatalogBook extends MidCatalogBook {\n    @Override\n    public String toString() {\n        return \"National Library [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopCatalogBook obj = new TopCatalogBook();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4166,7 +4166,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class GymMember {\n    public String level1 = \"A\";\n}\n\nclass MidGymMember extends GymMember {\n    public String level2 = \"B\";\n}\n\nclass TopGymMember extends MidGymMember {\n    @Override\n    public String toString() {\n        return \"BeFit Club [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopGymMember obj = new TopGymMember();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    public String level1 = \"A\";\n}\n\nclass MidGymMember extends GymMember {\n    public String level2 = \"B\";\n}\n\nclass TopGymMember extends MidGymMember {\n    @Override\n    public String toString() {\n        return \"BeFit Club [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopGymMember obj = new TopGymMember();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4205,7 +4205,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class ParkingBay {\n    public String level1 = \"A\";\n}\n\nclass MidParkingBay extends ParkingBay {\n    public String level2 = \"B\";\n}\n\nclass TopParkingBay extends MidParkingBay {\n    @Override\n    public String toString() {\n        return \"Tashkent Parking [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopParkingBay obj = new TopParkingBay();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    public String level1 = \"A\";\n}\n\nclass MidParkingBay extends ParkingBay {\n    public String level2 = \"B\";\n}\n\nclass TopParkingBay extends MidParkingBay {\n    @Override\n    public String toString() {\n        return \"Tashkent Parking [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopParkingBay obj = new TopParkingBay();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4244,7 +4244,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class PatientRecord {\n    public String level1 = \"A\";\n}\n\nclass MidPatientRecord extends PatientRecord {\n    public String level2 = \"B\";\n}\n\nclass TopPatientRecord extends MidPatientRecord {\n    @Override\n    public String toString() {\n        return \"Medion Clinic [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopPatientRecord obj = new TopPatientRecord();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    public String level1 = \"A\";\n}\n\nclass MidPatientRecord extends PatientRecord {\n    public String level2 = \"B\";\n}\n\nclass TopPatientRecord extends MidPatientRecord {\n    @Override\n    public String toString() {\n        return \"Medion Clinic [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopPatientRecord obj = new TopPatientRecord();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4283,7 +4283,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class HotelReservation {\n    public String level1 = \"A\";\n}\n\nclass MidHotelReservation extends HotelReservation {\n    public String level2 = \"B\";\n}\n\nclass TopHotelReservation extends MidHotelReservation {\n    @Override\n    public String toString() {\n        return \"Hyatt Regency [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopHotelReservation obj = new TopHotelReservation();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    public String level1 = \"A\";\n}\n\nclass MidHotelReservation extends HotelReservation {\n    public String level2 = \"B\";\n}\n\nclass TopHotelReservation extends MidHotelReservation {\n    @Override\n    public String toString() {\n        return \"Hyatt Regency [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopHotelReservation obj = new TopHotelReservation();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4322,7 +4322,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class CinemaTicket {\n    public String level1 = \"A\";\n}\n\nclass MidCinemaTicket extends CinemaTicket {\n    public String level2 = \"B\";\n}\n\nclass TopCinemaTicket extends MidCinemaTicket {\n    @Override\n    public String toString() {\n        return \"Premier Cinema [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopCinemaTicket obj = new TopCinemaTicket();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    public String level1 = \"A\";\n}\n\nclass MidCinemaTicket extends CinemaTicket {\n    public String level2 = \"B\";\n}\n\nclass TopCinemaTicket extends MidCinemaTicket {\n    @Override\n    public String toString() {\n        return \"Premier Cinema [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopCinemaTicket obj = new TopCinemaTicket();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4361,7 +4361,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class ElectricScooter {\n    public String level1 = \"A\";\n}\n\nclass MidElectricScooter extends ElectricScooter {\n    public String level2 = \"B\";\n}\n\nclass TopElectricScooter extends MidElectricScooter {\n    @Override\n    public String toString() {\n        return \"Yandex Scooter [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopElectricScooter obj = new TopElectricScooter();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    public String level1 = \"A\";\n}\n\nclass MidElectricScooter extends ElectricScooter {\n    public String level2 = \"B\";\n}\n\nclass TopElectricScooter extends MidElectricScooter {\n    @Override\n    public String toString() {\n        return \"Yandex Scooter [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopElectricScooter obj = new TopElectricScooter();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4400,7 +4400,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class MeteoStation {\n    public String level1 = \"A\";\n}\n\nclass MidMeteoStation extends MeteoStation {\n    public String level2 = \"B\";\n}\n\nclass TopMeteoStation extends MidMeteoStation {\n    @Override\n    public String toString() {\n        return \"Weather Network [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopMeteoStation obj = new TopMeteoStation();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    public String level1 = \"A\";\n}\n\nclass MidMeteoStation extends MeteoStation {\n    public String level2 = \"B\";\n}\n\nclass TopMeteoStation extends MidMeteoStation {\n    @Override\n    public String toString() {\n        return \"Weather Network [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopMeteoStation obj = new TopMeteoStation();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4439,7 +4439,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class AuctionLot {\n    public String level1 = \"A\";\n}\n\nclass MidAuctionLot extends AuctionLot {\n    public String level2 = \"B\";\n}\n\nclass TopAuctionLot extends MidAuctionLot {\n    @Override\n    public String toString() {\n        return \"OpenMarket Auction [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopAuctionLot obj = new TopAuctionLot();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    public String level1 = \"A\";\n}\n\nclass MidAuctionLot extends AuctionLot {\n    public String level2 = \"B\";\n}\n\nclass TopAuctionLot extends MidAuctionLot {\n    @Override\n    public String toString() {\n        return \"OpenMarket Auction [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopAuctionLot obj = new TopAuctionLot();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4478,7 +4478,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class SolarInverter {\n    public String level1 = \"A\";\n}\n\nclass MidSolarInverter extends SolarInverter {\n    public String level2 = \"B\";\n}\n\nclass TopSolarInverter extends MidSolarInverter {\n    @Override\n    public String toString() {\n        return \"Solar Energy Grid [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopSolarInverter obj = new TopSolarInverter();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    public String level1 = \"A\";\n}\n\nclass MidSolarInverter extends SolarInverter {\n    public String level2 = \"B\";\n}\n\nclass TopSolarInverter extends MidSolarInverter {\n    @Override\n    public String toString() {\n        return \"Solar Energy Grid [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopSolarInverter obj = new TopSolarInverter();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4517,7 +4517,7 @@ window.OOP_CHALLENGES_W3 = [
         "extends"
       ]
     },
-    "starterCode": "class TrainRoute {\n    public String level1 = \"A\";\n}\n\nclass MidTrainRoute extends TrainRoute {\n    public String level2 = \"B\";\n}\n\nclass TopTrainRoute extends MidTrainRoute {\n    @Override\n    public String toString() {\n        return \"O'zbekiston Temir Yo'llari [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopTrainRoute obj = new TopTrainRoute();\n        System.out.println(obj.toString());\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    public String level1 = \"A\";\n}\n\nclass MidTrainRoute extends TrainRoute {\n    public String level2 = \"B\";\n}\n\nclass TopTrainRoute extends MidTrainRoute {\n    @Override\n    public String toString() {\n        return \"O'zbekiston Temir Yo'llari [\" + level1 + \"-\" + level2 + \"]\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TopTrainRoute obj = new TopTrainRoute();\n        System.out.println(obj.toString());\n    }\n}",
     "detailedSolution": {
       "theory": "Java'da barcha sinflar bevosita yoki bilvosita 'java.lang.Object' sinfidan meros oladi. 'toString()' metodini qayta yozish orqali xotira manzili (hashcode) o'rniga tushunarli matn olinadi.",
@@ -4549,7 +4549,7 @@ window.OOP_CHALLENGES_W3 = [
         "ProductCart"
       ]
     },
-    "starterCode": "class ProductItem {\n    public String title;\n    public double price;\n    public ProductItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass ProductCart {\n    private ProductItem item;\n\n    public void setItem(ProductItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductCart cart = new ProductCart();\n        cart.setItem(new ProductItem(\"Uzum Market Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class ProductItem {\n    public String title;\n    public double price;\n    public ProductItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass ProductCart {\n    private ProductItem item;\n\n    public void setItem(ProductItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductCart cart = new ProductCart();\n        cart.setItem(new ProductItem(\"Uzum Market Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4581,7 +4581,7 @@ window.OOP_CHALLENGES_W3 = [
         "WalletUserCart"
       ]
     },
-    "starterCode": "class WalletUserItem {\n    public String title;\n    public double price;\n    public WalletUserItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass WalletUserCart {\n    private WalletUserItem item;\n\n    public void setItem(WalletUserItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserCart cart = new WalletUserCart();\n        cart.setItem(new WalletUserItem(\"Payme Wallet Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUserItem {\n    public String title;\n    public double price;\n    public WalletUserItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass WalletUserCart {\n    private WalletUserItem item;\n\n    public void setItem(WalletUserItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserCart cart = new WalletUserCart();\n        cart.setItem(new WalletUserItem(\"Payme Wallet Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4613,7 +4613,7 @@ window.OOP_CHALLENGES_W3 = [
         "TaxiRideCart"
       ]
     },
-    "starterCode": "class TaxiRideItem {\n    public String title;\n    public double price;\n    public TaxiRideItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass TaxiRideCart {\n    private TaxiRideItem item;\n\n    public void setItem(TaxiRideItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideCart cart = new TaxiRideCart();\n        cart.setItem(new TaxiRideItem(\"Yandex Go Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRideItem {\n    public String title;\n    public double price;\n    public TaxiRideItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass TaxiRideCart {\n    private TaxiRideItem item;\n\n    public void setItem(TaxiRideItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideCart cart = new TaxiRideCart();\n        cart.setItem(new TaxiRideItem(\"Yandex Go Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4645,7 +4645,7 @@ window.OOP_CHALLENGES_W3 = [
         "LoyaltyCardCart"
       ]
     },
-    "starterCode": "class LoyaltyCardItem {\n    public String title;\n    public double price;\n    public LoyaltyCardItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass LoyaltyCardCart {\n    private LoyaltyCardItem item;\n\n    public void setItem(LoyaltyCardItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardCart cart = new LoyaltyCardCart();\n        cart.setItem(new LoyaltyCardItem(\"Korzinka Go Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCardItem {\n    public String title;\n    public double price;\n    public LoyaltyCardItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass LoyaltyCardCart {\n    private LoyaltyCardItem item;\n\n    public void setItem(LoyaltyCardItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardCart cart = new LoyaltyCardCart();\n        cart.setItem(new LoyaltyCardItem(\"Korzinka Go Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4677,7 +4677,7 @@ window.OOP_CHALLENGES_W3 = [
         "StudentCart"
       ]
     },
-    "starterCode": "class StudentItem {\n    public String title;\n    public double price;\n    public StudentItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass StudentCart {\n    private StudentItem item;\n\n    public void setItem(StudentItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentCart cart = new StudentCart();\n        cart.setItem(new StudentItem(\"WIUT Portal Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class StudentItem {\n    public String title;\n    public double price;\n    public StudentItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass StudentCart {\n    private StudentItem item;\n\n    public void setItem(StudentItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentCart cart = new StudentCart();\n        cart.setItem(new StudentItem(\"WIUT Portal Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4709,7 +4709,7 @@ window.OOP_CHALLENGES_W3 = [
         "PaymentTxnCart"
       ]
     },
-    "starterCode": "class PaymentTxnItem {\n    public String title;\n    public double price;\n    public PaymentTxnItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass PaymentTxnCart {\n    private PaymentTxnItem item;\n\n    public void setItem(PaymentTxnItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnCart cart = new PaymentTxnCart();\n        cart.setItem(new PaymentTxnItem(\"Click Pay Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxnItem {\n    public String title;\n    public double price;\n    public PaymentTxnItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass PaymentTxnCart {\n    private PaymentTxnItem item;\n\n    public void setItem(PaymentTxnItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnCart cart = new PaymentTxnCart();\n        cart.setItem(new PaymentTxnItem(\"Click Pay Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4741,7 +4741,7 @@ window.OOP_CHALLENGES_W3 = [
         "BotMessageCart"
       ]
     },
-    "starterCode": "class BotMessageItem {\n    public String title;\n    public double price;\n    public BotMessageItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass BotMessageCart {\n    private BotMessageItem item;\n\n    public void setItem(BotMessageItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageCart cart = new BotMessageCart();\n        cart.setItem(new BotMessageItem(\"Telegram Bot Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessageItem {\n    public String title;\n    public double price;\n    public BotMessageItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass BotMessageCart {\n    private BotMessageItem item;\n\n    public void setItem(BotMessageItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageCart cart = new BotMessageCart();\n        cart.setItem(new BotMessageItem(\"Telegram Bot Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4773,7 +4773,7 @@ window.OOP_CHALLENGES_W3 = [
         "FlightTicketCart"
       ]
     },
-    "starterCode": "class FlightTicketItem {\n    public String title;\n    public double price;\n    public FlightTicketItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass FlightTicketCart {\n    private FlightTicketItem item;\n\n    public void setItem(FlightTicketItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketCart cart = new FlightTicketCart();\n        cart.setItem(new FlightTicketItem(\"UzAirways Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicketItem {\n    public String title;\n    public double price;\n    public FlightTicketItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass FlightTicketCart {\n    private FlightTicketItem item;\n\n    public void setItem(FlightTicketItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketCart cart = new FlightTicketCart();\n        cart.setItem(new FlightTicketItem(\"UzAirways Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4805,7 +4805,7 @@ window.OOP_CHALLENGES_W3 = [
         "BootcampCourseCart"
       ]
     },
-    "starterCode": "class BootcampCourseItem {\n    public String title;\n    public double price;\n    public BootcampCourseItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass BootcampCourseCart {\n    private BootcampCourseItem item;\n\n    public void setItem(BootcampCourseItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseCart cart = new BootcampCourseCart();\n        cart.setItem(new BootcampCourseItem(\"IT Park Academy Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourseItem {\n    public String title;\n    public double price;\n    public BootcampCourseItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass BootcampCourseCart {\n    private BootcampCourseItem item;\n\n    public void setItem(BootcampCourseItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseCart cart = new BootcampCourseCart();\n        cart.setItem(new BootcampCourseItem(\"IT Park Academy Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4837,7 +4837,7 @@ window.OOP_CHALLENGES_W3 = [
         "DebitCardCart"
       ]
     },
-    "starterCode": "class DebitCardItem {\n    public String title;\n    public double price;\n    public DebitCardItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass DebitCardCart {\n    private DebitCardItem item;\n\n    public void setItem(DebitCardItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardCart cart = new DebitCardCart();\n        cart.setItem(new DebitCardItem(\"Anorbank Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCardItem {\n    public String title;\n    public double price;\n    public DebitCardItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass DebitCardCart {\n    private DebitCardItem item;\n\n    public void setItem(DebitCardItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardCart cart = new DebitCardCart();\n        cart.setItem(new DebitCardItem(\"Anorbank Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4869,7 +4869,7 @@ window.OOP_CHALLENGES_W3 = [
         "MedicineCart"
       ]
     },
-    "starterCode": "class MedicineItem {\n    public String title;\n    public double price;\n    public MedicineItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass MedicineCart {\n    private MedicineItem item;\n\n    public void setItem(MedicineItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineCart cart = new MedicineCart();\n        cart.setItem(new MedicineItem(\"Oson Apteka Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class MedicineItem {\n    public String title;\n    public double price;\n    public MedicineItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass MedicineCart {\n    private MedicineItem item;\n\n    public void setItem(MedicineItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineCart cart = new MedicineCart();\n        cart.setItem(new MedicineItem(\"Oson Apteka Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4901,7 +4901,7 @@ window.OOP_CHALLENGES_W3 = [
         "FoodOrderCart"
       ]
     },
-    "starterCode": "class FoodOrderItem {\n    public String title;\n    public double price;\n    public FoodOrderItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass FoodOrderCart {\n    private FoodOrderItem item;\n\n    public void setItem(FoodOrderItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderCart cart = new FoodOrderCart();\n        cart.setItem(new FoodOrderItem(\"Evos FastFood Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrderItem {\n    public String title;\n    public double price;\n    public FoodOrderItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass FoodOrderCart {\n    private FoodOrderItem item;\n\n    public void setItem(FoodOrderItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderCart cart = new FoodOrderCart();\n        cart.setItem(new FoodOrderItem(\"Evos FastFood Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4933,7 +4933,7 @@ window.OOP_CHALLENGES_W3 = [
         "PizzaOrderCart"
       ]
     },
-    "starterCode": "class PizzaOrderItem {\n    public String title;\n    public double price;\n    public PizzaOrderItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass PizzaOrderCart {\n    private PizzaOrderItem item;\n\n    public void setItem(PizzaOrderItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderCart cart = new PizzaOrderCart();\n        cart.setItem(new PizzaOrderItem(\"Bellissimo Pizza Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrderItem {\n    public String title;\n    public double price;\n    public PizzaOrderItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass PizzaOrderCart {\n    private PizzaOrderItem item;\n\n    public void setItem(PizzaOrderItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderCart cart = new PizzaOrderCart();\n        cart.setItem(new PizzaOrderItem(\"Bellissimo Pizza Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4965,7 +4965,7 @@ window.OOP_CHALLENGES_W3 = [
         "BroadcastShowCart"
       ]
     },
-    "starterCode": "class BroadcastShowItem {\n    public String title;\n    public double price;\n    public BroadcastShowItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass BroadcastShowCart {\n    private BroadcastShowItem item;\n\n    public void setItem(BroadcastShowItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowCart cart = new BroadcastShowCart();\n        cart.setItem(new BroadcastShowItem(\"Milliy TV Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShowItem {\n    public String title;\n    public double price;\n    public BroadcastShowItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass BroadcastShowCart {\n    private BroadcastShowItem item;\n\n    public void setItem(BroadcastShowItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowCart cart = new BroadcastShowCart();\n        cart.setItem(new BroadcastShowItem(\"Milliy TV Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -4997,7 +4997,7 @@ window.OOP_CHALLENGES_W3 = [
         "AudioTrackCart"
       ]
     },
-    "starterCode": "class AudioTrackItem {\n    public String title;\n    public double price;\n    public AudioTrackItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass AudioTrackCart {\n    private AudioTrackItem item;\n\n    public void setItem(AudioTrackItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackCart cart = new AudioTrackCart();\n        cart.setItem(new AudioTrackItem(\"Spotify Sound Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrackItem {\n    public String title;\n    public double price;\n    public AudioTrackItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass AudioTrackCart {\n    private AudioTrackItem item;\n\n    public void setItem(AudioTrackItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackCart cart = new AudioTrackCart();\n        cart.setItem(new AudioTrackItem(\"Spotify Sound Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5029,7 +5029,7 @@ window.OOP_CHALLENGES_W3 = [
         "ThermostatCart"
       ]
     },
-    "starterCode": "class ThermostatItem {\n    public String title;\n    public double price;\n    public ThermostatItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass ThermostatCart {\n    private ThermostatItem item;\n\n    public void setItem(ThermostatItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatCart cart = new ThermostatCart();\n        cart.setItem(new ThermostatItem(\"Smart Thermostat Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class ThermostatItem {\n    public String title;\n    public double price;\n    public ThermostatItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass ThermostatCart {\n    private ThermostatItem item;\n\n    public void setItem(ThermostatItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatCart cart = new ThermostatCart();\n        cart.setItem(new ThermostatItem(\"Smart Thermostat Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5061,7 +5061,7 @@ window.OOP_CHALLENGES_W3 = [
         "DeliveryDroneCart"
       ]
     },
-    "starterCode": "class DeliveryDroneItem {\n    public String title;\n    public double price;\n    public DeliveryDroneItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass DeliveryDroneCart {\n    private DeliveryDroneItem item;\n\n    public void setItem(DeliveryDroneItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneCart cart = new DeliveryDroneCart();\n        cart.setItem(new DeliveryDroneItem(\"Drone Delivery Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDroneItem {\n    public String title;\n    public double price;\n    public DeliveryDroneItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass DeliveryDroneCart {\n    private DeliveryDroneItem item;\n\n    public void setItem(DeliveryDroneItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneCart cart = new DeliveryDroneCart();\n        cart.setItem(new DeliveryDroneItem(\"Drone Delivery Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5093,7 +5093,7 @@ window.OOP_CHALLENGES_W3 = [
         "StorageBayCart"
       ]
     },
-    "starterCode": "class StorageBayItem {\n    public String title;\n    public double price;\n    public StorageBayItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass StorageBayCart {\n    private StorageBayItem item;\n\n    public void setItem(StorageBayItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayCart cart = new StorageBayCart();\n        cart.setItem(new StorageBayItem(\"Smart Warehouse Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBayItem {\n    public String title;\n    public double price;\n    public StorageBayItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass StorageBayCart {\n    private StorageBayItem item;\n\n    public void setItem(StorageBayItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayCart cart = new StorageBayCart();\n        cart.setItem(new StorageBayItem(\"Smart Warehouse Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5125,7 +5125,7 @@ window.OOP_CHALLENGES_W3 = [
         "CryptoAssetCart"
       ]
     },
-    "starterCode": "class CryptoAssetItem {\n    public String title;\n    public double price;\n    public CryptoAssetItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass CryptoAssetCart {\n    private CryptoAssetItem item;\n\n    public void setItem(CryptoAssetItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetCart cart = new CryptoAssetCart();\n        cart.setItem(new CryptoAssetItem(\"Crypto Wallet Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAssetItem {\n    public String title;\n    public double price;\n    public CryptoAssetItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass CryptoAssetCart {\n    private CryptoAssetItem item;\n\n    public void setItem(CryptoAssetItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetCart cart = new CryptoAssetCart();\n        cart.setItem(new CryptoAssetItem(\"Crypto Wallet Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5157,7 +5157,7 @@ window.OOP_CHALLENGES_W3 = [
         "CatalogBookCart"
       ]
     },
-    "starterCode": "class CatalogBookItem {\n    public String title;\n    public double price;\n    public CatalogBookItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass CatalogBookCart {\n    private CatalogBookItem item;\n\n    public void setItem(CatalogBookItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookCart cart = new CatalogBookCart();\n        cart.setItem(new CatalogBookItem(\"National Library Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBookItem {\n    public String title;\n    public double price;\n    public CatalogBookItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass CatalogBookCart {\n    private CatalogBookItem item;\n\n    public void setItem(CatalogBookItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookCart cart = new CatalogBookCart();\n        cart.setItem(new CatalogBookItem(\"National Library Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5189,7 +5189,7 @@ window.OOP_CHALLENGES_W3 = [
         "GymMemberCart"
       ]
     },
-    "starterCode": "class GymMemberItem {\n    public String title;\n    public double price;\n    public GymMemberItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass GymMemberCart {\n    private GymMemberItem item;\n\n    public void setItem(GymMemberItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberCart cart = new GymMemberCart();\n        cart.setItem(new GymMemberItem(\"BeFit Club Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMemberItem {\n    public String title;\n    public double price;\n    public GymMemberItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass GymMemberCart {\n    private GymMemberItem item;\n\n    public void setItem(GymMemberItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberCart cart = new GymMemberCart();\n        cart.setItem(new GymMemberItem(\"BeFit Club Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5221,7 +5221,7 @@ window.OOP_CHALLENGES_W3 = [
         "ParkingBayCart"
       ]
     },
-    "starterCode": "class ParkingBayItem {\n    public String title;\n    public double price;\n    public ParkingBayItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass ParkingBayCart {\n    private ParkingBayItem item;\n\n    public void setItem(ParkingBayItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayCart cart = new ParkingBayCart();\n        cart.setItem(new ParkingBayItem(\"Tashkent Parking Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBayItem {\n    public String title;\n    public double price;\n    public ParkingBayItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass ParkingBayCart {\n    private ParkingBayItem item;\n\n    public void setItem(ParkingBayItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayCart cart = new ParkingBayCart();\n        cart.setItem(new ParkingBayItem(\"Tashkent Parking Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5253,7 +5253,7 @@ window.OOP_CHALLENGES_W3 = [
         "PatientRecordCart"
       ]
     },
-    "starterCode": "class PatientRecordItem {\n    public String title;\n    public double price;\n    public PatientRecordItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass PatientRecordCart {\n    private PatientRecordItem item;\n\n    public void setItem(PatientRecordItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordCart cart = new PatientRecordCart();\n        cart.setItem(new PatientRecordItem(\"Medion Clinic Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecordItem {\n    public String title;\n    public double price;\n    public PatientRecordItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass PatientRecordCart {\n    private PatientRecordItem item;\n\n    public void setItem(PatientRecordItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordCart cart = new PatientRecordCart();\n        cart.setItem(new PatientRecordItem(\"Medion Clinic Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5285,7 +5285,7 @@ window.OOP_CHALLENGES_W3 = [
         "HotelReservationCart"
       ]
     },
-    "starterCode": "class HotelReservationItem {\n    public String title;\n    public double price;\n    public HotelReservationItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass HotelReservationCart {\n    private HotelReservationItem item;\n\n    public void setItem(HotelReservationItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationCart cart = new HotelReservationCart();\n        cart.setItem(new HotelReservationItem(\"Hyatt Regency Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservationItem {\n    public String title;\n    public double price;\n    public HotelReservationItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass HotelReservationCart {\n    private HotelReservationItem item;\n\n    public void setItem(HotelReservationItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationCart cart = new HotelReservationCart();\n        cart.setItem(new HotelReservationItem(\"Hyatt Regency Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5317,7 +5317,7 @@ window.OOP_CHALLENGES_W3 = [
         "CinemaTicketCart"
       ]
     },
-    "starterCode": "class CinemaTicketItem {\n    public String title;\n    public double price;\n    public CinemaTicketItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass CinemaTicketCart {\n    private CinemaTicketItem item;\n\n    public void setItem(CinemaTicketItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketCart cart = new CinemaTicketCart();\n        cart.setItem(new CinemaTicketItem(\"Premier Cinema Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicketItem {\n    public String title;\n    public double price;\n    public CinemaTicketItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass CinemaTicketCart {\n    private CinemaTicketItem item;\n\n    public void setItem(CinemaTicketItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketCart cart = new CinemaTicketCart();\n        cart.setItem(new CinemaTicketItem(\"Premier Cinema Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5349,7 +5349,7 @@ window.OOP_CHALLENGES_W3 = [
         "ElectricScooterCart"
       ]
     },
-    "starterCode": "class ElectricScooterItem {\n    public String title;\n    public double price;\n    public ElectricScooterItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass ElectricScooterCart {\n    private ElectricScooterItem item;\n\n    public void setItem(ElectricScooterItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterCart cart = new ElectricScooterCart();\n        cart.setItem(new ElectricScooterItem(\"Yandex Scooter Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooterItem {\n    public String title;\n    public double price;\n    public ElectricScooterItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass ElectricScooterCart {\n    private ElectricScooterItem item;\n\n    public void setItem(ElectricScooterItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterCart cart = new ElectricScooterCart();\n        cart.setItem(new ElectricScooterItem(\"Yandex Scooter Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5381,7 +5381,7 @@ window.OOP_CHALLENGES_W3 = [
         "MeteoStationCart"
       ]
     },
-    "starterCode": "class MeteoStationItem {\n    public String title;\n    public double price;\n    public MeteoStationItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass MeteoStationCart {\n    private MeteoStationItem item;\n\n    public void setItem(MeteoStationItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationCart cart = new MeteoStationCart();\n        cart.setItem(new MeteoStationItem(\"Weather Network Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStationItem {\n    public String title;\n    public double price;\n    public MeteoStationItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass MeteoStationCart {\n    private MeteoStationItem item;\n\n    public void setItem(MeteoStationItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationCart cart = new MeteoStationCart();\n        cart.setItem(new MeteoStationItem(\"Weather Network Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5413,7 +5413,7 @@ window.OOP_CHALLENGES_W3 = [
         "AuctionLotCart"
       ]
     },
-    "starterCode": "class AuctionLotItem {\n    public String title;\n    public double price;\n    public AuctionLotItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass AuctionLotCart {\n    private AuctionLotItem item;\n\n    public void setItem(AuctionLotItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotCart cart = new AuctionLotCart();\n        cart.setItem(new AuctionLotItem(\"OpenMarket Auction Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLotItem {\n    public String title;\n    public double price;\n    public AuctionLotItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass AuctionLotCart {\n    private AuctionLotItem item;\n\n    public void setItem(AuctionLotItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotCart cart = new AuctionLotCart();\n        cart.setItem(new AuctionLotItem(\"OpenMarket Auction Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5445,7 +5445,7 @@ window.OOP_CHALLENGES_W3 = [
         "SolarInverterCart"
       ]
     },
-    "starterCode": "class SolarInverterItem {\n    public String title;\n    public double price;\n    public SolarInverterItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass SolarInverterCart {\n    private SolarInverterItem item;\n\n    public void setItem(SolarInverterItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterCart cart = new SolarInverterCart();\n        cart.setItem(new SolarInverterItem(\"Solar Energy Grid Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverterItem {\n    public String title;\n    public double price;\n    public SolarInverterItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass SolarInverterCart {\n    private SolarInverterItem item;\n\n    public void setItem(SolarInverterItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterCart cart = new SolarInverterCart();\n        cart.setItem(new SolarInverterItem(\"Solar Energy Grid Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",
@@ -5477,7 +5477,7 @@ window.OOP_CHALLENGES_W3 = [
         "TrainRouteCart"
       ]
     },
-    "starterCode": "class TrainRouteItem {\n    public String title;\n    public double price;\n    public TrainRouteItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass TrainRouteCart {\n    private TrainRouteItem item;\n\n    public void setItem(TrainRouteItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteCart cart = new TrainRouteCart();\n        cart.setItem(new TrainRouteItem(\"O'zbekiston Temir Yo'llari Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRouteItem {\n    public String title;\n    public double price;\n    public TrainRouteItem(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass TrainRouteCart {\n    private TrainRouteItem item;\n\n    public void setItem(TrainRouteItem item) {\n        this.item = item;\n    }\n\n    public double getItemPrice() {\n        return (item != null) ? item.price : 0.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteCart cart = new TrainRouteCart();\n        cart.setItem(new TrainRouteItem(\"O'zbekiston Temir Yo'llari Tovari\", 45.0));\n        System.out.println(\"Element narxi: $\" + cart.getItemPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "\"Favor composition over inheritance\" (Merosxo'rlikdan ko'ra kompozitsiyani afzal biling) — OOP ning eng mashhur oltin qoidasi. Ob'yekt boshqa ob'yektni o'z ichida ushlab tursa, tizim bo'shroq va moslashuvchanroq bo'ladi.",

@@ -28,7 +28,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Uzum Market ob'yekt klassi\nclass Product {\n    String title;\n    double price;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product obj = new Product();\n        obj.title = \"Uzum Market Birlamchi\";\n        obj.price = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.price);\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    String title;\n    double price;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product obj = new Product();\n        obj.title = \"Uzum Market Birlamchi\";\n        obj.price = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.price);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'price' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -70,7 +70,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Payme Wallet ob'yekt klassi\nclass WalletUser {\n    String title;\n    double balance;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser obj = new WalletUser();\n        obj.title = \"Payme Wallet Birlamchi\";\n        obj.balance = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.balance);\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    String title;\n    double balance;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser obj = new WalletUser();\n        obj.title = \"Payme Wallet Birlamchi\";\n        obj.balance = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.balance);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'balance' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -112,7 +112,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Yandex Go ob'yekt klassi\nclass TaxiRide {\n    String title;\n    double distanceKm;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide obj = new TaxiRide();\n        obj.title = \"Yandex Go Birlamchi\";\n        obj.distanceKm = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.distanceKm);\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    String title;\n    double distanceKm;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide obj = new TaxiRide();\n        obj.title = \"Yandex Go Birlamchi\";\n        obj.distanceKm = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.distanceKm);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'distanceKm' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -154,7 +154,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Korzinka Go ob'yekt klassi\nclass LoyaltyCard {\n    String title;\n    int bonusPoints;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard obj = new LoyaltyCard();\n        obj.title = \"Korzinka Go Birlamchi\";\n        obj.bonusPoints = 42;\n        System.out.println(obj.title + \" holati: \" + obj.bonusPoints);\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    String title;\n    int bonusPoints;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard obj = new LoyaltyCard();\n        obj.title = \"Korzinka Go Birlamchi\";\n        obj.bonusPoints = 42;\n        System.out.println(obj.title + \" holati: \" + obj.bonusPoints);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'bonusPoints' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -196,7 +196,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// WIUT Portal ob'yekt klassi\nclass Student {\n    String title;\n    double gpa;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student obj = new Student();\n        obj.title = \"WIUT Portal Birlamchi\";\n        obj.gpa = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.gpa);\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    String title;\n    double gpa;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student obj = new Student();\n        obj.title = \"WIUT Portal Birlamchi\";\n        obj.gpa = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.gpa);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'gpa' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -238,7 +238,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Click Pay ob'yekt klassi\nclass PaymentTxn {\n    String title;\n    double amount;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn obj = new PaymentTxn();\n        obj.title = \"Click Pay Birlamchi\";\n        obj.amount = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.amount);\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    String title;\n    double amount;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn obj = new PaymentTxn();\n        obj.title = \"Click Pay Birlamchi\";\n        obj.amount = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.amount);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'amount' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -280,7 +280,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Telegram Bot ob'yekt klassi\nclass BotMessage {\n    String title;\n    long chatId;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage obj = new BotMessage();\n        obj.title = \"Telegram Bot Birlamchi\";\n        obj.chatId = 1000L;\n        System.out.println(obj.title + \" holati: \" + obj.chatId);\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    String title;\n    long chatId;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage obj = new BotMessage();\n        obj.title = \"Telegram Bot Birlamchi\";\n        obj.chatId = 1000L;\n        System.out.println(obj.title + \" holati: \" + obj.chatId);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'chatId' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -322,7 +322,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// UzAirways ob'yekt klassi\nclass FlightTicket {\n    String title;\n    double farePrice;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket obj = new FlightTicket();\n        obj.title = \"UzAirways Birlamchi\";\n        obj.farePrice = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.farePrice);\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    String title;\n    double farePrice;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket obj = new FlightTicket();\n        obj.title = \"UzAirways Birlamchi\";\n        obj.farePrice = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.farePrice);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'farePrice' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -364,7 +364,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// IT Park Academy ob'yekt klassi\nclass BootcampCourse {\n    String title;\n    int durationWeeks;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse obj = new BootcampCourse();\n        obj.title = \"IT Park Academy Birlamchi\";\n        obj.durationWeeks = 42;\n        System.out.println(obj.title + \" holati: \" + obj.durationWeeks);\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    String title;\n    int durationWeeks;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse obj = new BootcampCourse();\n        obj.title = \"IT Park Academy Birlamchi\";\n        obj.durationWeeks = 42;\n        System.out.println(obj.title + \" holati: \" + obj.durationWeeks);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'durationWeeks' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -406,7 +406,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Anorbank ob'yekt klassi\nclass DebitCard {\n    String title;\n    double creditLimit;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard obj = new DebitCard();\n        obj.title = \"Anorbank Birlamchi\";\n        obj.creditLimit = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.creditLimit);\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    String title;\n    double creditLimit;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard obj = new DebitCard();\n        obj.title = \"Anorbank Birlamchi\";\n        obj.creditLimit = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.creditLimit);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'creditLimit' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -448,7 +448,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Oson Apteka ob'yekt klassi\nclass Medicine {\n    String title;\n    int stockCount;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine obj = new Medicine();\n        obj.title = \"Oson Apteka Birlamchi\";\n        obj.stockCount = 42;\n        System.out.println(obj.title + \" holati: \" + obj.stockCount);\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    String title;\n    int stockCount;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine obj = new Medicine();\n        obj.title = \"Oson Apteka Birlamchi\";\n        obj.stockCount = 42;\n        System.out.println(obj.title + \" holati: \" + obj.stockCount);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'stockCount' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -490,7 +490,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Evos FastFood ob'yekt klassi\nclass FoodOrder {\n    String title;\n    double totalSum;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder obj = new FoodOrder();\n        obj.title = \"Evos FastFood Birlamchi\";\n        obj.totalSum = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.totalSum);\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    String title;\n    double totalSum;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder obj = new FoodOrder();\n        obj.title = \"Evos FastFood Birlamchi\";\n        obj.totalSum = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.totalSum);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'totalSum' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -532,7 +532,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Bellissimo Pizza ob'yekt klassi\nclass PizzaOrder {\n    String title;\n    int prepTimeMinutes;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder obj = new PizzaOrder();\n        obj.title = \"Bellissimo Pizza Birlamchi\";\n        obj.prepTimeMinutes = 42;\n        System.out.println(obj.title + \" holati: \" + obj.prepTimeMinutes);\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    String title;\n    int prepTimeMinutes;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder obj = new PizzaOrder();\n        obj.title = \"Bellissimo Pizza Birlamchi\";\n        obj.prepTimeMinutes = 42;\n        System.out.println(obj.title + \" holati: \" + obj.prepTimeMinutes);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'prepTimeMinutes' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -574,7 +574,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Milliy TV ob'yekt klassi\nclass BroadcastShow {\n    String title;\n    double viewersRating;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow obj = new BroadcastShow();\n        obj.title = \"Milliy TV Birlamchi\";\n        obj.viewersRating = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.viewersRating);\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    String title;\n    double viewersRating;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow obj = new BroadcastShow();\n        obj.title = \"Milliy TV Birlamchi\";\n        obj.viewersRating = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.viewersRating);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'viewersRating' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -616,7 +616,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Spotify Sound ob'yekt klassi\nclass AudioTrack {\n    String title;\n    int durationSec;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack obj = new AudioTrack();\n        obj.title = \"Spotify Sound Birlamchi\";\n        obj.durationSec = 42;\n        System.out.println(obj.title + \" holati: \" + obj.durationSec);\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    String title;\n    int durationSec;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack obj = new AudioTrack();\n        obj.title = \"Spotify Sound Birlamchi\";\n        obj.durationSec = 42;\n        System.out.println(obj.title + \" holati: \" + obj.durationSec);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'durationSec' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -658,7 +658,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Smart Thermostat ob'yekt klassi\nclass Thermostat {\n    String title;\n    double targetTemp;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat obj = new Thermostat();\n        obj.title = \"Smart Thermostat Birlamchi\";\n        obj.targetTemp = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.targetTemp);\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    String title;\n    double targetTemp;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat obj = new Thermostat();\n        obj.title = \"Smart Thermostat Birlamchi\";\n        obj.targetTemp = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.targetTemp);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'targetTemp' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -700,7 +700,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Drone Delivery ob'yekt klassi\nclass DeliveryDrone {\n    String title;\n    int batteryPct;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone obj = new DeliveryDrone();\n        obj.title = \"Drone Delivery Birlamchi\";\n        obj.batteryPct = 42;\n        System.out.println(obj.title + \" holati: \" + obj.batteryPct);\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    String title;\n    int batteryPct;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone obj = new DeliveryDrone();\n        obj.title = \"Drone Delivery Birlamchi\";\n        obj.batteryPct = 42;\n        System.out.println(obj.title + \" holati: \" + obj.batteryPct);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'batteryPct' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -742,7 +742,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Smart Warehouse ob'yekt klassi\nclass StorageBay {\n    String title;\n    double weightLimitKg;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay obj = new StorageBay();\n        obj.title = \"Smart Warehouse Birlamchi\";\n        obj.weightLimitKg = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.weightLimitKg);\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    String title;\n    double weightLimitKg;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay obj = new StorageBay();\n        obj.title = \"Smart Warehouse Birlamchi\";\n        obj.weightLimitKg = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.weightLimitKg);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'weightLimitKg' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -784,7 +784,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Crypto Wallet ob'yekt klassi\nclass CryptoAsset {\n    String title;\n    double coinUnits;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset obj = new CryptoAsset();\n        obj.title = \"Crypto Wallet Birlamchi\";\n        obj.coinUnits = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.coinUnits);\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    String title;\n    double coinUnits;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset obj = new CryptoAsset();\n        obj.title = \"Crypto Wallet Birlamchi\";\n        obj.coinUnits = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.coinUnits);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'coinUnits' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -826,7 +826,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// National Library ob'yekt klassi\nclass CatalogBook {\n    String title;\n    int pageCount;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook obj = new CatalogBook();\n        obj.title = \"National Library Birlamchi\";\n        obj.pageCount = 42;\n        System.out.println(obj.title + \" holati: \" + obj.pageCount);\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    String title;\n    int pageCount;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook obj = new CatalogBook();\n        obj.title = \"National Library Birlamchi\";\n        obj.pageCount = 42;\n        System.out.println(obj.title + \" holati: \" + obj.pageCount);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'pageCount' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -868,7 +868,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// BeFit Club ob'yekt klassi\nclass GymMember {\n    String title;\n    int activeMonths;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember obj = new GymMember();\n        obj.title = \"BeFit Club Birlamchi\";\n        obj.activeMonths = 42;\n        System.out.println(obj.title + \" holati: \" + obj.activeMonths);\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    String title;\n    int activeMonths;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember obj = new GymMember();\n        obj.title = \"BeFit Club Birlamchi\";\n        obj.activeMonths = 42;\n        System.out.println(obj.title + \" holati: \" + obj.activeMonths);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'activeMonths' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -910,7 +910,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Tashkent Parking ob'yekt klassi\nclass ParkingBay {\n    String title;\n    double hourlyTariff;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay obj = new ParkingBay();\n        obj.title = \"Tashkent Parking Birlamchi\";\n        obj.hourlyTariff = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.hourlyTariff);\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    String title;\n    double hourlyTariff;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay obj = new ParkingBay();\n        obj.title = \"Tashkent Parking Birlamchi\";\n        obj.hourlyTariff = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.hourlyTariff);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'hourlyTariff' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -952,7 +952,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Medion Clinic ob'yekt klassi\nclass PatientRecord {\n    String title;\n    int pulseRate;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord obj = new PatientRecord();\n        obj.title = \"Medion Clinic Birlamchi\";\n        obj.pulseRate = 42;\n        System.out.println(obj.title + \" holati: \" + obj.pulseRate);\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    String title;\n    int pulseRate;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord obj = new PatientRecord();\n        obj.title = \"Medion Clinic Birlamchi\";\n        obj.pulseRate = 42;\n        System.out.println(obj.title + \" holati: \" + obj.pulseRate);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'pulseRate' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -994,7 +994,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Hyatt Regency ob'yekt klassi\nclass HotelReservation {\n    String title;\n    double nightlyRate;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation obj = new HotelReservation();\n        obj.title = \"Hyatt Regency Birlamchi\";\n        obj.nightlyRate = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.nightlyRate);\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    String title;\n    double nightlyRate;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation obj = new HotelReservation();\n        obj.title = \"Hyatt Regency Birlamchi\";\n        obj.nightlyRate = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.nightlyRate);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'nightlyRate' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -1036,7 +1036,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Premier Cinema ob'yekt klassi\nclass CinemaTicket {\n    String title;\n    int hallSeatNo;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket obj = new CinemaTicket();\n        obj.title = \"Premier Cinema Birlamchi\";\n        obj.hallSeatNo = 42;\n        System.out.println(obj.title + \" holati: \" + obj.hallSeatNo);\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    String title;\n    int hallSeatNo;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket obj = new CinemaTicket();\n        obj.title = \"Premier Cinema Birlamchi\";\n        obj.hallSeatNo = 42;\n        System.out.println(obj.title + \" holati: \" + obj.hallSeatNo);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'hallSeatNo' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -1078,7 +1078,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Yandex Scooter ob'yekt klassi\nclass ElectricScooter {\n    String title;\n    double maxSpeedKmh;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter obj = new ElectricScooter();\n        obj.title = \"Yandex Scooter Birlamchi\";\n        obj.maxSpeedKmh = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.maxSpeedKmh);\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    String title;\n    double maxSpeedKmh;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter obj = new ElectricScooter();\n        obj.title = \"Yandex Scooter Birlamchi\";\n        obj.maxSpeedKmh = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.maxSpeedKmh);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'maxSpeedKmh' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -1120,7 +1120,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Weather Network ob'yekt klassi\nclass MeteoStation {\n    String title;\n    int humidityPct;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation obj = new MeteoStation();\n        obj.title = \"Weather Network Birlamchi\";\n        obj.humidityPct = 42;\n        System.out.println(obj.title + \" holati: \" + obj.humidityPct);\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    String title;\n    int humidityPct;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation obj = new MeteoStation();\n        obj.title = \"Weather Network Birlamchi\";\n        obj.humidityPct = 42;\n        System.out.println(obj.title + \" holati: \" + obj.humidityPct);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'humidityPct' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -1162,7 +1162,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// OpenMarket Auction ob'yekt klassi\nclass AuctionLot {\n    String title;\n    double reservePrice;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot obj = new AuctionLot();\n        obj.title = \"OpenMarket Auction Birlamchi\";\n        obj.reservePrice = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.reservePrice);\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    String title;\n    double reservePrice;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot obj = new AuctionLot();\n        obj.title = \"OpenMarket Auction Birlamchi\";\n        obj.reservePrice = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.reservePrice);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'reservePrice' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -1204,7 +1204,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// Solar Energy Grid ob'yekt klassi\nclass SolarInverter {\n    String title;\n    double powerKw;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter obj = new SolarInverter();\n        obj.title = \"Solar Energy Grid Birlamchi\";\n        obj.powerKw = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.powerKw);\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    String title;\n    double powerKw;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter obj = new SolarInverter();\n        obj.title = \"Solar Energy Grid Birlamchi\";\n        obj.powerKw = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.powerKw);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'powerKw' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -1246,7 +1246,7 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "// O'zbekiston Temir Yo'llari ob'yekt klassi\nclass TrainRoute {\n    String title;\n    double travelDurationHours;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute obj = new TrainRoute();\n        obj.title = \"O'zbekiston Temir Yo'llari Birlamchi\";\n        obj.travelDurationHours = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.travelDurationHours);\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    String title;\n    double travelDurationHours;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute obj = new TrainRoute();\n        obj.title = \"O'zbekiston Temir Yo'llari Birlamchi\";\n        obj.travelDurationHours = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.travelDurationHours);\n    }\n}",
     "detailedSolution": {
       "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'travelDurationHours' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
@@ -1281,7 +1281,7 @@ window.OOP_CHALLENGES_W1 = [
         "discountOperation"
       ]
     },
-    "starterCode": "class Product {\n    String title;\n    double price;\n\n    public void discountOperation(double delta) {\n        this.price += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product item = new Product();\n        item.discountOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.price);\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    String title;\n    double price;\n\n    public void discountOperation(double delta) {\n        this.price += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product item = new Product();\n        item.discountOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.price);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1315,7 +1315,7 @@ window.OOP_CHALLENGES_W1 = [
         "transferOperation"
       ]
     },
-    "starterCode": "class WalletUser {\n    String title;\n    double balance;\n\n    public void transferOperation(double delta) {\n        this.balance += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser item = new WalletUser();\n        item.transferOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.balance);\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    String title;\n    double balance;\n\n    public void transferOperation(double delta) {\n        this.balance += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser item = new WalletUser();\n        item.transferOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.balance);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1349,7 +1349,7 @@ window.OOP_CHALLENGES_W1 = [
         "fareOperation"
       ]
     },
-    "starterCode": "class TaxiRide {\n    String title;\n    double distanceKm;\n\n    public void fareOperation(double delta) {\n        this.distanceKm += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide item = new TaxiRide();\n        item.fareOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.distanceKm);\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    String title;\n    double distanceKm;\n\n    public void fareOperation(double delta) {\n        this.distanceKm += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide item = new TaxiRide();\n        item.fareOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.distanceKm);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1383,7 +1383,7 @@ window.OOP_CHALLENGES_W1 = [
         "redeemOperation"
       ]
     },
-    "starterCode": "class LoyaltyCard {\n    String title;\n    int bonusPoints;\n\n    public void redeemOperation(int delta) {\n        this.bonusPoints += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard item = new LoyaltyCard();\n        item.redeemOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.bonusPoints);\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    String title;\n    int bonusPoints;\n\n    public void redeemOperation(int delta) {\n        this.bonusPoints += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard item = new LoyaltyCard();\n        item.redeemOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.bonusPoints);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1417,7 +1417,7 @@ window.OOP_CHALLENGES_W1 = [
         "gradeOperation"
       ]
     },
-    "starterCode": "class Student {\n    String title;\n    double gpa;\n\n    public void gradeOperation(double delta) {\n        this.gpa += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student item = new Student();\n        item.gradeOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.gpa);\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    String title;\n    double gpa;\n\n    public void gradeOperation(double delta) {\n        this.gpa += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student item = new Student();\n        item.gradeOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.gpa);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1451,7 +1451,7 @@ window.OOP_CHALLENGES_W1 = [
         "verifyOperation"
       ]
     },
-    "starterCode": "class PaymentTxn {\n    String title;\n    double amount;\n\n    public void verifyOperation(double delta) {\n        this.amount += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn item = new PaymentTxn();\n        item.verifyOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.amount);\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    String title;\n    double amount;\n\n    public void verifyOperation(double delta) {\n        this.amount += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn item = new PaymentTxn();\n        item.verifyOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.amount);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1485,7 +1485,7 @@ window.OOP_CHALLENGES_W1 = [
         "forwardOperation"
       ]
     },
-    "starterCode": "class BotMessage {\n    String title;\n    long chatId;\n\n    public void forwardOperation(long delta) {\n        this.chatId += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage item = new BotMessage();\n        item.forwardOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.chatId);\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    String title;\n    long chatId;\n\n    public void forwardOperation(long delta) {\n        this.chatId += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage item = new BotMessage();\n        item.forwardOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.chatId);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1519,7 +1519,7 @@ window.OOP_CHALLENGES_W1 = [
         "upgradeOperation"
       ]
     },
-    "starterCode": "class FlightTicket {\n    String title;\n    double farePrice;\n\n    public void upgradeOperation(double delta) {\n        this.farePrice += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket item = new FlightTicket();\n        item.upgradeOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.farePrice);\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    String title;\n    double farePrice;\n\n    public void upgradeOperation(double delta) {\n        this.farePrice += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket item = new FlightTicket();\n        item.upgradeOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.farePrice);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1553,7 +1553,7 @@ window.OOP_CHALLENGES_W1 = [
         "enrollOperation"
       ]
     },
-    "starterCode": "class BootcampCourse {\n    String title;\n    int durationWeeks;\n\n    public void enrollOperation(int delta) {\n        this.durationWeeks += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse item = new BootcampCourse();\n        item.enrollOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.durationWeeks);\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    String title;\n    int durationWeeks;\n\n    public void enrollOperation(int delta) {\n        this.durationWeeks += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse item = new BootcampCourse();\n        item.enrollOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.durationWeeks);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1587,7 +1587,7 @@ window.OOP_CHALLENGES_W1 = [
         "limitOperation"
       ]
     },
-    "starterCode": "class DebitCard {\n    String title;\n    double creditLimit;\n\n    public void limitOperation(double delta) {\n        this.creditLimit += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard item = new DebitCard();\n        item.limitOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.creditLimit);\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    String title;\n    double creditLimit;\n\n    public void limitOperation(double delta) {\n        this.creditLimit += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard item = new DebitCard();\n        item.limitOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.creditLimit);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1621,7 +1621,7 @@ window.OOP_CHALLENGES_W1 = [
         "dispenseOperation"
       ]
     },
-    "starterCode": "class Medicine {\n    String title;\n    int stockCount;\n\n    public void dispenseOperation(int delta) {\n        this.stockCount += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine item = new Medicine();\n        item.dispenseOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.stockCount);\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    String title;\n    int stockCount;\n\n    public void dispenseOperation(int delta) {\n        this.stockCount += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine item = new Medicine();\n        item.dispenseOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.stockCount);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1655,7 +1655,7 @@ window.OOP_CHALLENGES_W1 = [
         "packOperation"
       ]
     },
-    "starterCode": "class FoodOrder {\n    String title;\n    double totalSum;\n\n    public void packOperation(double delta) {\n        this.totalSum += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder item = new FoodOrder();\n        item.packOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.totalSum);\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    String title;\n    double totalSum;\n\n    public void packOperation(double delta) {\n        this.totalSum += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder item = new FoodOrder();\n        item.packOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.totalSum);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1689,7 +1689,7 @@ window.OOP_CHALLENGES_W1 = [
         "bakeOperation"
       ]
     },
-    "starterCode": "class PizzaOrder {\n    String title;\n    int prepTimeMinutes;\n\n    public void bakeOperation(int delta) {\n        this.prepTimeMinutes += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder item = new PizzaOrder();\n        item.bakeOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.prepTimeMinutes);\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    String title;\n    int prepTimeMinutes;\n\n    public void bakeOperation(int delta) {\n        this.prepTimeMinutes += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder item = new PizzaOrder();\n        item.bakeOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.prepTimeMinutes);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1723,7 +1723,7 @@ window.OOP_CHALLENGES_W1 = [
         "airOperation"
       ]
     },
-    "starterCode": "class BroadcastShow {\n    String title;\n    double viewersRating;\n\n    public void airOperation(double delta) {\n        this.viewersRating += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow item = new BroadcastShow();\n        item.airOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.viewersRating);\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    String title;\n    double viewersRating;\n\n    public void airOperation(double delta) {\n        this.viewersRating += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow item = new BroadcastShow();\n        item.airOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.viewersRating);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1757,7 +1757,7 @@ window.OOP_CHALLENGES_W1 = [
         "streamOperation"
       ]
     },
-    "starterCode": "class AudioTrack {\n    String title;\n    int durationSec;\n\n    public void streamOperation(int delta) {\n        this.durationSec += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack item = new AudioTrack();\n        item.streamOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.durationSec);\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    String title;\n    int durationSec;\n\n    public void streamOperation(int delta) {\n        this.durationSec += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack item = new AudioTrack();\n        item.streamOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.durationSec);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1791,7 +1791,7 @@ window.OOP_CHALLENGES_W1 = [
         "heatOperation"
       ]
     },
-    "starterCode": "class Thermostat {\n    String title;\n    double targetTemp;\n\n    public void heatOperation(double delta) {\n        this.targetTemp += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat item = new Thermostat();\n        item.heatOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.targetTemp);\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    String title;\n    double targetTemp;\n\n    public void heatOperation(double delta) {\n        this.targetTemp += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat item = new Thermostat();\n        item.heatOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.targetTemp);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1825,7 +1825,7 @@ window.OOP_CHALLENGES_W1 = [
         "flyOperation"
       ]
     },
-    "starterCode": "class DeliveryDrone {\n    String title;\n    int batteryPct;\n\n    public void flyOperation(int delta) {\n        this.batteryPct += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone item = new DeliveryDrone();\n        item.flyOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.batteryPct);\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    String title;\n    int batteryPct;\n\n    public void flyOperation(int delta) {\n        this.batteryPct += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone item = new DeliveryDrone();\n        item.flyOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.batteryPct);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1859,7 +1859,7 @@ window.OOP_CHALLENGES_W1 = [
         "loadOperation"
       ]
     },
-    "starterCode": "class StorageBay {\n    String title;\n    double weightLimitKg;\n\n    public void loadOperation(double delta) {\n        this.weightLimitKg += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay item = new StorageBay();\n        item.loadOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.weightLimitKg);\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    String title;\n    double weightLimitKg;\n\n    public void loadOperation(double delta) {\n        this.weightLimitKg += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay item = new StorageBay();\n        item.loadOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.weightLimitKg);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1893,7 +1893,7 @@ window.OOP_CHALLENGES_W1 = [
         "swapOperation"
       ]
     },
-    "starterCode": "class CryptoAsset {\n    String title;\n    double coinUnits;\n\n    public void swapOperation(double delta) {\n        this.coinUnits += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset item = new CryptoAsset();\n        item.swapOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.coinUnits);\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    String title;\n    double coinUnits;\n\n    public void swapOperation(double delta) {\n        this.coinUnits += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset item = new CryptoAsset();\n        item.swapOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.coinUnits);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1927,7 +1927,7 @@ window.OOP_CHALLENGES_W1 = [
         "borrowOperation"
       ]
     },
-    "starterCode": "class CatalogBook {\n    String title;\n    int pageCount;\n\n    public void borrowOperation(int delta) {\n        this.pageCount += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook item = new CatalogBook();\n        item.borrowOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.pageCount);\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    String title;\n    int pageCount;\n\n    public void borrowOperation(int delta) {\n        this.pageCount += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook item = new CatalogBook();\n        item.borrowOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.pageCount);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1961,7 +1961,7 @@ window.OOP_CHALLENGES_W1 = [
         "checkinOperation"
       ]
     },
-    "starterCode": "class GymMember {\n    String title;\n    int activeMonths;\n\n    public void checkinOperation(int delta) {\n        this.activeMonths += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember item = new GymMember();\n        item.checkinOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.activeMonths);\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    String title;\n    int activeMonths;\n\n    public void checkinOperation(int delta) {\n        this.activeMonths += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember item = new GymMember();\n        item.checkinOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.activeMonths);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -1995,7 +1995,7 @@ window.OOP_CHALLENGES_W1 = [
         "parkOperation"
       ]
     },
-    "starterCode": "class ParkingBay {\n    String title;\n    double hourlyTariff;\n\n    public void parkOperation(double delta) {\n        this.hourlyTariff += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay item = new ParkingBay();\n        item.parkOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.hourlyTariff);\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    String title;\n    double hourlyTariff;\n\n    public void parkOperation(double delta) {\n        this.hourlyTariff += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay item = new ParkingBay();\n        item.parkOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.hourlyTariff);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -2029,7 +2029,7 @@ window.OOP_CHALLENGES_W1 = [
         "diagnoseOperation"
       ]
     },
-    "starterCode": "class PatientRecord {\n    String title;\n    int pulseRate;\n\n    public void diagnoseOperation(int delta) {\n        this.pulseRate += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord item = new PatientRecord();\n        item.diagnoseOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.pulseRate);\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    String title;\n    int pulseRate;\n\n    public void diagnoseOperation(int delta) {\n        this.pulseRate += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord item = new PatientRecord();\n        item.diagnoseOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.pulseRate);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -2063,7 +2063,7 @@ window.OOP_CHALLENGES_W1 = [
         "bookOperation"
       ]
     },
-    "starterCode": "class HotelReservation {\n    String title;\n    double nightlyRate;\n\n    public void bookOperation(double delta) {\n        this.nightlyRate += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation item = new HotelReservation();\n        item.bookOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.nightlyRate);\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    String title;\n    double nightlyRate;\n\n    public void bookOperation(double delta) {\n        this.nightlyRate += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation item = new HotelReservation();\n        item.bookOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.nightlyRate);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -2097,7 +2097,7 @@ window.OOP_CHALLENGES_W1 = [
         "scanOperation"
       ]
     },
-    "starterCode": "class CinemaTicket {\n    String title;\n    int hallSeatNo;\n\n    public void scanOperation(int delta) {\n        this.hallSeatNo += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket item = new CinemaTicket();\n        item.scanOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.hallSeatNo);\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    String title;\n    int hallSeatNo;\n\n    public void scanOperation(int delta) {\n        this.hallSeatNo += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket item = new CinemaTicket();\n        item.scanOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.hallSeatNo);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -2131,7 +2131,7 @@ window.OOP_CHALLENGES_W1 = [
         "rideOperation"
       ]
     },
-    "starterCode": "class ElectricScooter {\n    String title;\n    double maxSpeedKmh;\n\n    public void rideOperation(double delta) {\n        this.maxSpeedKmh += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter item = new ElectricScooter();\n        item.rideOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.maxSpeedKmh);\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    String title;\n    double maxSpeedKmh;\n\n    public void rideOperation(double delta) {\n        this.maxSpeedKmh += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter item = new ElectricScooter();\n        item.rideOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.maxSpeedKmh);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -2165,7 +2165,7 @@ window.OOP_CHALLENGES_W1 = [
         "senseOperation"
       ]
     },
-    "starterCode": "class MeteoStation {\n    String title;\n    int humidityPct;\n\n    public void senseOperation(int delta) {\n        this.humidityPct += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation item = new MeteoStation();\n        item.senseOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.humidityPct);\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    String title;\n    int humidityPct;\n\n    public void senseOperation(int delta) {\n        this.humidityPct += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation item = new MeteoStation();\n        item.senseOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.humidityPct);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -2199,7 +2199,7 @@ window.OOP_CHALLENGES_W1 = [
         "bidOperation"
       ]
     },
-    "starterCode": "class AuctionLot {\n    String title;\n    double reservePrice;\n\n    public void bidOperation(double delta) {\n        this.reservePrice += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot item = new AuctionLot();\n        item.bidOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.reservePrice);\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    String title;\n    double reservePrice;\n\n    public void bidOperation(double delta) {\n        this.reservePrice += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot item = new AuctionLot();\n        item.bidOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.reservePrice);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -2233,7 +2233,7 @@ window.OOP_CHALLENGES_W1 = [
         "generateOperation"
       ]
     },
-    "starterCode": "class SolarInverter {\n    String title;\n    double powerKw;\n\n    public void generateOperation(double delta) {\n        this.powerKw += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter item = new SolarInverter();\n        item.generateOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.powerKw);\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    String title;\n    double powerKw;\n\n    public void generateOperation(double delta) {\n        this.powerKw += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter item = new SolarInverter();\n        item.generateOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.powerKw);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -2267,7 +2267,7 @@ window.OOP_CHALLENGES_W1 = [
         "departOperation"
       ]
     },
-    "starterCode": "class TrainRoute {\n    String title;\n    double travelDurationHours;\n\n    public void departOperation(double delta) {\n        this.travelDurationHours += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute item = new TrainRoute();\n        item.departOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.travelDurationHours);\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    String title;\n    double travelDurationHours;\n\n    public void departOperation(double delta) {\n        this.travelDurationHours += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute item = new TrainRoute();\n        item.departOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.travelDurationHours);\n    }\n}",
     "detailedSolution": {
       "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
@@ -2301,7 +2301,7 @@ window.OOP_CHALLENGES_W1 = [
         "Product"
       ]
     },
-    "starterCode": "class Product {\n    String title;\n    double price;\n\n    public Product(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product obj = new Product(\"Uzum Market Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.price);\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    String title;\n    double price;\n\n    public Product(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product obj = new Product(\"Uzum Market Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.price);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2335,7 +2335,7 @@ window.OOP_CHALLENGES_W1 = [
         "WalletUser"
       ]
     },
-    "starterCode": "class WalletUser {\n    String title;\n    double balance;\n\n    public WalletUser(String title, double balance) {\n        this.title = title;\n        this.balance = balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser obj = new WalletUser(\"Payme Wallet Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.balance);\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    String title;\n    double balance;\n\n    public WalletUser(String title, double balance) {\n        this.title = title;\n        this.balance = balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser obj = new WalletUser(\"Payme Wallet Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.balance);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2369,7 +2369,7 @@ window.OOP_CHALLENGES_W1 = [
         "TaxiRide"
       ]
     },
-    "starterCode": "class TaxiRide {\n    String title;\n    double distanceKm;\n\n    public TaxiRide(String title, double distanceKm) {\n        this.title = title;\n        this.distanceKm = distanceKm;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide obj = new TaxiRide(\"Yandex Go Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.distanceKm);\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    String title;\n    double distanceKm;\n\n    public TaxiRide(String title, double distanceKm) {\n        this.title = title;\n        this.distanceKm = distanceKm;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide obj = new TaxiRide(\"Yandex Go Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.distanceKm);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2403,7 +2403,7 @@ window.OOP_CHALLENGES_W1 = [
         "LoyaltyCard"
       ]
     },
-    "starterCode": "class LoyaltyCard {\n    String title;\n    int bonusPoints;\n\n    public LoyaltyCard(String title, int bonusPoints) {\n        this.title = title;\n        this.bonusPoints = bonusPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard obj = new LoyaltyCard(\"Korzinka Go Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.bonusPoints);\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    String title;\n    int bonusPoints;\n\n    public LoyaltyCard(String title, int bonusPoints) {\n        this.title = title;\n        this.bonusPoints = bonusPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard obj = new LoyaltyCard(\"Korzinka Go Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.bonusPoints);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2437,7 +2437,7 @@ window.OOP_CHALLENGES_W1 = [
         "Student"
       ]
     },
-    "starterCode": "class Student {\n    String title;\n    double gpa;\n\n    public Student(String title, double gpa) {\n        this.title = title;\n        this.gpa = gpa;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student obj = new Student(\"WIUT Portal Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.gpa);\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    String title;\n    double gpa;\n\n    public Student(String title, double gpa) {\n        this.title = title;\n        this.gpa = gpa;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student obj = new Student(\"WIUT Portal Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.gpa);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2471,7 +2471,7 @@ window.OOP_CHALLENGES_W1 = [
         "PaymentTxn"
       ]
     },
-    "starterCode": "class PaymentTxn {\n    String title;\n    double amount;\n\n    public PaymentTxn(String title, double amount) {\n        this.title = title;\n        this.amount = amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn obj = new PaymentTxn(\"Click Pay Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.amount);\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    String title;\n    double amount;\n\n    public PaymentTxn(String title, double amount) {\n        this.title = title;\n        this.amount = amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn obj = new PaymentTxn(\"Click Pay Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.amount);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2505,7 +2505,7 @@ window.OOP_CHALLENGES_W1 = [
         "BotMessage"
       ]
     },
-    "starterCode": "class BotMessage {\n    String title;\n    long chatId;\n\n    public BotMessage(String title, long chatId) {\n        this.title = title;\n        this.chatId = chatId;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage obj = new BotMessage(\"Telegram Bot Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.chatId);\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    String title;\n    long chatId;\n\n    public BotMessage(String title, long chatId) {\n        this.title = title;\n        this.chatId = chatId;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage obj = new BotMessage(\"Telegram Bot Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.chatId);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2539,7 +2539,7 @@ window.OOP_CHALLENGES_W1 = [
         "FlightTicket"
       ]
     },
-    "starterCode": "class FlightTicket {\n    String title;\n    double farePrice;\n\n    public FlightTicket(String title, double farePrice) {\n        this.title = title;\n        this.farePrice = farePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket obj = new FlightTicket(\"UzAirways Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.farePrice);\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    String title;\n    double farePrice;\n\n    public FlightTicket(String title, double farePrice) {\n        this.title = title;\n        this.farePrice = farePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket obj = new FlightTicket(\"UzAirways Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.farePrice);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2573,7 +2573,7 @@ window.OOP_CHALLENGES_W1 = [
         "BootcampCourse"
       ]
     },
-    "starterCode": "class BootcampCourse {\n    String title;\n    int durationWeeks;\n\n    public BootcampCourse(String title, int durationWeeks) {\n        this.title = title;\n        this.durationWeeks = durationWeeks;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse obj = new BootcampCourse(\"IT Park Academy Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.durationWeeks);\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    String title;\n    int durationWeeks;\n\n    public BootcampCourse(String title, int durationWeeks) {\n        this.title = title;\n        this.durationWeeks = durationWeeks;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse obj = new BootcampCourse(\"IT Park Academy Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.durationWeeks);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2607,7 +2607,7 @@ window.OOP_CHALLENGES_W1 = [
         "DebitCard"
       ]
     },
-    "starterCode": "class DebitCard {\n    String title;\n    double creditLimit;\n\n    public DebitCard(String title, double creditLimit) {\n        this.title = title;\n        this.creditLimit = creditLimit;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard obj = new DebitCard(\"Anorbank Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.creditLimit);\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    String title;\n    double creditLimit;\n\n    public DebitCard(String title, double creditLimit) {\n        this.title = title;\n        this.creditLimit = creditLimit;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard obj = new DebitCard(\"Anorbank Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.creditLimit);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2641,7 +2641,7 @@ window.OOP_CHALLENGES_W1 = [
         "Medicine"
       ]
     },
-    "starterCode": "class Medicine {\n    String title;\n    int stockCount;\n\n    public Medicine(String title, int stockCount) {\n        this.title = title;\n        this.stockCount = stockCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine obj = new Medicine(\"Oson Apteka Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.stockCount);\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    String title;\n    int stockCount;\n\n    public Medicine(String title, int stockCount) {\n        this.title = title;\n        this.stockCount = stockCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine obj = new Medicine(\"Oson Apteka Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.stockCount);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2675,7 +2675,7 @@ window.OOP_CHALLENGES_W1 = [
         "FoodOrder"
       ]
     },
-    "starterCode": "class FoodOrder {\n    String title;\n    double totalSum;\n\n    public FoodOrder(String title, double totalSum) {\n        this.title = title;\n        this.totalSum = totalSum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder obj = new FoodOrder(\"Evos FastFood Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.totalSum);\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    String title;\n    double totalSum;\n\n    public FoodOrder(String title, double totalSum) {\n        this.title = title;\n        this.totalSum = totalSum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder obj = new FoodOrder(\"Evos FastFood Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.totalSum);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2709,7 +2709,7 @@ window.OOP_CHALLENGES_W1 = [
         "PizzaOrder"
       ]
     },
-    "starterCode": "class PizzaOrder {\n    String title;\n    int prepTimeMinutes;\n\n    public PizzaOrder(String title, int prepTimeMinutes) {\n        this.title = title;\n        this.prepTimeMinutes = prepTimeMinutes;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder obj = new PizzaOrder(\"Bellissimo Pizza Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.prepTimeMinutes);\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    String title;\n    int prepTimeMinutes;\n\n    public PizzaOrder(String title, int prepTimeMinutes) {\n        this.title = title;\n        this.prepTimeMinutes = prepTimeMinutes;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder obj = new PizzaOrder(\"Bellissimo Pizza Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.prepTimeMinutes);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2743,7 +2743,7 @@ window.OOP_CHALLENGES_W1 = [
         "BroadcastShow"
       ]
     },
-    "starterCode": "class BroadcastShow {\n    String title;\n    double viewersRating;\n\n    public BroadcastShow(String title, double viewersRating) {\n        this.title = title;\n        this.viewersRating = viewersRating;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow obj = new BroadcastShow(\"Milliy TV Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.viewersRating);\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    String title;\n    double viewersRating;\n\n    public BroadcastShow(String title, double viewersRating) {\n        this.title = title;\n        this.viewersRating = viewersRating;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow obj = new BroadcastShow(\"Milliy TV Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.viewersRating);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2777,7 +2777,7 @@ window.OOP_CHALLENGES_W1 = [
         "AudioTrack"
       ]
     },
-    "starterCode": "class AudioTrack {\n    String title;\n    int durationSec;\n\n    public AudioTrack(String title, int durationSec) {\n        this.title = title;\n        this.durationSec = durationSec;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack obj = new AudioTrack(\"Spotify Sound Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.durationSec);\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    String title;\n    int durationSec;\n\n    public AudioTrack(String title, int durationSec) {\n        this.title = title;\n        this.durationSec = durationSec;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack obj = new AudioTrack(\"Spotify Sound Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.durationSec);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2811,7 +2811,7 @@ window.OOP_CHALLENGES_W1 = [
         "Thermostat"
       ]
     },
-    "starterCode": "class Thermostat {\n    String title;\n    double targetTemp;\n\n    public Thermostat(String title, double targetTemp) {\n        this.title = title;\n        this.targetTemp = targetTemp;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat obj = new Thermostat(\"Smart Thermostat Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.targetTemp);\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    String title;\n    double targetTemp;\n\n    public Thermostat(String title, double targetTemp) {\n        this.title = title;\n        this.targetTemp = targetTemp;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat obj = new Thermostat(\"Smart Thermostat Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.targetTemp);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2845,7 +2845,7 @@ window.OOP_CHALLENGES_W1 = [
         "DeliveryDrone"
       ]
     },
-    "starterCode": "class DeliveryDrone {\n    String title;\n    int batteryPct;\n\n    public DeliveryDrone(String title, int batteryPct) {\n        this.title = title;\n        this.batteryPct = batteryPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone obj = new DeliveryDrone(\"Drone Delivery Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.batteryPct);\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    String title;\n    int batteryPct;\n\n    public DeliveryDrone(String title, int batteryPct) {\n        this.title = title;\n        this.batteryPct = batteryPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone obj = new DeliveryDrone(\"Drone Delivery Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.batteryPct);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2879,7 +2879,7 @@ window.OOP_CHALLENGES_W1 = [
         "StorageBay"
       ]
     },
-    "starterCode": "class StorageBay {\n    String title;\n    double weightLimitKg;\n\n    public StorageBay(String title, double weightLimitKg) {\n        this.title = title;\n        this.weightLimitKg = weightLimitKg;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay obj = new StorageBay(\"Smart Warehouse Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.weightLimitKg);\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    String title;\n    double weightLimitKg;\n\n    public StorageBay(String title, double weightLimitKg) {\n        this.title = title;\n        this.weightLimitKg = weightLimitKg;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay obj = new StorageBay(\"Smart Warehouse Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.weightLimitKg);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2913,7 +2913,7 @@ window.OOP_CHALLENGES_W1 = [
         "CryptoAsset"
       ]
     },
-    "starterCode": "class CryptoAsset {\n    String title;\n    double coinUnits;\n\n    public CryptoAsset(String title, double coinUnits) {\n        this.title = title;\n        this.coinUnits = coinUnits;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset obj = new CryptoAsset(\"Crypto Wallet Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.coinUnits);\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    String title;\n    double coinUnits;\n\n    public CryptoAsset(String title, double coinUnits) {\n        this.title = title;\n        this.coinUnits = coinUnits;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset obj = new CryptoAsset(\"Crypto Wallet Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.coinUnits);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2947,7 +2947,7 @@ window.OOP_CHALLENGES_W1 = [
         "CatalogBook"
       ]
     },
-    "starterCode": "class CatalogBook {\n    String title;\n    int pageCount;\n\n    public CatalogBook(String title, int pageCount) {\n        this.title = title;\n        this.pageCount = pageCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook obj = new CatalogBook(\"National Library Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.pageCount);\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    String title;\n    int pageCount;\n\n    public CatalogBook(String title, int pageCount) {\n        this.title = title;\n        this.pageCount = pageCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook obj = new CatalogBook(\"National Library Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.pageCount);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -2981,7 +2981,7 @@ window.OOP_CHALLENGES_W1 = [
         "GymMember"
       ]
     },
-    "starterCode": "class GymMember {\n    String title;\n    int activeMonths;\n\n    public GymMember(String title, int activeMonths) {\n        this.title = title;\n        this.activeMonths = activeMonths;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember obj = new GymMember(\"BeFit Club Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.activeMonths);\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    String title;\n    int activeMonths;\n\n    public GymMember(String title, int activeMonths) {\n        this.title = title;\n        this.activeMonths = activeMonths;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember obj = new GymMember(\"BeFit Club Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.activeMonths);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -3015,7 +3015,7 @@ window.OOP_CHALLENGES_W1 = [
         "ParkingBay"
       ]
     },
-    "starterCode": "class ParkingBay {\n    String title;\n    double hourlyTariff;\n\n    public ParkingBay(String title, double hourlyTariff) {\n        this.title = title;\n        this.hourlyTariff = hourlyTariff;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay obj = new ParkingBay(\"Tashkent Parking Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.hourlyTariff);\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    String title;\n    double hourlyTariff;\n\n    public ParkingBay(String title, double hourlyTariff) {\n        this.title = title;\n        this.hourlyTariff = hourlyTariff;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay obj = new ParkingBay(\"Tashkent Parking Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.hourlyTariff);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -3049,7 +3049,7 @@ window.OOP_CHALLENGES_W1 = [
         "PatientRecord"
       ]
     },
-    "starterCode": "class PatientRecord {\n    String title;\n    int pulseRate;\n\n    public PatientRecord(String title, int pulseRate) {\n        this.title = title;\n        this.pulseRate = pulseRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord obj = new PatientRecord(\"Medion Clinic Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.pulseRate);\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    String title;\n    int pulseRate;\n\n    public PatientRecord(String title, int pulseRate) {\n        this.title = title;\n        this.pulseRate = pulseRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord obj = new PatientRecord(\"Medion Clinic Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.pulseRate);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -3083,7 +3083,7 @@ window.OOP_CHALLENGES_W1 = [
         "HotelReservation"
       ]
     },
-    "starterCode": "class HotelReservation {\n    String title;\n    double nightlyRate;\n\n    public HotelReservation(String title, double nightlyRate) {\n        this.title = title;\n        this.nightlyRate = nightlyRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation obj = new HotelReservation(\"Hyatt Regency Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.nightlyRate);\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    String title;\n    double nightlyRate;\n\n    public HotelReservation(String title, double nightlyRate) {\n        this.title = title;\n        this.nightlyRate = nightlyRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation obj = new HotelReservation(\"Hyatt Regency Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.nightlyRate);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -3117,7 +3117,7 @@ window.OOP_CHALLENGES_W1 = [
         "CinemaTicket"
       ]
     },
-    "starterCode": "class CinemaTicket {\n    String title;\n    int hallSeatNo;\n\n    public CinemaTicket(String title, int hallSeatNo) {\n        this.title = title;\n        this.hallSeatNo = hallSeatNo;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket obj = new CinemaTicket(\"Premier Cinema Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.hallSeatNo);\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    String title;\n    int hallSeatNo;\n\n    public CinemaTicket(String title, int hallSeatNo) {\n        this.title = title;\n        this.hallSeatNo = hallSeatNo;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket obj = new CinemaTicket(\"Premier Cinema Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.hallSeatNo);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -3151,7 +3151,7 @@ window.OOP_CHALLENGES_W1 = [
         "ElectricScooter"
       ]
     },
-    "starterCode": "class ElectricScooter {\n    String title;\n    double maxSpeedKmh;\n\n    public ElectricScooter(String title, double maxSpeedKmh) {\n        this.title = title;\n        this.maxSpeedKmh = maxSpeedKmh;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter obj = new ElectricScooter(\"Yandex Scooter Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.maxSpeedKmh);\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    String title;\n    double maxSpeedKmh;\n\n    public ElectricScooter(String title, double maxSpeedKmh) {\n        this.title = title;\n        this.maxSpeedKmh = maxSpeedKmh;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter obj = new ElectricScooter(\"Yandex Scooter Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.maxSpeedKmh);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -3185,7 +3185,7 @@ window.OOP_CHALLENGES_W1 = [
         "MeteoStation"
       ]
     },
-    "starterCode": "class MeteoStation {\n    String title;\n    int humidityPct;\n\n    public MeteoStation(String title, int humidityPct) {\n        this.title = title;\n        this.humidityPct = humidityPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation obj = new MeteoStation(\"Weather Network Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.humidityPct);\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    String title;\n    int humidityPct;\n\n    public MeteoStation(String title, int humidityPct) {\n        this.title = title;\n        this.humidityPct = humidityPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation obj = new MeteoStation(\"Weather Network Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.humidityPct);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -3219,7 +3219,7 @@ window.OOP_CHALLENGES_W1 = [
         "AuctionLot"
       ]
     },
-    "starterCode": "class AuctionLot {\n    String title;\n    double reservePrice;\n\n    public AuctionLot(String title, double reservePrice) {\n        this.title = title;\n        this.reservePrice = reservePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot obj = new AuctionLot(\"OpenMarket Auction Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.reservePrice);\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    String title;\n    double reservePrice;\n\n    public AuctionLot(String title, double reservePrice) {\n        this.title = title;\n        this.reservePrice = reservePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot obj = new AuctionLot(\"OpenMarket Auction Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.reservePrice);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -3253,7 +3253,7 @@ window.OOP_CHALLENGES_W1 = [
         "SolarInverter"
       ]
     },
-    "starterCode": "class SolarInverter {\n    String title;\n    double powerKw;\n\n    public SolarInverter(String title, double powerKw) {\n        this.title = title;\n        this.powerKw = powerKw;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter obj = new SolarInverter(\"Solar Energy Grid Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.powerKw);\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    String title;\n    double powerKw;\n\n    public SolarInverter(String title, double powerKw) {\n        this.title = title;\n        this.powerKw = powerKw;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter obj = new SolarInverter(\"Solar Energy Grid Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.powerKw);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -3287,7 +3287,7 @@ window.OOP_CHALLENGES_W1 = [
         "TrainRoute"
       ]
     },
-    "starterCode": "class TrainRoute {\n    String title;\n    double travelDurationHours;\n\n    public TrainRoute(String title, double travelDurationHours) {\n        this.title = title;\n        this.travelDurationHours = travelDurationHours;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute obj = new TrainRoute(\"O'zbekiston Temir Yo'llari Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.travelDurationHours);\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    String title;\n    double travelDurationHours;\n\n    public TrainRoute(String title, double travelDurationHours) {\n        this.title = title;\n        this.travelDurationHours = travelDurationHours;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute obj = new TrainRoute(\"O'zbekiston Temir Yo'llari Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.travelDurationHours);\n    }\n}",
     "detailedSolution": {
       "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
@@ -3324,7 +3324,7 @@ window.OOP_CHALLENGES_W1 = [
         "Product"
       ]
     },
-    "starterCode": "class Product {\n    public static int totalCreated = 0;\n    String title;\n\n    public Product(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Product(\"1-Ob'yekt\");\n        new Product(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Product.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    public static int totalCreated = 0;\n    String title;\n\n    public Product(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Product(\"1-Ob'yekt\");\n        new Product(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Product.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3361,7 +3361,7 @@ window.OOP_CHALLENGES_W1 = [
         "WalletUser"
       ]
     },
-    "starterCode": "class WalletUser {\n    public static int totalCreated = 0;\n    String title;\n\n    public WalletUser(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new WalletUser(\"1-Ob'yekt\");\n        new WalletUser(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + WalletUser.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    public static int totalCreated = 0;\n    String title;\n\n    public WalletUser(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new WalletUser(\"1-Ob'yekt\");\n        new WalletUser(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + WalletUser.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3398,7 +3398,7 @@ window.OOP_CHALLENGES_W1 = [
         "TaxiRide"
       ]
     },
-    "starterCode": "class TaxiRide {\n    public static int totalCreated = 0;\n    String title;\n\n    public TaxiRide(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new TaxiRide(\"1-Ob'yekt\");\n        new TaxiRide(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + TaxiRide.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    public static int totalCreated = 0;\n    String title;\n\n    public TaxiRide(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new TaxiRide(\"1-Ob'yekt\");\n        new TaxiRide(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + TaxiRide.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3435,7 +3435,7 @@ window.OOP_CHALLENGES_W1 = [
         "LoyaltyCard"
       ]
     },
-    "starterCode": "class LoyaltyCard {\n    public static int totalCreated = 0;\n    String title;\n\n    public LoyaltyCard(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new LoyaltyCard(\"1-Ob'yekt\");\n        new LoyaltyCard(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + LoyaltyCard.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    public static int totalCreated = 0;\n    String title;\n\n    public LoyaltyCard(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new LoyaltyCard(\"1-Ob'yekt\");\n        new LoyaltyCard(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + LoyaltyCard.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3472,7 +3472,7 @@ window.OOP_CHALLENGES_W1 = [
         "Student"
       ]
     },
-    "starterCode": "class Student {\n    public static int totalCreated = 0;\n    String title;\n\n    public Student(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Student(\"1-Ob'yekt\");\n        new Student(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Student.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    public static int totalCreated = 0;\n    String title;\n\n    public Student(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Student(\"1-Ob'yekt\");\n        new Student(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Student.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3509,7 +3509,7 @@ window.OOP_CHALLENGES_W1 = [
         "PaymentTxn"
       ]
     },
-    "starterCode": "class PaymentTxn {\n    public static int totalCreated = 0;\n    String title;\n\n    public PaymentTxn(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new PaymentTxn(\"1-Ob'yekt\");\n        new PaymentTxn(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + PaymentTxn.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    public static int totalCreated = 0;\n    String title;\n\n    public PaymentTxn(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new PaymentTxn(\"1-Ob'yekt\");\n        new PaymentTxn(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + PaymentTxn.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3546,7 +3546,7 @@ window.OOP_CHALLENGES_W1 = [
         "BotMessage"
       ]
     },
-    "starterCode": "class BotMessage {\n    public static int totalCreated = 0;\n    String title;\n\n    public BotMessage(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new BotMessage(\"1-Ob'yekt\");\n        new BotMessage(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + BotMessage.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    public static int totalCreated = 0;\n    String title;\n\n    public BotMessage(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new BotMessage(\"1-Ob'yekt\");\n        new BotMessage(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + BotMessage.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3583,7 +3583,7 @@ window.OOP_CHALLENGES_W1 = [
         "FlightTicket"
       ]
     },
-    "starterCode": "class FlightTicket {\n    public static int totalCreated = 0;\n    String title;\n\n    public FlightTicket(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new FlightTicket(\"1-Ob'yekt\");\n        new FlightTicket(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + FlightTicket.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    public static int totalCreated = 0;\n    String title;\n\n    public FlightTicket(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new FlightTicket(\"1-Ob'yekt\");\n        new FlightTicket(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + FlightTicket.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3620,7 +3620,7 @@ window.OOP_CHALLENGES_W1 = [
         "BootcampCourse"
       ]
     },
-    "starterCode": "class BootcampCourse {\n    public static int totalCreated = 0;\n    String title;\n\n    public BootcampCourse(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new BootcampCourse(\"1-Ob'yekt\");\n        new BootcampCourse(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + BootcampCourse.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    public static int totalCreated = 0;\n    String title;\n\n    public BootcampCourse(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new BootcampCourse(\"1-Ob'yekt\");\n        new BootcampCourse(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + BootcampCourse.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3657,7 +3657,7 @@ window.OOP_CHALLENGES_W1 = [
         "DebitCard"
       ]
     },
-    "starterCode": "class DebitCard {\n    public static int totalCreated = 0;\n    String title;\n\n    public DebitCard(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new DebitCard(\"1-Ob'yekt\");\n        new DebitCard(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + DebitCard.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    public static int totalCreated = 0;\n    String title;\n\n    public DebitCard(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new DebitCard(\"1-Ob'yekt\");\n        new DebitCard(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + DebitCard.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3694,7 +3694,7 @@ window.OOP_CHALLENGES_W1 = [
         "Medicine"
       ]
     },
-    "starterCode": "class Medicine {\n    public static int totalCreated = 0;\n    String title;\n\n    public Medicine(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Medicine(\"1-Ob'yekt\");\n        new Medicine(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Medicine.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    public static int totalCreated = 0;\n    String title;\n\n    public Medicine(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Medicine(\"1-Ob'yekt\");\n        new Medicine(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Medicine.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3731,7 +3731,7 @@ window.OOP_CHALLENGES_W1 = [
         "FoodOrder"
       ]
     },
-    "starterCode": "class FoodOrder {\n    public static int totalCreated = 0;\n    String title;\n\n    public FoodOrder(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new FoodOrder(\"1-Ob'yekt\");\n        new FoodOrder(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + FoodOrder.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    public static int totalCreated = 0;\n    String title;\n\n    public FoodOrder(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new FoodOrder(\"1-Ob'yekt\");\n        new FoodOrder(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + FoodOrder.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3768,7 +3768,7 @@ window.OOP_CHALLENGES_W1 = [
         "PizzaOrder"
       ]
     },
-    "starterCode": "class PizzaOrder {\n    public static int totalCreated = 0;\n    String title;\n\n    public PizzaOrder(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new PizzaOrder(\"1-Ob'yekt\");\n        new PizzaOrder(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + PizzaOrder.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    public static int totalCreated = 0;\n    String title;\n\n    public PizzaOrder(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new PizzaOrder(\"1-Ob'yekt\");\n        new PizzaOrder(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + PizzaOrder.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3805,7 +3805,7 @@ window.OOP_CHALLENGES_W1 = [
         "BroadcastShow"
       ]
     },
-    "starterCode": "class BroadcastShow {\n    public static int totalCreated = 0;\n    String title;\n\n    public BroadcastShow(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new BroadcastShow(\"1-Ob'yekt\");\n        new BroadcastShow(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + BroadcastShow.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    public static int totalCreated = 0;\n    String title;\n\n    public BroadcastShow(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new BroadcastShow(\"1-Ob'yekt\");\n        new BroadcastShow(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + BroadcastShow.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3842,7 +3842,7 @@ window.OOP_CHALLENGES_W1 = [
         "AudioTrack"
       ]
     },
-    "starterCode": "class AudioTrack {\n    public static int totalCreated = 0;\n    String title;\n\n    public AudioTrack(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new AudioTrack(\"1-Ob'yekt\");\n        new AudioTrack(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + AudioTrack.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    public static int totalCreated = 0;\n    String title;\n\n    public AudioTrack(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new AudioTrack(\"1-Ob'yekt\");\n        new AudioTrack(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + AudioTrack.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3879,7 +3879,7 @@ window.OOP_CHALLENGES_W1 = [
         "Thermostat"
       ]
     },
-    "starterCode": "class Thermostat {\n    public static int totalCreated = 0;\n    String title;\n\n    public Thermostat(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Thermostat(\"1-Ob'yekt\");\n        new Thermostat(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Thermostat.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    public static int totalCreated = 0;\n    String title;\n\n    public Thermostat(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Thermostat(\"1-Ob'yekt\");\n        new Thermostat(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Thermostat.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3916,7 +3916,7 @@ window.OOP_CHALLENGES_W1 = [
         "DeliveryDrone"
       ]
     },
-    "starterCode": "class DeliveryDrone {\n    public static int totalCreated = 0;\n    String title;\n\n    public DeliveryDrone(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new DeliveryDrone(\"1-Ob'yekt\");\n        new DeliveryDrone(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + DeliveryDrone.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    public static int totalCreated = 0;\n    String title;\n\n    public DeliveryDrone(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new DeliveryDrone(\"1-Ob'yekt\");\n        new DeliveryDrone(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + DeliveryDrone.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3953,7 +3953,7 @@ window.OOP_CHALLENGES_W1 = [
         "StorageBay"
       ]
     },
-    "starterCode": "class StorageBay {\n    public static int totalCreated = 0;\n    String title;\n\n    public StorageBay(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new StorageBay(\"1-Ob'yekt\");\n        new StorageBay(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + StorageBay.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    public static int totalCreated = 0;\n    String title;\n\n    public StorageBay(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new StorageBay(\"1-Ob'yekt\");\n        new StorageBay(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + StorageBay.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -3990,7 +3990,7 @@ window.OOP_CHALLENGES_W1 = [
         "CryptoAsset"
       ]
     },
-    "starterCode": "class CryptoAsset {\n    public static int totalCreated = 0;\n    String title;\n\n    public CryptoAsset(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new CryptoAsset(\"1-Ob'yekt\");\n        new CryptoAsset(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + CryptoAsset.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    public static int totalCreated = 0;\n    String title;\n\n    public CryptoAsset(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new CryptoAsset(\"1-Ob'yekt\");\n        new CryptoAsset(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + CryptoAsset.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4027,7 +4027,7 @@ window.OOP_CHALLENGES_W1 = [
         "CatalogBook"
       ]
     },
-    "starterCode": "class CatalogBook {\n    public static int totalCreated = 0;\n    String title;\n\n    public CatalogBook(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new CatalogBook(\"1-Ob'yekt\");\n        new CatalogBook(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + CatalogBook.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    public static int totalCreated = 0;\n    String title;\n\n    public CatalogBook(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new CatalogBook(\"1-Ob'yekt\");\n        new CatalogBook(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + CatalogBook.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4064,7 +4064,7 @@ window.OOP_CHALLENGES_W1 = [
         "GymMember"
       ]
     },
-    "starterCode": "class GymMember {\n    public static int totalCreated = 0;\n    String title;\n\n    public GymMember(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new GymMember(\"1-Ob'yekt\");\n        new GymMember(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + GymMember.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    public static int totalCreated = 0;\n    String title;\n\n    public GymMember(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new GymMember(\"1-Ob'yekt\");\n        new GymMember(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + GymMember.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4101,7 +4101,7 @@ window.OOP_CHALLENGES_W1 = [
         "ParkingBay"
       ]
     },
-    "starterCode": "class ParkingBay {\n    public static int totalCreated = 0;\n    String title;\n\n    public ParkingBay(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new ParkingBay(\"1-Ob'yekt\");\n        new ParkingBay(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + ParkingBay.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    public static int totalCreated = 0;\n    String title;\n\n    public ParkingBay(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new ParkingBay(\"1-Ob'yekt\");\n        new ParkingBay(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + ParkingBay.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4138,7 +4138,7 @@ window.OOP_CHALLENGES_W1 = [
         "PatientRecord"
       ]
     },
-    "starterCode": "class PatientRecord {\n    public static int totalCreated = 0;\n    String title;\n\n    public PatientRecord(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new PatientRecord(\"1-Ob'yekt\");\n        new PatientRecord(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + PatientRecord.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    public static int totalCreated = 0;\n    String title;\n\n    public PatientRecord(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new PatientRecord(\"1-Ob'yekt\");\n        new PatientRecord(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + PatientRecord.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4175,7 +4175,7 @@ window.OOP_CHALLENGES_W1 = [
         "HotelReservation"
       ]
     },
-    "starterCode": "class HotelReservation {\n    public static int totalCreated = 0;\n    String title;\n\n    public HotelReservation(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new HotelReservation(\"1-Ob'yekt\");\n        new HotelReservation(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + HotelReservation.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    public static int totalCreated = 0;\n    String title;\n\n    public HotelReservation(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new HotelReservation(\"1-Ob'yekt\");\n        new HotelReservation(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + HotelReservation.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4212,7 +4212,7 @@ window.OOP_CHALLENGES_W1 = [
         "CinemaTicket"
       ]
     },
-    "starterCode": "class CinemaTicket {\n    public static int totalCreated = 0;\n    String title;\n\n    public CinemaTicket(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new CinemaTicket(\"1-Ob'yekt\");\n        new CinemaTicket(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + CinemaTicket.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    public static int totalCreated = 0;\n    String title;\n\n    public CinemaTicket(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new CinemaTicket(\"1-Ob'yekt\");\n        new CinemaTicket(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + CinemaTicket.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4249,7 +4249,7 @@ window.OOP_CHALLENGES_W1 = [
         "ElectricScooter"
       ]
     },
-    "starterCode": "class ElectricScooter {\n    public static int totalCreated = 0;\n    String title;\n\n    public ElectricScooter(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new ElectricScooter(\"1-Ob'yekt\");\n        new ElectricScooter(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + ElectricScooter.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    public static int totalCreated = 0;\n    String title;\n\n    public ElectricScooter(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new ElectricScooter(\"1-Ob'yekt\");\n        new ElectricScooter(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + ElectricScooter.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4286,7 +4286,7 @@ window.OOP_CHALLENGES_W1 = [
         "MeteoStation"
       ]
     },
-    "starterCode": "class MeteoStation {\n    public static int totalCreated = 0;\n    String title;\n\n    public MeteoStation(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new MeteoStation(\"1-Ob'yekt\");\n        new MeteoStation(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + MeteoStation.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    public static int totalCreated = 0;\n    String title;\n\n    public MeteoStation(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new MeteoStation(\"1-Ob'yekt\");\n        new MeteoStation(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + MeteoStation.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4323,7 +4323,7 @@ window.OOP_CHALLENGES_W1 = [
         "AuctionLot"
       ]
     },
-    "starterCode": "class AuctionLot {\n    public static int totalCreated = 0;\n    String title;\n\n    public AuctionLot(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new AuctionLot(\"1-Ob'yekt\");\n        new AuctionLot(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + AuctionLot.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    public static int totalCreated = 0;\n    String title;\n\n    public AuctionLot(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new AuctionLot(\"1-Ob'yekt\");\n        new AuctionLot(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + AuctionLot.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4360,7 +4360,7 @@ window.OOP_CHALLENGES_W1 = [
         "SolarInverter"
       ]
     },
-    "starterCode": "class SolarInverter {\n    public static int totalCreated = 0;\n    String title;\n\n    public SolarInverter(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new SolarInverter(\"1-Ob'yekt\");\n        new SolarInverter(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + SolarInverter.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    public static int totalCreated = 0;\n    String title;\n\n    public SolarInverter(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new SolarInverter(\"1-Ob'yekt\");\n        new SolarInverter(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + SolarInverter.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4397,7 +4397,7 @@ window.OOP_CHALLENGES_W1 = [
         "TrainRoute"
       ]
     },
-    "starterCode": "class TrainRoute {\n    public static int totalCreated = 0;\n    String title;\n\n    public TrainRoute(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new TrainRoute(\"1-Ob'yekt\");\n        new TrainRoute(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + TrainRoute.totalCreated);\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    public static int totalCreated = 0;\n    String title;\n\n    public TrainRoute(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new TrainRoute(\"1-Ob'yekt\");\n        new TrainRoute(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + TrainRoute.totalCreated);\n    }\n}",
     "detailedSolution": {
       "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
@@ -4432,7 +4432,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class Product {\n    double price;\n    public Product(double price) {\n        this.price = price;\n    }\n}\n\nclass ProductManager {\n    public double calculateTotalSum(Product[] list) {\n        double sum = 0;\n        for (Product item : list) {\n            if (item != null) sum += item.price;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product[] array = new Product[] { new Product(50.0), new Product(120.0) };\n        ProductManager mgr = new ProductManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    double price;\n    public Product(double price) {\n        this.price = price;\n    }\n}\n\nclass ProductManager {\n    public double calculateTotalSum(Product[] list) {\n        double sum = 0;\n        for (Product item : list) {\n            if (item != null) sum += item.price;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product[] array = new Product[] { new Product(50.0), new Product(120.0) };\n        ProductManager mgr = new ProductManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4467,7 +4467,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class WalletUser {\n    double balance;\n    public WalletUser(double balance) {\n        this.balance = balance;\n    }\n}\n\nclass WalletUserManager {\n    public double calculateTotalSum(WalletUser[] list) {\n        double sum = 0;\n        for (WalletUser item : list) {\n            if (item != null) sum += item.balance;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser[] array = new WalletUser[] { new WalletUser(50.0), new WalletUser(120.0) };\n        WalletUserManager mgr = new WalletUserManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    double balance;\n    public WalletUser(double balance) {\n        this.balance = balance;\n    }\n}\n\nclass WalletUserManager {\n    public double calculateTotalSum(WalletUser[] list) {\n        double sum = 0;\n        for (WalletUser item : list) {\n            if (item != null) sum += item.balance;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser[] array = new WalletUser[] { new WalletUser(50.0), new WalletUser(120.0) };\n        WalletUserManager mgr = new WalletUserManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4502,7 +4502,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class TaxiRide {\n    double distanceKm;\n    public TaxiRide(double distanceKm) {\n        this.distanceKm = distanceKm;\n    }\n}\n\nclass TaxiRideManager {\n    public double calculateTotalSum(TaxiRide[] list) {\n        double sum = 0;\n        for (TaxiRide item : list) {\n            if (item != null) sum += item.distanceKm;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide[] array = new TaxiRide[] { new TaxiRide(50.0), new TaxiRide(120.0) };\n        TaxiRideManager mgr = new TaxiRideManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    double distanceKm;\n    public TaxiRide(double distanceKm) {\n        this.distanceKm = distanceKm;\n    }\n}\n\nclass TaxiRideManager {\n    public double calculateTotalSum(TaxiRide[] list) {\n        double sum = 0;\n        for (TaxiRide item : list) {\n            if (item != null) sum += item.distanceKm;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide[] array = new TaxiRide[] { new TaxiRide(50.0), new TaxiRide(120.0) };\n        TaxiRideManager mgr = new TaxiRideManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4537,7 +4537,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class LoyaltyCard {\n    double bonusPoints;\n    public LoyaltyCard(double bonusPoints) {\n        this.bonusPoints = bonusPoints;\n    }\n}\n\nclass LoyaltyCardManager {\n    public double calculateTotalSum(LoyaltyCard[] list) {\n        double sum = 0;\n        for (LoyaltyCard item : list) {\n            if (item != null) sum += item.bonusPoints;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard[] array = new LoyaltyCard[] { new LoyaltyCard(50.0), new LoyaltyCard(120.0) };\n        LoyaltyCardManager mgr = new LoyaltyCardManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    double bonusPoints;\n    public LoyaltyCard(double bonusPoints) {\n        this.bonusPoints = bonusPoints;\n    }\n}\n\nclass LoyaltyCardManager {\n    public double calculateTotalSum(LoyaltyCard[] list) {\n        double sum = 0;\n        for (LoyaltyCard item : list) {\n            if (item != null) sum += item.bonusPoints;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard[] array = new LoyaltyCard[] { new LoyaltyCard(50.0), new LoyaltyCard(120.0) };\n        LoyaltyCardManager mgr = new LoyaltyCardManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4572,7 +4572,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class Student {\n    double gpa;\n    public Student(double gpa) {\n        this.gpa = gpa;\n    }\n}\n\nclass StudentManager {\n    public double calculateTotalSum(Student[] list) {\n        double sum = 0;\n        for (Student item : list) {\n            if (item != null) sum += item.gpa;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student[] array = new Student[] { new Student(50.0), new Student(120.0) };\n        StudentManager mgr = new StudentManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    double gpa;\n    public Student(double gpa) {\n        this.gpa = gpa;\n    }\n}\n\nclass StudentManager {\n    public double calculateTotalSum(Student[] list) {\n        double sum = 0;\n        for (Student item : list) {\n            if (item != null) sum += item.gpa;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student[] array = new Student[] { new Student(50.0), new Student(120.0) };\n        StudentManager mgr = new StudentManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4607,7 +4607,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class PaymentTxn {\n    double amount;\n    public PaymentTxn(double amount) {\n        this.amount = amount;\n    }\n}\n\nclass PaymentTxnManager {\n    public double calculateTotalSum(PaymentTxn[] list) {\n        double sum = 0;\n        for (PaymentTxn item : list) {\n            if (item != null) sum += item.amount;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn[] array = new PaymentTxn[] { new PaymentTxn(50.0), new PaymentTxn(120.0) };\n        PaymentTxnManager mgr = new PaymentTxnManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    double amount;\n    public PaymentTxn(double amount) {\n        this.amount = amount;\n    }\n}\n\nclass PaymentTxnManager {\n    public double calculateTotalSum(PaymentTxn[] list) {\n        double sum = 0;\n        for (PaymentTxn item : list) {\n            if (item != null) sum += item.amount;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn[] array = new PaymentTxn[] { new PaymentTxn(50.0), new PaymentTxn(120.0) };\n        PaymentTxnManager mgr = new PaymentTxnManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4642,7 +4642,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class BotMessage {\n    double chatId;\n    public BotMessage(double chatId) {\n        this.chatId = chatId;\n    }\n}\n\nclass BotMessageManager {\n    public double calculateTotalSum(BotMessage[] list) {\n        double sum = 0;\n        for (BotMessage item : list) {\n            if (item != null) sum += item.chatId;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage[] array = new BotMessage[] { new BotMessage(50.0), new BotMessage(120.0) };\n        BotMessageManager mgr = new BotMessageManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    double chatId;\n    public BotMessage(double chatId) {\n        this.chatId = chatId;\n    }\n}\n\nclass BotMessageManager {\n    public double calculateTotalSum(BotMessage[] list) {\n        double sum = 0;\n        for (BotMessage item : list) {\n            if (item != null) sum += item.chatId;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage[] array = new BotMessage[] { new BotMessage(50.0), new BotMessage(120.0) };\n        BotMessageManager mgr = new BotMessageManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4677,7 +4677,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class FlightTicket {\n    double farePrice;\n    public FlightTicket(double farePrice) {\n        this.farePrice = farePrice;\n    }\n}\n\nclass FlightTicketManager {\n    public double calculateTotalSum(FlightTicket[] list) {\n        double sum = 0;\n        for (FlightTicket item : list) {\n            if (item != null) sum += item.farePrice;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket[] array = new FlightTicket[] { new FlightTicket(50.0), new FlightTicket(120.0) };\n        FlightTicketManager mgr = new FlightTicketManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    double farePrice;\n    public FlightTicket(double farePrice) {\n        this.farePrice = farePrice;\n    }\n}\n\nclass FlightTicketManager {\n    public double calculateTotalSum(FlightTicket[] list) {\n        double sum = 0;\n        for (FlightTicket item : list) {\n            if (item != null) sum += item.farePrice;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket[] array = new FlightTicket[] { new FlightTicket(50.0), new FlightTicket(120.0) };\n        FlightTicketManager mgr = new FlightTicketManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4712,7 +4712,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class BootcampCourse {\n    double durationWeeks;\n    public BootcampCourse(double durationWeeks) {\n        this.durationWeeks = durationWeeks;\n    }\n}\n\nclass BootcampCourseManager {\n    public double calculateTotalSum(BootcampCourse[] list) {\n        double sum = 0;\n        for (BootcampCourse item : list) {\n            if (item != null) sum += item.durationWeeks;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse[] array = new BootcampCourse[] { new BootcampCourse(50.0), new BootcampCourse(120.0) };\n        BootcampCourseManager mgr = new BootcampCourseManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    double durationWeeks;\n    public BootcampCourse(double durationWeeks) {\n        this.durationWeeks = durationWeeks;\n    }\n}\n\nclass BootcampCourseManager {\n    public double calculateTotalSum(BootcampCourse[] list) {\n        double sum = 0;\n        for (BootcampCourse item : list) {\n            if (item != null) sum += item.durationWeeks;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse[] array = new BootcampCourse[] { new BootcampCourse(50.0), new BootcampCourse(120.0) };\n        BootcampCourseManager mgr = new BootcampCourseManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4747,7 +4747,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class DebitCard {\n    double creditLimit;\n    public DebitCard(double creditLimit) {\n        this.creditLimit = creditLimit;\n    }\n}\n\nclass DebitCardManager {\n    public double calculateTotalSum(DebitCard[] list) {\n        double sum = 0;\n        for (DebitCard item : list) {\n            if (item != null) sum += item.creditLimit;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard[] array = new DebitCard[] { new DebitCard(50.0), new DebitCard(120.0) };\n        DebitCardManager mgr = new DebitCardManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    double creditLimit;\n    public DebitCard(double creditLimit) {\n        this.creditLimit = creditLimit;\n    }\n}\n\nclass DebitCardManager {\n    public double calculateTotalSum(DebitCard[] list) {\n        double sum = 0;\n        for (DebitCard item : list) {\n            if (item != null) sum += item.creditLimit;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard[] array = new DebitCard[] { new DebitCard(50.0), new DebitCard(120.0) };\n        DebitCardManager mgr = new DebitCardManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4782,7 +4782,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class Medicine {\n    double stockCount;\n    public Medicine(double stockCount) {\n        this.stockCount = stockCount;\n    }\n}\n\nclass MedicineManager {\n    public double calculateTotalSum(Medicine[] list) {\n        double sum = 0;\n        for (Medicine item : list) {\n            if (item != null) sum += item.stockCount;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine[] array = new Medicine[] { new Medicine(50.0), new Medicine(120.0) };\n        MedicineManager mgr = new MedicineManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    double stockCount;\n    public Medicine(double stockCount) {\n        this.stockCount = stockCount;\n    }\n}\n\nclass MedicineManager {\n    public double calculateTotalSum(Medicine[] list) {\n        double sum = 0;\n        for (Medicine item : list) {\n            if (item != null) sum += item.stockCount;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine[] array = new Medicine[] { new Medicine(50.0), new Medicine(120.0) };\n        MedicineManager mgr = new MedicineManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4817,7 +4817,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class FoodOrder {\n    double totalSum;\n    public FoodOrder(double totalSum) {\n        this.totalSum = totalSum;\n    }\n}\n\nclass FoodOrderManager {\n    public double calculateTotalSum(FoodOrder[] list) {\n        double sum = 0;\n        for (FoodOrder item : list) {\n            if (item != null) sum += item.totalSum;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder[] array = new FoodOrder[] { new FoodOrder(50.0), new FoodOrder(120.0) };\n        FoodOrderManager mgr = new FoodOrderManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    double totalSum;\n    public FoodOrder(double totalSum) {\n        this.totalSum = totalSum;\n    }\n}\n\nclass FoodOrderManager {\n    public double calculateTotalSum(FoodOrder[] list) {\n        double sum = 0;\n        for (FoodOrder item : list) {\n            if (item != null) sum += item.totalSum;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder[] array = new FoodOrder[] { new FoodOrder(50.0), new FoodOrder(120.0) };\n        FoodOrderManager mgr = new FoodOrderManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4852,7 +4852,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class PizzaOrder {\n    double prepTimeMinutes;\n    public PizzaOrder(double prepTimeMinutes) {\n        this.prepTimeMinutes = prepTimeMinutes;\n    }\n}\n\nclass PizzaOrderManager {\n    public double calculateTotalSum(PizzaOrder[] list) {\n        double sum = 0;\n        for (PizzaOrder item : list) {\n            if (item != null) sum += item.prepTimeMinutes;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder[] array = new PizzaOrder[] { new PizzaOrder(50.0), new PizzaOrder(120.0) };\n        PizzaOrderManager mgr = new PizzaOrderManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    double prepTimeMinutes;\n    public PizzaOrder(double prepTimeMinutes) {\n        this.prepTimeMinutes = prepTimeMinutes;\n    }\n}\n\nclass PizzaOrderManager {\n    public double calculateTotalSum(PizzaOrder[] list) {\n        double sum = 0;\n        for (PizzaOrder item : list) {\n            if (item != null) sum += item.prepTimeMinutes;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder[] array = new PizzaOrder[] { new PizzaOrder(50.0), new PizzaOrder(120.0) };\n        PizzaOrderManager mgr = new PizzaOrderManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4887,7 +4887,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class BroadcastShow {\n    double viewersRating;\n    public BroadcastShow(double viewersRating) {\n        this.viewersRating = viewersRating;\n    }\n}\n\nclass BroadcastShowManager {\n    public double calculateTotalSum(BroadcastShow[] list) {\n        double sum = 0;\n        for (BroadcastShow item : list) {\n            if (item != null) sum += item.viewersRating;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow[] array = new BroadcastShow[] { new BroadcastShow(50.0), new BroadcastShow(120.0) };\n        BroadcastShowManager mgr = new BroadcastShowManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    double viewersRating;\n    public BroadcastShow(double viewersRating) {\n        this.viewersRating = viewersRating;\n    }\n}\n\nclass BroadcastShowManager {\n    public double calculateTotalSum(BroadcastShow[] list) {\n        double sum = 0;\n        for (BroadcastShow item : list) {\n            if (item != null) sum += item.viewersRating;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow[] array = new BroadcastShow[] { new BroadcastShow(50.0), new BroadcastShow(120.0) };\n        BroadcastShowManager mgr = new BroadcastShowManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4922,7 +4922,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class AudioTrack {\n    double durationSec;\n    public AudioTrack(double durationSec) {\n        this.durationSec = durationSec;\n    }\n}\n\nclass AudioTrackManager {\n    public double calculateTotalSum(AudioTrack[] list) {\n        double sum = 0;\n        for (AudioTrack item : list) {\n            if (item != null) sum += item.durationSec;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack[] array = new AudioTrack[] { new AudioTrack(50.0), new AudioTrack(120.0) };\n        AudioTrackManager mgr = new AudioTrackManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    double durationSec;\n    public AudioTrack(double durationSec) {\n        this.durationSec = durationSec;\n    }\n}\n\nclass AudioTrackManager {\n    public double calculateTotalSum(AudioTrack[] list) {\n        double sum = 0;\n        for (AudioTrack item : list) {\n            if (item != null) sum += item.durationSec;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack[] array = new AudioTrack[] { new AudioTrack(50.0), new AudioTrack(120.0) };\n        AudioTrackManager mgr = new AudioTrackManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4957,7 +4957,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class Thermostat {\n    double targetTemp;\n    public Thermostat(double targetTemp) {\n        this.targetTemp = targetTemp;\n    }\n}\n\nclass ThermostatManager {\n    public double calculateTotalSum(Thermostat[] list) {\n        double sum = 0;\n        for (Thermostat item : list) {\n            if (item != null) sum += item.targetTemp;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat[] array = new Thermostat[] { new Thermostat(50.0), new Thermostat(120.0) };\n        ThermostatManager mgr = new ThermostatManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    double targetTemp;\n    public Thermostat(double targetTemp) {\n        this.targetTemp = targetTemp;\n    }\n}\n\nclass ThermostatManager {\n    public double calculateTotalSum(Thermostat[] list) {\n        double sum = 0;\n        for (Thermostat item : list) {\n            if (item != null) sum += item.targetTemp;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat[] array = new Thermostat[] { new Thermostat(50.0), new Thermostat(120.0) };\n        ThermostatManager mgr = new ThermostatManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -4992,7 +4992,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class DeliveryDrone {\n    double batteryPct;\n    public DeliveryDrone(double batteryPct) {\n        this.batteryPct = batteryPct;\n    }\n}\n\nclass DeliveryDroneManager {\n    public double calculateTotalSum(DeliveryDrone[] list) {\n        double sum = 0;\n        for (DeliveryDrone item : list) {\n            if (item != null) sum += item.batteryPct;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone[] array = new DeliveryDrone[] { new DeliveryDrone(50.0), new DeliveryDrone(120.0) };\n        DeliveryDroneManager mgr = new DeliveryDroneManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    double batteryPct;\n    public DeliveryDrone(double batteryPct) {\n        this.batteryPct = batteryPct;\n    }\n}\n\nclass DeliveryDroneManager {\n    public double calculateTotalSum(DeliveryDrone[] list) {\n        double sum = 0;\n        for (DeliveryDrone item : list) {\n            if (item != null) sum += item.batteryPct;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone[] array = new DeliveryDrone[] { new DeliveryDrone(50.0), new DeliveryDrone(120.0) };\n        DeliveryDroneManager mgr = new DeliveryDroneManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5027,7 +5027,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class StorageBay {\n    double weightLimitKg;\n    public StorageBay(double weightLimitKg) {\n        this.weightLimitKg = weightLimitKg;\n    }\n}\n\nclass StorageBayManager {\n    public double calculateTotalSum(StorageBay[] list) {\n        double sum = 0;\n        for (StorageBay item : list) {\n            if (item != null) sum += item.weightLimitKg;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay[] array = new StorageBay[] { new StorageBay(50.0), new StorageBay(120.0) };\n        StorageBayManager mgr = new StorageBayManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    double weightLimitKg;\n    public StorageBay(double weightLimitKg) {\n        this.weightLimitKg = weightLimitKg;\n    }\n}\n\nclass StorageBayManager {\n    public double calculateTotalSum(StorageBay[] list) {\n        double sum = 0;\n        for (StorageBay item : list) {\n            if (item != null) sum += item.weightLimitKg;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay[] array = new StorageBay[] { new StorageBay(50.0), new StorageBay(120.0) };\n        StorageBayManager mgr = new StorageBayManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5062,7 +5062,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class CryptoAsset {\n    double coinUnits;\n    public CryptoAsset(double coinUnits) {\n        this.coinUnits = coinUnits;\n    }\n}\n\nclass CryptoAssetManager {\n    public double calculateTotalSum(CryptoAsset[] list) {\n        double sum = 0;\n        for (CryptoAsset item : list) {\n            if (item != null) sum += item.coinUnits;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset[] array = new CryptoAsset[] { new CryptoAsset(50.0), new CryptoAsset(120.0) };\n        CryptoAssetManager mgr = new CryptoAssetManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    double coinUnits;\n    public CryptoAsset(double coinUnits) {\n        this.coinUnits = coinUnits;\n    }\n}\n\nclass CryptoAssetManager {\n    public double calculateTotalSum(CryptoAsset[] list) {\n        double sum = 0;\n        for (CryptoAsset item : list) {\n            if (item != null) sum += item.coinUnits;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset[] array = new CryptoAsset[] { new CryptoAsset(50.0), new CryptoAsset(120.0) };\n        CryptoAssetManager mgr = new CryptoAssetManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5097,7 +5097,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class CatalogBook {\n    double pageCount;\n    public CatalogBook(double pageCount) {\n        this.pageCount = pageCount;\n    }\n}\n\nclass CatalogBookManager {\n    public double calculateTotalSum(CatalogBook[] list) {\n        double sum = 0;\n        for (CatalogBook item : list) {\n            if (item != null) sum += item.pageCount;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook[] array = new CatalogBook[] { new CatalogBook(50.0), new CatalogBook(120.0) };\n        CatalogBookManager mgr = new CatalogBookManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    double pageCount;\n    public CatalogBook(double pageCount) {\n        this.pageCount = pageCount;\n    }\n}\n\nclass CatalogBookManager {\n    public double calculateTotalSum(CatalogBook[] list) {\n        double sum = 0;\n        for (CatalogBook item : list) {\n            if (item != null) sum += item.pageCount;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook[] array = new CatalogBook[] { new CatalogBook(50.0), new CatalogBook(120.0) };\n        CatalogBookManager mgr = new CatalogBookManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5132,7 +5132,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class GymMember {\n    double activeMonths;\n    public GymMember(double activeMonths) {\n        this.activeMonths = activeMonths;\n    }\n}\n\nclass GymMemberManager {\n    public double calculateTotalSum(GymMember[] list) {\n        double sum = 0;\n        for (GymMember item : list) {\n            if (item != null) sum += item.activeMonths;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember[] array = new GymMember[] { new GymMember(50.0), new GymMember(120.0) };\n        GymMemberManager mgr = new GymMemberManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    double activeMonths;\n    public GymMember(double activeMonths) {\n        this.activeMonths = activeMonths;\n    }\n}\n\nclass GymMemberManager {\n    public double calculateTotalSum(GymMember[] list) {\n        double sum = 0;\n        for (GymMember item : list) {\n            if (item != null) sum += item.activeMonths;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember[] array = new GymMember[] { new GymMember(50.0), new GymMember(120.0) };\n        GymMemberManager mgr = new GymMemberManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5167,7 +5167,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class ParkingBay {\n    double hourlyTariff;\n    public ParkingBay(double hourlyTariff) {\n        this.hourlyTariff = hourlyTariff;\n    }\n}\n\nclass ParkingBayManager {\n    public double calculateTotalSum(ParkingBay[] list) {\n        double sum = 0;\n        for (ParkingBay item : list) {\n            if (item != null) sum += item.hourlyTariff;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay[] array = new ParkingBay[] { new ParkingBay(50.0), new ParkingBay(120.0) };\n        ParkingBayManager mgr = new ParkingBayManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    double hourlyTariff;\n    public ParkingBay(double hourlyTariff) {\n        this.hourlyTariff = hourlyTariff;\n    }\n}\n\nclass ParkingBayManager {\n    public double calculateTotalSum(ParkingBay[] list) {\n        double sum = 0;\n        for (ParkingBay item : list) {\n            if (item != null) sum += item.hourlyTariff;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay[] array = new ParkingBay[] { new ParkingBay(50.0), new ParkingBay(120.0) };\n        ParkingBayManager mgr = new ParkingBayManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5202,7 +5202,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class PatientRecord {\n    double pulseRate;\n    public PatientRecord(double pulseRate) {\n        this.pulseRate = pulseRate;\n    }\n}\n\nclass PatientRecordManager {\n    public double calculateTotalSum(PatientRecord[] list) {\n        double sum = 0;\n        for (PatientRecord item : list) {\n            if (item != null) sum += item.pulseRate;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord[] array = new PatientRecord[] { new PatientRecord(50.0), new PatientRecord(120.0) };\n        PatientRecordManager mgr = new PatientRecordManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    double pulseRate;\n    public PatientRecord(double pulseRate) {\n        this.pulseRate = pulseRate;\n    }\n}\n\nclass PatientRecordManager {\n    public double calculateTotalSum(PatientRecord[] list) {\n        double sum = 0;\n        for (PatientRecord item : list) {\n            if (item != null) sum += item.pulseRate;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord[] array = new PatientRecord[] { new PatientRecord(50.0), new PatientRecord(120.0) };\n        PatientRecordManager mgr = new PatientRecordManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5237,7 +5237,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class HotelReservation {\n    double nightlyRate;\n    public HotelReservation(double nightlyRate) {\n        this.nightlyRate = nightlyRate;\n    }\n}\n\nclass HotelReservationManager {\n    public double calculateTotalSum(HotelReservation[] list) {\n        double sum = 0;\n        for (HotelReservation item : list) {\n            if (item != null) sum += item.nightlyRate;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation[] array = new HotelReservation[] { new HotelReservation(50.0), new HotelReservation(120.0) };\n        HotelReservationManager mgr = new HotelReservationManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    double nightlyRate;\n    public HotelReservation(double nightlyRate) {\n        this.nightlyRate = nightlyRate;\n    }\n}\n\nclass HotelReservationManager {\n    public double calculateTotalSum(HotelReservation[] list) {\n        double sum = 0;\n        for (HotelReservation item : list) {\n            if (item != null) sum += item.nightlyRate;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation[] array = new HotelReservation[] { new HotelReservation(50.0), new HotelReservation(120.0) };\n        HotelReservationManager mgr = new HotelReservationManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5272,7 +5272,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class CinemaTicket {\n    double hallSeatNo;\n    public CinemaTicket(double hallSeatNo) {\n        this.hallSeatNo = hallSeatNo;\n    }\n}\n\nclass CinemaTicketManager {\n    public double calculateTotalSum(CinemaTicket[] list) {\n        double sum = 0;\n        for (CinemaTicket item : list) {\n            if (item != null) sum += item.hallSeatNo;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket[] array = new CinemaTicket[] { new CinemaTicket(50.0), new CinemaTicket(120.0) };\n        CinemaTicketManager mgr = new CinemaTicketManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    double hallSeatNo;\n    public CinemaTicket(double hallSeatNo) {\n        this.hallSeatNo = hallSeatNo;\n    }\n}\n\nclass CinemaTicketManager {\n    public double calculateTotalSum(CinemaTicket[] list) {\n        double sum = 0;\n        for (CinemaTicket item : list) {\n            if (item != null) sum += item.hallSeatNo;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket[] array = new CinemaTicket[] { new CinemaTicket(50.0), new CinemaTicket(120.0) };\n        CinemaTicketManager mgr = new CinemaTicketManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5307,7 +5307,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class ElectricScooter {\n    double maxSpeedKmh;\n    public ElectricScooter(double maxSpeedKmh) {\n        this.maxSpeedKmh = maxSpeedKmh;\n    }\n}\n\nclass ElectricScooterManager {\n    public double calculateTotalSum(ElectricScooter[] list) {\n        double sum = 0;\n        for (ElectricScooter item : list) {\n            if (item != null) sum += item.maxSpeedKmh;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter[] array = new ElectricScooter[] { new ElectricScooter(50.0), new ElectricScooter(120.0) };\n        ElectricScooterManager mgr = new ElectricScooterManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    double maxSpeedKmh;\n    public ElectricScooter(double maxSpeedKmh) {\n        this.maxSpeedKmh = maxSpeedKmh;\n    }\n}\n\nclass ElectricScooterManager {\n    public double calculateTotalSum(ElectricScooter[] list) {\n        double sum = 0;\n        for (ElectricScooter item : list) {\n            if (item != null) sum += item.maxSpeedKmh;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter[] array = new ElectricScooter[] { new ElectricScooter(50.0), new ElectricScooter(120.0) };\n        ElectricScooterManager mgr = new ElectricScooterManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5342,7 +5342,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class MeteoStation {\n    double humidityPct;\n    public MeteoStation(double humidityPct) {\n        this.humidityPct = humidityPct;\n    }\n}\n\nclass MeteoStationManager {\n    public double calculateTotalSum(MeteoStation[] list) {\n        double sum = 0;\n        for (MeteoStation item : list) {\n            if (item != null) sum += item.humidityPct;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation[] array = new MeteoStation[] { new MeteoStation(50.0), new MeteoStation(120.0) };\n        MeteoStationManager mgr = new MeteoStationManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    double humidityPct;\n    public MeteoStation(double humidityPct) {\n        this.humidityPct = humidityPct;\n    }\n}\n\nclass MeteoStationManager {\n    public double calculateTotalSum(MeteoStation[] list) {\n        double sum = 0;\n        for (MeteoStation item : list) {\n            if (item != null) sum += item.humidityPct;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation[] array = new MeteoStation[] { new MeteoStation(50.0), new MeteoStation(120.0) };\n        MeteoStationManager mgr = new MeteoStationManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5377,7 +5377,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class AuctionLot {\n    double reservePrice;\n    public AuctionLot(double reservePrice) {\n        this.reservePrice = reservePrice;\n    }\n}\n\nclass AuctionLotManager {\n    public double calculateTotalSum(AuctionLot[] list) {\n        double sum = 0;\n        for (AuctionLot item : list) {\n            if (item != null) sum += item.reservePrice;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot[] array = new AuctionLot[] { new AuctionLot(50.0), new AuctionLot(120.0) };\n        AuctionLotManager mgr = new AuctionLotManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    double reservePrice;\n    public AuctionLot(double reservePrice) {\n        this.reservePrice = reservePrice;\n    }\n}\n\nclass AuctionLotManager {\n    public double calculateTotalSum(AuctionLot[] list) {\n        double sum = 0;\n        for (AuctionLot item : list) {\n            if (item != null) sum += item.reservePrice;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot[] array = new AuctionLot[] { new AuctionLot(50.0), new AuctionLot(120.0) };\n        AuctionLotManager mgr = new AuctionLotManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5412,7 +5412,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class SolarInverter {\n    double powerKw;\n    public SolarInverter(double powerKw) {\n        this.powerKw = powerKw;\n    }\n}\n\nclass SolarInverterManager {\n    public double calculateTotalSum(SolarInverter[] list) {\n        double sum = 0;\n        for (SolarInverter item : list) {\n            if (item != null) sum += item.powerKw;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter[] array = new SolarInverter[] { new SolarInverter(50.0), new SolarInverter(120.0) };\n        SolarInverterManager mgr = new SolarInverterManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    double powerKw;\n    public SolarInverter(double powerKw) {\n        this.powerKw = powerKw;\n    }\n}\n\nclass SolarInverterManager {\n    public double calculateTotalSum(SolarInverter[] list) {\n        double sum = 0;\n        for (SolarInverter item : list) {\n            if (item != null) sum += item.powerKw;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter[] array = new SolarInverter[] { new SolarInverter(50.0), new SolarInverter(120.0) };\n        SolarInverterManager mgr = new SolarInverterManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
@@ -5447,7 +5447,7 @@ window.OOP_CHALLENGES_W1 = [
         "calculateTotalSum"
       ]
     },
-    "starterCode": "class TrainRoute {\n    double travelDurationHours;\n    public TrainRoute(double travelDurationHours) {\n        this.travelDurationHours = travelDurationHours;\n    }\n}\n\nclass TrainRouteManager {\n    public double calculateTotalSum(TrainRoute[] list) {\n        double sum = 0;\n        for (TrainRoute item : list) {\n            if (item != null) sum += item.travelDurationHours;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute[] array = new TrainRoute[] { new TrainRoute(50.0), new TrainRoute(120.0) };\n        TrainRouteManager mgr = new TrainRouteManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    double travelDurationHours;\n    public TrainRoute(double travelDurationHours) {\n        this.travelDurationHours = travelDurationHours;\n    }\n}\n\nclass TrainRouteManager {\n    public double calculateTotalSum(TrainRoute[] list) {\n        double sum = 0;\n        for (TrainRoute item : list) {\n            if (item != null) sum += item.travelDurationHours;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute[] array = new TrainRoute[] { new TrainRoute(50.0), new TrainRoute(120.0) };\n        TrainRouteManager mgr = new TrainRouteManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
     "detailedSolution": {
       "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",

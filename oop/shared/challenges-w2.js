@@ -25,7 +25,7 @@ window.OOP_CHALLENGES_W2 = [
         "setPrice"
       ]
     },
-    "starterCode": "class Product {\n    private double price;\n\n    public double getPrice() {\n        return this.price;\n    }\n\n    public void setPrice(double price) {\n        this.price = price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product item = new Product();\n        item.setPrice(100);\n        System.out.println(\"Qiymat: \" + item.getPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    private double price;\n\n    public double getPrice() {\n        return this.price;\n    }\n\n    public void setPrice(double price) {\n        this.price = price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product item = new Product();\n        item.setPrice(100);\n        System.out.println(\"Qiymat: \" + item.getPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -63,7 +63,7 @@ window.OOP_CHALLENGES_W2 = [
         "setBalance"
       ]
     },
-    "starterCode": "class WalletUser {\n    private double balance;\n\n    public double getBalance() {\n        return this.balance;\n    }\n\n    public void setBalance(double balance) {\n        this.balance = balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser item = new WalletUser();\n        item.setBalance(100);\n        System.out.println(\"Qiymat: \" + item.getBalance());\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    private double balance;\n\n    public double getBalance() {\n        return this.balance;\n    }\n\n    public void setBalance(double balance) {\n        this.balance = balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser item = new WalletUser();\n        item.setBalance(100);\n        System.out.println(\"Qiymat: \" + item.getBalance());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -101,7 +101,7 @@ window.OOP_CHALLENGES_W2 = [
         "setDistanceKm"
       ]
     },
-    "starterCode": "class TaxiRide {\n    private double distanceKm;\n\n    public double getDistanceKm() {\n        return this.distanceKm;\n    }\n\n    public void setDistanceKm(double distanceKm) {\n        this.distanceKm = distanceKm;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide item = new TaxiRide();\n        item.setDistanceKm(100);\n        System.out.println(\"Qiymat: \" + item.getDistanceKm());\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    private double distanceKm;\n\n    public double getDistanceKm() {\n        return this.distanceKm;\n    }\n\n    public void setDistanceKm(double distanceKm) {\n        this.distanceKm = distanceKm;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide item = new TaxiRide();\n        item.setDistanceKm(100);\n        System.out.println(\"Qiymat: \" + item.getDistanceKm());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -139,7 +139,7 @@ window.OOP_CHALLENGES_W2 = [
         "setBonusPoints"
       ]
     },
-    "starterCode": "class LoyaltyCard {\n    private int bonusPoints;\n\n    public int getBonusPoints() {\n        return this.bonusPoints;\n    }\n\n    public void setBonusPoints(int bonusPoints) {\n        this.bonusPoints = bonusPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard item = new LoyaltyCard();\n        item.setBonusPoints(100);\n        System.out.println(\"Qiymat: \" + item.getBonusPoints());\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    private int bonusPoints;\n\n    public int getBonusPoints() {\n        return this.bonusPoints;\n    }\n\n    public void setBonusPoints(int bonusPoints) {\n        this.bonusPoints = bonusPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard item = new LoyaltyCard();\n        item.setBonusPoints(100);\n        System.out.println(\"Qiymat: \" + item.getBonusPoints());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -177,7 +177,7 @@ window.OOP_CHALLENGES_W2 = [
         "setGpa"
       ]
     },
-    "starterCode": "class Student {\n    private double gpa;\n\n    public double getGpa() {\n        return this.gpa;\n    }\n\n    public void setGpa(double gpa) {\n        this.gpa = gpa;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student item = new Student();\n        item.setGpa(100);\n        System.out.println(\"Qiymat: \" + item.getGpa());\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    private double gpa;\n\n    public double getGpa() {\n        return this.gpa;\n    }\n\n    public void setGpa(double gpa) {\n        this.gpa = gpa;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student item = new Student();\n        item.setGpa(100);\n        System.out.println(\"Qiymat: \" + item.getGpa());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -215,7 +215,7 @@ window.OOP_CHALLENGES_W2 = [
         "setAmount"
       ]
     },
-    "starterCode": "class PaymentTxn {\n    private double amount;\n\n    public double getAmount() {\n        return this.amount;\n    }\n\n    public void setAmount(double amount) {\n        this.amount = amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn item = new PaymentTxn();\n        item.setAmount(100);\n        System.out.println(\"Qiymat: \" + item.getAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    private double amount;\n\n    public double getAmount() {\n        return this.amount;\n    }\n\n    public void setAmount(double amount) {\n        this.amount = amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn item = new PaymentTxn();\n        item.setAmount(100);\n        System.out.println(\"Qiymat: \" + item.getAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -253,7 +253,7 @@ window.OOP_CHALLENGES_W2 = [
         "setChatId"
       ]
     },
-    "starterCode": "class BotMessage {\n    private long chatId;\n\n    public long getChatId() {\n        return this.chatId;\n    }\n\n    public void setChatId(long chatId) {\n        this.chatId = chatId;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage item = new BotMessage();\n        item.setChatId(100);\n        System.out.println(\"Qiymat: \" + item.getChatId());\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    private long chatId;\n\n    public long getChatId() {\n        return this.chatId;\n    }\n\n    public void setChatId(long chatId) {\n        this.chatId = chatId;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage item = new BotMessage();\n        item.setChatId(100);\n        System.out.println(\"Qiymat: \" + item.getChatId());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -291,7 +291,7 @@ window.OOP_CHALLENGES_W2 = [
         "setFarePrice"
       ]
     },
-    "starterCode": "class FlightTicket {\n    private double farePrice;\n\n    public double getFarePrice() {\n        return this.farePrice;\n    }\n\n    public void setFarePrice(double farePrice) {\n        this.farePrice = farePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket item = new FlightTicket();\n        item.setFarePrice(100);\n        System.out.println(\"Qiymat: \" + item.getFarePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    private double farePrice;\n\n    public double getFarePrice() {\n        return this.farePrice;\n    }\n\n    public void setFarePrice(double farePrice) {\n        this.farePrice = farePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket item = new FlightTicket();\n        item.setFarePrice(100);\n        System.out.println(\"Qiymat: \" + item.getFarePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -329,7 +329,7 @@ window.OOP_CHALLENGES_W2 = [
         "setDurationWeeks"
       ]
     },
-    "starterCode": "class BootcampCourse {\n    private int durationWeeks;\n\n    public int getDurationWeeks() {\n        return this.durationWeeks;\n    }\n\n    public void setDurationWeeks(int durationWeeks) {\n        this.durationWeeks = durationWeeks;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse item = new BootcampCourse();\n        item.setDurationWeeks(100);\n        System.out.println(\"Qiymat: \" + item.getDurationWeeks());\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    private int durationWeeks;\n\n    public int getDurationWeeks() {\n        return this.durationWeeks;\n    }\n\n    public void setDurationWeeks(int durationWeeks) {\n        this.durationWeeks = durationWeeks;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse item = new BootcampCourse();\n        item.setDurationWeeks(100);\n        System.out.println(\"Qiymat: \" + item.getDurationWeeks());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -367,7 +367,7 @@ window.OOP_CHALLENGES_W2 = [
         "setCreditLimit"
       ]
     },
-    "starterCode": "class DebitCard {\n    private double creditLimit;\n\n    public double getCreditLimit() {\n        return this.creditLimit;\n    }\n\n    public void setCreditLimit(double creditLimit) {\n        this.creditLimit = creditLimit;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard item = new DebitCard();\n        item.setCreditLimit(100);\n        System.out.println(\"Qiymat: \" + item.getCreditLimit());\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    private double creditLimit;\n\n    public double getCreditLimit() {\n        return this.creditLimit;\n    }\n\n    public void setCreditLimit(double creditLimit) {\n        this.creditLimit = creditLimit;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard item = new DebitCard();\n        item.setCreditLimit(100);\n        System.out.println(\"Qiymat: \" + item.getCreditLimit());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -405,7 +405,7 @@ window.OOP_CHALLENGES_W2 = [
         "setStockCount"
       ]
     },
-    "starterCode": "class Medicine {\n    private int stockCount;\n\n    public int getStockCount() {\n        return this.stockCount;\n    }\n\n    public void setStockCount(int stockCount) {\n        this.stockCount = stockCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine item = new Medicine();\n        item.setStockCount(100);\n        System.out.println(\"Qiymat: \" + item.getStockCount());\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    private int stockCount;\n\n    public int getStockCount() {\n        return this.stockCount;\n    }\n\n    public void setStockCount(int stockCount) {\n        this.stockCount = stockCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine item = new Medicine();\n        item.setStockCount(100);\n        System.out.println(\"Qiymat: \" + item.getStockCount());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -443,7 +443,7 @@ window.OOP_CHALLENGES_W2 = [
         "setTotalSum"
       ]
     },
-    "starterCode": "class FoodOrder {\n    private double totalSum;\n\n    public double getTotalSum() {\n        return this.totalSum;\n    }\n\n    public void setTotalSum(double totalSum) {\n        this.totalSum = totalSum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder item = new FoodOrder();\n        item.setTotalSum(100);\n        System.out.println(\"Qiymat: \" + item.getTotalSum());\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    private double totalSum;\n\n    public double getTotalSum() {\n        return this.totalSum;\n    }\n\n    public void setTotalSum(double totalSum) {\n        this.totalSum = totalSum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder item = new FoodOrder();\n        item.setTotalSum(100);\n        System.out.println(\"Qiymat: \" + item.getTotalSum());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -481,7 +481,7 @@ window.OOP_CHALLENGES_W2 = [
         "setPrepTimeMinutes"
       ]
     },
-    "starterCode": "class PizzaOrder {\n    private int prepTimeMinutes;\n\n    public int getPrepTimeMinutes() {\n        return this.prepTimeMinutes;\n    }\n\n    public void setPrepTimeMinutes(int prepTimeMinutes) {\n        this.prepTimeMinutes = prepTimeMinutes;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder item = new PizzaOrder();\n        item.setPrepTimeMinutes(100);\n        System.out.println(\"Qiymat: \" + item.getPrepTimeMinutes());\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    private int prepTimeMinutes;\n\n    public int getPrepTimeMinutes() {\n        return this.prepTimeMinutes;\n    }\n\n    public void setPrepTimeMinutes(int prepTimeMinutes) {\n        this.prepTimeMinutes = prepTimeMinutes;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder item = new PizzaOrder();\n        item.setPrepTimeMinutes(100);\n        System.out.println(\"Qiymat: \" + item.getPrepTimeMinutes());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -519,7 +519,7 @@ window.OOP_CHALLENGES_W2 = [
         "setViewersRating"
       ]
     },
-    "starterCode": "class BroadcastShow {\n    private double viewersRating;\n\n    public double getViewersRating() {\n        return this.viewersRating;\n    }\n\n    public void setViewersRating(double viewersRating) {\n        this.viewersRating = viewersRating;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow item = new BroadcastShow();\n        item.setViewersRating(100);\n        System.out.println(\"Qiymat: \" + item.getViewersRating());\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    private double viewersRating;\n\n    public double getViewersRating() {\n        return this.viewersRating;\n    }\n\n    public void setViewersRating(double viewersRating) {\n        this.viewersRating = viewersRating;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow item = new BroadcastShow();\n        item.setViewersRating(100);\n        System.out.println(\"Qiymat: \" + item.getViewersRating());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -557,7 +557,7 @@ window.OOP_CHALLENGES_W2 = [
         "setDurationSec"
       ]
     },
-    "starterCode": "class AudioTrack {\n    private int durationSec;\n\n    public int getDurationSec() {\n        return this.durationSec;\n    }\n\n    public void setDurationSec(int durationSec) {\n        this.durationSec = durationSec;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack item = new AudioTrack();\n        item.setDurationSec(100);\n        System.out.println(\"Qiymat: \" + item.getDurationSec());\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    private int durationSec;\n\n    public int getDurationSec() {\n        return this.durationSec;\n    }\n\n    public void setDurationSec(int durationSec) {\n        this.durationSec = durationSec;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack item = new AudioTrack();\n        item.setDurationSec(100);\n        System.out.println(\"Qiymat: \" + item.getDurationSec());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -595,7 +595,7 @@ window.OOP_CHALLENGES_W2 = [
         "setTargetTemp"
       ]
     },
-    "starterCode": "class Thermostat {\n    private double targetTemp;\n\n    public double getTargetTemp() {\n        return this.targetTemp;\n    }\n\n    public void setTargetTemp(double targetTemp) {\n        this.targetTemp = targetTemp;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat item = new Thermostat();\n        item.setTargetTemp(100);\n        System.out.println(\"Qiymat: \" + item.getTargetTemp());\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    private double targetTemp;\n\n    public double getTargetTemp() {\n        return this.targetTemp;\n    }\n\n    public void setTargetTemp(double targetTemp) {\n        this.targetTemp = targetTemp;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat item = new Thermostat();\n        item.setTargetTemp(100);\n        System.out.println(\"Qiymat: \" + item.getTargetTemp());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -633,7 +633,7 @@ window.OOP_CHALLENGES_W2 = [
         "setBatteryPct"
       ]
     },
-    "starterCode": "class DeliveryDrone {\n    private int batteryPct;\n\n    public int getBatteryPct() {\n        return this.batteryPct;\n    }\n\n    public void setBatteryPct(int batteryPct) {\n        this.batteryPct = batteryPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone item = new DeliveryDrone();\n        item.setBatteryPct(100);\n        System.out.println(\"Qiymat: \" + item.getBatteryPct());\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    private int batteryPct;\n\n    public int getBatteryPct() {\n        return this.batteryPct;\n    }\n\n    public void setBatteryPct(int batteryPct) {\n        this.batteryPct = batteryPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone item = new DeliveryDrone();\n        item.setBatteryPct(100);\n        System.out.println(\"Qiymat: \" + item.getBatteryPct());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -671,7 +671,7 @@ window.OOP_CHALLENGES_W2 = [
         "setWeightLimitKg"
       ]
     },
-    "starterCode": "class StorageBay {\n    private double weightLimitKg;\n\n    public double getWeightLimitKg() {\n        return this.weightLimitKg;\n    }\n\n    public void setWeightLimitKg(double weightLimitKg) {\n        this.weightLimitKg = weightLimitKg;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay item = new StorageBay();\n        item.setWeightLimitKg(100);\n        System.out.println(\"Qiymat: \" + item.getWeightLimitKg());\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    private double weightLimitKg;\n\n    public double getWeightLimitKg() {\n        return this.weightLimitKg;\n    }\n\n    public void setWeightLimitKg(double weightLimitKg) {\n        this.weightLimitKg = weightLimitKg;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay item = new StorageBay();\n        item.setWeightLimitKg(100);\n        System.out.println(\"Qiymat: \" + item.getWeightLimitKg());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -709,7 +709,7 @@ window.OOP_CHALLENGES_W2 = [
         "setCoinUnits"
       ]
     },
-    "starterCode": "class CryptoAsset {\n    private double coinUnits;\n\n    public double getCoinUnits() {\n        return this.coinUnits;\n    }\n\n    public void setCoinUnits(double coinUnits) {\n        this.coinUnits = coinUnits;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset item = new CryptoAsset();\n        item.setCoinUnits(100);\n        System.out.println(\"Qiymat: \" + item.getCoinUnits());\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    private double coinUnits;\n\n    public double getCoinUnits() {\n        return this.coinUnits;\n    }\n\n    public void setCoinUnits(double coinUnits) {\n        this.coinUnits = coinUnits;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset item = new CryptoAsset();\n        item.setCoinUnits(100);\n        System.out.println(\"Qiymat: \" + item.getCoinUnits());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -747,7 +747,7 @@ window.OOP_CHALLENGES_W2 = [
         "setPageCount"
       ]
     },
-    "starterCode": "class CatalogBook {\n    private int pageCount;\n\n    public int getPageCount() {\n        return this.pageCount;\n    }\n\n    public void setPageCount(int pageCount) {\n        this.pageCount = pageCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook item = new CatalogBook();\n        item.setPageCount(100);\n        System.out.println(\"Qiymat: \" + item.getPageCount());\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    private int pageCount;\n\n    public int getPageCount() {\n        return this.pageCount;\n    }\n\n    public void setPageCount(int pageCount) {\n        this.pageCount = pageCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook item = new CatalogBook();\n        item.setPageCount(100);\n        System.out.println(\"Qiymat: \" + item.getPageCount());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -785,7 +785,7 @@ window.OOP_CHALLENGES_W2 = [
         "setActiveMonths"
       ]
     },
-    "starterCode": "class GymMember {\n    private int activeMonths;\n\n    public int getActiveMonths() {\n        return this.activeMonths;\n    }\n\n    public void setActiveMonths(int activeMonths) {\n        this.activeMonths = activeMonths;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember item = new GymMember();\n        item.setActiveMonths(100);\n        System.out.println(\"Qiymat: \" + item.getActiveMonths());\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    private int activeMonths;\n\n    public int getActiveMonths() {\n        return this.activeMonths;\n    }\n\n    public void setActiveMonths(int activeMonths) {\n        this.activeMonths = activeMonths;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember item = new GymMember();\n        item.setActiveMonths(100);\n        System.out.println(\"Qiymat: \" + item.getActiveMonths());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -823,7 +823,7 @@ window.OOP_CHALLENGES_W2 = [
         "setHourlyTariff"
       ]
     },
-    "starterCode": "class ParkingBay {\n    private double hourlyTariff;\n\n    public double getHourlyTariff() {\n        return this.hourlyTariff;\n    }\n\n    public void setHourlyTariff(double hourlyTariff) {\n        this.hourlyTariff = hourlyTariff;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay item = new ParkingBay();\n        item.setHourlyTariff(100);\n        System.out.println(\"Qiymat: \" + item.getHourlyTariff());\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    private double hourlyTariff;\n\n    public double getHourlyTariff() {\n        return this.hourlyTariff;\n    }\n\n    public void setHourlyTariff(double hourlyTariff) {\n        this.hourlyTariff = hourlyTariff;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay item = new ParkingBay();\n        item.setHourlyTariff(100);\n        System.out.println(\"Qiymat: \" + item.getHourlyTariff());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -861,7 +861,7 @@ window.OOP_CHALLENGES_W2 = [
         "setPulseRate"
       ]
     },
-    "starterCode": "class PatientRecord {\n    private int pulseRate;\n\n    public int getPulseRate() {\n        return this.pulseRate;\n    }\n\n    public void setPulseRate(int pulseRate) {\n        this.pulseRate = pulseRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord item = new PatientRecord();\n        item.setPulseRate(100);\n        System.out.println(\"Qiymat: \" + item.getPulseRate());\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    private int pulseRate;\n\n    public int getPulseRate() {\n        return this.pulseRate;\n    }\n\n    public void setPulseRate(int pulseRate) {\n        this.pulseRate = pulseRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord item = new PatientRecord();\n        item.setPulseRate(100);\n        System.out.println(\"Qiymat: \" + item.getPulseRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -899,7 +899,7 @@ window.OOP_CHALLENGES_W2 = [
         "setNightlyRate"
       ]
     },
-    "starterCode": "class HotelReservation {\n    private double nightlyRate;\n\n    public double getNightlyRate() {\n        return this.nightlyRate;\n    }\n\n    public void setNightlyRate(double nightlyRate) {\n        this.nightlyRate = nightlyRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation item = new HotelReservation();\n        item.setNightlyRate(100);\n        System.out.println(\"Qiymat: \" + item.getNightlyRate());\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    private double nightlyRate;\n\n    public double getNightlyRate() {\n        return this.nightlyRate;\n    }\n\n    public void setNightlyRate(double nightlyRate) {\n        this.nightlyRate = nightlyRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation item = new HotelReservation();\n        item.setNightlyRate(100);\n        System.out.println(\"Qiymat: \" + item.getNightlyRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -937,7 +937,7 @@ window.OOP_CHALLENGES_W2 = [
         "setHallSeatNo"
       ]
     },
-    "starterCode": "class CinemaTicket {\n    private int hallSeatNo;\n\n    public int getHallSeatNo() {\n        return this.hallSeatNo;\n    }\n\n    public void setHallSeatNo(int hallSeatNo) {\n        this.hallSeatNo = hallSeatNo;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket item = new CinemaTicket();\n        item.setHallSeatNo(100);\n        System.out.println(\"Qiymat: \" + item.getHallSeatNo());\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    private int hallSeatNo;\n\n    public int getHallSeatNo() {\n        return this.hallSeatNo;\n    }\n\n    public void setHallSeatNo(int hallSeatNo) {\n        this.hallSeatNo = hallSeatNo;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket item = new CinemaTicket();\n        item.setHallSeatNo(100);\n        System.out.println(\"Qiymat: \" + item.getHallSeatNo());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -975,7 +975,7 @@ window.OOP_CHALLENGES_W2 = [
         "setMaxSpeedKmh"
       ]
     },
-    "starterCode": "class ElectricScooter {\n    private double maxSpeedKmh;\n\n    public double getMaxSpeedKmh() {\n        return this.maxSpeedKmh;\n    }\n\n    public void setMaxSpeedKmh(double maxSpeedKmh) {\n        this.maxSpeedKmh = maxSpeedKmh;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter item = new ElectricScooter();\n        item.setMaxSpeedKmh(100);\n        System.out.println(\"Qiymat: \" + item.getMaxSpeedKmh());\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    private double maxSpeedKmh;\n\n    public double getMaxSpeedKmh() {\n        return this.maxSpeedKmh;\n    }\n\n    public void setMaxSpeedKmh(double maxSpeedKmh) {\n        this.maxSpeedKmh = maxSpeedKmh;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter item = new ElectricScooter();\n        item.setMaxSpeedKmh(100);\n        System.out.println(\"Qiymat: \" + item.getMaxSpeedKmh());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -1013,7 +1013,7 @@ window.OOP_CHALLENGES_W2 = [
         "setHumidityPct"
       ]
     },
-    "starterCode": "class MeteoStation {\n    private int humidityPct;\n\n    public int getHumidityPct() {\n        return this.humidityPct;\n    }\n\n    public void setHumidityPct(int humidityPct) {\n        this.humidityPct = humidityPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation item = new MeteoStation();\n        item.setHumidityPct(100);\n        System.out.println(\"Qiymat: \" + item.getHumidityPct());\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    private int humidityPct;\n\n    public int getHumidityPct() {\n        return this.humidityPct;\n    }\n\n    public void setHumidityPct(int humidityPct) {\n        this.humidityPct = humidityPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation item = new MeteoStation();\n        item.setHumidityPct(100);\n        System.out.println(\"Qiymat: \" + item.getHumidityPct());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -1051,7 +1051,7 @@ window.OOP_CHALLENGES_W2 = [
         "setReservePrice"
       ]
     },
-    "starterCode": "class AuctionLot {\n    private double reservePrice;\n\n    public double getReservePrice() {\n        return this.reservePrice;\n    }\n\n    public void setReservePrice(double reservePrice) {\n        this.reservePrice = reservePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot item = new AuctionLot();\n        item.setReservePrice(100);\n        System.out.println(\"Qiymat: \" + item.getReservePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    private double reservePrice;\n\n    public double getReservePrice() {\n        return this.reservePrice;\n    }\n\n    public void setReservePrice(double reservePrice) {\n        this.reservePrice = reservePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot item = new AuctionLot();\n        item.setReservePrice(100);\n        System.out.println(\"Qiymat: \" + item.getReservePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -1089,7 +1089,7 @@ window.OOP_CHALLENGES_W2 = [
         "setPowerKw"
       ]
     },
-    "starterCode": "class SolarInverter {\n    private double powerKw;\n\n    public double getPowerKw() {\n        return this.powerKw;\n    }\n\n    public void setPowerKw(double powerKw) {\n        this.powerKw = powerKw;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter item = new SolarInverter();\n        item.setPowerKw(100);\n        System.out.println(\"Qiymat: \" + item.getPowerKw());\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    private double powerKw;\n\n    public double getPowerKw() {\n        return this.powerKw;\n    }\n\n    public void setPowerKw(double powerKw) {\n        this.powerKw = powerKw;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter item = new SolarInverter();\n        item.setPowerKw(100);\n        System.out.println(\"Qiymat: \" + item.getPowerKw());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -1127,7 +1127,7 @@ window.OOP_CHALLENGES_W2 = [
         "setTravelDurationHours"
       ]
     },
-    "starterCode": "class TrainRoute {\n    private double travelDurationHours;\n\n    public double getTravelDurationHours() {\n        return this.travelDurationHours;\n    }\n\n    public void setTravelDurationHours(double travelDurationHours) {\n        this.travelDurationHours = travelDurationHours;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute item = new TrainRoute();\n        item.setTravelDurationHours(100);\n        System.out.println(\"Qiymat: \" + item.getTravelDurationHours());\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    private double travelDurationHours;\n\n    public double getTravelDurationHours() {\n        return this.travelDurationHours;\n    }\n\n    public void setTravelDurationHours(double travelDurationHours) {\n        this.travelDurationHours = travelDurationHours;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute item = new TrainRoute();\n        item.setTravelDurationHours(100);\n        System.out.println(\"Qiymat: \" + item.getTravelDurationHours());\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya — ma'lumotlarni ruxsatsiz o'zgartirishdan himoyalash va ularga faqat ruxsat berilgan maxsus usullar orqali kirish imkonini beruvchi asosiy OOP tamoyili.",
@@ -1165,7 +1165,7 @@ window.OOP_CHALLENGES_W2 = [
         "price"
       ]
     },
-    "starterCode": "class Product {\n    private double price;\n\n    public void setPrice(double val) {\n        if (val >= 0) {\n            this.price = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getPrice() {\n        return this.price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product item = new Product();\n        item.setPrice(50);\n        item.setPrice(-10);\n        System.out.println(\"Qolgan holat: \" + item.getPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    private double price;\n\n    public void setPrice(double val) {\n        if (val >= 0) {\n            this.price = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getPrice() {\n        return this.price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product item = new Product();\n        item.setPrice(50);\n        item.setPrice(-10);\n        System.out.println(\"Qolgan holat: \" + item.getPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1203,7 +1203,7 @@ window.OOP_CHALLENGES_W2 = [
         "balance"
       ]
     },
-    "starterCode": "class WalletUser {\n    private double balance;\n\n    public void setBalance(double val) {\n        if (val >= 0) {\n            this.balance = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser item = new WalletUser();\n        item.setBalance(50);\n        item.setBalance(-10);\n        System.out.println(\"Qolgan holat: \" + item.getBalance());\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    private double balance;\n\n    public void setBalance(double val) {\n        if (val >= 0) {\n            this.balance = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser item = new WalletUser();\n        item.setBalance(50);\n        item.setBalance(-10);\n        System.out.println(\"Qolgan holat: \" + item.getBalance());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1241,7 +1241,7 @@ window.OOP_CHALLENGES_W2 = [
         "distanceKm"
       ]
     },
-    "starterCode": "class TaxiRide {\n    private double distanceKm;\n\n    public void setDistanceKm(double val) {\n        if (val >= 0) {\n            this.distanceKm = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getDistanceKm() {\n        return this.distanceKm;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide item = new TaxiRide();\n        item.setDistanceKm(50);\n        item.setDistanceKm(-10);\n        System.out.println(\"Qolgan holat: \" + item.getDistanceKm());\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    private double distanceKm;\n\n    public void setDistanceKm(double val) {\n        if (val >= 0) {\n            this.distanceKm = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getDistanceKm() {\n        return this.distanceKm;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide item = new TaxiRide();\n        item.setDistanceKm(50);\n        item.setDistanceKm(-10);\n        System.out.println(\"Qolgan holat: \" + item.getDistanceKm());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1279,7 +1279,7 @@ window.OOP_CHALLENGES_W2 = [
         "bonusPoints"
       ]
     },
-    "starterCode": "class LoyaltyCard {\n    private int bonusPoints;\n\n    public void setBonusPoints(int val) {\n        if (val >= 0) {\n            this.bonusPoints = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getBonusPoints() {\n        return this.bonusPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard item = new LoyaltyCard();\n        item.setBonusPoints(50);\n        item.setBonusPoints(-10);\n        System.out.println(\"Qolgan holat: \" + item.getBonusPoints());\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    private int bonusPoints;\n\n    public void setBonusPoints(int val) {\n        if (val >= 0) {\n            this.bonusPoints = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getBonusPoints() {\n        return this.bonusPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard item = new LoyaltyCard();\n        item.setBonusPoints(50);\n        item.setBonusPoints(-10);\n        System.out.println(\"Qolgan holat: \" + item.getBonusPoints());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1317,7 +1317,7 @@ window.OOP_CHALLENGES_W2 = [
         "gpa"
       ]
     },
-    "starterCode": "class Student {\n    private double gpa;\n\n    public void setGpa(double val) {\n        if (val >= 0) {\n            this.gpa = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getGpa() {\n        return this.gpa;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student item = new Student();\n        item.setGpa(50);\n        item.setGpa(-10);\n        System.out.println(\"Qolgan holat: \" + item.getGpa());\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    private double gpa;\n\n    public void setGpa(double val) {\n        if (val >= 0) {\n            this.gpa = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getGpa() {\n        return this.gpa;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student item = new Student();\n        item.setGpa(50);\n        item.setGpa(-10);\n        System.out.println(\"Qolgan holat: \" + item.getGpa());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1355,7 +1355,7 @@ window.OOP_CHALLENGES_W2 = [
         "amount"
       ]
     },
-    "starterCode": "class PaymentTxn {\n    private double amount;\n\n    public void setAmount(double val) {\n        if (val >= 0) {\n            this.amount = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getAmount() {\n        return this.amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn item = new PaymentTxn();\n        item.setAmount(50);\n        item.setAmount(-10);\n        System.out.println(\"Qolgan holat: \" + item.getAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    private double amount;\n\n    public void setAmount(double val) {\n        if (val >= 0) {\n            this.amount = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getAmount() {\n        return this.amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn item = new PaymentTxn();\n        item.setAmount(50);\n        item.setAmount(-10);\n        System.out.println(\"Qolgan holat: \" + item.getAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1393,7 +1393,7 @@ window.OOP_CHALLENGES_W2 = [
         "chatId"
       ]
     },
-    "starterCode": "class BotMessage {\n    private long chatId;\n\n    public void setChatId(long val) {\n        if (val >= 0) {\n            this.chatId = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public long getChatId() {\n        return this.chatId;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage item = new BotMessage();\n        item.setChatId(50);\n        item.setChatId(-10);\n        System.out.println(\"Qolgan holat: \" + item.getChatId());\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    private long chatId;\n\n    public void setChatId(long val) {\n        if (val >= 0) {\n            this.chatId = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public long getChatId() {\n        return this.chatId;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage item = new BotMessage();\n        item.setChatId(50);\n        item.setChatId(-10);\n        System.out.println(\"Qolgan holat: \" + item.getChatId());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1431,7 +1431,7 @@ window.OOP_CHALLENGES_W2 = [
         "farePrice"
       ]
     },
-    "starterCode": "class FlightTicket {\n    private double farePrice;\n\n    public void setFarePrice(double val) {\n        if (val >= 0) {\n            this.farePrice = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getFarePrice() {\n        return this.farePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket item = new FlightTicket();\n        item.setFarePrice(50);\n        item.setFarePrice(-10);\n        System.out.println(\"Qolgan holat: \" + item.getFarePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    private double farePrice;\n\n    public void setFarePrice(double val) {\n        if (val >= 0) {\n            this.farePrice = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getFarePrice() {\n        return this.farePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket item = new FlightTicket();\n        item.setFarePrice(50);\n        item.setFarePrice(-10);\n        System.out.println(\"Qolgan holat: \" + item.getFarePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1469,7 +1469,7 @@ window.OOP_CHALLENGES_W2 = [
         "durationWeeks"
       ]
     },
-    "starterCode": "class BootcampCourse {\n    private int durationWeeks;\n\n    public void setDurationWeeks(int val) {\n        if (val >= 0) {\n            this.durationWeeks = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getDurationWeeks() {\n        return this.durationWeeks;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse item = new BootcampCourse();\n        item.setDurationWeeks(50);\n        item.setDurationWeeks(-10);\n        System.out.println(\"Qolgan holat: \" + item.getDurationWeeks());\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    private int durationWeeks;\n\n    public void setDurationWeeks(int val) {\n        if (val >= 0) {\n            this.durationWeeks = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getDurationWeeks() {\n        return this.durationWeeks;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse item = new BootcampCourse();\n        item.setDurationWeeks(50);\n        item.setDurationWeeks(-10);\n        System.out.println(\"Qolgan holat: \" + item.getDurationWeeks());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1507,7 +1507,7 @@ window.OOP_CHALLENGES_W2 = [
         "creditLimit"
       ]
     },
-    "starterCode": "class DebitCard {\n    private double creditLimit;\n\n    public void setCreditLimit(double val) {\n        if (val >= 0) {\n            this.creditLimit = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getCreditLimit() {\n        return this.creditLimit;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard item = new DebitCard();\n        item.setCreditLimit(50);\n        item.setCreditLimit(-10);\n        System.out.println(\"Qolgan holat: \" + item.getCreditLimit());\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    private double creditLimit;\n\n    public void setCreditLimit(double val) {\n        if (val >= 0) {\n            this.creditLimit = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getCreditLimit() {\n        return this.creditLimit;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard item = new DebitCard();\n        item.setCreditLimit(50);\n        item.setCreditLimit(-10);\n        System.out.println(\"Qolgan holat: \" + item.getCreditLimit());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1545,7 +1545,7 @@ window.OOP_CHALLENGES_W2 = [
         "stockCount"
       ]
     },
-    "starterCode": "class Medicine {\n    private int stockCount;\n\n    public void setStockCount(int val) {\n        if (val >= 0) {\n            this.stockCount = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getStockCount() {\n        return this.stockCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine item = new Medicine();\n        item.setStockCount(50);\n        item.setStockCount(-10);\n        System.out.println(\"Qolgan holat: \" + item.getStockCount());\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    private int stockCount;\n\n    public void setStockCount(int val) {\n        if (val >= 0) {\n            this.stockCount = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getStockCount() {\n        return this.stockCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine item = new Medicine();\n        item.setStockCount(50);\n        item.setStockCount(-10);\n        System.out.println(\"Qolgan holat: \" + item.getStockCount());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1583,7 +1583,7 @@ window.OOP_CHALLENGES_W2 = [
         "totalSum"
       ]
     },
-    "starterCode": "class FoodOrder {\n    private double totalSum;\n\n    public void setTotalSum(double val) {\n        if (val >= 0) {\n            this.totalSum = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getTotalSum() {\n        return this.totalSum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder item = new FoodOrder();\n        item.setTotalSum(50);\n        item.setTotalSum(-10);\n        System.out.println(\"Qolgan holat: \" + item.getTotalSum());\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    private double totalSum;\n\n    public void setTotalSum(double val) {\n        if (val >= 0) {\n            this.totalSum = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getTotalSum() {\n        return this.totalSum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder item = new FoodOrder();\n        item.setTotalSum(50);\n        item.setTotalSum(-10);\n        System.out.println(\"Qolgan holat: \" + item.getTotalSum());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1621,7 +1621,7 @@ window.OOP_CHALLENGES_W2 = [
         "prepTimeMinutes"
       ]
     },
-    "starterCode": "class PizzaOrder {\n    private int prepTimeMinutes;\n\n    public void setPrepTimeMinutes(int val) {\n        if (val >= 0) {\n            this.prepTimeMinutes = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getPrepTimeMinutes() {\n        return this.prepTimeMinutes;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder item = new PizzaOrder();\n        item.setPrepTimeMinutes(50);\n        item.setPrepTimeMinutes(-10);\n        System.out.println(\"Qolgan holat: \" + item.getPrepTimeMinutes());\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    private int prepTimeMinutes;\n\n    public void setPrepTimeMinutes(int val) {\n        if (val >= 0) {\n            this.prepTimeMinutes = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getPrepTimeMinutes() {\n        return this.prepTimeMinutes;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder item = new PizzaOrder();\n        item.setPrepTimeMinutes(50);\n        item.setPrepTimeMinutes(-10);\n        System.out.println(\"Qolgan holat: \" + item.getPrepTimeMinutes());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1659,7 +1659,7 @@ window.OOP_CHALLENGES_W2 = [
         "viewersRating"
       ]
     },
-    "starterCode": "class BroadcastShow {\n    private double viewersRating;\n\n    public void setViewersRating(double val) {\n        if (val >= 0) {\n            this.viewersRating = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getViewersRating() {\n        return this.viewersRating;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow item = new BroadcastShow();\n        item.setViewersRating(50);\n        item.setViewersRating(-10);\n        System.out.println(\"Qolgan holat: \" + item.getViewersRating());\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    private double viewersRating;\n\n    public void setViewersRating(double val) {\n        if (val >= 0) {\n            this.viewersRating = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getViewersRating() {\n        return this.viewersRating;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow item = new BroadcastShow();\n        item.setViewersRating(50);\n        item.setViewersRating(-10);\n        System.out.println(\"Qolgan holat: \" + item.getViewersRating());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1697,7 +1697,7 @@ window.OOP_CHALLENGES_W2 = [
         "durationSec"
       ]
     },
-    "starterCode": "class AudioTrack {\n    private int durationSec;\n\n    public void setDurationSec(int val) {\n        if (val >= 0) {\n            this.durationSec = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getDurationSec() {\n        return this.durationSec;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack item = new AudioTrack();\n        item.setDurationSec(50);\n        item.setDurationSec(-10);\n        System.out.println(\"Qolgan holat: \" + item.getDurationSec());\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    private int durationSec;\n\n    public void setDurationSec(int val) {\n        if (val >= 0) {\n            this.durationSec = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getDurationSec() {\n        return this.durationSec;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack item = new AudioTrack();\n        item.setDurationSec(50);\n        item.setDurationSec(-10);\n        System.out.println(\"Qolgan holat: \" + item.getDurationSec());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1735,7 +1735,7 @@ window.OOP_CHALLENGES_W2 = [
         "targetTemp"
       ]
     },
-    "starterCode": "class Thermostat {\n    private double targetTemp;\n\n    public void setTargetTemp(double val) {\n        if (val >= 0) {\n            this.targetTemp = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getTargetTemp() {\n        return this.targetTemp;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat item = new Thermostat();\n        item.setTargetTemp(50);\n        item.setTargetTemp(-10);\n        System.out.println(\"Qolgan holat: \" + item.getTargetTemp());\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    private double targetTemp;\n\n    public void setTargetTemp(double val) {\n        if (val >= 0) {\n            this.targetTemp = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getTargetTemp() {\n        return this.targetTemp;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat item = new Thermostat();\n        item.setTargetTemp(50);\n        item.setTargetTemp(-10);\n        System.out.println(\"Qolgan holat: \" + item.getTargetTemp());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1773,7 +1773,7 @@ window.OOP_CHALLENGES_W2 = [
         "batteryPct"
       ]
     },
-    "starterCode": "class DeliveryDrone {\n    private int batteryPct;\n\n    public void setBatteryPct(int val) {\n        if (val >= 0) {\n            this.batteryPct = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getBatteryPct() {\n        return this.batteryPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone item = new DeliveryDrone();\n        item.setBatteryPct(50);\n        item.setBatteryPct(-10);\n        System.out.println(\"Qolgan holat: \" + item.getBatteryPct());\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    private int batteryPct;\n\n    public void setBatteryPct(int val) {\n        if (val >= 0) {\n            this.batteryPct = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getBatteryPct() {\n        return this.batteryPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone item = new DeliveryDrone();\n        item.setBatteryPct(50);\n        item.setBatteryPct(-10);\n        System.out.println(\"Qolgan holat: \" + item.getBatteryPct());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1811,7 +1811,7 @@ window.OOP_CHALLENGES_W2 = [
         "weightLimitKg"
       ]
     },
-    "starterCode": "class StorageBay {\n    private double weightLimitKg;\n\n    public void setWeightLimitKg(double val) {\n        if (val >= 0) {\n            this.weightLimitKg = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getWeightLimitKg() {\n        return this.weightLimitKg;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay item = new StorageBay();\n        item.setWeightLimitKg(50);\n        item.setWeightLimitKg(-10);\n        System.out.println(\"Qolgan holat: \" + item.getWeightLimitKg());\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    private double weightLimitKg;\n\n    public void setWeightLimitKg(double val) {\n        if (val >= 0) {\n            this.weightLimitKg = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getWeightLimitKg() {\n        return this.weightLimitKg;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay item = new StorageBay();\n        item.setWeightLimitKg(50);\n        item.setWeightLimitKg(-10);\n        System.out.println(\"Qolgan holat: \" + item.getWeightLimitKg());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1849,7 +1849,7 @@ window.OOP_CHALLENGES_W2 = [
         "coinUnits"
       ]
     },
-    "starterCode": "class CryptoAsset {\n    private double coinUnits;\n\n    public void setCoinUnits(double val) {\n        if (val >= 0) {\n            this.coinUnits = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getCoinUnits() {\n        return this.coinUnits;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset item = new CryptoAsset();\n        item.setCoinUnits(50);\n        item.setCoinUnits(-10);\n        System.out.println(\"Qolgan holat: \" + item.getCoinUnits());\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    private double coinUnits;\n\n    public void setCoinUnits(double val) {\n        if (val >= 0) {\n            this.coinUnits = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getCoinUnits() {\n        return this.coinUnits;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset item = new CryptoAsset();\n        item.setCoinUnits(50);\n        item.setCoinUnits(-10);\n        System.out.println(\"Qolgan holat: \" + item.getCoinUnits());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1887,7 +1887,7 @@ window.OOP_CHALLENGES_W2 = [
         "pageCount"
       ]
     },
-    "starterCode": "class CatalogBook {\n    private int pageCount;\n\n    public void setPageCount(int val) {\n        if (val >= 0) {\n            this.pageCount = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getPageCount() {\n        return this.pageCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook item = new CatalogBook();\n        item.setPageCount(50);\n        item.setPageCount(-10);\n        System.out.println(\"Qolgan holat: \" + item.getPageCount());\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    private int pageCount;\n\n    public void setPageCount(int val) {\n        if (val >= 0) {\n            this.pageCount = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getPageCount() {\n        return this.pageCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook item = new CatalogBook();\n        item.setPageCount(50);\n        item.setPageCount(-10);\n        System.out.println(\"Qolgan holat: \" + item.getPageCount());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1925,7 +1925,7 @@ window.OOP_CHALLENGES_W2 = [
         "activeMonths"
       ]
     },
-    "starterCode": "class GymMember {\n    private int activeMonths;\n\n    public void setActiveMonths(int val) {\n        if (val >= 0) {\n            this.activeMonths = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getActiveMonths() {\n        return this.activeMonths;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember item = new GymMember();\n        item.setActiveMonths(50);\n        item.setActiveMonths(-10);\n        System.out.println(\"Qolgan holat: \" + item.getActiveMonths());\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    private int activeMonths;\n\n    public void setActiveMonths(int val) {\n        if (val >= 0) {\n            this.activeMonths = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getActiveMonths() {\n        return this.activeMonths;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember item = new GymMember();\n        item.setActiveMonths(50);\n        item.setActiveMonths(-10);\n        System.out.println(\"Qolgan holat: \" + item.getActiveMonths());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -1963,7 +1963,7 @@ window.OOP_CHALLENGES_W2 = [
         "hourlyTariff"
       ]
     },
-    "starterCode": "class ParkingBay {\n    private double hourlyTariff;\n\n    public void setHourlyTariff(double val) {\n        if (val >= 0) {\n            this.hourlyTariff = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getHourlyTariff() {\n        return this.hourlyTariff;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay item = new ParkingBay();\n        item.setHourlyTariff(50);\n        item.setHourlyTariff(-10);\n        System.out.println(\"Qolgan holat: \" + item.getHourlyTariff());\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    private double hourlyTariff;\n\n    public void setHourlyTariff(double val) {\n        if (val >= 0) {\n            this.hourlyTariff = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getHourlyTariff() {\n        return this.hourlyTariff;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay item = new ParkingBay();\n        item.setHourlyTariff(50);\n        item.setHourlyTariff(-10);\n        System.out.println(\"Qolgan holat: \" + item.getHourlyTariff());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -2001,7 +2001,7 @@ window.OOP_CHALLENGES_W2 = [
         "pulseRate"
       ]
     },
-    "starterCode": "class PatientRecord {\n    private int pulseRate;\n\n    public void setPulseRate(int val) {\n        if (val >= 0) {\n            this.pulseRate = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getPulseRate() {\n        return this.pulseRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord item = new PatientRecord();\n        item.setPulseRate(50);\n        item.setPulseRate(-10);\n        System.out.println(\"Qolgan holat: \" + item.getPulseRate());\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    private int pulseRate;\n\n    public void setPulseRate(int val) {\n        if (val >= 0) {\n            this.pulseRate = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getPulseRate() {\n        return this.pulseRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord item = new PatientRecord();\n        item.setPulseRate(50);\n        item.setPulseRate(-10);\n        System.out.println(\"Qolgan holat: \" + item.getPulseRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -2039,7 +2039,7 @@ window.OOP_CHALLENGES_W2 = [
         "nightlyRate"
       ]
     },
-    "starterCode": "class HotelReservation {\n    private double nightlyRate;\n\n    public void setNightlyRate(double val) {\n        if (val >= 0) {\n            this.nightlyRate = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getNightlyRate() {\n        return this.nightlyRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation item = new HotelReservation();\n        item.setNightlyRate(50);\n        item.setNightlyRate(-10);\n        System.out.println(\"Qolgan holat: \" + item.getNightlyRate());\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    private double nightlyRate;\n\n    public void setNightlyRate(double val) {\n        if (val >= 0) {\n            this.nightlyRate = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getNightlyRate() {\n        return this.nightlyRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation item = new HotelReservation();\n        item.setNightlyRate(50);\n        item.setNightlyRate(-10);\n        System.out.println(\"Qolgan holat: \" + item.getNightlyRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -2077,7 +2077,7 @@ window.OOP_CHALLENGES_W2 = [
         "hallSeatNo"
       ]
     },
-    "starterCode": "class CinemaTicket {\n    private int hallSeatNo;\n\n    public void setHallSeatNo(int val) {\n        if (val >= 0) {\n            this.hallSeatNo = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getHallSeatNo() {\n        return this.hallSeatNo;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket item = new CinemaTicket();\n        item.setHallSeatNo(50);\n        item.setHallSeatNo(-10);\n        System.out.println(\"Qolgan holat: \" + item.getHallSeatNo());\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    private int hallSeatNo;\n\n    public void setHallSeatNo(int val) {\n        if (val >= 0) {\n            this.hallSeatNo = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getHallSeatNo() {\n        return this.hallSeatNo;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket item = new CinemaTicket();\n        item.setHallSeatNo(50);\n        item.setHallSeatNo(-10);\n        System.out.println(\"Qolgan holat: \" + item.getHallSeatNo());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -2115,7 +2115,7 @@ window.OOP_CHALLENGES_W2 = [
         "maxSpeedKmh"
       ]
     },
-    "starterCode": "class ElectricScooter {\n    private double maxSpeedKmh;\n\n    public void setMaxSpeedKmh(double val) {\n        if (val >= 0) {\n            this.maxSpeedKmh = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getMaxSpeedKmh() {\n        return this.maxSpeedKmh;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter item = new ElectricScooter();\n        item.setMaxSpeedKmh(50);\n        item.setMaxSpeedKmh(-10);\n        System.out.println(\"Qolgan holat: \" + item.getMaxSpeedKmh());\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    private double maxSpeedKmh;\n\n    public void setMaxSpeedKmh(double val) {\n        if (val >= 0) {\n            this.maxSpeedKmh = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getMaxSpeedKmh() {\n        return this.maxSpeedKmh;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter item = new ElectricScooter();\n        item.setMaxSpeedKmh(50);\n        item.setMaxSpeedKmh(-10);\n        System.out.println(\"Qolgan holat: \" + item.getMaxSpeedKmh());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -2153,7 +2153,7 @@ window.OOP_CHALLENGES_W2 = [
         "humidityPct"
       ]
     },
-    "starterCode": "class MeteoStation {\n    private int humidityPct;\n\n    public void setHumidityPct(int val) {\n        if (val >= 0) {\n            this.humidityPct = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getHumidityPct() {\n        return this.humidityPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation item = new MeteoStation();\n        item.setHumidityPct(50);\n        item.setHumidityPct(-10);\n        System.out.println(\"Qolgan holat: \" + item.getHumidityPct());\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    private int humidityPct;\n\n    public void setHumidityPct(int val) {\n        if (val >= 0) {\n            this.humidityPct = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public int getHumidityPct() {\n        return this.humidityPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation item = new MeteoStation();\n        item.setHumidityPct(50);\n        item.setHumidityPct(-10);\n        System.out.println(\"Qolgan holat: \" + item.getHumidityPct());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -2191,7 +2191,7 @@ window.OOP_CHALLENGES_W2 = [
         "reservePrice"
       ]
     },
-    "starterCode": "class AuctionLot {\n    private double reservePrice;\n\n    public void setReservePrice(double val) {\n        if (val >= 0) {\n            this.reservePrice = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getReservePrice() {\n        return this.reservePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot item = new AuctionLot();\n        item.setReservePrice(50);\n        item.setReservePrice(-10);\n        System.out.println(\"Qolgan holat: \" + item.getReservePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    private double reservePrice;\n\n    public void setReservePrice(double val) {\n        if (val >= 0) {\n            this.reservePrice = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getReservePrice() {\n        return this.reservePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot item = new AuctionLot();\n        item.setReservePrice(50);\n        item.setReservePrice(-10);\n        System.out.println(\"Qolgan holat: \" + item.getReservePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -2229,7 +2229,7 @@ window.OOP_CHALLENGES_W2 = [
         "powerKw"
       ]
     },
-    "starterCode": "class SolarInverter {\n    private double powerKw;\n\n    public void setPowerKw(double val) {\n        if (val >= 0) {\n            this.powerKw = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getPowerKw() {\n        return this.powerKw;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter item = new SolarInverter();\n        item.setPowerKw(50);\n        item.setPowerKw(-10);\n        System.out.println(\"Qolgan holat: \" + item.getPowerKw());\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    private double powerKw;\n\n    public void setPowerKw(double val) {\n        if (val >= 0) {\n            this.powerKw = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getPowerKw() {\n        return this.powerKw;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter item = new SolarInverter();\n        item.setPowerKw(50);\n        item.setPowerKw(-10);\n        System.out.println(\"Qolgan holat: \" + item.getPowerKw());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -2267,7 +2267,7 @@ window.OOP_CHALLENGES_W2 = [
         "travelDurationHours"
       ]
     },
-    "starterCode": "class TrainRoute {\n    private double travelDurationHours;\n\n    public void setTravelDurationHours(double val) {\n        if (val >= 0) {\n            this.travelDurationHours = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getTravelDurationHours() {\n        return this.travelDurationHours;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute item = new TrainRoute();\n        item.setTravelDurationHours(50);\n        item.setTravelDurationHours(-10);\n        System.out.println(\"Qolgan holat: \" + item.getTravelDurationHours());\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    private double travelDurationHours;\n\n    public void setTravelDurationHours(double val) {\n        if (val >= 0) {\n            this.travelDurationHours = val;\n        } else {\n            System.out.println(\"Xato: Qiymat manfiy bo'lishi mumkin emas!\");\n        }\n    }\n\n    public double getTravelDurationHours() {\n        return this.travelDurationHours;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute item = new TrainRoute();\n        item.setTravelDurationHours(50);\n        item.setTravelDurationHours(-10);\n        System.out.println(\"Qolgan holat: \" + item.getTravelDurationHours());\n    }\n}",
     "detailedSolution": {
       "theory": "Setter metodlarining eng muhim vazifasi — qorovul (guard clause) sifatida noto'g'ri biznes ma'lumotlarini Heap xotiradagi ob'yektga kirishiga yo'l qo'ymaslikdir.",
@@ -2305,7 +2305,7 @@ window.OOP_CHALLENGES_W2 = [
         "price"
       ]
     },
-    "starterCode": "class Product {\n    private double price;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.price += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.price >= amount) {\n            this.price -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getPrice() {\n        return this.price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product acc = new Product();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getPrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class Product {\n    private double price;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.price += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.price >= amount) {\n            this.price -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getPrice() {\n        return this.price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product acc = new Product();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getPrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2343,7 +2343,7 @@ window.OOP_CHALLENGES_W2 = [
         "balance"
       ]
     },
-    "starterCode": "class WalletUser {\n    private double balance;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.balance >= amount) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser acc = new WalletUser();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getBalance());\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUser {\n    private double balance;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.balance >= amount) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser acc = new WalletUser();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getBalance());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2381,7 +2381,7 @@ window.OOP_CHALLENGES_W2 = [
         "distanceKm"
       ]
     },
-    "starterCode": "class TaxiRide {\n    private double distanceKm;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.distanceKm += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.distanceKm >= amount) {\n            this.distanceKm -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getDistanceKm() {\n        return this.distanceKm;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide acc = new TaxiRide();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getDistanceKm());\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRide {\n    private double distanceKm;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.distanceKm += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.distanceKm >= amount) {\n            this.distanceKm -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getDistanceKm() {\n        return this.distanceKm;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide acc = new TaxiRide();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getDistanceKm());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2419,7 +2419,7 @@ window.OOP_CHALLENGES_W2 = [
         "bonusPoints"
       ]
     },
-    "starterCode": "class LoyaltyCard {\n    private double bonusPoints;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.bonusPoints += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.bonusPoints >= amount) {\n            this.bonusPoints -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBonusPoints() {\n        return this.bonusPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard acc = new LoyaltyCard();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getBonusPoints());\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCard {\n    private double bonusPoints;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.bonusPoints += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.bonusPoints >= amount) {\n            this.bonusPoints -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBonusPoints() {\n        return this.bonusPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard acc = new LoyaltyCard();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getBonusPoints());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2457,7 +2457,7 @@ window.OOP_CHALLENGES_W2 = [
         "gpa"
       ]
     },
-    "starterCode": "class Student {\n    private double gpa;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.gpa += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.gpa >= amount) {\n            this.gpa -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getGpa() {\n        return this.gpa;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student acc = new Student();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getGpa());\n    }\n}",
+    "starterCode": "",
     "solution": "class Student {\n    private double gpa;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.gpa += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.gpa >= amount) {\n            this.gpa -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getGpa() {\n        return this.gpa;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student acc = new Student();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getGpa());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2495,7 +2495,7 @@ window.OOP_CHALLENGES_W2 = [
         "amount"
       ]
     },
-    "starterCode": "class PaymentTxn {\n    private double amount;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.amount += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.amount >= amount) {\n            this.amount -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getAmount() {\n        return this.amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn acc = new PaymentTxn();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxn {\n    private double amount;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.amount += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.amount >= amount) {\n            this.amount -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getAmount() {\n        return this.amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn acc = new PaymentTxn();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2533,7 +2533,7 @@ window.OOP_CHALLENGES_W2 = [
         "chatId"
       ]
     },
-    "starterCode": "class BotMessage {\n    private double chatId;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.chatId += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.chatId >= amount) {\n            this.chatId -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getChatId() {\n        return this.chatId;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage acc = new BotMessage();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getChatId());\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessage {\n    private double chatId;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.chatId += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.chatId >= amount) {\n            this.chatId -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getChatId() {\n        return this.chatId;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage acc = new BotMessage();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getChatId());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2571,7 +2571,7 @@ window.OOP_CHALLENGES_W2 = [
         "farePrice"
       ]
     },
-    "starterCode": "class FlightTicket {\n    private double farePrice;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.farePrice += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.farePrice >= amount) {\n            this.farePrice -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getFarePrice() {\n        return this.farePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket acc = new FlightTicket();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getFarePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicket {\n    private double farePrice;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.farePrice += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.farePrice >= amount) {\n            this.farePrice -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getFarePrice() {\n        return this.farePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket acc = new FlightTicket();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getFarePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2609,7 +2609,7 @@ window.OOP_CHALLENGES_W2 = [
         "durationWeeks"
       ]
     },
-    "starterCode": "class BootcampCourse {\n    private double durationWeeks;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.durationWeeks += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.durationWeeks >= amount) {\n            this.durationWeeks -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getDurationWeeks() {\n        return this.durationWeeks;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse acc = new BootcampCourse();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getDurationWeeks());\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourse {\n    private double durationWeeks;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.durationWeeks += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.durationWeeks >= amount) {\n            this.durationWeeks -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getDurationWeeks() {\n        return this.durationWeeks;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse acc = new BootcampCourse();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getDurationWeeks());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2647,7 +2647,7 @@ window.OOP_CHALLENGES_W2 = [
         "creditLimit"
       ]
     },
-    "starterCode": "class DebitCard {\n    private double creditLimit;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.creditLimit += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.creditLimit >= amount) {\n            this.creditLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getCreditLimit() {\n        return this.creditLimit;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard acc = new DebitCard();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getCreditLimit());\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCard {\n    private double creditLimit;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.creditLimit += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.creditLimit >= amount) {\n            this.creditLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getCreditLimit() {\n        return this.creditLimit;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard acc = new DebitCard();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getCreditLimit());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2685,7 +2685,7 @@ window.OOP_CHALLENGES_W2 = [
         "stockCount"
       ]
     },
-    "starterCode": "class Medicine {\n    private double stockCount;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.stockCount += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.stockCount >= amount) {\n            this.stockCount -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getStockCount() {\n        return this.stockCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine acc = new Medicine();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getStockCount());\n    }\n}",
+    "starterCode": "",
     "solution": "class Medicine {\n    private double stockCount;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.stockCount += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.stockCount >= amount) {\n            this.stockCount -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getStockCount() {\n        return this.stockCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine acc = new Medicine();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getStockCount());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2723,7 +2723,7 @@ window.OOP_CHALLENGES_W2 = [
         "totalSum"
       ]
     },
-    "starterCode": "class FoodOrder {\n    private double totalSum;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.totalSum += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.totalSum >= amount) {\n            this.totalSum -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getTotalSum() {\n        return this.totalSum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder acc = new FoodOrder();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getTotalSum());\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrder {\n    private double totalSum;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.totalSum += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.totalSum >= amount) {\n            this.totalSum -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getTotalSum() {\n        return this.totalSum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder acc = new FoodOrder();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getTotalSum());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2761,7 +2761,7 @@ window.OOP_CHALLENGES_W2 = [
         "prepTimeMinutes"
       ]
     },
-    "starterCode": "class PizzaOrder {\n    private double prepTimeMinutes;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.prepTimeMinutes += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.prepTimeMinutes >= amount) {\n            this.prepTimeMinutes -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getPrepTimeMinutes() {\n        return this.prepTimeMinutes;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder acc = new PizzaOrder();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getPrepTimeMinutes());\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrder {\n    private double prepTimeMinutes;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.prepTimeMinutes += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.prepTimeMinutes >= amount) {\n            this.prepTimeMinutes -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getPrepTimeMinutes() {\n        return this.prepTimeMinutes;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder acc = new PizzaOrder();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getPrepTimeMinutes());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2799,7 +2799,7 @@ window.OOP_CHALLENGES_W2 = [
         "viewersRating"
       ]
     },
-    "starterCode": "class BroadcastShow {\n    private double viewersRating;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.viewersRating += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.viewersRating >= amount) {\n            this.viewersRating -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getViewersRating() {\n        return this.viewersRating;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow acc = new BroadcastShow();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getViewersRating());\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShow {\n    private double viewersRating;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.viewersRating += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.viewersRating >= amount) {\n            this.viewersRating -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getViewersRating() {\n        return this.viewersRating;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow acc = new BroadcastShow();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getViewersRating());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2837,7 +2837,7 @@ window.OOP_CHALLENGES_W2 = [
         "durationSec"
       ]
     },
-    "starterCode": "class AudioTrack {\n    private double durationSec;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.durationSec += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.durationSec >= amount) {\n            this.durationSec -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getDurationSec() {\n        return this.durationSec;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack acc = new AudioTrack();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getDurationSec());\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrack {\n    private double durationSec;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.durationSec += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.durationSec >= amount) {\n            this.durationSec -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getDurationSec() {\n        return this.durationSec;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack acc = new AudioTrack();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getDurationSec());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2875,7 +2875,7 @@ window.OOP_CHALLENGES_W2 = [
         "targetTemp"
       ]
     },
-    "starterCode": "class Thermostat {\n    private double targetTemp;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.targetTemp += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.targetTemp >= amount) {\n            this.targetTemp -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getTargetTemp() {\n        return this.targetTemp;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat acc = new Thermostat();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getTargetTemp());\n    }\n}",
+    "starterCode": "",
     "solution": "class Thermostat {\n    private double targetTemp;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.targetTemp += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.targetTemp >= amount) {\n            this.targetTemp -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getTargetTemp() {\n        return this.targetTemp;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat acc = new Thermostat();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getTargetTemp());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2913,7 +2913,7 @@ window.OOP_CHALLENGES_W2 = [
         "batteryPct"
       ]
     },
-    "starterCode": "class DeliveryDrone {\n    private double batteryPct;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.batteryPct += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.batteryPct >= amount) {\n            this.batteryPct -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBatteryPct() {\n        return this.batteryPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone acc = new DeliveryDrone();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getBatteryPct());\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDrone {\n    private double batteryPct;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.batteryPct += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.batteryPct >= amount) {\n            this.batteryPct -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBatteryPct() {\n        return this.batteryPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone acc = new DeliveryDrone();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getBatteryPct());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2951,7 +2951,7 @@ window.OOP_CHALLENGES_W2 = [
         "weightLimitKg"
       ]
     },
-    "starterCode": "class StorageBay {\n    private double weightLimitKg;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.weightLimitKg += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.weightLimitKg >= amount) {\n            this.weightLimitKg -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getWeightLimitKg() {\n        return this.weightLimitKg;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay acc = new StorageBay();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getWeightLimitKg());\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBay {\n    private double weightLimitKg;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.weightLimitKg += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.weightLimitKg >= amount) {\n            this.weightLimitKg -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getWeightLimitKg() {\n        return this.weightLimitKg;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay acc = new StorageBay();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getWeightLimitKg());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -2989,7 +2989,7 @@ window.OOP_CHALLENGES_W2 = [
         "coinUnits"
       ]
     },
-    "starterCode": "class CryptoAsset {\n    private double coinUnits;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.coinUnits += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.coinUnits >= amount) {\n            this.coinUnits -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getCoinUnits() {\n        return this.coinUnits;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset acc = new CryptoAsset();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getCoinUnits());\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAsset {\n    private double coinUnits;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.coinUnits += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.coinUnits >= amount) {\n            this.coinUnits -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getCoinUnits() {\n        return this.coinUnits;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset acc = new CryptoAsset();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getCoinUnits());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3027,7 +3027,7 @@ window.OOP_CHALLENGES_W2 = [
         "pageCount"
       ]
     },
-    "starterCode": "class CatalogBook {\n    private double pageCount;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.pageCount += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.pageCount >= amount) {\n            this.pageCount -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getPageCount() {\n        return this.pageCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook acc = new CatalogBook();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getPageCount());\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBook {\n    private double pageCount;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.pageCount += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.pageCount >= amount) {\n            this.pageCount -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getPageCount() {\n        return this.pageCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook acc = new CatalogBook();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getPageCount());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3065,7 +3065,7 @@ window.OOP_CHALLENGES_W2 = [
         "activeMonths"
       ]
     },
-    "starterCode": "class GymMember {\n    private double activeMonths;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.activeMonths += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.activeMonths >= amount) {\n            this.activeMonths -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getActiveMonths() {\n        return this.activeMonths;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember acc = new GymMember();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getActiveMonths());\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMember {\n    private double activeMonths;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.activeMonths += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.activeMonths >= amount) {\n            this.activeMonths -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getActiveMonths() {\n        return this.activeMonths;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember acc = new GymMember();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getActiveMonths());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3103,7 +3103,7 @@ window.OOP_CHALLENGES_W2 = [
         "hourlyTariff"
       ]
     },
-    "starterCode": "class ParkingBay {\n    private double hourlyTariff;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.hourlyTariff += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.hourlyTariff >= amount) {\n            this.hourlyTariff -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getHourlyTariff() {\n        return this.hourlyTariff;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay acc = new ParkingBay();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getHourlyTariff());\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBay {\n    private double hourlyTariff;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.hourlyTariff += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.hourlyTariff >= amount) {\n            this.hourlyTariff -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getHourlyTariff() {\n        return this.hourlyTariff;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay acc = new ParkingBay();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getHourlyTariff());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3141,7 +3141,7 @@ window.OOP_CHALLENGES_W2 = [
         "pulseRate"
       ]
     },
-    "starterCode": "class PatientRecord {\n    private double pulseRate;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.pulseRate += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.pulseRate >= amount) {\n            this.pulseRate -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getPulseRate() {\n        return this.pulseRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord acc = new PatientRecord();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getPulseRate());\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecord {\n    private double pulseRate;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.pulseRate += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.pulseRate >= amount) {\n            this.pulseRate -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getPulseRate() {\n        return this.pulseRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord acc = new PatientRecord();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getPulseRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3179,7 +3179,7 @@ window.OOP_CHALLENGES_W2 = [
         "nightlyRate"
       ]
     },
-    "starterCode": "class HotelReservation {\n    private double nightlyRate;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.nightlyRate += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.nightlyRate >= amount) {\n            this.nightlyRate -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getNightlyRate() {\n        return this.nightlyRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation acc = new HotelReservation();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getNightlyRate());\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservation {\n    private double nightlyRate;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.nightlyRate += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.nightlyRate >= amount) {\n            this.nightlyRate -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getNightlyRate() {\n        return this.nightlyRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation acc = new HotelReservation();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getNightlyRate());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3217,7 +3217,7 @@ window.OOP_CHALLENGES_W2 = [
         "hallSeatNo"
       ]
     },
-    "starterCode": "class CinemaTicket {\n    private double hallSeatNo;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.hallSeatNo += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.hallSeatNo >= amount) {\n            this.hallSeatNo -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getHallSeatNo() {\n        return this.hallSeatNo;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket acc = new CinemaTicket();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getHallSeatNo());\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicket {\n    private double hallSeatNo;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.hallSeatNo += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.hallSeatNo >= amount) {\n            this.hallSeatNo -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getHallSeatNo() {\n        return this.hallSeatNo;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket acc = new CinemaTicket();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getHallSeatNo());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3255,7 +3255,7 @@ window.OOP_CHALLENGES_W2 = [
         "maxSpeedKmh"
       ]
     },
-    "starterCode": "class ElectricScooter {\n    private double maxSpeedKmh;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.maxSpeedKmh += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.maxSpeedKmh >= amount) {\n            this.maxSpeedKmh -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getMaxSpeedKmh() {\n        return this.maxSpeedKmh;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter acc = new ElectricScooter();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getMaxSpeedKmh());\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooter {\n    private double maxSpeedKmh;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.maxSpeedKmh += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.maxSpeedKmh >= amount) {\n            this.maxSpeedKmh -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getMaxSpeedKmh() {\n        return this.maxSpeedKmh;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter acc = new ElectricScooter();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getMaxSpeedKmh());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3293,7 +3293,7 @@ window.OOP_CHALLENGES_W2 = [
         "humidityPct"
       ]
     },
-    "starterCode": "class MeteoStation {\n    private double humidityPct;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.humidityPct += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.humidityPct >= amount) {\n            this.humidityPct -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getHumidityPct() {\n        return this.humidityPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation acc = new MeteoStation();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getHumidityPct());\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStation {\n    private double humidityPct;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.humidityPct += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.humidityPct >= amount) {\n            this.humidityPct -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getHumidityPct() {\n        return this.humidityPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation acc = new MeteoStation();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getHumidityPct());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3331,7 +3331,7 @@ window.OOP_CHALLENGES_W2 = [
         "reservePrice"
       ]
     },
-    "starterCode": "class AuctionLot {\n    private double reservePrice;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.reservePrice += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.reservePrice >= amount) {\n            this.reservePrice -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getReservePrice() {\n        return this.reservePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot acc = new AuctionLot();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getReservePrice());\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLot {\n    private double reservePrice;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.reservePrice += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.reservePrice >= amount) {\n            this.reservePrice -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getReservePrice() {\n        return this.reservePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot acc = new AuctionLot();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getReservePrice());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3369,7 +3369,7 @@ window.OOP_CHALLENGES_W2 = [
         "powerKw"
       ]
     },
-    "starterCode": "class SolarInverter {\n    private double powerKw;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.powerKw += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.powerKw >= amount) {\n            this.powerKw -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getPowerKw() {\n        return this.powerKw;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter acc = new SolarInverter();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getPowerKw());\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverter {\n    private double powerKw;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.powerKw += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.powerKw >= amount) {\n            this.powerKw -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getPowerKw() {\n        return this.powerKw;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter acc = new SolarInverter();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getPowerKw());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3407,7 +3407,7 @@ window.OOP_CHALLENGES_W2 = [
         "travelDurationHours"
       ]
     },
-    "starterCode": "class TrainRoute {\n    private double travelDurationHours;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.travelDurationHours += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.travelDurationHours >= amount) {\n            this.travelDurationHours -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getTravelDurationHours() {\n        return this.travelDurationHours;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute acc = new TrainRoute();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getTravelDurationHours());\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRoute {\n    private double travelDurationHours;\n\n    public void deposit(double amount) {\n        if (amount > 0) this.travelDurationHours += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && this.travelDurationHours >= amount) {\n            this.travelDurationHours -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getTravelDurationHours() {\n        return this.travelDurationHours;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute acc = new TrainRoute();\n        acc.deposit(300);\n        boolean ok = acc.withdraw(100);\n        System.out.println(\"Yechildi: \" + ok + \", Qoldiq: \" + acc.getTravelDurationHours());\n    }\n}",
     "detailedSolution": {
       "theory": "Haqiqiy korporativ tizimlarda 'setBalance' degan ochiq metod bo'lmasligi kerak! Uning o'rniga faqat atomik biznes metodlar (deposit, withdraw) qoldiriladi.",
@@ -3441,7 +3441,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class ProductReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public ProductReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductReceipt r = new ProductReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class ProductReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public ProductReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductReceipt r = new ProductReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3475,7 +3475,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class WalletUserReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public WalletUserReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserReceipt r = new WalletUserReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class WalletUserReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public WalletUserReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserReceipt r = new WalletUserReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3509,7 +3509,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class TaxiRideReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public TaxiRideReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideReceipt r = new TaxiRideReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class TaxiRideReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public TaxiRideReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideReceipt r = new TaxiRideReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3543,7 +3543,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class LoyaltyCardReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public LoyaltyCardReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardReceipt r = new LoyaltyCardReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class LoyaltyCardReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public LoyaltyCardReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardReceipt r = new LoyaltyCardReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3577,7 +3577,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class StudentReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public StudentReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentReceipt r = new StudentReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class StudentReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public StudentReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentReceipt r = new StudentReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3611,7 +3611,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class PaymentTxnReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public PaymentTxnReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnReceipt r = new PaymentTxnReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class PaymentTxnReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public PaymentTxnReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnReceipt r = new PaymentTxnReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3645,7 +3645,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class BotMessageReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public BotMessageReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageReceipt r = new BotMessageReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class BotMessageReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public BotMessageReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageReceipt r = new BotMessageReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3679,7 +3679,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class FlightTicketReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public FlightTicketReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketReceipt r = new FlightTicketReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class FlightTicketReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public FlightTicketReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketReceipt r = new FlightTicketReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3713,7 +3713,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class BootcampCourseReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public BootcampCourseReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseReceipt r = new BootcampCourseReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class BootcampCourseReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public BootcampCourseReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseReceipt r = new BootcampCourseReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3747,7 +3747,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class DebitCardReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public DebitCardReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardReceipt r = new DebitCardReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class DebitCardReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public DebitCardReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardReceipt r = new DebitCardReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3781,7 +3781,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class MedicineReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public MedicineReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineReceipt r = new MedicineReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class MedicineReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public MedicineReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineReceipt r = new MedicineReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3815,7 +3815,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class FoodOrderReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public FoodOrderReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderReceipt r = new FoodOrderReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class FoodOrderReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public FoodOrderReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderReceipt r = new FoodOrderReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3849,7 +3849,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class PizzaOrderReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public PizzaOrderReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderReceipt r = new PizzaOrderReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class PizzaOrderReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public PizzaOrderReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderReceipt r = new PizzaOrderReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3883,7 +3883,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class BroadcastShowReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public BroadcastShowReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowReceipt r = new BroadcastShowReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class BroadcastShowReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public BroadcastShowReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowReceipt r = new BroadcastShowReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3917,7 +3917,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class AudioTrackReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public AudioTrackReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackReceipt r = new AudioTrackReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class AudioTrackReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public AudioTrackReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackReceipt r = new AudioTrackReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3951,7 +3951,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class ThermostatReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public ThermostatReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatReceipt r = new ThermostatReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class ThermostatReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public ThermostatReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatReceipt r = new ThermostatReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -3985,7 +3985,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class DeliveryDroneReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public DeliveryDroneReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneReceipt r = new DeliveryDroneReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class DeliveryDroneReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public DeliveryDroneReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneReceipt r = new DeliveryDroneReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4019,7 +4019,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class StorageBayReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public StorageBayReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayReceipt r = new StorageBayReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class StorageBayReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public StorageBayReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBayReceipt r = new StorageBayReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4053,7 +4053,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class CryptoAssetReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public CryptoAssetReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetReceipt r = new CryptoAssetReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class CryptoAssetReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public CryptoAssetReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetReceipt r = new CryptoAssetReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4087,7 +4087,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class CatalogBookReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public CatalogBookReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookReceipt r = new CatalogBookReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class CatalogBookReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public CatalogBookReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookReceipt r = new CatalogBookReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4121,7 +4121,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class GymMemberReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public GymMemberReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberReceipt r = new GymMemberReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class GymMemberReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public GymMemberReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberReceipt r = new GymMemberReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4155,7 +4155,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class ParkingBayReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public ParkingBayReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayReceipt r = new ParkingBayReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class ParkingBayReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public ParkingBayReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBayReceipt r = new ParkingBayReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4189,7 +4189,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class PatientRecordReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public PatientRecordReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordReceipt r = new PatientRecordReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class PatientRecordReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public PatientRecordReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordReceipt r = new PatientRecordReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4223,7 +4223,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class HotelReservationReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public HotelReservationReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationReceipt r = new HotelReservationReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class HotelReservationReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public HotelReservationReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationReceipt r = new HotelReservationReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4257,7 +4257,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class CinemaTicketReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public CinemaTicketReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketReceipt r = new CinemaTicketReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class CinemaTicketReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public CinemaTicketReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketReceipt r = new CinemaTicketReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4291,7 +4291,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class ElectricScooterReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public ElectricScooterReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterReceipt r = new ElectricScooterReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class ElectricScooterReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public ElectricScooterReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterReceipt r = new ElectricScooterReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4325,7 +4325,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class MeteoStationReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public MeteoStationReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationReceipt r = new MeteoStationReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class MeteoStationReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public MeteoStationReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationReceipt r = new MeteoStationReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4359,7 +4359,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class AuctionLotReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public AuctionLotReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotReceipt r = new AuctionLotReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class AuctionLotReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public AuctionLotReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotReceipt r = new AuctionLotReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4393,7 +4393,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class SolarInverterReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public SolarInverterReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterReceipt r = new SolarInverterReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class SolarInverterReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public SolarInverterReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterReceipt r = new SolarInverterReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4427,7 +4427,7 @@ window.OOP_CHALLENGES_W2 = [
         "final"
       ]
     },
-    "starterCode": "final class TrainRouteReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public TrainRouteReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteReceipt r = new TrainRouteReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
+    "starterCode": "",
     "solution": "final class TrainRouteReceipt {\n    private final String txnCode;\n    private final double finalAmount;\n\n    public TrainRouteReceipt(String txnCode, double finalAmount) {\n        this.txnCode = txnCode;\n        this.finalAmount = finalAmount;\n    }\n\n    public String getTxnCode() { return txnCode; }\n    public double getFinalAmount() { return finalAmount; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteReceipt r = new TrainRouteReceipt(\"TXN-101\", 85.5);\n        System.out.println(\"Chek: \" + r.getTxnCode() + \" -> $\" + r.getFinalAmount());\n    }\n}",
     "detailedSolution": {
       "theory": "O'zgarmas (immutable) ob'yektlar yaratilgandan keyin holati o'zgarmasligi sababli, ko'p oqimli (multi-threaded) tizimlarda 100% thread-safe hisoblanadi.",
@@ -4464,7 +4464,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class ProductSecurityContext {\n    private String pinCode;\n\n    public ProductSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductSecurityContext sec = new ProductSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class ProductSecurityContext {\n    private String pinCode;\n\n    public ProductSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductSecurityContext sec = new ProductSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4501,7 +4501,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class WalletUserSecurityContext {\n    private String pinCode;\n\n    public WalletUserSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserSecurityContext sec = new WalletUserSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class WalletUserSecurityContext {\n    private String pinCode;\n\n    public WalletUserSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUserSecurityContext sec = new WalletUserSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4538,7 +4538,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class TaxiRideSecurityContext {\n    private String pinCode;\n\n    public TaxiRideSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideSecurityContext sec = new TaxiRideSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class TaxiRideSecurityContext {\n    private String pinCode;\n\n    public TaxiRideSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRideSecurityContext sec = new TaxiRideSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4575,7 +4575,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class LoyaltyCardSecurityContext {\n    private String pinCode;\n\n    public LoyaltyCardSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardSecurityContext sec = new LoyaltyCardSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class LoyaltyCardSecurityContext {\n    private String pinCode;\n\n    public LoyaltyCardSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCardSecurityContext sec = new LoyaltyCardSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4612,7 +4612,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class StudentSecurityContext {\n    private String pinCode;\n\n    public StudentSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentSecurityContext sec = new StudentSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class StudentSecurityContext {\n    private String pinCode;\n\n    public StudentSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StudentSecurityContext sec = new StudentSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4649,7 +4649,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class PaymentTxnSecurityContext {\n    private String pinCode;\n\n    public PaymentTxnSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnSecurityContext sec = new PaymentTxnSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentTxnSecurityContext {\n    private String pinCode;\n\n    public PaymentTxnSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxnSecurityContext sec = new PaymentTxnSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4686,7 +4686,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class BotMessageSecurityContext {\n    private String pinCode;\n\n    public BotMessageSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageSecurityContext sec = new BotMessageSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class BotMessageSecurityContext {\n    private String pinCode;\n\n    public BotMessageSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessageSecurityContext sec = new BotMessageSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4723,7 +4723,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class FlightTicketSecurityContext {\n    private String pinCode;\n\n    public FlightTicketSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketSecurityContext sec = new FlightTicketSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class FlightTicketSecurityContext {\n    private String pinCode;\n\n    public FlightTicketSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicketSecurityContext sec = new FlightTicketSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4760,7 +4760,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class BootcampCourseSecurityContext {\n    private String pinCode;\n\n    public BootcampCourseSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseSecurityContext sec = new BootcampCourseSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class BootcampCourseSecurityContext {\n    private String pinCode;\n\n    public BootcampCourseSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourseSecurityContext sec = new BootcampCourseSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4797,7 +4797,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class DebitCardSecurityContext {\n    private String pinCode;\n\n    public DebitCardSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardSecurityContext sec = new DebitCardSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class DebitCardSecurityContext {\n    private String pinCode;\n\n    public DebitCardSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCardSecurityContext sec = new DebitCardSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4834,7 +4834,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class MedicineSecurityContext {\n    private String pinCode;\n\n    public MedicineSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineSecurityContext sec = new MedicineSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class MedicineSecurityContext {\n    private String pinCode;\n\n    public MedicineSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicineSecurityContext sec = new MedicineSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4871,7 +4871,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class FoodOrderSecurityContext {\n    private String pinCode;\n\n    public FoodOrderSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderSecurityContext sec = new FoodOrderSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class FoodOrderSecurityContext {\n    private String pinCode;\n\n    public FoodOrderSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrderSecurityContext sec = new FoodOrderSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4908,7 +4908,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class PizzaOrderSecurityContext {\n    private String pinCode;\n\n    public PizzaOrderSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderSecurityContext sec = new PizzaOrderSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class PizzaOrderSecurityContext {\n    private String pinCode;\n\n    public PizzaOrderSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrderSecurityContext sec = new PizzaOrderSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4945,7 +4945,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class BroadcastShowSecurityContext {\n    private String pinCode;\n\n    public BroadcastShowSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowSecurityContext sec = new BroadcastShowSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class BroadcastShowSecurityContext {\n    private String pinCode;\n\n    public BroadcastShowSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShowSecurityContext sec = new BroadcastShowSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -4982,7 +4982,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class AudioTrackSecurityContext {\n    private String pinCode;\n\n    public AudioTrackSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackSecurityContext sec = new AudioTrackSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class AudioTrackSecurityContext {\n    private String pinCode;\n\n    public AudioTrackSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrackSecurityContext sec = new AudioTrackSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5019,7 +5019,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class ThermostatSecurityContext {\n    private String pinCode;\n\n    public ThermostatSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatSecurityContext sec = new ThermostatSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class ThermostatSecurityContext {\n    private String pinCode;\n\n    public ThermostatSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ThermostatSecurityContext sec = new ThermostatSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5056,7 +5056,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class DeliveryDroneSecurityContext {\n    private String pinCode;\n\n    public DeliveryDroneSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneSecurityContext sec = new DeliveryDroneSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class DeliveryDroneSecurityContext {\n    private String pinCode;\n\n    public DeliveryDroneSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDroneSecurityContext sec = new DeliveryDroneSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5093,7 +5093,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class StorageBaySecurityContext {\n    private String pinCode;\n\n    public StorageBaySecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBaySecurityContext sec = new StorageBaySecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class StorageBaySecurityContext {\n    private String pinCode;\n\n    public StorageBaySecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBaySecurityContext sec = new StorageBaySecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5130,7 +5130,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class CryptoAssetSecurityContext {\n    private String pinCode;\n\n    public CryptoAssetSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetSecurityContext sec = new CryptoAssetSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class CryptoAssetSecurityContext {\n    private String pinCode;\n\n    public CryptoAssetSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAssetSecurityContext sec = new CryptoAssetSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5167,7 +5167,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class CatalogBookSecurityContext {\n    private String pinCode;\n\n    public CatalogBookSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookSecurityContext sec = new CatalogBookSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class CatalogBookSecurityContext {\n    private String pinCode;\n\n    public CatalogBookSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBookSecurityContext sec = new CatalogBookSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5204,7 +5204,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class GymMemberSecurityContext {\n    private String pinCode;\n\n    public GymMemberSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberSecurityContext sec = new GymMemberSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class GymMemberSecurityContext {\n    private String pinCode;\n\n    public GymMemberSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMemberSecurityContext sec = new GymMemberSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5241,7 +5241,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class ParkingBaySecurityContext {\n    private String pinCode;\n\n    public ParkingBaySecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBaySecurityContext sec = new ParkingBaySecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class ParkingBaySecurityContext {\n    private String pinCode;\n\n    public ParkingBaySecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBaySecurityContext sec = new ParkingBaySecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5278,7 +5278,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class PatientRecordSecurityContext {\n    private String pinCode;\n\n    public PatientRecordSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordSecurityContext sec = new PatientRecordSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class PatientRecordSecurityContext {\n    private String pinCode;\n\n    public PatientRecordSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecordSecurityContext sec = new PatientRecordSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5315,7 +5315,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class HotelReservationSecurityContext {\n    private String pinCode;\n\n    public HotelReservationSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationSecurityContext sec = new HotelReservationSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class HotelReservationSecurityContext {\n    private String pinCode;\n\n    public HotelReservationSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservationSecurityContext sec = new HotelReservationSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5352,7 +5352,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class CinemaTicketSecurityContext {\n    private String pinCode;\n\n    public CinemaTicketSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketSecurityContext sec = new CinemaTicketSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class CinemaTicketSecurityContext {\n    private String pinCode;\n\n    public CinemaTicketSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicketSecurityContext sec = new CinemaTicketSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5389,7 +5389,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class ElectricScooterSecurityContext {\n    private String pinCode;\n\n    public ElectricScooterSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterSecurityContext sec = new ElectricScooterSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class ElectricScooterSecurityContext {\n    private String pinCode;\n\n    public ElectricScooterSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooterSecurityContext sec = new ElectricScooterSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5426,7 +5426,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class MeteoStationSecurityContext {\n    private String pinCode;\n\n    public MeteoStationSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationSecurityContext sec = new MeteoStationSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class MeteoStationSecurityContext {\n    private String pinCode;\n\n    public MeteoStationSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStationSecurityContext sec = new MeteoStationSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5463,7 +5463,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class AuctionLotSecurityContext {\n    private String pinCode;\n\n    public AuctionLotSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotSecurityContext sec = new AuctionLotSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class AuctionLotSecurityContext {\n    private String pinCode;\n\n    public AuctionLotSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLotSecurityContext sec = new AuctionLotSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5500,7 +5500,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class SolarInverterSecurityContext {\n    private String pinCode;\n\n    public SolarInverterSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterSecurityContext sec = new SolarInverterSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class SolarInverterSecurityContext {\n    private String pinCode;\n\n    public SolarInverterSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverterSecurityContext sec = new SolarInverterSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",
@@ -5537,7 +5537,7 @@ window.OOP_CHALLENGES_W2 = [
         "pinCode"
       ]
     },
-    "starterCode": "class TrainRouteSecurityContext {\n    private String pinCode;\n\n    public TrainRouteSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteSecurityContext sec = new TrainRouteSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
+    "starterCode": "",
     "solution": "class TrainRouteSecurityContext {\n    private String pinCode;\n\n    public TrainRouteSecurityContext(String pinCode) {\n        this.pinCode = pinCode;\n    }\n\n    public boolean verifyPin(String attempt) {\n        return this.pinCode != null && this.pinCode.equals(attempt);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRouteSecurityContext sec = new TrainRouteSecurityContext(\"7788\");\n        System.out.println(\"PIN to'g'rimi: \" + sec.verifyPin(\"7788\"));\n        System.out.println(\"Noto'g'ri PIN: \" + sec.verifyPin(\"0000\"));\n    }\n}",
     "detailedSolution": {
       "theory": "Inkapsulyatsiyaning oliy darajasi — ma'lumotni tashqariga beruvchi getter ham yaratmaslikdir. Parol va PIN kodlar faqat tasdiqlovchi metodlar orqali tekshiriladi.",

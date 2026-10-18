@@ -166,16 +166,14 @@
     // Set code editor
     const codeArea = document.getElementById("codeEditor");
     if (codeArea) {
-      codeArea.value = ch.starterCode;
+      codeArea.value = ch.starterCode || "";
     }
 
     // Clear console output
     const consoleOut = document.getElementById("consoleOutput");
     if (consoleOut) {
       consoleOut.className = "console-output";
-      consoleOut.textContent = isEn
-        ? "Java console ready. Click '▶ Verify Code' or '☕ Run (OpenJDK 21)'."
-        : "Java konsoli tayyor. '▶ Kodni Tekshirish' yoki '☕ Ishga tushirish (OpenJDK 21)' tugmasini bosing.";
+      consoleOut.textContent = "";
     }
 
     // Render UML preview
@@ -310,9 +308,7 @@
     consoleOut.className = "console-output";
     const isEn = currentLang === "en";
     consoleOut.className = "console-output";
-    consoleOut.textContent = isEn
-      ? "🔍 Verifying OOP rules and Java syntax..."
-      : "🔍 Mahalliy OOP qoidalari va sintaksis tekshirilmoqda...";
+    consoleOut.textContent = "";
 
     const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch.requirements);
 
@@ -383,9 +379,7 @@
     consoleOut.className = "console-output";
     const isEn = currentLang === "en";
     consoleOut.className = "console-output";
-    consoleOut.textContent = isEn
-      ? "🚀 Submitting to real OpenJDK 21 compiler (Wandbox Cloud)..."
-      : "🚀 Real OpenJDK 21 kompilyatoriga yuborilmoqda (Wandbox Cloud)...";
+    consoleOut.textContent = "";
 
     const res = await window.JavaRunner.runOnOpenJDK21(codeArea.value);
 
@@ -514,8 +508,11 @@
       const ch = CHALLENGES[currentQIndex];
       const codeArea = document.getElementById("codeEditor");
       if (ch && codeArea) {
-        codeArea.value = ch.starterCode;
+        codeArea.value = ch.starterCode || "";
         updateUML();
+        if (window.JavaEditorEnhancer) {
+          window.JavaEditorEnhancer.updateHighlighting();
+        }
       }
     });
 
@@ -524,6 +521,17 @@
         switchChallenge(currentQIndex + 1);
       }
     });
+
+    const btnToolbarSol = document.getElementById("btnToolbarSolution");
+    if (btnToolbarSol && btnToggleSol) {
+      btnToolbarSol.addEventListener("click", () => {
+        btnToggleSol.click();
+        const card = document.getElementById("solutionContentCard");
+        if (card && card.style.display !== "none") {
+          card.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      });
+    }
 
     if (btnToggleSol) btnToggleSol.addEventListener("click", () => {
       const card = document.getElementById("solutionContentCard");

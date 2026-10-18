@@ -687,6 +687,8 @@ input, textarea, select, [contenteditable="true"] {
   position: relative;
   flex: 1;
   min-height: 280px;
+  display: flex;
+  flex-direction: column;
 }
 
 .code-textarea {
@@ -1162,6 +1164,7 @@ input, textarea, select, [contenteditable="true"] {
   z-index: 2 !important;
   background: transparent !important;
   color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
   caret-color: #38bdf8 !important;
   resize: none !important;
   outline: none !important;
@@ -1270,4 +1273,27 @@ input, textarea, select, [contenteditable="true"] {
 @keyframes errorBadgePulse {
   from { border-color: #ef4444; }
   to { border-color: #f87171; box-shadow: 0 0 10px rgba(239, 68, 68, 0.6); }
+}
+
+
+.code-textarea::placeholder {
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+  font-style: italic !important;
+}
+.code-textarea::selection {
+  background: rgba(124, 58, 237, 0.45) !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.btn-sol-toggle {
+  background: rgba(168, 85, 247, 0.15) !important;
+  border-color: rgba(168, 85, 247, 0.45) !important;
+  color: #d8b4fe !important;
+}
+.btn-sol-toggle:hover {
+  background: rgba(168, 85, 247, 0.3) !important;
+  color: #fff !important;
+  border-color: #a855f7 !important;
 }
