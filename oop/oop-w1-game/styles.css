@@ -262,54 +262,53 @@ input, textarea, select, [contenteditable="true"] {
 .q-strip {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 18px;
+  gap: 7px;
+  padding: 8px 16px;
   background: var(--bg-panel);
   border-bottom: 1px solid rgba(168, 85, 247, 0.2);
   overflow-x: auto;
+  scrollbar-width: thin;
 }
 
 .q-dot {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  background: #181430;
-  border: 1px solid rgba(168, 85, 247, 0.25);
-  color: #8b83ba;
-  font-size: 11px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 9px;
+  height: 9px;
+  min-width: 9px;
+  min-height: 9px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid rgba(168, 85, 247, 0.4);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.18s ease;
   user-select: none;
+  flex-shrink: 0;
+  padding: 0;
 }
 
 .q-dot:hover {
-  border-color: var(--accent-purple-bright);
-  color: #fff;
-}
-
-.q-dot.active {
-  background: #7c3aed;
   border-color: #c084fc;
-  color: #fff;
-  font-weight: 800;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+  transform: scale(1.4);
+  box-shadow: 0 0 6px rgba(192, 132, 252, 0.7);
 }
 
 .q-dot.solved {
-  background: rgba(16, 185, 129, 0.2);
-  border-color: #34d399;
-  color: #34d399;
+  background: #10b981 !important;
+  border-color: #34d399 !important;
+  box-shadow: 0 0 5px rgba(52, 211, 153, 0.6);
+}
+
+.q-dot.active {
+  background: #a855f7 !important;
+  border-color: #f3e8ff !important;
+  transform: scale(1.4);
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.9);
 }
 
 .q-dot.solved.active {
-  background: #10b981;
-  border-color: #6ee7b7;
-  color: #0a0914;
-  font-weight: 800;
+  background: #34d399 !important;
+  border-color: #ffffff !important;
+  transform: scale(1.5);
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.95);
 }
 
 /* ============================================================================
@@ -608,12 +607,13 @@ input, textarea, select, [contenteditable="true"] {
 
 .editor-toolbar {
   background: #141128;
-  border-bottom: 1px solid rgba(168, 85, 247, 0.25);
-  padding: 8px 16px;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.22);
+  padding: 5px 12px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: flex-end;
+  gap: 6px;
+  min-height: 38px;
 }
 
 .editor-filename {
@@ -632,9 +632,9 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .btn {
-  padding: 6px 14px;
+  padding: 4px 9px;
   border-radius: var(--radius-sm);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
@@ -696,7 +696,7 @@ input, textarea, select, [contenteditable="true"] {
   height: 100%;
   background: var(--bg-input);
   color: #f8fafc;
-  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace;
   font-size: 13.5px;
   line-height: 1.6;
   padding: 16px;
@@ -1091,7 +1091,7 @@ input, textarea, select, [contenteditable="true"] {
   border-right: 1px solid rgba(168, 85, 247, 0.2);
   padding: 14px 6px 14px 0;
   text-align: right;
-  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace;
   font-size: 13px;
   line-height: 22px;
   color: #4b5563;
@@ -1141,7 +1141,7 @@ input, textarea, select, [contenteditable="true"] {
   padding: 14px 16px !important;
   margin: 0 !important;
   box-sizing: border-box !important;
-  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace !important;
+  font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace !important;
   font-size: 13.5px !important;
   line-height: 22px !important;
   tab-size: 4 !important;

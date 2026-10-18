@@ -10,8 +10,84 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../oop-w1-game/styles.css?v=20261018_v3">
-  <style id="criticalEditorStyles">
+  <link rel="stylesheet" href="../oop-w1-game/styles.css?v=20261018_v4">
+    <style id="criticalEditorStyles">
+    .q-strip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      background: var(--bg-panel);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+    .q-dot {
+      width: 9px;
+      height: 9px;
+      min-width: 9px;
+      min-height: 9px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1.5px solid rgba(168, 85, 247, 0.4);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      user-select: none;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .q-dot:hover {
+      border-color: #c084fc;
+      transform: scale(1.4);
+      box-shadow: 0 0 6px rgba(192, 132, 252, 0.7);
+    }
+    .q-dot.solved {
+      background: #10b981 !important;
+      border-color: #34d399 !important;
+      box-shadow: 0 0 5px rgba(52, 211, 153, 0.6);
+    }
+    .q-dot.active {
+      background: #a855f7 !important;
+      border-color: #f3e8ff !important;
+      transform: scale(1.4);
+      box-shadow: 0 0 8px rgba(168, 85, 247, 0.9);
+    }
+    .q-dot.solved.active {
+      background: #34d399 !important;
+      border-color: #ffffff !important;
+      transform: scale(1.5);
+      box-shadow: 0 0 10px rgba(52, 211, 153, 0.95);
+    }
+    .editor-toolbar {
+      background: #141128;
+      border-bottom: 1px solid rgba(168, 85, 247, 0.22);
+      padding: 5px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      min-height: 38px;
+    }
+    .editor-toolbar .btn-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+      justify-content: flex-end;
+    }
+    .editor-toolbar .btn {
+      padding: 4px 9px !important;
+      border-radius: 5px !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+      user-select: none;
+      line-height: 1.3 !important;
+    }
     .editor-wrapper {
       position: relative;
       flex: 1;
@@ -32,14 +108,14 @@
       box-sizing: border-box;
     }
     .editor-gutter {
-      width: 44px;
+      width: 40px;
       background: #090715;
       border-right: 1px solid rgba(168, 85, 247, 0.2);
-      padding: 14px 6px 14px 0;
+      padding: 16px 6px 16px 0;
       text-align: right;
-      font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+      font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace;
       font-size: 13px;
-      line-height: 22px;
+      line-height: 1.6;
       color: #4b5563;
       user-select: none;
       overflow: hidden;
@@ -47,8 +123,7 @@
       flex-shrink: 0;
     }
     .gutter-line {
-      height: 22px;
-      line-height: 22px;
+      line-height: 1.6;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -81,19 +156,17 @@
       left: 0 !important;
       width: 100% !important;
       height: 100% !important;
-      padding: 14px 16px !important;
+      padding: 16px !important;
       margin: 0 !important;
       box-sizing: border-box !important;
-      font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace !important;
+      font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace !important;
       font-size: 13.5px !important;
-      line-height: 22px !important;
+      line-height: 1.6 !important;
       tab-size: 4 !important;
       -moz-tab-size: 4 !important;
-      letter-spacing: 0px !important;
       white-space: pre !important;
       overflow: auto !important;
       border: none !important;
-      font-feature-settings: 'liga' 0 !important;
     }
     .code-highlight-backdrop {
       pointer-events: none !important;
@@ -151,6 +224,54 @@
       background: rgba(168, 85, 247, 0.3) !important;
       color: #fff !important;
       border-color: #a855f7 !important;
+    }
+    .smart-suggestion-chips-bar {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 10px;
+      background: #0d0a1c;
+      border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      z-index: 5;
+      min-height: 25px;
+    }
+    .chip-label-prefix {
+      font-size: 9px;
+      font-weight: 600;
+      color: #9333ea;
+      display: inline-flex;
+      align-items: center;
+      margin-right: 2px;
+      flex-shrink: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      user-select: none;
+    }
+    .smart-chip-btn {
+      background: #130f26;
+      border: 1px solid rgba(168, 85, 247, 0.22);
+      color: #c4b5fd;
+      font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 1px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      touch-action: manipulation;
+    }
+    .smart-chip-btn:hover {
+      background: #241c45;
+      border-color: #a855f7;
+      color: #fff;
     }
   </style>
 </head>
@@ -250,9 +371,7 @@
 
     <section class="pane-right">
       <div class="editor-toolbar">
-        <div class="editor-filename">
-          <span>☕</span> <span>Main.java</span>
-        </div>
+        
 
         <div class="btn-group">
           <button id="btnResetCode" class="btn btn-secondary">
@@ -318,15 +437,15 @@
     </section>
   </main>
 
-  <script src="../shared/java-analyzer.js?v=20261018_v3"></script>
-  <script src="../shared/java-runner.js?v=20261018_v3"></script>
-  <script src="../shared/uml-renderer.js?v=20261018_v3"></script>
-  <script src="../shared/solution-renderer.js?v=20261018_v3"></script>
-    <script src="../shared/oop-i18n.js?v=20261018_v3"></script>
-<script src="../shared/oop-dictionary.js?v=20261018_v3"></script>
-  <script src="../shared/challenges-w5.js?v=20261018_v3"></script>
-    <script src="../shared/java-editor-enhancer.js?v=20261018_v3"></script>
-  <script src="game.js?v=20261018_v3"></script>
+  <script src="../shared/java-analyzer.js?v=20261018_v4"></script>
+  <script src="../shared/java-runner.js?v=20261018_v4"></script>
+  <script src="../shared/uml-renderer.js?v=20261018_v4"></script>
+  <script src="../shared/solution-renderer.js?v=20261018_v4"></script>
+    <script src="../shared/oop-i18n.js?v=20261018_v4"></script>
+<script src="../shared/oop-dictionary.js?v=20261018_v4"></script>
+  <script src="../shared/challenges-w5.js?v=20261018_v4"></script>
+    <script src="../shared/java-editor-enhancer.js?v=20261018_v4"></script>
+  <script src="game.js?v=20261018_v4"></script>
 
 </body>
 </html>

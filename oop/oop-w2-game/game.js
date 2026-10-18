@@ -79,8 +79,9 @@
 
       const dot = document.createElement("div");
       dot.className = "q-dot" + (idx === currentQIndex ? " active" : "") + (solvedQuestions.has(ch.id) ? " solved" : "");
-      dot.textContent = ch.id;
-      dot.title = ch.title[currentLang];
+      dot.textContent = "";
+      const qTitle = (ch.title && ch.title[currentLang]) ? ch.title[currentLang] : (ch.title?.uz || "");
+      dot.title = ch.id + ". " + qTitle + (solvedQuestions.has(ch.id) ? " (Yechilgan)" : "");
       dot.addEventListener("click", () => switchChallenge(idx));
       qStrip.appendChild(dot);
 

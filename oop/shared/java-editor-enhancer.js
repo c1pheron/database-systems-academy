@@ -149,26 +149,7 @@
         }
       }
 
-      // Add IntelliJ theme indicator & error pill to toolbar if present
-      const toolbar = document.querySelector(".editor-toolbar");
-      if (toolbar && !document.getElementById("editorThemeIndicator")) {
-        const badgeBox = document.createElement("div");
-        badgeBox.id = "editorThemeIndicator";
-        badgeBox.style.cssText = "display: flex; align-items: center; gap: 8px;";
-        badgeBox.innerHTML = `
-          <span class="intellij-theme-badge" title="IntelliJ IDEA Darcula Syntax Engine">
-            <span class="intellij-dot"></span> IntelliJ Highlighting
-          </span>
-          <span id="editorErrorIndicator" class="editor-error-badge" style="display:none;" title="Aniqlangan sintaktik xatoliklar"></span>
-        `;
-        const fn = toolbar.querySelector(".editor-filename");
-        if (fn) {
-          fn.insertAdjacentElement("afterend", badgeBox);
-        } else {
-          toolbar.insertBefore(badgeBox, toolbar.firstChild);
-        }
-        this.errorBadgeEl = document.getElementById("editorErrorIndicator");
-      }
+      // Toolbar badges removed as per user preference (clean, minimal header)
 
       // Scroll synchronization
       if (this.codeArea) {
@@ -294,19 +275,19 @@
           left: 0;
           width: 100%;
           height: 100%;
-          padding: 14px 16px !important;
+          padding: 16px !important;
           margin: 0 !important;
           box-sizing: border-box !important;
-          font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace !important;
+          font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace !important;
           font-size: 13.5px !important;
-          line-height: 22px !important;
+          line-height: 1.6 !important;
           tab-size: 4 !important;
           -moz-tab-size: 4 !important;
-          letter-spacing: 0px !important;
+          
           white-space: pre !important;
           overflow: auto !important;
           border: none !important;
-          font-feature-settings: "liga" 0 !important;
+          
         }
 
         .code-highlight-backdrop {
@@ -443,47 +424,47 @@
         .smart-suggestion-chips-bar {
           display: flex;
           align-items: center;
-          gap: 6px;
-          padding: 6px 10px;
+          gap: 4px;
+          padding: 2px 10px;
           background: #0d0a1c;
-          border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+          border-bottom: 1px solid rgba(168, 85, 247, 0.2);
           overflow-x: auto;
           white-space: nowrap;
           scrollbar-width: none;
           -webkit-overflow-scrolling: touch;
           z-index: 5;
+          min-height: 25px;
         }
         .smart-suggestion-chips-bar::-webkit-scrollbar {
           display: none;
         }
         .chip-label-prefix {
-          font-size: 11px;
-          font-weight: 700;
-          color: #a855f7;
+          font-size: 9px;
+          font-weight: 600;
+          color: #9333ea;
           display: inline-flex;
           align-items: center;
-          gap: 4px;
-          margin-right: 4px;
+          margin-right: 2px;
           flex-shrink: 0;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.3px;
           user-select: none;
         }
         .smart-chip-btn {
-          background: #191433;
-          border: 1px solid rgba(168, 85, 247, 0.4);
-          color: #d8b4fe;
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 11.5px;
-          font-weight: 600;
-          padding: 3px 9px;
-          border-radius: 6px;
+          background: #130f26;
+          border: 1px solid rgba(168, 85, 247, 0.22);
+          color: #c4b5fd;
+          font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace;
+          font-size: 10px;
+          font-weight: 500;
+          padding: 1px 6px;
+          border-radius: 4px;
           cursor: pointer;
           flex-shrink: 0;
           transition: all 0.15s ease;
           display: inline-flex;
           align-items: center;
-          gap: 5px;
+          gap: 2px;
           touch-action: manipulation;
         }
         .smart-chip-btn:hover {
@@ -1321,33 +1302,33 @@
         ? global.OOP_I18N.getLang() === "en"
         : (typeof localStorage !== "undefined" && localStorage.getItem("OOP_LANG") === "en");
       const classesList = Array.from(this.knownClasses).filter(c => c !== "Main");
-      let html = `<span class="chip-label-prefix">${isEn ? "⚡ Variants:" : "⚡ Variantlar:"}</span>`;
+      let html = `<span class="chip-label-prefix">${isEn ? "Variants:" : "Variantlar:"}</span>`;
 
       if (classesList.length > 0) {
         classesList.forEach(cls => {
           html += `
             <button type="button" class="smart-chip-btn chip-class" data-action="insert" data-text="${cls}" title="${isEn ? "Insert class name" : "Klass nomini qo'yish"}">
-              <span>🏷️</span> ${cls}
+              ${cls}
             </button>
             <button type="button" class="smart-chip-btn chip-new" data-action="insert" data-text="new ${cls}();" title="${isEn ? "Instantiate object" : "Obyekt yaratish kodi"}">
-              <span>⚡</span> new ${cls}()
+              new ${cls}()
             </button>
             <button type="button" class="smart-chip-btn chip-template" data-action="class-template" data-cls="${cls}" title="${isEn ? "Insert full class blueprint" : "To'liq klass shablonini kiritish"}">
-              <span>📦</span> class ${cls} { }
+              class ${cls} { }
             </button>
           `;
         });
       } else {
         html += `
           <button type="button" class="smart-chip-btn chip-template" data-action="generic-class" title="${isEn ? "New class template" : "Yangi klass shabloni"}">
-            <span>📦</span> class Model { }
+            class Model { }
           </button>
         `;
       }
 
       html += `
         <button type="button" class="smart-chip-btn" data-action="insert" data-text="System.out.println();" data-offset="19" title="${isEn ? "Standard print statement" : "Chiqarish buyrug'i"}">
-          <span>🖨️</span> sout
+          sout
         </button>
         <button type="button" class="smart-chip-btn" data-action="insert" data-text="private " title="${isEn ? "private modifier" : "private modifikatori"}">
           private
