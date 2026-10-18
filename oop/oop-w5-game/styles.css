@@ -144,7 +144,7 @@ input, textarea, select, [contenteditable="true"] {
   font-weight: 600;
   padding: 1px 6px;
   border-radius: 4px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Consolas, 'Fira Code', monospace;
 }
 
 .hud-actions {
@@ -389,7 +389,7 @@ input, textarea, select, [contenteditable="true"] {
   border-radius: 4px;
   font-size: 11px;
   font-weight: 700;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Consolas, 'Fira Code', monospace;
   margin-bottom: 8px;
 }
 
@@ -521,7 +521,7 @@ input, textarea, select, [contenteditable="true"] {
 .solution-code-pre {
   margin: 0;
   padding: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Consolas, 'Fira Code', monospace;
   font-size: 11.5px;
   line-height: 1.5;
   color: #a5f3fc;
@@ -695,7 +695,7 @@ input, textarea, select, [contenteditable="true"] {
   height: 100%;
   background: var(--bg-input);
   color: #f8fafc;
-  font-family: 'JetBrains Mono', Consolas, 'Fira Code', monospace;
+  font-family: Consolas, 'Fira Code', Consolas, 'Fira Code', monospace;
   font-size: 13.5px;
   line-height: 1.6;
   padding: 16px;
@@ -734,7 +734,7 @@ input, textarea, select, [contenteditable="true"] {
   border: none;
   color: #8b83ba;
   font-size: 11px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Consolas, 'Fira Code', monospace;
   cursor: pointer;
   border-radius: 4px;
 }
@@ -747,8 +747,8 @@ input, textarea, select, [contenteditable="true"] {
 .console-output {
   flex: 1;
   padding: 12px 16px;
-  background: #1e1f22 !important;
-  font-family: 'JetBrains Mono', monospace !important;
+  background: #0d0a1f !important;
+  font-family: Consolas, 'Fira Code', monospace !important;
   font-size: 13px !important;
   line-height: 1.55 !important;
   color: #bcbec4 !important;
@@ -885,7 +885,7 @@ input, textarea, select, [contenteditable="true"] {
   background: #181430;
   border: 1px solid rgba(168, 85, 247, 0.35);
   color: #c084fc;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Consolas, 'Fira Code', monospace;
   font-size: 12px;
   font-weight: 700;
   padding: 4px 10px;
@@ -1079,7 +1079,7 @@ input, textarea, select, [contenteditable="true"] {
   width: 100%;
   height: 100%;
   min-height: 290px;
-  background: #1e1f22;
+  background: #0d0a1f;
   border: 1px solid rgba(168, 85, 247, 0.3);
   border-radius: 0 0 8px 8px;
   overflow: hidden;
@@ -1092,7 +1092,7 @@ input, textarea, select, [contenteditable="true"] {
   border-right: 1px solid rgba(168, 85, 247, 0.2);
   padding: 14px 6px 14px 0;
   text-align: right;
-  font-family: 'JetBrains Mono', Consolas, 'Fira Code', monospace;
+  font-family: Consolas, 'Fira Code', Consolas, 'Fira Code', monospace;
   font-size: 13px;
   line-height: 22px;
   color: #4b5563;
@@ -1129,7 +1129,7 @@ input, textarea, select, [contenteditable="true"] {
   height: 100%;
   min-height: 290px;
   overflow: hidden;
-  background: #1e1f22;
+  background: #0d0a1f;
 }
 
 .code-highlight-backdrop,
@@ -1142,7 +1142,7 @@ input, textarea, select, [contenteditable="true"] {
   padding: 14px 16px !important;
   margin: 0 !important;
   box-sizing: border-box !important;
-  font-family: 'JetBrains Mono', Consolas, 'Fira Code', monospace !important;
+  font-family: Consolas, 'Fira Code', Consolas, 'Fira Code', monospace !important;
   font-size: 13.5px !important;
   line-height: 22px !important;
   tab-size: 4 !important;
@@ -1245,7 +1245,7 @@ input, textarea, select, [contenteditable="true"] {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Consolas, 'Fira Code', monospace;
   user-select: none;
 }
 .intellij-dot {
@@ -1267,7 +1267,7 @@ input, textarea, select, [contenteditable="true"] {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Consolas, 'Fira Code', monospace;
   cursor: pointer;
   animation: errorBadgePulse 1.5s infinite alternate;
 }

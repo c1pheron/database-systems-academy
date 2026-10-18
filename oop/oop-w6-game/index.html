@@ -13,15 +13,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../oop-w1-game/styles.css?v=20261018_v7_modes">
-          <style id="criticalEditorStyles">
+  <link rel="stylesheet" href="../oop-w1-game/styles.css?v=20261018_v8_consolas">
+            <style id="criticalEditorStyles">
     /* 1. KICHKINA DUMALOQLAR (QUESTION STRIP DOTS) */
     .q-strip {
       display: flex !important;
       align-items: center !important;
       gap: 6px !important;
       padding: 8px 14px !important;
-      background: #0f0c23 !important;
+      background: #0d0a1c !important;
       border-bottom: 1px solid rgba(168, 85, 247, 0.2) !important;
       overflow-x: auto !important;
       scrollbar-width: thin !important;
@@ -53,20 +53,17 @@
       transform: scale(1.4) !important;
       box-shadow: 0 0 6px rgba(192, 132, 252, 0.8) !important;
     }
-    /* Masala yechilgan bo'lsa: ichi to'lib turadi */
     .q-dot.solved {
       background: #10b981 !important;
       border-color: #34d399 !important;
       box-shadow: 0 0 5px rgba(52, 211, 153, 0.6) !important;
     }
-    /* Hozirgi tanlangan masala: active */
     .q-dot.active {
       background: #a855f7 !important;
       border-color: #ffffff !important;
       transform: scale(1.4) !important;
       box-shadow: 0 0 8px rgba(168, 85, 247, 0.95) !important;
     }
-    /* Ham yechilgan, ham active */
     .q-dot.solved.active {
       background: #34d399 !important;
       border-color: #ffffff !important;
@@ -152,12 +149,12 @@
       min-height: 28px !important;
     }
     .btn-sol-toggle {
-      background: rgba(168, 85, 247, 0.15) !important;
-      border-color: rgba(168, 85, 247, 0.45) !important;
+      background: rgba(168, 85, 247, 0.18) !important;
+      border: 1px solid rgba(168, 85, 247, 0.5) !important;
       color: #d8b4fe !important;
     }
     .btn-sol-toggle:hover {
-      background: rgba(168, 85, 247, 0.3) !important;
+      background: rgba(168, 85, 247, 0.35) !important;
       color: #fff !important;
       border-color: #a855f7 !important;
     }
@@ -177,7 +174,7 @@
       display: none !important;
     }
     .quick-key-btn {
-      font-family: 'JetBrains Mono', Consolas, monospace !important;
+      font-family: Consolas, 'Fira Code', monospace !important;
       font-size: 11px !important;
       font-weight: 600 !important;
       padding: 2px 7px !important;
@@ -199,7 +196,7 @@
       color: #fff !important;
     }
 
-    /* 5. VARIANTLAR CHIPSLARI (ASL SHAKL, EMUDJILAR VA RANGLAR SAQLANDI, RAZMERI KICHRAYTIRILDI) */
+    /* 5. VARIANTLAR CHIPSLARI (AYNAN 2-RASMDAGI SHAKL, EMUDJILAR VA RANGLAR) */
     .smart-suggestion-chips-bar {
       display: flex !important;
       align-items: center !important;
@@ -231,7 +228,7 @@
       user-select: none !important;
     }
     .smart-chip-btn {
-      font-family: 'JetBrains Mono', Consolas, monospace !important;
+      font-family: Consolas, 'Fira Code', monospace !important;
       font-size: 11px !important;
       font-weight: 600 !important;
       padding: 2.5px 8px !important;
@@ -278,7 +275,7 @@
       box-shadow: 0 0 8px rgba(168, 85, 247, 0.35) !important;
     }
 
-    /* 6. INTELLIJ DARCULA / NEW UI CODE EDITOR (AYNAN RASMDAGIDEK) */
+    /* 6. CODE EDITOR — CONSOLAS MATN STILI (AYNAN 2-RASMDAGIDEK) & INTERFACE RANGLARI BILAN BIR XIL */
     .editor-wrapper {
       position: relative !important;
       flex: 1 !important;
@@ -292,29 +289,29 @@
       flex: 1 !important;
       width: 100% !important;
       min-height: 280px !important;
-      background: #1e1f22 !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      background: #0d0a1f !important;
+      border: 1px solid rgba(168, 85, 247, 0.28) !important;
       border-radius: 0 0 8px 8px !important;
       overflow: hidden !important;
       box-sizing: border-box !important;
     }
     .editor-gutter {
-      width: 44px !important;
-      background: #1e1f22 !important;
-      border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+      width: 42px !important;
+      background: #090717 !important;
+      border-right: 1px solid rgba(168, 85, 247, 0.2) !important;
       padding: 16px 8px 16px 0 !important;
       text-align: right !important;
-      font-family: 'JetBrains Mono', monospace !important;
+      font-family: Consolas, 'Fira Code', monospace !important;
       font-size: 13px !important;
-      line-height: 1.55 !important;
-      color: #5a5d63 !important;
+      line-height: 1.5 !important;
+      color: #64748b !important;
       user-select: none !important;
       overflow: hidden !important;
       box-sizing: border-box !important;
       flex-shrink: 0 !important;
     }
     .gutter-line {
-      line-height: 1.55 !important;
+      line-height: 1.5 !important;
       display: flex !important;
       align-items: center !important;
       justify-content: flex-end !important;
@@ -338,7 +335,7 @@
       height: 100% !important;
       min-height: 280px !important;
       overflow: hidden !important;
-      background: #1e1f22 !important;
+      background: #0d0a1f !important;
     }
     .code-highlight-backdrop,
     .code-editor-surface .code-textarea,
@@ -351,20 +348,21 @@
       padding: 16px !important;
       margin: 0 !important;
       box-sizing: border-box !important;
-      font-family: 'JetBrains Mono', monospace !important;
+      font-family: Consolas, 'Fira Code', 'Segoe UI Mono', monospace !important;
       font-size: 13.5px !important;
-      line-height: 1.55 !important;
+      line-height: 1.5 !important;
       tab-size: 4 !important;
       -moz-tab-size: 4 !important;
       white-space: pre !important;
       overflow: auto !important;
       border: none !important;
-      letter-spacing: -0.01em !important;
+      letter-spacing: 0 !important;
+      font-weight: 500 !important;
     }
     .code-highlight-backdrop {
       pointer-events: none !important;
       z-index: 1 !important;
-      color: #bcbec4 !important;
+      color: #f1f5f9 !important;
       background: transparent !important;
     }
     .code-editor-surface .code-textarea,
@@ -373,7 +371,7 @@
       background: transparent !important;
       color: transparent !important;
       -webkit-text-fill-color: transparent !important;
-      caret-color: #56a8f5 !important;
+      caret-color: #38bdf8 !important;
       resize: none !important;
       outline: none !important;
     }
@@ -385,24 +383,24 @@
     }
     .code-editor-surface .code-textarea::selection,
     .code-textarea::selection {
-      background: rgba(43, 82, 140, 0.55) !important;
+      background: rgba(124, 58, 237, 0.5) !important;
       color: transparent !important;
       -webkit-text-fill-color: transparent !important;
     }
 
-    /* IntelliJ IDEA Darcula Token Colors (Exact match with Image 1) */
-    .tok-keyword { color: #cf8e6d !important; font-weight: 600 !important; }
-    .tok-type { color: #cf8e6d !important; font-weight: 600 !important; }
-    .tok-class { color: #bcbec4 !important; font-weight: 600 !important; }
-    .tok-method { color: #56a8f5 !important; font-weight: 500 !important; }
-    .tok-string { color: #6aab73 !important; }
-    .tok-char { color: #6aab73 !important; }
-    .tok-number { color: #2aacb8 !important; }
-    .tok-comment { color: #7a7e85 !important; font-style: italic !important; }
+    /* Syntax Tokens on Cosmic Dark Background */
+    .tok-keyword { color: #f97316 !important; font-weight: 600 !important; }
+    .tok-type { color: #38bdf8 !important; font-weight: 600 !important; }
+    .tok-class { color: #fde047 !important; font-weight: 600 !important; }
+    .tok-method { color: #60a5fa !important; font-weight: 500 !important; }
+    .tok-string { color: #4ade80 !important; }
+    .tok-char { color: #4ade80 !important; }
+    .tok-number { color: #38bdf8 !important; }
+    .tok-comment { color: #818cf8 !important; font-style: italic !important; }
     .tok-annotation { color: #bbb529 !important; }
-    .tok-operator { color: #bcbec4 !important; }
-    .tok-bracket { color: #bcbec4 !important; }
-    .tok-ident { color: #bcbec4 !important; }
+    .tok-operator { color: #cbd5e1 !important; }
+    .tok-bracket { color: #cbd5e1 !important; }
+    .tok-ident { color: #f8fafc !important; }
     .tok-error {
       color: #ff6b68 !important;
       -webkit-text-fill-color: #ff6b68 !important;
@@ -414,32 +412,31 @@
       box-shadow: 0 0 8px rgba(255, 107, 104, 0.6) !important;
     }
 
-    /* 7. JAVA TERMINAL / CONSOLE OUTPUT (AYNAN JETBRAINS MONO & INTELLIJ) */
+    /* 7. JAVA TERMINAL / CONSOLE OUTPUT — COSMIC PURPLE THEME MATCHING INTERFACE */
     .console-section {
-      background: #1e1f22 !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+      background: #0d0a1f !important;
+      border-top: 1px solid rgba(168, 85, 247, 0.25) !important;
     }
     .console-header {
-      background: #18191b !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      background: #130f2c !important;
+      border-bottom: 1px solid rgba(168, 85, 247, 0.2) !important;
       padding: 6px 14px !important;
     }
     .console-output {
-      background: #1e1f22 !important;
-      font-family: 'JetBrains Mono', monospace !important;
-      font-size: 13px !important;
-      line-height: 1.55 !important;
-      color: #bcbec4 !important;
-      letter-spacing: -0.01em !important;
+      background: #090717 !important;
+      font-family: Consolas, 'Fira Code', monospace !important;
+      font-size: 12.5px !important;
+      line-height: 1.5 !important;
+      color: #cbd5e1 !important;
       padding: 12px 16px !important;
     }
     .console-output.success {
-      border-left: 3px solid #6aab73 !important;
-      color: #6aab73 !important;
+      border-left: 3px solid #34d399 !important;
+      color: #34d399 !important;
     }
     .console-output.error {
-      border-left: 3px solid #ff6b68 !important;
-      color: #ff6b68 !important;
+      border-left: 3px solid #f87171 !important;
+      color: #fca5a5 !important;
     }
   </style>
 </head>
@@ -614,15 +611,15 @@
     </section>
   </main>
 
-  <script src="../shared/java-analyzer.js?v=20261018_v7_modes"></script>
-  <script src="../shared/java-runner.js?v=20261018_v7_modes"></script>
-  <script src="../shared/uml-renderer.js?v=20261018_v7_modes"></script>
-  <script src="../shared/solution-renderer.js?v=20261018_v7_modes"></script>
-    <script src="../shared/oop-i18n.js?v=20261018_v7_modes"></script>
-<script src="../shared/oop-dictionary.js?v=20261018_v7_modes"></script>
-  <script src="../shared/challenges-w6.js?v=20261018_v7_modes"></script>
-    <script src="../shared/java-editor-enhancer.js?v=20261018_v7_modes"></script>
-  <script src="game.js?v=20261018_v7_modes"></script>
+  <script src="../shared/java-analyzer.js?v=20261018_v8_consolas"></script>
+  <script src="../shared/java-runner.js?v=20261018_v8_consolas"></script>
+  <script src="../shared/uml-renderer.js?v=20261018_v8_consolas"></script>
+  <script src="../shared/solution-renderer.js?v=20261018_v8_consolas"></script>
+    <script src="../shared/oop-i18n.js?v=20261018_v8_consolas"></script>
+<script src="../shared/oop-dictionary.js?v=20261018_v8_consolas"></script>
+  <script src="../shared/challenges-w6.js?v=20261018_v8_consolas"></script>
+    <script src="../shared/java-editor-enhancer.js?v=20261018_v8_consolas"></script>
+  <script src="game.js?v=20261018_v8_consolas"></script>
 
 </body>
 </html>

@@ -609,12 +609,26 @@ class Main {
     });
 
     const btnToolbarSol = document.getElementById("btnToolbarSolution");
-    if (btnToolbarSol && btnToggleSol) {
+    if (btnToolbarSol) {
       btnToolbarSol.addEventListener("click", () => {
-        btnToggleSol.click();
+        const ch = CHALLENGES[currentQIndex];
+        if (!ch) return;
+
+        // 1. Instant Solution Modal Popup (works on any tab/view!)
+        if (window.SolutionRenderer && typeof window.SolutionRenderer.openModal === "function") {
+          window.SolutionRenderer.openModal(ch, currentLang);
+        }
+
+        // 2. Switch to Problem tab & expand inline solution card
+        const tabProblem = document.getElementById("tabProblem");
+        if (tabProblem) tabProblem.click();
+
         const card = document.getElementById("solutionContentCard");
-        if (card && card.style.display !== "none") {
-          card.scrollIntoView({ behavior: "smooth", block: "center" });
+        if (card) {
+          card.style.display = "block";
+          if (elToggleHint) {
+            elToggleHint.textContent = (currentLang === "en") ? "[Close ▴]" : "[Yopish ▴]";
+          }
         }
       });
     }

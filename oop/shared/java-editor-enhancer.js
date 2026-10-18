@@ -215,7 +215,7 @@
           width: 100%;
           height: 100%;
           min-height: 290px;
-          background: #1e1f22;
+          background: #0d0a1f;
           border: 1px solid rgba(168, 85, 247, 0.3);
           border-radius: 0 0 8px 8px;
           overflow: hidden;
@@ -224,11 +224,11 @@
 
         .editor-gutter {
           width: 44px;
-          background: #1e1f22;
+          background: #0d0a1f;
           border-right: 1px solid rgba(168, 85, 247, 0.2);
           padding: 14px 6px 14px 0;
           text-align: right;
-          font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+          font-family: Consolas, 'Fira Code', monospace;
           font-size: 13px;
           line-height: 22px;
           color: #4b5563;
@@ -265,7 +265,7 @@
           height: 100%;
           min-height: 290px;
           overflow: hidden;
-          background: #1e1f22;
+          background: #0d0a1f;
         }
 
         .code-highlight-backdrop,
@@ -278,9 +278,9 @@
           padding: 16px !important;
           margin: 0 !important;
           box-sizing: border-box !important;
-          font-family: 'JetBrains Mono', Consolas, monospace !important;
+          font-family: Consolas, 'Fira Code', 'Segoe UI Mono', monospace !important;
           font-size: 13.5px !important;
-          line-height: 1.6 !important;
+          line-height: 1.5 !important;
           tab-size: 4 !important;
           -moz-tab-size: 4 !important;
           
@@ -367,7 +367,7 @@
           display: inline-flex;
           align-items: center;
           gap: 5px;
-          font-family: 'JetBrains Mono', monospace;
+          font-family: Consolas, 'Fira Code', monospace;
           user-select: none;
         }
         .intellij-dot {
@@ -389,7 +389,7 @@
           display: inline-flex;
           align-items: center;
           gap: 4px;
-          font-family: 'JetBrains Mono', monospace;
+          font-family: Consolas, 'Fira Code', monospace;
           cursor: pointer;
           animation: errorBadgePulse 1.5s infinite alternate;
         }
@@ -432,7 +432,7 @@
           background: #130f26;
           border: 1px solid rgba(168, 85, 247, 0.22);
           color: #c4b5fd;
-          font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace;
+          font-family: Consolas, 'Fira Code', 'Fira Code', monospace;
           font-size: 10px;
           font-weight: 500;
           padding: 1px 6px;
@@ -490,7 +490,7 @@
         .code-autocomplete-dropdown {
           position: absolute;
           z-index: 1000;
-          background: #1e1f22;
+          background: #0d0a1f;
           border: 1.5px solid #7c3aed;
           border-radius: 8px;
           box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(124, 58, 237, 0.35);
@@ -499,7 +499,7 @@
           max-height: 230px;
           overflow-y: auto;
           overflow-x: hidden;
-          font-family: 'JetBrains Mono', monospace;
+          font-family: Consolas, 'Fira Code', monospace;
           font-size: 12px;
           animation: acFadeIn 0.12s ease-out;
         }
