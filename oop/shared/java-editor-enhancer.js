@@ -223,15 +223,15 @@
         }
 
         .editor-gutter {
-          width: 44px;
-          background: #0d0a1f;
+          width: 42px;
+          background: #090717;
           border-right: 1px solid rgba(168, 85, 247, 0.2);
-          padding: 14px 6px 14px 0;
+          padding: 16px 8px 16px 0;
           text-align: right;
-          font-family: Consolas, 'Fira Code', monospace;
+          font-family: Consolas, 'Courier New', monospace;
           font-size: 13px;
           line-height: 22px;
-          color: #4b5563;
+          color: #64748b;
           user-select: none;
           overflow: hidden;
           box-sizing: border-box;
@@ -245,17 +245,18 @@
           align-items: center;
           justify-content: flex-end;
           gap: 4px;
+          font-family: Consolas, 'Courier New', monospace;
         }
         .gutter-line.has-error {
-          color: #ef4444;
+          color: #ff6b68;
           font-weight: 700;
         }
         .gutter-err-dot {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: #ef4444;
-          box-shadow: 0 0 6px rgba(239, 68, 68, 0.9);
+          background: #ff6b68;
+          box-shadow: 0 0 6px rgba(255, 107, 104, 0.9);
           display: inline-block;
         }
 
@@ -268,26 +269,61 @@
           background: #0d0a1f;
         }
 
+        /* CRITICAL METRICS LOCK: Identical width/height across textarea and highlight backdrop */
         .code-highlight-backdrop,
+        .code-highlight-backdrop *,
+        #codeHighlightContent,
+        #codeHighlightContent *,
+        .code-editor-surface .code-textarea,
         .code-textarea {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          padding: 16px !important;
-          margin: 0 !important;
-          box-sizing: border-box !important;
-          font-family: Consolas, 'Fira Code', 'Segoe UI Mono', monospace !important;
+          font-family: Consolas, 'Courier New', monospace !important;
           font-size: 13.5px !important;
-          line-height: 1.5 !important;
+          line-height: 22px !important;
+          letter-spacing: 0px !important;
+          word-spacing: 0px !important;
+          font-weight: 500 !important;
+          font-style: normal !important;
+          font-variant-ligatures: none !important;
+          font-feature-settings: "liga" 0, "calt" 0 !important;
+          text-rendering: optimizeLegibility !important;
+          -webkit-font-smoothing: antialiased !important;
+          -moz-osx-font-smoothing: grayscale !important;
           tab-size: 4 !important;
           -moz-tab-size: 4 !important;
-          
           white-space: pre !important;
-          overflow: auto !important;
+          word-wrap: normal !important;
+          overflow-wrap: normal !important;
+          word-break: normal !important;
+          text-align: left !important;
+          text-indent: 0 !important;
+          text-transform: none !important;
+          direction: ltr !important;
+        }
+
+        .code-highlight-backdrop,
+        .code-editor-surface .code-textarea,
+        .code-textarea {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          padding: 16px !important;
+          margin: 0 !important;
           border: none !important;
-          
+          box-sizing: border-box !important;
+          overflow: auto !important;
+        }
+
+        .code-highlight-backdrop code,
+        #codeHighlightContent {
+          display: inline-block !important;
+          min-width: 100% !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          border: none !important;
+          background: transparent !important;
+          color: inherit !important;
         }
 
         .code-highlight-backdrop {
@@ -320,7 +356,7 @@
         }
 
         /* IntelliJ IDEA Darcula Token Colors */
-        .tok-keyword { color: #cf8e6d !important; font-weight: 600 !important; }
+        .tok-keyword { color: #cf8e6d !important; font-weight: 700 !important; }
         .tok-type { color: #cf8e6d !important; font-weight: 600 !important; }
         .tok-class { color: #bcbec4 !important; font-weight: 600 !important; }
         .tok-method { color: #56a8f5 !important; font-weight: 500 !important; }
@@ -328,15 +364,9 @@
         .tok-char { color: #6aab73 !important; }
         .tok-number { color: #2aacb8 !important; }
         .tok-comment { color: #7a7e85 !important; font-style: italic !important; }
-        .tok-annotation {
-          color: #bbb529 !important; /* Gold */
-        }
-        .tok-operator {
-          color: #e2e8f0 !important;
-        }
-        .tok-bracket {
-          color: #cbd5e1 !important;
-        }
+        .tok-annotation { color: #bbb529 !important; }
+        .tok-operator { color: #e2e8f0 !important; }
+        .tok-bracket { color: #cbd5e1 !important; }
         .tok-ident { color: #bcbec4 !important; }
 
         /* Error token styling - glowing red & wavy underline */
@@ -345,57 +375,11 @@
           -webkit-text-fill-color: #ff4d4f !important;
           background: rgba(239, 68, 68, 0.28) !important;
           border-bottom: 2px wavy #ef4444 !important;
-          border-radius: 3px !important;
-          padding: 0 2px !important;
+          border-radius: 2px !important;
+          padding: 0 !important;
+          margin: 0 !important;
           font-weight: 700 !important;
-          animation: tokErrorPulse 1.4s infinite alternate !important;
-        }
-        @keyframes tokErrorPulse {
-          from { background: rgba(239, 68, 68, 0.2); box-shadow: 0 0 6px rgba(239, 68, 68, 0.4); }
-          to { background: rgba(239, 68, 68, 0.42); box-shadow: 0 0 12px rgba(239, 68, 68, 0.75); }
-        }
-
-        /* IntelliJ Theme Badge in Toolbar */
-        .intellij-theme-badge {
-          background: #1e183a;
-          border: 1px solid rgba(168, 85, 247, 0.45);
-          color: #c084fc;
-          font-size: 11px;
-          font-weight: 700;
-          padding: 2px 8px;
-          border-radius: 12px;
-          display: inline-flex;
-          align-items: center;
-          gap: 5px;
-          font-family: Consolas, 'Fira Code', monospace;
-          user-select: none;
-        }
-        .intellij-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: #a855f7;
-          box-shadow: 0 0 8px #a855f7;
-          display: inline-block;
-        }
-        .editor-error-badge {
-          background: rgba(239, 68, 68, 0.2);
-          border: 1px solid #ef4444;
-          color: #fca5a5;
-          font-size: 11px;
-          font-weight: 700;
-          padding: 2px 8px;
-          border-radius: 12px;
-          display: inline-flex;
-          align-items: center;
-          gap: 4px;
-          font-family: Consolas, 'Fira Code', monospace;
-          cursor: pointer;
-          animation: errorBadgePulse 1.5s infinite alternate;
-        }
-        @keyframes errorBadgePulse {
-          from { border-color: #ef4444; }
-          to { border-color: #f87171; box-shadow: 0 0 10px rgba(239, 68, 68, 0.6); }
+          box-shadow: 0 0 8px rgba(239, 68, 68, 0.6) !important;
         }
 
         /* Smart Suggestion Chips Bar */
@@ -432,18 +416,20 @@
           background: #130f26;
           border: 1px solid rgba(168, 85, 247, 0.22);
           color: #c4b5fd;
-          font-family: Consolas, 'Fira Code', 'Fira Code', monospace;
-          font-size: 10px;
-          font-weight: 500;
-          padding: 1px 6px;
-          border-radius: 4px;
+          font-family: Consolas, 'Courier New', monospace;
+          font-size: 11px;
+          font-weight: 600;
+          padding: 2.5px 8px;
+          border-radius: 5px;
           cursor: pointer;
           flex-shrink: 0;
           transition: all 0.15s ease;
           display: inline-flex;
           align-items: center;
-          gap: 2px;
+          gap: 4px;
           touch-action: manipulation;
+          line-height: 1.3;
+          height: 24px;
         }
         .smart-chip-btn:hover {
           background: #271f4d;
@@ -458,19 +444,19 @@
           transform: scale(0.96);
         }
         .smart-chip-btn.chip-class {
-          background: rgba(124, 58, 237, 0.25);
-          border-color: #9333ea;
-          color: #f3e8ff;
-          font-weight: 700;
+          background: rgba(245, 158, 11, 0.15);
+          border: 1px solid rgba(245, 158, 11, 0.45);
+          color: #fde68a;
+          font-weight: 600;
         }
         .smart-chip-btn.chip-class:hover {
-          background: #7c3aed;
+          background: #b45309;
           color: #fff;
         }
         .smart-chip-btn.chip-new {
           background: rgba(6, 182, 212, 0.15);
-          border-color: rgba(6, 182, 212, 0.45);
-          color: #67e8f9;
+          border: 1px solid rgba(6, 182, 212, 0.45);
+          color: #a5f3fc;
         }
         .smart-chip-btn.chip-new:hover {
           background: #0891b2;
@@ -478,8 +464,8 @@
         }
         .smart-chip-btn.chip-template {
           background: rgba(16, 185, 129, 0.15);
-          border-color: rgba(16, 185, 129, 0.45);
-          color: #6ee7b7;
+          border: 1px solid rgba(16, 185, 129, 0.45);
+          color: #a7f3d0;
         }
         .smart-chip-btn.chip-template:hover {
           background: #059669;
@@ -499,7 +485,7 @@
           max-height: 230px;
           overflow-y: auto;
           overflow-x: hidden;
-          font-family: Consolas, 'Fira Code', monospace;
+          font-family: Consolas, 'Courier New', monospace;
           font-size: 12px;
           animation: acFadeIn 0.12s ease-out;
         }
@@ -538,14 +524,16 @@
           font-weight: 700;
           padding: 2px 6px;
           border-radius: 4px;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          flex-shrink: 0;
         }
         .badge-class {
-          background: rgba(168, 85, 247, 0.25);
-          color: #e9d5ff;
+          background: rgba(124, 58, 237, 0.25);
+          color: #c4b5fd;
           border: 1px solid rgba(168, 85, 247, 0.5);
+        }
+        .badge-method {
+          background: rgba(59, 130, 246, 0.25);
+          color: #93c5fd;
+          border: 1px solid rgba(59, 130, 246, 0.5);
         }
         .badge-new {
           background: rgba(6, 182, 212, 0.25);

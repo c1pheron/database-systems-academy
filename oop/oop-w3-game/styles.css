@@ -747,12 +747,12 @@ input, textarea, select, [contenteditable="true"] {
 .console-output {
   flex: 1;
   padding: 12px 16px;
-  background: #0d0a1f !important;
-  font-family: Consolas, 'Fira Code', monospace !important;
+  background: #090717 !important;
+  font-family: Consolas, 'Courier New', monospace !important;
   font-size: 13px !important;
-  line-height: 1.55 !important;
-  color: #bcbec4 !important;
-  letter-spacing: -0.01em !important;
+  line-height: 20px !important;
+  color: #cbd5e1 !important;
+  letter-spacing: 0px !important;
   overflow-y: auto;
   white-space: pre-wrap;
 }
@@ -1133,25 +1133,51 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .code-highlight-backdrop,
+.code-highlight-backdrop *,
+#codeHighlightContent,
+#codeHighlightContent *,
+.code-editor-surface .code-textarea,
+.code-textarea {
+  font-family: Consolas, 'Courier New', monospace !important;
+  font-size: 13.5px !important;
+  line-height: 22px !important;
+  letter-spacing: 0px !important;
+  word-spacing: 0px !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  font-variant-ligatures: none !important;
+  font-feature-settings: "liga" 0, "calt" 0 !important;
+  tab-size: 4 !important;
+  -moz-tab-size: 4 !important;
+  white-space: pre !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.code-highlight-backdrop,
 .code-textarea {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 14px 16px !important;
+  padding: 16px !important;
   margin: 0 !important;
   box-sizing: border-box !important;
-  font-family: Consolas, 'Fira Code', Consolas, 'Fira Code', monospace !important;
-  font-size: 13.5px !important;
-  line-height: 22px !important;
-  tab-size: 4 !important;
-  -moz-tab-size: 4 !important;
-  letter-spacing: 0px !important;
-  white-space: pre !important;
   overflow: auto !important;
   border: none !important;
-  font-feature-settings: "liga" 0 !important;
+}
+
+.code-highlight-backdrop code,
+#codeHighlightContent {
+  display: inline-block !important;
+  min-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  color: inherit !important;
 }
 
 .code-highlight-backdrop {

@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../oop-w1-game/styles.css?v=20261018_v8_consolas">
+  <link rel="stylesheet" href="../oop-w1-game/styles.css?v=20261018_v10_consolas_aligned">
             <style id="criticalEditorStyles">
     /* 1. KICHKINA DUMALOQLAR (QUESTION STRIP DOTS) */
     .q-strip {
@@ -174,7 +174,7 @@
       display: none !important;
     }
     .quick-key-btn {
-      font-family: Consolas, 'Fira Code', monospace !important;
+      font-family: Consolas, 'Courier New', monospace !important;
       font-size: 11px !important;
       font-weight: 600 !important;
       padding: 2px 7px !important;
@@ -228,7 +228,7 @@
       user-select: none !important;
     }
     .smart-chip-btn {
-      font-family: Consolas, 'Fira Code', monospace !important;
+      font-family: Consolas, 'Courier New', monospace !important;
       font-size: 11px !important;
       font-weight: 600 !important;
       padding: 2.5px 8px !important;
@@ -275,7 +275,7 @@
       box-shadow: 0 0 8px rgba(168, 85, 247, 0.35) !important;
     }
 
-    /* 6. CODE EDITOR — CONSOLAS MATN STILI (AYNAN 2-RASMDAGIDEK) & INTERFACE RANGLARI BILAN BIR XIL */
+    /* 6. CODE EDITOR — CONSOLAS METRICS LOCK (CARET ALIGNED 100%, ZERO OFFSET) */
     .editor-wrapper {
       position: relative !important;
       flex: 1 !important;
@@ -301,9 +301,9 @@
       border-right: 1px solid rgba(168, 85, 247, 0.2) !important;
       padding: 16px 8px 16px 0 !important;
       text-align: right !important;
-      font-family: Consolas, 'Fira Code', monospace !important;
+      font-family: Consolas, 'Courier New', monospace !important;
       font-size: 13px !important;
-      line-height: 1.5 !important;
+      line-height: 22px !important;
       color: #64748b !important;
       user-select: none !important;
       overflow: hidden !important;
@@ -311,11 +311,13 @@
       flex-shrink: 0 !important;
     }
     .gutter-line {
-      line-height: 1.5 !important;
+      height: 22px !important;
+      line-height: 22px !important;
       display: flex !important;
       align-items: center !important;
       justify-content: flex-end !important;
       gap: 4px !important;
+      font-family: Consolas, 'Courier New', monospace !important;
     }
     .gutter-line.has-error {
       color: #ff6b68 !important;
@@ -337,6 +339,38 @@
       overflow: hidden !important;
       background: #0d0a1f !important;
     }
+
+    /* CARET FIX: STRICT METRIC EQUALITY ACROSS TEXTAREA, PRE, CODE, AND ALL TOKENS */
+    .code-highlight-backdrop,
+    .code-highlight-backdrop *,
+    #codeHighlightContent,
+    #codeHighlightContent *,
+    .code-editor-surface .code-textarea,
+    .code-textarea {
+      font-family: Consolas, 'Courier New', monospace !important;
+      font-size: 13.5px !important;
+      line-height: 22px !important;
+      letter-spacing: 0px !important;
+      word-spacing: 0px !important;
+      font-weight: 500 !important;
+      font-style: normal !important;
+      font-variant-ligatures: none !important;
+      font-feature-settings: "liga" 0, "calt" 0 !important;
+      text-rendering: optimizeLegibility !important;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      tab-size: 4 !important;
+      -moz-tab-size: 4 !important;
+      white-space: pre !important;
+      word-wrap: normal !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      text-align: left !important;
+      text-indent: 0 !important;
+      text-transform: none !important;
+      direction: ltr !important;
+    }
+
     .code-highlight-backdrop,
     .code-editor-surface .code-textarea,
     .code-textarea {
@@ -347,18 +381,22 @@
       height: 100% !important;
       padding: 16px !important;
       margin: 0 !important;
-      box-sizing: border-box !important;
-      font-family: Consolas, 'Fira Code', 'Segoe UI Mono', monospace !important;
-      font-size: 13.5px !important;
-      line-height: 1.5 !important;
-      tab-size: 4 !important;
-      -moz-tab-size: 4 !important;
-      white-space: pre !important;
-      overflow: auto !important;
       border: none !important;
-      letter-spacing: 0 !important;
-      font-weight: 500 !important;
+      box-sizing: border-box !important;
+      overflow: auto !important;
     }
+
+    .code-highlight-backdrop code,
+    #codeHighlightContent {
+      display: inline-block !important;
+      min-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border: none !important;
+      background: transparent !important;
+      color: inherit !important;
+    }
+
     .code-highlight-backdrop {
       pointer-events: none !important;
       z-index: 1 !important;
@@ -389,7 +427,7 @@
     }
 
     /* Syntax Tokens on Cosmic Dark Background */
-    .tok-keyword { color: #f97316 !important; font-weight: 600 !important; }
+    .tok-keyword { color: #f97316 !important; font-weight: 700 !important; }
     .tok-type { color: #38bdf8 !important; font-weight: 600 !important; }
     .tok-class { color: #fde047 !important; font-weight: 600 !important; }
     .tok-method { color: #60a5fa !important; font-weight: 500 !important; }
@@ -406,13 +444,14 @@
       -webkit-text-fill-color: #ff6b68 !important;
       background: rgba(239, 68, 68, 0.25) !important;
       border-bottom: 2px wavy #ff5555 !important;
-      border-radius: 3px !important;
-      padding: 0 2px !important;
+      border-radius: 2px !important;
+      padding: 0 !important;
+      margin: 0 !important;
       font-weight: 700 !important;
       box-shadow: 0 0 8px rgba(255, 107, 104, 0.6) !important;
     }
 
-    /* 7. JAVA TERMINAL / CONSOLE OUTPUT — COSMIC PURPLE THEME MATCHING INTERFACE */
+    /* 7. JAVA TERMINAL / CONSOLE OUTPUT — CONSOLAS TEXT STYLE (AYNAN 2-RASMDAGIDEK) */
     .console-section {
       background: #0d0a1f !important;
       border-top: 1px solid rgba(168, 85, 247, 0.25) !important;
@@ -422,13 +461,19 @@
       border-bottom: 1px solid rgba(168, 85, 247, 0.2) !important;
       padding: 6px 14px !important;
     }
+    .console-output,
+    .console-output * {
+      font-family: Consolas, 'Courier New', monospace !important;
+      font-size: 13px !important;
+      line-height: 20px !important;
+      letter-spacing: 0px !important;
+    }
     .console-output {
       background: #090717 !important;
-      font-family: Consolas, 'Fira Code', monospace !important;
-      font-size: 12.5px !important;
-      line-height: 1.5 !important;
       color: #cbd5e1 !important;
       padding: 12px 16px !important;
+      overflow-y: auto !important;
+      white-space: pre-wrap !important;
     }
     .console-output.success {
       border-left: 3px solid #34d399 !important;
@@ -614,11 +659,11 @@
   <script src="../shared/java-analyzer.js?v=20261018_v8_consolas"></script>
   <script src="../shared/java-runner.js?v=20261018_v8_consolas"></script>
   <script src="../shared/uml-renderer.js?v=20261018_v8_consolas"></script>
-  <script src="../shared/solution-renderer.js?v=20261018_v8_consolas"></script>
+  <script src="../shared/solution-renderer.js?v=20261018_v10_consolas_aligned"></script>
     <script src="../shared/oop-i18n.js?v=20261018_v8_consolas"></script>
 <script src="../shared/oop-dictionary.js?v=20261018_v8_consolas"></script>
   <script src="../shared/challenges-w2.js?v=20261018_v8_consolas"></script>
-    <script src="../shared/java-editor-enhancer.js?v=20261018_v8_consolas"></script>
+    <script src="../shared/java-editor-enhancer.js?v=20261018_v10_consolas_aligned"></script>
   <script src="game.js?v=20261018_v8_consolas"></script>
 
 </body>
