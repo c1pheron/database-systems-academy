@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../oop-w1-game/styles.css?v=20261018_v6_clean">
-      <style id="criticalEditorStyles">
+  <link rel="stylesheet" href="../oop-w1-game/styles.css?v=20261018_v7_modes">
+          <style id="criticalEditorStyles">
     /* 1. KICHKINA DUMALOQLAR (QUESTION STRIP DOTS) */
     .q-strip {
       display: flex !important;
@@ -74,7 +74,44 @@
       box-shadow: 0 0 10px rgba(52, 211, 153, 0.95) !important;
     }
 
-    /* 2. TOOLBAR & TUGMALAR (MAIN.JAVA VA SINTAKSIS TOZA BUTUNLAY YO'Q) */
+    /* 2. MODE SWITCHER BOX (MASALA REJIMI & ODDIY REJIM) */
+    .mode-switch-box {
+      display: inline-flex !important;
+      align-items: center !important;
+      background: #0d0a1c !important;
+      border: 1px solid rgba(168, 85, 247, 0.35) !important;
+      border-radius: 8px !important;
+      padding: 2px !important;
+      gap: 2px !important;
+      user-select: none !important;
+      margin: 0 10px !important;
+    }
+    .btn-mode {
+      background: transparent !important;
+      border: none !important;
+      color: #94a3b8 !important;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      padding: 4px 10px !important;
+      border-radius: 6px !important;
+      cursor: pointer !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      transition: all 0.18s ease !important;
+      line-height: 1.3 !important;
+    }
+    .btn-mode:hover {
+      color: #ffffff !important;
+    }
+    .btn-mode.active {
+      background: #a855f7 !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.6) !important;
+    }
+
+    /* 3. TOOLBAR & TUGMALAR (MAIN.JAVA VA SINTAKSIS TOZA BUTUNLAY YO'Q) */
     .editor-filename,
     .intellij-theme-badge,
     .editor-error-badge,
@@ -125,7 +162,7 @@
       border-color: #a855f7 !important;
     }
 
-    /* 3. QUICK-KEYS ROW */
+    /* 4. QUICK-KEYS ROW */
     .editor-quick-keys {
       display: flex !important;
       align-items: center !important;
@@ -162,7 +199,7 @@
       color: #fff !important;
     }
 
-    /* 4. VARIANTLAR CHIPSLARI (ASL SHAKL, EMUDJILAR VA RANGLAR SAQLANDI, RAZMERI KICHRAYTIRILDI) */
+    /* 5. VARIANTLAR CHIPSLARI (ASL SHAKL, EMUDJILAR VA RANGLAR SAQLANDI, RAZMERI KICHRAYTIRILDI) */
     .smart-suggestion-chips-bar {
       display: flex !important;
       align-items: center !important;
@@ -241,7 +278,7 @@
       box-shadow: 0 0 8px rgba(168, 85, 247, 0.35) !important;
     }
 
-    /* 5. KOD SHIRIFTI — INTELLIJ IDEA (JETBRAINS MONO DARCULA) */
+    /* 6. INTELLIJ DARCULA / NEW UI CODE EDITOR (AYNAN RASMDAGIDEK) */
     .editor-wrapper {
       position: relative !important;
       flex: 1 !important;
@@ -255,44 +292,44 @@
       flex: 1 !important;
       width: 100% !important;
       min-height: 280px !important;
-      background: #110d24 !important;
-      border: 1px solid rgba(168, 85, 247, 0.3) !important;
+      background: #1e1f22 !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
       border-radius: 0 0 8px 8px !important;
       overflow: hidden !important;
       box-sizing: border-box !important;
     }
     .editor-gutter {
-      width: 42px !important;
-      background: #090715 !important;
-      border-right: 1px solid rgba(168, 85, 247, 0.2) !important;
-      padding: 16px 6px 16px 0 !important;
+      width: 44px !important;
+      background: #1e1f22 !important;
+      border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+      padding: 16px 8px 16px 0 !important;
       text-align: right !important;
-      font-family: 'JetBrains Mono', Consolas, monospace !important;
-      font-size: 12.5px !important;
-      line-height: 1.6 !important;
-      color: #4b5563 !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 13px !important;
+      line-height: 1.55 !important;
+      color: #5a5d63 !important;
       user-select: none !important;
       overflow: hidden !important;
       box-sizing: border-box !important;
       flex-shrink: 0 !important;
     }
     .gutter-line {
-      line-height: 1.6 !important;
+      line-height: 1.55 !important;
       display: flex !important;
       align-items: center !important;
       justify-content: flex-end !important;
       gap: 4px !important;
     }
     .gutter-line.has-error {
-      color: #ef4444 !important;
+      color: #ff6b68 !important;
       font-weight: 700 !important;
     }
     .gutter-err-dot {
       width: 6px !important;
       height: 6px !important;
       border-radius: 50% !important;
-      background: #ef4444 !important;
-      box-shadow: 0 0 6px rgba(239, 68, 68, 0.9) !important;
+      background: #ff6b68 !important;
+      box-shadow: 0 0 6px rgba(255, 107, 104, 0.9) !important;
       display: inline-block !important;
     }
     .code-viewport {
@@ -301,7 +338,7 @@
       height: 100% !important;
       min-height: 280px !important;
       overflow: hidden !important;
-      background: #0e0b1f !important;
+      background: #1e1f22 !important;
     }
     .code-highlight-backdrop,
     .code-editor-surface .code-textarea,
@@ -314,19 +351,20 @@
       padding: 16px !important;
       margin: 0 !important;
       box-sizing: border-box !important;
-      font-family: 'JetBrains Mono', Consolas, monospace !important;
+      font-family: 'JetBrains Mono', monospace !important;
       font-size: 13.5px !important;
-      line-height: 1.6 !important;
+      line-height: 1.55 !important;
       tab-size: 4 !important;
       -moz-tab-size: 4 !important;
       white-space: pre !important;
       overflow: auto !important;
       border: none !important;
+      letter-spacing: -0.01em !important;
     }
     .code-highlight-backdrop {
       pointer-events: none !important;
       z-index: 1 !important;
-      color: #abb2bf !important;
+      color: #bcbec4 !important;
       background: transparent !important;
     }
     .code-editor-surface .code-textarea,
@@ -335,7 +373,7 @@
       background: transparent !important;
       color: transparent !important;
       -webkit-text-fill-color: transparent !important;
-      caret-color: #38bdf8 !important;
+      caret-color: #56a8f5 !important;
       resize: none !important;
       outline: none !important;
     }
@@ -347,33 +385,61 @@
     }
     .code-editor-surface .code-textarea::selection,
     .code-textarea::selection {
-      background: rgba(124, 58, 237, 0.45) !important;
+      background: rgba(43, 82, 140, 0.55) !important;
       color: transparent !important;
       -webkit-text-fill-color: transparent !important;
     }
 
-    /* IntelliJ IDEA Darcula Token Colors */
-    .tok-keyword { color: #cc7832 !important; font-weight: 700 !important; }
-    .tok-type { color: #4ec9b0 !important; font-weight: 600 !important; }
-    .tok-class { color: #ffc66d !important; font-weight: 700 !important; }
-    .tok-method { color: #e5c07b !important; }
-    .tok-string { color: #6a8759 !important; }
-    .tok-char { color: #6a8759 !important; }
-    .tok-number { color: #6897bb !important; }
-    .tok-comment { color: #808080 !important; font-style: italic !important; }
+    /* IntelliJ IDEA Darcula Token Colors (Exact match with Image 1) */
+    .tok-keyword { color: #cf8e6d !important; font-weight: 600 !important; }
+    .tok-type { color: #cf8e6d !important; font-weight: 600 !important; }
+    .tok-class { color: #bcbec4 !important; font-weight: 600 !important; }
+    .tok-method { color: #56a8f5 !important; font-weight: 500 !important; }
+    .tok-string { color: #6aab73 !important; }
+    .tok-char { color: #6aab73 !important; }
+    .tok-number { color: #2aacb8 !important; }
+    .tok-comment { color: #7a7e85 !important; font-style: italic !important; }
     .tok-annotation { color: #bbb529 !important; }
-    .tok-operator { color: #e2e8f0 !important; }
-    .tok-bracket { color: #cbd5e1 !important; }
-    .tok-ident { color: #f8fafc !important; }
+    .tok-operator { color: #bcbec4 !important; }
+    .tok-bracket { color: #bcbec4 !important; }
+    .tok-ident { color: #bcbec4 !important; }
     .tok-error {
-      color: #ff4d4f !important;
-      -webkit-text-fill-color: #ff4d4f !important;
-      background: rgba(239, 68, 68, 0.28) !important;
-      border-bottom: 2px wavy #ef4444 !important;
+      color: #ff6b68 !important;
+      -webkit-text-fill-color: #ff6b68 !important;
+      background: rgba(239, 68, 68, 0.25) !important;
+      border-bottom: 2px wavy #ff5555 !important;
       border-radius: 3px !important;
       padding: 0 2px !important;
       font-weight: 700 !important;
-      box-shadow: 0 0 8px rgba(239, 68, 68, 0.6) !important;
+      box-shadow: 0 0 8px rgba(255, 107, 104, 0.6) !important;
+    }
+
+    /* 7. JAVA TERMINAL / CONSOLE OUTPUT (AYNAN JETBRAINS MONO & INTELLIJ) */
+    .console-section {
+      background: #1e1f22 !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+    .console-header {
+      background: #18191b !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      padding: 6px 14px !important;
+    }
+    .console-output {
+      background: #1e1f22 !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 13px !important;
+      line-height: 1.55 !important;
+      color: #bcbec4 !important;
+      letter-spacing: -0.01em !important;
+      padding: 12px 16px !important;
+    }
+    .console-output.success {
+      border-left: 3px solid #6aab73 !important;
+      color: #6aab73 !important;
+    }
+    .console-output.error {
+      border-left: 3px solid #ff6b68 !important;
+      color: #ff6b68 !important;
     }
   </style>
 </head>
@@ -390,6 +456,16 @@
         </div>
       </div>
     </div>
+
+      <!-- 2 TA KICHKINA ICONKA: REJIMLAR (MASALA & ODDIY) -->
+      <div class="mode-switch-box" id="modeSwitchBox">
+        <button id="btnModeChallenge" class="btn-mode active" type="button" title="Masalalar rejimi (150 topshiriq)">
+          <span>🎯</span> <span class="mode-text">Masalalar</span>
+        </button>
+        <button id="btnModePlayground" class="btn-mode" type="button" title="Oddiy rejim — Erkin Java Sandbox">
+          <span>⚡</span> <span class="mode-text">Oddiy Kod</span>
+        </button>
+      </div>
 
     <div class="hud-actions">
       <!-- LUG'AT & QIDIRUV (CTRL+K) -->
@@ -411,8 +487,7 @@
 
     <!-- 150 PROGRESSIVE QUESTIONS SECTOR FILTER & MAP -->
   <div class="sector-tabs-bar" id="sectorTabsBar">
-    <button class="sector-tab-pill active" data-range="all">Barchasi (150)</button>
-    <button class="sector-tab-pill" data-range="1-30">1-Bosqich (1-30)</button>
+    <button class="sector-tab-pill active" data-range="1-30">1-Bosqich (1-30)</button>
     <button class="sector-tab-pill" data-range="31-60">2-Bosqich (31-60)</button>
     <button class="sector-tab-pill" data-range="61-90">3-Bosqich (61-90)</button>
     <button class="sector-tab-pill" data-range="91-120">4-Bosqich (91-120)</button>
@@ -539,15 +614,15 @@
     </section>
   </main>
 
-  <script src="../shared/java-analyzer.js?v=20261018_v6_clean"></script>
-  <script src="../shared/java-runner.js?v=20261018_v6_clean"></script>
-  <script src="../shared/uml-renderer.js?v=20261018_v6_clean"></script>
-  <script src="../shared/solution-renderer.js?v=20261018_v6_clean"></script>
-    <script src="../shared/oop-i18n.js?v=20261018_v6_clean"></script>
-<script src="../shared/oop-dictionary.js?v=20261018_v6_clean"></script>
-  <script src="../shared/challenges-w2.js?v=20261018_v6_clean"></script>
-    <script src="../shared/java-editor-enhancer.js?v=20261018_v6_clean"></script>
-  <script src="game.js?v=20261018_v6_clean"></script>
+  <script src="../shared/java-analyzer.js?v=20261018_v7_modes"></script>
+  <script src="../shared/java-runner.js?v=20261018_v7_modes"></script>
+  <script src="../shared/uml-renderer.js?v=20261018_v7_modes"></script>
+  <script src="../shared/solution-renderer.js?v=20261018_v7_modes"></script>
+    <script src="../shared/oop-i18n.js?v=20261018_v7_modes"></script>
+<script src="../shared/oop-dictionary.js?v=20261018_v7_modes"></script>
+  <script src="../shared/challenges-w2.js?v=20261018_v7_modes"></script>
+    <script src="../shared/java-editor-enhancer.js?v=20261018_v7_modes"></script>
+  <script src="game.js?v=20261018_v7_modes"></script>
 
 </body>
 </html>

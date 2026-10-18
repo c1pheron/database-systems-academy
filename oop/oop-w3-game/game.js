@@ -18,7 +18,7 @@
     }
   };
   let currentQIndex = 0;
-  let currentSector = "all";
+  let currentSector = "1-30";
   let solvedQuestions = new Set();
 
   // Load 150 challenges from dedicated dataset
@@ -195,17 +195,15 @@
     if (idx < 0 || idx >= CHALLENGES.length) return;
     currentQIndex = idx;
 
-    // Auto-update sector filter if current question is outside active sector
+        // Auto-update sector filter to match current question
     const ch = CHALLENGES[idx];
-    if (currentSector !== "all") {
-      const parts = currentSector.split("-").map(Number);
-      if (ch.id < parts[0] || ch.id > parts[1]) {
-        currentSector = "all";
-        document.querySelectorAll(".sector-tab-pill").forEach(p => {
-          if (p.getAttribute("data-range") === "all") p.classList.add("active");
-          else p.classList.remove("active");
-        });
-      }
+    const targetSector = (ch.id <= 30) ? "1-30" : (ch.id <= 60) ? "31-60" : (ch.id <= 90) ? "61-90" : (ch.id <= 120) ? "91-120" : "121-150";
+    if (currentSector !== targetSector) {
+      currentSector = targetSector;
+      document.querySelectorAll(".sector-tab-pill").forEach(p => {
+        if (p.getAttribute("data-range") === targetSector) p.classList.add("active");
+        else p.classList.remove("active");
+      });
     }
 
     renderHUD();
@@ -213,6 +211,92 @@
   }
 
   // 3. 150-Question Map Overview Modal
+    // =========================================================================
+  // APP MODES: MASALA REJIMI (CHALLENGE) VS ODDIY REJIM (PLAYGROUND SANDBOX)
+  // =========================================================================
+  let currentAppMode = "challenge"; // "challenge" | "playground"
+  const PLAYGROUND_STORAGE_KEY = "WIUT_OOP_W3_PLAYGROUND";
+  const DEFAULT_PLAYGROUND_CODE = `// ============================================================================
+// ERKIN JAVA SANDBOX (ODDIY REJIM) — OPENJDK 21
+// ============================================================================
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Salom, Java Sandbox!");
+        
+        // Istalgan kod yozib, 'Ishga tushirish (OpenJDK 21)' tugmasini bosing!
+    }
+}`;
+
+  function switchAppMode(newMode) {
+    if (currentAppMode === newMode) return;
+    const codeArea = document.getElementById("codeEditor");
+
+    if (currentAppMode === "playground" && codeArea) {
+      localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
+    }
+
+    currentAppMode = newMode;
+
+    const btnChal = document.getElementById("btnModeChallenge");
+    const btnPlay = document.getElementById("btnModePlayground");
+    const secTabs = document.getElementById("sectorTabsBar");
+    const qStrip = document.getElementById("qStrip");
+    const paneTabs = document.querySelector(".pane-tabs");
+    const contentProb = document.getElementById("contentProblem");
+    const contentUML = document.getElementById("contentUML");
+    const contentPlay = document.getElementById("contentPlayground");
+    const btnSol = document.getElementById("btnToolbarSolution");
+    const btnNext = document.getElementById("btnNextChallenge");
+
+    if (newMode === "playground") {
+      if (btnChal) btnChal.classList.remove("active");
+      if (btnPlay) btnPlay.classList.add("active");
+      if (secTabs) secTabs.style.display = "none";
+      if (qStrip) qStrip.style.display = "none";
+      if (paneTabs) paneTabs.style.display = "none";
+      if (contentProb) contentProb.style.display = "none";
+      if (contentUML) contentUML.style.display = "none";
+      if (contentPlay) contentPlay.style.display = "block";
+      if (btnSol) btnSol.style.display = "none";
+      if (btnNext) btnNext.style.display = "none";
+
+      const savedCode = localStorage.getItem(PLAYGROUND_STORAGE_KEY);
+      if (codeArea) {
+        codeArea.value = (savedCode !== null) ? savedCode : DEFAULT_PLAYGROUND_CODE;
+        codeArea.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+    } else {
+      if (btnPlay) btnPlay.classList.remove("active");
+      if (btnChal) btnChal.classList.add("active");
+      if (secTabs) secTabs.style.display = "flex";
+      if (qStrip) qStrip.style.display = "flex";
+      if (paneTabs) paneTabs.style.display = "flex";
+      if (contentPlay) contentPlay.style.display = "none";
+      if (contentProb) contentProb.style.display = "block";
+      if (btnSol) btnSol.style.display = "inline-flex";
+      if (btnNext) btnNext.style.display = "inline-flex";
+
+      renderHUD();
+      renderChallenge();
+    }
+  }
+
+  function initModeSwitcher() {
+    const btnChal = document.getElementById("btnModeChallenge");
+    const btnPlay = document.getElementById("btnModePlayground");
+    if (btnChal) btnChal.addEventListener("click", () => switchAppMode("challenge"));
+    if (btnPlay) btnPlay.addEventListener("click", () => switchAppMode("playground"));
+
+    const codeArea = document.getElementById("codeEditor");
+    if (codeArea) {
+      codeArea.addEventListener("input", () => {
+        if (currentAppMode === "playground") {
+          localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
+        }
+      });
+    }
+  }
+
   function initSectorTabs() {
     document.querySelectorAll(".sector-tab-pill").forEach(pill => {
       pill.addEventListener("click", () => {
@@ -416,6 +500,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     loadSolved();
     initSectorTabs();
+    initModeSwitcher();
     renderHUD();
     renderChallenge();
 

@@ -215,7 +215,7 @@
           width: 100%;
           height: 100%;
           min-height: 290px;
-          background: #110d24;
+          background: #1e1f22;
           border: 1px solid rgba(168, 85, 247, 0.3);
           border-radius: 0 0 8px 8px;
           overflow: hidden;
@@ -224,7 +224,7 @@
 
         .editor-gutter {
           width: 44px;
-          background: #090715;
+          background: #1e1f22;
           border-right: 1px solid rgba(168, 85, 247, 0.2);
           padding: 14px 6px 14px 0;
           text-align: right;
@@ -265,7 +265,7 @@
           height: 100%;
           min-height: 290px;
           overflow: hidden;
-          background: #0e0b1f;
+          background: #1e1f22;
         }
 
         .code-highlight-backdrop,
@@ -320,34 +320,14 @@
         }
 
         /* IntelliJ IDEA Darcula Token Colors */
-        .tok-keyword {
-          color: #cc7832 !important; /* IntelliJ Orange */
-          font-weight: 700 !important;
-        }
-        .tok-type {
-          color: #4ec9b0 !important; /* IntelliJ Turquoise */
-          font-weight: 600 !important;
-        }
-        .tok-class {
-          color: #ffc66d !important; /* IntelliJ Class Name (Gold/Amber) */
-          font-weight: 700 !important;
-        }
-        .tok-method {
-          color: #e5c07b !important; /* IntelliJ Yellow */
-        }
-        .tok-string {
-          color: #6a8759 !important; /* IntelliJ Green */
-        }
-        .tok-char {
-          color: #6a8759 !important;
-        }
-        .tok-number {
-          color: #6897bb !important; /* IntelliJ Blue */
-        }
-        .tok-comment {
-          color: #808080 !important; /* Muted Grey */
-          font-style: italic !important;
-        }
+        .tok-keyword { color: #cf8e6d !important; font-weight: 600 !important; }
+        .tok-type { color: #cf8e6d !important; font-weight: 600 !important; }
+        .tok-class { color: #bcbec4 !important; font-weight: 600 !important; }
+        .tok-method { color: #56a8f5 !important; font-weight: 500 !important; }
+        .tok-string { color: #6aab73 !important; }
+        .tok-char { color: #6aab73 !important; }
+        .tok-number { color: #2aacb8 !important; }
+        .tok-comment { color: #7a7e85 !important; font-style: italic !important; }
         .tok-annotation {
           color: #bbb529 !important; /* Gold */
         }
@@ -357,9 +337,7 @@
         .tok-bracket {
           color: #cbd5e1 !important;
         }
-        .tok-ident {
-          color: #f8fafc !important;
-        }
+        .tok-ident { color: #bcbec4 !important; }
 
         /* Error token styling - glowing red & wavy underline */
         .tok-error {
@@ -512,7 +490,7 @@
         .code-autocomplete-dropdown {
           position: absolute;
           z-index: 1000;
-          background: #110d24;
+          background: #1e1f22;
           border: 1.5px solid #7c3aed;
           border-radius: 8px;
           box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(124, 58, 237, 0.35);
