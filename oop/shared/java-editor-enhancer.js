@@ -278,7 +278,7 @@
           padding: 16px !important;
           margin: 0 !important;
           box-sizing: border-box !important;
-          font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace !important;
+          font-family: 'JetBrains Mono', Consolas, monospace !important;
           font-size: 13.5px !important;
           line-height: 1.6 !important;
           tab-size: 4 !important;
@@ -1302,38 +1302,38 @@
         ? global.OOP_I18N.getLang() === "en"
         : (typeof localStorage !== "undefined" && localStorage.getItem("OOP_LANG") === "en");
       const classesList = Array.from(this.knownClasses).filter(c => c !== "Main");
-      let html = `<span class="chip-label-prefix">${isEn ? "Variants:" : "Variantlar:"}</span>`;
+      let html = `<span class="chip-label-prefix">${isEn ? "⚡ Variants:" : "⚡ Variantlar:"}</span>`;
 
       if (classesList.length > 0) {
         classesList.forEach(cls => {
           html += `
             <button type="button" class="smart-chip-btn chip-class" data-action="insert" data-text="${cls}" title="${isEn ? "Insert class name" : "Klass nomini qo'yish"}">
-              ${cls}
+              <span>🏷️</span> ${cls}
             </button>
             <button type="button" class="smart-chip-btn chip-new" data-action="insert" data-text="new ${cls}();" title="${isEn ? "Instantiate object" : "Obyekt yaratish kodi"}">
-              new ${cls}()
+              <span>⚡</span> new ${cls}()
             </button>
             <button type="button" class="smart-chip-btn chip-template" data-action="class-template" data-cls="${cls}" title="${isEn ? "Insert full class blueprint" : "To'liq klass shablonini kiritish"}">
-              class ${cls} { }
+              <span>📦</span> class ${cls} { }
             </button>
           `;
         });
       } else {
         html += `
           <button type="button" class="smart-chip-btn chip-template" data-action="generic-class" title="${isEn ? "New class template" : "Yangi klass shabloni"}">
-            class Model { }
+            <span>📦</span> class Model { }
           </button>
         `;
       }
 
       html += `
-        <button type="button" class="smart-chip-btn" data-action="insert" data-text="System.out.println();" data-offset="19" title="${isEn ? "Standard print statement" : "Chiqarish buyrug'i"}">
-          sout
+        <button type="button" class="smart-chip-btn chip-snippet" data-action="insert" data-text="System.out.println();" data-offset="19" title="${isEn ? "Standard print statement" : "Chiqarish buyrug'i"}">
+          <span>🖨️</span> sout
         </button>
-        <button type="button" class="smart-chip-btn" data-action="insert" data-text="private " title="${isEn ? "private modifier" : "private modifikatori"}">
+        <button type="button" class="smart-chip-btn chip-kw" data-action="insert" data-text="private " title="${isEn ? "private modifier" : "private modifikatori"}">
           private
         </button>
-        <button type="button" class="smart-chip-btn" data-action="insert" data-text="public " title="${isEn ? "public modifier" : "public modifikatori"}">
+        <button type="button" class="smart-chip-btn chip-kw" data-action="insert" data-text="public " title="${isEn ? "public modifier" : "public modifikatori"}">
           public
         </button>
       `;
@@ -1375,10 +1375,6 @@
         });
       });
     },
-
-    // --------------------------------------------------------------------------
-    // CARET COORDINATES MIRROR
-    // --------------------------------------------------------------------------
 
     getCaretCoordinates(textarea, position) {
       let mirror = document.getElementById("textareaCaretMirror");

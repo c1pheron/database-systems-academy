@@ -81,7 +81,7 @@
       dot.className = "q-dot" + (idx === currentQIndex ? " active" : "") + (solvedQuestions.has(ch.id) ? " solved" : "");
       dot.textContent = "";
       const qTitle = (ch.title && ch.title[currentLang]) ? ch.title[currentLang] : (ch.title?.uz || "");
-      dot.title = ch.id + ". " + qTitle + (solvedQuestions.has(ch.id) ? " (Yechilgan)" : "");
+      dot.title = ch.id + ". " + ((ch.title && ch.title[currentLang]) ? ch.title[currentLang] : (ch.title?.uz || ""));
       dot.addEventListener("click", () => switchChallenge(idx));
       qStrip.appendChild(dot);
 

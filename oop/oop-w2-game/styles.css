@@ -271,13 +271,19 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 .q-dot {
-  width: 9px;
-  height: 9px;
-  min-width: 9px;
-  min-height: 9px;
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  min-height: 8px;
+  max-width: 8px;
+  max-height: 8px;
   border-radius: 50%;
   background: transparent;
-  border: 1.5px solid rgba(168, 85, 247, 0.4);
+  border: 1.5px solid rgba(168, 85, 247, 0.45);
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  overflow: hidden !important;
   cursor: pointer;
   transition: all 0.18s ease;
   user-select: none;
@@ -616,14 +622,7 @@ input, textarea, select, [contenteditable="true"] {
   min-height: 38px;
 }
 
-.editor-filename {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--accent-purple-bright);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
+.editor-filename { display: none !important; }
 
 .btn-group {
   display: flex;
@@ -696,7 +695,7 @@ input, textarea, select, [contenteditable="true"] {
   height: 100%;
   background: var(--bg-input);
   color: #f8fafc;
-  font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', Consolas, 'Fira Code', monospace;
   font-size: 13.5px;
   line-height: 1.6;
   padding: 16px;
@@ -1091,7 +1090,7 @@ input, textarea, select, [contenteditable="true"] {
   border-right: 1px solid rgba(168, 85, 247, 0.2);
   padding: 14px 6px 14px 0;
   text-align: right;
-  font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', Consolas, 'Fira Code', monospace;
   font-size: 13px;
   line-height: 22px;
   color: #4b5563;
@@ -1141,7 +1140,7 @@ input, textarea, select, [contenteditable="true"] {
   padding: 14px 16px !important;
   margin: 0 !important;
   box-sizing: border-box !important;
-  font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-family: 'JetBrains Mono', Consolas, 'Fira Code', monospace !important;
   font-size: 13.5px !important;
   line-height: 22px !important;
   tab-size: 4 !important;
