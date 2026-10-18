@@ -57,6 +57,8 @@
     errorBadgeEl: null,
     currentChallenge: null,
     knownClasses: new Set(["Main"]),
+    knownFields: new Map(),
+    knownMethods: new Map(),
     suggestions: [],
     selectedIndex: 0,
     isOpen: false,
@@ -472,100 +474,97 @@
           color: #fff;
         }
 
-        /* Floating Autocomplete Dropdown */
+                /* Floating Autocomplete Dropdown — Sleek, Translucent (Prazrachni) & Compact */
         .code-autocomplete-dropdown {
-          position: absolute;
-          z-index: 1000;
-          background: #0d0a1f;
-          border: 1.5px solid #7c3aed;
-          border-radius: 8px;
-          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(124, 58, 237, 0.35);
-          min-width: 240px;
-          max-width: 380px;
-          max-height: 230px;
-          overflow-y: auto;
-          overflow-x: hidden;
-          font-family: Consolas, 'Courier New', monospace;
-          font-size: 12px;
-          animation: acFadeIn 0.12s ease-out;
+          position: absolute !important;
+          z-index: 1000 !important;
+          background: rgba(13, 10, 31, 0.82) !important;
+          backdrop-filter: blur(12px) !important;
+          -webkit-backdrop-filter: blur(12px) !important;
+          border: 1px solid rgba(168, 85, 247, 0.35) !important;
+          border-radius: 6px !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 12px rgba(168, 85, 247, 0.18) !important;
+          min-width: 130px !important;
+          max-width: 250px !important;
+          max-height: 155px !important;
+          overflow-y: auto !important;
+          overflow-x: hidden !important;
+          font-family: Consolas, 'Courier New', monospace !important;
+          font-size: 11.5px !important;
+          padding: 3px !important;
+          scrollbar-width: thin !important;
+          scrollbar-color: rgba(168, 85, 247, 0.4) transparent !important;
+          animation: acFadeIn 0.1s ease-out !important;
         }
         @keyframes acFadeIn {
           from { opacity: 0; transform: translateY(-4px); }
           to { opacity: 1; transform: translateY(0); }
         }
         .ac-item {
-          padding: 7px 12px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 12px;
-          cursor: pointer;
-          color: #e2e8f0;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-          transition: background 0.1s ease;
-        }
-        .ac-item:last-child {
-          border-bottom: none;
+          padding: 3.5px 8px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          gap: 7px !important;
+          cursor: pointer !important;
+          color: #e2e8f0 !important;
+          border-radius: 4px !important;
+          border-bottom: none !important;
+          transition: all 0.1s ease !important;
+          height: 24px !important;
+          box-sizing: border-box !important;
+          white-space: nowrap !important;
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
         }
         .ac-item:hover, .ac-item.active {
-          background: linear-gradient(135deg, #7c3aed, #9333ea);
-          color: #ffffff;
-        }
-        .ac-item-left {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
+          background: rgba(168, 85, 247, 0.4) !important;
+          color: #ffffff !important;
         }
         .ac-item-badge {
-          font-size: 9.5px;
-          font-weight: 700;
-          padding: 2px 6px;
-          border-radius: 4px;
-        }
-        .badge-class {
-          background: rgba(124, 58, 237, 0.25);
-          color: #c4b5fd;
-          border: 1px solid rgba(168, 85, 247, 0.5);
-        }
-        .badge-method {
-          background: rgba(59, 130, 246, 0.25);
-          color: #93c5fd;
-          border: 1px solid rgba(59, 130, 246, 0.5);
-        }
-        .badge-new {
-          background: rgba(6, 182, 212, 0.25);
-          color: #a5f3fc;
-          border: 1px solid rgba(6, 182, 212, 0.5);
-        }
-        .badge-snippet {
-          background: rgba(16, 185, 129, 0.25);
-          color: #a7f3d0;
-          border: 1px solid rgba(16, 185, 129, 0.5);
+          font-size: 8.5px !important;
+          font-weight: 700 !important;
+          padding: 1px 4.5px !important;
+          border-radius: 3px !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.3px !important;
+          flex-shrink: 0 !important;
+          font-family: 'Inter', sans-serif !important;
+          line-height: 1.1 !important;
         }
         .badge-kw {
-          background: rgba(245, 158, 11, 0.25);
-          color: #fde68a;
-          border: 1px solid rgba(245, 158, 11, 0.5);
+          background: rgba(245, 158, 11, 0.25) !important;
+          color: #fde68a !important;
+          border: 1px solid rgba(245, 158, 11, 0.45) !important;
+        }
+        .badge-class {
+          background: rgba(168, 85, 247, 0.25) !important;
+          color: #e9d5ff !important;
+          border: 1px solid rgba(168, 85, 247, 0.5) !important;
+        }
+        .badge-method {
+          background: rgba(59, 130, 246, 0.25) !important;
+          color: #93c5fd !important;
+          border: 1px solid rgba(59, 130, 246, 0.5) !important;
         }
         .badge-field {
-          background: rgba(236, 72, 153, 0.25);
-          color: #fbcfe8;
-          border: 1px solid rgba(236, 72, 153, 0.5);
+          background: rgba(6, 182, 212, 0.25) !important;
+          color: #a5f3fc !important;
+          border: 1px solid rgba(6, 182, 212, 0.5) !important;
+        }
+        .badge-snippet {
+          background: rgba(16, 185, 129, 0.25) !important;
+          color: #a7f3d0 !important;
+          border: 1px solid rgba(16, 185, 129, 0.5) !important;
         }
         .ac-item-name {
-          font-weight: 600;
-          color: #ffffff;
-        }
-        .ac-item-hint {
-          font-size: 10.5px;
-          color: #94a3b8;
-          white-space: nowrap;
-        }
-        .ac-item.active .ac-item-hint {
-          color: #f1f5f9;
+          font-family: Consolas, 'Courier New', monospace !important;
+          font-size: 11.5px !important;
+          font-weight: 600 !important;
+          color: #f8fafc !important;
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
+          white-space: nowrap !important;
         }
       `;
       document.head.appendChild(style);
@@ -991,23 +990,113 @@
     // --------------------------------------------------------------------------
 
     scanCodeForClasses() {
+      this.scanCode();
+    },
+
+    scanCode() {
       if (!this.codeArea) return;
       const code = this.codeArea.value || "";
       this.knownClasses = new Set(["Main"]);
+      this.knownFields = new Map();
+      this.knownMethods = new Map();
 
-      if (this.currentChallenge && this.currentChallenge.requirements && this.currentChallenge.requirements.classes) {
-        this.currentChallenge.requirements.classes.forEach(c => {
-          if (c && typeof c === "string") this.knownClasses.add(c.trim());
-        });
-      }
-
-      const regex = /(?:class|interface|record|enum)\s+([A-Za-z0-9_]+)/g;
-      let match;
-      while ((match = regex.exec(code)) !== null) {
-        if (match[1]) {
-          this.knownClasses.add(match[1]);
+      const addField = (name, type, isPrivate) => {
+        if (!name || name === "Main" || KEYWORDS.has(name)) return;
+        if (!this.knownFields.has(name)) {
+          this.knownFields.set(name, { type: type || "String", isPrivate: !!isPrivate });
         }
+      };
+
+      const addMethod = (name, returnType, params, isGetter = false, isSetter = false, targetField = "") => {
+        if (!name || KEYWORDS.has(name) || name === "main") return;
+        if (!this.knownMethods.has(name)) {
+          this.knownMethods.set(name, {
+            name,
+            returnType: returnType || (name.startsWith("get") ? "String" : "void"),
+            params: params || "",
+            isGetter,
+            isSetter,
+            targetField
+          });
+        }
+      };
+
+      const extractFromText = (text) => {
+        if (!text) return;
+        // classes
+        const clsRegex = /(?:class|interface|record|enum)\s+([A-Za-z0-9_]+)/g;
+        let m;
+        while ((m = clsRegex.exec(text)) !== null) {
+          if (m[1]) this.knownClasses.add(m[1]);
+        }
+        // fields: e.g. private String name;
+        const fieldRegex = /(?:(private|public|protected)\s+)?(?:static\s+)?(?:final\s+)?([A-Z][a-zA-Z0-9_]*|String|int|double|boolean|char|float|long)\s+([a-zA-Z0-9_]+)\s*(?:=|;)/g;
+        while ((m = fieldRegex.exec(text)) !== null) {
+          const isPriv = m[1] === "private";
+          const fType = m[2];
+          const fName = m[3];
+          addField(fName, fType, isPriv);
+        }
+        // methods: e.g. public void setName(String name)
+        const methodRegex = /(?:(public|private|protected)\s+)?(?:static\s+)?([A-Z][a-zA-Z0-9_]*|void|int|double|String|boolean)\s+([a-zA-Z0-9_]+)\s*\(([^)]*)\)/g;
+        while ((m = methodRegex.exec(text)) !== null) {
+          const retType = m[2];
+          const mName = m[3];
+          const params = m[4];
+          addMethod(mName, retType, params);
+        }
+      };
+
+      // 1. Current challenge requirements & fields
+      if (this.currentChallenge) {
+        const reqs = this.currentChallenge.requirements || {};
+        if (Array.isArray(reqs.classes)) {
+          reqs.classes.forEach(c => { if (c) this.knownClasses.add(c.trim()); });
+        }
+        if (Array.isArray(reqs.fields)) {
+          reqs.fields.forEach(f => {
+            if (typeof f === "object" && f.name) addField(f.name, f.type || "String", false);
+            else if (typeof f === "string") addField(f, "String", false);
+          });
+        }
+        if (Array.isArray(reqs.privateFields)) {
+          reqs.privateFields.forEach(f => {
+            if (typeof f === "object" && f.name) addField(f.name, f.type || "String", true);
+            else if (typeof f === "string") addField(f, "String", true);
+          });
+        }
+        if (Array.isArray(reqs.methods)) {
+          reqs.methods.forEach(m => {
+            const mName = typeof m === "string" ? m : m.name;
+            if (mName) addMethod(mName, m.type, m.params);
+          });
+        }
+
+        // Scan starterCode & solution text
+        extractFromText(this.currentChallenge.starterCode);
+        extractFromText(this.currentChallenge.solution);
       }
+
+      // 2. Scan user's active editor code
+      extractFromText(code);
+
+      // 3. Fallback standard OOP fields (name, price, title, id)
+      const standardFields = [
+        { name: "name", type: "String" },
+        { name: "price", type: "double" },
+        { name: "title", type: "String" },
+        { name: "id", type: "int" }
+      ];
+      standardFields.forEach(sf => addField(sf.name, sf.type, true));
+
+      // 4. Automatically generate getters & setters for all known fields
+      this.knownFields.forEach((info, fName) => {
+        const cap = fName.charAt(0).toUpperCase() + fName.slice(1);
+        const gName = (info.type === "boolean" ? "is" : "get") + cap;
+        const sName = "set" + cap;
+        addMethod(gName, info.type || "String", "", true, false, fName);
+        addMethod(sName, "void", `${info.type || "String"} ${fName}`, false, true, fName);
+      });
     },
 
     triggerAutocomplete(forceOpen = false) {
@@ -1025,13 +1114,15 @@
 
       const isAfterClassKeyword = /class\s+$/i.test(lineText) || /class\s+([A-Za-z0-9_]*)$/i.test(lineText);
       const isAfterNewKeyword = /new\s+$/i.test(lineText) || /new\s+([A-Za-z0-9_]*)$/i.test(lineText);
+      const isAfterType = /(?:(?:private|public|protected)\s+)?(?:static\s+)?([A-Z][a-zA-Z0-9_]*|String|int|double|boolean|char|float|long)\s+([A-Za-z0-9_]*)$/i.test(lineText);
+      const isAfterDot = /\.\s*([A-Za-z0-9_]*)$/.test(lineText);
 
-      if (!forceOpen && currentWord.length === 0 && !isAfterClassKeyword && !isAfterNewKeyword) {
+      if (!forceOpen && currentWord.length === 0 && !isAfterClassKeyword && !isAfterNewKeyword && !isAfterType && !isAfterDot) {
         this.closeDropdown();
         return;
       }
 
-      const list = this.buildSuggestions(currentWord, isAfterClassKeyword, isAfterNewKeyword);
+      const list = this.buildSuggestions(currentWord, lineText, isAfterClassKeyword, isAfterNewKeyword, isAfterType, isAfterDot);
 
       if (list.length === 0) {
         this.closeDropdown();
@@ -1044,123 +1135,189 @@
       this.positionDropdown(pos);
     },
 
-    buildSuggestions(filterWord, isAfterClass, isAfterNew) {
-      const q = filterWord.toLowerCase();
-      const results = [];
-      const classesList = Array.from(this.knownClasses).filter(c => c !== "Main");
+    buildSuggestions(filterWord, lineText, isAfterClass, isAfterNew, isAfterType, isAfterDot) {
+      const q = (filterWord || "").toLowerCase();
+      const pool = [];
 
-      if (isAfterClass) {
-        classesList.forEach(cls => {
-          if (!q || cls.toLowerCase().startsWith(q)) {
-            results.push({
+      // 1. After dot (e.g. 'obj.' or 'this.')
+      if (isAfterDot) {
+        this.knownMethods.forEach(m => {
+          pool.push({
+            name: `${m.name}()`,
+            badge: "fn",
+            type: "method",
+            insertText: `${m.name}()`,
+            cursorOffset: m.name.length + 2
+          });
+        });
+        this.knownFields.forEach((info, fName) => {
+          pool.push({
+            name: fName,
+            badge: "var",
+            type: "field",
+            insertText: fName,
+            cursorOffset: fName.length
+          });
+        });
+      } else if (isAfterType) {
+        // 2. Variable/Field Declaration: e.g. 'private String ' or 'String '
+        const typeMatch = lineText.match(/(?:(?:private|public|protected)\s+)?(?:static\s+)?([A-Z][a-zA-Z0-9_]*|String|int|double|boolean|char|float|long)\s+([A-Za-z0-9_]*)$/i);
+        const declaredType = typeMatch ? typeMatch[1].toLowerCase() : "";
+
+        this.knownFields.forEach((info, fName) => {
+          const fType = (info.type || "").toLowerCase();
+          if (!declaredType || !fType || fType === declaredType || declaredType === "string") {
+            pool.push({
+              name: `${fName};`,
+              badge: "var",
+              type: "field",
+              insertText: `${fName};`,
+              cursorOffset: fName.length + 1
+            });
+            pool.push({
+              name: fName,
+              badge: "var",
+              type: "field",
+              insertText: fName,
+              cursorOffset: fName.length
+            });
+          }
+        });
+      } else if (isAfterClass) {
+        // 3. Class declaration
+        this.knownClasses.forEach(cls => {
+          if (cls !== "Main") {
+            pool.push({
               name: cls,
+              badge: "cls",
               type: "class",
-              badge: "Class",
-              insertText: cls + " {\n    \n}",
-              cursorOffset: cls.length + 7,
-              hint: "Class blueprint"
+              insertText: `${cls} {\n    \n}`,
+              cursorOffset: cls.length + 7
             });
           }
         });
-        return results;
-      }
-
-      if (isAfterNew) {
-        classesList.forEach(cls => {
-          if (!q || cls.toLowerCase().startsWith(q)) {
-            results.push({
-              name: cls + "()",
-              type: "new",
-              badge: "New",
-              insertText: cls + "();",
-              cursorOffset: cls.length + 3,
-              hint: "New instance"
+      } else if (isAfterNew) {
+        // 4. Instantiation
+        this.knownClasses.forEach(cls => {
+          if (cls !== "Main") {
+            pool.push({
+              name: `${cls}()`,
+              badge: "cls",
+              type: "class",
+              insertText: `${cls}();`,
+              cursorOffset: cls.length + 3
             });
           }
         });
-        return results;
+      } else {
+        // 5. General programming keywords, methods, fields, classes
+        const KEYWORD_ITEMS = [
+          { name: "public", badge: "kw", type: "kw", insertText: "public " },
+          { name: "private", badge: "kw", type: "kw", insertText: "private " },
+          { name: "protected", badge: "kw", type: "kw", insertText: "protected " },
+          { name: "static", badge: "kw", type: "kw", insertText: "static " },
+          { name: "final", badge: "kw", type: "kw", insertText: "final " },
+          { name: "class", badge: "kw", type: "kw", insertText: "class " },
+          { name: "return", badge: "kw", type: "kw", insertText: "return " },
+          { name: "this", badge: "kw", type: "kw", insertText: "this." },
+          { name: "String", badge: "kw", type: "kw", insertText: "String " },
+          { name: "int", badge: "kw", type: "kw", insertText: "int " },
+          { name: "double", badge: "kw", type: "kw", insertText: "double " },
+          { name: "boolean", badge: "kw", type: "kw", insertText: "boolean " },
+          { name: "void", badge: "kw", type: "kw", insertText: "void " },
+          { name: "sout", badge: "snip", type: "snippet", insertText: "System.out.println();", cursorOffset: 19 },
+          { name: "public static void main", badge: "snip", type: "snippet", insertText: "public static void main(String[] args) {\n    \n}", cursorOffset: 46 }
+        ];
+
+        KEYWORD_ITEMS.forEach(k => pool.push(k));
+
+        // Known Classes
+        this.knownClasses.forEach(cls => {
+          if (cls !== "Main") {
+            pool.push({ name: cls, badge: "cls", type: "class", insertText: cls });
+          }
+        });
+
+        // Known Fields
+        this.knownFields.forEach((info, fName) => {
+          pool.push({ name: fName, badge: "var", type: "field", insertText: fName });
+        });
+
+        // Known Methods (including automatic getters & setters)
+        this.knownMethods.forEach(m => {
+          pool.push({
+            name: `${m.name}()`,
+            badge: "fn",
+            type: "method",
+            insertText: `${m.name}()`,
+            cursorOffset: m.name.length + 2
+          });
+
+          // Getter snippet
+          if (m.isGetter && m.targetField) {
+            const body = `public ${m.returnType} ${m.name}() {\n        return this.${m.targetField};\n    }`;
+            pool.push({
+              name: `${m.name}() { return }`,
+              badge: "fn",
+              type: "snippet",
+              insertText: body,
+              cursorOffset: body.length
+            });
+          }
+
+          // Setter snippet
+          if (m.isSetter && m.targetField) {
+            const body = `public void ${m.name}(${m.params}) {\n        this.${m.targetField} = ${m.targetField};\n    }`;
+            pool.push({
+              name: `${m.name}(val) { }`,
+              badge: "fn",
+              type: "snippet",
+              insertText: body,
+              cursorOffset: body.length
+            });
+          }
+        });
       }
 
-      classesList.forEach(cls => {
-        if (!q || cls.toLowerCase().includes(q)) {
-          results.push({
-            name: cls,
-            type: "class",
-            badge: "Class",
-            insertText: cls,
-            cursorOffset: cls.length,
-            hint: "Custom Class"
-          });
+      // Ranking & Scoring Algorithm (Priority to prefix match & exact keywords)
+      const scoreItem = (item) => {
+        if (!q) return 10;
+        const name = item.name.toLowerCase();
+        const clean = name.replace(/[();{}]/g, "").trim();
 
-          const varName = cls.charAt(0).toLowerCase() + cls.slice(1);
-          results.push({
-            name: `${cls} ${varName} = new ${cls}();`,
-            type: "new",
-            badge: "Instance",
-            insertText: `${cls} ${varName} = new ${cls}();`,
-            cursorOffset: `${cls} ${varName} = new ${cls}();`.length,
-            hint: "Object declaration"
-          });
+        // Exact match
+        if (clean === q || name === q) return 1000;
+
+        // Prefix match
+        if (clean.startsWith(q)) {
+          let s = 500 - clean.length;
+          // Priority for keywords when typing prefix like 'p' or 'pub'
+          if (item.type === "kw") s += 40;
+          return s;
         }
-      });
 
-      if (this.currentChallenge && this.currentChallenge.requirements) {
-        const reqs = this.currentChallenge.requirements;
-        if (reqs.fields) {
-          reqs.fields.forEach(f => {
-            if (typeof f === "object" && f.name && (!q || f.name.toLowerCase().includes(q))) {
-              results.push({
-                name: `${f.type} ${f.name};`,
-                type: "field",
-                badge: "Field",
-                insertText: `${f.type} ${f.name};`,
-                cursorOffset: `${f.type} ${f.name};`.length,
-                hint: `Required ${f.type} field`
-              });
-            }
-          });
+        if (name.startsWith(q)) {
+          return 450 - name.length;
         }
-        if (reqs.methods) {
-          reqs.methods.forEach(m => {
-            const mName = typeof m === "string" ? m : m.name;
-            if (mName && (!q || mName.toLowerCase().includes(q))) {
-              results.push({
-                name: `public void ${mName}() { }`,
-                type: "snippet",
-                badge: "Method",
-                insertText: `public void ${mName}() {\n    \n}`,
-                cursorOffset: `public void ${mName}() {\n    `.length,
-                hint: "Required Method"
-              });
-            }
-          });
+
+        // Substring / camelCase word-boundary match (e.g. 'name' in 'getName')
+        const idx = name.indexOf(q);
+        if (idx !== -1) {
+          if (idx > 0 && /[A-Z_]/.test(item.name.charAt(idx))) {
+            return 300 - idx;
+          }
+          return 100 - idx;
         }
-      }
 
-      const COMMON_ITEMS = [
-        { name: "class [Name] { }", type: "snippet", badge: "Class", insertText: "class Name {\n    \n}", cursorOffset: 6, hint: "New class declaration" },
-        { name: "sout (println)", type: "snippet", badge: "Print", insertText: "System.out.println();", cursorOffset: 19, hint: "Standard output" },
-        { name: "public static void main", type: "snippet", badge: "Main", insertText: "public static void main(String[] args) {\n    \n}", cursorOffset: 46, hint: "JVM entry point" },
-        { name: "public", type: "kw", badge: "Keyword", insertText: "public ", cursorOffset: 7, hint: "Access modifier" },
-        { name: "private", type: "kw", badge: "Keyword", insertText: "private ", cursorOffset: 8, hint: "Access modifier" },
-        { name: "protected", type: "kw", badge: "Keyword", insertText: "protected ", cursorOffset: 10, hint: "Access modifier" },
-        { name: "static", type: "kw", badge: "Keyword", insertText: "static ", cursorOffset: 7, hint: "Class member" },
-        { name: "final", type: "kw", badge: "Keyword", insertText: "final ", cursorOffset: 6, hint: "Constant/immutable" },
-        { name: "String", type: "kw", badge: "Type", insertText: "String ", cursorOffset: 7, hint: "Text object" },
-        { name: "int", type: "kw", badge: "Type", insertText: "int ", cursorOffset: 4, hint: "32-bit integer" },
-        { name: "double", type: "kw", badge: "Type", insertText: "double ", cursorOffset: 7, hint: "64-bit float" },
-        { name: "boolean", type: "kw", badge: "Type", insertText: "boolean ", cursorOffset: 8, hint: "true / false" },
-        { name: "return", type: "kw", badge: "Keyword", insertText: "return ", cursorOffset: 7, hint: "Return value" },
-        { name: "this.", type: "kw", badge: "Keyword", insertText: "this.", cursorOffset: 5, hint: "Current instance" }
-      ];
+        return 0;
+      };
 
-      COMMON_ITEMS.forEach(it => {
-        if (!q || it.name.toLowerCase().includes(q) || (q === "sout" && it.name.includes("sout"))) {
-          results.push(it);
-        }
-      });
-
-      return results.slice(0, 8);
+      return pool
+        .map(it => ({ item: it, s: scoreItem(it) }))
+        .filter(x => x.s > 0)
+        .sort((a, b) => b.s - a.s)
+        .map(x => x.item)
+        .slice(0, 6);
     },
 
     renderDropdown() {
@@ -1170,15 +1327,18 @@
         const badgeClass = item.type === "class" ? "badge-class" :
                            item.type === "new" ? "badge-new" :
                            item.type === "field" ? "badge-field" :
+                           item.type === "method" ? "badge-method" :
                            item.type === "snippet" ? "badge-snippet" : "badge-kw";
+
+        const displayBadge = item.badge || (item.type === "class" ? "cls" :
+                                            item.type === "field" ? "var" :
+                                            item.type === "method" ? "fn" :
+                                            item.type === "snippet" ? "snip" : "kw");
 
         html += `
           <div class="ac-item ${idx === this.selectedIndex ? "active" : ""}" data-idx="${idx}">
-            <div class="ac-item-left">
-              <span class="ac-item-badge ${badgeClass}">${item.badge}</span>
-              <span class="ac-item-name">${this.escapeHTML(item.name)}</span>
-            </div>
-            <span class="ac-item-hint">${this.escapeHTML(item.hint || "")}</span>
+            <span class="ac-item-badge ${badgeClass}">${displayBadge}</span>
+            <span class="ac-item-name">${this.escapeHTML(item.name)}</span>
           </div>
         `;
       });
@@ -1220,8 +1380,8 @@
       let left = coords.left - wrapperRect.left;
 
       if (left < 10) left = 10;
-      if (left + 280 > wrapperRect.width) left = Math.max(10, wrapperRect.width - 290);
-      if (top + 230 > wrapperRect.height) top = Math.max(10, top - 245);
+      if (left + 220 > wrapperRect.width) left = Math.max(10, wrapperRect.width - 230);
+      if (top + 155 > wrapperRect.height) top = Math.max(10, top - 165);
 
       this.dropdownEl.style.top = top + "px";
       this.dropdownEl.style.left = left + "px";
@@ -1243,7 +1403,7 @@
       textarea.selectionStart = textarea.selectionEnd = targetPos;
 
       this.closeDropdown();
-      this.scanCodeForClasses();
+      this.scanCode();
       this.renderChipsBar();
       this.updateHighlighting();
       this.triggerInputEvent();
@@ -1291,6 +1451,32 @@
           </button>
         `;
       }
+
+      // Add known fields (e.g. name, price)
+      const topFields = Array.from(this.knownFields.keys()).slice(0, 2);
+      topFields.forEach(fName => {
+        html += `
+          <button type="button" class="smart-chip-btn chip-class" data-action="insert" data-text="${fName}" title="${isEn ? "Field" : "Maydon"}: ${fName}">
+            <span>🏷️</span> ${fName}
+          </button>
+        `;
+      });
+
+      // Add known getters & setters (e.g. getName(), setName())
+      const topMethods = Array.from(this.knownMethods.keys())
+        .filter(m => m.startsWith("get") || m.startsWith("set"))
+        .slice(0, 3);
+
+      topMethods.forEach(mName => {
+        const isGetter = mName.startsWith("get");
+        const insText = isGetter ? `${mName}()` : `${mName}("");`;
+        const offset = isGetter ? mName.length + 2 : mName.length + 2;
+        html += `
+          <button type="button" class="smart-chip-btn chip-new" data-action="insert" data-text="${insText}" data-offset="${offset}" title="${mName}">
+            <span>⚡</span> ${mName}()
+          </button>
+        `;
+      });
 
       html += `
         <button type="button" class="smart-chip-btn chip-snippet" data-action="insert" data-text="System.out.println();" data-offset="19" title="${isEn ? "Standard print statement" : "Chiqarish buyrug'i"}">
