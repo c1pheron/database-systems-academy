@@ -1,3 +1,21 @@
+    /* CONSOLAS FONT DEFINITION (Loaded on mobile & fallbacks) */
+    @font-face {
+      font-family: 'Consolas';
+      src: local('Consolas'),
+           url('../shared/fonts/consola.ttf') format('truetype');
+      font-weight: 400 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Consolas';
+      src: local('Consolas Bold'), local('Consolas-Bold'),
+           url('../shared/fonts/consola.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
 /* ============================================================================
    OOP ACADEMY — WEEK 1 2D SIMULATOR STYLES
    Royal Amethyst Obsidian Theme (#0a0914, #120f24, #7c3aed, #c084fc)
@@ -707,11 +725,16 @@ input, textarea, select, [contenteditable="true"] {
 
 /* Console Output Section */
 .console-section {
-  height: 220px;
+  flex: 0 0 190px !important;
+  height: 190px !important;
+  min-height: 160px !important;
+  max-height: 40vh !important;
   background: var(--bg-terminal);
   border-top: 1px solid rgba(168, 85, 247, 0.3);
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-shrink: 0 !important;
+  overflow: hidden !important;
 }
 
 .console-header {
