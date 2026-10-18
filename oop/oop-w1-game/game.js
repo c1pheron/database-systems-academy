@@ -7,6 +7,9 @@
   "use strict";
 
   const STORAGE_KEY = "WIUT_OOP_W1_PROGRESS";
+  const CODE_STORAGE_PREFIX = "WIUT_OOP_W1_CODE_";
+  const LAST_Q_KEY = "WIUT_OOP_W1_LAST_Q";
+  const PLAYGROUND_STORAGE_KEY = "WIUT_OOP_W1_PLAYGROUND";
   let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
 
   window.onOopLanguageChange = function (lang) {
@@ -18,7 +21,7 @@
     }
   };
   let currentQIndex = 0;
-  let currentSector = "1-30";
+  let currentSector = "1-10";
   let solvedQuestions = new Set();
 
   // Load 150 challenges from dedicated dataset
@@ -164,10 +167,18 @@
       reqList.innerHTML = reqHtml;
     }
 
-    // Set code editor
+    // Set code editor (with persistent draft restoration)
     const codeArea = document.getElementById("codeEditor");
     if (codeArea) {
-      codeArea.value = ch.starterCode || "";
+      let saved = null;
+      try {
+        saved = localStorage.getItem(CODE_STORAGE_PREFIX + ch.id);
+      } catch (e) {}
+      if (saved !== null && saved !== undefined) {
+        codeArea.value = saved;
+      } else {
+        codeArea.value = ch.starterCode || "";
+      }
     }
 
     // Clear console output
@@ -191,13 +202,34 @@
     window.UMLRenderer.renderSVG(classes, "umlContainer");
   }
 
+  function saveCurrentCode() {
+    const codeArea = document.getElementById("codeEditor");
+    if (!codeArea) return;
+    if (currentAppMode === "challenge") {
+      const ch = CHALLENGES[currentQIndex];
+      if (ch) {
+        try {
+          localStorage.setItem(CODE_STORAGE_PREFIX + ch.id, codeArea.value);
+        } catch (e) {}
+      }
+    } else if (currentAppMode === "playground") {
+      try {
+        localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
+      } catch (e) {}
+    }
+  }
+
   function switchChallenge(idx) {
     if (idx < 0 || idx >= CHALLENGES.length) return;
+    saveCurrentCode();
     currentQIndex = idx;
+    try {
+      localStorage.setItem(LAST_Q_KEY, String(idx));
+    } catch (e) {}
 
-        // Auto-update sector filter to match current question
+    // Auto-update sector filter to match current question (1-10, 11-20, 21-30, 31-40, 41-50)
     const ch = CHALLENGES[idx];
-    const targetSector = (ch.id <= 30) ? "1-30" : (ch.id <= 60) ? "31-60" : (ch.id <= 90) ? "61-90" : (ch.id <= 120) ? "91-120" : "121-150";
+    const targetSector = (ch.id <= 10) ? "1-10" : (ch.id <= 20) ? "11-20" : (ch.id <= 30) ? "21-30" : (ch.id <= 40) ? "31-40" : "41-50";
     if (currentSector !== targetSector) {
       currentSector = targetSector;
       document.querySelectorAll(".sector-tab-pill").forEach(p => {
@@ -210,12 +242,10 @@
     renderChallenge();
   }
 
-  // 3. 150-Question Map Overview Modal
-    // =========================================================================
+  // =========================================================================
   // APP MODES: MASALA REJIMI (CHALLENGE) VS ODDIY REJIM (PLAYGROUND SANDBOX)
   // =========================================================================
   let currentAppMode = "challenge"; // "challenge" | "playground"
-  const PLAYGROUND_STORAGE_KEY = "WIUT_OOP_W1_PLAYGROUND";
   const DEFAULT_PLAYGROUND_CODE = `// ============================================================================
 // ERKIN JAVA SANDBOX (ODDIY REJIM) — OPENJDK 21
 // ============================================================================
@@ -229,11 +259,7 @@ class Main {
 
   function switchAppMode(newMode) {
     if (currentAppMode === newMode) return;
-    const codeArea = document.getElementById("codeEditor");
-
-    if (currentAppMode === "playground" && codeArea) {
-      localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
-    }
+    saveCurrentCode();
 
     currentAppMode = newMode;
 
@@ -290,9 +316,7 @@ class Main {
     const codeArea = document.getElementById("codeEditor");
     if (codeArea) {
       codeArea.addEventListener("input", () => {
-        if (currentAppMode === "playground") {
-          localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
-        }
+        saveCurrentCode();
       });
     }
   }
@@ -323,7 +347,7 @@ class Main {
         <div style="background:#120f26; border:1px solid #7c3aed; border-radius:14px; max-width:840px; width:100%; max-height:86vh; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.8);">
           <div style="padding:14px 20px; border-bottom:1px solid #221c45; display:flex; align-items:center; justify-content:space-between; background:#181432;">
             <div style="font-weight:700; color:#fff; font-size:15px; display:flex; align-items:center; gap:8px;">
-              <span>🗺️</span> <span>1-Modul: 150 ta Topshiriqlar Xaritasi</span>
+              <span>🗺️</span> <span>1-Modul: Topshiriqlar Xaritasi (${CHALLENGES.length})</span>
             </div>
             <button id="btnCloseMapModal" style="background:transparent; border:none; color:#c084fc; font-size:22px; cursor:pointer;">&times;</button>
           </div>
@@ -499,8 +523,28 @@ class Main {
   // 5. Setup Event Listeners
   document.addEventListener("DOMContentLoaded", () => {
     loadSolved();
+
+    // Restore last question index if saved
+    try {
+      const savedIdx = parseInt(localStorage.getItem(LAST_Q_KEY), 10);
+      if (!isNaN(savedIdx) && savedIdx >= 0 && savedIdx < CHALLENGES.length) {
+        currentQIndex = savedIdx;
+        const ch = CHALLENGES[currentQIndex];
+        if (ch) {
+          currentSector = (ch.id <= 10) ? "1-10" : (ch.id <= 20) ? "11-20" : (ch.id <= 30) ? "21-30" : (ch.id <= 40) ? "31-40" : "41-50";
+        }
+      }
+    } catch (e) {}
+
     initSectorTabs();
     initModeSwitcher();
+
+    // Ensure active sector tab matches currentSector
+    document.querySelectorAll(".sector-tab-pill").forEach(p => {
+      if (p.getAttribute("data-range") === currentSector) p.classList.add("active");
+      else p.classList.remove("active");
+    });
+
     renderHUD();
     renderChallenge();
 
@@ -549,6 +593,7 @@ class Main {
         codeArea.selectionStart = codeArea.selectionEnd = start + cursorOffset;
         codeArea.focus();
         updateUML();
+        saveCurrentCode();
       });
     });
 
@@ -595,6 +640,9 @@ class Main {
       const codeArea = document.getElementById("codeEditor");
       if (ch && codeArea) {
         codeArea.value = ch.starterCode || "";
+        try {
+          localStorage.removeItem(CODE_STORAGE_PREFIX + ch.id);
+        } catch (e) {}
         updateUML();
         if (window.JavaEditorEnhancer) {
           window.JavaEditorEnhancer.updateHighlighting();
@@ -645,11 +693,12 @@ class Main {
       }
     });
 
-    // Real-time UML updates on keystroke
+    // Real-time UML updates on keystroke & auto-save
     const codeArea = document.getElementById("codeEditor");
     if (codeArea) {
       codeArea.addEventListener("input", () => {
         updateUML();
+        saveCurrentCode();
       });
 
       // Note: Advanced Indentation, Tab, Enter & Autocomplete handled by JavaEditorEnhancer

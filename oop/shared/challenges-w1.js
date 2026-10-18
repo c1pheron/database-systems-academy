@@ -1,21 +1,27 @@
-// WIUT OOP (5COSC018C) — WEEK 1 DATASET (150 PROGRESSIVE CHALLENGES)
+// ============================================================================
+// OOP ACADEMY — 50 PROGRESSIVE BESPOKE CHALLENGES (WEEK 1)
+// WIUT 5COSC018C • Senior Java Architect (Professor Ada)
+// 5 Stages x 10 Distinct, Standalone, Non-Repetitive Challenges (Easy -> Hard)
+// ============================================================================
+
 window.OOP_CHALLENGES_W1 = [
   {
     "id": 1,
     "tier": 1,
     "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
+    "sector": "1-10",
     "title": {
-      "uz": "1. Uzum Market — 'Product' Klassi va Maydonlari",
-      "en": "1. Uzum Market — 'Product' Class & State Fields"
+      "uz": "1. Uzum Market — 'Product' Klassi va Birlamchi Maydonlar",
+      "en": "1. Uzum Market — 'Product' Class & Primitive Fields"
     },
     "scenario": {
-      "uz": "Uzum Market (E-Commerce) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'Product' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'price' (double) qo'shing.",
-      "en": "In Uzum Market (E-Commerce), create a blueprint 'Product' with two fields: 'title' (String) and 'price' (double)."
+      "uz": "Uzum Market elektron tijorat platformasida har bir mahsulotni ifodalash uchun shablon (klass) kerak. 'Product' klassini yarating: 'title' (String), 'price' (double), va 'inStock' (boolean) maydonlari bo'lsin. 'Main' metodida bitta Product ob'yektini yarating va uning qiymatlarini chop eting.",
+      "en": "In Uzum Market, define a 'Product' class with three fields: 'title' (String), 'price' (double), and 'inStock' (boolean). Instantiate one Product in 'Main' and print its state."
     },
     "requirements": {
       "classes": [
-        "Product"
+        "Product",
+        "Main"
       ],
       "fields": [
         {
@@ -25,170 +31,54 @@ window.OOP_CHALLENGES_W1 = [
         {
           "name": "price",
           "type": "double"
+        },
+        {
+          "name": "inStock",
+          "type": "boolean"
         }
       ]
     },
-    "starterCode": "",
-    "solution": "class Product {\n    String title;\n    double price;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product obj = new Product();\n        obj.title = \"Uzum Market Birlamchi\";\n        obj.price = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.price);\n    }\n}",
+    "starterCode": "// 1. Product klassini e'lon qiling\nclass Product {\n    // title (String), price (double), inStock (boolean) maydonlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Product ob'yektini new orqali yarating va maydonlariga qiymat bering\n        \n    }\n}",
+    "solution": "class Product {\n    String title;\n    double price;\n    boolean inStock;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product();\n        p.title = \"Smartfon Redmi Note 13\";\n        p.price = 2450000.0;\n        p.inStock = true;\n\n        System.out.println(\"Mahsulot: \" + p.title + \" | Narxi: \" + p.price + \" so'm | Mavjud: \" + p.inStock);\n    }\n}",
     "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'price' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'price' resides in Heap memory per instance.",
-      "cleanCode": "class Product {\n    String title;\n    double price;\n}",
+      "theory": "Java dasturlash tilida har qanday ob'yekt klass chizmasi (blueprint) asosida Heap xotirada joylashadi. 'new' operatori Heap xotiradan yangi xotira bloki ajratadi va maydonlar o'z turlarining birlamchi qiymatlariga (null, 0.0, false) ega bo'ladi.",
+      "theoryEn": "In Java, an object is instantiated on the Heap based on a class blueprint. The 'new' keyword allocates memory and initializes fields to default values.",
+      "cleanCode": "class Product {\n    String title;\n    double price;\n    boolean inStock;\n}",
       "breakdown": [
-        "<code>class Product { ... }</code>: Uzum Market ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double price;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
+        "<code>class Product</code>: Mahsulot uchun model shabloni.",
+        "<code>String title; double price; boolean inStock;</code>: Ob'yektning holatini (state) belgilovchi 3 xil turdagi maydonlar.",
+        "<code>Product p = new Product();</code>: Heap xotirada yangi nusxa (instance) yaratish."
       ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'price' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
+      "pitfalls": "Maydon nomlarida harflar katta-kichikligiga (case-sensitive) qat'iy rioya qiling: 'instock' emas, 'inStock'.",
+      "cw2Tip": "CW2 Console Order Application doirasida har bir tovar aynan shunday xususiyatlarga ega bo'ladi."
     }
   },
   {
     "id": 2,
     "tier": 1,
     "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
+    "sector": "1-10",
     "title": {
-      "uz": "2. Payme Wallet — 'WalletUser' Klassi va Maydonlari",
-      "en": "2. Payme Wallet — 'WalletUser' Class & State Fields"
+      "uz": "2. WIUT Portal — 'Student' Klassi va Heap Xotiradagi Alohida Obyektlar",
+      "en": "2. WIUT Portal — 'Student' Class & Multiple Heap Instances"
     },
     "scenario": {
-      "uz": "Payme Wallet (FinTech) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'WalletUser' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'balance' (double) qo'shing.",
-      "en": "In Payme Wallet (FinTech), create a blueprint 'WalletUser' with two fields: 'title' (String) and 'balance' (double)."
+      "uz": "WIUT talabalar portalida har bir talabaning o'z mustaqil ma'lumotlari bo'ladi. 'Student' klassini tuzing: 'fullName' (String), 'idNumber' (int), 'gpa' (double). Main metodida 2 ta alohida talaba ob'yektini ('s1' va 's2') yarating va ikkalasining GPA ko'rsatkichini solishtirib, yuqoriroq ball olgan talabaning ismini chop eting.",
+      "en": "In WIUT Portal, model a 'Student' with 'fullName' (String), 'idNumber' (int), and 'gpa' (double). Instantiate two students 's1' and 's2' in Heap memory and print the name of the student with the higher GPA."
     },
     "requirements": {
       "classes": [
-        "WalletUser"
+        "Student",
+        "Main"
       ],
       "fields": [
         {
-          "name": "title",
+          "name": "fullName",
           "type": "String"
         },
         {
-          "name": "balance",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class WalletUser {\n    String title;\n    double balance;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser obj = new WalletUser();\n        obj.title = \"Payme Wallet Birlamchi\";\n        obj.balance = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.balance);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'balance' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'balance' resides in Heap memory per instance.",
-      "cleanCode": "class WalletUser {\n    String title;\n    double balance;\n}",
-      "breakdown": [
-        "<code>class WalletUser { ... }</code>: Payme Wallet ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double balance;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'balance' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 3,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "3. Yandex Go — 'TaxiRide' Klassi va Maydonlari",
-      "en": "3. Yandex Go — 'TaxiRide' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Yandex Go (Transport) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'TaxiRide' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'distanceKm' (double) qo'shing.",
-      "en": "In Yandex Go (Transport), create a blueprint 'TaxiRide' with two fields: 'title' (String) and 'distanceKm' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "TaxiRide"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "distanceKm",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class TaxiRide {\n    String title;\n    double distanceKm;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide obj = new TaxiRide();\n        obj.title = \"Yandex Go Birlamchi\";\n        obj.distanceKm = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.distanceKm);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'distanceKm' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'distanceKm' resides in Heap memory per instance.",
-      "cleanCode": "class TaxiRide {\n    String title;\n    double distanceKm;\n}",
-      "breakdown": [
-        "<code>class TaxiRide { ... }</code>: Yandex Go ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double distanceKm;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'distanceKm' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 4,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "4. Korzinka Go — 'LoyaltyCard' Klassi va Maydonlari",
-      "en": "4. Korzinka Go — 'LoyaltyCard' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Korzinka Go (Retail) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'LoyaltyCard' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'bonusPoints' (int) qo'shing.",
-      "en": "In Korzinka Go (Retail), create a blueprint 'LoyaltyCard' with two fields: 'title' (String) and 'bonusPoints' (int)."
-    },
-    "requirements": {
-      "classes": [
-        "LoyaltyCard"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "bonusPoints",
+          "name": "idNumber",
           "type": "int"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class LoyaltyCard {\n    String title;\n    int bonusPoints;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard obj = new LoyaltyCard();\n        obj.title = \"Korzinka Go Birlamchi\";\n        obj.bonusPoints = 42;\n        System.out.println(obj.title + \" holati: \" + obj.bonusPoints);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'bonusPoints' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'bonusPoints' resides in Heap memory per instance.",
-      "cleanCode": "class LoyaltyCard {\n    String title;\n    int bonusPoints;\n}",
-      "breakdown": [
-        "<code>class LoyaltyCard { ... }</code>: Korzinka Go ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>int bonusPoints;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'bonusPoints' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 5,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "5. WIUT Portal — 'Student' Klassi va Maydonlari",
-      "en": "5. WIUT Portal — 'Student' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "WIUT Portal (EdTech) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'Student' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'gpa' (double) qo'shing.",
-      "en": "In WIUT Portal (EdTech), create a blueprint 'Student' with two fields: 'title' (String) and 'gpa' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "Student"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
         },
         {
           "name": "gpa",
@@ -196,5268 +86,2278 @@ window.OOP_CHALLENGES_W1 = [
         }
       ]
     },
-    "starterCode": "",
-    "solution": "class Student {\n    String title;\n    double gpa;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student obj = new Student();\n        obj.title = \"WIUT Portal Birlamchi\";\n        obj.gpa = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.gpa);\n    }\n}",
+    "starterCode": "class Student {\n    // fullName (String), idNumber (int), gpa (double) maydonlarini e'lon qiling\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // s1 va s2 talabalarini yarating, qiymatlar bering va GPA larni solishtiring\n        \n    }\n}",
+    "solution": "class Student {\n    String fullName;\n    int idNumber;\n    double gpa;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student s1 = new Student();\n        s1.fullName = \"Jasur Aliyev\";\n        s1.idNumber = 1001;\n        s1.gpa = 3.8;\n\n        Student s2 = new Student();\n        s2.fullName = \"Madina Karimova\";\n        s2.idNumber = 1002;\n        s2.gpa = 3.95;\n\n        if (s1.gpa > s2.gpa) {\n            System.out.println(\"Yuqori GPA: \" + s1.fullName + \" (\" + s1.gpa + \")\");\n        } else {\n            System.out.println(\"Yuqori GPA: \" + s2.fullName + \" (\" + s2.gpa + \")\");\n        }\n    }\n}",
     "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'gpa' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'gpa' resides in Heap memory per instance.",
-      "cleanCode": "class Student {\n    String title;\n    double gpa;\n}",
+      "theory": "'s1' va 's2' Stack xotirada turli ko'rsatkichlar (references) bo'lib, Heap xotiradagi mutlaqo alohida ikki manzilga ishora qiladi. Bitta ob'yekt maydonining o'zgarishi ikkinchisiga ta'sir qilmaydi.",
+      "theoryEn": "'s1' and 's2' are reference variables on the Stack pointing to two separate memory allocations on the Heap.",
+      "cleanCode": "Student s1 = new Student();\nStudent s2 = new Student();",
       "breakdown": [
-        "<code>class Student { ... }</code>: WIUT Portal ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double gpa;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
+        "<code>Student</code> klassi shablon vazifasini bajaradi.",
+        "Har bir chaqirilgan <code>new Student()</code> alohida nusxa yaratadi.",
+        "Maydonlarga nuqta (<code>.</code>) operatori orqali kirib, solishtirish shartlari bajariladi."
       ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'gpa' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
+      "pitfalls": "Obyekt yaratmasdan (ya'ni `Student s1;` deb qoldirib) uning maydoniga murojaat qilish NullPointerException keltirib chiqaradi.",
+      "cw2Tip": "Guruh loyihangizda bir nechta mijoz yoki tovarlarni massiv yoki ro'yxatda saqlash uchun ushbu poydevor zarur."
+    }
+  },
+  {
+    "id": 3,
+    "tier": 1,
+    "tierName": "1-Bosqich: Klasslar va Maydonlar",
+    "sector": "1-10",
+    "title": {
+      "uz": "3. Yandex Go — 'TaxiTrip' va Maydonlar Asosida Hisob-Kitob",
+      "en": "3. Yandex Go — 'TaxiTrip' & State-Driven Calculations"
+    },
+    "scenario": {
+      "uz": "Yandex Go taksi safarini hisoblash tizimi. 'TaxiTrip' klassini e'lon qiling: 'driverName' (String), 'distanceKm' (double), 'ratePerKm' (double). Main metodida safar ob'yektini yarating va umumiy yo'l haqini ('distanceKm * ratePerKm') hisoblab ekranga chiqaring.",
+      "en": "In Yandex Go, create a 'TaxiTrip' class with 'driverName' (String), 'distanceKm' (double), and 'ratePerKm' (double). Calculate total fare in Main."
+    },
+    "requirements": {
+      "classes": [
+        "TaxiTrip",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "driverName",
+          "type": "String"
+        },
+        {
+          "name": "distanceKm",
+          "type": "double"
+        },
+        {
+          "name": "ratePerKm",
+          "type": "double"
+        }
+      ]
+    },
+    "starterCode": "class TaxiTrip {\n    // driverName (String), distanceKm (double), ratePerKm (double)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // TaxiTrip yaratib, umumiy yo'l haqini hisoblang\n        \n    }\n}",
+    "solution": "class TaxiTrip {\n    String driverName;\n    double distanceKm;\n    double ratePerKm;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiTrip trip = new TaxiTrip();\n        trip.driverName = \"Otabek\";\n        trip.distanceKm = 12.5;\n        trip.ratePerKm = 3500.0;\n\n        double totalFare = trip.distanceKm * trip.ratePerKm;\n        System.out.println(\"Haydovchi: \" + trip.driverName + \" | Jami yo'l haqi: \" + totalFare + \" so'm\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Klass maydonlaridagi qiymatlar ob'yektning holatini (state) ifodalaydi. Ushbu holat asosida tashqarida arifmetik amallar bajarish orqali hisoblangan natijalar olinadi.",
+      "theoryEn": "Fields hold the internal state of an instance. Main can access these states to perform arithmetic calculations.",
+      "cleanCode": "double totalFare = trip.distanceKm * trip.ratePerKm;",
+      "breakdown": [
+        "Maydonlar to'g'ri turda e'lon qilingan: masofa va tarif double bo'lishi aniqlik beradi.",
+        "Hisoblangan qiymat yangi mahalliy o'zgaruvchida saqlanadi."
+      ],
+      "pitfalls": "Butun sonlar bilan ishlashda int bo'linishi (integer division) natijani yaxlitlab xato berishi mumkin, shuning uchun narx va masofalarda doim double ishlatiladi.",
+      "cw2Tip": "Savdo kvitansiyalarini hisoblashda ushbu arifmetika qoidalari qo'llaniladi."
+    }
+  },
+  {
+    "id": 4,
+    "tier": 1,
+    "tierName": "1-Bosqich: Klasslar va Maydonlar",
+    "sector": "1-10",
+    "title": {
+      "uz": "4. Payme Wallet — 'Transaction' va Holat Flaglari (State Flags)",
+      "en": "4. Payme Wallet — 'Transaction' & State Flags"
+    },
+    "scenario": {
+      "uz": "Payme to'lov tizimida har bir pul o'tkazmasi o'z statusiga ega. 'Transaction' klassini tuzing: 'txnId' (String), 'amount' (double), 'isCompleted' (boolean), 'senderPhone' (String). Agar tranzaksiya yakunlangan bo'lsa ('isCompleted == true'), 'Muvaffaqiyatli', aks holda 'Kutilmoqda' xabarini chiqaring.",
+      "en": "In Payme, create a 'Transaction' class with 'txnId' (String), 'amount' (double), 'isCompleted' (boolean), and 'senderPhone' (String). Check status in Main."
+    },
+    "requirements": {
+      "classes": [
+        "Transaction",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "txnId",
+          "type": "String"
+        },
+        {
+          "name": "amount",
+          "type": "double"
+        },
+        {
+          "name": "isCompleted",
+          "type": "boolean"
+        },
+        {
+          "name": "senderPhone",
+          "type": "String"
+        }
+      ]
+    },
+    "starterCode": "class Transaction {\n    // txnId (String), amount (double), isCompleted (boolean), senderPhone (String)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Transaction ob'yektini tekshiring\n        \n    }\n}",
+    "solution": "class Transaction {\n    String txnId;\n    double amount;\n    boolean isCompleted;\n    String senderPhone;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Transaction tx = new Transaction();\n        tx.txnId = \"TXN-884129\";\n        tx.amount = 150000.0;\n        tx.isCompleted = true;\n        tx.senderPhone = \"+998901234567\";\n\n        String status = tx.isCompleted ? \"Muvaffaqiyatli\" : \"Kutilmoqda\";\n        System.out.println(\"ID: \" + tx.txnId + \" | Miqdor: \" + tx.amount + \" | Holat: \" + status);\n    }\n}",
+    "detailedSolution": {
+      "theory": "Mantiqiy maydonlar (boolean flags) tizimda jarayonlarning hozirgi bosqichini belgilaydi va dastur oqimini (control flow) boshqarishda asosiy vosita hisoblanadi.",
+      "theoryEn": "Boolean state flags capture system lifecycle states and direct control flow via conditionals.",
+      "cleanCode": "boolean isCompleted;\nString status = tx.isCompleted ? \"Muvaffaqiyatli\" : \"Kutilmoqda\";",
+      "breakdown": [
+        "<code>isCompleted</code> maydoni to'lov holatini saqlaydi.",
+        "Ternar operator orqali qisqa va toza mantiq yozildi."
+      ],
+      "pitfalls": "boolean maydonlar birlamchi qiymati false bo'ladi, buni esdan chiqarmang.",
+      "cw2Tip": "Buyurtmaning to'langan yoki bekor qilinganligini kuzatish uchun `isPaid` flagi shart."
+    }
+  },
+  {
+    "id": 5,
+    "tier": 1,
+    "tierName": "1-Bosqich: Klasslar va Maydonlar",
+    "sector": "1-10",
+    "title": {
+      "uz": "5. Cloud Server — 'ServerNode' va Xotira Bandlik Monitoringi",
+      "en": "5. Cloud Server — 'ServerNode' & Resource Utilization"
+    },
+    "scenario": {
+      "uz": "Cloud hosting tizimida server xotirasini monitoring qilish talab etiladi. 'ServerNode' klassini e'lon qiling: 'hostName' (String), 'totalRamMb' (int), 'usedRamMb' (int). Bo'sh qolgan RAM miqdorini ('totalRamMb - usedRamMb') hamda foiz hisobidagi bandlik darajasini hisoblab chiqaring.",
+      "en": "In Cloud Server infrastructure, model a 'ServerNode' with 'hostName' (String), 'totalRamMb' (int), and 'usedRamMb' (int). Compute free RAM and memory usage percentage."
+    },
+    "requirements": {
+      "classes": [
+        "ServerNode",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "hostName",
+          "type": "String"
+        },
+        {
+          "name": "totalRamMb",
+          "type": "int"
+        },
+        {
+          "name": "usedRamMb",
+          "type": "int"
+        }
+      ]
+    },
+    "starterCode": "class ServerNode {\n    // hostName (String), totalRamMb (int), usedRamMb (int)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // ServerNode ob'yektini yarating va bo'sh xotirani hisoblang\n        \n    }\n}",
+    "solution": "class ServerNode {\n    String hostName;\n    int totalRamMb;\n    int usedRamMb;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ServerNode node = new ServerNode();\n        node.hostName = \"prod-node-01.wiut.uz\";\n        node.totalRamMb = 16384;\n        node.usedRamMb = 12288;\n\n        int freeRamMb = node.totalRamMb - node.usedRamMb;\n        double usagePct = ((double) node.usedRamMb / node.totalRamMb) * 100.0;\n\n        System.out.println(\"Server: \" + node.hostName);\n        System.out.println(\"Bo'sh RAM: \" + freeRamMb + \" MB | Bandlik: \" + usagePct + \"%\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Tur o'zgartirish (type casting) orqali `(double) node.usedRamMb` qilinmasa, int bo'linishi sodir bo'lib, kasr qism yo'qoladi va natija noto'g'ri bo'ladi.",
+      "theoryEn": "Explicit casting to double ensures floating point division without truncation.",
+      "cleanCode": "double usagePct = ((double) node.usedRamMb / node.totalRamMb) * 100.0;",
+      "breakdown": [
+        "Server parametrlarini ifodalovchi butun sonli maydonlar e'lon qilindi.",
+        "Hisoblashda casting to'g'ri qo'llanildi."
+      ],
+      "pitfalls": "Nolga bo'lish (Division by zero) holatlariga doim e'tibor qarating.",
+      "cw2Tip": "Kompyuter resurslarini to'g'ri hisoblash Java Core dasturchisi uchun shart."
     }
   },
   {
     "id": 6,
     "tier": 1,
     "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
+    "sector": "1-10",
     "title": {
-      "uz": "6. Click Pay — 'PaymentTxn' Klassi va Maydonlari",
-      "en": "6. Click Pay — 'PaymentTxn' Class & State Fields"
+      "uz": "6. UzAirways — 'FlightBooking' va Chipta Shartli Formati",
+      "en": "6. UzAirways — 'FlightBooking' & Conditional Formatting"
     },
     "scenario": {
-      "uz": "Click Pay (Payments) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'PaymentTxn' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'amount' (double) qo'shing.",
-      "en": "In Click Pay (Payments), create a blueprint 'PaymentTxn' with two fields: 'title' (String) and 'amount' (double)."
+      "uz": "UzAirways aviakompaniyasining reys chiptasi. 'FlightBooking' klassini yarating: 'flightCode' (String), 'passengerName' (String), 'seatNumber' (int), 'isBusinessClass' (boolean). Chiptani tekshiring: agar biznes-klass bo'lsa, 'VIP Lounge ruxsati bor', oddiy klass bo'lsa 'Standart joy' deb chop etilsin.",
+      "en": "In UzAirways, model 'FlightBooking' with 'flightCode' (String), 'passengerName' (String), 'seatNumber' (int), and 'isBusinessClass' (boolean). Format ticket perks in Main."
     },
     "requirements": {
       "classes": [
-        "PaymentTxn"
+        "FlightBooking",
+        "Main"
       ],
       "fields": [
         {
-          "name": "title",
+          "name": "flightCode",
           "type": "String"
         },
         {
-          "name": "amount",
-          "type": "double"
+          "name": "passengerName",
+          "type": "String"
+        },
+        {
+          "name": "seatNumber",
+          "type": "int"
+        },
+        {
+          "name": "isBusinessClass",
+          "type": "boolean"
         }
       ]
     },
-    "starterCode": "",
-    "solution": "class PaymentTxn {\n    String title;\n    double amount;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn obj = new PaymentTxn();\n        obj.title = \"Click Pay Birlamchi\";\n        obj.amount = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.amount);\n    }\n}",
+    "starterCode": "class FlightBooking {\n    // flightCode (String), passengerName (String), seatNumber (int), isBusinessClass (boolean)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // FlightBooking ob'yektini yarating va VIP statusini chop eting\n        \n    }\n}",
+    "solution": "class FlightBooking {\n    String flightCode;\n    String passengerName;\n    int seatNumber;\n    boolean isBusinessClass;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightBooking booking = new FlightBooking();\n        booking.flightCode = \"HY-101\";\n        booking.passengerName = \"Akmal Nazarov\";\n        booking.seatNumber = 3;\n        booking.isBusinessClass = true;\n\n        System.out.println(\"Reys: \" + booking.flightCode + \" | Yo'lovchi: \" + booking.passengerName);\n        if (booking.isBusinessClass) {\n            System.out.println(\"Joy: #\" + booking.seatNumber + \" (Biznes-klass • VIP Lounge ruxsati bor)\");\n        } else {\n            System.out.println(\"Joy: #\" + booking.seatNumber + \" (Standart joy)\");\n        }\n    }\n}",
     "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'amount' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'amount' resides in Heap memory per instance.",
-      "cleanCode": "class PaymentTxn {\n    String title;\n    double amount;\n}",
+      "theory": "Ob'yekt maydonlari murakkab biznes shartlarini tekshirish uchun ma'lumotlar bazasi vazifasini bajaradi.",
+      "theoryEn": "Fields act as the authoritative state container evaluated by conditional logic.",
+      "cleanCode": "if (booking.isBusinessClass) { ... }",
       "breakdown": [
-        "<code>class PaymentTxn { ... }</code>: Click Pay ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double amount;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
+        "Aviachiptaning xususiyatlari to'liq ifodalandi.",
+        "Mantiqiy maydon asosida VIP xizmatlar ajratildi."
       ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'amount' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
+      "pitfalls": "boolean o'zgaruvchilarni if ichida `isBusinessClass == true` deb yozish shart emas, `if (isBusinessClass)` yetarli.",
+      "cw2Tip": "Foydalanuvchi huquqlari (Admin/User) ham xuddi shunday tekshiriladi."
     }
   },
   {
     "id": 7,
     "tier": 1,
     "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
+    "sector": "1-10",
     "title": {
-      "uz": "7. Telegram Bot — 'BotMessage' Klassi va Maydonlari",
-      "en": "7. Telegram Bot — 'BotMessage' Class & State Fields"
+      "uz": "7. Korzinka Supermarket — 'InventoryItem' va Zaxira Qoldig'i Ogohlantirishi",
+      "en": "7. Korzinka Supermarket — 'InventoryItem' & Low Stock Alert"
     },
     "scenario": {
-      "uz": "Telegram Bot (Messaging) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'BotMessage' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'chatId' (long) qo'shing.",
-      "en": "In Telegram Bot (Messaging), create a blueprint 'BotMessage' with two fields: 'title' (String) and 'chatId' (long)."
+      "uz": "Korzinka supermarket omborida tovarlar qoldig'i kamayib ketganda avtomatik ogohlantirish berilishi kerak. 'InventoryItem' klassini tuzing: 'skuCode' (String), 'itemName' (String), 'quantity' (int), 'minThreshold' (int). Agar 'quantity <= minThreshold' bo'lsa, 'DIQQAT: Qayta buyurtma bering!', aks holda 'Zaxira yetarli' xabarini bering.",
+      "en": "In Korzinka Supermarket inventory, model 'InventoryItem' with 'skuCode' (String), 'itemName' (String), 'quantity' (int), and 'minThreshold' (int). Trigger low stock warning."
     },
     "requirements": {
       "classes": [
-        "BotMessage"
+        "InventoryItem",
+        "Main"
       ],
       "fields": [
         {
-          "name": "title",
+          "name": "skuCode",
           "type": "String"
         },
         {
-          "name": "chatId",
-          "type": "long"
+          "name": "itemName",
+          "type": "String"
+        },
+        {
+          "name": "quantity",
+          "type": "int"
+        },
+        {
+          "name": "minThreshold",
+          "type": "int"
         }
       ]
     },
-    "starterCode": "",
-    "solution": "class BotMessage {\n    String title;\n    long chatId;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage obj = new BotMessage();\n        obj.title = \"Telegram Bot Birlamchi\";\n        obj.chatId = 1000L;\n        System.out.println(obj.title + \" holati: \" + obj.chatId);\n    }\n}",
+    "starterCode": "class InventoryItem {\n    // skuCode (String), itemName (String), quantity (int), minThreshold (int)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Tovar qoldig'ini tekshiring va ogohlantirish chiqaring\n        \n    }\n}",
+    "solution": "class InventoryItem {\n    String skuCode;\n    String itemName;\n    int quantity;\n    int minThreshold;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        InventoryItem item = new InventoryItem();\n        item.skuCode = \"SKU-99214\";\n        item.itemName = \"Sut 1.5L Musaffo\";\n        item.quantity = 4;\n        item.minThreshold = 10;\n\n        System.out.println(\"Tovar: \" + item.itemName + \" | Qoldiq: \" + item.quantity + \" dona\");\n        if (item.quantity <= item.minThreshold) {\n            System.out.println(\"DIQQAT: Qayta buyurtma bering! Qoldiq chegaradan kam (\" + item.quantity + \" <= \" + item.minThreshold + \")\");\n        } else {\n            System.out.println(\"Holat: Zaxira yetarli.\");\n        }\n    }\n}",
     "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'chatId' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'chatId' resides in Heap memory per instance.",
-      "cleanCode": "class BotMessage {\n    String title;\n    long chatId;\n}",
+      "theory": "Biznes ilovalarida chegaraviy shartlar (threshold checks) doimiy ravishda ob'yekt maydonlari o'rtasida solishtiriladi.",
+      "theoryEn": "Threshold comparisons evaluate system capacity limits directly on instance state.",
+      "cleanCode": "if (item.quantity <= item.minThreshold) { ... }",
       "breakdown": [
-        "<code>class BotMessage { ... }</code>: Telegram Bot ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>long chatId;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
+        "Ombor mahsulotining SKU kodi va soni saqlandi.",
+        "Minimal chegara bilan taqqoslab ogohlantirish berildi."
       ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'chatId' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
+      "pitfalls": "Tenglik belgisini unutib faqat `<` yozish minimal miqdorda ogohlantirish chiqmay qolishiga olib kelishi mumkin.",
+      "cw2Tip": "CW2 Console ilovangizda mahsulot soni 0 ga tushib qolmasligini nazorat qilishda bu usul zarur."
     }
   },
   {
     "id": 8,
     "tier": 1,
     "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
+    "sector": "1-10",
     "title": {
-      "uz": "8. UzAirways — 'FlightTicket' Klassi va Maydonlari",
-      "en": "8. UzAirways — 'FlightTicket' Class & State Fields"
+      "uz": "8. Medion Clinic — 'MedicalRecord' va Bemorning Vital Ko'rsatkichlari",
+      "en": "8. Medion Clinic — 'MedicalRecord' & Vital Health Metrics"
     },
     "scenario": {
-      "uz": "UzAirways (Aviation) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'FlightTicket' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'farePrice' (double) qo'shing.",
-      "en": "In UzAirways (Aviation), create a blueprint 'FlightTicket' with two fields: 'title' (String) and 'farePrice' (double)."
+      "uz": "Medion klinikasida bemorning qon bosimi va harorati nazorat qilinadi. 'MedicalRecord' klassini yarating: 'patientName' (String), 'systolicPressure' (int), 'diastolicPressure' (int), 'bodyTemp' (double). Agar 'systolicPressure >= 140' yoki 'diastolicPressure >= 90' bo'lsa 'Gipertoniya xavfi', aks holda 'Bosim me'yorda' deb xulosa chiqaring.",
+      "en": "In Medion Clinic, model 'MedicalRecord' with 'patientName' (String), 'systolicPressure' (int), 'diastolicPressure' (int), and 'bodyTemp' (double). Evaluate blood pressure status."
     },
     "requirements": {
       "classes": [
-        "FlightTicket"
+        "MedicalRecord",
+        "Main"
       ],
       "fields": [
         {
-          "name": "title",
+          "name": "patientName",
           "type": "String"
         },
         {
-          "name": "farePrice",
+          "name": "systolicPressure",
+          "type": "int"
+        },
+        {
+          "name": "diastolicPressure",
+          "type": "int"
+        },
+        {
+          "name": "bodyTemp",
           "type": "double"
         }
       ]
     },
-    "starterCode": "",
-    "solution": "class FlightTicket {\n    String title;\n    double farePrice;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket obj = new FlightTicket();\n        obj.title = \"UzAirways Birlamchi\";\n        obj.farePrice = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.farePrice);\n    }\n}",
+    "starterCode": "class MedicalRecord {\n    // patientName (String), systolicPressure (int), diastolicPressure (int), bodyTemp (double)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // MedicalRecord ob'yektini tekshiring\n        \n    }\n}",
+    "solution": "class MedicalRecord {\n    String patientName;\n    int systolicPressure;\n    int diastolicPressure;\n    double bodyTemp;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MedicalRecord record = new MedicalRecord();\n        record.patientName = \"Sanjar Jo'rayev\";\n        record.systolicPressure = 145;\n        record.diastolicPressure = 92;\n        record.bodyTemp = 36.6;\n\n        System.out.println(\"Bemor: \" + record.patientName + \" | Tana harorati: \" + record.bodyTemp + \"°C\");\n        if (record.systolicPressure >= 140 || record.diastolicPressure >= 90) {\n            System.out.println(\"Xulosa: Gipertoniya xavfi (\" + record.systolicPressure + \"/\" + record.diastolicPressure + \")\");\n        } else {\n            System.out.println(\"Xulosa: Bosim me'yorda.\");\n        }\n    }\n}",
     "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'farePrice' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'farePrice' resides in Heap memory per instance.",
-      "cleanCode": "class FlightTicket {\n    String title;\n    double farePrice;\n}",
+      "theory": "Mantiqiy 'yoki' (||) va 'va' (&&) operatorlari bir nechta maydonlarni birlashtirib, murakkab domenga oid tahlillar o'tkazish imkonini beradi.",
+      "theoryEn": "Logical disjunction (||) evaluates multiple state variables to determine medical risk conditions.",
+      "cleanCode": "if (record.systolicPressure >= 140 || record.diastolicPressure >= 90)",
       "breakdown": [
-        "<code>class FlightTicket { ... }</code>: UzAirways ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double farePrice;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
+        "Sistolik va diastolik bosim int turlarida saqlandi.",
+        "Qon bosimi xalqaro me'yorlari asosida xulosa berildi."
       ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'farePrice' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
+      "pitfalls": "Mantiqiy shartlarda qavslar ketma-ketligini to'g'ri qo'llash mantiqiy xatoliklarni oldini oladi.",
+      "cw2Tip": "Biznes qoidalari har doim bir nechta maydonlarning kombinatsiyasiga tayanadi."
     }
   },
   {
     "id": 9,
     "tier": 1,
     "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
+    "sector": "1-10",
     "title": {
-      "uz": "9. IT Park Academy — 'BootcampCourse' Klassi va Maydonlari",
-      "en": "9. IT Park Academy — 'BootcampCourse' Class & State Fields"
+      "uz": "9. BYD Auto — 'VehicleTelemetry' va Elektromobil Zaxira Masofasi",
+      "en": "9. BYD Auto — 'VehicleTelemetry' & Electric Range Estimation"
     },
     "scenario": {
-      "uz": "IT Park Academy (Bootcamp) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'BootcampCourse' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'durationWeeks' (int) qo'shing.",
-      "en": "In IT Park Academy (Bootcamp), create a blueprint 'BootcampCourse' with two fields: 'title' (String) and 'durationWeeks' (int)."
+      "uz": "BYD elektromobilining telemetriya tizimi. 'Vehicle' klassini tuzing: 'vin' (String), 'batteryCapacityKwh' (double), 'currentChargeKwh' (double), 'consumptionPer100Km' (double). Qolgan quvvat bilan avtomobil yana necha kilometr masofani bosib o'tishini hisoblang: '(currentChargeKwh / consumptionPer100Km) * 100.0'.",
+      "en": "In BYD Auto telemetry, model 'Vehicle' with 'vin' (String), 'batteryCapacityKwh' (double), 'currentChargeKwh' (double), and 'consumptionPer100Km' (double). Compute estimated driving range."
     },
     "requirements": {
       "classes": [
-        "BootcampCourse"
+        "Vehicle",
+        "Main"
       ],
       "fields": [
         {
-          "name": "title",
+          "name": "vin",
           "type": "String"
         },
         {
-          "name": "durationWeeks",
-          "type": "int"
+          "name": "batteryCapacityKwh",
+          "type": "double"
+        },
+        {
+          "name": "currentChargeKwh",
+          "type": "double"
+        },
+        {
+          "name": "consumptionPer100Km",
+          "type": "double"
         }
       ]
     },
-    "starterCode": "",
-    "solution": "class BootcampCourse {\n    String title;\n    int durationWeeks;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse obj = new BootcampCourse();\n        obj.title = \"IT Park Academy Birlamchi\";\n        obj.durationWeeks = 42;\n        System.out.println(obj.title + \" holati: \" + obj.durationWeeks);\n    }\n}",
+    "starterCode": "class Vehicle {\n    // vin (String), batteryCapacityKwh (double), currentChargeKwh (double), consumptionPer100Km (double)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Vehicle ob'yektini yarating va zaxira masofasini (km) hisoblang\n        \n    }\n}",
+    "solution": "class Vehicle {\n    String vin;\n    double batteryCapacityKwh;\n    double currentChargeKwh;\n    double consumptionPer100Km;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Vehicle car = new Vehicle();\n        car.vin = \"BYD-CHAZOR-2024-UZB\";\n        car.batteryCapacityKwh = 18.3;\n        car.currentChargeKwh = 12.0;\n        car.consumptionPer100Km = 14.5;\n\n        double estimatedRangeKm = (car.currentChargeKwh / car.consumptionPer100Km) * 100.0;\n        double batteryPercentage = (car.currentChargeKwh / car.batteryCapacityKwh) * 100.0;\n\n        System.out.println(\"VIN: \" + car.vin);\n        System.out.println(\"Batareya: \" + batteryPercentage + \"% | Zaxira masofa: \" + estimatedRangeKm + \" km\");\n    }\n}",
     "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'durationWeeks' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'durationWeeks' resides in Heap memory per instance.",
-      "cleanCode": "class BootcampCourse {\n    String title;\n    int durationWeeks;\n}",
+      "theory": "Real muhandislik masalalarida ob'yektning fizik holatlari bir necha xil formulalar orqali foydalanuvchiga kerakli shaklga keltiriladi.",
+      "theoryEn": "Engineering domain models transform raw physical metrics into actionable end-user indicators.",
+      "cleanCode": "double estimatedRangeKm = (car.currentChargeKwh / car.consumptionPer100Km) * 100.0;",
       "breakdown": [
-        "<code>class BootcampCourse { ... }</code>: IT Park Academy ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>int durationWeeks;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
+        "Elektromobil parametrlari double aniqligida e'lon qilindi.",
+        "Qolgan quvvat va 100 km sarf nisbati orqali masofa aniqlandi."
       ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'durationWeeks' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
+      "pitfalls": "consumptionPer100Km nolga teng bo'lmasligi kerak, aks holda cheksizlik (Infinity) paydo bo'ladi.",
+      "cw2Tip": "Real konsol ilovalarida ma'lumotlarni hisoblash doimo shu kabi modellarga tayanadi."
     }
   },
   {
     "id": 10,
     "tier": 1,
     "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
+    "sector": "1-10",
     "title": {
-      "uz": "10. Anorbank — 'DebitCard' Klassi va Maydonlari",
-      "en": "10. Anorbank — 'DebitCard' Class & State Fields"
+      "uz": "10. E-Auction — 'AuctionLot' va Raqobatli Takliflar Logikasi (Stage 1 Master)",
+      "en": "10. E-Auction — 'AuctionLot' & Competitive Bidding (Stage 1 Master)"
     },
     "scenario": {
-      "uz": "Anorbank (Neobank) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'DebitCard' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'creditLimit' (double) qo'shing.",
-      "en": "In Anorbank (Neobank), create a blueprint 'DebitCard' with two fields: 'title' (String) and 'creditLimit' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "DebitCard"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "creditLimit",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class DebitCard {\n    String title;\n    double creditLimit;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard obj = new DebitCard();\n        obj.title = \"Anorbank Birlamchi\";\n        obj.creditLimit = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.creditLimit);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'creditLimit' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'creditLimit' resides in Heap memory per instance.",
-      "cleanCode": "class DebitCard {\n    String title;\n    double creditLimit;\n}",
-      "breakdown": [
-        "<code>class DebitCard { ... }</code>: Anorbank ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double creditLimit;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'creditLimit' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 11,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "11. Oson Apteka — 'Medicine' Klassi va Maydonlari",
-      "en": "11. Oson Apteka — 'Medicine' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Oson Apteka (Pharma) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'Medicine' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'stockCount' (int) qo'shing.",
-      "en": "In Oson Apteka (Pharma), create a blueprint 'Medicine' with two fields: 'title' (String) and 'stockCount' (int)."
-    },
-    "requirements": {
-      "classes": [
-        "Medicine"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "stockCount",
-          "type": "int"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Medicine {\n    String title;\n    int stockCount;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine obj = new Medicine();\n        obj.title = \"Oson Apteka Birlamchi\";\n        obj.stockCount = 42;\n        System.out.println(obj.title + \" holati: \" + obj.stockCount);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'stockCount' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'stockCount' resides in Heap memory per instance.",
-      "cleanCode": "class Medicine {\n    String title;\n    int stockCount;\n}",
-      "breakdown": [
-        "<code>class Medicine { ... }</code>: Oson Apteka ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>int stockCount;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'stockCount' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 12,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "12. Evos FastFood — 'FoodOrder' Klassi va Maydonlari",
-      "en": "12. Evos FastFood — 'FoodOrder' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Evos FastFood (QSR) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'FoodOrder' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'totalSum' (double) qo'shing.",
-      "en": "In Evos FastFood (QSR), create a blueprint 'FoodOrder' with two fields: 'title' (String) and 'totalSum' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "FoodOrder"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "totalSum",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class FoodOrder {\n    String title;\n    double totalSum;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder obj = new FoodOrder();\n        obj.title = \"Evos FastFood Birlamchi\";\n        obj.totalSum = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.totalSum);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'totalSum' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'totalSum' resides in Heap memory per instance.",
-      "cleanCode": "class FoodOrder {\n    String title;\n    double totalSum;\n}",
-      "breakdown": [
-        "<code>class FoodOrder { ... }</code>: Evos FastFood ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double totalSum;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'totalSum' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 13,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "13. Bellissimo Pizza — 'PizzaOrder' Klassi va Maydonlari",
-      "en": "13. Bellissimo Pizza — 'PizzaOrder' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Bellissimo Pizza (Delivery) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'PizzaOrder' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'prepTimeMinutes' (int) qo'shing.",
-      "en": "In Bellissimo Pizza (Delivery), create a blueprint 'PizzaOrder' with two fields: 'title' (String) and 'prepTimeMinutes' (int)."
-    },
-    "requirements": {
-      "classes": [
-        "PizzaOrder"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "prepTimeMinutes",
-          "type": "int"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PizzaOrder {\n    String title;\n    int prepTimeMinutes;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder obj = new PizzaOrder();\n        obj.title = \"Bellissimo Pizza Birlamchi\";\n        obj.prepTimeMinutes = 42;\n        System.out.println(obj.title + \" holati: \" + obj.prepTimeMinutes);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'prepTimeMinutes' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'prepTimeMinutes' resides in Heap memory per instance.",
-      "cleanCode": "class PizzaOrder {\n    String title;\n    int prepTimeMinutes;\n}",
-      "breakdown": [
-        "<code>class PizzaOrder { ... }</code>: Bellissimo Pizza ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>int prepTimeMinutes;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'prepTimeMinutes' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 14,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "14. Milliy TV — 'BroadcastShow' Klassi va Maydonlari",
-      "en": "14. Milliy TV — 'BroadcastShow' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Milliy TV (Media) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'BroadcastShow' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'viewersRating' (double) qo'shing.",
-      "en": "In Milliy TV (Media), create a blueprint 'BroadcastShow' with two fields: 'title' (String) and 'viewersRating' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "BroadcastShow"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "viewersRating",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BroadcastShow {\n    String title;\n    double viewersRating;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow obj = new BroadcastShow();\n        obj.title = \"Milliy TV Birlamchi\";\n        obj.viewersRating = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.viewersRating);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'viewersRating' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'viewersRating' resides in Heap memory per instance.",
-      "cleanCode": "class BroadcastShow {\n    String title;\n    double viewersRating;\n}",
-      "breakdown": [
-        "<code>class BroadcastShow { ... }</code>: Milliy TV ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double viewersRating;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'viewersRating' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 15,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "15. Spotify Sound — 'AudioTrack' Klassi va Maydonlari",
-      "en": "15. Spotify Sound — 'AudioTrack' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Spotify Sound (Streaming) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'AudioTrack' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'durationSec' (int) qo'shing.",
-      "en": "In Spotify Sound (Streaming), create a blueprint 'AudioTrack' with two fields: 'title' (String) and 'durationSec' (int)."
-    },
-    "requirements": {
-      "classes": [
-        "AudioTrack"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "durationSec",
-          "type": "int"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class AudioTrack {\n    String title;\n    int durationSec;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack obj = new AudioTrack();\n        obj.title = \"Spotify Sound Birlamchi\";\n        obj.durationSec = 42;\n        System.out.println(obj.title + \" holati: \" + obj.durationSec);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'durationSec' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'durationSec' resides in Heap memory per instance.",
-      "cleanCode": "class AudioTrack {\n    String title;\n    int durationSec;\n}",
-      "breakdown": [
-        "<code>class AudioTrack { ... }</code>: Spotify Sound ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>int durationSec;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'durationSec' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 16,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "16. Smart Thermostat — 'Thermostat' Klassi va Maydonlari",
-      "en": "16. Smart Thermostat — 'Thermostat' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Smart Thermostat (IoT) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'Thermostat' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'targetTemp' (double) qo'shing.",
-      "en": "In Smart Thermostat (IoT), create a blueprint 'Thermostat' with two fields: 'title' (String) and 'targetTemp' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "Thermostat"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "targetTemp",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Thermostat {\n    String title;\n    double targetTemp;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat obj = new Thermostat();\n        obj.title = \"Smart Thermostat Birlamchi\";\n        obj.targetTemp = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.targetTemp);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'targetTemp' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'targetTemp' resides in Heap memory per instance.",
-      "cleanCode": "class Thermostat {\n    String title;\n    double targetTemp;\n}",
-      "breakdown": [
-        "<code>class Thermostat { ... }</code>: Smart Thermostat ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double targetTemp;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'targetTemp' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 17,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "17. Drone Delivery — 'DeliveryDrone' Klassi va Maydonlari",
-      "en": "17. Drone Delivery — 'DeliveryDrone' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Drone Delivery (Logistics) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'DeliveryDrone' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'batteryPct' (int) qo'shing.",
-      "en": "In Drone Delivery (Logistics), create a blueprint 'DeliveryDrone' with two fields: 'title' (String) and 'batteryPct' (int)."
-    },
-    "requirements": {
-      "classes": [
-        "DeliveryDrone"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "batteryPct",
-          "type": "int"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class DeliveryDrone {\n    String title;\n    int batteryPct;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone obj = new DeliveryDrone();\n        obj.title = \"Drone Delivery Birlamchi\";\n        obj.batteryPct = 42;\n        System.out.println(obj.title + \" holati: \" + obj.batteryPct);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'batteryPct' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'batteryPct' resides in Heap memory per instance.",
-      "cleanCode": "class DeliveryDrone {\n    String title;\n    int batteryPct;\n}",
-      "breakdown": [
-        "<code>class DeliveryDrone { ... }</code>: Drone Delivery ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>int batteryPct;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'batteryPct' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 18,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "18. Smart Warehouse — 'StorageBay' Klassi va Maydonlari",
-      "en": "18. Smart Warehouse — 'StorageBay' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Smart Warehouse (Robotics) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'StorageBay' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'weightLimitKg' (double) qo'shing.",
-      "en": "In Smart Warehouse (Robotics), create a blueprint 'StorageBay' with two fields: 'title' (String) and 'weightLimitKg' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "StorageBay"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "weightLimitKg",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class StorageBay {\n    String title;\n    double weightLimitKg;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay obj = new StorageBay();\n        obj.title = \"Smart Warehouse Birlamchi\";\n        obj.weightLimitKg = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.weightLimitKg);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'weightLimitKg' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'weightLimitKg' resides in Heap memory per instance.",
-      "cleanCode": "class StorageBay {\n    String title;\n    double weightLimitKg;\n}",
-      "breakdown": [
-        "<code>class StorageBay { ... }</code>: Smart Warehouse ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double weightLimitKg;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'weightLimitKg' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 19,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "19. Crypto Wallet — 'CryptoAsset' Klassi va Maydonlari",
-      "en": "19. Crypto Wallet — 'CryptoAsset' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Crypto Wallet (Blockchain) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'CryptoAsset' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'coinUnits' (double) qo'shing.",
-      "en": "In Crypto Wallet (Blockchain), create a blueprint 'CryptoAsset' with two fields: 'title' (String) and 'coinUnits' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "CryptoAsset"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "coinUnits",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CryptoAsset {\n    String title;\n    double coinUnits;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset obj = new CryptoAsset();\n        obj.title = \"Crypto Wallet Birlamchi\";\n        obj.coinUnits = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.coinUnits);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'coinUnits' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'coinUnits' resides in Heap memory per instance.",
-      "cleanCode": "class CryptoAsset {\n    String title;\n    double coinUnits;\n}",
-      "breakdown": [
-        "<code>class CryptoAsset { ... }</code>: Crypto Wallet ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double coinUnits;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'coinUnits' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 20,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "20. National Library — 'CatalogBook' Klassi va Maydonlari",
-      "en": "20. National Library — 'CatalogBook' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "National Library (Archive) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'CatalogBook' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'pageCount' (int) qo'shing.",
-      "en": "In National Library (Archive), create a blueprint 'CatalogBook' with two fields: 'title' (String) and 'pageCount' (int)."
-    },
-    "requirements": {
-      "classes": [
-        "CatalogBook"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "pageCount",
-          "type": "int"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CatalogBook {\n    String title;\n    int pageCount;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook obj = new CatalogBook();\n        obj.title = \"National Library Birlamchi\";\n        obj.pageCount = 42;\n        System.out.println(obj.title + \" holati: \" + obj.pageCount);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'pageCount' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'pageCount' resides in Heap memory per instance.",
-      "cleanCode": "class CatalogBook {\n    String title;\n    int pageCount;\n}",
-      "breakdown": [
-        "<code>class CatalogBook { ... }</code>: National Library ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>int pageCount;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'pageCount' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 21,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "21. BeFit Club — 'GymMember' Klassi va Maydonlari",
-      "en": "21. BeFit Club — 'GymMember' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "BeFit Club (Fitness) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'GymMember' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'activeMonths' (int) qo'shing.",
-      "en": "In BeFit Club (Fitness), create a blueprint 'GymMember' with two fields: 'title' (String) and 'activeMonths' (int)."
-    },
-    "requirements": {
-      "classes": [
-        "GymMember"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "activeMonths",
-          "type": "int"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class GymMember {\n    String title;\n    int activeMonths;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember obj = new GymMember();\n        obj.title = \"BeFit Club Birlamchi\";\n        obj.activeMonths = 42;\n        System.out.println(obj.title + \" holati: \" + obj.activeMonths);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'activeMonths' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'activeMonths' resides in Heap memory per instance.",
-      "cleanCode": "class GymMember {\n    String title;\n    int activeMonths;\n}",
-      "breakdown": [
-        "<code>class GymMember { ... }</code>: BeFit Club ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>int activeMonths;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'activeMonths' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 22,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "22. Tashkent Parking — 'ParkingBay' Klassi va Maydonlari",
-      "en": "22. Tashkent Parking — 'ParkingBay' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Tashkent Parking (SmartCity) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'ParkingBay' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'hourlyTariff' (double) qo'shing.",
-      "en": "In Tashkent Parking (SmartCity), create a blueprint 'ParkingBay' with two fields: 'title' (String) and 'hourlyTariff' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "ParkingBay"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "hourlyTariff",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class ParkingBay {\n    String title;\n    double hourlyTariff;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay obj = new ParkingBay();\n        obj.title = \"Tashkent Parking Birlamchi\";\n        obj.hourlyTariff = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.hourlyTariff);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'hourlyTariff' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'hourlyTariff' resides in Heap memory per instance.",
-      "cleanCode": "class ParkingBay {\n    String title;\n    double hourlyTariff;\n}",
-      "breakdown": [
-        "<code>class ParkingBay { ... }</code>: Tashkent Parking ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double hourlyTariff;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'hourlyTariff' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 23,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "23. Medion Clinic — 'PatientRecord' Klassi va Maydonlari",
-      "en": "23. Medion Clinic — 'PatientRecord' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Medion Clinic (Medical) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'PatientRecord' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'pulseRate' (int) qo'shing.",
-      "en": "In Medion Clinic (Medical), create a blueprint 'PatientRecord' with two fields: 'title' (String) and 'pulseRate' (int)."
-    },
-    "requirements": {
-      "classes": [
-        "PatientRecord"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "pulseRate",
-          "type": "int"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PatientRecord {\n    String title;\n    int pulseRate;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord obj = new PatientRecord();\n        obj.title = \"Medion Clinic Birlamchi\";\n        obj.pulseRate = 42;\n        System.out.println(obj.title + \" holati: \" + obj.pulseRate);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'pulseRate' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'pulseRate' resides in Heap memory per instance.",
-      "cleanCode": "class PatientRecord {\n    String title;\n    int pulseRate;\n}",
-      "breakdown": [
-        "<code>class PatientRecord { ... }</code>: Medion Clinic ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>int pulseRate;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'pulseRate' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 24,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "24. Hyatt Regency — 'HotelReservation' Klassi va Maydonlari",
-      "en": "24. Hyatt Regency — 'HotelReservation' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Hyatt Regency (Hospitality) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'HotelReservation' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'nightlyRate' (double) qo'shing.",
-      "en": "In Hyatt Regency (Hospitality), create a blueprint 'HotelReservation' with two fields: 'title' (String) and 'nightlyRate' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "HotelReservation"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "nightlyRate",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class HotelReservation {\n    String title;\n    double nightlyRate;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation obj = new HotelReservation();\n        obj.title = \"Hyatt Regency Birlamchi\";\n        obj.nightlyRate = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.nightlyRate);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'nightlyRate' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'nightlyRate' resides in Heap memory per instance.",
-      "cleanCode": "class HotelReservation {\n    String title;\n    double nightlyRate;\n}",
-      "breakdown": [
-        "<code>class HotelReservation { ... }</code>: Hyatt Regency ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double nightlyRate;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'nightlyRate' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 25,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "25. Premier Cinema — 'CinemaTicket' Klassi va Maydonlari",
-      "en": "25. Premier Cinema — 'CinemaTicket' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Premier Cinema (Cinema) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'CinemaTicket' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'hallSeatNo' (int) qo'shing.",
-      "en": "In Premier Cinema (Cinema), create a blueprint 'CinemaTicket' with two fields: 'title' (String) and 'hallSeatNo' (int)."
-    },
-    "requirements": {
-      "classes": [
-        "CinemaTicket"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "hallSeatNo",
-          "type": "int"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CinemaTicket {\n    String title;\n    int hallSeatNo;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket obj = new CinemaTicket();\n        obj.title = \"Premier Cinema Birlamchi\";\n        obj.hallSeatNo = 42;\n        System.out.println(obj.title + \" holati: \" + obj.hallSeatNo);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'hallSeatNo' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'hallSeatNo' resides in Heap memory per instance.",
-      "cleanCode": "class CinemaTicket {\n    String title;\n    int hallSeatNo;\n}",
-      "breakdown": [
-        "<code>class CinemaTicket { ... }</code>: Premier Cinema ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>int hallSeatNo;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'hallSeatNo' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 26,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "26. Yandex Scooter — 'ElectricScooter' Klassi va Maydonlari",
-      "en": "26. Yandex Scooter — 'ElectricScooter' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Yandex Scooter (Mobility) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'ElectricScooter' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'maxSpeedKmh' (double) qo'shing.",
-      "en": "In Yandex Scooter (Mobility), create a blueprint 'ElectricScooter' with two fields: 'title' (String) and 'maxSpeedKmh' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "ElectricScooter"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "maxSpeedKmh",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class ElectricScooter {\n    String title;\n    double maxSpeedKmh;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter obj = new ElectricScooter();\n        obj.title = \"Yandex Scooter Birlamchi\";\n        obj.maxSpeedKmh = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.maxSpeedKmh);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'maxSpeedKmh' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'maxSpeedKmh' resides in Heap memory per instance.",
-      "cleanCode": "class ElectricScooter {\n    String title;\n    double maxSpeedKmh;\n}",
-      "breakdown": [
-        "<code>class ElectricScooter { ... }</code>: Yandex Scooter ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double maxSpeedKmh;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'maxSpeedKmh' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 27,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "27. Weather Network — 'MeteoStation' Klassi va Maydonlari",
-      "en": "27. Weather Network — 'MeteoStation' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Weather Network (Meteo) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'MeteoStation' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'humidityPct' (int) qo'shing.",
-      "en": "In Weather Network (Meteo), create a blueprint 'MeteoStation' with two fields: 'title' (String) and 'humidityPct' (int)."
-    },
-    "requirements": {
-      "classes": [
-        "MeteoStation"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "humidityPct",
-          "type": "int"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class MeteoStation {\n    String title;\n    int humidityPct;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation obj = new MeteoStation();\n        obj.title = \"Weather Network Birlamchi\";\n        obj.humidityPct = 42;\n        System.out.println(obj.title + \" holati: \" + obj.humidityPct);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'humidityPct' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'humidityPct' resides in Heap memory per instance.",
-      "cleanCode": "class MeteoStation {\n    String title;\n    int humidityPct;\n}",
-      "breakdown": [
-        "<code>class MeteoStation { ... }</code>: Weather Network ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>int humidityPct;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'humidityPct' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 28,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "28. OpenMarket Auction — 'AuctionLot' Klassi va Maydonlari",
-      "en": "28. OpenMarket Auction — 'AuctionLot' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "OpenMarket Auction (Auction) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'AuctionLot' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'reservePrice' (double) qo'shing.",
-      "en": "In OpenMarket Auction (Auction), create a blueprint 'AuctionLot' with two fields: 'title' (String) and 'reservePrice' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "AuctionLot"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "reservePrice",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class AuctionLot {\n    String title;\n    double reservePrice;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot obj = new AuctionLot();\n        obj.title = \"OpenMarket Auction Birlamchi\";\n        obj.reservePrice = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.reservePrice);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'reservePrice' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'reservePrice' resides in Heap memory per instance.",
-      "cleanCode": "class AuctionLot {\n    String title;\n    double reservePrice;\n}",
-      "breakdown": [
-        "<code>class AuctionLot { ... }</code>: OpenMarket Auction ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double reservePrice;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'reservePrice' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 29,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "29. Solar Energy Grid — 'SolarInverter' Klassi va Maydonlari",
-      "en": "29. Solar Energy Grid — 'SolarInverter' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "Solar Energy Grid (CleanTech) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'SolarInverter' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'powerKw' (double) qo'shing.",
-      "en": "In Solar Energy Grid (CleanTech), create a blueprint 'SolarInverter' with two fields: 'title' (String) and 'powerKw' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "SolarInverter"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "powerKw",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class SolarInverter {\n    String title;\n    double powerKw;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter obj = new SolarInverter();\n        obj.title = \"Solar Energy Grid Birlamchi\";\n        obj.powerKw = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.powerKw);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'powerKw' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'powerKw' resides in Heap memory per instance.",
-      "cleanCode": "class SolarInverter {\n    String title;\n    double powerKw;\n}",
-      "breakdown": [
-        "<code>class SolarInverter { ... }</code>: Solar Energy Grid ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double powerKw;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'powerKw' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 30,
-    "tier": 1,
-    "tierName": "1-Bosqich: Klasslar va Maydonlar",
-    "sector": "Boshlang'ich",
-    "title": {
-      "uz": "30. O'zbekiston Temir Yo'llari — 'TrainRoute' Klassi va Maydonlari",
-      "en": "30. O'zbekiston Temir Yo'llari — 'TrainRoute' Class & State Fields"
-    },
-    "scenario": {
-      "uz": "O'zbekiston Temir Yo'llari (Railway) tizimida ob'yektlarni saqlash uchun shablon yaratish zarur. 'TrainRoute' klassini e'lon qiling va unga ikkita maydon: 'title' (String) hamda 'travelDurationHours' (double) qo'shing.",
-      "en": "In O'zbekiston Temir Yo'llari (Railway), create a blueprint 'TrainRoute' with two fields: 'title' (String) and 'travelDurationHours' (double)."
-    },
-    "requirements": {
-      "classes": [
-        "TrainRoute"
-      ],
-      "fields": [
-        {
-          "name": "title",
-          "type": "String"
-        },
-        {
-          "name": "travelDurationHours",
-          "type": "double"
-        }
-      ]
-    },
-    "starterCode": "",
-    "solution": "class TrainRoute {\n    String title;\n    double travelDurationHours;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute obj = new TrainRoute();\n        obj.title = \"O'zbekiston Temir Yo'llari Birlamchi\";\n        obj.travelDurationHours = 150.0;\n        System.out.println(obj.title + \" holati: \" + obj.travelDurationHours);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Java dasturlash tilida har qanday ma'lumot strukturasi klassdan (chizma) boshlanadi. Heap xotirada joy ajratilganda 'travelDurationHours' maydoni o'z turiga ko'ra birlamchi qiymat oladi.",
-      "theoryEn": "In Java, every domain model originates from a class blueprint. The field 'travelDurationHours' resides in Heap memory per instance.",
-      "cleanCode": "class TrainRoute {\n    String title;\n    double travelDurationHours;\n}",
-      "breakdown": [
-        "<code>class TrainRoute { ... }</code>: O'zbekiston Temir Yo'llari ob'yektlari uchun mustaqil model chizmasi.",
-        "<code>String title;</code> va <code>double travelDurationHours;</code>: Ob'yektning holatini (state) belgilovchi maydonlar."
-      ],
-      "pitfalls": "Maydon nomlarini e'lon qilishda katta-kichik harflarga (case-sensitive) e'tibor bering. 'travelDurationHours' o'rniga boshqa nom yozilsa, testdan o'tmaydi.",
-      "cw2Tip": "CW2 konsol ilovangizda har bir tovar va xizmat aynan mana shunday aniq maydonlarga ega klass orqali ifodalanadi."
-    }
-  },
-  {
-    "id": 31,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "31. Uzum Market — 'discountOperation' Metodi orqali Amallar",
-      "en": "31. Uzum Market — 'discountOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Uzum Market ob'yektining holatini o'zgartirish uchun instans metod kerak. 'Product' klassiga 'public void discountOperation(double delta)' metodini qo'shing va u 'price' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Uzum Market. Implement 'public void discountOperation(double delta)' in 'Product' to update 'price'."
-    },
-    "requirements": {
-      "classes": [
-        "Product"
-      ],
-      "methods": [
-        "discountOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Product {\n    String title;\n    double price;\n\n    public void discountOperation(double delta) {\n        this.price += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product item = new Product();\n        item.discountOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.price);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void discountOperation(double delta) {\n    this.price += delta;\n}",
-      "breakdown": [
-        "<code>discountOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 32,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "32. Payme Wallet — 'transferOperation' Metodi orqali Amallar",
-      "en": "32. Payme Wallet — 'transferOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Payme Wallet ob'yektining holatini o'zgartirish uchun instans metod kerak. 'WalletUser' klassiga 'public void transferOperation(double delta)' metodini qo'shing va u 'balance' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Payme Wallet. Implement 'public void transferOperation(double delta)' in 'WalletUser' to update 'balance'."
-    },
-    "requirements": {
-      "classes": [
-        "WalletUser"
-      ],
-      "methods": [
-        "transferOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class WalletUser {\n    String title;\n    double balance;\n\n    public void transferOperation(double delta) {\n        this.balance += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser item = new WalletUser();\n        item.transferOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.balance);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void transferOperation(double delta) {\n    this.balance += delta;\n}",
-      "breakdown": [
-        "<code>transferOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 33,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "33. Yandex Go — 'fareOperation' Metodi orqali Amallar",
-      "en": "33. Yandex Go — 'fareOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Yandex Go ob'yektining holatini o'zgartirish uchun instans metod kerak. 'TaxiRide' klassiga 'public void fareOperation(double delta)' metodini qo'shing va u 'distanceKm' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Yandex Go. Implement 'public void fareOperation(double delta)' in 'TaxiRide' to update 'distanceKm'."
-    },
-    "requirements": {
-      "classes": [
-        "TaxiRide"
-      ],
-      "methods": [
-        "fareOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class TaxiRide {\n    String title;\n    double distanceKm;\n\n    public void fareOperation(double delta) {\n        this.distanceKm += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide item = new TaxiRide();\n        item.fareOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.distanceKm);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void fareOperation(double delta) {\n    this.distanceKm += delta;\n}",
-      "breakdown": [
-        "<code>fareOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 34,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "34. Korzinka Go — 'redeemOperation' Metodi orqali Amallar",
-      "en": "34. Korzinka Go — 'redeemOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Korzinka Go ob'yektining holatini o'zgartirish uchun instans metod kerak. 'LoyaltyCard' klassiga 'public void redeemOperation(int delta)' metodini qo'shing va u 'bonusPoints' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Korzinka Go. Implement 'public void redeemOperation(int delta)' in 'LoyaltyCard' to update 'bonusPoints'."
-    },
-    "requirements": {
-      "classes": [
-        "LoyaltyCard"
-      ],
-      "methods": [
-        "redeemOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class LoyaltyCard {\n    String title;\n    int bonusPoints;\n\n    public void redeemOperation(int delta) {\n        this.bonusPoints += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard item = new LoyaltyCard();\n        item.redeemOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.bonusPoints);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void redeemOperation(int delta) {\n    this.bonusPoints += delta;\n}",
-      "breakdown": [
-        "<code>redeemOperation(int delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 35,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "35. WIUT Portal — 'gradeOperation' Metodi orqali Amallar",
-      "en": "35. WIUT Portal — 'gradeOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "WIUT Portal ob'yektining holatini o'zgartirish uchun instans metod kerak. 'Student' klassiga 'public void gradeOperation(double delta)' metodini qo'shing va u 'gpa' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to WIUT Portal. Implement 'public void gradeOperation(double delta)' in 'Student' to update 'gpa'."
-    },
-    "requirements": {
-      "classes": [
-        "Student"
-      ],
-      "methods": [
-        "gradeOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Student {\n    String title;\n    double gpa;\n\n    public void gradeOperation(double delta) {\n        this.gpa += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student item = new Student();\n        item.gradeOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.gpa);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void gradeOperation(double delta) {\n    this.gpa += delta;\n}",
-      "breakdown": [
-        "<code>gradeOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 36,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "36. Click Pay — 'verifyOperation' Metodi orqali Amallar",
-      "en": "36. Click Pay — 'verifyOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Click Pay ob'yektining holatini o'zgartirish uchun instans metod kerak. 'PaymentTxn' klassiga 'public void verifyOperation(double delta)' metodini qo'shing va u 'amount' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Click Pay. Implement 'public void verifyOperation(double delta)' in 'PaymentTxn' to update 'amount'."
-    },
-    "requirements": {
-      "classes": [
-        "PaymentTxn"
-      ],
-      "methods": [
-        "verifyOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PaymentTxn {\n    String title;\n    double amount;\n\n    public void verifyOperation(double delta) {\n        this.amount += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn item = new PaymentTxn();\n        item.verifyOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.amount);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void verifyOperation(double delta) {\n    this.amount += delta;\n}",
-      "breakdown": [
-        "<code>verifyOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 37,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "37. Telegram Bot — 'forwardOperation' Metodi orqali Amallar",
-      "en": "37. Telegram Bot — 'forwardOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Telegram Bot ob'yektining holatini o'zgartirish uchun instans metod kerak. 'BotMessage' klassiga 'public void forwardOperation(long delta)' metodini qo'shing va u 'chatId' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Telegram Bot. Implement 'public void forwardOperation(long delta)' in 'BotMessage' to update 'chatId'."
-    },
-    "requirements": {
-      "classes": [
-        "BotMessage"
-      ],
-      "methods": [
-        "forwardOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BotMessage {\n    String title;\n    long chatId;\n\n    public void forwardOperation(long delta) {\n        this.chatId += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage item = new BotMessage();\n        item.forwardOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.chatId);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void forwardOperation(long delta) {\n    this.chatId += delta;\n}",
-      "breakdown": [
-        "<code>forwardOperation(long delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 38,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "38. UzAirways — 'upgradeOperation' Metodi orqali Amallar",
-      "en": "38. UzAirways — 'upgradeOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "UzAirways ob'yektining holatini o'zgartirish uchun instans metod kerak. 'FlightTicket' klassiga 'public void upgradeOperation(double delta)' metodini qo'shing va u 'farePrice' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to UzAirways. Implement 'public void upgradeOperation(double delta)' in 'FlightTicket' to update 'farePrice'."
-    },
-    "requirements": {
-      "classes": [
-        "FlightTicket"
-      ],
-      "methods": [
-        "upgradeOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class FlightTicket {\n    String title;\n    double farePrice;\n\n    public void upgradeOperation(double delta) {\n        this.farePrice += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket item = new FlightTicket();\n        item.upgradeOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.farePrice);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void upgradeOperation(double delta) {\n    this.farePrice += delta;\n}",
-      "breakdown": [
-        "<code>upgradeOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 39,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "39. IT Park Academy — 'enrollOperation' Metodi orqali Amallar",
-      "en": "39. IT Park Academy — 'enrollOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "IT Park Academy ob'yektining holatini o'zgartirish uchun instans metod kerak. 'BootcampCourse' klassiga 'public void enrollOperation(int delta)' metodini qo'shing va u 'durationWeeks' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to IT Park Academy. Implement 'public void enrollOperation(int delta)' in 'BootcampCourse' to update 'durationWeeks'."
-    },
-    "requirements": {
-      "classes": [
-        "BootcampCourse"
-      ],
-      "methods": [
-        "enrollOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BootcampCourse {\n    String title;\n    int durationWeeks;\n\n    public void enrollOperation(int delta) {\n        this.durationWeeks += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse item = new BootcampCourse();\n        item.enrollOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.durationWeeks);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void enrollOperation(int delta) {\n    this.durationWeeks += delta;\n}",
-      "breakdown": [
-        "<code>enrollOperation(int delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 40,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "40. Anorbank — 'limitOperation' Metodi orqali Amallar",
-      "en": "40. Anorbank — 'limitOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Anorbank ob'yektining holatini o'zgartirish uchun instans metod kerak. 'DebitCard' klassiga 'public void limitOperation(double delta)' metodini qo'shing va u 'creditLimit' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Anorbank. Implement 'public void limitOperation(double delta)' in 'DebitCard' to update 'creditLimit'."
-    },
-    "requirements": {
-      "classes": [
-        "DebitCard"
-      ],
-      "methods": [
-        "limitOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class DebitCard {\n    String title;\n    double creditLimit;\n\n    public void limitOperation(double delta) {\n        this.creditLimit += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard item = new DebitCard();\n        item.limitOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.creditLimit);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void limitOperation(double delta) {\n    this.creditLimit += delta;\n}",
-      "breakdown": [
-        "<code>limitOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 41,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "41. Oson Apteka — 'dispenseOperation' Metodi orqali Amallar",
-      "en": "41. Oson Apteka — 'dispenseOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Oson Apteka ob'yektining holatini o'zgartirish uchun instans metod kerak. 'Medicine' klassiga 'public void dispenseOperation(int delta)' metodini qo'shing va u 'stockCount' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Oson Apteka. Implement 'public void dispenseOperation(int delta)' in 'Medicine' to update 'stockCount'."
-    },
-    "requirements": {
-      "classes": [
-        "Medicine"
-      ],
-      "methods": [
-        "dispenseOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Medicine {\n    String title;\n    int stockCount;\n\n    public void dispenseOperation(int delta) {\n        this.stockCount += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine item = new Medicine();\n        item.dispenseOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.stockCount);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void dispenseOperation(int delta) {\n    this.stockCount += delta;\n}",
-      "breakdown": [
-        "<code>dispenseOperation(int delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 42,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "42. Evos FastFood — 'packOperation' Metodi orqali Amallar",
-      "en": "42. Evos FastFood — 'packOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Evos FastFood ob'yektining holatini o'zgartirish uchun instans metod kerak. 'FoodOrder' klassiga 'public void packOperation(double delta)' metodini qo'shing va u 'totalSum' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Evos FastFood. Implement 'public void packOperation(double delta)' in 'FoodOrder' to update 'totalSum'."
-    },
-    "requirements": {
-      "classes": [
-        "FoodOrder"
-      ],
-      "methods": [
-        "packOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class FoodOrder {\n    String title;\n    double totalSum;\n\n    public void packOperation(double delta) {\n        this.totalSum += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder item = new FoodOrder();\n        item.packOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.totalSum);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void packOperation(double delta) {\n    this.totalSum += delta;\n}",
-      "breakdown": [
-        "<code>packOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 43,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "43. Bellissimo Pizza — 'bakeOperation' Metodi orqali Amallar",
-      "en": "43. Bellissimo Pizza — 'bakeOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Bellissimo Pizza ob'yektining holatini o'zgartirish uchun instans metod kerak. 'PizzaOrder' klassiga 'public void bakeOperation(int delta)' metodini qo'shing va u 'prepTimeMinutes' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Bellissimo Pizza. Implement 'public void bakeOperation(int delta)' in 'PizzaOrder' to update 'prepTimeMinutes'."
-    },
-    "requirements": {
-      "classes": [
-        "PizzaOrder"
-      ],
-      "methods": [
-        "bakeOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PizzaOrder {\n    String title;\n    int prepTimeMinutes;\n\n    public void bakeOperation(int delta) {\n        this.prepTimeMinutes += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder item = new PizzaOrder();\n        item.bakeOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.prepTimeMinutes);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void bakeOperation(int delta) {\n    this.prepTimeMinutes += delta;\n}",
-      "breakdown": [
-        "<code>bakeOperation(int delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 44,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "44. Milliy TV — 'airOperation' Metodi orqali Amallar",
-      "en": "44. Milliy TV — 'airOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Milliy TV ob'yektining holatini o'zgartirish uchun instans metod kerak. 'BroadcastShow' klassiga 'public void airOperation(double delta)' metodini qo'shing va u 'viewersRating' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Milliy TV. Implement 'public void airOperation(double delta)' in 'BroadcastShow' to update 'viewersRating'."
-    },
-    "requirements": {
-      "classes": [
-        "BroadcastShow"
-      ],
-      "methods": [
-        "airOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BroadcastShow {\n    String title;\n    double viewersRating;\n\n    public void airOperation(double delta) {\n        this.viewersRating += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow item = new BroadcastShow();\n        item.airOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.viewersRating);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void airOperation(double delta) {\n    this.viewersRating += delta;\n}",
-      "breakdown": [
-        "<code>airOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 45,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "45. Spotify Sound — 'streamOperation' Metodi orqali Amallar",
-      "en": "45. Spotify Sound — 'streamOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Spotify Sound ob'yektining holatini o'zgartirish uchun instans metod kerak. 'AudioTrack' klassiga 'public void streamOperation(int delta)' metodini qo'shing va u 'durationSec' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Spotify Sound. Implement 'public void streamOperation(int delta)' in 'AudioTrack' to update 'durationSec'."
-    },
-    "requirements": {
-      "classes": [
-        "AudioTrack"
-      ],
-      "methods": [
-        "streamOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class AudioTrack {\n    String title;\n    int durationSec;\n\n    public void streamOperation(int delta) {\n        this.durationSec += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack item = new AudioTrack();\n        item.streamOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.durationSec);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void streamOperation(int delta) {\n    this.durationSec += delta;\n}",
-      "breakdown": [
-        "<code>streamOperation(int delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 46,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "46. Smart Thermostat — 'heatOperation' Metodi orqali Amallar",
-      "en": "46. Smart Thermostat — 'heatOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Smart Thermostat ob'yektining holatini o'zgartirish uchun instans metod kerak. 'Thermostat' klassiga 'public void heatOperation(double delta)' metodini qo'shing va u 'targetTemp' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Smart Thermostat. Implement 'public void heatOperation(double delta)' in 'Thermostat' to update 'targetTemp'."
-    },
-    "requirements": {
-      "classes": [
-        "Thermostat"
-      ],
-      "methods": [
-        "heatOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Thermostat {\n    String title;\n    double targetTemp;\n\n    public void heatOperation(double delta) {\n        this.targetTemp += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat item = new Thermostat();\n        item.heatOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.targetTemp);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void heatOperation(double delta) {\n    this.targetTemp += delta;\n}",
-      "breakdown": [
-        "<code>heatOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 47,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "47. Drone Delivery — 'flyOperation' Metodi orqali Amallar",
-      "en": "47. Drone Delivery — 'flyOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Drone Delivery ob'yektining holatini o'zgartirish uchun instans metod kerak. 'DeliveryDrone' klassiga 'public void flyOperation(int delta)' metodini qo'shing va u 'batteryPct' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Drone Delivery. Implement 'public void flyOperation(int delta)' in 'DeliveryDrone' to update 'batteryPct'."
-    },
-    "requirements": {
-      "classes": [
-        "DeliveryDrone"
-      ],
-      "methods": [
-        "flyOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class DeliveryDrone {\n    String title;\n    int batteryPct;\n\n    public void flyOperation(int delta) {\n        this.batteryPct += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone item = new DeliveryDrone();\n        item.flyOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.batteryPct);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void flyOperation(int delta) {\n    this.batteryPct += delta;\n}",
-      "breakdown": [
-        "<code>flyOperation(int delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 48,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "48. Smart Warehouse — 'loadOperation' Metodi orqali Amallar",
-      "en": "48. Smart Warehouse — 'loadOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Smart Warehouse ob'yektining holatini o'zgartirish uchun instans metod kerak. 'StorageBay' klassiga 'public void loadOperation(double delta)' metodini qo'shing va u 'weightLimitKg' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Smart Warehouse. Implement 'public void loadOperation(double delta)' in 'StorageBay' to update 'weightLimitKg'."
-    },
-    "requirements": {
-      "classes": [
-        "StorageBay"
-      ],
-      "methods": [
-        "loadOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class StorageBay {\n    String title;\n    double weightLimitKg;\n\n    public void loadOperation(double delta) {\n        this.weightLimitKg += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay item = new StorageBay();\n        item.loadOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.weightLimitKg);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void loadOperation(double delta) {\n    this.weightLimitKg += delta;\n}",
-      "breakdown": [
-        "<code>loadOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 49,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "49. Crypto Wallet — 'swapOperation' Metodi orqali Amallar",
-      "en": "49. Crypto Wallet — 'swapOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Crypto Wallet ob'yektining holatini o'zgartirish uchun instans metod kerak. 'CryptoAsset' klassiga 'public void swapOperation(double delta)' metodini qo'shing va u 'coinUnits' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Crypto Wallet. Implement 'public void swapOperation(double delta)' in 'CryptoAsset' to update 'coinUnits'."
-    },
-    "requirements": {
-      "classes": [
-        "CryptoAsset"
-      ],
-      "methods": [
-        "swapOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CryptoAsset {\n    String title;\n    double coinUnits;\n\n    public void swapOperation(double delta) {\n        this.coinUnits += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset item = new CryptoAsset();\n        item.swapOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.coinUnits);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void swapOperation(double delta) {\n    this.coinUnits += delta;\n}",
-      "breakdown": [
-        "<code>swapOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 50,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "50. National Library — 'borrowOperation' Metodi orqali Amallar",
-      "en": "50. National Library — 'borrowOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "National Library ob'yektining holatini o'zgartirish uchun instans metod kerak. 'CatalogBook' klassiga 'public void borrowOperation(int delta)' metodini qo'shing va u 'pageCount' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to National Library. Implement 'public void borrowOperation(int delta)' in 'CatalogBook' to update 'pageCount'."
-    },
-    "requirements": {
-      "classes": [
-        "CatalogBook"
-      ],
-      "methods": [
-        "borrowOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CatalogBook {\n    String title;\n    int pageCount;\n\n    public void borrowOperation(int delta) {\n        this.pageCount += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook item = new CatalogBook();\n        item.borrowOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.pageCount);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void borrowOperation(int delta) {\n    this.pageCount += delta;\n}",
-      "breakdown": [
-        "<code>borrowOperation(int delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 51,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "51. BeFit Club — 'checkinOperation' Metodi orqali Amallar",
-      "en": "51. BeFit Club — 'checkinOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "BeFit Club ob'yektining holatini o'zgartirish uchun instans metod kerak. 'GymMember' klassiga 'public void checkinOperation(int delta)' metodini qo'shing va u 'activeMonths' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to BeFit Club. Implement 'public void checkinOperation(int delta)' in 'GymMember' to update 'activeMonths'."
-    },
-    "requirements": {
-      "classes": [
-        "GymMember"
-      ],
-      "methods": [
-        "checkinOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class GymMember {\n    String title;\n    int activeMonths;\n\n    public void checkinOperation(int delta) {\n        this.activeMonths += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember item = new GymMember();\n        item.checkinOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.activeMonths);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void checkinOperation(int delta) {\n    this.activeMonths += delta;\n}",
-      "breakdown": [
-        "<code>checkinOperation(int delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 52,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "52. Tashkent Parking — 'parkOperation' Metodi orqali Amallar",
-      "en": "52. Tashkent Parking — 'parkOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Tashkent Parking ob'yektining holatini o'zgartirish uchun instans metod kerak. 'ParkingBay' klassiga 'public void parkOperation(double delta)' metodini qo'shing va u 'hourlyTariff' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Tashkent Parking. Implement 'public void parkOperation(double delta)' in 'ParkingBay' to update 'hourlyTariff'."
-    },
-    "requirements": {
-      "classes": [
-        "ParkingBay"
-      ],
-      "methods": [
-        "parkOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class ParkingBay {\n    String title;\n    double hourlyTariff;\n\n    public void parkOperation(double delta) {\n        this.hourlyTariff += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay item = new ParkingBay();\n        item.parkOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.hourlyTariff);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void parkOperation(double delta) {\n    this.hourlyTariff += delta;\n}",
-      "breakdown": [
-        "<code>parkOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 53,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "53. Medion Clinic — 'diagnoseOperation' Metodi orqali Amallar",
-      "en": "53. Medion Clinic — 'diagnoseOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Medion Clinic ob'yektining holatini o'zgartirish uchun instans metod kerak. 'PatientRecord' klassiga 'public void diagnoseOperation(int delta)' metodini qo'shing va u 'pulseRate' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Medion Clinic. Implement 'public void diagnoseOperation(int delta)' in 'PatientRecord' to update 'pulseRate'."
-    },
-    "requirements": {
-      "classes": [
-        "PatientRecord"
-      ],
-      "methods": [
-        "diagnoseOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PatientRecord {\n    String title;\n    int pulseRate;\n\n    public void diagnoseOperation(int delta) {\n        this.pulseRate += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord item = new PatientRecord();\n        item.diagnoseOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.pulseRate);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void diagnoseOperation(int delta) {\n    this.pulseRate += delta;\n}",
-      "breakdown": [
-        "<code>diagnoseOperation(int delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 54,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "54. Hyatt Regency — 'bookOperation' Metodi orqali Amallar",
-      "en": "54. Hyatt Regency — 'bookOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Hyatt Regency ob'yektining holatini o'zgartirish uchun instans metod kerak. 'HotelReservation' klassiga 'public void bookOperation(double delta)' metodini qo'shing va u 'nightlyRate' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Hyatt Regency. Implement 'public void bookOperation(double delta)' in 'HotelReservation' to update 'nightlyRate'."
-    },
-    "requirements": {
-      "classes": [
-        "HotelReservation"
-      ],
-      "methods": [
-        "bookOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class HotelReservation {\n    String title;\n    double nightlyRate;\n\n    public void bookOperation(double delta) {\n        this.nightlyRate += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation item = new HotelReservation();\n        item.bookOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.nightlyRate);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void bookOperation(double delta) {\n    this.nightlyRate += delta;\n}",
-      "breakdown": [
-        "<code>bookOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 55,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "55. Premier Cinema — 'scanOperation' Metodi orqali Amallar",
-      "en": "55. Premier Cinema — 'scanOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Premier Cinema ob'yektining holatini o'zgartirish uchun instans metod kerak. 'CinemaTicket' klassiga 'public void scanOperation(int delta)' metodini qo'shing va u 'hallSeatNo' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Premier Cinema. Implement 'public void scanOperation(int delta)' in 'CinemaTicket' to update 'hallSeatNo'."
-    },
-    "requirements": {
-      "classes": [
-        "CinemaTicket"
-      ],
-      "methods": [
-        "scanOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CinemaTicket {\n    String title;\n    int hallSeatNo;\n\n    public void scanOperation(int delta) {\n        this.hallSeatNo += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket item = new CinemaTicket();\n        item.scanOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.hallSeatNo);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void scanOperation(int delta) {\n    this.hallSeatNo += delta;\n}",
-      "breakdown": [
-        "<code>scanOperation(int delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 56,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "56. Yandex Scooter — 'rideOperation' Metodi orqali Amallar",
-      "en": "56. Yandex Scooter — 'rideOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Yandex Scooter ob'yektining holatini o'zgartirish uchun instans metod kerak. 'ElectricScooter' klassiga 'public void rideOperation(double delta)' metodini qo'shing va u 'maxSpeedKmh' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Yandex Scooter. Implement 'public void rideOperation(double delta)' in 'ElectricScooter' to update 'maxSpeedKmh'."
-    },
-    "requirements": {
-      "classes": [
-        "ElectricScooter"
-      ],
-      "methods": [
-        "rideOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class ElectricScooter {\n    String title;\n    double maxSpeedKmh;\n\n    public void rideOperation(double delta) {\n        this.maxSpeedKmh += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter item = new ElectricScooter();\n        item.rideOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.maxSpeedKmh);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void rideOperation(double delta) {\n    this.maxSpeedKmh += delta;\n}",
-      "breakdown": [
-        "<code>rideOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 57,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "57. Weather Network — 'senseOperation' Metodi orqali Amallar",
-      "en": "57. Weather Network — 'senseOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Weather Network ob'yektining holatini o'zgartirish uchun instans metod kerak. 'MeteoStation' klassiga 'public void senseOperation(int delta)' metodini qo'shing va u 'humidityPct' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Weather Network. Implement 'public void senseOperation(int delta)' in 'MeteoStation' to update 'humidityPct'."
-    },
-    "requirements": {
-      "classes": [
-        "MeteoStation"
-      ],
-      "methods": [
-        "senseOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class MeteoStation {\n    String title;\n    int humidityPct;\n\n    public void senseOperation(int delta) {\n        this.humidityPct += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation item = new MeteoStation();\n        item.senseOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.humidityPct);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void senseOperation(int delta) {\n    this.humidityPct += delta;\n}",
-      "breakdown": [
-        "<code>senseOperation(int delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 58,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "58. OpenMarket Auction — 'bidOperation' Metodi orqali Amallar",
-      "en": "58. OpenMarket Auction — 'bidOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "OpenMarket Auction ob'yektining holatini o'zgartirish uchun instans metod kerak. 'AuctionLot' klassiga 'public void bidOperation(double delta)' metodini qo'shing va u 'reservePrice' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to OpenMarket Auction. Implement 'public void bidOperation(double delta)' in 'AuctionLot' to update 'reservePrice'."
-    },
-    "requirements": {
-      "classes": [
-        "AuctionLot"
-      ],
-      "methods": [
-        "bidOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class AuctionLot {\n    String title;\n    double reservePrice;\n\n    public void bidOperation(double delta) {\n        this.reservePrice += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot item = new AuctionLot();\n        item.bidOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.reservePrice);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void bidOperation(double delta) {\n    this.reservePrice += delta;\n}",
-      "breakdown": [
-        "<code>bidOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 59,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "59. Solar Energy Grid — 'generateOperation' Metodi orqali Amallar",
-      "en": "59. Solar Energy Grid — 'generateOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "Solar Energy Grid ob'yektining holatini o'zgartirish uchun instans metod kerak. 'SolarInverter' klassiga 'public void generateOperation(double delta)' metodini qo'shing va u 'powerKw' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to Solar Energy Grid. Implement 'public void generateOperation(double delta)' in 'SolarInverter' to update 'powerKw'."
-    },
-    "requirements": {
-      "classes": [
-        "SolarInverter"
-      ],
-      "methods": [
-        "generateOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class SolarInverter {\n    String title;\n    double powerKw;\n\n    public void generateOperation(double delta) {\n        this.powerKw += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter item = new SolarInverter();\n        item.generateOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.powerKw);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void generateOperation(double delta) {\n    this.powerKw += delta;\n}",
-      "breakdown": [
-        "<code>generateOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 60,
-    "tier": 2,
-    "tierName": "2-Bosqich: Instans Metodlar va Holat O'zgarishi",
-    "sector": "Amaliyot",
-    "title": {
-      "uz": "60. O'zbekiston Temir Yo'llari — 'departOperation' Metodi orqali Amallar",
-      "en": "60. O'zbekiston Temir Yo'llari — 'departOperation' Method & Behavior"
-    },
-    "scenario": {
-      "uz": "O'zbekiston Temir Yo'llari ob'yektining holatini o'zgartirish uchun instans metod kerak. 'TrainRoute' klassiga 'public void departOperation(double delta)' metodini qo'shing va u 'travelDurationHours' maydonini delta miqdorga oshirsin.",
-      "en": "Add instance behavior to O'zbekiston Temir Yo'llari. Implement 'public void departOperation(double delta)' in 'TrainRoute' to update 'travelDurationHours'."
-    },
-    "requirements": {
-      "classes": [
-        "TrainRoute"
-      ],
-      "methods": [
-        "departOperation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class TrainRoute {\n    String title;\n    double travelDurationHours;\n\n    public void departOperation(double delta) {\n        this.travelDurationHours += delta;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute item = new TrainRoute();\n        item.departOperation(10);\n        System.out.println(\"Yangilangan qiymat: \" + item.travelDurationHours);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Metodlar ob'yektning xatti-harakatini (behavior) belgilaydi. 'this' kalit so'zi aynan metod chaqirilayotgan joriy ob'yekt manziliga ishora qiladi.",
-      "theoryEn": "Instance methods encapsulate object behavior. The 'this' keyword unambiguously references the current executing instance on the Heap.",
-      "cleanCode": "public void departOperation(double delta) {\n    this.travelDurationHours += delta;\n}",
-      "breakdown": [
-        "<code>departOperation(double delta)</code>: Tashqaridan argument qabul qilib, ob'yekt ichki holatini xavfsiz o'zgartiradi."
-      ],
-      "pitfalls": "Agar parametr nomi bilan maydon nomi bir xil bo'lsa (shadowing), 'this' so'zini tushirib qoldirish o'zgaruvchi qiymatini yangilamaydi.",
-      "cw2Tip": "CW2 savatchasida tovar sonini oshirish yoki narxni yangilash aynan mana shunday instans metodlar orqali boshqariladi."
-    }
-  },
-  {
-    "id": 61,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "61. Uzum Market — 'Product' Maxsus Konstruktori",
-      "en": "61. Uzum Market — 'Product' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Uzum Market tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'Product(String title, double price)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Uzum Market. Implement parameterized constructor 'Product(String title, double price)'."
-    },
-    "requirements": {
-      "classes": [
-        "Product"
-      ],
-      "constructors": [
-        "Product"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Product {\n    String title;\n    double price;\n\n    public Product(String title, double price) {\n        this.title = title;\n        this.price = price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product obj = new Product(\"Uzum Market Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.price);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public Product(String title, double price) {\n    this.title = title;\n    this.price = price;\n}",
-      "breakdown": [
-        "<code>public Product(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 62,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "62. Payme Wallet — 'WalletUser' Maxsus Konstruktori",
-      "en": "62. Payme Wallet — 'WalletUser' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Payme Wallet tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'WalletUser(String title, double balance)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Payme Wallet. Implement parameterized constructor 'WalletUser(String title, double balance)'."
-    },
-    "requirements": {
-      "classes": [
-        "WalletUser"
-      ],
-      "constructors": [
-        "WalletUser"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class WalletUser {\n    String title;\n    double balance;\n\n    public WalletUser(String title, double balance) {\n        this.title = title;\n        this.balance = balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser obj = new WalletUser(\"Payme Wallet Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.balance);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public WalletUser(String title, double balance) {\n    this.title = title;\n    this.balance = balance;\n}",
-      "breakdown": [
-        "<code>public WalletUser(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 63,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "63. Yandex Go — 'TaxiRide' Maxsus Konstruktori",
-      "en": "63. Yandex Go — 'TaxiRide' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Yandex Go tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'TaxiRide(String title, double distanceKm)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Yandex Go. Implement parameterized constructor 'TaxiRide(String title, double distanceKm)'."
-    },
-    "requirements": {
-      "classes": [
-        "TaxiRide"
-      ],
-      "constructors": [
-        "TaxiRide"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class TaxiRide {\n    String title;\n    double distanceKm;\n\n    public TaxiRide(String title, double distanceKm) {\n        this.title = title;\n        this.distanceKm = distanceKm;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide obj = new TaxiRide(\"Yandex Go Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.distanceKm);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public TaxiRide(String title, double distanceKm) {\n    this.title = title;\n    this.distanceKm = distanceKm;\n}",
-      "breakdown": [
-        "<code>public TaxiRide(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 64,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "64. Korzinka Go — 'LoyaltyCard' Maxsus Konstruktori",
-      "en": "64. Korzinka Go — 'LoyaltyCard' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Korzinka Go tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'LoyaltyCard(String title, int bonusPoints)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Korzinka Go. Implement parameterized constructor 'LoyaltyCard(String title, int bonusPoints)'."
-    },
-    "requirements": {
-      "classes": [
-        "LoyaltyCard"
-      ],
-      "constructors": [
-        "LoyaltyCard"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class LoyaltyCard {\n    String title;\n    int bonusPoints;\n\n    public LoyaltyCard(String title, int bonusPoints) {\n        this.title = title;\n        this.bonusPoints = bonusPoints;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard obj = new LoyaltyCard(\"Korzinka Go Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.bonusPoints);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public LoyaltyCard(String title, int bonusPoints) {\n    this.title = title;\n    this.bonusPoints = bonusPoints;\n}",
-      "breakdown": [
-        "<code>public LoyaltyCard(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 65,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "65. WIUT Portal — 'Student' Maxsus Konstruktori",
-      "en": "65. WIUT Portal — 'Student' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "WIUT Portal tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'Student(String title, double gpa)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in WIUT Portal. Implement parameterized constructor 'Student(String title, double gpa)'."
-    },
-    "requirements": {
-      "classes": [
-        "Student"
-      ],
-      "constructors": [
-        "Student"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Student {\n    String title;\n    double gpa;\n\n    public Student(String title, double gpa) {\n        this.title = title;\n        this.gpa = gpa;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student obj = new Student(\"WIUT Portal Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.gpa);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public Student(String title, double gpa) {\n    this.title = title;\n    this.gpa = gpa;\n}",
-      "breakdown": [
-        "<code>public Student(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 66,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "66. Click Pay — 'PaymentTxn' Maxsus Konstruktori",
-      "en": "66. Click Pay — 'PaymentTxn' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Click Pay tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'PaymentTxn(String title, double amount)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Click Pay. Implement parameterized constructor 'PaymentTxn(String title, double amount)'."
-    },
-    "requirements": {
-      "classes": [
-        "PaymentTxn"
-      ],
-      "constructors": [
-        "PaymentTxn"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PaymentTxn {\n    String title;\n    double amount;\n\n    public PaymentTxn(String title, double amount) {\n        this.title = title;\n        this.amount = amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn obj = new PaymentTxn(\"Click Pay Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.amount);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public PaymentTxn(String title, double amount) {\n    this.title = title;\n    this.amount = amount;\n}",
-      "breakdown": [
-        "<code>public PaymentTxn(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 67,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "67. Telegram Bot — 'BotMessage' Maxsus Konstruktori",
-      "en": "67. Telegram Bot — 'BotMessage' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Telegram Bot tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'BotMessage(String title, long chatId)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Telegram Bot. Implement parameterized constructor 'BotMessage(String title, long chatId)'."
-    },
-    "requirements": {
-      "classes": [
-        "BotMessage"
-      ],
-      "constructors": [
-        "BotMessage"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BotMessage {\n    String title;\n    long chatId;\n\n    public BotMessage(String title, long chatId) {\n        this.title = title;\n        this.chatId = chatId;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage obj = new BotMessage(\"Telegram Bot Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.chatId);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public BotMessage(String title, long chatId) {\n    this.title = title;\n    this.chatId = chatId;\n}",
-      "breakdown": [
-        "<code>public BotMessage(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 68,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "68. UzAirways — 'FlightTicket' Maxsus Konstruktori",
-      "en": "68. UzAirways — 'FlightTicket' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "UzAirways tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'FlightTicket(String title, double farePrice)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in UzAirways. Implement parameterized constructor 'FlightTicket(String title, double farePrice)'."
-    },
-    "requirements": {
-      "classes": [
-        "FlightTicket"
-      ],
-      "constructors": [
-        "FlightTicket"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class FlightTicket {\n    String title;\n    double farePrice;\n\n    public FlightTicket(String title, double farePrice) {\n        this.title = title;\n        this.farePrice = farePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket obj = new FlightTicket(\"UzAirways Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.farePrice);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public FlightTicket(String title, double farePrice) {\n    this.title = title;\n    this.farePrice = farePrice;\n}",
-      "breakdown": [
-        "<code>public FlightTicket(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 69,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "69. IT Park Academy — 'BootcampCourse' Maxsus Konstruktori",
-      "en": "69. IT Park Academy — 'BootcampCourse' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "IT Park Academy tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'BootcampCourse(String title, int durationWeeks)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in IT Park Academy. Implement parameterized constructor 'BootcampCourse(String title, int durationWeeks)'."
-    },
-    "requirements": {
-      "classes": [
-        "BootcampCourse"
-      ],
-      "constructors": [
-        "BootcampCourse"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BootcampCourse {\n    String title;\n    int durationWeeks;\n\n    public BootcampCourse(String title, int durationWeeks) {\n        this.title = title;\n        this.durationWeeks = durationWeeks;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse obj = new BootcampCourse(\"IT Park Academy Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.durationWeeks);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public BootcampCourse(String title, int durationWeeks) {\n    this.title = title;\n    this.durationWeeks = durationWeeks;\n}",
-      "breakdown": [
-        "<code>public BootcampCourse(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 70,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "70. Anorbank — 'DebitCard' Maxsus Konstruktori",
-      "en": "70. Anorbank — 'DebitCard' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Anorbank tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'DebitCard(String title, double creditLimit)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Anorbank. Implement parameterized constructor 'DebitCard(String title, double creditLimit)'."
-    },
-    "requirements": {
-      "classes": [
-        "DebitCard"
-      ],
-      "constructors": [
-        "DebitCard"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class DebitCard {\n    String title;\n    double creditLimit;\n\n    public DebitCard(String title, double creditLimit) {\n        this.title = title;\n        this.creditLimit = creditLimit;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard obj = new DebitCard(\"Anorbank Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.creditLimit);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public DebitCard(String title, double creditLimit) {\n    this.title = title;\n    this.creditLimit = creditLimit;\n}",
-      "breakdown": [
-        "<code>public DebitCard(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 71,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "71. Oson Apteka — 'Medicine' Maxsus Konstruktori",
-      "en": "71. Oson Apteka — 'Medicine' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Oson Apteka tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'Medicine(String title, int stockCount)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Oson Apteka. Implement parameterized constructor 'Medicine(String title, int stockCount)'."
-    },
-    "requirements": {
-      "classes": [
-        "Medicine"
-      ],
-      "constructors": [
-        "Medicine"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Medicine {\n    String title;\n    int stockCount;\n\n    public Medicine(String title, int stockCount) {\n        this.title = title;\n        this.stockCount = stockCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine obj = new Medicine(\"Oson Apteka Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.stockCount);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public Medicine(String title, int stockCount) {\n    this.title = title;\n    this.stockCount = stockCount;\n}",
-      "breakdown": [
-        "<code>public Medicine(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 72,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "72. Evos FastFood — 'FoodOrder' Maxsus Konstruktori",
-      "en": "72. Evos FastFood — 'FoodOrder' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Evos FastFood tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'FoodOrder(String title, double totalSum)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Evos FastFood. Implement parameterized constructor 'FoodOrder(String title, double totalSum)'."
-    },
-    "requirements": {
-      "classes": [
-        "FoodOrder"
-      ],
-      "constructors": [
-        "FoodOrder"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class FoodOrder {\n    String title;\n    double totalSum;\n\n    public FoodOrder(String title, double totalSum) {\n        this.title = title;\n        this.totalSum = totalSum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder obj = new FoodOrder(\"Evos FastFood Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.totalSum);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public FoodOrder(String title, double totalSum) {\n    this.title = title;\n    this.totalSum = totalSum;\n}",
-      "breakdown": [
-        "<code>public FoodOrder(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 73,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "73. Bellissimo Pizza — 'PizzaOrder' Maxsus Konstruktori",
-      "en": "73. Bellissimo Pizza — 'PizzaOrder' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Bellissimo Pizza tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'PizzaOrder(String title, int prepTimeMinutes)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Bellissimo Pizza. Implement parameterized constructor 'PizzaOrder(String title, int prepTimeMinutes)'."
-    },
-    "requirements": {
-      "classes": [
-        "PizzaOrder"
-      ],
-      "constructors": [
-        "PizzaOrder"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PizzaOrder {\n    String title;\n    int prepTimeMinutes;\n\n    public PizzaOrder(String title, int prepTimeMinutes) {\n        this.title = title;\n        this.prepTimeMinutes = prepTimeMinutes;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder obj = new PizzaOrder(\"Bellissimo Pizza Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.prepTimeMinutes);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public PizzaOrder(String title, int prepTimeMinutes) {\n    this.title = title;\n    this.prepTimeMinutes = prepTimeMinutes;\n}",
-      "breakdown": [
-        "<code>public PizzaOrder(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 74,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "74. Milliy TV — 'BroadcastShow' Maxsus Konstruktori",
-      "en": "74. Milliy TV — 'BroadcastShow' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Milliy TV tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'BroadcastShow(String title, double viewersRating)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Milliy TV. Implement parameterized constructor 'BroadcastShow(String title, double viewersRating)'."
-    },
-    "requirements": {
-      "classes": [
-        "BroadcastShow"
-      ],
-      "constructors": [
-        "BroadcastShow"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BroadcastShow {\n    String title;\n    double viewersRating;\n\n    public BroadcastShow(String title, double viewersRating) {\n        this.title = title;\n        this.viewersRating = viewersRating;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow obj = new BroadcastShow(\"Milliy TV Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.viewersRating);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public BroadcastShow(String title, double viewersRating) {\n    this.title = title;\n    this.viewersRating = viewersRating;\n}",
-      "breakdown": [
-        "<code>public BroadcastShow(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 75,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "75. Spotify Sound — 'AudioTrack' Maxsus Konstruktori",
-      "en": "75. Spotify Sound — 'AudioTrack' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Spotify Sound tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'AudioTrack(String title, int durationSec)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Spotify Sound. Implement parameterized constructor 'AudioTrack(String title, int durationSec)'."
-    },
-    "requirements": {
-      "classes": [
-        "AudioTrack"
-      ],
-      "constructors": [
-        "AudioTrack"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class AudioTrack {\n    String title;\n    int durationSec;\n\n    public AudioTrack(String title, int durationSec) {\n        this.title = title;\n        this.durationSec = durationSec;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack obj = new AudioTrack(\"Spotify Sound Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.durationSec);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public AudioTrack(String title, int durationSec) {\n    this.title = title;\n    this.durationSec = durationSec;\n}",
-      "breakdown": [
-        "<code>public AudioTrack(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 76,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "76. Smart Thermostat — 'Thermostat' Maxsus Konstruktori",
-      "en": "76. Smart Thermostat — 'Thermostat' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Smart Thermostat tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'Thermostat(String title, double targetTemp)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Smart Thermostat. Implement parameterized constructor 'Thermostat(String title, double targetTemp)'."
-    },
-    "requirements": {
-      "classes": [
-        "Thermostat"
-      ],
-      "constructors": [
-        "Thermostat"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Thermostat {\n    String title;\n    double targetTemp;\n\n    public Thermostat(String title, double targetTemp) {\n        this.title = title;\n        this.targetTemp = targetTemp;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat obj = new Thermostat(\"Smart Thermostat Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.targetTemp);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public Thermostat(String title, double targetTemp) {\n    this.title = title;\n    this.targetTemp = targetTemp;\n}",
-      "breakdown": [
-        "<code>public Thermostat(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 77,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "77. Drone Delivery — 'DeliveryDrone' Maxsus Konstruktori",
-      "en": "77. Drone Delivery — 'DeliveryDrone' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Drone Delivery tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'DeliveryDrone(String title, int batteryPct)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Drone Delivery. Implement parameterized constructor 'DeliveryDrone(String title, int batteryPct)'."
-    },
-    "requirements": {
-      "classes": [
-        "DeliveryDrone"
-      ],
-      "constructors": [
-        "DeliveryDrone"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class DeliveryDrone {\n    String title;\n    int batteryPct;\n\n    public DeliveryDrone(String title, int batteryPct) {\n        this.title = title;\n        this.batteryPct = batteryPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone obj = new DeliveryDrone(\"Drone Delivery Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.batteryPct);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public DeliveryDrone(String title, int batteryPct) {\n    this.title = title;\n    this.batteryPct = batteryPct;\n}",
-      "breakdown": [
-        "<code>public DeliveryDrone(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 78,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "78. Smart Warehouse — 'StorageBay' Maxsus Konstruktori",
-      "en": "78. Smart Warehouse — 'StorageBay' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Smart Warehouse tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'StorageBay(String title, double weightLimitKg)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Smart Warehouse. Implement parameterized constructor 'StorageBay(String title, double weightLimitKg)'."
-    },
-    "requirements": {
-      "classes": [
-        "StorageBay"
-      ],
-      "constructors": [
-        "StorageBay"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class StorageBay {\n    String title;\n    double weightLimitKg;\n\n    public StorageBay(String title, double weightLimitKg) {\n        this.title = title;\n        this.weightLimitKg = weightLimitKg;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay obj = new StorageBay(\"Smart Warehouse Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.weightLimitKg);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public StorageBay(String title, double weightLimitKg) {\n    this.title = title;\n    this.weightLimitKg = weightLimitKg;\n}",
-      "breakdown": [
-        "<code>public StorageBay(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 79,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "79. Crypto Wallet — 'CryptoAsset' Maxsus Konstruktori",
-      "en": "79. Crypto Wallet — 'CryptoAsset' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Crypto Wallet tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'CryptoAsset(String title, double coinUnits)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Crypto Wallet. Implement parameterized constructor 'CryptoAsset(String title, double coinUnits)'."
-    },
-    "requirements": {
-      "classes": [
-        "CryptoAsset"
-      ],
-      "constructors": [
-        "CryptoAsset"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CryptoAsset {\n    String title;\n    double coinUnits;\n\n    public CryptoAsset(String title, double coinUnits) {\n        this.title = title;\n        this.coinUnits = coinUnits;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset obj = new CryptoAsset(\"Crypto Wallet Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.coinUnits);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public CryptoAsset(String title, double coinUnits) {\n    this.title = title;\n    this.coinUnits = coinUnits;\n}",
-      "breakdown": [
-        "<code>public CryptoAsset(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 80,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "80. National Library — 'CatalogBook' Maxsus Konstruktori",
-      "en": "80. National Library — 'CatalogBook' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "National Library tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'CatalogBook(String title, int pageCount)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in National Library. Implement parameterized constructor 'CatalogBook(String title, int pageCount)'."
-    },
-    "requirements": {
-      "classes": [
-        "CatalogBook"
-      ],
-      "constructors": [
-        "CatalogBook"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CatalogBook {\n    String title;\n    int pageCount;\n\n    public CatalogBook(String title, int pageCount) {\n        this.title = title;\n        this.pageCount = pageCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook obj = new CatalogBook(\"National Library Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.pageCount);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public CatalogBook(String title, int pageCount) {\n    this.title = title;\n    this.pageCount = pageCount;\n}",
-      "breakdown": [
-        "<code>public CatalogBook(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 81,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "81. BeFit Club — 'GymMember' Maxsus Konstruktori",
-      "en": "81. BeFit Club — 'GymMember' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "BeFit Club tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'GymMember(String title, int activeMonths)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in BeFit Club. Implement parameterized constructor 'GymMember(String title, int activeMonths)'."
-    },
-    "requirements": {
-      "classes": [
-        "GymMember"
-      ],
-      "constructors": [
-        "GymMember"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class GymMember {\n    String title;\n    int activeMonths;\n\n    public GymMember(String title, int activeMonths) {\n        this.title = title;\n        this.activeMonths = activeMonths;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember obj = new GymMember(\"BeFit Club Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.activeMonths);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public GymMember(String title, int activeMonths) {\n    this.title = title;\n    this.activeMonths = activeMonths;\n}",
-      "breakdown": [
-        "<code>public GymMember(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 82,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "82. Tashkent Parking — 'ParkingBay' Maxsus Konstruktori",
-      "en": "82. Tashkent Parking — 'ParkingBay' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Tashkent Parking tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'ParkingBay(String title, double hourlyTariff)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Tashkent Parking. Implement parameterized constructor 'ParkingBay(String title, double hourlyTariff)'."
-    },
-    "requirements": {
-      "classes": [
-        "ParkingBay"
-      ],
-      "constructors": [
-        "ParkingBay"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class ParkingBay {\n    String title;\n    double hourlyTariff;\n\n    public ParkingBay(String title, double hourlyTariff) {\n        this.title = title;\n        this.hourlyTariff = hourlyTariff;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay obj = new ParkingBay(\"Tashkent Parking Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.hourlyTariff);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public ParkingBay(String title, double hourlyTariff) {\n    this.title = title;\n    this.hourlyTariff = hourlyTariff;\n}",
-      "breakdown": [
-        "<code>public ParkingBay(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 83,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "83. Medion Clinic — 'PatientRecord' Maxsus Konstruktori",
-      "en": "83. Medion Clinic — 'PatientRecord' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Medion Clinic tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'PatientRecord(String title, int pulseRate)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Medion Clinic. Implement parameterized constructor 'PatientRecord(String title, int pulseRate)'."
-    },
-    "requirements": {
-      "classes": [
-        "PatientRecord"
-      ],
-      "constructors": [
-        "PatientRecord"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PatientRecord {\n    String title;\n    int pulseRate;\n\n    public PatientRecord(String title, int pulseRate) {\n        this.title = title;\n        this.pulseRate = pulseRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord obj = new PatientRecord(\"Medion Clinic Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.pulseRate);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public PatientRecord(String title, int pulseRate) {\n    this.title = title;\n    this.pulseRate = pulseRate;\n}",
-      "breakdown": [
-        "<code>public PatientRecord(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 84,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "84. Hyatt Regency — 'HotelReservation' Maxsus Konstruktori",
-      "en": "84. Hyatt Regency — 'HotelReservation' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Hyatt Regency tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'HotelReservation(String title, double nightlyRate)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Hyatt Regency. Implement parameterized constructor 'HotelReservation(String title, double nightlyRate)'."
-    },
-    "requirements": {
-      "classes": [
-        "HotelReservation"
-      ],
-      "constructors": [
-        "HotelReservation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class HotelReservation {\n    String title;\n    double nightlyRate;\n\n    public HotelReservation(String title, double nightlyRate) {\n        this.title = title;\n        this.nightlyRate = nightlyRate;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation obj = new HotelReservation(\"Hyatt Regency Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.nightlyRate);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public HotelReservation(String title, double nightlyRate) {\n    this.title = title;\n    this.nightlyRate = nightlyRate;\n}",
-      "breakdown": [
-        "<code>public HotelReservation(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 85,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "85. Premier Cinema — 'CinemaTicket' Maxsus Konstruktori",
-      "en": "85. Premier Cinema — 'CinemaTicket' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Premier Cinema tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'CinemaTicket(String title, int hallSeatNo)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Premier Cinema. Implement parameterized constructor 'CinemaTicket(String title, int hallSeatNo)'."
-    },
-    "requirements": {
-      "classes": [
-        "CinemaTicket"
-      ],
-      "constructors": [
-        "CinemaTicket"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CinemaTicket {\n    String title;\n    int hallSeatNo;\n\n    public CinemaTicket(String title, int hallSeatNo) {\n        this.title = title;\n        this.hallSeatNo = hallSeatNo;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket obj = new CinemaTicket(\"Premier Cinema Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.hallSeatNo);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public CinemaTicket(String title, int hallSeatNo) {\n    this.title = title;\n    this.hallSeatNo = hallSeatNo;\n}",
-      "breakdown": [
-        "<code>public CinemaTicket(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 86,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "86. Yandex Scooter — 'ElectricScooter' Maxsus Konstruktori",
-      "en": "86. Yandex Scooter — 'ElectricScooter' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Yandex Scooter tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'ElectricScooter(String title, double maxSpeedKmh)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Yandex Scooter. Implement parameterized constructor 'ElectricScooter(String title, double maxSpeedKmh)'."
-    },
-    "requirements": {
-      "classes": [
-        "ElectricScooter"
-      ],
-      "constructors": [
-        "ElectricScooter"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class ElectricScooter {\n    String title;\n    double maxSpeedKmh;\n\n    public ElectricScooter(String title, double maxSpeedKmh) {\n        this.title = title;\n        this.maxSpeedKmh = maxSpeedKmh;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter obj = new ElectricScooter(\"Yandex Scooter Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.maxSpeedKmh);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public ElectricScooter(String title, double maxSpeedKmh) {\n    this.title = title;\n    this.maxSpeedKmh = maxSpeedKmh;\n}",
-      "breakdown": [
-        "<code>public ElectricScooter(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 87,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "87. Weather Network — 'MeteoStation' Maxsus Konstruktori",
-      "en": "87. Weather Network — 'MeteoStation' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Weather Network tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'MeteoStation(String title, int humidityPct)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Weather Network. Implement parameterized constructor 'MeteoStation(String title, int humidityPct)'."
-    },
-    "requirements": {
-      "classes": [
-        "MeteoStation"
-      ],
-      "constructors": [
-        "MeteoStation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class MeteoStation {\n    String title;\n    int humidityPct;\n\n    public MeteoStation(String title, int humidityPct) {\n        this.title = title;\n        this.humidityPct = humidityPct;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation obj = new MeteoStation(\"Weather Network Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.humidityPct);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public MeteoStation(String title, int humidityPct) {\n    this.title = title;\n    this.humidityPct = humidityPct;\n}",
-      "breakdown": [
-        "<code>public MeteoStation(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 88,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "88. OpenMarket Auction — 'AuctionLot' Maxsus Konstruktori",
-      "en": "88. OpenMarket Auction — 'AuctionLot' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "OpenMarket Auction tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'AuctionLot(String title, double reservePrice)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in OpenMarket Auction. Implement parameterized constructor 'AuctionLot(String title, double reservePrice)'."
-    },
-    "requirements": {
-      "classes": [
-        "AuctionLot"
-      ],
-      "constructors": [
-        "AuctionLot"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class AuctionLot {\n    String title;\n    double reservePrice;\n\n    public AuctionLot(String title, double reservePrice) {\n        this.title = title;\n        this.reservePrice = reservePrice;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot obj = new AuctionLot(\"OpenMarket Auction Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.reservePrice);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public AuctionLot(String title, double reservePrice) {\n    this.title = title;\n    this.reservePrice = reservePrice;\n}",
-      "breakdown": [
-        "<code>public AuctionLot(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 89,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "89. Solar Energy Grid — 'SolarInverter' Maxsus Konstruktori",
-      "en": "89. Solar Energy Grid — 'SolarInverter' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "Solar Energy Grid tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'SolarInverter(String title, double powerKw)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in Solar Energy Grid. Implement parameterized constructor 'SolarInverter(String title, double powerKw)'."
-    },
-    "requirements": {
-      "classes": [
-        "SolarInverter"
-      ],
-      "constructors": [
-        "SolarInverter"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class SolarInverter {\n    String title;\n    double powerKw;\n\n    public SolarInverter(String title, double powerKw) {\n        this.title = title;\n        this.powerKw = powerKw;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter obj = new SolarInverter(\"Solar Energy Grid Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.powerKw);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public SolarInverter(String title, double powerKw) {\n    this.title = title;\n    this.powerKw = powerKw;\n}",
-      "breakdown": [
-        "<code>public SolarInverter(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 90,
-    "tier": 3,
-    "tierName": "3-Bosqich: Konstruktorlar va Ob'yekt Hayot Sikli",
-    "sector": "Biznes Mantiq",
-    "title": {
-      "uz": "90. O'zbekiston Temir Yo'llari — 'TrainRoute' Maxsus Konstruktori",
-      "en": "90. O'zbekiston Temir Yo'llari — 'TrainRoute' Parameterized Constructor"
-    },
-    "scenario": {
-      "uz": "O'zbekiston Temir Yo'llari tizimida ob'yektlar bo'sh qolib ketmasligi kerak. 'TrainRoute(String title, double travelDurationHours)' maxsus konstruktorini yarating va 'this' kalit so'zi orqali maydonlarni initsializatsiya qiling.",
-      "en": "Guarantee consistent initialization in O'zbekiston Temir Yo'llari. Implement parameterized constructor 'TrainRoute(String title, double travelDurationHours)'."
-    },
-    "requirements": {
-      "classes": [
-        "TrainRoute"
-      ],
-      "constructors": [
-        "TrainRoute"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class TrainRoute {\n    String title;\n    double travelDurationHours;\n\n    public TrainRoute(String title, double travelDurationHours) {\n        this.title = title;\n        this.travelDurationHours = travelDurationHours;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute obj = new TrainRoute(\"O'zbekiston Temir Yo'llari Pro\", 75);\n        System.out.println(\"Yaratildi: \" + obj.title + \" -> \" + obj.travelDurationHours);\n    }\n}",
-    "detailedSolution": {
-      "theory": "Konstruktor — ob'yekt Heap xotirada yaratilayotganda birinchi bo'lib chaqiriluvchi maxsus blokdir. Uning qaytish turi (return type) bo'lmaydi va nomi sinf nomi bilan bir xil bo'ladi.",
-      "theoryEn": "A constructor initializes the state of an instance upon Heap instantiation. It carries no return type and mirrors the class identifier.",
-      "cleanCode": "public TrainRoute(String title, double travelDurationHours) {\n    this.title = title;\n    this.travelDurationHours = travelDurationHours;\n}",
-      "breakdown": [
-        "<code>public TrainRoute(...)</code>: Yaratish vaqtida majburiy parametrlarni talab qilish orqali ob'yektning yaroqli holatini ta'minlaydi."
-      ],
-      "pitfalls": "Maxsus konstruktor yozilganda, Java avtomatik bo'sh konstruktorni (default no-arg constructor) o'chirib yuboradi.",
-      "cw2Tip": "Viva savollarida 'Default constructor qachon yo'qoladi?' deb so'raladi: aynan siz bitta bo'lsa ham maxsus konstruktor yozganingizda!"
-    }
-  },
-  {
-    "id": 91,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "91. Uzum Market — Statik Hisoblagich va ID Generatsiya",
-      "en": "91. Uzum Market — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Uzum Market kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'Product' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Uzum Market. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "Product"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "Product"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Product {\n    public static int totalCreated = 0;\n    String title;\n\n    public Product(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Product(\"1-Ob'yekt\");\n        new Product(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Product.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic Product(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 92,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "92. Payme Wallet — Statik Hisoblagich va ID Generatsiya",
-      "en": "92. Payme Wallet — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Payme Wallet kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'WalletUser' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Payme Wallet. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "WalletUser"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "WalletUser"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class WalletUser {\n    public static int totalCreated = 0;\n    String title;\n\n    public WalletUser(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new WalletUser(\"1-Ob'yekt\");\n        new WalletUser(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + WalletUser.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic WalletUser(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 93,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "93. Yandex Go — Statik Hisoblagich va ID Generatsiya",
-      "en": "93. Yandex Go — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Yandex Go kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'TaxiRide' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Yandex Go. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "TaxiRide"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "TaxiRide"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class TaxiRide {\n    public static int totalCreated = 0;\n    String title;\n\n    public TaxiRide(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new TaxiRide(\"1-Ob'yekt\");\n        new TaxiRide(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + TaxiRide.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic TaxiRide(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 94,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "94. Korzinka Go — Statik Hisoblagich va ID Generatsiya",
-      "en": "94. Korzinka Go — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Korzinka Go kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'LoyaltyCard' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Korzinka Go. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "LoyaltyCard"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "LoyaltyCard"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class LoyaltyCard {\n    public static int totalCreated = 0;\n    String title;\n\n    public LoyaltyCard(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new LoyaltyCard(\"1-Ob'yekt\");\n        new LoyaltyCard(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + LoyaltyCard.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic LoyaltyCard(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 95,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "95. WIUT Portal — Statik Hisoblagich va ID Generatsiya",
-      "en": "95. WIUT Portal — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "WIUT Portal kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'Student' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in WIUT Portal. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "Student"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "Student"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Student {\n    public static int totalCreated = 0;\n    String title;\n\n    public Student(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Student(\"1-Ob'yekt\");\n        new Student(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Student.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic Student(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 96,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "96. Click Pay — Statik Hisoblagich va ID Generatsiya",
-      "en": "96. Click Pay — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Click Pay kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'PaymentTxn' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Click Pay. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "PaymentTxn"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "PaymentTxn"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PaymentTxn {\n    public static int totalCreated = 0;\n    String title;\n\n    public PaymentTxn(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new PaymentTxn(\"1-Ob'yekt\");\n        new PaymentTxn(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + PaymentTxn.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic PaymentTxn(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 97,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "97. Telegram Bot — Statik Hisoblagich va ID Generatsiya",
-      "en": "97. Telegram Bot — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Telegram Bot kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'BotMessage' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Telegram Bot. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "BotMessage"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "BotMessage"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BotMessage {\n    public static int totalCreated = 0;\n    String title;\n\n    public BotMessage(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new BotMessage(\"1-Ob'yekt\");\n        new BotMessage(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + BotMessage.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic BotMessage(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 98,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "98. UzAirways — Statik Hisoblagich va ID Generatsiya",
-      "en": "98. UzAirways — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "UzAirways kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'FlightTicket' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in UzAirways. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "FlightTicket"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "FlightTicket"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class FlightTicket {\n    public static int totalCreated = 0;\n    String title;\n\n    public FlightTicket(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new FlightTicket(\"1-Ob'yekt\");\n        new FlightTicket(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + FlightTicket.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic FlightTicket(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 99,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "99. IT Park Academy — Statik Hisoblagich va ID Generatsiya",
-      "en": "99. IT Park Academy — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "IT Park Academy kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'BootcampCourse' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in IT Park Academy. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "BootcampCourse"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "BootcampCourse"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BootcampCourse {\n    public static int totalCreated = 0;\n    String title;\n\n    public BootcampCourse(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new BootcampCourse(\"1-Ob'yekt\");\n        new BootcampCourse(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + BootcampCourse.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic BootcampCourse(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 100,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "100. Anorbank — Statik Hisoblagich va ID Generatsiya",
-      "en": "100. Anorbank — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Anorbank kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'DebitCard' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Anorbank. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "DebitCard"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "DebitCard"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class DebitCard {\n    public static int totalCreated = 0;\n    String title;\n\n    public DebitCard(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new DebitCard(\"1-Ob'yekt\");\n        new DebitCard(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + DebitCard.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic DebitCard(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 101,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "101. Oson Apteka — Statik Hisoblagich va ID Generatsiya",
-      "en": "101. Oson Apteka — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Oson Apteka kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'Medicine' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Oson Apteka. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "Medicine"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "Medicine"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Medicine {\n    public static int totalCreated = 0;\n    String title;\n\n    public Medicine(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Medicine(\"1-Ob'yekt\");\n        new Medicine(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Medicine.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic Medicine(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 102,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "102. Evos FastFood — Statik Hisoblagich va ID Generatsiya",
-      "en": "102. Evos FastFood — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Evos FastFood kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'FoodOrder' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Evos FastFood. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "FoodOrder"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "FoodOrder"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class FoodOrder {\n    public static int totalCreated = 0;\n    String title;\n\n    public FoodOrder(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new FoodOrder(\"1-Ob'yekt\");\n        new FoodOrder(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + FoodOrder.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic FoodOrder(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 103,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "103. Bellissimo Pizza — Statik Hisoblagich va ID Generatsiya",
-      "en": "103. Bellissimo Pizza — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Bellissimo Pizza kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'PizzaOrder' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Bellissimo Pizza. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "PizzaOrder"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "PizzaOrder"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PizzaOrder {\n    public static int totalCreated = 0;\n    String title;\n\n    public PizzaOrder(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new PizzaOrder(\"1-Ob'yekt\");\n        new PizzaOrder(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + PizzaOrder.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic PizzaOrder(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 104,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "104. Milliy TV — Statik Hisoblagich va ID Generatsiya",
-      "en": "104. Milliy TV — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Milliy TV kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'BroadcastShow' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Milliy TV. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "BroadcastShow"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "BroadcastShow"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BroadcastShow {\n    public static int totalCreated = 0;\n    String title;\n\n    public BroadcastShow(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new BroadcastShow(\"1-Ob'yekt\");\n        new BroadcastShow(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + BroadcastShow.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic BroadcastShow(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 105,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "105. Spotify Sound — Statik Hisoblagich va ID Generatsiya",
-      "en": "105. Spotify Sound — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Spotify Sound kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'AudioTrack' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Spotify Sound. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "AudioTrack"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "AudioTrack"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class AudioTrack {\n    public static int totalCreated = 0;\n    String title;\n\n    public AudioTrack(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new AudioTrack(\"1-Ob'yekt\");\n        new AudioTrack(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + AudioTrack.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic AudioTrack(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 106,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "106. Smart Thermostat — Statik Hisoblagich va ID Generatsiya",
-      "en": "106. Smart Thermostat — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Smart Thermostat kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'Thermostat' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Smart Thermostat. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "Thermostat"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "Thermostat"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Thermostat {\n    public static int totalCreated = 0;\n    String title;\n\n    public Thermostat(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new Thermostat(\"1-Ob'yekt\");\n        new Thermostat(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + Thermostat.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic Thermostat(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 107,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "107. Drone Delivery — Statik Hisoblagich va ID Generatsiya",
-      "en": "107. Drone Delivery — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Drone Delivery kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'DeliveryDrone' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Drone Delivery. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "DeliveryDrone"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "DeliveryDrone"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class DeliveryDrone {\n    public static int totalCreated = 0;\n    String title;\n\n    public DeliveryDrone(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new DeliveryDrone(\"1-Ob'yekt\");\n        new DeliveryDrone(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + DeliveryDrone.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic DeliveryDrone(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 108,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "108. Smart Warehouse — Statik Hisoblagich va ID Generatsiya",
-      "en": "108. Smart Warehouse — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Smart Warehouse kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'StorageBay' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Smart Warehouse. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "StorageBay"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "StorageBay"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class StorageBay {\n    public static int totalCreated = 0;\n    String title;\n\n    public StorageBay(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new StorageBay(\"1-Ob'yekt\");\n        new StorageBay(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + StorageBay.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic StorageBay(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 109,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "109. Crypto Wallet — Statik Hisoblagich va ID Generatsiya",
-      "en": "109. Crypto Wallet — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Crypto Wallet kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'CryptoAsset' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Crypto Wallet. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "CryptoAsset"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "CryptoAsset"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CryptoAsset {\n    public static int totalCreated = 0;\n    String title;\n\n    public CryptoAsset(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new CryptoAsset(\"1-Ob'yekt\");\n        new CryptoAsset(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + CryptoAsset.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic CryptoAsset(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 110,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "110. National Library — Statik Hisoblagich va ID Generatsiya",
-      "en": "110. National Library — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "National Library kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'CatalogBook' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in National Library. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "CatalogBook"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "CatalogBook"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CatalogBook {\n    public static int totalCreated = 0;\n    String title;\n\n    public CatalogBook(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new CatalogBook(\"1-Ob'yekt\");\n        new CatalogBook(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + CatalogBook.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic CatalogBook(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 111,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "111. BeFit Club — Statik Hisoblagich va ID Generatsiya",
-      "en": "111. BeFit Club — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "BeFit Club kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'GymMember' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in BeFit Club. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "GymMember"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "GymMember"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class GymMember {\n    public static int totalCreated = 0;\n    String title;\n\n    public GymMember(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new GymMember(\"1-Ob'yekt\");\n        new GymMember(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + GymMember.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic GymMember(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 112,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "112. Tashkent Parking — Statik Hisoblagich va ID Generatsiya",
-      "en": "112. Tashkent Parking — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Tashkent Parking kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'ParkingBay' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Tashkent Parking. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "ParkingBay"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "ParkingBay"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class ParkingBay {\n    public static int totalCreated = 0;\n    String title;\n\n    public ParkingBay(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new ParkingBay(\"1-Ob'yekt\");\n        new ParkingBay(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + ParkingBay.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic ParkingBay(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 113,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "113. Medion Clinic — Statik Hisoblagich va ID Generatsiya",
-      "en": "113. Medion Clinic — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Medion Clinic kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'PatientRecord' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Medion Clinic. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "PatientRecord"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "PatientRecord"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PatientRecord {\n    public static int totalCreated = 0;\n    String title;\n\n    public PatientRecord(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new PatientRecord(\"1-Ob'yekt\");\n        new PatientRecord(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + PatientRecord.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic PatientRecord(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 114,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "114. Hyatt Regency — Statik Hisoblagich va ID Generatsiya",
-      "en": "114. Hyatt Regency — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Hyatt Regency kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'HotelReservation' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Hyatt Regency. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "HotelReservation"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "HotelReservation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class HotelReservation {\n    public static int totalCreated = 0;\n    String title;\n\n    public HotelReservation(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new HotelReservation(\"1-Ob'yekt\");\n        new HotelReservation(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + HotelReservation.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic HotelReservation(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 115,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "115. Premier Cinema — Statik Hisoblagich va ID Generatsiya",
-      "en": "115. Premier Cinema — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Premier Cinema kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'CinemaTicket' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Premier Cinema. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "CinemaTicket"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "CinemaTicket"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CinemaTicket {\n    public static int totalCreated = 0;\n    String title;\n\n    public CinemaTicket(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new CinemaTicket(\"1-Ob'yekt\");\n        new CinemaTicket(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + CinemaTicket.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic CinemaTicket(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 116,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "116. Yandex Scooter — Statik Hisoblagich va ID Generatsiya",
-      "en": "116. Yandex Scooter — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Yandex Scooter kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'ElectricScooter' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Yandex Scooter. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "ElectricScooter"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "ElectricScooter"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class ElectricScooter {\n    public static int totalCreated = 0;\n    String title;\n\n    public ElectricScooter(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new ElectricScooter(\"1-Ob'yekt\");\n        new ElectricScooter(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + ElectricScooter.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic ElectricScooter(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 117,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "117. Weather Network — Statik Hisoblagich va ID Generatsiya",
-      "en": "117. Weather Network — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Weather Network kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'MeteoStation' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Weather Network. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "MeteoStation"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "MeteoStation"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class MeteoStation {\n    public static int totalCreated = 0;\n    String title;\n\n    public MeteoStation(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new MeteoStation(\"1-Ob'yekt\");\n        new MeteoStation(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + MeteoStation.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic MeteoStation(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 118,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "118. OpenMarket Auction — Statik Hisoblagich va ID Generatsiya",
-      "en": "118. OpenMarket Auction — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "OpenMarket Auction kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'AuctionLot' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in OpenMarket Auction. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "AuctionLot"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "AuctionLot"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class AuctionLot {\n    public static int totalCreated = 0;\n    String title;\n\n    public AuctionLot(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new AuctionLot(\"1-Ob'yekt\");\n        new AuctionLot(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + AuctionLot.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic AuctionLot(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 119,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "119. Solar Energy Grid — Statik Hisoblagich va ID Generatsiya",
-      "en": "119. Solar Energy Grid — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "Solar Energy Grid kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'SolarInverter' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in Solar Energy Grid. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "SolarInverter"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "SolarInverter"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class SolarInverter {\n    public static int totalCreated = 0;\n    String title;\n\n    public SolarInverter(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new SolarInverter(\"1-Ob'yekt\");\n        new SolarInverter(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + SolarInverter.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic SolarInverter(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 120,
-    "tier": 4,
-    "tierName": "4-Bosqich: Statik A'zolar va Umumiy Holat",
-    "sector": "Arxitektura",
-    "title": {
-      "uz": "120. O'zbekiston Temir Yo'llari — Statik Hisoblagich va ID Generatsiya",
-      "en": "120. O'zbekiston Temir Yo'llari — Static Counter & Global Registry"
-    },
-    "scenario": {
-      "uz": "O'zbekiston Temir Yo'llari kompaniyasida yaratilgan jami ob'yektlar sonini hisoblash zarur. 'TrainRoute' klassiga 'public static int totalCreated = 0;' maydonini qo'shing va har bir konstruktor ishlaganda uni 1 taga oshiring.",
-      "en": "Track global creation in O'zbekiston Temir Yo'llari. Add 'public static int totalCreated = 0;' incremented inside the constructor."
-    },
-    "requirements": {
-      "classes": [
-        "TrainRoute"
-      ],
-      "keywords": [
-        "static"
-      ],
-      "constructors": [
-        "TrainRoute"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class TrainRoute {\n    public static int totalCreated = 0;\n    String title;\n\n    public TrainRoute(String title) {\n        this.title = title;\n        totalCreated++;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        new TrainRoute(\"1-Ob'yekt\");\n        new TrainRoute(\"2-Ob'yekt\");\n        System.out.println(\"Jami ob'yektlar soni: \" + TrainRoute.totalCreated);\n    }\n}",
-    "detailedSolution": {
-      "theory": "'static' maydon ob'yektga emas, balki to'g'ridan-to'g'ri klassning o'ziga tegishlidir. Barcha instanslar bitta umumiy xotira maydonini (Metaspace/Class area) bo'lishadi.",
-      "theoryEn": "Static variables belong to the class definition itself in Metaspace, shared uniformly across all heap instances.",
-      "cleanCode": "public static int totalCreated = 0;\npublic TrainRoute(String title) {\n    this.title = title;\n    totalCreated++;\n}",
-      "breakdown": [
-        "<code>public static int totalCreated = 0;</code>: Klass darajasidagi yagona global hisoblagich."
-      ],
-      "pitfalls": "Statik metodlar ichidan instans o'zgaruvchilarga ('this') murojaat qilib bo'lmaydi, chunki statik kontekstda ob'yekt hali mavjud bo'lmasligi mumkin.",
-      "cw2Tip": "CW2 da buyurtma raqamlarini (Order ID: 1001, 1002, 1003...) avtomatik generatsiya qilishda aynan 'static int nextId' ishlatiladi."
-    }
-  },
-  {
-    "id": 121,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "121. Uzum Market — 'ProductManager' va Massivlar Bilan Ishlash",
-      "en": "121. Uzum Market — 'ProductManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Uzum Market ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'ProductManager' klassini yarating va unga 'Product[] items' massivi hamda barcha elementlarning 'price' summasini hisoblovchi 'public double calculateTotalSum(Product[] list)' metodini qo'shing.",
-      "en": "Manage collection in Uzum Market. Create 'ProductManager' with 'public double calculateTotalSum(Product[] list)' to sum up 'price'."
-    },
-    "requirements": {
-      "classes": [
-        "Product",
-        "ProductManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Product {\n    double price;\n    public Product(double price) {\n        this.price = price;\n    }\n}\n\nclass ProductManager {\n    public double calculateTotalSum(Product[] list) {\n        double sum = 0;\n        for (Product item : list) {\n            if (item != null) sum += item.price;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product[] array = new Product[] { new Product(50.0), new Product(120.0) };\n        ProductManager mgr = new ProductManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(Product[] list) {\n    double sum = 0;\n    for (Product item : list) {\n        if (item != null) sum += item.price;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>Product[] array = new Product[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.price' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 122,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "122. Payme Wallet — 'WalletUserManager' va Massivlar Bilan Ishlash",
-      "en": "122. Payme Wallet — 'WalletUserManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Payme Wallet ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'WalletUserManager' klassini yarating va unga 'WalletUser[] items' massivi hamda barcha elementlarning 'balance' summasini hisoblovchi 'public double calculateTotalSum(WalletUser[] list)' metodini qo'shing.",
-      "en": "Manage collection in Payme Wallet. Create 'WalletUserManager' with 'public double calculateTotalSum(WalletUser[] list)' to sum up 'balance'."
-    },
-    "requirements": {
-      "classes": [
-        "WalletUser",
-        "WalletUserManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class WalletUser {\n    double balance;\n    public WalletUser(double balance) {\n        this.balance = balance;\n    }\n}\n\nclass WalletUserManager {\n    public double calculateTotalSum(WalletUser[] list) {\n        double sum = 0;\n        for (WalletUser item : list) {\n            if (item != null) sum += item.balance;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WalletUser[] array = new WalletUser[] { new WalletUser(50.0), new WalletUser(120.0) };\n        WalletUserManager mgr = new WalletUserManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(WalletUser[] list) {\n    double sum = 0;\n    for (WalletUser item : list) {\n        if (item != null) sum += item.balance;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>WalletUser[] array = new WalletUser[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.balance' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 123,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "123. Yandex Go — 'TaxiRideManager' va Massivlar Bilan Ishlash",
-      "en": "123. Yandex Go — 'TaxiRideManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Yandex Go ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'TaxiRideManager' klassini yarating va unga 'TaxiRide[] items' massivi hamda barcha elementlarning 'distanceKm' summasini hisoblovchi 'public double calculateTotalSum(TaxiRide[] list)' metodini qo'shing.",
-      "en": "Manage collection in Yandex Go. Create 'TaxiRideManager' with 'public double calculateTotalSum(TaxiRide[] list)' to sum up 'distanceKm'."
-    },
-    "requirements": {
-      "classes": [
-        "TaxiRide",
-        "TaxiRideManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class TaxiRide {\n    double distanceKm;\n    public TaxiRide(double distanceKm) {\n        this.distanceKm = distanceKm;\n    }\n}\n\nclass TaxiRideManager {\n    public double calculateTotalSum(TaxiRide[] list) {\n        double sum = 0;\n        for (TaxiRide item : list) {\n            if (item != null) sum += item.distanceKm;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TaxiRide[] array = new TaxiRide[] { new TaxiRide(50.0), new TaxiRide(120.0) };\n        TaxiRideManager mgr = new TaxiRideManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(TaxiRide[] list) {\n    double sum = 0;\n    for (TaxiRide item : list) {\n        if (item != null) sum += item.distanceKm;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>TaxiRide[] array = new TaxiRide[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.distanceKm' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 124,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "124. Korzinka Go — 'LoyaltyCardManager' va Massivlar Bilan Ishlash",
-      "en": "124. Korzinka Go — 'LoyaltyCardManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Korzinka Go ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'LoyaltyCardManager' klassini yarating va unga 'LoyaltyCard[] items' massivi hamda barcha elementlarning 'bonusPoints' summasini hisoblovchi 'public double calculateTotalSum(LoyaltyCard[] list)' metodini qo'shing.",
-      "en": "Manage collection in Korzinka Go. Create 'LoyaltyCardManager' with 'public double calculateTotalSum(LoyaltyCard[] list)' to sum up 'bonusPoints'."
-    },
-    "requirements": {
-      "classes": [
-        "LoyaltyCard",
-        "LoyaltyCardManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class LoyaltyCard {\n    double bonusPoints;\n    public LoyaltyCard(double bonusPoints) {\n        this.bonusPoints = bonusPoints;\n    }\n}\n\nclass LoyaltyCardManager {\n    public double calculateTotalSum(LoyaltyCard[] list) {\n        double sum = 0;\n        for (LoyaltyCard item : list) {\n            if (item != null) sum += item.bonusPoints;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyCard[] array = new LoyaltyCard[] { new LoyaltyCard(50.0), new LoyaltyCard(120.0) };\n        LoyaltyCardManager mgr = new LoyaltyCardManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(LoyaltyCard[] list) {\n    double sum = 0;\n    for (LoyaltyCard item : list) {\n        if (item != null) sum += item.bonusPoints;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>LoyaltyCard[] array = new LoyaltyCard[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.bonusPoints' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 125,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "125. WIUT Portal — 'StudentManager' va Massivlar Bilan Ishlash",
-      "en": "125. WIUT Portal — 'StudentManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "WIUT Portal ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'StudentManager' klassini yarating va unga 'Student[] items' massivi hamda barcha elementlarning 'gpa' summasini hisoblovchi 'public double calculateTotalSum(Student[] list)' metodini qo'shing.",
-      "en": "Manage collection in WIUT Portal. Create 'StudentManager' with 'public double calculateTotalSum(Student[] list)' to sum up 'gpa'."
-    },
-    "requirements": {
-      "classes": [
-        "Student",
-        "StudentManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Student {\n    double gpa;\n    public Student(double gpa) {\n        this.gpa = gpa;\n    }\n}\n\nclass StudentManager {\n    public double calculateTotalSum(Student[] list) {\n        double sum = 0;\n        for (Student item : list) {\n            if (item != null) sum += item.gpa;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student[] array = new Student[] { new Student(50.0), new Student(120.0) };\n        StudentManager mgr = new StudentManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(Student[] list) {\n    double sum = 0;\n    for (Student item : list) {\n        if (item != null) sum += item.gpa;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>Student[] array = new Student[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.gpa' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 126,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "126. Click Pay — 'PaymentTxnManager' va Massivlar Bilan Ishlash",
-      "en": "126. Click Pay — 'PaymentTxnManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Click Pay ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'PaymentTxnManager' klassini yarating va unga 'PaymentTxn[] items' massivi hamda barcha elementlarning 'amount' summasini hisoblovchi 'public double calculateTotalSum(PaymentTxn[] list)' metodini qo'shing.",
-      "en": "Manage collection in Click Pay. Create 'PaymentTxnManager' with 'public double calculateTotalSum(PaymentTxn[] list)' to sum up 'amount'."
-    },
-    "requirements": {
-      "classes": [
-        "PaymentTxn",
-        "PaymentTxnManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PaymentTxn {\n    double amount;\n    public PaymentTxn(double amount) {\n        this.amount = amount;\n    }\n}\n\nclass PaymentTxnManager {\n    public double calculateTotalSum(PaymentTxn[] list) {\n        double sum = 0;\n        for (PaymentTxn item : list) {\n            if (item != null) sum += item.amount;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentTxn[] array = new PaymentTxn[] { new PaymentTxn(50.0), new PaymentTxn(120.0) };\n        PaymentTxnManager mgr = new PaymentTxnManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(PaymentTxn[] list) {\n    double sum = 0;\n    for (PaymentTxn item : list) {\n        if (item != null) sum += item.amount;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>PaymentTxn[] array = new PaymentTxn[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.amount' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 127,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "127. Telegram Bot — 'BotMessageManager' va Massivlar Bilan Ishlash",
-      "en": "127. Telegram Bot — 'BotMessageManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Telegram Bot ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'BotMessageManager' klassini yarating va unga 'BotMessage[] items' massivi hamda barcha elementlarning 'chatId' summasini hisoblovchi 'public double calculateTotalSum(BotMessage[] list)' metodini qo'shing.",
-      "en": "Manage collection in Telegram Bot. Create 'BotMessageManager' with 'public double calculateTotalSum(BotMessage[] list)' to sum up 'chatId'."
-    },
-    "requirements": {
-      "classes": [
-        "BotMessage",
-        "BotMessageManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BotMessage {\n    double chatId;\n    public BotMessage(double chatId) {\n        this.chatId = chatId;\n    }\n}\n\nclass BotMessageManager {\n    public double calculateTotalSum(BotMessage[] list) {\n        double sum = 0;\n        for (BotMessage item : list) {\n            if (item != null) sum += item.chatId;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BotMessage[] array = new BotMessage[] { new BotMessage(50.0), new BotMessage(120.0) };\n        BotMessageManager mgr = new BotMessageManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(BotMessage[] list) {\n    double sum = 0;\n    for (BotMessage item : list) {\n        if (item != null) sum += item.chatId;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>BotMessage[] array = new BotMessage[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.chatId' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 128,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "128. UzAirways — 'FlightTicketManager' va Massivlar Bilan Ishlash",
-      "en": "128. UzAirways — 'FlightTicketManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "UzAirways ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'FlightTicketManager' klassini yarating va unga 'FlightTicket[] items' massivi hamda barcha elementlarning 'farePrice' summasini hisoblovchi 'public double calculateTotalSum(FlightTicket[] list)' metodini qo'shing.",
-      "en": "Manage collection in UzAirways. Create 'FlightTicketManager' with 'public double calculateTotalSum(FlightTicket[] list)' to sum up 'farePrice'."
-    },
-    "requirements": {
-      "classes": [
-        "FlightTicket",
-        "FlightTicketManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class FlightTicket {\n    double farePrice;\n    public FlightTicket(double farePrice) {\n        this.farePrice = farePrice;\n    }\n}\n\nclass FlightTicketManager {\n    public double calculateTotalSum(FlightTicket[] list) {\n        double sum = 0;\n        for (FlightTicket item : list) {\n            if (item != null) sum += item.farePrice;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket[] array = new FlightTicket[] { new FlightTicket(50.0), new FlightTicket(120.0) };\n        FlightTicketManager mgr = new FlightTicketManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(FlightTicket[] list) {\n    double sum = 0;\n    for (FlightTicket item : list) {\n        if (item != null) sum += item.farePrice;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>FlightTicket[] array = new FlightTicket[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.farePrice' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 129,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "129. IT Park Academy — 'BootcampCourseManager' va Massivlar Bilan Ishlash",
-      "en": "129. IT Park Academy — 'BootcampCourseManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "IT Park Academy ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'BootcampCourseManager' klassini yarating va unga 'BootcampCourse[] items' massivi hamda barcha elementlarning 'durationWeeks' summasini hisoblovchi 'public double calculateTotalSum(BootcampCourse[] list)' metodini qo'shing.",
-      "en": "Manage collection in IT Park Academy. Create 'BootcampCourseManager' with 'public double calculateTotalSum(BootcampCourse[] list)' to sum up 'durationWeeks'."
-    },
-    "requirements": {
-      "classes": [
-        "BootcampCourse",
-        "BootcampCourseManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BootcampCourse {\n    double durationWeeks;\n    public BootcampCourse(double durationWeeks) {\n        this.durationWeeks = durationWeeks;\n    }\n}\n\nclass BootcampCourseManager {\n    public double calculateTotalSum(BootcampCourse[] list) {\n        double sum = 0;\n        for (BootcampCourse item : list) {\n            if (item != null) sum += item.durationWeeks;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BootcampCourse[] array = new BootcampCourse[] { new BootcampCourse(50.0), new BootcampCourse(120.0) };\n        BootcampCourseManager mgr = new BootcampCourseManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(BootcampCourse[] list) {\n    double sum = 0;\n    for (BootcampCourse item : list) {\n        if (item != null) sum += item.durationWeeks;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>BootcampCourse[] array = new BootcampCourse[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.durationWeeks' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 130,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "130. Anorbank — 'DebitCardManager' va Massivlar Bilan Ishlash",
-      "en": "130. Anorbank — 'DebitCardManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Anorbank ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'DebitCardManager' klassini yarating va unga 'DebitCard[] items' massivi hamda barcha elementlarning 'creditLimit' summasini hisoblovchi 'public double calculateTotalSum(DebitCard[] list)' metodini qo'shing.",
-      "en": "Manage collection in Anorbank. Create 'DebitCardManager' with 'public double calculateTotalSum(DebitCard[] list)' to sum up 'creditLimit'."
-    },
-    "requirements": {
-      "classes": [
-        "DebitCard",
-        "DebitCardManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class DebitCard {\n    double creditLimit;\n    public DebitCard(double creditLimit) {\n        this.creditLimit = creditLimit;\n    }\n}\n\nclass DebitCardManager {\n    public double calculateTotalSum(DebitCard[] list) {\n        double sum = 0;\n        for (DebitCard item : list) {\n            if (item != null) sum += item.creditLimit;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard[] array = new DebitCard[] { new DebitCard(50.0), new DebitCard(120.0) };\n        DebitCardManager mgr = new DebitCardManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(DebitCard[] list) {\n    double sum = 0;\n    for (DebitCard item : list) {\n        if (item != null) sum += item.creditLimit;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>DebitCard[] array = new DebitCard[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.creditLimit' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 131,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "131. Oson Apteka — 'MedicineManager' va Massivlar Bilan Ishlash",
-      "en": "131. Oson Apteka — 'MedicineManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Oson Apteka ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'MedicineManager' klassini yarating va unga 'Medicine[] items' massivi hamda barcha elementlarning 'stockCount' summasini hisoblovchi 'public double calculateTotalSum(Medicine[] list)' metodini qo'shing.",
-      "en": "Manage collection in Oson Apteka. Create 'MedicineManager' with 'public double calculateTotalSum(Medicine[] list)' to sum up 'stockCount'."
-    },
-    "requirements": {
-      "classes": [
-        "Medicine",
-        "MedicineManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Medicine {\n    double stockCount;\n    public Medicine(double stockCount) {\n        this.stockCount = stockCount;\n    }\n}\n\nclass MedicineManager {\n    public double calculateTotalSum(Medicine[] list) {\n        double sum = 0;\n        for (Medicine item : list) {\n            if (item != null) sum += item.stockCount;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Medicine[] array = new Medicine[] { new Medicine(50.0), new Medicine(120.0) };\n        MedicineManager mgr = new MedicineManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(Medicine[] list) {\n    double sum = 0;\n    for (Medicine item : list) {\n        if (item != null) sum += item.stockCount;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>Medicine[] array = new Medicine[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.stockCount' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 132,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "132. Evos FastFood — 'FoodOrderManager' va Massivlar Bilan Ishlash",
-      "en": "132. Evos FastFood — 'FoodOrderManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Evos FastFood ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'FoodOrderManager' klassini yarating va unga 'FoodOrder[] items' massivi hamda barcha elementlarning 'totalSum' summasini hisoblovchi 'public double calculateTotalSum(FoodOrder[] list)' metodini qo'shing.",
-      "en": "Manage collection in Evos FastFood. Create 'FoodOrderManager' with 'public double calculateTotalSum(FoodOrder[] list)' to sum up 'totalSum'."
-    },
-    "requirements": {
-      "classes": [
-        "FoodOrder",
-        "FoodOrderManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class FoodOrder {\n    double totalSum;\n    public FoodOrder(double totalSum) {\n        this.totalSum = totalSum;\n    }\n}\n\nclass FoodOrderManager {\n    public double calculateTotalSum(FoodOrder[] list) {\n        double sum = 0;\n        for (FoodOrder item : list) {\n            if (item != null) sum += item.totalSum;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder[] array = new FoodOrder[] { new FoodOrder(50.0), new FoodOrder(120.0) };\n        FoodOrderManager mgr = new FoodOrderManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(FoodOrder[] list) {\n    double sum = 0;\n    for (FoodOrder item : list) {\n        if (item != null) sum += item.totalSum;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>FoodOrder[] array = new FoodOrder[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.totalSum' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 133,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "133. Bellissimo Pizza — 'PizzaOrderManager' va Massivlar Bilan Ishlash",
-      "en": "133. Bellissimo Pizza — 'PizzaOrderManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Bellissimo Pizza ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'PizzaOrderManager' klassini yarating va unga 'PizzaOrder[] items' massivi hamda barcha elementlarning 'prepTimeMinutes' summasini hisoblovchi 'public double calculateTotalSum(PizzaOrder[] list)' metodini qo'shing.",
-      "en": "Manage collection in Bellissimo Pizza. Create 'PizzaOrderManager' with 'public double calculateTotalSum(PizzaOrder[] list)' to sum up 'prepTimeMinutes'."
-    },
-    "requirements": {
-      "classes": [
-        "PizzaOrder",
-        "PizzaOrderManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PizzaOrder {\n    double prepTimeMinutes;\n    public PizzaOrder(double prepTimeMinutes) {\n        this.prepTimeMinutes = prepTimeMinutes;\n    }\n}\n\nclass PizzaOrderManager {\n    public double calculateTotalSum(PizzaOrder[] list) {\n        double sum = 0;\n        for (PizzaOrder item : list) {\n            if (item != null) sum += item.prepTimeMinutes;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PizzaOrder[] array = new PizzaOrder[] { new PizzaOrder(50.0), new PizzaOrder(120.0) };\n        PizzaOrderManager mgr = new PizzaOrderManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(PizzaOrder[] list) {\n    double sum = 0;\n    for (PizzaOrder item : list) {\n        if (item != null) sum += item.prepTimeMinutes;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>PizzaOrder[] array = new PizzaOrder[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.prepTimeMinutes' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 134,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "134. Milliy TV — 'BroadcastShowManager' va Massivlar Bilan Ishlash",
-      "en": "134. Milliy TV — 'BroadcastShowManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Milliy TV ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'BroadcastShowManager' klassini yarating va unga 'BroadcastShow[] items' massivi hamda barcha elementlarning 'viewersRating' summasini hisoblovchi 'public double calculateTotalSum(BroadcastShow[] list)' metodini qo'shing.",
-      "en": "Manage collection in Milliy TV. Create 'BroadcastShowManager' with 'public double calculateTotalSum(BroadcastShow[] list)' to sum up 'viewersRating'."
-    },
-    "requirements": {
-      "classes": [
-        "BroadcastShow",
-        "BroadcastShowManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class BroadcastShow {\n    double viewersRating;\n    public BroadcastShow(double viewersRating) {\n        this.viewersRating = viewersRating;\n    }\n}\n\nclass BroadcastShowManager {\n    public double calculateTotalSum(BroadcastShow[] list) {\n        double sum = 0;\n        for (BroadcastShow item : list) {\n            if (item != null) sum += item.viewersRating;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BroadcastShow[] array = new BroadcastShow[] { new BroadcastShow(50.0), new BroadcastShow(120.0) };\n        BroadcastShowManager mgr = new BroadcastShowManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(BroadcastShow[] list) {\n    double sum = 0;\n    for (BroadcastShow item : list) {\n        if (item != null) sum += item.viewersRating;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>BroadcastShow[] array = new BroadcastShow[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.viewersRating' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 135,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "135. Spotify Sound — 'AudioTrackManager' va Massivlar Bilan Ishlash",
-      "en": "135. Spotify Sound — 'AudioTrackManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Spotify Sound ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'AudioTrackManager' klassini yarating va unga 'AudioTrack[] items' massivi hamda barcha elementlarning 'durationSec' summasini hisoblovchi 'public double calculateTotalSum(AudioTrack[] list)' metodini qo'shing.",
-      "en": "Manage collection in Spotify Sound. Create 'AudioTrackManager' with 'public double calculateTotalSum(AudioTrack[] list)' to sum up 'durationSec'."
-    },
-    "requirements": {
-      "classes": [
-        "AudioTrack",
-        "AudioTrackManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class AudioTrack {\n    double durationSec;\n    public AudioTrack(double durationSec) {\n        this.durationSec = durationSec;\n    }\n}\n\nclass AudioTrackManager {\n    public double calculateTotalSum(AudioTrack[] list) {\n        double sum = 0;\n        for (AudioTrack item : list) {\n            if (item != null) sum += item.durationSec;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AudioTrack[] array = new AudioTrack[] { new AudioTrack(50.0), new AudioTrack(120.0) };\n        AudioTrackManager mgr = new AudioTrackManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(AudioTrack[] list) {\n    double sum = 0;\n    for (AudioTrack item : list) {\n        if (item != null) sum += item.durationSec;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>AudioTrack[] array = new AudioTrack[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.durationSec' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 136,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "136. Smart Thermostat — 'ThermostatManager' va Massivlar Bilan Ishlash",
-      "en": "136. Smart Thermostat — 'ThermostatManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Smart Thermostat ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'ThermostatManager' klassini yarating va unga 'Thermostat[] items' massivi hamda barcha elementlarning 'targetTemp' summasini hisoblovchi 'public double calculateTotalSum(Thermostat[] list)' metodini qo'shing.",
-      "en": "Manage collection in Smart Thermostat. Create 'ThermostatManager' with 'public double calculateTotalSum(Thermostat[] list)' to sum up 'targetTemp'."
-    },
-    "requirements": {
-      "classes": [
-        "Thermostat",
-        "ThermostatManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class Thermostat {\n    double targetTemp;\n    public Thermostat(double targetTemp) {\n        this.targetTemp = targetTemp;\n    }\n}\n\nclass ThermostatManager {\n    public double calculateTotalSum(Thermostat[] list) {\n        double sum = 0;\n        for (Thermostat item : list) {\n            if (item != null) sum += item.targetTemp;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat[] array = new Thermostat[] { new Thermostat(50.0), new Thermostat(120.0) };\n        ThermostatManager mgr = new ThermostatManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(Thermostat[] list) {\n    double sum = 0;\n    for (Thermostat item : list) {\n        if (item != null) sum += item.targetTemp;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>Thermostat[] array = new Thermostat[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.targetTemp' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 137,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "137. Drone Delivery — 'DeliveryDroneManager' va Massivlar Bilan Ishlash",
-      "en": "137. Drone Delivery — 'DeliveryDroneManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Drone Delivery ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'DeliveryDroneManager' klassini yarating va unga 'DeliveryDrone[] items' massivi hamda barcha elementlarning 'batteryPct' summasini hisoblovchi 'public double calculateTotalSum(DeliveryDrone[] list)' metodini qo'shing.",
-      "en": "Manage collection in Drone Delivery. Create 'DeliveryDroneManager' with 'public double calculateTotalSum(DeliveryDrone[] list)' to sum up 'batteryPct'."
-    },
-    "requirements": {
-      "classes": [
-        "DeliveryDrone",
-        "DeliveryDroneManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class DeliveryDrone {\n    double batteryPct;\n    public DeliveryDrone(double batteryPct) {\n        this.batteryPct = batteryPct;\n    }\n}\n\nclass DeliveryDroneManager {\n    public double calculateTotalSum(DeliveryDrone[] list) {\n        double sum = 0;\n        for (DeliveryDrone item : list) {\n            if (item != null) sum += item.batteryPct;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryDrone[] array = new DeliveryDrone[] { new DeliveryDrone(50.0), new DeliveryDrone(120.0) };\n        DeliveryDroneManager mgr = new DeliveryDroneManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(DeliveryDrone[] list) {\n    double sum = 0;\n    for (DeliveryDrone item : list) {\n        if (item != null) sum += item.batteryPct;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>DeliveryDrone[] array = new DeliveryDrone[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.batteryPct' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 138,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "138. Smart Warehouse — 'StorageBayManager' va Massivlar Bilan Ishlash",
-      "en": "138. Smart Warehouse — 'StorageBayManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Smart Warehouse ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'StorageBayManager' klassini yarating va unga 'StorageBay[] items' massivi hamda barcha elementlarning 'weightLimitKg' summasini hisoblovchi 'public double calculateTotalSum(StorageBay[] list)' metodini qo'shing.",
-      "en": "Manage collection in Smart Warehouse. Create 'StorageBayManager' with 'public double calculateTotalSum(StorageBay[] list)' to sum up 'weightLimitKg'."
-    },
-    "requirements": {
-      "classes": [
-        "StorageBay",
-        "StorageBayManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class StorageBay {\n    double weightLimitKg;\n    public StorageBay(double weightLimitKg) {\n        this.weightLimitKg = weightLimitKg;\n    }\n}\n\nclass StorageBayManager {\n    public double calculateTotalSum(StorageBay[] list) {\n        double sum = 0;\n        for (StorageBay item : list) {\n            if (item != null) sum += item.weightLimitKg;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        StorageBay[] array = new StorageBay[] { new StorageBay(50.0), new StorageBay(120.0) };\n        StorageBayManager mgr = new StorageBayManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(StorageBay[] list) {\n    double sum = 0;\n    for (StorageBay item : list) {\n        if (item != null) sum += item.weightLimitKg;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>StorageBay[] array = new StorageBay[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.weightLimitKg' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 139,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "139. Crypto Wallet — 'CryptoAssetManager' va Massivlar Bilan Ishlash",
-      "en": "139. Crypto Wallet — 'CryptoAssetManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Crypto Wallet ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'CryptoAssetManager' klassini yarating va unga 'CryptoAsset[] items' massivi hamda barcha elementlarning 'coinUnits' summasini hisoblovchi 'public double calculateTotalSum(CryptoAsset[] list)' metodini qo'shing.",
-      "en": "Manage collection in Crypto Wallet. Create 'CryptoAssetManager' with 'public double calculateTotalSum(CryptoAsset[] list)' to sum up 'coinUnits'."
-    },
-    "requirements": {
-      "classes": [
-        "CryptoAsset",
-        "CryptoAssetManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CryptoAsset {\n    double coinUnits;\n    public CryptoAsset(double coinUnits) {\n        this.coinUnits = coinUnits;\n    }\n}\n\nclass CryptoAssetManager {\n    public double calculateTotalSum(CryptoAsset[] list) {\n        double sum = 0;\n        for (CryptoAsset item : list) {\n            if (item != null) sum += item.coinUnits;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CryptoAsset[] array = new CryptoAsset[] { new CryptoAsset(50.0), new CryptoAsset(120.0) };\n        CryptoAssetManager mgr = new CryptoAssetManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(CryptoAsset[] list) {\n    double sum = 0;\n    for (CryptoAsset item : list) {\n        if (item != null) sum += item.coinUnits;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>CryptoAsset[] array = new CryptoAsset[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.coinUnits' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 140,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "140. National Library — 'CatalogBookManager' va Massivlar Bilan Ishlash",
-      "en": "140. National Library — 'CatalogBookManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "National Library ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'CatalogBookManager' klassini yarating va unga 'CatalogBook[] items' massivi hamda barcha elementlarning 'pageCount' summasini hisoblovchi 'public double calculateTotalSum(CatalogBook[] list)' metodini qo'shing.",
-      "en": "Manage collection in National Library. Create 'CatalogBookManager' with 'public double calculateTotalSum(CatalogBook[] list)' to sum up 'pageCount'."
-    },
-    "requirements": {
-      "classes": [
-        "CatalogBook",
-        "CatalogBookManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CatalogBook {\n    double pageCount;\n    public CatalogBook(double pageCount) {\n        this.pageCount = pageCount;\n    }\n}\n\nclass CatalogBookManager {\n    public double calculateTotalSum(CatalogBook[] list) {\n        double sum = 0;\n        for (CatalogBook item : list) {\n            if (item != null) sum += item.pageCount;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CatalogBook[] array = new CatalogBook[] { new CatalogBook(50.0), new CatalogBook(120.0) };\n        CatalogBookManager mgr = new CatalogBookManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(CatalogBook[] list) {\n    double sum = 0;\n    for (CatalogBook item : list) {\n        if (item != null) sum += item.pageCount;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>CatalogBook[] array = new CatalogBook[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.pageCount' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 141,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "141. BeFit Club — 'GymMemberManager' va Massivlar Bilan Ishlash",
-      "en": "141. BeFit Club — 'GymMemberManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "BeFit Club ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'GymMemberManager' klassini yarating va unga 'GymMember[] items' massivi hamda barcha elementlarning 'activeMonths' summasini hisoblovchi 'public double calculateTotalSum(GymMember[] list)' metodini qo'shing.",
-      "en": "Manage collection in BeFit Club. Create 'GymMemberManager' with 'public double calculateTotalSum(GymMember[] list)' to sum up 'activeMonths'."
-    },
-    "requirements": {
-      "classes": [
-        "GymMember",
-        "GymMemberManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class GymMember {\n    double activeMonths;\n    public GymMember(double activeMonths) {\n        this.activeMonths = activeMonths;\n    }\n}\n\nclass GymMemberManager {\n    public double calculateTotalSum(GymMember[] list) {\n        double sum = 0;\n        for (GymMember item : list) {\n            if (item != null) sum += item.activeMonths;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GymMember[] array = new GymMember[] { new GymMember(50.0), new GymMember(120.0) };\n        GymMemberManager mgr = new GymMemberManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(GymMember[] list) {\n    double sum = 0;\n    for (GymMember item : list) {\n        if (item != null) sum += item.activeMonths;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>GymMember[] array = new GymMember[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.activeMonths' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 142,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "142. Tashkent Parking — 'ParkingBayManager' va Massivlar Bilan Ishlash",
-      "en": "142. Tashkent Parking — 'ParkingBayManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Tashkent Parking ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'ParkingBayManager' klassini yarating va unga 'ParkingBay[] items' massivi hamda barcha elementlarning 'hourlyTariff' summasini hisoblovchi 'public double calculateTotalSum(ParkingBay[] list)' metodini qo'shing.",
-      "en": "Manage collection in Tashkent Parking. Create 'ParkingBayManager' with 'public double calculateTotalSum(ParkingBay[] list)' to sum up 'hourlyTariff'."
-    },
-    "requirements": {
-      "classes": [
-        "ParkingBay",
-        "ParkingBayManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class ParkingBay {\n    double hourlyTariff;\n    public ParkingBay(double hourlyTariff) {\n        this.hourlyTariff = hourlyTariff;\n    }\n}\n\nclass ParkingBayManager {\n    public double calculateTotalSum(ParkingBay[] list) {\n        double sum = 0;\n        for (ParkingBay item : list) {\n            if (item != null) sum += item.hourlyTariff;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ParkingBay[] array = new ParkingBay[] { new ParkingBay(50.0), new ParkingBay(120.0) };\n        ParkingBayManager mgr = new ParkingBayManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(ParkingBay[] list) {\n    double sum = 0;\n    for (ParkingBay item : list) {\n        if (item != null) sum += item.hourlyTariff;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>ParkingBay[] array = new ParkingBay[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.hourlyTariff' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 143,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "143. Medion Clinic — 'PatientRecordManager' va Massivlar Bilan Ishlash",
-      "en": "143. Medion Clinic — 'PatientRecordManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Medion Clinic ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'PatientRecordManager' klassini yarating va unga 'PatientRecord[] items' massivi hamda barcha elementlarning 'pulseRate' summasini hisoblovchi 'public double calculateTotalSum(PatientRecord[] list)' metodini qo'shing.",
-      "en": "Manage collection in Medion Clinic. Create 'PatientRecordManager' with 'public double calculateTotalSum(PatientRecord[] list)' to sum up 'pulseRate'."
-    },
-    "requirements": {
-      "classes": [
-        "PatientRecord",
-        "PatientRecordManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class PatientRecord {\n    double pulseRate;\n    public PatientRecord(double pulseRate) {\n        this.pulseRate = pulseRate;\n    }\n}\n\nclass PatientRecordManager {\n    public double calculateTotalSum(PatientRecord[] list) {\n        double sum = 0;\n        for (PatientRecord item : list) {\n            if (item != null) sum += item.pulseRate;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PatientRecord[] array = new PatientRecord[] { new PatientRecord(50.0), new PatientRecord(120.0) };\n        PatientRecordManager mgr = new PatientRecordManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(PatientRecord[] list) {\n    double sum = 0;\n    for (PatientRecord item : list) {\n        if (item != null) sum += item.pulseRate;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>PatientRecord[] array = new PatientRecord[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.pulseRate' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 144,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "144. Hyatt Regency — 'HotelReservationManager' va Massivlar Bilan Ishlash",
-      "en": "144. Hyatt Regency — 'HotelReservationManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Hyatt Regency ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'HotelReservationManager' klassini yarating va unga 'HotelReservation[] items' massivi hamda barcha elementlarning 'nightlyRate' summasini hisoblovchi 'public double calculateTotalSum(HotelReservation[] list)' metodini qo'shing.",
-      "en": "Manage collection in Hyatt Regency. Create 'HotelReservationManager' with 'public double calculateTotalSum(HotelReservation[] list)' to sum up 'nightlyRate'."
-    },
-    "requirements": {
-      "classes": [
-        "HotelReservation",
-        "HotelReservationManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class HotelReservation {\n    double nightlyRate;\n    public HotelReservation(double nightlyRate) {\n        this.nightlyRate = nightlyRate;\n    }\n}\n\nclass HotelReservationManager {\n    public double calculateTotalSum(HotelReservation[] list) {\n        double sum = 0;\n        for (HotelReservation item : list) {\n            if (item != null) sum += item.nightlyRate;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        HotelReservation[] array = new HotelReservation[] { new HotelReservation(50.0), new HotelReservation(120.0) };\n        HotelReservationManager mgr = new HotelReservationManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(HotelReservation[] list) {\n    double sum = 0;\n    for (HotelReservation item : list) {\n        if (item != null) sum += item.nightlyRate;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>HotelReservation[] array = new HotelReservation[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.nightlyRate' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 145,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "145. Premier Cinema — 'CinemaTicketManager' va Massivlar Bilan Ishlash",
-      "en": "145. Premier Cinema — 'CinemaTicketManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Premier Cinema ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'CinemaTicketManager' klassini yarating va unga 'CinemaTicket[] items' massivi hamda barcha elementlarning 'hallSeatNo' summasini hisoblovchi 'public double calculateTotalSum(CinemaTicket[] list)' metodini qo'shing.",
-      "en": "Manage collection in Premier Cinema. Create 'CinemaTicketManager' with 'public double calculateTotalSum(CinemaTicket[] list)' to sum up 'hallSeatNo'."
-    },
-    "requirements": {
-      "classes": [
-        "CinemaTicket",
-        "CinemaTicketManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class CinemaTicket {\n    double hallSeatNo;\n    public CinemaTicket(double hallSeatNo) {\n        this.hallSeatNo = hallSeatNo;\n    }\n}\n\nclass CinemaTicketManager {\n    public double calculateTotalSum(CinemaTicket[] list) {\n        double sum = 0;\n        for (CinemaTicket item : list) {\n            if (item != null) sum += item.hallSeatNo;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CinemaTicket[] array = new CinemaTicket[] { new CinemaTicket(50.0), new CinemaTicket(120.0) };\n        CinemaTicketManager mgr = new CinemaTicketManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(CinemaTicket[] list) {\n    double sum = 0;\n    for (CinemaTicket item : list) {\n        if (item != null) sum += item.hallSeatNo;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>CinemaTicket[] array = new CinemaTicket[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.hallSeatNo' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 146,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "146. Yandex Scooter — 'ElectricScooterManager' va Massivlar Bilan Ishlash",
-      "en": "146. Yandex Scooter — 'ElectricScooterManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Yandex Scooter ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'ElectricScooterManager' klassini yarating va unga 'ElectricScooter[] items' massivi hamda barcha elementlarning 'maxSpeedKmh' summasini hisoblovchi 'public double calculateTotalSum(ElectricScooter[] list)' metodini qo'shing.",
-      "en": "Manage collection in Yandex Scooter. Create 'ElectricScooterManager' with 'public double calculateTotalSum(ElectricScooter[] list)' to sum up 'maxSpeedKmh'."
-    },
-    "requirements": {
-      "classes": [
-        "ElectricScooter",
-        "ElectricScooterManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class ElectricScooter {\n    double maxSpeedKmh;\n    public ElectricScooter(double maxSpeedKmh) {\n        this.maxSpeedKmh = maxSpeedKmh;\n    }\n}\n\nclass ElectricScooterManager {\n    public double calculateTotalSum(ElectricScooter[] list) {\n        double sum = 0;\n        for (ElectricScooter item : list) {\n            if (item != null) sum += item.maxSpeedKmh;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ElectricScooter[] array = new ElectricScooter[] { new ElectricScooter(50.0), new ElectricScooter(120.0) };\n        ElectricScooterManager mgr = new ElectricScooterManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(ElectricScooter[] list) {\n    double sum = 0;\n    for (ElectricScooter item : list) {\n        if (item != null) sum += item.maxSpeedKmh;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>ElectricScooter[] array = new ElectricScooter[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.maxSpeedKmh' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 147,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "147. Weather Network — 'MeteoStationManager' va Massivlar Bilan Ishlash",
-      "en": "147. Weather Network — 'MeteoStationManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "Weather Network ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'MeteoStationManager' klassini yarating va unga 'MeteoStation[] items' massivi hamda barcha elementlarning 'humidityPct' summasini hisoblovchi 'public double calculateTotalSum(MeteoStation[] list)' metodini qo'shing.",
-      "en": "Manage collection in Weather Network. Create 'MeteoStationManager' with 'public double calculateTotalSum(MeteoStation[] list)' to sum up 'humidityPct'."
-    },
-    "requirements": {
-      "classes": [
-        "MeteoStation",
-        "MeteoStationManager"
-      ],
-      "methods": [
-        "calculateTotalSum"
-      ]
-    },
-    "starterCode": "",
-    "solution": "class MeteoStation {\n    double humidityPct;\n    public MeteoStation(double humidityPct) {\n        this.humidityPct = humidityPct;\n    }\n}\n\nclass MeteoStationManager {\n    public double calculateTotalSum(MeteoStation[] list) {\n        double sum = 0;\n        for (MeteoStation item : list) {\n            if (item != null) sum += item.humidityPct;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MeteoStation[] array = new MeteoStation[] { new MeteoStation(50.0), new MeteoStation(120.0) };\n        MeteoStationManager mgr = new MeteoStationManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
-    "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(MeteoStation[] list) {\n    double sum = 0;\n    for (MeteoStation item : list) {\n        if (item != null) sum += item.humidityPct;\n    }\n    return sum;\n}",
-      "breakdown": [
-        "<code>MeteoStation[] array = new MeteoStation[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
-      ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.humidityPct' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
-    }
-  },
-  {
-    "id": 148,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
-    "title": {
-      "uz": "148. OpenMarket Auction — 'AuctionLotManager' va Massivlar Bilan Ishlash",
-      "en": "148. OpenMarket Auction — 'AuctionLotManager' Object Array Aggregation"
-    },
-    "scenario": {
-      "uz": "OpenMarket Auction ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'AuctionLotManager' klassini yarating va unga 'AuctionLot[] items' massivi hamda barcha elementlarning 'reservePrice' summasini hisoblovchi 'public double calculateTotalSum(AuctionLot[] list)' metodini qo'shing.",
-      "en": "Manage collection in OpenMarket Auction. Create 'AuctionLotManager' with 'public double calculateTotalSum(AuctionLot[] list)' to sum up 'reservePrice'."
+      "uz": "1-bosqich yakuniy topshirig'i! E-auksion tizimida tovar lillari savdosi bo'lib o'tadi. 'AuctionLot' klassini yarating: 'lotTitle' (String), 'startingPrice' (double), 'highestBid' (double), 'highestBidder' (String). Yangi taklif kiritilganda agar yangi narx 'highestBid' dan katta bo'lsa, 'highestBid' va 'highestBidder' yangilansin, aks holda rad etilsin.",
+      "en": "Stage 1 Capstone! In E-Auction, define 'AuctionLot' with 'lotTitle' (String), 'startingPrice' (double), 'highestBid' (double), and 'highestBidder' (String). Update highest bid if new offer exceeds current."
     },
     "requirements": {
       "classes": [
         "AuctionLot",
-        "AuctionLotManager"
+        "Main"
       ],
-      "methods": [
-        "calculateTotalSum"
+      "fields": [
+        {
+          "name": "lotTitle",
+          "type": "String"
+        },
+        {
+          "name": "startingPrice",
+          "type": "double"
+        },
+        {
+          "name": "highestBid",
+          "type": "double"
+        },
+        {
+          "name": "highestBidder",
+          "type": "String"
+        }
       ]
     },
-    "starterCode": "",
-    "solution": "class AuctionLot {\n    double reservePrice;\n    public AuctionLot(double reservePrice) {\n        this.reservePrice = reservePrice;\n    }\n}\n\nclass AuctionLotManager {\n    public double calculateTotalSum(AuctionLot[] list) {\n        double sum = 0;\n        for (AuctionLot item : list) {\n            if (item != null) sum += item.reservePrice;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot[] array = new AuctionLot[] { new AuctionLot(50.0), new AuctionLot(120.0) };\n        AuctionLotManager mgr = new AuctionLotManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "class AuctionLot {\n    // lotTitle (String), startingPrice (double), highestBid (double), highestBidder (String)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // AuctionLot yarating, 2 ta taklifni simulyatsiya qilib g'olibni aniqlang\n        \n    }\n}",
+    "solution": "class AuctionLot {\n    String lotTitle;\n    double startingPrice;\n    double highestBid;\n    String highestBidder;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuctionLot lot = new AuctionLot();\n        lot.lotTitle = \"Toshkent City Ofis Binosi\";\n        lot.startingPrice = 500000.0;\n        lot.highestBid = lot.startingPrice;\n        lot.highestBidder = \"Boshlang'ich Narx\";\n\n        // 1-taklif\n        double offer1 = 520000.0;\n        String bidder1 = \"Kompaniya A\";\n        if (offer1 > lot.highestBid) {\n            lot.highestBid = offer1;\n            lot.highestBidder = bidder1;\n        }\n\n        // 2-taklif (past narx, qabul qilinmasligi kerak)\n        double offer2 = 510000.0;\n        String bidder2 = \"Kompaniya B\";\n        if (offer2 > lot.highestBid) {\n            lot.highestBid = offer2;\n            lot.highestBidder = bidder2;\n        }\n\n        System.out.println(\"Lot: \" + lot.lotTitle);\n        System.out.println(\"G'olib: \" + lot.highestBidder + \" | Yakuniy narx: $\" + lot.highestBid);\n    }\n}",
     "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(AuctionLot[] list) {\n    double sum = 0;\n    for (AuctionLot item : list) {\n        if (item != null) sum += item.reservePrice;\n    }\n    return sum;\n}",
+      "theory": "1-bosqichda biz maydonlarni tashqaridan (Main metodida) o'zgartirishni to'liq ko'rdik. Lekin e'tibor bering: har bir yangi taklif uchun shartlarni Main ichida takroran yozish Clean Code qoidalariga zid! Shu sababli 2-bosqichda ushbu mantiqni klassning o'ziga 'instans metod' sifatida kiritishni o'rganamiz!",
+      "theoryEn": "In Stage 1 we mutated state externally. Moving this logic inside the class as instance methods is the fundamental purpose of Stage 2.",
+      "cleanCode": "if (offer1 > lot.highestBid) {\n    lot.highestBid = offer1;\n    lot.highestBidder = bidder1;\n}",
       "breakdown": [
-        "<code>AuctionLot[] array = new AuctionLot[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
+        "Auksion lotining barcha holatlari Heap xotirada saqlandi.",
+        "Raqobatli narxlar sharti tekshirilib, g'olib aniqlandi.",
+        "Bu topshiriq 2-bosqichdagi metodlar konseptsiyasiga tabiiy ko'prik vazifasini o'taydi."
       ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.reservePrice' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
+      "pitfalls": "Boshlang'ich narx bilan eng yuqori narx tenglashtirilmasa, takliflar xato tekshirilishi mumkin.",
+      "cw2Tip": "Auksion va savat tizimlarida ob'yekt holatini yangilash eng ko'p uchraydigan vazifadir."
     }
   },
   {
-    "id": 149,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
+    "id": 11,
+    "tier": 2,
+    "tierName": "2-Bosqich: Instans Metodlar va Xatti-harakat",
+    "sector": "11-20",
     "title": {
-      "uz": "149. Solar Energy Grid — 'SolarInverterManager' va Massivlar Bilan Ishlash",
-      "en": "149. Solar Energy Grid — 'SolarInverterManager' Object Array Aggregation"
+      "uz": "11. Digital Wallet — 'deposit' va 'withdraw' Instans Metodlari",
+      "en": "11. Digital Wallet — 'deposit' & 'withdraw' Instance Methods"
     },
     "scenario": {
-      "uz": "Solar Energy Grid ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'SolarInverterManager' klassini yarating va unga 'SolarInverter[] items' massivi hamda barcha elementlarning 'powerKw' summasini hisoblovchi 'public double calculateTotalSum(SolarInverter[] list)' metodini qo'shing.",
-      "en": "Manage collection in Solar Energy Grid. Create 'SolarInverterManager' with 'public double calculateTotalSum(SolarInverter[] list)' to sum up 'powerKw'."
+      "uz": "Endi mantiqni to'g'ridan-to'g'ri klass ichiga ko'chiramiz! 'Wallet' klassini tuzing: 'balance' (double) maydoni bo'lsin. Unga 2 ta instans metod qo'shing: 'public void deposit(double amount)' va 'public void withdraw(double amount)'. Har ikkala metod ob'yektning 'balance' maydonini mos ravishda oshirsin yoki kamaytirsin.",
+      "en": "Encapsulate behavior inside the class! Create 'Wallet' with 'balance' (double). Add 'public void deposit(double amount)' and 'public void withdraw(double amount)' to mutate balance."
     },
     "requirements": {
       "classes": [
-        "SolarInverter",
-        "SolarInverterManager"
+        "Wallet",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "balance",
+          "type": "double"
+        }
       ],
       "methods": [
-        "calculateTotalSum"
+        "deposit",
+        "withdraw"
       ]
     },
-    "starterCode": "",
-    "solution": "class SolarInverter {\n    double powerKw;\n    public SolarInverter(double powerKw) {\n        this.powerKw = powerKw;\n    }\n}\n\nclass SolarInverterManager {\n    public double calculateTotalSum(SolarInverter[] list) {\n        double sum = 0;\n        for (SolarInverter item : list) {\n            if (item != null) sum += item.powerKw;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SolarInverter[] array = new SolarInverter[] { new SolarInverter(50.0), new SolarInverter(120.0) };\n        SolarInverterManager mgr = new SolarInverterManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "class Wallet {\n    double balance;\n\n    // deposit va withdraw metodlarini yarating\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        Wallet w = new Wallet();\n        w.balance = 50000.0;\n        // w.deposit(20000.0);\n        // w.withdraw(15000.0);\n        // Yangi balansni chiqaring\n    }\n}",
+    "solution": "class Wallet {\n    double balance;\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            balance += amount;\n        }\n    }\n\n    public void withdraw(double amount) {\n        if (amount > 0 && balance >= amount) {\n            balance -= amount;\n        }\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Wallet w = new Wallet();\n        w.balance = 50000.0;\n        w.deposit(20000.0);\n        w.withdraw(15000.0);\n\n        System.out.println(\"Hamyon balansi: \" + w.balance + \" so'm\");\n    }\n}",
     "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(SolarInverter[] list) {\n    double sum = 0;\n    for (SolarInverter item : list) {\n        if (item != null) sum += item.powerKw;\n    }\n    return sum;\n}",
+      "theory": "Instans metodlar ob'yektning xatti-harakatini (behavior) ifodalaydi. Ular ob'yekt maydonlariga to'g'ridan-to'g'ri kira oladi va tashqaridan kod yozmasdan, ob'yektning o'zini o'zi boshqarishini ta'minlaydi.",
+      "theoryEn": "Instance methods represent object behavior, operating directly on instance fields to enforce self-containment.",
+      "cleanCode": "public void deposit(double amount) {\n    if (amount > 0) balance += amount;\n}",
       "breakdown": [
-        "<code>SolarInverter[] array = new SolarInverter[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
+        "<code>public void deposit(double amount)</code>: Balansni to'ldiruvchi parametrli void metod.",
+        "<code>public void withdraw(double amount)</code>: Mablag' yetarli bo'lganda yechuvchi metod.",
+        "Tashqi kod faqat metodlarni chaqiradi, hisoblash mantiqini takrorlamaydi."
       ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.powerKw' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
+      "pitfalls": "Manfiy miqdorlarni tekshirmasdan to'g'ridan-to'g'ri `balance += amount` qilish xatolikka olib keladi.",
+      "cw2Tip": "Bank va hisob-kitob klasslarida barcha harakatlar aynan metodlar orqali amalga oshiriladi."
     }
   },
   {
-    "id": 150,
-    "tier": 5,
-    "tierName": "5-Bosqich: Ob'yektlar Massivi va Agregator Tizim",
-    "sector": "Master • CW2",
+    "id": 12,
+    "tier": 2,
+    "tierName": "2-Bosqich: Instans Metodlar va Xatti-harakat",
+    "sector": "11-20",
     "title": {
-      "uz": "150. O'zbekiston Temir Yo'llari — 'TrainRouteManager' va Massivlar Bilan Ishlash",
-      "en": "150. O'zbekiston Temir Yo'llari — 'TrainRouteManager' Object Array Aggregation"
+      "uz": "12. Uzum Sale — Qiymat Qaytaruvchi 'calculateFinalPrice' Metodi",
+      "en": "12. Uzum Sale — Value-Returning 'calculateFinalPrice' Method"
     },
     "scenario": {
-      "uz": "O'zbekiston Temir Yo'llari ko'p sonli ob'yektlarni bitta massivda boshqarishni talab qiladi. 'TrainRouteManager' klassini yarating va unga 'TrainRoute[] items' massivi hamda barcha elementlarning 'travelDurationHours' summasini hisoblovchi 'public double calculateTotalSum(TrainRoute[] list)' metodini qo'shing.",
-      "en": "Manage collection in O'zbekiston Temir Yo'llari. Create 'TrainRouteManager' with 'public double calculateTotalSum(TrainRoute[] list)' to sum up 'travelDurationHours'."
+      "uz": "Metodlar nafaqat o'zgartirishi, balki hisoblangan natijani qaytarishi ('return') ham mumkin. 'ProductSale' klassini tuzing: 'basePrice' (double) maydoni bo'lsin. 'public double calculateFinalPrice(double discountPercentage)' metodini yozing, u chegirmali narxni hisoblab qaytarsin.",
+      "en": "In Uzum Sale, create 'ProductSale' with 'basePrice' (double). Implement 'public double calculateFinalPrice(double discountPercentage)' which computes and returns the discounted total."
     },
     "requirements": {
       "classes": [
-        "TrainRoute",
-        "TrainRouteManager"
+        "ProductSale",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "basePrice",
+          "type": "double"
+        }
       ],
       "methods": [
-        "calculateTotalSum"
+        "calculateFinalPrice"
       ]
     },
-    "starterCode": "",
-    "solution": "class TrainRoute {\n    double travelDurationHours;\n    public TrainRoute(double travelDurationHours) {\n        this.travelDurationHours = travelDurationHours;\n    }\n}\n\nclass TrainRouteManager {\n    public double calculateTotalSum(TrainRoute[] list) {\n        double sum = 0;\n        for (TrainRoute item : list) {\n            if (item != null) sum += item.travelDurationHours;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TrainRoute[] array = new TrainRoute[] { new TrainRoute(50.0), new TrainRoute(120.0) };\n        TrainRouteManager mgr = new TrainRouteManager();\n        System.out.println(\"Jami summa: \" + mgr.calculateTotalSum(array));\n    }\n}",
+    "starterCode": "class ProductSale {\n    double basePrice;\n\n    // calculateFinalPrice metodini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // ProductSale ob'yektini yarating va chegirmali narxni hisoblang\n        \n    }\n}",
+    "solution": "class ProductSale {\n    double basePrice;\n\n    public double calculateFinalPrice(double discountPercentage) {\n        double discountAmount = basePrice * (discountPercentage / 100.0);\n        return basePrice - discountAmount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductSale sale = new ProductSale();\n        sale.basePrice = 1200000.0;\n\n        double finalPrice = sale.calculateFinalPrice(15.0); // 15% chegirma\n        System.out.println(\"Asl narx: \" + sale.basePrice + \" | Chegirmali narx: \" + finalPrice);\n    }\n}",
     "detailedSolution": {
-      "theory": "Ob'yektlar massivi Heap xotirada ob'yektlarning o'zini emas, balki ularning xotira manzillarini (reference array) saqlaydi. Massiv elementlarini tekshirishda 'null' xavfsizligiga e'tibor berish lozim.",
-      "theoryEn": "Object arrays hold heap references to instances rather than embedded values. Traversing arrays requires null-checks to prevent NullPointerExceptions.",
-      "cleanCode": "public double calculateTotalSum(TrainRoute[] list) {\n    double sum = 0;\n    for (TrainRoute item : list) {\n        if (item != null) sum += item.travelDurationHours;\n    }\n    return sum;\n}",
+      "theory": "'return' operatori hisoblangan qiymatni chaqiruvchi joyga qaytaradi. Metod imzosi qaytarilayotgan tur (bu yerda double) bilan aniq belgilanishi shart.",
+      "theoryEn": "The 'return' statement sends computed data back to the caller, matching the declared return type in the signature.",
+      "cleanCode": "return basePrice - (basePrice * (discountPercentage / 100.0));",
       "breakdown": [
-        "<code>TrainRoute[] array = new TrainRoute[size];</code>: Heap xotirada ko'rsatkichlar ro'yxatini shakllantirish."
+        "<code>double calculateFinalPrice(double discountPercentage)</code>: Kiruvchi argument va chiquvchi tur belgilandi.",
+        "Asosiy narx buzilmasdan saqlanadi, faqat hisoblangan qiymat qaytariladi."
       ],
-      "pitfalls": "Massiv bo'sh bo'lganda 'item.travelDurationHours' deb to'g'ridan-to'g'ri murojaat qilish 'NullPointerException' xatoligiga sabab bo'ladi.",
-      "cw2Tip": "CW2 da savatchadagi buyurtma elementlarini (Cart items) saqlash va umumiy narxni hisoblashda aynan shu algoritm qo'llaniladi."
+      "pitfalls": "return so'zidan keyin yozilgan har qanday kod bajarilmaydi (unreachable code xatosi).",
+      "cw2Tip": "CW2 buyurtma ilovasida savat chegirmalari aynan shu uslubda hisoblanadi."
+    }
+  },
+  {
+    "id": 13,
+    "tier": 2,
+    "tierName": "2-Bosqich: Instans Metodlar va Xatti-harakat",
+    "sector": "11-20",
+    "title": {
+      "uz": "13. Smart Thermostat — Limitlar va Chegaraviy Tekshiruv (Guard Clauses)",
+      "en": "13. Smart Thermostat — Guard Clauses & Safe Limits"
+    },
+    "scenario": {
+      "uz": "Aqlli uy termostati haroratni 16°C dan past yoki 32°C dan yuqori qilib yubormasligi shart. 'Thermostat' klassini tuzing: 'currentTemp' (double) maydoni bo'lsin. 'increaseTemp(double delta)' va 'decreaseTemp(double delta)' metodlarida chegaraviy tekshiruv (guard clause) o'rnating.",
+      "en": "Model a smart 'Thermostat' with 'currentTemp' (double). In 'increaseTemp' and 'decreaseTemp', enforce strict bounds between 16.0°C and 32.0°C."
+    },
+    "requirements": {
+      "classes": [
+        "Thermostat",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "currentTemp",
+          "type": "double"
+        }
+      ],
+      "methods": [
+        "increaseTemp",
+        "decreaseTemp"
+      ]
+    },
+    "starterCode": "class Thermostat {\n    double currentTemp;\n\n    // increaseTemp va decreaseTemp metodlarini yozing (16.0 dan 32.0 gacha chegara bilan)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Termostatni sinab ko'ring\n        \n    }\n}",
+    "solution": "class Thermostat {\n    double currentTemp;\n\n    public void increaseTemp(double delta) {\n        if (currentTemp + delta <= 32.0) {\n            currentTemp += delta;\n        } else {\n            currentTemp = 32.0;\n        }\n    }\n\n    public void decreaseTemp(double delta) {\n        if (currentTemp - delta >= 16.0) {\n            currentTemp -= delta;\n        } else {\n            currentTemp = 16.0;\n        }\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Thermostat t = new Thermostat();\n        t.currentTemp = 22.0;\n\n        t.increaseTemp(15.0); // 37.0 bo'lib ketmasligi kerak, 32.0 da to'xtaydi\n        System.out.println(\"Ko'tarilgandagi harorat: \" + t.currentTemp + \"°C\");\n\n        t.decreaseTemp(20.0); // 12.0 bo'lib ketmasligi kerak, 16.0 da to'xtaydi\n        System.out.println(\"Tushirilgandagi harorat: \" + t.currentTemp + \"°C\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Metodlar ichidagi himoyalovchi shartlar (Guard Clauses) obyektning har doim sog'lom va xavfsiz holatda qolishini kafolatlaydi.",
+      "theoryEn": "Guard clauses inside mutator methods prevent corrupted states by capping at boundary limits.",
+      "cleanCode": "if (currentTemp + delta <= 32.0) currentTemp += delta; else currentTemp = 32.0;",
+      "breakdown": [
+        "Maksimal va minimal harorat chegaralari metod darajasida himoyalandi.",
+        "Ob'yekt noto'g'ri fizik holatga tushib qolishi taqiqlandi."
+      ],
+      "pitfalls": "Chegaradan o'tganda jim qolish yoki limitga qadash qarorini biznes talabi belgilaydi.",
+      "cw2Tip": "Buyurtmadagi tovar soni ombordagi qoldiqdan oshib ketmasligini tekshirishda xuddi shu mantiq ishlatiladi."
+    }
+  },
+  {
+    "id": 14,
+    "tier": 2,
+    "tierName": "2-Bosqich: Instans Metodlar va Xatti-harakat",
+    "sector": "11-20",
+    "title": {
+      "uz": "14. Yandex Surge — 'estimateFare' Ko'p Argumentli Hisoblash Metodi",
+      "en": "14. Yandex Surge — Multi-Parameter 'estimateFare' Method"
+    },
+    "scenario": {
+      "uz": "Yandex Go servisida safar narxi masofa, baza narxi va tirbandlik koeffitsientiga (surge) bog'liq. 'RideService' klassini tuzing: 'baseFare' (double) maydoni bo'lsin. 'public double estimateFare(double km, double surgeMultiplier)' metodini yozing: formulasi 'baseFare + (km * 2500.0 * surgeMultiplier)'.",
+      "en": "In Yandex Surge, create 'RideService' with 'baseFare' (double). Implement 'public double estimateFare(double km, double surgeMultiplier)' combining base fare with distance and traffic multiplier."
+    },
+    "requirements": {
+      "classes": [
+        "RideService",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "baseFare",
+          "type": "double"
+        }
+      ],
+      "methods": [
+        "estimateFare"
+      ]
+    },
+    "starterCode": "class RideService {\n    double baseFare;\n\n    // estimateFare(double km, double surgeMultiplier) metodini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // RideService orqali turli koeffitsientlarda narxni hisoblang\n        \n    }\n}",
+    "solution": "class RideService {\n    double baseFare;\n\n    public double estimateFare(double km, double surgeMultiplier) {\n        return baseFare + (km * 2500.0 * surgeMultiplier);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        RideService service = new RideService();\n        service.baseFare = 5000.0;\n\n        double normalFare = service.estimateFare(10.0, 1.0);\n        double peakFare = service.estimateFare(10.0, 1.8);\n\n        System.out.println(\"Oddiy tarif: \" + normalFare + \" so'm\");\n        System.out.println(\"Tirbandlik tarifi (1.8x): \" + peakFare + \" so'm\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Metodlar bir nechta turli xil argumentlarni qabul qilib, ob'yektning o'z ichki maydoni (baseFare) bilan umumlashtirgan holda hisob-kitob olib borishi mumkin.",
+      "theoryEn": "Methods seamlessly synthesize internal state fields with incoming runtime arguments.",
+      "cleanCode": "return baseFare + (km * 2500.0 * surgeMultiplier);",
+      "breakdown": [
+        "2 ta argument: masofa va ko'paytiruvchi koeffitsient.",
+        "Ob'yekt maydoni hisob-kitobda faol ishtirok etmoqda."
+      ],
+      "pitfalls": "Argumentlar tartibini adashtirish mantiqiy xatoga olib kelishi mumkin.",
+      "cw2Tip": "CW2 ilovasida yetkazib berish narxini masofaga qarab hisoblashda ayni muddao."
+    }
+  },
+  {
+    "id": 15,
+    "tier": 2,
+    "tierName": "2-Bosqich: Instans Metodlar va Xatti-harakat",
+    "sector": "11-20",
+    "title": {
+      "uz": "15. WIUT GradeBook — 'getOverallScore' va 'isPassed' Boolean Predikat Metodi",
+      "en": "15. WIUT GradeBook — Predicate Methods & Assessment Rules"
+    },
+    "scenario": {
+      "uz": "WIUT modul baholash tizimi. 'GradeBook' klassini tuzing: 'courseworkMark' (double, 40%) va 'examMark' (double, 60%) maydonlari bo'lsin. 'public double getOverallScore()' metodi jami ballni ('cw * 0.4 + exam * 0.6') hisoblasin, 'public boolean isPassed()' metodi esa agar jami ball >= 40.0 bo'lsa 'true', aks holda 'false' qaytarsin.",
+      "en": "In WIUT GradeBook, model 'GradeBook' with 'courseworkMark' and 'examMark'. Implement 'double getOverallScore()' (40/60 weight) and predicate 'boolean isPassed()' (>= 40.0)."
+    },
+    "requirements": {
+      "classes": [
+        "GradeBook",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "courseworkMark",
+          "type": "double"
+        },
+        {
+          "name": "examMark",
+          "type": "double"
+        }
+      ],
+      "methods": [
+        "getOverallScore",
+        "isPassed"
+      ]
+    },
+    "starterCode": "class GradeBook {\n    double courseworkMark;\n    double examMark;\n\n    // getOverallScore va isPassed metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // GradeBook ob'yektini sinab ko'ring\n        \n    }\n}",
+    "solution": "class GradeBook {\n    double courseworkMark;\n    double examMark;\n\n    public double getOverallScore() {\n        return (courseworkMark * 0.4) + (examMark * 0.6);\n    }\n\n    public boolean isPassed() {\n        return getOverallScore() >= 40.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GradeBook gb = new GradeBook();\n        gb.courseworkMark = 65.0;\n        gb.examMark = 72.0;\n\n        double overall = gb.getOverallScore();\n        boolean passed = gb.isPassed();\n\n        System.out.println(\"Yakuniy ball: \" + overall + \" | Moduldan o'tdi: \" + passed);\n    }\n}",
+    "detailedSolution": {
+      "theory": "Metod ichidan boshqa metodni chaqirish (Method Delegation): 'isPassed()' metodi o'z hisob-kitobini 'getOverallScore()' natijasiga tayanib bajaradi. Bu kod takrorlanishining (DRY - Don't Repeat Yourself) oldini oladi.",
+      "theoryEn": "Method delegation allows 'isPassed()' to leverage 'getOverallScore()', strictly upholding DRY principles.",
+      "cleanCode": "public boolean isPassed() {\n    return getOverallScore() >= 40.0;\n}",
+      "breakdown": [
+        "Baholar vazniga qarab hisoblandi.",
+        "Mantiqiy predikat metodi qisqa va aniq ifodalandi."
+      ],
+      "pitfalls": "40.0 o'rniga 40 deb butun son yozilsa ham Java implicit conversion qiladi, lekin double aniqligi saqlangan ma'qul.",
+      "cw2Tip": "Bu aynan WIUT 5COSC018C modulining rasmiy baholash qoidasidir!"
+    }
+  },
+  {
+    "id": 16,
+    "tier": 2,
+    "tierName": "2-Bosqich: Instans Metodlar va Xatti-harakat",
+    "sector": "11-20",
+    "title": {
+      "uz": "16. Korzinka Plus — 'addPoints' va Darajani Avtomatik Yangilash (State Transitions)",
+      "en": "16. Korzinka Plus — Dynamic State Transitions & Tier Upgrades"
+    },
+    "scenario": {
+      "uz": "Korzinka sodiqlik dasturida mijoz ma'lum ball to'plasa, uning statusi avtomatik oshishi kerak. 'LoyaltyMember' klassini tuzing: 'points' (int) va 'tier' (String) maydonlari bo'lsin. 'public void addPoints(int earned)' metodini yozing: ball qo'shilsin va agar ball >= 1000 bo'lsa 'tier = \"GOLD\"' ga, aks holda agar ball >= 500 bo'lsa 'tier = \"SILVER\"' ga o'zgartirilsin.",
+      "en": "In Korzinka Plus, model 'LoyaltyMember' with 'points' (int) and 'tier' (String). 'addPoints(int earned)' adds points and dynamically upgrades tier to 'SILVER' (>=500) or 'GOLD' (>=1000)."
+    },
+    "requirements": {
+      "classes": [
+        "LoyaltyMember",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "points",
+          "type": "int"
+        },
+        {
+          "name": "tier",
+          "type": "String"
+        }
+      ],
+      "methods": [
+        "addPoints"
+      ]
+    },
+    "starterCode": "class LoyaltyMember {\n    int points;\n    String tier;\n\n    // addPoints metodini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Ball qo'shib, yangilangan statusni ko'ring\n        \n    }\n}",
+    "solution": "class LoyaltyMember {\n    int points;\n    String tier;\n\n    public void addPoints(int earned) {\n        if (earned > 0) {\n            points += earned;\n            if (points >= 1000) {\n                tier = \"GOLD\";\n            } else if (points >= 500) {\n                tier = \"SILVER\";\n            } else {\n                tier = \"BRONZE\";\n            }\n        }\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LoyaltyMember member = new LoyaltyMember();\n        member.points = 350;\n        member.tier = \"BRONZE\";\n\n        member.addPoints(250); // jami 600 -> SILVER\n        System.out.println(\"Ball: \" + member.points + \" | Status: \" + member.tier);\n\n        member.addPoints(500); // jami 1100 -> GOLD\n        System.out.println(\"Ball: \" + member.points + \" | Status: \" + member.tier);\n    }\n}",
+    "detailedSolution": {
+      "theory": "Holat tranzitsiyasi (State Transition): Obyektning xatti-harakati uning ichki holatini shartlar asosida yangi bosqichga o'tkazadi. Bu ob'yektga yo'naltirilgan dasturlashning eng kuchli jihatlaridan biridir.",
+      "theoryEn": "State transitions model evolving lifecycle phases directly within instance mutation logic.",
+      "cleanCode": "if (points >= 1000) tier = \"GOLD\";",
+      "breakdown": [
+        "Ball qo'shildi va oraliqlar tekshirildi.",
+        "Foydalanuvchi darajasi (Bronze -> Silver -> Gold) avtomatik o'sdi."
+      ],
+      "pitfalls": "Shartlarni tekshirishda kichik sondan emas, avval eng katta sondan (1000) boshlash kerak, aks holda `points >= 500` barcha 1000 dan kattalarni ham ushlab qoladi.",
+      "cw2Tip": "CW2 loyihangizda buyurtma statusini (PENDING -> PAID -> DELIVERED) boshqarishda ayni usul qo'llaniladi."
+    }
+  },
+  {
+    "id": 17,
+    "tier": 2,
+    "tierName": "2-Bosqich: Instans Metodlar va Xatti-harakat",
+    "sector": "11-20",
+    "title": {
+      "uz": "17. Cargo Logistics — 'loadCargo' va Natija Statusini Qaytarish (Boolean Result)",
+      "en": "17. Cargo Logistics — 'loadCargo' with Capacity Status Return"
+    },
+    "scenario": {
+      "uz": "Yuk tashish konteyneri maksimal og'irlikdan ortiq yuk ko'tara olmaydi. 'CargoContainer' klassini tuzing: 'maxCapacityKg' (double), 'currentWeightKg' (double). 'public boolean loadCargo(double weightKg)' metodini yozing: agar yuk qo'shilganda maksimal sig'imdan oshib ketmasa, yukni qo'shib 'true' qaytarsin; agar oshsa, yukni qo'shmasdan 'false' qaytarsin.",
+      "en": "In Cargo Logistics, define 'CargoContainer' with 'maxCapacityKg' and 'currentWeightKg'. 'public boolean loadCargo(double weightKg)' safely loads cargo only if limit not exceeded, returning true/false."
+    },
+    "requirements": {
+      "classes": [
+        "CargoContainer",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "maxCapacityKg",
+          "type": "double"
+        },
+        {
+          "name": "currentWeightKg",
+          "type": "double"
+        }
+      ],
+      "methods": [
+        "loadCargo"
+      ]
+    },
+    "starterCode": "class CargoContainer {\n    double maxCapacityKg;\n    double currentWeightKg;\n\n    // loadCargo metodini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Konteynerga yuk yuklab, natijasini tekshiring\n        \n    }\n}",
+    "solution": "class CargoContainer {\n    double maxCapacityKg;\n    double currentWeightKg;\n\n    public boolean loadCargo(double weightKg) {\n        if (weightKg > 0 && (currentWeightKg + weightKg) <= maxCapacityKg) {\n            currentWeightKg += weightKg;\n            return true;\n        }\n        return false;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CargoContainer container = new CargoContainer();\n        container.maxCapacityKg = 1000.0;\n        container.currentWeightKg = 700.0;\n\n        boolean success1 = container.loadCargo(200.0);\n        System.out.println(\"200 kg yuklandi: \" + success1 + \" (Jami: \" + container.currentWeightKg + \" kg)\");\n\n        boolean success2 = container.loadCargo(200.0); // 900 + 200 = 1100 > 1000 (Rad etiladi)\n        System.out.println(\"Ikkinchi 200 kg yuklandi: \" + success2 + \" (Jami: \" + container.currentWeightKg + \" kg)\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Operatsiya natijasini boolean orqali qaytarish (Status Return Pattern): Metod o'zgarish sodir bo'lgan yoki bo'lmaganligini chaqiruvchiga xabar beradi, bu esa tashqi kodga xatolikni chiroyli ko'rsatish imkonini yaratadi.",
+      "theoryEn": "Boolean status return signals operation success/failure while preventing invalid state mutations.",
+      "cleanCode": "if (weightKg > 0 && (currentWeightKg + weightKg) <= maxCapacityKg) {\n    currentWeightKg += weightKg;\n    return true;\n}\nreturn false;",
+      "breakdown": [
+        "Chegarani oldindan tekshirish (Atomic check).",
+        "Faqat sig'im yetarli bo'lganda og'irlik oshirildi."
+      ],
+      "pitfalls": "return false dan oldin currentWeightKg ni o'zgartirib qo'ymaslikka ehtiyot bo'ling.",
+      "cw2Tip": "Do'kon omborida qoldiq yetarli bo'lmaganda xaridni rad etish uchun ishlatiladi."
+    }
+  },
+  {
+    "id": 18,
+    "tier": 2,
+    "tierName": "2-Bosqich: Instans Metodlar va Xatti-harakat",
+    "sector": "11-20",
+    "title": {
+      "uz": "18. Bank Credit — Metodlarni Nomdosh Qilish (Method Overloading)",
+      "en": "18. Bank Credit — Method Overloading & Flexible Parameters"
+    },
+    "scenario": {
+      "uz": "Bir xil vazifani turli parametrlar bilan bajarish — Metod Overloading! 'Loan' klassini tuzing: 'principal' (double) maydoni bo'lsin. Ikkita 'calculateInterest' metodini yozing:\n1) 'public double calculateInterest(int months)' — standart yillik 20% stavka bilan hisoblaydi: '(principal * 0.20 / 12) * months';\n2) 'public double calculateInterest(int months, double customRate)' — maxsus stavka bilan hisoblaydi: '(principal * (customRate / 100.0) / 12) * months'.",
+      "en": "Implement Method Overloading! In 'Loan' with 'principal' (double), create two 'calculateInterest' methods: one with default 20% annual rate, and one accepting customRate."
+    },
+    "requirements": {
+      "classes": [
+        "Loan",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "principal",
+          "type": "double"
+        }
+      ],
+      "methods": [
+        "calculateInterest"
+      ]
+    },
+    "starterCode": "class Loan {\n    double principal;\n\n    // calculateInterest metodlarini overload qiling\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Har ikkala overload metodni chaqirib ko'ring\n        \n    }\n}",
+    "solution": "class Loan {\n    double principal;\n\n    public double calculateInterest(int months) {\n        return (principal * 0.20 / 12.0) * months;\n    }\n\n    public double calculateInterest(int months, double customRate) {\n        return (principal * (customRate / 100.0) / 12.0) * months;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Loan loan = new Loan();\n        loan.principal = 12000000.0; // 12 mln so'm\n\n        double standardFoiz = loan.calculateInterest(6);\n        double imtiyozliFoiz = loan.calculateInterest(6, 14.0); // 14% stavka\n\n        System.out.println(\"Standart foiz (6 oy): \" + standardFoiz + \" so'm\");\n        System.out.println(\"Imtiyozli foiz (6 oy, 14%): \" + imtiyozliFoiz + \" so'm\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Metod Overloading — bitta klassda nomi bir xil, lekin parametrlari soni yoki turlari bilan farq qiluvchi bir nechta metodlarni e'lon qilishdir. Kompilyator qaysi metod chaqirilayotganini argumentlarga qarab static tarzda aniqlaydi.",
+      "theoryEn": "Method Overloading features identical method names with differing parameter signatures, resolved statically at compile time.",
+      "cleanCode": "public double calculateInterest(int months) { ... }\npublic double calculateInterest(int months, double customRate) { ... }",
+      "breakdown": [
+        "Bitta metod nomi, ikki xil qulaylikdagi parametr to'plami.",
+        "Default qiymatlar bilan qisqaroq chaqirish imkoniyati paydo bo'ldi."
+      ],
+      "pitfalls": "Faqat qaytarish turi (return type) farq qilishi overload hisoblanmaydi — parametrlar farq qilishi shart!",
+      "cw2Tip": "CW2 qidiruv tizimida: tovar nomi bo'yicha qidirish, yoki nomi hamda narxi bo'yicha qidirish overload metodlar bilan qilinadi."
+    }
+  },
+  {
+    "id": 19,
+    "tier": 2,
+    "tierName": "2-Bosqich: Instans Metodlar va Xatti-harakat",
+    "sector": "11-20",
+    "title": {
+      "uz": "19. Secure Auth — 'UserSession' va Vaqt Cheklovi (Session Timeout)",
+      "en": "19. Secure Auth — 'UserSession' & Activity Expiration"
+    },
+    "scenario": {
+      "uz": "Xavfsizlik tizimida foydalanuvchi uzoq vaqt harakat qilmasa, uning sessiyasi eskirgan deb topiladi. 'UserSession' klassini tuzing: 'username' (String), 'lastActiveTime' (long). Ikki metod yozing:\n1) 'public void touchSession(long currentTime)' — oxirgi faollik vaqtini yangilasin;\n2) 'public boolean isExpired(long currentTime, long timeoutMillis)' — agar '(currentTime - lastActiveTime) > timeoutMillis' bo'lsa 'true', aks holda 'false' qaytarsin.",
+      "en": "In Secure Auth, create 'UserSession' with 'username' (String) and 'lastActiveTime' (long). Implement 'touchSession(long currentTime)' and 'isExpired(long currentTime, long timeoutMillis)'."
+    },
+    "requirements": {
+      "classes": [
+        "UserSession",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "username",
+          "type": "String"
+        },
+        {
+          "name": "lastActiveTime",
+          "type": "long"
+        }
+      ],
+      "methods": [
+        "touchSession",
+        "isExpired"
+      ]
+    },
+    "starterCode": "class UserSession {\n    String username;\n    long lastActiveTime;\n\n    // touchSession va isExpired metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Sessiyani sinovdan o'tkazing\n        \n    }\n}",
+    "solution": "class UserSession {\n    String username;\n    long lastActiveTime;\n\n    public void touchSession(long currentTime) {\n        this.lastActiveTime = currentTime;\n    }\n\n    public boolean isExpired(long currentTime, long timeoutMillis) {\n        return (currentTime - lastActiveTime) > timeoutMillis;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        UserSession session = new UserSession();\n        session.username = \"ali_dev\";\n        session.lastActiveTime = 1000L;\n\n        // 1500ms o'tganda (timeout = 1000ms bo'lsa)\n        boolean expired1 = session.isExpired(1500L, 1000L); // 500ms o'tdi -> false\n        System.out.println(\"1500-millisekundda eskirganmi: \" + expired1);\n\n        // 2500ms o'tganda\n        boolean expired2 = session.isExpired(2500L, 1000L); // 1500ms o'tdi -> true\n        System.out.println(\"2500-millisekundda eskirganmi: \" + expired2);\n    }\n}",
+    "detailedSolution": {
+      "theory": "Vaqt bilan ishlashda Java-da millisekundlar 'long' primitiv turi orqali ifodalanadi. 'this.lastActiveTime' orqali joriy ob'yekt maydoniga aniq murojaat qilish o'rganiladi.",
+      "theoryEn": "Timestamp manipulation relies on 64-bit 'long' primitives. 'this' explicitly disambiguates instance fields.",
+      "cleanCode": "public boolean isExpired(long currentTime, long timeoutMillis) {\n    return (currentTime - lastActiveTime) > timeoutMillis;\n}",
+      "breakdown": [
+        "Vaqt oraliqlari (delat t) aniq matematik shart bilan hisoblandi.",
+        "Sessiyaning eskirganlik holati tekshirildi."
+      ],
+      "pitfalls": "long sonlar oxiriga 'L' qo'yish unutilsa (masalan 1000L), int deb qabul qilinib katta qiymatlarda overflow bo'lishi mumkin.",
+      "cw2Tip": "Foydalanuvchi tizimdan avtomatik chiqib ketishi (Logout) aynan shu algoritm bilan ishlaydi."
+    }
+  },
+  {
+    "id": 20,
+    "tier": 2,
+    "tierName": "2-Bosqich: Instans Metodlar va Xatti-harakat",
+    "sector": "11-20",
+    "title": {
+      "uz": "20. Express Cafe — 'generateReceipt' Matnli Kvitansiya Metodi (Stage 2 Master)",
+      "en": "20. Express Cafe — 'generateReceipt' Formatted String Method (Stage 2 Master)"
+    },
+    "scenario": {
+      "uz": "2-bosqich yakuniy topshirig'i! Restoranda buyurtma chekini generatsiya qilish. 'FoodOrder' klassini tuzing: 'itemName' (String), 'unitPrice' (double), 'quantity' (int). 'public String generateReceipt(double taxRate)' metodini yozing: u tovar nomi, soni, oraliq narxi ('unitPrice * quantity'), soliq summasi va yakuniy to'lovni chiroyli matnli formatda (String) qaytarsin.",
+      "en": "Stage 2 Capstone! In Express Cafe, create 'FoodOrder' with 'itemName', 'unitPrice', and 'quantity'. Implement 'public String generateReceipt(double taxRate)' returning a formatted multi-line receipt."
+    },
+    "requirements": {
+      "classes": [
+        "FoodOrder",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "itemName",
+          "type": "String"
+        },
+        {
+          "name": "unitPrice",
+          "type": "double"
+        },
+        {
+          "name": "quantity",
+          "type": "int"
+        }
+      ],
+      "methods": [
+        "generateReceipt"
+      ]
+    },
+    "starterCode": "class FoodOrder {\n    String itemName;\n    double unitPrice;\n    int quantity;\n\n    // generateReceipt metodini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Buyurtma yaratib, chekni ekranga chiqaring\n        \n    }\n}",
+    "solution": "class FoodOrder {\n    String itemName;\n    double unitPrice;\n    int quantity;\n\n    public String generateReceipt(double taxRate) {\n        double subtotal = unitPrice * quantity;\n        double tax = subtotal * (taxRate / 100.0);\n        double total = subtotal + tax;\n\n        return \"--- CHEK ---\\n\" +\n               \"Taom: \" + itemName + \" x \" + quantity + \"\\n\" +\n               \"Oraliq summa: \" + subtotal + \" so'm\\n\" +\n               \"Soliq (\" + taxRate + \"%): \" + tax + \" so'm\\n\" +\n               \"JAMI TO'LOV: \" + total + \" so'm\\n\" +\n               \"------------\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FoodOrder order = new FoodOrder();\n        order.itemName = \"Lavash Max\";\n        order.unitPrice = 38000.0;\n        order.quantity = 2;\n\n        String receipt = order.generateReceipt(12.0); // 12% QQS\n        System.out.println(receipt);\n    }\n}",
+    "detailedSolution": {
+      "theory": "2-bosqichda biz obyektlar ichiga boy metodlar kiritdik! Lekin e'tibor qiling: `order.itemName = ...`, `order.unitPrice = ...` deb ob'yekt maydonlarini tashqaridan bittalab to'ldirish noqulay va xavfli. Agar biror maydon unutilsa, ob'yekt yarimta holda qoladi. Shu sababli 3-bosqichda ob'yekt yaratilish paytidayoq uni to'liq to'ldiruvchi KONSTRUKTORLARNI o'rganamiz!",
+      "theoryEn": "Stage 2 introduced powerful methods. Stage 3 solves the problem of partially initialized state by introducing CONSTRUCTORS.",
+      "cleanCode": "public String generateReceipt(double taxRate) { ... }",
+      "breakdown": [
+        "Metod murakkab formatlangan kvitansiya matnini qaytaradi.",
+        "Ob'yekt o'z hisob-kitobini va ko'rinishini to'liq o'zi ta'minlaydi.",
+        "Bu topshiriq 3-bosqichdagi konstruktorlarga poydevor yaratadi."
+      ],
+      "pitfalls": "String birlashtirishda qator tashlash uchun `\\n` belgisidan to'g'ri foydalaning.",
+      "cw2Tip": "CW2 Console ilovasining yakuniy bosqichi aynan konsolga chek chiqarishdan iborat."
+    }
+  },
+  {
+    "id": 21,
+    "tier": 3,
+    "tierName": "3-Bosqich: Konstruktorlar va Hayot Sikli",
+    "sector": "21-30",
+    "title": {
+      "uz": "21. Book Catalog — Parametrlangan Konstruktor va 'this' Kalit So'zi",
+      "en": "21. Book Catalog — Parameterized Constructor & 'this' Keyword"
+    },
+    "scenario": {
+      "uz": "Kutubxona katalogida kitob yaratilayotganda uning nomi, muallifi va sahifalar soni majburiy kiritilishi kerak. 'Book' klassini tuzing: 'title' (String), 'author' (String), 'pages' (int) maydonlari bo'lsin. Ushbu 3 ta maydonni qabul qilib to'ldiruvchi 'public Book(String title, String author, int pages)' konstruktorini yarating.",
+      "en": "In Book Catalog, model 'Book' with 'title', 'author', and 'pages'. Implement parameterized constructor 'public Book(String title, String author, int pages)' using 'this'."
+    },
+    "requirements": {
+      "classes": [
+        "Book",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "type": "String"
+        },
+        {
+          "name": "author",
+          "type": "String"
+        },
+        {
+          "name": "pages",
+          "type": "int"
+        }
+      ],
+      "constructors": [
+        "Book"
+      ]
+    },
+    "starterCode": "class Book {\n    String title;\n    String author;\n    int pages;\n\n    // Parametrlangan konstruktorni yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // new Book(...) orqali kitob yarating\n        \n    }\n}",
+    "solution": "class Book {\n    String title;\n    String author;\n    int pages;\n\n    public Book(String title, String author, int pages) {\n        this.title = title;\n        this.author = author;\n        this.pages = pages;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Book b = new Book(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 420);\n        System.out.println(\"Kitob: \" + b.title + \" | Muallif: \" + b.author + \" | Sahifa: \" + b.pages);\n    }\n}",
+    "detailedSolution": {
+      "theory": "Konstruktor — ob'yekt Heap xotirada 'new' orqali yaratilayotgan paytda avtomatik chaqiriladigan maxsus blokdir. Uning nomi klass nomi bilan bir xil bo'ladi va hech qanday qaytarish turiga (void ham emas) ega bo'lmaydi. 'this.title = title' ifodasi parametr nomini klass maydoni nomidan ajratish (shadowing resolution) uchun xizmat qiladi.",
+      "theoryEn": "Constructors run automatically during allocation via 'new'. They share the class name and have no return type.",
+      "cleanCode": "public Book(String title, String author, int pages) {\n    this.title = title;\n    this.author = author;\n    this.pages = pages;\n}",
+      "breakdown": [
+        "Ob'yekt bir qator kod bilan to'liq va to'g'ri holatda yaratiladi.",
+        "`this` kalit so'zi hozir yaratilayotgan joriy nusxaning maydoniga ishora qiladi."
+      ],
+      "pitfalls": "Konstruktor oldiga tasodifan 'void' yozib qo'ysangiz, u oddiy metodga aylanadi va konstruktor bo'lmay qoladi!",
+      "cw2Tip": "CW2 barcha domen klasslarida konstruktorlar orqali ob'yekt tuzish majburiy hisoblanadi."
+    }
+  },
+  {
+    "id": 22,
+    "tier": 3,
+    "tierName": "3-Bosqich: Konstruktorlar va Hayot Sikli",
+    "sector": "21-30",
+    "title": {
+      "uz": "22. Account User — Konstruktor Overloading (Standart va To'liq)",
+      "en": "22. Account User — Constructor Overloading (Default & Full)"
+    },
+    "scenario": {
+      "uz": "Foydalanuvchi ro'yxatdan o'tayotganda roli kiritilmasa, avtomatik 'USER' bo'lishi kerak. 'User' klassini tuzing: 'username' (String), 'email' (String), 'role' (String). Ikki xil konstruktor yozing:\n1) 'public User(String username, String email)' — rolni 'USER' deb o'rnatadi;\n2) 'public User(String username, String email, String role)' — rolni berilgan qiymatga o'rnatadi.",
+      "en": "In Account User, create 'User' with 'username', 'email', and 'role'. Overload constructors: a 2-arg constructor defaulting role to 'USER', and a 3-arg full constructor."
+    },
+    "requirements": {
+      "classes": [
+        "User",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "username",
+          "type": "String"
+        },
+        {
+          "name": "email",
+          "type": "String"
+        },
+        {
+          "name": "role",
+          "type": "String"
+        }
+      ],
+      "constructors": [
+        "User"
+      ]
+    },
+    "starterCode": "class User {\n    String username;\n    String email;\n    String role;\n\n    // 2 ta konstruktorni overload qiling\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Ikkala konstruktor orqali alohida foydalanuvchilar yarating\n        \n    }\n}",
+    "solution": "class User {\n    String username;\n    String email;\n    String role;\n\n    public User(String username, String email) {\n        this.username = username;\n        this.email = email;\n        this.role = \"USER\";\n    }\n\n    public User(String username, String email, String role) {\n        this.username = username;\n        this.email = email;\n        this.role = role;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        User u1 = new User(\"nodirbek\", \"nodir@wiut.uz\");\n        User u2 = new User(\"admin_ada\", \"ada@wiut.uz\", \"ADMIN\");\n\n        System.out.println(\"Foydalanuvchi 1: \" + u1.username + \" (\" + u1.role + \")\");\n        System.out.println(\"Foydalanuvchi 2: \" + u2.username + \" (\" + u2.role + \")\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Konstruktorlarni overload qilish dasturchiga ob'yektni turli vaziyatlarda (masalan, to'liq ma'lumot mavjud bo'lganda yoki faqat boshlang'ich qismlari ma'lum bo'lganda) moslashuvchan yaratish imkonini beradi.",
+      "theoryEn": "Constructor overloading provides flexible instantiation pathways with sensible default state fallbacks.",
+      "cleanCode": "public User(String username, String email) { ... }\npublic User(String username, String email, String role) { ... }",
+      "breakdown": [
+        "Oddiy foydalanuvchilar uchun 2 ta parametr yetarli.",
+        "Maxsus ma'murlar uchun 3 ta parametr bilan rol berish mumkin."
+      ],
+      "pitfalls": "Agar klassda kamida 1 ta maxsus konstruktor yozilsa, Java standart bo'sh konstruktorni ('new User()') avtomatik taqdim etmay qo'yadi.",
+      "cw2Tip": "Buyurtmachiga buyurtma berishda manzil ko'rsatilgan yoki ko'rsatilmagan variantlarni qo'llashda asqotadi."
+    }
+  },
+  {
+    "id": 23,
+    "tier": 3,
+    "tierName": "3-Bosqich: Konstruktorlar va Hayot Sikli",
+    "sector": "21-30",
+    "title": {
+      "uz": "23. Debit Card — Konstruktorlar Zanjiri ('this()' Chaining)",
+      "en": "23. Debit Card — Constructor Chaining via 'this()'"
+    },
+    "scenario": {
+      "uz": "Bir konstruktordan ikkinchisini chaqirish — Constructor Chaining! 'DebitCard' klassini tuzing: 'cardNumber' (String), 'ownerName' (String), 'balance' (double), 'currency' (String). Agar faqat 'cardNumber' va 'ownerName' berilsa, qolgan maydonlarni standart qilib to'ldirish uchun 'this(cardNumber, ownerName, 0.0, \"UZS\");' zanjiridan foydalaning.",
+      "en": "Implement Constructor Chaining! In 'DebitCard' ('cardNumber', 'ownerName', 'balance', 'currency'), delegate the 2-arg constructor to the 4-arg constructor via 'this(...)'. "
+    },
+    "requirements": {
+      "classes": [
+        "DebitCard",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "cardNumber",
+          "type": "String"
+        },
+        {
+          "name": "ownerName",
+          "type": "String"
+        },
+        {
+          "name": "balance",
+          "type": "double"
+        },
+        {
+          "name": "currency",
+          "type": "String"
+        }
+      ],
+      "constructors": [
+        "DebitCard"
+      ],
+      "keywords": [
+        "this"
+      ]
+    },
+    "starterCode": "class DebitCard {\n    String cardNumber;\n    String ownerName;\n    double balance;\n    String currency;\n\n    // 4 ta parametrli to'liq konstruktorni yozing\n    \n    // 2 ta parametrli konstruktorda this(...) orqali zanjir qiling\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Karta yarating va parametrlarini ko'ring\n        \n    }\n}",
+    "solution": "class DebitCard {\n    String cardNumber;\n    String ownerName;\n    double balance;\n    String currency;\n\n    public DebitCard(String cardNumber, String ownerName, double balance, String currency) {\n        this.cardNumber = cardNumber;\n        this.ownerName = ownerName;\n        this.balance = balance;\n        this.currency = currency;\n    }\n\n    public DebitCard(String cardNumber, String ownerName) {\n        this(cardNumber, ownerName, 0.0, \"UZS\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DebitCard card = new DebitCard(\"8600123456789012\", \"Kamron Bek\");\n        System.out.println(\"Karta: \" + card.cardNumber + \" | Egasi: \" + card.ownerName + \" | Balans: \" + card.balance + \" \" + card.currency);\n    }\n}",
+    "detailedSolution": {
+      "theory": "'this(...)' ifodasi joriy klassning boshqa bir konstruktorini chaqiradi. Eng muhim qoida: 'this(...)' chaqiruvi konstruktor tanasidagi birinchi buyruq (first statement) bo'lishi shart! Bu kod takrorlanishini keskin kamaytiradi.",
+      "theoryEn": "'this(...)' chains instantiation logic to master constructors, strictly mandatory as the first statement in the body.",
+      "cleanCode": "public DebitCard(String cardNumber, String ownerName) {\n    this(cardNumber, ownerName, 0.0, \"UZS\");\n}",
+      "breakdown": [
+        "Initsializatsiya mantiqi faqat bitta bosh konstruktorda jamlangan.",
+        "Qolgan konstruktorlar 'this(...)' orqali unga tayanadi."
+      ],
+      "pitfalls": "'this(...)' ni birinchi qatordan keyin yozsangiz, 'call to this must be first statement in constructor' xatoligi beradi.",
+      "cw2Tip": "Professor Ada Clean Code va SOLID tamoyillari bo'yicha konstruktor zanjirini yuqori baholaydi."
+    }
+  },
+  {
+    "id": 24,
+    "tier": 3,
+    "tierName": "3-Bosqich: Konstruktorlar va Hayot Sikli",
+    "sector": "21-30",
+    "title": {
+      "uz": "24. Smartphone — Standart (No-Arg) va Maxsus Konstruktorlar",
+      "en": "24. Smartphone — Default (No-Arg) & Custom Constructors"
+    },
+    "scenario": {
+      "uz": "Elektronika omborida yangi kelgan noma'lum smartfonlar va aniq modellar mavjud. 'Smartphone' klassini tuzing: 'brand' (String), 'storageGb' (int), 'price' (double). Bo'sh parametrli no-arg konstruktor 'brand = \"Generic\"', 'storageGb = 64', 'price = 150.0' qilib qo'ysin; 3 ta parametrli konstruktor esa kiritilgan qiymatlarni o'rnatsin.",
+      "en": "Model 'Smartphone' with 'brand', 'storageGb', and 'price'. Provide a no-arg constructor initializing default specs ('Generic', 64, 150.0) alongside a custom 3-arg constructor."
+    },
+    "requirements": {
+      "classes": [
+        "Smartphone",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "brand",
+          "type": "String"
+        },
+        {
+          "name": "storageGb",
+          "type": "int"
+        },
+        {
+          "name": "price",
+          "type": "double"
+        }
+      ],
+      "constructors": [
+        "Smartphone"
+      ]
+    },
+    "starterCode": "class Smartphone {\n    String brand;\n    int storageGb;\n    double price;\n\n    // No-arg (bo'sh) va parametrli konstruktorlarni yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Ikkala usulda smartfon yarating\n        \n    }\n}",
+    "solution": "class Smartphone {\n    String brand;\n    int storageGb;\n    double price;\n\n    public Smartphone() {\n        this.brand = \"Generic\";\n        this.storageGb = 64;\n        this.price = 150.0;\n    }\n\n    public Smartphone(String brand, int storageGb, double price) {\n        this.brand = brand;\n        this.storageGb = storageGb;\n        this.price = price;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Smartphone phone1 = new Smartphone();\n        Smartphone phone2 = new Smartphone(\"Samsung Galaxy S24\", 256, 950.0);\n\n        System.out.println(\"Model 1: \" + phone1.brand + \" (\" + phone1.storageGb + \"GB) - $\" + phone1.price);\n        System.out.println(\"Model 2: \" + phone2.brand + \" (\" + phone2.storageGb + \"GB) - $\" + phone2.price);\n    }\n}",
+    "detailedSolution": {
+      "theory": "No-arg konstruktor parametr qabul qilmaydi. Agar siz parametrli konstruktor yozganingizdan keyin ham 'new Smartphone()' qilmoqchi bo'lsangiz, bo'sh konstruktorni qo'lda yozib qo'yishingiz shart.",
+      "theoryEn": "A no-arg constructor must be explicitly declared if parameterized constructors are introduced.",
+      "cleanCode": "public Smartphone() { ... }\npublic Smartphone(String brand, int storageGb, double price) { ... }",
+      "breakdown": [
+        "Standart holat (default state) xavfsiz ta'minlandi.",
+        "Parametrli versiya esa erkin sozlash imkonini berdi."
+      ],
+      "pitfalls": "Bo'sh konstruktor yozishni unutib 'new Smartphone()' chaqirilsa, dastur kompilyatsiyadan o'tmaydi.",
+      "cw2Tip": "JavaFX yoki konsolli menyularda ob'yektlarni avval bo'sh yaratib, keyin to'ldirishda no-arg kerak bo'ladi."
+    }
+  },
+  {
+    "id": 25,
+    "tier": 3,
+    "tierName": "3-Bosqich: Konstruktorlar va Hayot Sikli",
+    "sector": "21-30",
+    "title": {
+      "uz": "25. University Course — Konstruktor Ichida Majburiy Himoyaviy Qoida",
+      "en": "25. University Course — Defensive Validation Inside Constructor"
+    },
+    "scenario": {
+      "uz": "Universitet kursining talabalar sig'imi hech qachon 0 yoki manfiy bo'lishi mumkin emas. 'Course' klassini tuzing: 'courseCode' (String), 'maxStudents' (int). 'public Course(String courseCode, int maxStudents)' konstruktorida tekshiring: agar 'maxStudents <= 0' bo'lsa, uni majburiy ravishda 30 qilib belgilang.",
+      "en": "In Course Registration, create 'Course' with 'courseCode' and 'maxStudents'. In constructor, defend against invalid inputs: if 'maxStudents <= 0', assign default capacity 30."
+    },
+    "requirements": {
+      "classes": [
+        "Course",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "courseCode",
+          "type": "String"
+        },
+        {
+          "name": "maxStudents",
+          "type": "int"
+        }
+      ],
+      "constructors": [
+        "Course"
+      ]
+    },
+    "starterCode": "class Course {\n    String courseCode;\n    int maxStudents;\n\n    // Konstruktorda maxStudents <= 0 tekshiruvini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Noto'g'ri (manfiy) sig'im kiritib tekshiring\n        \n    }\n}",
+    "solution": "class Course {\n    String courseCode;\n    int maxStudents;\n\n    public Course(String courseCode, int maxStudents) {\n        this.courseCode = courseCode;\n        if (maxStudents > 0) {\n            this.maxStudents = maxStudents;\n        } else {\n            this.maxStudents = 30; // standart sig'im\n        }\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Course c1 = new Course(\"5COSC018C\", 45);\n        Course c2 = new Course(\"5BUIS009C\", -10); // Noto'g'ri kiritildi\n\n        System.out.println(\"Kurs: \" + c1.courseCode + \" | Sig'im: \" + c1.maxStudents);\n        System.out.println(\"Kurs: \" + c2.courseCode + \" | Sig'im (tuzatilgan): \" + c2.maxStudents);\n    }\n}",
+    "detailedSolution": {
+      "theory": "Himoyaviy Dasturlash (Defensive Programming): Obyekt tug'ilgan onidanoq (initsializatsiyada) to'g'ri ma'lumotlarga ega bo'lishini ta'minlash. Bu orqali kelajakda butun tizimda g'alati '0' yoki manfiy xatoliklar yuz bermaydi.",
+      "theoryEn": "Defensive validation inside constructor ensures no invalid instance enters system runtime.",
+      "cleanCode": "this.maxStudents = (maxStudents > 0) ? maxStudents : 30;",
+      "breakdown": [
+        "Noto'g'ri kiritilgan manfiy qiymat to'g'rilandi.",
+        "Ob'yekt doimo mantiqan to'g'ri sig'im bilan ish boshlaydi."
+      ],
+      "pitfalls": "Validatsiyani faqat metodlarga qo'yib, konstruktorda unutish ob'yektning nosoz tug'ilishiga yo'l ochadi.",
+      "cw2Tip": "Tovar narxi 0 bo'lib qolmasligini konstruktorda tekshirish CW2 talabidir."
+    }
+  },
+  {
+    "id": 26,
+    "tier": 3,
+    "tierName": "3-Bosqich: Konstruktorlar va Hayot Sikli",
+    "sector": "21-30",
+    "title": {
+      "uz": "26. Flight Ticket — Barcha Maydonlarni Xavfsiz Boshlang'ich Holatga Keltirish",
+      "en": "26. Flight Ticket — Robust State Initialization"
+    },
+    "scenario": {
+      "uz": "Aviachipta yaratilayotganda barcha biznes parametrlar aniq kiritiladi. 'FlightTicket' klassini tuzing: 'ticketNumber' (String), 'fare' (double), 'isRefundable' (boolean). Konstruktor barcha 3 ta qiymatni qabul qilsin va agar 'fare < 50.0' bo'lsa, eng kam chipta narxi sifatida 50.0 belgilansin.",
+      "en": "Model 'FlightTicket' with 'ticketNumber', 'fare', and 'isRefundable'. Enforce minimum fare of 50.0 inside constructor."
+    },
+    "requirements": {
+      "classes": [
+        "FlightTicket",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "ticketNumber",
+          "type": "String"
+        },
+        {
+          "name": "fare",
+          "type": "double"
+        },
+        {
+          "name": "isRefundable",
+          "type": "boolean"
+        }
+      ],
+      "constructors": [
+        "FlightTicket"
+      ]
+    },
+    "starterCode": "class FlightTicket {\n    String ticketNumber;\n    double fare;\n    boolean isRefundable;\n\n    // Konstruktorni yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Chipta yarating\n        \n    }\n}",
+    "solution": "class FlightTicket {\n    String ticketNumber;\n    double fare;\n    boolean isRefundable;\n\n    public FlightTicket(String ticketNumber, double fare, boolean isRefundable) {\n        this.ticketNumber = ticketNumber;\n        this.fare = (fare >= 50.0) ? fare : 50.0;\n        this.isRefundable = isRefundable;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FlightTicket t1 = new FlightTicket(\"TK-78901\", 320.0, true);\n        FlightTicket t2 = new FlightTicket(\"TK-78902\", 15.0, false); // Kam kiritilgan\n\n        System.out.println(\"Chipta 1 narxi: $\" + t1.fare + \" | Qaytariladimi: \" + t1.isRefundable);\n        System.out.println(\"Chipta 2 narxi: $\" + t2.fare + \" | Qaytariladimi: \" + t2.isRefundable);\n    }\n}",
+    "detailedSolution": {
+      "theory": "Konstruktor biznes qoidalarining (invariants) birinchi himoya qalqonidir.",
+      "theoryEn": "Constructors serve as the primary defensive perimeter for domain invariants.",
+      "cleanCode": "this.fare = (fare >= 50.0) ? fare : 50.0;",
+      "breakdown": [
+        "Chipta raqami va statusi saqlandi.",
+        "Eng kam narx chegarasi o'rnatildi."
+      ],
+      "pitfalls": "Ternar operatorida shartni ehtiyotkorlik bilan yozing.",
+      "cw2Tip": "CW2 bilet yoki buyurtma tizimida minimal buyurtma summasini shunday tekshirasiz."
+    }
+  },
+  {
+    "id": 27,
+    "tier": 3,
+    "tierName": "3-Bosqich: Konstruktorlar va Hayot Sikli",
+    "sector": "21-30",
+    "title": {
+      "uz": "27. HR Contract — Mehnat Shartnomasi va Minimal Oylik Kafolati",
+      "en": "27. HR Contract — Minimum Wage Guarantee in Constructor"
+    },
+    "scenario": {
+      "uz": "Korxonada xodimlar maoshi qonuniy eng kam ish haqidan kam bo'lishi mumkin emas. 'EmployeeContract' klassini tuzing: 'employeeName' (String), 'baseSalary' (double), 'department' (String). Agar kiritilgan 'baseSalary < 2000000.0' bo'lsa, 'this.baseSalary = 2000000.0' qilib eng kam kafolatlangan maosh o'rnatilsin.",
+      "en": "Model 'EmployeeContract' with 'employeeName', 'baseSalary', and 'department'. Guarantee statutory minimum wage (2,000,000.0) in constructor."
+    },
+    "requirements": {
+      "classes": [
+        "EmployeeContract",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "employeeName",
+          "type": "String"
+        },
+        {
+          "name": "baseSalary",
+          "type": "double"
+        },
+        {
+          "name": "department",
+          "type": "String"
+        }
+      ],
+      "constructors": [
+        "EmployeeContract"
+      ]
+    },
+    "starterCode": "class EmployeeContract {\n    String employeeName;\n    double baseSalary;\n    String department;\n\n    // Konstruktorni yozing (minimal 2000000.0 sharti bilan)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Shartnoma yarating\n        \n    }\n}",
+    "solution": "class EmployeeContract {\n    String employeeName;\n    double baseSalary;\n    String department;\n\n    public EmployeeContract(String employeeName, double baseSalary, String department) {\n        this.employeeName = employeeName;\n        this.department = department;\n        if (baseSalary >= 2000000.0) {\n            this.baseSalary = baseSalary;\n        } else {\n            this.baseSalary = 2000000.0;\n        }\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        EmployeeContract emp = new EmployeeContract(\"Sardor Qodirov\", 1200000.0, \"IT Qo'llab-quvvatlash\");\n        System.out.println(\"Xodim: \" + emp.employeeName + \" | Bo'lim: \" + emp.department);\n        System.out.println(\"Kafolatlangan oylik: \" + emp.baseSalary + \" so'm\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Konstruktorlar orqali qonuniy va biznes talablarni majburiy qilish — toza dasturiy arxitekturaning belgisidir.",
+      "theoryEn": "Enforcing statutory rules via constructor invariants is an enterprise clean architecture staple.",
+      "cleanCode": "this.baseSalary = Math.max(baseSalary, 2000000.0);",
+      "breakdown": [
+        "Xodim ma'lumotlari xavfsiz o'rnatildi.",
+        "Kam oylik kiritilganda kafolatlangan miqdor qo'yildi."
+      ],
+      "pitfalls": "Math.max(a, b) metodidan foydalanish ham shartni qisqartirish uchun juda qulay.",
+      "cw2Tip": "Hisobot tizimlarida manfiy yoki xato sonlar kirib kelmasligining oldini oladi."
+    }
+  },
+  {
+    "id": 28,
+    "tier": 3,
+    "tierName": "3-Bosqich: Konstruktorlar va Hayot Sikli",
+    "sector": "21-30",
+    "title": {
+      "uz": "28. SaaS Subscription — Ko'p Bosqichli Konstruktorlar Zanjiri",
+      "en": "28. SaaS Subscription — Multi-Stage Cascading Chaining"
+    },
+    "scenario": {
+      "uz": "SaaS xizmatida 3 bosqichli tariflar mavjud. 'Subscription' klassini tuzing: 'planName' (String), 'monthlyPrice' (double), 'maxUsers' (int), 'autoRenew' (boolean). 3 ta konstruktor yozing:\n1) 'Subscription(String planName)' -> 'this(planName, 10.0, 1, true)' ga zanjir qilsin;\n2) 'Subscription(String planName, double monthlyPrice, int maxUsers)' -> 'this(planName, monthlyPrice, maxUsers, true)' ga zanjir qilsin;\n3) To'liq 4 ta parametrli bosh konstruktor barcha maydonlarni o'rnatsin.",
+      "en": "In SaaS Subscription, create 'Subscription' with 4 fields. Implement a 3-tier cascading constructor chain delegating down to the full 4-arg master constructor."
+    },
+    "requirements": {
+      "classes": [
+        "Subscription",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "planName",
+          "type": "String"
+        },
+        {
+          "name": "monthlyPrice",
+          "type": "double"
+        },
+        {
+          "name": "maxUsers",
+          "type": "int"
+        },
+        {
+          "name": "autoRenew",
+          "type": "boolean"
+        }
+      ],
+      "constructors": [
+        "Subscription"
+      ],
+      "keywords": [
+        "this"
+      ]
+    },
+    "starterCode": "class Subscription {\n    String planName;\n    double monthlyPrice;\n    int maxUsers;\n    boolean autoRenew;\n\n    // 3 xil konstruktor zanjirini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Turli zanjirlar orqali ob'yektlar yarating\n        \n    }\n}",
+    "solution": "class Subscription {\n    String planName;\n    double monthlyPrice;\n    int maxUsers;\n    boolean autoRenew;\n\n    public Subscription(String planName, double monthlyPrice, int maxUsers, boolean autoRenew) {\n        this.planName = planName;\n        this.monthlyPrice = monthlyPrice;\n        this.maxUsers = maxUsers;\n        this.autoRenew = autoRenew;\n    }\n\n    public Subscription(String planName, double monthlyPrice, int maxUsers) {\n        this(planName, monthlyPrice, maxUsers, true);\n    }\n\n    public Subscription(String planName) {\n        this(planName, 10.0, 1, true);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Subscription s1 = new Subscription(\"Starter\");\n        Subscription s2 = new Subscription(\"Team\", 45.0, 10);\n        Subscription s3 = new Subscription(\"Enterprise\", 199.0, 100, false);\n\n        System.out.println(\"Plan: \" + s1.planName + \" ($\" + s1.monthlyPrice + \", \" + s1.maxUsers + \" user, auto: \" + s1.autoRenew + \")\");\n        System.out.println(\"Plan: \" + s2.planName + \" ($\" + s2.monthlyPrice + \", \" + s2.maxUsers + \" users, auto: \" + s2.autoRenew + \")\");\n        System.out.println(\"Plan: \" + s3.planName + \" ($\" + s3.monthlyPrice + \", \" + s3.maxUsers + \" users, auto: \" + s3.autoRenew + \")\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Kaskadli konstruktor zanjiri (Cascading Constructor Chaining) katta dasturlarda barcha birlamchi parametrlarni bitta asosiy konstruktorga olib boradi. Agar biror qoida o'zgarsa, faqat o'sha bitta konstruktorni o'zgartirish kifoya qiladi.",
+      "theoryEn": "Cascading chaining channels all variants into one master constructor, streamlining future maintenance.",
+      "cleanCode": "public Subscription(String planName) {\n    this(planName, 10.0, 1, true);\n}",
+      "breakdown": [
+        "Starter, Team va Enterprise darajalari qulay parametrlar bilan yaratildi.",
+        "Takrorlanish nolga tushirildi."
+      ],
+      "pitfalls": "Zanjirda aylanma (circular) chaqiruv qilib qo'ymang (A -> B va B -> A), aks holda kompilyator xato beradi.",
+      "cw2Tip": "Enterprise tizimlarda konstruktorlar soni ko'p bo'ladi va ularni zanjirlash talab etiladi."
+    }
+  },
+  {
+    "id": 29,
+    "tier": 3,
+    "tierName": "3-Bosqich: Konstruktorlar va Hayot Sikli",
+    "sector": "21-30",
+    "title": {
+      "uz": "29. GPS Navigation — 'GeoPoint' va Geografik Koordinatalar Tekshiruvi",
+      "en": "29. GPS Navigation — 'GeoPoint' & Coordinate Range Check"
+    },
+    "scenario": {
+      "uz": "GPS navigatsiya tizimida koordinatalar qat'iy matematik chegaraga ega: Kenglik (latitude) -90.0 va +90.0 oralig'ida, Uzunlik (longitude) esa -180.0 va +180.0 oralig'ida bo'lishi shart. 'GeoPoint' klassini tuzing: 'latitude' (double), 'longitude' (double). Konstruktorda chegaradan chiqqan qiymatlarni 0.0 ga tenglang.",
+      "en": "In GPS Navigation, model 'GeoPoint' with 'latitude' and 'longitude'. In constructor, enforce latitude [-90.0, 90.0] and longitude [-180.0, 180.0], resetting out-of-bound inputs to 0.0."
+    },
+    "requirements": {
+      "classes": [
+        "GeoPoint",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "latitude",
+          "type": "double"
+        },
+        {
+          "name": "longitude",
+          "type": "double"
+        }
+      ],
+      "constructors": [
+        "GeoPoint"
+      ]
+    },
+    "starterCode": "class GeoPoint {\n    double latitude;\n    double longitude;\n\n    // Konstruktorda lat va lon oraliqlarini tekshiring\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Koordinata ob'yektini sinab ko'ring\n        \n    }\n}",
+    "solution": "class GeoPoint {\n    double latitude;\n    double longitude;\n\n    public GeoPoint(double latitude, double longitude) {\n        if (latitude >= -90.0 && latitude <= 90.0) {\n            this.latitude = latitude;\n        } else {\n            this.latitude = 0.0;\n        }\n\n        if (longitude >= -180.0 && longitude <= 180.0) {\n            this.longitude = longitude;\n        } else {\n            this.longitude = 0.0;\n        }\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GeoPoint toshkent = new GeoPoint(41.2995, 69.2401);\n        GeoPoint xatoNuqta = new GeoPoint(120.5, 200.0); // Ikkalasi ham chegaradan tashqarida\n\n        System.out.println(\"Toshkent: lat=\" + toshkent.latitude + \", lon=\" + toshkent.longitude);\n        System.out.println(\"Xato nuqta (tuzatilgan): lat=\" + xatoNuqta.latitude + \", lon=\" + xatoNuqta.longitude);\n    }\n}",
+    "detailedSolution": {
+      "theory": "Domen chegaraviy qoidalari (Domain Validation Rules): Har bir muhandislik sohasida ma'lumotlar o'z tabiiy chegarasiga ega bo'ladi. Ularni konstruktorda tekshirish tizim barqarorligini ta'minlaydi.",
+      "theoryEn": "Domain coordinate ranges validated at construction shield maps from out-of-bound crashes.",
+      "cleanCode": "if (latitude >= -90.0 && latitude <= 90.0) this.latitude = latitude; else this.latitude = 0.0;",
+      "breakdown": [
+        "Kenglik va uzunlik alohida tekshirildi.",
+        "Noto'g'ri qiymat kiritilganda standart 0.0 koordinatasiga o'tkazildi."
+      ],
+      "pitfalls": "Mantiqiy 'va' (&&) o'rniga 'yoki' (||) ishlatilsa tekshiruv buziladi.",
+      "cw2Tip": "Yandex Go kabi transport tizimlarida bu eng asosiy obyekt hisoblanadi."
+    }
+  },
+  {
+    "id": 30,
+    "tier": 3,
+    "tierName": "3-Bosqich: Konstruktorlar va Hayot Sikli",
+    "sector": "21-30",
+    "title": {
+      "uz": "30. Warehouse Logistics — Ob'yekt Nusxasini Yaratish (Copy Constructor • Stage 3 Master)",
+      "en": "30. Warehouse Logistics — Copy Constructor (Stage 3 Master)"
+    },
+    "scenario": {
+      "uz": "3-bosqich yakuniy topshirig'i! Mavjud ob'yektning barcha qiymatlarini yangi ob'yektga ko'chirib olish (cloning/duplication) uchun Copy Constructor ishlatiladi. 'Pallet' klassini tuzing: 'palletId' (String), 'weightLimit' (double), 'boxCount' (int). Ikki konstruktor yozing:\n1) 'public Pallet(String palletId, double weightLimit, int boxCount)';\n2) 'public Pallet(Pallet other)' — boshqa 'other' palletining qiymatlarini o'ziga ko'chirib oladi, faqat palletId oxiriga '-COPY' qo'shadi.",
+      "en": "Stage 3 Capstone! Implement a Copy Constructor! In 'Pallet', declare standard 3-arg constructor and 'public Pallet(Pallet other)' which clones fields and appends '-COPY' to palletId."
+    },
+    "requirements": {
+      "classes": [
+        "Pallet",
+        "Main"
+      ],
+      "fields": [
+        {
+          "name": "palletId",
+          "type": "String"
+        },
+        {
+          "name": "weightLimit",
+          "type": "double"
+        },
+        {
+          "name": "boxCount",
+          "type": "int"
+        }
+      ],
+      "constructors": [
+        "Pallet"
+      ]
+    },
+    "starterCode": "class Pallet {\n    String palletId;\n    double weightLimit;\n    int boxCount;\n\n    // Standart konstruktor va Copy Constructor yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Pallet yarating va uning nusxasini oling\n        \n    }\n}",
+    "solution": "class Pallet {\n    String palletId;\n    double weightLimit;\n    int boxCount;\n\n    public Pallet(String palletId, double weightLimit, int boxCount) {\n        this.palletId = palletId;\n        this.weightLimit = weightLimit;\n        this.boxCount = boxCount;\n    }\n\n    // Copy Constructor\n    public Pallet(Pallet other) {\n        this.palletId = other.palletId + \"-COPY\";\n        this.weightLimit = other.weightLimit;\n        this.boxCount = other.boxCount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Pallet p1 = new Pallet(\"PLT-100\", 500.0, 24);\n        Pallet p2 = new Pallet(p1); // Nusxalash\n\n        System.out.println(\"Asl: \" + p1.palletId + \" | Qutilar: \" + p1.boxCount);\n        System.out.println(\"Nusxa: \" + p2.palletId + \" | Qutilar: \" + p2.boxCount);\n    }\n}",
+    "detailedSolution": {
+      "theory": "3-bosqichda biz ob'yektlarni xavfsiz yaratishni to'liq o'rgandik! Copy Constructor boshqa mavjud ob'yektdan yangi mustaqil nusxa ajratadi. Lekin sezgan bo'lsangiz, hanuzgacha maydonlarimiz (palletId, boxCount) ochiq turibdi va istalgan odam `p1.boxCount = -999;` qilib buzishi mumkin. Shu sababli 4-bosqichda ma'lumotlarni to'liq berkitish — INKAPSULYATSIYA va 'private' modifikatorini o'rganamiz!",
+      "theoryEn": "Copy constructors yield standalone clones. Stage 4 introduces ENCAPSULATION to restrict direct field access via 'private'.",
+      "cleanCode": "public Pallet(Pallet other) {\n    this.palletId = other.palletId + \"-COPY\";\n    this.weightLimit = other.weightLimit;\n    this.boxCount = other.boxCount;\n}",
+      "breakdown": [
+        "Mavjud ob'yektning holati xavfsiz klonlandi.",
+        "Heap xotirada mutlaqo mustaqil yangi ob'yekt hosil bo'ldi.",
+        "Bu topshiriq 4-bosqichdagi inkapsulyatsiyaga yo'l ochadi."
+      ],
+      "pitfalls": "Nusxa yaratayotganda `Pallet p2 = p1;` deb yozish yangi ob'yekt yaratmaydi, faqat bitta ob'yektga ikkinchi ko'rsatkich beradi!",
+      "cw2Tip": "Savatchadagi tovar nusxasini saqlashda va himoyalashda copy konstruktorlar ishlatiladi."
+    }
+  },
+  {
+    "id": 31,
+    "tier": 4,
+    "tierName": "4-Bosqich: Inkapsulyatsiya va Himoya",
+    "sector": "31-40",
+    "title": {
+      "uz": "31. User Profile — 'private' Maydonlar va Xavfsiz Getterlar",
+      "en": "31. User Profile — 'private' Fields & Safe Getters"
+    },
+    "scenario": {
+      "uz": "Inkapsulyatsiyaning 1-qoidasi: maydonlar to'g'ridan-to'g'ri tashqaridan ko'rinmasligi kerak. 'UserProfile' klassini tuzing: 'private String username;' va 'private String email;'. Konstruktor orqali ularni to'ldiring va qiymatlarni faqat o'qish uchun 'public String getUsername()' hamda 'public String getEmail()' getter metodlarini taqdim eting.",
+      "en": "Rule 1 of Encapsulation: protect internal fields! Create 'UserProfile' with 'private String username;' and 'private String email;'. Provide constructor and getters."
+    },
+    "requirements": {
+      "classes": [
+        "UserProfile",
+        "Main"
+      ],
+      "privateFields": [
+        "username",
+        "email"
+      ],
+      "methods": [
+        "getUsername",
+        "getEmail"
+      ],
+      "constructors": [
+        "UserProfile"
+      ]
+    },
+    "starterCode": "class UserProfile {\n    // username va email maydonlarini private qiling\n    \n    // Konstruktor va getUsername, getEmail metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Ob'yekt yarating va getter orqali o'qing\n        \n    }\n}",
+    "solution": "class UserProfile {\n    private String username;\n    private String email;\n\n    public UserProfile(String username, String email) {\n        this.username = username;\n        this.email = email;\n    }\n\n    public String getUsername() {\n        return this.username;\n    }\n\n    public String getEmail() {\n        return this.email;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        UserProfile profile = new UserProfile(\"sherzod_it\", \"sherzod@wiut.uz\");\n        System.out.println(\"Foydalanuvchi: \" + profile.getUsername() + \" | Email: \" + profile.getEmail());\n    }\n}",
+    "detailedSolution": {
+      "theory": "Inkapsulyatsiya (Encapsulation) — ob'yekt holatini 'private' kalit so'zi orqali tashqi bevosita aralashuvdan berkitishdir. Ma'lumotlarni o'qish uchun maxsus 'getter' metodlari (masalan getUsername()) e'lon qilinadi.",
+      "theoryEn": "Encapsulation hides state behind 'private' access modifiers, providing access exclusively through getters.",
+      "cleanCode": "private String username;\npublic String getUsername() { return this.username; }",
+      "breakdown": [
+        "Maydonlar 'private' qilib to'liq himoyalandi.",
+        "Tashqaridan `profile.username` deb kirish endi taqiqlangan.",
+        "Getterlar orqali xavfsiz o'qish ta'minlandi."
+      ],
+      "pitfalls": "Getter metodlarida qiymat qaytishi shart, ularning turi maydon turi bilan bir xil bo'ladi.",
+      "cw2Tip": "CW2 barcha domen sinflarida har bir maydon 'private' bo'lishi majburiy shartdir."
+    }
+  },
+  {
+    "id": 32,
+    "tier": 4,
+    "tierName": "4-Bosqich: Inkapsulyatsiya va Himoya",
+    "sector": "31-40",
+    "title": {
+      "uz": "32. Vault Bank Account — Balansni Himoyalangan Setter Bilan Nazorat Qilish",
+      "en": "32. Vault Bank Account — Guarded Balance Mutator via Setter"
+    },
+    "scenario": {
+      "uz": "Bank hisobi balansi hech qachon manfiy qilib o'rnatilmasligi kerak. 'BankAccount' klassini tuzing: 'private double balance;'. 'public double getBalance()' getteri hamda 'public void setBalance(double balance)' setterini yozing: agar yangi balans >= 0 bo'lsa o'zgartirilsin, aks holda rad etilsin.",
+      "en": "Protect bank balance! In 'BankAccount', encapsulate 'private double balance;'. Provide 'getBalance()' and 'setBalance(double balance)' rejecting negative amounts."
+    },
+    "requirements": {
+      "classes": [
+        "BankAccount",
+        "Main"
+      ],
+      "privateFields": [
+        "balance"
+      ],
+      "methods": [
+        "getBalance",
+        "setBalance"
+      ]
+    },
+    "starterCode": "class BankAccount {\n    private double balance;\n\n    // getBalance va setBalance metodlarini yozing (manfiylikdan himoya bilan)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Balansni musbat va manfiy qilib o'zgartirib ko'ring\n        \n    }\n}",
+    "solution": "class BankAccount {\n    private double balance;\n\n    public BankAccount(double initialBalance) {\n        if (initialBalance >= 0) {\n            this.balance = initialBalance;\n        } else {\n            this.balance = 0.0;\n        }\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n\n    public void setBalance(double balance) {\n        if (balance >= 0) {\n            this.balance = balance;\n        } else {\n            System.out.println(\"Xato: Balans manfiy bo'lishi mumkin emas!\");\n        }\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankAccount acc = new BankAccount(100000.0);\n        acc.setBalance(150000.0);\n        acc.setBalance(-50000.0); // Rad etiladi\n\n        System.out.println(\"Yakuniy balans: \" + acc.getBalance() + \" so'm\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Setter metodlari (Mutators) ma'lumotlarni o'zgartirishdan oldin tekshiruvdan o'tkazuvchi nazorat-o'tkazish punktidir. Agar maydon public bo'lsa, xohlagan kod `acc.balance = -9999` qilib tizimni buzgan bo'lardi.",
+      "theoryEn": "Setters act as checkpoint validators, preventing invalid state changes that would crash downstream modules.",
+      "cleanCode": "public void setBalance(double balance) {\n    if (balance >= 0) this.balance = balance;\n}",
+      "breakdown": [
+        "To'g'ridan-to'g'ri maydonga yozish taqiqlandi.",
+        "Setter orqali faqat noldan katta yoki teng qiymatlar qabul qilindi."
+      ],
+      "pitfalls": "Konstruktor ichida ham xuddi shu tekshiruvni bajarishni yoki setBalanceni chaqirishni unutmang.",
+      "cw2Tip": "CW2 da buyurtma soni yoki narxi manfiy kiritilmasligi setterlar bilan kafolatlanadi."
+    }
+  },
+  {
+    "id": 33,
+    "tier": 4,
+    "tierName": "4-Bosqich: Inkapsulyatsiya va Himoya",
+    "sector": "31-40",
+    "title": {
+      "uz": "33. Corporate Employee — Oylikni Kamaytirishni Taqiqlash (State-Dependent Setter)",
+      "en": "33. Corporate Employee — State-Dependent Salary Validation"
+    },
+    "scenario": {
+      "uz": "Mehnat shartnomasiga ko'ra xodimning maoshi faqat oshishi mumkin, lekin kamaytirilishi taqiqlanadi. 'Employee' klassini tuzing: 'private String name;', 'private double salary;'. 'setSalary(double newSalary)' setterida yangi oylik avvalgi oylikdan kam bo'lmagandagina ('newSalary >= this.salary') qabul qilinishini ta'minlang.",
+      "en": "Enforce state-dependent validation! In 'Employee', encapsulate 'private String name;' and 'private double salary;'. In 'setSalary', accept changes only if 'newSalary >= this.salary'."
+    },
+    "requirements": {
+      "classes": [
+        "Employee",
+        "Main"
+      ],
+      "privateFields": [
+        "name",
+        "salary"
+      ],
+      "methods": [
+        "getName",
+        "getSalary",
+        "setSalary"
+      ],
+      "constructors": [
+        "Employee"
+      ]
+    },
+    "starterCode": "class Employee {\n    private String name;\n    private double salary;\n\n    // Konstruktor, getterlar va himoyalangan setSalary ni yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Maoshni oshirib va kamaytirib ko'ring\n        \n    }\n}",
+    "solution": "class Employee {\n    private String name;\n    private double salary;\n\n    public Employee(String name, double salary) {\n        this.name = name;\n        this.salary = (salary >= 0) ? salary : 0.0;\n    }\n\n    public String getName() {\n        return this.name;\n    }\n\n    public double getSalary() {\n        return this.salary;\n    }\n\n    public void setSalary(double newSalary) {\n        if (newSalary >= this.salary) {\n            this.salary = newSalary;\n        } else {\n            System.out.println(\"Taqiqlangan: Oylikni kamaytirish mumkin emas!\");\n        }\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Employee emp = new Employee(\"Azizbek\", 5000000.0);\n        emp.setSalary(6500000.0); // Qabul qilinadi\n        emp.setSalary(4000000.0); // Rad etiladi\n\n        System.out.println(\"Xodim: \" + emp.getName() + \" | Oylik: \" + emp.getSalary() + \" so'm\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Holatga bog'liq validatsiya (State-dependent validation): Yangi qiymat nafaqat o'z-o'zidan to'g'ri bo'lishi, balki ob'yektning joriy qiymati bilan solishtirilganda ham biznes mantiqqa mos kelishi kerak.",
+      "theoryEn": "State-dependent mutators evaluate proposed values against current instance state.",
+      "cleanCode": "if (newSalary >= this.salary) this.salary = newSalary;",
+      "breakdown": [
+        "Maydonlar to'liq inkapsulyatsiya qilindi.",
+        "Oylik faqat ko'tarilish yo'nalishida o'zgaradi."
+      ],
+      "pitfalls": "Shartda `newSalary >= this.salary` o'rniga faqat `newSalary >= 0` deb qo'yish kamaytirishga ruxsat berib yuboradi.",
+      "cw2Tip": "Auksion narxini oshirishda ham faqat yuqoriroq narxlar qabul qilinadi."
+    }
+  },
+  {
+    "id": 34,
+    "tier": 4,
+    "tierName": "4-Bosqich: Inkapsulyatsiya va Himoya",
+    "sector": "31-40",
+    "title": {
+      "uz": "34. Rectangle Geometry — Hisoblanuvchi Getter (Computed Read-Only Property)",
+      "en": "34. Rectangle Geometry — Computed Read-Only Property"
+    },
+    "scenario": {
+      "uz": "Har doim ham har bir getter uchun alohida maydon saqlash shart emas! 'Rectangle' klassini tuzing: 'private double width;', 'private double height;'. Maydonni hisoblash uchun alohida 'area' maydoni ochmang! Buning o'rniga 'public double getArea()' getterini yozing va u har safar 'width * height' formulasi orqali joriy natijani hisoblab qaytarsin.",
+      "en": "Avoid redundant state! Create 'Rectangle' with 'private double width;' and 'private double height;'. Implement computed getter 'public double getArea()' without storing a redundant area field."
+    },
+    "requirements": {
+      "classes": [
+        "Rectangle",
+        "Main"
+      ],
+      "privateFields": [
+        "width",
+        "height"
+      ],
+      "methods": [
+        "getWidth",
+        "getHeight",
+        "getArea"
+      ],
+      "constructors": [
+        "Rectangle"
+      ]
+    },
+    "starterCode": "class Rectangle {\n    private double width;\n    private double height;\n\n    // Konstruktor va getWidth, getHeight, getArea metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // To'g'ri to'rtburchak maydonini hisoblang\n        \n    }\n}",
+    "solution": "class Rectangle {\n    private double width;\n    private double height;\n\n    public Rectangle(double width, double height) {\n        this.width = (width > 0) ? width : 1.0;\n        this.height = (height > 0) ? height : 1.0;\n    }\n\n    public double getWidth() { return this.width; }\n    public double getHeight() { return this.height; }\n\n    // Computed Read-Only Property\n    public double getArea() {\n        return this.width * this.height;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Rectangle rect = new Rectangle(5.0, 8.0);\n        System.out.println(\"Eni: \" + rect.getWidth() + \" | Bo'yi: \" + rect.getHeight());\n        System.out.println(\"Yuzasi: \" + rect.getArea());\n    }\n}",
+    "detailedSolution": {
+      "theory": "Hisoblanuvchi xususiyatlar (Computed Properties) ortiqcha ma'lumotlar saqlanishining oldini oladi. Agar 'area' maydoni ochilganda, 'width' o'zgarganda 'area' eskirib, sinxronizatsiya buzilishi mumkin edi.",
+      "theoryEn": "Computed properties prevent state desynchronization by deriving values dynamically on demand.",
+      "cleanCode": "public double getArea() {\n    return this.width * this.height;\n}",
+      "breakdown": [
+        "Faqat poydevor maydonlar (width, height) xotirada saqlandi.",
+        "Yuza hisobi getter ichida dinamik amalga oshirildi."
+      ],
+      "pitfalls": "Hisoblanuvchi propertylar uchun setter yaratilmaydi — ular faqat read-only bo'ladi.",
+      "cw2Tip": "CW2 savatining umumiy summasi (`getTotalAmount()`) xuddi shunday dinamik hisoblanadi."
+    }
+  },
+  {
+    "id": 35,
+    "tier": 4,
+    "tierName": "4-Bosqich: Inkapsulyatsiya va Himoya",
+    "sector": "31-40",
+    "title": {
+      "uz": "35. Supermarket Tax — QQS Qo'shilgan Narx Getteri ('getPriceWithTax')",
+      "en": "35. Supermarket Tax — Encapsulated Price with VAT Calculation"
+    },
+    "scenario": {
+      "uz": "Tovarning asl narxi va soliq bilan hisoblangan narxi. 'Product' klassini tuzing: 'private double netPrice;'. Konstruktor, 'getNetPrice()', 'setNetPrice(double val)' hamda 12% QQS qo'shilgan narxni hisoblab qaytaruvchi 'public double getPriceWithTax()' getterini yarating.",
+      "en": "In Supermarket Tax, encapsulate 'private double netPrice;'. Provide getters/setters and computed 'public double getPriceWithTax()' adding 12% VAT."
+    },
+    "requirements": {
+      "classes": [
+        "Product",
+        "Main"
+      ],
+      "privateFields": [
+        "netPrice"
+      ],
+      "methods": [
+        "getNetPrice",
+        "setNetPrice",
+        "getPriceWithTax"
+      ],
+      "constructors": [
+        "Product"
+      ]
+    },
+    "starterCode": "class Product {\n    private double netPrice;\n\n    // Konstruktor, getter/setter va getPriceWithTax metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Tovar narxini QQS bilan ko'ring\n        \n    }\n}",
+    "solution": "class Product {\n    private double netPrice;\n\n    public Product(double netPrice) {\n        this.setNetPrice(netPrice);\n    }\n\n    public double getNetPrice() {\n        return this.netPrice;\n    }\n\n    public void setNetPrice(double netPrice) {\n        if (netPrice >= 0) {\n            this.netPrice = netPrice;\n        } else {\n            this.netPrice = 0.0;\n        }\n    }\n\n    public double getPriceWithTax() {\n        return this.netPrice * 1.12; // 12% QQS\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product(100000.0);\n        System.out.println(\"Tansiq narx: \" + p.getNetPrice() + \" so'm\");\n        System.out.println(\"QQS bilan narx: \" + p.getPriceWithTax() + \" so'm\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Konstruktor ichida to'g'ridan-to'g'ri 'this.netPrice = netPrice' deb yozmasdan, 'this.setNetPrice(netPrice)' orqali setterdan foydalanish DRY qoidasiga to'liq mos keladi.",
+      "theoryEn": "Calling setters within constructors reuses validation logic without duplication.",
+      "cleanCode": "public double getPriceWithTax() { return this.netPrice * 1.12; }",
+      "breakdown": [
+        "Narx inkapsulyatsiya qilindi.",
+        "Fiskal soliq qoidasi klass ichida berkitildi."
+      ],
+      "pitfalls": "Soliq stavkasi o'zgarganda faqat klass ichidagi formulani o'zgartirish kifoya, butun dasturni qayta yozish shart emas.",
+      "cw2Tip": "Savdo kvitansiyalarida toza narx va soliq ajratib ko'rsatilishi shart."
+    }
+  },
+  {
+    "id": 36,
+    "tier": 4,
+    "tierName": "4-Bosqich: Inkapsulyatsiya va Himoya",
+    "sector": "31-40",
+    "title": {
+      "uz": "36. WIUT Student ID — Setterda Satr Formatini Validatsiya Qilish",
+      "en": "36. WIUT Student ID — String Format Validation in Setter"
+    },
+    "scenario": {
+      "uz": "WIUT talabalik guvohnomasi aniq formatda bo'lishi shart: u '000' bilan boshlanishi va jami 8 ta belgidan iborat bo'lishi kerak (masalan, '00012345'). 'Student' klassini tuzing: 'private String studentId;'. 'setStudentId(String id)' setterida agar shart bajarilsa qiymat o'rnatilsin, aks holda 'Xato ID formati' deb ogohlantirilsin.",
+      "en": "Enforce String format! In 'Student', encapsulate 'private String studentId;'. In 'setStudentId(String id)', validate that id starts with '000' and length equals 8."
+    },
+    "requirements": {
+      "classes": [
+        "Student",
+        "Main"
+      ],
+      "privateFields": [
+        "studentId"
+      ],
+      "methods": [
+        "getStudentId",
+        "setStudentId"
+      ],
+      "constructors": [
+        "Student"
+      ]
+    },
+    "starterCode": "class Student {\n    private String studentId;\n\n    // Konstruktor, getStudentId va formatni tekshiruvchi setStudentId ni yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // To'g'ri va xato ID larni sinab ko'ring\n        \n    }\n}",
+    "solution": "class Student {\n    private String studentId;\n\n    public Student(String studentId) {\n        this.setStudentId(studentId);\n    }\n\n    public String getStudentId() {\n        return this.studentId;\n    }\n\n    public void setStudentId(String studentId) {\n        if (studentId != null && studentId.length() == 8 && studentId.startsWith(\"000\")) {\n            this.studentId = studentId;\n        } else {\n            System.out.println(\"Xato: ID 8 ta belgidan iborat va '000' bilan boshlanishi shart!\");\n            this.studentId = \"00000000\";\n        }\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student s1 = new Student(\"00014523\"); // To'g'ri\n        Student s2 = new Student(\"12345\");    // Xato\n\n        System.out.println(\"Talaba 1 ID: \" + s1.getStudentId());\n        System.out.println(\"Talaba 2 ID: \" + s2.getStudentId());\n    }\n}",
+    "detailedSolution": {
+      "theory": "String validatsiyasida null tekshiruvi (Null Check): Har qanday String metodini (length, startsWith) chaqirishdan oldin 'studentId != null' tekshiruvini qo'yish NullPointerException xatoligini bartaraf qiladi.",
+      "theoryEn": "Preemptively guarding against null pointers via 'studentId != null' ensures bulletproof string validations.",
+      "cleanCode": "if (studentId != null && studentId.length() == 8 && studentId.startsWith(\"000\"))",
+      "breakdown": [
+        "Talaba identifikatori formati qat'iy nazoratga olindi.",
+        "Xato kiritilganda standart xavfsiz qiymat berildi."
+      ],
+      "pitfalls": "Shartda `studentId.length() == 8 && studentId != null` deb yozilsa, null kelgan paytda baribir xato beradi — 'null' tekshiruvi doim birinchi bo'lishi shart!",
+      "cw2Tip": "Mijoz telefon raqami (+998...) yoki pochtasini tekshirishda ham aynan shu tartib ishlatiladi."
+    }
+  },
+  {
+    "id": 37,
+    "tier": 4,
+    "tierName": "4-Bosqich: Inkapsulyatsiya va Himoya",
+    "sector": "31-40",
+    "title": {
+      "uz": "37. Fiscal Receipt — O'zgarmas Klass (Immutable Class va 'final' Maydonlar)",
+      "en": "37. Fiscal Receipt — Immutable Class & 'final' State"
+    },
+    "scenario": {
+      "uz": "To'lov cheki fiskal ma'lumot bo'lib, yaratilgandan keyin uni hech kim va hech qachon o'zgartira olmasligi shart. 'Receipt' klassini to'liq o'zgarmas (immutable) qiling: barcha maydonlar 'private final String txnId;' va 'private final double amount;' bo'lsin. Hech qanday setter metod yaratmang, faqat konstruktor va getterlar bo'lsin!",
+      "en": "Design an Immutable Class! In 'Receipt', declare 'private final String txnId;' and 'private final double amount;'. Provide constructor and getters with zero mutator setters."
+    },
+    "requirements": {
+      "classes": [
+        "Receipt",
+        "Main"
+      ],
+      "privateFields": [
+        "txnId",
+        "amount"
+      ],
+      "methods": [
+        "getTxnId",
+        "getAmount"
+      ],
+      "constructors": [
+        "Receipt"
+      ],
+      "keywords": [
+        "final"
+      ]
+    },
+    "starterCode": "class Receipt {\n    // txnId va amount maydonlarini private final qiling\n    \n    // Konstruktor va getterlarni yozing (hech qanday setter bo'lmasin!)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // O'zgarmas chek yarating\n        \n    }\n}",
+    "solution": "class Receipt {\n    private final String txnId;\n    private final double amount;\n\n    public Receipt(String txnId, double amount) {\n        this.txnId = txnId;\n        this.amount = amount;\n    }\n\n    public String getTxnId() {\n        return this.txnId;\n    }\n\n    public double getAmount() {\n        return this.amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Receipt r = new Receipt(\"FISCAL-9912\", 240000.0);\n        System.out.println(\"Chek: \" + r.getTxnId() + \" | Summa: \" + r.getAmount() + \" so'm\");\n        // r.setAmount(...) mavjud emas va final maydonni o'zgartirib bo'lmaydi!\n    }\n}",
+    "detailedSolution": {
+      "theory": "O'zgarmaslik (Immutability): 'final' maydonlar qiymatini faqat konstruktorda 1 marta olishi mumkin va shundan keyin umrining oxirigacha o'zgarmaydi. Setterlar yo'qligi sababli ob'yekt xotirada 100% thread-safe va buzilmas bo'lib yashaydi.",
+      "theoryEn": "Immutability guarantees thread-safety and audit integrity by combining 'final' fields with zero mutators.",
+      "cleanCode": "private final String txnId;\nprivate final double amount;",
+      "breakdown": [
+        "Fiskal to'lov cheki xavfsiz himoyalandi.",
+        "Maydonlar 'final' bo'lgani uchun o'zgarish mutlaqo imkonsiz."
+      ],
+      "pitfalls": "final maydonga konstruktorda qiymat berish unutilsa, kompilyator xato beradi.",
+      "cw2Tip": "Moliyaviy operatsiyalar va audit yozuvlari har doim Immutable klasslar orqali ifodalanadi."
+    }
+  },
+  {
+    "id": 38,
+    "tier": 4,
+    "tierName": "4-Bosqich: Inkapsulyatsiya va Himoya",
+    "sector": "31-40",
+    "title": {
+      "uz": "38. IoT Temperature — Selsiy va Farengeyt Abstraksiyasi (Unit Conversion)",
+      "en": "38. IoT Temperature — Celsius & Fahrenheit Abstraction"
+    },
+    "scenario": {
+      "uz": "Datchik ichida harorat faqat bitta birlikda saqlanishi kerak, lekin mijozlar uni turli birliklarda so'rashi mumkin. 'TempSensor' klassini tuzing: faqat 'private double celsius;' maydoni bo'lsin. 'getCelsius()', 'setCelsius(double c)' hamda Farengeytga o'girib beruvchi 'public double getFahrenheit()' ('celsius * 9/5 + 32') getterini yarating.",
+      "en": "Model data abstraction! In 'TempSensor', store exclusively 'private double celsius;'. Expose 'getCelsius()', 'setCelsius()', and derived 'public double getFahrenheit()'."
+    },
+    "requirements": {
+      "classes": [
+        "TempSensor",
+        "Main"
+      ],
+      "privateFields": [
+        "celsius"
+      ],
+      "methods": [
+        "getCelsius",
+        "setCelsius",
+        "getFahrenheit"
+      ],
+      "constructors": [
+        "TempSensor"
+      ]
+    },
+    "starterCode": "class TempSensor {\n    private double celsius;\n\n    // Konstruktor, getCelsius, setCelsius va getFahrenheit metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Haroratni har ikkala birlikda ko'ring\n        \n    }\n}",
+    "solution": "class TempSensor {\n    private double celsius;\n\n    public TempSensor(double celsius) {\n        this.setCelsius(celsius);\n    }\n\n    public double getCelsius() {\n        return this.celsius;\n    }\n\n    public void setCelsius(double celsius) {\n        // Mutlaq nol harorat (-273.15 C) dan past bo'lishi mumkin emas\n        if (celsius >= -273.15) {\n            this.celsius = celsius;\n        } else {\n            this.celsius = -273.15;\n        }\n    }\n\n    public double getFahrenheit() {\n        return (this.celsius * 9.0 / 5.0) + 32.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        TempSensor sensor = new TempSensor(25.0);\n        System.out.println(\"Harorat (Selsiy): \" + sensor.getCelsius() + \"°C\");\n        System.out.println(\"Harorat (Farengeyt): \" + sensor.getFahrenheit() + \"°F\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Ma'lumotlar Abstraksiyasi (Data Abstraction): Ichki saqlash formati bilan tashqi foydalanuvchi ko'radigan formatni ajratish. Foydalanuvchi Farengeytda so'rasa ham, ichkarida ortiqcha maydon ochilmaydi.",
+      "theoryEn": "Encapsulation cleanly decouples physical internal storage representations from external projection formats.",
+      "cleanCode": "public double getFahrenheit() { return (this.celsius * 9.0 / 5.0) + 32.0; }",
+      "breakdown": [
+        "Fizik minimum (-273.15°C) setterda tekshirildi.",
+        "Farengeyt birligiga matematik konvertatsiya taqdim etildi."
+      ],
+      "pitfalls": "9/5 o'rniga 9.0/5.0 yozish shart, aks holda butun son bo'linishi (integer division) natijani 1 ga aylantirib qo'yadi!",
+      "cw2Tip": "Valyutalarni konvertatsiya qilishda aynan shu abstraksiya modeli qo'llaniladi."
+    }
+  },
+  {
+    "id": 39,
+    "tier": 4,
+    "tierName": "4-Bosqich: Inkapsulyatsiya va Himoya",
+    "sector": "31-40",
+    "title": {
+      "uz": "39. Credit Score — Reyting Toifasini Aniqlash (Classification Property)",
+      "en": "39. Credit Score — Rating Classification Property"
+    },
+    "scenario": {
+      "uz": "Bank skoring reytingi 300 dan 850 gacha bo'ladi. 'CreditScore' klassini tuzing: 'private int score;'. Konstruktor va setter 300..850 oralig'ini qat'iy nazorat qilsin. 'public String getCategory()' metodini yozing: agar score >= 750 bo'lsa 'EXCELLENT', score >= 650 bo'lsa 'GOOD', score >= 550 bo'lsa 'FAIR', aks holda 'POOR' qaytarsin.",
+      "en": "In Credit Score, encapsulate 'private int score;' bounded within [300, 850]. Implement 'public String getCategory()' categorizing score into 'EXCELLENT', 'GOOD', 'FAIR', or 'POOR'."
+    },
+    "requirements": {
+      "classes": [
+        "CreditScore",
+        "Main"
+      ],
+      "privateFields": [
+        "score"
+      ],
+      "methods": [
+        "getScore",
+        "setScore",
+        "getCategory"
+      ],
+      "constructors": [
+        "CreditScore"
+      ]
+    },
+    "starterCode": "class CreditScore {\n    private int score;\n\n    // Konstruktor, getScore, setScore (300..850 chegarasi bilan) va getCategory ni yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Skoring toifasini aniqlang\n        \n    }\n}",
+    "solution": "class CreditScore {\n    private int score;\n\n    public CreditScore(int score) {\n        this.setScore(score);\n    }\n\n    public int getScore() {\n        return this.score;\n    }\n\n    public void setScore(int score) {\n        if (score >= 300 && score <= 850) {\n            this.score = score;\n        } else {\n            this.score = 300;\n        }\n    }\n\n    public String getCategory() {\n        if (this.score >= 750) return \"EXCELLENT\";\n        if (this.score >= 650) return \"GOOD\";\n        if (this.score >= 550) return \"FAIR\";\n        return \"POOR\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CreditScore cs = new CreditScore(780);\n        System.out.println(\"Skoring bali: \" + cs.getScore() + \" | Toifa: \" + cs.getCategory());\n    }\n}",
+    "detailedSolution": {
+      "theory": "Toifalashtiruvchi xususiyatlar (Categorization Properties): Inkapsulyatsiya qilingan sonli qiymat asosida biznes toifasini aniqlab berish metodlari.",
+      "theoryEn": "Classification properties map internal continuous metrics into discrete business domains.",
+      "cleanCode": "if (this.score >= 750) return \"EXCELLENT\";",
+      "breakdown": [
+        "Skoring chegarasi [300, 850] setterda himoyalandi.",
+        "Kredit ajratish uchun toifalar aniq belgilandi."
+      ],
+      "pitfalls": "Shartlarni tekshirishda katta sondan boshlash tartibiga rioya qiling.",
+      "cw2Tip": "Mijoz xarid hajmiga qarab VIP toifani aniqlashda aynan shu qoida ishlaydi."
+    }
+  },
+  {
+    "id": 40,
+    "tier": 4,
+    "tierName": "4-Bosqich: Inkapsulyatsiya va Himoya",
+    "sector": "31-40",
+    "title": {
+      "uz": "40. Safe Credential — Bir Tomonlama Yoziluvchi Maydon (Write-Only & No-Leak Security • Stage 4 Master)",
+      "en": "40. Safe Credential — Write-Only State & Zero-Leak Security (Stage 4 Master)"
+    },
+    "scenario": {
+      "uz": "4-bosqich yakuniy topshirig'i! Parolni hech kim (hatto dasturchi ham) getPassword() orqali o'qiy olmasligi kerak — haqiqiy inkapsulyatsiya! 'UserCredential' klassini tuzing: 'private String password;'. Getter YO'Q! Faqat 2 ta metod bo'lsin:\n1) 'public boolean verifyPassword(String attempt)' — kiritilgan parol to'g'ri bo'lsa 'true', aks holda 'false' qaytarsin;\n2) 'public boolean changePassword(String oldPass, String newPass)' — eski parol to'g'ri kelsa va yangi parol uzunligi >= 6 bo'lsa yangilasin.",
+      "en": "Stage 4 Capstone! Write-Only Encapsulation! In 'UserCredential', encapsulate 'private String password;'. Provide NO getter! Implement 'verifyPassword(String attempt)' and 'changePassword(String oldPass, String newPass)'."
+    },
+    "requirements": {
+      "classes": [
+        "UserCredential",
+        "Main"
+      ],
+      "privateFields": [
+        "password"
+      ],
+      "methods": [
+        "verifyPassword",
+        "changePassword"
+      ],
+      "constructors": [
+        "UserCredential"
+      ]
+    },
+    "starterCode": "class UserCredential {\n    private String password;\n\n    // Konstruktor, verifyPassword va changePassword metodlarini yozing (getter bo'lmasin!)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Parolni tekshiring va xavfsiz o'zgartiring\n        \n    }\n}",
+    "solution": "class UserCredential {\n    private String password;\n\n    public UserCredential(String initialPassword) {\n        this.password = (initialPassword != null && initialPassword.length() >= 6) ? initialPassword : \"default123\";\n    }\n\n    // Parolni to'g'ridan-to'g'ri o'qish imkonsiz (No Getter!)\n    public boolean verifyPassword(String attempt) {\n        return this.password.equals(attempt);\n    }\n\n    public boolean changePassword(String oldPass, String newPass) {\n        if (this.verifyPassword(oldPass) && newPass != null && newPass.length() >= 6) {\n            this.password = newPass;\n            return true;\n        }\n        return false;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        UserCredential cred = new UserCredential(\"secret2024\");\n\n        System.out.println(\"Tekshiruv ('wrong'): \" + cred.verifyPassword(\"wrong\"));\n        System.out.println(\"Tekshiruv ('secret2024'): \" + cred.verifyPassword(\"secret2024\"));\n\n        boolean changed = cred.changePassword(\"secret2024\", \"newMasterPass99\");\n        System.out.println(\"Parol o'zgardimi: \" + changed);\n    }\n}",
+    "detailedSolution": {
+      "theory": "4-bosqichda biz to'liq inkapsulyatsiyani egalladik! Getter bo'lmasligi ham inkapsulyatsiyaning oliy shaklidir (Write-Only State). Tashqi kod ob'yektning ichki sirini bilmaydi, faqat undan natija so'raydi. Endi 5-bosqichda ushbu sinflarni birlashtirib, 'static' a'zolar, kompozitsiya va CW2 buyurtma arxitekturasini quramiz!",
+      "theoryEn": "Stage 4 mastered encapsulation, including zero-leak write-only state. Stage 5 synthesizes these concepts into static members, composition, and CW2 architecture.",
+      "cleanCode": "public boolean verifyPassword(String attempt) {\n    return this.password.equals(attempt);\n}",
+      "breakdown": [
+        "Parol maxfiyligi to'liq ta'minlandi (o'qish yo'li yo'q).",
+        "Eski parolni tasdiqlash orqali xavfsiz almashtirish amalga oshirildi.",
+        "Bu topshiriq 5-bosqichdagi arxitektura va kompozitsiyaga ko'prikdir."
+      ],
+      "pitfalls": "Stringlarni taqqoslashda '==' emas, doimo '.equals()' metodidan foydalaning!",
+      "cw2Tip": "Foydalanuvchi autentifikatsiyasida ma'lumotlarni himoyalashning asosiy shartidir."
+    }
+  },
+  {
+    "id": 41,
+    "tier": 5,
+    "tierName": "5-Bosqich: Statik A'zolar va Kompozitsiya",
+    "sector": "41-50",
+    "title": {
+      "uz": "41. System ID Generator — 'static' Hisoblagich va Avtomatik ID Berish",
+      "en": "41. System ID Generator — 'static' Counter & Auto-Increment IDs"
+    },
+    "scenario": {
+      "uz": "Har bir yangi yaratilgan foydalanuvchiga ketma-ket avtomatik ID raqami berilishi kerak. 'UserAccount' klassini tuzing: 'public static int totalUsers = 0;' statik hisoblagichi, hamda 'private int id;' va 'private String username;' instans maydonlari bo'lsin. Konstruktor har safar chaqirilganda 'totalUsers' 1 ga oshsin va 'this.id = totalUsers;' deb belgilansin.",
+      "en": "In System ID Generator, model 'UserAccount' with 'public static int totalUsers = 0;' shared across all instances. In constructor, increment totalUsers and assign auto-increment id."
+    },
+    "requirements": {
+      "classes": [
+        "UserAccount",
+        "Main"
+      ],
+      "privateFields": [
+        "id",
+        "username"
+      ],
+      "methods": [
+        "getId",
+        "getUsername"
+      ],
+      "constructors": [
+        "UserAccount"
+      ],
+      "keywords": [
+        "static"
+      ]
+    },
+    "starterCode": "class UserAccount {\n    public static int totalUsers = 0;\n    private int id;\n    private String username;\n\n    // Konstruktorda totalUsers ni oshiring va id ga bering\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // 3 ta foydalanuvchi yarating va ID larini ko'ring\n        \n    }\n}",
+    "solution": "class UserAccount {\n    public static int totalUsers = 0;\n    private int id;\n    private String username;\n\n    public UserAccount(String username) {\n        totalUsers++;\n        this.id = totalUsers;\n        this.username = username;\n    }\n\n    public int getId() { return this.id; }\n    public String getUsername() { return this.username; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        UserAccount u1 = new UserAccount(\"ali\");\n        UserAccount u2 = new UserAccount(\"vali\");\n        UserAccount u3 = new UserAccount(\"gani\");\n\n        System.out.println(\"User 1 ID: \" + u1.getId() + \" (\" + u1.getUsername() + \")\");\n        System.out.println(\"User 2 ID: \" + u2.getId() + \" (\" + u2.getUsername() + \")\");\n        System.out.println(\"User 3 ID: \" + u3.getId() + \" (\" + u3.getUsername() + \")\");\n        System.out.println(\"Jami foydalanuvchilar soni: \" + UserAccount.totalUsers);\n    }\n}",
+    "detailedSolution": {
+      "theory": "'static' kalit so'zi maydonning aniq bir ob'yektga emas, balki butun klassga tegishli ekanligini bildiradi. Heap xotirada barcha ob'yektlar uchun bitta umumiy 'totalUsers' maydoni bo'ladi va ular ushbu bitta umumiy o'zgaruvchini ulashadi.",
+      "theoryEn": "'static' fields belong to the class blueprint in Metaspace, shared uniformly across all instantiated objects.",
+      "cleanCode": "public static int totalUsers = 0;\nUserAccount(String username) {\n    this.id = ++totalUsers;\n}",
+      "breakdown": [
+        "Klass darajasidagi global hisoblagich tashkil qilindi.",
+        "Har bir ob'yekt ketma-ket betakror ID ga ega bo'ldi."
+      ],
+      "pitfalls": "Statik maydonlarga ob'yekt orqali emas (`u1.totalUsers`), klass nomi orqali (`UserAccount.totalUsers`) murojaat qilish Clean Code qoidasidir.",
+      "cw2Tip": "CW2 Console Order tizimida buyurtma raqamini (Order #1, Order #2) avtomatik generatsiya qilishda ayni usul shart."
+    }
+  },
+  {
+    "id": 42,
+    "tier": 5,
+    "tierName": "5-Bosqich: Statik A'zolar va Kompozitsiya",
+    "sector": "41-50",
+    "title": {
+      "uz": "42. Math Utilities — 'static' Yordamchi Metodlar (Utility Class)",
+      "en": "42. Math Utilities — 'static' Helper Methods (Utility Class)"
+    },
+    "scenario": {
+      "uz": "Nusxa olinmaydigan yordamchi utilit klassi! 'FinancialMath' klassini yarating: konstruktori 'private FinancialMath() {}' bo'lsin (nusxa olinmasligi uchun). Unga 2 ta statik metod yozing:\n1) 'public static double calcVat(double amount, double rate)' — soliq miqdorini hisoblasin;\n2) 'public static double roundTwoDecimals(double val)' — sonni 2 xonagacha yaxlitlasin ('Math.round(val * 100.0) / 100.0').",
+      "en": "Create a Utility Class! In 'FinancialMath', define a private constructor and static helpers: 'calcVat(double amount, double rate)' and 'roundTwoDecimals(double val)'."
+    },
+    "requirements": {
+      "classes": [
+        "FinancialMath",
+        "Main"
+      ],
+      "methods": [
+        "calcVat",
+        "roundTwoDecimals"
+      ],
+      "keywords": [
+        "static"
+      ]
+    },
+    "starterCode": "class FinancialMath {\n    // private konstruktor va static metodlarni yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // FinancialMath.calcVat(...) orqali hisoblang\n        \n    }\n}",
+    "solution": "class FinancialMath {\n    private FinancialMath() {}\n\n    public static double calcVat(double amount, double rate) {\n        return amount * (rate / 100.0);\n    }\n\n    public static double roundTwoDecimals(double val) {\n        return Math.round(val * 100.0) / 100.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        double soliq = FinancialMath.calcVat(1250000.0, 12.0);\n        double yaxlitlangan = FinancialMath.roundTwoDecimals(145.6789);\n\n        System.out.println(\"Hisoblangan soliq: \" + soliq + \" so'm\");\n        System.out.println(\"Yaxlitlangan qiymat: \" + yaxlitlangan);\n    }\n}",
+    "detailedSolution": {
+      "theory": "Utilit klasslar (Utility Classes): Java-dagi `Math` sinfi kabi faqat statik metodlardan iborat bo'lib, ob'yekt holatini saqlamaydi. Xususiy (private) konstruktor qo'yish orqali unga 'new FinancialMath()' chaqirilishi butunlay taqiqlanadi.",
+      "theoryEn": "Utility classes bundle stateless static functions and suppress instantiation via private constructors.",
+      "cleanCode": "private FinancialMath() {}\npublic static double calcVat(double amount, double rate) { ... }",
+      "breakdown": [
+        "Nusxa olinmaydigan toza yordamchi klass yaratildi.",
+        "Metodlar to'g'ridan-to'g'ri chaqirildi."
+      ],
+      "pitfalls": "Statik metodlar ichidan instans maydonlarga ('this.x') murojaat qilib bo'lmaydi.",
+      "cw2Tip": "Valyuta konvertatsiyasi va formatlash utilitlarini alohida sinfga ajratish yaxshi me'morchilikdir."
+    }
+  },
+  {
+    "id": 43,
+    "tier": 5,
+    "tierName": "5-Bosqich: Statik A'zolar va Kompozitsiya",
+    "sector": "41-50",
+    "title": {
+      "uz": "43. Central Bank — 'CurrencyConverter' va Umumiy Kurs ('static' State)",
+      "en": "43. Central Bank — 'CurrencyConverter' & Global Shared Rate"
+    },
+    "scenario": {
+      "uz": "Barcha foydalanuvchilar Markaziy bankning yagona kursi bo'yicha pul almashtiradi. 'CurrencyConverter' klassini tuzing: 'private static double usdToUzs = 12700.0;' umumiy kursi bo'lsin. 'public static void setRate(double newRate)' va 'public static double toUzs(double usd)' metodlarini yozing. Kurs yangilanganda barcha keyingi konvertatsiyalar yangi kursda bo'lsin.",
+      "en": "In Central Bank, create 'CurrencyConverter' with 'private static double usdToUzs = 12700.0;'. Provide static 'setRate(double)' and 'toUzs(double usd)'."
+    },
+    "requirements": {
+      "classes": [
+        "CurrencyConverter",
+        "Main"
+      ],
+      "methods": [
+        "setRate",
+        "toUzs"
+      ],
+      "keywords": [
+        "static"
+      ]
+    },
+    "starterCode": "class CurrencyConverter {\n    private static double usdToUzs = 12700.0;\n\n    // setRate va toUzs statik metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Kursni o'zgartirib konvertatsiyani tekshiring\n        \n    }\n}",
+    "solution": "class CurrencyConverter {\n    private static double usdToUzs = 12700.0;\n\n    public static void setRate(double newRate) {\n        if (newRate > 0) {\n            usdToUzs = newRate;\n        }\n    }\n\n    public static double toUzs(double usd) {\n        return usd * usdToUzs;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        double summa1 = CurrencyConverter.toUzs(100.0);\n        System.out.println(\"100 USD (eski kurs): \" + summa1 + \" so'm\");\n\n        CurrencyConverter.setRate(12800.0);\n        double summa2 = CurrencyConverter.toUzs(100.0);\n        System.out.println(\"100 USD (yangi kurs): \" + summa2 + \" so'm\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Umumiy statik holat (Shared Static State): Kurs bitta joyda o'zgarishi bilan butun dastur bo'yicha barcha chaqiruvlar darhol yangilangan kursdan foydalana boshlaydi.",
+      "theoryEn": "Shared static configuration ensures unified state changes propagate globally across all modules.",
+      "cleanCode": "public static double toUzs(double usd) { return usd * usdToUzs; }",
+      "breakdown": [
+        "Global valyuta kursi xavfsiz boshqarildi.",
+        "Statik setter orqali yangi stavka barcha chaqiruvlarga ta'sir qildi."
+      ],
+      "pitfalls": "Statik o'zgaruvchilarni ko'p joyda ehtiyotsiz o'zgartirish kutilmagan yon ta'sirlarga (side effects) sabab bo'lishi mumkin.",
+      "cw2Tip": "CW2 ilovasida global chegirma foizini boshqarishda qo'llaniladi."
+    }
+  },
+  {
+    "id": 44,
+    "tier": 5,
+    "tierName": "5-Bosqich: Statik A'zolar va Kompozitsiya",
+    "sector": "41-50",
+    "title": {
+      "uz": "44. Person & Address — Ob'yekt Kompozitsiyasi ('has-a' Munosabati)",
+      "en": "44. Person & Address — Object Composition ('has-a' Relationship)"
+    },
+    "scenario": {
+      "uz": "Kompozitsiya (Composition) — ob'yekt ichida boshqa ob'yektni saqlash! Ikki klass tuzing:\n1) 'Address' klassi: 'private String city;', 'private String street;'. Getterlari bo'lsin;\n2) 'Person' klassi: 'private String name;' va 'private Address address;'. 'Person' konstruktori manzil ob'yektini qabul qilsin va 'public String getFullDetails()' metodi odam ismi va uning shahar/ko'chasini qaytarsin.",
+      "en": "Implement Composition ('has-a')! Create 'Address' ('city', 'street') and 'Person' ('name', 'Address address'). 'Person' encapsulates 'Address' and prints complete resident details."
+    },
+    "requirements": {
+      "classes": [
+        "Address",
+        "Person",
+        "Main"
+      ],
+      "privateFields": [
+        "city",
+        "street",
+        "name",
+        "address"
+      ],
+      "methods": [
+        "getFullDetails"
+      ],
+      "constructors": [
+        "Address",
+        "Person"
+      ]
+    },
+    "starterCode": "class Address {\n    private String city;\n    private String street;\n\n    // Konstruktor va getterlar\n}\n\nclass Person {\n    private String name;\n    private Address address;\n\n    // Konstruktor va getFullDetails metodi\n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Address va Person ob'yektlarini bog'lab chiqaring\n        \n    }\n}",
+    "solution": "class Address {\n    private String city;\n    private String street;\n\n    public Address(String city, String street) {\n        this.city = city;\n        this.street = street;\n    }\n\n    public String getCity() { return this.city; }\n    public String getStreet() { return this.street; }\n}\n\nclass Person {\n    private String name;\n    private Address address;\n\n    public Person(String name, Address address) {\n        this.name = name;\n        this.address = address;\n    }\n\n    public String getFullDetails() {\n        return this.name + \" (\" + this.address.getCity() + \", \" + this.address.getStreet() + \")\";\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Address addr = new Address(\"Toshkent\", \"Amir Temur ko'chasi, 12\");\n        Person p = new Person(\"Rustam Shokirov\", addr);\n\n        System.out.println(\"Shaxs ma'lumotlari: \" + p.getFullDetails());\n    }\n}",
+    "detailedSolution": {
+      "theory": "Kompozitsiya (Composition) — 'has-a' munosabatidir: 'Person has an Address' (Shaxsning manzili bor). Katta klasslarni mayda ixtisoslashgan ob'yektlardan yig'ish dastur kodini toza va modulli qiladi.",
+      "theoryEn": "Composition favors flexible 'has-a' delegation over monolithic single classes.",
+      "cleanCode": "public String getFullDetails() {\n    return this.name + \" (\" + this.address.getCity() + \", \" + this.address.getStreet() + \")\";\n}",
+      "breakdown": [
+        "Manzil alohida qayta ishlatiluvchi klassga ajratildi.",
+        "Person klassi Address ob'yektiga murojaat qildi."
+      ],
+      "pitfalls": "Agar address null bo'lsa, `address.getCity()` chaqiruvi NullPointerException beradi — null tekshiruvini esdan chiqarmang.",
+      "cw2Tip": "CW2 da `Customer has an Address` va `Order has a Customer` aynan shu usulda quriladi."
+    }
+  },
+  {
+    "id": 45,
+    "tier": 5,
+    "tierName": "5-Bosqich: Statik A'zolar va Kompozitsiya",
+    "sector": "41-50",
+    "title": {
+      "uz": "45. Vehicle & Engine — Kuchli Kompozitsiya va Ichki Delegatsiya",
+      "en": "45. Vehicle & Engine — Strong Composition & Internal Delegation"
+    },
+    "scenario": {
+      "uz": "Avtomobil va uning dvigateli. Ikki klass tuzing:\n1) 'Engine' klassi: 'private int horsePower;', 'private String type;'. Getterlari bo'lsin;\n2) 'Car' klassi: 'private String model;', 'private Engine engine;'. 'public void startCar()' metodi 'engine.getHorsePower()' va 'engine.getType()' ma'lumotlariga tayanib avtomobil dvigateli yoqilganini chop etsin.",
+      "en": "Model strong composition! Create 'Engine' ('horsePower', 'type') and 'Car' ('model', 'Engine engine'). 'startCar()' delegates to engine to display ignition status."
+    },
+    "requirements": {
+      "classes": [
+        "Engine",
+        "Car",
+        "Main"
+      ],
+      "privateFields": [
+        "horsePower",
+        "type",
+        "model",
+        "engine"
+      ],
+      "methods": [
+        "startCar"
+      ],
+      "constructors": [
+        "Engine",
+        "Car"
+      ]
+    },
+    "starterCode": "class Engine {\n    private int horsePower;\n    private String type;\n\n    // Konstruktor va getterlar\n}\n\nclass Car {\n    private String model;\n    private Engine engine;\n\n    // Konstruktor va startCar metodi\n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Avtomobilni motori bilan yarating va o't oldiring\n        \n    }\n}",
+    "solution": "class Engine {\n    private int horsePower;\n    private String type;\n\n    public Engine(int horsePower, String type) {\n        this.horsePower = horsePower;\n        this.type = type;\n    }\n\n    public int getHorsePower() { return this.horsePower; }\n    public String getType() { return this.type; }\n}\n\nclass Car {\n    private String model;\n    private Engine engine;\n\n    public Car(String model, Engine engine) {\n        this.model = model;\n        this.engine = engine;\n    }\n\n    public void startCar() {\n        System.out.println(this.model + \" o't oldirildi! Dvigatel: \" + this.engine.getType() + \" (\" + this.engine.getHorsePower() + \" HP)\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Engine turbo = new Engine(250, \"2.0 Turbo\");\n        Car myCar = new Car(\"Malibu Premier\", turbo);\n\n        myCar.startCar();\n    }\n}",
+    "detailedSolution": {
+      "theory": "Delegatsiya (Delegation): 'Car' o'z dvigatelining ot kuchini saqlamaydi, balki ushbu mas'uliyatni o'zining ichki qismi bo'lgan 'Engine' ob'yektiga topshiradi.",
+      "theoryEn": "Delegation assigns specialized responsibilities to dedicated component instances.",
+      "cleanCode": "this.engine.getType() + \" (\" + this.engine.getHorsePower() + \" HP)\"",
+      "breakdown": [
+        "Dvigatel mustaqil modulli ob'yekt sifatida yaratildi.",
+        "Avtomobil dvigatel imkoniyatlaridan to'liq foydalandi."
+      ],
+      "pitfalls": "Kompozitsiya qilingan ob'yektni private qilib himoyalash yaxshi amaliyotdir.",
+      "cw2Tip": "CW2 tizimida `Order` o'z to'lovini `PaymentProcessor` ob'yektiga delegatsiya qiladi."
+    }
+  },
+  {
+    "id": 46,
+    "tier": 5,
+    "tierName": "5-Bosqich: Statik A'zolar va Kompozitsiya",
+    "sector": "41-50",
+    "title": {
+      "uz": "46. E-Commerce Cart — 'Product' va 'OrderItem' Savat Pozitsiyasi",
+      "en": "46. E-Commerce Cart — 'Product' & 'OrderItem' Cart Line Item"
+    },
+    "scenario": {
+      "uz": "Savatdagi har bir qator tovar va uning sonidan iborat bo'ladi. Ikki klass tuzing:\n1) 'Product' klassi: 'private String name;', 'private double price;'. Konstruktor va getterlari bo'lsin;\n2) 'OrderItem' klassi: 'private Product product;', 'private int quantity;'. 'public double getSubtotal()' metodi tovar narxini uning soniga ko'paytirib qaytarsin ('product.getPrice() * quantity').",
+      "en": "In E-Commerce Cart, create 'Product' ('name', 'price') and 'OrderItem' ('Product product', 'int quantity'). Implement 'public double getSubtotal()' calculating line item total."
+    },
+    "requirements": {
+      "classes": [
+        "Product",
+        "OrderItem",
+        "Main"
+      ],
+      "privateFields": [
+        "name",
+        "price",
+        "product",
+        "quantity"
+      ],
+      "methods": [
+        "getSubtotal"
+      ],
+      "constructors": [
+        "Product",
+        "OrderItem"
+      ]
+    },
+    "starterCode": "class Product {\n    private String name;\n    private double price;\n\n    // Konstruktor va getterlar\n}\n\nclass OrderItem {\n    private Product product;\n    private int quantity;\n\n    // Konstruktor va getSubtotal metodi\n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Product va OrderItem yarating, oraliq summani hisoblang\n        \n    }\n}",
+    "solution": "class Product {\n    private String name;\n    private double price;\n\n    public Product(String name, double price) {\n        this.name = name;\n        this.price = (price >= 0) ? price : 0.0;\n    }\n\n    public String getName() { return this.name; }\n    public double getPrice() { return this.price; }\n}\n\nclass OrderItem {\n    private Product product;\n    private int quantity;\n\n    public OrderItem(Product product, int quantity) {\n        this.product = product;\n        this.quantity = (quantity > 0) ? quantity : 1;\n    }\n\n    public Product getProduct() { return this.product; }\n    public int getQuantity() { return this.quantity; }\n\n    public double getSubtotal() {\n        return this.product.getPrice() * this.quantity;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product p = new Product(\"Simsiz Quloqchin\", 350000.0);\n        OrderItem item = new OrderItem(p, 3);\n\n        System.out.println(\"Tovar: \" + item.getProduct().getName() + \" x \" + item.getQuantity() + \" dona\");\n        System.out.println(\"Oraliq summa: \" + item.getSubtotal() + \" so'm\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "'OrderItem' — savdodagi asosiy element (Line Item). U tovarning o'zi emas, balki tovarning savatdagi nusxasi va sonini birlashtiruvchi kompozitsion ko'prikdir.",
+      "theoryEn": "'OrderItem' serves as the line item linking a domain product with its cart quantity.",
+      "cleanCode": "public double getSubtotal() {\n    return this.product.getPrice() * this.quantity;\n}",
+      "breakdown": [
+        "Product va OrderItem o'rtasidagi bog'liqlik to'g'ri o'rnatildi.",
+        "Oraliq narx kompozitsiyalangan Product getteri orqali hisoblandi."
+      ],
+      "pitfalls": "Product narxi o'zgarsa ham, OrderItem har doim dolzarb narxni oladi.",
+      "cw2Tip": "Bu sinf CW2 kurs ishining eng markaziy ob'yektlaridan biridir."
+    }
+  },
+  {
+    "id": 47,
+    "tier": 5,
+    "tierName": "5-Bosqich: Statik A'zolar va Kompozitsiya",
+    "sector": "41-50",
+    "title": {
+      "uz": "47. Enterprise Order — Mijoz va Buyurtma Assotsiatsiyasi ('Customer' & 'Order')",
+      "en": "47. Enterprise Order — Customer & Order Association"
+    },
+    "scenario": {
+      "uz": "Buyurtma har doim aniq bir mijozga tegishli bo'ladi. Ikki klass tuzing:\n1) 'Customer' klassi: 'private int customerId;', 'private String fullName;', 'private String phone;'. Konstruktor va getterlari bo'lsin;\n2) 'Order' klassi: 'private int orderId;', 'private Customer customer;', 'private double totalAmount;'. 'public void printOrderSummary()' metodi buyurtma raqami, mijoz ismi, telefoni va to'lov summasini chiroyli konsolga chiqarsin.",
+      "en": "Model enterprise association! Create 'Customer' ('customerId', 'fullName', 'phone') and 'Order' ('orderId', 'Customer customer', 'totalAmount'). 'printOrderSummary()' prints formatted invoice."
+    },
+    "requirements": {
+      "classes": [
+        "Customer",
+        "Order",
+        "Main"
+      ],
+      "privateFields": [
+        "customerId",
+        "fullName",
+        "phone",
+        "orderId",
+        "customer",
+        "totalAmount"
+      ],
+      "methods": [
+        "printOrderSummary"
+      ],
+      "constructors": [
+        "Customer",
+        "Order"
+      ]
+    },
+    "starterCode": "class Customer {\n    private int customerId;\n    private String fullName;\n    private String phone;\n\n    // Konstruktor va getterlar\n}\n\nclass Order {\n    private int orderId;\n    private Customer customer;\n    private double totalAmount;\n\n    // Konstruktor va printOrderSummary metodi\n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Customer va Order tuzib summary chiqaring\n        \n    }\n}",
+    "solution": "class Customer {\n    private int customerId;\n    private String fullName;\n    private String phone;\n\n    public Customer(int customerId, String fullName, String phone) {\n        this.customerId = customerId;\n        this.fullName = fullName;\n        this.phone = phone;\n    }\n\n    public int getCustomerId() { return this.customerId; }\n    public String getFullName() { return this.fullName; }\n    public String getPhone() { return this.phone; }\n}\n\nclass Order {\n    private int orderId;\n    private Customer customer;\n    private double totalAmount;\n\n    public Order(int orderId, Customer customer, double totalAmount) {\n        this.orderId = orderId;\n        this.customer = customer;\n        this.totalAmount = totalAmount;\n    }\n\n    public void printOrderSummary() {\n        System.out.println(\"=== BUYURTMA #\" + this.orderId + \" ===\");\n        System.out.println(\"Mijoz: \" + this.customer.getFullName() + \" (Tel: \" + this.customer.getPhone() + \")\");\n        System.out.println(\"To'lov summasi: \" + this.totalAmount + \" so'm\");\n        System.out.println(\"==========================\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Customer c = new Customer(101, \"Dilshod Karimov\", \"+998931112233\");\n        Order ord = new Order(5001, c, 480000.0);\n\n        ord.printOrderSummary();\n    }\n}",
+    "detailedSolution": {
+      "theory": "Assotsiatsiya (Association): 'Order' ob'yekti 'Customer' ob'yektini o'z ichida saqlab, uning shaxsiy ma'lumotlariga xavfsiz erishadi. Bu real axborot tizimlaridagi munosabatlar bazasini (Relational mapping) tashkil etadi.",
+      "theoryEn": "Object association models relational foreign keys via object references in object-oriented memory.",
+      "cleanCode": "System.out.println(\"Mijoz: \" + this.customer.getFullName());",
+      "breakdown": [
+        "Mijoz va buyurtma o'rtasida to'g'ridan-to'g'ri bog'liqlik o'rnatildi.",
+        "Buyurtma xulosasi kvitansiya ko'rinishida formatlandi."
+      ],
+      "pitfalls": "Customer ob'yektining maydonlari 'private' bo'lgani sababli `this.customer.fullName` emas, `this.customer.getFullName()` orqali o'qiladi.",
+      "cw2Tip": "CW2 konsol ilovangizda foydalanuvchi buyurtmalari aynan shu modelda tashkil qilinadi."
+    }
+  },
+  {
+    "id": 48,
+    "tier": 5,
+    "tierName": "5-Bosqich: Statik A'zolar va Kompozitsiya",
+    "sector": "41-50",
+    "title": {
+      "uz": "48. Global Constants — 'public static final' Tizim Sozlamalari",
+      "en": "48. Global Constants — 'public static final' App Configuration"
+    },
+    "scenario": {
+      "uz": "Ilova nomi, versiyasi va maksimal chegirma darajasi butun tizim uchun o'zgarmas umumiy doimiylik (constant) bo'lishi kerak. 'AppConfig' klassini tuzing: 'public static final String APP_NAME = \"WIUT Academy\";', 'public static final String VERSION = \"2.0\";', 'public static final double MAX_DISCOUNT_PCT = 30.0;'. Nusxa olinmasligi uchun private konstruktor bering.",
+      "en": "Model global configuration constants! In 'AppConfig', declare public static final constants for APP_NAME, VERSION, and MAX_DISCOUNT_PCT with private constructor."
+    },
+    "requirements": {
+      "classes": [
+        "AppConfig",
+        "Main"
+      ],
+      "keywords": [
+        "static",
+        "final"
+      ]
+    },
+    "starterCode": "class AppConfig {\n    // public static final konstantalarni e'lon qiling\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // AppConfig konstantalarini to'g'ridan-to'g'ri chop eting\n        \n    }\n}",
+    "solution": "class AppConfig {\n    private AppConfig() {}\n\n    public static final String APP_NAME = \"WIUT Academy\";\n    public static final String VERSION = \"2.0\";\n    public static final double MAX_DISCOUNT_PCT = 30.0;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        System.out.println(\"Tizim: \" + AppConfig.APP_NAME + \" v\" + AppConfig.VERSION);\n        System.out.println(\"Maksimal ruxsat etilgan chegirma: \" + AppConfig.MAX_DISCOUNT_PCT + \"%\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Konstantalar Konvensiyasi (Constant Naming): 'public static final' deb e'lon qilingan o'zgaruvchilar Java-da doim KATTA_HARFLAR bilan va so'zlar orasi pastki chiziq ('_') bilan yoziladi. Ular butun ilovaning global sozlamalarini boshqaradi.",
+      "theoryEn": "'public static final' fields define globally accessible compile-time constants adhering to UPPER_SNAKE_CASE.",
+      "cleanCode": "public static final String APP_NAME = \"WIUT Academy\";",
+      "breakdown": [
+        "Xotirada faqat 1 ta o'zgarmas nusxada saqlanuvchi doimiyliklar.",
+        "Ob'yekt yaratmasdan to'g'ridan-to'g'ri foydalaniladi."
+      ],
+      "pitfalls": "Konstantalarni kichik harflar bilan yozish Clean Code talablariga zid sanaladi.",
+      "cw2Tip": "Soliq stavkalari va do'kon nomini shunday o'zgarmas qilib e'lon qilish tavsiya etiladi."
+    }
+  },
+  {
+    "id": 49,
+    "tier": 5,
+    "tierName": "5-Bosqich: Statik A'zolar va Kompozitsiya",
+    "sector": "41-50",
+    "title": {
+      "uz": "49. Warehouse Report — Bir Nechta Ob'yektlar Kompozitsiyasi va Jami Qiymat",
+      "en": "49. Warehouse Report — Multi-Object Container Composition"
+    },
+    "scenario": {
+      "uz": "Ombordagi 3 ta tovarning umumiy holatini hisoblovchi konteyner klass. 'Product' klassi: 'name' (String), 'price' (double), 'stock' (int). 'WarehouseReport' klassini tuzing: uning ichida 3 ta mahsulot ('private Product p1, p2, p3;') saqlansin. Konstruktorda 3 ta mahsulotni qabul qilsin va 'public double calculateTotalInventoryValue()' metodi ularning barchasining umumiy qiymatini ('p1.price * p1.stock + ...') hisoblab bersin.",
+      "en": "Model multi-object container composition! In 'WarehouseReport', encapsulate three 'Product' instances and implement 'calculateTotalInventoryValue()' returning sum of (price * stock)."
+    },
+    "requirements": {
+      "classes": [
+        "Product",
+        "WarehouseReport",
+        "Main"
+      ],
+      "privateFields": [
+        "name",
+        "price",
+        "stock",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "methods": [
+        "calculateTotalInventoryValue"
+      ],
+      "constructors": [
+        "Product",
+        "WarehouseReport"
+      ]
+    },
+    "starterCode": "class Product {\n    private String name;\n    private double price;\n    private int stock;\n\n    // Konstruktor va getterlar\n}\n\nclass WarehouseReport {\n    private Product p1;\n    private Product p2;\n    private Product p3;\n\n    // Konstruktor va calculateTotalInventoryValue metodi\n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Tovarlar va hisobot ob'yektini yarating\n        \n    }\n}",
+    "solution": "class Product {\n    private String name;\n    private double price;\n    private int stock;\n\n    public Product(String name, double price, int stock) {\n        this.name = name;\n        this.price = (price >= 0) ? price : 0.0;\n        this.stock = (stock >= 0) ? stock : 0;\n    }\n\n    public String getName() { return this.name; }\n    public double getPrice() { return this.price; }\n    public int getStock() { return this.stock; }\n}\n\nclass WarehouseReport {\n    private Product p1;\n    private Product p2;\n    private Product p3;\n\n    public WarehouseReport(Product p1, Product p2, Product p3) {\n        this.p1 = p1;\n        this.p2 = p2;\n        this.p3 = p3;\n    }\n\n    public double calculateTotalInventoryValue() {\n        double v1 = p1.getPrice() * p1.getStock();\n        double v2 = p2.getPrice() * p2.getStock();\n        double v3 = p3.getPrice() * p3.getStock();\n        return v1 + v2 + v3;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Product prd1 = new Product(\"Laptop Dell\", 8500000.0, 5);\n        Product prd2 = new Product(\"Monitor 27\", 2200000.0, 10);\n        Product prd3 = new Product(\"Klaviatura RGB\", 350000.0, 20);\n\n        WarehouseReport report = new WarehouseReport(prd1, prd2, prd3);\n        double totalVal = report.calculateTotalInventoryValue();\n\n        System.out.println(\"Ombordagi barcha tovarlarning jami qiymati: \" + totalVal + \" so'm\");\n    }\n}",
+    "detailedSolution": {
+      "theory": "Konteyner Kompozitsiyasi (Container Composition): Bir nechta ob'yektlarni bitta boshqaruvchi klass ostida jamlash. Bu 4-haftada o'rganiladigan 'ArrayList' va kolleksiyalar arxitekturasining bevosita poydevoridir.",
+      "theoryEn": "Container composition orchestrates collections of subordinate entities to synthesize higher-order metrics.",
+      "cleanCode": "public double calculateTotalInventoryValue() {\n    return (p1.getPrice() * p1.getStock()) + (p2.getPrice() * p2.getStock()) + (p3.getPrice() * p3.getStock());\n}",
+      "breakdown": [
+        "Har bir tovar mustaqil maydon sifatida jamlandi.",
+        "Ombor bo'yicha jami aktivlar qiymati hisoblandi."
+      ],
+      "pitfalls": "Stock yoki price manfiy bo'lmasligi tovar konstruktorida kafolatlanishi shart.",
+      "cw2Tip": "CW2 loyihangizda ombor zaxirasini tahlil qilish moduli aynan shunday ishlaydi."
+    }
+  },
+  {
+    "id": 50,
+    "tier": 5,
+    "tierName": "5-Bosqich: Statik A'zolar va Kompozitsiya",
+    "sector": "41-50",
+    "title": {
+      "uz": "50. CW2 Capstone Prototip — 'Customer', 'Product', 'Order' To'liq Konsol Buyurtma Ilovasi",
+      "en": "50. CW2 Capstone Prototype — Full Console Order Application Architecture (Grand Finale)"
+    },
+    "scenario": {
+      "uz": "1-MODULNING ENG CHO'QQISI — CW2 GURUH LOYIHASINING HAQIQIY PROTOTIPI!\nUshbu topshiriqda barcha 5 bosqich (klasslar, metodlar, konstruktorlar, inkapsulyatsiya, static va kompozitsiya) birlashadi:\n1) 'Customer' klassi: 'name', 'phone';\n2) 'Product' klassi: 'title', 'price';\n3) 'Order' klassi:\n   - 'public static int orderCounter = 0;'\n   - 'private int orderId;'\n   - 'private Customer customer;'\n   - 'private Product product;'\n   - 'private int quantity;'\n   - 'public Order(Customer customer, Product product, int quantity)' — orderCounter ni oshirib, orderId ga beradi;\n   - 'public void printInvoice(double discountPct)' — mijoz ma'lumotlari, tovar nomi, narxi, chegirma va YAKUNIY TO'LOV chekini to'liq formatda chop etadi!",
+      "en": "MODULE 1 GRAND FINALE — AUTHENTIC CW2 CONSOLE PROTOTYPE!\nIntegrate all 5 stages: 'Customer', 'Product', and 'Order' with static auto-increment orderCounter, composition, encapsulation, and complete 'printInvoice(double discountPct)'!"
+    },
+    "requirements": {
+      "classes": [
+        "Customer",
+        "Product",
+        "Order",
+        "Main"
+      ],
+      "privateFields": [
+        "name",
+        "phone",
+        "title",
+        "price",
+        "orderId",
+        "customer",
+        "product",
+        "quantity"
+      ],
+      "methods": [
+        "printInvoice"
+      ],
+      "constructors": [
+        "Customer",
+        "Product",
+        "Order"
+      ],
+      "keywords": [
+        "static"
+      ]
+    },
+    "starterCode": "// 1. Customer klassini yozing (name, phone)\n\n// 2. Product klassini yozing (title, price)\n\n// 3. Order klassini yozing (static counter, Customer, Product, quantity, printInvoice)\n\nclass Main {\n    public static void main(String[] args) {\n        // Customer, Product va Order yarating, 10% chegirma bilan chekni chop eting\n        \n    }\n}",
+    "solution": "class Customer {\n    private String name;\n    private String phone;\n\n    public Customer(String name, String phone) {\n        this.name = name;\n        this.phone = phone;\n    }\n\n    public String getName() { return this.name; }\n    public String getPhone() { return this.phone; }\n}\n\nclass Product {\n    private String title;\n    private double price;\n\n    public Product(String title, double price) {\n        this.title = title;\n        this.price = (price >= 0) ? price : 0.0;\n    }\n\n    public String getTitle() { return this.title; }\n    public double getPrice() { return this.price; }\n}\n\nclass Order {\n    public static int orderCounter = 0;\n    private int orderId;\n    private Customer customer;\n    private Product product;\n    private int quantity;\n\n    public Order(Customer customer, Product product, int quantity) {\n        orderCounter++;\n        this.orderId = orderCounter;\n        this.customer = customer;\n        this.product = product;\n        this.quantity = (quantity > 0) ? quantity : 1;\n    }\n\n    public int getOrderId() { return this.orderId; }\n\n    public void printInvoice(double discountPct) {\n        double subtotal = this.product.getPrice() * this.quantity;\n        double discount = subtotal * (discountPct / 100.0);\n        double total = subtotal - discount;\n\n        System.out.println(\"================================================\");\n        System.out.println(\"          WIUT OOP ENTERPRISE INVOICE          \");\n        System.out.println(\"Buyurtma Raqami: #\" + this.orderId);\n        System.out.println(\"Mijoz: \" + this.customer.getName() + \" | Tel: \" + this.customer.getPhone());\n        System.out.println(\"------------------------------------------------\");\n        System.out.println(\"Tovar: \" + this.product.getTitle());\n        System.out.println(\"Dona narxi: \" + this.product.getPrice() + \" so'm x \" + this.quantity + \" dona\");\n        System.out.println(\"Oraliq summa: \" + subtotal + \" so'm\");\n        System.out.println(\"Chegirma (\" + discountPct + \"%): -\" + discount + \" so'm\");\n        System.out.println(\"------------------------------------------------\");\n        System.out.println(\"JAMI TO'LOV: \" + total + \" so'm\");\n        System.out.println(\"================================================\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Customer client = new Customer(\"Ravshanbek Rahimov\", \"+998901234567\");\n        Product macbook = new Product(\"MacBook Air M3\", 14500000.0);\n\n        Order order1 = new Order(client, macbook, 1);\n        order1.printInvoice(10.0); // 10% talaba chegirmasi\n    }\n}",
+    "detailedSolution": {
+      "theory": "TABRIKLAYMIZ! Siz 1-modulning barcha 5 ta bosqichini to'liq yakunladingiz:\n1. Klasslar va maydonlar (Heap vs Stack)\n2. Instans metodlar va biznes operatsiyalari\n3. Konstruktorlar va himoyaviy initsializatsiya\n4. Inkapsulyatsiya ('private', getter/setterlar va xavfsizlik)\n5. Statik a'zolar, kompozitsiya va buyurtma arxitekturasi.\nUshbu 50-topshiriq WIUT 5COSC018C modulining 50 foizlik Coursework 2 (Console Order Application) loyihasining yuragini tashkil qiladi!",
+      "theoryEn": "CONGRATULATIONS! You have mastered Module 1! This Capstone model represents the production architecture expected in WIUT 5COSC018C Coursework 2.",
+      "cleanCode": "Order order1 = new Order(client, macbook, 1);\norder1.printInvoice(10.0);",
+      "breakdown": [
+        "Customer, Product va Order sinflari to'liq inkapsulyatsiya bilan birlashtirildi.",
+        "Statik hisoblagich buyurtmalarni avtomatik raqamladi.",
+        "Chek chiqarish to'liq professional darajada amalga oshirildi."
+      ],
+      "pitfalls": "Chegirma hisoblashda subtotalga salbiy ta'sir ko'rsatmaslik uchun doimo qavslarga e'tibor bering.",
+      "cw2Tip": "CW2 baholash mezonida UML diagrammasini tuzishda aynan ushbu 3 ta klass asos qilib olinadi!"
     }
   }
 ];

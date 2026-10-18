@@ -107,7 +107,7 @@
         // Ignore lines ending with { or }, or starting with keywords like if, for, while, else, class, interface, enum, annotations @
         const isHeader = /^(class|interface|enum|abstract\s+class|public\s+class|public\s+interface|static|if|else|for|while|switch|try|catch|finally|synchronized|default)\b/.test(trimmed);
         const isAnnotation = trimmed.startsWith("@");
-        const endsWithValid = /[{};,]$/.test(trimmed);
+        const endsWithValid = /([{};,]|\+|&&|\|\||\-|\*|\/)$/.test(trimmed);
 
         if (!isHeader && !isAnnotation && !endsWithValid) {
           // If it looks like a variable declaration, assignment, method call, or return
@@ -221,7 +221,7 @@
           const expectedType = reqField.type;
           
           // Regex to locate the field declaration on any line
-          const fieldDeclRegex = new RegExp(`\\b([A-Za-z0-9_<>\\[\\]]+)\\s+${fieldName}\\s*(?:=[^;]+)?\\s*;`);
+          const fieldDeclRegex = new RegExp(`\\b(?:(?:public|private|protected|final|static|volatile)\\s+)*([A-Za-z0-9_<>\\[\\]]+)\\s+${fieldName}\\s*(?:=[^;]+)?\\s*;`);
           let found = false;
 
           for (let i = 0; i < lines.length; i++) {
@@ -262,7 +262,7 @@
       // 3. Check Encapsulation & Private Fields
       if (requirements.privateFields) {
         for (const field of requirements.privateFields) {
-          const privRegex = new RegExp(`\\bprivate\\s+([A-Za-z0-9_<>\\[\\]]+)\\s+${field}\\b`);
+          const privRegex = new RegExp(`\\bprivate\\s+(?:(?:final|static|volatile)\\s+)*([A-Za-z0-9_<>\\[\\]]+)\\s+${field}\\b`);
           const lineNum = findLineNumber(privRegex);
 
           if (lineNum) {
@@ -272,7 +272,7 @@
             });
           } else {
             // Find where this field was declared as public or default
-            const openFieldRegex = new RegExp(`\\b(public|protected)?\\s*([A-Za-z0-9_<>\\[\\]]+)\\s+${field}\\b`);
+            const openFieldRegex = new RegExp(`\\b(public|protected)?\\s*(?:(?:final|static|volatile)\\s+)*([A-Za-z0-9_<>\\[\\]]+)\\s+${field}\\b`);
             const openLine = findLineNumber(openFieldRegex);
 
             if (openLine) {
