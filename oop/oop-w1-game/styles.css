@@ -733,10 +733,9 @@ input, textarea, select, [contenteditable="true"] {
 
 /* Console Output Section */
 .console-section {
-  flex: 0 0 var(--console-height, 130px) !important;
-  height: var(--console-height, 130px) !important;
-  min-height: 44px !important;
-  max-height: calc(100% - 180px) !important;
+  flex: 0 0 var(--console-height, 130px);
+  height: var(--console-height, 130px);
+  min-height: 40px !important;
   background: var(--bg-terminal);
   border-top: none;
   display: flex !important;

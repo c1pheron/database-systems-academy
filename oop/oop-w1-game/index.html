@@ -522,6 +522,13 @@
       z-index: 1 !important;
       color: #f1f5f9 !important;
       background: transparent !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+    .code-highlight-backdrop::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
     }
     .code-editor-surface .code-textarea,
     .code-textarea {
@@ -685,11 +692,11 @@
 
     /* VERTICAL SPLIT RESIZER (CODE EDITOR <-> CONSOLE) */
     .console-resizer-v {
-      height: 8px !important;
-      min-height: 8px !important;
+      height: 12px !important;
+      min-height: 12px !important;
       background: #100c22 !important;
-      border-top: 1px solid rgba(168, 85, 247, 0.22) !important;
-      border-bottom: 1px solid rgba(168, 85, 247, 0.22) !important;
+      border-top: 1px solid rgba(168, 85, 247, 0.3) !important;
+      border-bottom: 1px solid rgba(168, 85, 247, 0.3) !important;
       cursor: row-resize !important;
       flex-shrink: 0 !important;
       display: flex !important;
@@ -698,27 +705,39 @@
       user-select: none !important;
       position: relative !important;
       z-index: 25 !important;
+      touch-action: none !important;
       transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+    }
+    .console-resizer-v::before {
+      content: '' !important;
+      position: absolute !important;
+      top: -8px !important;
+      bottom: -8px !important;
+      left: 0 !important;
+      right: 0 !important;
+      cursor: row-resize !important;
+      z-index: 30 !important;
     }
     .console-resizer-v:hover,
     .console-resizer-v.is-resizing {
       background: #2e1654 !important;
       border-color: #c084fc !important;
-      box-shadow: 0 0 10px rgba(168, 85, 247, 0.5) !important;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.6) !important;
     }
     .console-resizer-v .resizer-grip {
-      width: 36px !important;
-      height: 2px !important;
-      border-radius: 2px !important;
-      background: rgba(192, 132, 252, 0.5) !important;
+      width: 48px !important;
+      height: 3px !important;
+      border-radius: 3px !important;
+      background: #c084fc !important;
+      box-shadow: 0 0 6px rgba(192, 132, 252, 0.6) !important;
       pointer-events: none !important;
       transition: background 0.15s ease, width 0.15s ease !important;
     }
     .console-resizer-v:hover .resizer-grip,
     .console-resizer-v.is-resizing .resizer-grip {
       background: #ffffff !important;
-      width: 48px !important;
-      box-shadow: 0 0 8px #c084fc !important;
+      width: 60px !important;
+      box-shadow: 0 0 10px #c084fc !important;
     }
 
     /* RESIZING ACTIVE STATES */
@@ -847,8 +866,8 @@
     .console-section {
       flex: 0 0 var(--console-height, 130px) !important;
       height: var(--console-height, 130px) !important;
-      min-height: 44px !important;
-      max-height: calc(100% - 180px) !important;
+      min-height: 40px !important;
+      max-height: none !important;
       display: flex !important;
       flex-direction: column !important;
       background: #0d0a1f !important;
@@ -1233,8 +1252,8 @@
   <script src="../shared/oop-i18n.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
   <script src="../shared/oop-dictionary.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
   <script src="../shared/challenges-w1.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
-  <script src="../shared/java-editor-enhancer.js?v=20261019_v27_fix_frozen_console_and_editor_visibility"></script>
-  <script src="game.js?v=20261019_v27_fix_frozen_console_and_editor_visibility"></script>
+  <script src="../shared/java-editor-enhancer.js?v=20261019_v29_delta_resizer_and_scroll_reset"></script>
+  <script src="game.js?v=20261019_v29_delta_resizer_and_scroll_reset"></script>
 
 </body>
 </html>

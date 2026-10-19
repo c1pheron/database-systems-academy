@@ -222,6 +222,8 @@
       } else {
         codeArea.value = ch.starterCode || "";
       }
+      codeArea.scrollTop = 0;
+      codeArea.scrollLeft = 0;
     }
 
     // Clear console output
@@ -236,6 +238,7 @@
     if (window.JavaEditorEnhancer) {
       window.JavaEditorEnhancer.setChallenge(ch);
       window.JavaEditorEnhancer.updateHighlighting();
+      window.JavaEditorEnhancer.syncScroll();
     }
   }
 
@@ -829,12 +832,15 @@ class Main {
       const codeArea = document.getElementById("codeEditor");
       if (ch && codeArea) {
         codeArea.value = ch.starterCode || "";
+        codeArea.scrollTop = 0;
+        codeArea.scrollLeft = 0;
         try {
           localStorage.removeItem(CODE_STORAGE_PREFIX + ch.id);
         } catch (e) {}
         updateUML();
         if (window.JavaEditorEnhancer) {
           window.JavaEditorEnhancer.updateHighlighting();
+          window.JavaEditorEnhancer.syncScroll();
         }
       }
     });
@@ -988,7 +994,7 @@ class Main {
         window.addEventListener("mouseup", onPointerUpH);
         window.addEventListener("touchmove", onPointerMoveH, { passive: false });
         window.addEventListener("touchend", onPointerUpH);
-        window.addEventListener("blur", onPointerUpH);
+        window.addEventListener("touchcancel", onPointerUpH);
       };
 
       const onPointerMoveH = (e) => {
@@ -1028,7 +1034,7 @@ class Main {
         window.removeEventListener("mouseup", onPointerUpH);
         window.removeEventListener("touchmove", onPointerMoveH);
         window.removeEventListener("touchend", onPointerUpH);
-        window.removeEventListener("blur", onPointerUpH);
+        window.removeEventListener("touchcancel", onPointerUpH);
 
         try {
           const finalW = Math.round(paneLeft.getBoundingClientRect().width);
@@ -1047,15 +1053,15 @@ class Main {
     // --- 3. Vertical Resizer (Code Editor <-> Java Console) ---
     if (consoleResizerV && consoleSection) {
       let isDraggingV = false;
-      let offsetY = 0;
+      let startY = 0;
+      let startHeight = 0;
 
       const onPointerDownV = (e) => {
         if (e.cancelable) e.preventDefault();
         isDraggingV = true;
 
-        const curY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
-        const resizerRect = consoleResizerV.getBoundingClientRect();
-        offsetY = (curY !== undefined && resizerRect) ? (curY - resizerRect.top) : 4;
+        startY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
+        startHeight = consoleSection.getBoundingClientRect().height;
 
         document.body.classList.add("is-resizing-v");
         consoleResizerV.classList.add("is-resizing");
@@ -1064,7 +1070,7 @@ class Main {
         window.addEventListener("mouseup", onPointerUpV);
         window.addEventListener("touchmove", onPointerMoveV, { passive: false });
         window.addEventListener("touchend", onPointerUpV);
-        window.addEventListener("blur", onPointerUpV);
+        window.addEventListener("touchcancel", onPointerUpV);
       };
 
       const onPointerMoveV = (e) => {
@@ -1074,12 +1080,12 @@ class Main {
         const curY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
         if (curY === undefined || curY === null) return;
 
-        const paneRightRect = paneRight.getBoundingClientRect();
-        const targetResizerTop = curY - offsetY;
-        let newHeight = Math.round(paneRightRect.bottom - targetResizerTop);
+        const deltaY = curY - startY;
+        let newHeight = Math.round(startHeight - deltaY);
 
-        const minH = 44;
-        const maxH = Math.max(minH + 60, Math.round(paneRightRect.height - 180));
+        const workspaceH = workspace ? workspace.getBoundingClientRect().height : window.innerHeight;
+        const minH = 40;
+        const maxH = Math.max(minH + 60, Math.round(workspaceH - 140));
 
         if (newHeight < minH) newHeight = minH;
         if (newHeight > maxH) newHeight = maxH;
@@ -1104,7 +1110,7 @@ class Main {
         window.removeEventListener("mouseup", onPointerUpV);
         window.removeEventListener("touchmove", onPointerMoveV);
         window.removeEventListener("touchend", onPointerUpV);
-        window.removeEventListener("blur", onPointerUpV);
+        window.removeEventListener("touchcancel", onPointerUpV);
 
         try {
           const finalH = Math.round(consoleSection.getBoundingClientRect().height);

@@ -68,6 +68,8 @@
     init(textareaId, challenge) {
       this.codeArea = document.getElementById(textareaId);
       if (!this.codeArea) return;
+      this.codeArea.scrollTop = 0;
+      this.codeArea.scrollLeft = 0;
 
       this.currentChallenge = challenge || null;
       this.injectStyles();
@@ -77,6 +79,7 @@
       this.scanCodeForClasses();
       this.renderChipsBar();
       this.updateHighlighting();
+      this.syncScroll();
     },
 
     setChallenge(ch) {
@@ -85,9 +88,14 @@
         return;
       }
       this.currentChallenge = ch;
+      if (this.codeArea) {
+        this.codeArea.scrollTop = 0;
+        this.codeArea.scrollLeft = 0;
+      }
       this.scanCodeForClasses();
       this.renderChipsBar();
       this.updateHighlighting();
+      this.syncScroll();
     },
 
     // --------------------------------------------------------------------------
@@ -168,6 +176,18 @@
             this.syncScroll();
           }, { passive: true });
           this._hasGutterWheelHandler = true;
+        }
+      }
+      if (this.surfaceEl && this.codeArea) {
+        if (!this._hasSurfaceWheelHandler) {
+          this.surfaceEl.addEventListener("wheel", (e) => {
+            if (e.target !== this.codeArea) {
+              this.codeArea.scrollTop += e.deltaY;
+              this.codeArea.scrollLeft += e.deltaX;
+              this.syncScroll();
+            }
+          }, { passive: true });
+          this._hasSurfaceWheelHandler = true;
         }
       }
     },
