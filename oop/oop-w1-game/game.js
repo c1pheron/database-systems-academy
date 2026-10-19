@@ -136,6 +136,48 @@
       if (elSampleDataBox) elSampleDataBox.style.display = "none";
     }
 
+    // Render Method Specifications & Concrete Examples (Metodlar Tavsifi va Namunaviy Ishlatilishi)
+    const elMethodBox = document.getElementById("methodSpecsBox");
+    const elMethodList = document.getElementById("methodSpecsList");
+    const elMethodTitle = document.getElementById("methodSpecsTitle");
+
+    if (elMethodTitle) {
+      elMethodTitle.textContent = isEn
+        ? "🛠 Required Method Specifications & Examples:"
+        : "🛠 Talab qilingan Metodlar va Namunaviy Ishlatilishi:";
+    }
+
+    const methodDetails = (ch.requirements && ch.requirements.methodDetails) || ch.methodDetails;
+    if (methodDetails && methodDetails.length > 0) {
+      if (elMethodList) {
+        elMethodList.innerHTML = methodDetails.map(m => `
+          <div class="method-spec-card">
+            <div class="method-sig-header">
+              <span class="method-sig-badge"><code>${m.signature}</code></span>
+            </div>
+            <div class="method-spec-row">
+              <span class="spec-key">${isEn ? "📥 Accepts (Params):" : "📥 Qabul qiladi (Parametr):"}</span>
+              <span class="spec-val">${isEn ? (m.paramsEn || m.params) : m.params}</span>
+            </div>
+            <div class="method-spec-row">
+              <span class="spec-key">${isEn ? "📤 Returns (Output):" : "📤 Qaytaradi (Natija):"}</span>
+              <span class="spec-val"><code>${isEn ? (m.returnsEn || m.returns) : m.returns}</code></span>
+            </div>
+            <div class="method-spec-row">
+              <span class="spec-key">${isEn ? "⚙️ Logic / Condition:" : "⚙️ Mantiq / Shart:"}</span>
+              <span class="spec-val">${isEn ? (m.logicEn || m.logic) : m.logic}</span>
+            </div>
+            <div class="spec-example">
+              <strong>${isEn ? "💡 Code Example:" : "💡 Namunaviy Chaqiruv:"}</strong> <code>${m.example}</code>
+            </div>
+          </div>
+        `).join("");
+      }
+      if (elMethodBox) elMethodBox.style.display = "block";
+    } else {
+      if (elMethodBox) elMethodBox.style.display = "none";
+    }
+
     // Render Expected Output Card (Kutilayotgan Konsol Natijasi)
     const elExpCard = document.getElementById("expectedOutputCard");
     const elExpContent = document.getElementById("expectedOutputContent");
@@ -178,7 +220,13 @@
           ? "<li><strong>Encapsulation:</strong> Fields <code>" + ch.requirements.privateFields.join(", ") + "</code> must be <code>private</code>.</li>"
           : "<li><strong>Inkapsulyatsiya:</strong> <code>" + ch.requirements.privateFields.join(", ") + "</code> maydonlari <code>private</code> bo'lsin.</li>";
       }
-      if (ch.requirements.methods && ch.requirements.methods.length > 0) {
+      if (methodDetails && methodDetails.length > 0) {
+        methodDetails.forEach(m => {
+          reqHtml += isEn
+            ? "<li><strong>Method:</strong> <code>" + m.signature + "</code> — " + (m.returnsEn || m.returns) + ". Example: <code>" + m.example + "</code></li>"
+            : "<li><strong>Metod:</strong> <code>" + m.signature + "</code> — " + m.returns + ". Misol: <code>" + m.example + "</code></li>";
+        });
+      } else if (ch.requirements.methods && ch.requirements.methods.length > 0) {
         reqHtml += isEn
           ? "<li><strong>Methods:</strong> Implement and call <code>" + ch.requirements.methods.join("(), ") + "()</code>.</li>"
           : "<li><strong>Metodlar:</strong> <code>" + ch.requirements.methods.join("(), ") + "()</code> metodi yaratilsin va chaqirilsin.</li>";

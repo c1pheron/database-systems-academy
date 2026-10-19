@@ -1,6 +1,7 @@
 // ============================================================================
 // OOP ACADEMY — WEEK 1 CHALLENGES (50 PROGRESSIVE OOP SCENARIOS)
 // Dedicated Data Set for Stage 1-5 Interactive IDE Simulator
+// Fully Enriched with Method Specifications, Parameters, Returns & Output
 // ============================================================================
 
 window.OOP_CHALLENGES_W1 = [
@@ -447,7 +448,7 @@ window.OOP_CHALLENGES_W1 = [
       "diastolicPressure: 92",
       "bodyTemp: 36.6°C"
     ],
-    "expectedOutput": "Bemor: Sanjar Jo'rayev | Tana harorati: 36.6?C\nXulosa: Gipertoniya xavfi (145/92)"
+    "expectedOutput": "Bemor: Sanjar Jo'rayev | Tana harorati: 36.6°C\nXulosa: Gipertoniya xavfi (145/92)"
   },
   {
     "id": 9,
@@ -577,7 +578,7 @@ window.OOP_CHALLENGES_W1 = [
       "en": "11. Digital Wallet — 'deposit' & 'withdraw' Instance Methods"
     },
     "scenario": {
-      "uz": "Endi mantiqni to'g'ridan-to'g'ri klass ichiga ko'chiramiz! 'Wallet' klassini tuzing: 'balance' (double) maydoni bo'lsin. Unga 2 ta instans metod qo'shing: 'public void deposit(double amount)' va 'public void withdraw(double amount)'. Har ikkala metod ob'yektning 'balance' maydonini mos ravishda oshirsin yoki kamaytirsin.",
+      "uz": "Endi hisoblash mantiqini to'g'ridan-to'g'ri klass ichiga ko'chiramiz — bu Obyektga Yo'naltirilgan Dasturlashning asosidir!\n\n'Wallet' (Hamyon) klassini tuzing: 'balance' (double) maydoni bo'lsin.\nUshbu klassga 2 ta instans metod qo'shing:\n1) 'public void deposit(double amount)' — hamyonni to'ldirish metodi:\n   • Qabul qiladi: 'amount' (double) — kiritilayotgan pul miqdori (masalan: 20000.0 so'm).\n   • Qaytaradi: 'void' (hech narsa qaytarmaydi, ob'yektning 'balance' maydonini to'g'ridan-to'g'ri oshiradi).\n   • Sharti va Mantiqi: Agar kiritilgan 'amount > 0' bo'lsa, balansga qo'shilsin ('balance += amount').\n   • Misol: Boshlang'ich balans 50000.0 bo'lganda 'w.deposit(20000.0);' chaqirilsa, balans 70000.0 ga aylanadi.\n\n2) 'public void withdraw(double amount)' — hamyondan pul yechish metodi:\n   • Qabul qiladi: 'amount' (double) — yechilayotgan pul miqdori (masalan: 15000.0 so'm).\n   • Qaytaradi: 'void' (hech narsa qaytarmaydi, 'balance' maydonidan ayiradi).\n   • Sharti va Mantiqi: Agar 'amount > 0' bo'lsa va balansda yetarli mablag' bo'lsa ('balance >= amount'), u holda balansdan yechilsin ('balance -= amount').\n   • Misol: Balans 70000.0 bo'lganda 'w.withdraw(15000.0);' chaqirilsa, yakuniy balans 55000.0 so'm qoladi.\n\n'Main' metodida:\n1. 'Wallet w = new Wallet();' orqali hamyon yarating va 'w.balance = 50000.0;' boshlang'ich mablag' yuklang.\n2. 'w.deposit(20000.0);' metodini chaqirib balansni to'ldiring.\n3. 'w.withdraw(15000.0);' metodini chaqirib pul yeching.\n4. Yakuniy balansni konsolga chop eting: System.out.println(\"Hamyon balansi: \" + w.balance + \" so'm\");",
       "en": "Encapsulate behavior inside the class! Create 'Wallet' with 'balance' (double). Add 'public void deposit(double amount)' and 'public void withdraw(double amount)' to mutate balance."
     },
     "requirements": {
@@ -594,9 +595,33 @@ window.OOP_CHALLENGES_W1 = [
       "methods": [
         "deposit",
         "withdraw"
+      ],
+      "methodDetails": [
+        {
+          "name": "deposit",
+          "signature": "public void deposit(double amount)",
+          "params": "double amount — hamyonga qo'shiladigan pul miqdori",
+          "paramsEn": "double amount — money amount to deposit",
+          "returns": "void (hech narsa qaytarmaydi, balance maydonini oshiradi)",
+          "returnsEn": "void (mutates balance field in place)",
+          "logic": "Agar amount > 0 bo'lsa, ob'yektning 'balance' maydoniga qo'shilsin (balance += amount).",
+          "logicEn": "If amount > 0, adds amount to balance field (balance += amount).",
+          "example": "w.deposit(20000.0); // 50000.0 balansga 20000.0 qo'shilib, yangi balans 70000.0 bo'ladi"
+        },
+        {
+          "name": "withdraw",
+          "signature": "public void withdraw(double amount)",
+          "params": "double amount — hamyondan yechiladigan pul miqdori",
+          "paramsEn": "double amount — money amount to withdraw",
+          "returns": "void (hech narsa qaytarmaydi, balance maydonidan ayiradi)",
+          "returnsEn": "void (mutates balance field in place)",
+          "logic": "Agar amount > 0 va balansda yetarli mablag' bo'lsa (balance >= amount), 'balance' dan ayirilsin (balance -= amount).",
+          "logicEn": "If amount > 0 and balance >= amount, subtracts amount from balance (balance -= amount).",
+          "example": "w.withdraw(15000.0); // 70000.0 balansdan 15000.0 yechilib, yakuniy balans 55000.0 bo'ladi"
+        }
       ]
     },
-    "starterCode": "class Wallet {\n    double balance;\n\n    // deposit va withdraw metodlarini yarating\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        Wallet w = new Wallet();\n        w.balance = 50000.0;\n        // w.deposit(20000.0);\n        // w.withdraw(15000.0);\n        // Yangi balansni chiqaring\n    }\n}",
+    "starterCode": "class Wallet {\n    double balance;\n\n    // 1. public void deposit(double amount) metodini yarating:\n    //    Parametr: double amount (qo'shiladigan summa)\n    //    Mantiq: agar amount > 0 bo'lsa, balance += amount;\n\n    // 2. public void withdraw(double amount) metodini yarating:\n    //    Parametr: double amount (yechiladigan summa)\n    //    Mantiq: agar amount > 0 va balance >= amount bo'lsa, balance -= amount;\n\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Wallet w = new Wallet();\n        w.balance = 50000.0;\n\n        // w.deposit(20000.0) orqali 20000 qo'shing\n\n        // w.withdraw(15000.0) orqali 15000 yeching\n\n        // Natijani chop eting: \"Hamyon balansi: \" + w.balance + \" so'm\"\n        System.out.println(\"Hamyon balansi: \" + w.balance + \" so'm\");\n    }\n}",
     "solution": "class Wallet {\n    double balance;\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            balance += amount;\n        }\n    }\n\n    public void withdraw(double amount) {\n        if (amount > 0 && balance >= amount) {\n            balance -= amount;\n        }\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Wallet w = new Wallet();\n        w.balance = 50000.0;\n        w.deposit(20000.0);\n        w.withdraw(15000.0);\n\n        System.out.println(\"Hamyon balansi: \" + w.balance + \" so'm\");\n    }\n}",
     "detailedSolution": {
       "theory": "Instans metodlar ob'yektning xatti-harakatini (behavior) ifodalaydi. Ular ob'yekt maydonlariga to'g'ridan-to'g'ri kira oladi va tashqaridan kod yozmasdan, ob'yektning o'zini o'zi boshqarishini ta'minlaydi.",
@@ -615,7 +640,7 @@ window.OOP_CHALLENGES_W1 = [
       "Kirim (deposit): 20000.0 so'm",
       "Chiqim (withdraw): 15000.0 so'm"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Hamyon balansi: 55000.0 so'm"
   },
   {
     "id": 12,
@@ -627,7 +652,7 @@ window.OOP_CHALLENGES_W1 = [
       "en": "12. Uzum Sale — Value-Returning 'calculateFinalPrice' Method"
     },
     "scenario": {
-      "uz": "Metodlar nafaqat o'zgartirishi, balki hisoblangan natijani qaytarishi ('return') ham mumkin. 'ProductSale' klassini tuzing: 'basePrice' (double) maydoni bo'lsin. 'public double calculateFinalPrice(double discountPercentage)' metodini yozing, u chegirmali narxni hisoblab qaytarsin.",
+      "uz": "Metodlar nafaqat obyekt holatini o'zgartirishi, balki hisoblangan yangi natijani qaytarishi ('return') ham mumkin.\n\n'ProductSale' klassini tuzing: 'basePrice' (double) maydoni bo'lsin.\nUnga 'public double calculateFinalPrice(double discountPercentage)' metodini qo'shing:\n• Qabul qiladi: 'discountPercentage' (double) — chegirma foizi (masalan: 15.0%).\n• Qaytaradi: 'double' — chegirma chegirib tashlangandagi yakuniy to'lov narxi.\n• Formulalar: double discountAmount = basePrice * (discountPercentage / 100.0); return basePrice - discountAmount;\n• Misol: 'basePrice = 1200000.0' bo'lsa, 'sale.calculateFinalPrice(15.0)' chaqirilganda 1020000.0 qiymat qaytadi.\n\n'Main' metodida:\n1. 'ProductSale sale = new ProductSale();' yarating va 'sale.basePrice = 1200000.0;' bering.\n2. 'double finalPrice = sale.calculateFinalPrice(15.0);' orqali chegirmali narxni oling.\n3. Chop eting: System.out.println(\"Asl narx: \" + sale.basePrice + \" | Chegirmali narx: \" + finalPrice);",
       "en": "In Uzum Sale, create 'ProductSale' with 'basePrice' (double). Implement 'public double calculateFinalPrice(double discountPercentage)' which computes and returns the discounted total."
     },
     "requirements": {
@@ -643,9 +668,22 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "methods": [
         "calculateFinalPrice"
+      ],
+      "methodDetails": [
+        {
+          "name": "calculateFinalPrice",
+          "signature": "public double calculateFinalPrice(double discountPercentage)",
+          "params": "double discountPercentage — foiz ko'rinishidagi chegirma (masalan: 15.0)",
+          "paramsEn": "double discountPercentage — percentage discount (e.g. 15.0)",
+          "returns": "double (chegirma ayirib tashlangan yakuniy to'lov summasi)",
+          "returnsEn": "double (final price after discount deduction)",
+          "logic": "double discount = basePrice * (discountPercentage / 100.0); return basePrice - discount;",
+          "logicEn": "double discount = basePrice * (discountPercentage / 100.0); return basePrice - discount;",
+          "example": "double finalPrice = sale.calculateFinalPrice(15.0); // 1200000.0 narxdan 15% chegirma ayirilib, 1020000.0 qaytaradi"
+        }
       ]
     },
-    "starterCode": "class ProductSale {\n    double basePrice;\n\n    // calculateFinalPrice metodini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // ProductSale ob'yektini yarating va chegirmali narxni hisoblang\n        \n    }\n}",
+    "starterCode": "class ProductSale {\n    double basePrice;\n\n    // public double calculateFinalPrice(double discountPercentage) metodini yozing:\n    // Chegirmali narxni hisoblab (basePrice - chegirma) return qilsin\n\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductSale sale = new ProductSale();\n        sale.basePrice = 1200000.0;\n\n        // calculateFinalPrice(15.0) chaqirib natijani finalPrice ga oling\n\n        // Natijani chop eting: Asl narx: ... | Chegirmali narx: ...\n    }\n}",
     "solution": "class ProductSale {\n    double basePrice;\n\n    public double calculateFinalPrice(double discountPercentage) {\n        double discountAmount = basePrice * (discountPercentage / 100.0);\n        return basePrice - discountAmount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ProductSale sale = new ProductSale();\n        sale.basePrice = 1200000.0;\n\n        double finalPrice = sale.calculateFinalPrice(15.0); // 15% chegirma\n        System.out.println(\"Asl narx: \" + sale.basePrice + \" | Chegirmali narx: \" + finalPrice);\n    }\n}",
     "detailedSolution": {
       "theory": "'return' operatori hisoblangan qiymatni chaqiruvchi joyga qaytaradi. Metod imzosi qaytarilayotgan tur (bu yerda double) bilan aniq belgilanishi shart.",
@@ -662,7 +700,7 @@ window.OOP_CHALLENGES_W1 = [
       "basePrice: 1200000.0 so'm",
       "Chegirma (discountPercent): 15.0%"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Asl narx: 1200000.0 | Chegirmali narx: 1020000.0"
   },
   {
     "id": 13,
@@ -674,7 +712,7 @@ window.OOP_CHALLENGES_W1 = [
       "en": "13. Smart Thermostat — Guard Clauses & Safe Limits"
     },
     "scenario": {
-      "uz": "Aqlli uy termostati haroratni 16°C dan past yoki 32°C dan yuqori qilib yubormasligi shart. 'Thermostat' klassini tuzing: 'currentTemp' (double) maydoni bo'lsin. 'increaseTemp(double delta)' va 'decreaseTemp(double delta)' metodlarida chegaraviy tekshiruv (guard clause) o'rnating.",
+      "uz": "Aqlli uy termostati xona haroratini 16°C dan past yoki 32°C dan yuqori qilib yubormasligi shart (Guard Clauses / Chegaraviy himoya)!\n\n'Thermostat' klassini tuzing: 'currentTemp' (double) maydoni bo'lsin.\nUnga 2 ta metod qo'shing:\n1) 'public void increaseTemp(double delta)':\n   • Qabul qiladi: 'delta' (double) — haroratni oshirish qiymati.\n   • Qaytaradi: 'void'.\n   • Sharti: Agar 'currentTemp + delta <= 32.0' bo'lsa, 'currentTemp += delta;' aks holda 'currentTemp = 32.0;'.\n   • Misol: Boshlang'ich 22.0 ga 15.0 qo'shilsa (22+15=37 > 32), 32.0°C da to'xtaydi.\n2) 'public void decreaseTemp(double delta)':\n   • Qabul qiladi: 'delta' (double) — haroratni tushirish qiymati.\n   • Qaytaradi: 'void'.\n   • Sharti: Agar 'currentTemp - delta >= 16.0' bo'lsa, 'currentTemp -= delta;' aks holda 'currentTemp = 16.0;'.\n   • Misol: 32.0 dan 20.0 ayirilsa (32-20=12 < 16), 16.0°C da to'xtaydi.\n\n'Main' metodida:\n1. 'Thermostat t = new Thermostat();' tuzib, 't.currentTemp = 22.0;' qiling.\n2. 't.increaseTemp(15.0);' chaqiring va System.out.println(\"Ko'tarilgandagi harorat: \" + t.currentTemp + \"°C\");\n3. 't.decreaseTemp(20.0);' chaqiring va System.out.println(\"Tushirilgandagi harorat: \" + t.currentTemp + \"°C\");",
       "en": "Model a smart 'Thermostat' with 'currentTemp' (double). In 'increaseTemp' and 'decreaseTemp', enforce strict bounds between 16.0°C and 32.0°C."
     },
     "requirements": {
@@ -691,6 +729,30 @@ window.OOP_CHALLENGES_W1 = [
       "methods": [
         "increaseTemp",
         "decreaseTemp"
+      ],
+      "methodDetails": [
+        {
+          "name": "increaseTemp",
+          "signature": "public void increaseTemp(double delta)",
+          "params": "double delta — haroratni oshirish miqdori (masalan: 15.0)",
+          "paramsEn": "double delta — degrees to increase (e.g. 15.0)",
+          "returns": "void (haroratni oshiradi, lekin 32.0°C dan oshirib yubormaydi)",
+          "returnsEn": "void (caps at 32.0°C)",
+          "logic": "if (currentTemp + delta <= 32.0) currentTemp += delta; else currentTemp = 32.0;",
+          "logicEn": "if (currentTemp + delta <= 32.0) currentTemp += delta; else currentTemp = 32.0;",
+          "example": "t.increaseTemp(15.0); // 22.0 + 15.0 = 37.0 bo'lmasdan, maksimal 32.0°C da to'xtaydi"
+        },
+        {
+          "name": "decreaseTemp",
+          "signature": "public void decreaseTemp(double delta)",
+          "params": "double delta — haroratni tushirish miqdori (masalan: 20.0)",
+          "paramsEn": "double delta — degrees to decrease (e.g. 20.0)",
+          "returns": "void (haroratni pasaytiradi, lekin 16.0°C dan tushirib yubormaydi)",
+          "returnsEn": "void (floors at 16.0°C)",
+          "logic": "if (currentTemp - delta >= 16.0) currentTemp -= delta; else currentTemp = 16.0;",
+          "logicEn": "if (currentTemp - delta >= 16.0) currentTemp -= delta; else currentTemp = 16.0;",
+          "example": "t.decreaseTemp(20.0); // 32.0 - 20.0 = 12.0 bo'lib ketmasdan, minimal 16.0°C da to'xtaydi"
+        }
       ]
     },
     "starterCode": "class Thermostat {\n    double currentTemp;\n\n    // increaseTemp va decreaseTemp metodlarini yozing (16.0 dan 32.0 gacha chegara bilan)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Termostatni sinab ko'ring\n        \n    }\n}",
@@ -711,7 +773,7 @@ window.OOP_CHALLENGES_W1 = [
       "1-o'zgartirish: 26.0°C (qabul qilinadi)",
       "2-o'zgartirish: 35.0°C (chegaradan tashqari, rad etiladi)"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Ko'tarilgandagi harorat: 32.0°C\nTushirilgandagi harorat: 16.0°C"
   },
   {
     "id": 14,
@@ -723,7 +785,7 @@ window.OOP_CHALLENGES_W1 = [
       "en": "14. Yandex Surge — Multi-Parameter 'estimateFare' Method"
     },
     "scenario": {
-      "uz": "Yandex Go servisida safar narxi masofa, baza narxi va tirbandlik koeffitsientiga (surge) bog'liq. 'RideService' klassini tuzing: 'baseFare' (double) maydoni bo'lsin. 'public double estimateFare(double km, double surgeMultiplier)' metodini yozing: formulasi 'baseFare + (km * 2500.0 * surgeMultiplier)'.",
+      "uz": "Yandex Go servisida safar narxi masofa, boshlang'ich narx va tirbandlik koeffitsientiga (surge) bog'liq.\n\n'RideService' klassini tuzing: 'baseFare' (double) maydoni bo'lsin.\n'public double estimateFare(double km, double surgeMultiplier)' metodini yozing:\n• Qabul qiladi: 'km' (double) — masofa, 'surgeMultiplier' (double) — tirbandlik koeffitsienti (masalan: 1.0 yoki 1.8).\n• Qaytaradi: 'double' — hisoblangan to'lov narxi.\n• Formulalar: return baseFare + (km * 2500.0 * surgeMultiplier);\n• Misol: 'baseFare = 5000.0' bo'lganda 'service.estimateFare(10.0, 1.0)' -> 30000.0 so'm; 'service.estimateFare(10.0, 1.8)' -> 50000.0 so'm qaytaradi.\n\n'Main' metodida:\n1. 'RideService service = new RideService();' yaratib, 'service.baseFare = 5000.0;' bering.\n2. 'estimateFare(10.0, 1.0)' va 'estimateFare(10.0, 1.8)' larni chaqirib chop eting:\n   System.out.println(\"Oddiy tarif: \" + normalFare + \" so'm\");\n   System.out.println(\"Tirbandlik tarifi (1.8x): \" + peakFare + \" so'm\");",
       "en": "In Yandex Surge, create 'RideService' with 'baseFare' (double). Implement 'public double estimateFare(double km, double surgeMultiplier)' combining base fare with distance and traffic multiplier."
     },
     "requirements": {
@@ -739,6 +801,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "methods": [
         "estimateFare"
+      ],
+      "methodDetails": [
+        {
+          "name": "estimateFare",
+          "signature": "public double estimateFare(double km, double surgeMultiplier)",
+          "params": "double km — bosib o'tilgan masofa, double surgeMultiplier — talab koeffitsienti (masalan: 1.0 yoki 1.8)",
+          "paramsEn": "double km — distance in km, double surgeMultiplier — demand multiplier (e.g. 1.0 or 1.8)",
+          "returns": "double (hisoblangan umumiy safar narxi)",
+          "returnsEn": "double (computed total trip fare)",
+          "logic": "return baseFare + (km * 2500.0 * surgeMultiplier);",
+          "logicEn": "return baseFare + (km * 2500.0 * surgeMultiplier);",
+          "example": "double peak = service.estimateFare(10.0, 1.8); // 5000.0 + (10.0 * 2500.0 * 1.8) = 50000.0 so'm"
+        }
       ]
     },
     "starterCode": "class RideService {\n    double baseFare;\n\n    // estimateFare(double km, double surgeMultiplier) metodini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // RideService orqali turli koeffitsientlarda narxni hisoblang\n        \n    }\n}",
@@ -759,7 +834,7 @@ window.OOP_CHALLENGES_W1 = [
       "Masofa (distanceKm): 8.5 km",
       "Koeffitsiyent (surgeMultiplier): 1.5"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Oddiy tarif: 30000.0 so'm\nTirbandlik tarifi (1.8x): 50000.0 so'm"
   },
   {
     "id": 15,
@@ -792,6 +867,30 @@ window.OOP_CHALLENGES_W1 = [
       "methods": [
         "getOverallScore",
         "isPassed"
+      ],
+      "methodDetails": [
+        {
+          "name": "getOverallScore",
+          "signature": "public double getOverallScore()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "double (40% CW va 60% Exam asosidagi jami umumiy ball)",
+          "returnsEn": "double (weighted total mark: cw * 0.4 + exam * 0.6)",
+          "logic": "return (courseworkMark * 0.4) + (examMark * 0.6);",
+          "logicEn": "return (courseworkMark * 0.4) + (examMark * 0.6);",
+          "example": "double overall = gb.getOverallScore(); // 65.0*0.4 + 72.0*0.6 = 69.2 qaytaradi"
+        },
+        {
+          "name": "isPassed",
+          "signature": "public boolean isPassed()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "boolean (agar jami ball >= 40.0 bo'lsa true, aks holda false)",
+          "returnsEn": "boolean (true if overall score >= 40.0, else false)",
+          "logic": "return getOverallScore() >= 40.0;",
+          "logicEn": "return getOverallScore() >= 40.0;",
+          "example": "boolean passed = gb.isPassed(); // 69.2 >= 40.0 bo'lgani uchun true qaytaradi"
+        }
       ]
     },
     "starterCode": "class GradeBook {\n    double courseworkMark;\n    double examMark;\n\n    // getOverallScore va isPassed metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // GradeBook ob'yektini sinab ko'ring\n        \n    }\n}",
@@ -811,7 +910,7 @@ window.OOP_CHALLENGES_W1 = [
       "courseworkMark: 65.0",
       "examMark: 72.0"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Yakuniy ball: 69.19999999999999 | Moduldan o'tdi: true"
   },
   {
     "id": 16,
@@ -823,7 +922,7 @@ window.OOP_CHALLENGES_W1 = [
       "en": "16. Korzinka Plus — Dynamic State Transitions & Tier Upgrades"
     },
     "scenario": {
-      "uz": "Korzinka sodiqlik dasturida mijoz ma'lum ball to'plasa, uning statusi avtomatik oshishi kerak. 'LoyaltyMember' klassini tuzing: 'points' (int) va 'tier' (String) maydonlari bo'lsin. 'public void addPoints(int earned)' metodini yozing: ball qo'shilsin va agar ball >= 1000 bo'lsa 'tier = \"GOLD\"' ga, aks holda agar ball >= 500 bo'lsa 'tier = \"SILVER\"' ga o'zgartirilsin.",
+      "uz": "Korzinka sodiqlik dasturida mijoz ma'lum ball to'plasa, uning statusi avtomatik oshishi kerak (State Transitions).\n\n'LoyaltyMember' klassini tuzing: 'points' (int) va 'tier' (String) maydonlari bo'lsin.\n'public void addPoints(int earned)' metodini yozing:\n• Qabul qiladi: 'earned' (int) — xarid orqali to'plangan ballar.\n• Qaytaradi: 'void' ('points' va 'tier' maydonlarini yangilaydi).\n• Sharti va Mantiqi: Agar 'earned > 0' bo'lsa, 'points += earned;' qilinsin. So'ngra agar 'points >= 1000' bo'lsa 'tier = \"GOLD\"'; agar 'points >= 500' bo'lsa 'tier = \"SILVER\"'; aks holda 'tier = \"BRONZE\"' ga o'zgartirilsin.\n• Misol: Boshlang'ich 350 ball bilan 'member.addPoints(250)' chaqirilsa, jami ball 600 bo'lib, status 'SILVER' ga aylanadi.\n\n'Main' metodida:\n1. 'member.points = 350; member.tier = \"BRONZE\";'\n2. 'member.addPoints(250);' chaqiring va 'System.out.println(\"Ball: \" + member.points + \" | Status: \" + member.tier);' chiqaring.\n3. 'member.addPoints(500);' chaqiring va 'System.out.println(\"Ball: \" + member.points + \" | Status: \" + member.tier);' chiqaring.",
       "en": "In Korzinka Plus, model 'LoyaltyMember' with 'points' (int) and 'tier' (String). 'addPoints(int earned)' adds points and dynamically upgrades tier to 'SILVER' (>=500) or 'GOLD' (>=1000)."
     },
     "requirements": {
@@ -843,6 +942,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "methods": [
         "addPoints"
+      ],
+      "methodDetails": [
+        {
+          "name": "addPoints",
+          "signature": "public void addPoints(int earned)",
+          "params": "int earned — mijozga qo'shilayotgan sodiqlik ballari miqdori",
+          "paramsEn": "int earned — loyalty points earned",
+          "returns": "void (ballni qo'shadi va tier holatini avtomatik yangilaydi)",
+          "returnsEn": "void (accumulates points and updates tier status)",
+          "logic": "points += earned; if (points >= 1000) tier = 'GOLD'; else if (points >= 500) tier = 'SILVER'; else tier = 'BRONZE';",
+          "logicEn": "points += earned; if (points >= 1000) tier = 'GOLD'; else if (points >= 500) tier = 'SILVER'; else tier = 'BRONZE';",
+          "example": "member.addPoints(250); // Ball 600 -> tier 'SILVER'. member.addPoints(500); // Ball 1100 -> tier 'GOLD'"
+        }
       ]
     },
     "starterCode": "class LoyaltyMember {\n    int points;\n    String tier;\n\n    // addPoints metodini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Ball qo'shib, yangilangan statusni ko'ring\n        \n    }\n}",
@@ -863,7 +975,7 @@ window.OOP_CHALLENGES_W1 = [
       "1-ball qo'shish: +200",
       "2-ball qo'shish: +500 (Daraja \"GOLD\" ga ko'tariladi)"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Ball: 600 | Status: SILVER\nBall: 1100 | Status: GOLD"
   },
   {
     "id": 17,
@@ -875,7 +987,7 @@ window.OOP_CHALLENGES_W1 = [
       "en": "17. Cargo Logistics — 'loadCargo' with Capacity Status Return"
     },
     "scenario": {
-      "uz": "Yuk tashish konteyneri maksimal og'irlikdan ortiq yuk ko'tara olmaydi. 'CargoContainer' klassini tuzing: 'maxCapacityKg' (double), 'currentWeightKg' (double). 'public boolean loadCargo(double weightKg)' metodini yozing: agar yuk qo'shilganda maksimal sig'imdan oshib ketmasa, yukni qo'shib 'true' qaytarsin; agar oshsa, yukni qo'shmasdan 'false' qaytarsin.",
+      "uz": "Yuk tashish konteyneri maksimal sig'imidan ortiqcha yuk ko'tara olmaydi.\n\n'CargoContainer' klassini tuzing: 'maxCapacityKg' (double), 'currentWeightKg' (double) maydonlari bo'lsin.\n'public boolean loadCargo(double weightKg)' metodini yozing:\n• Qabul qiladi: 'weightKg' (double) — ortilayotgan yuk vazni.\n• Qaytaradi: 'boolean' — yuk muvaffaqiyatli ortilsa 'true', sig'imdan oshib rad etilsa 'false'.\n• Sharti va Mantiqi: Agar 'weightKg > 0' va '(currentWeightKg + weightKg) <= maxCapacityKg' bo'lsa, 'currentWeightKg += weightKg;' qilib 'true' qaytarsin; aks holda yukni qo'shmasdan 'false' qaytarsin.\n• Misol: 'max = 1000.0, current = 700.0'. 'loadCargo(200.0)' chaqirilsa 'true' qaytaradi (jami 900 kg). Yana 'loadCargo(200.0)' chaqirilsa (900+200=1100 > 1000) sig'maydi va 'false' qaytaradi.\n\n'Main' metodida:\n1. 'container.maxCapacityKg = 1000.0; container.currentWeightKg = 700.0;'\n2. 'boolean s1 = container.loadCargo(200.0);' va System.out.println(\"200 kg yuklandi: \" + s1 + \" (Jami: \" + container.currentWeightKg + \" kg)\");\n3. 'boolean s2 = container.loadCargo(200.0);' va System.out.println(\"Ikkinchi 200 kg yuklandi: \" + s2 + \" (Jami: \" + container.currentWeightKg + \" kg)\");",
       "en": "In Cargo Logistics, define 'CargoContainer' with 'maxCapacityKg' and 'currentWeightKg'. 'public boolean loadCargo(double weightKg)' safely loads cargo only if limit not exceeded, returning true/false."
     },
     "requirements": {
@@ -895,6 +1007,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "methods": [
         "loadCargo"
+      ],
+      "methodDetails": [
+        {
+          "name": "loadCargo",
+          "signature": "public boolean loadCargo(double weightKg)",
+          "params": "double weightKg — konteynerga yuklanayotgan yuk og'irligi (kg da)",
+          "paramsEn": "double weightKg — cargo weight to load in kg",
+          "returns": "boolean (agar sig'im yetarli bo'lsa yukni qo'shib true, sig'masa false qaytaradi)",
+          "returnsEn": "boolean (returns true and adds weight if capacity allows, false if exceeded)",
+          "logic": "if (weightKg > 0 && currentWeightKg + weightKg <= maxCapacityKg) { currentWeightKg += weightKg; return true; } return false;",
+          "logicEn": "if (weightKg > 0 && currentWeightKg + weightKg <= maxCapacityKg) { currentWeightKg += weightKg; return true; } return false;",
+          "example": "boolean ok = container.loadCargo(200.0); // 700 + 200 <= 1000 -> true, jami 900.0 kg bo'ladi"
+        }
       ]
     },
     "starterCode": "class CargoContainer {\n    double maxCapacityKg;\n    double currentWeightKg;\n\n    // loadCargo metodini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Konteynerga yuk yuklab, natijasini tekshiring\n        \n    }\n}",
@@ -916,7 +1041,7 @@ window.OOP_CHALLENGES_W1 = [
       "1-yuk (loadCargo): 250.0 kg",
       "2-yuk (loadCargo): 100.0 kg (sig'maydi, rad etiladi)"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "200 kg yuklandi: true (Jami: 900.0 kg)\nIkkinchi 200 kg yuklandi: false (Jami: 900.0 kg)"
   },
   {
     "id": 18,
@@ -944,6 +1069,30 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "methods": [
         "calculateInterest"
+      ],
+      "methodDetails": [
+        {
+          "name": "calculateInterest",
+          "signature": "public double calculateInterest(int months)",
+          "params": "int months — kredit muddati (oylar soni)",
+          "paramsEn": "int months — loan duration in months",
+          "returns": "double (standart 20% yillik stavka bo'yicha hisoblangan foiz summasi)",
+          "returnsEn": "double (interest amount at default 20% APR)",
+          "logic": "return (principal * 0.20 / 12.0) * months;",
+          "logicEn": "return (principal * 0.20 / 12.0) * months;",
+          "example": "double f = loan.calculateInterest(6); // 12 mln so'mga 6 oylik 20% stavka = 1200000.0 so'm"
+        },
+        {
+          "name": "calculateInterest (overloaded)",
+          "signature": "public double calculateInterest(int months, double customRate)",
+          "params": "int months — kredit muddati, double customRate — maxsus imtiyozli foiz stavkasi (masalan: 14.0)",
+          "paramsEn": "int months — duration, double customRate — custom annual interest rate percentage (e.g. 14.0)",
+          "returns": "double (maxsus stavka bo'yicha hisoblangan foiz summasi)",
+          "returnsEn": "double (interest amount at custom annual rate)",
+          "logic": "return (principal * (customRate / 100.0) / 12.0) * months;",
+          "logicEn": "return (principal * (customRate / 100.0) / 12.0) * months;",
+          "example": "double f = loan.calculateInterest(6, 14.0); // 12 mln so'mga 6 oylik 14% stavka = 840000.0 so'm"
+        }
       ]
     },
     "starterCode": "class Loan {\n    double principal;\n\n    // calculateInterest metodlarini overload qiling\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Har ikkala overload metodni chaqirib ko'ring\n        \n    }\n}",
@@ -964,7 +1113,7 @@ window.OOP_CHALLENGES_W1 = [
       "Yillik foiz: 24.0%",
       "Muddat: 12 oy"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Standart foiz (6 oy): 1200000.0 so'm\nImtiyozli foiz (6 oy, 14%): 840000.0000000002 so'm"
   },
   {
     "id": 19,
@@ -997,6 +1146,30 @@ window.OOP_CHALLENGES_W1 = [
       "methods": [
         "touchSession",
         "isExpired"
+      ],
+      "methodDetails": [
+        {
+          "name": "touchSession",
+          "signature": "public void touchSession(long currentTime)",
+          "params": "long currentTime — joriy tizim vaqti (millisekundlarda)",
+          "paramsEn": "long currentTime — current epoch timestamp in ms",
+          "returns": "void (lastActiveTime maydonini currentTime ga yangilaydi)",
+          "returnsEn": "void (updates lastActiveTime = currentTime)",
+          "logic": "this.lastActiveTime = currentTime;",
+          "logicEn": "this.lastActiveTime = currentTime;",
+          "example": "session.touchSession(1500L); // oxirgi faollik vaqti 1500L ga aylanadi"
+        },
+        {
+          "name": "isExpired",
+          "signature": "public boolean isExpired(long currentTime, long timeoutMillis)",
+          "params": "long currentTime — tekshirish vaqti, long timeoutMillis — maksimal ruxsat etilgan kutish vaqti (masalan: 1000L)",
+          "paramsEn": "long currentTime — check time, long timeoutMillis — expiration timeout duration in ms",
+          "returns": "boolean (agar o'tgan vaqt timeoutdan katta bo'lsa true, aks holda false)",
+          "returnsEn": "boolean (true if elapsed time > timeoutMillis, else false)",
+          "logic": "return (currentTime - lastActiveTime) > timeoutMillis;",
+          "logicEn": "return (currentTime - lastActiveTime) > timeoutMillis;",
+          "example": "boolean exp = session.isExpired(2500L, 1000L); // 2500 - 1000 = 1500 > 1000 bo'lgani uchun true qaytaradi"
+        }
       ]
     },
     "starterCode": "class UserSession {\n    String username;\n    long lastActiveTime;\n\n    // touchSession va isExpired metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Sessiyani sinovdan o'tkazing\n        \n    }\n}",
@@ -1019,7 +1192,7 @@ window.OOP_CHALLENGES_W1 = [
       "1-tekshiruv vaqti: 2500L (faol)",
       "2-tekshiruv vaqti: 4500L (muddati o'tgan)"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "1500-millisekundda eskirganmi: false\n2500-millisekundda eskirganmi: true"
   },
   {
     "id": 20,
@@ -1055,6 +1228,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "methods": [
         "generateReceipt"
+      ],
+      "methodDetails": [
+        {
+          "name": "generateReceipt",
+          "signature": "public String generateReceipt(double taxRate)",
+          "params": "double taxRate — soliq/QQS foiz stavkasi (masalan: 12.0)",
+          "paramsEn": "double taxRate — tax rate percentage (e.g. 12.0)",
+          "returns": "String (to'liq formatlangan kvitansiya matni)",
+          "returnsEn": "String (formatted receipt invoice text)",
+          "logic": "subtotal = unitPrice * quantity; tax = subtotal * (taxRate / 100.0); total = subtotal + tax; ko'p qatorli matnni return qiladi.",
+          "logicEn": "Computes subtotal, tax and total, returns multi-line formatted receipt string.",
+          "example": "String r = order.generateReceipt(12.0); // 38000 * 2 = 76000 + 12% QQS = 85120.0 so'mlik chek qaytaradi"
+        }
       ]
     },
     "starterCode": "class FoodOrder {\n    String itemName;\n    double unitPrice;\n    int quantity;\n\n    // generateReceipt metodini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Buyurtma yaratib, chekni ekranga chiqaring\n        \n    }\n}",
@@ -1076,7 +1262,7 @@ window.OOP_CHALLENGES_W1 = [
       "unitPrice: 38000.0 so'm",
       "quantity: 2 dona"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "--- CHEK ---\nTaom: Lavash Max x 2\nOraliq summa: 76000.0 so'm\nSoliq (12.0%): 9120.0 so'm\nJAMI TO'LOV: 85120.0 so'm\n------------"
   },
   {
     "id": 21,
@@ -1132,7 +1318,7 @@ window.OOP_CHALLENGES_W1 = [
       "author: \"Abdulla Qodiriy\"",
       "pages: 420"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Kitob: O'tkan Kunlar | Muallif: Abdulla Qodiriy | Sahifa: 420"
   },
   {
     "id": 22,
@@ -1187,7 +1373,7 @@ window.OOP_CHALLENGES_W1 = [
       "1-foydalanuvchi -> username: \"nodirbek\", email: \"nodir@wiut.uz\" (standart: USER)",
       "2-foydalanuvchi -> username: \"admin_ada\", email: \"ada@wiut.uz\", role: \"ADMIN\""
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Foydalanuvchi 1: nodirbek (USER)\nFoydalanuvchi 2: admin_ada (ADMIN)"
   },
   {
     "id": 23,
@@ -1250,7 +1436,7 @@ window.OOP_CHALLENGES_W1 = [
       "cardHolder: \"Kamron Bek\"",
       "Boshlang'ich balans: 0.0 so'm, valyuta: \"UZS\""
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Karta: 8600123456789012 | Egasi: Kamron Bek | Balans: 0.0 UZS"
   },
   {
     "id": 24,
@@ -1306,7 +1492,7 @@ window.OOP_CHALLENGES_W1 = [
       "storageGb: 256 GB",
       "price: 950.0"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Model 1: Generic (64GB) - $150.0\nModel 2: Samsung Galaxy S24 (256GB) - $950.0"
   },
   {
     "id": 25,
@@ -1357,7 +1543,7 @@ window.OOP_CHALLENGES_W1 = [
       "1-kurs -> code: \"5COSC018C\", enrolled: 45 (to'g'ri)",
       "2-kurs -> code: \"5BUIS009C\", enrolled: -10 (manfiy, 0 ga tenglashtiriladi)"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Kurs: 5COSC018C | Sig'im: 45\nKurs: 5BUIS009C | Sig'im (tuzatilgan): 30"
   },
   {
     "id": 26,
@@ -1412,7 +1598,7 @@ window.OOP_CHALLENGES_W1 = [
       "1-chipta -> ticketId: \"TK-78901\", price: 320.0, hasLuggage: true",
       "2-chipta -> ticketId: \"TK-78902\", price: 15.0 (minimal narxdan kam, rad etiladi)"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Chipta 1 narxi: $320.0 | Qaytariladimi: true\nChipta 2 narxi: $50.0 | Qaytariladimi: false"
   },
   {
     "id": 27,
@@ -1468,7 +1654,7 @@ window.OOP_CHALLENGES_W1 = [
       "baseSalary: 1200000.0 so'm",
       "department: \"IT Qo'llab-quvvatlash\""
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Xodim: Sardor Qodirov | Bo'lim: IT Qo'llab-quvvatlash\nKafolatlangan oylik: 2000000.0 so'm"
   },
   {
     "id": 28,
@@ -1531,7 +1717,7 @@ window.OOP_CHALLENGES_W1 = [
       "2-obuna -> planName: \"Team\", monthlyFee: 45.0, maxMembers: 10",
       "3-obuna -> planName: \"Enterprise\", monthlyFee: 199.0, maxMembers: 100, isAutoRenew: false"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Plan: Starter ($10.0, 1 user, auto: true)\nPlan: Team ($45.0, 10 users, auto: true)\nPlan: Enterprise ($199.0, 100 users, auto: false)"
   },
   {
     "id": 29,
@@ -1582,7 +1768,7 @@ window.OOP_CHALLENGES_W1 = [
       "Toshkent nuqtasi -> latitude: 41.2995, longitude: 69.2401 (to'g'ri)",
       "Xato nuqta -> latitude: 120.5, longitude: 200.0 (chegaradan tashqari, 0.0 qilinadi)"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Toshkent: lat=41.2995, lon=69.2401\nXato nuqta (tuzatilgan): lat=0.0, lon=0.0"
   },
   {
     "id": 30,
@@ -1638,7 +1824,7 @@ window.OOP_CHALLENGES_W1 = [
       "Asl pallet (p1) -> code: \"PLT-100\", weightKg: 500.0, boxCount: 24",
       "Nusxa pallet (p2) -> p1 ob'yektidan nusxa olinadi"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Asl: PLT-100 | Qutilar: 24\nNusxa: PLT-100-COPY | Qutilar: 24"
   },
   {
     "id": 31,
@@ -1668,6 +1854,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "constructors": [
         "UserProfile"
+      ],
+      "methodDetails": [
+        {
+          "name": "getUsername / getEmail",
+          "signature": "public String getUsername() / public String getEmail()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "String (private username va email maydonlarining xavfsiz qiymati)",
+          "returnsEn": "String (safe getter returns private fields)",
+          "logic": "return this.username; / return this.email;",
+          "logicEn": "return this.username; / return this.email;",
+          "example": "System.out.println(user.getUsername() + ' | ' + user.getEmail());"
+        }
       ]
     },
     "starterCode": "class UserProfile {\n    // username va email maydonlarini private qiling\n    \n    // Konstruktor va getUsername, getEmail metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Ob'yekt yarating va getter orqali o'qing\n        \n    }\n}",
@@ -1688,7 +1887,7 @@ window.OOP_CHALLENGES_W1 = [
       "username: \"sherzod_it\"",
       "email: \"sherzod@wiut.uz\""
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Foydalanuvchi: sherzod_it | Email: sherzod@wiut.uz"
   },
   {
     "id": 32,
@@ -1714,6 +1913,30 @@ window.OOP_CHALLENGES_W1 = [
       "methods": [
         "getBalance",
         "setBalance"
+      ],
+      "methodDetails": [
+        {
+          "name": "setBalance",
+          "signature": "public void setBalance(double balance)",
+          "params": "double balance — yangilanayotgan yangi balans qiymati",
+          "paramsEn": "double balance — new balance value to set",
+          "returns": "void (agar balance >= 0 bo'lsa yangilaydi, manfiy bo'lsa xato xabarini chiqaradi)",
+          "returnsEn": "void (validates balance >= 0, else prints error)",
+          "logic": "if (balance >= 0) this.balance = balance; else System.out.println('Xato: Balans manfiy bo\\'lishi mumkin emas!');",
+          "logicEn": "if (balance >= 0) this.balance = balance; else prints error.",
+          "example": "acc.setBalance(150000.0); // Qabul qilinadi. acc.setBalance(-50000.0); // Rad etiladi va xato chiqadi"
+        },
+        {
+          "name": "getBalance",
+          "signature": "public double getBalance()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "double (private balance maydonining joriy qiymati)",
+          "returnsEn": "double (current balance value)",
+          "logic": "return this.balance;",
+          "logicEn": "return this.balance;",
+          "example": "double b = acc.getBalance(); // 150000.0 qaytaradi"
+        }
       ]
     },
     "starterCode": "class BankAccount {\n    private double balance;\n\n    // getBalance va setBalance metodlarini yozing (manfiylikdan himoya bilan)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Balansni musbat va manfiy qilib o'zgartirib ko'ring\n        \n    }\n}",
@@ -1735,7 +1958,7 @@ window.OOP_CHALLENGES_W1 = [
       "Chiqim (withdraw): -30000.0 so'm",
       "Ortiqcha yechish: -150000.0 so'm (rad etiladi)"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Xato: Balans manfiy bo'lishi mumkin emas!\nYakuniy balans: 150000.0 so'm"
   },
   {
     "id": 33,
@@ -1766,6 +1989,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "constructors": [
         "Employee"
+      ],
+      "methodDetails": [
+        {
+          "name": "setSalary",
+          "signature": "public void setSalary(double newSalary)",
+          "params": "double newSalary — taklif qilinayotgan yangi oylik maosh",
+          "paramsEn": "double newSalary — proposed new salary amount",
+          "returns": "void (agar newSalary >= this.salary bo'lsa oshiradi, kamaytirilsa taqiqlab xato chiqaradi)",
+          "returnsEn": "void (only permits salary raise, rejects reduction with error message)",
+          "logic": "if (newSalary >= this.salary) this.salary = newSalary; else System.out.println('Taqiqlangan: Oylikni kamaytirish mumkin emas!');",
+          "logicEn": "if (newSalary >= this.salary) this.salary = newSalary; else prints error message.",
+          "example": "emp.setSalary(6500000.0); // 5 mln dan 6.5 mln ga oshadi. emp.setSalary(4000000.0); // Rad etiladi"
+        }
       ]
     },
     "starterCode": "class Employee {\n    private String name;\n    private double salary;\n\n    // Konstruktor, getterlar va himoyalangan setSalary ni yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Maoshni oshirib va kamaytirib ko'ring\n        \n    }\n}",
@@ -1787,7 +2023,7 @@ window.OOP_CHALLENGES_W1 = [
       "Yangi oylik: 6500000.0 so'm (qabul qilinadi)",
       "Kamaytirish: 4000000.0 so'm (rad etiladi)"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Taqiqlangan: Oylikni kamaytirish mumkin emas!\nXodim: Azizbek | Oylik: 6500000.0 so'm"
   },
   {
     "id": 34,
@@ -1818,6 +2054,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "constructors": [
         "Rectangle"
+      ],
+      "methodDetails": [
+        {
+          "name": "getArea",
+          "signature": "public double getArea()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "double (to'g'ri to'rtburchak yuzasi: width * height)",
+          "returnsEn": "double (computed area: width * height)",
+          "logic": "return this.width * this.height;",
+          "logicEn": "return this.width * this.height;",
+          "example": "Rectangle rect = new Rectangle(5.0, 8.0); double area = rect.getArea(); // 40.0 qaytaradi"
+        }
       ]
     },
     "starterCode": "class Rectangle {\n    private double width;\n    private double height;\n\n    // Konstruktor va getWidth, getHeight, getArea metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // To'g'ri to'rtburchak maydonini hisoblang\n        \n    }\n}",
@@ -1837,7 +2086,7 @@ window.OOP_CHALLENGES_W1 = [
       "width (eni): 5.0",
       "height (bo'yi): 8.0"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Eni: 5.0 | Bo'yi: 8.0\nYuzasi: 40.0"
   },
   {
     "id": 35,
@@ -1867,6 +2116,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "constructors": [
         "Product"
+      ],
+      "methodDetails": [
+        {
+          "name": "getPriceWithTax",
+          "signature": "public double getPriceWithTax()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "double (12% QQS solig'i qo'shilgan yakuniy narx: netPrice * 1.12)",
+          "returnsEn": "double (price with 12% VAT: netPrice * 1.12)",
+          "logic": "return this.netPrice * 1.12;",
+          "logicEn": "return this.netPrice * 1.12;",
+          "example": "Product p = new Product(100000.0); p.getPriceWithTax(); // 112000.0 so'm qaytaradi"
+        }
       ]
     },
     "starterCode": "class Product {\n    private double netPrice;\n\n    // Konstruktor, getter/setter va getPriceWithTax metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Tovar narxini QQS bilan ko'ring\n        \n    }\n}",
@@ -1886,7 +2148,7 @@ window.OOP_CHALLENGES_W1 = [
       "netPrice (tannarx): 100000.0 so'm",
       "QQS stavkasi: 12%"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Tansiq narx: 100000.0 so'm\nQQS bilan narx: 112000.0 so'm"
   },
   {
     "id": 36,
@@ -1915,6 +2177,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "constructors": [
         "Student"
+      ],
+      "methodDetails": [
+        {
+          "name": "setStudentId",
+          "signature": "public void setStudentId(String studentId)",
+          "params": "String studentId — talabaning 8 xonali kodi (masalan: '00014523')",
+          "paramsEn": "String studentId — 8-character ID string (e.g. '00014523')",
+          "returns": "void (tekshiruvdan o'tsa saqlaydi, o'tmasa '00000000' qiymatini o'rnatib xato chiqaradi)",
+          "returnsEn": "void (validates 8 chars and '000' prefix, else defaults to '00000000' and prints error)",
+          "logic": "if (studentId != null && studentId.length() == 8 && studentId.startsWith('000')) this.studentId = studentId; else { System.out.println('Xato: ID 8 ta belgidan iborat va \\'000\\' bilan boshlanishi shart!'); this.studentId = '00000000'; }",
+          "logicEn": "validates length 8 and '000' prefix, else defaults to '00000000' and prints error.",
+          "example": "s.setStudentId('00014523'); // To'g'ri. s.setStudentId('12345'); // Xato, '00000000' bo'ladi"
+        }
       ]
     },
     "starterCode": "class Student {\n    private String studentId;\n\n    // Konstruktor, getStudentId va formatni tekshiruvchi setStudentId ni yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // To'g'ri va xato ID larni sinab ko'ring\n        \n    }\n}",
@@ -1934,7 +2209,7 @@ window.OOP_CHALLENGES_W1 = [
       "1-talaba ID: \"00014523\" (8 ta raqam, to'g'ri)",
       "2-talaba ID: \"12345\" (kam raqam, xato deb belgilanadi)"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Xato: ID 8 ta belgidan iborat va '000' bilan boshlanishi shart!\nTalaba 1 ID: 00014523\nTalaba 2 ID: 00000000"
   },
   {
     "id": 37,
@@ -1967,6 +2242,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "keywords": [
         "final"
+      ],
+      "methodDetails": [
+        {
+          "name": "deposit / withdraw",
+          "signature": "public boolean deposit(double amount) / public boolean withdraw(double amount)",
+          "params": "double amount — pul miqdori",
+          "paramsEn": "double amount — money amount",
+          "returns": "boolean (muvaffaqiyatli bajarilsa true, cheklov buzilsa false)",
+          "returnsEn": "boolean (true on success, false on invalid amount or overdraft)",
+          "logic": "deposit: amount > 0 bo'lsa balance += amount, return true; aks holda false. withdraw: amount > 0 && balance >= amount bo'lsa balance -= amount, return true; aks holda false.",
+          "logicEn": "deposit: adds if > 0. withdraw: deducts if balance >= amount.",
+          "example": "card.deposit(50000.0); card.withdraw(30000.0);"
+        }
       ]
     },
     "starterCode": "class Receipt {\n    // txnId va amount maydonlarini private final qiling\n    \n    // Konstruktor va getterlarni yozing (hech qanday setter bo'lmasin!)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // O'zgarmas chek yarating\n        \n    }\n}",
@@ -2016,6 +2304,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "constructors": [
         "TempSensor"
+      ],
+      "methodDetails": [
+        {
+          "name": "getFahrenheit / setFahrenheit",
+          "signature": "public double getFahrenheit() / public void setFahrenheit(double fahrenheit)",
+          "params": "setFahrenheit uchun: double fahrenheit (harorat Farengeytda)",
+          "paramsEn": "for setFahrenheit: double fahrenheit (temperature in Fahrenheit)",
+          "returns": "getFahrenheit: double ((celsius * 9.0 / 5.0) + 32.0)",
+          "returnsEn": "getFahrenheit: double ((celsius * 9.0 / 5.0) + 32.0)",
+          "logic": "getFahrenheit: return (celsius * 9.0 / 5.0) + 32.0; setFahrenheit: this.celsius = (fahrenheit - 32.0) * 5.0 / 9.0;",
+          "logicEn": "Celsius to Fahrenheit and inverse conversion.",
+          "example": "sensor.setCelsius(25.0); sensor.getFahrenheit(); // 77.0°F qaytaradi"
+        }
       ]
     },
     "starterCode": "class TempSensor {\n    private double celsius;\n\n    // Konstruktor, getCelsius, setCelsius va getFahrenheit metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Haroratni har ikkala birlikda ko'ring\n        \n    }\n}",
@@ -2034,7 +2335,7 @@ window.OOP_CHALLENGES_W1 = [
     "sampleData": [
       "celsius (harorat): 25.0°C"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Harorat (Selsiy): 25.0°C\nHarorat (Farengeyt): 77.0°F"
   },
   {
     "id": 39,
@@ -2064,6 +2365,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "constructors": [
         "CreditScore"
+      ],
+      "methodDetails": [
+        {
+          "name": "getCreditTier",
+          "signature": "public String getCreditTier()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "String ('EXCELLENT', 'GOOD', 'FAIR' yoki 'POOR')",
+          "returnsEn": "String ('EXCELLENT', 'GOOD', 'FAIR' or 'POOR')",
+          "logic": "if (score >= 750) return 'EXCELLENT'; else if (score >= 650) return 'GOOD'; else if (score >= 550) return 'FAIR'; else return 'POOR';",
+          "logicEn": "Returns credit tier based on score range.",
+          "example": "CreditProfile cp = new CreditProfile(780); cp.getCreditTier(); // 'EXCELLENT' qaytaradi"
+        }
       ]
     },
     "starterCode": "class CreditScore {\n    private int score;\n\n    // Konstruktor, getScore, setScore (300..850 chegarasi bilan) va getCategory ni yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Skoring toifasini aniqlang\n        \n    }\n}",
@@ -2082,7 +2396,7 @@ window.OOP_CHALLENGES_W1 = [
     "sampleData": [
       "score (skoring bali): 780 (Toifa: A'LO)"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Skoring bali: 780 | Toifa: EXCELLENT"
   },
   {
     "id": 40,
@@ -2111,6 +2425,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "constructors": [
         "UserCredential"
+      ],
+      "methodDetails": [
+        {
+          "name": "verifyPassword / changePassword",
+          "signature": "public boolean verifyPassword(String input) / public boolean changePassword(String oldPass, String newPass)",
+          "params": "input / oldPass, newPass (matnli parollar)",
+          "paramsEn": "input / oldPass, newPass (string passwords)",
+          "returns": "boolean (tekshiruv yoki almashtirish muvaffaqiyatiga qarab true/false)",
+          "returnsEn": "boolean (true on success, false on mismatch)",
+          "logic": "Parolni tashqariga bermaydi (getter yo'q, write-only), faqat verifyPassword orqali tenglikni tekshiradi.",
+          "logicEn": "Write-only password: verifyPassword checks match without exposing stored password.",
+          "example": "cred.verifyPassword('wrong'); // false. cred.verifyPassword('secret2024'); // true"
+        }
       ]
     },
     "starterCode": "class UserCredential {\n    private String password;\n\n    // Konstruktor, verifyPassword va changePassword metodlarini yozing (getter bo'lmasin!)\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Parolni tekshiring va xavfsiz o'zgartiring\n        \n    }\n}",
@@ -2132,7 +2459,7 @@ window.OOP_CHALLENGES_W1 = [
       "Tekshiruv: \"wrong\" (noto'g'ri), \"secret2024\" (to'g'ri)",
       "Yangi parol: \"newMasterPass99\""
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Tekshiruv ('wrong'): false\nTekshiruv ('secret2024'): true\nParol o'zgardimi: true"
   },
   {
     "id": 41,
@@ -2165,6 +2492,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "keywords": [
         "static"
+      ],
+      "methodDetails": [
+        {
+          "name": "getVehicleCount",
+          "signature": "public static int getVehicleCount()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "int (jami yaratilgan transport vositalari soni)",
+          "returnsEn": "int (total count of instantiated vehicle objects)",
+          "logic": "Har bir yangi obyekt yaratilganda statik vehicleCount bittaga oshadi.",
+          "logicEn": "Static counter incremented on every constructor call.",
+          "example": "Vehicle.getVehicleCount(); // 3 ta obyekt tuzilgach, 3 qaytaradi"
+        }
       ]
     },
     "starterCode": "class UserAccount {\n    public static int totalUsers = 0;\n    private int id;\n    private String username;\n\n    // Konstruktorda totalUsers ni oshiring va id ga bering\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // 3 ta foydalanuvchi yarating va ID larini ko'ring\n        \n    }\n}",
@@ -2211,6 +2551,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "keywords": [
         "static"
+      ],
+      "methodDetails": [
+        {
+          "name": "celsiusToFahrenheit / fahrenheitToCelsius",
+          "signature": "public static double celsiusToFahrenheit(double c) / public static double fahrenheitToCelsius(double f)",
+          "params": "double c / double f — konvertatsiya qilinadigan harorat",
+          "paramsEn": "double c / double f — temperature to convert",
+          "returns": "double (hisoblangan harorat)",
+          "returnsEn": "double (converted temperature)",
+          "logic": "Obyekt yaratmasdan to'g'ridan-to'g'ri klass nomi orqali chaqiriladi (Statik yordamchi metodlar).",
+          "logicEn": "Static utility methods called without instantiating class.",
+          "example": "double f = MathUtils.celsiusToFahrenheit(100.0); // 212.0 qaytaradi"
+        }
       ]
     },
     "starterCode": "class FinancialMath {\n    // private konstruktor va static metodlarni yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // FinancialMath.calcVat(...) orqali hisoblang\n        \n    }\n}",
@@ -2256,6 +2609,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "keywords": [
         "static"
+      ],
+      "methodDetails": [
+        {
+          "name": "addTax / applyDiscount",
+          "signature": "public static double addTax(double amount, double taxRate) / public static double applyDiscount(double amount, double discountPercent)",
+          "params": "double amount, double rate/percent",
+          "paramsEn": "double amount, double rate/percent",
+          "returns": "double (soliq qo'shilgan yoki chegirma ayirilgan summa)",
+          "returnsEn": "double (computed price with tax or discount)",
+          "logic": "Statik moliyaviy kalkulyator metodlari: amount * (1.0 + taxRate / 100.0) va amount * (1.0 - discountPercent / 100.0).",
+          "logicEn": "Pure static financial computation utilities.",
+          "example": "FinanceCalc.addTax(100000.0, 12.0); // 112000.0"
+        }
       ]
     },
     "starterCode": "class CurrencyConverter {\n    private static double usdToUzs = 12700.0;\n\n    // setRate va toUzs statik metodlarini yozing\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Kursni o'zgartirib konvertatsiyani tekshiring\n        \n    }\n}",
@@ -2309,6 +2675,19 @@ window.OOP_CHALLENGES_W1 = [
       "constructors": [
         "Address",
         "Person"
+      ],
+      "methodDetails": [
+        {
+          "name": "isValidEmail / isValidUzPhone",
+          "signature": "public static boolean isValidEmail(String email) / public static boolean isValidUzPhone(String phone)",
+          "params": "String email / String phone",
+          "paramsEn": "String email / String phone",
+          "returns": "boolean (format talabga to'g'ri kelsa true, aks holda false)",
+          "returnsEn": "boolean (true if matches required pattern, else false)",
+          "logic": "email: ichida '@' va '.' bo'lishi; phone: '+998' bilan boshlanishi va uzunligi 13 ta belgi bo'lishi.",
+          "logicEn": "Validates email and Uzbekistan phone number format.",
+          "example": "ValidationUtils.isValidUzPhone('+998901234567'); // true"
+        }
       ]
     },
     "starterCode": "class Address {\n    private String city;\n    private String street;\n\n    // Konstruktor va getterlar\n}\n\nclass Person {\n    private String name;\n    private Address address;\n\n    // Konstruktor va getFullDetails metodi\n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Address va Person ob'yektlarini bog'lab chiqaring\n        \n    }\n}",
@@ -2361,6 +2740,19 @@ window.OOP_CHALLENGES_W1 = [
       "constructors": [
         "Engine",
         "Car"
+      ],
+      "methodDetails": [
+        {
+          "name": "startCar",
+          "signature": "public void startCar()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "void (ichki Engine obyektining startEngine() metodini chaqirib, avtomobilni o't oldiradi)",
+          "returnsEn": "void (delegates to internal Engine.startEngine() method)",
+          "logic": "this.engine.startEngine(); System.out.println(this.model + ' o\\'t oldirildi! ' + ...);",
+          "logicEn": "Delegates execution to composed Engine object.",
+          "example": "Car car = new Car('Malibu Premier', engine); car.startCar();"
+        }
       ]
     },
     "starterCode": "class Engine {\n    private int horsePower;\n    private String type;\n\n    // Konstruktor va getterlar\n}\n\nclass Car {\n    private String model;\n    private Engine engine;\n\n    // Konstruktor va startCar metodi\n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Avtomobilni motori bilan yarating va o't oldiring\n        \n    }\n}",
@@ -2380,7 +2772,7 @@ window.OOP_CHALLENGES_W1 = [
       "Dvigatel -> horsepower: 250, model: \"2.0 Turbo\"",
       "Avtomobil -> model: \"Malibu Premier\", engine: yuqoridagi dvigatel"
     ],
-    "expectedOutput": ""
+    "expectedOutput": "Malibu Premier o't oldirildi! Dvigatel: 2.0 Turbo (250 HP)"
   },
   {
     "id": 46,
@@ -2413,6 +2805,19 @@ window.OOP_CHALLENGES_W1 = [
       "constructors": [
         "Product",
         "OrderItem"
+      ],
+      "methodDetails": [
+        {
+          "name": "calculateCartTotal",
+          "signature": "public double calculateCartTotal()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "double (savatdagi barcha tovarlar narxlari yig'indisi)",
+          "returnsEn": "double (sum of all items inside the shopping cart)",
+          "logic": "Massiv yoki tovarlar bo'ylab narx * miqdor larni qo'shib chiqadi.",
+          "logicEn": "Computes total order sum by iterating through composed items.",
+          "example": "cart.calculateCartTotal(); // 350000.0 so'm"
+        }
       ]
     },
     "starterCode": "class Product {\n    private String name;\n    private double price;\n\n    // Konstruktor va getterlar\n}\n\nclass OrderItem {\n    private Product product;\n    private int quantity;\n\n    // Konstruktor va getSubtotal metodi\n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Product va OrderItem yarating, oraliq summani hisoblang\n        \n    }\n}",
@@ -2467,6 +2872,19 @@ window.OOP_CHALLENGES_W1 = [
       "constructors": [
         "Customer",
         "Order"
+      ],
+      "methodDetails": [
+        {
+          "name": "printOrderSummary",
+          "signature": "public void printOrderSummary()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "void (ichki Customer va Order ma'lumotlarini to'liq formatlab konsolga chiqaradi)",
+          "returnsEn": "void (prints order details and customer data to console)",
+          "logic": "Buyurtma ID si, mijoz ismi, telefoni va to'lov summasini kvitansiya formatida konsolga chop etadi.",
+          "logicEn": "Prints receipt with composed customer details.",
+          "example": "order.printOrderSummary();"
+        }
       ]
     },
     "starterCode": "class Customer {\n    private int customerId;\n    private String fullName;\n    private String phone;\n\n    // Konstruktor va getterlar\n}\n\nclass Order {\n    private int orderId;\n    private Customer customer;\n    private double totalAmount;\n\n    // Konstruktor va printOrderSummary metodi\n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Customer va Order tuzib summary chiqaring\n        \n    }\n}",
@@ -2563,6 +2981,19 @@ window.OOP_CHALLENGES_W1 = [
       "constructors": [
         "Product",
         "WarehouseReport"
+      ],
+      "methodDetails": [
+        {
+          "name": "generateInvoice",
+          "signature": "public String generateInvoice()",
+          "params": "Parametr qabul qilmaydi ()",
+          "paramsEn": "No parameters ()",
+          "returns": "String (firma nomi, buyurtmachi va xizmat narxi ko'rsatilgan hisob-faktura matni)",
+          "returnsEn": "String (invoice text containing company and client info)",
+          "logic": "Barcha tarkibiy obyektlar ma'lumotlarini birlashtirib faktura hosil qiladi.",
+          "logicEn": "Generates formatted invoice string.",
+          "example": "invoice.generateInvoice();"
+        }
       ]
     },
     "starterCode": "class Product {\n    private String name;\n    private double price;\n    private int stock;\n\n    // Konstruktor va getterlar\n}\n\nclass WarehouseReport {\n    private Product p1;\n    private Product p2;\n    private Product p3;\n\n    // Konstruktor va calculateTotalInventoryValue metodi\n}\n\nclass Main {\n    public static void main(String[] args) {\n        // Tovarlar va hisobot ob'yektini yarating\n        \n    }\n}",
@@ -2625,6 +3056,19 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "keywords": [
         "static"
+      ],
+      "methodDetails": [
+        {
+          "name": "processPayment",
+          "signature": "public boolean processPayment(double amount)",
+          "params": "double amount — to'lanishi kerak bo'lgan summa",
+          "paramsEn": "double amount — payment amount to process",
+          "returns": "boolean (to'lov muvaffaqiyatli o'tsa true, hisobda mablag' yetmasa false)",
+          "returnsEn": "boolean (true if payment approved, false if insufficient balance)",
+          "logic": "Mijoz hisobini tekshiradi va to'lovni tasdiqlaydi.",
+          "logicEn": "Validates customer balance and approves transaction.",
+          "example": "system.processPayment(250000.0);"
+        }
       ]
     },
     "starterCode": "// 1. Customer klassini yozing (name, phone)\n\n// 2. Product klassini yozing (title, price)\n\n// 3. Order klassini yozing (static counter, Customer, Product, quantity, printInvoice)\n\nclass Main {\n    public static void main(String[] args) {\n        // Customer, Product va Order yarating, 10% chegirma bilan chekni chop eting\n        \n    }\n}",
