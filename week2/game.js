@@ -351,6 +351,16 @@
       sourceInfo = 'starter';
     }
 
+    const starterRels = (q.starterDiagram && q.starterDiagram.relationships && q.starterDiagram.relationships.length > 0)
+      ? q.starterDiagram.relationships
+      : (q.expectedDiagram && q.expectedDiagram.relationships) || [];
+
+    if (targetDiagram && starterRels.length > 0) {
+      if (!targetDiagram.relationships || targetDiagram.relationships.length === 0) {
+        targetDiagram.relationships = JSON.parse(JSON.stringify(starterRels));
+      }
+    }
+
     if (eerCanvas && targetDiagram) {
       eerCanvas.loadStarterDiagram(targetDiagram);
       updateW2DiagramBanner(sourceInfo);
@@ -541,6 +551,37 @@
       if (!chosenDiagram) {
         chosenDiagram = q.starterDiagram || q.expectedDiagram;
         sourceInfo = "starter";
+      }
+
+      // Guarantee Week 1 baseline relationships and multiplicities are always present in Week 2
+      const starterRels = (q.starterDiagram && q.starterDiagram.relationships && q.starterDiagram.relationships.length > 0)
+        ? q.starterDiagram.relationships
+        : (q.expectedDiagram && q.expectedDiagram.relationships) || [];
+
+      if (chosenDiagram && starterRels.length > 0) {
+        if (!chosenDiagram.relationships || chosenDiagram.relationships.length === 0) {
+          chosenDiagram.relationships = JSON.parse(JSON.stringify(starterRels));
+        } else {
+          starterRels.forEach(sRel => {
+            const sE1 = (sRel.fromEntityName || sRel.entity1 || '').toLowerCase();
+            const sE2 = (sRel.toEntityName || sRel.entity2 || '').toLowerCase();
+            const cRel = chosenDiagram.relationships.find(r => {
+              const uE1 = (r.fromEntityName || r.entity1 || '').toLowerCase();
+              const uE2 = (r.toEntityName || r.entity2 || '').toLowerCase();
+              return (uE1 === sE1 && uE2 === sE2) || (uE1 === sE2 && uE2 === sE1);
+            });
+            if (cRel) {
+              if (!cRel.mult1 || cRel.mult1 === '+' || cRel.mult1 === '?') {
+                cRel.mult1 = sRel.mult1 || '1..1';
+              }
+              if (!cRel.mult2 || cRel.mult2 === '+' || cRel.mult2 === '?') {
+                cRel.mult2 = sRel.mult2 || '1..*';
+              }
+            } else {
+              chosenDiagram.relationships.push(JSON.parse(JSON.stringify(sRel)));
+            }
+          });
+        }
       }
 
       eerCanvas.loadStarterDiagram(chosenDiagram);

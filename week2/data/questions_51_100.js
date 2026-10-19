@@ -1,5 +1,4 @@
-var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
-_scope.QUESTIONS_51_100 = [
+window.QUESTIONS_51_100 = [
   {
     "id": 51,
     "sector": 4,
@@ -4229,7 +4228,36 @@ _scope.QUESTIONS_51_100 = [
         }
       ],
       "subclasses": [],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_91_1",
+          "name": "Ixtisoslashuv",
+          "entity1": "Employee",
+          "entity2": "HourlyEmp",
+          "fromEntityName": "Employee",
+          "toEntityName": "HourlyEmp",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_91_2",
+          "name": "Ixtisoslashuv",
+          "entity1": "Employee",
+          "entity2": "SalariedEmp",
+          "fromEntityName": "Employee",
+          "toEntityName": "SalariedEmp",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4302,7 +4330,36 @@ _scope.QUESTIONS_51_100 = [
         }
       ],
       "subclasses": [],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_92_1",
+          "name": "Ixtisoslashuv",
+          "entity1": "Vehicle",
+          "entity2": "Car",
+          "fromEntityName": "Vehicle",
+          "toEntityName": "Car",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_92_2",
+          "name": "Ixtisoslashuv",
+          "entity1": "Vehicle",
+          "entity2": "Truck",
+          "fromEntityName": "Vehicle",
+          "toEntityName": "Truck",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4375,7 +4432,36 @@ _scope.QUESTIONS_51_100 = [
         }
       ],
       "subclasses": [],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_93_1",
+          "name": "Ixtisoslashuv",
+          "entity1": "Person",
+          "entity2": "Staff",
+          "fromEntityName": "Person",
+          "toEntityName": "Staff",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_93_2",
+          "name": "Ixtisoslashuv",
+          "entity1": "Person",
+          "entity2": "Student",
+          "fromEntityName": "Person",
+          "toEntityName": "Student",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4448,7 +4534,36 @@ _scope.QUESTIONS_51_100 = [
         }
       ],
       "subclasses": [],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_94_1",
+          "name": "Ixtisoslashuv",
+          "entity1": "Account",
+          "entity2": "SavingsAcc",
+          "fromEntityName": "Account",
+          "toEntityName": "SavingsAcc",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_94_2",
+          "name": "Ixtisoslashuv",
+          "entity1": "Account",
+          "entity2": "CurrentAcc",
+          "fromEntityName": "Account",
+          "toEntityName": "CurrentAcc",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4521,7 +4636,36 @@ _scope.QUESTIONS_51_100 = [
         }
       ],
       "subclasses": [],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_95_1",
+          "name": "Ixtisoslashuv",
+          "entity1": "LibraryItem",
+          "entity2": "Book",
+          "fromEntityName": "LibraryItem",
+          "toEntityName": "Book",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_95_2",
+          "name": "Ixtisoslashuv",
+          "entity1": "LibraryItem",
+          "entity2": "Journal",
+          "fromEntityName": "LibraryItem",
+          "toEntityName": "Journal",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4594,7 +4738,36 @@ _scope.QUESTIONS_51_100 = [
         }
       ],
       "subclasses": [],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_96_1",
+          "name": "Ixtisoslashuv",
+          "entity1": "Property",
+          "entity2": "Residential",
+          "fromEntityName": "Property",
+          "toEntityName": "Residential",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_96_2",
+          "name": "Ixtisoslashuv",
+          "entity1": "Property",
+          "entity2": "Commercial",
+          "fromEntityName": "Property",
+          "toEntityName": "Commercial",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4667,7 +4840,36 @@ _scope.QUESTIONS_51_100 = [
         }
       ],
       "subclasses": [],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_97_1",
+          "name": "Ixtisoslashuv",
+          "entity1": "Customer",
+          "entity2": "Individual",
+          "fromEntityName": "Customer",
+          "toEntityName": "Individual",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_97_2",
+          "name": "Ixtisoslashuv",
+          "entity1": "Customer",
+          "entity2": "Corporate",
+          "fromEntityName": "Customer",
+          "toEntityName": "Corporate",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4740,7 +4942,36 @@ _scope.QUESTIONS_51_100 = [
         }
       ],
       "subclasses": [],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_98_1",
+          "name": "Ixtisoslashuv",
+          "entity1": "User",
+          "entity2": "Admin",
+          "fromEntityName": "User",
+          "toEntityName": "Admin",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_98_2",
+          "name": "Ixtisoslashuv",
+          "entity1": "User",
+          "entity2": "Guest",
+          "fromEntityName": "User",
+          "toEntityName": "Guest",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4813,7 +5044,36 @@ _scope.QUESTIONS_51_100 = [
         }
       ],
       "subclasses": [],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_99_1",
+          "name": "Ixtisoslashuv",
+          "entity1": "InsurancePlan",
+          "entity2": "BasicPlan",
+          "fromEntityName": "InsurancePlan",
+          "toEntityName": "BasicPlan",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_99_2",
+          "name": "Ixtisoslashuv",
+          "entity1": "InsurancePlan",
+          "entity2": "PremiumPlan",
+          "fromEntityName": "InsurancePlan",
+          "toEntityName": "PremiumPlan",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4886,7 +5146,36 @@ _scope.QUESTIONS_51_100 = [
         }
       ],
       "subclasses": [],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_100_1",
+          "name": "Ixtisoslashuv",
+          "entity1": "Patient",
+          "entity2": "InPatient",
+          "fromEntityName": "Patient",
+          "toEntityName": "InPatient",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_100_2",
+          "name": "Ixtisoslashuv",
+          "entity1": "Patient",
+          "entity2": "OutPatient",
+          "fromEntityName": "Patient",
+          "toEntityName": "OutPatient",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4911,7 +5200,3 @@ _scope.QUESTIONS_51_100 = [
     "isWeek2": true
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = _scope.QUESTIONS_51_100;
-}

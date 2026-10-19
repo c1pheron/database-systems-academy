@@ -2458,6 +2458,10 @@ class EERCanvasEngine {
       this.renderLinks();
       this.showToast(`2 ta magnit uchli chiziq tushirildi (${mult1}). Har ikkala chetini kerakli entitiyga ulab oling!`);
     }
+    this.triggerChange();
+    if (window.playSfx) window.playSfx('click');
+  }
+
   addRecursiveEntityOrLoop(cx, cy) {
     const isEn = window.I18N && window.I18N.getLang() === 'en';
     const centerX = cx !== undefined ? cx : Math.round(-this.panX / this.zoom + (this.container.offsetWidth / 2) / this.zoom - 85);
