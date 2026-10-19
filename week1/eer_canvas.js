@@ -637,8 +637,40 @@ class EERCanvasEngine {
     const t = (k, fb) => (window.I18N ? window.I18N.t(k, fb) : fb);
 
     if (sId === tId) {
-      this.showToast(t('toast_conn_self', "Entitiyni o'ziga ulash mumkin emas."));
-      return;
+      if (sourceType === 'entity') {
+        const existing = this.relationships.find(r => {
+          if (r.fromEntityId && r.toEntityId) {
+            return r.fromEntityId === sId && r.toEntityId === sId;
+          }
+          const fn = (r.fromEntityName || '').toLowerCase();
+          const tn = (r.toEntityName || '').toLowerCase();
+          const sn = (sourceNode.name || '').toLowerCase();
+          return fn === sn && tn === sn;
+        });
+        if (existing) {
+          this.showToast(isEn ? `'${sourceNode.name}' already has a recursive relationship!` : `'${sourceNode.name}' allaqachon rekursiv aloqaga ega!`);
+          return;
+        }
+        this.relationships.push({
+          id: 'rel_' + Math.random().toString(36).substr(2, 9),
+          name: isEn ? 'Self-Ref' : 'Rekursiv',
+          fromEntityId: sId,
+          toEntityId: sId,
+          fromEntityName: sourceNode.name,
+          toEntityName: sourceNode.name,
+          mult1: '',
+          mult2: '',
+          isDirect: true
+        });
+        this.renderLinks();
+        this.triggerChange();
+        if (window.playSfx) window.playSfx('success');
+        this.showToast(isEn ? `🔄 Recursive relationship added to '${sourceNode.name}'!` : `🔄 '${sourceNode.name}' uchun rekursiv o'z-o'ziga bog'lanish qo'shildi!`);
+        return;
+      } else {
+        this.showToast(t('toast_conn_self', "Rombni o'ziga ulash mumkin emas."));
+        return;
+      }
     }
 
     if (sourceType === 'entity' && targetType === 'entity') {
@@ -2347,6 +2379,8 @@ class EERCanvasEngine {
       this.addEntity({ name: 'ZaifEntitiy', isWeak: true, x: centerX, y: centerY, attributes: [{ name: 'qisman_id', isPPK: true }, { name: 'tavsif', isPK: false }] });
     } else if (type === 'assoc-entity') {
       this.addEntity({ name: 'AssotsiativEntitiy', x: centerX, y: centerY, attributes: [{ name: 'ota1_id', isPK: true }, { name: 'ota2_id', isPK: true }, { name: 'sana', isPK: false }] });
+    } else if (type === 'table-recursive' || type === 'recursive-table' || type === 'recursive-entity') {
+      this.addRecursiveEntityOrLoop(centerX, centerY);
     } else if (type === 'rel-diamond') {
       this.addRelationship({ name: 'Aloqa', x: centerX, y: centerY });
     } else if (type === 'rel-identifying') {
@@ -2424,8 +2458,68 @@ class EERCanvasEngine {
       this.renderLinks();
       this.showToast(`2 ta magnit uchli chiziq tushirildi (${mult1}). Har ikkala chetini kerakli entitiyga ulab oling!`);
     }
-    this.triggerChange();
-    if (window.playSfx) window.playSfx('click');
+  addRecursiveEntityOrLoop(cx, cy) {
+    const isEn = window.I18N && window.I18N.getLang() === 'en';
+    const centerX = cx !== undefined ? cx : Math.round(-this.panX / this.zoom + (this.container.offsetWidth / 2) / this.zoom - 85);
+    const centerY = cy !== undefined ? cy : Math.round(-this.panY / this.zoom + (this.container.offsetHeight / 2) / this.zoom - 50);
+
+    // If an entity is currently selected on the canvas, add a recursive self-loop directly to it!
+    if (this.selectedNode && this.selectedType === 'entity') {
+      const sId = this.selectedNode.id || this.selectedNode.domId;
+      const existing = this.relationships.find(r => (r.fromEntityId === sId && r.toEntityId === sId) ||
+        ((r.fromEntityName || '').toLowerCase() === (this.selectedNode.name || '').toLowerCase() &&
+         (r.toEntityName || '').toLowerCase() === (this.selectedNode.name || '').toLowerCase()));
+      if (existing) {
+        this.showToast(isEn ? `'${this.selectedNode.name}' already has a recursive relationship!` : `'${this.selectedNode.name}' allaqachon rekursiv aloqaga ega!`);
+        return;
+      }
+      this.relationships.push({
+        id: 'rel_' + Math.random().toString(36).substr(2, 9),
+        name: isEn ? 'Self-Ref' : 'Rekursiv',
+        fromEntityId: sId,
+        toEntityId: sId,
+        fromEntityName: this.selectedNode.name,
+        toEntityName: this.selectedNode.name,
+        mult1: '',
+        mult2: '',
+        isDirect: true
+      });
+      this.renderLinks();
+      this.triggerChange();
+      if (window.playSfx) window.playSfx('success');
+      this.showToast(isEn ? `🔄 Recursive relationship attached to '${this.selectedNode.name}'!` : `🔄 '${this.selectedNode.name}' ga rekursiv aloqa muvaffaqiyatli ulandi!`);
+      return;
+    }
+
+    // Otherwise, create a new Recursive Entity with its self-loop
+    const ent = this.addEntity({
+      name: 'RekursivJadval',
+      x: centerX,
+      y: centerY,
+      attributes: [
+        { name: 'id', isPK: true },
+        { name: 'rahbar_id', isFK: true },
+        { name: 'nomi', isPK: false }
+      ]
+    });
+    if (ent) {
+      const entId = ent.id || ent.domId;
+      this.relationships.push({
+        id: 'rel_' + Math.random().toString(36).substr(2, 9),
+        name: isEn ? 'Self-Ref' : 'Rekursiv',
+        fromEntityId: entId,
+        toEntityId: entId,
+        fromEntityName: ent.name,
+        toEntityName: ent.name,
+        mult1: '',
+        mult2: '',
+        isDirect: true
+      });
+      this.renderLinks();
+      this.triggerChange();
+      if (window.playSfx) window.playSfx('success');
+      this.showToast(isEn ? `🔄 Recursive Table and self-loop added!` : `🔄 Rekursiv Jadval va o'ziga qaytuvchi aloqa chizig'i qo'shildi!`);
+    }
   }
 
   showToast(msg) {

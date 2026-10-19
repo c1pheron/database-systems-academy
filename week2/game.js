@@ -621,6 +621,14 @@
       });
     }
 
+    const btnAddRecursive = document.getElementById('eerBtnAddRecursive');
+    if (btnAddRecursive) {
+      btnAddRecursive.addEventListener('click', () => {
+        window.playSfx('click');
+        if (eerCanvas) eerCanvas.addRecursiveEntityOrLoop();
+      });
+    }
+
     // Default Button (Under Diagram & Top Toolbar)
     const btnW2Default = document.getElementById('btnW2Default');
     if (btnW2Default) {

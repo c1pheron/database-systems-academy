@@ -129,6 +129,9 @@
             <button class="eer-chip-btn" id="eerBtnToggleWeak" title="Tanlangan ob'ektni zaif (Weak) qilish">
               <span data-i18n="tool_toggle_weak">📦 Zaif Entitiy</span>
             </button>
+            <button class="eer-chip-btn" id="eerBtnAddRecursive" title="Rekursiv Jadval qo'shish yoki tanlangan entitiyga rekursiv aloqa ulash">
+              <span data-i18n="tool_add_recursive">🔄 Rekursiv Jadval</span>
+            </button>
           </div>
 
           <div class="eer-tool-group">
@@ -217,6 +220,16 @@
                   <div class="shape-card" data-shape="assoc-entity" title="Assotsiativ Entitiy">
                     <div class="shape-preview shape-assoc-preview">◇</div>
                     <span class="shape-label" data-i18n="shape_assoc_entity">Assotsiativ</span>
+                  </div>
+
+                  <!-- 8b. Rekursiv Jadval (Self-Referencing Table) -->
+                  <div class="shape-card" data-shape="table-recursive" title="Rekursiv Jadval (O'z-o'ziga bog'lanuvchi entitiy)">
+                    <div class="shape-preview shape-recursive-preview">
+                      <div class="shp-hdr"></div>
+                      <div class="shp-row pk"></div>
+                      <div class="shp-loop-badge">↺</div>
+                    </div>
+                    <span class="shape-label" data-i18n="shape_table_recursive">Rekursiv Jadval</span>
                   </div>
 
                   <!-- 9. Oddiy Atribut (Oval) -->

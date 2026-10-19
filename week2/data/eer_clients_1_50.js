@@ -60,7 +60,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Seller",
+          "entity2": "Product",
+          "fromEntityName": "Seller",
+          "toEntityName": "Product",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -81,8 +96,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Product",
           "fromEntityName": "Seller",
           "toEntityName": "Product",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -148,7 +168,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "User",
+          "entity2": "BankCard",
+          "fromEntityName": "User",
+          "toEntityName": "BankCard",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -169,8 +204,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "BankCard",
           "fromEntityName": "User",
           "toEntityName": "BankCard",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -236,7 +276,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Branch",
+          "entity2": "Cashier",
+          "fromEntityName": "Branch",
+          "toEntityName": "Cashier",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -257,8 +312,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Cashier",
           "fromEntityName": "Branch",
           "toEntityName": "Cashier",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -324,7 +384,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Driver",
+          "entity2": "Vehicle",
+          "fromEntityName": "Driver",
+          "toEntityName": "Vehicle",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -345,8 +420,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Vehicle",
           "fromEntityName": "Driver",
           "toEntityName": "Vehicle",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -412,7 +492,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Faculty",
+          "entity2": "Department",
+          "fromEntityName": "Faculty",
+          "toEntityName": "Department",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -433,8 +528,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Department",
           "fromEntityName": "Faculty",
           "toEntityName": "Department",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -500,7 +600,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "HospitalDept",
+          "entity2": "HeadDoctor",
+          "fromEntityName": "HospitalDept",
+          "toEntityName": "HeadDoctor",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -521,8 +636,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "HeadDoctor",
           "fromEntityName": "HospitalDept",
           "toEntityName": "HeadDoctor",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -588,7 +708,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Airline",
+          "entity2": "Aircraft",
+          "fromEntityName": "Airline",
+          "toEntityName": "Aircraft",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -609,8 +744,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Aircraft",
           "fromEntityName": "Airline",
           "toEntityName": "Aircraft",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -676,7 +816,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Hotel",
+          "entity2": "Room",
+          "fromEntityName": "Hotel",
+          "toEntityName": "Room",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -697,8 +852,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Room",
           "fromEntityName": "Hotel",
           "toEntityName": "Room",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -764,7 +924,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Incubator",
+          "entity2": "Manager",
+          "fromEntityName": "Incubator",
+          "toEntityName": "Manager",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -785,8 +960,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Manager",
           "fromEntityName": "Incubator",
           "toEntityName": "Manager",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -852,7 +1032,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Author",
+          "entity2": "Book",
+          "fromEntityName": "Author",
+          "toEntityName": "Book",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -873,8 +1068,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Book",
           "fromEntityName": "Author",
           "toEntityName": "Book",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -940,7 +1140,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Customer",
+          "entity2": "DepositAccount",
+          "fromEntityName": "Customer",
+          "toEntityName": "DepositAccount",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -961,8 +1176,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "DepositAccount",
           "fromEntityName": "Customer",
           "toEntityName": "DepositAccount",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1028,7 +1248,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "BusRoute",
+          "entity2": "CityBus",
+          "fromEntityName": "BusRoute",
+          "toEntityName": "CityBus",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1049,8 +1284,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "CityBus",
           "fromEntityName": "BusRoute",
           "toEntityName": "CityBus",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1116,7 +1356,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Dealership",
+          "entity2": "Automobile",
+          "fromEntityName": "Dealership",
+          "toEntityName": "Automobile",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1137,8 +1392,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Automobile",
           "fromEntityName": "Dealership",
           "toEntityName": "Automobile",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1204,7 +1464,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "SchoolClass",
+          "entity2": "ClassTeacher",
+          "fromEntityName": "SchoolClass",
+          "toEntityName": "ClassTeacher",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1225,8 +1500,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "ClassTeacher",
           "fromEntityName": "SchoolClass",
           "toEntityName": "ClassTeacher",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1292,7 +1572,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "CentralWarehouse",
+          "entity2": "PharmacyStore",
+          "fromEntityName": "CentralWarehouse",
+          "toEntityName": "PharmacyStore",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1313,8 +1608,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "PharmacyStore",
           "fromEntityName": "CentralWarehouse",
           "toEntityName": "PharmacyStore",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1402,7 +1702,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Customer",
+          "entity2": "Order",
+          "fromEntityName": "Customer",
+          "toEntityName": "Order",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Order",
+          "entity2": "Payment",
+          "fromEntityName": "Order",
+          "toEntityName": "Payment",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1428,16 +1757,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Order",
           "fromEntityName": "Customer",
           "toEntityName": "Order",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Order",
           "entity2": "Payment",
           "fromEntityName": "Order",
           "toEntityName": "Payment",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1525,7 +1864,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "User",
+          "entity2": "BankCard",
+          "fromEntityName": "User",
+          "toEntityName": "BankCard",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "BankCard",
+          "entity2": "Transaction",
+          "fromEntityName": "BankCard",
+          "toEntityName": "Transaction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1551,16 +1919,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "BankCard",
           "fromEntityName": "User",
           "toEntityName": "BankCard",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "BankCard",
           "entity2": "Transaction",
           "fromEntityName": "BankCard",
           "toEntityName": "Transaction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1648,7 +2026,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Passenger",
+          "entity2": "RideTrip",
+          "fromEntityName": "Passenger",
+          "toEntityName": "RideTrip",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Driver",
+          "entity2": "RideTrip",
+          "fromEntityName": "Driver",
+          "toEntityName": "RideTrip",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1674,16 +2081,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "RideTrip",
           "fromEntityName": "Passenger",
           "toEntityName": "RideTrip",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Driver",
           "entity2": "RideTrip",
           "fromEntityName": "Driver",
           "toEntityName": "RideTrip",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1767,7 +2184,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Department",
+          "entity2": "Module",
+          "fromEntityName": "Department",
+          "toEntityName": "Module",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Module",
+          "entity2": "Coursework",
+          "fromEntityName": "Module",
+          "toEntityName": "Coursework",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1793,16 +2239,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Module",
           "fromEntityName": "Department",
           "toEntityName": "Module",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Module",
           "entity2": "Coursework",
           "fromEntityName": "Module",
           "toEntityName": "Coursework",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1886,7 +2342,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Company",
+          "entity2": "Department",
+          "fromEntityName": "Company",
+          "toEntityName": "Department",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Department",
+          "entity2": "Manager",
+          "fromEntityName": "Department",
+          "toEntityName": "Manager",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1912,16 +2397,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Department",
           "fromEntityName": "Company",
           "toEntityName": "Department",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Department",
           "entity2": "Manager",
           "fromEntityName": "Department",
           "toEntityName": "Manager",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2009,7 +2504,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Patient",
+          "entity2": "MedicalCard",
+          "fromEntityName": "Patient",
+          "toEntityName": "MedicalCard",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Doctor",
+          "entity2": "MedicalCard",
+          "fromEntityName": "Doctor",
+          "toEntityName": "MedicalCard",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2035,16 +2559,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "MedicalCard",
           "fromEntityName": "Patient",
           "toEntityName": "MedicalCard",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Doctor",
           "entity2": "MedicalCard",
           "fromEntityName": "Doctor",
           "toEntityName": "MedicalCard",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2132,7 +2666,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Branch",
+          "entity2": "RentalCar",
+          "fromEntityName": "Branch",
+          "toEntityName": "RentalCar",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "RentalCar",
+          "entity2": "RentalContract",
+          "fromEntityName": "RentalCar",
+          "toEntityName": "RentalContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2158,16 +2721,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "RentalCar",
           "fromEntityName": "Branch",
           "toEntityName": "RentalCar",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "RentalCar",
           "entity2": "RentalContract",
           "fromEntityName": "RentalCar",
           "toEntityName": "RentalContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2255,7 +2828,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Flight",
+          "entity2": "Booking",
+          "fromEntityName": "Flight",
+          "toEntityName": "Booking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Passenger",
+          "entity2": "Booking",
+          "fromEntityName": "Passenger",
+          "toEntityName": "Booking",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2281,16 +2883,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Booking",
           "fromEntityName": "Flight",
           "toEntityName": "Booking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Passenger",
           "entity2": "Booking",
           "fromEntityName": "Passenger",
           "toEntityName": "Booking",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2378,7 +2990,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Guest",
+          "entity2": "Reservation",
+          "fromEntityName": "Guest",
+          "toEntityName": "Reservation",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Room",
+          "entity2": "Reservation",
+          "fromEntityName": "Room",
+          "toEntityName": "Reservation",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2404,16 +3045,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Reservation",
           "fromEntityName": "Guest",
           "toEntityName": "Reservation",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Room",
           "entity2": "Reservation",
           "fromEntityName": "Room",
           "toEntityName": "Reservation",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2497,7 +3148,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Project",
+          "entity2": "Sprint",
+          "fromEntityName": "Project",
+          "toEntityName": "Sprint",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Sprint",
+          "entity2": "IssueTask",
+          "fromEntityName": "Sprint",
+          "toEntityName": "IssueTask",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2523,16 +3203,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Sprint",
           "fromEntityName": "Project",
           "toEntityName": "Sprint",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Sprint",
           "entity2": "IssueTask",
           "fromEntityName": "Sprint",
           "toEntityName": "IssueTask",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2630,7 +3320,50 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "BankBranch",
+          "entity2": "LoanOfficer",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "LoanOfficer",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "LoanOfficer",
+          "entity2": "LoanAccount",
+          "fromEntityName": "LoanOfficer",
+          "toEntityName": "LoanAccount",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "Aloqa",
+          "entity1": "Borrower",
+          "entity2": "LoanAccount",
+          "fromEntityName": "Borrower",
+          "toEntityName": "LoanAccount",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2661,24 +3394,39 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "LoanOfficer",
           "fromEntityName": "BankBranch",
           "toEntityName": "LoanOfficer",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "LoanOfficer",
           "entity2": "LoanAccount",
           "fromEntityName": "LoanOfficer",
           "toEntityName": "LoanAccount",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Borrower",
           "entity2": "LoanAccount",
           "fromEntityName": "Borrower",
           "toEntityName": "LoanAccount",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2776,7 +3524,50 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Store",
+          "entity2": "Cashier",
+          "fromEntityName": "Store",
+          "toEntityName": "Cashier",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Cashier",
+          "entity2": "Receipt",
+          "fromEntityName": "Cashier",
+          "toEntityName": "Receipt",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "Aloqa",
+          "entity1": "Customer",
+          "entity2": "Receipt",
+          "fromEntityName": "Customer",
+          "toEntityName": "Receipt",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2807,24 +3598,39 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Cashier",
           "fromEntityName": "Store",
           "toEntityName": "Cashier",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Cashier",
           "entity2": "Receipt",
           "fromEntityName": "Cashier",
           "toEntityName": "Receipt",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Customer",
           "entity2": "Receipt",
           "fromEntityName": "Customer",
           "toEntityName": "Receipt",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2912,7 +3718,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Owner",
+          "entity2": "Property",
+          "fromEntityName": "Owner",
+          "toEntityName": "Property",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "EstateAgent",
+          "entity2": "Property",
+          "fromEntityName": "EstateAgent",
+          "toEntityName": "Property",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2938,16 +3773,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Property",
           "fromEntityName": "Owner",
           "toEntityName": "Property",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "EstateAgent",
           "entity2": "Property",
           "fromEntityName": "EstateAgent",
           "toEntityName": "Property",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3035,7 +3880,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Student",
+          "entity2": "BookLoan",
+          "fromEntityName": "Student",
+          "toEntityName": "BookLoan",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "BookCopy",
+          "entity2": "BookLoan",
+          "fromEntityName": "BookCopy",
+          "toEntityName": "BookLoan",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3061,16 +3935,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "BookLoan",
           "fromEntityName": "Student",
           "toEntityName": "BookLoan",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "BookCopy",
           "entity2": "BookLoan",
           "fromEntityName": "BookCopy",
           "toEntityName": "BookLoan",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3180,7 +4064,50 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Warehouse",
+          "entity2": "CargoTruck",
+          "fromEntityName": "Warehouse",
+          "toEntityName": "CargoTruck",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "CargoTruck",
+          "entity2": "Driver",
+          "fromEntityName": "CargoTruck",
+          "toEntityName": "Driver",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "Aloqa",
+          "entity1": "CargoTruck",
+          "entity2": "DeliveryRoute",
+          "fromEntityName": "CargoTruck",
+          "toEntityName": "DeliveryRoute",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3211,24 +4138,39 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "CargoTruck",
           "fromEntityName": "Warehouse",
           "toEntityName": "CargoTruck",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "CargoTruck",
           "entity2": "Driver",
           "fromEntityName": "CargoTruck",
           "toEntityName": "Driver",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "CargoTruck",
           "entity2": "DeliveryRoute",
           "fromEntityName": "CargoTruck",
           "toEntityName": "DeliveryRoute",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Aloqa",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3290,7 +4232,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Hotel",
+          "entity2": "HotelRoom",
+          "fromEntityName": "Hotel",
+          "toEntityName": "HotelRoom",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3311,8 +4268,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "HotelRoom",
           "fromEntityName": "Hotel",
           "toEntityName": "HotelRoom",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3374,7 +4336,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Order",
+          "entity2": "OrderItem",
+          "fromEntityName": "Order",
+          "toEntityName": "OrderItem",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3395,8 +4372,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "OrderItem",
           "fromEntityName": "Order",
           "toEntityName": "OrderItem",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3454,7 +4436,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Building",
+          "entity2": "Floor",
+          "fromEntityName": "Building",
+          "toEntityName": "Floor",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3475,8 +4472,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Floor",
           "fromEntityName": "Building",
           "toEntityName": "Floor",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3538,7 +4540,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Employee",
+          "entity2": "Dependent",
+          "fromEntityName": "Employee",
+          "toEntityName": "Dependent",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3559,8 +4576,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Dependent",
           "fromEntityName": "Employee",
           "toEntityName": "Dependent",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3622,7 +4644,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "BankAccount",
+          "entity2": "AccountStatement",
+          "fromEntityName": "BankAccount",
+          "toEntityName": "AccountStatement",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3643,8 +4680,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "AccountStatement",
           "fromEntityName": "BankAccount",
           "toEntityName": "AccountStatement",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3706,7 +4748,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Flight",
+          "entity2": "FlightLeg",
+          "fromEntityName": "Flight",
+          "toEntityName": "FlightLeg",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3727,8 +4784,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "FlightLeg",
           "fromEntityName": "Flight",
           "toEntityName": "FlightLeg",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3790,7 +4852,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "HospitalWard",
+          "entity2": "WardBed",
+          "fromEntityName": "HospitalWard",
+          "toEntityName": "WardBed",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3811,8 +4888,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "WardBed",
           "fromEntityName": "HospitalWard",
           "toEntityName": "WardBed",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3874,7 +4956,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "PublishingBook",
+          "entity2": "BookChapter",
+          "fromEntityName": "PublishingBook",
+          "toEntityName": "BookChapter",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3895,8 +4992,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "BookChapter",
           "fromEntityName": "PublishingBook",
           "toEntityName": "BookChapter",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3958,7 +5060,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "CargoShip",
+          "entity2": "CargoContainer",
+          "fromEntityName": "CargoShip",
+          "toEntityName": "CargoContainer",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3979,8 +5096,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "CargoContainer",
           "fromEntityName": "CargoShip",
           "toEntityName": "CargoContainer",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -4042,7 +5164,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "UniversityCourse",
+          "entity2": "CourseSection",
+          "fromEntityName": "UniversityCourse",
+          "toEntityName": "CourseSection",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4063,8 +5200,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "CourseSection",
           "fromEntityName": "UniversityCourse",
           "toEntityName": "CourseSection",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -4126,7 +5268,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Prescription",
+          "entity2": "DoseSchedule",
+          "fromEntityName": "Prescription",
+          "toEntityName": "DoseSchedule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4147,8 +5304,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "DoseSchedule",
           "fromEntityName": "Prescription",
           "toEntityName": "DoseSchedule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -4210,7 +5372,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "WarehouseAisle",
+          "entity2": "StorageBin",
+          "fromEntityName": "WarehouseAisle",
+          "toEntityName": "StorageBin",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4231,8 +5408,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "StorageBin",
           "fromEntityName": "WarehouseAisle",
           "toEntityName": "StorageBin",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -4294,7 +5476,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "SoftwareProject",
+          "entity2": "ProjectMilestone",
+          "fromEntityName": "SoftwareProject",
+          "toEntityName": "ProjectMilestone",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4315,8 +5512,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "ProjectMilestone",
           "fromEntityName": "SoftwareProject",
           "toEntityName": "ProjectMilestone",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -4378,7 +5580,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Conference",
+          "entity2": "ConferenceSession",
+          "fromEntityName": "Conference",
+          "toEntityName": "ConferenceSession",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4399,8 +5616,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "ConferenceSession",
           "fromEntityName": "Conference",
           "toEntityName": "ConferenceSession",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -4462,7 +5684,22 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "CellTower",
+          "entity2": "AntennaSector",
+          "fromEntityName": "CellTower",
+          "toEntityName": "AntennaSector",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": true,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4483,8 +5720,13 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "AntennaSector",
           "fromEntityName": "CellTower",
           "toEntityName": "AntennaSector",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Aloqa",
           "isIdentifying": true,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -4548,7 +5790,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Conducts",
+          "entity1": "Doctor",
+          "entity2": "Appointment",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Appointment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Attends",
+          "entity1": "Patient",
+          "entity2": "Appointment",
+          "fromEntityName": "Patient",
+          "toEntityName": "Appointment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4571,16 +5842,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Appointment",
           "fromEntityName": "Doctor",
           "toEntityName": "Appointment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Conducts",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Patient",
           "entity2": "Appointment",
           "fromEntityName": "Patient",
           "toEntityName": "Appointment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Attends",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -4644,7 +5925,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EnrollsIn",
+          "entity1": "Student",
+          "entity2": "Enrollment",
+          "fromEntityName": "Student",
+          "toEntityName": "Enrollment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Includes",
+          "entity1": "CourseModule",
+          "entity2": "Enrollment",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Enrollment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4667,16 +5977,26 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Enrollment",
           "fromEntityName": "Student",
           "toEntityName": "Enrollment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EnrollsIn",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Course",
+          "entity1": "CourseModule",
           "entity2": "Enrollment",
-          "fromEntityName": "Course",
+          "fromEntityName": "CourseModule",
           "toEntityName": "Enrollment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Includes",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -4740,7 +6060,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Assigned",
+          "entity1": "SoftwareEngineer",
+          "entity2": "ProjectAssignment",
+          "fromEntityName": "SoftwareEngineer",
+          "toEntityName": "ProjectAssignment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ComposedOf",
+          "entity1": "ClientProject",
+          "entity2": "ProjectAssignment",
+          "fromEntityName": "ClientProject",
+          "toEntityName": "ProjectAssignment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4759,20 +6108,30 @@ _scope.EER_CLIENTS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "Developer",
+          "entity1": "SoftwareEngineer",
           "entity2": "ProjectAssignment",
-          "fromEntityName": "Developer",
+          "fromEntityName": "SoftwareEngineer",
           "toEntityName": "ProjectAssignment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Assigned",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Project",
+          "entity1": "ClientProject",
           "entity2": "ProjectAssignment",
-          "fromEntityName": "Project",
+          "fromEntityName": "ClientProject",
           "toEntityName": "ProjectAssignment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ComposedOf",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -4836,7 +6195,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Supplies",
+          "entity1": "WholesaleSupplier",
+          "entity2": "SupplyContract",
+          "fromEntityName": "WholesaleSupplier",
+          "toEntityName": "SupplyContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "SuppliedUnder",
+          "entity1": "WarehouseProduct",
+          "entity2": "SupplyContract",
+          "fromEntityName": "WarehouseProduct",
+          "toEntityName": "SupplyContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4855,20 +6243,30 @@ _scope.EER_CLIENTS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "Supplier",
+          "entity1": "WholesaleSupplier",
           "entity2": "SupplyContract",
-          "fromEntityName": "Supplier",
+          "fromEntityName": "WholesaleSupplier",
           "toEntityName": "SupplyContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Supplies",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Part",
+          "entity1": "WarehouseProduct",
           "entity2": "SupplyContract",
-          "fromEntityName": "Part",
+          "fromEntityName": "WarehouseProduct",
           "toEntityName": "SupplyContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "SuppliedUnder",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -4932,7 +6330,36 @@ _scope.EER_CLIENTS_1_50 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Writes",
+          "entity1": "RetailCustomer",
+          "entity2": "ProductReview",
+          "fromEntityName": "RetailCustomer",
+          "toEntityName": "ProductReview",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "EvaluatedBy",
+          "entity1": "StoreProduct",
+          "entity2": "ProductReview",
+          "fromEntityName": "StoreProduct",
+          "toEntityName": "ProductReview",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -4951,20 +6378,30 @@ _scope.EER_CLIENTS_1_50 = [
       ],
       "relationships": [
         {
-          "entity1": "Customer",
+          "entity1": "RetailCustomer",
           "entity2": "ProductReview",
-          "fromEntityName": "Customer",
+          "fromEntityName": "RetailCustomer",
           "toEntityName": "ProductReview",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Writes",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Product",
+          "entity1": "StoreProduct",
           "entity2": "ProductReview",
-          "fromEntityName": "Product",
+          "fromEntityName": "StoreProduct",
           "toEntityName": "ProductReview",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EvaluatedBy",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },

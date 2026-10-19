@@ -1727,6 +1727,32 @@ input, textarea, select, [contenteditable="true"] {
 .shape-table-preview .shp-row { width: 100%; height: 4px; background: rgba(255, 255, 255, 0.15); }
 .shape-table-preview .shp-row.pk { background: rgba(223, 194, 136, 0.4); }
 
+.shape-recursive-preview {
+  position: relative;
+  flex-direction: column;
+  padding: 1px;
+  gap: 1px;
+}
+.shape-recursive-preview .shp-hdr { width: 100%; height: 6px; background: var(--accent-gold); border-radius: 1px; }
+.shape-recursive-preview .shp-row { width: 100%; height: 4px; background: rgba(255, 255, 255, 0.15); }
+.shape-recursive-preview .shp-row.pk { background: rgba(223, 194, 136, 0.4); }
+.shape-recursive-preview .shp-loop-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent-gold);
+  color: #191411;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
 .shape-weak-preview {
   border: 2px double var(--accent-gold);
 }

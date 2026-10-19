@@ -3,6057 +3,4911 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 51,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Tourist va TourPackage Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'TourBooking' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'touristId' [FK1] va 'tourpackageId' [FK2] sifatida kiritiladi.",
-    "instruction": "'TourBooking' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Tourist' hamda 'TourPackage' jadvallariga bog'lang.",
+    "floor": 4,
+    "difficulty": "Floor 4 • Intermediate",
+    "clientName": "Biznes Hamkor #51",
+    "clientRole": "Tizim Tahlilchisi",
+    "clientAvatar": "retailer",
+    "title": "Aktyor va Film: 'ActsIn' Aloqasi (Role Atributi)",
+    "story": "'Actor' va 'Movie' o'rtasida ko'pdan-ko'pga 'ActsIn' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
+    "taskUz": "Model 'Actor' and 'Movie' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Tourist",
-          "pk": "passportNumber",
+          "name": "Actor",
+          "x": 120,
+          "y": 150,
           "attributes": [
             {
-              "name": "passportNumber",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "touristName",
-              "isPK": false
-            },
-            {
-              "name": "citizenship",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
+              "name": "name"
             }
           ]
         },
         {
-          "name": "TourPackage",
-          "pk": "packageCode",
+          "name": "Movie",
+          "x": 480,
+          "y": 150,
           "attributes": [
             {
-              "name": "packageCode",
+              "name": "code",
               "isPK": true
             },
             {
-              "name": "destinationCity",
-              "isPK": false
-            },
-            {
-              "name": "durationDays",
-              "isPK": false
-            },
-            {
-              "name": "basePrice",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "TourBooking",
-          "pk": "bookingRef",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "bookingRef",
-              "isPK": true
-            },
-            {
-              "name": "travelDate",
-              "isPK": false
-            },
-            {
-              "name": "adultCount",
-              "isPK": false
-            },
-            {
-              "name": "specialMealRequest",
-              "isPK": false
+              "name": "title"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Tourist",
-          "entity2": "TourBooking",
+          "id": "rel_1",
+          "name": "Books",
+          "entity1": "FlightPassenger",
+          "entity2": "FlightBooking",
+          "fromEntityName": "FlightPassenger",
+          "toEntityName": "FlightBooking",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "TourPackage",
-          "entity2": "TourBooking",
+          "id": "rel_2",
+          "name": "Carries",
+          "entity1": "ScheduledFlight",
+          "entity2": "FlightBooking",
+          "fromEntityName": "ScheduledFlight",
+          "toEntityName": "FlightBooking",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Tourist",
-          "pk": "passportNumber",
-          "attributes": [
-            {
-              "name": "passportNumber",
-              "isPK": true
-            },
-            {
-              "name": "touristName",
-              "isPK": false
-            },
-            {
-              "name": "citizenship",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            }
-          ]
+          "name": "Actor",
+          "pk": "id"
         },
         {
-          "name": "TourPackage",
-          "pk": "packageCode",
-          "attributes": [
-            {
-              "name": "packageCode",
-              "isPK": true
-            },
-            {
-              "name": "destinationCity",
-              "isPK": false
-            },
-            {
-              "name": "durationDays",
-              "isPK": false
-            },
-            {
-              "name": "basePrice",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "TourBooking",
-          "pk": "bookingRef",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "bookingRef",
-              "isPK": true
-            },
-            {
-              "name": "travelDate",
-              "isPK": false
-            },
-            {
-              "name": "adultCount",
-              "isPK": false
-            },
-            {
-              "name": "specialMealRequest",
-              "isPK": false
-            }
-          ]
+          "name": "Movie",
+          "pk": "code"
         }
       ],
       "relationships": [
         {
-          "entity1": "Tourist",
-          "entity2": "TourBooking",
-          "name": "InvolvedIn"
+          "entity1": "FlightPassenger",
+          "entity2": "FlightBooking",
+          "fromEntityName": "FlightPassenger",
+          "toEntityName": "FlightBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Books",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "TourPackage",
-          "entity2": "TourBooking",
-          "name": "SubjectOf"
+          "entity1": "ScheduledFlight",
+          "entity2": "FlightBooking",
+          "fromEntityName": "ScheduledFlight",
+          "toEntityName": "FlightBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Carries",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Actor' (0..*) to 'Movie' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Actor' (0..*) and 'Movie' (0..*) verified and approved.",
+    "task": "Model 'Actor' and 'Movie' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 52,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Musician va Track Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'TrackContribution' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'musicianId' [FK1] va 'trackId' [FK2] sifatida kiritiladi.",
-    "instruction": "'TrackContribution' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Musician' hamda 'Track' jadvallariga bog'lang.",
+    "floor": 4,
+    "difficulty": "Floor 4 • Intermediate",
+    "clientName": "Biznes Hamkor #52",
+    "clientRole": "Tizim Tahlilchisi",
+    "clientAvatar": "retailer",
+    "title": "Foydalanuvchi va Guruh: 'MemberOf' Aloqasi (JoinedDate Atributi)",
+    "story": "'User' va 'UserGroup' o'rtasida ko'pdan-ko'pga 'MemberOf' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
+    "taskUz": "Model 'User' and 'UserGroup' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Musician",
-          "pk": "artistId",
+          "name": "User",
+          "x": 120,
+          "y": 150,
           "attributes": [
             {
-              "name": "artistId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "stageName",
-              "isPK": false
-            },
-            {
-              "name": "instrument",
-              "isPK": false
-            },
-            {
-              "name": "genre",
-              "isPK": false
+              "name": "name"
             }
           ]
         },
         {
-          "name": "Track",
-          "pk": "isrcCode",
+          "name": "UserGroup",
+          "x": 480,
+          "y": 150,
           "attributes": [
             {
-              "name": "isrcCode",
+              "name": "code",
               "isPK": true
             },
             {
-              "name": "trackTitle",
-              "isPK": false
-            },
-            {
-              "name": "durationSeconds",
-              "isPK": false
-            },
-            {
-              "name": "bpmTempo",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "TrackContribution",
-          "pk": "contribId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "contribId",
-              "isPK": true
-            },
-            {
-              "name": "roleType",
-              "isPK": false
-            },
-            {
-              "name": "royaltySplitRatio",
-              "isPK": false
-            },
-            {
-              "name": "recordingStudio",
-              "isPK": false
+              "name": "title"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Musician",
-          "entity2": "TrackContribution",
+          "id": "rel_1",
+          "name": "Borrows",
+          "entity1": "OnlineReader",
+          "entity2": "BookRental",
+          "fromEntityName": "OnlineReader",
+          "toEntityName": "BookRental",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Track",
-          "entity2": "TrackContribution",
+          "id": "rel_2",
+          "name": "RentedVia",
+          "entity1": "LibraryBook",
+          "entity2": "BookRental",
+          "fromEntityName": "LibraryBook",
+          "toEntityName": "BookRental",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Musician",
-          "pk": "artistId",
-          "attributes": [
-            {
-              "name": "artistId",
-              "isPK": true
-            },
-            {
-              "name": "stageName",
-              "isPK": false
-            },
-            {
-              "name": "instrument",
-              "isPK": false
-            },
-            {
-              "name": "genre",
-              "isPK": false
-            }
-          ]
+          "name": "User",
+          "pk": "id"
         },
         {
-          "name": "Track",
-          "pk": "isrcCode",
-          "attributes": [
-            {
-              "name": "isrcCode",
-              "isPK": true
-            },
-            {
-              "name": "trackTitle",
-              "isPK": false
-            },
-            {
-              "name": "durationSeconds",
-              "isPK": false
-            },
-            {
-              "name": "bpmTempo",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "TrackContribution",
-          "pk": "contribId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "contribId",
-              "isPK": true
-            },
-            {
-              "name": "roleType",
-              "isPK": false
-            },
-            {
-              "name": "royaltySplitRatio",
-              "isPK": false
-            },
-            {
-              "name": "recordingStudio",
-              "isPK": false
-            }
-          ]
+          "name": "UserGroup",
+          "pk": "code"
         }
       ],
       "relationships": [
         {
-          "entity1": "Musician",
-          "entity2": "TrackContribution",
-          "name": "InvolvedIn"
+          "entity1": "OnlineReader",
+          "entity2": "BookRental",
+          "fromEntityName": "OnlineReader",
+          "toEntityName": "BookRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Borrows",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Track",
-          "entity2": "TrackContribution",
-          "name": "SubjectOf"
+          "entity1": "LibraryBook",
+          "entity2": "BookRental",
+          "fromEntityName": "LibraryBook",
+          "toEntityName": "BookRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "RentedVia",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'User' (0..*) to 'UserGroup' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'User' (0..*) and 'UserGroup' (0..*) verified and approved.",
+    "task": "Model 'User' and 'UserGroup' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 53,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Actor va Film Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'CastingContract' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'actorId' [FK1] va 'filmId' [FK2] sifatida kiritiladi.",
-    "instruction": "'CastingContract' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Actor' hamda 'Film' jadvallariga bog'lang.",
+    "floor": 4,
+    "difficulty": "Floor 4 • Intermediate",
+    "clientName": "Biznes Hamkor #53",
+    "clientRole": "Tizim Tahlilchisi",
+    "clientAvatar": "retailer",
+    "title": "Avtomobil va Xizmat Safari: 'Drives' Aloqasi (Mileage Atributi)",
+    "story": "'Driver' va 'Route' o'rtasida ko'pdan-ko'pga 'Drives' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
+    "taskUz": "Model 'Driver' and 'Route' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Actor",
-          "pk": "actorCardId",
+          "name": "Driver",
+          "x": 120,
+          "y": 150,
           "attributes": [
             {
-              "name": "actorCardId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "realName",
-              "isPK": false
-            },
-            {
-              "name": "agentContact",
-              "isPK": false
-            },
-            {
-              "name": "actingUnionId",
-              "isPK": false
+              "name": "name"
             }
           ]
         },
         {
-          "name": "Film",
-          "pk": "filmCode",
+          "name": "Route",
+          "x": 480,
+          "y": 150,
           "attributes": [
             {
-              "name": "filmCode",
+              "name": "code",
               "isPK": true
             },
             {
-              "name": "filmTitle",
-              "isPK": false
-            },
-            {
-              "name": "producerName",
-              "isPK": false
-            },
-            {
-              "name": "shootingStartYear",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "CastingContract",
-          "pk": "contractNo",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "contractNo",
-              "isPK": true
-            },
-            {
-              "name": "characterName",
-              "isPK": false
-            },
-            {
-              "name": "compensationSum",
-              "isPK": false
-            },
-            {
-              "name": "isLeadRole",
-              "isPK": false
+              "name": "title"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Actor",
-          "entity2": "CastingContract",
+          "id": "rel_1",
+          "name": "Takes",
+          "entity1": "CandidateStudent",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CandidateStudent",
+          "toEntityName": "ExamAttempt",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Film",
-          "entity2": "CastingContract",
+          "id": "rel_2",
+          "name": "Evaluates",
+          "entity1": "CertificationExam",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CertificationExam",
+          "toEntityName": "ExamAttempt",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Actor",
-          "pk": "actorCardId",
-          "attributes": [
-            {
-              "name": "actorCardId",
-              "isPK": true
-            },
-            {
-              "name": "realName",
-              "isPK": false
-            },
-            {
-              "name": "agentContact",
-              "isPK": false
-            },
-            {
-              "name": "actingUnionId",
-              "isPK": false
-            }
-          ]
+          "name": "Driver",
+          "pk": "id"
         },
         {
-          "name": "Film",
-          "pk": "filmCode",
-          "attributes": [
-            {
-              "name": "filmCode",
-              "isPK": true
-            },
-            {
-              "name": "filmTitle",
-              "isPK": false
-            },
-            {
-              "name": "producerName",
-              "isPK": false
-            },
-            {
-              "name": "shootingStartYear",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "CastingContract",
-          "pk": "contractNo",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "contractNo",
-              "isPK": true
-            },
-            {
-              "name": "characterName",
-              "isPK": false
-            },
-            {
-              "name": "compensationSum",
-              "isPK": false
-            },
-            {
-              "name": "isLeadRole",
-              "isPK": false
-            }
-          ]
+          "name": "Route",
+          "pk": "code"
         }
       ],
       "relationships": [
         {
-          "entity1": "Actor",
-          "entity2": "CastingContract",
-          "name": "InvolvedIn"
+          "entity1": "CandidateStudent",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CandidateStudent",
+          "toEntityName": "ExamAttempt",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Takes",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Film",
-          "entity2": "CastingContract",
-          "name": "SubjectOf"
+          "entity1": "CertificationExam",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CertificationExam",
+          "toEntityName": "ExamAttempt",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Evaluates",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Driver' (0..*) to 'Route' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Driver' (0..*) and 'Route' (0..*) verified and approved.",
+    "task": "Model 'Driver' and 'Route' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 54,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Truck va Route Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'DeliveryTrip' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'truckId' [FK1] va 'routeId' [FK2] sifatida kiritiladi.",
-    "instruction": "'DeliveryTrip' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Truck' hamda 'Route' jadvallariga bog'lang.",
+    "floor": 4,
+    "difficulty": "Floor 4 • Intermediate",
+    "clientName": "Biznes Hamkor #54",
+    "clientRole": "Tizim Tahlilchisi",
+    "clientAvatar": "retailer",
+    "title": "Dasturchi va Repozitoriy: 'Contributes' Aloqasi (Commits Atributi)",
+    "story": "'Developer' va 'Repository' o'rtasida ko'pdan-ko'pga 'Contributes' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
+    "taskUz": "Model 'Developer' and 'Repository' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Truck",
-          "pk": "truckPlate",
+          "name": "Developer",
+          "x": 120,
+          "y": 150,
           "attributes": [
             {
-              "name": "truckPlate",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "model",
-              "isPK": false
-            },
-            {
-              "name": "maxPayloadTons",
-              "isPK": false
-            },
-            {
-              "name": "odometerKm",
-              "isPK": false
+              "name": "name"
             }
           ]
         },
         {
-          "name": "Route",
-          "pk": "routeId",
+          "name": "Repository",
+          "x": 480,
+          "y": 150,
           "attributes": [
             {
-              "name": "routeId",
+              "name": "code",
               "isPK": true
             },
             {
-              "name": "originHub",
-              "isPK": false
-            },
-            {
-              "name": "destHub",
-              "isPK": false
-            },
-            {
-              "name": "distanceKm",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "DeliveryTrip",
-          "pk": "tripTicketNo",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "tripTicketNo",
-              "isPK": true
-            },
-            {
-              "name": "dispatchTime",
-              "isPK": false
-            },
-            {
-              "name": "fuelLitersUsed",
-              "isPK": false
-            },
-            {
-              "name": "driverStaffId",
-              "isPK": false
+              "name": "title"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Truck",
-          "entity2": "DeliveryTrip",
+          "id": "rel_1",
+          "name": "Prescribes",
+          "entity1": "TreatingDoctor",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "TreatingDoctor",
+          "toEntityName": "PrescriptionItem",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Route",
-          "entity2": "DeliveryTrip",
+          "id": "rel_2",
+          "name": "PrescribedIn",
+          "entity1": "MedicationDrug",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "MedicationDrug",
+          "toEntityName": "PrescriptionItem",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Truck",
-          "pk": "truckPlate",
-          "attributes": [
-            {
-              "name": "truckPlate",
-              "isPK": true
-            },
-            {
-              "name": "model",
-              "isPK": false
-            },
-            {
-              "name": "maxPayloadTons",
-              "isPK": false
-            },
-            {
-              "name": "odometerKm",
-              "isPK": false
-            }
-          ]
+          "name": "Developer",
+          "pk": "id"
         },
         {
-          "name": "Route",
-          "pk": "routeId",
-          "attributes": [
-            {
-              "name": "routeId",
-              "isPK": true
-            },
-            {
-              "name": "originHub",
-              "isPK": false
-            },
-            {
-              "name": "destHub",
-              "isPK": false
-            },
-            {
-              "name": "distanceKm",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "DeliveryTrip",
-          "pk": "tripTicketNo",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "tripTicketNo",
-              "isPK": true
-            },
-            {
-              "name": "dispatchTime",
-              "isPK": false
-            },
-            {
-              "name": "fuelLitersUsed",
-              "isPK": false
-            },
-            {
-              "name": "driverStaffId",
-              "isPK": false
-            }
-          ]
+          "name": "Repository",
+          "pk": "code"
         }
       ],
       "relationships": [
         {
-          "entity1": "Truck",
-          "entity2": "DeliveryTrip",
-          "name": "InvolvedIn"
+          "entity1": "TreatingDoctor",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "TreatingDoctor",
+          "toEntityName": "PrescriptionItem",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Prescribes",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Route",
-          "entity2": "DeliveryTrip",
-          "name": "SubjectOf"
+          "entity1": "MedicationDrug",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "MedicationDrug",
+          "toEntityName": "PrescriptionItem",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "PrescribedIn",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Developer' (0..*) to 'Repository' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Developer' (0..*) and 'Repository' (0..*) verified and approved.",
+    "task": "Model 'Developer' and 'Repository' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 55,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Product va RawMaterial Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'BillOfMaterial' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'productId' [FK1] va 'rawmaterialId' [FK2] sifatida kiritiladi.",
-    "instruction": "'BillOfMaterial' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Product' hamda 'RawMaterial' jadvallariga bog'lang.",
+    "floor": 4,
+    "difficulty": "Floor 4 • Intermediate",
+    "clientName": "Biznes Hamkor #55",
+    "clientRole": "Tizim Tahlilchisi",
+    "clientAvatar": "retailer",
+    "title": "Sayyoh va Mehmonxona: 'StaysAt' Aloqasi (CheckIn Atributi)",
+    "story": "'Tourist' va 'Hotel' o'rtasida ko'pdan-ko'pga 'StaysAt' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
+    "taskUz": "Model 'Tourist' and 'Hotel' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Product",
-          "pk": "productNo",
+          "name": "Tourist",
+          "x": 120,
+          "y": 150,
           "attributes": [
             {
-              "name": "productNo",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "name",
-              "isPK": false
-            },
-            {
-              "name": "retailPrice",
-              "isPK": false
-            },
-            {
-              "name": "manufacturingTimeHours",
-              "isPK": false
+              "name": "name"
             }
           ]
         },
         {
-          "name": "RawMaterial",
-          "pk": "materialCode",
+          "name": "Hotel",
+          "x": 480,
+          "y": 150,
           "attributes": [
             {
-              "name": "materialCode",
+              "name": "code",
               "isPK": true
             },
             {
-              "name": "materialName",
-              "isPK": false
-            },
-            {
-              "name": "unitOfMeasure",
-              "isPK": false
-            },
-            {
-              "name": "costPerUnit",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BillOfMaterial",
-          "pk": "bomItemId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "bomItemId",
-              "isPK": true
-            },
-            {
-              "name": "requiredQuantity",
-              "isPK": false
-            },
-            {
-              "name": "wastageTolerancePercent",
-              "isPK": false
-            },
-            {
-              "name": "assemblySequenceNo",
-              "isPK": false
+              "name": "title"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Product",
-          "entity2": "BillOfMaterial",
+          "id": "rel_1",
+          "name": "Reserves",
+          "entity1": "CorporateClient",
+          "entity2": "HallBooking",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "HallBooking",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "RawMaterial",
-          "entity2": "BillOfMaterial",
+          "id": "rel_2",
+          "name": "ReservedBy",
+          "entity1": "ConferenceHall",
+          "entity2": "HallBooking",
+          "fromEntityName": "ConferenceHall",
+          "toEntityName": "HallBooking",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Product",
-          "pk": "productNo",
-          "attributes": [
-            {
-              "name": "productNo",
-              "isPK": true
-            },
-            {
-              "name": "name",
-              "isPK": false
-            },
-            {
-              "name": "retailPrice",
-              "isPK": false
-            },
-            {
-              "name": "manufacturingTimeHours",
-              "isPK": false
-            }
-          ]
+          "name": "Tourist",
+          "pk": "id"
         },
         {
-          "name": "RawMaterial",
-          "pk": "materialCode",
-          "attributes": [
-            {
-              "name": "materialCode",
-              "isPK": true
-            },
-            {
-              "name": "materialName",
-              "isPK": false
-            },
-            {
-              "name": "unitOfMeasure",
-              "isPK": false
-            },
-            {
-              "name": "costPerUnit",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BillOfMaterial",
-          "pk": "bomItemId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "bomItemId",
-              "isPK": true
-            },
-            {
-              "name": "requiredQuantity",
-              "isPK": false
-            },
-            {
-              "name": "wastageTolerancePercent",
-              "isPK": false
-            },
-            {
-              "name": "assemblySequenceNo",
-              "isPK": false
-            }
-          ]
+          "name": "Hotel",
+          "pk": "code"
         }
       ],
       "relationships": [
         {
-          "entity1": "Product",
-          "entity2": "BillOfMaterial",
-          "name": "InvolvedIn"
+          "entity1": "CorporateClient",
+          "entity2": "HallBooking",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "HallBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Reserves",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "RawMaterial",
-          "entity2": "BillOfMaterial",
-          "name": "SubjectOf"
+          "entity1": "ConferenceHall",
+          "entity2": "HallBooking",
+          "fromEntityName": "ConferenceHall",
+          "toEntityName": "HallBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ReservedBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Tourist' (0..*) to 'Hotel' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Tourist' (0..*) and 'Hotel' (0..*) verified and approved.",
+    "task": "Model 'Tourist' and 'Hotel' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 56,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Delegate va WorkshopSession Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'SessionRegistration' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'delegateId' [FK1] va 'workshopsessionId' [FK2] sifatida kiritiladi.",
-    "instruction": "'SessionRegistration' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Delegate' hamda 'WorkshopSession' jadvallariga bog'lang.",
+    "floor": 4,
+    "difficulty": "Floor 4 • Intermediate",
+    "clientName": "Biznes Hamkor #56",
+    "clientRole": "Tizim Tahlilchisi",
+    "clientAvatar": "retailer",
+    "title": "Xaridor va Do'kon Cheki: 'Purchases' Aloqasi (Discount Atributi)",
+    "story": "'Buyer' va 'Receipt' o'rtasida ko'pdan-ko'pga 'Purchases' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
+    "taskUz": "Model 'Buyer' and 'Receipt' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Delegate",
-          "pk": "badgeId",
+          "name": "Buyer",
+          "x": 120,
+          "y": 150,
           "attributes": [
             {
-              "name": "badgeId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "delegateName",
-              "isPK": false
-            },
-            {
-              "name": "organization",
-              "isPK": false
-            },
-            {
-              "name": "jobPosition",
-              "isPK": false
+              "name": "name"
             }
           ]
         },
         {
-          "name": "WorkshopSession",
-          "pk": "sessionCode",
+          "name": "Receipt",
+          "x": 480,
+          "y": 150,
           "attributes": [
             {
-              "name": "sessionCode",
+              "name": "code",
               "isPK": true
             },
             {
-              "name": "sessionTopic",
-              "isPK": false
-            },
-            {
-              "name": "roomHall",
-              "isPK": false
-            },
-            {
-              "name": "speakerName",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "SessionRegistration",
-          "pk": "regTicketId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "regTicketId",
-              "isPK": true
-            },
-            {
-              "name": "registeredAt",
-              "isPK": false
-            },
-            {
-              "name": "attendedAttendance",
-              "isPK": false
-            },
-            {
-              "name": "feedbackScore",
-              "isPK": false
+              "name": "title"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Delegate",
-          "entity2": "SessionRegistration",
+          "id": "rel_1",
+          "name": "Subscribes",
+          "entity1": "InsuredPerson",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsuredPerson",
+          "toEntityName": "UnderwrittenPolicy",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "WorkshopSession",
-          "entity2": "SessionRegistration",
+          "id": "rel_2",
+          "name": "AppliedTo",
+          "entity1": "InsurancePlan",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsurancePlan",
+          "toEntityName": "UnderwrittenPolicy",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Delegate",
-          "pk": "badgeId",
-          "attributes": [
-            {
-              "name": "badgeId",
-              "isPK": true
-            },
-            {
-              "name": "delegateName",
-              "isPK": false
-            },
-            {
-              "name": "organization",
-              "isPK": false
-            },
-            {
-              "name": "jobPosition",
-              "isPK": false
-            }
-          ]
+          "name": "Buyer",
+          "pk": "id"
         },
         {
-          "name": "WorkshopSession",
-          "pk": "sessionCode",
-          "attributes": [
-            {
-              "name": "sessionCode",
-              "isPK": true
-            },
-            {
-              "name": "sessionTopic",
-              "isPK": false
-            },
-            {
-              "name": "roomHall",
-              "isPK": false
-            },
-            {
-              "name": "speakerName",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "SessionRegistration",
-          "pk": "regTicketId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "regTicketId",
-              "isPK": true
-            },
-            {
-              "name": "registeredAt",
-              "isPK": false
-            },
-            {
-              "name": "attendedAttendance",
-              "isPK": false
-            },
-            {
-              "name": "feedbackScore",
-              "isPK": false
-            }
-          ]
+          "name": "Receipt",
+          "pk": "code"
         }
       ],
       "relationships": [
         {
-          "entity1": "Delegate",
-          "entity2": "SessionRegistration",
-          "name": "InvolvedIn"
+          "entity1": "InsuredPerson",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsuredPerson",
+          "toEntityName": "UnderwrittenPolicy",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Subscribes",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "WorkshopSession",
-          "entity2": "SessionRegistration",
-          "name": "SubjectOf"
+          "entity1": "InsurancePlan",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsurancePlan",
+          "toEntityName": "UnderwrittenPolicy",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AppliedTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Buyer' (0..*) to 'Receipt' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Buyer' (0..*) and 'Receipt' (0..*) verified and approved.",
+    "task": "Model 'Buyer' and 'Receipt' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 57,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Exporter va CustomsPost Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'CustomsDeclaration' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'exporterId' [FK1] va 'customspostId' [FK2] sifatida kiritiladi.",
-    "instruction": "'CustomsDeclaration' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Exporter' hamda 'CustomsPost' jadvallariga bog'lang.",
+    "floor": 4,
+    "difficulty": "Floor 4 • Intermediate",
+    "clientName": "Biznes Hamkor #57",
+    "clientRole": "Tizim Tahlilchisi",
+    "clientAvatar": "retailer",
+    "title": "Dori va Kasallik: 'Treats' Aloqasi (Dosage Atributi)",
+    "story": "'Drug' va 'Disease' o'rtasida ko'pdan-ko'pga 'Treats' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
+    "taskUz": "Model 'Drug' and 'Disease' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Exporter",
-          "pk": "exporterInn",
+          "name": "Drug",
+          "x": 120,
+          "y": 150,
           "attributes": [
             {
-              "name": "exporterInn",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "companyName",
-              "isPK": false
-            },
-            {
-              "name": "legalAddress",
-              "isPK": false
-            },
-            {
-              "name": "licenseDate",
-              "isPK": false
+              "name": "name"
             }
           ]
         },
         {
-          "name": "CustomsPost",
-          "pk": "postCode",
+          "name": "Disease",
+          "x": 480,
+          "y": 150,
           "attributes": [
             {
-              "name": "postCode",
+              "name": "code",
               "isPK": true
             },
             {
-              "name": "postName",
-              "isPK": false
-            },
-            {
-              "name": "borderRegion",
-              "isPK": false
-            },
-            {
-              "name": "terminalCapacityTons",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "CustomsDeclaration",
-          "pk": "gtdNumber",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "gtdNumber",
-              "isPK": true
-            },
-            {
-              "name": "cargoInvoiceSum",
-              "isPK": false
-            },
-            {
-              "name": "customsDutyPaid",
-              "isPK": false
-            },
-            {
-              "name": "clearanceDate",
-              "isPK": false
+              "name": "title"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Exporter",
-          "entity2": "CustomsDeclaration",
+          "id": "rel_1",
+          "name": "SignsLease",
+          "entity1": "CarBuyer",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "CarLeaseContract",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "CustomsPost",
-          "entity2": "CustomsDeclaration",
+          "id": "rel_2",
+          "name": "LeasedAs",
+          "entity1": "VehicleStock",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "VehicleStock",
+          "toEntityName": "CarLeaseContract",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Exporter",
-          "pk": "exporterInn",
-          "attributes": [
-            {
-              "name": "exporterInn",
-              "isPK": true
-            },
-            {
-              "name": "companyName",
-              "isPK": false
-            },
-            {
-              "name": "legalAddress",
-              "isPK": false
-            },
-            {
-              "name": "licenseDate",
-              "isPK": false
-            }
-          ]
+          "name": "Drug",
+          "pk": "id"
         },
         {
-          "name": "CustomsPost",
-          "pk": "postCode",
-          "attributes": [
-            {
-              "name": "postCode",
-              "isPK": true
-            },
-            {
-              "name": "postName",
-              "isPK": false
-            },
-            {
-              "name": "borderRegion",
-              "isPK": false
-            },
-            {
-              "name": "terminalCapacityTons",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "CustomsDeclaration",
-          "pk": "gtdNumber",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "gtdNumber",
-              "isPK": true
-            },
-            {
-              "name": "cargoInvoiceSum",
-              "isPK": false
-            },
-            {
-              "name": "customsDutyPaid",
-              "isPK": false
-            },
-            {
-              "name": "clearanceDate",
-              "isPK": false
-            }
-          ]
+          "name": "Disease",
+          "pk": "code"
         }
       ],
       "relationships": [
         {
-          "entity1": "Exporter",
-          "entity2": "CustomsDeclaration",
-          "name": "InvolvedIn"
+          "entity1": "CarBuyer",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "CarLeaseContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "SignsLease",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "CustomsPost",
-          "entity2": "CustomsDeclaration",
-          "name": "SubjectOf"
+          "entity1": "VehicleStock",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "VehicleStock",
+          "toEntityName": "CarLeaseContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "LeasedAs",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Drug' (0..*) to 'Disease' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Drug' (0..*) and 'Disease' (0..*) verified and approved.",
+    "task": "Model 'Drug' and 'Disease' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 58,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Article va ContentTag Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'ArticleTagMap' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'articleId' [FK1] va 'contenttagId' [FK2] sifatida kiritiladi.",
-    "instruction": "'ArticleTagMap' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Article' hamda 'ContentTag' jadvallariga bog'lang.",
+    "floor": 4,
+    "difficulty": "Floor 4 • Intermediate",
+    "clientName": "Biznes Hamkor #58",
+    "clientRole": "Tizim Tahlilchisi",
+    "clientAvatar": "retailer",
+    "title": "O'qituvchi va Sinf: 'Supervises' Aloqasi (AcademicYear Atributi)",
+    "story": "'Teacher' va 'ClassRoom' o'rtasida ko'pdan-ko'pga 'Supervises' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
+    "taskUz": "Model 'Teacher' and 'ClassRoom' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Article",
-          "pk": "articleSlug",
+          "name": "Teacher",
+          "x": 120,
+          "y": 150,
           "attributes": [
             {
-              "name": "articleSlug",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "headline",
-              "isPK": false
-            },
-            {
-              "name": "authorName",
-              "isPK": false
-            },
-            {
-              "name": "publishDateTime",
-              "isPK": false
+              "name": "name"
             }
           ]
         },
         {
-          "name": "ContentTag",
-          "pk": "tagId",
+          "name": "ClassRoom",
+          "x": 480,
+          "y": 150,
           "attributes": [
             {
-              "name": "tagId",
+              "name": "code",
               "isPK": true
             },
             {
-              "name": "tagName",
-              "isPK": false
-            },
-            {
-              "name": "categoryTheme",
-              "isPK": false
-            },
-            {
-              "name": "popularityIndex",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "ArticleTagMap",
-          "pk": "mappingId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "mappingId",
-              "isPK": true
-            },
-            {
-              "name": "attachedOrder",
-              "isPK": false
-            },
-            {
-              "name": "autoSuggestedByAi",
-              "isPK": false
-            },
-            {
-              "name": "relevanceScore",
-              "isPK": false
+              "name": "title"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Article",
-          "entity2": "ArticleTagMap",
+          "id": "rel_1",
+          "name": "Purchases",
+          "entity1": "MovieViewer",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "MovieViewer",
+          "toEntityName": "CinemaTicket",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "ContentTag",
-          "entity2": "ArticleTagMap",
+          "id": "rel_2",
+          "name": "Admits",
+          "entity1": "CinemaSession",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "CinemaSession",
+          "toEntityName": "CinemaTicket",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Article",
-          "pk": "articleSlug",
-          "attributes": [
-            {
-              "name": "articleSlug",
-              "isPK": true
-            },
-            {
-              "name": "headline",
-              "isPK": false
-            },
-            {
-              "name": "authorName",
-              "isPK": false
-            },
-            {
-              "name": "publishDateTime",
-              "isPK": false
-            }
-          ]
+          "name": "Teacher",
+          "pk": "id"
         },
         {
-          "name": "ContentTag",
-          "pk": "tagId",
-          "attributes": [
-            {
-              "name": "tagId",
-              "isPK": true
-            },
-            {
-              "name": "tagName",
-              "isPK": false
-            },
-            {
-              "name": "categoryTheme",
-              "isPK": false
-            },
-            {
-              "name": "popularityIndex",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "ArticleTagMap",
-          "pk": "mappingId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "mappingId",
-              "isPK": true
-            },
-            {
-              "name": "attachedOrder",
-              "isPK": false
-            },
-            {
-              "name": "autoSuggestedByAi",
-              "isPK": false
-            },
-            {
-              "name": "relevanceScore",
-              "isPK": false
-            }
-          ]
+          "name": "ClassRoom",
+          "pk": "code"
         }
       ],
       "relationships": [
         {
-          "entity1": "Article",
-          "entity2": "ArticleTagMap",
-          "name": "InvolvedIn"
+          "entity1": "MovieViewer",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "MovieViewer",
+          "toEntityName": "CinemaTicket",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Purchases",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "ContentTag",
-          "entity2": "ArticleTagMap",
-          "name": "SubjectOf"
+          "entity1": "CinemaSession",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "CinemaSession",
+          "toEntityName": "CinemaTicket",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Admits",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Teacher' (0..*) to 'ClassRoom' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Teacher' (0..*) and 'ClassRoom' (0..*) verified and approved.",
+    "task": "Model 'Teacher' and 'ClassRoom' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 59,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Instructor va Classroom Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'LessonSchedule' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'instructorId' [FK1] va 'classroomId' [FK2] sifatida kiritiladi.",
-    "instruction": "'LessonSchedule' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Instructor' hamda 'Classroom' jadvallariga bog'lang.",
+    "floor": 4,
+    "difficulty": "Floor 4 • Intermediate",
+    "clientName": "Biznes Hamkor #59",
+    "clientRole": "Tizim Tahlilchisi",
+    "clientAvatar": "retailer",
+    "title": "Kompaniya va Homiylik: 'Sponsors' Aloqasi (Amount Atributi)",
+    "story": "'Company' va 'Event' o'rtasida ko'pdan-ko'pga 'Sponsors' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
+    "taskUz": "Model 'Company' and 'Event' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Instructor",
-          "pk": "tutorId",
+          "name": "Company",
+          "x": 120,
+          "y": 150,
           "attributes": [
             {
-              "name": "tutorId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "tutorName",
-              "isPK": false
-            },
-            {
-              "name": "subjectExpertise",
-              "isPK": false
-            },
-            {
-              "name": "contactPhone",
-              "isPK": false
+              "name": "name"
             }
           ]
         },
         {
-          "name": "Classroom",
-          "pk": "roomCode",
+          "name": "Event",
+          "x": 480,
+          "y": 150,
           "attributes": [
             {
-              "name": "roomCode",
+              "name": "code",
               "isPK": true
             },
             {
-              "name": "buildingWing",
-              "isPK": false
-            },
-            {
-              "name": "projectorModel",
-              "isPK": false
-            },
-            {
-              "name": "seatingCap",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "LessonSchedule",
-          "pk": "scheduleEntryId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "scheduleEntryId",
-              "isPK": true
-            },
-            {
-              "name": "dayOfWeek",
-              "isPK": false
-            },
-            {
-              "name": "lessonPeriod",
-              "isPK": false
-            },
-            {
-              "name": "studyGroupId",
-              "isPK": false
+              "name": "title"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Instructor",
-          "entity2": "LessonSchedule",
+          "id": "rel_1",
+          "name": "Rents",
+          "entity1": "ConstructionFirm",
+          "entity2": "MachineRental",
+          "fromEntityName": "ConstructionFirm",
+          "toEntityName": "MachineRental",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Classroom",
-          "entity2": "LessonSchedule",
+          "id": "rel_2",
+          "name": "EngagedBy",
+          "entity1": "HeavyMachinery",
+          "entity2": "MachineRental",
+          "fromEntityName": "HeavyMachinery",
+          "toEntityName": "MachineRental",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Instructor",
-          "pk": "tutorId",
-          "attributes": [
-            {
-              "name": "tutorId",
-              "isPK": true
-            },
-            {
-              "name": "tutorName",
-              "isPK": false
-            },
-            {
-              "name": "subjectExpertise",
-              "isPK": false
-            },
-            {
-              "name": "contactPhone",
-              "isPK": false
-            }
-          ]
+          "name": "Company",
+          "pk": "id"
         },
         {
-          "name": "Classroom",
-          "pk": "roomCode",
-          "attributes": [
-            {
-              "name": "roomCode",
-              "isPK": true
-            },
-            {
-              "name": "buildingWing",
-              "isPK": false
-            },
-            {
-              "name": "projectorModel",
-              "isPK": false
-            },
-            {
-              "name": "seatingCap",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "LessonSchedule",
-          "pk": "scheduleEntryId",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "scheduleEntryId",
-              "isPK": true
-            },
-            {
-              "name": "dayOfWeek",
-              "isPK": false
-            },
-            {
-              "name": "lessonPeriod",
-              "isPK": false
-            },
-            {
-              "name": "studyGroupId",
-              "isPK": false
-            }
-          ]
+          "name": "Event",
+          "pk": "code"
         }
       ],
       "relationships": [
         {
-          "entity1": "Instructor",
-          "entity2": "LessonSchedule",
-          "name": "InvolvedIn"
+          "entity1": "ConstructionFirm",
+          "entity2": "MachineRental",
+          "fromEntityName": "ConstructionFirm",
+          "toEntityName": "MachineRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Rents",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Classroom",
-          "entity2": "LessonSchedule",
-          "name": "SubjectOf"
+          "entity1": "HeavyMachinery",
+          "entity2": "MachineRental",
+          "fromEntityName": "HeavyMachinery",
+          "toEntityName": "MachineRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EngagedBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Company' (0..*) to 'Event' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Company' (0..*) and 'Event' (0..*) verified and approved.",
+    "task": "Model 'Company' and 'Event' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 60,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*) • Relational Mapping",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Retailer va Supplier Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'SupplyContract' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'retailerId' [FK1] va 'supplierId' [FK2] sifatida kiritiladi.",
-    "instruction": "'SupplyContract' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Retailer' hamda 'Supplier' jadvallariga bog'lang.",
+    "floor": 4,
+    "difficulty": "Floor 4 • Qiyin (Floor 4 Master Architecti)",
+    "clientName": "Biznes Hamkor #60",
+    "clientRole": "Tizim Tahlilchisi",
+    "clientAvatar": "retailer",
+    "title": "4-Qavat Final Bossi: Xalqaro Logistika Tranziti ('Transits' - FreightCost)",
+    "story": "'Carrier' va 'CargoHub' o'rtasida ko'pdan-ko'pga 'Transits' munosabati bor. Aloqa ustida qo'shimcha biznes atribut saqlanadi (Association Class).",
+    "taskUz": "Model 'Carrier' and 'CargoHub' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Retailer",
-          "pk": "storeChainId",
+          "name": "Carrier",
+          "x": 120,
+          "y": 150,
           "attributes": [
             {
-              "name": "storeChainId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "chainName",
-              "isPK": false
-            },
-            {
-              "name": "outletCount",
-              "isPK": false
-            },
-            {
-              "name": "cityHq",
-              "isPK": false
+              "name": "name"
             }
           ]
         },
         {
-          "name": "Supplier",
-          "pk": "supplierInn",
+          "name": "CargoHub",
+          "x": 480,
+          "y": 150,
           "attributes": [
             {
-              "name": "supplierInn",
+              "name": "code",
               "isPK": true
             },
             {
-              "name": "vendorName",
-              "isPK": false
-            },
-            {
-              "name": "warehouseLocation",
-              "isPK": false
-            },
-            {
-              "name": "reliabilityScore",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "SupplyContract",
-          "pk": "contractDocNo",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "contractDocNo",
-              "isPK": true
-            },
-            {
-              "name": "monthlyOrderMinimum",
-              "isPK": false
-            },
-            {
-              "name": "paymentTermDays",
-              "isPK": false
-            },
-            {
-              "name": "penaltyRatePercent",
-              "isPK": false
+              "name": "title"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Retailer",
-          "entity2": "SupplyContract",
+          "id": "rel_1",
+          "name": "ServesShift",
+          "entity1": "DeliveryCourier",
+          "entity2": "CourierShift",
+          "fromEntityName": "DeliveryCourier",
+          "toEntityName": "CourierShift",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Supplier",
-          "entity2": "SupplyContract",
+          "id": "rel_2",
+          "name": "HostsShift",
+          "entity1": "RestaurantBranch",
+          "entity2": "CourierShift",
+          "fromEntityName": "RestaurantBranch",
+          "toEntityName": "CourierShift",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Retailer",
-          "pk": "storeChainId",
-          "attributes": [
-            {
-              "name": "storeChainId",
-              "isPK": true
-            },
-            {
-              "name": "chainName",
-              "isPK": false
-            },
-            {
-              "name": "outletCount",
-              "isPK": false
-            },
-            {
-              "name": "cityHq",
-              "isPK": false
-            }
-          ]
+          "name": "Carrier",
+          "pk": "id"
         },
         {
-          "name": "Supplier",
-          "pk": "supplierInn",
-          "attributes": [
-            {
-              "name": "supplierInn",
-              "isPK": true
-            },
-            {
-              "name": "vendorName",
-              "isPK": false
-            },
-            {
-              "name": "warehouseLocation",
-              "isPK": false
-            },
-            {
-              "name": "reliabilityScore",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "SupplyContract",
-          "pk": "contractDocNo",
-          "isAssociative": true,
-          "attributes": [
-            {
-              "name": "contractDocNo",
-              "isPK": true
-            },
-            {
-              "name": "monthlyOrderMinimum",
-              "isPK": false
-            },
-            {
-              "name": "paymentTermDays",
-              "isPK": false
-            },
-            {
-              "name": "penaltyRatePercent",
-              "isPK": false
-            }
-          ]
+          "name": "CargoHub",
+          "pk": "code"
         }
       ],
       "relationships": [
         {
-          "entity1": "Retailer",
-          "entity2": "SupplyContract",
-          "name": "InvolvedIn"
+          "entity1": "DeliveryCourier",
+          "entity2": "CourierShift",
+          "fromEntityName": "DeliveryCourier",
+          "toEntityName": "CourierShift",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ServesShift",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Supplier",
-          "entity2": "SupplyContract",
-          "name": "SubjectOf"
+          "entity1": "RestaurantBranch",
+          "entity2": "CourierShift",
+          "fromEntityName": "RestaurantBranch",
+          "toEntityName": "CourierShift",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "HostsShift",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Carrier' (0..*) to 'CargoHub' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Carrier' (0..*) and 'CargoHub' (0..*) verified and approved.",
+    "task": "Model 'Carrier' and 'CargoHub' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 61,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "Hotel va Room (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'Room' jadvalining Birlamchi Kaliti ota jadval kaliti 'hotelId' [FK1] bilan o'zining qisman kaliti 'roomNo' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'Room' jadvaliga ota kalit 'hotelId' [PK,FK1] ni qo'shing va 'Hotel' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #61",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Xodim va Rahbar Recursive Relationship (Supervises)",
+    "story": "'Employee' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Supervises' munosabati are present. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
+    "taskUz": "Model the recursive relationship on 'Employee' with multiplicities '0..1' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Hotel",
-          "pk": "hotelId",
+          "name": "Employee",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "hotelId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "hotelName",
-              "isPK": false
-            },
-            {
-              "name": "starRating",
-              "isPK": false
-            },
-            {
-              "name": "city",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "Room",
-          "pk": "roomNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "roomNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "bedCount",
-              "isPK": false
-            },
-            {
-              "name": "floorNo",
-              "isPK": false
-            },
-            {
-              "name": "dailyPrice",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Hotel",
-          "entity2": "Room",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "HasRoom",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "Manages",
+          "entity1": "Employee",
+          "entity2": "Employee",
+          "fromEntityName": "Employee",
+          "toEntityName": "Employee",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "supervisor",
+          "role2": "subordinate"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Hotel",
-          "pk": "hotelId",
-          "attributes": [
-            {
-              "name": "hotelId",
-              "isPK": true
-            },
-            {
-              "name": "hotelName",
-              "isPK": false
-            },
-            {
-              "name": "starRating",
-              "isPK": false
-            },
-            {
-              "name": "city",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "Room",
-          "pk": "roomNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "roomNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "bedCount",
-              "isPK": false
-            },
-            {
-              "name": "floorNo",
-              "isPK": false
-            },
-            {
-              "name": "dailyPrice",
-              "isPK": false
-            },
-            {
-              "name": "hotelId",
-              "isFK": true
-            }
-          ]
+          "name": "Employee",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "Hotel",
-          "entity2": "Room",
-          "name": "HasRoom",
-          "isIdentifying": true
+          "entity1": "Employee",
+          "entity2": "Employee",
+          "fromEntityName": "Employee",
+          "toEntityName": "Employee",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "Manages",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "supervisor",
+          "role2": "subordinate"
         }
       ]
     },
+    "hint": "Connect 'Employee' (0..1) to 'Employee' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Employee' (0..1) and 'Employee' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'Employee' with multiplicities '0..1' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 62,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "Building va BuildingFloor (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'BuildingFloor' jadvalining Birlamchi Kaliti ota jadval kaliti 'buildingId' [FK1] bilan o'zining qisman kaliti 'floorNo' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'BuildingFloor' jadvaliga ota kalit 'buildingId' [PK,FK1] ni qo'shing va 'Building' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #62",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Ierarxik Katalog Daraxti Recursive Relationship (SubCategoryOf)",
+    "story": "'Category' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'SubCategoryOf' munosabati are present. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
+    "taskUz": "Model the recursive relationship on 'Category' with multiplicities '0..1' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Building",
-          "pk": "buildingId",
+          "name": "Category",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "buildingId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "buildingName",
-              "isPK": false
-            },
-            {
-              "name": "streetAddress",
-              "isPK": false
-            },
-            {
-              "name": "totalFloors",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BuildingFloor",
-          "pk": "floorNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "floorNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "emergencyExitCount",
-              "isPK": false
-            },
-            {
-              "name": "usableAreaSqm",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Building",
-          "entity2": "BuildingFloor",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "ContainsFloor",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "SubCategoryOf",
+          "entity1": "ProductCategory",
+          "entity2": "ProductCategory",
+          "fromEntityName": "ProductCategory",
+          "toEntityName": "ProductCategory",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentCat",
+          "role2": "subCat"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Building",
-          "pk": "buildingId",
-          "attributes": [
-            {
-              "name": "buildingId",
-              "isPK": true
-            },
-            {
-              "name": "buildingName",
-              "isPK": false
-            },
-            {
-              "name": "streetAddress",
-              "isPK": false
-            },
-            {
-              "name": "totalFloors",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BuildingFloor",
-          "pk": "floorNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "floorNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "emergencyExitCount",
-              "isPK": false
-            },
-            {
-              "name": "usableAreaSqm",
-              "isPK": false
-            },
-            {
-              "name": "buildingId",
-              "isFK": true
-            }
-          ]
+          "name": "Category",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "Building",
-          "entity2": "BuildingFloor",
-          "name": "ContainsFloor",
-          "isIdentifying": true
+          "entity1": "ProductCategory",
+          "entity2": "ProductCategory",
+          "fromEntityName": "ProductCategory",
+          "toEntityName": "ProductCategory",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "SubCategoryOf",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentCat",
+          "role2": "subCat"
         }
       ]
     },
+    "hint": "Connect 'Category' (0..1) to 'Category' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Category' (0..1) and 'Category' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'Category' with multiplicities '0..1' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 63,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "Employee va Dependent (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'Dependent' jadvalining Birlamchi Kaliti ota jadval kaliti 'employeeId' [FK1] bilan o'zining qisman kaliti 'depName' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'Dependent' jadvaliga ota kalit 'employeeId' [PK,FK1] ni qo'shing va 'Employee' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #63",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Zavod Detallari Rekursiv *:* Yig'masi (BOM - Contains)",
+    "story": "'Part' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Contains' munosabati are present: bir tomon, ikkinchi tomon esa.",
+    "taskUz": "Model the recursive relationship on 'Part' with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Employee",
-          "pk": "empId",
+          "name": "Part",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "empId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "empName",
-              "isPK": false
-            },
-            {
-              "name": "department",
-              "isPK": false
-            },
-            {
-              "name": "salary",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "Dependent",
-          "pk": "depName",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "depName",
-              "isPartialKey": true
-            },
-            {
-              "name": "relationshipType",
-              "isPK": false
-            },
-            {
-              "name": "birthDate",
-              "isPK": false
-            },
-            {
-              "name": "gender",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Employee",
-          "entity2": "Dependent",
-          "mult1": "1..1",
+          "id": "rel_1",
+          "name": "AssembledFrom",
+          "entity1": "PartComponent",
+          "entity2": "PartComponent",
+          "fromEntityName": "PartComponent",
+          "toEntityName": "PartComponent",
+          "mult1": "0..*",
           "mult2": "1..*",
-          "name": "HasDependent",
-          "isIdentifying": true
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentAssembly",
+          "role2": "subPart"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Employee",
-          "pk": "empId",
-          "attributes": [
-            {
-              "name": "empId",
-              "isPK": true
-            },
-            {
-              "name": "empName",
-              "isPK": false
-            },
-            {
-              "name": "department",
-              "isPK": false
-            },
-            {
-              "name": "salary",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "Dependent",
-          "pk": "depName",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "depName",
-              "isPartialKey": true
-            },
-            {
-              "name": "relationshipType",
-              "isPK": false
-            },
-            {
-              "name": "birthDate",
-              "isPK": false
-            },
-            {
-              "name": "gender",
-              "isPK": false
-            },
-            {
-              "name": "employeeId",
-              "isFK": true
-            }
-          ]
+          "name": "Part",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "Employee",
-          "entity2": "Dependent",
-          "name": "HasDependent",
-          "isIdentifying": true
+          "entity1": "PartComponent",
+          "entity2": "PartComponent",
+          "fromEntityName": "PartComponent",
+          "toEntityName": "PartComponent",
+          "mult1": "0..*",
+          "mult2": "1..*",
+          "name": "AssembledFrom",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentAssembly",
+          "role2": "subPart"
         }
       ]
     },
+    "hint": "Connect 'Part' (0..*) to 'Part' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Part' (0..*) and 'Part' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'Part' with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 64,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "BookTitle va BookCopy (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'BookCopy' jadvalining Birlamchi Kaliti ota jadval kaliti 'booktitleId' [FK1] bilan o'zining qisman kaliti 'copyNo' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'BookCopy' jadvaliga ota kalit 'booktitleId' [PK,FK1] ni qo'shing va 'BookTitle' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #64",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Universitet Fani Prerekvizitlari Recursive Relationship (Prerequisite)",
+    "story": "'Course' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Prerequisite' munosabati are present: bir tomon, ikkinchi tomon esa.",
+    "taskUz": "Model the recursive relationship on 'Course' with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "BookTitle",
-          "pk": "isbn",
+          "name": "Course",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "isbn",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "title",
-              "isPK": false
-            },
-            {
-              "name": "author",
-              "isPK": false
-            },
-            {
-              "name": "editionYear",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BookCopy",
-          "pk": "copyNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "copyNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "conditionStatus",
-              "isPK": false
-            },
-            {
-              "name": "shelfBay",
-              "isPK": false
-            },
-            {
-              "name": "isAvailable",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "BookTitle",
-          "entity2": "BookCopy",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "HasCopy",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "RequiresPrereq",
+          "entity1": "AcademicCourse",
+          "entity2": "AcademicCourse",
+          "fromEntityName": "AcademicCourse",
+          "toEntityName": "AcademicCourse",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "advancedCourse",
+          "role2": "prerequisite"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "BookTitle",
-          "pk": "isbn",
-          "attributes": [
-            {
-              "name": "isbn",
-              "isPK": true
-            },
-            {
-              "name": "title",
-              "isPK": false
-            },
-            {
-              "name": "author",
-              "isPK": false
-            },
-            {
-              "name": "editionYear",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BookCopy",
-          "pk": "copyNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "copyNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "conditionStatus",
-              "isPK": false
-            },
-            {
-              "name": "shelfBay",
-              "isPK": false
-            },
-            {
-              "name": "isAvailable",
-              "isPK": false
-            },
-            {
-              "name": "booktitleId",
-              "isFK": true
-            }
-          ]
+          "name": "Course",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "BookTitle",
-          "entity2": "BookCopy",
-          "name": "HasCopy",
-          "isIdentifying": true
+          "entity1": "AcademicCourse",
+          "entity2": "AcademicCourse",
+          "fromEntityName": "AcademicCourse",
+          "toEntityName": "AcademicCourse",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "name": "RequiresPrereq",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "advancedCourse",
+          "role2": "prerequisite"
         }
       ]
     },
+    "hint": "Connect 'Course' (0..*) to 'Course' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Course' (0..*) and 'Course' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'Course' with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 65,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "BankAccount va AccountTransaction (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'AccountTransaction' jadvalining Birlamchi Kaliti ota jadval kaliti 'bankaccountId' [FK1] bilan o'zining qisman kaliti 'txSeqNo' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'AccountTransaction' jadvaliga ota kalit 'bankaccountId' [PK,FK1] ni qo'shing va 'BankAccount' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #65",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Ijtimoiy Tarmoq Do'stlik Recursive Relationship (FriendOf)",
+    "story": "'User' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'FriendOf' munosabati are present: bir tomon, ikkinchi tomon esa.",
+    "taskUz": "Model the recursive relationship on 'User' with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "BankAccount",
-          "pk": "accountNo",
+          "name": "User",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "accountNo",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "holderName",
-              "isPK": false
-            },
-            {
-              "name": "currency",
-              "isPK": false
-            },
-            {
-              "name": "balance",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "AccountTransaction",
-          "pk": "txSeqNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "txSeqNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "txAmount",
-              "isPK": false
-            },
-            {
-              "name": "txTimestamp",
-              "isPK": false
-            },
-            {
-              "name": "terminalCode",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "BankAccount",
-          "entity2": "AccountTransaction",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "LogsTx",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "MarriedTo",
+          "entity1": "Citizen",
+          "entity2": "Citizen",
+          "fromEntityName": "Citizen",
+          "toEntityName": "Citizen",
+          "mult1": "0..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "spouse1",
+          "role2": "spouse2"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "BankAccount",
-          "pk": "accountNo",
-          "attributes": [
-            {
-              "name": "accountNo",
-              "isPK": true
-            },
-            {
-              "name": "holderName",
-              "isPK": false
-            },
-            {
-              "name": "currency",
-              "isPK": false
-            },
-            {
-              "name": "balance",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "AccountTransaction",
-          "pk": "txSeqNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "txSeqNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "txAmount",
-              "isPK": false
-            },
-            {
-              "name": "txTimestamp",
-              "isPK": false
-            },
-            {
-              "name": "terminalCode",
-              "isPK": false
-            },
-            {
-              "name": "bankaccountId",
-              "isFK": true
-            }
-          ]
+          "name": "User",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "BankAccount",
-          "entity2": "AccountTransaction",
-          "name": "LogsTx",
-          "isIdentifying": true
+          "entity1": "Citizen",
+          "entity2": "Citizen",
+          "fromEntityName": "Citizen",
+          "toEntityName": "Citizen",
+          "mult1": "0..1",
+          "mult2": "0..1",
+          "name": "MarriedTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "spouse1",
+          "role2": "spouse2"
         }
       ]
     },
+    "hint": "Connect 'User' (0..*) to 'User' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'User' (0..*) and 'User' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'User' with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 66,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "FlightSchedule va BoardingPass (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'BoardingPass' jadvalining Birlamchi Kaliti ota jadval kaliti 'flightscheduleId' [FK1] bilan o'zining qisman kaliti 'seatNo' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'BoardingPass' jadvaliga ota kalit 'flightscheduleId' [PK,FK1] ni qo'shing va 'FlightSchedule' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #66",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Korxona Tashkiliy Bo'linmalar Daraxti (SubDivisionOf)",
+    "story": "'Division' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'SubDivisionOf' munosabati are present. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
+    "taskUz": "Model the recursive relationship on 'Division' with multiplicities '0..1' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "FlightSchedule",
-          "pk": "flightNo",
+          "name": "Division",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "flightNo",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "originIata",
-              "isPK": false
-            },
-            {
-              "name": "destIata",
-              "isPK": false
-            },
-            {
-              "name": "depTime",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BoardingPass",
-          "pk": "seatNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "seatNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "passengerName",
-              "isPK": false
-            },
-            {
-              "name": "gateNumber",
-              "isPK": false
-            },
-            {
-              "name": "boardingGroup",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "FlightSchedule",
-          "entity2": "BoardingPass",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "IssuesPass",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "ReferredBy",
+          "entity1": "UserAccount",
+          "entity2": "UserAccount",
+          "fromEntityName": "UserAccount",
+          "toEntityName": "UserAccount",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "referrer",
+          "role2": "referee"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "FlightSchedule",
-          "pk": "flightNo",
-          "attributes": [
-            {
-              "name": "flightNo",
-              "isPK": true
-            },
-            {
-              "name": "originIata",
-              "isPK": false
-            },
-            {
-              "name": "destIata",
-              "isPK": false
-            },
-            {
-              "name": "depTime",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BoardingPass",
-          "pk": "seatNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "seatNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "passengerName",
-              "isPK": false
-            },
-            {
-              "name": "gateNumber",
-              "isPK": false
-            },
-            {
-              "name": "boardingGroup",
-              "isPK": false
-            },
-            {
-              "name": "flightscheduleId",
-              "isFK": true
-            }
-          ]
+          "name": "Division",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "FlightSchedule",
-          "entity2": "BoardingPass",
-          "name": "IssuesPass",
-          "isIdentifying": true
+          "entity1": "UserAccount",
+          "entity2": "UserAccount",
+          "fromEntityName": "UserAccount",
+          "toEntityName": "UserAccount",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "ReferredBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "referrer",
+          "role2": "referee"
         }
       ]
     },
+    "hint": "Connect 'Division' (0..1) to 'Division' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Division' (0..1) and 'Division' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'Division' with multiplicities '0..1' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 67,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "ApartmentComplex va FlatUnit (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'FlatUnit' jadvalining Birlamchi Kaliti ota jadval kaliti 'apartmentcomplexId' [FK1] bilan o'zining qisman kaliti 'flatNo' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'FlatUnit' jadvaliga ota kalit 'apartmentcomplexId' [PK,FK1] ni qo'shing va 'ApartmentComplex' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #67",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Tarixiy Voqealar Sabab-Oqibat Recursive Relationship (LeadsTo)",
+    "story": "'HistoricalEvent' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'LeadsTo' munosabati are present: bir tomon, ikkinchi tomon esa.",
+    "taskUz": "Model the recursive relationship on 'HistoricalEvent' with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "ApartmentComplex",
-          "pk": "complexId",
+          "name": "HistoricalEvent",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "complexId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "complexName",
-              "isPK": false
-            },
-            {
-              "name": "street",
-              "isPK": false
-            },
-            {
-              "name": "blockLetter",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "FlatUnit",
-          "pk": "flatNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "flatNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "roomsCount",
-              "isPK": false
-            },
-            {
-              "name": "areaSqm",
-              "isPK": false
-            },
-            {
-              "name": "floorLevel",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "ApartmentComplex",
-          "entity2": "FlatUnit",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "ComprisesFlat",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "NextTrackTo",
+          "entity1": "MetroStation",
+          "entity2": "MetroStation",
+          "fromEntityName": "MetroStation",
+          "toEntityName": "MetroStation",
+          "mult1": "0..2",
+          "mult2": "0..2",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "currentStation",
+          "role2": "adjacentStation"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "ApartmentComplex",
-          "pk": "complexId",
-          "attributes": [
-            {
-              "name": "complexId",
-              "isPK": true
-            },
-            {
-              "name": "complexName",
-              "isPK": false
-            },
-            {
-              "name": "street",
-              "isPK": false
-            },
-            {
-              "name": "blockLetter",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "FlatUnit",
-          "pk": "flatNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "flatNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "roomsCount",
-              "isPK": false
-            },
-            {
-              "name": "areaSqm",
-              "isPK": false
-            },
-            {
-              "name": "floorLevel",
-              "isPK": false
-            },
-            {
-              "name": "apartmentcomplexId",
-              "isFK": true
-            }
-          ]
+          "name": "HistoricalEvent",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "ApartmentComplex",
-          "entity2": "FlatUnit",
-          "name": "ComprisesFlat",
-          "isIdentifying": true
+          "entity1": "MetroStation",
+          "entity2": "MetroStation",
+          "fromEntityName": "MetroStation",
+          "toEntityName": "MetroStation",
+          "mult1": "0..2",
+          "mult2": "0..2",
+          "name": "NextTrackTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "currentStation",
+          "role2": "adjacentStation"
         }
       ]
     },
+    "hint": "Connect 'HistoricalEvent' (0..*) to 'HistoricalEvent' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'HistoricalEvent' (0..*) and 'HistoricalEvent' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'HistoricalEvent' with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 68,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "DrugFormula va BatchLot (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'BatchLot' jadvalining Birlamchi Kaliti ota jadval kaliti 'drugformulaId' [FK1] bilan o'zining qisman kaliti 'lotNumber' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'BatchLot' jadvaliga ota kalit 'drugformulaId' [PK,FK1] ni qo'shing va 'DrugFormula' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #68",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Moliya Balans Moddalari Ierarxiyasi (SubAccountOf)",
+    "story": "'Account' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'SubAccountOf' munosabati are present. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
+    "taskUz": "Model the recursive relationship on 'Account' with multiplicities '0..1' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "DrugFormula",
-          "pk": "formulaCode",
+          "name": "Account",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "formulaCode",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "chemicalName",
-              "isPK": false
-            },
-            {
-              "name": "patentExpDate",
-              "isPK": false
-            },
-            {
-              "name": "dosageMg",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BatchLot",
-          "pk": "lotNumber",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "lotNumber",
-              "isPartialKey": true
-            },
-            {
-              "name": "prodDate",
-              "isPK": false
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false
-            },
-            {
-              "name": "labTechStaffId",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "DrugFormula",
-          "entity2": "BatchLot",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "ProducedInLot",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "ContainsSubfolder",
+          "entity1": "FolderDirectory",
+          "entity2": "FolderDirectory",
+          "fromEntityName": "FolderDirectory",
+          "toEntityName": "FolderDirectory",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentFolder",
+          "role2": "subFolder"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "DrugFormula",
-          "pk": "formulaCode",
-          "attributes": [
-            {
-              "name": "formulaCode",
-              "isPK": true
-            },
-            {
-              "name": "chemicalName",
-              "isPK": false
-            },
-            {
-              "name": "patentExpDate",
-              "isPK": false
-            },
-            {
-              "name": "dosageMg",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BatchLot",
-          "pk": "lotNumber",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "lotNumber",
-              "isPartialKey": true
-            },
-            {
-              "name": "prodDate",
-              "isPK": false
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false
-            },
-            {
-              "name": "labTechStaffId",
-              "isPK": false
-            },
-            {
-              "name": "drugformulaId",
-              "isFK": true
-            }
-          ]
+          "name": "Account",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "DrugFormula",
-          "entity2": "BatchLot",
-          "name": "ProducedInLot",
-          "isIdentifying": true
+          "entity1": "FolderDirectory",
+          "entity2": "FolderDirectory",
+          "fromEntityName": "FolderDirectory",
+          "toEntityName": "FolderDirectory",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "ContainsSubfolder",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentFolder",
+          "role2": "subFolder"
         }
       ]
     },
+    "hint": "Connect 'Account' (0..1) to 'Account' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Account' (0..1) and 'Account' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'Account' with multiplicities '0..1' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 69,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "OnlineCourse va CourseLesson (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'CourseLesson' jadvalining Birlamchi Kaliti ota jadval kaliti 'onlinecourseId' [FK1] bilan o'zining qisman kaliti 'lessonSeqNo' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'CourseLesson' jadvaliga ota kalit 'onlinecourseId' [PK,FK1] ni qo'shing va 'OnlineCourse' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #69",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Dasturiy Komponentlar Paketlar Daraxti (DependsOn)",
+    "story": "'Component' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'DependsOn' munosabati are present: bir tomon, ikkinchi tomon esa.",
+    "taskUz": "Model the recursive relationship on 'Component' with multiplicities '0..*' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "OnlineCourse",
-          "pk": "courseId",
+          "name": "Component",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "courseId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "courseTitle",
-              "isPK": false
-            },
-            {
-              "name": "authorName",
-              "isPK": false
-            },
-            {
-              "name": "priceUsd",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "CourseLesson",
-          "pk": "lessonSeqNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "lessonSeqNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "videoDurationMin",
-              "isPK": false
-            },
-            {
-              "name": "lessonTitle",
-              "isPK": false
-            },
-            {
-              "name": "isFreePreview",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "OnlineCourse",
-          "entity2": "CourseLesson",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "ContainsLesson",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "PrecedesTask",
+          "entity1": "ProjectTask",
+          "entity2": "ProjectTask",
+          "fromEntityName": "ProjectTask",
+          "toEntityName": "ProjectTask",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "predecessor",
+          "role2": "successor"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "OnlineCourse",
-          "pk": "courseId",
-          "attributes": [
-            {
-              "name": "courseId",
-              "isPK": true
-            },
-            {
-              "name": "courseTitle",
-              "isPK": false
-            },
-            {
-              "name": "authorName",
-              "isPK": false
-            },
-            {
-              "name": "priceUsd",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "CourseLesson",
-          "pk": "lessonSeqNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "lessonSeqNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "videoDurationMin",
-              "isPK": false
-            },
-            {
-              "name": "lessonTitle",
-              "isPK": false
-            },
-            {
-              "name": "isFreePreview",
-              "isPK": false
-            },
-            {
-              "name": "onlinecourseId",
-              "isFK": true
-            }
-          ]
+          "name": "Component",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "OnlineCourse",
-          "entity2": "CourseLesson",
-          "name": "ContainsLesson",
-          "isIdentifying": true
+          "entity1": "ProjectTask",
+          "entity2": "ProjectTask",
+          "fromEntityName": "ProjectTask",
+          "toEntityName": "ProjectTask",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "name": "PrecedesTask",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "predecessor",
+          "role2": "successor"
         }
       ]
     },
+    "hint": "Connect 'Component' (0..*) to 'Component' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Component' (0..*) and 'Component' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'Component' with multiplicities '0..*' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 70,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "TrainRoute va CarriageUnit (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'CarriageUnit' jadvalining Birlamchi Kaliti ota jadval kaliti 'trainrouteId' [FK1] bilan o'zining qisman kaliti 'coachNumber' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'CarriageUnit' jadvaliga ota kalit 'trainrouteId' [PK,FK1] ni qo'shing va 'TrainRoute' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #70",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Avtomobil Ehtiyot Qismlari O'rnini Bosish (Replaces)",
+    "story": "'SparePart' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Replaces' munosabati are present. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
+    "taskUz": "Model the recursive relationship on 'SparePart' with multiplicities '0..1' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "TrainRoute",
-          "pk": "trainNo",
+          "name": "SparePart",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "trainNo",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "routeTitle",
-              "isPK": false
-            },
-            {
-              "name": "departureStation",
-              "isPK": false
-            },
-            {
-              "name": "arrivalStation",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "CarriageUnit",
-          "pk": "coachNumber",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "coachNumber",
-              "isPartialKey": true
-            },
-            {
-              "name": "classType",
-              "isPK": false
-            },
-            {
-              "name": "berthCapacity",
-              "isPK": false
-            },
-            {
-              "name": "manufactureYear",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "TrainRoute",
-          "entity2": "CarriageUnit",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "IncludesCarriage",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "PlaysMatchAgainst",
+          "entity1": "FootballClub",
+          "entity2": "FootballClub",
+          "fromEntityName": "FootballClub",
+          "toEntityName": "FootballClub",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "homeTeam",
+          "role2": "awayTeam"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "TrainRoute",
-          "pk": "trainNo",
-          "attributes": [
-            {
-              "name": "trainNo",
-              "isPK": true
-            },
-            {
-              "name": "routeTitle",
-              "isPK": false
-            },
-            {
-              "name": "departureStation",
-              "isPK": false
-            },
-            {
-              "name": "arrivalStation",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "CarriageUnit",
-          "pk": "coachNumber",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "coachNumber",
-              "isPartialKey": true
-            },
-            {
-              "name": "classType",
-              "isPK": false
-            },
-            {
-              "name": "berthCapacity",
-              "isPK": false
-            },
-            {
-              "name": "manufactureYear",
-              "isPK": false
-            },
-            {
-              "name": "trainrouteId",
-              "isFK": true
-            }
-          ]
+          "name": "SparePart",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "TrainRoute",
-          "entity2": "CarriageUnit",
-          "name": "IncludesCarriage",
-          "isIdentifying": true
+          "entity1": "FootballClub",
+          "entity2": "FootballClub",
+          "fromEntityName": "FootballClub",
+          "toEntityName": "FootballClub",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "name": "PlaysMatchAgainst",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "homeTeam",
+          "role2": "awayTeam"
         }
       ]
     },
+    "hint": "Connect 'SparePart' (0..1) to 'SparePart' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'SparePart' (0..1) and 'SparePart' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'SparePart' with multiplicities '0..1' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 71,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "LabSample va TestResultItem (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'TestResultItem' jadvalining Birlamchi Kaliti ota jadval kaliti 'labsampleId' [FK1] bilan o'zining qisman kaliti 'testMetricCode' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'TestResultItem' jadvaliga ota kalit 'labsampleId' [PK,FK1] ni qo'shing va 'LabSample' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #71",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Xizmat Vazifalari Ketma-ketligi Recursive Relationship (Follows)",
+    "story": "'Task' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Follows' munosabati are present. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
+    "taskUz": "Model the recursive relationship on 'Task' with multiplicities '0..1' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "LabSample",
-          "pk": "sampleBarcode",
+          "name": "Task",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "sampleBarcode",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "patientId",
-              "isPK": false
-            },
-            {
-              "name": "collectionTime",
-              "isPK": false
-            },
-            {
-              "name": "sampleType",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "TestResultItem",
-          "pk": "testMetricCode",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "testMetricCode",
-              "isPartialKey": true
-            },
-            {
-              "name": "measuredValue",
-              "isPK": false
-            },
-            {
-              "name": "normalRange",
-              "isPK": false
-            },
-            {
-              "name": "unitMeasure",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "LabSample",
-          "entity2": "TestResultItem",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "YieldsResult",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "TransfersCargoTo",
+          "entity1": "DistributionHub",
+          "entity2": "DistributionHub",
+          "fromEntityName": "DistributionHub",
+          "toEntityName": "DistributionHub",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "sourceHub",
+          "role2": "targetHub"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "LabSample",
-          "pk": "sampleBarcode",
-          "attributes": [
-            {
-              "name": "sampleBarcode",
-              "isPK": true
-            },
-            {
-              "name": "patientId",
-              "isPK": false
-            },
-            {
-              "name": "collectionTime",
-              "isPK": false
-            },
-            {
-              "name": "sampleType",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "TestResultItem",
-          "pk": "testMetricCode",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "testMetricCode",
-              "isPartialKey": true
-            },
-            {
-              "name": "measuredValue",
-              "isPK": false
-            },
-            {
-              "name": "normalRange",
-              "isPK": false
-            },
-            {
-              "name": "unitMeasure",
-              "isPK": false
-            },
-            {
-              "name": "labsampleId",
-              "isFK": true
-            }
-          ]
+          "name": "Task",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "LabSample",
-          "entity2": "TestResultItem",
-          "name": "YieldsResult",
-          "isIdentifying": true
+          "entity1": "DistributionHub",
+          "entity2": "DistributionHub",
+          "fromEntityName": "DistributionHub",
+          "toEntityName": "DistributionHub",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "name": "TransfersCargoTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "sourceHub",
+          "role2": "targetHub"
         }
       ]
     },
+    "hint": "Connect 'Task' (0..1) to 'Task' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Task' (0..1) and 'Task' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'Task' with multiplicities '0..1' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 72,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "IndustrialMachine va ComponentSlot (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'ComponentSlot' jadvalining Birlamchi Kaliti ota jadval kaliti 'industrialmachineId' [FK1] bilan o'zining qisman kaliti 'slotCode' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'ComponentSlot' jadvaliga ota kalit 'industrialmachineId' [PK,FK1] ni qo'shing va 'IndustrialMachine' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #72",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Kadrlar Almashinuvi Merosxo'rlik Tizimi (Succeeds)",
+    "story": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Succeeds' munosabati are present. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
+    "taskUz": "Model the recursive relationship on 'Staff' with multiplicities '0..1' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "IndustrialMachine",
-          "pk": "machineId",
+          "name": "Staff",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "machineId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "modelName",
-              "isPK": false
-            },
-            {
-              "name": "installDate",
-              "isPK": false
-            },
-            {
-              "name": "powerKw",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "ComponentSlot",
-          "pk": "slotCode",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "slotCode",
-              "isPartialKey": true
-            },
-            {
-              "name": "installedPartSerial",
-              "isPK": false
-            },
-            {
-              "name": "serviceLifeHours",
-              "isPK": false
-            },
-            {
-              "name": "lastReplaced",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "IndustrialMachine",
-          "entity2": "ComponentSlot",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "FittedWith",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "UplinkTo",
+          "entity1": "NetworkSwitch",
+          "entity2": "NetworkSwitch",
+          "fromEntityName": "NetworkSwitch",
+          "toEntityName": "NetworkSwitch",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "coreSwitch",
+          "role2": "accessSwitch"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "IndustrialMachine",
-          "pk": "machineId",
-          "attributes": [
-            {
-              "name": "machineId",
-              "isPK": true
-            },
-            {
-              "name": "modelName",
-              "isPK": false
-            },
-            {
-              "name": "installDate",
-              "isPK": false
-            },
-            {
-              "name": "powerKw",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "ComponentSlot",
-          "pk": "slotCode",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "slotCode",
-              "isPartialKey": true
-            },
-            {
-              "name": "installedPartSerial",
-              "isPK": false
-            },
-            {
-              "name": "serviceLifeHours",
-              "isPK": false
-            },
-            {
-              "name": "lastReplaced",
-              "isPK": false
-            },
-            {
-              "name": "industrialmachineId",
-              "isFK": true
-            }
-          ]
+          "name": "Staff",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "IndustrialMachine",
-          "entity2": "ComponentSlot",
-          "name": "FittedWith",
-          "isIdentifying": true
+          "entity1": "NetworkSwitch",
+          "entity2": "NetworkSwitch",
+          "fromEntityName": "NetworkSwitch",
+          "toEntityName": "NetworkSwitch",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "UplinkTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "coreSwitch",
+          "role2": "accessSwitch"
         }
       ]
     },
+    "hint": "Connect 'Staff' (0..1) to 'Staff' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Staff' (0..1) and 'Staff' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'Staff' with multiplicities '0..1' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 73,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "AuditoriumHall va HallSeat (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'HallSeat' jadvalining Birlamchi Kaliti ota jadval kaliti 'auditoriumhallId' [FK1] bilan o'zining qisman kaliti 'seatNumber' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'HallSeat' jadvaliga ota kalit 'auditoriumhallId' [PK,FK1] ni qo'shing va 'AuditoriumHall' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #73",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Geografik Hududlar Ma'muriy Daraxti (BelongsToRegion)",
+    "story": "'Region' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'BelongsToRegion' munosabati are present. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
+    "taskUz": "Model the recursive relationship on 'Region' with multiplicities '0..1' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "AuditoriumHall",
-          "pk": "hallId",
+          "name": "Region",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "hallId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "hallName",
-              "isPK": false
-            },
-            {
-              "name": "soundAcousticGrade",
-              "isPK": false
-            },
-            {
-              "name": "screenType",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "HallSeat",
-          "pk": "seatNumber",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "seatNumber",
-              "isPartialKey": true
-            },
-            {
-              "name": "rowLetter",
-              "isPK": false
-            },
-            {
-              "name": "seatTier",
-              "isPK": false
-            },
-            {
-              "name": "isVipZone",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "AuditoriumHall",
-          "entity2": "HallSeat",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "HasSeat",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "ReversesTx",
+          "entity1": "FinancialTransaction",
+          "entity2": "FinancialTransaction",
+          "fromEntityName": "FinancialTransaction",
+          "toEntityName": "FinancialTransaction",
+          "mult1": "0..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "originalTx",
+          "role2": "reversalTx"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "AuditoriumHall",
-          "pk": "hallId",
-          "attributes": [
-            {
-              "name": "hallId",
-              "isPK": true
-            },
-            {
-              "name": "hallName",
-              "isPK": false
-            },
-            {
-              "name": "soundAcousticGrade",
-              "isPK": false
-            },
-            {
-              "name": "screenType",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "HallSeat",
-          "pk": "seatNumber",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "seatNumber",
-              "isPartialKey": true
-            },
-            {
-              "name": "rowLetter",
-              "isPK": false
-            },
-            {
-              "name": "seatTier",
-              "isPK": false
-            },
-            {
-              "name": "isVipZone",
-              "isPK": false
-            },
-            {
-              "name": "auditoriumhallId",
-              "isFK": true
-            }
-          ]
+          "name": "Region",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "AuditoriumHall",
-          "entity2": "HallSeat",
-          "name": "HasSeat",
-          "isIdentifying": true
+          "entity1": "FinancialTransaction",
+          "entity2": "FinancialTransaction",
+          "fromEntityName": "FinancialTransaction",
+          "toEntityName": "FinancialTransaction",
+          "mult1": "0..1",
+          "mult2": "0..1",
+          "name": "ReversesTx",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "originalTx",
+          "role2": "reversalTx"
         }
       ]
     },
+    "hint": "Connect 'Region' (0..1) to 'Region' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Region' (0..1) and 'Region' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'Region' with multiplicities '0..1' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 74,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "SmartphoneModel va HardwareConfig (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'HardwareConfig' jadvalining Birlamchi Kaliti ota jadval kaliti 'smartphonemodelId' [FK1] bilan o'zining qisman kaliti 'configCode' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'HardwareConfig' jadvaliga ota kalit 'smartphonemodelId' [PK,FK1] ni qo'shing va 'SmartphoneModel' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Intermediate",
+    "clientName": "Biznes Hamkor #74",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "Elektron Pochta Xatlari Zanjiri (ReplyToThread)",
+    "story": "'EmailMessage' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'ReplyToThread' munosabati are present. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
+    "taskUz": "Model the recursive relationship on 'EmailMessage' with multiplicities '0..1' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "SmartphoneModel",
-          "pk": "modelCode",
+          "name": "EmailMessage",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "modelCode",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "marketingName",
-              "isPK": false
-            },
-            {
-              "name": "releaseYear",
-              "isPK": false
-            },
-            {
-              "name": "baseSocCpu",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "HardwareConfig",
-          "pk": "configCode",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "configCode",
-              "isPartialKey": true
-            },
-            {
-              "name": "storageGb",
-              "isPK": false
-            },
-            {
-              "name": "ramGb",
-              "isPK": false
-            },
-            {
-              "name": "colorVariant",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "SmartphoneModel",
-          "entity2": "HardwareConfig",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "ConfiguredAs",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "BiologicalParentOf",
+          "entity1": "FamilyPerson",
+          "entity2": "FamilyPerson",
+          "fromEntityName": "FamilyPerson",
+          "toEntityName": "FamilyPerson",
+          "mult1": "0..2",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parent",
+          "role2": "child"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "SmartphoneModel",
-          "pk": "modelCode",
-          "attributes": [
-            {
-              "name": "modelCode",
-              "isPK": true
-            },
-            {
-              "name": "marketingName",
-              "isPK": false
-            },
-            {
-              "name": "releaseYear",
-              "isPK": false
-            },
-            {
-              "name": "baseSocCpu",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "HardwareConfig",
-          "pk": "configCode",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "configCode",
-              "isPartialKey": true
-            },
-            {
-              "name": "storageGb",
-              "isPK": false
-            },
-            {
-              "name": "ramGb",
-              "isPK": false
-            },
-            {
-              "name": "colorVariant",
-              "isPK": false
-            },
-            {
-              "name": "smartphonemodelId",
-              "isFK": true
-            }
-          ]
+          "name": "EmailMessage",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "SmartphoneModel",
-          "entity2": "HardwareConfig",
-          "name": "ConfiguredAs",
-          "isIdentifying": true
+          "entity1": "FamilyPerson",
+          "entity2": "FamilyPerson",
+          "fromEntityName": "FamilyPerson",
+          "toEntityName": "FamilyPerson",
+          "mult1": "0..2",
+          "mult2": "0..*",
+          "name": "BiologicalParentOf",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parent",
+          "role2": "child"
         }
       ]
     },
+    "hint": "Connect 'EmailMessage' (0..1) to 'EmailMessage' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'EmailMessage' (0..1) and 'EmailMessage' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'EmailMessage' with multiplicities '0..1' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 75,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy) • Relational Mapping",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "ResearchPaper va SupplementaryFile (Zaif Bog'liqlik) (Relatsion Sxema)",
-    "story": "1-haftadagi zaif entitiyani relyatsion sxemaga o'tkazishda: zaif 'SupplementaryFile' jadvalining Birlamchi Kaliti ota jadval kaliti 'researchpaperId' [FK1] bilan o'zining qisman kaliti 'fileIndex' ning kompozit birlashmasi [PK,FK1] orqali hosil qilinadi.",
-    "instruction": "'SupplementaryFile' jadvaliga ota kalit 'researchpaperId' [PK,FK1] ni qo'shing va 'ResearchPaper' jadvaliga bog'lang.",
+    "floor": 5,
+    "difficulty": "Floor 5 • Qiyin (Floor 5 Master Architecti)",
+    "clientName": "Biznes Hamkor #75",
+    "clientRole": "Tashkiliy Boshqaruv Mutaxassisi",
+    "clientAvatar": "ceo",
+    "title": "5-Qavat Bossi: Mentorlik va Jamoa Rahbarligi Rekursiv Tizimi",
+    "story": "'Staff' entitiyasining o'z-o'ziga bog'lanuvchi rekursiv 'Mentors' munosabati are present. Bunda ob'ektning ko'pi bilan bitta yuqori boshqaruvchisi bo'lishi yoki bo'lmasligi, hamda o'ziga bog'langan bir nechta quyi ob'ektlari bo'lishi mumkin.",
+    "taskUz": "Model the recursive relationship on 'Staff' with multiplicities '0..1' and '0..*'.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "ResearchPaper",
-          "pk": "doiCode",
+          "name": "Staff",
+          "x": 280,
+          "y": 150,
           "attributes": [
             {
-              "name": "doiCode",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "paperTitle",
-              "isPK": false
-            },
-            {
-              "name": "primaryAuthor",
-              "isPK": false
-            },
-            {
-              "name": "submissionDate",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "SupplementaryFile",
-          "pk": "fileIndex",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "fileIndex",
-              "isPartialKey": true
-            },
-            {
-              "name": "fileChecksum",
-              "isPK": false
-            },
-            {
-              "name": "mimeType",
-              "isPK": false
-            },
-            {
-              "name": "dataSizeBytes",
-              "isPK": false
+              "name": "name"
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "ResearchPaper",
-          "entity2": "SupplementaryFile",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "AccompaniedBy",
-          "isIdentifying": true
+          "id": "rel_1",
+          "name": "OwnsSubsidiary",
+          "entity1": "CorporateHolding",
+          "entity2": "CorporateHolding",
+          "fromEntityName": "CorporateHolding",
+          "toEntityName": "CorporateHolding",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentHolding",
+          "role2": "subsidiary"
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "ResearchPaper",
-          "pk": "doiCode",
-          "attributes": [
-            {
-              "name": "doiCode",
-              "isPK": true
-            },
-            {
-              "name": "paperTitle",
-              "isPK": false
-            },
-            {
-              "name": "primaryAuthor",
-              "isPK": false
-            },
-            {
-              "name": "submissionDate",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "SupplementaryFile",
-          "pk": "fileIndex",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "fileIndex",
-              "isPartialKey": true
-            },
-            {
-              "name": "fileChecksum",
-              "isPK": false
-            },
-            {
-              "name": "mimeType",
-              "isPK": false
-            },
-            {
-              "name": "dataSizeBytes",
-              "isPK": false
-            },
-            {
-              "name": "researchpaperId",
-              "isFK": true
-            }
-          ]
+          "name": "Staff",
+          "pk": "id"
         }
       ],
       "relationships": [
         {
-          "entity1": "ResearchPaper",
-          "entity2": "SupplementaryFile",
-          "name": "AccompaniedBy",
-          "isIdentifying": true
+          "entity1": "CorporateHolding",
+          "entity2": "CorporateHolding",
+          "fromEntityName": "CorporateHolding",
+          "toEntityName": "CorporateHolding",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "OwnsSubsidiary",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentHolding",
+          "role2": "subsidiary"
         }
       ]
     },
+    "hint": "Connect 'Staff' (0..1) to 'Staff' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Staff' (0..1) and 'Staff' (0..*) verified and approved.",
+    "task": "Model the recursive relationship on 'Staff' with multiplicities '0..1' and '0..*'.",
     "isWeek2": true
   },
   {
     "id": 76,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "Employee Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'Employee' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'supervisorId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'Employee' jadvaliga 'supervisorId' [FK1] ustunini qo'shib, uni o'zining 'empId' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #76",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "O'qitish Taqsimoti Ternary Rombi (Teaches: Course, Instructor, Semester)",
+    "story": "'Course', 'Instructor' va 'Semester' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Course', 'Instructor', 'Semester', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Employee",
-          "pk": "empId",
+          "name": "Course",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "empId",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Instructor",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "fullName",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Semester",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "jobPosition",
-              "isPK": false
-            },
-            {
-              "name": "salary",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Employee",
-          "entity2": "Employee",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "Enrolls",
+          "entity1": "Student",
+          "entity2": "CourseModule",
+          "fromEntityName": "Student",
+          "toEntityName": "CourseModule",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Manages",
-          "role1": "supervisor",
-          "role2": "supervisee"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "TaughtBy",
+          "entity1": "CourseModule",
+          "entity2": "Lecturer",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Lecturer",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Employee",
-          "pk": "empId",
-          "attributes": [
-            {
-              "name": "empId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "jobPosition",
-              "isPK": false
-            },
-            {
-              "name": "salary",
-              "isPK": false
-            }
-          ]
+          "name": "Course",
+          "pk": "id1"
+        },
+        {
+          "name": "Instructor",
+          "pk": "id2"
+        },
+        {
+          "name": "Semester",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "Employee",
-          "entity2": "Employee",
-          "name": "Manages",
-          "role1": "supervisor",
-          "role2": "supervisee"
+          "entity1": "Student",
+          "entity2": "CourseModule",
+          "fromEntityName": "Student",
+          "toEntityName": "CourseModule",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Enrolls",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CourseModule",
+          "entity2": "Lecturer",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Lecturer",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "TaughtBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Course' (0..*) to 'Instructor' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Course' (0..*) and 'Instructor' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Course', 'Instructor', 'Semester', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 77,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "ProductCategory Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'ProductCategory' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'parentCatId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'ProductCategory' jadvaliga 'parentCatId' [FK1] ustunini qo'shib, uni o'zining 'categoryId' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #77",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Ta'minot Shartnomasi Ternary Rombi (Supplies: Supplier, Part, Project)",
+    "story": "'Supplier', 'Part' va 'Project' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Supplier', 'Part', 'Project', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "ProductCategory",
-          "pk": "categoryId",
+          "name": "Supplier",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "categoryId",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Part",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "categoryName",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Project",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "displayOrder",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "ProductCategory",
-          "entity2": "ProductCategory",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "Treats",
+          "entity1": "Doctor",
+          "entity2": "Patient",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Patient",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubCategoryOf",
-          "role1": "parentCat",
-          "role2": "subCat"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Prescribes",
+          "entity1": "Doctor",
+          "entity2": "Medication",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Medication",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "ProductCategory",
-          "pk": "categoryId",
-          "attributes": [
-            {
-              "name": "categoryId",
-              "isPK": true
-            },
-            {
-              "name": "categoryName",
-              "isPK": false
-            },
-            {
-              "name": "displayOrder",
-              "isPK": false
-            }
-          ]
+          "name": "Supplier",
+          "pk": "id1"
+        },
+        {
+          "name": "Part",
+          "pk": "id2"
+        },
+        {
+          "name": "Project",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "ProductCategory",
-          "entity2": "ProductCategory",
-          "name": "SubCategoryOf",
-          "role1": "parentCat",
-          "role2": "subCat"
+          "entity1": "Doctor",
+          "entity2": "Patient",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Patient",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Treats",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "Doctor",
+          "entity2": "Medication",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Medication",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Prescribes",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Supplier' (0..*) to 'Part' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Supplier' (0..*) and 'Part' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Supplier', 'Part', 'Project', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 78,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "PartComponent Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'PartComponent' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'parentAssemblyId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'PartComponent' jadvaliga 'parentAssemblyId' [FK1] ustunini qo'shib, uni o'zining 'partNumber' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #78",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Tibbiy Davolash Rejasi (Prescribes: Doctor, Patient, Drug)",
+    "story": "'Doctor', 'Patient' va 'Drug' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Doctor', 'Patient', 'Drug', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "PartComponent",
-          "pk": "partNumber",
+          "name": "Doctor",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "partNumber",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Patient",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "partName",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Drug",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "unitCost",
-              "isPK": false
-            },
-            {
-              "name": "weightKg",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "PartComponent",
-          "entity2": "PartComponent",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "Produces",
+          "entity1": "AutoSupplier",
+          "entity2": "SparePart",
+          "fromEntityName": "AutoSupplier",
+          "toEntityName": "SparePart",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "AssembledFrom",
-          "role1": "parentAssembly",
-          "role2": "subComponent"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "FittedTo",
+          "entity1": "SparePart",
+          "entity2": "VehicleModel",
+          "fromEntityName": "SparePart",
+          "toEntityName": "VehicleModel",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "PartComponent",
-          "pk": "partNumber",
-          "attributes": [
-            {
-              "name": "partNumber",
-              "isPK": true
-            },
-            {
-              "name": "partName",
-              "isPK": false
-            },
-            {
-              "name": "unitCost",
-              "isPK": false
-            },
-            {
-              "name": "weightKg",
-              "isPK": false
-            }
-          ]
+          "name": "Doctor",
+          "pk": "id1"
+        },
+        {
+          "name": "Patient",
+          "pk": "id2"
+        },
+        {
+          "name": "Drug",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "PartComponent",
-          "entity2": "PartComponent",
-          "name": "AssembledFrom",
-          "role1": "parentAssembly",
-          "role2": "subComponent"
+          "entity1": "AutoSupplier",
+          "entity2": "SparePart",
+          "fromEntityName": "AutoSupplier",
+          "toEntityName": "SparePart",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Produces",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SparePart",
+          "entity2": "VehicleModel",
+          "fromEntityName": "SparePart",
+          "toEntityName": "VehicleModel",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "FittedTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Doctor' (0..*) to 'Patient' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Doctor' (0..*) and 'Patient' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Doctor', 'Patient', 'Drug', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 79,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "AcademicCourse Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'AcademicCourse' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'advancedCourseId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'AcademicCourse' jadvaliga 'advancedCourseId' [FK1] ustunini qo'shib, uni o'zining 'courseCode' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #79",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Sug'urta Da'vosi Ko'rib Chiqilishi (Assesses: Policy, Claim, Agent)",
+    "story": "'Policy', 'Claim' va 'Agent' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Policy', 'Claim', 'Agent', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "AcademicCourse",
-          "pk": "courseCode",
+          "name": "Policy",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "courseCode",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Claim",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "courseTitle",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Agent",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "creditUnits",
-              "isPK": false
-            },
-            {
-              "name": "level",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "AcademicCourse",
-          "entity2": "AcademicCourse",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "Serves",
+          "entity1": "SalesAgent",
+          "entity2": "CarBuyer",
+          "fromEntityName": "SalesAgent",
+          "toEntityName": "CarBuyer",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "RequiresPrereq",
-          "role1": "advancedCourse",
-          "role2": "prerequisiteCourse"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Purchases",
+          "entity1": "CarBuyer",
+          "entity2": "ShowroomCar",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "ShowroomCar",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "AcademicCourse",
-          "pk": "courseCode",
-          "attributes": [
-            {
-              "name": "courseCode",
-              "isPK": true
-            },
-            {
-              "name": "courseTitle",
-              "isPK": false
-            },
-            {
-              "name": "creditUnits",
-              "isPK": false
-            },
-            {
-              "name": "level",
-              "isPK": false
-            }
-          ]
+          "name": "Policy",
+          "pk": "id1"
+        },
+        {
+          "name": "Claim",
+          "pk": "id2"
+        },
+        {
+          "name": "Agent",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "AcademicCourse",
-          "entity2": "AcademicCourse",
-          "name": "RequiresPrereq",
-          "role1": "advancedCourse",
-          "role2": "prerequisiteCourse"
+          "entity1": "SalesAgent",
+          "entity2": "CarBuyer",
+          "fromEntityName": "SalesAgent",
+          "toEntityName": "CarBuyer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Serves",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CarBuyer",
+          "entity2": "ShowroomCar",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "ShowroomCar",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Purchases",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Policy' (0..*) to 'Claim' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Policy' (0..*) and 'Claim' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Policy', 'Claim', 'Agent', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 80,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "Citizen Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'Citizen' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'spouseAId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'Citizen' jadvaliga 'spouseAId' [FK1] ustunini qo'shib, uni o'zining 'pinfl' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #80",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Avtomobil Ijarasi Shartnomasi (Rents: Customer, Vehicle, AgencyBranch)",
+    "story": "'Customer', 'Vehicle' va 'AgencyBranch' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Customer', 'Vehicle', 'AgencyBranch', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Citizen",
-          "pk": "pinfl",
+          "name": "Customer",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "pinfl",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Vehicle",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "fullName",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "AgencyBranch",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "gender",
-              "isPK": false
-            },
-            {
-              "name": "birthDate",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Citizen",
-          "entity2": "Citizen",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "WorksOn",
+          "entity1": "BuildingContractor",
+          "entity2": "BuildingSite",
+          "fromEntityName": "BuildingContractor",
+          "toEntityName": "BuildingSite",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "MarriedTo",
-          "role1": "spouseA",
-          "role2": "spouseB"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Deploys",
+          "entity1": "BuildingSite",
+          "entity2": "HeavyEquipment",
+          "fromEntityName": "BuildingSite",
+          "toEntityName": "HeavyEquipment",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Citizen",
-          "pk": "pinfl",
-          "attributes": [
-            {
-              "name": "pinfl",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "gender",
-              "isPK": false
-            },
-            {
-              "name": "birthDate",
-              "isPK": false
-            }
-          ]
+          "name": "Customer",
+          "pk": "id1"
+        },
+        {
+          "name": "Vehicle",
+          "pk": "id2"
+        },
+        {
+          "name": "AgencyBranch",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "Citizen",
-          "entity2": "Citizen",
-          "name": "MarriedTo",
-          "role1": "spouseA",
-          "role2": "spouseB"
+          "entity1": "BuildingContractor",
+          "entity2": "BuildingSite",
+          "fromEntityName": "BuildingContractor",
+          "toEntityName": "BuildingSite",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "WorksOn",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "BuildingSite",
+          "entity2": "HeavyEquipment",
+          "fromEntityName": "BuildingSite",
+          "toEntityName": "HeavyEquipment",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "Deploys",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Customer' (0..*) to 'Vehicle' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Customer' (0..*) and 'Vehicle' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Customer', 'Vehicle', 'AgencyBranch', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 81,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "FlightLeg Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'FlightLeg' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'inboundLegId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'FlightLeg' jadvaliga 'inboundLegId' [FK1] ustunini qo'shib, uni o'zining 'legId' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #81",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Qurilish Obyekti Mashina Taqsimoti (Deploys: Site, Machinery, Operator)",
+    "story": "'Site', 'Machinery' va 'Operator' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Site', 'Machinery', 'Operator', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "FlightLeg",
-          "pk": "legId",
+          "name": "Site",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "legId",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Machinery",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "routeCode",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Operator",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "depAirport",
-              "isPK": false
-            },
-            {
-              "name": "arrAirport",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "FlightLeg",
-          "entity2": "FlightLeg",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "Covers",
+          "entity1": "KeynoteSpeaker",
+          "entity2": "SymposiumTopic",
+          "fromEntityName": "KeynoteSpeaker",
+          "toEntityName": "SymposiumTopic",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "ConnectsTo",
-          "role1": "inboundLeg",
-          "role2": "outboundConnectingLeg"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "HostedIn",
+          "entity1": "SymposiumTopic",
+          "entity2": "SessionHall",
+          "fromEntityName": "SymposiumTopic",
+          "toEntityName": "SessionHall",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "FlightLeg",
-          "pk": "legId",
-          "attributes": [
-            {
-              "name": "legId",
-              "isPK": true
-            },
-            {
-              "name": "routeCode",
-              "isPK": false
-            },
-            {
-              "name": "depAirport",
-              "isPK": false
-            },
-            {
-              "name": "arrAirport",
-              "isPK": false
-            }
-          ]
+          "name": "Site",
+          "pk": "id1"
+        },
+        {
+          "name": "Machinery",
+          "pk": "id2"
+        },
+        {
+          "name": "Operator",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "FlightLeg",
-          "entity2": "FlightLeg",
-          "name": "ConnectsTo",
-          "role1": "inboundLeg",
-          "role2": "outboundConnectingLeg"
+          "entity1": "KeynoteSpeaker",
+          "entity2": "SymposiumTopic",
+          "fromEntityName": "KeynoteSpeaker",
+          "toEntityName": "SymposiumTopic",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Covers",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SymposiumTopic",
+          "entity2": "SessionHall",
+          "fromEntityName": "SymposiumTopic",
+          "toEntityName": "SessionHall",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "HostedIn",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Site' (0..*) to 'Machinery' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Site' (0..*) and 'Machinery' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Site', 'Machinery', 'Operator', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 82,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "SoftwarePackage Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'SoftwarePackage' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'dependentModuleId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'SoftwarePackage' jadvaliga 'dependentModuleId' [FK1] ustunini qo'shib, uni o'zining 'packageId' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #82",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Sport Musobaqasi Hakamligi (Officiates: Referee, Match, Tournament)",
+    "story": "'Referee', 'Match' va 'Tournament' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Referee', 'Match', 'Tournament', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "SoftwarePackage",
-          "pk": "packageId",
+          "name": "Referee",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "packageId",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Match",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "packageName",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Tournament",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "semanticVersion",
-              "isPK": false
-            },
-            {
-              "name": "licenseType",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "SoftwarePackage",
-          "entity2": "SoftwarePackage",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "Represents",
+          "entity1": "InsuranceBroker",
+          "entity2": "CorporateClient",
+          "fromEntityName": "InsuranceBroker",
+          "toEntityName": "CorporateClient",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "DependsOn",
-          "role1": "dependentModule",
-          "role2": "requiredDependency"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "InsuredBy",
+          "entity1": "CorporateClient",
+          "entity2": "UnderwritingFirm",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "UnderwritingFirm",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "SoftwarePackage",
-          "pk": "packageId",
-          "attributes": [
-            {
-              "name": "packageId",
-              "isPK": true
-            },
-            {
-              "name": "packageName",
-              "isPK": false
-            },
-            {
-              "name": "semanticVersion",
-              "isPK": false
-            },
-            {
-              "name": "licenseType",
-              "isPK": false
-            }
-          ]
+          "name": "Referee",
+          "pk": "id1"
+        },
+        {
+          "name": "Match",
+          "pk": "id2"
+        },
+        {
+          "name": "Tournament",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "SoftwarePackage",
-          "entity2": "SoftwarePackage",
-          "name": "DependsOn",
-          "role1": "dependentModule",
-          "role2": "requiredDependency"
+          "entity1": "InsuranceBroker",
+          "entity2": "CorporateClient",
+          "fromEntityName": "InsuranceBroker",
+          "toEntityName": "CorporateClient",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Represents",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CorporateClient",
+          "entity2": "UnderwritingFirm",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "UnderwritingFirm",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "InsuredBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Referee' (0..*) to 'Match' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Referee' (0..*) and 'Match' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Referee', 'Match', 'Tournament', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 83,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "ChessMaster Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'ChessMaster' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'whitePlayerId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'ChessMaster' jadvaliga 'whitePlayerId' [FK1] ustunini qo'shib, uni o'zining 'fideId' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #83",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Bank Kredit Komissiyasi (Evaluates: LoanApp, Officer, Committee)",
+    "story": "'LoanApp', 'Officer' va 'Committee' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'LoanApp', 'Officer', 'Committee', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "ChessMaster",
-          "pk": "fideId",
+          "name": "LoanApp",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "fideId",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Officer",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "masterName",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Committee",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "eloRating",
-              "isPK": false
-            },
-            {
-              "name": "federationCountry",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "ChessMaster",
-          "entity2": "ChessMaster",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "ArrivesAt",
+          "entity1": "CargoCarrier",
+          "entity2": "CustomsTerminal",
+          "fromEntityName": "CargoCarrier",
+          "toEntityName": "CustomsTerminal",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "PlaysMatch",
-          "role1": "whitePlayer",
-          "role2": "blackPlayer"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ClearedBy",
+          "entity1": "CustomsTerminal",
+          "entity2": "FreightForwarder",
+          "fromEntityName": "CustomsTerminal",
+          "toEntityName": "FreightForwarder",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "ChessMaster",
-          "pk": "fideId",
-          "attributes": [
-            {
-              "name": "fideId",
-              "isPK": true
-            },
-            {
-              "name": "masterName",
-              "isPK": false
-            },
-            {
-              "name": "eloRating",
-              "isPK": false
-            },
-            {
-              "name": "federationCountry",
-              "isPK": false
-            }
-          ]
+          "name": "LoanApp",
+          "pk": "id1"
+        },
+        {
+          "name": "Officer",
+          "pk": "id2"
+        },
+        {
+          "name": "Committee",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "ChessMaster",
-          "entity2": "ChessMaster",
-          "name": "PlaysMatch",
-          "role1": "whitePlayer",
-          "role2": "blackPlayer"
+          "entity1": "CargoCarrier",
+          "entity2": "CustomsTerminal",
+          "fromEntityName": "CargoCarrier",
+          "toEntityName": "CustomsTerminal",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ArrivesAt",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CustomsTerminal",
+          "entity2": "FreightForwarder",
+          "fromEntityName": "CustomsTerminal",
+          "toEntityName": "FreightForwarder",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "ClearedBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'LoanApp' (0..*) to 'Officer' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'LoanApp' (0..*) and 'Officer' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'LoanApp', 'Officer', 'Committee', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 84,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "HistoricalFigure Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'HistoricalFigure' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'parentAncestorId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'HistoricalFigure' jadvaliga 'parentAncestorId' [FK1] ustunini qo'shib, uni o'zining 'personId' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #84",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Yuk Bojxona Tekshiruvi (Inspects: Cargo, Inspector, CustomsPost)",
+    "story": "'Cargo', 'Inspector' va 'CustomsPost' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Cargo', 'Inspector', 'CustomsPost', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "HistoricalFigure",
-          "pk": "personId",
+          "name": "Cargo",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "personId",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Inspector",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "fullName",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "CustomsPost",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "birthCentury",
-              "isPK": false
-            },
-            {
-              "name": "dynastyTitle",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "HistoricalFigure",
-          "entity2": "HistoricalFigure",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "ActsIn",
+          "entity1": "FilmActor",
+          "entity2": "MovieProduction",
+          "fromEntityName": "FilmActor",
+          "toEntityName": "MovieProduction",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "AncestorOf",
-          "role1": "parentAncestor",
-          "role2": "childDescendant"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Features",
+          "entity1": "MovieProduction",
+          "entity2": "CharacterRole",
+          "fromEntityName": "MovieProduction",
+          "toEntityName": "CharacterRole",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "HistoricalFigure",
-          "pk": "personId",
-          "attributes": [
-            {
-              "name": "personId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "birthCentury",
-              "isPK": false
-            },
-            {
-              "name": "dynastyTitle",
-              "isPK": false
-            }
-          ]
+          "name": "Cargo",
+          "pk": "id1"
+        },
+        {
+          "name": "Inspector",
+          "pk": "id2"
+        },
+        {
+          "name": "CustomsPost",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "HistoricalFigure",
-          "entity2": "HistoricalFigure",
-          "name": "AncestorOf",
-          "role1": "parentAncestor",
-          "role2": "childDescendant"
+          "entity1": "FilmActor",
+          "entity2": "MovieProduction",
+          "fromEntityName": "FilmActor",
+          "toEntityName": "MovieProduction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ActsIn",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "MovieProduction",
+          "entity2": "CharacterRole",
+          "fromEntityName": "MovieProduction",
+          "toEntityName": "CharacterRole",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Features",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Cargo' (0..*) to 'Inspector' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Cargo' (0..*) and 'Inspector' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Cargo', 'Inspector', 'CustomsPost', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 85,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "LegalPrecedent Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'LegalPrecedent' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'currentRulingCaseId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'LegalPrecedent' jadvaliga 'currentRulingCaseId' [FK1] ustunini qo'shib, uni o'zining 'caseNo' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #85",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Laboratoriya Namunasi Tahlili (Tests: Sample, Chemist, Equipment)",
+    "story": "'Sample', 'Chemist' va 'Equipment' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Sample', 'Chemist', 'Equipment', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "LegalPrecedent",
-          "pk": "caseNo",
+          "name": "Sample",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "caseNo",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Chemist",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "verdictYear",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Equipment",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "jurisdictionCourt",
-              "isPK": false
-            },
-            {
-              "name": "lawArticle",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "LegalPrecedent",
-          "entity2": "LegalPrecedent",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "Conducts",
+          "entity1": "ResearchScientist",
+          "entity2": "GrantProject",
+          "fromEntityName": "ResearchScientist",
+          "toEntityName": "GrantProject",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "CitesPrecedent",
-          "role1": "currentRulingCase",
-          "role2": "citedPrecedentCase"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "UsesFacility",
+          "entity1": "GrantProject",
+          "entity2": "LabFacility",
+          "fromEntityName": "GrantProject",
+          "toEntityName": "LabFacility",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "LegalPrecedent",
-          "pk": "caseNo",
-          "attributes": [
-            {
-              "name": "caseNo",
-              "isPK": true
-            },
-            {
-              "name": "verdictYear",
-              "isPK": false
-            },
-            {
-              "name": "jurisdictionCourt",
-              "isPK": false
-            },
-            {
-              "name": "lawArticle",
-              "isPK": false
-            }
-          ]
+          "name": "Sample",
+          "pk": "id1"
+        },
+        {
+          "name": "Chemist",
+          "pk": "id2"
+        },
+        {
+          "name": "Equipment",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "LegalPrecedent",
-          "entity2": "LegalPrecedent",
-          "name": "CitesPrecedent",
-          "role1": "currentRulingCase",
-          "role2": "citedPrecedentCase"
+          "entity1": "ResearchScientist",
+          "entity2": "GrantProject",
+          "fromEntityName": "ResearchScientist",
+          "toEntityName": "GrantProject",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Conducts",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "GrantProject",
+          "entity2": "LabFacility",
+          "fromEntityName": "GrantProject",
+          "toEntityName": "LabFacility",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "UsesFacility",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Sample' (0..*) to 'Chemist' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Sample' (0..*) and 'Chemist' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Sample', 'Chemist', 'Equipment', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 86,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "NetworkUser Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'NetworkUser' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'followerUserId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'NetworkUser' jadvaliga 'followerUserId' [FK1] ustunini qo'shib, uni o'zining 'userHandle' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #86",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Mehmonxona Xona Bandligi (Books: Guest, Room, BookingAgent)",
+    "story": "'Guest', 'Room' va 'BookingAgent' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Guest', 'Room', 'BookingAgent', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "NetworkUser",
-          "pk": "userHandle",
+          "name": "Guest",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "userHandle",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Room",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "displayName",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "BookingAgent",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "joinDate",
-              "isPK": false
-            },
-            {
-              "name": "isVerified",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "NetworkUser",
-          "entity2": "NetworkUser",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "Supervises",
+          "entity1": "BrandMerchandiser",
+          "entity2": "PromotedProduct",
+          "fromEntityName": "BrandMerchandiser",
+          "toEntityName": "PromotedProduct",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "FollowsUser",
-          "role1": "followerUser",
-          "role2": "followedUser"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "PlacedIn",
+          "entity1": "PromotedProduct",
+          "entity2": "SupermarketStore",
+          "fromEntityName": "PromotedProduct",
+          "toEntityName": "SupermarketStore",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "NetworkUser",
-          "pk": "userHandle",
-          "attributes": [
-            {
-              "name": "userHandle",
-              "isPK": true
-            },
-            {
-              "name": "displayName",
-              "isPK": false
-            },
-            {
-              "name": "joinDate",
-              "isPK": false
-            },
-            {
-              "name": "isVerified",
-              "isPK": false
-            }
-          ]
+          "name": "Guest",
+          "pk": "id1"
+        },
+        {
+          "name": "Room",
+          "pk": "id2"
+        },
+        {
+          "name": "BookingAgent",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "NetworkUser",
-          "entity2": "NetworkUser",
-          "name": "FollowsUser",
-          "role1": "followerUser",
-          "role2": "followedUser"
+          "entity1": "BrandMerchandiser",
+          "entity2": "PromotedProduct",
+          "fromEntityName": "BrandMerchandiser",
+          "toEntityName": "PromotedProduct",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Supervises",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "PromotedProduct",
+          "entity2": "SupermarketStore",
+          "fromEntityName": "PromotedProduct",
+          "toEntityName": "SupermarketStore",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "PlacedIn",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Guest' (0..*) to 'Room' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Guest' (0..*) and 'Room' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Guest', 'Room', 'BookingAgent', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 87,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "CorporateEnterprise Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'CorporateEnterprise' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'parentHoldingId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'CorporateEnterprise' jadvaliga 'parentHoldingId' [FK1] ustunini qo'shib, uni o'zining 'holdingId' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #87",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Xalqaro Parvoz Ekipaji (Assigns: Flight, Pilot, Aircraft)",
+    "story": "'Flight', 'Pilot' va 'Aircraft' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Flight', 'Pilot', 'Aircraft', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "CorporateEnterprise",
-          "pk": "holdingId",
+          "name": "Flight",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "holdingId",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Pilot",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "corporateName",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Aircraft",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "hqCountry",
-              "isPK": false
-            },
-            {
-              "name": "capitalUsd",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "CorporateEnterprise",
-          "entity2": "CorporateEnterprise",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "Specializes",
+          "entity1": "SportAthlete",
+          "entity2": "SportDiscipline",
+          "fromEntityName": "SportAthlete",
+          "toEntityName": "SportDiscipline",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubsidiaryOf",
-          "role1": "parentHolding",
-          "role2": "daughterCompany"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ContestedAt",
+          "entity1": "SportDiscipline",
+          "entity2": "ChampionshipEvent",
+          "fromEntityName": "SportDiscipline",
+          "toEntityName": "ChampionshipEvent",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "CorporateEnterprise",
-          "pk": "holdingId",
-          "attributes": [
-            {
-              "name": "holdingId",
-              "isPK": true
-            },
-            {
-              "name": "corporateName",
-              "isPK": false
-            },
-            {
-              "name": "hqCountry",
-              "isPK": false
-            },
-            {
-              "name": "capitalUsd",
-              "isPK": false
-            }
-          ]
+          "name": "Flight",
+          "pk": "id1"
+        },
+        {
+          "name": "Pilot",
+          "pk": "id2"
+        },
+        {
+          "name": "Aircraft",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "CorporateEnterprise",
-          "entity2": "CorporateEnterprise",
-          "name": "SubsidiaryOf",
-          "role1": "parentHolding",
-          "role2": "daughterCompany"
+          "entity1": "SportAthlete",
+          "entity2": "SportDiscipline",
+          "fromEntityName": "SportAthlete",
+          "toEntityName": "SportDiscipline",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Specializes",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SportDiscipline",
+          "entity2": "ChampionshipEvent",
+          "fromEntityName": "SportDiscipline",
+          "toEntityName": "ChampionshipEvent",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "ContestedAt",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Flight' (0..*) to 'Pilot' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Flight' (0..*) and 'Pilot' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Flight', 'Pilot', 'Aircraft', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 88,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "MetroStation Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'MetroStation' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'precedingStopId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'MetroStation' jadvaliga 'precedingStopId' [FK1] ustunini qo'shib, uni o'zining 'stationCode' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #88",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Kinofilm Kasting Taqsimoti (Casts: Movie, Role, Actor)",
+    "story": "'Movie', 'Role' va 'Actor' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Movie', 'Role', 'Actor', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "MetroStation",
-          "pk": "stationCode",
+          "name": "Movie",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "stationCode",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Role",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "stationName",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Actor",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "lineColor",
-              "isPK": false
-            },
-            {
-              "name": "zoneNo",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "MetroStation",
-          "entity2": "MetroStation",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "AssignedBlock",
+          "entity1": "ExamineeStudent",
+          "entity2": "SubjectBlock",
+          "fromEntityName": "ExamineeStudent",
+          "toEntityName": "SubjectBlock",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "AdjacentTo",
-          "role1": "precedingStop",
-          "role2": "succeedingStop"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "SupervisedBy",
+          "entity1": "SubjectBlock",
+          "entity2": "ExamProctor",
+          "fromEntityName": "SubjectBlock",
+          "toEntityName": "ExamProctor",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "MetroStation",
-          "pk": "stationCode",
-          "attributes": [
-            {
-              "name": "stationCode",
-              "isPK": true
-            },
-            {
-              "name": "stationName",
-              "isPK": false
-            },
-            {
-              "name": "lineColor",
-              "isPK": false
-            },
-            {
-              "name": "zoneNo",
-              "isPK": false
-            }
-          ]
+          "name": "Movie",
+          "pk": "id1"
+        },
+        {
+          "name": "Role",
+          "pk": "id2"
+        },
+        {
+          "name": "Actor",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "MetroStation",
-          "entity2": "MetroStation",
-          "name": "AdjacentTo",
-          "role1": "precedingStop",
-          "role2": "succeedingStop"
+          "entity1": "ExamineeStudent",
+          "entity2": "SubjectBlock",
+          "fromEntityName": "ExamineeStudent",
+          "toEntityName": "SubjectBlock",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AssignedBlock",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SubjectBlock",
+          "entity2": "ExamProctor",
+          "fromEntityName": "SubjectBlock",
+          "toEntityName": "ExamProctor",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "SupervisedBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Movie' (0..*) to 'Role' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Movie' (0..*) and 'Role' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Movie', 'Role', 'Actor', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 89,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "PathogenStrain Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'PathogenStrain' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'ancestralStrainId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'PathogenStrain' jadvaliga 'ancestralStrainId' [FK1] ustunini qo'shib, uni o'zining 'strainId' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Intermediate",
+    "clientName": "Biznes Hamkor #89",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "Zavod Mahsulotini Qadoqlash (Packs: Product, PackagingLine, Operator)",
+    "story": "'Product', 'PackagingLine' va 'Operator' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Product', 'PackagingLine', 'Operator', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "PathogenStrain",
-          "pk": "strainId",
+          "name": "Product",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "strainId",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "PackagingLine",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "genomeSeqHash",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "Operator",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "isolationDate",
-              "isPK": false
-            },
-            {
-              "name": "virulenceRate",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "PathogenStrain",
-          "entity2": "PathogenStrain",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "Purchases",
+          "entity1": "EnterpriseBuyer",
+          "entity2": "SoftwareModule",
+          "fromEntityName": "EnterpriseBuyer",
+          "toEntityName": "SoftwareModule",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "MutatedFrom",
-          "role1": "ancestralStrain",
-          "role2": "mutantLineage"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ProvidedBy",
+          "entity1": "SoftwareModule",
+          "entity2": "LicenseReseller",
+          "fromEntityName": "SoftwareModule",
+          "toEntityName": "LicenseReseller",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "PathogenStrain",
-          "pk": "strainId",
-          "attributes": [
-            {
-              "name": "strainId",
-              "isPK": true
-            },
-            {
-              "name": "genomeSeqHash",
-              "isPK": false
-            },
-            {
-              "name": "isolationDate",
-              "isPK": false
-            },
-            {
-              "name": "virulenceRate",
-              "isPK": false
-            }
-          ]
+          "name": "Product",
+          "pk": "id1"
+        },
+        {
+          "name": "PackagingLine",
+          "pk": "id2"
+        },
+        {
+          "name": "Operator",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "PathogenStrain",
-          "entity2": "PathogenStrain",
-          "name": "MutatedFrom",
-          "role1": "ancestralStrain",
-          "role2": "mutantLineage"
+          "entity1": "EnterpriseBuyer",
+          "entity2": "SoftwareModule",
+          "fromEntityName": "EnterpriseBuyer",
+          "toEntityName": "SoftwareModule",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Purchases",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SoftwareModule",
+          "entity2": "LicenseReseller",
+          "fromEntityName": "SoftwareModule",
+          "toEntityName": "LicenseReseller",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "ProvidedBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Product' (0..*) to 'PackagingLine' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Product' (0..*) and 'PackagingLine' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Product', 'PackagingLine', 'Operator', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 90,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv) • Relational Mapping",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "WebDocument Rekursiv Ierarxiyasi (Relatsion Sxema)",
-    "story": "1-haftadagi rekursiv munosabatni relyatsion jadvalga o'tkazish uchun: 'WebDocument' jadvaliga o'zining birlamchi kalitiga tayanuvchi 'referringPageId' [FK1] Tashqi Kalit ustunini qo'shing va o'z jadvaliga bog'lang.",
-    "instruction": "'WebDocument' jadvaliga 'referringPageId' [FK1] ustunini qo'shib, uni o'zining 'pageUrl' [PK] ustuniga bog'lang.",
+    "floor": 6,
+    "difficulty": "Floor 6 • Qiyin (Floor 6 Master Architecti)",
+    "clientName": "Biznes Hamkor #90",
+    "clientRole": "Tizim Integratori",
+    "clientAvatar": "vicechancellor",
+    "title": "6-Qavat Bossi: Festival Chiqishlari Ternary Tizimi (Artist, Stage, FestivalDay)",
+    "story": "'Artist', 'Stage' va 'FestivalDay' ob'ektlari 3 tomonlama yaxlit ternary romb orqali bog'lanadi. Har bir bog'lanish chizig'iga multiplicity o'rnatiladi.",
+    "taskUz": "Model the multi-entity diagram for 'Artist', 'Stage', 'FestivalDay', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "WebDocument",
-          "pk": "pageUrl",
+          "name": "Artist",
+          "x": 100,
+          "y": 150,
           "attributes": [
             {
-              "name": "pageUrl",
+              "name": "id1",
               "isPK": true
-            },
+            }
+          ]
+        },
+        {
+          "name": "Stage",
+          "x": 450,
+          "y": 80,
+          "attributes": [
             {
-              "name": "pageTitle",
-              "isPK": false
-            },
+              "name": "id2",
+              "isPK": true
+            }
+          ]
+        },
+        {
+          "name": "FestivalDay",
+          "x": 450,
+          "y": 220,
+          "attributes": [
             {
-              "name": "pageRankScore",
-              "isPK": false
-            },
-            {
-              "name": "lastCrawled",
-              "isPK": false
+              "name": "id3",
+              "isPK": true
             }
           ]
         }
       ],
       "relationships": [
         {
-          "entity1": "WebDocument",
-          "entity2": "WebDocument",
-          "mult1": "0..1",
+          "id": "rel_1",
+          "name": "AssignedRoute",
+          "entity1": "FlightCaptain",
+          "entity2": "FlightRoute",
+          "fromEntityName": "FlightCaptain",
+          "toEntityName": "FlightRoute",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "HyperlinksTo",
-          "role1": "referringPage",
-          "role2": "targetLinkedPage"
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "OperatedWith",
+          "entity1": "FlightRoute",
+          "entity2": "AircraftFleet",
+          "fromEntityName": "FlightRoute",
+          "toEntityName": "AircraftFleet",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "WebDocument",
-          "pk": "pageUrl",
-          "attributes": [
-            {
-              "name": "pageUrl",
-              "isPK": true
-            },
-            {
-              "name": "pageTitle",
-              "isPK": false
-            },
-            {
-              "name": "pageRankScore",
-              "isPK": false
-            },
-            {
-              "name": "lastCrawled",
-              "isPK": false
-            }
-          ]
+          "name": "Artist",
+          "pk": "id1"
+        },
+        {
+          "name": "Stage",
+          "pk": "id2"
+        },
+        {
+          "name": "FestivalDay",
+          "pk": "id3"
         }
       ],
       "relationships": [
         {
-          "entity1": "WebDocument",
-          "entity2": "WebDocument",
-          "name": "HyperlinksTo",
-          "role1": "referringPage",
-          "role2": "targetLinkedPage"
+          "entity1": "FlightCaptain",
+          "entity2": "FlightRoute",
+          "fromEntityName": "FlightCaptain",
+          "toEntityName": "FlightRoute",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AssignedRoute",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "FlightRoute",
+          "entity2": "AircraftFleet",
+          "fromEntityName": "FlightRoute",
+          "toEntityName": "AircraftFleet",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "OperatedWith",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
+    "hint": "Connect 'Artist' (0..*) to 'Stage' (0..*) and ensure Primary Keys {PK} are set.",
+    "explanation": "Relationship between 'Artist' (0..*) and 'Stage' (0..*) verified and approved.",
+    "task": "Model the multi-entity diagram for 'Artist', 'Stage', 'FestivalDay', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
     "isWeek2": true
   },
   {
     "id": 91,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
-    "clientName": "Temur Karimov",
-    "clientRole": "Aviapark Texnik Direktori",
-    "clientAvatar": "mentor",
-    "title": "Aircraft Disjoint Ixtisoslashuvi (Relatsion Sxema)",
-    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
-    "instruction": "Subklass jadvallariga ota kalit 'tailNo' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
+    "floor": 7,
+    "difficulty": "Floor 7 • Intermediate",
+    "clientName": "Biznes Hamkor #91",
+    "clientRole": "EER Arxitektura Eksperti",
+    "clientAvatar": "architect",
+    "title": "Xodimlar Ixtisoslashuvi: Soatbay va Oylik ({Mandatory, Or})",
+    "story": "'Employee' superklassi ostida 'HourlyEmp' va 'SalariedEmp' subklasslari are present. Cheklov turi: '{Mandatory, Or}'.",
+    "taskUz": "Model superclass 'Employee' and its subclasses ('HourlyEmp', 'SalariedEmp') with the '{Mandatory, Or}' constraint according to client requirements.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Aircraft",
-          "pk": "tailNo",
+          "name": "Employee",
+          "x": 280,
+          "y": 80,
           "attributes": [
             {
-              "name": "tailNo",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "model",
-              "isPK": false
-            },
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "HourlyEmp",
+          "x": 120,
+          "y": 220,
+          "attributes": [
             {
-              "name": "manufacturer",
-              "isPK": false
-            },
+              "name": "attr1"
+            }
+          ]
+        },
+        {
+          "name": "SalariedEmp",
+          "x": 440,
+          "y": 220,
+          "attributes": [
             {
-              "name": "capacity",
-              "isPK": false
+              "name": "attr2"
             }
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Aircraft",
-        "subs": [
-          {
-            "name": "AircraftTypeA",
-            "attributes": []
-          },
-          {
-            "name": "AircraftTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Aircraft",
-          "pk": "tailNo",
-          "attributes": [
-            {
-              "name": "tailNo",
-              "isPK": true
-            },
-            {
-              "name": "model",
-              "isPK": false
-            },
-            {
-              "name": "manufacturer",
-              "isPK": false
-            },
-            {
-              "name": "capacity",
-              "isPK": false
-            }
-          ]
+          "name": "Employee",
+          "pk": "id"
         }
       ],
-      "relationships": [],
       "subclasses": {
-        "superclass": "Aircraft",
-        "subs": [
-          {
-            "name": "AircraftTypeA",
-            "attributes": []
-          },
-          {
-            "name": "AircraftTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+        "superclass": "Employee",
+        "constraint": "{Mandatory, Or}",
+        "subclasses": [
+          "HourlyEmp",
+          "SalariedEmp"
+        ]
+      },
+      "relationships": []
     },
+    "hint": "Open the Subclass modal: set superclass to 'Employee', select '{Mandatory, Or}', and check child subclasses.",
+    "explanation": "EER Subclass hierarchy under 'Employee' configured with '{Mandatory, Or}' successfully.",
+    "task": "Model superclass 'Employee' and its subclasses ('HourlyEmp', 'SalariedEmp') with the '{Mandatory, Or}' constraint according to client requirements.",
     "isWeek2": true
   },
   {
     "id": 92,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
-    "clientName": "Dr. Aziza Rahimova",
-    "clientRole": "Bosh Shifokor Muovini",
-    "clientAvatar": "mentor",
-    "title": "Patient Disjoint Ixtisoslashuvi (Relatsion Sxema)",
-    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
-    "instruction": "Subklass jadvallariga ota kalit 'patientId' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
+    "floor": 7,
+    "difficulty": "Floor 7 • Intermediate",
+    "clientName": "Biznes Hamkor #92",
+    "clientRole": "EER Arxitektura Eksperti",
+    "clientAvatar": "architect",
+    "title": "Transport Vositalari Ierarxiyasi ({Mandatory, Or})",
+    "story": "'Vehicle' superklassi ostida 'Car' va 'Truck' subklasslari are present. Cheklov turi: '{Mandatory, Or}'.",
+    "taskUz": "Model superclass 'Vehicle' and its subclasses ('Car', 'Truck') with the '{Mandatory, Or}' constraint according to client requirements.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Patient",
-          "pk": "patientId",
+          "name": "Vehicle",
+          "x": 280,
+          "y": 80,
           "attributes": [
             {
-              "name": "patientId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "fullName",
-              "isPK": false
-            },
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "Car",
+          "x": 120,
+          "y": 220,
+          "attributes": [
             {
-              "name": "dob",
-              "isPK": false
-            },
+              "name": "attr1"
+            }
+          ]
+        },
+        {
+          "name": "Truck",
+          "x": 440,
+          "y": 220,
+          "attributes": [
             {
-              "name": "bloodType",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
+              "name": "attr2"
             }
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Patient",
-        "subs": [
-          {
-            "name": "PatientTypeA",
-            "attributes": []
-          },
-          {
-            "name": "PatientTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Patient",
-          "pk": "patientId",
-          "attributes": [
-            {
-              "name": "patientId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "dob",
-              "isPK": false
-            },
-            {
-              "name": "bloodType",
-              "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
-            }
-          ]
+          "name": "Vehicle",
+          "pk": "id"
         }
       ],
-      "relationships": [],
       "subclasses": {
-        "superclass": "Patient",
-        "subs": [
-          {
-            "name": "PatientTypeA",
-            "attributes": []
-          },
-          {
-            "name": "PatientTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+        "superclass": "Vehicle",
+        "constraint": "{Mandatory, Or}",
+        "subclasses": [
+          "Car",
+          "Truck"
+        ]
+      },
+      "relationships": []
     },
+    "hint": "Open the Subclass modal: set superclass to 'Vehicle', select '{Mandatory, Or}', and check child subclasses.",
+    "explanation": "EER Subclass hierarchy under 'Vehicle' configured with '{Mandatory, Or}' successfully.",
+    "task": "Model superclass 'Vehicle' and its subclasses ('Car', 'Truck') with the '{Mandatory, Or}' constraint according to client requirements.",
     "isWeek2": true
   },
   {
     "id": 93,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
-    "clientName": "Bobur Mansurov",
-    "clientRole": "Bosh Registrator",
-    "clientAvatar": "mentor",
-    "title": "Student Disjoint Ixtisoslashuvi (Relatsion Sxema)",
-    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
-    "instruction": "Subklass jadvallariga ota kalit 'studentId' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
+    "floor": 7,
+    "difficulty": "Floor 7 • Intermediate",
+    "clientName": "Biznes Hamkor #93",
+    "clientRole": "EER Arxitektura Eksperti",
+    "clientAvatar": "architect",
+    "title": "Universitet Xodimlari Qisman Ixtisoslashuvi ({Optional, Or})",
+    "story": "'Person' superklassi ostida 'Staff' va 'Student' subklasslari are present. Cheklov turi: '{Optional, Or}'.",
+    "taskUz": "Model superclass 'Person' and its subclasses ('Staff', 'Student') with the '{Optional, Or}' constraint according to client requirements.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Student",
-          "pk": "studentId",
+          "name": "Person",
+          "x": 280,
+          "y": 80,
           "attributes": [
             {
-              "name": "studentId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "firstName",
-              "isPK": false
-            },
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "Staff",
+          "x": 120,
+          "y": 220,
+          "attributes": [
             {
-              "name": "lastName",
-              "isPK": false
-            },
+              "name": "attr1"
+            }
+          ]
+        },
+        {
+          "name": "Student",
+          "x": 440,
+          "y": 220,
+          "attributes": [
             {
-              "name": "email",
-              "isPK": false
-            },
-            {
-              "name": "gpa",
-              "isPK": false
+              "name": "attr2"
             }
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Student",
-        "subs": [
-          {
-            "name": "StudentTypeA",
-            "attributes": []
-          },
-          {
-            "name": "StudentTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Student",
-          "pk": "studentId",
-          "attributes": [
-            {
-              "name": "studentId",
-              "isPK": true
-            },
-            {
-              "name": "firstName",
-              "isPK": false
-            },
-            {
-              "name": "lastName",
-              "isPK": false
-            },
-            {
-              "name": "email",
-              "isPK": false
-            },
-            {
-              "name": "gpa",
-              "isPK": false
-            }
-          ]
+          "name": "Person",
+          "pk": "id"
         }
       ],
-      "relationships": [],
       "subclasses": {
-        "superclass": "Student",
-        "subs": [
-          {
-            "name": "StudentTypeA",
-            "attributes": []
-          },
-          {
-            "name": "StudentTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+        "superclass": "Person",
+        "constraint": "{Optional, Or}",
+        "subclasses": [
+          "Staff",
+          "Student"
+        ]
+      },
+      "relationships": []
     },
+    "hint": "Open the Subclass modal: set superclass to 'Person', select '{Optional, Or}', and check child subclasses.",
+    "explanation": "EER Subclass hierarchy under 'Person' configured with '{Optional, Or}' successfully.",
+    "task": "Model superclass 'Person' and its subclasses ('Staff', 'Student') with the '{Optional, Or}' constraint according to client requirements.",
     "isWeek2": true
   },
   {
     "id": 94,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
-    "clientName": "Gulnora Karimova",
-    "clientRole": "Bosh Bibliograf",
-    "clientAvatar": "mentor",
-    "title": "Book Disjoint Ixtisoslashuvi (Relatsion Sxema)",
-    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
-    "instruction": "Subklass jadvallariga ota kalit 'isbn' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
+    "floor": 7,
+    "difficulty": "Floor 7 • Intermediate",
+    "clientName": "Biznes Hamkor #94",
+    "clientRole": "EER Arxitektura Eksperti",
+    "clientAvatar": "architect",
+    "title": "Bank Hisob Varaqlari: Omonat va Joriy ({Mandatory, Or})",
+    "story": "'Account' superklassi ostida 'SavingsAcc' va 'CurrentAcc' subklasslari are present. Cheklov turi: '{Mandatory, Or}'.",
+    "taskUz": "Model superclass 'Account' and its subclasses ('SavingsAcc', 'CurrentAcc') with the '{Mandatory, Or}' constraint according to client requirements.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Book",
-          "pk": "isbn",
+          "name": "Account",
+          "x": 280,
+          "y": 80,
           "attributes": [
             {
-              "name": "isbn",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "title",
-              "isPK": false
-            },
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "SavingsAcc",
+          "x": 120,
+          "y": 220,
+          "attributes": [
             {
-              "name": "author",
-              "isPK": false
-            },
+              "name": "attr1"
+            }
+          ]
+        },
+        {
+          "name": "CurrentAcc",
+          "x": 440,
+          "y": 220,
+          "attributes": [
             {
-              "name": "publishYear",
-              "isPK": false
-            },
-            {
-              "name": "genre",
-              "isPK": false
+              "name": "attr2"
             }
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Book",
-        "subs": [
-          {
-            "name": "BookTypeA",
-            "attributes": []
-          },
-          {
-            "name": "BookTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Book",
-          "pk": "isbn",
-          "attributes": [
-            {
-              "name": "isbn",
-              "isPK": true
-            },
-            {
-              "name": "title",
-              "isPK": false
-            },
-            {
-              "name": "author",
-              "isPK": false
-            },
-            {
-              "name": "publishYear",
-              "isPK": false
-            },
-            {
-              "name": "genre",
-              "isPK": false
-            }
-          ]
+          "name": "Account",
+          "pk": "id"
         }
       ],
-      "relationships": [],
       "subclasses": {
-        "superclass": "Book",
-        "subs": [
-          {
-            "name": "BookTypeA",
-            "attributes": []
-          },
-          {
-            "name": "BookTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+        "superclass": "Account",
+        "constraint": "{Mandatory, Or}",
+        "subclasses": [
+          "SavingsAcc",
+          "CurrentAcc"
+        ]
+      },
+      "relationships": []
     },
+    "hint": "Open the Subclass modal: set superclass to 'Account', select '{Mandatory, Or}', and check child subclasses.",
+    "explanation": "EER Subclass hierarchy under 'Account' configured with '{Mandatory, Or}' successfully.",
+    "task": "Model superclass 'Account' and its subclasses ('SavingsAcc', 'CurrentAcc') with the '{Mandatory, Or}' constraint according to client requirements.",
     "isWeek2": true
   },
   {
     "id": 95,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
-    "clientName": "Rustam Aliyev",
-    "clientRole": "Savdo Direktori",
-    "clientAvatar": "mentor",
-    "title": "Vehicle Disjoint Ixtisoslashuvi (Relatsion Sxema)",
-    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
-    "instruction": "Subklass jadvallariga ota kalit 'vin' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
+    "floor": 7,
+    "difficulty": "Floor 7 • Intermediate",
+    "clientName": "Biznes Hamkor #95",
+    "clientRole": "EER Arxitektura Eksperti",
+    "clientAvatar": "architect",
+    "title": "Kutubxona Resurslari: Kitob va Jurnal ({Mandatory, Or})",
+    "story": "'LibraryItem' superklassi ostida 'Book' va 'Journal' subklasslari are present. Cheklov turi: '{Mandatory, Or}'.",
+    "taskUz": "Model superclass 'LibraryItem' and its subclasses ('Book', 'Journal') with the '{Mandatory, Or}' constraint according to client requirements.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Vehicle",
-          "pk": "vin",
+          "name": "LibraryItem",
+          "x": 280,
+          "y": 80,
           "attributes": [
             {
-              "name": "vin",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "make",
-              "isPK": false
-            },
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "Book",
+          "x": 120,
+          "y": 220,
+          "attributes": [
             {
-              "name": "model",
-              "isPK": false
-            },
+              "name": "attr1"
+            }
+          ]
+        },
+        {
+          "name": "Journal",
+          "x": 440,
+          "y": 220,
+          "attributes": [
             {
-              "name": "prodYear",
-              "isPK": false
-            },
-            {
-              "name": "price",
-              "isPK": false
+              "name": "attr2"
             }
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Vehicle",
-        "subs": [
-          {
-            "name": "VehicleTypeA",
-            "attributes": []
-          },
-          {
-            "name": "VehicleTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Vehicle",
-          "pk": "vin",
-          "attributes": [
-            {
-              "name": "vin",
-              "isPK": true
-            },
-            {
-              "name": "make",
-              "isPK": false
-            },
-            {
-              "name": "model",
-              "isPK": false
-            },
-            {
-              "name": "prodYear",
-              "isPK": false
-            },
-            {
-              "name": "price",
-              "isPK": false
-            }
-          ]
+          "name": "LibraryItem",
+          "pk": "id"
         }
       ],
-      "relationships": [],
       "subclasses": {
-        "superclass": "Vehicle",
-        "subs": [
-          {
-            "name": "VehicleTypeA",
-            "attributes": []
-          },
-          {
-            "name": "VehicleTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+        "superclass": "LibraryItem",
+        "constraint": "{Mandatory, Or}",
+        "subclasses": [
+          "Book",
+          "Journal"
+        ]
+      },
+      "relationships": []
     },
+    "hint": "Open the Subclass modal: set superclass to 'LibraryItem', select '{Mandatory, Or}', and check child subclasses.",
+    "explanation": "EER Subclass hierarchy under 'LibraryItem' configured with '{Mandatory, Or}' successfully.",
+    "task": "Model superclass 'LibraryItem' and its subclasses ('Book', 'Journal') with the '{Mandatory, Or}' constraint according to client requirements.",
     "isWeek2": true
   },
   {
     "id": 96,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
-    "clientName": "Jamshid Qodirov",
-    "clientRole": "Bosh Buxgalter",
-    "clientAvatar": "mentor",
-    "title": "BankAccount Disjoint Ixtisoslashuvi (Relatsion Sxema)",
-    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
-    "instruction": "Subklass jadvallariga ota kalit 'accountNo' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
+    "floor": 7,
+    "difficulty": "Floor 7 • Intermediate",
+    "clientName": "Biznes Hamkor #96",
+    "clientRole": "EER Arxitektura Eksperti",
+    "clientAvatar": "architect",
+    "title": "Mulk Turlari: Turarjoy va Tijorat Mulki ({Mandatory, Or})",
+    "story": "'Property' superklassi ostida 'Residential' va 'Commercial' subklasslari are present. Cheklov turi: '{Mandatory, Or}'.",
+    "taskUz": "Model superclass 'Property' and its subclasses ('Residential', 'Commercial') with the '{Mandatory, Or}' constraint according to client requirements.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "BankAccount",
-          "pk": "accountNo",
+          "name": "Property",
+          "x": 280,
+          "y": 80,
           "attributes": [
             {
-              "name": "accountNo",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "balance",
-              "isPK": false
-            },
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "Residential",
+          "x": 120,
+          "y": 220,
+          "attributes": [
             {
-              "name": "currency",
-              "isPK": false
-            },
+              "name": "attr1"
+            }
+          ]
+        },
+        {
+          "name": "Commercial",
+          "x": 440,
+          "y": 220,
+          "attributes": [
             {
-              "name": "openDate",
-              "isPK": false
-            },
-            {
-              "name": "branchCode",
-              "isPK": false
+              "name": "attr2"
             }
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "BankAccount",
-        "subs": [
-          {
-            "name": "BankAccountTypeA",
-            "attributes": []
-          },
-          {
-            "name": "BankAccountTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "BankAccount",
-          "pk": "accountNo",
-          "attributes": [
-            {
-              "name": "accountNo",
-              "isPK": true
-            },
-            {
-              "name": "balance",
-              "isPK": false
-            },
-            {
-              "name": "currency",
-              "isPK": false
-            },
-            {
-              "name": "openDate",
-              "isPK": false
-            },
-            {
-              "name": "branchCode",
-              "isPK": false
-            }
-          ]
+          "name": "Property",
+          "pk": "id"
         }
       ],
-      "relationships": [],
       "subclasses": {
-        "superclass": "BankAccount",
-        "subs": [
-          {
-            "name": "BankAccountTypeA",
-            "attributes": []
-          },
-          {
-            "name": "BankAccountTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+        "superclass": "Property",
+        "constraint": "{Mandatory, Or}",
+        "subclasses": [
+          "Residential",
+          "Commercial"
+        ]
+      },
+      "relationships": []
     },
+    "hint": "Open the Subclass modal: set superclass to 'Property', select '{Mandatory, Or}', and check child subclasses.",
+    "explanation": "EER Subclass hierarchy under 'Property' configured with '{Mandatory, Or}' successfully.",
+    "task": "Model superclass 'Property' and its subclasses ('Residential', 'Commercial') with the '{Mandatory, Or}' constraint according to client requirements.",
     "isWeek2": true
   },
   {
     "id": 97,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
-    "clientName": "Malika Yusupova",
-    "clientRole": "Boshqaruvchi",
-    "clientAvatar": "mentor",
-    "title": "HotelRoom Disjoint Ixtisoslashuvi (Relatsion Sxema)",
-    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
-    "instruction": "Subklass jadvallariga ota kalit 'roomNo' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
+    "floor": 7,
+    "difficulty": "Floor 7 • Intermediate",
+    "clientName": "Biznes Hamkor #97",
+    "clientRole": "EER Arxitektura Eksperti",
+    "clientAvatar": "architect",
+    "title": "Kompaniya Mijozlari: Jismoniy va Yuridik Shaxs ({Mandatory, Or})",
+    "story": "'Customer' superklassi ostida 'Individual' va 'Corporate' subklasslari are present. Cheklov turi: '{Mandatory, Or}'.",
+    "taskUz": "Model superclass 'Customer' and its subclasses ('Individual', 'Corporate') with the '{Mandatory, Or}' constraint according to client requirements.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "HotelRoom",
-          "pk": "roomNo",
+          "name": "Customer",
+          "x": 280,
+          "y": 80,
           "attributes": [
             {
-              "name": "roomNo",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "roomType",
-              "isPK": false
-            },
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "Individual",
+          "x": 120,
+          "y": 220,
+          "attributes": [
             {
-              "name": "pricePerNight",
-              "isPK": false
-            },
+              "name": "attr1"
+            }
+          ]
+        },
+        {
+          "name": "Corporate",
+          "x": 440,
+          "y": 220,
+          "attributes": [
             {
-              "name": "floorNo",
-              "isPK": false
-            },
-            {
-              "name": "capacity",
-              "isPK": false
+              "name": "attr2"
             }
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "HotelRoom",
-        "subs": [
-          {
-            "name": "HotelRoomTypeA",
-            "attributes": []
-          },
-          {
-            "name": "HotelRoomTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "HotelRoom",
-          "pk": "roomNo",
-          "attributes": [
-            {
-              "name": "roomNo",
-              "isPK": true
-            },
-            {
-              "name": "roomType",
-              "isPK": false
-            },
-            {
-              "name": "pricePerNight",
-              "isPK": false
-            },
-            {
-              "name": "floorNo",
-              "isPK": false
-            },
-            {
-              "name": "capacity",
-              "isPK": false
-            }
-          ]
+          "name": "Customer",
+          "pk": "id"
         }
       ],
-      "relationships": [],
       "subclasses": {
-        "superclass": "HotelRoom",
-        "subs": [
-          {
-            "name": "HotelRoomTypeA",
-            "attributes": []
-          },
-          {
-            "name": "HotelRoomTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+        "superclass": "Customer",
+        "constraint": "{Mandatory, Or}",
+        "subclasses": [
+          "Individual",
+          "Corporate"
+        ]
+      },
+      "relationships": []
     },
+    "hint": "Open the Subclass modal: set superclass to 'Customer', select '{Mandatory, Or}', and check child subclasses.",
+    "explanation": "EER Subclass hierarchy under 'Customer' configured with '{Mandatory, Or}' successfully.",
+    "task": "Model superclass 'Customer' and its subclasses ('Individual', 'Corporate') with the '{Mandatory, Or}' constraint according to client requirements.",
     "isWeek2": true
   },
   {
     "id": 98,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
-    "clientName": "Otabek Sodiqov",
-    "clientRole": "Bosh Oshpaz",
-    "clientAvatar": "mentor",
-    "title": "MenuItem Disjoint Ixtisoslashuvi (Relatsion Sxema)",
-    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
-    "instruction": "Subklass jadvallariga ota kalit 'itemId' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
+    "floor": 7,
+    "difficulty": "Floor 7 • Intermediate",
+    "clientName": "Biznes Hamkor #98",
+    "clientRole": "EER Arxitektura Eksperti",
+    "clientAvatar": "architect",
+    "title": "Dasturiy Foydalanuvchilar: Admin va Mehmon ({Optional, Or})",
+    "story": "'User' superklassi ostida 'Admin' va 'Guest' subklasslari are present. Cheklov turi: '{Optional, Or}'.",
+    "taskUz": "Model superclass 'User' and its subclasses ('Admin', 'Guest') with the '{Optional, Or}' constraint according to client requirements.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "MenuItem",
-          "pk": "itemId",
+          "name": "User",
+          "x": 280,
+          "y": 80,
           "attributes": [
             {
-              "name": "itemId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "name",
-              "isPK": false
-            },
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "Admin",
+          "x": 120,
+          "y": 220,
+          "attributes": [
             {
-              "name": "category",
-              "isPK": false
-            },
+              "name": "attr1"
+            }
+          ]
+        },
+        {
+          "name": "Guest",
+          "x": 440,
+          "y": 220,
+          "attributes": [
             {
-              "name": "price",
-              "isPK": false
-            },
-            {
-              "name": "calories",
-              "isPK": false
+              "name": "attr2"
             }
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "MenuItem",
-        "subs": [
-          {
-            "name": "MenuItemTypeA",
-            "attributes": []
-          },
-          {
-            "name": "MenuItemTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "MenuItem",
-          "pk": "itemId",
-          "attributes": [
-            {
-              "name": "itemId",
-              "isPK": true
-            },
-            {
-              "name": "name",
-              "isPK": false
-            },
-            {
-              "name": "category",
-              "isPK": false
-            },
-            {
-              "name": "price",
-              "isPK": false
-            },
-            {
-              "name": "calories",
-              "isPK": false
-            }
-          ]
+          "name": "User",
+          "pk": "id"
         }
       ],
-      "relationships": [],
       "subclasses": {
-        "superclass": "MenuItem",
-        "subs": [
-          {
-            "name": "MenuItemTypeA",
-            "attributes": []
-          },
-          {
-            "name": "MenuItemTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+        "superclass": "User",
+        "constraint": "{Optional, Or}",
+        "subclasses": [
+          "Admin",
+          "Guest"
+        ]
+      },
+      "relationships": []
     },
+    "hint": "Open the Subclass modal: set superclass to 'User', select '{Optional, Or}', and check child subclasses.",
+    "explanation": "EER Subclass hierarchy under 'User' configured with '{Optional, Or}' successfully.",
+    "task": "Model superclass 'User' and its subclasses ('Admin', 'Guest') with the '{Optional, Or}' constraint according to client requirements.",
     "isWeek2": true
   },
   {
     "id": 99,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
-    "clientName": "Farhod Ergashev",
-    "clientRole": "Texnik Direktor (CTO)",
-    "clientAvatar": "mentor",
-    "title": "Developer Disjoint Ixtisoslashuvi (Relatsion Sxema)",
-    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
-    "instruction": "Subklass jadvallariga ota kalit 'devId' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
+    "floor": 7,
+    "difficulty": "Floor 7 • Intermediate",
+    "clientName": "Biznes Hamkor #99",
+    "clientRole": "EER Arxitektura Eksperti",
+    "clientAvatar": "architect",
+    "title": "Tibbiy Sug'urta Rejalari: Baza va Premium ({Mandatory, Or})",
+    "story": "'InsurancePlan' superklassi ostida 'BasicPlan' va 'PremiumPlan' subklasslari are present. Cheklov turi: '{Mandatory, Or}'.",
+    "taskUz": "Model superclass 'InsurancePlan' and its subclasses ('BasicPlan', 'PremiumPlan') with the '{Mandatory, Or}' constraint according to client requirements.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Developer",
-          "pk": "devId",
+          "name": "InsurancePlan",
+          "x": 280,
+          "y": 80,
           "attributes": [
             {
-              "name": "devId",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "fullName",
-              "isPK": false
-            },
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "BasicPlan",
+          "x": 120,
+          "y": 220,
+          "attributes": [
             {
-              "name": "role",
-              "isPK": false
-            },
+              "name": "attr1"
+            }
+          ]
+        },
+        {
+          "name": "PremiumPlan",
+          "x": 440,
+          "y": 220,
+          "attributes": [
             {
-              "name": "techStack",
-              "isPK": false
-            },
-            {
-              "name": "salary",
-              "isPK": false
+              "name": "attr2"
             }
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Developer",
-        "subs": [
-          {
-            "name": "DeveloperTypeA",
-            "attributes": []
-          },
-          {
-            "name": "DeveloperTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Developer",
-          "pk": "devId",
-          "attributes": [
-            {
-              "name": "devId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "role",
-              "isPK": false
-            },
-            {
-              "name": "techStack",
-              "isPK": false
-            },
-            {
-              "name": "salary",
-              "isPK": false
-            }
-          ]
+          "name": "InsurancePlan",
+          "pk": "id"
         }
       ],
-      "relationships": [],
       "subclasses": {
-        "superclass": "Developer",
-        "subs": [
-          {
-            "name": "DeveloperTypeA",
-            "attributes": []
-          },
-          {
-            "name": "DeveloperTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+        "superclass": "InsurancePlan",
+        "constraint": "{Mandatory, Or}",
+        "subclasses": [
+          "BasicPlan",
+          "PremiumPlan"
+        ]
+      },
+      "relationships": []
     },
+    "hint": "Open the Subclass modal: set superclass to 'InsurancePlan', select '{Mandatory, Or}', and check child subclasses.",
+    "explanation": "EER Subclass hierarchy under 'InsurancePlan' configured with '{Mandatory, Or}' successfully.",
+    "task": "Model superclass 'InsurancePlan' and its subclasses ('BasicPlan', 'PremiumPlan') with the '{Mandatory, Or}' constraint according to client requirements.",
     "isWeek2": true
   },
   {
     "id": 100,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA) • Relational Mapping",
-    "clientName": "Shahnoza Karimova",
-    "clientRole": "Katalog Menejeri",
-    "clientAvatar": "mentor",
-    "title": "Product Disjoint Ixtisoslashuvi (Relatsion Sxema)",
-    "story": "1-haftadagi disjoint {Mandatory, Or} modelini SQL relyatsion jadvallarga o'tkazish: har bir subklass alohida jadval bo'ladi va superklassning Birlamchi Kalitini o'ziga [PK,FK1] qilib oladi.",
-    "instruction": "Subklass jadvallariga ota kalit 'sku' ni [PK,FK1] qilib joylashtiring va superklass jadvaliga bog'lang.",
+    "floor": 7,
+    "difficulty": "Floor 7 • Qiyin (Floor 7 Master Architecti)",
+    "clientName": "Biznes Hamkor #100",
+    "clientRole": "EER Arxitektura Eksperti",
+    "clientAvatar": "architect",
+    "title": "7-Qavat Bossi: Bemorlar Ixtisoslashuvi ({Mandatory, Or})",
+    "story": "'Patient' superklassi ostida 'InPatient' va 'OutPatient' subklasslari are present. Cheklov turi: '{Mandatory, Or}'.",
+    "taskUz": "Model superclass 'Patient' and its subclasses ('InPatient', 'OutPatient') with the '{Mandatory, Or}' constraint according to client requirements.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Product",
-          "pk": "sku",
+          "name": "Patient",
+          "x": 280,
+          "y": 80,
           "attributes": [
             {
-              "name": "sku",
+              "name": "id",
               "isPK": true
             },
             {
-              "name": "title",
-              "isPK": false
-            },
+              "name": "name"
+            }
+          ]
+        },
+        {
+          "name": "InPatient",
+          "x": 120,
+          "y": 220,
+          "attributes": [
             {
-              "name": "price",
-              "isPK": false
-            },
+              "name": "attr1"
+            }
+          ]
+        },
+        {
+          "name": "OutPatient",
+          "x": 440,
+          "y": 220,
+          "attributes": [
             {
-              "name": "stockQty",
-              "isPK": false
-            },
-            {
-              "name": "weightKg",
-              "isPK": false
+              "name": "attr2"
             }
           ]
         }
       ],
-      "relationships": [],
-      "subclasses": {
-        "superclass": "Product",
-        "subs": [
-          {
-            "name": "ProductTypeA",
-            "attributes": []
-          },
-          {
-            "name": "ProductTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Product",
-          "pk": "sku",
-          "attributes": [
-            {
-              "name": "sku",
-              "isPK": true
-            },
-            {
-              "name": "title",
-              "isPK": false
-            },
-            {
-              "name": "price",
-              "isPK": false
-            },
-            {
-              "name": "stockQty",
-              "isPK": false
-            },
-            {
-              "name": "weightKg",
-              "isPK": false
-            }
-          ]
+          "name": "Patient",
+          "pk": "id"
         }
       ],
-      "relationships": [],
       "subclasses": {
-        "superclass": "Product",
-        "subs": [
-          {
-            "name": "ProductTypeA",
-            "attributes": []
-          },
-          {
-            "name": "ProductTypeB",
-            "attributes": []
-          }
-        ],
-        "constraint": "{Mandatory, Or}"
-      }
+        "superclass": "Patient",
+        "constraint": "{Mandatory, Or}",
+        "subclasses": [
+          "InPatient",
+          "OutPatient"
+        ]
+      },
+      "relationships": []
     },
+    "hint": "Open the Subclass modal: set superclass to 'Patient', select '{Mandatory, Or}', and check child subclasses.",
+    "explanation": "EER Subclass hierarchy under 'Patient' configured with '{Mandatory, Or}' successfully.",
+    "task": "Model superclass 'Patient' and its subclasses ('InPatient', 'OutPatient') with the '{Mandatory, Or}' constraint according to client requirements.",
     "isWeek2": true
   }
 ];

@@ -45,7 +45,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -61,11 +62,13 @@ _scope.EER_CLIENTS_101_150 = [
           "CashPayment",
           "CardPayment"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'PaymentMethod', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'PaymentMethod' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'PaymentMethod' and its subclasses ('CashPayment', 'CardPayment') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'PaymentMethod' and its subclasses ('CashPayment', 'CardPayment') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 102,
@@ -112,7 +115,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -128,11 +132,13 @@ _scope.EER_CLIENTS_101_150 = [
           "Resident",
           "NonResident"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'TaxPayer', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'TaxPayer' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'TaxPayer' and its subclasses ('Resident', 'NonResident') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'TaxPayer' and its subclasses ('Resident', 'NonResident') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 103,
@@ -179,7 +185,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -195,11 +202,13 @@ _scope.EER_CLIENTS_101_150 = [
           "PetrolEngine",
           "ElectricEngine"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Engine', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Engine' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'Engine' and its subclasses ('PetrolEngine', 'ElectricEngine') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'Engine' and its subclasses ('PetrolEngine', 'ElectricEngine') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 104,
@@ -246,7 +255,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -262,11 +272,13 @@ _scope.EER_CLIENTS_101_150 = [
           "StandardRoom",
           "DeluxeRoom"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'HotelRoom', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'HotelRoom' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'HotelRoom' and its subclasses ('StandardRoom', 'DeluxeRoom') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'HotelRoom' and its subclasses ('StandardRoom', 'DeluxeRoom') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 105,
@@ -313,7 +325,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -329,11 +342,13 @@ _scope.EER_CLIENTS_101_150 = [
           "GroundCrew",
           "FlightCrew"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'AirportStaff', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'AirportStaff' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'AirportStaff' and its subclasses ('GroundCrew', 'FlightCrew') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'AirportStaff' and its subclasses ('GroundCrew', 'FlightCrew') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 106,
@@ -380,7 +395,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -396,11 +412,13 @@ _scope.EER_CLIENTS_101_150 = [
           "ManufacturedPart",
           "PurchasedPart"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Part', select '{Mandatory, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Part' configured with '{Mandatory, And}' successfully.",
-    "task": "Model superclass 'Part' and its subclasses ('ManufacturedPart', 'PurchasedPart') with the '{Mandatory, And}' constraint according to client requirements."
+    "task": "Model superclass 'Part' and its subclasses ('ManufacturedPart', 'PurchasedPart') with the '{Mandatory, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 107,
@@ -447,7 +465,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -463,11 +482,13 @@ _scope.EER_CLIENTS_101_150 = [
           "StaffMember",
           "StudentMember"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Person', select '{Optional, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Person' configured with '{Optional, And}' successfully.",
-    "task": "Model superclass 'Person' and its subclasses ('StaffMember', 'StudentMember') with the '{Optional, And}' constraint according to client requirements."
+    "task": "Model superclass 'Person' and its subclasses ('StaffMember', 'StudentMember') with the '{Optional, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 108,
@@ -514,7 +535,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -530,11 +552,13 @@ _scope.EER_CLIENTS_101_150 = [
           "Author",
           "Translator"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Writer', select '{Optional, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Writer' configured with '{Optional, And}' successfully.",
-    "task": "Model superclass 'Writer' and its subclasses ('Author', 'Translator') with the '{Optional, And}' constraint according to client requirements."
+    "task": "Model superclass 'Writer' and its subclasses ('Author', 'Translator') with the '{Optional, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 109,
@@ -581,7 +605,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -597,11 +622,13 @@ _scope.EER_CLIENTS_101_150 = [
           "Buyer",
           "Seller"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'PlatformUser', select '{Mandatory, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'PlatformUser' configured with '{Mandatory, And}' successfully.",
-    "task": "Model superclass 'PlatformUser' and its subclasses ('Buyer', 'Seller') with the '{Mandatory, And}' constraint according to client requirements."
+    "task": "Model superclass 'PlatformUser' and its subclasses ('Buyer', 'Seller') with the '{Mandatory, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 110,
@@ -648,7 +675,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -664,11 +692,13 @@ _scope.EER_CLIENTS_101_150 = [
           "Manufacturer",
           "Dealer"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'AutoCompany', select '{Optional, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'AutoCompany' configured with '{Optional, And}' successfully.",
-    "task": "Model superclass 'AutoCompany' and its subclasses ('Manufacturer', 'Dealer') with the '{Optional, And}' constraint according to client requirements."
+    "task": "Model superclass 'AutoCompany' and its subclasses ('Manufacturer', 'Dealer') with the '{Optional, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 111,
@@ -715,7 +745,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -731,11 +762,13 @@ _scope.EER_CLIENTS_101_150 = [
           "Player",
           "Coach"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Athlete', select '{Optional, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Athlete' configured with '{Optional, And}' successfully.",
-    "task": "Model superclass 'Athlete' and its subclasses ('Player', 'Coach') with the '{Optional, And}' constraint according to client requirements."
+    "task": "Model superclass 'Athlete' and its subclasses ('Player', 'Coach') with the '{Optional, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 112,
@@ -782,7 +815,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -798,11 +832,13 @@ _scope.EER_CLIENTS_101_150 = [
           "Doctor",
           "Lecturer"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'HospitalStaff', select '{Optional, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'HospitalStaff' configured with '{Optional, And}' successfully.",
-    "task": "Model superclass 'HospitalStaff' and its subclasses ('Doctor', 'Lecturer') with the '{Optional, And}' constraint according to client requirements."
+    "task": "Model superclass 'HospitalStaff' and its subclasses ('Doctor', 'Lecturer') with the '{Optional, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 113,
@@ -849,7 +885,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -865,11 +902,13 @@ _scope.EER_CLIENTS_101_150 = [
           "SalesOffice",
           "ServiceCenter"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Branch', select '{Mandatory, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Branch' configured with '{Mandatory, And}' successfully.",
-    "task": "Model superclass 'Branch' and its subclasses ('SalesOffice', 'ServiceCenter') with the '{Mandatory, And}' constraint according to client requirements."
+    "task": "Model superclass 'Branch' and its subclasses ('SalesOffice', 'ServiceCenter') with the '{Mandatory, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 114,
@@ -916,7 +955,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -932,11 +972,13 @@ _scope.EER_CLIENTS_101_150 = [
           "Composer",
           "Performer"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Musician', select '{Optional, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Musician' configured with '{Optional, And}' successfully.",
-    "task": "Model superclass 'Musician' and its subclasses ('Composer', 'Performer') with the '{Optional, And}' constraint according to client requirements."
+    "task": "Model superclass 'Musician' and its subclasses ('Composer', 'Performer') with the '{Optional, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 115,
@@ -983,7 +1025,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -999,11 +1042,13 @@ _scope.EER_CLIENTS_101_150 = [
           "Coder",
           "DevOps"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'TechStaff', select '{Optional, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'TechStaff' configured with '{Optional, And}' successfully.",
-    "task": "Model superclass 'TechStaff' and its subclasses ('Coder', 'DevOps') with the '{Optional, And}' constraint according to client requirements."
+    "task": "Model superclass 'TechStaff' and its subclasses ('Coder', 'DevOps') with the '{Optional, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 116,
@@ -1050,7 +1095,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1066,11 +1112,13 @@ _scope.EER_CLIENTS_101_150 = [
           "OfficeSpace",
           "ApartmentSpace"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Building', select '{Mandatory, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Building' configured with '{Mandatory, And}' successfully.",
-    "task": "Model superclass 'Building' and its subclasses ('OfficeSpace', 'ApartmentSpace') with the '{Mandatory, And}' constraint according to client requirements."
+    "task": "Model superclass 'Building' and its subclasses ('OfficeSpace', 'ApartmentSpace') with the '{Mandatory, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 117,
@@ -1117,7 +1165,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1133,11 +1182,13 @@ _scope.EER_CLIENTS_101_150 = [
           "DebitCard",
           "CreditCard"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'CardHolder', select '{Mandatory, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'CardHolder' configured with '{Mandatory, And}' successfully.",
-    "task": "Model superclass 'CardHolder' and its subclasses ('DebitCard', 'CreditCard') with the '{Mandatory, And}' constraint according to client requirements."
+    "task": "Model superclass 'CardHolder' and its subclasses ('DebitCard', 'CreditCard') with the '{Mandatory, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 118,
@@ -1184,7 +1235,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1200,11 +1252,13 @@ _scope.EER_CLIENTS_101_150 = [
           "Cook",
           "Manager"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'RestStaff', select '{Optional, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'RestStaff' configured with '{Optional, And}' successfully.",
-    "task": "Model superclass 'RestStaff' and its subclasses ('Cook', 'Manager') with the '{Optional, And}' constraint according to client requirements."
+    "task": "Model superclass 'RestStaff' and its subclasses ('Cook', 'Manager') with the '{Optional, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 119,
@@ -1251,7 +1305,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1267,11 +1322,13 @@ _scope.EER_CLIENTS_101_150 = [
           "Researcher",
           "Expert"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Scientist', select '{Optional, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Scientist' configured with '{Optional, And}' successfully.",
-    "task": "Model superclass 'Scientist' and its subclasses ('Researcher', 'Expert') with the '{Optional, And}' constraint according to client requirements."
+    "task": "Model superclass 'Scientist' and its subclasses ('Researcher', 'Expert') with the '{Optional, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 120,
@@ -1318,7 +1375,8 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1334,11 +1392,13 @@ _scope.EER_CLIENTS_101_150 = [
           "Pilot",
           "FlightInstructor"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'AeroStaff', select '{Optional, And}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'AeroStaff' configured with '{Optional, And}' successfully.",
-    "task": "Model superclass 'AeroStaff' and its subclasses ('Pilot', 'FlightInstructor') with the '{Optional, And}' constraint according to client requirements."
+    "task": "Model superclass 'AeroStaff' and its subclasses ('Pilot', 'FlightInstructor') with the '{Optional, And}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 121,
@@ -1387,7 +1447,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Operates",
+          "entity1": "MedicalHospital",
+          "entity2": "HospitalDivision",
+          "fromEntityName": "MedicalHospital",
+          "toEntityName": "HospitalDivision",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Employs",
+          "entity1": "HospitalDivision",
+          "entity2": "MedicalDoctor",
+          "fromEntityName": "HospitalDivision",
+          "toEntityName": "MedicalDoctor",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1406,12 +1495,30 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Division",
-          "entity2": "Branch"
+          "entity1": "MedicalHospital",
+          "entity2": "HospitalDivision",
+          "fromEntityName": "MedicalHospital",
+          "toEntityName": "HospitalDivision",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "HospitalDivision",
+          "entity2": "MedicalDoctor",
+          "fromEntityName": "HospitalDivision",
+          "toEntityName": "MedicalDoctor",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Employs",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1467,7 +1574,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Offers",
+          "entity1": "UniversityFaculty",
+          "entity2": "CourseModule",
+          "fromEntityName": "UniversityFaculty",
+          "toEntityName": "CourseModule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "TaughtBy",
+          "entity1": "CourseModule",
+          "entity2": "Lecturer",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Lecturer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1486,12 +1622,30 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "UniversityFaculty",
+          "entity2": "CourseModule",
+          "fromEntityName": "UniversityFaculty",
+          "toEntityName": "CourseModule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Offers",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Staff",
-          "entity2": "Property"
+          "entity1": "CourseModule",
+          "entity2": "Lecturer",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Lecturer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "TaughtBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1547,7 +1701,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "OperatesBranch",
+          "entity1": "RetailHeadquarters",
+          "entity2": "SupermarketBranch",
+          "fromEntityName": "RetailHeadquarters",
+          "toEntityName": "SupermarketBranch",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AssignsCashier",
+          "entity1": "SupermarketBranch",
+          "entity2": "BranchCashier",
+          "fromEntityName": "SupermarketBranch",
+          "toEntityName": "BranchCashier",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1566,12 +1749,30 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Division",
-          "entity2": "Branch"
+          "entity1": "RetailHeadquarters",
+          "entity2": "SupermarketBranch",
+          "fromEntityName": "RetailHeadquarters",
+          "toEntityName": "SupermarketBranch",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "OperatesBranch",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "SupermarketBranch",
+          "entity2": "BranchCashier",
+          "fromEntityName": "SupermarketBranch",
+          "toEntityName": "BranchCashier",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AssignsCashier",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1627,7 +1828,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "CoversZone",
+          "entity1": "LogisticsHub",
+          "entity2": "DeliveryZone",
+          "fromEntityName": "LogisticsHub",
+          "toEntityName": "DeliveryZone",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "DispatchesVan",
+          "entity1": "DeliveryZone",
+          "entity2": "DeliveryVan",
+          "fromEntityName": "DeliveryZone",
+          "toEntityName": "DeliveryVan",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1646,12 +1876,30 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "LogisticsHub",
+          "entity2": "DeliveryZone",
+          "fromEntityName": "LogisticsHub",
+          "toEntityName": "DeliveryZone",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "CoversZone",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Staff",
-          "entity2": "Property"
+          "entity1": "DeliveryZone",
+          "entity2": "DeliveryVan",
+          "fromEntityName": "DeliveryZone",
+          "toEntityName": "DeliveryVan",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "DispatchesVan",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1707,7 +1955,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Comprises",
+          "entity1": "FactoryPlant",
+          "entity2": "ProductionWorkshop",
+          "fromEntityName": "FactoryPlant",
+          "toEntityName": "ProductionWorkshop",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "HousesMachine",
+          "entity1": "ProductionWorkshop",
+          "entity2": "IndustrialMachine",
+          "fromEntityName": "ProductionWorkshop",
+          "toEntityName": "IndustrialMachine",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1726,12 +2003,30 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Division",
-          "entity2": "Branch"
+          "entity1": "FactoryPlant",
+          "entity2": "ProductionWorkshop",
+          "fromEntityName": "FactoryPlant",
+          "toEntityName": "ProductionWorkshop",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Comprises",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "ProductionWorkshop",
+          "entity2": "IndustrialMachine",
+          "fromEntityName": "ProductionWorkshop",
+          "toEntityName": "IndustrialMachine",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "HousesMachine",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1787,7 +2082,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ContainsBuilding",
+          "entity1": "ResortComplex",
+          "entity2": "GuestBuilding",
+          "fromEntityName": "ResortComplex",
+          "toEntityName": "GuestBuilding",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "HousesRoom",
+          "entity1": "GuestBuilding",
+          "entity2": "HotelRoom",
+          "fromEntityName": "GuestBuilding",
+          "toEntityName": "HotelRoom",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1806,12 +2130,30 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "ResortComplex",
+          "entity2": "GuestBuilding",
+          "fromEntityName": "ResortComplex",
+          "toEntityName": "GuestBuilding",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "ContainsBuilding",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Staff",
-          "entity2": "Property"
+          "entity1": "GuestBuilding",
+          "entity2": "HotelRoom",
+          "fromEntityName": "GuestBuilding",
+          "toEntityName": "HotelRoom",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "HousesRoom",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1867,7 +2209,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "IncludesCategory",
+          "entity1": "CatalogDepartment",
+          "entity2": "ProductCategory",
+          "fromEntityName": "CatalogDepartment",
+          "toEntityName": "ProductCategory",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ClassifiesProduct",
+          "entity1": "ProductCategory",
+          "entity2": "RetailProduct",
+          "fromEntityName": "ProductCategory",
+          "toEntityName": "RetailProduct",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1886,12 +2257,30 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Division",
-          "entity2": "Branch"
+          "entity1": "CatalogDepartment",
+          "entity2": "ProductCategory",
+          "fromEntityName": "CatalogDepartment",
+          "toEntityName": "ProductCategory",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "IncludesCategory",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "ProductCategory",
+          "entity2": "RetailProduct",
+          "fromEntityName": "ProductCategory",
+          "toEntityName": "RetailProduct",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ClassifiesProduct",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1947,7 +2336,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "HousesSquadron",
+          "entity1": "AirlineBase",
+          "entity2": "FlightSquadron",
+          "fromEntityName": "AirlineBase",
+          "toEntityName": "FlightSquadron",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "OperatesPlane",
+          "entity1": "FlightSquadron",
+          "entity2": "Aircraft",
+          "fromEntityName": "FlightSquadron",
+          "toEntityName": "Aircraft",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1966,12 +2384,30 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "AirlineBase",
+          "entity2": "FlightSquadron",
+          "fromEntityName": "AirlineBase",
+          "toEntityName": "FlightSquadron",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "HousesSquadron",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Staff",
-          "entity2": "Property"
+          "entity1": "FlightSquadron",
+          "entity2": "Aircraft",
+          "fromEntityName": "FlightSquadron",
+          "toEntityName": "Aircraft",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "OperatesPlane",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2027,7 +2463,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EmploysAgent",
+          "entity1": "DealershipBranch",
+          "entity2": "SalesAgent",
+          "fromEntityName": "DealershipBranch",
+          "toEntityName": "SalesAgent",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AssignedToSell",
+          "entity1": "SalesAgent",
+          "entity2": "CarForSale",
+          "fromEntityName": "SalesAgent",
+          "toEntityName": "CarForSale",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "HoldsStockDirect",
+          "entity1": "DealershipBranch",
+          "entity2": "CarForSale",
+          "fromEntityName": "DealershipBranch",
+          "toEntityName": "CarForSale",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2046,12 +2525,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Division",
-          "entity2": "Branch"
+          "entity1": "DealershipBranch",
+          "entity2": "SalesAgent",
+          "fromEntityName": "DealershipBranch",
+          "toEntityName": "SalesAgent",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EmploysAgent",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "SalesAgent",
+          "entity2": "CarForSale",
+          "fromEntityName": "SalesAgent",
+          "toEntityName": "CarForSale",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "AssignedToSell",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "DealershipBranch",
+          "entity2": "CarForSale",
+          "fromEntityName": "DealershipBranch",
+          "toEntityName": "CarForSale",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "HoldsStockDirect",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2107,7 +2617,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EngagesBroker",
+          "entity1": "AgencyBranch",
+          "entity2": "RealtorBroker",
+          "fromEntityName": "AgencyBranch",
+          "toEntityName": "RealtorBroker",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ManagesListing",
+          "entity1": "RealtorBroker",
+          "entity2": "CommercialProperty",
+          "fromEntityName": "RealtorBroker",
+          "toEntityName": "CommercialProperty",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "OverseesPropertyDirect",
+          "entity1": "AgencyBranch",
+          "entity2": "CommercialProperty",
+          "fromEntityName": "AgencyBranch",
+          "toEntityName": "CommercialProperty",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2126,12 +2679,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "AgencyBranch",
+          "entity2": "RealtorBroker",
+          "fromEntityName": "AgencyBranch",
+          "toEntityName": "RealtorBroker",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EngagesBroker",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Staff",
-          "entity2": "Property"
+          "entity1": "RealtorBroker",
+          "entity2": "CommercialProperty",
+          "fromEntityName": "RealtorBroker",
+          "toEntityName": "CommercialProperty",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "ManagesListing",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "AgencyBranch",
+          "entity2": "CommercialProperty",
+          "fromEntityName": "AgencyBranch",
+          "toEntityName": "CommercialProperty",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "OverseesPropertyDirect",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2187,7 +2771,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EmploysAgent",
+          "entity1": "InsuranceOffice",
+          "entity2": "InsuranceAgent",
+          "fromEntityName": "InsuranceOffice",
+          "toEntityName": "InsuranceAgent",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "BrokersPolicy",
+          "entity1": "InsuranceAgent",
+          "entity2": "PolicyContract",
+          "fromEntityName": "InsuranceAgent",
+          "toEntityName": "PolicyContract",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "RegistersPolicyDirect",
+          "entity1": "InsuranceOffice",
+          "entity2": "PolicyContract",
+          "fromEntityName": "InsuranceOffice",
+          "toEntityName": "PolicyContract",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2206,12 +2833,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Division",
-          "entity2": "Branch"
+          "entity1": "InsuranceOffice",
+          "entity2": "InsuranceAgent",
+          "fromEntityName": "InsuranceOffice",
+          "toEntityName": "InsuranceAgent",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EmploysAgent",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "InsuranceAgent",
+          "entity2": "PolicyContract",
+          "fromEntityName": "InsuranceAgent",
+          "toEntityName": "PolicyContract",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "BrokersPolicy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "InsuranceOffice",
+          "entity2": "PolicyContract",
+          "fromEntityName": "InsuranceOffice",
+          "toEntityName": "PolicyContract",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "RegistersPolicyDirect",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2267,7 +2925,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EmploysTech",
+          "entity1": "SupportCenter",
+          "entity2": "SupportTechnician",
+          "fromEntityName": "SupportCenter",
+          "toEntityName": "SupportTechnician",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "InvestigatesTicket",
+          "entity1": "SupportTechnician",
+          "entity2": "IncidentTicket",
+          "fromEntityName": "SupportTechnician",
+          "toEntityName": "IncidentTicket",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "LogsTicketDirect",
+          "entity1": "SupportCenter",
+          "entity2": "IncidentTicket",
+          "fromEntityName": "SupportCenter",
+          "toEntityName": "IncidentTicket",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2286,12 +2987,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "SupportCenter",
+          "entity2": "SupportTechnician",
+          "fromEntityName": "SupportCenter",
+          "toEntityName": "SupportTechnician",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EmploysTech",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Staff",
-          "entity2": "Property"
+          "entity1": "SupportTechnician",
+          "entity2": "IncidentTicket",
+          "fromEntityName": "SupportTechnician",
+          "toEntityName": "IncidentTicket",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "InvestigatesTicket",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SupportCenter",
+          "entity2": "IncidentTicket",
+          "fromEntityName": "SupportCenter",
+          "toEntityName": "IncidentTicket",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "LogsTicketDirect",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2347,7 +3079,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ContractsGuide",
+          "entity1": "TourBranch",
+          "entity2": "TourGuide",
+          "fromEntityName": "TourBranch",
+          "toEntityName": "TourGuide",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AccompaniesGroup",
+          "entity1": "TourGuide",
+          "entity2": "TravelGroup",
+          "fromEntityName": "TourGuide",
+          "toEntityName": "TravelGroup",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "OrganizesGroupDirect",
+          "entity1": "TourBranch",
+          "entity2": "TravelGroup",
+          "fromEntityName": "TourBranch",
+          "toEntityName": "TravelGroup",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2366,12 +3141,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Division",
-          "entity2": "Branch"
+          "entity1": "TourBranch",
+          "entity2": "TourGuide",
+          "fromEntityName": "TourBranch",
+          "toEntityName": "TourGuide",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ContractsGuide",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "TourGuide",
+          "entity2": "TravelGroup",
+          "fromEntityName": "TourGuide",
+          "toEntityName": "TravelGroup",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "AccompaniesGroup",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "TourBranch",
+          "entity2": "TravelGroup",
+          "fromEntityName": "TourBranch",
+          "toEntityName": "TravelGroup",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "OrganizesGroupDirect",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2427,7 +3233,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "AppointsOfficer",
+          "entity1": "BankBranch",
+          "entity2": "CreditOfficer",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "CreditOfficer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AssessesLoan",
+          "entity1": "CreditOfficer",
+          "entity2": "LoanApplication",
+          "fromEntityName": "CreditOfficer",
+          "toEntityName": "LoanApplication",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "ReceivesAppDirect",
+          "entity1": "BankBranch",
+          "entity2": "LoanApplication",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "LoanApplication",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2446,12 +3295,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "BankBranch",
+          "entity2": "CreditOfficer",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "CreditOfficer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AppointsOfficer",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Staff",
-          "entity2": "Property"
+          "entity1": "CreditOfficer",
+          "entity2": "LoanApplication",
+          "fromEntityName": "CreditOfficer",
+          "toEntityName": "LoanApplication",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "AssessesLoan",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "BankBranch",
+          "entity2": "LoanApplication",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "LoanApplication",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "ReceivesAppDirect",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2507,7 +3387,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EmploysEditor",
+          "entity1": "PublishingHouse",
+          "entity2": "LiteraryEditor",
+          "fromEntityName": "PublishingHouse",
+          "toEntityName": "LiteraryEditor",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "EditsManuscript",
+          "entity1": "LiteraryEditor",
+          "entity2": "BookManuscript",
+          "fromEntityName": "LiteraryEditor",
+          "toEntityName": "BookManuscript",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "AcceptsManuscriptDirect",
+          "entity1": "PublishingHouse",
+          "entity2": "BookManuscript",
+          "fromEntityName": "PublishingHouse",
+          "toEntityName": "BookManuscript",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2526,12 +3449,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Division",
-          "entity2": "Branch"
+          "entity1": "PublishingHouse",
+          "entity2": "LiteraryEditor",
+          "fromEntityName": "PublishingHouse",
+          "toEntityName": "LiteraryEditor",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EmploysEditor",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "LiteraryEditor",
+          "entity2": "BookManuscript",
+          "fromEntityName": "LiteraryEditor",
+          "toEntityName": "BookManuscript",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "EditsManuscript",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "PublishingHouse",
+          "entity2": "BookManuscript",
+          "fromEntityName": "PublishingHouse",
+          "toEntityName": "BookManuscript",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "AcceptsManuscriptDirect",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2596,7 +3550,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "OperatesFlight",
+          "entity1": "CommercialAirline",
+          "entity2": "FlightSchedule",
+          "fromEntityName": "CommercialAirline",
+          "toEntityName": "FlightSchedule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "IssuesPass",
+          "entity1": "FlightSchedule",
+          "entity2": "BoardingPass",
+          "fromEntityName": "FlightSchedule",
+          "toEntityName": "BoardingPass",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "HoldsPass",
+          "entity1": "FlightPassenger",
+          "entity2": "BoardingPass",
+          "fromEntityName": "FlightPassenger",
+          "toEntityName": "BoardingPass",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2615,12 +3612,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Branch",
-          "entity2": "Staff"
+          "entity1": "CommercialAirline",
+          "entity2": "FlightSchedule",
+          "fromEntityName": "CommercialAirline",
+          "toEntityName": "FlightSchedule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "OperatesFlight",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Staff",
-          "entity2": "Account"
+          "entity1": "FlightSchedule",
+          "entity2": "BoardingPass",
+          "fromEntityName": "FlightSchedule",
+          "toEntityName": "BoardingPass",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "IssuesPass",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "FlightPassenger",
+          "entity2": "BoardingPass",
+          "fromEntityName": "FlightPassenger",
+          "toEntityName": "BoardingPass",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "HoldsPass",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2685,7 +3713,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "OperatesBranch",
+          "entity1": "CommercialBank",
+          "entity2": "BankBranch",
+          "fromEntityName": "CommercialBank",
+          "toEntityName": "BankBranch",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "MaintainsAccount",
+          "entity1": "BankBranch",
+          "entity2": "CustomerAccount",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "CustomerAccount",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "ExecutesTrans",
+          "entity1": "CustomerAccount",
+          "entity2": "ClearingTransaction",
+          "fromEntityName": "CustomerAccount",
+          "toEntityName": "ClearingTransaction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2704,12 +3775,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Department",
-          "entity2": "Doctor"
+          "entity1": "CommercialBank",
+          "entity2": "BankBranch",
+          "fromEntityName": "CommercialBank",
+          "toEntityName": "BankBranch",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "OperatesBranch",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Doctor",
-          "entity2": "Patient"
+          "entity1": "BankBranch",
+          "entity2": "CustomerAccount",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "CustomerAccount",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "MaintainsAccount",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CustomerAccount",
+          "entity2": "ClearingTransaction",
+          "fromEntityName": "CustomerAccount",
+          "toEntityName": "ClearingTransaction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ExecutesTrans",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2774,7 +3876,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ContainsBed",
+          "entity1": "MedicalWard",
+          "entity2": "HospitalBed",
+          "fromEntityName": "MedicalWard",
+          "toEntityName": "HospitalBed",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AssignedAdmission",
+          "entity1": "HospitalBed",
+          "entity2": "InpatientRecord",
+          "fromEntityName": "HospitalBed",
+          "toEntityName": "InpatientRecord",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "UndergoesSurgery",
+          "entity1": "InpatientRecord",
+          "entity2": "SurgicalProcedure",
+          "fromEntityName": "InpatientRecord",
+          "toEntityName": "SurgicalProcedure",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2793,12 +3938,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Aircraft",
-          "entity2": "Flight"
+          "entity1": "MedicalWard",
+          "entity2": "HospitalBed",
+          "fromEntityName": "MedicalWard",
+          "toEntityName": "HospitalBed",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "ContainsBed",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Flight",
-          "entity2": "Ticket"
+          "entity1": "HospitalBed",
+          "entity2": "InpatientRecord",
+          "fromEntityName": "HospitalBed",
+          "toEntityName": "InpatientRecord",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AssignedAdmission",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "InpatientRecord",
+          "entity2": "SurgicalProcedure",
+          "fromEntityName": "InpatientRecord",
+          "toEntityName": "SurgicalProcedure",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "UndergoesSurgery",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2863,7 +4039,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "HostsCompany",
+          "entity1": "IndustrialZone",
+          "entity2": "ManufacturingEnterprise",
+          "fromEntityName": "IndustrialZone",
+          "toEntityName": "ManufacturingEnterprise",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "LaunchesProject",
+          "entity1": "ManufacturingEnterprise",
+          "entity2": "InvestmentProject",
+          "fromEntityName": "ManufacturingEnterprise",
+          "toEntityName": "InvestmentProject",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "GrantedIncentive",
+          "entity1": "InvestmentProject",
+          "entity2": "TaxIncentive",
+          "fromEntityName": "InvestmentProject",
+          "toEntityName": "TaxIncentive",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2882,12 +4101,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Customer",
-          "entity2": "Order"
+          "entity1": "IndustrialZone",
+          "entity2": "ManufacturingEnterprise",
+          "fromEntityName": "IndustrialZone",
+          "toEntityName": "ManufacturingEnterprise",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "HostsCompany",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Order",
-          "entity2": "Courier"
+          "entity1": "ManufacturingEnterprise",
+          "entity2": "InvestmentProject",
+          "fromEntityName": "ManufacturingEnterprise",
+          "toEntityName": "InvestmentProject",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "LaunchesProject",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "InvestmentProject",
+          "entity2": "TaxIncentive",
+          "fromEntityName": "InvestmentProject",
+          "toEntityName": "TaxIncentive",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "GrantedIncentive",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2952,7 +4202,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ComprisesRoom",
+          "entity1": "ResidenceHall",
+          "entity2": "DormRoom",
+          "fromEntityName": "ResidenceHall",
+          "toEntityName": "DormRoom",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AccommodatesStudent",
+          "entity1": "DormRoom",
+          "entity2": "ResidentStudent",
+          "fromEntityName": "DormRoom",
+          "toEntityName": "ResidentStudent",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "AuditedBy",
+          "entity1": "DormRoom",
+          "entity2": "RoomInventoryCheck",
+          "fromEntityName": "DormRoom",
+          "toEntityName": "RoomInventoryCheck",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2971,12 +4264,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Faculty",
-          "entity2": "Lecturer"
+          "entity1": "ResidenceHall",
+          "entity2": "DormRoom",
+          "fromEntityName": "ResidenceHall",
+          "toEntityName": "DormRoom",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "ComprisesRoom",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Lecturer",
-          "entity2": "Course"
+          "entity1": "DormRoom",
+          "entity2": "ResidentStudent",
+          "fromEntityName": "DormRoom",
+          "toEntityName": "ResidentStudent",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AccommodatesStudent",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "DormRoom",
+          "entity2": "RoomInventoryCheck",
+          "fromEntityName": "DormRoom",
+          "toEntityName": "RoomInventoryCheck",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AuditedBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3041,7 +4365,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "AssemblesCar",
+          "entity1": "AssemblyLine",
+          "entity2": "ManufacturedCar",
+          "fromEntityName": "AssemblyLine",
+          "toEntityName": "ManufacturedCar",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ClassifiesCar",
+          "entity1": "VehicleModel",
+          "entity2": "ManufacturedCar",
+          "fromEntityName": "VehicleModel",
+          "toEntityName": "ManufacturedCar",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "UndergoesQC",
+          "entity1": "ManufacturedCar",
+          "entity2": "QualityInspection",
+          "fromEntityName": "ManufacturedCar",
+          "toEntityName": "QualityInspection",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3060,12 +4427,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Hotel",
-          "entity2": "Room"
+          "entity1": "AssemblyLine",
+          "entity2": "ManufacturedCar",
+          "fromEntityName": "AssemblyLine",
+          "toEntityName": "ManufacturedCar",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "AssemblesCar",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Room",
-          "entity2": "Reservation"
+          "entity1": "VehicleModel",
+          "entity2": "ManufacturedCar",
+          "fromEntityName": "VehicleModel",
+          "toEntityName": "ManufacturedCar",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "ClassifiesCar",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "ManufacturedCar",
+          "entity2": "QualityInspection",
+          "fromEntityName": "ManufacturedCar",
+          "toEntityName": "QualityInspection",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "UndergoesQC",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3130,7 +4528,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ComprisesBay",
+          "entity1": "CentralWarehouse",
+          "entity2": "WarehouseBay",
+          "fromEntityName": "CentralWarehouse",
+          "toEntityName": "WarehouseBay",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "HoldsPallet",
+          "entity1": "WarehouseBay",
+          "entity2": "StockPallet",
+          "fromEntityName": "WarehouseBay",
+          "toEntityName": "StockPallet",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "AllocatesToOrder",
+          "entity1": "WarehouseBay",
+          "entity2": "RetailDispatchedOrder",
+          "fromEntityName": "WarehouseBay",
+          "toEntityName": "RetailDispatchedOrder",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3149,12 +4590,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Plant",
-          "entity2": "Line"
+          "entity1": "CentralWarehouse",
+          "entity2": "WarehouseBay",
+          "fromEntityName": "CentralWarehouse",
+          "toEntityName": "WarehouseBay",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "ComprisesBay",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Line",
-          "entity2": "Product"
+          "entity1": "WarehouseBay",
+          "entity2": "StockPallet",
+          "fromEntityName": "WarehouseBay",
+          "toEntityName": "StockPallet",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "HoldsPallet",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "WarehouseBay",
+          "entity2": "RetailDispatchedOrder",
+          "fromEntityName": "WarehouseBay",
+          "toEntityName": "RetailDispatchedOrder",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AllocatesToOrder",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3219,7 +4691,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "PublishesListing",
+          "entity1": "UzumMerchant",
+          "entity2": "MarketplaceListing",
+          "fromEntityName": "UzumMerchant",
+          "toEntityName": "MarketplaceListing",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "OrderedIn",
+          "entity1": "MarketplaceListing",
+          "entity2": "CustomerOrder",
+          "fromEntityName": "MarketplaceListing",
+          "toEntityName": "CustomerOrder",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "GeneratesInvoice",
+          "entity1": "CustomerOrder",
+          "entity2": "SettlementInvoice",
+          "fromEntityName": "CustomerOrder",
+          "toEntityName": "SettlementInvoice",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3238,12 +4753,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Warehouse",
-          "entity2": "Store"
+          "entity1": "UzumMerchant",
+          "entity2": "MarketplaceListing",
+          "fromEntityName": "UzumMerchant",
+          "toEntityName": "MarketplaceListing",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "PublishesListing",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Store",
-          "entity2": "GoodsBatch"
+          "entity1": "MarketplaceListing",
+          "entity2": "CustomerOrder",
+          "fromEntityName": "MarketplaceListing",
+          "toEntityName": "CustomerOrder",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "OrderedIn",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CustomerOrder",
+          "entity2": "SettlementInvoice",
+          "fromEntityName": "CustomerOrder",
+          "toEntityName": "SettlementInvoice",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "GeneratesInvoice",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3308,7 +4854,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "DistributesFeeder",
+          "entity1": "PowerSubstation",
+          "entity2": "TransmissionFeeder",
+          "fromEntityName": "PowerSubstation",
+          "toEntityName": "TransmissionFeeder",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "PowersTransformer",
+          "entity1": "TransmissionFeeder",
+          "entity2": "IndustrialTransformer",
+          "fromEntityName": "TransmissionFeeder",
+          "toEntityName": "IndustrialTransformer",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "LoggedService",
+          "entity1": "IndustrialTransformer",
+          "entity2": "GridMaintenanceLog",
+          "fromEntityName": "IndustrialTransformer",
+          "toEntityName": "GridMaintenanceLog",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3327,12 +4916,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Merchant",
-          "entity2": "PaymentTx"
+          "entity1": "PowerSubstation",
+          "entity2": "TransmissionFeeder",
+          "fromEntityName": "PowerSubstation",
+          "toEntityName": "TransmissionFeeder",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "DistributesFeeder",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "PaymentTx",
-          "entity2": "Wallet"
+          "entity1": "TransmissionFeeder",
+          "entity2": "IndustrialTransformer",
+          "fromEntityName": "TransmissionFeeder",
+          "toEntityName": "IndustrialTransformer",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "PowersTransformer",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "IndustrialTransformer",
+          "entity2": "GridMaintenanceLog",
+          "fromEntityName": "IndustrialTransformer",
+          "toEntityName": "GridMaintenanceLog",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "LoggedService",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3397,7 +5017,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "StationsCrew",
+          "entity1": "DispatchStation",
+          "entity2": "AmbulanceCrew",
+          "fromEntityName": "DispatchStation",
+          "toEntityName": "AmbulanceCrew",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AttendsCall",
+          "entity1": "AmbulanceCrew",
+          "entity2": "EmergencyCall",
+          "fromEntityName": "AmbulanceCrew",
+          "toEntityName": "EmergencyCall",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "ResultsInHandoff",
+          "entity1": "EmergencyCall",
+          "entity2": "HospitalHandoff",
+          "fromEntityName": "EmergencyCall",
+          "toEntityName": "HospitalHandoff",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3416,12 +5079,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Accelerator",
-          "entity2": "Startup"
+          "entity1": "DispatchStation",
+          "entity2": "AmbulanceCrew",
+          "fromEntityName": "DispatchStation",
+          "toEntityName": "AmbulanceCrew",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "StationsCrew",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Startup",
-          "entity2": "Mentor"
+          "entity1": "AmbulanceCrew",
+          "entity2": "EmergencyCall",
+          "fromEntityName": "AmbulanceCrew",
+          "toEntityName": "EmergencyCall",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AttendsCall",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "EmergencyCall",
+          "entity2": "HospitalHandoff",
+          "fromEntityName": "EmergencyCall",
+          "toEntityName": "HospitalHandoff",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "name": "ResultsInHandoff",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3486,7 +5180,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ComprisesFloor",
+          "entity1": "BusinessTower",
+          "entity2": "OfficeFloor",
+          "fromEntityName": "BusinessTower",
+          "toEntityName": "OfficeFloor",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "LeasedUnderContract",
+          "entity1": "OfficeFloor",
+          "entity2": "TenantLeaseContract",
+          "fromEntityName": "OfficeFloor",
+          "toEntityName": "TenantLeaseContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "RequiresService",
+          "entity1": "OfficeFloor",
+          "entity2": "FacilityServiceRequest",
+          "fromEntityName": "OfficeFloor",
+          "toEntityName": "FacilityServiceRequest",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3505,12 +5242,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Train",
-          "entity2": "Carriage"
+          "entity1": "BusinessTower",
+          "entity2": "OfficeFloor",
+          "fromEntityName": "BusinessTower",
+          "toEntityName": "OfficeFloor",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "ComprisesFloor",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Carriage",
-          "entity2": "Ticket"
+          "entity1": "OfficeFloor",
+          "entity2": "TenantLeaseContract",
+          "fromEntityName": "OfficeFloor",
+          "toEntityName": "TenantLeaseContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "LeasedUnderContract",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "OfficeFloor",
+          "entity2": "FacilityServiceRequest",
+          "fromEntityName": "OfficeFloor",
+          "toEntityName": "FacilityServiceRequest",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "RequiresService",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3575,7 +5343,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ManufacturesDrug",
+          "entity1": "PharmaManufacturer",
+          "entity2": "MedicineDrug",
+          "fromEntityName": "PharmaManufacturer",
+          "toEntityName": "MedicineDrug",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "SubjectToTest",
+          "entity1": "MedicineDrug",
+          "entity2": "LabBioAnalysis",
+          "fromEntityName": "MedicineDrug",
+          "toEntityName": "LabBioAnalysis",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "ApprovedForSale",
+          "entity1": "MedicineDrug",
+          "entity2": "NationalMarketingLicense",
+          "fromEntityName": "MedicineDrug",
+          "toEntityName": "NationalMarketingLicense",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3594,12 +5405,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "CarModel",
-          "entity2": "BodyShop"
+          "entity1": "PharmaManufacturer",
+          "entity2": "MedicineDrug",
+          "fromEntityName": "PharmaManufacturer",
+          "toEntityName": "MedicineDrug",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "ManufacturesDrug",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "BodyShop",
-          "entity2": "CarUnit"
+          "entity1": "MedicineDrug",
+          "entity2": "LabBioAnalysis",
+          "fromEntityName": "MedicineDrug",
+          "toEntityName": "LabBioAnalysis",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "SubjectToTest",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "MedicineDrug",
+          "entity2": "NationalMarketingLicense",
+          "fromEntityName": "MedicineDrug",
+          "toEntityName": "NationalMarketingLicense",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "name": "ApprovedForSale",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3664,7 +5506,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ComprisesCarriage",
+          "entity1": "TrainSet",
+          "entity2": "RailwayCarriage",
+          "fromEntityName": "TrainSet",
+          "toEntityName": "RailwayCarriage",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AssignedToTrip",
+          "entity1": "TrainSet",
+          "entity2": "ScheduledTrip",
+          "fromEntityName": "TrainSet",
+          "toEntityName": "ScheduledTrip",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "IssuesTicket",
+          "entity1": "ScheduledTrip",
+          "entity2": "PassengerTicket",
+          "fromEntityName": "ScheduledTrip",
+          "toEntityName": "PassengerTicket",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3683,12 +5568,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Client",
-          "entity2": "Policy"
+          "entity1": "TrainSet",
+          "entity2": "RailwayCarriage",
+          "fromEntityName": "TrainSet",
+          "toEntityName": "RailwayCarriage",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "ComprisesCarriage",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Policy",
-          "entity2": "Agent"
+          "entity1": "TrainSet",
+          "entity2": "ScheduledTrip",
+          "fromEntityName": "TrainSet",
+          "toEntityName": "ScheduledTrip",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "AssignedToTrip",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "ScheduledTrip",
+          "entity2": "PassengerTicket",
+          "fromEntityName": "ScheduledTrip",
+          "toEntityName": "PassengerTicket",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "IssuesTicket",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3753,7 +5669,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "HousesAntenna",
+          "entity1": "CellularTowerBTS",
+          "entity2": "FrequencyTransceiver",
+          "fromEntityName": "CellularTowerBTS",
+          "toEntityName": "FrequencyTransceiver",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "RelaysCall",
+          "entity1": "FrequencyTransceiver",
+          "entity2": "CallDataRecord",
+          "fromEntityName": "FrequencyTransceiver",
+          "toEntityName": "CallDataRecord",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "InitiatesCall",
+          "entity1": "MobileSubscriber",
+          "entity2": "CallDataRecord",
+          "fromEntityName": "MobileSubscriber",
+          "toEntityName": "CallDataRecord",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3772,12 +5731,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "PharmaCorp",
-          "entity2": "Medicine"
+          "entity1": "CellularTowerBTS",
+          "entity2": "FrequencyTransceiver",
+          "fromEntityName": "CellularTowerBTS",
+          "toEntityName": "FrequencyTransceiver",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "HousesAntenna",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Medicine",
-          "entity2": "Distributor"
+          "entity1": "FrequencyTransceiver",
+          "entity2": "CallDataRecord",
+          "fromEntityName": "FrequencyTransceiver",
+          "toEntityName": "CallDataRecord",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "RelaysCall",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "MobileSubscriber",
+          "entity2": "CallDataRecord",
+          "fromEntityName": "MobileSubscriber",
+          "toEntityName": "CallDataRecord",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "InitiatesCall",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -3842,7 +5832,50 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "OperatesCashTill",
+          "entity1": "TaxpayerCompany",
+          "entity2": "FiscalCashRegister",
+          "fromEntityName": "TaxpayerCompany",
+          "toEntityName": "FiscalCashRegister",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "IssuesEInvoice",
+          "entity1": "TaxpayerCompany",
+          "entity2": "ElectronicInvoice",
+          "fromEntityName": "TaxpayerCompany",
+          "toEntityName": "ElectronicInvoice",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "AuditedForVAT",
+          "entity1": "ElectronicInvoice",
+          "entity2": "VATAuditRecord",
+          "fromEntityName": "ElectronicInvoice",
+          "toEntityName": "VATAuditRecord",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -3861,12 +5894,43 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Faculty",
-          "entity2": "Department"
+          "entity1": "TaxpayerCompany",
+          "entity2": "FiscalCashRegister",
+          "fromEntityName": "TaxpayerCompany",
+          "toEntityName": "FiscalCashRegister",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "OperatesCashTill",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Department",
-          "entity2": "Professor"
+          "entity1": "TaxpayerCompany",
+          "entity2": "ElectronicInvoice",
+          "fromEntityName": "TaxpayerCompany",
+          "toEntityName": "ElectronicInvoice",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "IssuesEInvoice",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "ElectronicInvoice",
+          "entity2": "VATAuditRecord",
+          "fromEntityName": "ElectronicInvoice",
+          "toEntityName": "VATAuditRecord",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "AuditedForVAT",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },

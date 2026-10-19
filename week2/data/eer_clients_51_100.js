@@ -42,7 +42,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Books",
+          "entity1": "FlightPassenger",
+          "entity2": "FlightBooking",
+          "fromEntityName": "FlightPassenger",
+          "toEntityName": "FlightBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Carries",
+          "entity1": "ScheduledFlight",
+          "entity2": "FlightBooking",
+          "fromEntityName": "ScheduledFlight",
+          "toEntityName": "FlightBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -57,10 +86,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Actor",
-          "entity2": "Movie",
-          "name": "ActsIn",
-          "associationClass": true
+          "entity1": "FlightPassenger",
+          "entity2": "FlightBooking",
+          "fromEntityName": "FlightPassenger",
+          "toEntityName": "FlightBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Books",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "ScheduledFlight",
+          "entity2": "FlightBooking",
+          "fromEntityName": "ScheduledFlight",
+          "toEntityName": "FlightBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Carries",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -111,7 +160,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Borrows",
+          "entity1": "OnlineReader",
+          "entity2": "BookRental",
+          "fromEntityName": "OnlineReader",
+          "toEntityName": "BookRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "RentedVia",
+          "entity1": "LibraryBook",
+          "entity2": "BookRental",
+          "fromEntityName": "LibraryBook",
+          "toEntityName": "BookRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -126,10 +204,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "User",
-          "entity2": "UserGroup",
-          "name": "MemberOf",
-          "associationClass": true
+          "entity1": "OnlineReader",
+          "entity2": "BookRental",
+          "fromEntityName": "OnlineReader",
+          "toEntityName": "BookRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Borrows",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "LibraryBook",
+          "entity2": "BookRental",
+          "fromEntityName": "LibraryBook",
+          "toEntityName": "BookRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "RentedVia",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -180,7 +278,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Takes",
+          "entity1": "CandidateStudent",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CandidateStudent",
+          "toEntityName": "ExamAttempt",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Evaluates",
+          "entity1": "CertificationExam",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CertificationExam",
+          "toEntityName": "ExamAttempt",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -195,10 +322,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Driver",
-          "entity2": "Route",
-          "name": "Drives",
-          "associationClass": true
+          "entity1": "CandidateStudent",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CandidateStudent",
+          "toEntityName": "ExamAttempt",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Takes",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CertificationExam",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CertificationExam",
+          "toEntityName": "ExamAttempt",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Evaluates",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -249,7 +396,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Prescribes",
+          "entity1": "TreatingDoctor",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "TreatingDoctor",
+          "toEntityName": "PrescriptionItem",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "PrescribedIn",
+          "entity1": "MedicationDrug",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "MedicationDrug",
+          "toEntityName": "PrescriptionItem",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -264,10 +440,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Developer",
-          "entity2": "Repository",
-          "name": "Contributes",
-          "associationClass": true
+          "entity1": "TreatingDoctor",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "TreatingDoctor",
+          "toEntityName": "PrescriptionItem",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Prescribes",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "MedicationDrug",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "MedicationDrug",
+          "toEntityName": "PrescriptionItem",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "PrescribedIn",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -318,7 +514,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Reserves",
+          "entity1": "CorporateClient",
+          "entity2": "HallBooking",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "HallBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ReservedBy",
+          "entity1": "ConferenceHall",
+          "entity2": "HallBooking",
+          "fromEntityName": "ConferenceHall",
+          "toEntityName": "HallBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -333,10 +558,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Tourist",
-          "entity2": "Hotel",
-          "name": "StaysAt",
-          "associationClass": true
+          "entity1": "CorporateClient",
+          "entity2": "HallBooking",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "HallBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Reserves",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "ConferenceHall",
+          "entity2": "HallBooking",
+          "fromEntityName": "ConferenceHall",
+          "toEntityName": "HallBooking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ReservedBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -387,7 +632,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Subscribes",
+          "entity1": "InsuredPerson",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsuredPerson",
+          "toEntityName": "UnderwrittenPolicy",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AppliedTo",
+          "entity1": "InsurancePlan",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsurancePlan",
+          "toEntityName": "UnderwrittenPolicy",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -402,10 +676,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Buyer",
-          "entity2": "Receipt",
-          "name": "Purchases",
-          "associationClass": true
+          "entity1": "InsuredPerson",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsuredPerson",
+          "toEntityName": "UnderwrittenPolicy",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Subscribes",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "InsurancePlan",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsurancePlan",
+          "toEntityName": "UnderwrittenPolicy",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AppliedTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -456,7 +750,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "SignsLease",
+          "entity1": "CarBuyer",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "CarLeaseContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "LeasedAs",
+          "entity1": "VehicleStock",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "VehicleStock",
+          "toEntityName": "CarLeaseContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -471,10 +794,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Drug",
-          "entity2": "Disease",
-          "name": "Treats",
-          "associationClass": true
+          "entity1": "CarBuyer",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "CarLeaseContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "SignsLease",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "VehicleStock",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "VehicleStock",
+          "toEntityName": "CarLeaseContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "LeasedAs",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -525,7 +868,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Purchases",
+          "entity1": "MovieViewer",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "MovieViewer",
+          "toEntityName": "CinemaTicket",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Admits",
+          "entity1": "CinemaSession",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "CinemaSession",
+          "toEntityName": "CinemaTicket",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -540,10 +912,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Teacher",
-          "entity2": "ClassRoom",
-          "name": "Supervises",
-          "associationClass": true
+          "entity1": "MovieViewer",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "MovieViewer",
+          "toEntityName": "CinemaTicket",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Purchases",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CinemaSession",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "CinemaSession",
+          "toEntityName": "CinemaTicket",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Admits",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -594,7 +986,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Rents",
+          "entity1": "ConstructionFirm",
+          "entity2": "MachineRental",
+          "fromEntityName": "ConstructionFirm",
+          "toEntityName": "MachineRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "EngagedBy",
+          "entity1": "HeavyMachinery",
+          "entity2": "MachineRental",
+          "fromEntityName": "HeavyMachinery",
+          "toEntityName": "MachineRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -609,10 +1030,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Company",
-          "entity2": "Event",
-          "name": "Sponsors",
-          "associationClass": true
+          "entity1": "ConstructionFirm",
+          "entity2": "MachineRental",
+          "fromEntityName": "ConstructionFirm",
+          "toEntityName": "MachineRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Rents",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "HeavyMachinery",
+          "entity2": "MachineRental",
+          "fromEntityName": "HeavyMachinery",
+          "toEntityName": "MachineRental",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EngagedBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -663,7 +1104,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ServesShift",
+          "entity1": "DeliveryCourier",
+          "entity2": "CourierShift",
+          "fromEntityName": "DeliveryCourier",
+          "toEntityName": "CourierShift",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "HostsShift",
+          "entity1": "RestaurantBranch",
+          "entity2": "CourierShift",
+          "fromEntityName": "RestaurantBranch",
+          "toEntityName": "CourierShift",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -678,10 +1148,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Carrier",
-          "entity2": "CargoHub",
-          "name": "Transits",
-          "associationClass": true
+          "entity1": "DeliveryCourier",
+          "entity2": "CourierShift",
+          "fromEntityName": "DeliveryCourier",
+          "toEntityName": "CourierShift",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ServesShift",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "RestaurantBranch",
+          "entity2": "CourierShift",
+          "fromEntityName": "RestaurantBranch",
+          "toEntityName": "CourierShift",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "HostsShift",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -718,7 +1208,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Manages",
+          "entity1": "Employee",
+          "entity2": "Employee",
+          "fromEntityName": "Employee",
+          "toEntityName": "Employee",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "supervisor",
+          "role2": "subordinate"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -731,7 +1236,15 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Employee",
           "entity2": "Employee",
-          "name": "Supervises"
+          "fromEntityName": "Employee",
+          "toEntityName": "Employee",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "Manages",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "supervisor",
+          "role2": "subordinate"
         }
       ]
     },
@@ -768,7 +1281,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "SubCategoryOf",
+          "entity1": "ProductCategory",
+          "entity2": "ProductCategory",
+          "fromEntityName": "ProductCategory",
+          "toEntityName": "ProductCategory",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentCat",
+          "role2": "subCat"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -779,9 +1307,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Category",
-          "entity2": "Category",
-          "name": "SubCategoryOf"
+          "entity1": "ProductCategory",
+          "entity2": "ProductCategory",
+          "fromEntityName": "ProductCategory",
+          "toEntityName": "ProductCategory",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "SubCategoryOf",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentCat",
+          "role2": "subCat"
         }
       ]
     },
@@ -818,7 +1354,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "AssembledFrom",
+          "entity1": "PartComponent",
+          "entity2": "PartComponent",
+          "fromEntityName": "PartComponent",
+          "toEntityName": "PartComponent",
+          "mult1": "0..*",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentAssembly",
+          "role2": "subPart"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -829,9 +1380,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Part",
-          "entity2": "Part",
-          "name": "Contains"
+          "entity1": "PartComponent",
+          "entity2": "PartComponent",
+          "fromEntityName": "PartComponent",
+          "toEntityName": "PartComponent",
+          "mult1": "0..*",
+          "mult2": "1..*",
+          "name": "AssembledFrom",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentAssembly",
+          "role2": "subPart"
         }
       ]
     },
@@ -868,7 +1427,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "RequiresPrereq",
+          "entity1": "AcademicCourse",
+          "entity2": "AcademicCourse",
+          "fromEntityName": "AcademicCourse",
+          "toEntityName": "AcademicCourse",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "advancedCourse",
+          "role2": "prerequisite"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -879,9 +1453,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Course",
-          "entity2": "Course",
-          "name": "Prerequisite"
+          "entity1": "AcademicCourse",
+          "entity2": "AcademicCourse",
+          "fromEntityName": "AcademicCourse",
+          "toEntityName": "AcademicCourse",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "name": "RequiresPrereq",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "advancedCourse",
+          "role2": "prerequisite"
         }
       ]
     },
@@ -918,7 +1500,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "MarriedTo",
+          "entity1": "Citizen",
+          "entity2": "Citizen",
+          "fromEntityName": "Citizen",
+          "toEntityName": "Citizen",
+          "mult1": "0..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "spouse1",
+          "role2": "spouse2"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -929,9 +1526,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "User",
-          "entity2": "User",
-          "name": "FriendOf"
+          "entity1": "Citizen",
+          "entity2": "Citizen",
+          "fromEntityName": "Citizen",
+          "toEntityName": "Citizen",
+          "mult1": "0..1",
+          "mult2": "0..1",
+          "name": "MarriedTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "spouse1",
+          "role2": "spouse2"
         }
       ]
     },
@@ -968,7 +1573,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ReferredBy",
+          "entity1": "UserAccount",
+          "entity2": "UserAccount",
+          "fromEntityName": "UserAccount",
+          "toEntityName": "UserAccount",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "referrer",
+          "role2": "referee"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -979,9 +1599,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Division",
-          "entity2": "Division",
-          "name": "SubDivisionOf"
+          "entity1": "UserAccount",
+          "entity2": "UserAccount",
+          "fromEntityName": "UserAccount",
+          "toEntityName": "UserAccount",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "ReferredBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "referrer",
+          "role2": "referee"
         }
       ]
     },
@@ -1018,7 +1646,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "NextTrackTo",
+          "entity1": "MetroStation",
+          "entity2": "MetroStation",
+          "fromEntityName": "MetroStation",
+          "toEntityName": "MetroStation",
+          "mult1": "0..2",
+          "mult2": "0..2",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "currentStation",
+          "role2": "adjacentStation"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1029,9 +1672,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "HistoricalEvent",
-          "entity2": "HistoricalEvent",
-          "name": "LeadsTo"
+          "entity1": "MetroStation",
+          "entity2": "MetroStation",
+          "fromEntityName": "MetroStation",
+          "toEntityName": "MetroStation",
+          "mult1": "0..2",
+          "mult2": "0..2",
+          "name": "NextTrackTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "currentStation",
+          "role2": "adjacentStation"
         }
       ]
     },
@@ -1068,7 +1719,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ContainsSubfolder",
+          "entity1": "FolderDirectory",
+          "entity2": "FolderDirectory",
+          "fromEntityName": "FolderDirectory",
+          "toEntityName": "FolderDirectory",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentFolder",
+          "role2": "subFolder"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1079,9 +1745,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Account",
-          "entity2": "Account",
-          "name": "SubAccountOf"
+          "entity1": "FolderDirectory",
+          "entity2": "FolderDirectory",
+          "fromEntityName": "FolderDirectory",
+          "toEntityName": "FolderDirectory",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "ContainsSubfolder",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentFolder",
+          "role2": "subFolder"
         }
       ]
     },
@@ -1118,7 +1792,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "PrecedesTask",
+          "entity1": "ProjectTask",
+          "entity2": "ProjectTask",
+          "fromEntityName": "ProjectTask",
+          "toEntityName": "ProjectTask",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "predecessor",
+          "role2": "successor"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1129,9 +1818,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Component",
-          "entity2": "Component",
-          "name": "DependsOn"
+          "entity1": "ProjectTask",
+          "entity2": "ProjectTask",
+          "fromEntityName": "ProjectTask",
+          "toEntityName": "ProjectTask",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "name": "PrecedesTask",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "predecessor",
+          "role2": "successor"
         }
       ]
     },
@@ -1168,7 +1865,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "PlaysMatchAgainst",
+          "entity1": "FootballClub",
+          "entity2": "FootballClub",
+          "fromEntityName": "FootballClub",
+          "toEntityName": "FootballClub",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "homeTeam",
+          "role2": "awayTeam"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1179,9 +1891,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "SparePart",
-          "entity2": "SparePart",
-          "name": "Replaces"
+          "entity1": "FootballClub",
+          "entity2": "FootballClub",
+          "fromEntityName": "FootballClub",
+          "toEntityName": "FootballClub",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "name": "PlaysMatchAgainst",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "homeTeam",
+          "role2": "awayTeam"
         }
       ]
     },
@@ -1218,7 +1938,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "TransfersCargoTo",
+          "entity1": "DistributionHub",
+          "entity2": "DistributionHub",
+          "fromEntityName": "DistributionHub",
+          "toEntityName": "DistributionHub",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "sourceHub",
+          "role2": "targetHub"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1229,9 +1964,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Task",
-          "entity2": "Task",
-          "name": "Follows"
+          "entity1": "DistributionHub",
+          "entity2": "DistributionHub",
+          "fromEntityName": "DistributionHub",
+          "toEntityName": "DistributionHub",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "name": "TransfersCargoTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "sourceHub",
+          "role2": "targetHub"
         }
       ]
     },
@@ -1268,7 +2011,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "UplinkTo",
+          "entity1": "NetworkSwitch",
+          "entity2": "NetworkSwitch",
+          "fromEntityName": "NetworkSwitch",
+          "toEntityName": "NetworkSwitch",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "coreSwitch",
+          "role2": "accessSwitch"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1279,9 +2037,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Staff",
-          "entity2": "Staff",
-          "name": "Succeeds"
+          "entity1": "NetworkSwitch",
+          "entity2": "NetworkSwitch",
+          "fromEntityName": "NetworkSwitch",
+          "toEntityName": "NetworkSwitch",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "UplinkTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "coreSwitch",
+          "role2": "accessSwitch"
         }
       ]
     },
@@ -1318,7 +2084,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ReversesTx",
+          "entity1": "FinancialTransaction",
+          "entity2": "FinancialTransaction",
+          "fromEntityName": "FinancialTransaction",
+          "toEntityName": "FinancialTransaction",
+          "mult1": "0..1",
+          "mult2": "0..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "originalTx",
+          "role2": "reversalTx"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1329,9 +2110,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Region",
-          "entity2": "Region",
-          "name": "BelongsToRegion"
+          "entity1": "FinancialTransaction",
+          "entity2": "FinancialTransaction",
+          "fromEntityName": "FinancialTransaction",
+          "toEntityName": "FinancialTransaction",
+          "mult1": "0..1",
+          "mult2": "0..1",
+          "name": "ReversesTx",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "originalTx",
+          "role2": "reversalTx"
         }
       ]
     },
@@ -1368,7 +2157,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "BiologicalParentOf",
+          "entity1": "FamilyPerson",
+          "entity2": "FamilyPerson",
+          "fromEntityName": "FamilyPerson",
+          "toEntityName": "FamilyPerson",
+          "mult1": "0..2",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parent",
+          "role2": "child"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1379,9 +2183,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "EmailMessage",
-          "entity2": "EmailMessage",
-          "name": "ReplyToThread"
+          "entity1": "FamilyPerson",
+          "entity2": "FamilyPerson",
+          "fromEntityName": "FamilyPerson",
+          "toEntityName": "FamilyPerson",
+          "mult1": "0..2",
+          "mult2": "0..*",
+          "name": "BiologicalParentOf",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parent",
+          "role2": "child"
         }
       ]
     },
@@ -1418,7 +2230,22 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "OwnsSubsidiary",
+          "entity1": "CorporateHolding",
+          "entity2": "CorporateHolding",
+          "fromEntityName": "CorporateHolding",
+          "toEntityName": "CorporateHolding",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentHolding",
+          "role2": "subsidiary"
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1429,9 +2256,17 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Staff",
-          "entity2": "Staff",
-          "name": "Mentors"
+          "entity1": "CorporateHolding",
+          "entity2": "CorporateHolding",
+          "fromEntityName": "CorporateHolding",
+          "toEntityName": "CorporateHolding",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "OwnsSubsidiary",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentHolding",
+          "role2": "subsidiary"
         }
       ]
     },
@@ -1487,7 +2322,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Enrolls",
+          "entity1": "Student",
+          "entity2": "CourseModule",
+          "fromEntityName": "Student",
+          "toEntityName": "CourseModule",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "TaughtBy",
+          "entity1": "CourseModule",
+          "entity2": "Lecturer",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Lecturer",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1506,12 +2370,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Course",
-          "entity2": "Instructor"
+          "entity1": "Student",
+          "entity2": "CourseModule",
+          "fromEntityName": "Student",
+          "toEntityName": "CourseModule",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Enrolls",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Course",
-          "entity2": "Semester"
+          "entity1": "CourseModule",
+          "entity2": "Lecturer",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Lecturer",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "TaughtBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1567,7 +2449,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Treats",
+          "entity1": "Doctor",
+          "entity2": "Patient",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Patient",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Prescribes",
+          "entity1": "Doctor",
+          "entity2": "Medication",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Medication",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1586,12 +2497,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Supplier",
-          "entity2": "Part"
+          "entity1": "Doctor",
+          "entity2": "Patient",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Patient",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Treats",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Supplier",
-          "entity2": "Project"
+          "entity1": "Doctor",
+          "entity2": "Medication",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Medication",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Prescribes",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1647,7 +2576,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Produces",
+          "entity1": "AutoSupplier",
+          "entity2": "SparePart",
+          "fromEntityName": "AutoSupplier",
+          "toEntityName": "SparePart",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "FittedTo",
+          "entity1": "SparePart",
+          "entity2": "VehicleModel",
+          "fromEntityName": "SparePart",
+          "toEntityName": "VehicleModel",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1666,12 +2624,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Doctor",
-          "entity2": "Patient"
+          "entity1": "AutoSupplier",
+          "entity2": "SparePart",
+          "fromEntityName": "AutoSupplier",
+          "toEntityName": "SparePart",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Produces",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Doctor",
-          "entity2": "Drug"
+          "entity1": "SparePart",
+          "entity2": "VehicleModel",
+          "fromEntityName": "SparePart",
+          "toEntityName": "VehicleModel",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "FittedTo",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1727,7 +2703,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Serves",
+          "entity1": "SalesAgent",
+          "entity2": "CarBuyer",
+          "fromEntityName": "SalesAgent",
+          "toEntityName": "CarBuyer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Purchases",
+          "entity1": "CarBuyer",
+          "entity2": "ShowroomCar",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "ShowroomCar",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1746,12 +2751,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Policy",
-          "entity2": "Claim"
+          "entity1": "SalesAgent",
+          "entity2": "CarBuyer",
+          "fromEntityName": "SalesAgent",
+          "toEntityName": "CarBuyer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Serves",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Policy",
-          "entity2": "Agent"
+          "entity1": "CarBuyer",
+          "entity2": "ShowroomCar",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "ShowroomCar",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Purchases",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1807,7 +2830,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "WorksOn",
+          "entity1": "BuildingContractor",
+          "entity2": "BuildingSite",
+          "fromEntityName": "BuildingContractor",
+          "toEntityName": "BuildingSite",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Deploys",
+          "entity1": "BuildingSite",
+          "entity2": "HeavyEquipment",
+          "fromEntityName": "BuildingSite",
+          "toEntityName": "HeavyEquipment",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1826,12 +2878,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Customer",
-          "entity2": "Vehicle"
+          "entity1": "BuildingContractor",
+          "entity2": "BuildingSite",
+          "fromEntityName": "BuildingContractor",
+          "toEntityName": "BuildingSite",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "WorksOn",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Customer",
-          "entity2": "AgencyBranch"
+          "entity1": "BuildingSite",
+          "entity2": "HeavyEquipment",
+          "fromEntityName": "BuildingSite",
+          "toEntityName": "HeavyEquipment",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "Deploys",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1887,7 +2957,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Covers",
+          "entity1": "KeynoteSpeaker",
+          "entity2": "SymposiumTopic",
+          "fromEntityName": "KeynoteSpeaker",
+          "toEntityName": "SymposiumTopic",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "HostedIn",
+          "entity1": "SymposiumTopic",
+          "entity2": "SessionHall",
+          "fromEntityName": "SymposiumTopic",
+          "toEntityName": "SessionHall",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1906,12 +3005,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Site",
-          "entity2": "Machinery"
+          "entity1": "KeynoteSpeaker",
+          "entity2": "SymposiumTopic",
+          "fromEntityName": "KeynoteSpeaker",
+          "toEntityName": "SymposiumTopic",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Covers",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Site",
-          "entity2": "Operator"
+          "entity1": "SymposiumTopic",
+          "entity2": "SessionHall",
+          "fromEntityName": "SymposiumTopic",
+          "toEntityName": "SessionHall",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "HostedIn",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -1967,7 +3084,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Represents",
+          "entity1": "InsuranceBroker",
+          "entity2": "CorporateClient",
+          "fromEntityName": "InsuranceBroker",
+          "toEntityName": "CorporateClient",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "InsuredBy",
+          "entity1": "CorporateClient",
+          "entity2": "UnderwritingFirm",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "UnderwritingFirm",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -1986,12 +3132,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Referee",
-          "entity2": "Match"
+          "entity1": "InsuranceBroker",
+          "entity2": "CorporateClient",
+          "fromEntityName": "InsuranceBroker",
+          "toEntityName": "CorporateClient",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Represents",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Referee",
-          "entity2": "Tournament"
+          "entity1": "CorporateClient",
+          "entity2": "UnderwritingFirm",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "UnderwritingFirm",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "InsuredBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2047,7 +3211,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ArrivesAt",
+          "entity1": "CargoCarrier",
+          "entity2": "CustomsTerminal",
+          "fromEntityName": "CargoCarrier",
+          "toEntityName": "CustomsTerminal",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ClearedBy",
+          "entity1": "CustomsTerminal",
+          "entity2": "FreightForwarder",
+          "fromEntityName": "CustomsTerminal",
+          "toEntityName": "FreightForwarder",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2066,12 +3259,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "LoanApp",
-          "entity2": "Officer"
+          "entity1": "CargoCarrier",
+          "entity2": "CustomsTerminal",
+          "fromEntityName": "CargoCarrier",
+          "toEntityName": "CustomsTerminal",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ArrivesAt",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "LoanApp",
-          "entity2": "Committee"
+          "entity1": "CustomsTerminal",
+          "entity2": "FreightForwarder",
+          "fromEntityName": "CustomsTerminal",
+          "toEntityName": "FreightForwarder",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "ClearedBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2127,7 +3338,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ActsIn",
+          "entity1": "FilmActor",
+          "entity2": "MovieProduction",
+          "fromEntityName": "FilmActor",
+          "toEntityName": "MovieProduction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Features",
+          "entity1": "MovieProduction",
+          "entity2": "CharacterRole",
+          "fromEntityName": "MovieProduction",
+          "toEntityName": "CharacterRole",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2146,12 +3386,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Cargo",
-          "entity2": "Inspector"
+          "entity1": "FilmActor",
+          "entity2": "MovieProduction",
+          "fromEntityName": "FilmActor",
+          "toEntityName": "MovieProduction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ActsIn",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Cargo",
-          "entity2": "CustomsPost"
+          "entity1": "MovieProduction",
+          "entity2": "CharacterRole",
+          "fromEntityName": "MovieProduction",
+          "toEntityName": "CharacterRole",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Features",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2207,7 +3465,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Conducts",
+          "entity1": "ResearchScientist",
+          "entity2": "GrantProject",
+          "fromEntityName": "ResearchScientist",
+          "toEntityName": "GrantProject",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "UsesFacility",
+          "entity1": "GrantProject",
+          "entity2": "LabFacility",
+          "fromEntityName": "GrantProject",
+          "toEntityName": "LabFacility",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2226,12 +3513,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Sample",
-          "entity2": "Chemist"
+          "entity1": "ResearchScientist",
+          "entity2": "GrantProject",
+          "fromEntityName": "ResearchScientist",
+          "toEntityName": "GrantProject",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Conducts",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Sample",
-          "entity2": "Equipment"
+          "entity1": "GrantProject",
+          "entity2": "LabFacility",
+          "fromEntityName": "GrantProject",
+          "toEntityName": "LabFacility",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "UsesFacility",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2287,7 +3592,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Supervises",
+          "entity1": "BrandMerchandiser",
+          "entity2": "PromotedProduct",
+          "fromEntityName": "BrandMerchandiser",
+          "toEntityName": "PromotedProduct",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "PlacedIn",
+          "entity1": "PromotedProduct",
+          "entity2": "SupermarketStore",
+          "fromEntityName": "PromotedProduct",
+          "toEntityName": "SupermarketStore",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2306,12 +3640,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Guest",
-          "entity2": "Room"
+          "entity1": "BrandMerchandiser",
+          "entity2": "PromotedProduct",
+          "fromEntityName": "BrandMerchandiser",
+          "toEntityName": "PromotedProduct",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Supervises",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Guest",
-          "entity2": "BookingAgent"
+          "entity1": "PromotedProduct",
+          "entity2": "SupermarketStore",
+          "fromEntityName": "PromotedProduct",
+          "toEntityName": "SupermarketStore",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "PlacedIn",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2367,7 +3719,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Specializes",
+          "entity1": "SportAthlete",
+          "entity2": "SportDiscipline",
+          "fromEntityName": "SportAthlete",
+          "toEntityName": "SportDiscipline",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ContestedAt",
+          "entity1": "SportDiscipline",
+          "entity2": "ChampionshipEvent",
+          "fromEntityName": "SportDiscipline",
+          "toEntityName": "ChampionshipEvent",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2386,12 +3767,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Flight",
-          "entity2": "Pilot"
+          "entity1": "SportAthlete",
+          "entity2": "SportDiscipline",
+          "fromEntityName": "SportAthlete",
+          "toEntityName": "SportDiscipline",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Specializes",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Flight",
-          "entity2": "Aircraft"
+          "entity1": "SportDiscipline",
+          "entity2": "ChampionshipEvent",
+          "fromEntityName": "SportDiscipline",
+          "toEntityName": "ChampionshipEvent",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "ContestedAt",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2447,7 +3846,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "AssignedBlock",
+          "entity1": "ExamineeStudent",
+          "entity2": "SubjectBlock",
+          "fromEntityName": "ExamineeStudent",
+          "toEntityName": "SubjectBlock",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "SupervisedBy",
+          "entity1": "SubjectBlock",
+          "entity2": "ExamProctor",
+          "fromEntityName": "SubjectBlock",
+          "toEntityName": "ExamProctor",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2466,12 +3894,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Movie",
-          "entity2": "Role"
+          "entity1": "ExamineeStudent",
+          "entity2": "SubjectBlock",
+          "fromEntityName": "ExamineeStudent",
+          "toEntityName": "SubjectBlock",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AssignedBlock",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Movie",
-          "entity2": "Actor"
+          "entity1": "SubjectBlock",
+          "entity2": "ExamProctor",
+          "fromEntityName": "SubjectBlock",
+          "toEntityName": "ExamProctor",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "SupervisedBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2527,7 +3973,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Purchases",
+          "entity1": "EnterpriseBuyer",
+          "entity2": "SoftwareModule",
+          "fromEntityName": "EnterpriseBuyer",
+          "toEntityName": "SoftwareModule",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ProvidedBy",
+          "entity1": "SoftwareModule",
+          "entity2": "LicenseReseller",
+          "fromEntityName": "SoftwareModule",
+          "toEntityName": "LicenseReseller",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2546,12 +4021,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Product",
-          "entity2": "PackagingLine"
+          "entity1": "EnterpriseBuyer",
+          "entity2": "SoftwareModule",
+          "fromEntityName": "EnterpriseBuyer",
+          "toEntityName": "SoftwareModule",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Purchases",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Product",
-          "entity2": "Operator"
+          "entity1": "SoftwareModule",
+          "entity2": "LicenseReseller",
+          "fromEntityName": "SoftwareModule",
+          "toEntityName": "LicenseReseller",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "ProvidedBy",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2607,7 +4100,36 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "AssignedRoute",
+          "entity1": "FlightCaptain",
+          "entity2": "FlightRoute",
+          "fromEntityName": "FlightCaptain",
+          "toEntityName": "FlightRoute",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "OperatedWith",
+          "entity1": "FlightRoute",
+          "entity2": "AircraftFleet",
+          "fromEntityName": "FlightRoute",
+          "toEntityName": "AircraftFleet",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ]
     },
     "expectedDiagram": {
       "entities": [
@@ -2626,12 +4148,30 @@ _scope.EER_CLIENTS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Artist",
-          "entity2": "Stage"
+          "entity1": "FlightCaptain",
+          "entity2": "FlightRoute",
+          "fromEntityName": "FlightCaptain",
+          "toEntityName": "FlightRoute",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AssignedRoute",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Artist",
-          "entity2": "FestivalDay"
+          "entity1": "FlightRoute",
+          "entity2": "AircraftFleet",
+          "fromEntityName": "FlightRoute",
+          "toEntityName": "AircraftFleet",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "OperatedWith",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ]
     },
@@ -2688,7 +4228,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2704,11 +4245,13 @@ _scope.EER_CLIENTS_51_100 = [
           "HourlyEmp",
           "SalariedEmp"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Employee', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Employee' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'Employee' and its subclasses ('HourlyEmp', 'SalariedEmp') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'Employee' and its subclasses ('HourlyEmp', 'SalariedEmp') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 92,
@@ -2758,7 +4301,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2774,11 +4318,13 @@ _scope.EER_CLIENTS_51_100 = [
           "Car",
           "Truck"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Vehicle', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Vehicle' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'Vehicle' and its subclasses ('Car', 'Truck') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'Vehicle' and its subclasses ('Car', 'Truck') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 93,
@@ -2828,7 +4374,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2844,11 +4391,13 @@ _scope.EER_CLIENTS_51_100 = [
           "Staff",
           "Student"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Person', select '{Optional, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Person' configured with '{Optional, Or}' successfully.",
-    "task": "Model superclass 'Person' and its subclasses ('Staff', 'Student') with the '{Optional, Or}' constraint according to client requirements."
+    "task": "Model superclass 'Person' and its subclasses ('Staff', 'Student') with the '{Optional, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 94,
@@ -2898,7 +4447,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2914,11 +4464,13 @@ _scope.EER_CLIENTS_51_100 = [
           "SavingsAcc",
           "CurrentAcc"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Account', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Account' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'Account' and its subclasses ('SavingsAcc', 'CurrentAcc') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'Account' and its subclasses ('SavingsAcc', 'CurrentAcc') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 95,
@@ -2968,7 +4520,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2984,11 +4537,13 @@ _scope.EER_CLIENTS_51_100 = [
           "Book",
           "Journal"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'LibraryItem', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'LibraryItem' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'LibraryItem' and its subclasses ('Book', 'Journal') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'LibraryItem' and its subclasses ('Book', 'Journal') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 96,
@@ -3038,7 +4593,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3054,11 +4610,13 @@ _scope.EER_CLIENTS_51_100 = [
           "Residential",
           "Commercial"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Property', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Property' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'Property' and its subclasses ('Residential', 'Commercial') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'Property' and its subclasses ('Residential', 'Commercial') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 97,
@@ -3108,7 +4666,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3124,11 +4683,13 @@ _scope.EER_CLIENTS_51_100 = [
           "Individual",
           "Corporate"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Customer', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Customer' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'Customer' and its subclasses ('Individual', 'Corporate') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'Customer' and its subclasses ('Individual', 'Corporate') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 98,
@@ -3178,7 +4739,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3194,11 +4756,13 @@ _scope.EER_CLIENTS_51_100 = [
           "Admin",
           "Guest"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'User', select '{Optional, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'User' configured with '{Optional, Or}' successfully.",
-    "task": "Model superclass 'User' and its subclasses ('Admin', 'Guest') with the '{Optional, Or}' constraint according to client requirements."
+    "task": "Model superclass 'User' and its subclasses ('Admin', 'Guest') with the '{Optional, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 99,
@@ -3248,7 +4812,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3264,11 +4829,13 @@ _scope.EER_CLIENTS_51_100 = [
           "BasicPlan",
           "PremiumPlan"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'InsurancePlan', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'InsurancePlan' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'InsurancePlan' and its subclasses ('BasicPlan', 'PremiumPlan') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'InsurancePlan' and its subclasses ('BasicPlan', 'PremiumPlan') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   },
   {
     "id": 100,
@@ -3318,7 +4885,8 @@ _scope.EER_CLIENTS_51_100 = [
           ]
         }
       ],
-      "subclasses": []
+      "subclasses": [],
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3334,11 +4902,13 @@ _scope.EER_CLIENTS_51_100 = [
           "InPatient",
           "OutPatient"
         ]
-      }
+      },
+      "relationships": []
     },
     "hint": "Open the Subclass modal: set superclass to 'Patient', select '{Mandatory, Or}', and check child subclasses.",
     "explanation": "EER Subclass hierarchy under 'Patient' configured with '{Mandatory, Or}' successfully.",
-    "task": "Model superclass 'Patient' and its subclasses ('InPatient', 'OutPatient') with the '{Mandatory, Or}' constraint according to client requirements."
+    "task": "Model superclass 'Patient' and its subclasses ('InPatient', 'OutPatient') with the '{Mandatory, Or}' constraint according to client requirements.",
+    "isWeek2": true
   }
 ];
 

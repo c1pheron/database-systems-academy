@@ -1,5 +1,5 @@
 /**
- * DATABASE SYSTEMS ACADEMY — WEEK 1: DRAW.IO FULL INTERACTIVE EER CANVAS ENGINE
+ * DATABASE SYSTEMS ACADEMY — WEEK 2: DRAW.IO FULL INTERACTIVE EER CANVAS ENGINE
  * draw.io uslubidagi barcha professional imkoniyatlar:
  * 1. Port strelkalari (Yuqori, O'ng, Past, Chap) & Strelkani sudrab ikkinchi entitiyga ulash (Drag-to-Connect)
  * 2. Chiziq ustiga bosilganda Multiplicity variantlarini tanlash (1..1, 0..1, 1..*, 0..*)
@@ -637,8 +637,40 @@ class EERCanvasEngine {
     const t = (k, fb) => (window.I18N ? window.I18N.t(k, fb) : fb);
 
     if (sId === tId) {
-      this.showToast(t('toast_conn_self', "Entitiyni o'ziga ulash mumkin emas."));
-      return;
+      if (sourceType === 'entity') {
+        const existing = this.relationships.find(r => {
+          if (r.fromEntityId && r.toEntityId) {
+            return r.fromEntityId === sId && r.toEntityId === sId;
+          }
+          const fn = (r.fromEntityName || '').toLowerCase();
+          const tn = (r.toEntityName || '').toLowerCase();
+          const sn = (sourceNode.name || '').toLowerCase();
+          return fn === sn && tn === sn;
+        });
+        if (existing) {
+          this.showToast(isEn ? `'${sourceNode.name}' already has a recursive relationship!` : `'${sourceNode.name}' allaqachon rekursiv aloqaga ega!`);
+          return;
+        }
+        this.relationships.push({
+          id: 'rel_' + Math.random().toString(36).substr(2, 9),
+          name: isEn ? 'Self-Ref' : 'Rekursiv',
+          fromEntityId: sId,
+          toEntityId: sId,
+          fromEntityName: sourceNode.name,
+          toEntityName: sourceNode.name,
+          mult1: '',
+          mult2: '',
+          isDirect: true
+        });
+        this.renderLinks();
+        this.triggerChange();
+        if (window.playSfx) window.playSfx('success');
+        this.showToast(isEn ? `🔄 Recursive relationship added to '${sourceNode.name}'!` : `🔄 '${sourceNode.name}' uchun rekursiv o'z-o'ziga bog'lanish qo'shildi!`);
+        return;
+      } else {
+        this.showToast(t('toast_conn_self', "Rombni o'ziga ulash mumkin emas."));
+        return;
+      }
     }
 
     if (sourceType === 'entity' && targetType === 'entity') {
@@ -1326,11 +1358,28 @@ class EERCanvasEngine {
       const isDirectLine = rel.isDirect || !diamondEl;
 
       if (isDirectLine && fromEnt && toEnt) {
-        // Direct Entity-to-Entity relationship line (No diamond)
-        const fCenterX = fromEnt.x + (fromEnt.width || 200) / 2;
-        const fCenterY = fromEnt.y + (fromEnt.height || 120) / 2;
-        const tCenterX = toEnt.x + (toEnt.width || 200) / 2;
-        const tCenterY = toEnt.y + (toEnt.height || 120) / 2;
+        if (fromEnt === toEnt) {
+          // Recursive / Unary Self-Loop
+          const onDblClickRel = (e) => {
+            e?.stopPropagation();
+            this.relationships = this.relationships.filter(r => r !== rel);
+            this.renderLinks();
+            this.showToast(`🗑️ '${fromEnt.name}' rekursiv aloqasi o'chirildi!`);
+            if (window.playSfx) window.playSfx('click');
+          };
+
+          const multLabel = `${rel.mult1 || '1..1'} ↔ ${rel.mult2 || '1..*'}`;
+          this.drawSelfLoopArc(fromEnt, rel, onDblClickRel, {
+            onDelete: onDblClickRel,
+            onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult1', e),
+            multText: multLabel
+          });
+        } else {
+          // Direct Entity-to-Entity relationship line (No diamond)
+          const fCenterX = fromEnt.x + (fromEnt.width || 200) / 2;
+          const fCenterY = fromEnt.y + (fromEnt.height || 120) / 2;
+          const tCenterX = toEnt.x + (toEnt.width || 200) / 2;
+          const tCenterY = toEnt.y + (toEnt.height || 120) / 2;
 
         const borderF = this.getNodeBorderPoint(fromEnt, tCenterX, tCenterY, false);
         const borderT = this.getNodeBorderPoint(toEnt, fCenterX, fCenterY, false);
@@ -1343,10 +1392,11 @@ class EERCanvasEngine {
           if (window.playSfx) window.playSfx('click');
         };
 
+        const multLabel = `${rel.mult1 || '1..1'} ↔ ${rel.mult2 || '1..*'}`;
         this.drawLine(borderF.x, borderF.y, borderT.x, borderT.y, onDblClickRel, false, null, {
           onDelete: onDblClickRel,
-          onMultiplicity: null,
-          multText: null
+          onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult1', e),
+          multText: multLabel
         });
 
         // Handles at both ends to allow grabbing and re-attaching
@@ -1414,6 +1464,7 @@ class EERCanvasEngine {
         // 2. Multiplicity for toEnt (positioned cleanly ABOVE/OUTSIDE the connector line)
         const mPos2 = this.computeMultiplicityPos(borderT, 38, 18);
         this.createMultiplicityPill(mPos2.x, mPos2.y, rel, 'mult2', toEnt.name);
+        }
       } else {
         // Fallback for explicit diamond nodes placed on canvas
         const rCenterX = rel.x + 45;
@@ -1436,9 +1487,11 @@ class EERCanvasEngine {
 
           this.drawLine(borderF.x, borderF.y, borderR1.x, borderR1.y, onDblClickFrom, false, null, {
             onDelete: onDblClickFrom,
-            onMultiplicity: null,
-            multText: null
+            onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult1', e),
+            multText: rel.mult1 || '1..1'
           });
+          const mPos1 = this.computeMultiplicityPos(borderF, 38, 18);
+          this.createMultiplicityPill(mPos1.x, mPos1.y, rel, 'mult1', fromEnt.name);
         }
 
         if (toEnt) {
@@ -1458,9 +1511,11 @@ class EERCanvasEngine {
 
           this.drawLine(borderR2.x, borderR2.y, borderT.x, borderT.y, onDblClickTo, false, null, {
             onDelete: onDblClickTo,
-            onMultiplicity: null,
-            multText: null
+            onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult2', e),
+            multText: rel.mult2 || '1..*'
           });
+          const mPos2 = this.computeMultiplicityPos(borderT, 38, 18);
+          this.createMultiplicityPill(mPos2.x, mPos2.y, rel, 'mult2', toEnt.name);
         }
       }
     });
@@ -1514,15 +1569,33 @@ class EERCanvasEngine {
         };
       };
 
+      const multLabel = `${line.mult1 || '1..1'} ↔ ${line.mult2 || '1..*'}`;
       this.drawLine(line.startX, line.startY, line.endX, line.endY, onLineDblClick, line.isDashed, onStartWholeLineDrag, {
         onDelete: onLineDblClick,
-        onMultiplicity: null,
-        multText: null
+        onMultiplicity: (e) => this.openMultiplicitySelector(line, 'mult1', e),
+        multText: multLabel
       });
 
       // Render Magnetic Handles at both ends as interactive DOM handles
       this.renderMagneticHandle(line, 'start', line.startX, line.startY, onLineDblClick);
       this.renderMagneticHandle(line, 'end', line.endX, line.endY, onLineDblClick);
+
+      // Render Multiplicity Pills for standalone line ends
+      const dx = line.endX - line.startX;
+      const dy = line.endY - line.startY;
+      const dist = Math.hypot(dx, dy) || 1;
+      const dirX = dx / dist;
+      const dirY = dy / dist;
+
+      // Start end multiplicity pill
+      const startBorder = { x: line.startX, y: line.startY, dirX: dirX, dirY: dirY };
+      const mPos1 = this.computeMultiplicityPos(startBorder, 38, 22);
+      this.createMultiplicityPill(mPos1.x, mPos1.y, line, 'mult1', line.startSnapped?.node?.name || '1-Tomon');
+
+      // End end multiplicity pill
+      const endBorder = { x: line.endX, y: line.endY, dirX: -dirX, dirY: -dirY };
+      const mPos2 = this.computeMultiplicityPos(endBorder, 38, 22);
+      this.createMultiplicityPill(mPos2.x, mPos2.y, line, 'mult2', line.endSnapped?.node?.name || '2-Tomon');
     });
 
     // Render Free-Standing Connection Lines
@@ -1934,9 +2007,111 @@ class EERCanvasEngine {
     this.svg.appendChild(group);
   }
 
+  drawSelfLoopArc(fromEnt, rel, onDelete, lineActions) {
+    const width = fromEnt.width || 200;
+    const height = fromEnt.height || 120;
+    const startX = Math.round(fromEnt.x + width * 0.70);
+    const startY = Math.round(fromEnt.y);
+    const endX = Math.round(fromEnt.x + width);
+    const endY = Math.round(fromEnt.y + height * 0.35);
+
+    const cp1x = startX;
+    const cp1y = startY - 55;
+    const cp2x = endX + 55;
+    const cp2y = endY;
+
+    const pathD = `M ${startX} ${startY} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${endX} ${endY}`;
+    const midX = Math.round(0.125 * startX + 0.375 * cp1x + 0.375 * cp2x + 0.125 * endX);
+    const midY = Math.round(0.125 * startY + 0.375 * cp1y + 0.375 * cp2y + 0.125 * endY);
+
+    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+    // Invisible thick hitbox (32px wide)
+    const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    hitbox.setAttribute('d', pathD);
+    hitbox.setAttribute('fill', 'none');
+    hitbox.setAttribute('stroke', '#000000');
+    hitbox.setAttribute('stroke-opacity', '0.001');
+    hitbox.setAttribute('stroke-width', '32');
+    hitbox.style.cursor = 'pointer';
+    hitbox.style.pointerEvents = 'stroke';
+
+    // Visible arc
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', pathD);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', '#c8a96e');
+    path.setAttribute('stroke-width', '2.5');
+    path.setAttribute('stroke-linecap', 'round');
+    path.style.cursor = 'pointer';
+    path.style.pointerEvents = 'stroke';
+
+    const stopBubbling = (e) => {
+      e.stopPropagation();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedNode = null;
+    };
+    hitbox.addEventListener('mousedown', stopBubbling);
+    hitbox.addEventListener('touchstart', stopBubbling, { passive: false });
+
+    if (onDelete || lineActions) {
+      const actions = lineActions || { onDelete };
+      const handleClick = (e) => {
+        e.stopPropagation();
+        this.showLineActionToolbar(midX, midY, actions);
+      };
+      hitbox.addEventListener('click', handleClick);
+      path.addEventListener('click', handleClick);
+
+      if (onDelete) {
+        hitbox.addEventListener('dblclick', (e) => {
+          e.stopPropagation();
+          this.removeLineDeleteButton();
+          onDelete(e);
+        });
+        path.addEventListener('dblclick', (e) => {
+          e.stopPropagation();
+          this.removeLineDeleteButton();
+          onDelete(e);
+        });
+      }
+    }
+
+    group.appendChild(hitbox);
+    group.appendChild(path);
+    this.svg.appendChild(group);
+
+    // Multiplicity 1 (start at top border)
+    this.createMultiplicityPill(startX - 15, startY - 26, rel, 'mult1', rel.role1 ? `${fromEnt.name} (${rel.role1})` : fromEnt.name);
+
+    // Multiplicity 2 (end at right border)
+    this.createMultiplicityPill(endX + 32, endY, rel, 'mult2', rel.role2 ? `${fromEnt.name} (${rel.role2})` : fromEnt.name);
+
+    // Optional Role / Name Badge near apex
+    if (rel.name) {
+      const badge = document.createElement('div');
+      badge.className = 'rel-line-badge';
+      badge.textContent = rel.name;
+      badge.style.position = 'absolute';
+      badge.style.left = `${midX + 15}px`;
+      badge.style.top = `${midY - 15}px`;
+      badge.style.transform = 'translate(-50%, -50%)';
+      badge.style.fontSize = '11px';
+      badge.style.fontWeight = 'bold';
+      badge.style.color = '#ffd166';
+      badge.style.background = 'rgba(20, 16, 24, 0.85)';
+      badge.style.border = '1px solid #c8a96e';
+      badge.style.borderRadius = '4px';
+      badge.style.padding = '2px 6px';
+      badge.style.pointerEvents = 'none';
+      badge.style.zIndex = '40';
+      this.nodesLayer.appendChild(badge);
+    }
+  }
+
   createMultiplicityPill(x, y, rel, multKey, entityName) {
-    // In Week 2 EER diagrams, multiplicity is NOT used
-    return null;
+    const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
     const val = (rel[multKey] || '').trim();
     const hasVal = val !== '' && val !== '?' && val !== '+';
 
@@ -2204,6 +2379,8 @@ class EERCanvasEngine {
       this.addEntity({ name: 'ZaifEntitiy', isWeak: true, x: centerX, y: centerY, attributes: [{ name: 'qisman_id', isPPK: true }, { name: 'tavsif', isPK: false }] });
     } else if (type === 'assoc-entity') {
       this.addEntity({ name: 'AssotsiativEntitiy', x: centerX, y: centerY, attributes: [{ name: 'ota1_id', isPK: true }, { name: 'ota2_id', isPK: true }, { name: 'sana', isPK: false }] });
+    } else if (type === 'table-recursive' || type === 'recursive-table' || type === 'recursive-entity') {
+      this.addRecursiveEntityOrLoop(centerX, centerY);
     } else if (type === 'rel-diamond') {
       this.addRelationship({ name: 'Aloqa', x: centerX, y: centerY });
     } else if (type === 'rel-identifying') {
@@ -2281,8 +2458,68 @@ class EERCanvasEngine {
       this.renderLinks();
       this.showToast(`2 ta magnit uchli chiziq tushirildi (${mult1}). Har ikkala chetini kerakli entitiyga ulab oling!`);
     }
-    this.triggerChange();
-    if (window.playSfx) window.playSfx('click');
+  addRecursiveEntityOrLoop(cx, cy) {
+    const isEn = window.I18N && window.I18N.getLang() === 'en';
+    const centerX = cx !== undefined ? cx : Math.round(-this.panX / this.zoom + (this.container.offsetWidth / 2) / this.zoom - 85);
+    const centerY = cy !== undefined ? cy : Math.round(-this.panY / this.zoom + (this.container.offsetHeight / 2) / this.zoom - 50);
+
+    // If an entity is currently selected on the canvas, add a recursive self-loop directly to it!
+    if (this.selectedNode && this.selectedType === 'entity') {
+      const sId = this.selectedNode.id || this.selectedNode.domId;
+      const existing = this.relationships.find(r => (r.fromEntityId === sId && r.toEntityId === sId) ||
+        ((r.fromEntityName || '').toLowerCase() === (this.selectedNode.name || '').toLowerCase() &&
+         (r.toEntityName || '').toLowerCase() === (this.selectedNode.name || '').toLowerCase()));
+      if (existing) {
+        this.showToast(isEn ? `'${this.selectedNode.name}' already has a recursive relationship!` : `'${this.selectedNode.name}' allaqachon rekursiv aloqaga ega!`);
+        return;
+      }
+      this.relationships.push({
+        id: 'rel_' + Math.random().toString(36).substr(2, 9),
+        name: isEn ? 'Self-Ref' : 'Rekursiv',
+        fromEntityId: sId,
+        toEntityId: sId,
+        fromEntityName: this.selectedNode.name,
+        toEntityName: this.selectedNode.name,
+        mult1: '',
+        mult2: '',
+        isDirect: true
+      });
+      this.renderLinks();
+      this.triggerChange();
+      if (window.playSfx) window.playSfx('success');
+      this.showToast(isEn ? `🔄 Recursive relationship attached to '${this.selectedNode.name}'!` : `🔄 '${this.selectedNode.name}' ga rekursiv aloqa muvaffaqiyatli ulandi!`);
+      return;
+    }
+
+    // Otherwise, create a new Recursive Entity with its self-loop
+    const ent = this.addEntity({
+      name: 'RekursivJadval',
+      x: centerX,
+      y: centerY,
+      attributes: [
+        { name: 'id', isPK: true },
+        { name: 'rahbar_id', isFK: true },
+        { name: 'nomi', isPK: false }
+      ]
+    });
+    if (ent) {
+      const entId = ent.id || ent.domId;
+      this.relationships.push({
+        id: 'rel_' + Math.random().toString(36).substr(2, 9),
+        name: isEn ? 'Self-Ref' : 'Rekursiv',
+        fromEntityId: entId,
+        toEntityId: entId,
+        fromEntityName: ent.name,
+        toEntityName: ent.name,
+        mult1: '',
+        mult2: '',
+        isDirect: true
+      });
+      this.renderLinks();
+      this.triggerChange();
+      if (window.playSfx) window.playSfx('success');
+      this.showToast(isEn ? `🔄 Recursive Table and self-loop added!` : `🔄 Rekursiv Jadval va o'ziga qaytuvchi aloqa chizig'i qo'shildi!`);
+    }
   }
 
   showToast(msg) {

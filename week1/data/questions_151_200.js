@@ -1,10 +1,4 @@
-// ============================================================================
-// DATABASE SYSTEMS ACADEMY — 1-HAFTA: KONSEPTUAL EER MODEL (SEKTOR 2 MASTER DATASET)
-// 50 TA YANGI 3 VA 4 TALIK ENTITIY BOG'LANISHLI MASALALAR (151 - 200)
-// ============================================================================
-
 var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
-
 _scope.QUESTIONS_151_200 = [
   {
     "id": 151,
@@ -15,8 +9,8 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Express24 Taom Yetkazib Berish (3 ta Entitiy)",
     "titleEn": "Express24 Food Delivery Pipeline (3 Entities)",
-    "story": "Express24 tizimida restoran (Restaurant) bir nechta taom buyurtmalarini (FoodOrder) qabul qiladi. Har bir buyurtmaga aniq bitta kuryer (Courier) biriktiriladi. Kuryer esa bir vaqtning o'zida ko'pi bilan bitta faol buyurtmani yetkazadi (yoki hozircha buyurtmasi yo'q: 0..1). 'Restaurant' -> 'FoodOrder' va 'FoodOrder' -> 'Courier' munosabatlarini belgilang.",
-    "storyEn": "In Express24 food delivery, a restaurant accepts multiple orders. Each order is assigned to exactly one courier. A courier carries at most one active delivery order at a time (0..1). Connect 'Restaurant' -> 'FoodOrder' and 'FoodOrder' -> 'Courier'.",
+    "story": "Express24 tizimida restoran (Restaurant) bir nechta taom buyurtmalarini (FoodOrder) qabul qiladi. Har bir buyurtmaga aniq bitta kuryer (Courier) biriktiriladi. Kuryer esa bir vaqtning o'zida ko'pi bilan bitta faol buyurtmani yetkazadi (yoki hozircha yangi/bo'sh kuryer birorta ham buyurtmaga ega bo'lmasligi mumkin: ixtiyoriy bittalik). 'Restaurant' -> 'FoodOrder' va 'FoodOrder' -> 'Courier' munosabatlarini belgilang.",
+    "storyEn": "In Express24 food delivery, a restaurant accepts multiple orders. Each order is assigned to exactly one courier. A courier carries at most one active delivery order at a time (ixtiyoriy bittalik). Connect 'Restaurant' -> 'FoodOrder' and 'FoodOrder' -> 'Courier'.",
     "instruction": "'Restaurant' -> 'FoodOrder' va 'FoodOrder' -> 'Courier' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'Restaurant' -> 'FoodOrder' and 'FoodOrder' -> 'Courier' with precise multiplicity bounds.",
     "starterDiagram": {
@@ -185,7 +179,7 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Asaxiy Books Kitob Nashri va Savdosi (3 ta Entitiy)",
     "titleEn": "Asaxiy Publishing and Book Sales (3 Entities)",
-    "story": "Nashriyot (Publisher) kamida bitta yoki ko'plab kitoblarni (Book) chop etadi. Har bir kitob savdo tizimida buyurtma qatorlariga (OrderLine) birikadi (yangi kitob hali hech qaysi buyurtmaga tushmagan bo'lishi mumkin: 0..*). 'Publisher' -> 'Book' va 'Book' -> 'OrderLine' zanjirini loyihalang.",
+    "story": "Nashriyot (Publisher) kamida bitta yoki ko'plab kitoblarni (Book) chop etadi. Har bir kitob savdo tizimida buyurtma qatorlariga (OrderLine) birikadi (yangi kitob hali hech qaysi buyurtmaga tushmagan bo'lishi mumkin: ixtiyoriy ko'plik). 'Publisher' -> 'Book' va 'Book' -> 'OrderLine' zanjirini loyihalang.",
     "storyEn": "A publishing house publishes one or more books. Each book appears on zero or more retail order line items. Model 'Publisher' -> 'Book' and 'Book' -> 'OrderLine'.",
     "instruction": "'Publisher' -> 'Book' va 'Book' -> 'OrderLine' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'Publisher' -> 'Book' and 'Book' -> 'OrderLine' with precise multiplicity bounds.",
@@ -525,7 +519,7 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "IT Park Rezidentlik va Startap Loyihalari (3 ta Entitiy)",
     "titleEn": "IT Park Residency and Venture Projects (3 Entities)",
-    "story": "IT Park texnoparkida kompaniyalar (ResidentCompany) rezidentlik maqomini oladi (parkda 0..* kompaniyalar bo'lishi mumkin). Har bir rezident kompaniya esa kamida bitta IT dasturiy loyihani (SoftwareProject) amalga oshirishi shart. 'ITPark' -> 'ResidentCompany' va 'ResidentCompany' -> 'SoftwareProject' aloqalarini belgilang.",
+    "story": "IT Park texnoparkida kompaniyalar (ResidentCompany) rezidentlik maqomini oladi (parkda hali yangi paytda kompaniyalar bo'lmasligi yoki ko'plab rezidentlar bo'lishi mumkin: ixtiyoriy ko'plik). Har bir rezident kompaniya esa kamida bitta IT dasturiy loyihani (SoftwareProject) amalga oshirishi shart. 'ITPark' -> 'ResidentCompany' va 'ResidentCompany' -> 'SoftwareProject' aloqalarini belgilang.",
     "storyEn": "IT Park registers zero or more resident companies. Every resident company must deliver at least one approved software project. Model 'ITPark' -> 'ResidentCompany' and 'ResidentCompany' -> 'SoftwareProject'.",
     "instruction": "'ITPark' -> 'ResidentCompany' va 'ResidentCompany' -> 'SoftwareProject' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'ITPark' -> 'ResidentCompany' and 'ResidentCompany' -> 'SoftwareProject' with precise multiplicity bounds.",
@@ -695,7 +689,7 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Medion Poliklinika Shifokor Qabuli (3 ta Entitiy)",
     "titleEn": "Medion Clinic Doctor Appointment Schedule (3 Entities)",
-    "story": "Klinikada shifokor (Doctor) qabul soatlariga (Appointment) ega bo'ladi (yangi shifokorda hali qabul yozuvlari 0 bo'lishi mumkin). Har bir qabul yozuvi esa qat'iy bitta ro'yxatdan o'tgan bemorga (Patient) tegishli bo'ladi. 'Doctor' -> 'Appointment' va 'Patient' -> 'Appointment' (Fan-In bog'lanish) aloqalarini chizing.",
+    "story": "Klinikada shifokor (Doctor) qabul soatlariga (Appointment) ega bo'ladi (yangi ish boshlagan shifokorda hali qabul yozuvlari bo'lmasligi mumkin: ixtiyoriy ishtirok). Har bir qabul yozuvi esa qat'iy bitta ro'yxatdan o'tgan bemorga (Patient) tegishli bo'ladi. 'Doctor' -> 'Appointment' va 'Patient' -> 'Appointment' (Fan-In bog'lanish) aloqalarini chizing.",
     "storyEn": "A doctor schedules zero or more clinic appointments. Each appointment is booked for strictly one patient. Connect 'Doctor' -> 'Appointment' and 'Patient' -> 'Appointment'.",
     "instruction": "'Doctor' -> 'Appointment' va 'Appointment' -> 'Patient' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'Doctor' -> 'Appointment' and 'Appointment' -> 'Patient' with precise multiplicity bounds.",
@@ -1035,8 +1029,8 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Avtosalon Shartnomalari va Transport (3 ta Entitiy)",
     "titleEn": "Auto Dealership Sales Pipeline (3 Entities)",
-    "story": "Avtosalon (Dealership) filialida kamida 1 ta yoki ko'plab yangi avtomobillar (Automobile) sotuvga qo'yiladi. Har bir avtomobil faqat va faqat bitta oldi-sotdi shartnomasiga (SaleContract) birikishi mumkin (sotilmagan mashinada shartnoma 0 ta bo'ladi: 0..1). 'Dealership' -> 'Automobile' va 'Automobile' -> 'SaleContract' aloqalarini belgilang.",
-    "storyEn": "A car dealership stocks one or more automobiles. Each automobile links to at most one sales contract upon sale (0..1). Connect 'Dealership' -> 'Automobile' and 'Automobile' -> 'SaleContract'.",
+    "story": "Avtosalon (Dealership) filialida kamida 1 ta yoki ko'plab yangi avtomobillar (Automobile) sotuvga qo'yiladi. Har bir avtomobil faqat va faqat bitta oldi-sotdi shartnomasiga (SaleContract) birikishi mumkin (sotilmagan mashinada shartnoma 0 ta bo'ladi: ixtiyoriy bittalik). 'Dealership' -> 'Automobile' va 'Automobile' -> 'SaleContract' aloqalarini belgilang.",
+    "storyEn": "A car dealership stocks one or more automobiles. Each automobile links to at most one sales contract upon sale (ixtiyoriy bittalik). Connect 'Dealership' -> 'Automobile' and 'Automobile' -> 'SaleContract'.",
     "instruction": "'Dealership' -> 'Automobile' va 'Automobile' -> 'SaleContract' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'Dealership' -> 'Automobile' and 'Automobile' -> 'SaleContract' with precise multiplicity bounds.",
     "starterDiagram": {
@@ -1375,8 +1369,8 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "WIUT Dars Jadvali va Auditoriyalar (3 ta Entitiy)",
     "titleEn": "WIUT Classroom Scheduling System (3 Entities)",
-    "story": "Universitet ma'ruza zali (LectureHall) dars jadvali slotlariga (TimetableSlot) biriktiriladi (0..* slot). Har bir slot esa aniq bitta modul dars mashg'ulotiga (ModuleSession) biriktirilgan bo'lishi shart (1..1). 'LectureHall' -> 'TimetableSlot' va 'ModuleSession' -> 'TimetableSlot' aloqalarini belgilang.",
-    "storyEn": "A lecture hall hosts zero or more timetable slots. Each timetable slot is assigned strictly one module session (1..1). Configure 'LectureHall' -> 'TimetableSlot' and 'ModuleSession' -> 'TimetableSlot'.",
+    "story": "Universitet ma'ruza zali (LectureHall) dars jadvali slotlariga (TimetableSlot) biriktiriladi (ixtiyoriy ko'plik slot). Har bir slot esa aniq bitta modul dars mashg'ulotiga (ModuleSession) biriktirilgan bo'lishi shart (qat'iy bittalik). 'LectureHall' -> 'TimetableSlot' va 'ModuleSession' -> 'TimetableSlot' aloqalarini belgilang.",
+    "storyEn": "A lecture hall hosts zero or more timetable slots. Each timetable slot is assigned strictly one module session (qat'iy bittalik). Configure 'LectureHall' -> 'TimetableSlot' and 'ModuleSession' -> 'TimetableSlot'.",
     "instruction": "'LectureHall' -> 'TimetableSlot' va 'TimetableSlot' -> 'ModuleSession' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'LectureHall' -> 'TimetableSlot' and 'TimetableSlot' -> 'ModuleSession' with precise multiplicity bounds.",
     "starterDiagram": {
@@ -1715,8 +1709,8 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Bank Plastik Kartalari va PIN Konvert (3 ta Entitiy)",
     "titleEn": "Bank Card Issuance and PIN Envelope (3 Entities)",
-    "story": "Mijoz (CardHolder) kamida bitta plastik kartaga (PlasticCard) ega. Xavfsizlik qoidasiga binoan, har bir yangi karta chiqarilganda unga aniq bitta yopiq maxfiy PIN konvert (PinEnvelope) biriktiriladi (1:1 qat'iy majburiy). 'CardHolder' -> 'PlasticCard' va 'PlasticCard' -> 'PinEnvelope' aloqalarini chizing.",
-    "storyEn": "A card holder owns at least one payment card. Each issued card pairs with strictly one security PIN envelope (1:1 mandatory). Connect 'CardHolder' -> 'PlasticCard' and 'PlasticCard' -> 'PinEnvelope'.",
+    "story": "Mijoz (CardHolder) kamida bitta plastik kartaga (PlasticCard) ega. Xavfsizlik qoidasiga binoan, har bir yangi karta chiqarilganda unga aniq bitta yopiq maxfiy PIN konvert (PinEnvelope) biriktiriladi (yakkama-yakka bittalik qat'iy majburiy). 'CardHolder' -> 'PlasticCard' va 'PlasticCard' -> 'PinEnvelope' aloqalarini chizing.",
+    "storyEn": "A card holder owns at least one payment card. Each issued card pairs with strictly one security PIN envelope (yakkama-yakka bittalik mandatory). Connect 'CardHolder' -> 'PlasticCard' and 'PlasticCard' -> 'PinEnvelope'.",
     "instruction": "'CardHolder' -> 'PlasticCard' va 'PlasticCard' -> 'PinEnvelope' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'CardHolder' -> 'PlasticCard' and 'PlasticCard' -> 'PinEnvelope' with precise multiplicity bounds.",
     "starterDiagram": {
@@ -1885,7 +1879,7 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Sug'urta Agentligi va Da'vo Arizalari (3 ta Entitiy)",
     "titleEn": "Insurance Policies and Claim Audits (3 Entities)",
-    "story": "Sug'urta agenti (InsuranceAgent) mijozlarga polislarni (InsurancePolicy) sotadi (0..* polis). Har bir polis bo'yicha sug'urta hodisasi ro'y berganda 0 yoki undan ko'p zararni qoplash da'volari (Claim) topshiriladi. 'InsuranceAgent' -> 'InsurancePolicy' va 'InsurancePolicy' -> 'Claim' munosabatlarini tuzing.",
+    "story": "Sug'urta agenti (InsuranceAgent) mijozlarga polislarni (InsurancePolicy) sotadi (ixtiyoriy ko'plik polis). Har bir polis bo'yicha sug'urta hodisasi ro'y berganda 0 yoki undan ko'p zararni qoplash da'volari (Claim) topshiriladi. 'InsuranceAgent' -> 'InsurancePolicy' va 'InsurancePolicy' -> 'Claim' munosabatlarini tuzing.",
     "storyEn": "An insurance agent sells zero or more policies. Each policy can accumulate zero or more claim audits over its duration. Model 'InsuranceAgent' -> 'InsurancePolicy' and 'InsurancePolicy' -> 'Claim'.",
     "instruction": "'InsuranceAgent' -> 'InsurancePolicy' va 'InsurancePolicy' -> 'Claim' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'InsuranceAgent' -> 'InsurancePolicy' and 'InsurancePolicy' -> 'Claim' with precise multiplicity bounds.",
@@ -2225,7 +2219,7 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Internet Provayder Routerni Faollashtirish (3 ta Entitiy)",
     "titleEn": "ISP Tariff Subscription and Customer Router (3 Entities)",
-    "story": "Internet tarifi (InternetPlan) bo'yicha mijozlar obuna shartnomasi (Subscription) tuzadilar (0..* obuna). Har bir faol shartnomaga provayder tomonidan aniq 1 ta optik router qurilmasi (ClientRouter) beriladi (1:1). 'InternetPlan' -> 'Subscription' va 'Subscription' -> 'ClientRouter' munosabatlarini belgilang.",
+    "story": "Internet tarifi (InternetPlan) bo'yicha mijozlar obuna shartnomasi (Subscription) tuzadilar (ixtiyoriy ko'plik obuna). Har bir faol shartnomaga provayder tomonidan aniq 1 ta optik router qurilmasi (ClientRouter) beriladi (yakkama-yakka bittalik). 'InternetPlan' -> 'Subscription' va 'Subscription' -> 'ClientRouter' munosabatlarini belgilang.",
     "storyEn": "An internet tariff plan supports zero or more customer subscriptions. Each active subscription is issued strictly one optical router device. Connect 'InternetPlan' -> 'Subscription' and 'Subscription' -> 'ClientRouter'.",
     "instruction": "'InternetPlan' -> 'Subscription' va 'Subscription' -> 'ClientRouter' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'InternetPlan' -> 'Subscription' and 'Subscription' -> 'ClientRouter' with precise multiplicity bounds.",
@@ -2735,7 +2729,7 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "HR Ishga Qabul Qilish va Rezyumelar (3 ta Entitiy)",
     "titleEn": "HR Recruitment and Candidate Applications (3 Entities)",
-    "story": "Ochiq vakansiya (JobOpening) e'lon qilinganda nomzodlar tomonidan arizalar (JobApplication) kelib tushadi (0..*). Har bir ariza aniq bitta nomzod (Candidate) tomonidan yuboriladi. 'JobOpening' -> 'JobApplication' va 'Candidate' -> 'JobApplication' aloqalarini to'g'ri bog'lang.",
+    "story": "Ochiq vakansiya (JobOpening) e'lon qilinganda nomzodlar tomonidan arizalar (JobApplication) kelib tushadi (ixtiyoriy ko'plik). Har bir ariza aniq bitta nomzod (Candidate) tomonidan yuboriladi. 'JobOpening' -> 'JobApplication' va 'Candidate' -> 'JobApplication' aloqalarini to'g'ri bog'lang.",
     "storyEn": "A job opening receives zero or more applications. Each application originates from strictly one registered candidate. Model 'JobOpening' -> 'JobApplication' and 'Candidate' -> 'JobApplication'.",
     "instruction": "'JobOpening' -> 'JobApplication' va 'JobApplication' -> 'Candidate' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'JobOpening' -> 'JobApplication' and 'JobApplication' -> 'Candidate' with precise multiplicity bounds.",
@@ -3245,8 +3239,8 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Oziq-ovqat Laboratoriyasi Ekspertizasi (3 ta Entitiy)",
     "titleEn": "Food Quality Lab Sampling and Certification (3 Entities)",
-    "story": "Oziq-ovqat mahsulot partiyasidan (FoodBatch) kamida bitta laboratoriya namunasi (LabSample) olinadi. Har bir olingan namuna bo'yicha aniq bitta rasmiy ekspertiza xulosasi (TestReport) tuziladi (1:1). 'FoodBatch' -> 'LabSample' va 'LabSample' -> 'TestReport' aloqalarini belgilang.",
-    "storyEn": "A food batch requires taking at least one laboratory sample. Each tested sample yields strictly one certified test report (1:1). Model 'FoodBatch' -> 'LabSample' and 'LabSample' -> 'TestReport'.",
+    "story": "Oziq-ovqat mahsulot partiyasidan (FoodBatch) kamida bitta laboratoriya namunasi (LabSample) olinadi. Har bir olingan namuna bo'yicha aniq bitta rasmiy ekspertiza xulosasi (TestReport) tuziladi (yakkama-yakka bittalik). 'FoodBatch' -> 'LabSample' va 'LabSample' -> 'TestReport' aloqalarini belgilang.",
+    "storyEn": "A food batch requires taking at least one laboratory sample. Each tested sample yields strictly one certified test report (yakkama-yakka bittalik). Model 'FoodBatch' -> 'LabSample' and 'LabSample' -> 'TestReport'.",
     "instruction": "'FoodBatch' -> 'LabSample' va 'LabSample' -> 'TestReport' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'FoodBatch' -> 'LabSample' and 'LabSample' -> 'TestReport' with precise multiplicity bounds.",
     "starterDiagram": {
@@ -3585,8 +3579,8 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Ta'lim Markazi Kurslari va Sertifikatlar (3 ta Entitiy)",
     "titleEn": "Academy Enrollment and Graduate Certificates (3 Entities)",
-    "story": "O'quv kursi (TrainingCourse) ochilganda talabalar ro'yxatdan o'tadilar (0..* ro'yxat). Har bir o'qish yakunlangan ro'yxat yozuvi bo'yicha talabaga ko'pi bilan bitta bitiruv sertifikati (IssuedCertificate) taqdim etiladi (0..1). 'TrainingCourse' -> 'StudentEnrollment' va 'StudentEnrollment' -> 'IssuedCertificate' munosabatini quring.",
-    "storyEn": "A training course registers zero or more student enrollments. Each completed enrollment may earn at most one graduation certificate (0..1). Model 'TrainingCourse' -> 'StudentEnrollment' and 'StudentEnrollment' -> 'IssuedCertificate'.",
+    "story": "O'quv kursi (TrainingCourse) ochilganda talabalar ro'yxatdan o'tadilar (ixtiyoriy ko'plik ro'yxat). Har bir o'qish yakunlangan ro'yxat yozuvi bo'yicha talabaga ko'pi bilan bitta bitiruv sertifikati (IssuedCertificate) taqdim etiladi (ixtiyoriy bittalik). 'TrainingCourse' -> 'StudentEnrollment' va 'StudentEnrollment' -> 'IssuedCertificate' munosabatini quring.",
+    "storyEn": "A training course registers zero or more student enrollments. Each completed enrollment may earn at most one graduation certificate (ixtiyoriy bittalik). Model 'TrainingCourse' -> 'StudentEnrollment' and 'StudentEnrollment' -> 'IssuedCertificate'.",
     "instruction": "'TrainingCourse' -> 'StudentEnrollment' va 'StudentEnrollment' -> 'IssuedCertificate' o'rtasidagi aloqalarni chizing va multiplisitiya chegaralarini to'g'ri belgilang.",
     "instructionEn": "Connect 'TrainingCourse' -> 'StudentEnrollment' and 'StudentEnrollment' -> 'IssuedCertificate' with precise multiplicity bounds.",
     "starterDiagram": {
@@ -4267,8 +4261,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "Commercial Bank Deposit Ledger (4 Entities!)",
     "story": "Bank filialida (BranchOffice) depozit hisoblari (DepositAccount) ochiladi. Mijoz (BankCustomer) kamida bitta depozitga ega bo'lishi shart. Har bir depozit hisobvarag'i bo'yicha esa 0 yoki ko'plab oylik foizlar (MonthlyInterest) hisoblab yoziladi. 'BranchOffice' -> 'DepositAccount', 'BankCustomer' -> 'DepositAccount' va 'DepositAccount' -> 'MonthlyInterest' aloqalarini belgilang.",
     "storyEn": "A branch office hosts deposit accounts. A bank customer holds one or more deposit accounts. Each deposit earns zero or more monthly interest payments. Model BranchOffice -> DepositAccount, BankCustomer -> DepositAccount, and DepositAccount -> MonthlyInterest.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -4490,10 +4484,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "UzAuto Motors Zavod Konveyeri (4 ta Entitiy!)",
     "titleEn": "UzAuto Motors Assembly & Inspection (4 Entities!)",
-    "story": "Avtomobil zavodida (FactoryPlant) kamida bitta yig'uv liniyasi (AssemblyLine) mavjud. Yig'uv liniyasida 0 yoki ko'plab avtomobillar (AssembledVehicle) yig'iladi. Har bir yig'ilgan avtomobil esa qat'iy 1 ta sifat nazorati aktidan (QualityInspection) o'tadi (1:1). 'FactoryPlant' -> 'AssemblyLine', 'AssemblyLine' -> 'AssembledVehicle' va 'AssembledVehicle' -> 'QualityInspection' modelini quring.",
-    "storyEn": "A manufacturing plant operates one or more assembly lines. Lines assemble zero or more vehicles. Each vehicle undergoes strictly one quality inspection (1:1). Model FactoryPlant -> AssemblyLine -> AssembledVehicle -> QualityInspection.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "story": "Avtomobil zavodida (FactoryPlant) kamida bitta yig'uv liniyasi (AssemblyLine) mavjud. Yig'uv liniyasida 0 yoki ko'plab avtomobillar (AssembledVehicle) yig'iladi. Har bir yig'ilgan avtomobil esa qat'iy 1 ta sifat nazorati aktidan (QualityInspection) o'tadi (yakkama-yakka bittalik). 'FactoryPlant' -> 'AssemblyLine', 'AssemblyLine' -> 'AssembledVehicle' va 'AssembledVehicle' -> 'QualityInspection' modelini quring.",
+    "storyEn": "A manufacturing plant operates one or more assembly lines. Lines assemble zero or more vehicles. Each vehicle undergoes strictly one quality inspection (yakkama-yakka bittalik). Model FactoryPlant -> AssemblyLine -> AssembledVehicle -> QualityInspection.",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -4715,10 +4709,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Yagona Davlat Xizmatlari Portali (4 ta Entitiy!)",
     "titleEn": "Public Electronic Services Portal (4 Entities!)",
-    "story": "Davlat organi (GovernmentAgency) kamida bitta davlat xizmatini (PublicService) taqdim etadi. Fuqaro xizmat bo'yicha ariza (CitizenRequest) topshiradi (0..* ariza). Har bir arizaga ko'pi bilan bitta natijaviy elektron ma'lumotnoma (ResultDocument) beriladi (0..1). 'GovernmentAgency' -> 'PublicService', 'PublicService' -> 'CitizenRequest' va 'CitizenRequest' -> 'ResultDocument' zanjirini yarating.",
-    "storyEn": "A government agency hosts at least one public service. Services receive zero or more citizen requests. Each request generates at most one output certificate document (0..1). Connect Agency -> Service -> Request -> ResultDocument.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "story": "Davlat organi (GovernmentAgency) kamida bitta davlat xizmatini (PublicService) taqdim etadi. Fuqaro xizmat bo'yicha ariza (CitizenRequest) topshiradi (ixtiyoriy ko'plik ariza). Har bir arizaga ko'pi bilan bitta natijaviy elektron ma'lumotnoma (ResultDocument) beriladi (ixtiyoriy bittalik). 'GovernmentAgency' -> 'PublicService', 'PublicService' -> 'CitizenRequest' va 'CitizenRequest' -> 'ResultDocument' zanjirini yarating.",
+    "storyEn": "A government agency hosts at least one public service. Services receive zero or more citizen requests. Each request generates at most one output certificate document (ixtiyoriy bittalik). Connect Agency -> Service -> Request -> ResultDocument.",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -4940,10 +4934,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Supermarket Tovar Ta'minoti va Omborxonasi (4 ta Entitiy!)",
     "titleEn": "Supermarket Supply Invoicing and Receiving (4 Entities!)",
-    "story": "Tovar yetkazib beruvchi (SupplierVendor) kamida bitta ta'minot hisob-fakturasini (SupplyInvoice) rasmiylashtiradi. Faktura qaysi ombor sektsiyasiga (WarehouseBay) tushishi kerak bo'lsa (0..* faktura), o'sha yerda qabul qilinadi. Har bir fakturada esa kamida 1 ta qabul qilingan tovar (ReceivedItem) ro'yxati bo'ladi. 'SupplierVendor' -> 'SupplyInvoice', 'WarehouseBay' -> 'SupplyInvoice' va 'SupplyInvoice' -> 'ReceivedItem' aloqalarini belgilang.",
+    "story": "Tovar yetkazib beruvchi (SupplierVendor) kamida bitta ta'minot hisob-fakturasini (SupplyInvoice) rasmiylashtiradi. Faktura qaysi ombor sektsiyasiga (WarehouseBay) tushishi kerak bo'lsa (ixtiyoriy ko'plik faktura), o'sha yerda qabul qilinadi. Har bir fakturada esa kamida 1 ta qabul qilingan tovar (ReceivedItem) ro'yxati bo'ladi. 'SupplierVendor' -> 'SupplyInvoice', 'WarehouseBay' -> 'SupplyInvoice' va 'SupplyInvoice' -> 'ReceivedItem' aloqalarini belgilang.",
     "storyEn": "A supplier issues one or more supply invoices. A warehouse bay receives zero or more invoices. Each invoice lists one or more received items. Model Vendor -> Invoice, WarehouseBay -> Invoice, and Invoice -> ReceivedItem.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -5165,10 +5159,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Turar-joy Majmuasi va Xonadonlar (4 ta Entitiy!)",
     "titleEn": "Residential Real Estate Complex & Units (4 Entities!)",
-    "story": "Turar-joy majmuasi (ResidentialComplex) kamida bitta korpus binosiga (BuildingBlock) ega. Har bir bino korpusida kamida 1 ta kvartira (ApartmentUnit) joylashgan. Har bir xonadon egasi (HomeOwner) esa kamida bitta kvartiraga egalik qiladi (1..*). 'ResidentialComplex' -> 'BuildingBlock', 'BuildingBlock' -> 'ApartmentUnit' va 'HomeOwner' -> 'ApartmentUnit' munosabatlarini tuzing.",
+    "story": "Turar-joy majmuasi (ResidentialComplex) kamida bitta korpus binosiga (BuildingBlock) ega. Har bir bino korpusida kamida 1 ta kvartira (ApartmentUnit) joylashgan. Har bir xonadon egasi (HomeOwner) esa kamida bitta kvartiraga egalik qiladi (majburiy ko'plik). 'ResidentialComplex' -> 'BuildingBlock', 'BuildingBlock' -> 'ApartmentUnit' va 'HomeOwner' -> 'ApartmentUnit' munosabatlarini tuzing.",
     "storyEn": "A residential complex encompasses one or more building blocks. Each block houses one or more apartment units. Each registered homeowner owns one or more apartments. Model Complex -> Block -> ApartmentUnit and HomeOwner -> ApartmentUnit.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -5390,10 +5384,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Klinik Diagnostika va Bio-Namunalar (4 ta Entitiy!)",
     "titleEn": "Clinical Laboratory Biospecimen Pipeline (4 Entities!)",
-    "story": "Diagnostika laboratoriyasida (DiagnosticLab) laborantlar (LabTechnician) ishlaydi (kamida 1 ta). Laborant tahlil buyurtmalarini (LabOrder) qabul qiladi (0..* buyurtma). Har bir tahlil buyurtmasi esa kamida bitta biologik namunani (BioSample) tekshirishni talab qiladi. 'DiagnosticLab' -> 'LabTechnician', 'LabTechnician' -> 'LabOrder' va 'LabOrder' -> 'BioSample' tizimini quring.",
+    "story": "Diagnostika laboratoriyasida (DiagnosticLab) laborantlar (LabTechnician) ishlaydi (kamida 1 ta). Laborant tahlil buyurtmalarini (LabOrder) qabul qiladi (ixtiyoriy ko'plik buyurtma). Har bir tahlil buyurtmasi esa kamida bitta biologik namunani (BioSample) tekshirishni talab qiladi. 'DiagnosticLab' -> 'LabTechnician', 'LabTechnician' -> 'LabOrder' va 'LabOrder' -> 'BioSample' tizimini quring.",
     "storyEn": "A diagnostic lab employs one or more technicians. A technician processes zero or more lab orders. Each lab order tests one or more biosamples. Connect Lab -> Technician -> LabOrder -> BioSample.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -5617,8 +5611,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "Gasoline Station Network & Fueling Sessions (4 Entities!)",
     "story": "Har bir yoqilg'i quyish shoxobchasida (FuelStation) kamida bitta yer osti yoqilg'i rezervuari (FuelTank) bor. Har bir rezervuarga kamida bitta yonilg'i quyish kolonkasi (PumpDispenser) ulanadi. Kolonka orqali esa 0 yoki ko'plab mijoz quyish sessiyalari (FuelingSession) bajariladi. 'FuelStation' -> 'FuelTank', 'FuelTank' -> 'PumpDispenser' va 'PumpDispenser' -> 'FuelingSession' modelini belgilang.",
     "storyEn": "A fuel station houses at least one underground tank. Each tank connects to one or more pump dispensers. A dispenser conducts zero or more fueling sessions. Connect FuelStation -> FuelTank -> PumpDispenser -> FuelingSession.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -5842,8 +5836,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "MOOC Platform Courses and Quiz Assessments (4 Entities!)",
     "story": "Ta'lim platformasida (LearningPlatform) kamida bitta onlayn kurs (OnlineCourse) joylashtiriladi. Har bir kurs kamida bitta mavzu moduliga (CourseModule) bo'linadi. Har bir modul esa talabani tekshirish uchun 0 yoki bir nechta quiz testlaridan (QuizAssessment) iborat. 'LearningPlatform' -> 'OnlineCourse', 'OnlineCourse' -> 'CourseModule' va 'CourseModule' -> 'QuizAssessment' aloqalarini belgilang.",
     "storyEn": "An e-learning platform hosts one or more online courses. Each course is divided into at least one module. Modules contain zero or more quiz assessments. Connect Platform -> Course -> Module -> Quiz.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -6065,10 +6059,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Yuk Tashish Logistika Xabi va Bojxona (4 ta Entitiy!)",
     "titleEn": "Freight Hub Container and Customs Declaration (4 Entities!)",
-    "story": "Xalqaro logistika xabida (LogisticsHub) yuk konteynerlari (ShippingContainer) qabul qilinadi (0..* konteyner). Har bir konteynerda 0 yoki ko'plab yuk partiyalari (CargoConsignment) ortilgan. Har bir yuk partiyasi esa majburiy ravishda aniq 1 ta rasmiy bojxona deklaratsiyasiga (CustomsDeclaration) ega bo'ladi (1:1). 'LogisticsHub' -> 'ShippingContainer', 'ShippingContainer' -> 'CargoConsignment' va 'CargoConsignment' -> 'CustomsDeclaration' tizimini quring.",
+    "story": "Xalqaro logistika xabida (LogisticsHub) yuk konteynerlari (ShippingContainer) qabul qilinadi (ixtiyoriy ko'plik konteyner). Har bir konteynerda 0 yoki ko'plab yuk partiyalari (CargoConsignment) ortilgan. Har bir yuk partiyasi esa majburiy ravishda aniq 1 ta rasmiy bojxona deklaratsiyasiga (CustomsDeclaration) ega bo'ladi (yakkama-yakka bittalik). 'LogisticsHub' -> 'ShippingContainer', 'ShippingContainer' -> 'CargoConsignment' va 'CargoConsignment' -> 'CustomsDeclaration' tizimini quring.",
     "storyEn": "A freight hub manages zero or more containers. Containers hold zero or more consignments. Each consignment requires strictly one customs declaration. Model Hub -> Container -> Consignment -> Declaration.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -6290,10 +6284,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Avto-Sug'urta KASKO Shartnomalari (4 ta Entitiy!)",
     "titleEn": "Auto Comprehensive Insurance & Insured Vehicle (4 Entities!)",
-    "story": "Sug'urta kompaniyasida (InsuranceAgency) shtatdagi sug'urta agentlari (SalesAgent) ishlaydi (kamida 1 ta). Har bir agent mijozlarga KASKO polislarini (AutoPolicy) rasmiylashtiradi (0..*). Har bir polis esa aniq bitta sug'urtalangan avtomashinani (InsuredVehicle) qoplaydi (1:1 majburiy). 'InsuranceAgency' -> 'SalesAgent', 'SalesAgent' -> 'AutoPolicy' va 'AutoPolicy' -> 'InsuredVehicle' munosabatlarini tuzing.",
-    "storyEn": "An insurance agency employs one or more sales agents. Agents write zero or more auto policies. Each auto policy covers strictly one insured vehicle (1:1). Connect Agency -> Agent -> Policy -> Vehicle.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "story": "Sug'urta kompaniyasida (InsuranceAgency) shtatdagi sug'urta agentlari (SalesAgent) ishlaydi (kamida 1 ta). Har bir agent mijozlarga KASKO polislarini (AutoPolicy) rasmiylashtiradi (ixtiyoriy ko'plik). Har bir polis esa aniq bitta sug'urtalangan avtomashinani (InsuredVehicle) qoplaydi (yakkama-yakka bittalik majburiy). 'InsuranceAgency' -> 'SalesAgent', 'SalesAgent' -> 'AutoPolicy' va 'AutoPolicy' -> 'InsuredVehicle' munosabatlarini tuzing.",
+    "storyEn": "An insurance agency employs one or more sales agents. Agents write zero or more auto policies. Each auto policy covers strictly one insured vehicle (yakkama-yakka bittalik). Connect Agency -> Agent -> Policy -> Vehicle.",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -6517,8 +6511,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "Airport Terminal Gates and Shift Rosters (4 Entities!)",
     "story": "Xalqaro aeroportda (AirportFacility) kamida bitta yo'lovchi terminali (FlightTerminal) mavjud. Har bir terminalda kamida bitta samolyotga chiqish darvozasi (BoardingGate) o'rnatilgan. Har bir darvozaga esa kun davomida 0 yoki ko'plab xodimlar navbatchiligi (ShiftRoster) biriktiriladi. 'AirportFacility' -> 'FlightTerminal', 'FlightTerminal' -> 'BoardingGate' va 'BoardingGate' -> 'ShiftRoster' zanjirini yarating.",
     "storyEn": "An airport operates one or more flight terminals. Each terminal features one or more boarding gates. A boarding gate schedules zero or more staff shift rosters. Connect Airport -> Terminal -> Gate -> ShiftRoster.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -6740,10 +6734,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Savdo Markazi Do'konlar Ijarasi (4 ta Entitiy!)",
     "titleEn": "Shopping Mall Commercial Tenant Leases (4 Entities!)",
-    "story": "Savdo majmuasida (ShoppingCenter) kamida bitta savdo maydoni do'koni (StoreUnit) bor. Har bir savdo do'koni bo'sh bo'lishi yoki ko'pi bilan bitta ijara shartnomasiga (LeaseContract) ega bo'lishi mumkin (0..1). Har bir ijarachi tadbirkor (CommercialTenant) esa kamida bitta shartnoma tuzadi (1..*). 'ShoppingCenter' -> 'StoreUnit', 'StoreUnit' -> 'LeaseContract' va 'CommercialTenant' -> 'LeaseContract' modelini tuzing.",
-    "storyEn": "A shopping mall leases one or more store units. A store unit has at most one active lease contract (0..1). A commercial tenant holds one or more lease contracts. Connect Mall -> StoreUnit -> LeaseContract and Tenant -> LeaseContract.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "story": "Savdo majmuasida (ShoppingCenter) kamida bitta savdo maydoni do'koni (StoreUnit) bor. Har bir savdo do'koni bo'sh bo'lishi yoki ko'pi bilan bitta ijara shartnomasiga (LeaseContract) ega bo'lishi mumkin (ixtiyoriy bittalik). Har bir ijarachi tadbirkor (CommercialTenant) esa kamida bitta shartnoma tuzadi (majburiy ko'plik). 'ShoppingCenter' -> 'StoreUnit', 'StoreUnit' -> 'LeaseContract' va 'CommercialTenant' -> 'LeaseContract' modelini tuzing.",
+    "storyEn": "A shopping mall leases one or more store units. A store unit has at most one active lease contract (ixtiyoriy bittalik). A commercial tenant holds one or more lease contracts. Connect Mall -> StoreUnit -> LeaseContract and Tenant -> LeaseContract.",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -6967,8 +6961,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "ATM Network Cassettes and Cash Replenishment (4 Entities!)",
     "story": "Bankning bankomatlar tarmog'iga (AtmNetwork) kamida bitta ATM terminali (AtmTerminal) kiradi. Har bir bankomat ichida kamida bitta naqd pul kassetasi (CashCassette) o'rnatilgan. Bankomatga esa xizmat ko'rsatish davomida 0 yoki bir nechta inkassatsiya ziyoratlari (ReplenishmentTrip) amalga oshiriladi. 'AtmNetwork' -> 'AtmTerminal', 'AtmTerminal' -> 'CashCassette' va 'AtmTerminal' -> 'ReplenishmentTrip' tizimini quring.",
     "storyEn": "An ATM network manages one or more ATM terminals. Each terminal houses at least one cash cassette. Terminals receive zero or more cash replenishment trips. Connect Network -> Terminal -> Cassette and Terminal -> ReplenishmentTrip.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -7192,8 +7186,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "WIUT Faculty Departments and Cohort Advising (4 Entities!)",
     "story": "Akademik fakultetda (AcademicFaculty) kamida bitta kafedra (AcademicDepartment) faoliyat yuritadi. Har bir kafedra kamida bitta talabalar akademik guruhiga (StudentGroup) javobgar. Har bir akademik maslahatchi tyutor (AcademicTutor) esa 0 yoki ko'plab guruhlarga rahbarlik qiladi. 'AcademicFaculty' -> 'AcademicDepartment', 'AcademicDepartment' -> 'StudentGroup' va 'AcademicTutor' -> 'StudentGroup' modelini belgilang.",
     "storyEn": "A university faculty contains at least one academic department. Each department manages at least one student cohort group. An academic tutor mentors zero or more student groups. Connect Faculty -> Department -> Group and Tutor -> Group.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -7417,8 +7411,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "Municipal Water Treatment and Meter Readings (4 Entities!)",
     "story": "Suv tozalash inshooti (WaterFacility) kamida bitta tuman nasos stantsiyasiga (PumpingStation) suv uzatadi. Har bir nasos stantsiyasi kamida bitta hudud sektoriga (DistrictZone) xizmat qiladi. Har bir hudud sektorida esa kamida bitta suv o'lchagich hisoblagich (WaterMeter) o'rnatilgan. 'WaterFacility' -> 'PumpingStation', 'PumpingStation' -> 'DistrictZone' va 'DistrictZone' -> 'WaterMeter' aloqalarini tuzing.",
     "storyEn": "A water treatment facility feeds one or more municipal pumping stations. Pumping stations serve at least one district zone. District zones operate one or more water meters. Connect Facility -> Station -> Zone -> Meter.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -7640,10 +7634,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Tibbiy Retseptlar va Dori Ta'minoti (4 ta Entitiy!)",
     "titleEn": "Medical Prescriptions & Dispensed Pharmaceuticals (4 Entities!)",
-    "story": "Tibbiyot markazida (MedicalCenter) kamida bitta litsenziyali shifokor (MedicalPhysician) xizmat ko'rsatadi. Shifokor bemorga retsept (RxPrescription) yozib beradi (0..*). Har bir retseptda esa kamida bitta tayinlangan dori preparati (PrescribedItem) ko'rsatiladi. 'MedicalCenter' -> 'MedicalPhysician', 'MedicalPhysician' -> 'RxPrescription' va 'RxPrescription' -> 'PrescribedItem' modelini yarating.",
+    "story": "Tibbiyot markazida (MedicalCenter) kamida bitta litsenziyali shifokor (MedicalPhysician) xizmat ko'rsatadi. Shifokor bemorga retsept (RxPrescription) yozib beradi (ixtiyoriy ko'plik). Har bir retseptda esa kamida bitta tayinlangan dori preparati (PrescribedItem) ko'rsatiladi. 'MedicalCenter' -> 'MedicalPhysician', 'MedicalPhysician' -> 'RxPrescription' va 'RxPrescription' -> 'PrescribedItem' modelini yarating.",
     "storyEn": "A medical center employs at least one physician. Physicians write zero or more prescriptions. Each prescription specifies at least one prescribed drug item. Connect Center -> Physician -> Prescription -> PrescribedItem.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -7867,8 +7861,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "Data Center Racks & Virtual Machine Instances (4 Entities!)",
     "story": "Ma'lumotlar markazida (DataCenter) kamida bitta server stoykasi (ServerRack) o'rnatilgan. Har bir stoyka ichida kamida bitta server bloki (HostBlade) joylashadi. Server bloki ustida esa 0 yoki ko'plab virtual mashinalar (VmInstance) ishga tushiriladi. 'DataCenter' -> 'ServerRack', 'ServerRack' -> 'HostBlade' va 'HostBlade' -> 'VmInstance' zanjirini loyihalang.",
     "storyEn": "A data center houses at least one rack. Each rack mounts one or more host blade servers. A host blade hosts zero or more virtual machine instances. Connect DataCenter -> ServerRack -> HostBlade -> VmInstance.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -8092,8 +8086,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "Locomotive Depot Maintenance Bay Services (4 Entities!)",
     "story": "Temir yo'l deposiga (RailwayDepot) lokomotivlar (LocomotiveUnit) biriktirilgan (kamida 1 ta). Depoda kamida bitta ta'mirlash boksi (RepairBay) faoliyat yuritadi. Lokomotiv bo'yicha ta'mirlash boksida 0 yoki ko'plab texnik xizmat ko'rsatish aktlari (MaintenanceLog) qayd etiladi. 'RailwayDepot' -> 'LocomotiveUnit', 'RailwayDepot' -> 'RepairBay' va 'LocomotiveUnit' -> 'MaintenanceLog' tizimini quring.",
     "storyEn": "A railway depot assigns one or more locomotives. The depot operates at least one repair bay. Locomotives log zero or more maintenance service records. Connect Depot -> Locomotive, Depot -> RepairBay, and Locomotive -> MaintenanceLog.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -8315,10 +8309,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Madaniyat Saroyi Spektakllari va Qatorlar (4 ta Entitiy!)",
     "titleEn": "Concert Hall Theater Seating & Bookings (4 Entities!)",
-    "story": "Teatr binosida (TheaterHall) kamida bitta o'rindiqlar qatori (AuditoriumRow) mavjud. Sahnalashtirilgan spektakl (StageShow) bo'yicha chipta buyurtmalari (SeatBooking) qabul qilinadi (0..*). Har bir buyurtma aniq bitta qatordagi joyga rasmiylashtiriladi. 'TheaterHall' -> 'AuditoriumRow', 'StageShow' -> 'SeatBooking' va 'AuditoriumRow' -> 'SeatBooking' modelini belgilang.",
+    "story": "Teatr binosida (TheaterHall) kamida bitta o'rindiqlar qatori (AuditoriumRow) mavjud. Sahnalashtirilgan spektakl (StageShow) bo'yicha chipta buyurtmalari (SeatBooking) qabul qilinadi (ixtiyoriy ko'plik). Har bir buyurtma aniq bitta qatordagi joyga rasmiylashtiriladi. 'TheaterHall' -> 'AuditoriumRow', 'StageShow' -> 'SeatBooking' va 'AuditoriumRow' -> 'SeatBooking' modelini belgilang.",
     "storyEn": "A theater hall organizes one or more auditorium seating rows. A stage show registers zero or more seat bookings. Each booking reserves a seat in a row. Connect Hall -> Row, Show -> Booking, and Row -> Booking.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -8540,10 +8534,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "Telekom SIM-karta va Telefon Raqamlari (4 ta Entitiy!)",
     "titleEn": "Telecom SIM Package and Subscriber MSISDN (4 Entities!)",
-    "story": "Telekom operatori (TelecomCarrier) yangi SIM-karta paketlarini (SimPackage) chiqaradi (kamida 1 ta). Har bir SIM-karta aniq bitta noyob telefon raqamiga (MsisdnNumber) biriktirilgan (1:1). Abonent (Subscriber) esa o'z nomiga kamida bitta SIM-karta rasmiylashtirishi shart (1..*). 'TelecomCarrier' -> 'SimPackage', 'SimPackage' -> 'MsisdnNumber' va 'Subscriber' -> 'SimPackage' tizimini quring.",
-    "storyEn": "A telecom carrier manufactures one or more SIM packages. Each SIM package pairs with strictly one phone number (1:1). A registered subscriber holds at least one SIM package. Model Carrier -> SIM -> MSISDN and Subscriber -> SIM.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "story": "Telekom operatori (TelecomCarrier) yangi SIM-karta paketlarini (SimPackage) chiqaradi (kamida 1 ta). Har bir SIM-karta aniq bitta noyob telefon raqamiga (MsisdnNumber) biriktirilgan (yakkama-yakka bittalik). Abonent (Subscriber) esa o'z nomiga kamida bitta SIM-karta rasmiylashtirishi shart (majburiy ko'plik). 'TelecomCarrier' -> 'SimPackage', 'SimPackage' -> 'MsisdnNumber' va 'Subscriber' -> 'SimPackage' tizimini quring.",
+    "storyEn": "A telecom carrier manufactures one or more SIM packages. Each SIM package pairs with strictly one phone number (yakkama-yakka bittalik). A registered subscriber holds at least one SIM package. Model Carrier -> SIM -> MSISDN and Subscriber -> SIM.",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -8767,8 +8761,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "Regional Grid Transformers and Maintenance Logs (4 Entities!)",
     "story": "Mintaqaviy energetika tarmog'ida (RegionalGrid) kamida bitta yuqori kuchlanishli podstansiya (PowerStation) mavjud. Har bir podstansiyada kamida bitta elektr transformatori (StepTransformer) o'rnatilgan. Transformator esa 0 yoki undan ortiq davriy texnik xizmat ko'rigidan (ServiceInspection) o'tkaziladi. 'RegionalGrid' -> 'PowerStation', 'PowerStation' -> 'StepTransformer' va 'StepTransformer' -> 'ServiceInspection' aloqalarini belgilang.",
     "storyEn": "A regional grid powers at least one electrical substation. Each substation hosts one or more step transformers. A transformer undergoes zero or more service inspections. Connect Grid -> Substation -> Transformer -> Inspection.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -8992,8 +8986,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "Municipal Utility Housing Contracts & Receipts (4 Entities!)",
     "story": "Kommunal xizmat korxonasi (MunicipalUtility) turar-joy ko'chmas mulklari (ResidentialProperty) bilan xizmat ko'rsatish shartnomalarini (UtilityContract) tuzadi. Har bir mulk kamida 1 ta shartnomaga ega bo'ladi. Har bir shartnoma bo'yicha esa 0 yoki ko'plab to'lov cheklari (PaymentReceipt) qabul qilinadi. 'MunicipalUtility' -> 'UtilityContract', 'ResidentialProperty' -> 'UtilityContract' va 'UtilityContract' -> 'PaymentReceipt' modelini chizing.",
     "storyEn": "A municipal utility issues service contracts to residential properties. Properties hold one or more utility contracts. A contract accepts zero or more payment receipts. Connect Utility -> Contract, Property -> Contract, and Contract -> Receipt.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -9217,8 +9211,8 @@ _scope.QUESTIONS_151_200 = [
     "titleEn": "Intercity Bus Terminal Scheduling & Bookings (4 Entities!)",
     "story": "Avtovokzal (BusStation) shaharlararo qatnov jadvallarini (BusSchedule) tashkil etadi (kamida 1 ta). Shaharlararo avtobus (IntercityCoach) 0 yoki bir nechta qatnov jadvaliga biriktiriladi. Har bir qatnov jadvali bo'yicha esa yo'lovchilarga 0 yoki ko'plab chipta bandlovlari (TicketReservation) sotiladi. 'BusStation' -> 'BusSchedule', 'IntercityCoach' -> 'BusSchedule' va 'BusSchedule' -> 'TicketReservation' aloqalarini belgilang.",
     "storyEn": "A bus station schedules one or more departures. An intercity coach operates zero or more scheduled runs. Each schedule sells zero or more ticket reservations. Connect Station -> Schedule, Coach -> Schedule, and Schedule -> Reservation.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -9440,10 +9434,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "To'qimachilik Fabrikasi va Sifat Sertifikati (4 ta Entitiy!)",
     "titleEn": "Textile Mill Fabric Batches and Inspection Certificate (4 Entities!)",
-    "story": "To'qimachilik fabrikasida (TextileMill) kamida bitta yigiruv sexi (SpinningWorkshop) faoliyat yuritadi. Har bir sexda 0 yoki ko'plab tayyor mato partiyalari (FabricBatch) ishlab chiqariladi. Har bir mato partiyasi laboratoriyada tekshirilib, qat'iy bitta rasmiy sifat sertifikatiga (QualityCertificate) ega bo'ladi (1:1). 'TextileMill' -> 'SpinningWorkshop', 'SpinningWorkshop' -> 'FabricBatch' va 'FabricBatch' -> 'QualityCertificate' munosabatlarini belgilang.",
-    "storyEn": "A textile mill houses one or more spinning workshops. Workshops produce zero or more fabric batches. Each fabric batch secures strictly one quality certificate upon testing (1:1). Connect Mill -> Workshop -> Batch -> Certificate.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "story": "To'qimachilik fabrikasida (TextileMill) kamida bitta yigiruv sexi (SpinningWorkshop) faoliyat yuritadi. Har bir sexda 0 yoki ko'plab tayyor mato partiyalari (FabricBatch) ishlab chiqariladi. Har bir mato partiyasi laboratoriyada tekshirilib, qat'iy bitta rasmiy sifat sertifikatiga (QualityCertificate) ega bo'ladi (yakkama-yakka bittalik). 'TextileMill' -> 'SpinningWorkshop', 'SpinningWorkshop' -> 'FabricBatch' va 'FabricBatch' -> 'QualityCertificate' munosabatlarini belgilang.",
+    "storyEn": "A textile mill houses one or more spinning workshops. Workshops produce zero or more fabric batches. Each fabric batch secures strictly one quality certificate upon testing (yakkama-yakka bittalik). Connect Mill -> Workshop -> Batch -> Certificate.",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -9665,10 +9659,10 @@ _scope.QUESTIONS_151_200 = [
     "clientAvatar": "mentor",
     "title": "E-Commerce Xarid Savati va Yetkazish Invoysi (Master 4 ta Entitiy!)",
     "titleEn": "E-Commerce Cart, Shipping Address and Invoice (Master 4 Entities!)",
-    "story": "E-Commerce xaridori (OnlineShopper) tizimda kamida bitta manzilga (DeliveryAddress) ega bo'ladi (1..*). Xaridor 0 yoki ko'plab xarid savatlarini (CartBasket) to'ldirishi mumkin. Har bir buyurtma qilingan savat bo'yicha ko'pi bilan bitta yakuniy to'lov invoysi (CheckoutInvoice) generatsiya qilinadi (0..1). 'OnlineShopper' -> 'DeliveryAddress', 'OnlineShopper' -> 'CartBasket' va 'CartBasket' -> 'CheckoutInvoice' tizimini quring.",
-    "storyEn": "An online shopper must maintain at least one shipping address. A shopper fills zero or more cart baskets. Each checkout cart generates at most one payment invoice (0..1). Model Shopper -> Address, Shopper -> Cart, and Cart -> Invoice.",
-    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (0..1, 1..1, 0..*, 1..*) joylashtiring.",
-    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (0..1, 1..1, 0..*, 1..*).",
+    "story": "E-Commerce xaridori (OnlineShopper) tizimda kamida bitta manzilga (DeliveryAddress) ega bo'ladi (majburiy ko'plik). Xaridor 0 yoki ko'plab xarid savatlarini (CartBasket) to'ldirishi mumkin. Har bir buyurtma qilingan savat bo'yicha ko'pi bilan bitta yakuniy to'lov invoysi (CheckoutInvoice) generatsiya qilinadi (ixtiyoriy bittalik). 'OnlineShopper' -> 'DeliveryAddress', 'OnlineShopper' -> 'CartBasket' va 'CartBasket' -> 'CheckoutInvoice' tizimini quring.",
+    "storyEn": "An online shopper must maintain at least one shipping address. A shopper fills zero or more cart baskets. Each checkout cart generates at most one payment invoice (ixtiyoriy bittalik). Model Shopper -> Address, Shopper -> Cart, and Cart -> Invoice.",
+    "instruction": "Berilgan 4 ta entitiy o'rtasidagi aloqalarni chizing va har bir chiziq uchiga to'g'ri multiplisitiyalarni (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik) joylashtiring.",
+    "instructionEn": "Draw relationship links between the 4 entities and set the exact multiplicity constraints (ixtiyoriy bittalik, qat'iy bittalik, ixtiyoriy ko'plik, majburiy ko'plik).",
     "starterDiagram": {
       "entities": [
         {
@@ -9882,3 +9876,7 @@ _scope.QUESTIONS_151_200 = [
     }
   }
 ];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = _scope.QUESTIONS_151_200;
+}

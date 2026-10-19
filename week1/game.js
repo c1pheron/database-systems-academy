@@ -587,6 +587,14 @@
       });
     }
 
+    const btnAddRecursive = document.getElementById('eerBtnAddRecursive');
+    if (btnAddRecursive) {
+      btnAddRecursive.addEventListener('click', () => {
+        window.playSfx('click');
+        if (eerCanvas) eerCanvas.addRecursiveEntityOrLoop();
+      });
+    }
+
     const btnResetTemplate = document.getElementById('eerBtnResetTemplate');
     if (btnResetTemplate) {
       btnResetTemplate.addEventListener('click', () => {
