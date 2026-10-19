@@ -117,7 +117,13 @@
     const isEn = currentLang === "en";
     if (elBadge) elBadge.textContent = isEn ? ("Module 1 • Challenge " + ch.id) : ("1-Modul • " + ch.id + "-Topshiriq");
     if (elTitle) elTitle.textContent = (ch.title && ch.title[currentLang]) ? ch.title[currentLang] : (ch.title?.uz || "");
-    if (elScenario) elScenario.textContent = (ch.scenario && ch.scenario[currentLang]) ? ch.scenario[currentLang] : (ch.scenario?.uz || "");
+    if (elScenario) {
+      if (typeof window.formatChallengeScenarioHTML === "function") {
+        elScenario.innerHTML = window.formatChallengeScenarioHTML(ch, currentLang);
+      } else {
+        elScenario.textContent = (ch.scenario && ch.scenario[currentLang]) ? ch.scenario[currentLang] : (ch.scenario?.uz || "");
+      }
+    }
 
     // Render Sample Input Data (Boshlang'ich Qiymatlar)
     const elSampleDataBox = document.getElementById("sampleDataBox");

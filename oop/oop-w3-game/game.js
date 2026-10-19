@@ -114,7 +114,13 @@
     const isEn = currentLang === "en";
     if (elBadge) elBadge.textContent = isEn ? ("Module 3 • Challenge " + ch.id) : ("3-Modul • " + ch.id + "-Topshiriq");
     if (elTitle) elTitle.textContent = (ch.title && ch.title[currentLang]) ? ch.title[currentLang] : (ch.title?.uz || "");
-    if (elScenario) elScenario.textContent = (ch.scenario && ch.scenario[currentLang]) ? ch.scenario[currentLang] : (ch.scenario?.uz || "");
+    if (elScenario) {
+      if (typeof window.formatChallengeScenarioHTML === "function") {
+        elScenario.innerHTML = window.formatChallengeScenarioHTML(ch, currentLang);
+      } else {
+        elScenario.textContent = (ch.scenario && ch.scenario[currentLang]) ? ch.scenario[currentLang] : (ch.scenario?.uz || "");
+      }
+    }
 
     // Render Rich Solution View via SolutionRenderer
     if (window.SolutionRenderer) {

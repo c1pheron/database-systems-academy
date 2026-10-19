@@ -245,6 +245,77 @@
           }
         });
       }
+    },
+
+    formatScenarioHTML(ch, lang = "uz") {
+      if (!ch) return "";
+      const isEn = lang === "en";
+      let storyText = "";
+      let stepsList = [];
+
+      if (ch.story && ch.story[lang]) {
+        storyText = ch.story[lang];
+      } else if (ch.story && ch.story.uz) {
+        storyText = ch.story.uz;
+      }
+
+      if (ch.steps && ch.steps[lang] && Array.isArray(ch.steps[lang])) {
+        stepsList = ch.steps[lang];
+      } else if (ch.steps && ch.steps.uz && Array.isArray(ch.steps.uz)) {
+        stepsList = ch.steps.uz;
+      }
+
+      // Fallback: If not structured into story and steps, extract from ch.scenario
+      if (!storyText && (!stepsList || !stepsList.length) && ch.scenario) {
+        const raw = (ch.scenario[lang] || ch.scenario.uz || "");
+        if (raw.includes("[Hayotiy Voqealik") || raw.includes("[Real-World") || raw.includes("Bajarilishi kerak") || raw.includes("Step-by-Step")) {
+          const parts = raw.split(/\[(?:Bajarilishi kerak bo'lgan vazifalar|Step-by-Step Implementation Tasks)[^\]]*\]/i);
+          storyText = (parts[0] || "").replace(/\[(?:Hayotiy Voqealik & Kontekst|Real-World Story & Context)\]/i, '').trim();
+          if (parts[1]) {
+            stepsList = parts[1].split(/\n\s*(?=\d+\.)/).map(s => s.replace(/^\d+\.\s*/, '').trim()).filter(Boolean);
+          }
+        } else {
+          storyText = raw;
+        }
+      }
+
+      let html = "";
+      if (storyText) {
+        html += `
+          <div class="scenario-story-card">
+            <div class="scenario-header">
+              <span class="scenario-badge story-badge">
+                <i class="fas fa-book-open"></i> ${isEn ? "Real-World Context & Story" : "Hayotiy Voqealik & Kontekst"}
+              </span>
+            </div>
+            <p class="scenario-story-text">${storyText}</p>
+          </div>
+        `;
+      }
+
+      if (stepsList && stepsList.length > 0) {
+        const stepItems = stepsList.map((step, idx) => `
+          <li class="scenario-step-item">
+            <span class="scenario-step-num">${idx + 1}</span>
+            <div class="scenario-step-content">${step}</div>
+          </li>
+        `).join("");
+
+        html += `
+          <div class="scenario-steps-card">
+            <div class="scenario-header">
+              <span class="scenario-badge steps-badge">
+                <i class="fas fa-list-check"></i> ${isEn ? ("Action Steps (1 to " + stepsList.length + ")") : ("Bajarilishi Kerak Bo'lgan Qadamlar (1 dan " + stepsList.length + " gacha)")}
+              </span>
+            </div>
+            <ol class="scenario-steps-list">
+              ${stepItems}
+            </ol>
+          </div>
+        `;
+      }
+
+      return html || (ch.scenario ? (ch.scenario[lang] || ch.scenario.uz || "") : "");
     }
   };
 
@@ -254,4 +325,6 @@
   }
 
   global.SolutionRenderer = SolutionRenderer;
+  global.formatChallengeScenarioHTML = SolutionRenderer.formatScenarioHTML;
 })(typeof window !== "undefined" ? window : global);
+
