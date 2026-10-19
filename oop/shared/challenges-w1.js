@@ -52,9 +52,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 Console Order Application doirasida har bir tovar aynan shunday xususiyatlarga ega bo'ladi."
     },
     "sampleData": [
-      "p.title = \"Smartfon Redmi Note 13\"",
-      "p.price = 2450000.0",
-      "p.inStock = true"
+      "title: \"Smartfon Redmi Note 13\"",
+      "price: 2450000.0 so'm",
+      "inStock: true"
     ],
     "expectedOutput": "Mahsulot: Smartfon Redmi Note 13 | Narxi: 2450000.0 so'm | Mavjud: true"
   },
@@ -106,11 +106,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Guruh loyihangizda bir nechta mijoz yoki tovarlarni massiv yoki ro'yxatda saqlash uchun ushbu poydevor zarur."
     },
     "sampleData": [
-      "s1.fullName = \"Jasur Aliyev\"",
-      "s1.idNumber = 1001",
-      "s1.gpa = 3.8",
-      "s2.fullName = \"Madina Karimova\"",
-      "s2.idNumber = 1002"
+      "1-talaba -> fullName: \"Jasur Aliyev\", idNumber: 1001, gpa: 3.8",
+      "2-talaba -> fullName: \"Madina Karimova\", idNumber: 1002, gpa: 3.95"
     ],
     "expectedOutput": "Yuqori GPA: Madina Karimova (3.95)"
   },
@@ -161,9 +158,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Savdo kvitansiyalarini hisoblashda ushbu arifmetika qoidalari qo'llaniladi."
     },
     "sampleData": [
-      "trip.driverName = \"Otabek\"",
-      "trip.distanceKm = 12.5",
-      "trip.ratePerKm = 3500.0"
+      "driverName: \"Otabek\"",
+      "distanceKm: 12.5 km",
+      "ratePerKm: 3500.0 so'm"
     ],
     "expectedOutput": "Haydovchi: Otabek | Jami yo'l haqi: 43750.0 so'm"
   },
@@ -218,10 +215,10 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Buyurtmaning to'langan yoki bekor qilinganligini kuzatish uchun `isPaid` flagi shart."
     },
     "sampleData": [
-      "tx.txnId = \"TXN-884129\"",
-      "tx.amount = 150000.0",
-      "tx.isCompleted = true",
-      "tx.senderPhone = \"+998901234567\""
+      "txnId: \"TXN-884129\"",
+      "amount: 150000.0 so'm",
+      "isCompleted: true",
+      "senderPhone: \"+998901234567\""
     ],
     "expectedOutput": "ID: TXN-884129 | Miqdor: 150000.0 | Holat: Muvaffaqiyatli"
   },
@@ -272,9 +269,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Kompyuter resurslarini to'g'ri hisoblash Java Core dasturchisi uchun shart."
     },
     "sampleData": [
-      "node.hostName = \"prod-node-01.wiut.uz\"",
-      "node.totalRamMb = 16384",
-      "node.usedRamMb = 12288"
+      "hostName: \"prod-node-01.wiut.uz\"",
+      "totalRamMb: 16384 MB",
+      "usedRamMb: 12288 MB"
     ],
     "expectedOutput": "Server: prod-node-01.wiut.uz\nBo'sh RAM: 4096 MB | Bandlik: 75.0%"
   },
@@ -329,10 +326,10 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Foydalanuvchi huquqlari (Admin/User) ham xuddi shunday tekshiriladi."
     },
     "sampleData": [
-      "booking.flightCode = \"HY-101\"",
-      "booking.passengerName = \"Akmal Nazarov\"",
-      "booking.seatNumber = 3",
-      "booking.isBusinessClass = true"
+      "flightCode: \"HY-101\"",
+      "passengerName: \"Akmal Nazarov\"",
+      "seatNumber: 3",
+      "isBusinessClass: true"
     ],
     "expectedOutput": "Reys: HY-101 | Yo'lovchi: Akmal Nazarov\nJoy: #3 (Biznes-klass ? VIP Lounge ruxsati bor)"
   },
@@ -387,10 +384,10 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 Console ilovangizda mahsulot soni 0 ga tushib qolmasligini nazorat qilishda bu usul zarur."
     },
     "sampleData": [
-      "item.skuCode = \"SKU-99214\"",
-      "item.itemName = \"Sut 1.5L Musaffo\"",
-      "item.quantity = 4",
-      "item.minThreshold = 10"
+      "skuCode: \"SKU-99214\"",
+      "itemName: \"Sut 1.5L Musaffo\"",
+      "quantity: 4",
+      "minThreshold: 10"
     ],
     "expectedOutput": "Tovar: Sut 1.5L Musaffo | Qoldiq: 4 dona\nDIQQAT: Qayta buyurtma bering! Qoldiq chegaradan kam (4 <= 10)"
   },
@@ -445,10 +442,10 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Biznes qoidalari har doim bir nechta maydonlarning kombinatsiyasiga tayanadi."
     },
     "sampleData": [
-      "record.patientName = \"Sanjar Jo'rayev\"",
-      "record.systolicPressure = 145",
-      "record.diastolicPressure = 92",
-      "record.bodyTemp = 36.6"
+      "patientName: \"Sanjar Jo'rayev\"",
+      "systolicPressure: 145",
+      "diastolicPressure: 92",
+      "bodyTemp: 36.6°C"
     ],
     "expectedOutput": "Bemor: Sanjar Jo'rayev | Tana harorati: 36.6?C\nXulosa: Gipertoniya xavfi (145/92)"
   },
@@ -503,10 +500,10 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Real konsol ilovalarida ma'lumotlarni hisoblash doimo shu kabi modellarga tayanadi."
     },
     "sampleData": [
-      "car.vin = \"BYD-CHAZOR-2024-UZB\"",
-      "car.batteryCapacityKwh = 18.3",
-      "car.currentChargeKwh = 12.0",
-      "car.consumptionPer100Km = 14.5"
+      "vin: \"BYD-CHAZOR-2024-UZB\"",
+      "batteryCapacityKwh: 18.3 kWh",
+      "currentChargeKwh: 12.0 kWh",
+      "consumptionPer100Km: 14.5 kWh"
     ],
     "expectedOutput": "VIN: BYD-CHAZOR-2024-UZB\nBatareya: 65.57377049180327% | Zaxira masofa: 82.75862068965517 km"
   },
@@ -562,11 +559,11 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Auksion va savat tizimlarida ob'yekt holatini yangilash eng ko'p uchraydigan vazifadir."
     },
     "sampleData": [
-      "lot.lotTitle = \"Toshkent City Ofis Binosi\"",
-      "lot.startingPrice = 500000.0",
-      "lot.highestBid = lot.startingPrice",
-      "lot.highestBidder = \"Boshlang'ich Narx\"",
-      "lot.highestBid = offer1"
+      "lotTitle: \"Toshkent City Ofis Binosi\"",
+      "startingPrice: 500000.0",
+      "Boshlang'ich ishtirokchi: \"Boshlang'ich Narx\"",
+      "1-taklif: 520000.0 (\"Kompaniya A\")",
+      "2-taklif: 510000.0 (\"Kompaniya B\")"
     ],
     "expectedOutput": "Lot: Toshkent City Ofis Binosi\nG'olib: Kompaniya A | Yakuniy narx: $520000.0"
   },
@@ -614,7 +611,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Bank va hisob-kitob klasslarida barcha harakatlar aynan metodlar orqali amalga oshiriladi."
     },
     "sampleData": [
-      "w.balance = 50000.0"
+      "Boshlang'ich balans: 50000.0 so'm",
+      "Kirim (deposit): 20000.0 so'm",
+      "Chiqim (withdraw): 15000.0 so'm"
     ],
     "expectedOutput": ""
   },
@@ -660,7 +659,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 buyurtma ilovasida savat chegirmalari aynan shu uslubda hisoblanadi."
     },
     "sampleData": [
-      "sale.basePrice = 1200000.0"
+      "basePrice: 1200000.0 so'm",
+      "Chegirma (discountPercent): 15.0%"
     ],
     "expectedOutput": ""
   },
@@ -707,7 +707,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Buyurtmadagi tovar soni ombordagi qoldiqdan oshib ketmasligini tekshirishda xuddi shu mantiq ishlatiladi."
     },
     "sampleData": [
-      "t.currentTemp = 22.0"
+      "Boshlang'ich harorat: 22.0°C",
+      "1-o'zgartirish: 26.0°C (qabul qilinadi)",
+      "2-o'zgartirish: 35.0°C (chegaradan tashqari, rad etiladi)"
     ],
     "expectedOutput": ""
   },
@@ -753,7 +755,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 ilovasida yetkazib berish narxini masofaga qarab hisoblashda ayni muddao."
     },
     "sampleData": [
-      "service.baseFare = 5000.0"
+      "baseFare: 5000.0 so'm",
+      "Masofa (distanceKm): 8.5 km",
+      "Koeffitsiyent (surgeMultiplier): 1.5"
     ],
     "expectedOutput": ""
   },
@@ -804,8 +808,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Bu aynan WIUT 5COSC018C modulining rasmiy baholash qoidasidir!"
     },
     "sampleData": [
-      "gb.courseworkMark = 65.0",
-      "gb.examMark = 72.0"
+      "courseworkMark: 65.0",
+      "examMark: 72.0"
     ],
     "expectedOutput": ""
   },
@@ -855,8 +859,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 loyihangizda buyurtma statusini (PENDING -> PAID -> DELIVERED) boshqarishda ayni usul qo'llaniladi."
     },
     "sampleData": [
-      "member.points = 350",
-      "member.tier = \"BRONZE\""
+      "Boshlang'ich ball: 350 (Daraja: \"BRONZE\")",
+      "1-ball qo'shish: +200",
+      "2-ball qo'shish: +500 (Daraja \"GOLD\" ga ko'tariladi)"
     ],
     "expectedOutput": ""
   },
@@ -906,8 +911,10 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Do'kon omborida qoldiq yetarli bo'lmaganda xaridni rad etish uchun ishlatiladi."
     },
     "sampleData": [
-      "container.maxCapacityKg = 1000.0",
-      "container.currentWeightKg = 700.0"
+      "maxCapacityKg: 1000.0 kg",
+      "currentWeightKg: 700.0 kg",
+      "1-yuk (loadCargo): 250.0 kg",
+      "2-yuk (loadCargo): 100.0 kg (sig'maydi, rad etiladi)"
     ],
     "expectedOutput": ""
   },
@@ -953,7 +960,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 qidiruv tizimida: tovar nomi bo'yicha qidirish, yoki nomi hamda narxi bo'yicha qidirish overload metodlar bilan qilinadi."
     },
     "sampleData": [
-      "loan.principal = 12000000.0"
+      "principal (kredit summasi): 12000000.0 so'm",
+      "Yillik foiz: 24.0%",
+      "Muddat: 12 oy"
     ],
     "expectedOutput": ""
   },
@@ -1004,8 +1013,11 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Foydalanuvchi tizimdan avtomatik chiqib ketishi (Logout) aynan shu algoritm bilan ishlaydi."
     },
     "sampleData": [
-      "session.username = \"ali_dev\"",
-      "session.lastActiveTime = 1000L"
+      "username: \"ali_dev\"",
+      "lastActiveTime: 1000L",
+      "timeoutLimit: 3000L",
+      "1-tekshiruv vaqti: 2500L (faol)",
+      "2-tekshiruv vaqti: 4500L (muddati o'tgan)"
     ],
     "expectedOutput": ""
   },
@@ -1060,9 +1072,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 Console ilovasining yakuniy bosqichi aynan konsolga chek chiqarishdan iborat."
     },
     "sampleData": [
-      "order.itemName = \"Lavash Max\"",
-      "order.unitPrice = 38000.0",
-      "order.quantity = 2"
+      "itemName: \"Lavash Max\"",
+      "unitPrice: 38000.0 so'm",
+      "quantity: 2 dona"
     ],
     "expectedOutput": ""
   },
@@ -1116,7 +1128,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 barcha domen klasslarida konstruktorlar orqali ob'yekt tuzish majburiy hisoblanadi."
     },
     "sampleData": [
-      "Book b = new Book(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 420)"
+      "title: \"O'tkan Kunlar\"",
+      "author: \"Abdulla Qodiriy\"",
+      "pages: 420"
     ],
     "expectedOutput": ""
   },
@@ -1170,8 +1184,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Buyurtmachiga buyurtma berishda manzil ko'rsatilgan yoki ko'rsatilmagan variantlarni qo'llashda asqotadi."
     },
     "sampleData": [
-      "User u1 = new User(\"nodirbek\", \"nodir@wiut.uz\")",
-      "User u2 = new User(\"admin_ada\", \"ada@wiut.uz\", \"ADMIN\")"
+      "1-foydalanuvchi -> username: \"nodirbek\", email: \"nodir@wiut.uz\" (standart: USER)",
+      "2-foydalanuvchi -> username: \"admin_ada\", email: \"ada@wiut.uz\", role: \"ADMIN\""
     ],
     "expectedOutput": ""
   },
@@ -1232,7 +1246,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Professor Ada Clean Code va SOLID tamoyillari bo'yicha konstruktor zanjirini yuqori baholaydi."
     },
     "sampleData": [
-      "DebitCard card = new DebitCard(\"8600123456789012\", \"Kamron Bek\")"
+      "cardNumber: \"8600123456789012\"",
+      "cardHolder: \"Kamron Bek\"",
+      "Boshlang'ich balans: 0.0 so'm, valyuta: \"UZS\""
     ],
     "expectedOutput": ""
   },
@@ -1286,7 +1302,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "JavaFX yoki konsolli menyularda ob'yektlarni avval bo'sh yaratib, keyin to'ldirishda no-arg kerak bo'ladi."
     },
     "sampleData": [
-      "Smartphone phone2 = new Smartphone(\"Samsung Galaxy S24\", 256, 950.0)"
+      "model: \"Samsung Galaxy S24\"",
+      "storageGb: 256 GB",
+      "price: 950.0"
     ],
     "expectedOutput": ""
   },
@@ -1336,8 +1354,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Tovar narxi 0 bo'lib qolmasligini konstruktorda tekshirish CW2 talabidir."
     },
     "sampleData": [
-      "Course c1 = new Course(\"5COSC018C\", 45)",
-      "Course c2 = new Course(\"5BUIS009C\", -10); // Noto'g'ri kiritildi"
+      "1-kurs -> code: \"5COSC018C\", enrolled: 45 (to'g'ri)",
+      "2-kurs -> code: \"5BUIS009C\", enrolled: -10 (manfiy, 0 ga tenglashtiriladi)"
     ],
     "expectedOutput": ""
   },
@@ -1391,8 +1409,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 bilet yoki buyurtma tizimida minimal buyurtma summasini shunday tekshirasiz."
     },
     "sampleData": [
-      "FlightTicket t1 = new FlightTicket(\"TK-78901\", 320.0, true)",
-      "FlightTicket t2 = new FlightTicket(\"TK-78902\", 15.0, false); // Kam kiritilgan"
+      "1-chipta -> ticketId: \"TK-78901\", price: 320.0, hasLuggage: true",
+      "2-chipta -> ticketId: \"TK-78902\", price: 15.0 (minimal narxdan kam, rad etiladi)"
     ],
     "expectedOutput": ""
   },
@@ -1446,7 +1464,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Hisobot tizimlarida manfiy yoki xato sonlar kirib kelmasligining oldini oladi."
     },
     "sampleData": [
-      "EmployeeContract emp = new EmployeeContract(\"Sardor Qodirov\", 1200000.0, \"IT Qo'llab-quvvatlash\")"
+      "fullName: \"Sardor Qodirov\"",
+      "baseSalary: 1200000.0 so'm",
+      "department: \"IT Qo'llab-quvvatlash\""
     ],
     "expectedOutput": ""
   },
@@ -1507,9 +1527,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Enterprise tizimlarda konstruktorlar soni ko'p bo'ladi va ularni zanjirlash talab etiladi."
     },
     "sampleData": [
-      "Subscription s1 = new Subscription(\"Starter\")",
-      "Subscription s2 = new Subscription(\"Team\", 45.0, 10)",
-      "Subscription s3 = new Subscription(\"Enterprise\", 199.0, 100, false)"
+      "1-obuna -> planName: \"Starter\" (standart qiymatlar bilan)",
+      "2-obuna -> planName: \"Team\", monthlyFee: 45.0, maxMembers: 10",
+      "3-obuna -> planName: \"Enterprise\", monthlyFee: 199.0, maxMembers: 100, isAutoRenew: false"
     ],
     "expectedOutput": ""
   },
@@ -1559,8 +1579,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Yandex Go kabi transport tizimlarida bu eng asosiy obyekt hisoblanadi."
     },
     "sampleData": [
-      "GeoPoint toshkent = new GeoPoint(41.2995, 69.2401)",
-      "GeoPoint xatoNuqta = new GeoPoint(120.5, 200.0); // Ikkalasi ham chegaradan tashqarida"
+      "Toshkent nuqtasi -> latitude: 41.2995, longitude: 69.2401 (to'g'ri)",
+      "Xato nuqta -> latitude: 120.5, longitude: 200.0 (chegaradan tashqari, 0.0 qilinadi)"
     ],
     "expectedOutput": ""
   },
@@ -1615,8 +1635,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Savatchadagi tovar nusxasini saqlashda va himoyalashda copy konstruktorlar ishlatiladi."
     },
     "sampleData": [
-      "Pallet p1 = new Pallet(\"PLT-100\", 500.0, 24)",
-      "Pallet p2 = new Pallet(p1); // Nusxalash"
+      "Asl pallet (p1) -> code: \"PLT-100\", weightKg: 500.0, boxCount: 24",
+      "Nusxa pallet (p2) -> p1 ob'yektidan nusxa olinadi"
     ],
     "expectedOutput": ""
   },
@@ -1665,7 +1685,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 barcha domen sinflarida har bir maydon 'private' bo'lishi majburiy shartdir."
     },
     "sampleData": [
-      "UserProfile profile = new UserProfile(\"sherzod_it\", \"sherzod@wiut.uz\")"
+      "username: \"sherzod_it\"",
+      "email: \"sherzod@wiut.uz\""
     ],
     "expectedOutput": ""
   },
@@ -1709,7 +1730,10 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 da buyurtma soni yoki narxi manfiy kiritilmasligi setterlar bilan kafolatlanadi."
     },
     "sampleData": [
-      "BankAccount acc = new BankAccount(100000.0)"
+      "Boshlang'ich balans: 100000.0 so'm",
+      "Kirim (depozit): +50000.0 so'm",
+      "Chiqim (withdraw): -30000.0 so'm",
+      "Ortiqcha yechish: -150000.0 so'm (rad etiladi)"
     ],
     "expectedOutput": ""
   },
@@ -1758,7 +1782,10 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Auksion narxini oshirishda ham faqat yuqoriroq narxlar qabul qilinadi."
     },
     "sampleData": [
-      "Employee emp = new Employee(\"Azizbek\", 5000000.0)"
+      "name: \"Azizbek\"",
+      "Boshlang'ich oylik: 5000000.0 so'm",
+      "Yangi oylik: 6500000.0 so'm (qabul qilinadi)",
+      "Kamaytirish: 4000000.0 so'm (rad etiladi)"
     ],
     "expectedOutput": ""
   },
@@ -1807,7 +1834,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 savatining umumiy summasi (`getTotalAmount()`) xuddi shunday dinamik hisoblanadi."
     },
     "sampleData": [
-      "Rectangle rect = new Rectangle(5.0, 8.0)"
+      "width (eni): 5.0",
+      "height (bo'yi): 8.0"
     ],
     "expectedOutput": ""
   },
@@ -1855,7 +1883,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Savdo kvitansiyalarida toza narx va soliq ajratib ko'rsatilishi shart."
     },
     "sampleData": [
-      "Product p = new Product(100000.0)"
+      "netPrice (tannarx): 100000.0 so'm",
+      "QQS stavkasi: 12%"
     ],
     "expectedOutput": ""
   },
@@ -1902,8 +1931,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Mijoz telefon raqami (+998...) yoki pochtasini tekshirishda ham aynan shu tartib ishlatiladi."
     },
     "sampleData": [
-      "Student s1 = new Student(\"00014523\"); // To'g'ri",
-      "Student s2 = new Student(\"12345\");    // Xato"
+      "1-talaba ID: \"00014523\" (8 ta raqam, to'g'ri)",
+      "2-talaba ID: \"12345\" (kam raqam, xato deb belgilanadi)"
     ],
     "expectedOutput": ""
   },
@@ -1954,7 +1983,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Moliyaviy operatsiyalar va audit yozuvlari har doim Immutable klasslar orqali ifodalanadi."
     },
     "sampleData": [
-      "Receipt r = new Receipt(\"FISCAL-9912\", 240000.0)"
+      "txnId: \"FISCAL-9912\"",
+      "amount: 240000.0 so'm"
     ],
     "expectedOutput": "Chek: FISCAL-9912 | Summa: 240000.0 so'm"
   },
@@ -2002,7 +2032,7 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Valyutalarni konvertatsiya qilishda aynan shu abstraksiya modeli qo'llaniladi."
     },
     "sampleData": [
-      "TempSensor sensor = new TempSensor(25.0)"
+      "celsius (harorat): 25.0°C"
     ],
     "expectedOutput": ""
   },
@@ -2050,7 +2080,7 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Mijoz xarid hajmiga qarab VIP toifani aniqlashda aynan shu qoida ishlaydi."
     },
     "sampleData": [
-      "CreditScore cs = new CreditScore(780)"
+      "score (skoring bali): 780 (Toifa: A'LO)"
     ],
     "expectedOutput": ""
   },
@@ -2098,7 +2128,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Foydalanuvchi autentifikatsiyasida ma'lumotlarni himoyalashning asosiy shartidir."
     },
     "sampleData": [
-      "UserCredential cred = new UserCredential(\"secret2024\")"
+      "Boshlang'ich parol: \"secret2024\"",
+      "Tekshiruv: \"wrong\" (noto'g'ri), \"secret2024\" (to'g'ri)",
+      "Yangi parol: \"newMasterPass99\""
     ],
     "expectedOutput": ""
   },
@@ -2149,9 +2181,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 Console Order tizimida buyurtma raqamini (Order #1, Order #2) avtomatik generatsiya qilishda ayni usul shart."
     },
     "sampleData": [
-      "UserAccount u1 = new UserAccount(\"ali\")",
-      "UserAccount u2 = new UserAccount(\"vali\")",
-      "UserAccount u3 = new UserAccount(\"gani\")"
+      "1-foydalanuvchi username: \"ali\"",
+      "2-foydalanuvchi username: \"vali\"",
+      "3-foydalanuvchi username: \"gani\""
     ],
     "expectedOutput": "User 1 ID: 1 (ali)\nUser 2 ID: 2 (vali)\nUser 3 ID: 3 (gani)\nJami foydalanuvchilar soni: 3"
   },
@@ -2194,7 +2226,10 @@ window.OOP_CHALLENGES_W1 = [
       "pitfalls": "Statik metodlar ichidan instans maydonlarga ('this.x') murojaat qilib bo'lmaydi.",
       "cw2Tip": "Valyuta konvertatsiyasi va formatlash utilitlarini alohida sinfga ajratish yaxshi me'morchilikdir."
     },
-    "sampleData": [],
+    "sampleData": [
+      "Baza summasi: 1250000.0 so'm, QQS stavkasi: 12.0%",
+      "Yaxlitlanadigan son: 145.6789"
+    ],
     "expectedOutput": "Hisoblangan soliq: 150000.0 so'm\nYaxlitlangan qiymat: 145.68"
   },
   {
@@ -2236,7 +2271,11 @@ window.OOP_CHALLENGES_W1 = [
       "pitfalls": "Statik o'zgaruvchilarni ko'p joyda ehtiyotsiz o'zgartirish kutilmagan yon ta'sirlarga (side effects) sabab bo'lishi mumkin.",
       "cw2Tip": "CW2 ilovasida global chegirma foizini boshqarishda qo'llaniladi."
     },
-    "sampleData": [],
+    "sampleData": [
+      "USD miqdori: 100.0",
+      "Eski kurs: 12700.0 so'm",
+      "Yangi kurs: 12800.0 so'm"
+    ],
     "expectedOutput": "100 USD (eski kurs): 1270000.0 so'm\n100 USD (yangi kurs): 1280000.0 so'm"
   },
   {
@@ -2286,8 +2325,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 da `Customer has an Address` va `Order has a Customer` aynan shu usulda quriladi."
     },
     "sampleData": [
-      "Address addr = new Address(\"Toshkent\", \"Amir Temur ko'chasi, 12\")",
-      "Person p = new Person(\"Rustam Shokirov\", addr)"
+      "Manzil -> city: \"Toshkent\", street: \"Amir Temur ko'chasi, 12\"",
+      "Shaxs -> fullName: \"Rustam Shokirov\", address: yuqoridagi manzil"
     ],
     "expectedOutput": "Shaxs ma'lumotlari: Rustam Shokirov (Toshkent, Amir Temur ko'chasi, 12)"
   },
@@ -2338,8 +2377,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 tizimida `Order` o'z to'lovini `PaymentProcessor` ob'yektiga delegatsiya qiladi."
     },
     "sampleData": [
-      "Engine turbo = new Engine(250, \"2.0 Turbo\")",
-      "Car myCar = new Car(\"Malibu Premier\", turbo)"
+      "Dvigatel -> horsepower: 250, model: \"2.0 Turbo\"",
+      "Avtomobil -> model: \"Malibu Premier\", engine: yuqoridagi dvigatel"
     ],
     "expectedOutput": ""
   },
@@ -2390,8 +2429,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "Bu sinf CW2 kurs ishining eng markaziy ob'yektlaridan biridir."
     },
     "sampleData": [
-      "Product p = new Product(\"Simsiz Quloqchin\", 350000.0)",
-      "OrderItem item = new OrderItem(p, 3)"
+      "Mahsulot -> name: \"Simsiz Quloqchin\", price: 350000.0 so'm",
+      "Buyurtma pozitsiyasi -> quantity: 3 dona"
     ],
     "expectedOutput": "Tovar: Simsiz Quloqchin x 3 dona\nOraliq summa: 1050000.0 so'm"
   },
@@ -2444,8 +2483,8 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 konsol ilovangizda foydalanuvchi buyurtmalari aynan shu modelda tashkil qilinadi."
     },
     "sampleData": [
-      "Customer c = new Customer(101, \"Dilshod Karimov\", \"+998931112233\")",
-      "Order ord = new Order(5001, c, 480000.0)"
+      "Mijoz -> id: 101, name: \"Dilshod Karimov\", phone: \"+998931112233\"",
+      "Buyurtma -> orderId: 5001, customer: yuqoridagi mijoz, amount: 480000.0 so'm"
     ],
     "expectedOutput": "=== BUYURTMA #5001 ===\nMijoz: Dilshod Karimov (Tel: +998931112233)\nTo'lov summasi: 480000.0 so'm\n=========================="
   },
@@ -2485,7 +2524,10 @@ window.OOP_CHALLENGES_W1 = [
       "pitfalls": "Konstantalarni kichik harflar bilan yozish Clean Code talablariga zid sanaladi.",
       "cw2Tip": "Soliq stavkalari va do'kon nomini shunday o'zgarmas qilib e'lon qilish tavsiya etiladi."
     },
-    "sampleData": [],
+    "sampleData": [
+      "Tizim nomi: \"WIUT Academy\", versiya: \"2.0\"",
+      "Maksimal ruxsat etilgan chegirma: 30.0%"
+    ],
     "expectedOutput": "Tizim: WIUT Academy v2.0\nMaksimal ruxsat etilgan chegirma: 30.0%"
   },
   {
@@ -2537,10 +2579,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 loyihangizda ombor zaxirasini tahlil qilish moduli aynan shunday ishlaydi."
     },
     "sampleData": [
-      "Product prd1 = new Product(\"Laptop Dell\", 8500000.0, 5)",
-      "Product prd2 = new Product(\"Monitor 27\", 2200000.0, 10)",
-      "Product prd3 = new Product(\"Klaviatura RGB\", 350000.0, 20)",
-      "WarehouseReport report = new WarehouseReport(prd1, prd2, prd3)"
+      "1-tovar -> \"Laptop Dell\", narxi: 8500000.0 so'm, soni: 5 dona",
+      "2-tovar -> \"Monitor 27\", narxi: 2200000.0 so'm, soni: 10 dona",
+      "3-tovar -> \"Klaviatura RGB\", narxi: 350000.0 so'm, soni: 20 dona"
     ],
     "expectedOutput": "Ombordagi barcha tovarlarning jami qiymati: 7.15E7 so'm"
   },
@@ -2601,9 +2642,9 @@ window.OOP_CHALLENGES_W1 = [
       "cw2Tip": "CW2 baholash mezonida UML diagrammasini tuzishda aynan ushbu 3 ta klass asos qilib olinadi!"
     },
     "sampleData": [
-      "Customer client = new Customer(\"Ravshanbek Rahimov\", \"+998901234567\")",
-      "Product macbook = new Product(\"MacBook Air M3\", 14500000.0)",
-      "Order order1 = new Order(client, macbook, 1)"
+      "Mijoz -> ism: \"Ravshanbek Rahimov\", tel: \"+998901234567\"",
+      "Mahsulot -> nom: \"MacBook Air M3\", narx: 14500000.0 so'm",
+      "Buyurtma -> soni: 1 dona, talaba chegirmasi: 10.0%"
     ],
     "expectedOutput": "================================================\n          WIUT OOP ENTERPRISE INVOICE          \nBuyurtma Raqami: #1\nMijoz: Ravshanbek Rahimov | Tel: +998901234567\n------------------------------------------------\nTovar: MacBook Air M3\nDona narxi: 1.45E7 so'm x 1 dona\nOraliq summa: 1.45E7 so'm\nChegirma (10.0%): -1450000.0 so'm\n------------------------------------------------\nJAMI TO'LOV: 1.305E7 so'm\n================================================"
   }
