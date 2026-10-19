@@ -956,7 +956,7 @@ class Main {
       const savedConsH = localStorage.getItem(STORAGE_CONS_H);
       if (savedConsH && consoleSection) {
         const h = parseInt(savedConsH, 10);
-        if (!isNaN(h) && h >= 60 && h <= 900) {
+        if (!isNaN(h) && h >= 50 && h <= 900) {
           consoleSection.style.setProperty("height", h + "px", "important");
           consoleSection.style.setProperty("flex", "0 0 " + h + "px", "important");
           document.documentElement.style.setProperty("--console-height", h + "px");
@@ -1037,13 +1037,15 @@ class Main {
     // --- 3. Vertical Resizer (Code Editor <-> Java Console) ---
     if (consoleResizerV && consoleSection) {
       let isDraggingV = false;
-      let startY = 0;
-      let startHeight = 0;
+      let offsetY = 0;
 
       const onPointerDownV = (e) => {
+        if (e.cancelable) e.preventDefault();
         isDraggingV = true;
-        startY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
-        startHeight = consoleSection.getBoundingClientRect().height;
+
+        const curY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
+        const consoleRect = consoleSection.getBoundingClientRect();
+        offsetY = (curY !== undefined && consoleRect) ? (curY - consoleRect.top) : 0;
 
         document.body.classList.add("is-resizing-v");
         consoleResizerV.classList.add("is-resizing");
@@ -1059,13 +1061,14 @@ class Main {
         if (e.cancelable) e.preventDefault();
 
         const curY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
-        // Dragging UP (smaller Y) increases console height; dragging DOWN decreases console height
-        const deltaY = startY - curY;
-        let newHeight = startHeight + deltaY;
+        if (curY === undefined || curY === null) return;
 
-        const paneRightHeight = paneRight.getBoundingClientRect().height;
-        const minH = 60;
-        const maxH = Math.max(minH, paneRightHeight - 120);
+        const paneRightRect = paneRight.getBoundingClientRect();
+        const targetConsoleTop = curY - offsetY;
+        let newHeight = Math.round(paneRightRect.bottom - targetConsoleTop);
+
+        const minH = 50;
+        const maxH = Math.max(minH, Math.round(paneRightRect.height - 160));
 
         if (newHeight < minH) newHeight = minH;
         if (newHeight > maxH) newHeight = maxH;
@@ -1098,7 +1101,7 @@ class Main {
       };
 
       consoleResizerV.addEventListener("mousedown", onPointerDownV);
-      consoleResizerV.addEventListener("touchstart", onPointerDownV, { passive: true });
+      consoleResizerV.addEventListener("touchstart", onPointerDownV, { passive: false });
     }
 
     // --- 4. Window Resize Observer ---

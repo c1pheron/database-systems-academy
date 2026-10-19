@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=20261019_v22_draggable_resizers">
+  <link rel="stylesheet" href="styles.css?v=20261019_v24_bidirectional_console_resize">
             <style id="criticalEditorStyles">
     /* CONSOLAS FONT DEFINITION (Loaded on mobile & fallbacks) */
     @font-face {
@@ -390,17 +390,17 @@
     /* 6. CODE EDITOR — CONSOLAS METRICS LOCK (CARET ALIGNED 100%, ZERO OFFSET) */
     .editor-wrapper {
       position: relative !important;
-      flex: 1 !important;
-      min-height: 280px !important;
+      flex: 1 1 0% !important;
+      min-height: 80px !important;
       display: flex !important;
       flex-direction: column !important;
     }
     .code-editor-surface {
       position: relative !important;
       display: flex !important;
-      flex: 1 !important;
+      flex: 1 1 0% !important;
       width: 100% !important;
-      min-height: 280px !important;
+      min-height: 60px !important;
       background: #0d0a1f !important;
       border: 1px solid rgba(168, 85, 247, 0.28) !important;
       border-radius: 0 0 8px 8px !important;
@@ -445,9 +445,9 @@
     }
     .code-viewport {
       position: relative !important;
-      flex: 1 !important;
+      flex: 1 1 0% !important;
       height: 100% !important;
-      min-height: 280px !important;
+      min-height: 60px !important;
       overflow: hidden !important;
       background: #0d0a1f !important;
     }
@@ -798,7 +798,7 @@
     .editor-wrapper {
       position: relative !important;
       flex: 1 1 0% !important;
-      min-height: 140px !important;
+      min-height: 80px !important;
       display: flex !important;
       flex-direction: column !important;
       overflow: hidden !important;
@@ -808,7 +808,7 @@
       display: flex !important;
       flex: 1 1 0% !important;
       width: 100% !important;
-      min-height: 100px !important;
+      min-height: 60px !important;
       height: 100% !important;
       background: #0d0a1f !important;
       border: 1px solid rgba(168, 85, 247, 0.28) !important;
@@ -821,7 +821,7 @@
     .console-section {
       flex: 0 0 var(--console-height, 190px) !important;
       height: var(--console-height, 190px) !important;
-      min-height: 60px !important;
+      min-height: 50px !important;
       max-height: calc(100% - 100px) !important;
       display: flex !important;
       flex-direction: column !important;
@@ -855,7 +855,7 @@
     .console-output {
       flex: 1 1 auto !important;
       height: calc(100% - 32px) !important;
-      min-height: 120px !important;
+      min-height: 20px !important;
       background: #090717 !important;
       color: #cbd5e1 !important;
       padding: 10px 16px !important;
@@ -1207,8 +1207,8 @@
   <script src="../shared/oop-i18n.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
   <script src="../shared/oop-dictionary.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
   <script src="../shared/challenges-w1.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
-  <script src="../shared/java-editor-enhancer.js?v=20261019_v23_new_constructor_autocomplete"></script>
-  <script src="game.js?v=20261019_v22_draggable_resizers"></script>
+  <script src="../shared/java-editor-enhancer.js?v=20261019_v24_bidirectional_console_resize"></script>
+  <script src="game.js?v=20261019_v24_bidirectional_console_resize"></script>
 
 </body>
 </html>

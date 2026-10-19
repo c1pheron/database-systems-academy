@@ -216,7 +216,7 @@
           display: flex;
           width: 100%;
           height: 100%;
-          min-height: 290px;
+          min-height: 60px;
           background: #0d0a1f;
           border: 1px solid rgba(168, 85, 247, 0.3);
           border-radius: 0 0 8px 8px;
@@ -266,7 +266,7 @@
           position: relative;
           flex: 1;
           height: 100%;
-          min-height: 290px;
+          min-height: 60px;
           overflow: hidden;
           background: #0d0a1f;
         }
