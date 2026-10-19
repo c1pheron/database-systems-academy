@@ -1012,6 +1012,7 @@
       if (!this.codeArea) return;
       const code = this.codeArea.value || "";
       this.knownClasses = new Set(["Main"]);
+      this.knownVariables = new Map();
       this.knownFields = new Map();
       this.knownMethods = new Map();
 
@@ -1043,6 +1044,16 @@
         let m;
         while ((m = clsRegex.exec(text)) !== null) {
           if (m[1]) this.knownClasses.add(m[1]);
+        }
+        // Extract class types & variable names from declarations: e.g. 'MedicalRecord one =', 'FlightBooking b;'
+        const varDeclRegex = /\b([A-Z][a-zA-Z0-9_]*)\s+([a-zA-Z0-9_]+)\s*(?:=|;)/g;
+        while ((m = varDeclRegex.exec(text)) !== null) {
+          const typeName = m[1];
+          const varName = m[2];
+          if (typeName && varName && !["String", "Integer", "Double", "Boolean", "Character", "System", "Main"].includes(typeName)) {
+            this.knownClasses.add(typeName);
+            this.knownVariables.set(varName, typeName);
+          }
         }
         // fields: e.g. private String name;
         const fieldRegex = /(?:(private|public|protected)\s+)?(?:static\s+)?(?:final\s+)?([A-Z][a-zA-Z0-9_]*|String|int|double|boolean|char|float|long)\s+([a-zA-Z0-9_]+)\s*(?:=|;)/g;
@@ -1108,9 +1119,10 @@
       this.currentFilterWord = currentWord;
       this.wordStartIndex = pos - currentWord.length;
 
+      const isTypingNew = /\bnew$/i.test(lineText);
+      const isAfterNewKeyword = isTypingNew || /\bnew\s+$/i.test(lineText) || /\bnew\s+([A-Za-z0-9_]*)$/i.test(lineText);
       const isAfterClassKeyword = /class\s+$/i.test(lineText) || /class\s+([A-Za-z0-9_]*)$/i.test(lineText);
-      const isAfterNewKeyword = /new\s+$/i.test(lineText) || /new\s+([A-Za-z0-9_]*)$/i.test(lineText);
-      const isAfterType = /(?:(?:private|public|protected)\s+)?(?:static\s+)?([A-Z][a-zA-Z0-9_]*|String|int|double|boolean|char|float|long)\s+([A-Za-z0-9_]*)$/i.test(lineText);
+      const isAfterType = !isAfterNewKeyword && /(?:(?:private|public|protected)\s+)?(?:static\s+)?([A-Z][a-zA-Z0-9_]*|String|int|double|boolean|char|float|long)\s+([A-Za-z0-9_]*)$/i.test(lineText);
       const isAfterDot = /\.\s*([A-Za-z0-9_]*)$/.test(lineText);
 
       if (!forceOpen && currentWord.length === 0 && !isAfterClassKeyword && !isAfterNewKeyword && !isAfterType && !isAfterDot) {
@@ -1118,7 +1130,7 @@
         return;
       }
 
-      const list = this.buildSuggestions(currentWord, lineText, isAfterClassKeyword, isAfterNewKeyword, isAfterType, isAfterDot);
+      const list = this.buildSuggestions(currentWord, lineText, isAfterClassKeyword, isAfterNewKeyword, isAfterType, isAfterDot, isTypingNew, val, pos);
 
       if (list.length === 0) {
         this.closeDropdown();
@@ -1131,7 +1143,7 @@
       this.positionDropdown(pos);
     },
 
-    buildSuggestions(filterWord, lineText, isAfterClass, isAfterNew, isAfterType, isAfterDot) {
+    buildSuggestions(filterWord, lineText, isAfterClass, isAfterNew, isAfterType, isAfterDot, isTypingNew = false, fullCode = "", cursorPos = 0) {
       const q = (filterWord || "").toLowerCase();
       const pool = [];
 
@@ -1196,8 +1208,59 @@
             });
           });
         }
+      } else if (isAfterNew) {
+        // 2. Instantiation (e.g. 'new ', 'new MedicalRecord', or currently typing 'new')
+        let preferredClass = null;
+        const lhsMatch = lineText.match(/(?:([A-Z][a-zA-Z0-9_]*)\s+)?([a-zA-Z0-9_]+)\s*=\s*(?:new)?/);
+        if (lhsMatch) {
+          if (lhsMatch[1] && lhsMatch[1] !== "Main") {
+            preferredClass = lhsMatch[1];
+            this.knownClasses.add(preferredClass);
+          } else if (lhsMatch[2] && this.knownVariables && this.knownVariables.has(lhsMatch[2])) {
+            preferredClass = this.knownVariables.get(lhsMatch[2]);
+          }
+        }
+
+        const afterCursor = (fullCode && typeof cursorPos === "number") ? fullCode.substring(cursorPos) : "";
+        const hasSemicolon = /^\s*;/.test(afterCursor);
+        const hasParen = /^\s*\)/.test(afterCursor);
+        const semi = (hasSemicolon || hasParen) ? "" : ";";
+
+        this.knownClasses.forEach(cls => {
+          if (cls !== "Main") {
+            const isPref = (cls === preferredClass);
+            if (isTypingNew) {
+              pool.push({
+                name: `${cls}()`,
+                badge: "cls",
+                type: "class",
+                insertText: `new ${cls}()${semi}`,
+                cursorOffset: 4 + cls.length + 2 + semi.length,
+                isPreferred: isPref
+              });
+            } else {
+              pool.push({
+                name: `${cls}()`,
+                badge: "cls",
+                type: "class",
+                insertText: `${cls}()${semi}`,
+                cursorOffset: cls.length + 2 + semi.length,
+                isPreferred: isPref
+              });
+            }
+          }
+        });
+
+        if (isTypingNew) {
+          pool.push({
+            name: "new",
+            badge: "kw",
+            type: "kw",
+            insertText: "new "
+          });
+        }
       } else if (isAfterType) {
-        // 2. Variable/Field Declaration: e.g. 'private String ' or 'String '
+        // 3. Variable/Field Declaration: e.g. 'private String ' or 'String '
         const typeMatch = lineText.match(/(?:(?:private|public|protected)\s+)?(?:static\s+)?([A-Z][a-zA-Z0-9_]*|String|int|double|boolean|char|float|long)\s+([A-Za-z0-9_]*)$/i);
         const declaredType = typeMatch ? typeMatch[1].toLowerCase() : "";
 
@@ -1221,7 +1284,7 @@
           }
         });
       } else if (isAfterClass) {
-        // 3. Class declaration
+        // 4. Class declaration
         this.knownClasses.forEach(cls => {
           if (cls !== "Main") {
             pool.push({
@@ -1233,19 +1296,6 @@
             });
           }
         });
-      } else if (isAfterNew) {
-        // 4. Instantiation
-        this.knownClasses.forEach(cls => {
-          if (cls !== "Main") {
-            pool.push({
-              name: `${cls}()`,
-              badge: "cls",
-              type: "class",
-              insertText: `${cls}();`,
-              cursorOffset: cls.length + 3
-            });
-          }
-        });
       } else {
         // 5. General programming keywords, methods, fields, classes
         const KEYWORD_ITEMS = [
@@ -1253,6 +1303,7 @@
           { name: "sout", badge: "snip", type: "snippet", insertText: "System.out.println();", cursorOffset: 19 },
           { name: "System.out.print()", badge: "snip", type: "snippet", insertText: "System.out.print();", cursorOffset: 17 },
           { name: "System", badge: "cls", type: "class", insertText: "System." },
+          { name: "new", badge: "kw", type: "kw", insertText: "new " },
           { name: "public", badge: "kw", type: "kw", insertText: "public " },
           { name: "private", badge: "kw", type: "kw", insertText: "private " },
           { name: "protected", badge: "kw", type: "kw", insertText: "protected " },
@@ -1321,6 +1372,13 @@
 
       // Ranking & Scoring Algorithm (Priority to prefix match & exact keywords)
       const scoreItem = (item) => {
+        // Preferred class constructor (e.g. 'MedicalRecord()' after '= new') gets highest priority
+        if (item.isPreferred) {
+          if (!q || q === "new" || item.name.toLowerCase().startsWith(q)) {
+            return 2500;
+          }
+        }
+
         if (!q) return 10;
         const name = item.name.toLowerCase();
         const clean = name.replace(/[();{}]/g, "").trim();
