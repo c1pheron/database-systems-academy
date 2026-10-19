@@ -876,7 +876,22 @@
       const start = textarea.selectionStart;
       const end = textarea.selectionEnd;
 
-      if (start === end) {
+      if (!isShift && start === end) {
+        // Expand 'sout' to System.out.println(); on Tab
+        const wordMatch = val.substring(0, start).match(/([a-zA-Z0-9_]+)$/);
+        if (wordMatch && wordMatch[1] === "sout") {
+          const wLen = 4;
+          const prefix = val.substring(0, start - wLen);
+          const suffix = val.substring(end);
+          const replacement = "System.out.println();";
+          textarea.value = prefix + replacement + suffix;
+          textarea.selectionStart = textarea.selectionEnd = start - wLen + 19;
+          this.closeDropdown();
+          this.triggerInputEvent();
+          this.updateHighlighting();
+          return;
+        }
+
         this.insertTextAtCursor("    ", start, end);
         textarea.selectionStart = textarea.selectionEnd = start + 4;
       } else {
@@ -1072,31 +1087,12 @@
           });
         }
 
-        // Scan starterCode & solution text
+        // Scan starterCode text
         extractFromText(this.currentChallenge.starterCode);
-        extractFromText(this.currentChallenge.solution);
       }
 
       // 2. Scan user's active editor code
       extractFromText(code);
-
-      // 3. Fallback standard OOP fields (name, price, title, id)
-      const standardFields = [
-        { name: "name", type: "String" },
-        { name: "price", type: "double" },
-        { name: "title", type: "String" },
-        { name: "id", type: "int" }
-      ];
-      standardFields.forEach(sf => addField(sf.name, sf.type, true));
-
-      // 4. Automatically generate getters & setters for all known fields
-      this.knownFields.forEach((info, fName) => {
-        const cap = fName.charAt(0).toUpperCase() + fName.slice(1);
-        const gName = (info.type === "boolean" ? "is" : "get") + cap;
-        const sName = "set" + cap;
-        addMethod(gName, info.type || "String", "", true, false, fName);
-        addMethod(sName, "void", `${info.type || "String"} ${fName}`, false, true, fName);
-      });
     },
 
     triggerAutocomplete(forceOpen = false) {
@@ -1139,26 +1135,67 @@
       const q = (filterWord || "").toLowerCase();
       const pool = [];
 
-      // 1. After dot (e.g. 'obj.' or 'this.')
+      // 1. After dot (e.g. 'obj.' or 'this.' or 'System.' or 'out.')
       if (isAfterDot) {
-        this.knownMethods.forEach(m => {
+        const dotMatch = lineText.match(/([A-Za-z0-9_]+)\.\s*([A-Za-z0-9_]*)$/);
+        const objBeforeDot = dotMatch ? dotMatch[1] : "";
+
+        if (objBeforeDot === "System") {
           pool.push({
-            name: `${m.name}()`,
-            badge: "fn",
-            type: "method",
-            insertText: `${m.name}()`,
-            cursorOffset: m.name.length + 2
+            name: "out.println()",
+            badge: "snip",
+            type: "snippet",
+            insertText: "out.println();",
+            cursorOffset: 12
           });
-        });
-        this.knownFields.forEach((info, fName) => {
           pool.push({
-            name: fName,
+            name: "out",
             badge: "var",
             type: "field",
-            insertText: fName,
-            cursorOffset: fName.length
+            insertText: "out."
           });
-        });
+        } else if (objBeforeDot === "out") {
+          pool.push({
+            name: "println()",
+            badge: "fn",
+            type: "method",
+            insertText: "println();",
+            cursorOffset: 8
+          });
+          pool.push({
+            name: "print()",
+            badge: "fn",
+            type: "method",
+            insertText: "print();",
+            cursorOffset: 6
+          });
+          pool.push({
+            name: "printf()",
+            badge: "fn",
+            type: "method",
+            insertText: "printf(\"\");",
+            cursorOffset: 8
+          });
+        } else {
+          this.knownMethods.forEach(m => {
+            pool.push({
+              name: `${m.name}()`,
+              badge: "fn",
+              type: "method",
+              insertText: `${m.name}()`,
+              cursorOffset: m.name.length + 2
+            });
+          });
+          this.knownFields.forEach((info, fName) => {
+            pool.push({
+              name: fName,
+              badge: "var",
+              type: "field",
+              insertText: fName,
+              cursorOffset: fName.length
+            });
+          });
+        }
       } else if (isAfterType) {
         // 2. Variable/Field Declaration: e.g. 'private String ' or 'String '
         const typeMatch = lineText.match(/(?:(?:private|public|protected)\s+)?(?:static\s+)?([A-Z][a-zA-Z0-9_]*|String|int|double|boolean|char|float|long)\s+([A-Za-z0-9_]*)$/i);
@@ -1212,6 +1249,10 @@
       } else {
         // 5. General programming keywords, methods, fields, classes
         const KEYWORD_ITEMS = [
+          { name: "System.out.println()", badge: "snip", type: "snippet", insertText: "System.out.println();", cursorOffset: 19 },
+          { name: "sout", badge: "snip", type: "snippet", insertText: "System.out.println();", cursorOffset: 19 },
+          { name: "System.out.print()", badge: "snip", type: "snippet", insertText: "System.out.print();", cursorOffset: 17 },
+          { name: "System", badge: "cls", type: "class", insertText: "System." },
           { name: "public", badge: "kw", type: "kw", insertText: "public " },
           { name: "private", badge: "kw", type: "kw", insertText: "private " },
           { name: "protected", badge: "kw", type: "kw", insertText: "protected " },
@@ -1225,7 +1266,6 @@
           { name: "double", badge: "kw", type: "kw", insertText: "double " },
           { name: "boolean", badge: "kw", type: "kw", insertText: "boolean " },
           { name: "void", badge: "kw", type: "kw", insertText: "void " },
-          { name: "sout", badge: "snip", type: "snippet", insertText: "System.out.println();", cursorOffset: 19 },
           { name: "public static void main", badge: "snip", type: "snippet", insertText: "public static void main(String[] args) {\n    \n}", cursorOffset: 46 }
         ];
 
@@ -1287,6 +1327,13 @@
 
         // Exact match
         if (clean === q || name === q) return 1000;
+
+        // Boost for System.out.println() when typing sys, sout, print, println
+        if (item.name === "System.out.println()") {
+          if (["sout", "sys", "system", "print", "println", "sy", "pr"].includes(q)) return 950;
+          if ("system.out.println".startsWith(q)) return 920;
+          if (q.startsWith("sys") || q.startsWith("print")) return 850;
+        }
 
         // Prefix match
         if (clean.startsWith(q)) {
@@ -1452,8 +1499,8 @@
         `;
       }
 
-      // Add known fields (e.g. name, price)
-      const topFields = Array.from(this.knownFields.keys()).slice(0, 2);
+      // Add known fields (up to 4 actual fields from challenge / code)
+      const topFields = Array.from(this.knownFields.keys()).slice(0, 4);
       topFields.forEach(fName => {
         html += `
           <button type="button" class="smart-chip-btn chip-class" data-action="insert" data-text="${fName}" title="${isEn ? "Field" : "Maydon"}: ${fName}">
@@ -1462,15 +1509,13 @@
         `;
       });
 
-      // Add known getters & setters (e.g. getName(), setName())
-      const topMethods = Array.from(this.knownMethods.keys())
-        .filter(m => m.startsWith("get") || m.startsWith("set"))
-        .slice(0, 3);
+      // Add known methods (ONLY methods genuinely declared in code or required by challenge)
+      const topMethods = Array.from(this.knownMethods.keys()).slice(0, 4);
 
       topMethods.forEach(mName => {
-        const isGetter = mName.startsWith("get");
-        const insText = isGetter ? `${mName}()` : `${mName}("");`;
-        const offset = isGetter ? mName.length + 2 : mName.length + 2;
+        const isGetter = mName.startsWith("get") || mName.startsWith("is");
+        const insText = isGetter ? `${mName}()` : `${mName}();`;
+        const offset = mName.length + 2;
         html += `
           <button type="button" class="smart-chip-btn chip-new" data-action="insert" data-text="${insText}" data-offset="${offset}" title="${mName}">
             <span>⚡</span> ${mName}()

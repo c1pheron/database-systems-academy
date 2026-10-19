@@ -105,11 +105,12 @@
 
         // B. Check missing semicolon ';' on statement lines
         // Ignore lines ending with { or }, or starting with keywords like if, for, while, else, class, interface, enum, annotations @
+        // Also ignore if inside unclosed parenthesis (parenStack.length > 0) e.g. multiline System.out.println(...)
         const isHeader = /^(class|interface|enum|abstract\s+class|public\s+class|public\s+interface|static|if|else|for|while|switch|try|catch|finally|synchronized|default)\b/.test(trimmed);
         const isAnnotation = trimmed.startsWith("@");
-        const endsWithValid = /([{};,]|\+|&&|\|\||\-|\*|\/)$/.test(trimmed);
+        const endsWithValid = /([{};,(\[.]|\+|&&|\|\||\-|\*|\/|=|\?|:)$/.test(trimmed);
 
-        if (!isHeader && !isAnnotation && !endsWithValid) {
+        if (parenStack.length === 0 && !isHeader && !isAnnotation && !endsWithValid) {
           // If it looks like a variable declaration, assignment, method call, or return
           const isStatement = /^(return|this\.|super\.|System\.out\.|throw\s|import\s|package\s|[A-Za-z0-9_<>\[\]]+\s+[A-Za-z0-9_]+\s*(=|;|\())/.test(trimmed);
           if (isStatement) {
