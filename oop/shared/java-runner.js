@@ -77,7 +77,7 @@
     },
 
     // 3. Intelligent Line-by-Line Structural & OOP Rules Validator
-    validateOOPRules(code, requirements = {}) {
+    validateOOPRules(code, requirements = {}, challenge = null) {
       const results = {
         passed: true,
         syntaxErrors: [],
@@ -94,8 +94,8 @@
           results.syntaxErrors = lint.errors;
         }
 
-        // 2. Analyze requirements against student's code
-        const sem = global.JavaAnalyzer.analyzeRequirements(code, requirements);
+        // 2. Analyze requirements and complete implementation against student's code
+        const sem = global.JavaAnalyzer.analyzeRequirements(code, requirements, challenge);
         results.semanticIssues = sem.issues;
         results.passedItems = sem.passedItems;
         if (!sem.passed) {

@@ -153,8 +153,8 @@
       };
     },
 
-    // 2. Deep Semantic Requirements Verification (Checks fields, types, modifiers, line numbers)
-    analyzeRequirements(rawCode, requirements = {}) {
+    // 2. Deep Semantic Requirements & Completion Verification (Checks fields, types, modifiers, instantiations, usage, calculations)
+    analyzeRequirements(rawCode, requirements = {}, challenge = null) {
       const issues = [];
       const passedItems = [];
       const lines = rawCode.split("\n");
@@ -167,10 +167,34 @@
         return null;
       }
 
+      // Helper to strip comments and string literals for accurate symbol counting
+      function cleanJavaCode(code) {
+        return code
+          .replace(/\/\/.*$/gm, "")
+          .replace(/\/\*[\s\S]*?\*\//g, "")
+          .replace(/"(?:[^"\\]|\\.)*"/g, '""');
+      }
+
+      function getMainBody(code) {
+        const start = code.search(/public\s+static\s+void\s+main\b/);
+        if (start === -1) return null;
+        const openBrace = code.indexOf("{", start);
+        if (openBrace === -1) return null;
+        let depth = 1, idx = openBrace + 1;
+        while (idx < code.length && depth > 0) {
+          if (code[idx] === "{") depth++;
+          else if (code[idx] === "}") depth--;
+          idx++;
+        }
+        return code.substring(openBrace + 1, idx - 1);
+      }
+
+      const cleanCode = cleanJavaCode(rawCode);
+
       // 1. Check Classes & Interfaces
       if (requirements.classes) {
         for (const cls of requirements.classes) {
-          const clsRegex = new RegExp(`\\b(class|interface)\\s+${cls}\\b`);
+          const clsRegex = new RegExp(`\\b(class|interface|enum|record)\\s+${cls}\\b`);
           const lineNum = findLineNumber(clsRegex);
 
           if (lineNum) {
@@ -183,7 +207,7 @@
             let typoLine = null;
             let typoName = null;
             for (let i = 0; i < lines.length; i++) {
-              const m = lines[i].match(/\b(class|interface)\s+([A-Za-z0-9_]+)\b/);
+              const m = lines[i].match(/\b(class|interface|enum|record)\s+([A-Za-z0-9_]+)\b/);
               if (m && m[2] !== "Main" && m[2] !== cls) {
                 // Check similarity
                 if (m[2].toLowerCase().includes(cls.toLowerCase().substring(0, 3))) {
@@ -213,13 +237,12 @@
         }
       }
 
-      // 2. Check Specific Fields with Types
+      // 2. Check Specific Fields with Types and Actual Usage
       if (requirements.fields) {
         for (const reqField of requirements.fields) {
-          // reqField can be { name: "price", type: "double", class: "Product" }
           const fieldName = reqField.name;
           const expectedType = reqField.type;
-          
+
           // Regex to locate the field declaration on any line
           const fieldDeclRegex = new RegExp(`\\b(?:(?:public|private|protected|final|static|volatile)\\s+)*([A-Za-z0-9_<>\\[\\]]+)\\s+${fieldName}\\s*(?:=[^;]+)?\\s*;`);
           let found = false;
@@ -252,9 +275,25 @@
             issues.push({
               line: null,
               title: `'${fieldName}' maydoni yetishmayapti`,
-              message: `'${fieldName}' nomli maydon topilmadi. Talab qilingan tur: '${expectedType || "mos tur"}'.`,
+              message: `'${fieldName}' nomli maydon klass ichida topilmadi. Talab qilingan tur: '${expectedType || "mos tur"}'.`,
               fix: `'${expectedType ? expectedType + " " : ""}${fieldName};' ko'rinishida klass ichiga qo'shing.`
             });
+          } else {
+            // Check if field is actually used / assigned
+            const occurrences = (cleanCode.match(new RegExp(`\\b${fieldName}\\b`, "g")) || []).length;
+            if (occurrences < 2) {
+              issues.push({
+                line: findLineNumber(new RegExp(`\\b${fieldName}\\b`)),
+                title: `'${fieldName}' maydoniga qiymat berilmagan`,
+                message: `'${fieldName}' maydoni klassda e'lon qilingan, lekin unga qiymat berilmagan yoki dasturda ishlatilmagan! Ob'yekt orqali unga qiymat yuklang yoki hisob-kitobda qo'llang.`,
+                fix: `'obj.${fieldName} = ...;' (yoki konstruktor/setter orqali) qiymat yuklang.`
+              });
+            } else {
+              passedItems.push({
+                name: `'${fieldName}' maydoni ishlatildi`,
+                detail: "Maydonga qiymat berildi va masalada foydalanildi."
+              });
+            }
           }
         }
       }
@@ -271,7 +310,6 @@
               detail: `${lineNum}-qatorda 'private' bilan to'g'ri himoyalangan.`
             });
           } else {
-            // Find where this field was declared as public or default
             const openFieldRegex = new RegExp(`\\b(public|protected)?\\s*(?:(?:final|static|volatile)\\s+)*([A-Za-z0-9_<>\\[\\]]+)\\s+${field}\\b`);
             const openLine = findLineNumber(openFieldRegex);
 
@@ -294,7 +332,7 @@
         }
       }
 
-      // 4. Check Methods & Getters/Setters
+      // 4. Check Methods & Invocations
       if (requirements.methods) {
         for (const m of requirements.methods) {
           const methodRegex = new RegExp(`\\b${m}\\s*\\(`);
@@ -305,6 +343,23 @@
               name: `'${m}()' metodi`,
               detail: `${lineNum}-qatorda to'g'ri yaratilgan.`
             });
+
+            // Check if method is invoked in main (if challenge solution invokes it)
+            if (challenge && challenge.solution && new RegExp(`\\.${m}\\s*\\(`).test(challenge.solution)) {
+              if (!new RegExp(`\\.${m}\\s*\\(`).test(cleanCode)) {
+                issues.push({
+                  line: lineNum,
+                  title: `'${m}()' metodi chaqirilmagan`,
+                  message: `'${m}()' metodi e'lon qilingan, lekin 'main' metodida chaqirib natijasi tekshirilmagan! Ob'yekt orqali metodni ishga tushiring.`,
+                  fix: `'obj.${m}(...);' ko'rinishida metodni chaqiring.`
+                });
+              } else {
+                passedItems.push({
+                  name: `'${m}()' metodi chaqirildi`,
+                  detail: "Metod ob'yekt orqali to'g'ri ishlatildi."
+                });
+              }
+            }
           } else {
             issues.push({
               line: null,
@@ -338,7 +393,7 @@
         }
       }
 
-      // 6. Check Specific OOP Keywords (extends, implements, super, @Override, this, etc.)
+      // 6. Check Specific OOP Keywords
       if (requirements.keywords) {
         for (const kw of requirements.keywords) {
           const kwRegex = new RegExp(`\\b${kw.replace("@", "\\@")}\\b`);
@@ -357,6 +412,114 @@
               fix: `'${kw}' kalit so'zini tegishli o'rinda qo'llang.`
             });
           }
+        }
+      }
+
+      // 7. Check 'main' Method Existence & Non-Empty Implementation
+      const hasMainReq = (requirements.classes || []).includes("Main") ||
+        (challenge && challenge.solution && challenge.solution.includes("public static void main"));
+      if (hasMainReq) {
+        const mainBody = getMainBody(cleanCode);
+        if (mainBody === null) {
+          issues.push({
+            line: null,
+            title: "'main' metodi topilmadi",
+            message: "Dasturni ishga tushirish uchun 'public static void main(String[] args)' metodi e'lon qilinishi shart!",
+            fix: "'public static void main(String[] args) { ... }' metodini Main klassi ichiga qo'shing."
+          });
+        } else {
+          const stripped = mainBody.replace(/\s+/g, "");
+          if (stripped.length === 0) {
+            issues.push({
+              line: findLineNumber(/public\s+static\s+void\s+main/),
+              title: "'main' metodi bo'sh",
+              message: "'main' metodi ichida hech qanday amal yozilmagan! Masala shartida talab qilingan ob'yekt yaratish, maydonlarga qiymat berish va natijani ekranga chiqarish amallarini 'main' ichida yozing.",
+              fix: "'main' metodida topshiriq shartlarini yakunlang."
+            });
+          } else {
+            passedItems.push({
+              name: "'main' ijro metodi",
+              detail: "Bajariluvchi dastur logikasi mavjud."
+            });
+          }
+        }
+      }
+
+      // 8. Domain Classes Instantiation Check ('new ClassName')
+      if (requirements.classes && challenge && challenge.solution) {
+        for (const cls of requirements.classes) {
+          if (cls === "Main") continue;
+          if (new RegExp(`\\bnew\\s+${cls}\\b`).test(challenge.solution)) {
+            if (!new RegExp(`\\bnew\\s+${cls}\\b`).test(cleanCode)) {
+              issues.push({
+                line: findLineNumber(/public\s+static\s+void\s+main/) || null,
+                title: `'${cls}' ob'yekti yaratilmagan`,
+                message: `'main' metodi ichida '${cls}' klassidan 'new ${cls}(...)' orqali yangi ob'yekt (nusxa) yaratilishi shart!`,
+                fix: `'${cls} obj = new ${cls}(...);' ko'rinishida ob'yekt yarating.`
+              });
+            } else {
+              passedItems.push({
+                name: `'${cls}' ob'yekti yaratildi`,
+                detail: `'new ${cls}(...)' orqali muvaffaqiyatli xotiradan joy olindi.`
+              });
+            }
+          }
+        }
+      }
+
+      // 9. Console Printing Check ('System.out.println')
+      const expectsPrint = (challenge && challenge.solution && challenge.solution.includes("System.out.print")) ||
+        (!challenge && true);
+      if (expectsPrint) {
+        if (!cleanCode.includes("System.out.print")) {
+          issues.push({
+            line: null,
+            title: "Natija ekranga chop etilmagan",
+            message: "Masala shartiga ko'ra natijalar 'System.out.println(...)' orqali ekranga chiqarilishi shart!",
+            fix: "'System.out.println(...);' qo'shib hisoblangan natijani konsolga chiqaring."
+          });
+        } else {
+          passedItems.push({
+            name: "Konsolga chop etish",
+            detail: "System.out.println() to'g'ri qo'llangan."
+          });
+        }
+      }
+
+      // 10. Core Scenario Calculations & Logic Check
+      if (challenge && challenge.scenario && challenge.scenario.uz) {
+        const sc = challenge.scenario.uz;
+        if (sc.includes("totalRamMb - usedRamMb") && !cleanCode.includes("-")) {
+          issues.push({
+            line: null,
+            title: "Bo'sh RAM ayirmasi hisoblanmagan",
+            message: "Masala shartiga ko'ra bo'sh qolgan xotirani hisoblash ('totalRamMb - usedRamMb') ayirish '-' amali orqali bajarilishi shart!",
+            fix: "'int freeRam = node.totalRamMb - node.usedRamMb;' hisob-kitobini yozing."
+          });
+        }
+        if (sc.includes("distanceKm * ratePerKm") && !cleanCode.includes("*")) {
+          issues.push({
+            line: null,
+            title: "Yo'l haqi hisob-kitobi bajarilmagan",
+            message: "Masala shartiga ko'ra umumiy yo'l haqini hisoblash ('distanceKm * ratePerKm') ko'paytirish '*' amali orqali bajarilishi shart!",
+            fix: "'double total = trip.distanceKm * trip.ratePerKm;' hisob-kitobini yozing."
+          });
+        }
+        if (sc.includes("isCompleted == true") && !cleanCode.includes("if") && !cleanCode.includes("?")) {
+          issues.push({
+            line: null,
+            title: "Tranzaksiya holati tekshirilmagan",
+            message: "Masala shartiga ko'ra 'isCompleted' maydoni 'if' yoki '?' (ternary) orqali tekshirilishi shart!",
+            fix: "'String status = tx.isCompleted ? \"Muvaffaqiyatli\" : \"Kutilmoqda\";' deb shart qo'ying."
+          });
+        }
+        if (sc.includes("GPA ko'rsatkichini solishtirib") && !cleanCode.includes("if") && !cleanCode.includes(">") && !cleanCode.includes("<")) {
+          issues.push({
+            line: null,
+            title: "GPA larni solishtirish sharti yozilmagan",
+            message: "Masala shartiga ko'ra talabalarning GPA ko'rsatkichlari 'if' va '>' orqali solishtirilishi shart!",
+            fix: "'if (s1.gpa > s2.gpa) { ... }' ko'rinishida shart yozing."
+          });
         }
       }
 

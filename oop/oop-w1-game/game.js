@@ -138,8 +138,8 @@
       if (ch.requirements.fields) {
         const fieldStr = ch.requirements.fields.map(f => "<code>" + f.type + " " + f.name + "</code>").join(", ");
         reqHtml += isEn
-          ? "<li><strong>Fields:</strong> Define <code>" + fieldStr + "</code> with appropriate types.</li>"
-          : "<li><strong>Maydonlar:</strong> " + fieldStr + " maydonlari to'g'ri turda yozilsin.</li>";
+          ? "<li><strong>Fields:</strong> Define <code>" + fieldStr + "</code> with appropriate types and assign values in main.</li>"
+          : "<li><strong>Maydonlar:</strong> " + fieldStr + " maydonlari to'g'ri turda e'lon qilinishi va qiymat berilishi shart.</li>";
       }
       if (ch.requirements.privateFields) {
         reqHtml += isEn
@@ -148,8 +148,8 @@
       }
       if (ch.requirements.methods && ch.requirements.methods.length > 0) {
         reqHtml += isEn
-          ? "<li><strong>Methods:</strong> Implement <code>" + ch.requirements.methods.join("(), ") + "()</code> method(s).</li>"
-          : "<li><strong>Metodlar:</strong> <code>" + ch.requirements.methods.join("(), ") + "()</code> metodi yaratilsin.</li>";
+          ? "<li><strong>Methods:</strong> Implement and call <code>" + ch.requirements.methods.join("(), ") + "()</code>.</li>"
+          : "<li><strong>Metodlar:</strong> <code>" + ch.requirements.methods.join("(), ") + "()</code> metodi yaratilsin va chaqirilsin.</li>";
       }
       if (ch.requirements.constructors) {
         reqHtml += isEn
@@ -161,9 +161,20 @@
           ? "<li><strong>Keywords:</strong> Must use keyword(s) <code>" + ch.requirements.keywords.join(", ") + "</code>.</li>"
           : "<li><strong>Kalit so'zlar:</strong> <code>" + ch.requirements.keywords.join(", ") + "</code> qo'llanilishi kerak.</li>";
       }
+      const domainCls = (ch.requirements.classes || []).filter(c => c !== "Main");
+      if (domainCls.length > 0 && ch.solution && ch.solution.includes("new ")) {
+        reqHtml += isEn
+          ? "<li><strong>Object Creation:</strong> Instantiate <code>new " + domainCls[0] + "()</code> inside <code>main</code>.</li>"
+          : "<li><strong>Obyekt yaratish:</strong> <code>main</code> metodida <code>new " + domainCls[0] + "()</code> orqali obyekt yaratilib, maydonlariga qiymat yuklansin.</li>";
+      }
+      if (ch.solution && ch.solution.includes("System.out.print")) {
+        reqHtml += isEn
+          ? "<li><strong>Console Output:</strong> Complete all calculations and print results using <code>System.out.println()</code>.</li>"
+          : "<li><strong>Natijani chiqarish:</strong> Shartdagi amallarni to'liq yakunlab, natijalarni <code>System.out.println()</code> orqali konsolga chop eting.</li>";
+      }
       reqHtml += isEn
-        ? "<li>Ensure zero syntax errors and follow Clean Code conventions.</li>"
-        : "<li>Sintaksis xatolarisiz va Clean Code qoidalariga mos yozing.</li>";
+        ? "<li>Ensure complete implementation with zero syntax errors and Clean Code conventions.</li>"
+        : "<li>Masalani oxirigacha to'liq yeching, sintaksis xatolarisiz va Clean Code qoidalariga mos yozing.</li>";
       reqList.innerHTML = reqHtml;
     }
 
@@ -417,14 +428,28 @@ class Main {
     const isEn = currentLang === "en";
     consoleOut.className = "console-output";
     consoleOut.textContent = isEn
-      ? "⏳ Verifying code requirements and executing on OpenJDK 21 JVM..."
-      : "⏳ Kod talablari tekshirilmoqda va OpenJDK 21 JVM da ishga tushirilmoqda...";
+      ? "⏳ Verifying full code requirements and executing on OpenJDK 21 JVM..."
+      : "⏳ Barcha topshiriq detallari tekshirilmoqda va OpenJDK 21 JVM da ishga tushirilmoqda...";
 
-    // 1. Static OOP and syntax verification
-    const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch.requirements);
+    // 1. Static OOP and syntax verification (passes full challenge object)
+    const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch.requirements, ch);
 
     // 2. Real OpenJDK 21 execution
     const runResult = await window.JavaRunner.runOnOpenJDK21(codeArea.value);
+
+    // 3. Strict verification of execution output
+    const hasOutput = runResult.success && runResult.output && runResult.output.trim().length > 0;
+    if (runResult.success && !hasOutput) {
+      validation.passed = false;
+      validation.semanticIssues.push({
+        line: null,
+        title: isEn ? "Program Produced No Console Output" : "Konsolga hech qanday natija chop etilmadi",
+        message: isEn
+          ? "The program completed with no printed output. The task requires results to be displayed using System.out.println()!"
+          : "Dastur muvaffaqiyatli kompilyatsiya qilindi, lekin konsolga hech narsa chop etilmadi. Masala oxiriga yetishi uchun hisoblangan natijalar 'System.out.println(...)' orqali ekranga chiqarilishi shart!",
+        fix: isEn ? "Add System.out.println(...); to display results." : "Natijani chiqarish uchun 'System.out.println(...);' qo'shing."
+      });
+    }
 
     let report = "";
 
@@ -437,27 +462,29 @@ class Main {
         report += runResult.output + "\n\n";
       } else {
         report += (isEn
-          ? "(Program finished successfully with no printed output. Use System.out.println() to print results.)\n\n"
-          : "(Dastur muvaffaqiyatli yakunlandi, lekin konsolga hech narsa chop etilmadi. Natijani ko'rish uchun System.out.println() dan foydalaning.)\n\n");
+          ? "(Program finished with no printed output. Use System.out.println() to print results.)\n\n"
+          : "(Dastur yakunlandi, lekin konsolga hech narsa chop etilmadi. Natijani ko'rish uchun System.out.println() dan foydalaning.)\n\n");
       }
     }
 
-    // B. Check both OOP rules AND OpenJDK 21 compilation
-    if (validation.passed && runResult.success) {
+    // B. Check both OOP rules AND OpenJDK 21 compilation AND non-empty output
+    if (validation.passed && runResult.success && hasOutput) {
       consoleOut.className = "console-output success";
       solvedQuestions.add(ch.id);
       saveSolved();
       renderHUD();
 
       report += "==================================================\n";
-      report += isEn ? "🎉 VERIFICATION SUCCESSFUL (PROFESSOR ADA)\n" : "🎉 TEKSHIRUV: BARCHA TALABLAR TO'G'RI BAJARILDI!\n";
+      report += isEn ? "🎉 VERIFICATION SUCCESSFUL (PROFESSOR ADA)\n" : "🎉 TEKSHIRUV: BARCHA TALABLAR TO'LIQ BAJARILDI!\n";
       report += "==================================================\n\n";
       report += isEn
-        ? "✔️ All OOP Conditions & Requirements Fully Satisfied\n" +
+        ? "✔️ All OOP Conditions & Deep Requirements Fully Satisfied\n" +
           "✔️ OpenJDK 21 Java Compiler: 0 Errors Detected\n" +
+          "✔️ Valid Execution Output Verified on Console\n" +
           "⭐ +50 Points Added to Rating Score!\n"
-        : "✔️ Barcha OOP shartlari va talablari to'liq qanoatlantirildi\n" +
+        : "✔️ Barcha OOP shartlari va nozik detallari to'liq bajarildi\n" +
           "✔️ OpenJDK 21 Java Kompilyatori: 0 ta xatolik aniqlandi\n" +
+          "✔️ Konsolga talab qilingan natija to'liq chop etildi\n" +
           "⭐ Reytingga +50 Ball qo'shildi!\n";
 
       if (validation.passedItems && validation.passedItems.length > 0) {
@@ -490,10 +517,10 @@ class Main {
         }
       }
 
-      // If OOP requirements or syntax linting failed
+      // If OOP requirements or syntax linting failed or task incomplete
       if (!validation.passed) {
         report += "==================================================\n";
-        report += isEn ? "❌ OOP REQUIREMENTS OR SYNTAX ISSUES\n" : "❌ OOP TALABLARI VA SINTAKSIS TEKSHIRUVI\n";
+        report += isEn ? "❌ CHALLENGE NOT FULLY COMPLETED (PROFESSOR ADA)\n" : "❌ MASALA TO'LIQ YAKUNLANMAGAN (PROFESSOR ADA TEKSHIRUVI)\n";
         report += "==================================================\n\n";
 
         if (validation.syntaxErrors && validation.syntaxErrors.length > 0) {
@@ -515,8 +542,8 @@ class Main {
       }
 
       report += isEn
-        ? "💡 Professor Ada Advice: Review the highlighted issues above, correct your code, and test again!"
-        : "💡 Professor Ada Maslahati: Yuqorida ko'rsatilgan qatorlardagi xatoliklarni to'g'rilab, qayta tekshiring!";
+        ? "💡 Professor Ada Advice: Solve all required steps to completion and test again!"
+        : "💡 Professor Ada Maslahati: Masalani oxirigacha to'liq yakunlang (ob'yekt yaratish, qiymat berish, hisoblash va natijani ekranga chiqarish) hamda qayta tekshiring!";
     }
 
     consoleOut.textContent = report;
@@ -534,6 +561,69 @@ class Main {
 
     const res = await window.JavaRunner.runOnOpenJDK21(codeArea.value);
 
+    // In Challenge Mode, also run strict verification so student cannot pass with incomplete code
+    if (currentAppMode === "challenge") {
+      const ch = CHALLENGES[currentQIndex];
+      const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch ? ch.requirements : {}, ch);
+      const hasOutput = res.success && res.output && res.output.trim().length > 0;
+
+      if (res.success && validation.passed && hasOutput) {
+        consoleOut.className = "console-output success";
+        solvedQuestions.add(ch.id);
+        saveSolved();
+        renderHUD();
+
+        consoleOut.textContent = "==================================================\n" +
+          (isEn ? "☕ OPENJDK 21 EXECUTION OUTPUT (STDOUT)\n" : "☕ OPENJDK 21 DASTUR CHIQISHI (STDOUT)\n") +
+          "==================================================\n\n" +
+          res.output +
+          "\n\n==================================================\n" +
+          (isEn ? "🎉 EXCELLENT! ALL REQUIREMENTS MET SUCCESSFULLY!\n" : "🎉 A'LO! BARCHA TALABLAR TO'LIQ BAJARILDI!\n") +
+          (isEn ? "⭐ +50 Points Added to Rating Score!" : "⭐ Reytingga +50 Ball qo'shildi!");
+        return;
+      } else if (res.success) {
+        consoleOut.className = "console-output error";
+        let report = "==================================================\n";
+        report += isEn ? "☕ OPENJDK 21 EXECUTION OUTPUT (STDOUT)\n" : "☕ OPENJDK 21 DASTUR CHIQISHI (STDOUT)\n";
+        report += "==================================================\n\n";
+        report += (res.output ? res.output + "\n\n" : (isEn ? "(No printed output. Use System.out.println() to print results.)\n\n" : "(Konsolga hech narsa chop etilmadi. System.out.println() orqali natija chiqaring.)\n\n"));
+
+        report += "==================================================\n";
+        report += isEn ? "⚠️ CHALLENGE NOT YET COMPLETED TO FULL DEPTH\n" : "⚠️ MASALA HALI OXIRIGACHA YETMAGAN (PROFESSOR ADA TEKSHIRUVI)\n";
+        report += "==================================================\n\n";
+
+        if (!hasOutput) {
+          report += isEn
+            ? "📍 [Console Output]: Program produced no output. Print results using System.out.println()!\n\n"
+            : "📍 [Konsol chiqishi]: Dastur ekranga hech narsa chop etmadi. Masala yechimi natijasini 'System.out.println()' orqali chiqaring!\n\n";
+        }
+
+        if (validation.syntaxErrors && validation.syntaxErrors.length > 0) {
+          validation.syntaxErrors.forEach(err => {
+            const lineStr = isEn ? `[Line ${err.line}]` : `[${err.line}-Qator]`;
+            report += "📍 " + lineStr + ": " + err.message + "\n";
+            if (err.fix) report += (isEn ? "   💡 Tip: " : "   💡 Tavsiya: ") + err.fix + "\n\n";
+          });
+        }
+
+        if (validation.semanticIssues && validation.semanticIssues.length > 0) {
+          validation.semanticIssues.forEach(iss => {
+            const linePrefix = iss.line ? (isEn ? "[Line " + iss.line + "]: " : "[" + iss.line + "-Qator]: ") : "";
+            report += "📍 " + linePrefix + (iss.message || iss.title) + "\n";
+            if (iss.fix) report += (isEn ? "   💡 Tip: " : "   💡 Tavsiya: ") + iss.fix + "\n\n";
+          });
+        }
+
+        report += isEn
+          ? "💡 Complete the remaining steps above to finish the challenge!"
+          : "💡 Masalani to'liq yakunlash uchun yuqorida qolib ketgan qismlarni yozing va qayta tekshiring!";
+
+        consoleOut.textContent = report;
+        return;
+      }
+    }
+
+    // In Playground mode or if compilation failed
     if (res.success) {
       consoleOut.className = "console-output success";
       consoleOut.textContent = "==================================================\n" +
