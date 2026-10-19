@@ -217,7 +217,7 @@
       try {
         saved = localStorage.getItem(CODE_STORAGE_PREFIX + ch.id);
       } catch (e) {}
-      if (saved !== null && saved !== undefined) {
+      if (saved !== null && saved !== undefined && saved.trim().length > 0) {
         codeArea.value = saved;
       } else {
         codeArea.value = ch.starterCode || "";
@@ -235,6 +235,7 @@
     updateUML();
     if (window.JavaEditorEnhancer) {
       window.JavaEditorEnhancer.setChallenge(ch);
+      window.JavaEditorEnhancer.updateHighlighting();
     }
   }
 
@@ -958,8 +959,8 @@ class Main {
         const h = parseInt(savedConsH, 10);
         if (!isNaN(h) && h >= 44 && h <= 900) {
           const paneRightH = paneRight ? paneRight.getBoundingClientRect().height : window.innerHeight;
-          const maxStartH = Math.max(120, Math.round(paneRightH * 0.35) || 140);
-          const effectiveH = Math.min(h, maxStartH);
+          const maxStartH = Math.max(140, Math.round(paneRightH * 0.45) || 160);
+          const effectiveH = Math.min(Math.max(44, h), maxStartH);
           consoleSection.style.setProperty("height", effectiveH + "px", "important");
           consoleSection.style.setProperty("flex", "0 0 " + effectiveH + "px", "important");
           document.documentElement.style.setProperty("--console-height", effectiveH + "px");
@@ -987,6 +988,7 @@ class Main {
         window.addEventListener("mouseup", onPointerUpH);
         window.addEventListener("touchmove", onPointerMoveH, { passive: false });
         window.addEventListener("touchend", onPointerUpH);
+        window.addEventListener("blur", onPointerUpH);
       };
 
       const onPointerMoveH = (e) => {
@@ -1011,8 +1013,8 @@ class Main {
         if (window.UMLRenderer && typeof window.UMLRenderer.fitToView === "function") {
           window.UMLRenderer.fitToView("umlContainer");
         }
-        if (window.JavaEditorEnhancer && typeof window.JavaEditorEnhancer.updateHighlighting === "function") {
-          window.JavaEditorEnhancer.updateHighlighting();
+        if (window.JavaEditorEnhancer && typeof window.JavaEditorEnhancer.syncScroll === "function") {
+          window.JavaEditorEnhancer.syncScroll();
         }
       };
 
@@ -1026,11 +1028,16 @@ class Main {
         window.removeEventListener("mouseup", onPointerUpH);
         window.removeEventListener("touchmove", onPointerMoveH);
         window.removeEventListener("touchend", onPointerUpH);
+        window.removeEventListener("blur", onPointerUpH);
 
         try {
           const finalW = Math.round(paneLeft.getBoundingClientRect().width);
           localStorage.setItem(STORAGE_LEFT_W, String(finalW));
         } catch (e) {}
+
+        if (window.JavaEditorEnhancer && typeof window.JavaEditorEnhancer.updateHighlighting === "function") {
+          window.JavaEditorEnhancer.updateHighlighting();
+        }
       };
 
       paneResizerH.addEventListener("mousedown", onPointerDownH);
@@ -1047,8 +1054,8 @@ class Main {
         isDraggingV = true;
 
         const curY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
-        const consoleRect = consoleSection.getBoundingClientRect();
-        offsetY = (curY !== undefined && consoleRect) ? (curY - consoleRect.top) : 0;
+        const resizerRect = consoleResizerV.getBoundingClientRect();
+        offsetY = (curY !== undefined && resizerRect) ? (curY - resizerRect.top) : 4;
 
         document.body.classList.add("is-resizing-v");
         consoleResizerV.classList.add("is-resizing");
@@ -1057,6 +1064,7 @@ class Main {
         window.addEventListener("mouseup", onPointerUpV);
         window.addEventListener("touchmove", onPointerMoveV, { passive: false });
         window.addEventListener("touchend", onPointerUpV);
+        window.addEventListener("blur", onPointerUpV);
       };
 
       const onPointerMoveV = (e) => {
@@ -1067,11 +1075,11 @@ class Main {
         if (curY === undefined || curY === null) return;
 
         const paneRightRect = paneRight.getBoundingClientRect();
-        const targetConsoleTop = curY - offsetY;
-        let newHeight = Math.round(paneRightRect.bottom - targetConsoleTop);
+        const targetResizerTop = curY - offsetY;
+        let newHeight = Math.round(paneRightRect.bottom - targetResizerTop);
 
         const minH = 44;
-        const maxH = Math.max(minH, Math.round(paneRightRect.height - 120));
+        const maxH = Math.max(minH + 60, Math.round(paneRightRect.height - 180));
 
         if (newHeight < minH) newHeight = minH;
         if (newHeight > maxH) newHeight = maxH;
@@ -1081,8 +1089,8 @@ class Main {
         document.documentElement.style.setProperty("--console-height", newHeight + "px");
         paneRight.style.setProperty("--console-height", newHeight + "px");
 
-        if (window.JavaEditorEnhancer && typeof window.JavaEditorEnhancer.updateHighlighting === "function") {
-          window.JavaEditorEnhancer.updateHighlighting();
+        if (window.JavaEditorEnhancer && typeof window.JavaEditorEnhancer.syncScroll === "function") {
+          window.JavaEditorEnhancer.syncScroll();
         }
       };
 
@@ -1096,11 +1104,16 @@ class Main {
         window.removeEventListener("mouseup", onPointerUpV);
         window.removeEventListener("touchmove", onPointerMoveV);
         window.removeEventListener("touchend", onPointerUpV);
+        window.removeEventListener("blur", onPointerUpV);
 
         try {
           const finalH = Math.round(consoleSection.getBoundingClientRect().height);
           localStorage.setItem(STORAGE_CONS_H, String(finalH));
         } catch (e) {}
+
+        if (window.JavaEditorEnhancer && typeof window.JavaEditorEnhancer.updateHighlighting === "function") {
+          window.JavaEditorEnhancer.updateHighlighting();
+        }
       };
 
       consoleResizerV.addEventListener("mousedown", onPointerDownV);

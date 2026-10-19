@@ -68,10 +68,11 @@ html, body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 13.5px;
   line-height: 1.5;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: clip;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -343,8 +344,9 @@ input, textarea, select, [contenteditable="true"] {
   flex-direction: row;
   flex: 1;
   gap: 0;
-  min-height: 0;
+  min-height: 250px;
   position: relative;
+  overflow: hidden;
 }
 
 /* Left Pane: Problem Description & UML Diagram */
@@ -709,7 +711,7 @@ input, textarea, select, [contenteditable="true"] {
 .editor-wrapper {
   position: relative;
   flex: 1;
-  min-height: 80px;
+  min-height: 140px;
   display: flex;
   flex-direction: column;
 }
@@ -731,10 +733,10 @@ input, textarea, select, [contenteditable="true"] {
 
 /* Console Output Section */
 .console-section {
-  flex: 0 0 var(--console-height, 120px) !important;
-  height: var(--console-height, 120px) !important;
+  flex: 0 0 var(--console-height, 130px) !important;
+  height: var(--console-height, 130px) !important;
   min-height: 44px !important;
-  max-height: calc(100% - 100px) !important;
+  max-height: calc(100% - 180px) !important;
   background: var(--bg-terminal);
   border-top: none;
   display: flex !important;

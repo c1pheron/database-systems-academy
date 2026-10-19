@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=20261019_v26_gutter_scroll_and_workspace_bounds">
+  <link rel="stylesheet" href="styles.css?v=20261019_v27_fix_frozen_console_and_editor_visibility">
             <style id="criticalEditorStyles">
     /* CONSOLAS FONT DEFINITION (Loaded on mobile & fallbacks) */
     @font-face {
@@ -391,16 +391,17 @@
     .editor-wrapper {
       position: relative !important;
       flex: 1 1 0% !important;
-      min-height: 80px !important;
+      min-height: 140px !important;
       display: flex !important;
       flex-direction: column !important;
+      overflow: hidden !important;
     }
     .code-editor-surface {
       position: relative !important;
       display: flex !important;
       flex: 1 1 0% !important;
       width: 100% !important;
-      min-height: 60px !important;
+      min-height: 80px !important;
       background: #0d0a1f !important;
       border: 1px solid rgba(168, 85, 247, 0.28) !important;
       border-radius: 0 0 8px 8px !important;
@@ -513,7 +514,7 @@
       margin: 0 !important;
       border: none !important;
       background: transparent !important;
-      color: inherit !important;
+      color: #f1f5f9 !important;
     }
 
     .code-highlight-backdrop {
@@ -545,6 +546,14 @@
       -webkit-text-fill-color: transparent !important;
     }
 
+    /* CRITICAL VISIBILITY FALLBACK: If highlight layer is empty or not yet populated, make textarea text immediately visible in crisp white (#f1f5f9) so user NEVER sees a blank editor! */
+    .code-highlight-backdrop:empty + .code-textarea,
+    .code-highlight-backdrop:has(#codeHighlightContent:empty) + .code-textarea,
+    .code-highlight-backdrop:not(:has(*)) + .code-textarea {
+      color: #f1f5f9 !important;
+      -webkit-text-fill-color: #f1f5f9 !important;
+    }
+
     /* Syntax Tokens on Cosmic Dark Background */
     .tok-keyword { color: #f97316 !important; font-weight: 700 !important; }
     .tok-type { color: #38bdf8 !important; font-weight: 600 !important; }
@@ -573,6 +582,14 @@
         /* =========================================================================
        RESPONSIVE ADAPTATION & PC WINDOW RESIZE FIXES (NO OVERLAPPING / NO WRAP)
        ========================================================================= */
+    html, body {
+      height: 100vh !important;
+      max-height: 100vh !important;
+      overflow: hidden !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
     .top-hud {
       display: flex !important;
       flex-wrap: nowrap !important;
@@ -582,19 +599,28 @@
       scrollbar-width: none !important;
       gap: 8px !important;
       min-height: 48px !important;
+      flex-shrink: 0 !important;
     }
     .top-hud::-webkit-scrollbar { display: none !important; }
     .top-hud .brand-box { flex-shrink: 0 !important; min-width: 0 !important; }
     .top-hud .mode-switch-box { flex-shrink: 0 !important; margin: 0 4px !important; }
     .top-hud .hud-actions { flex-shrink: 0 !important; gap: 6px !important; }
 
+    .q-strip {
+      flex-shrink: 0 !important;
+    }
+
+    .mobile-segmented-bar {
+      flex-shrink: 0 !important;
+    }
+
     .ide-workspace {
       display: flex !important;
       flex-direction: row !important;
       flex: 1 1 0% !important;
-      min-height: 0 !important;
-      height: calc(100vh - 148px) !important;
-      max-height: calc(100vh - 148px) !important;
+      min-height: 250px !important;
+      height: auto !important;
+      max-height: none !important;
       overflow: hidden !important;
       position: relative !important;
     }
@@ -705,10 +731,6 @@
       cursor: col-resize !important;
       user-select: none !important;
       -webkit-user-select: none !important;
-      pointer-events: none !important;
-    }
-    body.is-resizing-h #paneResizerH {
-      pointer-events: auto !important;
     }
 
     body.is-resizing-v {
@@ -720,10 +742,6 @@
       cursor: row-resize !important;
       user-select: none !important;
       -webkit-user-select: none !important;
-      pointer-events: none !important;
-    }
-    body.is-resizing-v #consoleResizerV {
-      pointer-events: auto !important;
     }
 
     @media (max-width: 768px) {
@@ -807,7 +825,7 @@
     .editor-wrapper {
       position: relative !important;
       flex: 1 1 0% !important;
-      min-height: 80px !important;
+      min-height: 140px !important;
       display: flex !important;
       flex-direction: column !important;
       overflow: hidden !important;
@@ -817,8 +835,7 @@
       display: flex !important;
       flex: 1 1 0% !important;
       width: 100% !important;
-      min-height: 60px !important;
-      height: 100% !important;
+      min-height: 80px !important;
       background: #0d0a1f !important;
       border: 1px solid rgba(168, 85, 247, 0.28) !important;
       border-radius: 0 0 8px 8px !important;
@@ -828,10 +845,10 @@
 
     /* 7. JAVA TERMINAL / CONSOLE OUTPUT — USER RESIZABLE & NEVER CLIPPED */
     .console-section {
-      flex: 0 0 var(--console-height, 120px) !important;
-      height: var(--console-height, 120px) !important;
+      flex: 0 0 var(--console-height, 130px) !important;
+      height: var(--console-height, 130px) !important;
       min-height: 44px !important;
-      max-height: calc(100% - 100px) !important;
+      max-height: calc(100% - 180px) !important;
       display: flex !important;
       flex-direction: column !important;
       background: #0d0a1f !important;
@@ -1216,8 +1233,8 @@
   <script src="../shared/oop-i18n.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
   <script src="../shared/oop-dictionary.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
   <script src="../shared/challenges-w1.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
-  <script src="../shared/java-editor-enhancer.js?v=20261019_v26_gutter_scroll_and_workspace_bounds"></script>
-  <script src="game.js?v=20261019_v26_gutter_scroll_and_workspace_bounds"></script>
+  <script src="../shared/java-editor-enhancer.js?v=20261019_v27_fix_frozen_console_and_editor_visibility"></script>
+  <script src="game.js?v=20261019_v27_fix_frozen_console_and_editor_visibility"></script>
 
 </body>
 </html>

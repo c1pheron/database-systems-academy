@@ -597,6 +597,8 @@
 
     bindEvents() {
       if (!this.codeArea) return;
+      if (this._eventsBound) return;
+      this._eventsBound = true;
 
       this.codeArea.addEventListener("keydown", (e) => this.handleKeyDown(e));
 
@@ -623,6 +625,18 @@
     // --------------------------------------------------------------------------
 
     updateHighlighting() {
+      if (!this.codeArea) {
+        this.codeArea = document.getElementById("codeEditor");
+      }
+      if (!this.codeContentEl) {
+        this.codeContentEl = document.getElementById("codeHighlightContent");
+      }
+      if (!this.gutterEl) {
+        this.gutterEl = document.getElementById("editorGutter");
+      }
+      if (!this.backdropEl) {
+        this.backdropEl = document.getElementById("codeHighlightBackdrop");
+      }
       if (!this.codeArea || !this.codeContentEl) return;
       const code = this.codeArea.value || "";
 
