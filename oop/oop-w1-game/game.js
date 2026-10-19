@@ -736,35 +736,6 @@ class Main {
     renderHUD();
     renderChallenge();
 
-    // Expected Output Copy Button
-    const btnCopyExp = document.getElementById("btnCopyExpectedOutput");
-    if (btnCopyExp) {
-      btnCopyExp.addEventListener("click", () => {
-        const text = document.getElementById("expectedOutputContent")?.textContent || "";
-        if (!text) return;
-        const copySuccess = () => {
-          btnCopyExp.textContent = "✅ Nusxalandi!";
-          setTimeout(() => { btnCopyExp.textContent = "📋 Nusxa olish"; }, 2000);
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(copySuccess).catch(() => fallbackCopy(text));
-        } else {
-          fallbackCopy(text);
-        }
-        function fallbackCopy(t) {
-          const ta = document.createElement("textarea");
-          ta.value = t;
-          ta.style.position = "fixed";
-          ta.style.left = "-9999px";
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand("copy");
-          document.body.removeChild(ta);
-          copySuccess();
-        }
-      });
-    }
-
     // Mobile Segmented Switcher Handlers
     const btnMobProb = document.getElementById("btnTabMobileProblem");
     const btnMobEdit = document.getElementById("btnTabMobileEditor");
