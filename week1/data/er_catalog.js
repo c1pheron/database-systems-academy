@@ -8,7 +8,7 @@ var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefi
 _scope.EER_CATALOG = {
   version: "2026.3.0",
   course: "Database Systems Academy",
-  module: "1-Hafta — Konseptual Ma'lumotlar Bazasi & EER Modellashtirish Atelesi (150 Amaliy Keys)",
+  module: "1-Hafta — Konseptual Ma'lumotlar Bazasi & EER Modellashtirish Atelesi (200 Amaliy Keys)",
 
   sectors: [
     {
@@ -23,11 +23,12 @@ _scope.EER_CATALOG = {
     {
       id: 2,
       name: "2-Qavat: Multiplicity Chegaralari (0..1, 1..1, 0..*, 1..*)",
-      subtitle: "Ixtiyoriy vs Majburiy ishtirok, min..max chegaralarini to'g'ri joylashtirish",
+      subtitle: "Ixtiyoriy vs Majburiy ishtirok, min..max chegaralarini to'g'ri joylashtirish (65 ta Keys: 2, 3 va 4 Bog'lanishli)",
       range: [16, 30],
+      extraRange: [151, 200],
       floorRange: [16, 30],
       badge: "2F • Multiplicity",
-      description: "Mijoz hikoyasidan qat'iy majburiy (1..1, 1..*) va ixtiyoriy (0..1, 0..*) qoidalarni aniqlab, chiziq uchlariga qo'yish."
+      description: "Mijoz hikoyasidan qat'iy majburiy (1..1, 1..*) va ixtiyoriy (0..1, 0..*) qoidalarni aniqlab, 2, 3 va 4 entitiyli munosabat zanjirlarida chiziq uchlariga to'g'ri qo'yish."
     },
     {
       id: 3,

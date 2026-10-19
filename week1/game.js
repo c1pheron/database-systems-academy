@@ -103,11 +103,12 @@
       };
     }
 
-    // 1. Gather all 150 questions
+    // 1. Gather all questions (1-200)
     const q1 = window.EER_CLIENTS_1_50 || [];
     const q2 = window.EER_CLIENTS_51_100 || [];
     const q3 = window.EER_CLIENTS_101_150 || [];
-    allQuestions = [...q1, ...q2, ...q3];
+    const q4 = window.EER_CLIENTS_151_200 || [];
+    allQuestions = [...q1, ...q2, ...q3, ...q4];
 
     // 2. Load LocalStorage
     loadSavedState();
@@ -192,11 +193,39 @@
   }
 
   // ==========================================================================
+  // 3.5. QUESTION SEQUENCE NAVIGATION HELPERS
+  // ==========================================================================
+  function getQuestionSequence() {
+    const seq = [];
+    for (let i = 1; i <= 15; i++) seq.push(i);
+    // Sector 2: 16..30 then 151..200
+    for (let i = 16; i <= 30; i++) seq.push(i);
+    for (let i = 151; i <= 200; i++) seq.push(i);
+    // Sectors 3-10: 31..150
+    for (let i = 31; i <= 150; i++) seq.push(i);
+    return seq;
+  }
+
+  function getNextQuestionId(currId) {
+    const seq = getQuestionSequence();
+    const idx = seq.indexOf(currId);
+    if (idx >= 0 && idx < seq.length - 1) return seq[idx + 1];
+    return null;
+  }
+
+  function getPrevQuestionId(currId) {
+    const seq = getQuestionSequence();
+    const idx = seq.indexOf(currId);
+    if (idx > 0) return seq[idx - 1];
+    return null;
+  }
+
+  // ==========================================================================
   // 4. TOP EXECUTIVE HUD
   // ==========================================================================
   function updateHUD() {
     const solved = STATE.solvedIds.size;
-    const total = 150;
+    const total = allQuestions.length || 200;
     const pct = Math.round((solved / total) * 100);
 
     const isEn = window.I18N && window.I18N.getLang() === 'en';
@@ -204,11 +233,11 @@
 
     // Ranks based on solved count
     let rank = t('rank_1', "Kichik Ma'lumotlar Me'mori");
-    if (solved >= 135) rank = t('rank_6', "Bosh Arxitektor & Hamkor (Penthouse)");
-    else if (solved >= 105) rank = t('rank_5', "Katta EER Tizim Muhandisi");
-    else if (solved >= 75) rank = t('rank_4', "Yetakchi Mantiqiy Modeler");
-    else if (solved >= 45) rank = t('rank_3', "O'rta Darajali Modeler");
-    else if (solved >= 15) rank = t('rank_2', "Kichik Muhandis-Modeler");
+    if (solved >= 180) rank = t('rank_6', "Bosh Arxitektor & Hamkor (Penthouse)");
+    else if (solved >= 140) rank = t('rank_5', "Katta EER Tizim Muhandisi");
+    else if (solved >= 100) rank = t('rank_4', "Yetakchi Mantiqiy Modeler");
+    else if (solved >= 60) rank = t('rank_3', "O'rta Darajali Modeler");
+    else if (solved >= 20) rank = t('rank_2', "Kichik Muhandis-Modeler");
 
     const elRank = document.getElementById('hudRankTitle');
     const elSalary = document.getElementById('hudSalary');
@@ -246,12 +275,15 @@
       const tab = document.createElement('button');
       tab.className = 'sector-tab' + (sec.id === currentSectorId ? ' active' : '');
 
-      // Check if all 15 questions in this sector are solved
-      let allSolved = true;
-      for (let i = sec.range[0]; i <= sec.range[1]; i++) {
-        if (!STATE.solvedIds.has(i)) {
-          allSolved = false;
-          break;
+      // Check if all questions in this sector are solved
+      const secQs = allQuestions.filter(item => (item.sector || Math.ceil(item.id / 15)) === sec.id);
+      let allSolved = secQs.length > 0 ? secQs.every(item => STATE.solvedIds.has(item.id)) : true;
+      if (secQs.length === 0) {
+        for (let i = sec.range[0]; i <= sec.range[1]; i++) {
+          if (!STATE.solvedIds.has(i)) {
+            allSolved = false;
+            break;
+          }
         }
       }
       if (allSolved) tab.classList.add('completed');
@@ -293,24 +325,38 @@
     // 1. Sector Tabs Update
     renderSectorTabs();
 
-    // 2. 15-Dot Strip
-    const secId = q.sector || Math.ceil(q.id / 15);
-    const startQ = (secId - 1) * 15 + 1;
-    const endQ = secId * 15;
+    // 2. Sector Question Dot Strip
+    const secId = q.sector || (q.id > 150 ? 2 : Math.ceil(q.id / 15));
+    const secQuestions = allQuestions.filter(item => (item.sector || Math.ceil(item.id / 15)) === secId);
+
+    // Sort order: 16..30 first, then 151..200 for Sector 2
+    secQuestions.sort((a, b) => {
+      if (secId === 2) {
+        const orderA = a.id > 100 ? a.id : a.id - 1000;
+        const orderB = b.id > 100 ? b.id : b.id - 1000;
+        return orderA - orderB;
+      }
+      return a.id - b.id;
+    });
 
     const strip = document.getElementById('floorQuestionStrip');
     if (strip) {
       strip.innerHTML = '';
-      for (let i = startQ; i <= endQ; i++) {
+      secQuestions.forEach(sq => {
         const dot = document.createElement('div');
-        dot.className = 'q-dot' + (i === qId ? ' active' : '') + (STATE.solvedIds.has(i) ? ' completed' : '');
-        dot.title = `Topshiriq #${i}`;
+        dot.className = 'q-dot' + (sq.id === qId ? ' active' : '') + (STATE.solvedIds.has(sq.id) ? ' completed' : '');
+        dot.title = `Topshiriq #${sq.id}: ${sq.title || ''}`;
         dot.addEventListener('click', () => {
           window.playSfx('click');
-          loadQuestion(i);
+          loadQuestion(sq.id);
         });
         strip.appendChild(dot);
-      }
+        if (sq.id === qId) {
+          try {
+            dot.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          } catch (_) {}
+        }
+      });
     }
 
     // 3. Dossier Metadata
@@ -331,7 +377,7 @@
 
     if (elFloor) elFloor.textContent = isEn ? `Floor ${secId}: Conceptual EER Modeling` : `${secId}-Qavat: Konseptual EER Modellashtirish`;
     if (elSub) elSub.textContent = isEn ? "Analytical Practical Case" : (q.difficulty || "Amaliy Keys");
-    if (elQNum) elQNum.textContent = `${isEn ? 'Case' : 'Keys'} #${q.id} / 150`;
+    if (elQNum) elQNum.textContent = `${isEn ? 'Case' : 'Keys'} #${q.id} / ${allQuestions.length || 200}`;
     if (elDiff) {
       let diffText = q.difficulty || "O'rta";
       if (isEn) {
@@ -471,14 +517,16 @@
     if (btnPrev) {
       btnPrev.addEventListener('click', () => {
         window.playSfx('click');
-        if (STATE.currentQId > 1) loadQuestion(STATE.currentQId - 1);
+        const prevId = getPrevQuestionId(STATE.currentQId);
+        if (prevId) loadQuestion(prevId);
       });
     }
 
     if (btnNext) {
       btnNext.addEventListener('click', () => {
         window.playSfx('click');
-        if (STATE.currentQId < 150) loadQuestion(STATE.currentQId + 1);
+        const nextId = getNextQuestionId(STATE.currentQId);
+        if (nextId) loadQuestion(nextId);
       });
     }
 
@@ -717,8 +765,9 @@
         if (nextBtn) {
           nextBtn.addEventListener('click', () => {
             window.playSfx('click');
-            if (STATE.currentQId < 150) {
-              loadQuestion(STATE.currentQId + 1);
+            const nextId = getNextQuestionId(STATE.currentQId);
+            if (nextId) {
+              loadQuestion(nextId);
             }
           });
         }
@@ -799,7 +848,18 @@
       const grid = document.createElement('div');
       grid.className = 'map-grid';
 
-      for (let i = sec.range[0]; i <= sec.range[1]; i++) {
+      const secQs = allQuestions.filter(q => (q.sector || Math.ceil(q.id / 15)) === sec.id);
+      secQs.sort((a, b) => {
+        if (sec.id === 2) {
+          const orderA = a.id > 100 ? a.id : a.id - 1000;
+          const orderB = b.id > 100 ? b.id : b.id - 1000;
+          return orderA - orderB;
+        }
+        return a.id - b.id;
+      });
+
+      secQs.forEach(sq => {
+        const i = sq.id;
         const btn = document.createElement('button');
         btn.className = 'choice-btn';
         btn.style.padding = '6px 8px';
@@ -822,7 +882,7 @@
         });
 
         grid.appendChild(btn);
-      }
+      });
 
       secBox.appendChild(grid);
       body.appendChild(secBox);
