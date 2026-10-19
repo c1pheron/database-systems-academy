@@ -1352,3 +1352,37 @@ input, textarea, select, [contenteditable="true"] {
   color: #fff !important;
   border-color: #a855f7 !important;
 }
+
+/* ============================================================================
+   SOLUTION POPUP MODAL (FULL SCROLLABLE DIALOG & DUAL-LAYER CODE VIEW)
+   ============================================================================ */
+#oopSolutionModal {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 85, 247, 0.6) rgba(15, 12, 34, 0.7);
+}
+
+.solution-modal-body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 85, 247, 0.6) rgba(15, 12, 34, 0.7);
+}
+
+.solution-modal-body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.solution-modal-body::-webkit-scrollbar-track {
+  background: #0d0a1f;
+  border-radius: 4px;
+}
+
+.solution-modal-body::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.5);
+  border-radius: 4px;
+  border: 2px solid #0d0a1f;
+}
+
+.solution-modal-body::-webkit-scrollbar-thumb:hover {
+  background: #c084fc;
+}
+

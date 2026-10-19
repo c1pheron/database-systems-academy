@@ -14,7 +14,7 @@
       if (!modal) {
         modal = document.createElement("div");
         modal.id = "oopSolutionModal";
-        modal.style.cssText = "position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); z-index:999999; display:flex; align-items:center; justify-content:center; padding:16px; box-sizing:border-box;";
+        modal.style.cssText = "position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); z-index:999999; display:flex; align-items:center; justify-content:center; padding:16px; box-sizing:border-box;";
         document.body.appendChild(modal);
       }
 
@@ -24,27 +24,27 @@
       const theory = isEn ? (sol.theoryEn || sol.theory) : (sol.theory || challenge.explanation?.[lang] || "Ushbu topshiriq toza arxitektura va OOP qoidalariga asoslanadi.");
 
       modal.innerHTML = `
-        <div style="background:#130f2c; border:1px solid #a855f7; border-radius:14px; max-width:800px; width:100%; max-height:86vh; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,0.9);">
-          <div style="padding:14px 20px; border-bottom:1px solid rgba(168,85,247,0.25); display:flex; align-items:center; justify-content:space-between; background:#181337;">
+        <div class="solution-modal-card" style="background:#130f2c; border:1px solid #a855f7; border-radius:14px; max-width:850px; width:100%; max-height:88vh; height:auto; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,0.9); position:relative;">
+          <div style="padding:14px 20px; border-bottom:1px solid rgba(168,85,247,0.25); display:flex; align-items:center; justify-content:space-between; background:#181337; flex-shrink:0;">
             <div style="display:flex; align-items:center; gap:8px;">
               <span style="font-size:18px;">💡</span>
               <span style="font-weight:700; color:#fff; font-size:14px;">${isEn ? "Detailed Solution & Clean Code" : "To'liq Yechim & Toza Kod"} (${challenge.id}-Topshiriq)</span>
             </div>
-            <button id="btnCloseSolutionModal" type="button" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:13px; font-weight:700; padding:4px 10px; border-radius:6px; cursor:pointer;">✕ ${isEn ? "Close" : "Yopish"}</button>
+            <button id="btnCloseSolutionModal" type="button" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:13px; font-weight:700; padding:6px 12px; border-radius:6px; cursor:pointer; transition:all 0.15s ease;">✕ ${isEn ? "Close" : "Yopish"}</button>
           </div>
-          <div style="padding:18px 20px; overflow-y:auto; flex:1; display:flex; flex-direction:column; gap:14px;">
-            <div style="background:rgba(168,85,247,0.1); border-left:3px solid #a855f7; padding:10px 14px; border-radius:4px; font-size:12.5px; color:#e2e8f0; line-height:1.5;">
+          <div id="solutionModalBody" class="solution-modal-body" style="padding:18px 20px 28px 20px; overflow-y:auto; overflow-x:hidden; flex:1 1 auto; min-height:0; display:flex; flex-direction:column; gap:14px; overscroll-behavior:contain; -webkit-overflow-scrolling:touch;">
+            <div style="background:rgba(168,85,247,0.1); border-left:3px solid #a855f7; padding:12px 16px; border-radius:4px; font-size:12.5px; color:#e2e8f0; line-height:1.55; flex-shrink:0;">
               ${theory}
             </div>
-            <div style="border:1px solid rgba(168,85,247,0.3); border-radius:8px; overflow:hidden; background:#0c091f;">
-              <div style="padding:8px 12px; background:#14102c; border-bottom:1px solid rgba(168,85,247,0.2); display:flex; align-items:center; justify-content:space-between;">
+            <div style="border:1px solid rgba(168,85,247,0.3); border-radius:8px; overflow:hidden; background:#0c091f; display:flex; flex-direction:column; flex-shrink:0;">
+              <div style="padding:8px 14px; background:#14102c; border-bottom:1px solid rgba(168,85,247,0.2); display:flex; align-items:center; justify-content:space-between; flex-shrink:0;">
                 <span style="font-family:Consolas, monospace; font-size:11.5px; color:#c084fc; font-weight:700;">Main.java</span>
                 <div style="display:flex; gap:6px;">
-                  <button type="button" id="btnModalCopyCode" style="background:#241c45; border:1px solid rgba(168,85,247,0.4); color:#d8b4fe; font-size:11px; padding:3px 9px; border-radius:5px; cursor:pointer; font-weight:600;">📋 ${isEn ? "Copy" : "Nusxa"}</button>
-                  <button type="button" id="btnModalLoadCode" style="background:#7c3aed; border:1px solid #a855f7; color:#fff; font-size:11px; padding:3px 10px; border-radius:5px; cursor:pointer; font-weight:700;">📥 ${isEn ? "Load to Editor" : "Muharrirga yuklash"}</button>
+                  <button type="button" id="btnModalCopyCode" style="background:#241c45; border:1px solid rgba(168,85,247,0.4); color:#d8b4fe; font-size:11px; padding:4px 10px; border-radius:5px; cursor:pointer; font-weight:600; display:inline-flex; align-items:center; gap:4px; transition:all 0.15s ease;">📋 ${isEn ? "Copy" : "Nusxa"}</button>
+                  <button type="button" id="btnModalLoadCode" style="background:#7c3aed; border:1px solid #a855f7; color:#fff; font-size:11px; padding:4px 12px; border-radius:5px; cursor:pointer; font-weight:700; display:inline-flex; align-items:center; gap:4px; transition:all 0.15s ease;">📥 ${isEn ? "Load to Editor" : "Muharrirga yuklash"}</button>
                 </div>
               </div>
-              <pre style="margin:0; padding:14px 16px; font-family:Consolas, 'Fira Code', monospace; font-size:13px; line-height:1.5; color:#f1f5f9; overflow-x:auto; background:#0c091f;">${escapeHtml(cleanCode)}</pre>
+              <pre style="margin:0; padding:16px 18px; font-family:Consolas, 'Courier New', monospace; font-size:13px; line-height:1.55; color:#f1f5f9; overflow-x:auto; background:#0c091f; white-space:pre; tab-size:4;">${escapeHtml(cleanCode)}</pre>
             </div>
           </div>
         </div>
@@ -52,11 +52,27 @@
 
       modal.style.display = "flex";
 
-      modal.querySelector("#btnCloseSolutionModal").addEventListener("click", () => {
+      const bodyEl = modal.querySelector("#solutionModalBody");
+      if (bodyEl) {
+        bodyEl.scrollTop = 0;
+      }
+
+      const closeModal = () => {
         modal.style.display = "none";
-      });
+        window.removeEventListener("keydown", onKeyDown);
+      };
+
+      const onKeyDown = (e) => {
+        if (e.key === "Escape") closeModal();
+      };
+      window.addEventListener("keydown", onKeyDown);
+
+      const btnClose = modal.querySelector("#btnCloseSolutionModal");
+      if (btnClose) {
+        btnClose.addEventListener("click", closeModal);
+      }
       modal.addEventListener("click", (e) => {
-        if (e.target === modal) modal.style.display = "none";
+        if (e.target === modal) closeModal();
       });
 
       const btnCopy = modal.querySelector("#btnModalCopyCode");
@@ -87,7 +103,7 @@
             editor.dispatchEvent(new Event("input", { bubbles: true }));
             editor.focus();
           }
-          modal.style.display = "none";
+          closeModal();
         });
       }
     },
