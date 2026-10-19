@@ -119,6 +119,38 @@
     if (elTitle) elTitle.textContent = (ch.title && ch.title[currentLang]) ? ch.title[currentLang] : (ch.title?.uz || "");
     if (elScenario) elScenario.textContent = (ch.scenario && ch.scenario[currentLang]) ? ch.scenario[currentLang] : (ch.scenario?.uz || "");
 
+    // Render Sample Input Data (Boshlang'ich Qiymatlar)
+    const elSampleDataBox = document.getElementById("sampleDataBox");
+    const elSampleDataList = document.getElementById("sampleDataList");
+    const elSampleDataTitle = document.getElementById("sampleDataTitle");
+    if (elSampleDataTitle) {
+      elSampleDataTitle.textContent = isEn ? "📥 Sample Input Values (Test Data):" : "📥 Namunaviy Qiymatlar (Test Ma'lumotlari):";
+    }
+
+    if (ch.sampleData && ch.sampleData.length > 0) {
+      if (elSampleDataList) {
+        elSampleDataList.innerHTML = ch.sampleData.map(d => `<li><code>${d}</code></li>`).join("");
+      }
+      if (elSampleDataBox) elSampleDataBox.style.display = "block";
+    } else {
+      if (elSampleDataBox) elSampleDataBox.style.display = "none";
+    }
+
+    // Render Expected Output Card (Kutilayotgan Konsol Natijasi)
+    const elExpCard = document.getElementById("expectedOutputCard");
+    const elExpContent = document.getElementById("expectedOutputContent");
+    const elExpTitle = document.getElementById("expectedOutputTitle");
+    if (elExpTitle) {
+      elExpTitle.textContent = isEn ? "💻 Expected Console Output (Terminal):" : "💻 Kutilayotgan Konsol Natijasi (Terminal Output):";
+    }
+
+    if (ch.expectedOutput) {
+      if (elExpContent) elExpContent.textContent = ch.expectedOutput;
+      if (elExpCard) elExpCard.style.display = "block";
+    } else {
+      if (elExpCard) elExpCard.style.display = "none";
+    }
+
     // Render Rich Solution View via SolutionRenderer
     if (window.SolutionRenderer) {
       window.SolutionRenderer.render(ch, "solutionContentCard", currentLang);
@@ -456,7 +488,7 @@ class Main {
     // A. Always show actual program output (STDOUT) if program ran
     if (runResult.success) {
       report += "==================================================\n";
-      report += isEn ? "☕ PROGRAM EXECUTION OUTPUT (OPENJDK 21 STDOUT)\n" : "☕ DASTUR NATIJASI (OPENJDK 21 JVM CHIQISHI)\n";
+      report += isEn ? "☕ YOUR CONSOLE OUTPUT (OPENJDK 21 STDOUT)\n" : "☕ SIZNING KONSOL CHIQQAN NATIJANGIZ (OPENJDK 21 STDOUT)\n";
       report += "==================================================\n\n";
       if (runResult.output) {
         report += runResult.output + "\n\n";
@@ -464,6 +496,13 @@ class Main {
         report += (isEn
           ? "(Program finished with no printed output. Use System.out.println() to print results.)\n\n"
           : "(Dastur yakunlandi, lekin konsolga hech narsa chop etilmadi. Natijani ko'rish uchun System.out.println() dan foydalaning.)\n\n");
+      }
+
+      if (ch.expectedOutput) {
+        report += "--------------------------------------------------\n";
+        report += isEn ? "📋 EXPECTED REFERENCE OUTPUT (SAMPLE):\n" : "📋 KUTILGAN NAMUNAVIY NATIJA:\n";
+        report += "--------------------------------------------------\n\n";
+        report += ch.expectedOutput + "\n\n";
       }
     }
 
@@ -573,20 +612,37 @@ class Main {
         saveSolved();
         renderHUD();
 
-        consoleOut.textContent = "==================================================\n" +
+        let successOut = "==================================================\n" +
           (isEn ? "☕ OPENJDK 21 EXECUTION OUTPUT (STDOUT)\n" : "☕ OPENJDK 21 DASTUR CHIQISHI (STDOUT)\n") +
           "==================================================\n\n" +
-          res.output +
-          "\n\n==================================================\n" +
+          res.output + "\n\n";
+
+        if (ch && ch.expectedOutput) {
+          successOut += "--------------------------------------------------\n" +
+            (isEn ? "📋 EXPECTED REFERENCE OUTPUT (SAMPLE):\n" : "📋 KUTILGAN NAMUNAVIY NATIJA:\n") +
+            "--------------------------------------------------\n\n" +
+            ch.expectedOutput + "\n\n";
+        }
+
+        successOut += "==================================================\n" +
           (isEn ? "🎉 EXCELLENT! ALL REQUIREMENTS MET SUCCESSFULLY!\n" : "🎉 A'LO! BARCHA TALABLAR TO'LIQ BAJARILDI!\n") +
           (isEn ? "⭐ +50 Points Added to Rating Score!" : "⭐ Reytingga +50 Ball qo'shildi!");
+
+        consoleOut.textContent = successOut;
         return;
       } else if (res.success) {
         consoleOut.className = "console-output error";
         let report = "==================================================\n";
-        report += isEn ? "☕ OPENJDK 21 EXECUTION OUTPUT (STDOUT)\n" : "☕ OPENJDK 21 DASTUR CHIQISHI (STDOUT)\n";
+        report += isEn ? "☕ YOUR CONSOLE OUTPUT (STDOUT)\n" : "☕ SIZNING KONSOL CHIQQAN NATIJANGIZ (STDOUT)\n";
         report += "==================================================\n\n";
         report += (res.output ? res.output + "\n\n" : (isEn ? "(No printed output. Use System.out.println() to print results.)\n\n" : "(Konsolga hech narsa chop etilmadi. System.out.println() orqali natija chiqaring.)\n\n"));
+
+        if (ch && ch.expectedOutput) {
+          report += "--------------------------------------------------\n";
+          report += isEn ? "📋 EXPECTED REFERENCE OUTPUT (SAMPLE):\n" : "📋 KUTILGAN NAMUNAVIY NATIJA:\n";
+          report += "--------------------------------------------------\n\n";
+          report += ch.expectedOutput + "\n\n";
+        }
 
         report += "==================================================\n";
         report += isEn ? "⚠️ CHALLENGE NOT YET COMPLETED TO FULL DEPTH\n" : "⚠️ MASALA HALI OXIRIGACHA YETMAGAN (PROFESSOR ADA TEKSHIRUVI)\n";
@@ -679,6 +735,35 @@ class Main {
 
     renderHUD();
     renderChallenge();
+
+    // Expected Output Copy Button
+    const btnCopyExp = document.getElementById("btnCopyExpectedOutput");
+    if (btnCopyExp) {
+      btnCopyExp.addEventListener("click", () => {
+        const text = document.getElementById("expectedOutputContent")?.textContent || "";
+        if (!text) return;
+        const copySuccess = () => {
+          btnCopyExp.textContent = "✅ Nusxalandi!";
+          setTimeout(() => { btnCopyExp.textContent = "📋 Nusxa olish"; }, 2000);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(copySuccess).catch(() => fallbackCopy(text));
+        } else {
+          fallbackCopy(text);
+        }
+        function fallbackCopy(t) {
+          const ta = document.createElement("textarea");
+          ta.value = t;
+          ta.style.position = "fixed";
+          ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          copySuccess();
+        }
+      });
+    }
 
     // Mobile Segmented Switcher Handlers
     const btnMobProb = document.getElementById("btnTabMobileProblem");

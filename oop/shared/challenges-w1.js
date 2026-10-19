@@ -1,7 +1,6 @@
 // ============================================================================
-// OOP ACADEMY — 50 PROGRESSIVE BESPOKE CHALLENGES (WEEK 1)
-// WIUT 5COSC018C • Senior Java Architect (Professor Ada)
-// 5 Stages x 10 Distinct, Standalone, Non-Repetitive Challenges (Easy -> Hard)
+// OOP ACADEMY — WEEK 1 CHALLENGES (50 PROGRESSIVE OOP SCENARIOS)
+// Dedicated Data Set for Stage 1-5 Interactive IDE Simulator
 // ============================================================================
 
 window.OOP_CHALLENGES_W1 = [
@@ -51,7 +50,13 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Maydon nomlarida harflar katta-kichikligiga (case-sensitive) qat'iy rioya qiling: 'instock' emas, 'inStock'.",
       "cw2Tip": "CW2 Console Order Application doirasida har bir tovar aynan shunday xususiyatlarga ega bo'ladi."
-    }
+    },
+    "sampleData": [
+      "p.title = \"Smartfon Redmi Note 13\"",
+      "p.price = 2450000.0",
+      "p.inStock = true"
+    ],
+    "expectedOutput": "Mahsulot: Smartfon Redmi Note 13 | Narxi: 2450000.0 so'm | Mavjud: true"
   },
   {
     "id": 2,
@@ -99,7 +104,15 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Obyekt yaratmasdan (ya'ni `Student s1;` deb qoldirib) uning maydoniga murojaat qilish NullPointerException keltirib chiqaradi.",
       "cw2Tip": "Guruh loyihangizda bir nechta mijoz yoki tovarlarni massiv yoki ro'yxatda saqlash uchun ushbu poydevor zarur."
-    }
+    },
+    "sampleData": [
+      "s1.fullName = \"Jasur Aliyev\"",
+      "s1.idNumber = 1001",
+      "s1.gpa = 3.8",
+      "s2.fullName = \"Madina Karimova\"",
+      "s2.idNumber = 1002"
+    ],
+    "expectedOutput": "Yuqori GPA: Madina Karimova (3.95)"
   },
   {
     "id": 3,
@@ -146,7 +159,13 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Butun sonlar bilan ishlashda int bo'linishi (integer division) natijani yaxlitlab xato berishi mumkin, shuning uchun narx va masofalarda doim double ishlatiladi.",
       "cw2Tip": "Savdo kvitansiyalarini hisoblashda ushbu arifmetika qoidalari qo'llaniladi."
-    }
+    },
+    "sampleData": [
+      "trip.driverName = \"Otabek\"",
+      "trip.distanceKm = 12.5",
+      "trip.ratePerKm = 3500.0"
+    ],
+    "expectedOutput": "Haydovchi: Otabek | Jami yo'l haqi: 43750.0 so'm"
   },
   {
     "id": 4,
@@ -197,7 +216,14 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "boolean maydonlar birlamchi qiymati false bo'ladi, buni esdan chiqarmang.",
       "cw2Tip": "Buyurtmaning to'langan yoki bekor qilinganligini kuzatish uchun `isPaid` flagi shart."
-    }
+    },
+    "sampleData": [
+      "tx.txnId = \"TXN-884129\"",
+      "tx.amount = 150000.0",
+      "tx.isCompleted = true",
+      "tx.senderPhone = \"+998901234567\""
+    ],
+    "expectedOutput": "ID: TXN-884129 | Miqdor: 150000.0 | Holat: Muvaffaqiyatli"
   },
   {
     "id": 5,
@@ -244,7 +270,13 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Nolga bo'lish (Division by zero) holatlariga doim e'tibor qarating.",
       "cw2Tip": "Kompyuter resurslarini to'g'ri hisoblash Java Core dasturchisi uchun shart."
-    }
+    },
+    "sampleData": [
+      "node.hostName = \"prod-node-01.wiut.uz\"",
+      "node.totalRamMb = 16384",
+      "node.usedRamMb = 12288"
+    ],
+    "expectedOutput": "Server: prod-node-01.wiut.uz\nBo'sh RAM: 4096 MB | Bandlik: 75.0%"
   },
   {
     "id": 6,
@@ -295,7 +327,14 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "boolean o'zgaruvchilarni if ichida `isBusinessClass == true` deb yozish shart emas, `if (isBusinessClass)` yetarli.",
       "cw2Tip": "Foydalanuvchi huquqlari (Admin/User) ham xuddi shunday tekshiriladi."
-    }
+    },
+    "sampleData": [
+      "booking.flightCode = \"HY-101\"",
+      "booking.passengerName = \"Akmal Nazarov\"",
+      "booking.seatNumber = 3",
+      "booking.isBusinessClass = true"
+    ],
+    "expectedOutput": "Reys: HY-101 | Yo'lovchi: Akmal Nazarov\nJoy: #3 (Biznes-klass ? VIP Lounge ruxsati bor)"
   },
   {
     "id": 7,
@@ -346,7 +385,14 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Tenglik belgisini unutib faqat `<` yozish minimal miqdorda ogohlantirish chiqmay qolishiga olib kelishi mumkin.",
       "cw2Tip": "CW2 Console ilovangizda mahsulot soni 0 ga tushib qolmasligini nazorat qilishda bu usul zarur."
-    }
+    },
+    "sampleData": [
+      "item.skuCode = \"SKU-99214\"",
+      "item.itemName = \"Sut 1.5L Musaffo\"",
+      "item.quantity = 4",
+      "item.minThreshold = 10"
+    ],
+    "expectedOutput": "Tovar: Sut 1.5L Musaffo | Qoldiq: 4 dona\nDIQQAT: Qayta buyurtma bering! Qoldiq chegaradan kam (4 <= 10)"
   },
   {
     "id": 8,
@@ -397,7 +443,14 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Mantiqiy shartlarda qavslar ketma-ketligini to'g'ri qo'llash mantiqiy xatoliklarni oldini oladi.",
       "cw2Tip": "Biznes qoidalari har doim bir nechta maydonlarning kombinatsiyasiga tayanadi."
-    }
+    },
+    "sampleData": [
+      "record.patientName = \"Sanjar Jo'rayev\"",
+      "record.systolicPressure = 145",
+      "record.diastolicPressure = 92",
+      "record.bodyTemp = 36.6"
+    ],
+    "expectedOutput": "Bemor: Sanjar Jo'rayev | Tana harorati: 36.6?C\nXulosa: Gipertoniya xavfi (145/92)"
   },
   {
     "id": 9,
@@ -448,7 +501,14 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "consumptionPer100Km nolga teng bo'lmasligi kerak, aks holda cheksizlik (Infinity) paydo bo'ladi.",
       "cw2Tip": "Real konsol ilovalarida ma'lumotlarni hisoblash doimo shu kabi modellarga tayanadi."
-    }
+    },
+    "sampleData": [
+      "car.vin = \"BYD-CHAZOR-2024-UZB\"",
+      "car.batteryCapacityKwh = 18.3",
+      "car.currentChargeKwh = 12.0",
+      "car.consumptionPer100Km = 14.5"
+    ],
+    "expectedOutput": "VIN: BYD-CHAZOR-2024-UZB\nBatareya: 65.57377049180327% | Zaxira masofa: 82.75862068965517 km"
   },
   {
     "id": 10,
@@ -500,7 +560,15 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Boshlang'ich narx bilan eng yuqori narx tenglashtirilmasa, takliflar xato tekshirilishi mumkin.",
       "cw2Tip": "Auksion va savat tizimlarida ob'yekt holatini yangilash eng ko'p uchraydigan vazifadir."
-    }
+    },
+    "sampleData": [
+      "lot.lotTitle = \"Toshkent City Ofis Binosi\"",
+      "lot.startingPrice = 500000.0",
+      "lot.highestBid = lot.startingPrice",
+      "lot.highestBidder = \"Boshlang'ich Narx\"",
+      "lot.highestBid = offer1"
+    ],
+    "expectedOutput": "Lot: Toshkent City Ofis Binosi\nG'olib: Kompaniya A | Yakuniy narx: $520000.0"
   },
   {
     "id": 11,
@@ -544,7 +612,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Manfiy miqdorlarni tekshirmasdan to'g'ridan-to'g'ri `balance += amount` qilish xatolikka olib keladi.",
       "cw2Tip": "Bank va hisob-kitob klasslarida barcha harakatlar aynan metodlar orqali amalga oshiriladi."
-    }
+    },
+    "sampleData": [
+      "w.balance = 50000.0"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 12,
@@ -586,7 +658,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "return so'zidan keyin yozilgan har qanday kod bajarilmaydi (unreachable code xatosi).",
       "cw2Tip": "CW2 buyurtma ilovasida savat chegirmalari aynan shu uslubda hisoblanadi."
-    }
+    },
+    "sampleData": [
+      "sale.basePrice = 1200000.0"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 13,
@@ -629,7 +705,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Chegaradan o'tganda jim qolish yoki limitga qadash qarorini biznes talabi belgilaydi.",
       "cw2Tip": "Buyurtmadagi tovar soni ombordagi qoldiqdan oshib ketmasligini tekshirishda xuddi shu mantiq ishlatiladi."
-    }
+    },
+    "sampleData": [
+      "t.currentTemp = 22.0"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 14,
@@ -671,7 +751,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Argumentlar tartibini adashtirish mantiqiy xatoga olib kelishi mumkin.",
       "cw2Tip": "CW2 ilovasida yetkazib berish narxini masofaga qarab hisoblashda ayni muddao."
-    }
+    },
+    "sampleData": [
+      "service.baseFare = 5000.0"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 15,
@@ -718,7 +802,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "40.0 o'rniga 40 deb butun son yozilsa ham Java implicit conversion qiladi, lekin double aniqligi saqlangan ma'qul.",
       "cw2Tip": "Bu aynan WIUT 5COSC018C modulining rasmiy baholash qoidasidir!"
-    }
+    },
+    "sampleData": [
+      "gb.courseworkMark = 65.0",
+      "gb.examMark = 72.0"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 16,
@@ -764,7 +853,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Shartlarni tekshirishda kichik sondan emas, avval eng katta sondan (1000) boshlash kerak, aks holda `points >= 500` barcha 1000 dan kattalarni ham ushlab qoladi.",
       "cw2Tip": "CW2 loyihangizda buyurtma statusini (PENDING -> PAID -> DELIVERED) boshqarishda ayni usul qo'llaniladi."
-    }
+    },
+    "sampleData": [
+      "member.points = 350",
+      "member.tier = \"BRONZE\""
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 17,
@@ -810,7 +904,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "return false dan oldin currentWeightKg ni o'zgartirib qo'ymaslikka ehtiyot bo'ling.",
       "cw2Tip": "Do'kon omborida qoldiq yetarli bo'lmaganda xaridni rad etish uchun ishlatiladi."
-    }
+    },
+    "sampleData": [
+      "container.maxCapacityKg = 1000.0",
+      "container.currentWeightKg = 700.0"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 18,
@@ -852,7 +951,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Faqat qaytarish turi (return type) farq qilishi overload hisoblanmaydi — parametrlar farq qilishi shart!",
       "cw2Tip": "CW2 qidiruv tizimida: tovar nomi bo'yicha qidirish, yoki nomi hamda narxi bo'yicha qidirish overload metodlar bilan qilinadi."
-    }
+    },
+    "sampleData": [
+      "loan.principal = 12000000.0"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 19,
@@ -899,7 +1002,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "long sonlar oxiriga 'L' qo'yish unutilsa (masalan 1000L), int deb qabul qilinib katta qiymatlarda overflow bo'lishi mumkin.",
       "cw2Tip": "Foydalanuvchi tizimdan avtomatik chiqib ketishi (Logout) aynan shu algoritm bilan ishlaydi."
-    }
+    },
+    "sampleData": [
+      "session.username = \"ali_dev\"",
+      "session.lastActiveTime = 1000L"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 20,
@@ -950,7 +1058,13 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "String birlashtirishda qator tashlash uchun `\\n` belgisidan to'g'ri foydalaning.",
       "cw2Tip": "CW2 Console ilovasining yakuniy bosqichi aynan konsolga chek chiqarishdan iborat."
-    }
+    },
+    "sampleData": [
+      "order.itemName = \"Lavash Max\"",
+      "order.unitPrice = 38000.0",
+      "order.quantity = 2"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 21,
@@ -1000,7 +1114,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Konstruktor oldiga tasodifan 'void' yozib qo'ysangiz, u oddiy metodga aylanadi va konstruktor bo'lmay qoladi!",
       "cw2Tip": "CW2 barcha domen klasslarida konstruktorlar orqali ob'yekt tuzish majburiy hisoblanadi."
-    }
+    },
+    "sampleData": [
+      "Book b = new Book(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 420)"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 22,
@@ -1050,7 +1168,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Agar klassda kamida 1 ta maxsus konstruktor yozilsa, Java standart bo'sh konstruktorni ('new User()') avtomatik taqdim etmay qo'yadi.",
       "cw2Tip": "Buyurtmachiga buyurtma berishda manzil ko'rsatilgan yoki ko'rsatilmagan variantlarni qo'llashda asqotadi."
-    }
+    },
+    "sampleData": [
+      "User u1 = new User(\"nodirbek\", \"nodir@wiut.uz\")",
+      "User u2 = new User(\"admin_ada\", \"ada@wiut.uz\", \"ADMIN\")"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 23,
@@ -1107,7 +1230,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "'this(...)' ni birinchi qatordan keyin yozsangiz, 'call to this must be first statement in constructor' xatoligi beradi.",
       "cw2Tip": "Professor Ada Clean Code va SOLID tamoyillari bo'yicha konstruktor zanjirini yuqori baholaydi."
-    }
+    },
+    "sampleData": [
+      "DebitCard card = new DebitCard(\"8600123456789012\", \"Kamron Bek\")"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 24,
@@ -1157,7 +1284,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Bo'sh konstruktor yozishni unutib 'new Smartphone()' chaqirilsa, dastur kompilyatsiyadan o'tmaydi.",
       "cw2Tip": "JavaFX yoki konsolli menyularda ob'yektlarni avval bo'sh yaratib, keyin to'ldirishda no-arg kerak bo'ladi."
-    }
+    },
+    "sampleData": [
+      "Smartphone phone2 = new Smartphone(\"Samsung Galaxy S24\", 256, 950.0)"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 25,
@@ -1203,7 +1334,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Validatsiyani faqat metodlarga qo'yib, konstruktorda unutish ob'yektning nosoz tug'ilishiga yo'l ochadi.",
       "cw2Tip": "Tovar narxi 0 bo'lib qolmasligini konstruktorda tekshirish CW2 talabidir."
-    }
+    },
+    "sampleData": [
+      "Course c1 = new Course(\"5COSC018C\", 45)",
+      "Course c2 = new Course(\"5BUIS009C\", -10); // Noto'g'ri kiritildi"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 26,
@@ -1253,7 +1389,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Ternar operatorida shartni ehtiyotkorlik bilan yozing.",
       "cw2Tip": "CW2 bilet yoki buyurtma tizimida minimal buyurtma summasini shunday tekshirasiz."
-    }
+    },
+    "sampleData": [
+      "FlightTicket t1 = new FlightTicket(\"TK-78901\", 320.0, true)",
+      "FlightTicket t2 = new FlightTicket(\"TK-78902\", 15.0, false); // Kam kiritilgan"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 27,
@@ -1303,7 +1444,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Math.max(a, b) metodidan foydalanish ham shartni qisqartirish uchun juda qulay.",
       "cw2Tip": "Hisobot tizimlarida manfiy yoki xato sonlar kirib kelmasligining oldini oladi."
-    }
+    },
+    "sampleData": [
+      "EmployeeContract emp = new EmployeeContract(\"Sardor Qodirov\", 1200000.0, \"IT Qo'llab-quvvatlash\")"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 28,
@@ -1360,7 +1505,13 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Zanjirda aylanma (circular) chaqiruv qilib qo'ymang (A -> B va B -> A), aks holda kompilyator xato beradi.",
       "cw2Tip": "Enterprise tizimlarda konstruktorlar soni ko'p bo'ladi va ularni zanjirlash talab etiladi."
-    }
+    },
+    "sampleData": [
+      "Subscription s1 = new Subscription(\"Starter\")",
+      "Subscription s2 = new Subscription(\"Team\", 45.0, 10)",
+      "Subscription s3 = new Subscription(\"Enterprise\", 199.0, 100, false)"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 29,
@@ -1406,7 +1557,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Mantiqiy 'va' (&&) o'rniga 'yoki' (||) ishlatilsa tekshiruv buziladi.",
       "cw2Tip": "Yandex Go kabi transport tizimlarida bu eng asosiy obyekt hisoblanadi."
-    }
+    },
+    "sampleData": [
+      "GeoPoint toshkent = new GeoPoint(41.2995, 69.2401)",
+      "GeoPoint xatoNuqta = new GeoPoint(120.5, 200.0); // Ikkalasi ham chegaradan tashqarida"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 30,
@@ -1457,7 +1613,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Nusxa yaratayotganda `Pallet p2 = p1;` deb yozish yangi ob'yekt yaratmaydi, faqat bitta ob'yektga ikkinchi ko'rsatkich beradi!",
       "cw2Tip": "Savatchadagi tovar nusxasini saqlashda va himoyalashda copy konstruktorlar ishlatiladi."
-    }
+    },
+    "sampleData": [
+      "Pallet p1 = new Pallet(\"PLT-100\", 500.0, 24)",
+      "Pallet p2 = new Pallet(p1); // Nusxalash"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 31,
@@ -1502,7 +1663,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Getter metodlarida qiymat qaytishi shart, ularning turi maydon turi bilan bir xil bo'ladi.",
       "cw2Tip": "CW2 barcha domen sinflarida har bir maydon 'private' bo'lishi majburiy shartdir."
-    }
+    },
+    "sampleData": [
+      "UserProfile profile = new UserProfile(\"sherzod_it\", \"sherzod@wiut.uz\")"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 32,
@@ -1542,7 +1707,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Konstruktor ichida ham xuddi shu tekshiruvni bajarishni yoki setBalanceni chaqirishni unutmang.",
       "cw2Tip": "CW2 da buyurtma soni yoki narxi manfiy kiritilmasligi setterlar bilan kafolatlanadi."
-    }
+    },
+    "sampleData": [
+      "BankAccount acc = new BankAccount(100000.0)"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 33,
@@ -1587,7 +1756,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Shartda `newSalary >= this.salary` o'rniga faqat `newSalary >= 0` deb qo'yish kamaytirishga ruxsat berib yuboradi.",
       "cw2Tip": "Auksion narxini oshirishda ham faqat yuqoriroq narxlar qabul qilinadi."
-    }
+    },
+    "sampleData": [
+      "Employee emp = new Employee(\"Azizbek\", 5000000.0)"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 34,
@@ -1632,7 +1805,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Hisoblanuvchi propertylar uchun setter yaratilmaydi — ular faqat read-only bo'ladi.",
       "cw2Tip": "CW2 savatining umumiy summasi (`getTotalAmount()`) xuddi shunday dinamik hisoblanadi."
-    }
+    },
+    "sampleData": [
+      "Rectangle rect = new Rectangle(5.0, 8.0)"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 35,
@@ -1676,7 +1853,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Soliq stavkasi o'zgarganda faqat klass ichidagi formulani o'zgartirish kifoya, butun dasturni qayta yozish shart emas.",
       "cw2Tip": "Savdo kvitansiyalarida toza narx va soliq ajratib ko'rsatilishi shart."
-    }
+    },
+    "sampleData": [
+      "Product p = new Product(100000.0)"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 36,
@@ -1719,7 +1900,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Shartda `studentId.length() == 8 && studentId != null` deb yozilsa, null kelgan paytda baribir xato beradi — 'null' tekshiruvi doim birinchi bo'lishi shart!",
       "cw2Tip": "Mijoz telefon raqami (+998...) yoki pochtasini tekshirishda ham aynan shu tartib ishlatiladi."
-    }
+    },
+    "sampleData": [
+      "Student s1 = new Student(\"00014523\"); // To'g'ri",
+      "Student s2 = new Student(\"12345\");    // Xato"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 37,
@@ -1766,7 +1952,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "final maydonga konstruktorda qiymat berish unutilsa, kompilyator xato beradi.",
       "cw2Tip": "Moliyaviy operatsiyalar va audit yozuvlari har doim Immutable klasslar orqali ifodalanadi."
-    }
+    },
+    "sampleData": [
+      "Receipt r = new Receipt(\"FISCAL-9912\", 240000.0)"
+    ],
+    "expectedOutput": "Chek: FISCAL-9912 | Summa: 240000.0 so'm"
   },
   {
     "id": 38,
@@ -1810,7 +2000,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "9/5 o'rniga 9.0/5.0 yozish shart, aks holda butun son bo'linishi (integer division) natijani 1 ga aylantirib qo'yadi!",
       "cw2Tip": "Valyutalarni konvertatsiya qilishda aynan shu abstraksiya modeli qo'llaniladi."
-    }
+    },
+    "sampleData": [
+      "TempSensor sensor = new TempSensor(25.0)"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 39,
@@ -1854,7 +2048,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Shartlarni tekshirishda katta sondan boshlash tartibiga rioya qiling.",
       "cw2Tip": "Mijoz xarid hajmiga qarab VIP toifani aniqlashda aynan shu qoida ishlaydi."
-    }
+    },
+    "sampleData": [
+      "CreditScore cs = new CreditScore(780)"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 40,
@@ -1898,7 +2096,11 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Stringlarni taqqoslashda '==' emas, doimo '.equals()' metodidan foydalaning!",
       "cw2Tip": "Foydalanuvchi autentifikatsiyasida ma'lumotlarni himoyalashning asosiy shartidir."
-    }
+    },
+    "sampleData": [
+      "UserCredential cred = new UserCredential(\"secret2024\")"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 41,
@@ -1945,7 +2147,13 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Statik maydonlarga ob'yekt orqali emas (`u1.totalUsers`), klass nomi orqali (`UserAccount.totalUsers`) murojaat qilish Clean Code qoidasidir.",
       "cw2Tip": "CW2 Console Order tizimida buyurtma raqamini (Order #1, Order #2) avtomatik generatsiya qilishda ayni usul shart."
-    }
+    },
+    "sampleData": [
+      "UserAccount u1 = new UserAccount(\"ali\")",
+      "UserAccount u2 = new UserAccount(\"vali\")",
+      "UserAccount u3 = new UserAccount(\"gani\")"
+    ],
+    "expectedOutput": "User 1 ID: 1 (ali)\nUser 2 ID: 2 (vali)\nUser 3 ID: 3 (gani)\nJami foydalanuvchilar soni: 3"
   },
   {
     "id": 42,
@@ -1985,7 +2193,9 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Statik metodlar ichidan instans maydonlarga ('this.x') murojaat qilib bo'lmaydi.",
       "cw2Tip": "Valyuta konvertatsiyasi va formatlash utilitlarini alohida sinfga ajratish yaxshi me'morchilikdir."
-    }
+    },
+    "sampleData": [],
+    "expectedOutput": "Hisoblangan soliq: 150000.0 so'm\nYaxlitlangan qiymat: 145.68"
   },
   {
     "id": 43,
@@ -2025,7 +2235,9 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Statik o'zgaruvchilarni ko'p joyda ehtiyotsiz o'zgartirish kutilmagan yon ta'sirlarga (side effects) sabab bo'lishi mumkin.",
       "cw2Tip": "CW2 ilovasida global chegirma foizini boshqarishda qo'llaniladi."
-    }
+    },
+    "sampleData": [],
+    "expectedOutput": "100 USD (eski kurs): 1270000.0 so'm\n100 USD (yangi kurs): 1280000.0 so'm"
   },
   {
     "id": 44,
@@ -2072,7 +2284,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Agar address null bo'lsa, `address.getCity()` chaqiruvi NullPointerException beradi — null tekshiruvini esdan chiqarmang.",
       "cw2Tip": "CW2 da `Customer has an Address` va `Order has a Customer` aynan shu usulda quriladi."
-    }
+    },
+    "sampleData": [
+      "Address addr = new Address(\"Toshkent\", \"Amir Temur ko'chasi, 12\")",
+      "Person p = new Person(\"Rustam Shokirov\", addr)"
+    ],
+    "expectedOutput": "Shaxs ma'lumotlari: Rustam Shokirov (Toshkent, Amir Temur ko'chasi, 12)"
   },
   {
     "id": 45,
@@ -2119,7 +2336,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Kompozitsiya qilingan ob'yektni private qilib himoyalash yaxshi amaliyotdir.",
       "cw2Tip": "CW2 tizimida `Order` o'z to'lovini `PaymentProcessor` ob'yektiga delegatsiya qiladi."
-    }
+    },
+    "sampleData": [
+      "Engine turbo = new Engine(250, \"2.0 Turbo\")",
+      "Car myCar = new Car(\"Malibu Premier\", turbo)"
+    ],
+    "expectedOutput": ""
   },
   {
     "id": 46,
@@ -2166,7 +2388,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Product narxi o'zgarsa ham, OrderItem har doim dolzarb narxni oladi.",
       "cw2Tip": "Bu sinf CW2 kurs ishining eng markaziy ob'yektlaridan biridir."
-    }
+    },
+    "sampleData": [
+      "Product p = new Product(\"Simsiz Quloqchin\", 350000.0)",
+      "OrderItem item = new OrderItem(p, 3)"
+    ],
+    "expectedOutput": "Tovar: Simsiz Quloqchin x 3 dona\nOraliq summa: 1050000.0 so'm"
   },
   {
     "id": 47,
@@ -2215,7 +2442,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Customer ob'yektining maydonlari 'private' bo'lgani sababli `this.customer.fullName` emas, `this.customer.getFullName()` orqali o'qiladi.",
       "cw2Tip": "CW2 konsol ilovangizda foydalanuvchi buyurtmalari aynan shu modelda tashkil qilinadi."
-    }
+    },
+    "sampleData": [
+      "Customer c = new Customer(101, \"Dilshod Karimov\", \"+998931112233\")",
+      "Order ord = new Order(5001, c, 480000.0)"
+    ],
+    "expectedOutput": "=== BUYURTMA #5001 ===\nMijoz: Dilshod Karimov (Tel: +998931112233)\nTo'lov summasi: 480000.0 so'm\n=========================="
   },
   {
     "id": 48,
@@ -2252,7 +2484,9 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Konstantalarni kichik harflar bilan yozish Clean Code talablariga zid sanaladi.",
       "cw2Tip": "Soliq stavkalari va do'kon nomini shunday o'zgarmas qilib e'lon qilish tavsiya etiladi."
-    }
+    },
+    "sampleData": [],
+    "expectedOutput": "Tizim: WIUT Academy v2.0\nMaksimal ruxsat etilgan chegirma: 30.0%"
   },
   {
     "id": 49,
@@ -2301,7 +2535,14 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Stock yoki price manfiy bo'lmasligi tovar konstruktorida kafolatlanishi shart.",
       "cw2Tip": "CW2 loyihangizda ombor zaxirasini tahlil qilish moduli aynan shunday ishlaydi."
-    }
+    },
+    "sampleData": [
+      "Product prd1 = new Product(\"Laptop Dell\", 8500000.0, 5)",
+      "Product prd2 = new Product(\"Monitor 27\", 2200000.0, 10)",
+      "Product prd3 = new Product(\"Klaviatura RGB\", 350000.0, 20)",
+      "WarehouseReport report = new WarehouseReport(prd1, prd2, prd3)"
+    ],
+    "expectedOutput": "Ombordagi barcha tovarlarning jami qiymati: 7.15E7 so'm"
   },
   {
     "id": 50,
@@ -2358,6 +2599,12 @@ window.OOP_CHALLENGES_W1 = [
       ],
       "pitfalls": "Chegirma hisoblashda subtotalga salbiy ta'sir ko'rsatmaslik uchun doimo qavslarga e'tibor bering.",
       "cw2Tip": "CW2 baholash mezonida UML diagrammasini tuzishda aynan ushbu 3 ta klass asos qilib olinadi!"
-    }
+    },
+    "sampleData": [
+      "Customer client = new Customer(\"Ravshanbek Rahimov\", \"+998901234567\")",
+      "Product macbook = new Product(\"MacBook Air M3\", 14500000.0)",
+      "Order order1 = new Order(client, macbook, 1)"
+    ],
+    "expectedOutput": "================================================\n          WIUT OOP ENTERPRISE INVOICE          \nBuyurtma Raqami: #1\nMijoz: Ravshanbek Rahimov | Tel: +998901234567\n------------------------------------------------\nTovar: MacBook Air M3\nDona narxi: 1.45E7 so'm x 1 dona\nOraliq summa: 1.45E7 so'm\nChegirma (10.0%): -1450000.0 so'm\n------------------------------------------------\nJAMI TO'LOV: 1.305E7 so'm\n================================================"
   }
 ];
