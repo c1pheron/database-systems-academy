@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=20261019_v19_always_image1_layout">
+  <link rel="stylesheet" href="styles.css?v=20261019_v22_draggable_resizers">
             <style id="criticalEditorStyles">
     /* CONSOLAS FONT DEFINITION (Loaded on mobile & fallbacks) */
     @font-face {
@@ -582,24 +582,159 @@
     .top-hud .hud-actions { flex-shrink: 0 !important; gap: 6px !important; }
 
     .ide-workspace {
-      display: grid !important;
-      grid-template-columns: minmax(340px, clamp(350px, 34vw, 640px)) 1fr !important;
+      display: flex !important;
+      flex-direction: row !important;
       flex: 1 !important;
       height: calc(100vh - 100px) !important;
       max-height: calc(100vh - 100px) !important;
       overflow: hidden !important;
+      position: relative !important;
     }
     .pane-left {
+      width: var(--left-pane-width, 380px) !important;
+      min-width: 260px !important;
+      max-width: calc(100vw - 320px) !important;
+      flex-shrink: 0 !important;
       max-height: calc(100vh - 100px) !important;
       overflow-y: auto !important;
+      box-sizing: border-box !important;
     }
     .pane-right {
+      flex: 1 1 0% !important;
+      min-width: 320px !important;
       display: flex !important;
       flex-direction: column !important;
       height: 100% !important;
       max-height: calc(100vh - 100px) !important;
       overflow: hidden !important;
       position: relative !important;
+    }
+
+    /* HORIZONTAL SPLIT RESIZER (PANE LEFT <-> PANE RIGHT) */
+    .pane-resizer-h {
+      width: 8px !important;
+      min-width: 8px !important;
+      background: #100c22 !important;
+      border-left: 1px solid rgba(168, 85, 247, 0.22) !important;
+      border-right: 1px solid rgba(168, 85, 247, 0.22) !important;
+      cursor: col-resize !important;
+      flex-shrink: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      user-select: none !important;
+      position: relative !important;
+      z-index: 25 !important;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+    }
+    .pane-resizer-h:hover,
+    .pane-resizer-h.is-resizing {
+      background: #2e1654 !important;
+      border-color: #c084fc !important;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.5) !important;
+    }
+    .pane-resizer-h .resizer-grip {
+      width: 2px !important;
+      height: 36px !important;
+      border-radius: 2px !important;
+      background: rgba(192, 132, 252, 0.5) !important;
+      pointer-events: none !important;
+      transition: background 0.15s ease, height 0.15s ease !important;
+    }
+    .pane-resizer-h:hover .resizer-grip,
+    .pane-resizer-h.is-resizing .resizer-grip {
+      background: #ffffff !important;
+      height: 48px !important;
+      box-shadow: 0 0 8px #c084fc !important;
+    }
+
+    /* VERTICAL SPLIT RESIZER (CODE EDITOR <-> CONSOLE) */
+    .console-resizer-v {
+      height: 8px !important;
+      min-height: 8px !important;
+      background: #100c22 !important;
+      border-top: 1px solid rgba(168, 85, 247, 0.22) !important;
+      border-bottom: 1px solid rgba(168, 85, 247, 0.22) !important;
+      cursor: row-resize !important;
+      flex-shrink: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      user-select: none !important;
+      position: relative !important;
+      z-index: 25 !important;
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+    }
+    .console-resizer-v:hover,
+    .console-resizer-v.is-resizing {
+      background: #2e1654 !important;
+      border-color: #c084fc !important;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.5) !important;
+    }
+    .console-resizer-v .resizer-grip {
+      width: 36px !important;
+      height: 2px !important;
+      border-radius: 2px !important;
+      background: rgba(192, 132, 252, 0.5) !important;
+      pointer-events: none !important;
+      transition: background 0.15s ease, width 0.15s ease !important;
+    }
+    .console-resizer-v:hover .resizer-grip,
+    .console-resizer-v.is-resizing .resizer-grip {
+      background: #ffffff !important;
+      width: 48px !important;
+      box-shadow: 0 0 8px #c084fc !important;
+    }
+
+    /* RESIZING ACTIVE STATES */
+    body.is-resizing-h {
+      cursor: col-resize !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+    }
+    body.is-resizing-h * {
+      cursor: col-resize !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      pointer-events: none !important;
+    }
+    body.is-resizing-h #paneResizerH {
+      pointer-events: auto !important;
+    }
+
+    body.is-resizing-v {
+      cursor: row-resize !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+    }
+    body.is-resizing-v * {
+      cursor: row-resize !important;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      pointer-events: none !important;
+    }
+    body.is-resizing-v #consoleResizerV {
+      pointer-events: auto !important;
+    }
+
+    @media (max-width: 768px) {
+      .pane-resizer-h {
+        display: none !important;
+      }
+      .ide-workspace {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+      .pane-left {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+      .pane-right {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
     }
 
     .editor-toolbar {
@@ -682,16 +817,16 @@
       box-sizing: border-box !important;
     }
 
-    /* 7. JAVA TERMINAL / CONSOLE OUTPUT — NEVER CLIPPED & 100% VISIBLE ON PC & MOBILE */
+    /* 7. JAVA TERMINAL / CONSOLE OUTPUT — USER RESIZABLE & NEVER CLIPPED */
     .console-section {
-      flex: 0 0 190px !important;
-      height: 190px !important;
-      min-height: 160px !important;
-      max-height: 40vh !important;
+      flex: 0 0 var(--console-height, 190px) !important;
+      height: var(--console-height, 190px) !important;
+      min-height: 60px !important;
+      max-height: calc(100% - 100px) !important;
       display: flex !important;
       flex-direction: column !important;
       background: #0d0a1f !important;
-      border-top: 1px solid rgba(168, 85, 247, 0.25) !important;
+      border-top: none !important;
       flex-shrink: 0 !important;
       overflow: hidden !important;
       box-sizing: border-box !important;
@@ -984,6 +1119,11 @@
       </div>
     </section>
 
+    <!-- DRAGGABLE HORIZONTAL RESIZER (PANE LEFT <-> PANE RIGHT) -->
+    <div id="paneResizerH" class="pane-resizer-h" title="Chap panelni surish orqali kengaytirish / toraytirish">
+      <div class="resizer-grip"></div>
+    </div>
+
     <!-- RIGHT PANE (JAVA IDE & CONSOLE) -->
     <section class="pane-right">
       <div class="editor-toolbar">
@@ -1041,6 +1181,11 @@
         <div id="codeAutocompleteDropdown" class="code-autocomplete-dropdown" style="display:none;"></div>
       </div>
 
+      <!-- DRAGGABLE VERTICAL RESIZER (EDITOR / CONSOLE) -->
+      <div id="consoleResizerV" class="console-resizer-v" title="Konsol balandligini ko'tarish / tushirish (surish)">
+        <div class="resizer-grip"></div>
+      </div>
+
       <div class="console-section">
         <div class="console-header">
           <div class="console-tabs">
@@ -1063,7 +1208,7 @@
   <script src="../shared/oop-dictionary.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
   <script src="../shared/challenges-w1.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
   <script src="../shared/java-editor-enhancer.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
-  <script src="game.js?v=20261019_v21_fix_multiline_lint_and_autocomplete"></script>
+  <script src="game.js?v=20261019_v22_draggable_resizers"></script>
 
 </body>
 </html>

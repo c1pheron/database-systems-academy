@@ -919,6 +919,203 @@ class Main {
         }
       });
     }
+
+    // Initialize Draggable Split Resizers (Horizontal Pane & Vertical Console)
+    initSplitResizers();
   });
+
+  // =========================================================================
+  // DRAGGABLE SPLIT RESIZERS (HORIZONTAL PANE & VERTICAL CONSOLE)
+  // =========================================================================
+  function initSplitResizers() {
+    const workspace = document.getElementById("ideWorkspace");
+    const paneLeft = document.querySelector(".pane-left");
+    const paneRight = document.querySelector(".pane-right");
+    const paneResizerH = document.getElementById("paneResizerH");
+
+    const consoleResizerV = document.getElementById("consoleResizerV");
+    const consoleSection = document.querySelector(".console-section");
+
+    if (!workspace || !paneLeft || !paneRight) return;
+
+    // --- 1. Restore Saved Dimensions from localStorage ---
+    const STORAGE_LEFT_W = "OOP_LEFT_PANE_WIDTH";
+    const STORAGE_CONS_H = "OOP_CONSOLE_HEIGHT";
+
+    try {
+      const savedLeftW = localStorage.getItem(STORAGE_LEFT_W);
+      if (savedLeftW && window.innerWidth > 768) {
+        const w = parseInt(savedLeftW, 10);
+        if (!isNaN(w) && w >= 260 && w <= window.innerWidth - 320) {
+          paneLeft.style.setProperty("width", w + "px", "important");
+          document.documentElement.style.setProperty("--left-pane-width", w + "px");
+          workspace.style.setProperty("--left-pane-width", w + "px");
+        }
+      }
+
+      const savedConsH = localStorage.getItem(STORAGE_CONS_H);
+      if (savedConsH && consoleSection) {
+        const h = parseInt(savedConsH, 10);
+        if (!isNaN(h) && h >= 60 && h <= 900) {
+          consoleSection.style.setProperty("height", h + "px", "important");
+          consoleSection.style.setProperty("flex", "0 0 " + h + "px", "important");
+          document.documentElement.style.setProperty("--console-height", h + "px");
+          paneRight.style.setProperty("--console-height", h + "px");
+        }
+      }
+    } catch (e) {}
+
+    // --- 2. Horizontal Resizer (Pane Left <-> Pane Right) ---
+    if (paneResizerH) {
+      let isDraggingH = false;
+      let startX = 0;
+      let startWidth = 0;
+
+      const onPointerDownH = (e) => {
+        if (window.innerWidth <= 768) return; // Disabled on mobile segmented tab view
+        isDraggingH = true;
+        startX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+        startWidth = paneLeft.getBoundingClientRect().width;
+
+        document.body.classList.add("is-resizing-h");
+        paneResizerH.classList.add("is-resizing");
+
+        window.addEventListener("mousemove", onPointerMoveH);
+        window.addEventListener("mouseup", onPointerUpH);
+        window.addEventListener("touchmove", onPointerMoveH, { passive: false });
+        window.addEventListener("touchend", onPointerUpH);
+      };
+
+      const onPointerMoveH = (e) => {
+        if (!isDraggingH) return;
+        if (e.cancelable) e.preventDefault();
+
+        const curX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+        const deltaX = curX - startX;
+        let newWidth = startWidth + deltaX;
+
+        const workspaceWidth = workspace.getBoundingClientRect().width;
+        const minW = 260;
+        const maxW = Math.max(minW, workspaceWidth - 320);
+
+        if (newWidth < minW) newWidth = minW;
+        if (newWidth > maxW) newWidth = maxW;
+
+        paneLeft.style.setProperty("width", newWidth + "px", "important");
+        document.documentElement.style.setProperty("--left-pane-width", newWidth + "px");
+        workspace.style.setProperty("--left-pane-width", newWidth + "px");
+
+        if (window.UMLRenderer && typeof window.UMLRenderer.fitToView === "function") {
+          window.UMLRenderer.fitToView("umlContainer");
+        }
+        if (window.JavaEditorEnhancer && typeof window.JavaEditorEnhancer.updateHighlighting === "function") {
+          window.JavaEditorEnhancer.updateHighlighting();
+        }
+      };
+
+      const onPointerUpH = () => {
+        if (!isDraggingH) return;
+        isDraggingH = false;
+        document.body.classList.remove("is-resizing-h");
+        paneResizerH.classList.remove("is-resizing");
+
+        window.removeEventListener("mousemove", onPointerMoveH);
+        window.removeEventListener("mouseup", onPointerUpH);
+        window.removeEventListener("touchmove", onPointerMoveH);
+        window.removeEventListener("touchend", onPointerUpH);
+
+        try {
+          const finalW = Math.round(paneLeft.getBoundingClientRect().width);
+          localStorage.setItem(STORAGE_LEFT_W, String(finalW));
+        } catch (e) {}
+      };
+
+      paneResizerH.addEventListener("mousedown", onPointerDownH);
+      paneResizerH.addEventListener("touchstart", onPointerDownH, { passive: true });
+    }
+
+    // --- 3. Vertical Resizer (Code Editor <-> Java Console) ---
+    if (consoleResizerV && consoleSection) {
+      let isDraggingV = false;
+      let startY = 0;
+      let startHeight = 0;
+
+      const onPointerDownV = (e) => {
+        isDraggingV = true;
+        startY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
+        startHeight = consoleSection.getBoundingClientRect().height;
+
+        document.body.classList.add("is-resizing-v");
+        consoleResizerV.classList.add("is-resizing");
+
+        window.addEventListener("mousemove", onPointerMoveV);
+        window.addEventListener("mouseup", onPointerUpV);
+        window.addEventListener("touchmove", onPointerMoveV, { passive: false });
+        window.addEventListener("touchend", onPointerUpV);
+      };
+
+      const onPointerMoveV = (e) => {
+        if (!isDraggingV) return;
+        if (e.cancelable) e.preventDefault();
+
+        const curY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
+        // Dragging UP (smaller Y) increases console height; dragging DOWN decreases console height
+        const deltaY = startY - curY;
+        let newHeight = startHeight + deltaY;
+
+        const paneRightHeight = paneRight.getBoundingClientRect().height;
+        const minH = 60;
+        const maxH = Math.max(minH, paneRightHeight - 120);
+
+        if (newHeight < minH) newHeight = minH;
+        if (newHeight > maxH) newHeight = maxH;
+
+        consoleSection.style.setProperty("height", newHeight + "px", "important");
+        consoleSection.style.setProperty("flex", "0 0 " + newHeight + "px", "important");
+        document.documentElement.style.setProperty("--console-height", newHeight + "px");
+        paneRight.style.setProperty("--console-height", newHeight + "px");
+
+        if (window.JavaEditorEnhancer && typeof window.JavaEditorEnhancer.updateHighlighting === "function") {
+          window.JavaEditorEnhancer.updateHighlighting();
+        }
+      };
+
+      const onPointerUpV = () => {
+        if (!isDraggingV) return;
+        isDraggingV = false;
+        document.body.classList.remove("is-resizing-v");
+        consoleResizerV.classList.remove("is-resizing");
+
+        window.removeEventListener("mousemove", onPointerMoveV);
+        window.removeEventListener("mouseup", onPointerUpV);
+        window.removeEventListener("touchmove", onPointerMoveV);
+        window.removeEventListener("touchend", onPointerUpV);
+
+        try {
+          const finalH = Math.round(consoleSection.getBoundingClientRect().height);
+          localStorage.setItem(STORAGE_CONS_H, String(finalH));
+        } catch (e) {}
+      };
+
+      consoleResizerV.addEventListener("mousedown", onPointerDownV);
+      consoleResizerV.addEventListener("touchstart", onPointerDownV, { passive: true });
+    }
+
+    // --- 4. Window Resize Observer ---
+    window.addEventListener("resize", () => {
+      if (window.innerWidth <= 768) {
+        paneLeft.style.removeProperty("width");
+        paneLeft.style.removeProperty("min-width");
+      } else {
+        const curW = paneLeft.getBoundingClientRect().width;
+        const maxW = Math.max(260, workspace.getBoundingClientRect().width - 320);
+        if (curW > maxW) {
+          paneLeft.style.setProperty("width", maxW + "px", "important");
+          document.documentElement.style.setProperty("--left-pane-width", maxW + "px");
+          workspace.style.setProperty("--left-pane-width", maxW + "px");
+        }
+      }
+    });
+  }
 
 })();

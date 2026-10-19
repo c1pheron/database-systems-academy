@@ -339,15 +339,20 @@ input, textarea, select, [contenteditable="true"] {
    WORKSPACE DUAL PANE LAYOUT
    ============================================================================ */
 .ide-workspace {
-  display: grid;
-  grid-template-columns: minmax(340px, clamp(350px, 34vw, 640px)) 1fr;
+  display: flex;
+  flex-direction: row;
   flex: 1;
   gap: 0;
   min-height: calc(100vh - 105px);
+  position: relative;
 }
 
 /* Left Pane: Problem Description & UML Diagram */
 .pane-left {
+  width: var(--left-pane-width, 380px);
+  min-width: 260px;
+  max-width: calc(100vw - 320px);
+  flex-shrink: 0;
   background: var(--bg-panel);
   border-right: 1px solid rgba(168, 85, 247, 0.25);
   display: flex;
@@ -725,12 +730,12 @@ input, textarea, select, [contenteditable="true"] {
 
 /* Console Output Section */
 .console-section {
-  flex: 0 0 190px !important;
-  height: 190px !important;
-  min-height: 160px !important;
-  max-height: 40vh !important;
+  flex: 0 0 var(--console-height, 190px) !important;
+  height: var(--console-height, 190px) !important;
+  min-height: 60px !important;
+  max-height: calc(100% - 100px) !important;
   background: var(--bg-terminal);
-  border-top: 1px solid rgba(168, 85, 247, 0.3);
+  border-top: none;
   display: flex !important;
   flex-direction: column !important;
   flex-shrink: 0 !important;
@@ -1048,7 +1053,7 @@ input, textarea, select, [contenteditable="true"] {
   }
 
   .console-section {
-    height: 190px;
+    height: var(--console-height, 190px);
   }
 }
 
