@@ -340,7 +340,7 @@ input, textarea, select, [contenteditable="true"] {
    ============================================================================ */
 .ide-workspace {
   display: grid;
-  grid-template-columns: 460px 1fr;
+  grid-template-columns: minmax(340px, clamp(350px, 34vw, 640px)) 1fr;
   flex: 1;
   gap: 0;
   min-height: calc(100vh - 105px);
@@ -937,10 +937,10 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 /* Responsive labels */
-.btn-back-text-short { display: none; }
-.btn-back-text-full { display: inline; }
-.btn-text-short { display: none; }
-.btn-text-full { display: inline; }
+.btn-back-text-short { display: inline; }
+.btn-back-text-full { display: none; }
+.btn-text-short { display: inline; }
+.btn-text-full { display: none; }
 
 /* ============================================================================
    RESPONSIVE DESIGN — TABLETS & MOBILE PHONES

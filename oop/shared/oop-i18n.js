@@ -290,24 +290,32 @@
       if (btnReset) {
         const spanFull = btnReset.querySelector(".btn-text-full");
         if (spanFull) spanFull.textContent = isEn ? "Reset Code" : "Asliga qaytarish";
+        const spanShort = btnReset.querySelector(".btn-text-short");
+        if (spanShort) spanShort.textContent = isEn ? "Reset" : "Asliga";
       }
 
       const btnVerify = document.getElementById("btnInstantTest");
       if (btnVerify) {
         const spanFull = btnVerify.querySelector(".btn-text-full");
         if (spanFull) spanFull.textContent = isEn ? "Verify Code" : "Kodni Tekshirish";
+        const spanShort = btnVerify.querySelector(".btn-text-short");
+        if (spanShort) spanShort.textContent = isEn ? "Verify" : "Tekshirish";
       }
 
       const btnCloud = document.getElementById("btnCloudRun");
       if (btnCloud) {
         const spanFull = btnCloud.querySelector(".btn-text-full");
         if (spanFull) spanFull.textContent = isEn ? "Run (OpenJDK 21)" : "Ishga tushirish (OpenJDK 21)";
+        const spanShort = btnCloud.querySelector(".btn-text-short");
+        if (spanShort) spanShort.textContent = isEn ? "OpenJDK 21" : "OpenJDK 21";
       }
 
       const btnNext = document.getElementById("btnNextChallenge");
       if (btnNext) {
         const spanFull = btnNext.querySelector(".btn-text-full");
         if (spanFull) spanFull.textContent = isEn ? "Next →" : "Keyingi →";
+        const spanShort = btnNext.querySelector(".btn-text-short");
+        if (spanShort) spanShort.textContent = isEn ? "Next →" : "Keyingi →";
       }
 
       const btnMap = document.getElementById("btnOpenMapOverview");
