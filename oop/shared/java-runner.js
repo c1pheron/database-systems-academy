@@ -13,16 +13,14 @@
       let code = rawCode.trim();
 
       // Wandbox compiles inside prog.java. Top-level classes cannot be public unless matching file name
-      code = code.replace(/public\s+class\s+([A-Za-z0-9_]+)/g, 'class $1');
+      code = code.replace(/\bpublic\s+class\b/g, 'class');
+      code = code.replace(/\bpublic\s+interface\b/g, 'interface');
+      code = code.replace(/\bpublic\s+enum\b/g, 'enum');
+      code = code.replace(/\bpublic\s+record\b/g, 'record');
 
-      // If code doesn't contain a main method, add a launcher class Prog with main
+      // If code doesn't contain a main method, add a launcher class ProgLauncher with main
       if (!code.includes("public static void main")) {
-        code += `\n\nclass Prog {\n    public static void main(String[] args) {\n        System.out.println("✅ Java dasturi muvaffaqiyatli kompilyatsiya qilindi!");\n    }\n}`;
-      } else {
-        // Ensure the class with main is named Prog if not already
-        if (!code.includes("class Prog")) {
-          code = code.replace(/class\s+([A-Za-z0-9_]+)(\s*\{[\s\S]*?public\s+static\s+void\s+main)/m, 'class Prog$2');
-        }
+        code += `\n\nclass ProgLauncher {\n    public static void main(String[] args) {\n        System.out.println("✅ Java dasturi muvaffaqiyatli kompilyatsiya qilindi!");\n    }\n}`;
       }
 
       return code;
@@ -49,18 +47,20 @@
         const data = await response.json();
         
         const isSuccess = data.status === "0";
-        const output = data.program_output || data.program_message || "";
-        const errors = data.compiler_error || data.compiler_message || data.program_error || "";
+        const output = (data.program_output || data.program_message || "").trim();
+        const compilerErr = (data.compiler_error || data.compiler_message || "").trim();
+        const runtimeErr = (data.program_error || "").trim();
+        const fullErrors = compilerErr ? (runtimeErr ? compilerErr + "\n" + runtimeErr : compilerErr) : runtimeErr;
 
         let parsedDiagnostics = [];
         if (!isSuccess && global.JavaAnalyzer) {
-          parsedDiagnostics = global.JavaAnalyzer.formatCompilerDiagnostics(errors);
+          parsedDiagnostics = global.JavaAnalyzer.formatCompilerDiagnostics(fullErrors || output);
         }
 
         return {
           success: isSuccess,
-          output: output.trim(),
-          errors: errors.trim(),
+          output: output,
+          errors: fullErrors,
           diagnostics: parsedDiagnostics,
           raw: data
         };

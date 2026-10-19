@@ -367,28 +367,41 @@
       };
     },
 
-    // 3. Compiler Error Diagnostics (Translates raw javac errors to friendly Uzbek tips)
+    // 3. Compiler Error Diagnostics (Translates raw javac errors and JVM exceptions to friendly tips)
     formatCompilerDiagnostics(rawError) {
       if (!rawError) return [];
       const lines = rawError.split("\n");
       const diagnosed = [];
 
-      for (const line of lines) {
-        const match = line.match(/(?:prog\.java|Main\.java):(\d+):\s*error:\s*(.*)/i);
-        if (match) {
-          const lineNum = parseInt(match[1], 10);
-          const rawMsg = match[2].trim();
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+
+        // 1. Match standard javac errors: prog.java:LINE: error: MESSAGE
+        const javacMatch = line.match(/(?:prog\.java|Main\.java|\.java):(\d+):\s*(?:error|warning)?:\s*(.*)/i);
+        if (javacMatch) {
+          const lineNum = parseInt(javacMatch[1], 10);
+          const rawMsg = javacMatch[2].trim();
           let uzMessage = rawMsg;
-          let tip = "";
+          let tip = "Qatordagi sintaksis va nomlarni tekshiring.";
 
           if (rawMsg.includes("';' expected")) {
             uzMessage = "Nuqta-vergul ';' kutilmoqda. Qator oxirida ';' qo'yish unutilgan.";
             tip = "Ushbu qator oxiriga ';' belgisini qo'shing.";
           } else if (rawMsg.includes("'}' expected")) {
-            uzMessage = "Yopuvchi '}' qavs kutilmoqda. Blok to'liq yopilmagan.";
+            uzMessage = "Yopuvchi '}' jingalak qavs kutilmoqda. Blok to'liq yopilmagan.";
             tip = "Klass yoki metod tanasini '}' bilan yoping.";
+          } else if (rawMsg.includes("')' expected")) {
+            uzMessage = "Yopuvchi ')' qavs kutilmoqda. Qavslar juftligini tekshiring.";
+            tip = "Qavsni ')' bilan yoping.";
           } else if (rawMsg.includes("cannot find symbol")) {
-            uzMessage = "Noma'lum nom (o'zgaruvchi, metod yoki klass topilmadi).";
+            let symbolInfo = "";
+            for (let j = i + 1; j < Math.min(i + 4, lines.length); j++) {
+              if (lines[j].includes("symbol:")) {
+                symbolInfo = " (" + lines[j].trim() + ")";
+                break;
+              }
+            }
+            uzMessage = "Noma'lum nom: o'zgaruvchi, metod yoki klass topilmadi" + symbolInfo + ".";
             tip = "Harflar katta-kichikligini (Case sensitivity) va nom to'g'ri e'lon qilinganini tekshiring.";
           } else if (rawMsg.includes("incompatible types")) {
             uzMessage = "Turlar mos emas (Incompatible types). Boshqa turdagi ma'lumot yuklanmoqda.";
@@ -400,11 +413,20 @@
             uzMessage = "Metod qiymat qaytarishi kerak, lekin 'return' buyrug'i unutilgan.";
             tip = "Metod oxiriga 'return natija;' qo'shing.";
           } else if (rawMsg.includes("unreachable statement")) {
-            uzMessage = "Bajarilmaydigan kod (return dan keyin kod yozilgan).";
+            uzMessage = "Bajarilmaydigan kod (return dan keyin ortiqcha kod yozilgan).";
             tip = "'return' dan keyingi ortiqcha kodlarni olib tashlang.";
           } else if (rawMsg.includes("constructor") && rawMsg.includes("cannot be applied")) {
-            uzMessage = "Konstruktorga uzatilgan argumentlar mos emas.";
+            uzMessage = "Konstruktorga uzatilgan argumentlar soni yoki turlari mos emas.";
             tip = "Konstruktor parametrlarining soni va turlarini tekshiring.";
+          } else if (rawMsg.includes("illegal start of expression")) {
+            uzMessage = "Noto'g'ri ifoda boshlanishi (Illegal start of expression).";
+            tip = "Oldingi qatordagi ';' yoki qavslar to'g'ri yopilganini tekshiring.";
+          } else if (rawMsg.includes("variable") && rawMsg.includes("might not have been initialized")) {
+            uzMessage = "O'zgaruvchiga boshlang'ich qiymat berilmagan.";
+            tip = "O'zgaruvchini ishlatishdan oldin unga boshlang'ich qiymat bering (masalan: = 0;).";
+          } else if (rawMsg.includes("class, interface, enum, or record expected")) {
+            uzMessage = "Klass yoki blok kutilmoqda. Qavslar noto'g'ri yopilgan yoki ortiqcha belgi bor.";
+            tip = "Jingalak qavslar '{' va '}' juftligini tekshiring.";
           }
 
           diagnosed.push({
@@ -414,6 +436,51 @@
             tip: tip
           });
         }
+
+        // 2. Match JVM Runtime Exceptions: at ... (prog.java:LINE)
+        const traceMatch = line.match(/at\s+(?:[A-Za-z0-9_]+\.)+[A-Za-z0-9_]+\((?:prog\.java|Main\.java|\.java):(\d+)\)/i);
+        if (traceMatch) {
+          const lineNum = parseInt(traceMatch[1], 10);
+          let excName = "Runtime Exception";
+          for (let k = Math.max(0, i - 3); k <= i; k++) {
+            const excMatch = lines[k].match(/Exception in thread "[^"]*"\s+([A-Za-z0-9_$.]+)(?::\s*(.*))?/i);
+            if (excMatch) {
+              excName = excMatch[1];
+              const excDetail = excMatch[2] ? ` (${excMatch[2]})` : "";
+              let tip = "Ushbu qatordagi obyekt yoki hisob-kitobni tekshiring.";
+              let uzb = `Dasturni bajarishda xatolik yuz berdi: ${excName}${excDetail}`;
+
+              if (excName.includes("NullPointerException")) {
+                uzb = "NullPointerException: Bo'sh ('null') bo'lgan ob'yektga murojaat qilindi.";
+                tip = "Murojaat qilishdan oldin ob'yekt 'new' orqali yaratilganiga ishonch hosil qiling.";
+              } else if (excName.includes("ArithmeticException")) {
+                uzb = "Arifmetik xato (ArithmeticException): Masalan, nolga bo'lish sodir bo'ldi.";
+                tip = "Bo'luvchi nolga teng emasligini tekshiring.";
+              } else if (excName.includes("ArrayIndexOutOfBoundsException")) {
+                uzb = "Massiv chegarasidan chiqish (ArrayIndexOutOfBoundsException): Mavjud bo'lmagan indeks chaqirildi.";
+                tip = "Massiv indekslari 0 dan (uzunlik - 1) gacha bo'lishini tekshiring.";
+              }
+
+              diagnosed.push({
+                line: lineNum,
+                original: lines[k].trim(),
+                uzbek: uzb,
+                tip: tip
+              });
+              break;
+            }
+          }
+        }
+      }
+
+      // If no pinpoint was extracted but rawError exists, provide general diagnostic
+      if (diagnosed.length === 0 && rawError.trim()) {
+        diagnosed.push({
+          line: null,
+          original: rawError.trim(),
+          uzbek: rawError.trim(),
+          tip: "Kompilyator xabarini to'liq ko'rib chiqib, kodingizni tekshiring."
+        });
       }
 
       return diagnosed;

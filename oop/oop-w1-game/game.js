@@ -414,66 +414,109 @@ class Main {
     const consoleOut = document.getElementById("consoleOutput");
     if (!ch || !codeArea || !consoleOut) return;
 
-    consoleOut.className = "console-output";
     const isEn = currentLang === "en";
     consoleOut.className = "console-output";
-    consoleOut.textContent = "";
+    consoleOut.textContent = isEn
+      ? "⏳ Verifying code requirements and executing on OpenJDK 21 JVM..."
+      : "⏳ Kod talablari tekshirilmoqda va OpenJDK 21 JVM da ishga tushirilmoqda...";
 
+    // 1. Static OOP and syntax verification
     const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch.requirements);
 
-    let report = "==================================================\n";
-    report += isEn ? "🔎 LOCAL VERIFICATION RESULTS (PROFESSOR ADA)\n" : "🔎 MAHALLIY TEKSHIRUV NATIJASI (PROFESSOR ADA)\n";
-    report += "==================================================\n\n";
+    // 2. Real OpenJDK 21 execution
+    const runResult = await window.JavaRunner.runOnOpenJDK21(codeArea.value);
 
-    if (validation.passed) {
+    let report = "";
+
+    // A. Always show actual program output (STDOUT) if program ran
+    if (runResult.success) {
+      report += "==================================================\n";
+      report += isEn ? "☕ PROGRAM EXECUTION OUTPUT (OPENJDK 21 STDOUT)\n" : "☕ DASTUR NATIJASI (OPENJDK 21 JVM CHIQISHI)\n";
+      report += "==================================================\n\n";
+      if (runResult.output) {
+        report += runResult.output + "\n\n";
+      } else {
+        report += (isEn
+          ? "(Program finished successfully with no printed output. Use System.out.println() to print results.)\n\n"
+          : "(Dastur muvaffaqiyatli yakunlandi, lekin konsolga hech narsa chop etilmadi. Natijani ko'rish uchun System.out.println() dan foydalaning.)\n\n");
+      }
+    }
+
+    // B. Check both OOP rules AND OpenJDK 21 compilation
+    if (validation.passed && runResult.success) {
       consoleOut.className = "console-output success";
       solvedQuestions.add(ch.id);
       saveSolved();
       renderHUD();
 
+      report += "==================================================\n";
+      report += isEn ? "🎉 VERIFICATION SUCCESSFUL (PROFESSOR ADA)\n" : "🎉 TEKSHIRUV: BARCHA TALABLAR TO'G'RI BAJARILDI!\n";
+      report += "==================================================\n\n";
       report += isEn
-        ? "🎉 CONGRATULATIONS! ALL REQUIREMENTS MET SUCCESSFULLY!\n\n" +
-          "✔️ All OOP Conditions Fully Satisfied\n" +
-          "✔️ Zero Syntax Errors Detected\n" +
-          "⭐ +50 Points Added to Rating Score!\n\n" +
-          "💡 Tip: Click '☕ Run (OpenJDK 21)' to view real JVM execution output."
-        : "🎉 TABRIKLAYMIZ! BARCHA TALABLAR TO'G'RI BAJARILDI!\n\n" +
-          "✔️ OOP Shartlari To'liq Qanoatlantirildi\n" +
-          "✔️ Sintaktik xatolar aniqlanmadi\n" +
-          "⭐ Reytingga +50 Ball qo'shildi!\n\n" +
-          "💡 Maslahat: '☕ Ishga tushirish (OpenJDK 21)' tugmasini bosib, real JVM natijasini ko'rishingiz mumkin.";
-    } else {
-      consoleOut.className = "console-output error";
-      report += isEn ? "❌ ISSUES DETECTED IN YOUR CODE:\n" : "❌ KODDA XATOLIKLAR ANIQLANDI:\n";
-
-      if (validation.syntaxErrors && validation.syntaxErrors.length > 0) {
-        validation.syntaxErrors.forEach(err => {
-          const lineStr = isEn ? `[Line ${err.line}]` : `[${err.line}-Qator]`;
-          report += "\n📍 " + lineStr + ": " + err.message + "\n";
-          if (err.snippet) report += (isEn ? "   Your code: " : "   Kodingiz: ") + err.snippet + "\n";
-          if (err.fix) report += (isEn ? "   💡 Tip: " : "   💡 Tavsiya: ") + err.fix + "\n";
-        });
-      }
-
-      if (validation.semanticIssues && validation.semanticIssues.length > 0) {
-        validation.semanticIssues.forEach(iss => {
-          const linePrefix = iss.line ? (isEn ? "[Line " + iss.line + "]: " : "[" + iss.line + "-Qator]: ") : "";
-          report += "\n📍 " + linePrefix + iss.message + "\n";
-          if (iss.fix) report += (isEn ? "   💡 Tip: " : "   💡 Tavsiya: ") + iss.fix + "\n";
-        });
-      }
+        ? "✔️ All OOP Conditions & Requirements Fully Satisfied\n" +
+          "✔️ OpenJDK 21 Java Compiler: 0 Errors Detected\n" +
+          "⭐ +50 Points Added to Rating Score!\n"
+        : "✔️ Barcha OOP shartlari va talablari to'liq qanoatlantirildi\n" +
+          "✔️ OpenJDK 21 Java Kompilyatori: 0 ta xatolik aniqlandi\n" +
+          "⭐ Reytingga +50 Ball qo'shildi!\n";
 
       if (validation.passedItems && validation.passedItems.length > 0) {
-        report += "\n--------------------------------------------------\n";
-        report += isEn ? "✔️ CORRECTLY IMPLEMENTED PARTS:\n" : "✔️ TO'G'RI BAJARILGAN QISMLAR:\n";
+        report += isEn ? "\n✔️ Verified Components:\n" : "\n✔️ Tasdiqlangan qismlar:\n";
         validation.passedItems.forEach(item => {
           report += "   • " + item.name + " (" + item.detail + ")\n";
         });
       }
+    } else {
+      consoleOut.className = "console-output error";
+
+      // If OpenJDK 21 failed to compile/run
+      if (!runResult.success) {
+        report += "==================================================\n";
+        report += isEn ? "❌ OPENJDK 21 COMPILER / RUNTIME ERROR\n" : "❌ OPENJDK 21 KOMPILYATSIYA / BAJARILISH XATOLIGI\n";
+        report += "==================================================\n\n";
+
+        if (runResult.diagnostics && runResult.diagnostics.length > 0) {
+          report += isEn ? "📍 PINPOINTED ISSUES:\n" : "📍 ANIQLANGAN QATORLAR:\n";
+          runResult.diagnostics.forEach(d => {
+            const lineStr = d.line ? (isEn ? `[Line ${d.line}]` : `[${d.line}-Qator]`) : (isEn ? "[General]" : "[Umumiy]");
+            const msg = isEn ? (d.original || d.uzbek) : d.uzbek;
+            report += "• " + lineStr + ": " + msg + "\n  💡 " + (isEn ? "Tip: " : "Tavsiya: ") + d.tip + "\n\n";
+          });
+        }
+
+        if (runResult.errors) {
+          report += isEn ? "--- Full Javac / JVM Error Output ---\n" : "--- To'liq Javac / JVM Xatolik Xabari ---\n";
+          report += runResult.errors + "\n\n";
+        }
+      }
+
+      // If OOP requirements or syntax linting failed
+      if (!validation.passed) {
+        report += "==================================================\n";
+        report += isEn ? "❌ OOP REQUIREMENTS OR SYNTAX ISSUES\n" : "❌ OOP TALABLARI VA SINTAKSIS TEKSHIRUVI\n";
+        report += "==================================================\n\n";
+
+        if (validation.syntaxErrors && validation.syntaxErrors.length > 0) {
+          validation.syntaxErrors.forEach(err => {
+            const lineStr = isEn ? `[Line ${err.line}]` : `[${err.line}-Qator]`;
+            report += "📍 " + lineStr + ": " + err.message + "\n";
+            if (err.snippet) report += (isEn ? "   Your code: " : "   Kodingiz: ") + err.snippet + "\n";
+            if (err.fix) report += (isEn ? "   💡 Tip: " : "   💡 Tavsiya: ") + err.fix + "\n\n";
+          });
+        }
+
+        if (validation.semanticIssues && validation.semanticIssues.length > 0) {
+          validation.semanticIssues.forEach(iss => {
+            const linePrefix = iss.line ? (isEn ? "[Line " + iss.line + "]: " : "[" + iss.line + "-Qator]: ") : "";
+            report += "📍 " + linePrefix + (iss.message || iss.title) + "\n";
+            if (iss.fix) report += (isEn ? "   💡 Tip: " : "   💡 Tavsiya: ") + iss.fix + "\n\n";
+          });
+        }
+      }
 
       report += isEn
-        ? "\n💡 Professor Ada Advice: Fix the highlighted issues above and verify again!"
-        : "\n💡 Professor Ada Maslahati: Yuqorida ko'rsatilgan qatorlardagi xatoliklarni tuzatib, qayta tekshiring!";
+        ? "💡 Professor Ada Advice: Review the highlighted issues above, correct your code, and test again!"
+        : "💡 Professor Ada Maslahati: Yuqorida ko'rsatilgan qatorlardagi xatoliklarni to'g'rilab, qayta tekshiring!";
     }
 
     consoleOut.textContent = report;
@@ -485,37 +528,36 @@ class Main {
     const consoleOut = document.getElementById("consoleOutput");
     if (!codeArea || !consoleOut) return;
 
-    consoleOut.className = "console-output";
     const isEn = currentLang === "en";
     consoleOut.className = "console-output";
-    consoleOut.textContent = "";
+    consoleOut.textContent = isEn ? "⏳ Compiling and executing on OpenJDK 21 JVM..." : "⏳ OpenJDK 21 JVM da kompilyatsiya va ijro etilmoqda...";
 
     const res = await window.JavaRunner.runOnOpenJDK21(codeArea.value);
 
     if (res.success) {
       consoleOut.className = "console-output success";
       consoleOut.textContent = "==================================================\n" +
-        (isEn ? "✅ OPENJDK 21 OUTPUT (STDOUT)\n" : "✅ OPENJDK 21 CHIQISHI (STDOUT)\n") +
+        (isEn ? "☕ OPENJDK 21 EXECUTION OUTPUT (STDOUT)\n" : "☕ OPENJDK 21 DASTUR CHIQISHI (STDOUT)\n") +
         "==================================================\n\n" +
-        (res.output || (isEn ? "(No output, program finished with returncode 0)" : "(Chiqish yo'q, dastur muvaffaqiyatli yakunlandi)")) +
+        (res.output || (isEn ? "(Program completed with no output. Use System.out.println() to print results.)" : "(Dastur muvaffaqiyatli yakunlandi, lekin konsolga hech narsa chop etilmadi. System.out.println orqali natija chiqaring.)")) +
         (isEn ? "\n\n✅ Code successfully compiled and executed!" : "\n\n✅ Kod muvaffaqiyatli kompilyatsiya qilindi va bajarildi!");
     } else {
       consoleOut.className = "console-output error";
       let report = "==================================================\n";
-      report += isEn ? "❌ COMPILER ERROR (JAVAC OPENJDK 21)\n" : "❌ KOMPILYATOR XATOLIGI (JAVAC OPENJDK 21)\n";
+      report += isEn ? "❌ COMPILER / RUNTIME ERROR (OPENJDK 21)\n" : "❌ KOMPILYATOR / JVM XATOLIGI (OPENJDK 21)\n";
       report += "==================================================\n\n";
 
       if (res.diagnostics && res.diagnostics.length > 0) {
         report += isEn ? "📍 PINPOINTED LINES:\n" : "📍 ANIQLANGAN QATORLAR:\n";
         res.diagnostics.forEach(d => {
-          const lineStr = isEn ? `[Line ${d.line}]` : `[${d.line}-Qator]`;
+          const lineStr = d.line ? (isEn ? `[Line ${d.line}]` : `[${d.line}-Qator]`) : (isEn ? "[General]" : "[Umumiy]");
           const msg = isEn ? (d.original || d.uzbek) : d.uzbek;
           report += "• " + lineStr + ": " + msg + "\n  💡 " + (isEn ? "Tip: " : "Tavsiya: ") + d.tip + "\n\n";
         });
-        report += isEn ? "--- Full Javac Compiler Message ---\n" : "--- To'liq Javac Kompilyator Xabari ---\n";
+        report += isEn ? "--- Full Compiler / JVM Message ---\n" : "--- To'liq Kompilyator / JVM Xabari ---\n";
       }
 
-      report += res.errors || (isEn ? "Unknown error" : "Noma'lum xatolik");
+      report += res.errors || (isEn ? "Unknown execution error" : "Noma'lum ijro xatoligi");
       consoleOut.textContent = report;
     }
   }
