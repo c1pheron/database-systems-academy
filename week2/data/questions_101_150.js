@@ -99,7 +99,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 102,
@@ -200,7 +201,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 103,
@@ -301,7 +303,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 104,
@@ -402,7 +405,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 105,
@@ -503,7 +507,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 106,
@@ -596,7 +601,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 107,
@@ -689,7 +695,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 108,
@@ -782,7 +789,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 109,
@@ -875,7 +883,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 110,
@@ -968,7 +977,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 111,
@@ -1061,7 +1071,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 112,
@@ -1154,7 +1165,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 113,
@@ -1247,7 +1259,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 114,
@@ -1340,7 +1353,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 115,
@@ -1433,7 +1447,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 116,
@@ -1526,7 +1541,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 117,
@@ -1619,7 +1635,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 118,
@@ -1712,7 +1729,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 119,
@@ -1805,7 +1823,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 120,
@@ -1898,7 +1917,8 @@ _scope.QUESTIONS_101_150 = [
         ],
         "constraint": "{Optional, And}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 121,
@@ -2049,7 +2069,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 122,
@@ -2200,7 +2221,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 123,
@@ -2351,7 +2373,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 124,
@@ -2502,7 +2525,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 125,
@@ -2653,7 +2677,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 126,
@@ -2804,7 +2829,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 127,
@@ -2955,7 +2981,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 128,
@@ -3106,7 +3133,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 129,
@@ -3257,7 +3285,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 130,
@@ -3408,7 +3437,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 131,
@@ -3559,7 +3589,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 132,
@@ -3710,7 +3741,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 133,
@@ -3861,7 +3893,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 134,
@@ -4012,7 +4045,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 135,
@@ -4163,7 +4197,8 @@ _scope.QUESTIONS_101_150 = [
           "isUnion": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 136,
@@ -4353,26 +4388,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "Airport",
           "entity2": "Terminal",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "Terminal",
           "entity2": "FlightSchedule",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "FlightSchedule",
           "entity2": "PassengerBooking",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 137,
@@ -4562,26 +4592,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "CentralBank",
           "entity2": "CommercialBank",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "CommercialBank",
           "entity2": "SettlementAccount",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "SettlementAccount",
           "entity2": "ClearingTx",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 138,
@@ -4771,26 +4796,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "Hospital",
           "entity2": "SpecializedWard",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "SpecializedWard",
           "entity2": "SpecializedDoctor",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "SpecializedDoctor",
           "entity2": "PatientCourse",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 139,
@@ -4980,26 +5000,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "MegaWarehouse",
           "entity2": "ContainerVessel",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "ContainerVessel",
           "entity2": "CustomsDeclaration",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "CustomsDeclaration",
           "entity2": "FreightForwarder",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 140,
@@ -5189,26 +5204,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "Faculty",
           "entity2": "AcademicDept",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "AcademicDept",
           "entity2": "StaffMember",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "StaffMember",
           "entity2": "StudentClass",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 141,
@@ -5398,26 +5408,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "PowerPlant",
           "entity2": "Substation",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "Substation",
           "entity2": "TransmissionLine",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "TransmissionLine",
           "entity2": "LoadZone",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 142,
@@ -5607,26 +5612,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "RailwayNetwork",
           "entity2": "TrainSchedule",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "TrainSchedule",
           "entity2": "LocomotiveEngine",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "LocomotiveEngine",
           "entity2": "PassengerTicket",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 143,
@@ -5816,26 +5816,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "GovPortalService",
           "entity2": "CitizenRequest",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "CitizenRequest",
           "entity2": "MinistryDept",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "MinistryDept",
           "entity2": "ProcessingOfficer",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 144,
@@ -6025,26 +6020,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "PharmaFactory",
           "entity2": "ChemicalLab",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "ChemicalLab",
           "entity2": "DrugBatch",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "DrugBatch",
           "entity2": "QualityAudit",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 145,
@@ -6234,26 +6224,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "CarManufacturer",
           "entity2": "AssemblyLine",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "AssemblyLine",
           "entity2": "DealershipShowroom",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "DealershipShowroom",
           "entity2": "VehicleOrder",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 146,
@@ -6443,26 +6428,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "SOCNetwork",
           "entity2": "SecurityThreat",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "SecurityThreat",
           "entity2": "IncidentTicket",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "IncidentTicket",
           "entity2": "MitigationAction",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 147,
@@ -6652,26 +6632,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "RetailStore",
           "entity2": "CentralDepot",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "CentralDepot",
           "entity2": "SupplierVendor",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "SupplierVendor",
           "entity2": "ProductInventory",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 148,
@@ -6861,26 +6836,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "RefineryPlant",
           "entity2": "StorageTanker",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "StorageTanker",
           "entity2": "PipelineSegment",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "PipelineSegment",
           "entity2": "CrudeOilShipment",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 149,
@@ -7070,26 +7040,21 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "TelecomCore",
           "entity2": "FiveGBaseStation",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "FiveGBaseStation",
           "entity2": "BillingSubscription",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "BillingSubscription",
           "entity2": "DataTrafficSession",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 150,
@@ -7279,25 +7244,24 @@ _scope.QUESTIONS_101_150 = [
         {
           "entity1": "Spaceport",
           "entity2": "SatelliteOrbiter",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel1"
         },
         {
           "entity1": "SatelliteOrbiter",
           "entity2": "GroundStation",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "Rel2"
         },
         {
           "entity1": "GroundStation",
           "entity2": "MissionTelemetry",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "Rel3"
         }
       ]
-    }
+    },
+    "isWeek2": true
   }
 ];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = _scope.QUESTIONS_101_150;
+}

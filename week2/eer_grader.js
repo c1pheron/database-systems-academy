@@ -11,9 +11,9 @@
     grade: function (userDiagram, q) {
       const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
 
-      // First priority: High-precision diagram diagnostics engine
+      // First priority: High-precision diagram diagnostics engine (Week 2 EER mode: no multiplicity)
       if (typeof window !== 'undefined' && window.DatabaseDiagramDiagnostics) {
-        const diag = window.DatabaseDiagramDiagnostics.diagnose(userDiagram, q, 'relational');
+        const diag = window.DatabaseDiagramDiagnostics.diagnose(userDiagram, q, 'week2');
         return {
           passed: diag.passed,
           feedback: diag.formattedReport,
@@ -73,7 +73,7 @@
         }
       }
 
-      // 2. CHECK RELATIONSHIPS (if expected)
+      // 2. CHECK RELATIONSHIPS (Week 2 EER: verify line existence without requiring multiplicity)
       const expRels = expected.relationships || [];
       for (const expR of expRels) {
         const e1Norm = norm(expR.entity1);
@@ -93,38 +93,6 @@
               ? `⚠️ Relationship line between <strong>'${expR.entity1}'</strong> and <strong>'${expR.entity2}'</strong> not found. Connect them using connector ports or relationship line.`
               : `⚠️ <strong>'${expR.entity1}'</strong> va <strong>'${expR.entity2}'</strong> o'rtasida aloqa chizig'i topilmadi. Shakllar panelidagi 'Aloqa Chizig'i' yoki magnit nuqtalar orqali ularni bog'lang.`
           };
-        }
-
-        // Check Multiplicity if specified
-        if (expR.mult1 && expR.mult2) {
-          const uFrom = norm(foundRel.fromEntityName || foundRel.entity1);
-          let uM1 = foundRel.mult1;
-          let uM2 = foundRel.mult2;
-
-          // If reversed direction, swap user multiplicities
-          if (uFrom === e2Norm) {
-            uM1 = foundRel.mult2;
-            uM2 = foundRel.mult1;
-          }
-
-          // Normalize multiplicity (allow slight format differences like 1:1, 1..1, 1..*)
-          const normM = m => (m || '').replace(/:/g, '..').replace(/n/gi, '*').replace(/m/gi, '*');
-          const m1Matches = normM(uM1) === normM(expR.mult1);
-          const m2Matches = normM(uM2) === normM(expR.mult2);
-
-          if (!m1Matches || !m2Matches) {
-            const hasUnset = !uM1 || uM1 === '+' || uM1 === '?' || !uM2 || uM2 === '+' || uM2 === '?';
-            return {
-              passed: false,
-              feedback: isEn
-                ? (hasUnset
-                    ? `💡 Click the <strong>[ + ]</strong> button on the connector line between <strong>'${expR.entity1}'</strong> and <strong>'${expR.entity2}'</strong> to set the multiplicity!`
-                    : `⚠️ Check multiplicity: it should be <strong>'${expR.entity1}'</strong> (${expR.mult1}) and <strong>'${expR.entity2}'</strong> (${expR.mult2}). Click the badge to adjust!`)
-                : (hasUnset
-                    ? `💡 <strong>'${expR.entity1}'</strong> va <strong>'${expR.entity2}'</strong> o'rtasidagi chiziqda turgan <strong>[ + ]</strong> tugmachasini bosib multiplisitiyani o'rnating!`
-                    : `⚠️ Multiplisitiyani to'g'ri tanlang: <strong>'${expR.entity1}'</strong> (${expR.mult1}) va <strong>'${expR.entity2}'</strong> (${expR.mult2}) bo'lishi kerak. Chiziqdagi qiymat ustiga bosib o'zgartiring!`)
-            };
-          }
         }
       }
 

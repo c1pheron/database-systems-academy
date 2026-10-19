@@ -8,7 +8,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Kinoprokat Boshqaruvchisi",
     "clientAvatar": "mentor",
     "title": "Movie Disjoint Ixtisoslashuvi",
-    "story": "Kino & Premyeralar sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **Movie** (movieId {PK}, `title`, `director`, `durationMin`, `ageRating`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "story": "Kino & Premyeralar sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **Movie** (movieId {PK}, `title`, `director`, `durationMin`, `ageRating`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
     "instruction": "'Movie' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -141,7 +141,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Provisor",
     "clientAvatar": "mentor",
     "title": "Medicine Disjoint Ixtisoslashuvi",
-    "story": "Farmatsevtika sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **Medicine** (barcode {PK}, `name`, `dosageMg`, `manufacturer`, `expDate`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "story": "Farmatsevtika sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **Medicine** (barcode {PK}, `name`, `dosageMg`, `manufacturer`, `expDate`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
     "instruction": "'Medicine' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -274,7 +274,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Logistika Floti Boshlig'i",
     "clientAvatar": "mentor",
     "title": "CargoTruck Disjoint Ixtisoslashuvi",
-    "story": "Magistral Yuk Tashish sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **CargoTruck** (plateNo {PK}, `capacityTons`, `fuelType`, `mileageKm`, `status`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "story": "Magistral Yuk Tashish sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **CargoTruck** (plateNo {PK}, `capacityTons`, `fuelType`, `mileageKm`, `status`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
     "instruction": "'CargoTruck' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -407,7 +407,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Mijozlar Xizmati Boshlig'i",
     "clientAvatar": "mentor",
     "title": "ClubMember Disjoint Ixtisoslashuvi",
-    "story": "Sport & Fitnes sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **ClubMember** (memberCardNo {PK}, `fullName`, `membershipType`, `expiryDate`, `phone`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "story": "Sport & Fitnes sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **ClubMember** (memberCardNo {PK}, `fullName`, `membershipType`, `expiryDate`, `phone`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
     "instruction": "'ClubMember' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -540,7 +540,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Energetik",
     "clientAvatar": "mentor",
     "title": "SolarInverter Disjoint Ixtisoslashuvi",
-    "story": "Quyosh Energetikasi sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak.\n\nUmumiy superklass sifatida **SolarInverter** (serialNo {PK}, `peakPowerKw`, `voltageInput`, `installDate`, `efficiency`) xizmat qiladi.\n\nBiznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
+    "story": "Quyosh Energetikasi sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **SolarInverter** (serialNo {PK}, `peakPowerKw`, `voltageInput`, `installDate`, `efficiency`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
     "instruction": "'SolarInverter' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -673,7 +673,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "UniversityStaff Overlapping Ixtisoslashuvi",
-    "story": "Universitet Akademik Shtati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Xodim bir vaqtning o'zida ham dars berishi (o'qituvchi), ham grant loyihasi ustida tadqiqot olib borishi (tadqiqotchi) mumkin.\n\nTizimda superklass sifatida **UniversityStaff** (staffId {PK}, `fullName`, `email`, `salary`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Universitet Akademik Shtati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Xodim bir vaqtning o'zida ham dars berishi (o'qituvchi), ham grant loyihasi ustida tadqiqot olib borishi (tadqiqotchi) mumkin. Tizimda superklass sifatida **UniversityStaff** (staffId {PK}, `fullName`, `email`, `salary`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'UniversityStaff' superklassini va uning ustma-ust tushuvchi 'Instructor' hamda 'Researcher' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -796,7 +796,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "BankClient Overlapping Ixtisoslashuvi",
-    "story": "Tijorat Banki Mijozlari faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz bir vaqtda ham depozit hisobiga pul qo'ygan omonatchi, ham kredit olgan qarzdor bo'lishi mumkin.\n\nTizimda superklass sifatida **BankClient** (clientId {PK}, `clientName`, `taxCode`, `contactPhone`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Tijorat Banki Mijozlari faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz bir vaqtda ham depozit hisobiga pul qo'ygan omonatchi, ham kredit olgan qarzdor bo'lishi mumkin. Tizimda superklass sifatida **BankClient** (clientId {PK}, `clientName`, `taxCode`, `contactPhone`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'BankClient' superklassini va uning ustma-ust tushuvchi 'Depositor' hamda 'Borrower' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -919,7 +919,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "SystemUser Overlapping Ixtisoslashuvi",
-    "story": "Axborot Xavfsizligi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Foydalanuvchi bir vaqtda ham xavfsizlik ma'muri, ham ishlab chiquvchi dasturchi rollariga ega bo'lishi mumkin.\n\nTizimda superklass sifatida **SystemUser** (userLogin {PK}, `email`, `createdDate`, `lastLogin`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Axborot Xavfsizligi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Foydalanuvchi bir vaqtda ham xavfsizlik ma'muri, ham ishlab chiquvchi dasturchi rollariga ega bo'lishi mumkin. Tizimda superklass sifatida **SystemUser** (userLogin {PK}, `email`, `createdDate`, `lastLogin`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'SystemUser' superklassini va uning ustma-ust tushuvchi 'SecurityAdmin' hamda 'SystemDev' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1042,7 +1042,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "ConferenceAttendee Overlapping Ixtisoslashuvi",
-    "story": "Ilmiy Kongress faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ishtirokchi ham ma'ruza qiluvchi spiker, ham maqolalarni baholovchi hay'at a'zosi bo'lishi mumkin.\n\nTizimda superklass sifatida **ConferenceAttendee** (attendeeId {PK}, `attendeeName`, `institution`, `country`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Ilmiy Kongress faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ishtirokchi ham ma'ruza qiluvchi spiker, ham maqolalarni baholovchi hay'at a'zosi bo'lishi mumkin. Tizimda superklass sifatida **ConferenceAttendee** (attendeeId {PK}, `attendeeName`, `institution`, `country`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'ConferenceAttendee' superklassini va uning ustma-ust tushuvchi 'KeynoteSpeaker' hamda 'CommitteeReviewer' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1165,7 +1165,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "AthleteMember Overlapping Ixtisoslashuvi",
-    "story": "Sport Klubi Shtati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Tajribali sportchi ham maydonda o'yinchi, ham yoshlarga murabbiy sifatida faoliyat yuritishi mumkin.\n\nTizimda superklass sifatida **AthleteMember** (athleteId {PK}, `athleteName`, `bloodGroup`, `joinYear`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Sport Klubi Shtati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Tajribali sportchi ham maydonda o'yinchi, ham yoshlarga murabbiy sifatida faoliyat yuritishi mumkin. Tizimda superklass sifatida **AthleteMember** (athleteId {PK}, `athleteName`, `bloodGroup`, `joinYear`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'AthleteMember' superklassini va uning ustma-ust tushuvchi 'LeaguePlayer' hamda 'TeamCoach' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1288,7 +1288,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "CrewMember Overlapping Ixtisoslashuvi",
-    "story": "Aviatsiya Ekipaji faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ekipaj a'zosi ham parvoz uchuvchisi, ham xavfsizlik auditori vakolatiga ega bo'la oladi.\n\nTizimda superklass sifatida **CrewMember** (crewId {PK}, `crewName`, `flightHoursTotal`, `medicalCertDate`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Aviatsiya Ekipaji faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ekipaj a'zosi ham parvoz uchuvchisi, ham xavfsizlik auditori vakolatiga ega bo'la oladi. Tizimda superklass sifatida **CrewMember** (crewId {PK}, `crewName`, `flightHoursTotal`, `medicalCertDate`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'CrewMember' superklassini va uning ustma-ust tushuvchi 'CommercialPilot' hamda 'SafetyInspector' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1411,7 +1411,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "DealershipClient Overlapping Ixtisoslashuvi",
-    "story": "Avtodilerlik Klasteri faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz ham yangi avtomobil xarid qiluvchi, ham ta'mirlash xizmatidan foydalanuvchi bo'lishi mumkin.\n\nTizimda superklass sifatida **DealershipClient** (clientId {PK}, `fullName`, `passportNumber`, `contactPhone`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Avtodilerlik Klasteri faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz ham yangi avtomobil xarid qiluvchi, ham ta'mirlash xizmatidan foydalanuvchi bo'lishi mumkin. Tizimda superklass sifatida **DealershipClient** (clientId {PK}, `fullName`, `passportNumber`, `contactPhone`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'DealershipClient' superklassini va uning ustma-ust tushuvchi 'VehicleBuyer' hamda 'ServiceClient' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1534,7 +1534,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "TheatreArtist Overlapping Ixtisoslashuvi",
-    "story": "Teatr Ijodiy Jamoasi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ijodkor aktyor sifatida sahnaga chiqishi bilan birga sahnalashtiruvchi rejissyor ham bo'lishi mumkin.\n\nTizimda superklass sifatida **TheatreArtist** (artistId {PK}, `stageName`, `unionCardNo`, `debutYear`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Teatr Ijodiy Jamoasi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ijodkor aktyor sifatida sahnaga chiqishi bilan birga sahnalashtiruvchi rejissyor ham bo'lishi mumkin. Tizimda superklass sifatida **TheatreArtist** (artistId {PK}, `stageName`, `unionCardNo`, `debutYear`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'TheatreArtist' superklassini va uning ustma-ust tushuvchi 'StageActor' hamda 'PlayDirector' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1657,7 +1657,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "MedicalStaff Overlapping Ixtisoslashuvi",
-    "story": "Klinik Tadqiqotlar faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Shifokor ham bemorlarni davolovchi vrach, ham dori sinovlarini o'tkazuvchi tadqiqotchi bo'la oladi.\n\nTizimda superklass sifatida **MedicalStaff** (licenseNo {PK}, `doctorName`, `specialtyField`, `phone`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Klinik Tadqiqotlar faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Shifokor ham bemorlarni davolovchi vrach, ham dori sinovlarini o'tkazuvchi tadqiqotchi bo'la oladi. Tizimda superklass sifatida **MedicalStaff** (licenseNo {PK}, `doctorName`, `specialtyField`, `phone`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'MedicalStaff' superklassini va uning ustma-ust tushuvchi 'Clinician' hamda 'TrialInvestigator' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1780,7 +1780,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "ContentCreator Overlapping Ixtisoslashuvi",
-    "story": "Raqamli Media faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Muallif ham video lavha boshlovchisi, ham audio podkast yaratuvchisi sifatida faoliyat ko'rsatishi mumkin.\n\nTizimda superklass sifatida **ContentCreator** (creatorId {PK}, `channelName`, `subscriberTotal`, `contractExpiry`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Raqamli Media faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Muallif ham video lavha boshlovchisi, ham audio podkast yaratuvchisi sifatida faoliyat ko'rsatishi mumkin. Tizimda superklass sifatida **ContentCreator** (creatorId {PK}, `channelName`, `subscriberTotal`, `contractExpiry`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'ContentCreator' superklassini va uning ustma-ust tushuvchi 'VideoPresenter' hamda 'AudioPodcaster' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1903,7 +1903,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "FleetDriver Overlapping Ixtisoslashuvi",
-    "story": "Logistika Kuryerlari faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Haydovchi ham shahar ichida tezkor yetkazuvchi, ham shaharlararo yuk tashuvchi vazifasini bajarishi mumkin.\n\nTizimda superklass sifatida **FleetDriver** (driverStaffId {PK}, `driverName`, `driverLicenseNo`, `ratingStars`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Logistika Kuryerlari faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Haydovchi ham shahar ichida tezkor yetkazuvchi, ham shaharlararo yuk tashuvchi vazifasini bajarishi mumkin. Tizimda superklass sifatida **FleetDriver** (driverStaffId {PK}, `driverName`, `driverLicenseNo`, `ratingStars`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'FleetDriver' superklassini va uning ustma-ust tushuvchi 'ExpressCourier' hamda 'LongHaulDriver' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -2026,7 +2026,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "RestaurantStaff Overlapping Ixtisoslashuvi",
-    "story": "Restoran Xizmati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Xodim ham barda kokteyl ustasi, ham vino zaxirasini boshqaruvchi somelye bo'la oladi.\n\nTizimda superklass sifatida **RestaurantStaff** (staffBadgeId {PK}, `staffName`, `foodSafetyCertDate`, `wageHourly`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Restoran Xizmati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Xodim ham barda kokteyl ustasi, ham vino zaxirasini boshqaruvchi somelye bo'la oladi. Tizimda superklass sifatida **RestaurantStaff** (staffBadgeId {PK}, `staffName`, `foodSafetyCertDate`, `wageHourly`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'RestaurantStaff' superklassini va uning ustma-ust tushuvchi 'ChiefBartender' hamda 'SommelierExpert' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -2149,7 +2149,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "RealEstateCustomer Overlapping Ixtisoslashuvi",
-    "story": "Mulk Birjasi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz ham o'z eski uyini sotuvchi, ham o'rniga yangi kvartira xarid qiluvchi bo'lishi mumkin.\n\nTizimda superklass sifatida **RealEstateCustomer** (customerId {PK}, `fullName`, `passportPin`, `contactPhone`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "Mulk Birjasi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz ham o'z eski uyini sotuvchi, ham o'rniga yangi kvartira xarid qiluvchi bo'lishi mumkin. Tizimda superklass sifatida **RealEstateCustomer** (customerId {PK}, `fullName`, `passportPin`, `contactPhone`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'RealEstateCustomer' superklassini va uning ustma-ust tushuvchi 'PropertyVendor' hamda 'PropertyAcquirer' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -2272,7 +2272,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "PlatformUser Overlapping Ixtisoslashuvi",
-    "story": "EdTech Platforma faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Foydalanuvchi ma'lum kurslarda talaba, o'zi mutaxassis bo'lgan boshqa kursda esa mentor bo'lishi mumkin.\n\nTizimda superklass sifatida **PlatformUser** (userId {PK}, `userFullName`, `emailAddress`, `regTimestamp`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "EdTech Platforma faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Foydalanuvchi ma'lum kurslarda talaba, o'zi mutaxassis bo'lgan boshqa kursda esa mentor bo'lishi mumkin. Tizimda superklass sifatida **PlatformUser** (userId {PK}, `userFullName`, `emailAddress`, `regTimestamp`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'PlatformUser' superklassini va uning ustma-ust tushuvchi 'ActiveLearner' hamda 'TeachingMentor' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -2395,7 +2395,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Yetakchi Arxitektor",
     "clientAvatar": "mentor",
     "title": "TradingEnterprise Overlapping Ixtisoslashuvi",
-    "story": "B2B Savdo faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Korxona ham xomashyo yetkazib beruvchi, ham tayyor tovarlarni ulgurji tarqatuvchi bo'la oladi.\n\nTizimda superklass sifatida **TradingEnterprise** (enterpriseInn {PK}, `legalEntityName`, `bankBik`, `cityHq`) qayd etiladi.\n\nUndan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
+    "story": "B2B Savdo faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Korxona ham xomashyo yetkazib beruvchi, ham tayyor tovarlarni ulgurji tarqatuvchi bo'la oladi. Tizimda superklass sifatida **TradingEnterprise** (enterpriseInn {PK}, `legalEntityName`, `bankBik`, `cityHq`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
     "instruction": "'TradingEnterprise' superklassini va uning ustma-ust tushuvchi 'RawMaterialSupplier' hamda 'WholesaleDistributor' subklasslarini polotnoda bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -2518,7 +2518,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "PropertyOwner Kategoriyasi (Union Type ∪)",
-    "story": "Mulk Egaligi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Ko'chmas mulk egasi fuqaro, ipoteka banki yoki tijorat kompaniyasi bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **Person** (pinfl {PK}), **Bank** (bankCode {PK}) va **Company** (tin {PK}).\n\nUlar yagona umumiy **PropertyOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Mulk Egaligi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Ko'chmas mulk egasi fuqaro, ipoteka banki yoki tijorat kompaniyasi bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **Person** (pinfl {PK}), **Bank** (bankCode {PK}) va **Company** (tin {PK}). Ular yagona umumiy **PropertyOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'Person', 'Bank' va 'Company' entitiylarini chizing va ularni 'PropertyOwner' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -2689,7 +2689,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "VehicleOwner Kategoriyasi (Union Type ∪)",
-    "story": "Avtotransport Ro'yxati faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Avtomobil egasi jismoniy shaxs, lizing firmasi yoki davlat idorasi bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **PrivateCitizen** (citizenPinfl {PK}), **LeasingFirm** (leasingInn {PK}) va **StateAgency** (agencyCode {PK}).\n\nUlar yagona umumiy **VehicleOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Avtotransport Ro'yxati faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Avtomobil egasi jismoniy shaxs, lizing firmasi yoki davlat idorasi bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **PrivateCitizen** (citizenPinfl {PK}), **LeasingFirm** (leasingInn {PK}) va **StateAgency** (agencyCode {PK}). Ular yagona umumiy **VehicleOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'PrivateCitizen', 'LeasingFirm' va 'StateAgency' entitiylarini chizing va ularni 'VehicleOwner' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -2860,7 +2860,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "PayeeEntity Kategoriyasi (Union Type ∪)",
-    "story": "G'aznachilik To'lovlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: To'lovni qabul qiluvchi frilanser usta, kommunal korxona yoki soliq inspeksiyasi bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **FreelanceContractor** (freelancerId {PK}), **UtilityProvider** (utilityInn {PK}) va **TaxAuthority** (taxOfficeNo {PK}).\n\nUlar yagona umumiy **PayeeEntity** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "G'aznachilik To'lovlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: To'lovni qabul qiluvchi frilanser usta, kommunal korxona yoki soliq inspeksiyasi bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **FreelanceContractor** (freelancerId {PK}), **UtilityProvider** (utilityInn {PK}) va **TaxAuthority** (taxOfficeNo {PK}). Ular yagona umumiy **PayeeEntity** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'FreelanceContractor', 'UtilityProvider' va 'TaxAuthority' entitiylarini chizing va ularni 'PayeeEntity' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -3031,7 +3031,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "LoanBorrower Kategoriyasi (Union Type ∪)",
-    "story": "Kredit Qarzdorligi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Bankdan kredit oluvchi yakka tadbirkor, shirkat yoki xalqaro xolding bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **SoleProprietorship** (spInn {PK}), **CommercialPartnership** (partnershipNo {PK}) va **CorporationHolding** (holdingTin {PK}).\n\nUlar yagona umumiy **LoanBorrower** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Kredit Qarzdorligi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Bankdan kredit oluvchi yakka tadbirkor, shirkat yoki xalqaro xolding bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **SoleProprietorship** (spInn {PK}), **CommercialPartnership** (partnershipNo {PK}) va **CorporationHolding** (holdingTin {PK}). Ular yagona umumiy **LoanBorrower** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'SoleProprietorship', 'CommercialPartnership' va 'CorporationHolding' entitiylarini chizing va ularni 'LoanBorrower' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -3202,7 +3202,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "LegalSignatory Kategoriyasi (Union Type ∪)",
-    "story": "Notarial Hujjatlar faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Hujjatga imzo chekuvchi mahalliy fuqaro, xorijiy diplomat yoki ishonchnomali advokat bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **DomesticCitizen** (residentPinfl {PK}), **ForeignDiplomat** (passportNumber {PK}) va **CorporateAttorney** (powerOfAttorneyNo {PK}).\n\nUlar yagona umumiy **LegalSignatory** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Notarial Hujjatlar faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Hujjatga imzo chekuvchi mahalliy fuqaro, xorijiy diplomat yoki ishonchnomali advokat bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **DomesticCitizen** (residentPinfl {PK}), **ForeignDiplomat** (passportNumber {PK}) va **CorporateAttorney** (powerOfAttorneyNo {PK}). Ular yagona umumiy **LegalSignatory** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'DomesticCitizen', 'ForeignDiplomat' va 'CorporateAttorney' entitiylarini chizing va ularni 'LegalSignatory' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -3373,7 +3373,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "CargoConsignor Kategoriyasi (Union Type ∪)",
-    "story": "Bojxona Kargo Yuklari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Yuk jo'natuvchi ishlab chiqaruvchi zavod, savdo kompaniyasi yoki gumanitar jamg'arma bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **ManufacturingPlant** (factoryTin {PK}), **TradingHouse** (tradingLicNo {PK}) va **HumanitarianMission** (missionRegCode {PK}).\n\nUlar yagona umumiy **CargoConsignor** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Bojxona Kargo Yuklari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Yuk jo'natuvchi ishlab chiqaruvchi zavod, savdo kompaniyasi yoki gumanitar jamg'arma bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **ManufacturingPlant** (factoryTin {PK}), **TradingHouse** (tradingLicNo {PK}) va **HumanitarianMission** (missionRegCode {PK}). Ular yagona umumiy **CargoConsignor** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'ManufacturingPlant', 'TradingHouse' va 'HumanitarianMission' entitiylarini chizing va ularni 'CargoConsignor' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -3544,7 +3544,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "PatentAssignee Kategoriyasi (Union Type ∪)",
-    "story": "Patent Huquqi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Patent egasi ilmiy universitet, yakka ixtirochi yoki texnologik korporatsiya bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **ResearchUniversity** (universityCharterNo {PK}), **IndependentInventor** (inventorPinfl {PK}) va **TechCorporation** (corpTin {PK}).\n\nUlar yagona umumiy **PatentAssignee** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Patent Huquqi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Patent egasi ilmiy universitet, yakka ixtirochi yoki texnologik korporatsiya bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **ResearchUniversity** (universityCharterNo {PK}), **IndependentInventor** (inventorPinfl {PK}) va **TechCorporation** (corpTin {PK}). Ular yagona umumiy **PatentAssignee** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'ResearchUniversity', 'IndependentInventor' va 'TechCorporation' entitiylarini chizing va ularni 'PatentAssignee' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -3715,7 +3715,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "PolicyBeneficiary Kategoriyasi (Union Type ∪)",
-    "story": "Sug'urta To'lovlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Sug'urta to'lovini oluvchi merosxo'r oila a'zosi, ipoteka banki yoki xayriya jamg'armasi bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **FamilyKin** (relativePinfl {PK}), **MortgageBank** (bankLicNo {PK}) va **CharitableTrust** (charityRegNo {PK}).\n\nUlar yagona umumiy **PolicyBeneficiary** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Sug'urta To'lovlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Sug'urta to'lovini oluvchi merosxo'r oila a'zosi, ipoteka banki yoki xayriya jamg'armasi bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **FamilyKin** (relativePinfl {PK}), **MortgageBank** (bankLicNo {PK}) va **CharitableTrust** (charityRegNo {PK}). Ular yagona umumiy **PolicyBeneficiary** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'FamilyKin', 'MortgageBank' va 'CharitableTrust' entitiylarini chizing va ularni 'PolicyBeneficiary' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -3886,7 +3886,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "TrademarkOwner Kategoriyasi (Union Type ∪)",
-    "story": "Savdo Belgilari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Savdo markasi egasi xususiy tadbirkor, notijorat tashkilot yoki aksiyadorlik jamiyati bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **PrivateEnterpriser** (tinNo {PK}), **NonProfitOrg** (npoCertNo {PK}) va **JointStockCompany** (jscInn {PK}).\n\nUlar yagona umumiy **TrademarkOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Savdo Belgilari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Savdo markasi egasi xususiy tadbirkor, notijorat tashkilot yoki aksiyadorlik jamiyati bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **PrivateEnterpriser** (tinNo {PK}), **NonProfitOrg** (npoCertNo {PK}) va **JointStockCompany** (jscInn {PK}). Ular yagona umumiy **TrademarkOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'PrivateEnterpriser', 'NonProfitOrg' va 'JointStockCompany' entitiylarini chizing va ularni 'TrademarkOwner' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -4057,7 +4057,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "HealthCoverageSponsor Kategoriyasi (Union Type ∪)",
-    "story": "Tibbiy Kafillik faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Davolanish xarajatini qoplovchi ish beruvchi firma, vazirlik byudjeti yoki homiy bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **EmployerCompany** (employerTin {PK}), **HealthMinistry** (ministryCode {PK}) va **PrivatePhilanthropist** (donorPinfl {PK}).\n\nUlar yagona umumiy **HealthCoverageSponsor** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Tibbiy Kafillik faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Davolanish xarajatini qoplovchi ish beruvchi firma, vazirlik byudjeti yoki homiy bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **EmployerCompany** (employerTin {PK}), **HealthMinistry** (ministryCode {PK}) va **PrivatePhilanthropist** (donorPinfl {PK}). Ular yagona umumiy **HealthCoverageSponsor** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'EmployerCompany', 'HealthMinistry' va 'PrivatePhilanthropist' entitiylarini chizing va ularni 'HealthCoverageSponsor' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -4228,7 +4228,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "ShareholderEntity Kategoriyasi (Union Type ∪)",
-    "story": "Qimmatli Qog'ozlar Depozitariysi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Aksiya egasi xususiy investitsiya fondi, davlat suveren fondi yoki chakana investor bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **MutualFund** (fundRegNo {PK}), **SovereignWealthFund** (sovereignCode {PK}) va **RetailInvestor** (investorPassportNo {PK}).\n\nUlar yagona umumiy **ShareholderEntity** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Qimmatli Qog'ozlar Depozitariysi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Aksiya egasi xususiy investitsiya fondi, davlat suveren fondi yoki chakana investor bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **MutualFund** (fundRegNo {PK}), **SovereignWealthFund** (sovereignCode {PK}) va **RetailInvestor** (investorPassportNo {PK}). Ular yagona umumiy **ShareholderEntity** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'MutualFund', 'SovereignWealthFund' va 'RetailInvestor' entitiylarini chizing va ularni 'ShareholderEntity' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -4399,7 +4399,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "RunwayOperator Kategoriyasi (Union Type ∪)",
-    "story": "Aerodrom Uchish Yo'lagi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Uchish yo'lagidan fuqaro aviakompaniyasi, harbiy eskadron yoki xususiy charter foydalanishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **CommercialAirline** (airlineIata {PK}), **AirForceSquadron** (militaryUnitCode {PK}) va **PrivateAirCharter** (charterFlightCert {PK}).\n\nUlar yagona umumiy **RunwayOperator** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Aerodrom Uchish Yo'lagi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Uchish yo'lagidan fuqaro aviakompaniyasi, harbiy eskadron yoki xususiy charter foydalanishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **CommercialAirline** (airlineIata {PK}), **AirForceSquadron** (militaryUnitCode {PK}) va **PrivateAirCharter** (charterFlightCert {PK}). Ular yagona umumiy **RunwayOperator** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'CommercialAirline', 'AirForceSquadron' va 'PrivateAirCharter' entitiylarini chizing va ularni 'RunwayOperator' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -4570,7 +4570,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "TelecomSubscriber Kategoriyasi (Union Type ∪)",
-    "story": "Telekom Abonentlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Aloqa tarmog'i abonenti jismoniy fuqaro, korporativ kompaniya yoki IoT smart qurilmasi bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **IndividualSubscriber** (personalId {PK}), **CorporateSubscriber** (companyInn {PK}) va **IotDeviceGateway** (macAddressDevice {PK}).\n\nUlar yagona umumiy **TelecomSubscriber** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Telekom Abonentlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Aloqa tarmog'i abonenti jismoniy fuqaro, korporativ kompaniya yoki IoT smart qurilmasi bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **IndividualSubscriber** (personalId {PK}), **CorporateSubscriber** (companyInn {PK}) va **IotDeviceGateway** (macAddressDevice {PK}). Ular yagona umumiy **TelecomSubscriber** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'IndividualSubscriber', 'CorporateSubscriber' va 'IotDeviceGateway' entitiylarini chizing va ularni 'TelecomSubscriber' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -4741,7 +4741,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "GrantFunder Kategoriyasi (Union Type ∪)",
-    "story": "Ilmiy Grantlar faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Grant moliyalashtiruvchisi davlat ilmiy agentligi, IT konsorsium yoki xalqaro fond bo'lishi mumkin.\n\nTizimda uchta mustaqil entitiy mavjud: **StateScienceAgency** (govAgencyId {PK}), **TechConsortium** (consortiumInn {PK}) va **GlobalFoundation** (foundationRegNo {PK}).\n\nUlar yagona umumiy **GrantFunder** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Ilmiy Grantlar faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Grant moliyalashtiruvchisi davlat ilmiy agentligi, IT konsorsium yoki xalqaro fond bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **StateScienceAgency** (govAgencyId {PK}), **TechConsortium** (consortiumInn {PK}) va **GlobalFoundation** (foundationRegNo {PK}). Ular yagona umumiy **GrantFunder** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'StateScienceAgency', 'TechConsortium' va 'GlobalFoundation' entitiylarini chizing va ularni 'GrantFunder' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -4912,7 +4912,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Tizim Arxitektori",
     "clientAvatar": "mentor",
     "title": "TenderBidder Kategoriyasi (Union Type ∪)",
-    "story": "Davlat Tenderlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Tenderda qatnashuvchi muhandislik konsortsiumi, qurilish korxonasi yoki shahar kommunal korxonasi bo'la oladi.\n\nTizimda uchta mustaqil entitiy mavjud: **EngineeringConsortium** (consortiumCode {PK}), **ConstructionCorp** (builderInn {PK}) va **MunicipalUtility** (utilityBranchNo {PK}).\n\nUlar yagona umumiy **TenderBidder** kategoriyasiga (Union Type ∪) birlashtiriladi.",
+    "story": "Davlat Tenderlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Tenderda qatnashuvchi muhandislik konsortsiumi, qurilish korxonasi yoki shahar kommunal korxonasi bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **EngineeringConsortium** (consortiumCode {PK}), **ConstructionCorp** (builderInn {PK}) va **MunicipalUtility** (utilityBranchNo {PK}). Ular yagona umumiy **TenderBidder** kategoriyasiga (Union Type ∪) birlashtiriladi.",
     "instruction": "'EngineeringConsortium', 'ConstructionCorp' va 'MunicipalUtility' entitiylarini chizing va ularni 'TenderBidder' Union Type (∪) kategoriyasiga birlashtiring.",
     "starterDiagram": {
       "entities": [
@@ -5083,7 +5083,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "Airport Korporativ Arxitekturasi",
-    "story": "Xalqaro Aeroport Majmuasi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Airport** (iataCode {PK}), **Terminal** (terminalId {PK}), **FlightSchedule** (flightNo {PK}) va **PassengerBooking** (bookingRef {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Xalqaro Aeroport Majmuasi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Airport** (iataCode {PK}), **Terminal** (terminalId {PK}), **FlightSchedule** (flightNo {PK}) va **PassengerBooking** (bookingRef {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'Airport', 'Terminal', 'FlightSchedule' va 'PassengerBooking' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -5348,7 +5348,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "CentralBank Korporativ Arxitekturasi",
-    "story": "Markaziy Bank Kliringi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **CentralBank** (bankCode {PK}), **CommercialBank** (bikNumber {PK}), **SettlementAccount** (accNo {PK}) va **ClearingTx** (txRef {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Markaziy Bank Kliringi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **CentralBank** (bankCode {PK}), **CommercialBank** (bikNumber {PK}), **SettlementAccount** (accNo {PK}) va **ClearingTx** (txRef {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'CentralBank', 'CommercialBank', 'SettlementAccount' va 'ClearingTx' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -5613,7 +5613,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "Hospital Korporativ Arxitekturasi",
-    "story": "Onkologiya Gospitali bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Hospital** (hospId {PK}), **SpecializedWard** (wardCode {PK}), **SpecializedDoctor** (licenseId {PK}) va **PatientCourse** (courseId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Onkologiya Gospitali bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Hospital** (hospId {PK}), **SpecializedWard** (wardCode {PK}), **SpecializedDoctor** (licenseId {PK}) va **PatientCourse** (courseId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'Hospital', 'SpecializedWard', 'SpecializedDoctor' va 'PatientCourse' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -5878,7 +5878,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "MegaWarehouse Korporativ Arxitekturasi",
-    "story": "Trans-Okean Porti bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **MegaWarehouse** (hubCode {PK}), **ContainerVessel** (imoNumber {PK}), **CustomsDeclaration** (gtdNumber {PK}) va **FreightForwarder** (forwarderInn {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Trans-Okean Porti bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **MegaWarehouse** (hubCode {PK}), **ContainerVessel** (imoNumber {PK}), **CustomsDeclaration** (gtdNumber {PK}) va **FreightForwarder** (forwarderInn {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'MegaWarehouse', 'ContainerVessel', 'CustomsDeclaration' va 'FreightForwarder' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -6143,7 +6143,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "Faculty Korporativ Arxitekturasi",
-    "story": "Universitet Kampusi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Faculty** (facultyCode {PK}), **AcademicDept** (deptId {PK}), **StaffMember** (staffNo {PK}) va **StudentClass** (classCode {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Universitet Kampusi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Faculty** (facultyCode {PK}), **AcademicDept** (deptId {PK}), **StaffMember** (staffNo {PK}) va **StudentClass** (classCode {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'Faculty', 'AcademicDept', 'StaffMember' va 'StudentClass' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -6408,7 +6408,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "PowerPlant Korporativ Arxitekturasi",
-    "story": "Milliy Elektr Tizimi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **PowerPlant** (plantCode {PK}), **Substation** (substationId {PK}), **TransmissionLine** (lineCode {PK}) va **LoadZone** (zoneId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Milliy Elektr Tizimi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **PowerPlant** (plantCode {PK}), **Substation** (substationId {PK}), **TransmissionLine** (lineCode {PK}) va **LoadZone** (zoneId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'PowerPlant', 'Substation', 'TransmissionLine' va 'LoadZone' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -6673,7 +6673,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "RailwayNetwork Korporativ Arxitekturasi",
-    "story": "Davlat Temir Yo'llari bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RailwayNetwork** (networkId {PK}), **TrainSchedule** (tripNo {PK}), **LocomotiveEngine** (locoNo {PK}) va **PassengerTicket** (ticketPnr {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Davlat Temir Yo'llari bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RailwayNetwork** (networkId {PK}), **TrainSchedule** (tripNo {PK}), **LocomotiveEngine** (locoNo {PK}) va **PassengerTicket** (ticketPnr {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'RailwayNetwork', 'TrainSchedule', 'LocomotiveEngine' va 'PassengerTicket' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -6938,7 +6938,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "GovPortalService Korporativ Arxitekturasi",
-    "story": "Elektron Hukumat Portali bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **GovPortalService** (serviceCode {PK}), **CitizenRequest** (appId {PK}), **MinistryDept** (deptInn {PK}) va **ProcessingOfficer** (officerId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Elektron Hukumat Portali bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **GovPortalService** (serviceCode {PK}), **CitizenRequest** (appId {PK}), **MinistryDept** (deptInn {PK}) va **ProcessingOfficer** (officerId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'GovPortalService', 'CitizenRequest', 'MinistryDept' va 'ProcessingOfficer' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -7203,7 +7203,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "PharmaFactory Korporativ Arxitekturasi",
-    "story": "GMP Farmatsevtika Klasteri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **PharmaFactory** (facilityId {PK}), **ChemicalLab** (labCode {PK}), **DrugBatch** (batchNo {PK}) va **QualityAudit** (auditId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "GMP Farmatsevtika Klasteri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **PharmaFactory** (facilityId {PK}), **ChemicalLab** (labCode {PK}), **DrugBatch** (batchNo {PK}) va **QualityAudit** (auditId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'PharmaFactory', 'ChemicalLab', 'DrugBatch' va 'QualityAudit' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -7468,7 +7468,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "CarManufacturer Korporativ Arxitekturasi",
-    "story": "Avtomobil Yig'uv Klasteri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **CarManufacturer** (oemCode {PK}), **AssemblyLine** (lineId {PK}), **DealershipShowroom** (dealerId {PK}) va **VehicleOrder** (contractNo {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Avtomobil Yig'uv Klasteri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **CarManufacturer** (oemCode {PK}), **AssemblyLine** (lineId {PK}), **DealershipShowroom** (dealerId {PK}) va **VehicleOrder** (contractNo {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'CarManufacturer', 'AssemblyLine', 'DealershipShowroom' va 'VehicleOrder' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -7733,7 +7733,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "SOCNetwork Korporativ Arxitekturasi",
-    "story": "SOC Kiberxavfsizlik bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **SOCNetwork** (perimeterId {PK}), **SecurityThreat** (cveCode {PK}), **IncidentTicket** (incidentId {PK}) va **MitigationAction** (actionId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "SOC Kiberxavfsizlik bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **SOCNetwork** (perimeterId {PK}), **SecurityThreat** (cveCode {PK}), **IncidentTicket** (incidentId {PK}) va **MitigationAction** (actionId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'SOCNetwork', 'SecurityThreat', 'IncidentTicket' va 'MitigationAction' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -7998,7 +7998,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "RetailStore Korporativ Arxitekturasi",
-    "story": "Chakana Savdo Zanjiri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RetailStore** (storeId {PK}), **CentralDepot** (depotBarcode {PK}), **SupplierVendor** (vendorInn {PK}) va **ProductInventory** (inventorySku {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Chakana Savdo Zanjiri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RetailStore** (storeId {PK}), **CentralDepot** (depotBarcode {PK}), **SupplierVendor** (vendorInn {PK}) va **ProductInventory** (inventorySku {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'RetailStore', 'CentralDepot', 'SupplierVendor' va 'ProductInventory' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -8263,7 +8263,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "RefineryPlant Korporativ Arxitekturasi",
-    "story": "Neft-Gaz Majmuasi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RefineryPlant** (refineryCode {PK}), **StorageTanker** (tankId {PK}), **PipelineSegment** (segmentCode {PK}) va **CrudeOilShipment** (consignmentNo {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Neft-Gaz Majmuasi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RefineryPlant** (refineryCode {PK}), **StorageTanker** (tankId {PK}), **PipelineSegment** (segmentCode {PK}) va **CrudeOilShipment** (consignmentNo {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'RefineryPlant', 'StorageTanker', 'PipelineSegment' va 'CrudeOilShipment' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -8528,7 +8528,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "TelecomCore Korporativ Arxitekturasi",
-    "story": "5G Telekomunikasiya bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **TelecomCore** (coreSwitchId {PK}), **FiveGBaseStation** (gNodeBId {PK}), **BillingSubscription** (subscriberMsisdn {PK}) va **DataTrafficSession** (cdrSessionId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "5G Telekomunikasiya bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **TelecomCore** (coreSwitchId {PK}), **FiveGBaseStation** (gNodeBId {PK}), **BillingSubscription** (subscriberMsisdn {PK}) va **DataTrafficSession** (cdrSessionId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'TelecomCore', 'FiveGBaseStation', 'BillingSubscription' va 'DataTrafficSession' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -8793,7 +8793,7 @@ _scope.EER_CLIENTS_101_150 = [
     "clientRole": "Bosh Korporativ Me'mor",
     "clientAvatar": "mentor",
     "title": "Spaceport Korporativ Arxitekturasi",
-    "story": "Kosmik Missiyalar Boshqaruvi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Spaceport** (complexId {PK}), **SatelliteOrbiter** (noradId {PK}), **GroundStation** (stationCode {PK}) va **MissionTelemetry** (telemetryId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi.\n\nHar bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
+    "story": "Kosmik Missiyalar Boshqaruvi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Spaceport** (complexId {PK}), **SatelliteOrbiter** (noradId {PK}), **GroundStation** (stationCode {PK}) va **MissionTelemetry** (telemetryId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
     "instruction": "'Spaceport', 'SatelliteOrbiter', 'GroundStation' va 'MissionTelemetry' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -9051,3 +9051,7 @@ _scope.EER_CLIENTS_101_150 = [
     }
   }
 ];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = _scope.EER_CLIENTS_101_150;
+}

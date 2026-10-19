@@ -1343,11 +1343,10 @@ class EERCanvasEngine {
           if (window.playSfx) window.playSfx('click');
         };
 
-        const multLabel = `${rel.mult1 || '1..1'} ↔ ${rel.mult2 || '1..*'}`;
         this.drawLine(borderF.x, borderF.y, borderT.x, borderT.y, onDblClickRel, false, null, {
           onDelete: onDblClickRel,
-          onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult1', e),
-          multText: multLabel
+          onMultiplicity: null,
+          multText: null
         });
 
         // Handles at both ends to allow grabbing and re-attaching
@@ -1437,11 +1436,9 @@ class EERCanvasEngine {
 
           this.drawLine(borderF.x, borderF.y, borderR1.x, borderR1.y, onDblClickFrom, false, null, {
             onDelete: onDblClickFrom,
-            onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult1', e),
-            multText: rel.mult1 || '1..1'
+            onMultiplicity: null,
+            multText: null
           });
-          const mPos1 = this.computeMultiplicityPos(borderF, 38, 18);
-          this.createMultiplicityPill(mPos1.x, mPos1.y, rel, 'mult1', fromEnt.name);
         }
 
         if (toEnt) {
@@ -1461,11 +1458,9 @@ class EERCanvasEngine {
 
           this.drawLine(borderR2.x, borderR2.y, borderT.x, borderT.y, onDblClickTo, false, null, {
             onDelete: onDblClickTo,
-            onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult2', e),
-            multText: rel.mult2 || '1..*'
+            onMultiplicity: null,
+            multText: null
           });
-          const mPos2 = this.computeMultiplicityPos(borderT, 38, 18);
-          this.createMultiplicityPill(mPos2.x, mPos2.y, rel, 'mult2', toEnt.name);
         }
       }
     });
@@ -1519,33 +1514,15 @@ class EERCanvasEngine {
         };
       };
 
-      const multLabel = `${line.mult1 || '1..1'} ↔ ${line.mult2 || '1..*'}`;
       this.drawLine(line.startX, line.startY, line.endX, line.endY, onLineDblClick, line.isDashed, onStartWholeLineDrag, {
         onDelete: onLineDblClick,
-        onMultiplicity: (e) => this.openMultiplicitySelector(line, 'mult1', e),
-        multText: multLabel
+        onMultiplicity: null,
+        multText: null
       });
 
       // Render Magnetic Handles at both ends as interactive DOM handles
       this.renderMagneticHandle(line, 'start', line.startX, line.startY, onLineDblClick);
       this.renderMagneticHandle(line, 'end', line.endX, line.endY, onLineDblClick);
-
-      // Render Multiplicity Pills for standalone line ends
-      const dx = line.endX - line.startX;
-      const dy = line.endY - line.startY;
-      const dist = Math.hypot(dx, dy) || 1;
-      const dirX = dx / dist;
-      const dirY = dy / dist;
-
-      // Start end multiplicity pill
-      const startBorder = { x: line.startX, y: line.startY, dirX: dirX, dirY: dirY };
-      const mPos1 = this.computeMultiplicityPos(startBorder, 38, 22);
-      this.createMultiplicityPill(mPos1.x, mPos1.y, line, 'mult1', line.startSnapped?.node?.name || '1-Tomon');
-
-      // End end multiplicity pill
-      const endBorder = { x: line.endX, y: line.endY, dirX: -dirX, dirY: -dirY };
-      const mPos2 = this.computeMultiplicityPos(endBorder, 38, 22);
-      this.createMultiplicityPill(mPos2.x, mPos2.y, line, 'mult2', line.endSnapped?.node?.name || '2-Tomon');
     });
 
     // Render Free-Standing Connection Lines
@@ -1958,7 +1935,8 @@ class EERCanvasEngine {
   }
 
   createMultiplicityPill(x, y, rel, multKey, entityName) {
-    const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
+    // In Week 2 EER diagrams, multiplicity is NOT used
+    return null;
     const val = (rel[multKey] || '').trim();
     const hasVal = val !== '' && val !== '?' && val !== '+';
 

@@ -1,10 +1,4 @@
-// ============================================================================
-// DATABASE SYSTEMS ACADEMY — EER CLIENT CASE STUDIES
-// Variable: EER_CLIENTS_101_150 (50 Questions)
-// ============================================================================
-
 var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
-
 _scope.EER_CLIENTS_101_150 = [
   {
     "id": 101,
@@ -1413,21 +1407,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Division",
-          "entity2": "Branch",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Branch"
         },
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         }
       ]
     },
     "hint": "Connect 'Division' (1..1) to 'Branch' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Division' (1..1) and 'Branch' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 122,
@@ -1496,21 +1487,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         },
         {
           "entity1": "Staff",
-          "entity2": "Property",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Property"
         }
       ]
     },
     "hint": "Connect 'Branch' (1..1) to 'Staff' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Branch' (1..1) and 'Staff' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 123,
@@ -1579,21 +1567,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Division",
-          "entity2": "Branch",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Branch"
         },
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         }
       ]
     },
     "hint": "Connect 'Division' (1..1) to 'Branch' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Division' (1..1) and 'Branch' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 124,
@@ -1662,21 +1647,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         },
         {
           "entity1": "Staff",
-          "entity2": "Property",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Property"
         }
       ]
     },
     "hint": "Connect 'Branch' (1..1) to 'Staff' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Branch' (1..1) and 'Staff' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 125,
@@ -1745,21 +1727,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Division",
-          "entity2": "Branch",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Branch"
         },
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         }
       ]
     },
     "hint": "Connect 'Division' (1..1) to 'Branch' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Division' (1..1) and 'Branch' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 126,
@@ -1828,21 +1807,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         },
         {
           "entity1": "Staff",
-          "entity2": "Property",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Property"
         }
       ]
     },
     "hint": "Connect 'Branch' (1..1) to 'Staff' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Branch' (1..1) and 'Staff' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 127,
@@ -1911,21 +1887,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Division",
-          "entity2": "Branch",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Branch"
         },
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         }
       ]
     },
     "hint": "Connect 'Division' (1..1) to 'Branch' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Division' (1..1) and 'Branch' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 128,
@@ -1994,21 +1967,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         },
         {
           "entity1": "Staff",
-          "entity2": "Property",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Property"
         }
       ]
     },
     "hint": "Connect 'Branch' (1..1) to 'Staff' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Branch' (1..1) and 'Staff' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 129,
@@ -2077,21 +2047,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Division",
-          "entity2": "Branch",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Branch"
         },
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         }
       ]
     },
     "hint": "Connect 'Division' (1..1) to 'Branch' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Division' (1..1) and 'Branch' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 130,
@@ -2160,21 +2127,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         },
         {
           "entity1": "Staff",
-          "entity2": "Property",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Property"
         }
       ]
     },
     "hint": "Connect 'Branch' (1..1) to 'Staff' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Branch' (1..1) and 'Staff' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 131,
@@ -2243,21 +2207,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Division",
-          "entity2": "Branch",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Branch"
         },
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         }
       ]
     },
     "hint": "Connect 'Division' (1..1) to 'Branch' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Division' (1..1) and 'Branch' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 132,
@@ -2326,21 +2287,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         },
         {
           "entity1": "Staff",
-          "entity2": "Property",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Property"
         }
       ]
     },
     "hint": "Connect 'Branch' (1..1) to 'Staff' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Branch' (1..1) and 'Staff' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 133,
@@ -2409,21 +2367,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Division",
-          "entity2": "Branch",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Branch"
         },
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         }
       ]
     },
     "hint": "Connect 'Division' (1..1) to 'Branch' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Division' (1..1) and 'Branch' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 134,
@@ -2492,21 +2447,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         },
         {
           "entity1": "Staff",
-          "entity2": "Property",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Property"
         }
       ]
     },
     "hint": "Connect 'Branch' (1..1) to 'Staff' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Branch' (1..1) and 'Staff' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Property', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 135,
@@ -2575,21 +2527,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Division",
-          "entity2": "Branch",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Branch"
         },
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         }
       ]
     },
     "hint": "Connect 'Division' (1..1) to 'Branch' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Division' (1..1) and 'Branch' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Division', 'Branch', 'Staff', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 136,
@@ -2667,21 +2616,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Branch",
-          "entity2": "Staff",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Staff"
         },
         {
           "entity1": "Staff",
-          "entity2": "Account",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Account"
         }
       ]
     },
     "hint": "Connect 'Branch' (1..1) to 'Staff' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Branch' (1..1) and 'Staff' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Account', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Branch', 'Staff', 'Account', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 137,
@@ -2759,21 +2705,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Department",
-          "entity2": "Doctor",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Doctor"
         },
         {
           "entity1": "Doctor",
-          "entity2": "Patient",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Patient"
         }
       ]
     },
     "hint": "Connect 'Department' (1..1) to 'Doctor' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Department' (1..1) and 'Doctor' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Department', 'Doctor', 'Patient', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Department', 'Doctor', 'Patient', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 138,
@@ -2851,21 +2794,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Aircraft",
-          "entity2": "Flight",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Flight"
         },
         {
           "entity1": "Flight",
-          "entity2": "Ticket",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Ticket"
         }
       ]
     },
     "hint": "Connect 'Aircraft' (1..1) to 'Flight' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Aircraft' (1..1) and 'Flight' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Aircraft', 'Flight', 'Ticket', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Aircraft', 'Flight', 'Ticket', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 139,
@@ -2943,21 +2883,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Customer",
-          "entity2": "Order",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Order"
         },
         {
           "entity1": "Order",
-          "entity2": "Courier",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Courier"
         }
       ]
     },
     "hint": "Connect 'Customer' (1..1) to 'Order' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Customer' (1..1) and 'Order' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Customer', 'Order', 'Courier', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Customer', 'Order', 'Courier', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 140,
@@ -3035,21 +2972,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Faculty",
-          "entity2": "Lecturer",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Lecturer"
         },
         {
           "entity1": "Lecturer",
-          "entity2": "Course",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Course"
         }
       ]
     },
     "hint": "Connect 'Faculty' (1..1) to 'Lecturer' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Faculty' (1..1) and 'Lecturer' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Faculty', 'Lecturer', 'Course', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Faculty', 'Lecturer', 'Course', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 141,
@@ -3127,21 +3061,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Hotel",
-          "entity2": "Room",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Room"
         },
         {
           "entity1": "Room",
-          "entity2": "Reservation",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Reservation"
         }
       ]
     },
     "hint": "Connect 'Hotel' (1..1) to 'Room' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Hotel' (1..1) and 'Room' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Hotel', 'Room', 'Reservation', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Hotel', 'Room', 'Reservation', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 142,
@@ -3219,21 +3150,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Plant",
-          "entity2": "Line",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Line"
         },
         {
           "entity1": "Line",
-          "entity2": "Product",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Product"
         }
       ]
     },
     "hint": "Connect 'Plant' (1..1) to 'Line' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Plant' (1..1) and 'Line' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Plant', 'Line', 'Product', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Plant', 'Line', 'Product', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 143,
@@ -3311,21 +3239,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Warehouse",
-          "entity2": "Store",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Store"
         },
         {
           "entity1": "Store",
-          "entity2": "GoodsBatch",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "GoodsBatch"
         }
       ]
     },
     "hint": "Connect 'Warehouse' (1..1) to 'Store' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Warehouse' (1..1) and 'Store' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Warehouse', 'Store', 'GoodsBatch', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Warehouse', 'Store', 'GoodsBatch', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 144,
@@ -3403,21 +3328,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Merchant",
-          "entity2": "PaymentTx",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "PaymentTx"
         },
         {
           "entity1": "PaymentTx",
-          "entity2": "Wallet",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Wallet"
         }
       ]
     },
     "hint": "Connect 'Merchant' (1..1) to 'PaymentTx' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Merchant' (1..1) and 'PaymentTx' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Merchant', 'PaymentTx', 'Wallet', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Merchant', 'PaymentTx', 'Wallet', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 145,
@@ -3495,21 +3417,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Accelerator",
-          "entity2": "Startup",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Startup"
         },
         {
           "entity1": "Startup",
-          "entity2": "Mentor",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Mentor"
         }
       ]
     },
     "hint": "Connect 'Accelerator' (1..1) to 'Startup' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Accelerator' (1..1) and 'Startup' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Accelerator', 'Startup', 'Mentor', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Accelerator', 'Startup', 'Mentor', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 146,
@@ -3587,21 +3506,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Train",
-          "entity2": "Carriage",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Carriage"
         },
         {
           "entity1": "Carriage",
-          "entity2": "Ticket",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Ticket"
         }
       ]
     },
     "hint": "Connect 'Train' (1..1) to 'Carriage' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Train' (1..1) and 'Carriage' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Train', 'Carriage', 'Ticket', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Train', 'Carriage', 'Ticket', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 147,
@@ -3679,21 +3595,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "CarModel",
-          "entity2": "BodyShop",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "BodyShop"
         },
         {
           "entity1": "BodyShop",
-          "entity2": "CarUnit",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "CarUnit"
         }
       ]
     },
     "hint": "Connect 'CarModel' (1..1) to 'BodyShop' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'CarModel' (1..1) and 'BodyShop' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'CarModel', 'BodyShop', 'CarUnit', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'CarModel', 'BodyShop', 'CarUnit', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 148,
@@ -3771,21 +3684,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Client",
-          "entity2": "Policy",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Policy"
         },
         {
           "entity1": "Policy",
-          "entity2": "Agent",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Agent"
         }
       ]
     },
     "hint": "Connect 'Client' (1..1) to 'Policy' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Client' (1..1) and 'Policy' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Client', 'Policy', 'Agent', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Client', 'Policy', 'Agent', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 149,
@@ -3863,21 +3773,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "PharmaCorp",
-          "entity2": "Medicine",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Medicine"
         },
         {
           "entity1": "Medicine",
-          "entity2": "Distributor",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Distributor"
         }
       ]
     },
     "hint": "Connect 'PharmaCorp' (1..1) to 'Medicine' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'PharmaCorp' (1..1) and 'Medicine' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'PharmaCorp', 'Medicine', 'Distributor', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'PharmaCorp', 'Medicine', 'Distributor', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 150,
@@ -3955,21 +3862,18 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "entity1": "Faculty",
-          "entity2": "Department",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Department"
         },
         {
           "entity1": "Department",
-          "entity2": "Professor",
-          "mult1": "1..1",
-          "mult2": "1..*"
+          "entity2": "Professor"
         }
       ]
     },
     "hint": "Connect 'Faculty' (1..1) to 'Department' (1..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Faculty' (1..1) and 'Department' (1..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Faculty', 'Department', 'Professor', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Faculty', 'Department', 'Professor', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   }
 ];
 

@@ -8,7 +8,7 @@ _scope.QUESTIONS_51_100 = [
     "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
     "title": "Tourist va TourPackage Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'TourBooking' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'touristId' [FK1] va 'tourpackageId' [FK2] sifatida kiritiladi.",
+    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'TourBooking' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'touristId' [FK1] va 'tourpackageId' [FK2] sifatida kiritiladi.",
     "instruction": "'TourBooking' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Tourist' hamda 'TourPackage' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -171,19 +171,16 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Tourist",
           "entity2": "TourBooking",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "InvolvedIn"
         },
         {
           "entity1": "TourPackage",
           "entity2": "TourBooking",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "SubjectOf"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 52,
@@ -193,7 +190,7 @@ _scope.QUESTIONS_51_100 = [
     "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
     "title": "Musician va Track Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'TrackContribution' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'musicianId' [FK1] va 'trackId' [FK2] sifatida kiritiladi.",
+    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'TrackContribution' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'musicianId' [FK1] va 'trackId' [FK2] sifatida kiritiladi.",
     "instruction": "'TrackContribution' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Musician' hamda 'Track' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -356,19 +353,16 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Musician",
           "entity2": "TrackContribution",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "InvolvedIn"
         },
         {
           "entity1": "Track",
           "entity2": "TrackContribution",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "SubjectOf"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 53,
@@ -378,7 +372,7 @@ _scope.QUESTIONS_51_100 = [
     "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
     "title": "Actor va Film Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'CastingContract' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'actorId' [FK1] va 'filmId' [FK2] sifatida kiritiladi.",
+    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'CastingContract' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'actorId' [FK1] va 'filmId' [FK2] sifatida kiritiladi.",
     "instruction": "'CastingContract' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Actor' hamda 'Film' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -541,19 +535,16 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Actor",
           "entity2": "CastingContract",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "InvolvedIn"
         },
         {
           "entity1": "Film",
           "entity2": "CastingContract",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "SubjectOf"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 54,
@@ -563,7 +554,7 @@ _scope.QUESTIONS_51_100 = [
     "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
     "title": "Truck va Route Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'DeliveryTrip' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'truckId' [FK1] va 'routeId' [FK2] sifatida kiritiladi.",
+    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'DeliveryTrip' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'truckId' [FK1] va 'routeId' [FK2] sifatida kiritiladi.",
     "instruction": "'DeliveryTrip' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Truck' hamda 'Route' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -726,19 +717,16 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Truck",
           "entity2": "DeliveryTrip",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "InvolvedIn"
         },
         {
           "entity1": "Route",
           "entity2": "DeliveryTrip",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "SubjectOf"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 55,
@@ -748,7 +736,7 @@ _scope.QUESTIONS_51_100 = [
     "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
     "title": "Product va RawMaterial Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'BillOfMaterial' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'productId' [FK1] va 'rawmaterialId' [FK2] sifatida kiritiladi.",
+    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'BillOfMaterial' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'productId' [FK1] va 'rawmaterialId' [FK2] sifatida kiritiladi.",
     "instruction": "'BillOfMaterial' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Product' hamda 'RawMaterial' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -911,19 +899,16 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Product",
           "entity2": "BillOfMaterial",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "InvolvedIn"
         },
         {
           "entity1": "RawMaterial",
           "entity2": "BillOfMaterial",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "SubjectOf"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 56,
@@ -933,7 +918,7 @@ _scope.QUESTIONS_51_100 = [
     "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
     "title": "Delegate va WorkshopSession Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'SessionRegistration' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'delegateId' [FK1] va 'workshopsessionId' [FK2] sifatida kiritiladi.",
+    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'SessionRegistration' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'delegateId' [FK1] va 'workshopsessionId' [FK2] sifatida kiritiladi.",
     "instruction": "'SessionRegistration' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Delegate' hamda 'WorkshopSession' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1096,19 +1081,16 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Delegate",
           "entity2": "SessionRegistration",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "InvolvedIn"
         },
         {
           "entity1": "WorkshopSession",
           "entity2": "SessionRegistration",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "SubjectOf"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 57,
@@ -1118,7 +1100,7 @@ _scope.QUESTIONS_51_100 = [
     "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
     "title": "Exporter va CustomsPost Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'CustomsDeclaration' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'exporterId' [FK1] va 'customspostId' [FK2] sifatida kiritiladi.",
+    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'CustomsDeclaration' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'exporterId' [FK1] va 'customspostId' [FK2] sifatida kiritiladi.",
     "instruction": "'CustomsDeclaration' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Exporter' hamda 'CustomsPost' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1281,19 +1263,16 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Exporter",
           "entity2": "CustomsDeclaration",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "InvolvedIn"
         },
         {
           "entity1": "CustomsPost",
           "entity2": "CustomsDeclaration",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "SubjectOf"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 58,
@@ -1303,7 +1282,7 @@ _scope.QUESTIONS_51_100 = [
     "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
     "title": "Article va ContentTag Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'ArticleTagMap' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'articleId' [FK1] va 'contenttagId' [FK2] sifatida kiritiladi.",
+    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'ArticleTagMap' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'articleId' [FK1] va 'contenttagId' [FK2] sifatida kiritiladi.",
     "instruction": "'ArticleTagMap' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Article' hamda 'ContentTag' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1466,19 +1445,16 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Article",
           "entity2": "ArticleTagMap",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "InvolvedIn"
         },
         {
           "entity1": "ContentTag",
           "entity2": "ArticleTagMap",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "SubjectOf"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 59,
@@ -1488,7 +1464,7 @@ _scope.QUESTIONS_51_100 = [
     "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
     "title": "Instructor va Classroom Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'LessonSchedule' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'instructorId' [FK1] va 'classroomId' [FK2] sifatida kiritiladi.",
+    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'LessonSchedule' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'instructorId' [FK1] va 'classroomId' [FK2] sifatida kiritiladi.",
     "instruction": "'LessonSchedule' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Instructor' hamda 'Classroom' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1651,19 +1627,16 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Instructor",
           "entity2": "LessonSchedule",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "InvolvedIn"
         },
         {
           "entity1": "Classroom",
           "entity2": "LessonSchedule",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "SubjectOf"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 60,
@@ -1673,7 +1646,7 @@ _scope.QUESTIONS_51_100 = [
     "clientRole": "Bosh Baza Arxitektori",
     "clientAvatar": "mentor",
     "title": "Retailer va Supplier Hamkorligi (Relatsion Sxema)",
-    "story": "1-haftadagi ko'pga-ko'p (*..*) munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'SupplyContract' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'retailerId' [FK1] va 'supplierId' [FK2] sifatida kiritiladi.",
+    "story": "1-haftadagi ko'pga-ko'p munosabatni SQL relyatsion jadvallariga o'tkazish uchun oraliq 'SupplyContract' jadvali ochiladi. Unda ikkala asosiy jadvalning birlamchi kalitlari 'retailerId' [FK1] va 'supplierId' [FK2] sifatida kiritiladi.",
     "instruction": "'SupplyContract' oraliq jadvaliga ikkala jadvalning Tashqi Kalitlari [FK1] va [FK2] ni kiriting va ularni 'Retailer' hamda 'Supplier' jadvallariga bog'lang.",
     "starterDiagram": {
       "entities": [
@@ -1836,19 +1809,16 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Retailer",
           "entity2": "SupplyContract",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "InvolvedIn"
         },
         {
           "entity1": "Supplier",
           "entity2": "SupplyContract",
-          "mult1": "1..1",
-          "mult2": "0..*",
           "name": "SubjectOf"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 61,
@@ -1975,13 +1945,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Hotel",
           "entity2": "Room",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "HasRoom",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 62,
@@ -2100,13 +2069,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Building",
           "entity2": "BuildingFloor",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "ContainsFloor",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 63,
@@ -2233,13 +2201,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Employee",
           "entity2": "Dependent",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "HasDependent",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 64,
@@ -2366,13 +2333,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "BookTitle",
           "entity2": "BookCopy",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "HasCopy",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 65,
@@ -2499,13 +2465,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "BankAccount",
           "entity2": "AccountTransaction",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "LogsTx",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 66,
@@ -2632,13 +2597,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "FlightSchedule",
           "entity2": "BoardingPass",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "IssuesPass",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 67,
@@ -2765,13 +2729,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "ApartmentComplex",
           "entity2": "FlatUnit",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "ComprisesFlat",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 68,
@@ -2898,13 +2861,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "DrugFormula",
           "entity2": "BatchLot",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "ProducedInLot",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 69,
@@ -3031,13 +2993,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "OnlineCourse",
           "entity2": "CourseLesson",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "ContainsLesson",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 70,
@@ -3164,13 +3125,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "TrainRoute",
           "entity2": "CarriageUnit",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "IncludesCarriage",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 71,
@@ -3297,13 +3257,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "LabSample",
           "entity2": "TestResultItem",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "YieldsResult",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 72,
@@ -3430,13 +3389,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "IndustrialMachine",
           "entity2": "ComponentSlot",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "FittedWith",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 73,
@@ -3563,13 +3521,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "AuditoriumHall",
           "entity2": "HallSeat",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "HasSeat",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 74,
@@ -3696,13 +3653,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "SmartphoneModel",
           "entity2": "HardwareConfig",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "ConfiguredAs",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 75,
@@ -3829,13 +3785,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "ResearchPaper",
           "entity2": "SupplementaryFile",
-          "mult1": "1..1",
-          "mult2": "1..*",
           "name": "AccompaniedBy",
           "isIdentifying": true
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 76,
@@ -3913,14 +3868,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Employee",
           "entity2": "Employee",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "Manages",
           "role1": "supervisor",
           "role2": "supervisee"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 77,
@@ -3990,14 +3944,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "ProductCategory",
           "entity2": "ProductCategory",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "SubCategoryOf",
           "role1": "parentCat",
           "role2": "subCat"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 78,
@@ -4075,14 +4028,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "PartComponent",
           "entity2": "PartComponent",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "AssembledFrom",
           "role1": "parentAssembly",
           "role2": "subComponent"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 79,
@@ -4160,14 +4112,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "AcademicCourse",
           "entity2": "AcademicCourse",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "RequiresPrereq",
           "role1": "advancedCourse",
           "role2": "prerequisiteCourse"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 80,
@@ -4245,14 +4196,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Citizen",
           "entity2": "Citizen",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "MarriedTo",
           "role1": "spouseA",
           "role2": "spouseB"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 81,
@@ -4330,14 +4280,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "FlightLeg",
           "entity2": "FlightLeg",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "ConnectsTo",
           "role1": "inboundLeg",
           "role2": "outboundConnectingLeg"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 82,
@@ -4415,14 +4364,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "SoftwarePackage",
           "entity2": "SoftwarePackage",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "DependsOn",
           "role1": "dependentModule",
           "role2": "requiredDependency"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 83,
@@ -4500,14 +4448,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "ChessMaster",
           "entity2": "ChessMaster",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "PlaysMatch",
           "role1": "whitePlayer",
           "role2": "blackPlayer"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 84,
@@ -4585,14 +4532,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "HistoricalFigure",
           "entity2": "HistoricalFigure",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "AncestorOf",
           "role1": "parentAncestor",
           "role2": "childDescendant"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 85,
@@ -4670,14 +4616,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "LegalPrecedent",
           "entity2": "LegalPrecedent",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "CitesPrecedent",
           "role1": "currentRulingCase",
           "role2": "citedPrecedentCase"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 86,
@@ -4755,14 +4700,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "NetworkUser",
           "entity2": "NetworkUser",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "FollowsUser",
           "role1": "followerUser",
           "role2": "followedUser"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 87,
@@ -4840,14 +4784,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "CorporateEnterprise",
           "entity2": "CorporateEnterprise",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "SubsidiaryOf",
           "role1": "parentHolding",
           "role2": "daughterCompany"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 88,
@@ -4925,14 +4868,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "MetroStation",
           "entity2": "MetroStation",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "AdjacentTo",
           "role1": "precedingStop",
           "role2": "succeedingStop"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 89,
@@ -5010,14 +4952,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "PathogenStrain",
           "entity2": "PathogenStrain",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "MutatedFrom",
           "role1": "ancestralStrain",
           "role2": "mutantLineage"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 90,
@@ -5095,14 +5036,13 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "WebDocument",
           "entity2": "WebDocument",
-          "mult1": "0..1",
-          "mult2": "0..*",
           "name": "HyperlinksTo",
           "role1": "referringPage",
           "role2": "targetLinkedPage"
         }
       ]
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 91,
@@ -5195,7 +5135,8 @@ _scope.QUESTIONS_51_100 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 92,
@@ -5296,7 +5237,8 @@ _scope.QUESTIONS_51_100 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 93,
@@ -5397,7 +5339,8 @@ _scope.QUESTIONS_51_100 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 94,
@@ -5498,7 +5441,8 @@ _scope.QUESTIONS_51_100 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 95,
@@ -5599,7 +5543,8 @@ _scope.QUESTIONS_51_100 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 96,
@@ -5700,7 +5645,8 @@ _scope.QUESTIONS_51_100 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 97,
@@ -5801,7 +5747,8 @@ _scope.QUESTIONS_51_100 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 98,
@@ -5902,7 +5849,8 @@ _scope.QUESTIONS_51_100 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 99,
@@ -6003,7 +5951,8 @@ _scope.QUESTIONS_51_100 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   },
   {
     "id": 100,
@@ -6104,6 +6053,11 @@ _scope.QUESTIONS_51_100 = [
         ],
         "constraint": "{Mandatory, Or}"
       }
-    }
+    },
+    "isWeek2": true
   }
 ];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = _scope.QUESTIONS_51_100;
+}

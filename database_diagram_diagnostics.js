@@ -135,11 +135,20 @@
         };
       }
 
+      const isWeek2 = (mode === 'week2' || mode === 'eer_w2') || 
+        (typeof window !== 'undefined' && (
+          window.IS_WEEK2 || 
+          (window.location && window.location.pathname && window.location.pathname.includes('week2')) ||
+          (window.location && window.location.href && window.location.href.includes('week2')) ||
+          (window.EER_CATALOG && window.EER_CATALOG.module && window.EER_CATALOG.module.includes('Week 2'))
+        )) || 
+        Boolean(question && (question.isWeek2 || (question.sector && question.multRequired === false)));
+
       // 1. CHECK REQUIRED ENTITIES & PRIMARY KEYS
       this.checkEntities(uEntities, expected.entities || [], errors, passedItems, isEn);
 
-      // 2. CHECK RELATIONSHIPS & MULTIPLICITIES
-      this.checkRelationships(uEntities, uRels, expected.relationships || [], errors, passedItems, isEn);
+      // 2. CHECK RELATIONSHIPS & MULTIPLICITIES (Multiplicity skipped in Week 2 EER mode)
+      this.checkRelationships(uEntities, uRels, expected.relationships || [], errors, passedItems, isEn, isWeek2);
 
       // 3. CHECK SUBCLASSES & EER SPECIALISATION (if present in expectedDiagram)
       if (expected.subclasses) {
@@ -153,7 +162,7 @@
         errors,
         passedItems,
         formattedHTML: passed 
-          ? this.formatSuccessHTML(isEn, passedItems) 
+          ? this.formatSuccessHTML(isEn, passedItems, isWeek2) 
           : this.formatReportHTML({ passed: false, errors, passedItems }, isEn),
         formattedReport: this.formatReportText({ passed, errors, passedItems }, isEn)
       };
@@ -267,7 +276,7 @@
     },
 
     // 2. RELATIONSHIPS & MULTIPLICITY AUDIT
-    checkRelationships(uEntities, uRels, expRels, errors, passedItems, isEn) {
+    checkRelationships(uEntities, uRels, expRels, errors, passedItems, isEn, isWeek2 = false) {
       for (const expR of expRels) {
         const e1Norm = this.norm(expR.entity1);
         const e2Norm = this.norm(expR.entity2);
@@ -323,7 +332,17 @@
           continue;
         }
 
-        // Connection exists! Audit Multiplicities
+        // Connection exists!
+        // In Week 2 EER mode, multiplicity is NOT used. We only verify connection existence and specialization.
+        if (isWeek2) {
+          passedItems.push({
+            name: `${isEn ? 'Relationship Line' : "Aloqa Chizig'i"}: ${relLabel}`,
+            detail: isEn ? "Connected" : "Bog'langan"
+          });
+          continue;
+        }
+
+        // Audit Multiplicities (Week 1 / ER Mode)
         if (expR.mult1 && expR.mult2) {
           const uFrom = this.norm(foundRel.fromEntityName || foundRel.entity1);
           let uM1 = foundRel.mult1;
@@ -353,6 +372,9 @@
               message: isEn 
                 ? `The connector line exists, but multiplicity boundaries (e.g. 1..1, 0..*, 1..*) are still unconfigured.`
                 : `Aloqa chizig'i tortilgan, ammo uning ikki tomonidagi multiplisitiya chegaralari (1..1, 0..*, 1..*) hali tanlanmagan.`,
+              proof: isEn
+                ? `Every binary ER relationship requires explicit lower and upper bounds (min..max) on both ends to specify minimum participation and maximum cardinality.`
+                : `Har bir binar ER munosabatida ikkala tomonga ham minimal va maksimal ishtirok chegaralarini (min..max) o'rnatish shart. Aks holda relyatsion sxema yaratishda munosabat turini (1:1, 1:N yoki M:N) aniqlab bo'lmaydi.`,
               userVal: `[ + ] / ?`,
               expectedVal: `${expR.entity1} (${expR.mult1}) ⟷ ${expR.entity2} (${expR.mult2})`,
               fix: isEn 
@@ -364,6 +386,10 @@
 
           // Check if reversed (student placed values on the wrong ends)
           if (normUserM1 === normExpM2 && normUserM2 === normExpM1 && normExpM1 !== normExpM2) {
+            const proof = isEn 
+              ? `Orientation Proof: In ER diagrams, the multiplicity placed next to '${expR.entity1}' describes how many '${expR.entity1}' records can associate with ONE '${expR.entity2}'. Reversing these values inverts the business dependency and leads to misplacing Foreign Keys in relational tables.`
+              : `Yo'nalish Isboti: ER diagrammalarda '${expR.entity1}' yonidagi multiplisitiya bitta '${expR.entity2}' ushbu '${expR.entity1}' dan nechta bo'lishini ko'rsatadi. Tomonlarni teskari qo'yish munosabat mantig'ini buzadi va relyatsion modelda Tashqi Kalit (Foreign Key) ning teskari jadvalga tushib qolishiga olib keladi!`;
+
             errors.push({
               category: 'mult_reversed',
               target: `${isEn ? 'Reversed Multiplicity' : 'Teskari Multiplisitiya'}: ${relLabel}`,
@@ -371,6 +397,7 @@
               message: isEn 
                 ? `You assigned '${expR.mult2}' to '${expR.entity1}' and '${expR.mult1}' to '${expR.entity2}'. The logic is inverted!`
                 : `Siz '${expR.entity1}' tomoniga '${expR.mult2}', '${expR.entity2}' tomoniga esa '${expR.mult1}' qo'ygansiz. Munosabat mantiqi teskari bo'lib qolgan!`,
+              proof: proof,
               userVal: `${expR.entity1} (${uM1}) ⟷ ${expR.entity2} (${uM2})`,
               expectedVal: `${expR.entity1} (${expR.mult1}) ⟷ ${expR.entity2} (${expR.mult2})`,
               fix: isEn 
@@ -400,6 +427,15 @@
                 : `'${expR.entity2}' tomonidagi chegara noto'g'ri (Sizda: '${uM2}', Kutilgan: '${expR.mult2}').`;
             }
 
+            // Generate deep pedagogical proof proving WHY user's choice is invalid and WHY expected is required
+            const proof = this.generateMultiplicityProof(
+              expR.entity1, expR.entity2,
+              uM1, uM2,
+              expR.mult1, expR.mult2,
+              m1Matches, m2Matches,
+              isEn
+            );
+
             // Pedagogical explanation for common business cases
             let pedagogicalTip = "";
             if (normExpM1 === '1..1' && normExpM2 === '0..*') {
@@ -414,17 +450,14 @@
               pedagogicalTip = isEn 
                 ? `1:1 Relationship: An instance of '${expR.entity1}' may optionally link to at most one '${expR.entity2}' (0..1).`
                 : `1:1 Aloqa: '${expR.entity1}' ixtiyoriy ravishda ko'pi bilan bitta '${expR.entity2}' ga ulanishi mumkin (0..1).`;
-            } else {
-              pedagogicalTip = isEn 
-                ? `Click the multiplicity value badge on the line to adjust it to match architectural requirements.`
-                : `Chiziqdagi multiplisitiya nishonini bosib, uni talabga mos qiymatga o'zgartiring.`;
             }
 
             errors.push({
               category: 'mult_mismatch',
               target: `${isEn ? 'Multiplicity Mismatch' : 'Multiplisitiya Nomutanosibligi'}: ${relLabel}`,
               title: isEn ? `Multiplicity mismatch on ${relLabel}` : `${relLabel} aloqasida multiplisitiya noto'g'ri`,
-              message: `${specificReason} ${pedagogicalTip}`,
+              message: `${specificReason} ${pedagogicalTip}`.trim(),
+              proof: proof,
               userVal: `${expR.entity1} (${uM1 || '?'}) ⟷ ${expR.entity2} (${uM2 || '?'})`,
               expectedVal: `${expR.entity1} (${expR.mult1}) ⟷ ${expR.entity2} (${expR.mult2})`,
               fix: isEn 
@@ -440,6 +473,75 @@
           });
         }
       }
+    },
+
+    // Deep Pedagogical Multiplicity Domain Proof Generator
+    generateMultiplicityProof(entity1, entity2, uM1, uM2, expM1, expM2, m1Matches, m2Matches, isEn) {
+      const proofs = [];
+
+      const getSideProof = (sideEnt, otherEnt, userVal, expectedVal) => {
+        const u = this.normMult(userVal);
+        const exp = this.normMult(expectedVal);
+
+        if (u === exp) return null;
+
+        // 0..* chosen instead of 1..* (Optional Many instead of Mandatory Many)
+        if (exp === '1..*' && u === '0..*') {
+          return isEn
+            ? `Why is '0..*' incorrect for '${sideEnt}'? Choosing '0..*' (Optional Many) implies that '${otherEnt}' can exist without even a single '${sideEnt}'. However, the business logic dictates that participation is strictly MANDATORY (min=1) — every registered '${otherEnt}' must maintain at least one '${sideEnt}'. Allowing 0 would create orphaned or invalid records. Hence, the lower bound must be 1, requiring '1..*'!`
+            : `Nega '${sideEnt}' tomoniga '0..*' xato? Agar siz '0..*' (Ixtiyoriy ko'plik) qo'ysangiz, bu '${otherEnt}' tizimda birorta ham '${sideEnt}' ga ega bo'lmasdan mavjud bo'lishi mumkinligini anglatadi. Ammo mazkur soha biznes qoidasiga ko'ra, har bir '${otherEnt}' kamida bitta '${sideEnt}' ga ega bo'lishi QAT'IY MAJBURIYDIR (Majburiy ishtirok - Mandatory participation: min=1). Aks holda bazada harakatsiz yoki asossiz yetim yozuvlar yig'ilib qoladi. Shu sababli minimal chegara 1 bo'lib, to'g'ri qiymat '1..*' bo'lishi shart!`;
+        }
+
+        // 1..* chosen instead of 0..* (Mandatory Many instead of Optional Many)
+        if (exp === '0..*' && u === '1..*') {
+          return isEn
+            ? `Why is '1..*' incorrect for '${sideEnt}'? Choosing '1..*' (Mandatory Many) forces every single '${otherEnt}' to immediately possess at least one '${sideEnt}'. In reality, a newly registered or currently idle '${otherEnt}' naturally has zero '${sideEnt}' records initially (Optional participation: min=0). Forcing '1..*' would reject creating new '${otherEnt}' records in the database. Hence, the lower bound must be 0, requiring '0..*'!`
+            : `Nega '${sideEnt}' tomoniga '1..*' xato? Agar siz '1..*' (Majburiy ko'plik) qo'ysangiz, tizimdagi har bitta '${otherEnt}' doimo kamida bitta '${sideEnt}' ga ega bo'lishi SHART bo'lib qoladi. Real hayotda esa yangi ro'yxatdan o'tgan yoki bo'sh turgan '${otherEnt}' da hali birorta ham '${sideEnt}' bo'lmasligi mutlaqo tabiiy (Ixtiyoriy ishtirok - Optional participation: min=0). Agar '1..*' qo'yilsa, tizim yangi '${otherEnt}' ni kiritishga ruxsat bermay xatolik beradi. Shu sababli minimal chegara 0 bo'lib, to'g'ri multiplisitiya '0..*' bo'ladi!`;
+        }
+
+        // Many (* or 1..*) chosen instead of 1..1
+        if (exp === '1..1' && (u === '1..*' || u === '0..*')) {
+          return isEn
+            ? `Why is Many ('*') incorrect for '${sideEnt}'? Setting the upper bound to '*' implies that a single '${otherEnt}' can link to multiple '${sideEnt}' records. But according to domain specifications, each '${otherEnt}' belongs strictly to at most ONE '${sideEnt}' (max=1). A scalar Foreign Key enforces this; allowing '*' would break scalar integrity. Hence, the bound must strictly be '1..1'!`
+            : `Nega '${sideEnt}' tomoniga ko'plik ('*') xato? Siz yuqori chegarani ko'plik qilib belgilagansiz. Bu bitta '${otherEnt}' bir vaqtning o'zida bir nechta '${sideEnt}' ga birikishi mumkinligini anglatadi. Vaholanki, arxitektura qoidasida har bir yozuv faqat va faqat YAGONA bitta '${sideEnt}' ga tegishli bo'lishi qat'iy talab etiladi (max=1). Ko'plik qo'yilsa, relyatsion jadvalda dublikatlar va nomutanosibliklar kelib chiqadi. Shu sababli to'g'ri chegara '1..1' bo'lishi shart!`;
+        }
+
+        // 0..1 chosen instead of 1..1 (Optional One instead of Mandatory One)
+        if (exp === '1..1' && u === '0..1') {
+          return isEn
+            ? `Why is '0..1' incorrect for '${sideEnt}'? A lower bound of 0 implies '${otherEnt}' can exist without any '${sideEnt}' (nullable Foreign Key). However, the business rule strictly mandates that every '${otherEnt}' MUST belong to a valid '${sideEnt}' (NOT NULL constraint). To prevent orphaned records, participation must be mandatory: '1..1'!`
+            : `Nega '${sideEnt}' tomoniga '0..1' xato? Siz minimal chegarani 0 (Ixtiyoriy) qilib belgilagansiz. Bu '${otherEnt}' hech qanday '${sideEnt}' ga biriktirilmasdan ham mustaqil mavjud bo'la oladi (Foreign Key NULL bo'lishi mumkin) degani. Ammo biznes qoidasida har bir '${otherEnt}' muayyan '${sideEnt}' ga biriktirilishi MAJBURIY qilib qo'yilgan (NOT NULL FK). Bog'lanmagan yozuvlar yetim qolmasligi uchun minimal chegara 1, ya'ni '1..1' bo'lishi shart!`;
+        }
+
+        // 1..1 chosen instead of 0..1 (Mandatory One instead of Optional One)
+        if (exp === '0..1' && u === '1..1') {
+          return isEn
+            ? `Why is '1..1' incorrect for '${sideEnt}'? A mandatory bound of '1..1' demands that every '${otherEnt}' must immediately possess an '${sideEnt}'. In this domain, this link is purely optional (e.g., an unassigned card or pending status). Forcing '1..1' blocks creating '${otherEnt}' before '${sideEnt}' exists. Hence, the bound must be '0..1'!`
+            : `Nega '${sideEnt}' tomoniga '1..1' xato? '1..1' qo'yilsa, tizimdagi har bir '${otherEnt}' albatta bitta '${sideEnt}' ga ega bo'lishi shart degani. Lekin biznes talabiga binoan ushbu aloqa ixtiyoriy bo'lib, '${otherEnt}' da hali '${sideEnt}' mavjud bo'lmasligi mumkin (masalan, hali biriktirilmagan yoki berilmagan holat). Majburiy qilib qo'yilsa, tizim yangi ob'ektlarni saqlay olmaydi. Shuning uchun to'g'ri chegara '0..1' bo'ladi!`;
+        }
+
+        // 1..1 chosen instead of Many (1..* or 0..*)
+        if ((exp === '1..*' || exp === '0..*') && (u === '1..1' || u === '0..1')) {
+          return isEn
+            ? `Why is Single ('1') incorrect for '${sideEnt}'? Limiting the bound to 1 restricts '${otherEnt}' to at most one '${sideEnt}'. However, the business domain requires supporting multiple '${sideEnt}' records. A bound of '1' blocks adding additional records. Hence, the upper bound must be '*', requiring '${expectedVal}'!`
+            : `Nega '${sideEnt}' tomoniga yagona ('1') xato? Siz yuqori chegarani 1 ta bilan cheklab qo'ygansiz. Bu degani bitta '${otherEnt}' ga ko'pi bilan bittagina '${sideEnt}' biriktirilishi mumkin. Vaholanki, biznes talabida '${otherEnt}' bir nechta (ko'plab) '${sideEnt}' larni o'z ichiga olishi ko'rsatilgan. 1 cheklovi tizimda ikkinchi yozuv kiritilishini taqiqlab qo'yadi. Shu bois to'g'ri multiplisitiya '${expectedVal}' bo'lishi shart!`;
+        }
+
+        return isEn
+          ? `Architectural domain proof: '${otherEnt}' associates with '${sideEnt}' as '${expectedVal}'. Bound '${userVal}' violates the business participation or cardinality constraint.`
+          : `Biznes arxitektura isboti: '${otherEnt}' va '${sideEnt}' o'rtasida '${expectedVal}' talab etiladi. Tanlangan '${userVal}' qiymati ishtirok yoki kardinallik chegarasini noto'g'ri belgilaydi.`;
+      };
+
+      if (!m1Matches) {
+        const p1 = getSideProof(entity1, entity2, uM1, expM1);
+        if (p1) proofs.push(p1);
+      }
+      if (!m2Matches) {
+        const p2 = getSideProof(entity2, entity1, uM2, expM2);
+        if (p2) proofs.push(p2);
+      }
+
+      return proofs.join(' ');
     },
 
     // 3. SUBCLASSES & EER SPECIALISATION AUDIT (Week 2)
@@ -540,6 +642,15 @@
               ${this.escapeHTML(err.message)}
             </div>
 
+            ${err.proof ? `
+              <div style="background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.35); border-left:3px solid #f59e0b; border-radius:4px; padding:7px 10px; margin-bottom:6px; font-size:11.5px; color:#fef3c7; line-height:1.5;">
+                <div style="font-weight:700; color:#fbbf24; margin-bottom:3px; display:flex; align-items:center; gap:5px;">
+                  <span>💡</span> <span>${isEn ? "Pedagogical Proof & Domain Logic:" : "Isbotlovchi Ma'lumot & Biznes Mantiqi:"}</span>
+                </div>
+                <div>${this.escapeHTML(err.proof)}</div>
+              </div>
+            ` : ''}
+
             ${(err.userVal || err.expectedVal) ? `
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; background:rgba(15,23,42,0.85); border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:6px 10px; margin-bottom:6px; font-size:11.5px;">
                 <div>
@@ -579,14 +690,18 @@
     },
 
     // Format success HTML report
-    formatSuccessHTML(isEn, passedItems = []) {
+    formatSuccessHTML(isEn, passedItems = [], isWeek2 = false) {
+      const subtitle = isWeek2
+        ? (isEn ? "All entities, {PK} keys, relationship links, and EER specializations are structurally flawless." : "Barcha entitiylar, {PK} birlamchi kalitlari, aloqa chiziqlari va EER ixtisoslashuvlari to'liq to'g'ri loyihalashtirildi.")
+        : (isEn ? "All entities, {PK} keys, relationship links, and multiplicities are structurally flawless." : "Barcha entitiylar, {PK} birlamchi kalitlari, aloqa chiziqlari va multiplisitiyalar to'liq to'g'ri loyihalashtirildi.");
+
       return `
         <div style="background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.3); border-radius:6px; padding:10px 14px; color:#bbf7d0; font-family:var(--font-mono, monospace); font-size:12.5px; line-height:1.5;">
           <div style="font-weight:700; color:#4ade80; display:flex; align-items:center; gap:8px; margin-bottom:4px;">
             <span>🎉</span> <span>${isEn ? "EER DIAGRAM APPROVED BY CHIEF ARCHITECT!" : "EER DIAGRAMMA BOSH ARXITEKTOR TOMONIDAN TO'LIQ TASDIQLANDI!"}</span>
           </div>
           <div style="color:#86efac; font-size:12px; margin-bottom:6px;">
-            ${isEn ? "All entities, {PK} keys, relationship links, and multiplicities are structurally flawless." : "Barcha entitiylar, {PK} birlamchi kalitlari, aloqa chiziqlari va multiplisitiyalar to'liq to'g'ri loyihalashtirildi."}
+            ${subtitle}
           </div>
           ${passedItems.length > 0 ? `
             <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;">
@@ -604,7 +719,7 @@
       }
       let txt = (isEn ? "DIAGRAM ERRORS DETECTED:\n" : "DIAGRAMMADA XATOLIKLAR ANIQLANDI:\n");
       res.errors.forEach(err => {
-        txt += `\n• [${err.target}]: ${err.title}\n  ${err.message}\n  Tavsiya: ${err.fix}\n`;
+        txt += `\n• [${err.target}]: ${err.title}\n  ${err.message}\n  ${err.proof ? `Isboti: ${err.proof}\n  ` : ''}Tavsiya: ${err.fix}\n`;
       });
       return txt;
     }

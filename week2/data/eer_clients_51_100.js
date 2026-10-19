@@ -1,10 +1,4 @@
-// ============================================================================
-// DATABASE SYSTEMS ACADEMY — EER CLIENT CASE STUDIES
-// Variable: EER_CLIENTS_51_100 (50 Questions)
-// ============================================================================
-
 var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
-
 _scope.EER_CLIENTS_51_100 = [
   {
     "id": 51,
@@ -66,15 +60,14 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "Actor",
           "entity2": "Movie",
           "name": "ActsIn",
-          "mult1": "0..*",
-          "mult2": "0..*",
           "associationClass": true
         }
       ]
     },
     "hint": "Connect 'Actor' (0..*) to 'Movie' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Actor' (0..*) and 'Movie' (0..*) verified and approved.",
-    "task": "Model 'Actor' and 'Movie' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
+    "task": "Model 'Actor' and 'Movie' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 52,
@@ -136,15 +129,14 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "User",
           "entity2": "UserGroup",
           "name": "MemberOf",
-          "mult1": "0..*",
-          "mult2": "0..*",
           "associationClass": true
         }
       ]
     },
     "hint": "Connect 'User' (0..*) to 'UserGroup' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'User' (0..*) and 'UserGroup' (0..*) verified and approved.",
-    "task": "Model 'User' and 'UserGroup' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
+    "task": "Model 'User' and 'UserGroup' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 53,
@@ -206,15 +198,14 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "Driver",
           "entity2": "Route",
           "name": "Drives",
-          "mult1": "0..*",
-          "mult2": "0..*",
           "associationClass": true
         }
       ]
     },
     "hint": "Connect 'Driver' (0..*) to 'Route' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Driver' (0..*) and 'Route' (0..*) verified and approved.",
-    "task": "Model 'Driver' and 'Route' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
+    "task": "Model 'Driver' and 'Route' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 54,
@@ -276,15 +267,14 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "Developer",
           "entity2": "Repository",
           "name": "Contributes",
-          "mult1": "0..*",
-          "mult2": "0..*",
           "associationClass": true
         }
       ]
     },
     "hint": "Connect 'Developer' (0..*) to 'Repository' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Developer' (0..*) and 'Repository' (0..*) verified and approved.",
-    "task": "Model 'Developer' and 'Repository' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
+    "task": "Model 'Developer' and 'Repository' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 55,
@@ -346,15 +336,14 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "Tourist",
           "entity2": "Hotel",
           "name": "StaysAt",
-          "mult1": "0..*",
-          "mult2": "0..*",
           "associationClass": true
         }
       ]
     },
     "hint": "Connect 'Tourist' (0..*) to 'Hotel' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Tourist' (0..*) and 'Hotel' (0..*) verified and approved.",
-    "task": "Model 'Tourist' and 'Hotel' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
+    "task": "Model 'Tourist' and 'Hotel' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 56,
@@ -416,15 +405,14 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "Buyer",
           "entity2": "Receipt",
           "name": "Purchases",
-          "mult1": "0..*",
-          "mult2": "0..*",
           "associationClass": true
         }
       ]
     },
     "hint": "Connect 'Buyer' (0..*) to 'Receipt' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Buyer' (0..*) and 'Receipt' (0..*) verified and approved.",
-    "task": "Model 'Buyer' and 'Receipt' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
+    "task": "Model 'Buyer' and 'Receipt' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 57,
@@ -486,15 +474,14 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "Drug",
           "entity2": "Disease",
           "name": "Treats",
-          "mult1": "0..*",
-          "mult2": "0..*",
           "associationClass": true
         }
       ]
     },
     "hint": "Connect 'Drug' (0..*) to 'Disease' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Drug' (0..*) and 'Disease' (0..*) verified and approved.",
-    "task": "Model 'Drug' and 'Disease' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
+    "task": "Model 'Drug' and 'Disease' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 58,
@@ -556,15 +543,14 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "Teacher",
           "entity2": "ClassRoom",
           "name": "Supervises",
-          "mult1": "0..*",
-          "mult2": "0..*",
           "associationClass": true
         }
       ]
     },
     "hint": "Connect 'Teacher' (0..*) to 'ClassRoom' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Teacher' (0..*) and 'ClassRoom' (0..*) verified and approved.",
-    "task": "Model 'Teacher' and 'ClassRoom' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
+    "task": "Model 'Teacher' and 'ClassRoom' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 59,
@@ -626,15 +612,14 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "Company",
           "entity2": "Event",
           "name": "Sponsors",
-          "mult1": "0..*",
-          "mult2": "0..*",
           "associationClass": true
         }
       ]
     },
     "hint": "Connect 'Company' (0..*) to 'Event' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Company' (0..*) and 'Event' (0..*) verified and approved.",
-    "task": "Model 'Company' and 'Event' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
+    "task": "Model 'Company' and 'Event' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 60,
@@ -696,15 +681,14 @@ _scope.EER_CLIENTS_51_100 = [
           "entity1": "Carrier",
           "entity2": "CargoHub",
           "name": "Transits",
-          "mult1": "0..*",
-          "mult2": "0..*",
           "associationClass": true
         }
       ]
     },
     "hint": "Connect 'Carrier' (0..*) to 'CargoHub' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Carrier' (0..*) and 'CargoHub' (0..*) verified and approved.",
-    "task": "Model 'Carrier' and 'CargoHub' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'."
+    "task": "Model 'Carrier' and 'CargoHub' entities, designate primary keys {PK}, and connect them with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 61,
@@ -747,15 +731,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Employee",
           "entity2": "Employee",
-          "name": "Supervises",
-          "mult1": "0..1",
-          "mult2": "0..*"
+          "name": "Supervises"
         }
       ]
     },
     "hint": "Connect 'Employee' (0..1) to 'Employee' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Employee' (0..1) and 'Employee' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'Employee' with multiplicities '0..1' and '0..*'."
+    "task": "Model the recursive relationship on 'Employee' with multiplicities '0..1' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 62,
@@ -798,15 +781,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Category",
           "entity2": "Category",
-          "name": "SubCategoryOf",
-          "mult1": "0..1",
-          "mult2": "0..*"
+          "name": "SubCategoryOf"
         }
       ]
     },
     "hint": "Connect 'Category' (0..1) to 'Category' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Category' (0..1) and 'Category' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'Category' with multiplicities '0..1' and '0..*'."
+    "task": "Model the recursive relationship on 'Category' with multiplicities '0..1' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 63,
@@ -849,15 +831,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Part",
           "entity2": "Part",
-          "name": "Contains",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "name": "Contains"
         }
       ]
     },
     "hint": "Connect 'Part' (0..*) to 'Part' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Part' (0..*) and 'Part' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'Part' with multiplicities '0..*' and '0..*'."
+    "task": "Model the recursive relationship on 'Part' with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 64,
@@ -900,15 +881,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Course",
           "entity2": "Course",
-          "name": "Prerequisite",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "name": "Prerequisite"
         }
       ]
     },
     "hint": "Connect 'Course' (0..*) to 'Course' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Course' (0..*) and 'Course' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'Course' with multiplicities '0..*' and '0..*'."
+    "task": "Model the recursive relationship on 'Course' with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 65,
@@ -951,15 +931,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "User",
           "entity2": "User",
-          "name": "FriendOf",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "name": "FriendOf"
         }
       ]
     },
     "hint": "Connect 'User' (0..*) to 'User' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'User' (0..*) and 'User' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'User' with multiplicities '0..*' and '0..*'."
+    "task": "Model the recursive relationship on 'User' with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 66,
@@ -1002,15 +981,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Division",
           "entity2": "Division",
-          "name": "SubDivisionOf",
-          "mult1": "0..1",
-          "mult2": "0..*"
+          "name": "SubDivisionOf"
         }
       ]
     },
     "hint": "Connect 'Division' (0..1) to 'Division' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Division' (0..1) and 'Division' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'Division' with multiplicities '0..1' and '0..*'."
+    "task": "Model the recursive relationship on 'Division' with multiplicities '0..1' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 67,
@@ -1053,15 +1031,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "HistoricalEvent",
           "entity2": "HistoricalEvent",
-          "name": "LeadsTo",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "name": "LeadsTo"
         }
       ]
     },
     "hint": "Connect 'HistoricalEvent' (0..*) to 'HistoricalEvent' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'HistoricalEvent' (0..*) and 'HistoricalEvent' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'HistoricalEvent' with multiplicities '0..*' and '0..*'."
+    "task": "Model the recursive relationship on 'HistoricalEvent' with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 68,
@@ -1104,15 +1081,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Account",
           "entity2": "Account",
-          "name": "SubAccountOf",
-          "mult1": "0..1",
-          "mult2": "0..*"
+          "name": "SubAccountOf"
         }
       ]
     },
     "hint": "Connect 'Account' (0..1) to 'Account' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Account' (0..1) and 'Account' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'Account' with multiplicities '0..1' and '0..*'."
+    "task": "Model the recursive relationship on 'Account' with multiplicities '0..1' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 69,
@@ -1155,15 +1131,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Component",
           "entity2": "Component",
-          "name": "DependsOn",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "name": "DependsOn"
         }
       ]
     },
     "hint": "Connect 'Component' (0..*) to 'Component' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Component' (0..*) and 'Component' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'Component' with multiplicities '0..*' and '0..*'."
+    "task": "Model the recursive relationship on 'Component' with multiplicities '0..*' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 70,
@@ -1206,15 +1181,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "SparePart",
           "entity2": "SparePart",
-          "name": "Replaces",
-          "mult1": "0..1",
-          "mult2": "0..*"
+          "name": "Replaces"
         }
       ]
     },
     "hint": "Connect 'SparePart' (0..1) to 'SparePart' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'SparePart' (0..1) and 'SparePart' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'SparePart' with multiplicities '0..1' and '0..*'."
+    "task": "Model the recursive relationship on 'SparePart' with multiplicities '0..1' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 71,
@@ -1257,15 +1231,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Task",
           "entity2": "Task",
-          "name": "Follows",
-          "mult1": "0..1",
-          "mult2": "0..*"
+          "name": "Follows"
         }
       ]
     },
     "hint": "Connect 'Task' (0..1) to 'Task' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Task' (0..1) and 'Task' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'Task' with multiplicities '0..1' and '0..*'."
+    "task": "Model the recursive relationship on 'Task' with multiplicities '0..1' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 72,
@@ -1308,15 +1281,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Staff",
           "entity2": "Staff",
-          "name": "Succeeds",
-          "mult1": "0..1",
-          "mult2": "0..*"
+          "name": "Succeeds"
         }
       ]
     },
     "hint": "Connect 'Staff' (0..1) to 'Staff' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Staff' (0..1) and 'Staff' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'Staff' with multiplicities '0..1' and '0..*'."
+    "task": "Model the recursive relationship on 'Staff' with multiplicities '0..1' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 73,
@@ -1359,15 +1331,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Region",
           "entity2": "Region",
-          "name": "BelongsToRegion",
-          "mult1": "0..1",
-          "mult2": "0..*"
+          "name": "BelongsToRegion"
         }
       ]
     },
     "hint": "Connect 'Region' (0..1) to 'Region' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Region' (0..1) and 'Region' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'Region' with multiplicities '0..1' and '0..*'."
+    "task": "Model the recursive relationship on 'Region' with multiplicities '0..1' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 74,
@@ -1410,15 +1381,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "EmailMessage",
           "entity2": "EmailMessage",
-          "name": "ReplyToThread",
-          "mult1": "0..1",
-          "mult2": "0..*"
+          "name": "ReplyToThread"
         }
       ]
     },
     "hint": "Connect 'EmailMessage' (0..1) to 'EmailMessage' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'EmailMessage' (0..1) and 'EmailMessage' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'EmailMessage' with multiplicities '0..1' and '0..*'."
+    "task": "Model the recursive relationship on 'EmailMessage' with multiplicities '0..1' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 75,
@@ -1461,15 +1431,14 @@ _scope.EER_CLIENTS_51_100 = [
         {
           "entity1": "Staff",
           "entity2": "Staff",
-          "name": "Mentors",
-          "mult1": "0..1",
-          "mult2": "0..*"
+          "name": "Mentors"
         }
       ]
     },
     "hint": "Connect 'Staff' (0..1) to 'Staff' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Staff' (0..1) and 'Staff' (0..*) verified and approved.",
-    "task": "Model the recursive relationship on 'Staff' with multiplicities '0..1' and '0..*'."
+    "task": "Model the recursive relationship on 'Staff' with multiplicities '0..1' and '0..*'.",
+    "isWeek2": true
   },
   {
     "id": 76,
@@ -1538,21 +1507,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Course",
-          "entity2": "Instructor",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Instructor"
         },
         {
           "entity1": "Course",
-          "entity2": "Semester",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Semester"
         }
       ]
     },
     "hint": "Connect 'Course' (0..*) to 'Instructor' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Course' (0..*) and 'Instructor' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Course', 'Instructor', 'Semester', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Course', 'Instructor', 'Semester', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 77,
@@ -1621,21 +1587,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Supplier",
-          "entity2": "Part",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Part"
         },
         {
           "entity1": "Supplier",
-          "entity2": "Project",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Project"
         }
       ]
     },
     "hint": "Connect 'Supplier' (0..*) to 'Part' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Supplier' (0..*) and 'Part' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Supplier', 'Part', 'Project', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Supplier', 'Part', 'Project', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 78,
@@ -1704,21 +1667,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Doctor",
-          "entity2": "Patient",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Patient"
         },
         {
           "entity1": "Doctor",
-          "entity2": "Drug",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Drug"
         }
       ]
     },
     "hint": "Connect 'Doctor' (0..*) to 'Patient' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Doctor' (0..*) and 'Patient' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Doctor', 'Patient', 'Drug', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Doctor', 'Patient', 'Drug', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 79,
@@ -1787,21 +1747,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Policy",
-          "entity2": "Claim",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Claim"
         },
         {
           "entity1": "Policy",
-          "entity2": "Agent",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Agent"
         }
       ]
     },
     "hint": "Connect 'Policy' (0..*) to 'Claim' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Policy' (0..*) and 'Claim' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Policy', 'Claim', 'Agent', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Policy', 'Claim', 'Agent', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 80,
@@ -1870,21 +1827,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Customer",
-          "entity2": "Vehicle",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Vehicle"
         },
         {
           "entity1": "Customer",
-          "entity2": "AgencyBranch",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "AgencyBranch"
         }
       ]
     },
     "hint": "Connect 'Customer' (0..*) to 'Vehicle' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Customer' (0..*) and 'Vehicle' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Customer', 'Vehicle', 'AgencyBranch', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Customer', 'Vehicle', 'AgencyBranch', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 81,
@@ -1953,21 +1907,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Site",
-          "entity2": "Machinery",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Machinery"
         },
         {
           "entity1": "Site",
-          "entity2": "Operator",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Operator"
         }
       ]
     },
     "hint": "Connect 'Site' (0..*) to 'Machinery' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Site' (0..*) and 'Machinery' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Site', 'Machinery', 'Operator', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Site', 'Machinery', 'Operator', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 82,
@@ -2036,21 +1987,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Referee",
-          "entity2": "Match",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Match"
         },
         {
           "entity1": "Referee",
-          "entity2": "Tournament",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Tournament"
         }
       ]
     },
     "hint": "Connect 'Referee' (0..*) to 'Match' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Referee' (0..*) and 'Match' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Referee', 'Match', 'Tournament', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Referee', 'Match', 'Tournament', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 83,
@@ -2119,21 +2067,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "LoanApp",
-          "entity2": "Officer",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Officer"
         },
         {
           "entity1": "LoanApp",
-          "entity2": "Committee",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Committee"
         }
       ]
     },
     "hint": "Connect 'LoanApp' (0..*) to 'Officer' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'LoanApp' (0..*) and 'Officer' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'LoanApp', 'Officer', 'Committee', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'LoanApp', 'Officer', 'Committee', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 84,
@@ -2202,21 +2147,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Cargo",
-          "entity2": "Inspector",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Inspector"
         },
         {
           "entity1": "Cargo",
-          "entity2": "CustomsPost",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "CustomsPost"
         }
       ]
     },
     "hint": "Connect 'Cargo' (0..*) to 'Inspector' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Cargo' (0..*) and 'Inspector' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Cargo', 'Inspector', 'CustomsPost', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Cargo', 'Inspector', 'CustomsPost', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 85,
@@ -2285,21 +2227,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Sample",
-          "entity2": "Chemist",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Chemist"
         },
         {
           "entity1": "Sample",
-          "entity2": "Equipment",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Equipment"
         }
       ]
     },
     "hint": "Connect 'Sample' (0..*) to 'Chemist' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Sample' (0..*) and 'Chemist' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Sample', 'Chemist', 'Equipment', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Sample', 'Chemist', 'Equipment', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 86,
@@ -2368,21 +2307,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Guest",
-          "entity2": "Room",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Room"
         },
         {
           "entity1": "Guest",
-          "entity2": "BookingAgent",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "BookingAgent"
         }
       ]
     },
     "hint": "Connect 'Guest' (0..*) to 'Room' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Guest' (0..*) and 'Room' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Guest', 'Room', 'BookingAgent', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Guest', 'Room', 'BookingAgent', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 87,
@@ -2451,21 +2387,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Flight",
-          "entity2": "Pilot",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Pilot"
         },
         {
           "entity1": "Flight",
-          "entity2": "Aircraft",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Aircraft"
         }
       ]
     },
     "hint": "Connect 'Flight' (0..*) to 'Pilot' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Flight' (0..*) and 'Pilot' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Flight', 'Pilot', 'Aircraft', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Flight', 'Pilot', 'Aircraft', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 88,
@@ -2534,21 +2467,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Movie",
-          "entity2": "Role",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Role"
         },
         {
           "entity1": "Movie",
-          "entity2": "Actor",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Actor"
         }
       ]
     },
     "hint": "Connect 'Movie' (0..*) to 'Role' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Movie' (0..*) and 'Role' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Movie', 'Role', 'Actor', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Movie', 'Role', 'Actor', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 89,
@@ -2617,21 +2547,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Product",
-          "entity2": "PackagingLine",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "PackagingLine"
         },
         {
           "entity1": "Product",
-          "entity2": "Operator",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Operator"
         }
       ]
     },
     "hint": "Connect 'Product' (0..*) to 'PackagingLine' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Product' (0..*) and 'PackagingLine' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Product', 'PackagingLine', 'Operator', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Product', 'PackagingLine', 'Operator', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 90,
@@ -2700,21 +2627,18 @@ _scope.EER_CLIENTS_51_100 = [
       "relationships": [
         {
           "entity1": "Artist",
-          "entity2": "Stage",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "Stage"
         },
         {
           "entity1": "Artist",
-          "entity2": "FestivalDay",
-          "mult1": "0..*",
-          "mult2": "0..*"
+          "entity2": "FestivalDay"
         }
       ]
     },
     "hint": "Connect 'Artist' (0..*) to 'Stage' (0..*) and ensure Primary Keys {PK} are set.",
     "explanation": "Relationship between 'Artist' (0..*) and 'Stage' (0..*) verified and approved.",
-    "task": "Model the multi-entity diagram for 'Artist', 'Stage', 'FestivalDay', assign primary keys {PK}, and connect them with the required multiplicity constraints."
+    "task": "Model the multi-entity diagram for 'Artist', 'Stage', 'FestivalDay', assign primary keys {PK}, and connect them with the required multiplicity constraints.",
+    "isWeek2": true
   },
   {
     "id": 91,
