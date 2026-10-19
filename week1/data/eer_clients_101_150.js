@@ -3,49 +3,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 101,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Akmal Shokirov",
-    "clientRole": "Kinoprokat Boshqaruvchisi",
-    "clientAvatar": "mentor",
-    "title": "Movie Disjoint Ixtisoslashuvi",
-    "story": "Kino & Premyeralar sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **Movie** (movieId {PK}, `title`, `director`, `durationMin`, `ageRating`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'Movie' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Feruza Rasulova",
+    "clientRole": "Respublika Sog'liqni Saqlash Boshqarmasi",
+    "clientAvatar": "🩺",
+    "title": "Tibbiyot Xodimlari — Shifokor va Hamshira (Physician vs Nurse)",
+    "titleEn": "Medical Staff — Healthcare Staff Disjoint Subclasses (Physician vs Nurse)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKasalxona tibbiy xodimlari **HealthcareStaff** superklassida jamlanadi (`staffId`, `fullName`, `departmentCode`).\nTibbiy malakaviy litsenziyasiga ko'ra ikki qat'iy ajralgan toifa mavjud:\n1. **SpecialistPhysician** (Shifokor) — shifokorlik litsenziya raqami (`licenseNumber`) va tor klinik mutaxassisligi (`medicalSpecialty`).\n2. **ClinicalNurse** (Hamshira) — navbatchilik smena soatlari (`shiftDutyHours`) va biriktirilgan palatalar bloki (`wardAssigned`).\nXodim tibbiyotda yo shifokor lavozimida, yo hamshira lavozimida faoliyat yuritadi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `HealthcareStaff` superklassini yarating: {PK} `staffId`, `fullName`, `departmentCode`.\n2. Subklasslar: `SpecialistPhysician` va `ClinicalNurse`.\n3. Disjoint {Mandatory, Or} cheklovini o'rnating.",
+    "storyEn": "Medical Staff — Healthcare Staff Disjoint Subclasses (Physician vs Nurse) — Conceptual ER business case study.",
+    "instruction": "Tibbiyot xodimlari uchun Disjoint {Mandatory, Or} modelini loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Movie",
+          "name": "HealthcareStaff",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "movieId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "staffId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "movieId",
+              "name": "staffId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "title",
+              "name": "fullName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "director",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "durationMin",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "ageRating",
+              "name": "departmentCode",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -53,34 +45,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "MovieTypeA",
+          "name": "SpecialistPhysician",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "MovieTypeB",
+          "name": "ClinicalNurse",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Movie",
+        "superclass": "HealthcareStaff",
         "subs": [
           {
-            "name": "MovieTypeA",
+            "name": "SpecialistPhysician",
             "attributes": []
           },
           {
-            "name": "MovieTypeB",
+            "name": "ClinicalNurse",
             "attributes": []
           }
         ],
@@ -90,27 +84,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Movie",
-          "pk": "movieId",
+          "name": "HealthcareStaff",
+          "pk": "staffId",
           "attributes": [
             {
-              "name": "movieId",
+              "name": "staffId",
               "isPK": true
             },
             {
-              "name": "title",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "director",
+              "name": "departmentCode",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SpecialistPhysician",
+          "pk": "staffId",
+          "attributes": [
+            {
+              "name": "staffId",
+              "isPK": true
+            },
+            {
+              "name": "licenseNumber",
               "isPK": false
             },
             {
-              "name": "durationMin",
+              "name": "medicalSpecialty",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ClinicalNurse",
+          "pk": "staffId",
+          "attributes": [
+            {
+              "name": "staffId",
+              "isPK": true
+            },
+            {
+              "name": "shiftDutyHours",
               "isPK": false
             },
             {
-              "name": "ageRating",
+              "name": "wardAssigned",
               "isPK": false
             }
           ]
@@ -118,15 +140,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Movie",
+        "superclass": "HealthcareStaff",
         "subs": [
           {
-            "name": "MovieTypeA",
-            "attributes": []
+            "name": "SpecialistPhysician",
+            "attributes": [
+              "licenseNumber",
+              "medicalSpecialty"
+            ]
           },
           {
-            "name": "MovieTypeB",
-            "attributes": []
+            "name": "ClinicalNurse",
+            "attributes": [
+              "shiftDutyHours",
+              "wardAssigned"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -136,49 +164,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 102,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Umida Zokirova",
-    "clientRole": "Bosh Provisor",
-    "clientAvatar": "mentor",
-    "title": "Medicine Disjoint Ixtisoslashuvi",
-    "story": "Farmatsevtika sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **Medicine** (barcode {PK}, `name`, `dosageMg`, `manufacturer`, `expDate`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'Medicine' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Alisher Muxtorov",
+    "clientRole": "Alisher Navoiy Milliy Kutubxonasi",
+    "clientAvatar": "📖",
+    "title": "Kutubxona Resurslari — Bosma Kitob va Raqamli Disk (PrintedBook vs DigitalDisk)",
+    "titleEn": "Library Catalog — Item Disjoint Subclasses (PrintedBook vs DigitalDisk)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nMilliy kutubxona fondidagi barcha asarlar **LibraryCatalogItem** superklassida ro'yxatga olinadi (`catalogId`, `title`, `publisherYear`).\nFizik tashuvchi formatiga ko'ra ikki toifa mavjud:\n1. **PrintedBook** (Bosma kitob) — 13 xonali ISBN kodi (`isbnNumber`), sahifalar soni (`pageCount`) va muqova turi (`bindingType`).\n2. **DigitalDiskMedia** (Optik disk/media) — disk formati (`mediaFormat`), xotira hajmi gigabaytda (`storageCapGb`) va mintaqaviy kod (`regionLockCode`).\nEksponat yo qog'oz kitob, yo raqamli disk hisoblanadi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `LibraryCatalogItem` superklassini chizing: {PK} `catalogId`, `title`, `publisherYear`.\n2. Subklasslar: `PrintedBook` va `DigitalDiskMedia`.\n3. Disjoint {Mandatory, Or} cheklovini qo'llang.",
+    "storyEn": "Library Catalog — Item Disjoint Subclasses (PrintedBook vs DigitalDisk) — Conceptual ER business case study.",
+    "instruction": "Kutubxona ashyolarining Disjoint {Mandatory, Or} modelini quring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Medicine",
+          "name": "LibraryCatalogItem",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "barcode",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "catalogId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "barcode",
+              "name": "catalogId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "name",
+              "name": "title",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "dosageMg",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "manufacturer",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "expDate",
+              "name": "publisherYear",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -186,34 +206,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "MedicineTypeA",
+          "name": "PrintedBook",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "MedicineTypeB",
+          "name": "DigitalDiskMedia",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Medicine",
+        "superclass": "LibraryCatalogItem",
         "subs": [
           {
-            "name": "MedicineTypeA",
+            "name": "PrintedBook",
             "attributes": []
           },
           {
-            "name": "MedicineTypeB",
+            "name": "DigitalDiskMedia",
             "attributes": []
           }
         ],
@@ -223,27 +245,63 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Medicine",
-          "pk": "barcode",
+          "name": "LibraryCatalogItem",
+          "pk": "catalogId",
           "attributes": [
             {
-              "name": "barcode",
+              "name": "catalogId",
               "isPK": true
             },
             {
-              "name": "name",
+              "name": "title",
               "isPK": false
             },
             {
-              "name": "dosageMg",
+              "name": "publisherYear",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PrintedBook",
+          "pk": "catalogId",
+          "attributes": [
+            {
+              "name": "catalogId",
+              "isPK": true
+            },
+            {
+              "name": "isbnNumber",
               "isPK": false
             },
             {
-              "name": "manufacturer",
+              "name": "pageCount",
               "isPK": false
             },
             {
-              "name": "expDate",
+              "name": "bindingType",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DigitalDiskMedia",
+          "pk": "catalogId",
+          "attributes": [
+            {
+              "name": "catalogId",
+              "isPK": true
+            },
+            {
+              "name": "mediaFormat",
+              "isPK": false
+            },
+            {
+              "name": "storageCapGb",
+              "isPK": false
+            },
+            {
+              "name": "regionLockCode",
               "isPK": false
             }
           ]
@@ -251,15 +309,23 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Medicine",
+        "superclass": "LibraryCatalogItem",
         "subs": [
           {
-            "name": "MedicineTypeA",
-            "attributes": []
+            "name": "PrintedBook",
+            "attributes": [
+              "isbnNumber",
+              "pageCount",
+              "bindingType"
+            ]
           },
           {
-            "name": "MedicineTypeB",
-            "attributes": []
+            "name": "DigitalDiskMedia",
+            "attributes": [
+              "mediaFormat",
+              "storageCapGb",
+              "regionLockCode"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -269,49 +335,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 103,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Sanjar Normatov",
-    "clientRole": "Logistika Floti Boshlig'i",
-    "clientAvatar": "mentor",
-    "title": "CargoTruck Disjoint Ixtisoslashuvi",
-    "story": "Magistral Yuk Tashish sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **CargoTruck** (plateNo {PK}, `capacityTons`, `fuelType`, `mileageKm`, `status`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'CargoTruck' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Sardor Po'latov",
+    "clientRole": "Havo Floti Texnik Nazorati",
+    "clientAvatar": "🛫",
+    "title": "Aviapark — Yo'lovchi Layneri va Yuk Samolyoti (PassengerAirbus vs CargoFreighter)",
+    "titleEn": "Air Fleet — Aircraft Disjoint Subclasses (PassengerAirbus vs CargoFreighter)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nAviakompaniya aviaparkidagi barcha samolyotlar **AircraftFleetUnit** superklassida yuritiladi (`tailNumber`, `manufacturer`, `engineCount`).\nSamolyotning konstruksion modifikatsiyasiga binoan qat'iy ikki toifa mavjud:\n1. **PassengerAirbus** (Yo'lovchi samolyoti) — ekonom o'rindiqlar soni (`economySeats`) va biznes o'rindiqlar soni (`businessSeats`).\n2. **CargoFreighter** (Yuk layneri) — standart yuk palletlari o'rni soni (`cargoPalletSlots`) va maksimal yuk ko'tarish tonnaji (`maxPayloadTons`).\nSamolyot ayni parvoz sertifikatida yo yo'lovchi, yo yuk layneri bo'ladi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `AircraftFleetUnit` superklassi: {PK} `tailNumber`, `manufacturer`, `engineCount`.\n2. Subklasslar: `PassengerAirbus` va `CargoFreighter`.\n3. Disjoint {Mandatory, Or} shartini tanlang.",
+    "storyEn": "Air Fleet — Aircraft Disjoint Subclasses (PassengerAirbus vs CargoFreighter) — Conceptual ER business case study.",
+    "instruction": "Aviapark uchun Disjoint {Mandatory, Or} modelini loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "CargoTruck",
+          "name": "AircraftFleetUnit",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "plateNo",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "tailNumber",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "plateNo",
+              "name": "tailNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "capacityTons",
+              "name": "manufacturer",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "fuelType",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "mileageKm",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "status",
+              "name": "engineCount",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -319,34 +377,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "CargoTruckTypeA",
+          "name": "PassengerAirbus",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "CargoTruckTypeB",
+          "name": "CargoFreighter",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "CargoTruck",
+        "superclass": "AircraftFleetUnit",
         "subs": [
           {
-            "name": "CargoTruckTypeA",
+            "name": "PassengerAirbus",
             "attributes": []
           },
           {
-            "name": "CargoTruckTypeB",
+            "name": "CargoFreighter",
             "attributes": []
           }
         ],
@@ -356,27 +416,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "CargoTruck",
-          "pk": "plateNo",
+          "name": "AircraftFleetUnit",
+          "pk": "tailNumber",
           "attributes": [
             {
-              "name": "plateNo",
+              "name": "tailNumber",
               "isPK": true
             },
             {
-              "name": "capacityTons",
+              "name": "manufacturer",
               "isPK": false
             },
             {
-              "name": "fuelType",
+              "name": "engineCount",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PassengerAirbus",
+          "pk": "tailNumber",
+          "attributes": [
+            {
+              "name": "tailNumber",
+              "isPK": true
+            },
+            {
+              "name": "economySeats",
               "isPK": false
             },
             {
-              "name": "mileageKm",
+              "name": "businessSeats",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CargoFreighter",
+          "pk": "tailNumber",
+          "attributes": [
+            {
+              "name": "tailNumber",
+              "isPK": true
+            },
+            {
+              "name": "cargoPalletSlots",
               "isPK": false
             },
             {
-              "name": "status",
+              "name": "maxPayloadTons",
               "isPK": false
             }
           ]
@@ -384,15 +472,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "CargoTruck",
+        "superclass": "AircraftFleetUnit",
         "subs": [
           {
-            "name": "CargoTruckTypeA",
-            "attributes": []
+            "name": "PassengerAirbus",
+            "attributes": [
+              "economySeats",
+              "businessSeats"
+            ]
           },
           {
-            "name": "CargoTruckTypeB",
-            "attributes": []
+            "name": "CargoFreighter",
+            "attributes": [
+              "cargoPalletSlots",
+              "maxPayloadTons"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -402,49 +496,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 104,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Nilufar Rahimova",
-    "clientRole": "Mijozlar Xizmati Boshlig'i",
-    "clientAvatar": "mentor",
-    "title": "ClubMember Disjoint Ixtisoslashuvi",
-    "story": "Sport & Fitnes sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **ClubMember** (memberCardNo {PK}, `fullName`, `membershipType`, `expiryDate`, `phone`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'ClubMember' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Baxrom Zokirov",
+    "clientRole": "O'zagrosug'urta Bosh Anderrayteri",
+    "clientAvatar": "📄",
+    "title": "Sug'urta Polislari — Avto Kasko va Ko'chmas Mulk Yong'in Polisi (AutoCasco vs PropertyFire)",
+    "titleEn": "Insurance Policies — Policy Disjoint Subclasses (AutoCasco vs PropertyFire)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nSug'urta kompaniyasida barcha rasmiylashtirilgan polislar **InsurancePolicy** superklassida yuritiladi (`policyNo`, `issueDate`, `premiumCost`).\nSug'urtalangan mulk ob'ektiga ko'ra ikki toifa mavjud:\n1. **MotorCascoPolicy** (Kasko polisi) — avtomobil VIN kodi (`vehicleVinCode`) va dvigatel ot kuchi (`enginePowerHp`).\n2. **PropertyFirePolicy** (Yong'indan sug'urtalash) — bino kadastr raqami (`buildingCadastreNo`) va yong'inga qarshi sprinkler tizimi (`fireSprinklersInstalled`).\nPolis yo avto Kaskoga, yo ko'chmas mulk yong'in sug'urtasiga rasmiylashtiriladi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `InsurancePolicy` superklassi: {PK} `policyNo`, `issueDate`, `premiumCost`.\n2. Subklasslar: `MotorCascoPolicy` va `PropertyFirePolicy`.\n3. Disjoint {Mandatory, Or} ierarxiyasini o'rnating.",
+    "storyEn": "Insurance Policies — Policy Disjoint Subclasses (AutoCasco vs PropertyFire) — Conceptual ER business case study.",
+    "instruction": "Sug'urta polislari uchun Disjoint {Mandatory, Or} modelini polotnoda quring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "ClubMember",
+          "name": "InsurancePolicy",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "memberCardNo",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "policyNo",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "memberCardNo",
+              "name": "policyNo",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "fullName",
+              "name": "issueDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "membershipType",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "phone",
+              "name": "premiumCost",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -452,34 +538,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "ClubMemberTypeA",
+          "name": "MotorCascoPolicy",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "ClubMemberTypeB",
+          "name": "PropertyFirePolicy",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "ClubMember",
+        "superclass": "InsurancePolicy",
         "subs": [
           {
-            "name": "ClubMemberTypeA",
+            "name": "MotorCascoPolicy",
             "attributes": []
           },
           {
-            "name": "ClubMemberTypeB",
+            "name": "PropertyFirePolicy",
             "attributes": []
           }
         ],
@@ -489,27 +577,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "ClubMember",
-          "pk": "memberCardNo",
+          "name": "InsurancePolicy",
+          "pk": "policyNo",
           "attributes": [
             {
-              "name": "memberCardNo",
+              "name": "policyNo",
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "issueDate",
               "isPK": false
             },
             {
-              "name": "membershipType",
+              "name": "premiumCost",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MotorCascoPolicy",
+          "pk": "policyNo",
+          "attributes": [
+            {
+              "name": "policyNo",
+              "isPK": true
+            },
+            {
+              "name": "vehicleVinCode",
               "isPK": false
             },
             {
-              "name": "expiryDate",
+              "name": "enginePowerHp",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PropertyFirePolicy",
+          "pk": "policyNo",
+          "attributes": [
+            {
+              "name": "policyNo",
+              "isPK": true
+            },
+            {
+              "name": "buildingCadastreNo",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "fireSprinklersInstalled",
               "isPK": false
             }
           ]
@@ -517,15 +633,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "ClubMember",
+        "superclass": "InsurancePolicy",
         "subs": [
           {
-            "name": "ClubMemberTypeA",
-            "attributes": []
+            "name": "MotorCascoPolicy",
+            "attributes": [
+              "vehicleVinCode",
+              "enginePowerHp"
+            ]
           },
           {
-            "name": "ClubMemberTypeB",
-            "attributes": []
+            "name": "PropertyFirePolicy",
+            "attributes": [
+              "buildingCadastreNo",
+              "fireSprinklersInstalled"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -535,49 +657,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 105,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Davron Karimov",
-    "clientRole": "Bosh Energetik",
-    "clientAvatar": "mentor",
-    "title": "SolarInverter Disjoint Ixtisoslashuvi",
-    "story": "Quyosh Energetikasi sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **SolarInverter** (serialNo {PK}, `peakPowerKw`, `voltageInput`, `installDate`, `efficiency`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'SolarInverter' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Otabek Saidov",
+    "clientRole": "CloudSaaS Platforma Mahsulot Menejeri",
+    "clientAvatar": "☁️",
+    "title": "Bulutli Obuna — Bepul va Korporativ Tarif Rejasi (FreeTier vs EnterprisePaid)",
+    "titleEn": "Cloud SaaS — Subscription Disjoint Subclasses (FreeTier vs EnterprisePaid)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nBulutli dasturiy xizmatda (SaaS) foydalanuvchilarning hisobi **SaaSAccount** superklassida saqlanadi (`accountId`, `signupDate`, `primaryDomain`).\nFoydalanuvchi obuna paketiga ko'ra ikki kesishmaydigan guruhga ajratiladi:\n1. **FreeTierAccount** (Bepul havaskor obuna) — reklama bannerlari yoqilganligi (`adBannersEnabled`) va oylik tekin trafik kvotasi (`monthlyTrafficMb`).\n2. **EnterprisePaidAccount** (Pullik korporativ obuna) — ajratilgan shaxsiy IP manzil (`dedicatedIpAddress`), SLA kafolat foizi (`slaUptimeTarget`) va litsenziyali foydalanuvchi o'rinlari (`seatLicensesCount`).\nBitta mijoz hisobi yo bepul, yo pullik korporativ hisob bo'ladi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `SaaSAccount` superklassi: {PK} `accountId`, `signupDate`, `primaryDomain`.\n2. Subklasslar: `FreeTierAccount` va `EnterprisePaidAccount`.\n3. Disjoint {Mandatory, Or} shartini belgilang.",
+    "storyEn": "Cloud SaaS — Subscription Disjoint Subclasses (FreeTier vs EnterprisePaid) — Conceptual ER business case study.",
+    "instruction": "Bulutli hisoblar uchun Disjoint {Mandatory, Or} modelini loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "SolarInverter",
+          "name": "SaaSAccount",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "serialNo",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "accountId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "serialNo",
+              "name": "accountId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "peakPowerKw",
+              "name": "signupDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "voltageInput",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "installDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "efficiency",
+              "name": "primaryDomain",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -585,34 +699,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "SolarInverterTypeA",
+          "name": "FreeTierAccount",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "SolarInverterTypeB",
+          "name": "EnterprisePaidAccount",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "SolarInverter",
+        "superclass": "SaaSAccount",
         "subs": [
           {
-            "name": "SolarInverterTypeA",
+            "name": "FreeTierAccount",
             "attributes": []
           },
           {
-            "name": "SolarInverterTypeB",
+            "name": "EnterprisePaidAccount",
             "attributes": []
           }
         ],
@@ -622,27 +738,59 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "SolarInverter",
-          "pk": "serialNo",
+          "name": "SaaSAccount",
+          "pk": "accountId",
           "attributes": [
             {
-              "name": "serialNo",
+              "name": "accountId",
               "isPK": true
             },
             {
-              "name": "peakPowerKw",
+              "name": "signupDate",
               "isPK": false
             },
             {
-              "name": "voltageInput",
+              "name": "primaryDomain",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "FreeTierAccount",
+          "pk": "accountId",
+          "attributes": [
+            {
+              "name": "accountId",
+              "isPK": true
+            },
+            {
+              "name": "adBannersEnabled",
               "isPK": false
             },
             {
-              "name": "installDate",
+              "name": "monthlyTrafficMb",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "EnterprisePaidAccount",
+          "pk": "accountId",
+          "attributes": [
+            {
+              "name": "accountId",
+              "isPK": true
+            },
+            {
+              "name": "dedicatedIpAddress",
               "isPK": false
             },
             {
-              "name": "efficiency",
+              "name": "slaUptimeTarget",
+              "isPK": false
+            },
+            {
+              "name": "seatLicensesCount",
               "isPK": false
             }
           ]
@@ -650,15 +798,22 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "SolarInverter",
+        "superclass": "SaaSAccount",
         "subs": [
           {
-            "name": "SolarInverterTypeA",
-            "attributes": []
+            "name": "FreeTierAccount",
+            "attributes": [
+              "adBannersEnabled",
+              "monthlyTrafficMb"
+            ]
           },
           {
-            "name": "SolarInverterTypeB",
-            "attributes": []
+            "name": "EnterprisePaidAccount",
+            "attributes": [
+              "dedicatedIpAddress",
+              "slaUptimeTarget",
+              "seatLicensesCount"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -668,22 +823,26 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 106,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "UniversityStaff Overlapping Ixtisoslashuvi",
-    "story": "Universitet Akademik Shtati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Xodim bir vaqtning o'zida ham dars berishi (o'qituvchi), ham grant loyihasi ustida tadqiqot olib borishi (tadqiqotchi) mumkin. Tizimda superklass sifatida **UniversityStaff** (staffId {PK}, `fullName`, `email`, `salary`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'UniversityStaff' superklassini va uning ustma-ust tushuvchi 'Instructor' hamda 'Researcher' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Prof. Sherzod G'ulomov",
+    "clientRole": "WIUT Ilmiy Tadqiqotlar Prorektori",
+    "clientAvatar": "👨‍🏫",
+    "title": "WIUT Xodimlari — O'qituvchi va Tadqiqotchi Kesishuvi (Instructor & Researcher)",
+    "titleEn": "WIUT Faculty — Overlapping Staff Subclasses (Instructor & Researcher)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nToshkentdagi Xalqaro Vestminster Universitetida barcha akademik xodimlar umumiy **FacultyStaff** superklassida yuritiladi. Biroq universitet faoliyatida o'qitish va ilm-fan uzviy bog'langan:\n1. **AcademicInstructor** — bevosita ma'ruza va seminar o'tuvchi ustozlar. Ularga o'quv soatlari hajmi (`teachingHours`) va pedagogik baholash reytingi (`studentEvalScore`) xosdir.\n2. **ResearchFellow** — xalqaro ilmiy grantlar ustida ishlovchi tadqiqotchilar. Ularga Scopus maqolalari soni (`scopusPapersCount`) va jalb qilingan grant miqdori (`grantFundingSum`) xosdir.\nMuhim tomoni: ko'plab professorlar BIR VAQTNING O'ZIDA ham dars beradi, ham ilmiy grantni boshqaradi! Ya'ni bitta xodim har ikkala subklassga teng a'zo bo'lishi mumkin ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `FacultyStaff` superklassini yarating: {PK} `staffId`, `fullName`, `academicDegree`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `AcademicInstructor`: `teachingHours`, `studentEvalScore`.\n   - `ResearchFellow`: `scopusPapersCount`, `grantFundingSum`.\n3. Overlapping ierarxiya cheklovini {Optional, And} deb belgilang.",
+    "storyEn": "WIUT Faculty — Overlapping Staff Subclasses (Instructor & Researcher) — Conceptual ER business case study.",
+    "instruction": "'FacultyStaff' superklassini va uning kesishuvchi 'AcademicInstructor' hamda 'ResearchFellow' subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "UniversityStaff",
+          "name": "FacultyStaff",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "staffId",
-          "x": 340,
-          "y": 70,
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
               "name": "staffId",
@@ -698,13 +857,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isFK": false
             },
             {
-              "name": "email",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "salary",
+              "name": "academicDegree",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -712,34 +865,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "Instructor",
+          "name": "AcademicInstructor",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "Researcher",
+          "name": "ResearchFellow",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "UniversityStaff",
+        "superclass": "FacultyStaff",
         "subs": [
           {
-            "name": "Instructor",
+            "name": "AcademicInstructor",
             "attributes": []
           },
           {
-            "name": "Researcher",
+            "name": "ResearchFellow",
             "attributes": []
           }
         ],
@@ -749,7 +904,7 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "UniversityStaff",
+          "name": "FacultyStaff",
           "pk": "staffId",
           "attributes": [
             {
@@ -761,11 +916,43 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "email",
+              "name": "academicDegree",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "AcademicInstructor",
+          "pk": "staffId",
+          "attributes": [
+            {
+              "name": "staffId",
+              "isPK": true
+            },
+            {
+              "name": "teachingHours",
               "isPK": false
             },
             {
-              "name": "salary",
+              "name": "studentEvalScore",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ResearchFellow",
+          "pk": "staffId",
+          "attributes": [
+            {
+              "name": "staffId",
+              "isPK": true
+            },
+            {
+              "name": "scopusPapersCount",
+              "isPK": false
+            },
+            {
+              "name": "grantFundingSum",
               "isPK": false
             }
           ]
@@ -773,15 +960,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "UniversityStaff",
+        "superclass": "FacultyStaff",
         "subs": [
           {
-            "name": "Instructor",
-            "attributes": []
+            "name": "AcademicInstructor",
+            "attributes": [
+              "teachingHours",
+              "studentEvalScore"
+            ]
           },
           {
-            "name": "Researcher",
-            "attributes": []
+            "name": "ResearchFellow",
+            "attributes": [
+              "scopusPapersCount",
+              "grantFundingSum"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -791,43 +984,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 107,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "BankClient Overlapping Ixtisoslashuvi",
-    "story": "Tijorat Banki Mijozlari faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz bir vaqtda ham depozit hisobiga pul qo'ygan omonatchi, ham kredit olgan qarzdor bo'lishi mumkin. Tizimda superklass sifatida **BankClient** (clientId {PK}, `clientName`, `taxCode`, `contactPhone`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'BankClient' superklassini va uning ustma-ust tushuvchi 'Depositor' hamda 'Borrower' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Nargiza Ahmedova",
+    "clientRole": "Kapitalbank Chakana Biznes Boshlig'i",
+    "clientAvatar": "🏦",
+    "title": "Bank Mijozlari — Omonatchi va Qarz Oluvchi Kesishuvi (Depositor & Borrower)",
+    "titleEn": "Retail Banking — Overlapping Customer Subclasses (Depositor & Borrower)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKapitalbank tizimida har bir ro'yxatga olingan jismoniy shaxs **BankCustomer** superklassida saqlanadi. Mijoz bank bilan turli moliyaviy munosabatlarga kirishishi mumkin:\n1. **DepositCustomer** — bankka muddatli yoki talab qilib olinguncha omonat qo'ygan mijoz. Faqat unga jamg'arma balansi (`savingsBalance`) va foiz to'lash sanasi (`interestDueDate`) hisoblanadi.\n2. **LoanBorrower** — ipoteka yoki avtokredit olgan mijoz. Faqat unga tasdiqlangan qarz limiti (`loanPrincipalLimit`) va kredit skoring balli (`creditScore`) tegishli.\nKo'p hollarda mijoz bir vaqtning o'zida ham depozit ochgan, ham avtokredit to'lab boradi. Shuning uchun bu ikkala toifa kesishuvchidir ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `BankCustomer` superklassini chizing: {PK} `customerId`, `pinfl`, `customerName`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `DepositCustomer`: `savingsBalance`, `interestDueDate`.\n   - `LoanBorrower`: `loanPrincipalLimit`, `creditScore`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "Retail Banking — Overlapping Customer Subclasses (Depositor & Borrower) — Conceptual ER business case study.",
+    "instruction": "'BankCustomer' superklassini va uning kesishuvchi 'DepositCustomer' hamda 'LoanBorrower' subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "BankClient",
+          "name": "BankCustomer",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "clientId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "customerId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "clientId",
+              "name": "customerId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "clientName",
+              "name": "pinfl",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxCode",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "contactPhone",
+              "name": "customerName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -835,34 +1026,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "Depositor",
+          "name": "DepositCustomer",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "Borrower",
+          "name": "LoanBorrower",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "BankClient",
+        "superclass": "BankCustomer",
         "subs": [
           {
-            "name": "Depositor",
+            "name": "DepositCustomer",
             "attributes": []
           },
           {
-            "name": "Borrower",
+            "name": "LoanBorrower",
             "attributes": []
           }
         ],
@@ -872,23 +1065,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "BankClient",
-          "pk": "clientId",
+          "name": "BankCustomer",
+          "pk": "customerId",
           "attributes": [
             {
-              "name": "clientId",
+              "name": "customerId",
               "isPK": true
             },
             {
-              "name": "clientName",
+              "name": "pinfl",
               "isPK": false
             },
             {
-              "name": "taxCode",
+              "name": "customerName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DepositCustomer",
+          "pk": "customerId",
+          "attributes": [
+            {
+              "name": "customerId",
+              "isPK": true
+            },
+            {
+              "name": "savingsBalance",
               "isPK": false
             },
             {
-              "name": "contactPhone",
+              "name": "interestDueDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "LoanBorrower",
+          "pk": "customerId",
+          "attributes": [
+            {
+              "name": "customerId",
+              "isPK": true
+            },
+            {
+              "name": "loanPrincipalLimit",
+              "isPK": false
+            },
+            {
+              "name": "creditScore",
               "isPK": false
             }
           ]
@@ -896,15 +1121,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "BankClient",
+        "superclass": "BankCustomer",
         "subs": [
           {
-            "name": "Depositor",
-            "attributes": []
+            "name": "DepositCustomer",
+            "attributes": [
+              "savingsBalance",
+              "interestDueDate"
+            ]
           },
           {
-            "name": "Borrower",
-            "attributes": []
+            "name": "LoanBorrower",
+            "attributes": [
+              "loanPrincipalLimit",
+              "creditScore"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -914,43 +1145,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 108,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "SystemUser Overlapping Ixtisoslashuvi",
-    "story": "Axborot Xavfsizligi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Foydalanuvchi bir vaqtda ham xavfsizlik ma'muri, ham ishlab chiquvchi dasturchi rollariga ega bo'lishi mumkin. Tizimda superklass sifatida **SystemUser** (userLogin {PK}, `email`, `createdDate`, `lastLogin`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'SystemUser' superklassini va uning ustma-ust tushuvchi 'SecurityAdmin' hamda 'SystemDev' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Akmal Saidov",
+    "clientRole": "Uzum Market E-commerce Arxitektori",
+    "clientAvatar": "🛍️",
+    "title": "Uzum Market — Foydalanuvchi: Xaridor va Sotuvchi (Buyer & Seller)",
+    "titleEn": "Uzum Market — Overlapping User Subclasses (Buyer & Seller)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nUzum Market ekotizimida barcha akkauntlar yagona **PlatformUser** superklassida yuritiladi.\nFoydalanuvchilar platformada ikki xil rolda ishtirok etishi mumkin:\n1. **OnlineBuyer** — mahsulot xarid qiluvchi mijoz. Unga yetkazish manzili (`defaultShippingAddress`) va to'plangan cashback ballari (`cashbackBalance`) xosdir.\n2. **MerchantSeller** — o'z do'konini ochgan tadbirkor. Unga do'kon yuridik INN raqami (`merchantTaxId`) va do'kon reytingi (`sellerRating`) xosdir.\nO'zbekistonda yuzlab tadbirkorlar o'z do'konida tovar sotish bilan birga boshqa tovarlarni o'zi uchun sotib ham oladi. Shu bois akkaunt bir vaqtning o'zida ikkala subklassga tegishli bo'lishi mumkin ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `PlatformUser` superklassini yarating: {PK} `userId`, `phoneNumber`, `registeredAt`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `OnlineBuyer`: `defaultShippingAddress`, `cashbackBalance`.\n   - `MerchantSeller`: `merchantTaxId`, `sellerRating`.\n3. {Optional, And} ierarxiyasini o'rnating.",
+    "storyEn": "Uzum Market — Overlapping User Subclasses (Buyer & Seller) — Conceptual ER business case study.",
+    "instruction": "'PlatformUser' superklassini va uning 'OnlineBuyer' hamda 'MerchantSeller' subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "SystemUser",
+          "name": "PlatformUser",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "userLogin",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "userId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "userLogin",
+              "name": "userId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "email",
+              "name": "phoneNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "createdDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "lastLogin",
+              "name": "registeredAt",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -958,34 +1187,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "SecurityAdmin",
+          "name": "OnlineBuyer",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "SystemDev",
+          "name": "MerchantSeller",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "SystemUser",
+        "superclass": "PlatformUser",
         "subs": [
           {
-            "name": "SecurityAdmin",
+            "name": "OnlineBuyer",
             "attributes": []
           },
           {
-            "name": "SystemDev",
+            "name": "MerchantSeller",
             "attributes": []
           }
         ],
@@ -995,23 +1226,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "SystemUser",
-          "pk": "userLogin",
+          "name": "PlatformUser",
+          "pk": "userId",
           "attributes": [
             {
-              "name": "userLogin",
+              "name": "userId",
               "isPK": true
             },
             {
-              "name": "email",
+              "name": "phoneNumber",
               "isPK": false
             },
             {
-              "name": "createdDate",
+              "name": "registeredAt",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "OnlineBuyer",
+          "pk": "userId",
+          "attributes": [
+            {
+              "name": "userId",
+              "isPK": true
+            },
+            {
+              "name": "defaultShippingAddress",
               "isPK": false
             },
             {
-              "name": "lastLogin",
+              "name": "cashbackBalance",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MerchantSeller",
+          "pk": "userId",
+          "attributes": [
+            {
+              "name": "userId",
+              "isPK": true
+            },
+            {
+              "name": "merchantTaxId",
+              "isPK": false
+            },
+            {
+              "name": "sellerRating",
               "isPK": false
             }
           ]
@@ -1019,15 +1282,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "SystemUser",
+        "superclass": "PlatformUser",
         "subs": [
           {
-            "name": "SecurityAdmin",
-            "attributes": []
+            "name": "OnlineBuyer",
+            "attributes": [
+              "defaultShippingAddress",
+              "cashbackBalance"
+            ]
           },
           {
-            "name": "SystemDev",
-            "attributes": []
+            "name": "MerchantSeller",
+            "attributes": [
+              "merchantTaxId",
+              "sellerRating"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -1037,43 +1306,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 109,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "ConferenceAttendee Overlapping Ixtisoslashuvi",
-    "story": "Ilmiy Kongress faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ishtirokchi ham ma'ruza qiluvchi spiker, ham maqolalarni baholovchi hay'at a'zosi bo'lishi mumkin. Tizimda superklass sifatida **ConferenceAttendee** (attendeeId {PK}, `attendeeName`, `institution`, `country`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'ConferenceAttendee' superklassini va uning ustma-ust tushuvchi 'KeynoteSpeaker' hamda 'CommitteeReviewer' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Dr. Kamola Rahimova",
+    "clientRole": "Respublika Xirurgiya Markazi Katta Ilmiy Xodimi",
+    "clientAvatar": "👩‍⚕️",
+    "title": "Tibbiyot Markazi — Amaliyotchi Jarroh va Ilmiy Sinovchi (Surgeon & TrialInvestigator)",
+    "titleEn": "Medical Center — Overlapping Physician Subclasses (Surgeon & TrialInvestigator)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nIxtisoslashtirilgan xirurgiya markazida barcha yetakchi shifokorlar **MedicalSpecialist** superklassida ro'yxatdan o'tadi.\nKlinika shifokorlari amaliyot va ilmiy faoliyatni birgalikda olib boradi:\n1. **OperatingSurgeon** — murakkab operatsiyalarni o'tkazuvchi jarroh. Unga litsenziyalangan operatsiya turlari (`surgicalSpecialty`) va muvaffaqiyatli operatsiyalar soni (`surgeriesConducted`) xosdir.\n2. **ClinicalTrialInvestigator** — yangi dori-darmon va uslublarni klinik sinovdan o'tkazuvchi tadqiqotchi. Unga sinov protokoli kodi (`activeTrialProtocol`) va xalqaro sertifikat (`gcpCertificationDate`) xosdir.\nYetakchi shifokor ham jarrohlik stolida operatsiya qilishi, ham yangi davolash protokolini ilmiy sinovdan o'tkazishi mumkin ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `MedicalSpecialist` superklassini yarating: {PK} `physicianId`, `physicianName`, `hospitalDept`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `OperatingSurgeon`: `surgicalSpecialty`, `surgeriesConducted`.\n   - `ClinicalTrialInvestigator`: `activeTrialProtocol`, `gcpCertificationDate`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "Medical Center — Overlapping Physician Subclasses (Surgeon & TrialInvestigator) — Conceptual ER business case study.",
+    "instruction": "'MedicalSpecialist' superklassini va uning kesishuvchi jarroh hamda tadqiqotchi subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "ConferenceAttendee",
+          "name": "MedicalSpecialist",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "attendeeId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "physicianId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "attendeeId",
+              "name": "physicianId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "attendeeName",
+              "name": "physicianName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "institution",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "country",
+              "name": "hospitalDept",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1081,34 +1348,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "KeynoteSpeaker",
+          "name": "OperatingSurgeon",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "CommitteeReviewer",
+          "name": "ClinicalTrialInvestigator",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "ConferenceAttendee",
+        "superclass": "MedicalSpecialist",
         "subs": [
           {
-            "name": "KeynoteSpeaker",
+            "name": "OperatingSurgeon",
             "attributes": []
           },
           {
-            "name": "CommitteeReviewer",
+            "name": "ClinicalTrialInvestigator",
             "attributes": []
           }
         ],
@@ -1118,23 +1387,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "ConferenceAttendee",
-          "pk": "attendeeId",
+          "name": "MedicalSpecialist",
+          "pk": "physicianId",
           "attributes": [
             {
-              "name": "attendeeId",
+              "name": "physicianId",
               "isPK": true
             },
             {
-              "name": "attendeeName",
+              "name": "physicianName",
               "isPK": false
             },
             {
-              "name": "institution",
+              "name": "hospitalDept",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "OperatingSurgeon",
+          "pk": "physicianId",
+          "attributes": [
+            {
+              "name": "physicianId",
+              "isPK": true
+            },
+            {
+              "name": "surgicalSpecialty",
               "isPK": false
             },
             {
-              "name": "country",
+              "name": "surgeriesConducted",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ClinicalTrialInvestigator",
+          "pk": "physicianId",
+          "attributes": [
+            {
+              "name": "physicianId",
+              "isPK": true
+            },
+            {
+              "name": "activeTrialProtocol",
+              "isPK": false
+            },
+            {
+              "name": "gcpCertificationDate",
               "isPK": false
             }
           ]
@@ -1142,15 +1443,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "ConferenceAttendee",
+        "superclass": "MedicalSpecialist",
         "subs": [
           {
-            "name": "KeynoteSpeaker",
-            "attributes": []
+            "name": "OperatingSurgeon",
+            "attributes": [
+              "surgicalSpecialty",
+              "surgeriesConducted"
+            ]
           },
           {
-            "name": "CommitteeReviewer",
-            "attributes": []
+            "name": "ClinicalTrialInvestigator",
+            "attributes": [
+              "activeTrialProtocol",
+              "gcpCertificationDate"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -1160,25 +1467,29 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 110,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "AthleteMember Overlapping Ixtisoslashuvi",
-    "story": "Sport Klubi Shtati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Tajribali sportchi ham maydonda o'yinchi, ham yoshlarga murabbiy sifatida faoliyat yuritishi mumkin. Tizimda superklass sifatida **AthleteMember** (athleteId {PK}, `athleteName`, `bloodGroup`, `joinYear`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'AthleteMember' superklassini va uning ustma-ust tushuvchi 'LeaguePlayer' hamda 'TeamCoach' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Mansur Qodirov",
+    "clientRole": "O'zbekiston Milliy Olimpiya Qo'mitasi Koordinatori",
+    "clientAvatar": "🏅",
+    "title": "Sport Klubi — Sportchi va Murabbiy Kesishuvi (Athlete & Coach)",
+    "titleEn": "Athletic Club — Overlapping Member Subclasses (Athlete & Coach)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nProfessional sport klubi a'zolari umumiy **SportsMember** superklassida yuritiladi. Sport olamida tajribali sportchilar ko'pincha yoshlarga ustozlik ham qiladi:\n1. **ClubAthlete** — musobaqalarda qatnashuvchi faol sportchi. Unga sport toifasi (`athleticRanking`) va shaxsiy eng yaxshi natijasi (`personalBestRecord`) xosdir.\n2. **TeamCoach** — jamoa a'zolarini tayyorlovchi murabbiy. Unga murabbiylik litsenziya darajasi (`coachingLicenseGrade`) va tayyorlagan shogirdlari soni (`mentoredAthletesCount`) xosdir.\nFaxriy kurashchi yoki dzyudochi bir vaqtning o'zida o'zi tatamiga chiqishi va yoshlar guruhiga murabbiylik qilishi mumkin ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `SportsMember` superklassini chizing: {PK} `memberId`, `athleteName`, `birthDate`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `ClubAthlete`: `athleticRanking`, `personalBestRecord`.\n   - `TeamCoach`: `coachingLicenseGrade`, `mentoredAthletesCount`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "Athletic Club — Overlapping Member Subclasses (Athlete & Coach) — Conceptual ER business case study.",
+    "instruction": "'SportsMember' superklassini va 'ClubAthlete' hamda 'TeamCoach' kesishuvchi subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "AthleteMember",
+          "name": "SportsMember",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "athleteId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "memberId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "athleteId",
+              "name": "memberId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
@@ -1190,13 +1501,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isFK": false
             },
             {
-              "name": "bloodGroup",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "joinYear",
+              "name": "birthDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1204,30 +1509,32 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "LeaguePlayer",
+          "name": "ClubAthlete",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
           "name": "TeamCoach",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "AthleteMember",
+        "superclass": "SportsMember",
         "subs": [
           {
-            "name": "LeaguePlayer",
+            "name": "ClubAthlete",
             "attributes": []
           },
           {
@@ -1241,11 +1548,11 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "AthleteMember",
-          "pk": "athleteId",
+          "name": "SportsMember",
+          "pk": "memberId",
           "attributes": [
             {
-              "name": "athleteId",
+              "name": "memberId",
               "isPK": true
             },
             {
@@ -1253,11 +1560,43 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "bloodGroup",
+              "name": "birthDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ClubAthlete",
+          "pk": "memberId",
+          "attributes": [
+            {
+              "name": "memberId",
+              "isPK": true
+            },
+            {
+              "name": "athleticRanking",
               "isPK": false
             },
             {
-              "name": "joinYear",
+              "name": "personalBestRecord",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "TeamCoach",
+          "pk": "memberId",
+          "attributes": [
+            {
+              "name": "memberId",
+              "isPK": true
+            },
+            {
+              "name": "coachingLicenseGrade",
+              "isPK": false
+            },
+            {
+              "name": "mentoredAthletesCount",
               "isPK": false
             }
           ]
@@ -1265,15 +1604,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "AthleteMember",
+        "superclass": "SportsMember",
         "subs": [
           {
-            "name": "LeaguePlayer",
-            "attributes": []
+            "name": "ClubAthlete",
+            "attributes": [
+              "athleticRanking",
+              "personalBestRecord"
+            ]
           },
           {
             "name": "TeamCoach",
-            "attributes": []
+            "attributes": [
+              "coachingLicenseGrade",
+              "mentoredAthletesCount"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -1283,43 +1628,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 111,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "CrewMember Overlapping Ixtisoslashuvi",
-    "story": "Aviatsiya Ekipaji faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ekipaj a'zosi ham parvoz uchuvchisi, ham xavfsizlik auditori vakolatiga ega bo'la oladi. Tizimda superklass sifatida **CrewMember** (crewId {PK}, `crewName`, `flightHoursTotal`, `medicalCertDate`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'CrewMember' superklassini va uning ustma-ust tushuvchi 'CommercialPilot' hamda 'SafetyInspector' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Sanjar Yoqubov",
+    "clientRole": "Uzbekistan Airways Aviatsiya Xavfsizligi Direktori",
+    "clientAvatar": "✈️",
+    "title": "Aviakompaniya — Layner Uchuvchisi va Parvoz Xavfsizligi Inspektori (Pilot & SafetyAuditor)",
+    "titleEn": "Airlines — Overlapping Flight Crew Subclasses (Pilot & SafetyAuditor)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nUzbekistan Airways aviakompaniyasining parvozlar tarkibi **AviationFlightCrew** superklassida yuritiladi.\nTarkibdagi yuqori malakali komandirlar ko'pincha inspektorlik vazifasini ham bajaradilar:\n1. **CommercialPilot** — yo'lovchi laynerlarini boshqaruvchi uchuvchi. Unga parvoz soatlari hisobi (`flightLogHours`) va litsenziya toifasi (`pilotLicenseType`) xosdir.\n2. **FlightSafetyAuditor** — bort xavfsizligi standartlarini tekshiruvchi auditor. Unga audit akkreditatsiyasi (`icaoAuditCertId`) va o'tkazilgan xavfsizlik tekshiruvlari (`auditsCompleted`) xosdir.\nKomandir-uchuvchi navbatdagi reysni boshqarishi bilan birga, keyingi haftada boshqa ekipajning parvoz xavfsizligini taftish qiluvchi inspektor sifatida uchishi mumkin ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `AviationFlightCrew` superklassini yarating: {PK} `crewBadgeId`, `fullName`, `rankTitle`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `CommercialPilot`: `flightLogHours`, `pilotLicenseType`.\n   - `FlightSafetyAuditor`: `icaoAuditCertId`, `auditsCompleted`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "Airlines — Overlapping Flight Crew Subclasses (Pilot & SafetyAuditor) — Conceptual ER business case study.",
+    "instruction": "'AviationFlightCrew' superklassini va uning uchuvchi hamda xavfsizlik auditori subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "CrewMember",
+          "name": "AviationFlightCrew",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "crewId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "crewBadgeId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "crewId",
+              "name": "crewBadgeId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "crewName",
+              "name": "fullName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "flightHoursTotal",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "medicalCertDate",
+              "name": "rankTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1329,32 +1672,34 @@ _scope.EER_CLIENTS_101_150 = [
         {
           "name": "CommercialPilot",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "SafetyInspector",
+          "name": "FlightSafetyAuditor",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "CrewMember",
+        "superclass": "AviationFlightCrew",
         "subs": [
           {
             "name": "CommercialPilot",
             "attributes": []
           },
           {
-            "name": "SafetyInspector",
+            "name": "FlightSafetyAuditor",
             "attributes": []
           }
         ],
@@ -1364,23 +1709,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "CrewMember",
-          "pk": "crewId",
+          "name": "AviationFlightCrew",
+          "pk": "crewBadgeId",
           "attributes": [
             {
-              "name": "crewId",
+              "name": "crewBadgeId",
               "isPK": true
             },
             {
-              "name": "crewName",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "flightHoursTotal",
+              "name": "rankTitle",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CommercialPilot",
+          "pk": "crewBadgeId",
+          "attributes": [
+            {
+              "name": "crewBadgeId",
+              "isPK": true
+            },
+            {
+              "name": "flightLogHours",
               "isPK": false
             },
             {
-              "name": "medicalCertDate",
+              "name": "pilotLicenseType",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "FlightSafetyAuditor",
+          "pk": "crewBadgeId",
+          "attributes": [
+            {
+              "name": "crewBadgeId",
+              "isPK": true
+            },
+            {
+              "name": "icaoAuditCertId",
+              "isPK": false
+            },
+            {
+              "name": "auditsCompleted",
               "isPK": false
             }
           ]
@@ -1388,15 +1765,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "CrewMember",
+        "superclass": "AviationFlightCrew",
         "subs": [
           {
             "name": "CommercialPilot",
-            "attributes": []
+            "attributes": [
+              "flightLogHours",
+              "pilotLicenseType"
+            ]
           },
           {
-            "name": "SafetyInspector",
-            "attributes": []
+            "name": "FlightSafetyAuditor",
+            "attributes": [
+              "icaoAuditCertId",
+              "auditsCompleted"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -1406,22 +1789,26 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 112,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "DealershipClient Overlapping Ixtisoslashuvi",
-    "story": "Avtodilerlik Klasteri faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz ham yangi avtomobil xarid qiluvchi, ham ta'mirlash xizmatidan foydalanuvchi bo'lishi mumkin. Tizimda superklass sifatida **DealershipClient** (clientId {PK}, `fullName`, `passportNumber`, `contactPhone`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'DealershipClient' superklassini va uning ustma-ust tushuvchi 'VehicleBuyer' hamda 'ServiceClient' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Temur Aliyev",
+    "clientRole": "Rohat Avtosalon Mijozlar Aloqalari Boshlig'i",
+    "clientAvatar": "🚘",
+    "title": "Avtosalon — Avtomobil Xaridori va Servis Mijozi (Buyer & ServiceClient)",
+    "titleEn": "Auto Dealership — Overlapping Client Subclasses (Buyer & ServiceClient)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nRasmiy avtosalonda har bir mijoz yagona **DealershipClient** superklassida ro'yxatga olinadi.\nMijoz avtosalonga ikki xil maqsad bilan murojaat qiladi:\n1. **VehicleBuyer** — yangi avtomobil sotib oluvchi mijoz. Unga shartnoma bo'nak summasi (`downPaymentSum`) va shartnoma holati (`salesContractStatus`) tegishlidir.\n2. **ServiceContractClient** — avtomobiliga kafolatli texnik xizmat ko'rsatishga kelgan mijoz. Unga servis kitobchasi kodi (`serviceBookNumber`) va moy almashtirish oraliq masofasi (`lastServiceMileage`) tegishlidir.\nAvtomobil sotib olgan xaridor bir necha oydan keyin avtosalonning texnik servis mijoziga aylanadi va ikkala rolni ham o'zida saqlab qoladi ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `DealershipClient` superklassini yarating: {PK} `clientId`, `clientName`, `phoneNum`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `VehicleBuyer`: `downPaymentSum`, `salesContractStatus`.\n   - `ServiceContractClient`: `serviceBookNumber`, `lastServiceMileage`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "Auto Dealership — Overlapping Client Subclasses (Buyer & ServiceClient) — Conceptual ER business case study.",
+    "instruction": "'DealershipClient' superklassini va uning xaridor hamda servis mijozi subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "DealershipClient",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "clientId",
-          "x": 340,
-          "y": 70,
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
               "name": "clientId",
@@ -1430,19 +1817,13 @@ _scope.EER_CLIENTS_101_150 = [
               "isFK": false
             },
             {
-              "name": "fullName",
+              "name": "clientName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "passportNumber",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "contactPhone",
+              "name": "phoneNum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1452,18 +1833,20 @@ _scope.EER_CLIENTS_101_150 = [
         {
           "name": "VehicleBuyer",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "ServiceClient",
+          "name": "ServiceContractClient",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
@@ -1477,7 +1860,7 @@ _scope.EER_CLIENTS_101_150 = [
             "attributes": []
           },
           {
-            "name": "ServiceClient",
+            "name": "ServiceContractClient",
             "attributes": []
           }
         ],
@@ -1495,15 +1878,47 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "clientName",
               "isPK": false
             },
             {
-              "name": "passportNumber",
+              "name": "phoneNum",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "VehicleBuyer",
+          "pk": "clientId",
+          "attributes": [
+            {
+              "name": "clientId",
+              "isPK": true
+            },
+            {
+              "name": "downPaymentSum",
               "isPK": false
             },
             {
-              "name": "contactPhone",
+              "name": "salesContractStatus",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ServiceContractClient",
+          "pk": "clientId",
+          "attributes": [
+            {
+              "name": "clientId",
+              "isPK": true
+            },
+            {
+              "name": "serviceBookNumber",
+              "isPK": false
+            },
+            {
+              "name": "lastServiceMileage",
               "isPK": false
             }
           ]
@@ -1515,11 +1930,17 @@ _scope.EER_CLIENTS_101_150 = [
         "subs": [
           {
             "name": "VehicleBuyer",
-            "attributes": []
+            "attributes": [
+              "downPaymentSum",
+              "salesContractStatus"
+            ]
           },
           {
-            "name": "ServiceClient",
-            "attributes": []
+            "name": "ServiceContractClient",
+            "attributes": [
+              "serviceBookNumber",
+              "lastServiceMileage"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -1529,22 +1950,26 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 113,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "TheatreArtist Overlapping Ixtisoslashuvi",
-    "story": "Teatr Ijodiy Jamoasi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Ijodkor aktyor sifatida sahnaga chiqishi bilan birga sahnalashtiruvchi rejissyor ham bo'lishi mumkin. Tizimda superklass sifatida **TheatreArtist** (artistId {PK}, `stageName`, `unionCardNo`, `debutYear`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'TheatreArtist' superklassini va uning ustma-ust tushuvchi 'StageActor' hamda 'PlayDirector' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Gulnora Ergasheva",
+    "clientRole": "Alisher Navoiy Nomidagi Milliy Teatr Bosh Rejissyori",
+    "clientAvatar": "🎭",
+    "title": "Davlat Teatri — Aktyor va Sahnalashtiruvchi Rejissyor (Actor & StageDirector)",
+    "titleEn": "National Theatre — Overlapping Artist Subclasses (Actor & StageDirector)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nMilliy akademik teatr truppasining barcha a'zolari umumiy **TheatreArtist** superklassida yuritiladi.\nTeatr ijodiy jamoasida ko'plab iste'dodli san'atkorlar ikki yo'nalishda faoliyat yuritadi:\n1. **DramaticActor** — spektakllarda rol ijro etuvchi aktyor. Unga ovoz tembri (`vocalRange`) va asosiy ampluasi (`actingRoleType`) xosdir.\n2. **StageDirector** — spektakllarni sahnalashtiruvchi rejissyor. Unga sahnalashtirgan spektakllari soni (`productionsStaged`) va davlat mukofotlari (`artisticAwards`) xosdir.\nYetakchi san'atkor o'zi bosh rolni ijro etishi bilan birga spektaklga rejissyorlik qilishi mumkin ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `TheatreArtist` superklassini chizing: {PK} `artistId`, `stageName`, `joinedYear`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `DramaticActor`: `vocalRange`, `actingRoleType`.\n   - `StageDirector`: `productionsStaged`, `artisticAwards`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "National Theatre — Overlapping Artist Subclasses (Actor & StageDirector) — Conceptual ER business case study.",
+    "instruction": "'TheatreArtist' superklassini va uning 'DramaticActor' hamda 'StageDirector' subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "TheatreArtist",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "artistId",
-          "x": 340,
-          "y": 70,
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
               "name": "artistId",
@@ -1559,13 +1984,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isFK": false
             },
             {
-              "name": "unionCardNo",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "debutYear",
+              "name": "joinedYear",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1573,20 +1992,22 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "StageActor",
+          "name": "DramaticActor",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "PlayDirector",
+          "name": "StageDirector",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
@@ -1596,11 +2017,11 @@ _scope.EER_CLIENTS_101_150 = [
         "superclass": "TheatreArtist",
         "subs": [
           {
-            "name": "StageActor",
+            "name": "DramaticActor",
             "attributes": []
           },
           {
-            "name": "PlayDirector",
+            "name": "StageDirector",
             "attributes": []
           }
         ],
@@ -1622,11 +2043,43 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "unionCardNo",
+              "name": "joinedYear",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DramaticActor",
+          "pk": "artistId",
+          "attributes": [
+            {
+              "name": "artistId",
+              "isPK": true
+            },
+            {
+              "name": "vocalRange",
               "isPK": false
             },
             {
-              "name": "debutYear",
+              "name": "actingRoleType",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "StageDirector",
+          "pk": "artistId",
+          "attributes": [
+            {
+              "name": "artistId",
+              "isPK": true
+            },
+            {
+              "name": "productionsStaged",
+              "isPK": false
+            },
+            {
+              "name": "artisticAwards",
               "isPK": false
             }
           ]
@@ -1637,12 +2090,18 @@ _scope.EER_CLIENTS_101_150 = [
         "superclass": "TheatreArtist",
         "subs": [
           {
-            "name": "StageActor",
-            "attributes": []
+            "name": "DramaticActor",
+            "attributes": [
+              "vocalRange",
+              "actingRoleType"
+            ]
           },
           {
-            "name": "PlayDirector",
-            "attributes": []
+            "name": "StageDirector",
+            "attributes": [
+              "productionsStaged",
+              "artisticAwards"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -1652,43 +2111,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 114,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "MedicalStaff Overlapping Ixtisoslashuvi",
-    "story": "Klinik Tadqiqotlar faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Shifokor ham bemorlarni davolovchi vrach, ham dori sinovlarini o'tkazuvchi tadqiqotchi bo'la oladi. Tizimda superklass sifatida **MedicalStaff** (licenseNo {PK}, `doctorName`, `specialtyField`, `phone`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'MedicalStaff' superklassini va uning ustma-ust tushuvchi 'Clinician' hamda 'TrialInvestigator' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Jasur Murodov",
+    "clientRole": "IT Park Media Hub Menejeri",
+    "clientAvatar": "🎙️",
+    "title": "Media Hub — Video Strimer va Merch Sotuvchisi (Broadcaster & MerchVendor)",
+    "titleEn": "Media Hub — Overlapping Content Creator Subclasses (Broadcaster & MerchVendor)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nIT Park qoshidagi raqamli media platformada ro'yxatdan o'tgan barcha ijodkorlar **DigitalCreator** superklassida jamlangan.\nMedia ijodkorlari zamonaviy iqtisodiyotda ko'p qirrali daromad manbalariga ega:\n1. **LiveStreamBroadcaster** — video kontent yaratuvchi va jonli efir uzatuvchi strimer. Unga jonli efir platformasi (`streamingPlatform`) va o'rtacha onlayn tomoshabinlar soni (`peakLiveViewers`) xosdir.\n2. **MerchVendor** — o'zining shaxsiy brendi ostida kiyim-kechak va suvenirlar sotuvchi muallif. Unga brend savdo belgisi (`merchBrandTag`) va do'kon aylanmasi (`monthlySalesSum`) xosdir.\nKo'plab muvaffaqiyatli strimerlar bir paytning o'zida jonli efir olib boradi va o'zining shaxsiy merch mahsulotlarini sotadi ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `DigitalCreator` superklassini yarating: {PK} `creatorId`, `handleName`, `subscribersCount`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `LiveStreamBroadcaster`: `streamingPlatform`, `peakLiveViewers`.\n   - `MerchVendor`: `merchBrandTag`, `monthlySalesSum`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "Media Hub — Overlapping Content Creator Subclasses (Broadcaster & MerchVendor) — Conceptual ER business case study.",
+    "instruction": "'DigitalCreator' superklassini va uning strimer hamda merch sotuvchi subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "MedicalStaff",
+          "name": "DigitalCreator",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "licenseNo",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "creatorId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "licenseNo",
+              "name": "creatorId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "doctorName",
+              "name": "handleName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "specialtyField",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "phone",
+              "name": "subscribersCount",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1696,34 +2153,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "Clinician",
+          "name": "LiveStreamBroadcaster",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "TrialInvestigator",
+          "name": "MerchVendor",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "MedicalStaff",
+        "superclass": "DigitalCreator",
         "subs": [
           {
-            "name": "Clinician",
+            "name": "LiveStreamBroadcaster",
             "attributes": []
           },
           {
-            "name": "TrialInvestigator",
+            "name": "MerchVendor",
             "attributes": []
           }
         ],
@@ -1733,23 +2192,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "MedicalStaff",
-          "pk": "licenseNo",
+          "name": "DigitalCreator",
+          "pk": "creatorId",
           "attributes": [
             {
-              "name": "licenseNo",
+              "name": "creatorId",
               "isPK": true
             },
             {
-              "name": "doctorName",
+              "name": "handleName",
               "isPK": false
             },
             {
-              "name": "specialtyField",
+              "name": "subscribersCount",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "LiveStreamBroadcaster",
+          "pk": "creatorId",
+          "attributes": [
+            {
+              "name": "creatorId",
+              "isPK": true
+            },
+            {
+              "name": "streamingPlatform",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "peakLiveViewers",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MerchVendor",
+          "pk": "creatorId",
+          "attributes": [
+            {
+              "name": "creatorId",
+              "isPK": true
+            },
+            {
+              "name": "merchBrandTag",
+              "isPK": false
+            },
+            {
+              "name": "monthlySalesSum",
               "isPK": false
             }
           ]
@@ -1757,15 +2248,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "MedicalStaff",
+        "superclass": "DigitalCreator",
         "subs": [
           {
-            "name": "Clinician",
-            "attributes": []
+            "name": "LiveStreamBroadcaster",
+            "attributes": [
+              "streamingPlatform",
+              "peakLiveViewers"
+            ]
           },
           {
-            "name": "TrialInvestigator",
-            "attributes": []
+            "name": "MerchVendor",
+            "attributes": [
+              "merchBrandTag",
+              "monthlySalesSum"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -1775,43 +2272,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 115,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "ContentCreator Overlapping Ixtisoslashuvi",
-    "story": "Raqamli Media faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Muallif ham video lavha boshlovchisi, ham audio podkast yaratuvchisi sifatida faoliyat ko'rsatishi mumkin. Tizimda superklass sifatida **ContentCreator** (creatorId {PK}, `channelName`, `subscriberTotal`, `contractExpiry`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'ContentCreator' superklassini va uning ustma-ust tushuvchi 'VideoPresenter' hamda 'AudioPodcaster' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Otabek Rustamov",
+    "clientRole": "EPAM O'zbekiston Cloud Bo'limi Boshlig'i",
+    "clientAvatar": "💻",
+    "title": "EPAM Muhandislari — DevOps va Axborot Xavfsizligi Mutaxassisi (DevOps & SecOps)",
+    "titleEn": "EPAM Engineering — Overlapping Tech Subclasses (DevOps & SecOps)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nDasturiy injiniring kompaniyasida barcha texnik mutaxassislar umumiy **SoftwareEngineer** superklassida qayd etiladi.\nBugungi kunda DevSecOps yondashuvi tufayli mutaxassislar bir vaqtning o'zida ikkita muhim yo'nalishni qamrab oladilar:\n1. **DevOpsEngineer** — CI/CD quvurlari va infratuzilmani avtomatlashtiruvchi muhandis. Unga bulut platformasi (`cloudStackType`) va konteyner boshqaruv darajasi (`k8sCertLevel`) xosdir.\n2. **SecurityAuditor** — kod zaifliklarini tekshiruvchi va xavfsizlik auditini o'tkazuvchi mutaxassis. Unga axborot xavfsizligi sertifikati (`securityCertCode`) va o'tkazgan penetratsion testlari soni (`pentestsConducted`) xosdir.\nKatta loyihalarda senior muhandis ham Kubernetes klasterlarini boshqaradi, ham xavfsizlik protokollarini audit qiladi ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `SoftwareEngineer` superklassini chizing: {PK} `engineerId`, `fullName`, `techSeniority`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `DevOpsEngineer`: `cloudStackType`, `k8sCertLevel`.\n   - `SecurityAuditor`: `securityCertCode`, `pentestsConducted`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "EPAM Engineering — Overlapping Tech Subclasses (DevOps & SecOps) — Conceptual ER business case study.",
+    "instruction": "'SoftwareEngineer' superklassini va uning DevOps hamda xavfsizlik mutaxassisi subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "ContentCreator",
+          "name": "SoftwareEngineer",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "creatorId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "engineerId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "creatorId",
+              "name": "engineerId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "channelName",
+              "name": "fullName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "subscriberTotal",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "contractExpiry",
+              "name": "techSeniority",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1819,34 +2314,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "VideoPresenter",
+          "name": "DevOpsEngineer",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "AudioPodcaster",
+          "name": "SecurityAuditor",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "ContentCreator",
+        "superclass": "SoftwareEngineer",
         "subs": [
           {
-            "name": "VideoPresenter",
+            "name": "DevOpsEngineer",
             "attributes": []
           },
           {
-            "name": "AudioPodcaster",
+            "name": "SecurityAuditor",
             "attributes": []
           }
         ],
@@ -1856,23 +2353,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "ContentCreator",
-          "pk": "creatorId",
+          "name": "SoftwareEngineer",
+          "pk": "engineerId",
           "attributes": [
             {
-              "name": "creatorId",
+              "name": "engineerId",
               "isPK": true
             },
             {
-              "name": "channelName",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "subscriberTotal",
+              "name": "techSeniority",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DevOpsEngineer",
+          "pk": "engineerId",
+          "attributes": [
+            {
+              "name": "engineerId",
+              "isPK": true
+            },
+            {
+              "name": "cloudStackType",
               "isPK": false
             },
             {
-              "name": "contractExpiry",
+              "name": "k8sCertLevel",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SecurityAuditor",
+          "pk": "engineerId",
+          "attributes": [
+            {
+              "name": "engineerId",
+              "isPK": true
+            },
+            {
+              "name": "securityCertCode",
+              "isPK": false
+            },
+            {
+              "name": "pentestsConducted",
               "isPK": false
             }
           ]
@@ -1880,15 +2409,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "ContentCreator",
+        "superclass": "SoftwareEngineer",
         "subs": [
           {
-            "name": "VideoPresenter",
-            "attributes": []
+            "name": "DevOpsEngineer",
+            "attributes": [
+              "cloudStackType",
+              "k8sCertLevel"
+            ]
           },
           {
-            "name": "AudioPodcaster",
-            "attributes": []
+            "name": "SecurityAuditor",
+            "attributes": [
+              "securityCertCode",
+              "pentestsConducted"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -1898,43 +2433,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 116,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "FleetDriver Overlapping Ixtisoslashuvi",
-    "story": "Logistika Kuryerlari faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Haydovchi ham shahar ichida tezkor yetkazuvchi, ham shaharlararo yuk tashuvchi vazifasini bajarishi mumkin. Tizimda superklass sifatida **FleetDriver** (driverStaffId {PK}, `driverName`, `driverLicenseNo`, `ratingStars`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'FleetDriver' superklassini va uning ustma-ust tushuvchi 'ExpressCourier' hamda 'LongHaulDriver' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Dilshod Karimov",
+    "clientRole": "O'zbekiston Fanlar Akademiyasi Ilmiy Kotibi",
+    "clientAvatar": "🏛️",
+    "title": "Akademiya — Kafedra Mudiri va PhD Ilmiy Rahbari (DepartmentDean & PhDSupervisor)",
+    "titleEn": "Academy of Sciences — Overlapping Academic Subclasses (DepartmentDean & PhDSupervisor)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nO'zbekiston Fanlar Akademiyasida professorlar tarkibi umumiy **FacultyProfessor** superklassida hisobga olinadi.\nUniversitet boshqaruvida professorlar bir vaqtning o'zida ma'muriy va ilmiy rahbarlikni uyg'unlashtiradilar:\n1. **DepartmentDean** — fakultet yoki bo'lim boshlig'i. Unga ma'muriy byudjet vakolati (`budgetAuthoritySum`) va boshqaruvdagi kafedralar soni (`departmentsManaged`) xosdir.\n2. **PhDSupervisor** — doktorantlarga ilmiy rahbarlik qiluvchi olim. Unga faol doktorantlar soni (`currentDocStudents`) va dissertatsiya kengashi a'zoligi (`dissertationBoardId`) xosdir.\nFakultet dekani bir paytning o'zida o'z sohasidagi bir necha doktorantlarga dissertatsiya bo'yicha ilmiy rahbar bo'lib faoliyat yuritadi ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `FacultyProfessor` superklassini yarating: {PK} `professorId`, `profName`, `specialtyArea`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `DepartmentDean`: `budgetAuthoritySum`, `departmentsManaged`.\n   - `PhDSupervisor`: `currentDocStudents`, `dissertationBoardId`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "Academy of Sciences — Overlapping Academic Subclasses (DepartmentDean & PhDSupervisor) — Conceptual ER business case study.",
+    "instruction": "'FacultyProfessor' superklassini va uning dekan hamda doktorantlar rahbari subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "FleetDriver",
+          "name": "FacultyProfessor",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "driverStaffId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "professorId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "driverStaffId",
+              "name": "professorId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "driverName",
+              "name": "profName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "driverLicenseNo",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "ratingStars",
+              "name": "specialtyArea",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1942,34 +2475,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "ExpressCourier",
+          "name": "DepartmentDean",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "LongHaulDriver",
+          "name": "PhDSupervisor",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "FleetDriver",
+        "superclass": "FacultyProfessor",
         "subs": [
           {
-            "name": "ExpressCourier",
+            "name": "DepartmentDean",
             "attributes": []
           },
           {
-            "name": "LongHaulDriver",
+            "name": "PhDSupervisor",
             "attributes": []
           }
         ],
@@ -1979,23 +2514,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "FleetDriver",
-          "pk": "driverStaffId",
+          "name": "FacultyProfessor",
+          "pk": "professorId",
           "attributes": [
             {
-              "name": "driverStaffId",
+              "name": "professorId",
               "isPK": true
             },
             {
-              "name": "driverName",
+              "name": "profName",
               "isPK": false
             },
             {
-              "name": "driverLicenseNo",
+              "name": "specialtyArea",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "DepartmentDean",
+          "pk": "professorId",
+          "attributes": [
+            {
+              "name": "professorId",
+              "isPK": true
+            },
+            {
+              "name": "budgetAuthoritySum",
               "isPK": false
             },
             {
-              "name": "ratingStars",
+              "name": "departmentsManaged",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PhDSupervisor",
+          "pk": "professorId",
+          "attributes": [
+            {
+              "name": "professorId",
+              "isPK": true
+            },
+            {
+              "name": "currentDocStudents",
+              "isPK": false
+            },
+            {
+              "name": "dissertationBoardId",
               "isPK": false
             }
           ]
@@ -2003,15 +2570,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "FleetDriver",
+        "superclass": "FacultyProfessor",
         "subs": [
           {
-            "name": "ExpressCourier",
-            "attributes": []
+            "name": "DepartmentDean",
+            "attributes": [
+              "budgetAuthoritySum",
+              "departmentsManaged"
+            ]
           },
           {
-            "name": "LongHaulDriver",
-            "attributes": []
+            "name": "PhDSupervisor",
+            "attributes": [
+              "currentDocStudents",
+              "dissertationBoardId"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -2021,25 +2594,29 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 117,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "RestaurantStaff Overlapping Ixtisoslashuvi",
-    "story": "Restoran Xizmati faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Xodim ham barda kokteyl ustasi, ham vino zaxirasini boshqaruvchi somelye bo'la oladi. Tizimda superklass sifatida **RestaurantStaff** (staffBadgeId {PK}, `staffName`, `foodSafetyCertDate`, `wageHourly`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'RestaurantStaff' superklassini va uning ustma-ust tushuvchi 'ChiefBartender' hamda 'SommelierExpert' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Rustam Po'latov",
+    "clientRole": "Sim-Sim Restoranlar Tarmog'i Bosh Boshqaruvchisi",
+    "clientAvatar": "👨‍🍳",
+    "title": "Restoran — Bosh Oshpaz va Ichimliklar Eksperti (ExecutiveChef & Sommelier)",
+    "titleEn": "Fine Dining Restaurant — Overlapping Culinary Subclasses (ExecutiveChef & Sommelier)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nHashamatli restoranlar tarmog'ida barcha oshxona va xizmat mutaxassislari **HospitalityProfessional** superklassida yuritiladi.\nPremium gastronomiyada yetakchi mutaxassislar ikki sohada ham chuqur malakaga ega:\n1. **ExecutiveChef** — taomlar menyusi va oshxona jamoasini boshqaruvchi bosh oshpaz. Unga mualliflik menyulari soni (`signatureDishesCount`) va xalqaro oshpazlik darajasi (`michelinGrade`) xosdir.\n2. **Sommelier** — taomlarga mos ichimliklar va sharbatlarni saralovchi sertifikatlangan ekspert. Unga somelyelik litsenziyasi (`sommelierCertLevel`) va vinoteka zaxirasini boshqarish kodi (`cellarCatalogCode`) xosdir.\nTop darajadagi mutaxassis oshxona menyusini tayyorlash bilan birga mehmonga taomga mos ichimlikni tanlash bo'yicha mustaqil ekspert sifatida xizmat ko'rsatadi ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `HospitalityProfessional` superklassini yarating: {PK} `staffId`, `staffName`, `hireDate`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `ExecutiveChef`: `signatureDishesCount`, `michelinGrade`.\n   - `Sommelier`: `sommelierCertLevel`, `cellarCatalogCode`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "Fine Dining Restaurant — Overlapping Culinary Subclasses (ExecutiveChef & Sommelier) — Conceptual ER business case study.",
+    "instruction": "'HospitalityProfessional' superklassini va uning bosh oshpaz hamda somelye subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "RestaurantStaff",
+          "name": "HospitalityProfessional",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "staffBadgeId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "staffId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "staffBadgeId",
+              "name": "staffId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
@@ -2051,13 +2628,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isFK": false
             },
             {
-              "name": "foodSafetyCertDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "wageHourly",
+              "name": "hireDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2065,34 +2636,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "ChiefBartender",
+          "name": "ExecutiveChef",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "SommelierExpert",
+          "name": "Sommelier",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "RestaurantStaff",
+        "superclass": "HospitalityProfessional",
         "subs": [
           {
-            "name": "ChiefBartender",
+            "name": "ExecutiveChef",
             "attributes": []
           },
           {
-            "name": "SommelierExpert",
+            "name": "Sommelier",
             "attributes": []
           }
         ],
@@ -2102,11 +2675,11 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "RestaurantStaff",
-          "pk": "staffBadgeId",
+          "name": "HospitalityProfessional",
+          "pk": "staffId",
           "attributes": [
             {
-              "name": "staffBadgeId",
+              "name": "staffId",
               "isPK": true
             },
             {
@@ -2114,11 +2687,43 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "foodSafetyCertDate",
+              "name": "hireDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ExecutiveChef",
+          "pk": "staffId",
+          "attributes": [
+            {
+              "name": "staffId",
+              "isPK": true
+            },
+            {
+              "name": "signatureDishesCount",
               "isPK": false
             },
             {
-              "name": "wageHourly",
+              "name": "michelinGrade",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Sommelier",
+          "pk": "staffId",
+          "attributes": [
+            {
+              "name": "staffId",
+              "isPK": true
+            },
+            {
+              "name": "sommelierCertLevel",
+              "isPK": false
+            },
+            {
+              "name": "cellarCatalogCode",
               "isPK": false
             }
           ]
@@ -2126,15 +2731,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "RestaurantStaff",
+        "superclass": "HospitalityProfessional",
         "subs": [
           {
-            "name": "ChiefBartender",
-            "attributes": []
+            "name": "ExecutiveChef",
+            "attributes": [
+              "signatureDishesCount",
+              "michelinGrade"
+            ]
           },
           {
-            "name": "SommelierExpert",
-            "attributes": []
+            "name": "Sommelier",
+            "attributes": [
+              "sommelierCertLevel",
+              "cellarCatalogCode"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -2144,25 +2755,29 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 118,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "RealEstateCustomer Overlapping Ixtisoslashuvi",
-    "story": "Mulk Birjasi faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Mijoz ham o'z eski uyini sotuvchi, ham o'rniga yangi kvartira xarid qiluvchi bo'lishi mumkin. Tizimda superklass sifatida **RealEstateCustomer** (customerId {PK}, `fullName`, `passportPin`, `contactPhone`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'RealEstateCustomer' superklassini va uning ustma-ust tushuvchi 'PropertyVendor' hamda 'PropertyAcquirer' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Madina Hakimova",
+    "clientRole": "Tashkent Digital Forum Tashkiliy Qo'mitasi Raisi",
+    "clientAvatar": "🎤",
+    "title": "Xalqaro Konferensiya — Ma'ruzachi va Sessiya Moderatori (PaperSpeaker & SessionChair)",
+    "titleEn": "International Conference — Overlapping Delegate Subclasses (PaperSpeaker & SessionChair)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nToshkentdagi nufuzli IT forumida barcha ro'yxatdan o'tgan rasmiy ishtirokchilar **ConferenceDelegate** superklassida yuritiladi.\nIlmiy anjumanda nufuzli ekspertlar bir necha muhim rollarda qatnashadilar:\n1. **PaperSpeaker** — ilmiy yoki amaliy ma'ruza qiluvchi notiq. Unga taqdimot mavzusi (`presentationTitle`) va ajratilgan nutq vaqti (`presentationTimeMinutes`) xosdir.\n2. **SessionChair** — panel muhokamasini boshqaruvchi moderator. Unga biriktirilgan zal kodi (`assignedHallCode`) va spikerlar bo'yicha savol-javob reglamenti (`qaModerationRound`) xosdir.\nYetakchi spiker o'z ma'ruzasini tugatgach, keyingi soatda boshqa mavzudagi davra suhbatiga sessiya raisi (moderator) bo'lib rahbarlik qilishi mumkin ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `ConferenceDelegate` superklassini chizing: {PK} `delegateBadgeId`, `fullName`, `organizationName`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `PaperSpeaker`: `presentationTitle`, `presentationTimeMinutes`.\n   - `SessionChair`: `assignedHallCode`, `qaModerationRound`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "International Conference — Overlapping Delegate Subclasses (PaperSpeaker & SessionChair) — Conceptual ER business case study.",
+    "instruction": "'ConferenceDelegate' superklassini va uning ma'ruzachi hamda sessiya raisi subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "RealEstateCustomer",
+          "name": "ConferenceDelegate",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "customerId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "delegateBadgeId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "customerId",
+              "name": "delegateBadgeId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
@@ -2174,13 +2789,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isFK": false
             },
             {
-              "name": "passportPin",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "contactPhone",
+              "name": "organizationName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2188,34 +2797,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "PropertyVendor",
+          "name": "PaperSpeaker",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "PropertyAcquirer",
+          "name": "SessionChair",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "RealEstateCustomer",
+        "superclass": "ConferenceDelegate",
         "subs": [
           {
-            "name": "PropertyVendor",
+            "name": "PaperSpeaker",
             "attributes": []
           },
           {
-            "name": "PropertyAcquirer",
+            "name": "SessionChair",
             "attributes": []
           }
         ],
@@ -2225,11 +2836,11 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "RealEstateCustomer",
-          "pk": "customerId",
+          "name": "ConferenceDelegate",
+          "pk": "delegateBadgeId",
           "attributes": [
             {
-              "name": "customerId",
+              "name": "delegateBadgeId",
               "isPK": true
             },
             {
@@ -2237,11 +2848,43 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "passportPin",
+              "name": "organizationName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PaperSpeaker",
+          "pk": "delegateBadgeId",
+          "attributes": [
+            {
+              "name": "delegateBadgeId",
+              "isPK": true
+            },
+            {
+              "name": "presentationTitle",
               "isPK": false
             },
             {
-              "name": "contactPhone",
+              "name": "presentationTimeMinutes",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SessionChair",
+          "pk": "delegateBadgeId",
+          "attributes": [
+            {
+              "name": "delegateBadgeId",
+              "isPK": true
+            },
+            {
+              "name": "assignedHallCode",
+              "isPK": false
+            },
+            {
+              "name": "qaModerationRound",
               "isPK": false
             }
           ]
@@ -2249,15 +2892,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "RealEstateCustomer",
+        "superclass": "ConferenceDelegate",
         "subs": [
           {
-            "name": "PropertyVendor",
-            "attributes": []
+            "name": "PaperSpeaker",
+            "attributes": [
+              "presentationTitle",
+              "presentationTimeMinutes"
+            ]
           },
           {
-            "name": "PropertyAcquirer",
-            "attributes": []
+            "name": "SessionChair",
+            "attributes": [
+              "assignedHallCode",
+              "qaModerationRound"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -2267,43 +2916,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 119,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "PlatformUser Overlapping Ixtisoslashuvi",
-    "story": "EdTech Platforma faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Foydalanuvchi ma'lum kurslarda talaba, o'zi mutaxassis bo'lgan boshqa kursda esa mentor bo'lishi mumkin. Tizimda superklass sifatida **PlatformUser** (userId {PK}, `userFullName`, `emailAddress`, `regTimestamp`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'PlatformUser' superklassini va uning ustma-ust tushuvchi 'ActiveLearner' hamda 'TeachingMentor' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Bobur Eshonqulov",
+    "clientRole": "Golden House Ko'chmas Mulk Agentligi Rahbari",
+    "clientAvatar": "🏢",
+    "title": "Ko'chmas Mulk — Savdo Agenti va Mulk Baholovchisi (ListingBroker & AssetAppraiser)",
+    "titleEn": "Real Estate — Overlapping Specialist Subclasses (ListingBroker & AssetAppraiser)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKatta rieltorlik kompaniyasida barcha litsenziyalangan rieltorlar **RealEstateAgent** superklassida yuritiladi.\nKo'chmas mulk bozorida mutaxassislar ikki muhim faoliyatni parallel bajarishi mumkin:\n1. **ListingBroker** — kvartira va ofislarni sotish va ijaraga berish bo'yicha agent. Unga komissiya foizi stavkasi (`commissionRatePct`) va faol sotuvdagi ob'ektlar soni (`activeListingsCount`) xosdir.\n2. **AssetAppraiser** — mulkning bozor qiymatini mustaqil baholovchi mutaxassis. Unga baholovchi litsenziya kodi (`appraiserLicenseCode`) va mulkni baholash uslubiyati (`valuationMethodology`) xosdir.\nKatta rieltor o'zi mustaqil baholovchi xulosasini berishi va shu mulkni o'zi bozorga sotuvga qo'yishi mumkin ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `RealEstateAgent` superklassini yarating: {PK} `agentId`, `agentName`, `licenseExpiryDate`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `ListingBroker`: `commissionRatePct`, `activeListingsCount`.\n   - `AssetAppraiser`: `appraiserLicenseCode`, `valuationMethodology`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "Real Estate — Overlapping Specialist Subclasses (ListingBroker & AssetAppraiser) — Conceptual ER business case study.",
+    "instruction": "'RealEstateAgent' superklassini va uning rieltor broker hamda baholovchi subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "PlatformUser",
+          "name": "RealEstateAgent",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "userId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "agentId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "userId",
+              "name": "agentId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "userFullName",
+              "name": "agentName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "emailAddress",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "regTimestamp",
+              "name": "licenseExpiryDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2311,34 +2958,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "ActiveLearner",
+          "name": "ListingBroker",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "TeachingMentor",
+          "name": "AssetAppraiser",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "PlatformUser",
+        "superclass": "RealEstateAgent",
         "subs": [
           {
-            "name": "ActiveLearner",
+            "name": "ListingBroker",
             "attributes": []
           },
           {
-            "name": "TeachingMentor",
+            "name": "AssetAppraiser",
             "attributes": []
           }
         ],
@@ -2348,23 +2997,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "PlatformUser",
-          "pk": "userId",
+          "name": "RealEstateAgent",
+          "pk": "agentId",
           "attributes": [
             {
-              "name": "userId",
+              "name": "agentId",
               "isPK": true
             },
             {
-              "name": "userFullName",
+              "name": "agentName",
               "isPK": false
             },
             {
-              "name": "emailAddress",
+              "name": "licenseExpiryDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ListingBroker",
+          "pk": "agentId",
+          "attributes": [
+            {
+              "name": "agentId",
+              "isPK": true
+            },
+            {
+              "name": "commissionRatePct",
               "isPK": false
             },
             {
-              "name": "regTimestamp",
+              "name": "activeListingsCount",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "AssetAppraiser",
+          "pk": "agentId",
+          "attributes": [
+            {
+              "name": "agentId",
+              "isPK": true
+            },
+            {
+              "name": "appraiserLicenseCode",
+              "isPK": false
+            },
+            {
+              "name": "valuationMethodology",
               "isPK": false
             }
           ]
@@ -2372,15 +3053,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "PlatformUser",
+        "superclass": "RealEstateAgent",
         "subs": [
           {
-            "name": "ActiveLearner",
-            "attributes": []
+            "name": "ListingBroker",
+            "attributes": [
+              "commissionRatePct",
+              "activeListingsCount"
+            ]
           },
           {
-            "name": "TeachingMentor",
-            "attributes": []
+            "name": "AssetAppraiser",
+            "attributes": [
+              "appraiserLicenseCode",
+              "valuationMethodology"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -2390,43 +3077,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 120,
     "sector": 8,
-    "difficulty": "8-Qavat • Professional (Overlapping)",
-    "clientName": "Loyiha Rahbari",
-    "clientRole": "Yetakchi Arxitektor",
-    "clientAvatar": "mentor",
-    "title": "TradingEnterprise Overlapping Ixtisoslashuvi",
-    "story": "B2B Savdo faoliyatida bitta sub'yekt bir vaqtning o'zida bir nechta rolni bajarishi mumkin: Korxona ham xomashyo yetkazib beruvchi, ham tayyor tovarlarni ulgurji tarqatuvchi bo'la oladi. Tizimda superklass sifatida **TradingEnterprise** (enterpriseInn {PK}, `legalEntityName`, `bankBik`, `cityHq`) qayd etiladi. Undan ajratilgan subklasslar bir vaqtda kesishishi mumkin bo'lgan EER umumlashtirish qoidasi asosida bog'lanadi.",
-    "instruction": "'TradingEnterprise' superklassini va uning ustma-ust tushuvchi 'RawMaterialSupplier' hamda 'WholesaleDistributor' subklasslarini polotnoda bog'lang.",
+    "difficulty": "Qiyin",
+    "clientName": "Nodir Salimov",
+    "clientRole": "O'zbekiston Avtomobil Federatsiyasi Bosh Muhandisi",
+    "clientAvatar": "🏎️",
+    "title": "Avtosport — Poyga Haydovchisi va Poyga Mashinasi Muhandisi (Racer & TrackEngineer)",
+    "titleEn": "Motorsports — Overlapping Member Subclasses (Racer & TrackEngineer)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nProfessional poyga jamoasida har bir texnik a'zo **MotorsportMember** superklassida qayd qilinadi.\nAvtosportda yetuk poygachilar ko'pincha muhandislik darajasiga ega bo'lib, bolidni o'zlari sozlaydilar:\n1. **RacingDriver** — poygada bolidni boshqaruvchi poygachi. Unga FIA xalqaro super-litsenziyasi (`fiaSuperlicenseId`) va g'alaba qozonilgan poygalar soni (`careerPodiums`) xosdir.\n2. **TrackTelemetryEngineer** — telemetriya ma'lumotlarini tahlil qilib bolid aerodinamikasi va motorini sozlovchi muhandis. Unga telemetriya dasturiy ta'minoti kodi (`telemetrySoftwareCode`) va motor diagnostika sertifikati (`engineTuningCert`) xosdir.\nPoygachi-muhandis o'zi trekda aylanma vaqtini ko'rsatib, boksga qaytgach telemetriya datchiklarini o'zi sozlab chiqadi ({Optional, And}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `MotorsportMember` superklassini yarating: {PK} `memberId`, `memberName`, `racingTeamName`.\n2. Kesishuvchi subklasslarni qo'shing:\n   - `RacingDriver`: `fiaSuperlicenseId`, `careerPodiums`.\n   - `TrackTelemetryEngineer`: `telemetrySoftwareCode`, `engineTuningCert`.\n3. Cheklovni {Optional, And} deb belgilang.",
+    "storyEn": "Motorsports — Overlapping Member Subclasses (Racer & TrackEngineer) — Conceptual ER business case study.",
+    "instruction": "'MotorsportMember' superklassini va uning poygachi hamda telemetriya muhandisi subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "TradingEnterprise",
+          "name": "MotorsportMember",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "enterpriseInn",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "memberId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "enterpriseInn",
+              "name": "memberId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "legalEntityName",
+              "name": "memberName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "bankBik",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "cityHq",
+              "name": "racingTeamName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2434,34 +3119,36 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "RawMaterialSupplier",
+          "name": "RacingDriver",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "WholesaleDistributor",
+          "name": "TrackTelemetryEngineer",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "TradingEnterprise",
+        "superclass": "MotorsportMember",
         "subs": [
           {
-            "name": "RawMaterialSupplier",
+            "name": "RacingDriver",
             "attributes": []
           },
           {
-            "name": "WholesaleDistributor",
+            "name": "TrackTelemetryEngineer",
             "attributes": []
           }
         ],
@@ -2471,23 +3158,55 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "TradingEnterprise",
-          "pk": "enterpriseInn",
+          "name": "MotorsportMember",
+          "pk": "memberId",
           "attributes": [
             {
-              "name": "enterpriseInn",
+              "name": "memberId",
               "isPK": true
             },
             {
-              "name": "legalEntityName",
+              "name": "memberName",
               "isPK": false
             },
             {
-              "name": "bankBik",
+              "name": "racingTeamName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "RacingDriver",
+          "pk": "memberId",
+          "attributes": [
+            {
+              "name": "memberId",
+              "isPK": true
+            },
+            {
+              "name": "fiaSuperlicenseId",
               "isPK": false
             },
             {
-              "name": "cityHq",
+              "name": "careerPodiums",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "TrackTelemetryEngineer",
+          "pk": "memberId",
+          "attributes": [
+            {
+              "name": "memberId",
+              "isPK": true
+            },
+            {
+              "name": "telemetrySoftwareCode",
+              "isPK": false
+            },
+            {
+              "name": "engineTuningCert",
               "isPK": false
             }
           ]
@@ -2495,15 +3214,21 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "TradingEnterprise",
+        "superclass": "MotorsportMember",
         "subs": [
           {
-            "name": "RawMaterialSupplier",
-            "attributes": []
+            "name": "RacingDriver",
+            "attributes": [
+              "fiaSuperlicenseId",
+              "careerPodiums"
+            ]
           },
           {
-            "name": "WholesaleDistributor",
-            "attributes": []
+            "name": "TrackTelemetryEngineer",
+            "attributes": [
+              "telemetrySoftwareCode",
+              "engineTuningCert"
+            ]
           }
         ],
         "constraint": "{Optional, And}"
@@ -2513,37 +3238,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 121,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "PropertyOwner Kategoriyasi (Union Type ∪)",
-    "story": "Mulk Egaligi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Ko'chmas mulk egasi fuqaro, ipoteka banki yoki tijorat kompaniyasi bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **Person** (pinfl {PK}), **Bank** (bankCode {PK}) va **Company** (tin {PK}). Ular yagona umumiy **PropertyOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'Person', 'Bank' va 'Company' entitiylarini chizing va ularni 'PropertyOwner' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Dr. Nodir Jalilov",
+    "clientRole": "Respublika Shoshilinch Tibbiy Yordam Markazi Axborot Direktori",
+    "clientAvatar": "🏥",
+    "title": "Tez Tibbiy Markaz — Fan Trap Tuzog'i (Kasalxona, Bo'lim, Shifokor)",
+    "titleEn": "Emergency Center — Fan Trap Resolution (Hospital, Division, Doctor)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nTibbiyot markazi ma'lumotlar bazasida dastlab xato model tuzilgan: Kasalxona markazi (**MedicalHospital**) bir vaqtning o'zida ham bo'limlarga (**HospitalDivision**), ham shifokorlarga (**MedicalDoctor**) 1:* tarmoqlangan. Natijada qaysi shifokor aynan qaysi bo'limda (kardiologiya, reanimatsiya) ishlashini aniqlab bo'lmaydigan **Fan Trap (Yelpig'ich tuzog'i)** yuzaga kelgan.\nTuzoqni bartaraf etish uchun ketma-ketlik zanjiri o'rnatiladi: Kasalxona o'z bo'limlariga ega, har bir bo'lim esa o'z shifokorlarini ishga qabul qiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `MedicalHospital` entitiysi: {PK} `hospitalId`, `hospitalName`, `regionCity`.\n2. `HospitalDivision` entitiysi: {PK} `divisionId`, `divisionName`, `floorNum`.\n3. `MedicalDoctor` entitiysi: {PK} `doctorId`, `doctorName`, `licenseNum`.\n4. Aloqalarni to'g'ri zanjirda bog'lang:\n   - `MedicalHospital` va `HospitalDivision`: `1..1` ⟷ `1..*`\n   - `HospitalDivision` va `MedicalDoctor`: `1..1` ⟷ `0..*`",
+    "storyEn": "Emergency Center — Fan Trap Resolution (Hospital, Division, Doctor) — Conceptual ER business case study.",
+    "instruction": "Fan Trap tuzog'ini bartaraf etuvchi Kasalxona -> Bo'lim -> Shifokor to'g'ri zanjirli modelini barpo eting.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Person",
+          "name": "MedicalHospital",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "pinfl",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "hospitalId",
+          "x": 120,
+          "y": 180,
           "attributes": [
             {
-              "name": "pinfl",
+              "name": "hospitalId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "hospitalName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "regionCity",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2551,27 +3280,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "Bank",
+          "name": "HospitalDivision",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "bankCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "divisionId",
+          "x": 380,
+          "y": 180,
           "attributes": [
             {
-              "name": "bankCode",
+              "name": "divisionId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "divisionName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "floorNum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2579,27 +3309,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "Company",
+          "name": "MedicalDoctor",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "tin",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "doctorId",
+          "x": 640,
+          "y": 180,
           "attributes": [
             {
-              "name": "tin",
+              "name": "doctorId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "doctorName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "licenseNum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2607,76 +3338,119 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Operates",
+          "entity1": "MedicalHospital",
+          "entity2": "HospitalDivision",
+          "fromEntityName": "MedicalHospital",
+          "toEntityName": "HospitalDivision",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Employs",
+          "entity1": "HospitalDivision",
+          "entity2": "MedicalDoctor",
+          "fromEntityName": "HospitalDivision",
+          "toEntityName": "MedicalDoctor",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Person",
-          "pk": "pinfl",
+          "name": "MedicalHospital",
+          "pk": "hospitalId",
           "attributes": [
             {
-              "name": "pinfl",
+              "name": "hospitalId",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "hospitalName",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "regionCity",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Bank",
-          "pk": "bankCode",
+          "name": "HospitalDivision",
+          "pk": "divisionId",
           "attributes": [
             {
-              "name": "bankCode",
+              "name": "divisionId",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "divisionName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "floorNum",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Company",
-          "pk": "tin",
+          "name": "MedicalDoctor",
+          "pk": "doctorId",
           "attributes": [
             {
-              "name": "tin",
+              "name": "doctorId",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "doctorName",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "licenseNum",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "PropertyOwner",
-          "superclasses": [
-            "Person",
-            "Bank",
-            "Company"
-          ],
-          "isUnion": true
+          "entity1": "MedicalHospital",
+          "entity2": "HospitalDivision",
+          "fromEntityName": "MedicalHospital",
+          "toEntityName": "HospitalDivision",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Operates",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "HospitalDivision",
+          "entity2": "MedicalDoctor",
+          "fromEntityName": "HospitalDivision",
+          "toEntityName": "MedicalDoctor",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Employs",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -2684,37 +3458,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 122,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "VehicleOwner Kategoriyasi (Union Type ∪)",
-    "story": "Avtotransport Ro'yxati faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Avtomobil egasi jismoniy shaxs, lizing firmasi yoki davlat idorasi bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **PrivateCitizen** (citizenPinfl {PK}), **LeasingFirm** (leasingInn {PK}) va **StateAgency** (agencyCode {PK}). Ular yagona umumiy **VehicleOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'PrivateCitizen', 'LeasingFirm' va 'StateAgency' entitiylarini chizing va ularni 'VehicleOwner' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Shahnoza Mirzayeva",
+    "clientRole": "WIUT Akademik Sifat Boshqarmasi Nazoratchisi",
+    "clientAvatar": "👩‍🏫",
+    "title": "WIUT Universiteti — Fan Trap Tuzog'i (Fakultet, Modul, O'qituvchi)",
+    "titleEn": "WIUT University — Fan Trap Resolution (Faculty, Module, Lecturer)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nUniversitet axborot tizimida agar Fakultet (**UniversityFaculty**) to'g'ridan-to'g'ri ham fanlarga (**CourseModule**), ham o'qituvchilarga (**Lecturer**) 1:* tarmoqlansa, qaysi o'qituvchi aynan qaysi fandan dars berishini aniqlash noaniq (ambiguous) bo'lib qoladi. Bu klassik **Fan Trap** hisoblanadi.\nTuzatilgan yechim: Fakultet o'quv modullarini o'z ichiga oladi, har bir modulga esa mas'ul o'qituvchilar biriktiriladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `UniversityFaculty`: {PK} `facultyCode`, `facultyName`, `deanOffice`.\n2. `CourseModule`: {PK} `moduleCode`, `moduleTitle`, `creditPoints`.\n3. `Lecturer`: {PK} `lecturerId`, `lecturerName`, `staffEmail`.\n4. Multiplisitiyalarni ketma-ket zanjirda bog'lang:\n   - `UniversityFaculty` ⟷ `CourseModule`: `1..1` va `1..*`\n   - `CourseModule` ⟷ `Lecturer`: `1..1` va `0..*`",
+    "storyEn": "WIUT University — Fan Trap Resolution (Faculty, Module, Lecturer) — Conceptual ER business case study.",
+    "instruction": "Fakultet, Modul va O'qituvchi o'rtasidagi Fan Trap tuzog'ini to'g'ri mantiqiy tartibda bartaraf qiling.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "PrivateCitizen",
+          "name": "UniversityFaculty",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "citizenPinfl",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "facultyCode",
+          "x": 120,
+          "y": 180,
           "attributes": [
             {
-              "name": "citizenPinfl",
+              "name": "facultyCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "facultyName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "deanOffice",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2722,27 +3500,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "LeasingFirm",
+          "name": "CourseModule",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "leasingInn",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "moduleCode",
+          "x": 380,
+          "y": 180,
           "attributes": [
             {
-              "name": "leasingInn",
+              "name": "moduleCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "moduleTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "creditPoints",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2750,27 +3529,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "StateAgency",
+          "name": "Lecturer",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "agencyCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "lecturerId",
+          "x": 640,
+          "y": 180,
           "attributes": [
             {
-              "name": "agencyCode",
+              "name": "lecturerId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "lecturerName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "staffEmail",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2778,76 +3558,119 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Offers",
+          "entity1": "UniversityFaculty",
+          "entity2": "CourseModule",
+          "fromEntityName": "UniversityFaculty",
+          "toEntityName": "CourseModule",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "TaughtBy",
+          "entity1": "CourseModule",
+          "entity2": "Lecturer",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Lecturer",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "PrivateCitizen",
-          "pk": "citizenPinfl",
+          "name": "UniversityFaculty",
+          "pk": "facultyCode",
           "attributes": [
             {
-              "name": "citizenPinfl",
+              "name": "facultyCode",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "facultyName",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "deanOffice",
               "isPK": false
             }
           ]
         },
         {
-          "name": "LeasingFirm",
-          "pk": "leasingInn",
+          "name": "CourseModule",
+          "pk": "moduleCode",
           "attributes": [
             {
-              "name": "leasingInn",
+              "name": "moduleCode",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "moduleTitle",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "creditPoints",
               "isPK": false
             }
           ]
         },
         {
-          "name": "StateAgency",
-          "pk": "agencyCode",
+          "name": "Lecturer",
+          "pk": "lecturerId",
           "attributes": [
             {
-              "name": "agencyCode",
+              "name": "lecturerId",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "lecturerName",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "staffEmail",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "VehicleOwner",
-          "superclasses": [
-            "PrivateCitizen",
-            "LeasingFirm",
-            "StateAgency"
-          ],
-          "isUnion": true
+          "entity1": "UniversityFaculty",
+          "entity2": "CourseModule",
+          "fromEntityName": "UniversityFaculty",
+          "toEntityName": "CourseModule",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Offers",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CourseModule",
+          "entity2": "Lecturer",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Lecturer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "TaughtBy",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -2855,37 +3678,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 123,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "PayeeEntity Kategoriyasi (Union Type ∪)",
-    "story": "G'aznachilik To'lovlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: To'lovni qabul qiluvchi frilanser usta, kommunal korxona yoki soliq inspeksiyasi bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **FreelanceContractor** (freelancerId {PK}), **UtilityProvider** (utilityInn {PK}) va **TaxAuthority** (taxOfficeNo {PK}). Ular yagona umumiy **PayeeEntity** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'FreelanceContractor', 'UtilityProvider' va 'TaxAuthority' entitiylarini chizing va ularni 'PayeeEntity' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Ulug'bek Yusupov",
+    "clientRole": "Korzinka Chakana Savdo Boshqarmasi Boshlig'i",
+    "clientAvatar": "🛒",
+    "title": "Korzinka Tarmog'i — Fan Trap Tuzog'i (Bosh Ofis, Supermarket, Kassir)",
+    "titleEn": "Korzinka Retail — Fan Trap Resolution (RetailChain, SupermarketBranch, Cashier)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKorzinka supermarketlar tarmog'ida Bosh boshqarma (**RetailHeadquarters**) barcha filiallarga va barcha kassirlarga alohida 1:* aloqa ochsa, qaysi kassir qaysi filialda smenaga chiqishini bilib bo'lmaydi. Bu **Fan Trap** xatosidir.\nTog'ri tuzilma: Bosh kompaniya filiallar ochadi, har bir supermarket filiali esa o'zining doimiy kassirlariga ega bo'ladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `RetailHeadquarters`: {PK} `hqInn`, `holdingName`, `mainOfficeAddress`.\n2. `SupermarketBranch`: {PK} `branchId`, `branchName`, `districtLocation`.\n3. `BranchCashier`: {PK} `cashierBadge`, `cashierName`, `tillPosNumber`.\n4. Aloqalarni to'g'ri ketma-ketlikda o'rnating:\n   - `RetailHeadquarters` ⟷ `SupermarketBranch`: `1..1` va `1..*`\n   - `SupermarketBranch` ⟷ `BranchCashier`: `1..1` va `0..*`",
+    "storyEn": "Korzinka Retail — Fan Trap Resolution (RetailChain, SupermarketBranch, Cashier) — Conceptual ER business case study.",
+    "instruction": "Kassirning qaysi filialga mansubligini aniq ko'rsatuvchi zanjirli bog'lanishni chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "FreelanceContractor",
+          "name": "RetailHeadquarters",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "freelancerId",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "hqInn",
+          "x": 120,
+          "y": 180,
           "attributes": [
             {
-              "name": "freelancerId",
+              "name": "hqInn",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "holdingName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "mainOfficeAddress",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2893,27 +3720,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "UtilityProvider",
+          "name": "SupermarketBranch",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "utilityInn",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "branchId",
+          "x": 380,
+          "y": 180,
           "attributes": [
             {
-              "name": "utilityInn",
+              "name": "branchId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "branchName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "districtLocation",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2921,27 +3749,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "TaxAuthority",
+          "name": "BranchCashier",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "taxOfficeNo",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "cashierBadge",
+          "x": 640,
+          "y": 180,
           "attributes": [
             {
-              "name": "taxOfficeNo",
+              "name": "cashierBadge",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "cashierName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "tillPosNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2949,76 +3778,119 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "OperatesBranch",
+          "entity1": "RetailHeadquarters",
+          "entity2": "SupermarketBranch",
+          "fromEntityName": "RetailHeadquarters",
+          "toEntityName": "SupermarketBranch",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AssignsCashier",
+          "entity1": "SupermarketBranch",
+          "entity2": "BranchCashier",
+          "fromEntityName": "SupermarketBranch",
+          "toEntityName": "BranchCashier",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "FreelanceContractor",
-          "pk": "freelancerId",
+          "name": "RetailHeadquarters",
+          "pk": "hqInn",
           "attributes": [
             {
-              "name": "freelancerId",
+              "name": "hqInn",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "holdingName",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "mainOfficeAddress",
               "isPK": false
             }
           ]
         },
         {
-          "name": "UtilityProvider",
-          "pk": "utilityInn",
+          "name": "SupermarketBranch",
+          "pk": "branchId",
           "attributes": [
             {
-              "name": "utilityInn",
+              "name": "branchId",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "branchName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "districtLocation",
               "isPK": false
             }
           ]
         },
         {
-          "name": "TaxAuthority",
-          "pk": "taxOfficeNo",
+          "name": "BranchCashier",
+          "pk": "cashierBadge",
           "attributes": [
             {
-              "name": "taxOfficeNo",
+              "name": "cashierBadge",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "cashierName",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "tillPosNumber",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "PayeeEntity",
-          "superclasses": [
-            "FreelanceContractor",
-            "UtilityProvider",
-            "TaxAuthority"
-          ],
-          "isUnion": true
+          "entity1": "RetailHeadquarters",
+          "entity2": "SupermarketBranch",
+          "fromEntityName": "RetailHeadquarters",
+          "toEntityName": "SupermarketBranch",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "OperatesBranch",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SupermarketBranch",
+          "entity2": "BranchCashier",
+          "fromEntityName": "SupermarketBranch",
+          "toEntityName": "BranchCashier",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AssignsCashier",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -3026,37 +3898,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 124,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "LoanBorrower Kategoriyasi (Union Type ∪)",
-    "story": "Kredit Qarzdorligi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Bankdan kredit oluvchi yakka tadbirkor, shirkat yoki xalqaro xolding bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **SoleProprietorship** (spInn {PK}), **CommercialPartnership** (partnershipNo {PK}) va **CorporationHolding** (holdingTin {PK}). Ular yagona umumiy **LoanBorrower** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'SoleProprietorship', 'CommercialPartnership' va 'CorporationHolding' entitiylarini chizing va ularni 'LoanBorrower' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Bobur Tursunov",
+    "clientRole": "Yandex Go Delivery Logistika Arxitektori",
+    "clientAvatar": "🚚",
+    "title": "Yandex Yetkazish — Fan Trap Tuzog'i (Markaziy Xab, Hudud, Furgon)",
+    "titleEn": "Yandex Logistics — Fan Trap Resolution (LogisticsHub, DeliveryZone, DeliveryVan)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nToshkent shahar tezkor logistika markazida Markaziy xab (**LogisticsHub**) tuman yetkazish hududlari (**DeliveryZone**) va furgonlar (**DeliveryVan**) bilan to'g'ridan-to'g'ri fanned-out bog'lansa, qaysi furgon qaysi tumanda xizmat ko'rsatayotgani mavhum bo'lib qoladi.\nTuzatish: Markaziy xab o'z ichiga tuman zonalarni oladi, har bir hududga esa aniq furgonlar biriktiriladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `LogisticsHub`: {PK} `hubId`, `hubName`, `cityArea`.\n2. `DeliveryZone`: {PK} `zoneCode`, `zoneTitle`, `postalCodeRange`.\n3. `DeliveryVan`: {PK} `vanPlateNum`, `vanModel`, `cargoVolumeM3`.\n4. Aloqalarni ketma-ketlikda bog'lang:\n   - `LogisticsHub` ⟷ `DeliveryZone`: `1..1` va `1..*`\n   - `DeliveryZone` ⟷ `DeliveryVan`: `1..1` va `0..*`",
+    "storyEn": "Yandex Logistics — Fan Trap Resolution (LogisticsHub, DeliveryZone, DeliveryVan) — Conceptual ER business case study.",
+    "instruction": "Logistika xabi, yetkazish zonasi va furgon zanjirini Fan Trap xatosi bo'lmagan tarzda modellashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "SoleProprietorship",
+          "name": "LogisticsHub",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "spInn",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "hubId",
+          "x": 120,
+          "y": 180,
           "attributes": [
             {
-              "name": "spInn",
+              "name": "hubId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "hubName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "cityArea",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3064,27 +3940,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "CommercialPartnership",
+          "name": "DeliveryZone",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "partnershipNo",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "zoneCode",
+          "x": 380,
+          "y": 180,
           "attributes": [
             {
-              "name": "partnershipNo",
+              "name": "zoneCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "zoneTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "postalCodeRange",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3092,27 +3969,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "CorporationHolding",
+          "name": "DeliveryVan",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "holdingTin",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "vanPlateNum",
+          "x": 640,
+          "y": 180,
           "attributes": [
             {
-              "name": "holdingTin",
+              "name": "vanPlateNum",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "vanModel",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "cargoVolumeM3",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3120,76 +3998,119 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "CoversZone",
+          "entity1": "LogisticsHub",
+          "entity2": "DeliveryZone",
+          "fromEntityName": "LogisticsHub",
+          "toEntityName": "DeliveryZone",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "DispatchesVan",
+          "entity1": "DeliveryZone",
+          "entity2": "DeliveryVan",
+          "fromEntityName": "DeliveryZone",
+          "toEntityName": "DeliveryVan",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "SoleProprietorship",
-          "pk": "spInn",
+          "name": "LogisticsHub",
+          "pk": "hubId",
           "attributes": [
             {
-              "name": "spInn",
+              "name": "hubId",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "hubName",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "cityArea",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CommercialPartnership",
-          "pk": "partnershipNo",
+          "name": "DeliveryZone",
+          "pk": "zoneCode",
           "attributes": [
             {
-              "name": "partnershipNo",
+              "name": "zoneCode",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "zoneTitle",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "postalCodeRange",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CorporationHolding",
-          "pk": "holdingTin",
+          "name": "DeliveryVan",
+          "pk": "vanPlateNum",
           "attributes": [
             {
-              "name": "holdingTin",
+              "name": "vanPlateNum",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "vanModel",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "cargoVolumeM3",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "LoanBorrower",
-          "superclasses": [
-            "SoleProprietorship",
-            "CommercialPartnership",
-            "CorporationHolding"
-          ],
-          "isUnion": true
+          "entity1": "LogisticsHub",
+          "entity2": "DeliveryZone",
+          "fromEntityName": "LogisticsHub",
+          "toEntityName": "DeliveryZone",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "CoversZone",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "DeliveryZone",
+          "entity2": "DeliveryVan",
+          "fromEntityName": "DeliveryZone",
+          "toEntityName": "DeliveryVan",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "DispatchesVan",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -3197,37 +4118,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 125,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "LegalSignatory Kategoriyasi (Union Type ∪)",
-    "story": "Notarial Hujjatlar faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Hujjatga imzo chekuvchi mahalliy fuqaro, xorijiy diplomat yoki ishonchnomali advokat bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **DomesticCitizen** (residentPinfl {PK}), **ForeignDiplomat** (passportNumber {PK}) va **CorporateAttorney** (powerOfAttorneyNo {PK}). Ular yagona umumiy **LegalSignatory** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'DomesticCitizen', 'ForeignDiplomat' va 'CorporateAttorney' entitiylarini chizing va ularni 'LegalSignatory' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Erkin Qosimov",
+    "clientRole": "Artel Zavodi Bosh Muhandisi",
+    "clientAvatar": "⚙️",
+    "title": "Artel Sanoat — Fan Trap Tuzog'i (Zavod, Sex, Stanok)",
+    "titleEn": "Manufacturing Plant — Fan Trap Resolution (FactoryPlant, Workshop, IndustrialMachine)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nArtel maishiy texnika zavodida bosh korxona (**FactoryPlant**) ham sexlarga (**ProductionWorkshop**), ham stanoklarga (**IndustrialMachine**) markazdan 1:* tarmoqlansa, qaysi stanok qaysi sex binosida turgani noma'lum bo'ladi.\nBoshqaruv zanjirini tiklash: Zavod sexlardan iborat bo'ladi, har bir sex ichida esa belgilangan stanoklar o'rnatiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `FactoryPlant`: {PK} `plantId`, `plantName`, `industrialZone`.\n2. `ProductionWorkshop`: {PK} `workshopId`, `workshopName`, `chiefMaster`.\n3. `IndustrialMachine`: {PK} `machineSerial`, `machineType`, `powerKw`.\n4. Multiplisitiyalarni zanjirda bog'lang:\n   - `FactoryPlant` ⟷ `ProductionWorkshop`: `1..1` va `1..*`\n   - `ProductionWorkshop` ⟷ `IndustrialMachine`: `1..1` va `0..*`",
+    "storyEn": "Manufacturing Plant — Fan Trap Resolution (FactoryPlant, Workshop, IndustrialMachine) — Conceptual ER business case study.",
+    "instruction": "Zavod, sex va stanok ierarxiyasini Fan Trap tuzog'idan xoli tarzda chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "DomesticCitizen",
+          "name": "FactoryPlant",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "residentPinfl",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "plantId",
+          "x": 120,
+          "y": 180,
           "attributes": [
             {
-              "name": "residentPinfl",
+              "name": "plantId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "plantName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "industrialZone",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3235,27 +4160,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "ForeignDiplomat",
+          "name": "ProductionWorkshop",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "passportNumber",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "workshopId",
+          "x": 380,
+          "y": 180,
           "attributes": [
             {
-              "name": "passportNumber",
+              "name": "workshopId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "workshopName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "chiefMaster",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3263,27 +4189,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "CorporateAttorney",
+          "name": "IndustrialMachine",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "powerOfAttorneyNo",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "machineSerial",
+          "x": 640,
+          "y": 180,
           "attributes": [
             {
-              "name": "powerOfAttorneyNo",
+              "name": "machineSerial",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "machineType",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "powerKw",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3291,76 +4218,119 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Comprises",
+          "entity1": "FactoryPlant",
+          "entity2": "ProductionWorkshop",
+          "fromEntityName": "FactoryPlant",
+          "toEntityName": "ProductionWorkshop",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "HousesMachine",
+          "entity1": "ProductionWorkshop",
+          "entity2": "IndustrialMachine",
+          "fromEntityName": "ProductionWorkshop",
+          "toEntityName": "IndustrialMachine",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "DomesticCitizen",
-          "pk": "residentPinfl",
+          "name": "FactoryPlant",
+          "pk": "plantId",
           "attributes": [
             {
-              "name": "residentPinfl",
+              "name": "plantId",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "plantName",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "industrialZone",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ForeignDiplomat",
-          "pk": "passportNumber",
+          "name": "ProductionWorkshop",
+          "pk": "workshopId",
           "attributes": [
             {
-              "name": "passportNumber",
+              "name": "workshopId",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "workshopName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "chiefMaster",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CorporateAttorney",
-          "pk": "powerOfAttorneyNo",
+          "name": "IndustrialMachine",
+          "pk": "machineSerial",
           "attributes": [
             {
-              "name": "powerOfAttorneyNo",
+              "name": "machineSerial",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "machineType",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "powerKw",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "LegalSignatory",
-          "superclasses": [
-            "DomesticCitizen",
-            "ForeignDiplomat",
-            "CorporateAttorney"
-          ],
-          "isUnion": true
+          "entity1": "FactoryPlant",
+          "entity2": "ProductionWorkshop",
+          "fromEntityName": "FactoryPlant",
+          "toEntityName": "ProductionWorkshop",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "Comprises",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "ProductionWorkshop",
+          "entity2": "IndustrialMachine",
+          "fromEntityName": "ProductionWorkshop",
+          "toEntityName": "IndustrialMachine",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "HousesMachine",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -3368,37 +4338,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 126,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "CargoConsignor Kategoriyasi (Union Type ∪)",
-    "story": "Bojxona Kargo Yuklari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Yuk jo'natuvchi ishlab chiqaruvchi zavod, savdo kompaniyasi yoki gumanitar jamg'arma bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **ManufacturingPlant** (factoryTin {PK}), **TradingHouse** (tradingLicNo {PK}) va **HumanitarianMission** (missionRegCode {PK}). Ular yagona umumiy **CargoConsignor** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'ManufacturingPlant', 'TradingHouse' va 'HumanitarianMission' entitiylarini chizing va ularni 'CargoConsignor' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Anvar Karimov",
+    "clientRole": "Chorvoq Oromgohi Bosh Menejeri",
+    "clientAvatar": "🏔️",
+    "title": "Chorvoq Resort — Fan Trap Tuzog'i (Dam Olish Maskani, Bino, Xona)",
+    "titleEn": "Mountain Resort — Fan Trap Resolution (ResortComplex, GuestBuilding, HotelRoom)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nDam olish majmuasida bosh maskan (**ResortComplex**) bir vaqtda binolarga (**GuestBuilding**) va xonalarga (**HotelRoom**) 1:* yelpig'ich hosil qilsa, 305-xona aynan qaysi binoda ekanligini bilib bo'lmaydi.\nTo'g'ri ierarxiya: Dam olish maskani bir necha binodan tashkil topgan, har bir bino ichida esa xonalar joylashgan.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `ResortComplex`: {PK} `resortId`, `resortName`, `valleyLocation`.\n2. `GuestBuilding`: {PK} `buildingCode`, `buildingName`, `totalFloors`.\n3. `HotelRoom`: {PK} `roomNum`, `bedCapacity`, `roomPriceNight`.\n4. Multiplisitiyalarni bog'lang:\n   - `ResortComplex` ⟷ `GuestBuilding`: `1..1` va `1..*`\n   - `GuestBuilding` ⟷ `HotelRoom`: `1..1` va `1..*`",
+    "storyEn": "Mountain Resort — Fan Trap Resolution (ResortComplex, GuestBuilding, HotelRoom) — Conceptual ER business case study.",
+    "instruction": "Dam olish majmuasi, bino va xona o'rtasidagi to'g'ri ketma-ketlik modelini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "ManufacturingPlant",
+          "name": "ResortComplex",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "factoryTin",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "resortId",
+          "x": 120,
+          "y": 180,
           "attributes": [
             {
-              "name": "factoryTin",
+              "name": "resortId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "resortName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "valleyLocation",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3406,27 +4380,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "TradingHouse",
+          "name": "GuestBuilding",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "tradingLicNo",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "buildingCode",
+          "x": 380,
+          "y": 180,
           "attributes": [
             {
-              "name": "tradingLicNo",
+              "name": "buildingCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "buildingName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "totalFloors",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3434,27 +4409,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "HumanitarianMission",
+          "name": "HotelRoom",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "missionRegCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "roomNum",
+          "x": 640,
+          "y": 180,
           "attributes": [
             {
-              "name": "missionRegCode",
+              "name": "roomNum",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "bedCapacity",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "roomPriceNight",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3462,76 +4438,119 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ContainsBuilding",
+          "entity1": "ResortComplex",
+          "entity2": "GuestBuilding",
+          "fromEntityName": "ResortComplex",
+          "toEntityName": "GuestBuilding",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "HousesRoom",
+          "entity1": "GuestBuilding",
+          "entity2": "HotelRoom",
+          "fromEntityName": "GuestBuilding",
+          "toEntityName": "HotelRoom",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "ManufacturingPlant",
-          "pk": "factoryTin",
+          "name": "ResortComplex",
+          "pk": "resortId",
           "attributes": [
             {
-              "name": "factoryTin",
+              "name": "resortId",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "resortName",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "valleyLocation",
               "isPK": false
             }
           ]
         },
         {
-          "name": "TradingHouse",
-          "pk": "tradingLicNo",
+          "name": "GuestBuilding",
+          "pk": "buildingCode",
           "attributes": [
             {
-              "name": "tradingLicNo",
+              "name": "buildingCode",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "buildingName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "totalFloors",
               "isPK": false
             }
           ]
         },
         {
-          "name": "HumanitarianMission",
-          "pk": "missionRegCode",
+          "name": "HotelRoom",
+          "pk": "roomNum",
           "attributes": [
             {
-              "name": "missionRegCode",
+              "name": "roomNum",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "bedCapacity",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "roomPriceNight",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "CargoConsignor",
-          "superclasses": [
-            "ManufacturingPlant",
-            "TradingHouse",
-            "HumanitarianMission"
-          ],
-          "isUnion": true
+          "entity1": "ResortComplex",
+          "entity2": "GuestBuilding",
+          "fromEntityName": "ResortComplex",
+          "toEntityName": "GuestBuilding",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "ContainsBuilding",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "GuestBuilding",
+          "entity2": "HotelRoom",
+          "fromEntityName": "GuestBuilding",
+          "toEntityName": "HotelRoom",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "HousesRoom",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -3539,37 +4558,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 127,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "PatentAssignee Kategoriyasi (Union Type ∪)",
-    "story": "Patent Huquqi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Patent egasi ilmiy universitet, yakka ixtirochi yoki texnologik korporatsiya bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **ResearchUniversity** (universityCharterNo {PK}), **IndependentInventor** (inventorPinfl {PK}) va **TechCorporation** (corpTin {PK}). Ular yagona umumiy **PatentAssignee** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'ResearchUniversity', 'IndependentInventor' va 'TechCorporation' entitiylarini chizing va ularni 'PatentAssignee' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Farhod Toirov",
+    "clientRole": "Asaxiy.uz Katalog Boshqaruvchisi",
+    "clientAvatar": "📦",
+    "title": "Asaxiy Katalogi — Fan Trap Tuzog'i (Departament, Kategoriya, Mahsulot)",
+    "titleEn": "Asaxiy Catalog — Fan Trap Resolution (CatalogDepartment, ProductCategory, RetailProduct)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nElektron do'konda bosh savdo departamenti (**CatalogDepartment**) kategoriyalar (**ProductCategory**) va mahsulotlar (**RetailProduct**) bilan alohida 1:* bog'lansa, smartfon aynan qaysi kategoriyaga (masalan: Elektronika -> Smartfonlar) tegishli ekani adashib ketadi.\nYechim: Departament kategoriyalarni birlashtiradi, tovarlar esa to'g'ridan-to'g'ri o'z kategoriyasiga biriktiriladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `CatalogDepartment`: {PK} `deptCode`, `deptTitle`, `leadManager`.\n2. `ProductCategory`: {PK} `categoryId`, `categoryName`, `displayOrder`.\n3. `RetailProduct`: {PK} `skuCode`, `productTitle`, `retailPrice`.\n4. Aloqalarni to'g'ri zanjirda bog'lang:\n   - `CatalogDepartment` ⟷ `ProductCategory`: `1..1` va `1..*`\n   - `ProductCategory` ⟷ `RetailProduct`: `1..1` va `0..*`",
+    "storyEn": "Asaxiy Catalog — Fan Trap Resolution (CatalogDepartment, ProductCategory, RetailProduct) — Conceptual ER business case study.",
+    "instruction": "Asaxiy do'koni katalog ierarxiyasini Fan Trap tuzog'isiz modellashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "ResearchUniversity",
+          "name": "CatalogDepartment",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "universityCharterNo",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "deptCode",
+          "x": 120,
+          "y": 180,
           "attributes": [
             {
-              "name": "universityCharterNo",
+              "name": "deptCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "deptTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "leadManager",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3577,27 +4600,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "IndependentInventor",
+          "name": "ProductCategory",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "inventorPinfl",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "categoryId",
+          "x": 380,
+          "y": 180,
           "attributes": [
             {
-              "name": "inventorPinfl",
+              "name": "categoryId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "categoryName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "displayOrder",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3605,27 +4629,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "TechCorporation",
+          "name": "RetailProduct",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "corpTin",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "skuCode",
+          "x": 640,
+          "y": 180,
           "attributes": [
             {
-              "name": "corpTin",
+              "name": "skuCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "productTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "retailPrice",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3633,76 +4658,119 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "IncludesCategory",
+          "entity1": "CatalogDepartment",
+          "entity2": "ProductCategory",
+          "fromEntityName": "CatalogDepartment",
+          "toEntityName": "ProductCategory",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ClassifiesProduct",
+          "entity1": "ProductCategory",
+          "entity2": "RetailProduct",
+          "fromEntityName": "ProductCategory",
+          "toEntityName": "RetailProduct",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "ResearchUniversity",
-          "pk": "universityCharterNo",
+          "name": "CatalogDepartment",
+          "pk": "deptCode",
           "attributes": [
             {
-              "name": "universityCharterNo",
+              "name": "deptCode",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "deptTitle",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "leadManager",
               "isPK": false
             }
           ]
         },
         {
-          "name": "IndependentInventor",
-          "pk": "inventorPinfl",
+          "name": "ProductCategory",
+          "pk": "categoryId",
           "attributes": [
             {
-              "name": "inventorPinfl",
+              "name": "categoryId",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "categoryName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "displayOrder",
               "isPK": false
             }
           ]
         },
         {
-          "name": "TechCorporation",
-          "pk": "corpTin",
+          "name": "RetailProduct",
+          "pk": "skuCode",
           "attributes": [
             {
-              "name": "corpTin",
+              "name": "skuCode",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "productTitle",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "retailPrice",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "PatentAssignee",
-          "superclasses": [
-            "ResearchUniversity",
-            "IndependentInventor",
-            "TechCorporation"
-          ],
-          "isUnion": true
+          "entity1": "CatalogDepartment",
+          "entity2": "ProductCategory",
+          "fromEntityName": "CatalogDepartment",
+          "toEntityName": "ProductCategory",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "IncludesCategory",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "ProductCategory",
+          "entity2": "RetailProduct",
+          "fromEntityName": "ProductCategory",
+          "toEntityName": "RetailProduct",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ClassifiesProduct",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -3710,37 +4778,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 128,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "PolicyBeneficiary Kategoriyasi (Union Type ∪)",
-    "story": "Sug'urta To'lovlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Sug'urta to'lovini oluvchi merosxo'r oila a'zosi, ipoteka banki yoki xayriya jamg'armasi bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **FamilyKin** (relativePinfl {PK}), **MortgageBank** (bankLicNo {PK}) va **CharitableTrust** (charityRegNo {PK}). Ular yagona umumiy **PolicyBeneficiary** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'FamilyKin', 'MortgageBank' va 'CharitableTrust' entitiylarini chizing va ularni 'PolicyBeneficiary' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Olimjon Yo'ldoshev",
+    "clientRole": "Uzbekistan Airways Flot Texnik Boshqarmasi Boshlig'i",
+    "clientAvatar": "🛫",
+    "title": "Aviatsiya Floti — Fan Trap Tuzog'i (Aviabaza, Eskadrilya, Samolyot)",
+    "titleEn": "Aviation Fleet — Fan Trap Resolution (AirlineBase, FlightSquadron, Aircraft)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nAviakompaniya boshqaruvida aeroport aviabazasi (**AirlineBase**) ham parvoz eskadrilyalari (**FlightSquadron**), ham samolyotlar (**Aircraft**) bilan 1:* markaziy tarmoqlansa, ma'lum bir Boeing samolyoti aynan qaysi eskadrilyaga tegishli ekani noaniq bo'lib qoladi.\nTuzatilgan zanjir: Aviabazada bir necha eskadrilya tuziladi, har bir eskadrilyaga esa o'zining tayinlangan samolyotlari biriktiriladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `AirlineBase`: {PK} `baseIata`, `baseName`, `cityHangar`.\n2. `FlightSquadron`: {PK} `squadronId`, `squadronTitle`, `commandPilot`.\n3. `Aircraft`: {PK} `tailNumber`, `modelType`, `passengerSeats`.\n4. Multiplisitiyalarni ketma-ketlikda o'rnating:\n   - `AirlineBase` ⟷ `FlightSquadron`: `1..1` va `1..*`\n   - `FlightSquadron` ⟷ `Aircraft`: `1..1` va `0..*`",
+    "storyEn": "Aviation Fleet — Fan Trap Resolution (AirlineBase, FlightSquadron, Aircraft) — Conceptual ER business case study.",
+    "instruction": "Aviabaza, eskadrilya va samolyot zanjirini Fan Trap xatosi bo'lmagan tarzda yakunlang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "FamilyKin",
+          "name": "AirlineBase",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "relativePinfl",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "baseIata",
+          "x": 120,
+          "y": 180,
           "attributes": [
             {
-              "name": "relativePinfl",
+              "name": "baseIata",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "baseName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "cityHangar",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3748,27 +4820,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "MortgageBank",
+          "name": "FlightSquadron",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "bankLicNo",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "squadronId",
+          "x": 380,
+          "y": 180,
           "attributes": [
             {
-              "name": "bankLicNo",
+              "name": "squadronId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "squadronTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "commandPilot",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3776,27 +4849,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "CharitableTrust",
+          "name": "Aircraft",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "charityRegNo",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "tailNumber",
+          "x": 640,
+          "y": 180,
           "attributes": [
             {
-              "name": "charityRegNo",
+              "name": "tailNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "modelType",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "passengerSeats",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3804,76 +4878,119 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "HousesSquadron",
+          "entity1": "AirlineBase",
+          "entity2": "FlightSquadron",
+          "fromEntityName": "AirlineBase",
+          "toEntityName": "FlightSquadron",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "OperatesPlane",
+          "entity1": "FlightSquadron",
+          "entity2": "Aircraft",
+          "fromEntityName": "FlightSquadron",
+          "toEntityName": "Aircraft",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "FamilyKin",
-          "pk": "relativePinfl",
+          "name": "AirlineBase",
+          "pk": "baseIata",
           "attributes": [
             {
-              "name": "relativePinfl",
+              "name": "baseIata",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "baseName",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "cityHangar",
               "isPK": false
             }
           ]
         },
         {
-          "name": "MortgageBank",
-          "pk": "bankLicNo",
+          "name": "FlightSquadron",
+          "pk": "squadronId",
           "attributes": [
             {
-              "name": "bankLicNo",
+              "name": "squadronId",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "squadronTitle",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "commandPilot",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CharitableTrust",
-          "pk": "charityRegNo",
+          "name": "Aircraft",
+          "pk": "tailNumber",
           "attributes": [
             {
-              "name": "charityRegNo",
+              "name": "tailNumber",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "modelType",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "passengerSeats",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "PolicyBeneficiary",
-          "superclasses": [
-            "FamilyKin",
-            "MortgageBank",
-            "CharitableTrust"
-          ],
-          "isUnion": true
+          "entity1": "AirlineBase",
+          "entity2": "FlightSquadron",
+          "fromEntityName": "AirlineBase",
+          "toEntityName": "FlightSquadron",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "HousesSquadron",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "FlightSquadron",
+          "entity2": "Aircraft",
+          "fromEntityName": "FlightSquadron",
+          "toEntityName": "Aircraft",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "OperatesPlane",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -3881,37 +4998,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 129,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "TrademarkOwner Kategoriyasi (Union Type ∪)",
-    "story": "Savdo Belgilari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Savdo markasi egasi xususiy tadbirkor, notijorat tashkilot yoki aksiyadorlik jamiyati bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **PrivateEnterpriser** (tinNo {PK}), **NonProfitOrg** (npoCertNo {PK}) va **JointStockCompany** (jscInn {PK}). Ular yagona umumiy **TrademarkOwner** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'PrivateEnterpriser', 'NonProfitOrg' va 'JointStockCompany' entitiylarini chizing va ularni 'TrademarkOwner' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Rustam Mirzayev",
+    "clientRole": "Rohat Avtosalon Direktori",
+    "clientAvatar": "🚘",
+    "title": "Rohat Avtosalon — Chasm Trap Tuzog'i (Filial, Savdo Agenti, Sotuvdagi Mashina)",
+    "titleEn": "Auto Dealership — Chasm Trap Resolution (DealershipBranch, SalesAgent, CarForSale)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nAvtosalonlar tarmog'ida agar mashinalar (**CarForSale**) faqat savdo agenti (**SalesAgent**) orqali filialga (**DealershipBranch**) bog'langan bo'lsa, jiddiy muammo kelib chiqadi: yangi kelgan va hali agent biriktirilmagan avtomobil qaysi filialda turganini tizim aniqlay olmaydi (Chasm Trap — oraliq aloqa uzilishi!).\nYechim: Filial va avtomobil o'rtasida to'g'ridan-to'g'ri (Direct) aloqa o'rnatiladi, agentning mashinani sotishi esa ixtiyoriy (0..1) bog'lanish sifatida saqlanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `DealershipBranch`: {PK} `branchId`, `branchName`, `showroomAddress`.\n2. `SalesAgent`: {PK} `agentId`, `agentName`, `salesCommissionPct`.\n3. `CarForSale`: {PK} `vinCode`, `modelName`, `priceUsd`.\n4. Aloqalarni bog'lang:\n   - Filial agentni ishlatadi: `DealershipBranch` ⟷ `SalesAgent` (`1..1` ⟷ `0..*`)\n   - Agent mashinani sotadi: `SalesAgent` ⟷ `CarForSale` (`0..1` ⟷ `0..*`)\n   - TUZOQNI YECHISH (Direct aloqa): Filial avtomobilga ega: `DealershipBranch` ⟷ `CarForSale` (`1..1` ⟷ `1..*`)",
+    "storyEn": "Auto Dealership — Chasm Trap Resolution (DealershipBranch, SalesAgent, CarForSale) — Conceptual ER business case study.",
+    "instruction": "Chasm Trap tuzog'ini to'g'ridan-to'g'ri filial-avtomobil aloqasi orqali bartaraf eting.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "PrivateEnterpriser",
+          "name": "DealershipBranch",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "tinNo",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "branchId",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "tinNo",
+              "name": "branchId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "branchName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "showroomAddress",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3919,27 +5040,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "NonProfitOrg",
+          "name": "SalesAgent",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "npoCertNo",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "agentId",
+          "x": 480,
+          "y": 120,
           "attributes": [
             {
-              "name": "npoCertNo",
+              "name": "agentId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "agentName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "salesCommissionPct",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3947,27 +5069,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "JointStockCompany",
+          "name": "CarForSale",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "jscInn",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "vinCode",
+          "x": 300,
+          "y": 320,
           "attributes": [
             {
-              "name": "jscInn",
+              "name": "vinCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "modelName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "priceUsd",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -3975,76 +5098,145 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EmploysAgent",
+          "entity1": "DealershipBranch",
+          "entity2": "SalesAgent",
+          "fromEntityName": "DealershipBranch",
+          "toEntityName": "SalesAgent",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AssignedToSell",
+          "entity1": "SalesAgent",
+          "entity2": "CarForSale",
+          "fromEntityName": "SalesAgent",
+          "toEntityName": "CarForSale",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "HoldsStockDirect",
+          "entity1": "DealershipBranch",
+          "entity2": "CarForSale",
+          "fromEntityName": "DealershipBranch",
+          "toEntityName": "CarForSale",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "PrivateEnterpriser",
-          "pk": "tinNo",
+          "name": "DealershipBranch",
+          "pk": "branchId",
           "attributes": [
             {
-              "name": "tinNo",
+              "name": "branchId",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "branchName",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "showroomAddress",
               "isPK": false
             }
           ]
         },
         {
-          "name": "NonProfitOrg",
-          "pk": "npoCertNo",
+          "name": "SalesAgent",
+          "pk": "agentId",
           "attributes": [
             {
-              "name": "npoCertNo",
+              "name": "agentId",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "agentName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "salesCommissionPct",
               "isPK": false
             }
           ]
         },
         {
-          "name": "JointStockCompany",
-          "pk": "jscInn",
+          "name": "CarForSale",
+          "pk": "vinCode",
           "attributes": [
             {
-              "name": "jscInn",
+              "name": "vinCode",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "modelName",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "priceUsd",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "TrademarkOwner",
-          "superclasses": [
-            "PrivateEnterpriser",
-            "NonProfitOrg",
-            "JointStockCompany"
-          ],
-          "isUnion": true
+          "entity1": "DealershipBranch",
+          "entity2": "SalesAgent",
+          "fromEntityName": "DealershipBranch",
+          "toEntityName": "SalesAgent",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EmploysAgent",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SalesAgent",
+          "entity2": "CarForSale",
+          "fromEntityName": "SalesAgent",
+          "toEntityName": "CarForSale",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "AssignedToSell",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "DealershipBranch",
+          "entity2": "CarForSale",
+          "fromEntityName": "DealershipBranch",
+          "toEntityName": "CarForSale",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "HoldsStockDirect",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -4052,37 +5244,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 130,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "HealthCoverageSponsor Kategoriyasi (Union Type ∪)",
-    "story": "Tibbiy Kafillik faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Davolanish xarajatini qoplovchi ish beruvchi firma, vazirlik byudjeti yoki homiy bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **EmployerCompany** (employerTin {PK}), **HealthMinistry** (ministryCode {PK}) va **PrivatePhilanthropist** (donorPinfl {PK}). Ular yagona umumiy **HealthCoverageSponsor** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'EmployerCompany', 'HealthMinistry' va 'PrivatePhilanthropist' entitiylarini chizing va ularni 'HealthCoverageSponsor' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Kamron Alimov",
+    "clientRole": "Tashkent City Real Estate Bosh Menejeri",
+    "clientAvatar": "🏙️",
+    "title": "Tashkent City Ko'chmas Mulk — Chasm Trap Tuzog'i (Filial, Rieltor, Tijorat Mulki)",
+    "titleEn": "Commercial Real Estate — Chasm Trap Resolution (AgencyBranch, RealtorBroker, CommercialProperty)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nRieltorlik tarmog'ida agar tijorat mulki (**CommercialProperty**) faqat rieltor (**RealtorBroker**) orqali filialga (**AgencyBranch**) bog'lansa, hali broker tayinlanmagan bo'sh ofislarning qaysi filial nazoratida ekanligi yo'qolib qoladi (Chasm Trap).\nYechim: Filial va tijorat mulki o'rtasida to'g'ridan-to'g'ri doimiy aloqa (`1..1` ⟷ `1..*`) o'rnatiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `AgencyBranch`: {PK} `branchId`, `branchTitle`, `cityDistrict`.\n2. `RealtorBroker`: {PK} `brokerId`, `brokerName`, `brokerLicense`.\n3. `CommercialProperty`: {PK} `cadastreNumber`, `areaSqM`, `leaseRateMonth`.\n4. 3 ta aloqani bog'lang:\n   - `AgencyBranch` ⟷ `RealtorBroker`: `1..1` va `0..*`\n   - `RealtorBroker` ⟷ `CommercialProperty`: `0..1` va `0..*`\n   - `AgencyBranch` ⟷ `CommercialProperty` (Direct): `1..1` va `1..*`",
+    "storyEn": "Commercial Real Estate — Chasm Trap Resolution (AgencyBranch, RealtorBroker, CommercialProperty) — Conceptual ER business case study.",
+    "instruction": "Rieltor tayinlanmagan mulklar yo'qolmasligi uchun Chasm Trapni yechuvchi to'g'ridan-to'g'ri aloqani qo'shing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "EmployerCompany",
+          "name": "AgencyBranch",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "employerTin",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "branchId",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "employerTin",
+              "name": "branchId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "branchTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "cityDistrict",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4090,27 +5286,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "HealthMinistry",
+          "name": "RealtorBroker",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "ministryCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "brokerId",
+          "x": 480,
+          "y": 120,
           "attributes": [
             {
-              "name": "ministryCode",
+              "name": "brokerId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "brokerName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "brokerLicense",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4118,27 +5315,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "PrivatePhilanthropist",
+          "name": "CommercialProperty",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "donorPinfl",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "cadastreNumber",
+          "x": 300,
+          "y": 320,
           "attributes": [
             {
-              "name": "donorPinfl",
+              "name": "cadastreNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "areaSqM",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "leaseRateMonth",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4146,76 +5344,145 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EngagesBroker",
+          "entity1": "AgencyBranch",
+          "entity2": "RealtorBroker",
+          "fromEntityName": "AgencyBranch",
+          "toEntityName": "RealtorBroker",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ManagesListing",
+          "entity1": "RealtorBroker",
+          "entity2": "CommercialProperty",
+          "fromEntityName": "RealtorBroker",
+          "toEntityName": "CommercialProperty",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "OverseesPropertyDirect",
+          "entity1": "AgencyBranch",
+          "entity2": "CommercialProperty",
+          "fromEntityName": "AgencyBranch",
+          "toEntityName": "CommercialProperty",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "EmployerCompany",
-          "pk": "employerTin",
+          "name": "AgencyBranch",
+          "pk": "branchId",
           "attributes": [
             {
-              "name": "employerTin",
+              "name": "branchId",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "branchTitle",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "cityDistrict",
               "isPK": false
             }
           ]
         },
         {
-          "name": "HealthMinistry",
-          "pk": "ministryCode",
+          "name": "RealtorBroker",
+          "pk": "brokerId",
           "attributes": [
             {
-              "name": "ministryCode",
+              "name": "brokerId",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "brokerName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "brokerLicense",
               "isPK": false
             }
           ]
         },
         {
-          "name": "PrivatePhilanthropist",
-          "pk": "donorPinfl",
+          "name": "CommercialProperty",
+          "pk": "cadastreNumber",
           "attributes": [
             {
-              "name": "donorPinfl",
+              "name": "cadastreNumber",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "areaSqM",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "leaseRateMonth",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "HealthCoverageSponsor",
-          "superclasses": [
-            "EmployerCompany",
-            "HealthMinistry",
-            "PrivatePhilanthropist"
-          ],
-          "isUnion": true
+          "entity1": "AgencyBranch",
+          "entity2": "RealtorBroker",
+          "fromEntityName": "AgencyBranch",
+          "toEntityName": "RealtorBroker",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EngagesBroker",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "RealtorBroker",
+          "entity2": "CommercialProperty",
+          "fromEntityName": "RealtorBroker",
+          "toEntityName": "CommercialProperty",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "ManagesListing",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "AgencyBranch",
+          "entity2": "CommercialProperty",
+          "fromEntityName": "AgencyBranch",
+          "toEntityName": "CommercialProperty",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "OverseesPropertyDirect",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -4223,37 +5490,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 131,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "ShareholderEntity Kategoriyasi (Union Type ∪)",
-    "story": "Qimmatli Qog'ozlar Depozitariysi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Aksiya egasi xususiy investitsiya fondi, davlat suveren fondi yoki chakana investor bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **MutualFund** (fundRegNo {PK}), **SovereignWealthFund** (sovereignCode {PK}) va **RetailInvestor** (investorPassportNo {PK}). Ular yagona umumiy **ShareholderEntity** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'MutualFund', 'SovereignWealthFund' va 'RetailInvestor' entitiylarini chizing va ularni 'ShareholderEntity' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Nargiza Sodiqova",
+    "clientRole": "Apex Insurance Sug'urta Boshqaruvchisi",
+    "clientAvatar": "🛡️",
+    "title": "Apex Sug'urta — Chasm Trap Tuzog'i (Ofis, Sug'urta Agenti, Polis)",
+    "titleEn": "Insurance Company — Chasm Trap Resolution (InsuranceOffice, InsuranceAgent, PolicyContract)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKompaniyada mijozlar sayt orqali mustaqil ravishda sug'urta polisini (**PolicyContract**) sotib olishlari mumkin. Agar polis faqat sug'urta agenti (**InsuranceAgent**) orqali ofisga (**InsuranceOffice**) bog'langan bo'lsa, agentsiz sotilgan polislar qaysi hududiy ofis hisobiga tushishi yo'qoladi (Chasm Trap).\nYechim: Har bir polis to'g'ridan-to'g'ri hududiy ofisga biriktiriladi, agent ishtiroki esa ixtiyoriy qilinadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `InsuranceOffice`: {PK} `officeCode`, `officeName`, `regionPhone`.\n2. `InsuranceAgent`: {PK} `agentCode`, `agentName`, `agentTaxId`.\n3. `PolicyContract`: {PK} `policyNumber`, `coverageAmount`, `premiumCost`.\n4. Aloqalarni bog'lang:\n   - `InsuranceOffice` ⟷ `InsuranceAgent`: `1..1` va `0..*`\n   - `InsuranceAgent` ⟷ `PolicyContract`: `0..1` va `0..*`\n   - `InsuranceOffice` ⟷ `PolicyContract` (Direct): `1..1` va `1..*`",
+    "storyEn": "Insurance Company — Chasm Trap Resolution (InsuranceOffice, InsuranceAgent, PolicyContract) — Conceptual ER business case study.",
+    "instruction": "Sug'urta ofisi va polis o'rtasida to'g'ridan-to'g'ri aloqa bog'lab Chasm Trapni bartaraf qiling.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "MutualFund",
+          "name": "InsuranceOffice",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "fundRegNo",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "officeCode",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "fundRegNo",
+              "name": "officeCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "officeName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "regionPhone",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4261,27 +5532,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "SovereignWealthFund",
+          "name": "InsuranceAgent",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "sovereignCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "agentCode",
+          "x": 480,
+          "y": 120,
           "attributes": [
             {
-              "name": "sovereignCode",
+              "name": "agentCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "agentName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "agentTaxId",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4289,27 +5561,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "RetailInvestor",
+          "name": "PolicyContract",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "investorPassportNo",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "policyNumber",
+          "x": 300,
+          "y": 320,
           "attributes": [
             {
-              "name": "investorPassportNo",
+              "name": "policyNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "coverageAmount",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "premiumCost",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4317,76 +5590,145 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EmploysAgent",
+          "entity1": "InsuranceOffice",
+          "entity2": "InsuranceAgent",
+          "fromEntityName": "InsuranceOffice",
+          "toEntityName": "InsuranceAgent",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "BrokersPolicy",
+          "entity1": "InsuranceAgent",
+          "entity2": "PolicyContract",
+          "fromEntityName": "InsuranceAgent",
+          "toEntityName": "PolicyContract",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "RegistersPolicyDirect",
+          "entity1": "InsuranceOffice",
+          "entity2": "PolicyContract",
+          "fromEntityName": "InsuranceOffice",
+          "toEntityName": "PolicyContract",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "MutualFund",
-          "pk": "fundRegNo",
+          "name": "InsuranceOffice",
+          "pk": "officeCode",
           "attributes": [
             {
-              "name": "fundRegNo",
+              "name": "officeCode",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "officeName",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "regionPhone",
               "isPK": false
             }
           ]
         },
         {
-          "name": "SovereignWealthFund",
-          "pk": "sovereignCode",
+          "name": "InsuranceAgent",
+          "pk": "agentCode",
           "attributes": [
             {
-              "name": "sovereignCode",
+              "name": "agentCode",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "agentName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "agentTaxId",
               "isPK": false
             }
           ]
         },
         {
-          "name": "RetailInvestor",
-          "pk": "investorPassportNo",
+          "name": "PolicyContract",
+          "pk": "policyNumber",
           "attributes": [
             {
-              "name": "investorPassportNo",
+              "name": "policyNumber",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "coverageAmount",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "premiumCost",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "ShareholderEntity",
-          "superclasses": [
-            "MutualFund",
-            "SovereignWealthFund",
-            "RetailInvestor"
-          ],
-          "isUnion": true
+          "entity1": "InsuranceOffice",
+          "entity2": "InsuranceAgent",
+          "fromEntityName": "InsuranceOffice",
+          "toEntityName": "InsuranceAgent",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EmploysAgent",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "InsuranceAgent",
+          "entity2": "PolicyContract",
+          "fromEntityName": "InsuranceAgent",
+          "toEntityName": "PolicyContract",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "BrokersPolicy",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "InsuranceOffice",
+          "entity2": "PolicyContract",
+          "fromEntityName": "InsuranceOffice",
+          "toEntityName": "PolicyContract",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "RegistersPolicyDirect",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -4394,37 +5736,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 132,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "RunwayOperator Kategoriyasi (Union Type ∪)",
-    "story": "Aerodrom Uchish Yo'lagi faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Uchish yo'lagidan fuqaro aviakompaniyasi, harbiy eskadron yoki xususiy charter foydalanishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **CommercialAirline** (airlineIata {PK}), **AirForceSquadron** (militaryUnitCode {PK}) va **PrivateAirCharter** (charterFlightCert {PK}). Ular yagona umumiy **RunwayOperator** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'CommercialAirline', 'AirForceSquadron' va 'PrivateAirCharter' entitiylarini chizing va ularni 'RunwayOperator' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Bekzod Rahimov",
+    "clientRole": "Ucell Texnik Yordam Markazi Rahbari",
+    "clientAvatar": "📞",
+    "title": "Ucell Support — Chasm Trap Tuzog'i (Markaz, Texnik Xodim, Nosozlik Tiketi)",
+    "titleEn": "Telecom Support — Chasm Trap Resolution (SupportCenter, Technician, IncidentTicket)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nUyali aloqa operatorida mijoz murojaati bilan avtomatik ochilgan yangi tiketlar (**IncidentTicket**) navbatda turadi va hali birorta texnik xodimga (**SupportTechnician**) biriktirilmagan bo'ladi.\nAgar tiket faqat muhandis orqali markazga (**SupportCenter**) ulangan bo'lsa, navbatdagi tiketlar qaysi texnik markazga tegishli ekanligi noaniq qoladi (Chasm Trap).\nYechim: Markaz bilan barcha tiketlar o'rtasida to'g'ridan-to'g'ri qat'iy aloqa o'rnatiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `SupportCenter`: {PK} `centerId`, `centerName`, `supportShiftHours`.\n2. `SupportTechnician`: {PK} `techId`, `techName`, `expertiseSkill`.\n3. `IncidentTicket`: {PK} `ticketId`, `issueSeverity`, `openedTimestamp`.\n4. Aloqalarni bog'lang:\n   - `SupportCenter` ⟷ `SupportTechnician`: `1..1` va `0..*`\n   - `SupportTechnician` ⟷ `IncidentTicket`: `0..1` va `0..*`\n   - `SupportCenter` ⟷ `IncidentTicket` (Direct): `1..1` va `1..*`",
+    "storyEn": "Telecom Support — Chasm Trap Resolution (SupportCenter, Technician, IncidentTicket) — Conceptual ER business case study.",
+    "instruction": "Hali muhandisga berilmagan tiketlar yo'qolmasligi uchun Chasm Trapni to'g'ridan-to'g'ri aloqa bilan yeching.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "CommercialAirline",
+          "name": "SupportCenter",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "airlineIata",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "centerId",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "airlineIata",
+              "name": "centerId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "centerName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "supportShiftHours",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4432,27 +5778,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "AirForceSquadron",
+          "name": "SupportTechnician",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "militaryUnitCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "techId",
+          "x": 480,
+          "y": 120,
           "attributes": [
             {
-              "name": "militaryUnitCode",
+              "name": "techId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "techName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "expertiseSkill",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4460,27 +5807,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "PrivateAirCharter",
+          "name": "IncidentTicket",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "charterFlightCert",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "ticketId",
+          "x": 300,
+          "y": 320,
           "attributes": [
             {
-              "name": "charterFlightCert",
+              "name": "ticketId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "issueSeverity",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "openedTimestamp",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4488,76 +5836,145 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EmploysTech",
+          "entity1": "SupportCenter",
+          "entity2": "SupportTechnician",
+          "fromEntityName": "SupportCenter",
+          "toEntityName": "SupportTechnician",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "InvestigatesTicket",
+          "entity1": "SupportTechnician",
+          "entity2": "IncidentTicket",
+          "fromEntityName": "SupportTechnician",
+          "toEntityName": "IncidentTicket",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "LogsTicketDirect",
+          "entity1": "SupportCenter",
+          "entity2": "IncidentTicket",
+          "fromEntityName": "SupportCenter",
+          "toEntityName": "IncidentTicket",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "CommercialAirline",
-          "pk": "airlineIata",
+          "name": "SupportCenter",
+          "pk": "centerId",
           "attributes": [
             {
-              "name": "airlineIata",
+              "name": "centerId",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "centerName",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "supportShiftHours",
               "isPK": false
             }
           ]
         },
         {
-          "name": "AirForceSquadron",
-          "pk": "militaryUnitCode",
+          "name": "SupportTechnician",
+          "pk": "techId",
           "attributes": [
             {
-              "name": "militaryUnitCode",
+              "name": "techId",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "techName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "expertiseSkill",
               "isPK": false
             }
           ]
         },
         {
-          "name": "PrivateAirCharter",
-          "pk": "charterFlightCert",
+          "name": "IncidentTicket",
+          "pk": "ticketId",
           "attributes": [
             {
-              "name": "charterFlightCert",
+              "name": "ticketId",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "issueSeverity",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "openedTimestamp",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "RunwayOperator",
-          "superclasses": [
-            "CommercialAirline",
-            "AirForceSquadron",
-            "PrivateAirCharter"
-          ],
-          "isUnion": true
+          "entity1": "SupportCenter",
+          "entity2": "SupportTechnician",
+          "fromEntityName": "SupportCenter",
+          "toEntityName": "SupportTechnician",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EmploysTech",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SupportTechnician",
+          "entity2": "IncidentTicket",
+          "fromEntityName": "SupportTechnician",
+          "toEntityName": "IncidentTicket",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "InvestigatesTicket",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SupportCenter",
+          "entity2": "IncidentTicket",
+          "fromEntityName": "SupportCenter",
+          "toEntityName": "IncidentTicket",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "LogsTicketDirect",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -4565,37 +5982,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 133,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "TelecomSubscriber Kategoriyasi (Union Type ∪)",
-    "story": "Telekom Abonentlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Aloqa tarmog'i abonenti jismoniy fuqaro, korporativ kompaniya yoki IoT smart qurilmasi bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **IndividualSubscriber** (personalId {PK}), **CorporateSubscriber** (companyInn {PK}) va **IotDeviceGateway** (macAddressDevice {PK}). Ular yagona umumiy **TelecomSubscriber** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'IndividualSubscriber', 'CorporateSubscriber' va 'IotDeviceGateway' entitiylarini chizing va ularni 'TelecomSubscriber' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Sayyora Karimova",
+    "clientRole": "O'zbekturizm Ekskursiyalar Koordinatori",
+    "clientAvatar": "🗺️",
+    "title": "Sayyohlik Agentligi — Chasm Trap Tuzog'i (Agentlik, Gid, Turistik Guruh)",
+    "titleEn": "Tourism Agency — Chasm Trap Resolution (TourBranch, TourGuide, TravelGroup)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nTarixiy shaharlar bo'ylab sayohat guruhlari (**TravelGroup**) ichida mustaqil erkin sayohat qiluvchi guruhlar ham bor va ularga gid (**TourGuide**) biriktirilmaydi.\nAgar sayyohlik guruhi faqat gid orqali agentlikka (**TourBranch**) ulangan bo'lsa, gidsiz guruhlar qaysi agentlikka tegishliligi ko'rinmay qoladi (Chasm Trap).\nYechim: Agentlik va sayohat guruhi o'rtasida to'g'ridan-to'g'ri nazorat aloqasi o'rnatiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `TourBranch`: {PK} `branchCode`, `branchCity`, `hotlinePhone`.\n2. `TourGuide`: {PK} `guideBadge`, `guideName`, `spokenLanguages`.\n3. `TravelGroup`: {PK} `groupCode`, `groupSize`, `startDate`.\n4. Aloqalarni bog'lang:\n   - `TourBranch` ⟷ `TourGuide`: `1..1` va `0..*`\n   - `TourGuide` ⟷ `TravelGroup`: `0..1` va `0..*`\n   - `TourBranch` ⟷ `TravelGroup` (Direct): `1..1` va `1..*`",
+    "storyEn": "Tourism Agency — Chasm Trap Resolution (TourBranch, TourGuide, TravelGroup) — Conceptual ER business case study.",
+    "instruction": "Gid tayinlanmagan mustaqil sayohat guruhlari uchun Chasm Trapni bartaraf qiluvchi aloqani o'rnating.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "IndividualSubscriber",
+          "name": "TourBranch",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "personalId",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "branchCode",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "personalId",
+              "name": "branchCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "branchCity",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "hotlinePhone",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4603,27 +6024,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "CorporateSubscriber",
+          "name": "TourGuide",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "companyInn",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "guideBadge",
+          "x": 480,
+          "y": 120,
           "attributes": [
             {
-              "name": "companyInn",
+              "name": "guideBadge",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "guideName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "spokenLanguages",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4631,27 +6053,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "IotDeviceGateway",
+          "name": "TravelGroup",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "macAddressDevice",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "groupCode",
+          "x": 300,
+          "y": 320,
           "attributes": [
             {
-              "name": "macAddressDevice",
+              "name": "groupCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "groupSize",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "startDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4659,76 +6082,145 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ContractsGuide",
+          "entity1": "TourBranch",
+          "entity2": "TourGuide",
+          "fromEntityName": "TourBranch",
+          "toEntityName": "TourGuide",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AccompaniesGroup",
+          "entity1": "TourGuide",
+          "entity2": "TravelGroup",
+          "fromEntityName": "TourGuide",
+          "toEntityName": "TravelGroup",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "OrganizesGroupDirect",
+          "entity1": "TourBranch",
+          "entity2": "TravelGroup",
+          "fromEntityName": "TourBranch",
+          "toEntityName": "TravelGroup",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "IndividualSubscriber",
-          "pk": "personalId",
+          "name": "TourBranch",
+          "pk": "branchCode",
           "attributes": [
             {
-              "name": "personalId",
+              "name": "branchCode",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "branchCity",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "hotlinePhone",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CorporateSubscriber",
-          "pk": "companyInn",
+          "name": "TourGuide",
+          "pk": "guideBadge",
           "attributes": [
             {
-              "name": "companyInn",
+              "name": "guideBadge",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "guideName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "spokenLanguages",
               "isPK": false
             }
           ]
         },
         {
-          "name": "IotDeviceGateway",
-          "pk": "macAddressDevice",
+          "name": "TravelGroup",
+          "pk": "groupCode",
           "attributes": [
             {
-              "name": "macAddressDevice",
+              "name": "groupCode",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "groupSize",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "startDate",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "TelecomSubscriber",
-          "superclasses": [
-            "IndividualSubscriber",
-            "CorporateSubscriber",
-            "IotDeviceGateway"
-          ],
-          "isUnion": true
+          "entity1": "TourBranch",
+          "entity2": "TourGuide",
+          "fromEntityName": "TourBranch",
+          "toEntityName": "TourGuide",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ContractsGuide",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "TourGuide",
+          "entity2": "TravelGroup",
+          "fromEntityName": "TourGuide",
+          "toEntityName": "TravelGroup",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "AccompaniesGroup",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "TourBranch",
+          "entity2": "TravelGroup",
+          "fromEntityName": "TourBranch",
+          "toEntityName": "TravelGroup",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "OrganizesGroupDirect",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -4736,37 +6228,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 134,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "GrantFunder Kategoriyasi (Union Type ∪)",
-    "story": "Ilmiy Grantlar faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Grant moliyalashtiruvchisi davlat ilmiy agentligi, IT konsorsium yoki xalqaro fond bo'lishi mumkin. Tizimda uchta mustaqil entitiy mavjud: **StateScienceAgency** (govAgencyId {PK}), **TechConsortium** (consortiumInn {PK}) va **GlobalFoundation** (foundationRegNo {PK}). Ular yagona umumiy **GrantFunder** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'StateScienceAgency', 'TechConsortium' va 'GlobalFoundation' entitiylarini chizing va ularni 'GrantFunder' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Sanjar Ahmedov",
+    "clientRole": "Ipak Yo'li Bank Chakana Kredit Boshlig'i",
+    "clientAvatar": "💳",
+    "title": "Ipak Yo'li Bank — Chasm Trap Tuzog'i (Filial, Kredit Ofitseri, Ariza)",
+    "titleEn": "Commercial Bank — Chasm Trap Resolution (BankBranch, CreditOfficer, LoanApplication)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nBank mobil ilovasi orqali tushgan kredit arizalari (**LoanApplication**) dastlab avtomatlashtirilgan navbatda turadi va hali kredit mutaxassisiga (**CreditOfficer**) taqsimlanmagan bo'ladi.\nAgar ariza faqat ofitser orqali filialga (**BankBranch**) bog'langan bo'lsa, navbatdagi arizalar qaysi filial portfeliga tegishliligi yo'qoladi (Chasm Trap).\nYechim: Bank filiali bilan arizalar o'rtasida to'g'ridan-to'g'ri hisobga olish aloqasi o'rnatiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `BankBranch`: {PK} `branchMfo`, `branchTitle`, `vaultLocation`.\n2. `CreditOfficer`: {PK} `officerId`, `officerName`, `creditApprovalLimit`.\n3. `LoanApplication`: {PK} `appRegNumber`, `requestedSum`, `applicationDate`.\n4. Aloqalarni bog'lang:\n   - `BankBranch` ⟷ `CreditOfficer`: `1..1` va `0..*`\n   - `CreditOfficer` ⟷ `LoanApplication`: `0..1` va `0..*`\n   - `BankBranch` ⟷ `LoanApplication` (Direct): `1..1` va `1..*`",
+    "storyEn": "Commercial Bank — Chasm Trap Resolution (BankBranch, CreditOfficer, LoanApplication) — Conceptual ER business case study.",
+    "instruction": "Kredit mutaxassisi hali taqsimlanmagan arizalar yo'qolmasligi uchun to'g'ridan-to'g'ri aloqani bog'lang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "StateScienceAgency",
+          "name": "BankBranch",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "govAgencyId",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "branchMfo",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "govAgencyId",
+              "name": "branchMfo",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "branchTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "vaultLocation",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4774,27 +6270,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "TechConsortium",
+          "name": "CreditOfficer",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "consortiumInn",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "officerId",
+          "x": 480,
+          "y": 120,
           "attributes": [
             {
-              "name": "consortiumInn",
+              "name": "officerId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "officerName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "creditApprovalLimit",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4802,27 +6299,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "GlobalFoundation",
+          "name": "LoanApplication",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "foundationRegNo",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "appRegNumber",
+          "x": 300,
+          "y": 320,
           "attributes": [
             {
-              "name": "foundationRegNo",
+              "name": "appRegNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "requestedSum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "applicationDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4830,76 +6328,145 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "AppointsOfficer",
+          "entity1": "BankBranch",
+          "entity2": "CreditOfficer",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "CreditOfficer",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "AssessesLoan",
+          "entity1": "CreditOfficer",
+          "entity2": "LoanApplication",
+          "fromEntityName": "CreditOfficer",
+          "toEntityName": "LoanApplication",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "ReceivesAppDirect",
+          "entity1": "BankBranch",
+          "entity2": "LoanApplication",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "LoanApplication",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "StateScienceAgency",
-          "pk": "govAgencyId",
+          "name": "BankBranch",
+          "pk": "branchMfo",
           "attributes": [
             {
-              "name": "govAgencyId",
+              "name": "branchMfo",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "branchTitle",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "vaultLocation",
               "isPK": false
             }
           ]
         },
         {
-          "name": "TechConsortium",
-          "pk": "consortiumInn",
+          "name": "CreditOfficer",
+          "pk": "officerId",
           "attributes": [
             {
-              "name": "consortiumInn",
+              "name": "officerId",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "officerName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "creditApprovalLimit",
               "isPK": false
             }
           ]
         },
         {
-          "name": "GlobalFoundation",
-          "pk": "foundationRegNo",
+          "name": "LoanApplication",
+          "pk": "appRegNumber",
           "attributes": [
             {
-              "name": "foundationRegNo",
+              "name": "appRegNumber",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "requestedSum",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "applicationDate",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "GrantFunder",
-          "superclasses": [
-            "StateScienceAgency",
-            "TechConsortium",
-            "GlobalFoundation"
-          ],
-          "isUnion": true
+          "entity1": "BankBranch",
+          "entity2": "CreditOfficer",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "CreditOfficer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AppointsOfficer",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CreditOfficer",
+          "entity2": "LoanApplication",
+          "fromEntityName": "CreditOfficer",
+          "toEntityName": "LoanApplication",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "AssessesLoan",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "BankBranch",
+          "entity2": "LoanApplication",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "LoanApplication",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "ReceivesAppDirect",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -4907,37 +6474,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 135,
     "sector": 9,
-    "difficulty": "9-Qavat • Professional (Kategoriya ∪)",
-    "clientName": "Bosh Maslahatchi",
-    "clientRole": "Tizim Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "TenderBidder Kategoriyasi (Union Type ∪)",
-    "story": "Davlat Tenderlari faoliyatida turli xil mustaqil superklasslarni yagona toifaga birlashtiruvchi Kategoriya (Union Type ∪) kerak: Tenderda qatnashuvchi muhandislik konsortsiumi, qurilish korxonasi yoki shahar kommunal korxonasi bo'la oladi. Tizimda uchta mustaqil entitiy mavjud: **EngineeringConsortium** (consortiumCode {PK}), **ConstructionCorp** (builderInn {PK}) va **MunicipalUtility** (utilityBranchNo {PK}). Ular yagona umumiy **TenderBidder** kategoriyasiga (Union Type ∪) birlashtiriladi.",
-    "instruction": "'EngineeringConsortium', 'ConstructionCorp' va 'MunicipalUtility' entitiylarini chizing va ularni 'TenderBidder' Union Type (∪) kategoriyasiga birlashtiring.",
+    "difficulty": "Qiyin",
+    "clientName": "Nasiba Ochilova",
+    "clientRole": "Sharq Nashriyoti Bosh Muharriri",
+    "clientAvatar": "📚",
+    "title": "Sharq Nashriyoti — Chasm Trap Tuzog'i (Nashriyot, Muharrir, Qo'lyozma)",
+    "titleEn": "Publishing House — Chasm Trap Resolution (PublishingHouse, LiteraryEditor, BookManuscript)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nNashriyotga mualliflar tomonidan topshirilgan yangi kitob qo'lyozmalari (**BookManuscript**) dastlab ro'yxatdan o'tadi va ko'rib chiqish uchun muharrirga (**LiteraryEditor**) darhol biriktirilmasligi mumkin.\nAgar qo'lyozma faqat muharrir orqali nashriyotga (**PublishingHouse**) bog'lansa, muharrirsiz yangi qo'lyozmalar nashriyot arxiv tizimidan yo'qolib qoladi (Chasm Trap).\nYechim: Nashriyot va qo'lyozma o'rtasida to'g'ridan-to'g'ri ro'yxatga olish aloqasi o'rnatiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `PublishingHouse`: {PK} `publisherInn`, `houseName`, `editorialOffice`.\n2. `LiteraryEditor`: {PK} `editorId`, `editorName`, `genreSpecialty`.\n3. `BookManuscript`: {PK} `isbnProposal`, `manuscriptTitle`, `pageCount`.\n4. Aloqalarni bog'lang:\n   - `PublishingHouse` ⟷ `LiteraryEditor`: `1..1` va `0..*`\n   - `LiteraryEditor` ⟷ `BookManuscript`: `0..1` va `0..*`\n   - `PublishingHouse` ⟷ `BookManuscript` (Direct): `1..1` va `1..*`",
+    "storyEn": "Publishing House — Chasm Trap Resolution (PublishingHouse, LiteraryEditor, BookManuscript) — Conceptual ER business case study.",
+    "instruction": "Muharrir biriktirilmagan yangi qo'lyozmalar uchun Chasm Trapni to'g'ridan-to'g'ri aloqa bilan yeching.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "EngineeringConsortium",
+          "name": "PublishingHouse",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "consortiumCode",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "publisherInn",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "consortiumCode",
+              "name": "publisherInn",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "nameOrTitle",
+              "name": "houseName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "regDate",
+              "name": "editorialOffice",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4945,27 +6516,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "ConstructionCorp",
+          "name": "LiteraryEditor",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "builderInn",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "editorId",
+          "x": 480,
+          "y": 120,
           "attributes": [
             {
-              "name": "builderInn",
+              "name": "editorId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "licenseCode",
+              "name": "editorName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "contactEmail",
+              "name": "genreSpecialty",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4973,27 +6545,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "MunicipalUtility",
+          "name": "BookManuscript",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "utilityBranchNo",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "isbnProposal",
+          "x": 300,
+          "y": 320,
           "attributes": [
             {
-              "name": "utilityBranchNo",
+              "name": "isbnProposal",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "charterNumber",
+              "name": "manuscriptTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "taxStatus",
+              "name": "pageCount",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5001,76 +6574,145 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         }
       ],
-      "relationships": [],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EmploysEditor",
+          "entity1": "PublishingHouse",
+          "entity2": "LiteraryEditor",
+          "fromEntityName": "PublishingHouse",
+          "toEntityName": "LiteraryEditor",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "EditsManuscript",
+          "entity1": "LiteraryEditor",
+          "entity2": "BookManuscript",
+          "fromEntityName": "LiteraryEditor",
+          "toEntityName": "BookManuscript",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "AcceptsManuscriptDirect",
+          "entity1": "PublishingHouse",
+          "entity2": "BookManuscript",
+          "fromEntityName": "PublishingHouse",
+          "toEntityName": "BookManuscript",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
       "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "EngineeringConsortium",
-          "pk": "consortiumCode",
+          "name": "PublishingHouse",
+          "pk": "publisherInn",
           "attributes": [
             {
-              "name": "consortiumCode",
+              "name": "publisherInn",
               "isPK": true
             },
             {
-              "name": "nameOrTitle",
+              "name": "houseName",
               "isPK": false
             },
             {
-              "name": "regDate",
+              "name": "editorialOffice",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ConstructionCorp",
-          "pk": "builderInn",
+          "name": "LiteraryEditor",
+          "pk": "editorId",
           "attributes": [
             {
-              "name": "builderInn",
+              "name": "editorId",
               "isPK": true
             },
             {
-              "name": "licenseCode",
+              "name": "editorName",
               "isPK": false
             },
             {
-              "name": "contactEmail",
+              "name": "genreSpecialty",
               "isPK": false
             }
           ]
         },
         {
-          "name": "MunicipalUtility",
-          "pk": "utilityBranchNo",
+          "name": "BookManuscript",
+          "pk": "isbnProposal",
           "attributes": [
             {
-              "name": "utilityBranchNo",
+              "name": "isbnProposal",
               "isPK": true
             },
             {
-              "name": "charterNumber",
+              "name": "manuscriptTitle",
               "isPK": false
             },
             {
-              "name": "taxStatus",
+              "name": "pageCount",
               "isPK": false
             }
           ]
         }
       ],
-      "relationships": [],
-      "categories": [
+      "relationships": [
         {
-          "name": "TenderBidder",
-          "superclasses": [
-            "EngineeringConsortium",
-            "ConstructionCorp",
-            "MunicipalUtility"
-          ],
-          "isUnion": true
+          "entity1": "PublishingHouse",
+          "entity2": "LiteraryEditor",
+          "fromEntityName": "PublishingHouse",
+          "toEntityName": "LiteraryEditor",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "EmploysEditor",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "LiteraryEditor",
+          "entity2": "BookManuscript",
+          "fromEntityName": "LiteraryEditor",
+          "toEntityName": "BookManuscript",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "EditsManuscript",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "PublishingHouse",
+          "entity2": "BookManuscript",
+          "fromEntityName": "PublishingHouse",
+          "toEntityName": "BookManuscript",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "AcceptsManuscriptDirect",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -5078,65 +6720,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 136,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "Airport Korporativ Arxitekturasi",
-    "story": "Xalqaro Aeroport Majmuasi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Airport** (iataCode {PK}), **Terminal** (terminalId {PK}), **FlightSchedule** (flightNo {PK}) va **PassengerBooking** (bookingRef {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'Airport', 'Terminal', 'FlightSchedule' va 'PassengerBooking' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Sardor Jalolov",
+    "clientRole": "Toshkent Xalqaro Aeroporti IT Direktori",
+    "clientAvatar": "🛫",
+    "title": "Toshkent Aeroporti — Parvozlar, Yo'lovchilar va Qo'nish Talonlari (Flight Boarding Lifecycle)",
+    "titleEn": "Tashkent International Airport — Flight, Passenger and Boarding Pass Master ER",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nToshkent xalqaro aeroportida parvozlar va yo'lovchilar boshqaruvi 4 ta asosiy entitiy orqali amalga oshiriladi:\n1. **CommercialAirline** (Aviakompaniya) — aviaqatnovlarni rejalashtiradi va boshqaradi.\n2. **FlightSchedule** (Aviaqatnov) — muayyan sana va marshrutdagi reys.\n3. **FlightPassenger** (Yo'lovchi) — chipta egasi bo'lgan jismoniy shaxs.\n4. **BoardingPass** (Qo'nish Taloni) — yo'lovchining samolyotga chiqish va o'rindiqni band qilish hujjati.\nAviakompaniya bir nechta reyslarni amalga oshiradi (`1..1` ⟷ `1..*`). Har bir reys bo'yicha yo'lovchilarga qo'nish talonlari beriladi (`1..1` ⟷ `0..*`). Har bir yo'lovchi o'z navbatida qo'nish talonlariga ega bo'ladi (`1..1` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `CommercialAirline`: {PK} `airlineCode`, `airlineName`, `countryHQ`.\n2. `FlightSchedule`: {PK} `flightNumber`, `originIata`, `destIata`, `departureTime`.\n3. `FlightPassenger`: {PK} `passportNumber`, `passengerName`, `nationality`.\n4. `BoardingPass`: {PK} `boardingPassId`, `seatNumber`, `gateNumber`, `isBoarded`.\n5. 3 ta munosabatni to'g'ri multiplisitiyalar bilan bog'lang:\n   - `CommercialAirline` ⟷ `FlightSchedule`: `1..1` va `1..*`\n   - `FlightSchedule` ⟷ `BoardingPass`: `1..1` va `0..*`\n   - `FlightPassenger` ⟷ `BoardingPass`: `1..1` va `0..*`",
+    "storyEn": "Tashkent International Airport — Flight, Passenger and Boarding Pass Master ER — Conceptual ER business case study.",
+    "instruction": "Aeroportning aviakompaniya, reys, yo'lovchi va qo'nish taloni korxona modelini barpo qiling.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Airport",
+          "name": "CommercialAirline",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "iataCode",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "airlineCode",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "iataCode",
+              "name": "airlineCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "airportName",
+              "name": "airlineName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "cityLocation",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "Terminal",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "terminalId",
-          "x": 550,
-          "y": 90,
-          "attributes": [
-            {
-              "name": "terminalId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "gateCount",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "capacity",
+              "name": "countryHQ",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5147,18 +6765,19 @@ _scope.EER_CLIENTS_101_150 = [
           "name": "FlightSchedule",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "flightNo",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "flightNumber",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "flightNo",
+              "name": "flightNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "depTime",
+              "name": "originIata",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5168,19 +6787,26 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false,
               "isPPK": false,
               "isFK": false
+            },
+            {
+              "name": "departureTime",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
-          "name": "PassengerBooking",
+          "name": "FlightPassenger",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "bookingRef",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "passportNumber",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "bookingRef",
+              "name": "passportNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
@@ -5192,7 +6818,42 @@ _scope.EER_CLIENTS_101_150 = [
               "isFK": false
             },
             {
-              "name": "seatNo",
+              "name": "nationality",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "BoardingPass",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "boardingPassId",
+          "x": 450,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "boardingPassId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "seatNumber",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "gateNumber",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "isBoarded",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5203,39 +6864,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "Airport",
-          "entity2": "Terminal",
-          "fromEntityName": "Airport",
-          "toEntityName": "Terminal",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": false,
-          "isDirect": true
-        },
-        {
-          "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "Terminal",
+          "name": "OperatesFlight",
+          "entity1": "CommercialAirline",
           "entity2": "FlightSchedule",
-          "fromEntityName": "Terminal",
+          "fromEntityName": "CommercialAirline",
           "toEntityName": "FlightSchedule",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
-          "id": "rel_3",
-          "name": "Rel3",
+          "id": "rel_2",
+          "name": "IssuesPass",
           "entity1": "FlightSchedule",
-          "entity2": "PassengerBooking",
+          "entity2": "BoardingPass",
           "fromEntityName": "FlightSchedule",
-          "toEntityName": "PassengerBooking",
+          "toEntityName": "BoardingPass",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_3",
+          "name": "HoldsPass",
+          "entity1": "FlightPassenger",
+          "entity2": "BoardingPass",
+          "fromEntityName": "FlightPassenger",
+          "toEntityName": "BoardingPass",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -5243,65 +6910,51 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Airport",
-          "pk": "iataCode",
+          "name": "CommercialAirline",
+          "pk": "airlineCode",
           "attributes": [
             {
-              "name": "iataCode",
+              "name": "airlineCode",
               "isPK": true
             },
             {
-              "name": "airportName",
+              "name": "airlineName",
               "isPK": false
             },
             {
-              "name": "cityLocation",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "Terminal",
-          "pk": "terminalId",
-          "attributes": [
-            {
-              "name": "terminalId",
-              "isPK": true
-            },
-            {
-              "name": "gateCount",
-              "isPK": false
-            },
-            {
-              "name": "capacity",
+              "name": "countryHQ",
               "isPK": false
             }
           ]
         },
         {
           "name": "FlightSchedule",
-          "pk": "flightNo",
+          "pk": "flightNumber",
           "attributes": [
             {
-              "name": "flightNo",
+              "name": "flightNumber",
               "isPK": true
             },
             {
-              "name": "depTime",
+              "name": "originIata",
               "isPK": false
             },
             {
               "name": "destIata",
               "isPK": false
+            },
+            {
+              "name": "departureTime",
+              "isPK": false
             }
           ]
         },
         {
-          "name": "PassengerBooking",
-          "pk": "bookingRef",
+          "name": "FlightPassenger",
+          "pk": "passportNumber",
           "attributes": [
             {
-              "name": "bookingRef",
+              "name": "passportNumber",
               "isPK": true
             },
             {
@@ -5309,7 +6962,29 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "seatNo",
+              "name": "nationality",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "BoardingPass",
+          "pk": "boardingPassId",
+          "attributes": [
+            {
+              "name": "boardingPassId",
+              "isPK": true
+            },
+            {
+              "name": "seatNumber",
+              "isPK": false
+            },
+            {
+              "name": "gateNumber",
+              "isPK": false
+            },
+            {
+              "name": "isBoarded",
               "isPK": false
             }
           ]
@@ -5317,25 +6992,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Airport",
-          "entity2": "Terminal",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Rel1"
-        },
-        {
-          "entity1": "Terminal",
+          "entity1": "CommercialAirline",
           "entity2": "FlightSchedule",
+          "fromEntityName": "CommercialAirline",
+          "toEntityName": "FlightSchedule",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel2"
+          "name": "OperatesFlight",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "FlightSchedule",
-          "entity2": "PassengerBooking",
+          "entity2": "BoardingPass",
+          "fromEntityName": "FlightSchedule",
+          "toEntityName": "BoardingPass",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "IssuesPass",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "FlightPassenger",
+          "entity2": "BoardingPass",
+          "fromEntityName": "FlightPassenger",
+          "toEntityName": "BoardingPass",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "HoldsPass",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -5343,53 +7033,29 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 137,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "CentralBank Korporativ Arxitekturasi",
-    "story": "Markaziy Bank Kliringi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **CentralBank** (bankCode {PK}), **CommercialBank** (bikNumber {PK}), **SettlementAccount** (accNo {PK}) va **ClearingTx** (txRef {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'CentralBank', 'CommercialBank', 'SettlementAccount' va 'ClearingTx' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Dilshod Fayziyev",
+    "clientRole": "O'zbekiston Markaziy Banki Kliring Markazi Rahbari",
+    "clientAvatar": "🏦",
+    "title": "Markaziy Bank — Banklararo Kliring va Tranzaksiyalar (National Clearing System)",
+    "titleEn": "Central Bank — Interbank Clearing & Settlement Architecture",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nMarkaziy Bankning banklararo milliy hisob-kitoblar tizimi quyidagi 4 bo'g'indan tashkil topgan:\n1. **CommercialBank** — litsenziyaga ega bosh bank muassasasi.\n2. **BankBranch** — hududiy bank filiali (MFO).\n3. **CustomerAccount** — mijozning 20 xonali bank hisobraqami.\n4. **ClearingTransaction** — banklararo kliring orqali o'tgan pul o'tkazmasi.\nBank filiallar ochadi (`1..1` ⟷ `1..*`), filial hisobraqamlar ochadi (`1..1` ⟷ `1..*`), hisobraqam orqali kliring tranzaksiyalari yuboriladi (`1..1` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `CommercialBank`: {PK} `bankLicenseCode`, `bankName`, `capitalSum`.\n2. `BankBranch`: {PK} `mfoCode`, `branchTitle`, `cityAddress`.\n3. `CustomerAccount`: {PK} `account20`, `currencyCode`, `currentBalance`.\n4. `ClearingTransaction`: {PK} `transRefNumber`, `transAmount`, `settledAt`.\n5. 3 ta munosabatni ketma-ketlikda bog'lang:\n   - `CommercialBank` ⟷ `BankBranch`: `1..1` va `1..*`\n   - `BankBranch` ⟷ `CustomerAccount`: `1..1` va `1..*`\n   - `CustomerAccount` ⟷ `ClearingTransaction`: `1..1` va `0..*`",
+    "storyEn": "Central Bank — Interbank Clearing & Settlement Architecture — Conceptual ER business case study.",
+    "instruction": "Markaziy Bank kliring tizimi ierarxiyasini to'g'ri multiplisitiyalar bilan yakunlang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
-        {
-          "name": "CentralBank",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "bankCode",
-          "x": 130,
-          "y": 90,
-          "attributes": [
-            {
-              "name": "bankCode",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "officialTitle",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "goldReserveTons",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
         {
           "name": "CommercialBank",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "bikNumber",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "bankLicenseCode",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "bikNumber",
+              "name": "bankLicenseCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
@@ -5409,27 +7075,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "SettlementAccount",
+          "name": "BankBranch",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "accNo",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "mfoCode",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "accNo",
+              "name": "mfoCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "currency",
+              "name": "branchTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "balance",
+              "name": "cityAddress",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5437,27 +7104,57 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "ClearingTx",
+          "name": "CustomerAccount",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "txRef",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "account20",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "txRef",
+              "name": "account20",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "transferSum",
+              "name": "currencyCode",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "timestamp",
+              "name": "currentBalance",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "ClearingTransaction",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "transRefNumber",
+          "x": 450,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "transRefNumber",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "transAmount",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "settledAt",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5468,39 +7165,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "CentralBank",
-          "entity2": "CommercialBank",
-          "fromEntityName": "CentralBank",
-          "toEntityName": "CommercialBank",
+          "name": "OperatesBranch",
+          "entity1": "CommercialBank",
+          "entity2": "BankBranch",
+          "fromEntityName": "CommercialBank",
+          "toEntityName": "BankBranch",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "CommercialBank",
-          "entity2": "SettlementAccount",
-          "fromEntityName": "CommercialBank",
-          "toEntityName": "SettlementAccount",
+          "name": "MaintainsAccount",
+          "entity1": "BankBranch",
+          "entity2": "CustomerAccount",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "CustomerAccount",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "SettlementAccount",
-          "entity2": "ClearingTx",
-          "fromEntityName": "SettlementAccount",
-          "toEntityName": "ClearingTx",
+          "name": "ExecutesTrans",
+          "entity1": "CustomerAccount",
+          "entity2": "ClearingTransaction",
+          "fromEntityName": "CustomerAccount",
+          "toEntityName": "ClearingTransaction",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -5508,29 +7211,11 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "CentralBank",
-          "pk": "bankCode",
-          "attributes": [
-            {
-              "name": "bankCode",
-              "isPK": true
-            },
-            {
-              "name": "officialTitle",
-              "isPK": false
-            },
-            {
-              "name": "goldReserveTons",
-              "isPK": false
-            }
-          ]
-        },
-        {
           "name": "CommercialBank",
-          "pk": "bikNumber",
+          "pk": "bankLicenseCode",
           "attributes": [
             {
-              "name": "bikNumber",
+              "name": "bankLicenseCode",
               "isPK": true
             },
             {
@@ -5544,37 +7229,55 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "SettlementAccount",
-          "pk": "accNo",
+          "name": "BankBranch",
+          "pk": "mfoCode",
           "attributes": [
             {
-              "name": "accNo",
+              "name": "mfoCode",
               "isPK": true
             },
             {
-              "name": "currency",
+              "name": "branchTitle",
               "isPK": false
             },
             {
-              "name": "balance",
+              "name": "cityAddress",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ClearingTx",
-          "pk": "txRef",
+          "name": "CustomerAccount",
+          "pk": "account20",
           "attributes": [
             {
-              "name": "txRef",
+              "name": "account20",
               "isPK": true
             },
             {
-              "name": "transferSum",
+              "name": "currencyCode",
               "isPK": false
             },
             {
-              "name": "timestamp",
+              "name": "currentBalance",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ClearingTransaction",
+          "pk": "transRefNumber",
+          "attributes": [
+            {
+              "name": "transRefNumber",
+              "isPK": true
+            },
+            {
+              "name": "transAmount",
+              "isPK": false
+            },
+            {
+              "name": "settledAt",
               "isPK": false
             }
           ]
@@ -5582,25 +7285,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "CentralBank",
-          "entity2": "CommercialBank",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Rel1"
-        },
-        {
           "entity1": "CommercialBank",
-          "entity2": "SettlementAccount",
+          "entity2": "BankBranch",
+          "fromEntityName": "CommercialBank",
+          "toEntityName": "BankBranch",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel2"
+          "name": "OperatesBranch",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "SettlementAccount",
-          "entity2": "ClearingTx",
+          "entity1": "BankBranch",
+          "entity2": "CustomerAccount",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "CustomerAccount",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "name": "MaintainsAccount",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CustomerAccount",
+          "entity2": "ClearingTransaction",
+          "fromEntityName": "CustomerAccount",
+          "toEntityName": "ClearingTransaction",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "ExecutesTrans",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -5608,50 +7326,26 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 138,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "Hospital Korporativ Arxitekturasi",
-    "story": "Onkologiya Gospitali bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Hospital** (hospId {PK}), **SpecializedWard** (wardCode {PK}), **SpecializedDoctor** (licenseId {PK}) va **PatientCourse** (courseId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'Hospital', 'SpecializedWard', 'SpecializedDoctor' va 'PatientCourse' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Prof. Jahongir Otajonov",
+    "clientRole": "Respublika Xirurgiya Markazi Bosh Shifokori",
+    "clientAvatar": "🏥",
+    "title": "Xirurgiya Markazi — Bo'lim, Palata, Bemor Yozuvi va Operatsiya (Hospital Inpatient Surgery)",
+    "titleEn": "Surgical Center — Ward, Bed, Inpatient Record & Surgical Procedure",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKlinikada statsionar davolanish va jarrohlik amaliyotlari 4 ta korxona entitiysida ifodalanadi:\n1. **MedicalWard** — statsionar bo'lim (masalan, Kardioxirurgiya).\n2. **HospitalBed** — bo'limdagi maxsus yotoq joyi.\n3. **InpatientRecord** — yotoqqa yotqizilgan bemorning kasallik tarixi.\n4. **SurgicalProcedure** — bemor ustida o'tkazilgan operatsiya.\nBo'lim yotoqlarga ega (`1..1` ⟷ `1..*`). Yotoqda vaqt o'tishi bilan statsionar yozuvlar ro'yxatga olinadi (`1..1` ⟷ `0..*`). Statsionar yozuv doirasida jarrohlik amaliyotlari bajariladi (`1..1` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `MedicalWard`: {PK} `wardCode`, `wardName`, `floorNumber`.\n2. `HospitalBed`: {PK} `bedNumber`, `bedType`, `isOccupied`.\n3. `InpatientRecord`: {PK} `recordCardId`, `admissionDate`, `dischargeDate`.\n4. `SurgicalProcedure`: {PK} `surgeryId`, `operationType`, `durationHours`.\n5. Munosabatlarni bog'lang:\n   - `MedicalWard` ⟷ `HospitalBed`: `1..1` va `1..*`\n   - `HospitalBed` ⟷ `InpatientRecord`: `1..1` va `0..*`\n   - `InpatientRecord` ⟷ `SurgicalProcedure`: `1..1` va `0..*`",
+    "storyEn": "Surgical Center — Ward, Bed, Inpatient Record & Surgical Procedure — Conceptual ER business case study.",
+    "instruction": "Kasalxona statsionar bo'limi, yotoq, bemor tarixi va jarrohlik operatsiyasi modelini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Hospital",
+          "name": "MedicalWard",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "hospId",
-          "x": 130,
-          "y": 90,
-          "attributes": [
-            {
-              "name": "hospId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "hospName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "address",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "SpecializedWard",
-          "isWeak": false,
-          "isAssociative": false,
+          "isSubclass": false,
           "pk": "wardCode",
-          "x": 550,
-          "y": 90,
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
               "name": "wardCode",
@@ -5666,7 +7360,7 @@ _scope.EER_CLIENTS_101_150 = [
               "isFK": false
             },
             {
-              "name": "beds",
+              "name": "floorNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5674,27 +7368,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "SpecializedDoctor",
+          "name": "HospitalBed",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "licenseId",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "bedNumber",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "licenseId",
+              "name": "bedNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "docName",
+              "name": "bedType",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "specialty",
+              "name": "isOccupied",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5702,27 +7397,57 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "PatientCourse",
+          "name": "InpatientRecord",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "courseId",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "recordCardId",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "courseId",
+              "name": "recordCardId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "protocol",
+              "name": "admissionDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "startDate",
+              "name": "dischargeDate",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "SurgicalProcedure",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "surgeryId",
+          "x": 450,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "surgeryId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "operationType",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "durationHours",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5733,39 +7458,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "Hospital",
-          "entity2": "SpecializedWard",
-          "fromEntityName": "Hospital",
-          "toEntityName": "SpecializedWard",
+          "name": "ContainsBed",
+          "entity1": "MedicalWard",
+          "entity2": "HospitalBed",
+          "fromEntityName": "MedicalWard",
+          "toEntityName": "HospitalBed",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "SpecializedWard",
-          "entity2": "SpecializedDoctor",
-          "fromEntityName": "SpecializedWard",
-          "toEntityName": "SpecializedDoctor",
+          "name": "AssignedAdmission",
+          "entity1": "HospitalBed",
+          "entity2": "InpatientRecord",
+          "fromEntityName": "HospitalBed",
+          "toEntityName": "InpatientRecord",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "SpecializedDoctor",
-          "entity2": "PatientCourse",
-          "fromEntityName": "SpecializedDoctor",
-          "toEntityName": "PatientCourse",
+          "name": "UndergoesSurgery",
+          "entity1": "InpatientRecord",
+          "entity2": "SurgicalProcedure",
+          "fromEntityName": "InpatientRecord",
+          "toEntityName": "SurgicalProcedure",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -5773,25 +7504,7 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Hospital",
-          "pk": "hospId",
-          "attributes": [
-            {
-              "name": "hospId",
-              "isPK": true
-            },
-            {
-              "name": "hospName",
-              "isPK": false
-            },
-            {
-              "name": "address",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "SpecializedWard",
+          "name": "MedicalWard",
           "pk": "wardCode",
           "attributes": [
             {
@@ -5803,43 +7516,61 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": false
             },
             {
-              "name": "beds",
+              "name": "floorNumber",
               "isPK": false
             }
           ]
         },
         {
-          "name": "SpecializedDoctor",
-          "pk": "licenseId",
+          "name": "HospitalBed",
+          "pk": "bedNumber",
           "attributes": [
             {
-              "name": "licenseId",
+              "name": "bedNumber",
               "isPK": true
             },
             {
-              "name": "docName",
+              "name": "bedType",
               "isPK": false
             },
             {
-              "name": "specialty",
+              "name": "isOccupied",
               "isPK": false
             }
           ]
         },
         {
-          "name": "PatientCourse",
-          "pk": "courseId",
+          "name": "InpatientRecord",
+          "pk": "recordCardId",
           "attributes": [
             {
-              "name": "courseId",
+              "name": "recordCardId",
               "isPK": true
             },
             {
-              "name": "protocol",
+              "name": "admissionDate",
               "isPK": false
             },
             {
-              "name": "startDate",
+              "name": "dischargeDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SurgicalProcedure",
+          "pk": "surgeryId",
+          "attributes": [
+            {
+              "name": "surgeryId",
+              "isPK": true
+            },
+            {
+              "name": "operationType",
+              "isPK": false
+            },
+            {
+              "name": "durationHours",
               "isPK": false
             }
           ]
@@ -5847,25 +7578,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Hospital",
-          "entity2": "SpecializedWard",
+          "entity1": "MedicalWard",
+          "entity2": "HospitalBed",
+          "fromEntityName": "MedicalWard",
+          "toEntityName": "HospitalBed",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "ContainsBed",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "SpecializedWard",
-          "entity2": "SpecializedDoctor",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Rel2"
-        },
-        {
-          "entity1": "SpecializedDoctor",
-          "entity2": "PatientCourse",
+          "entity1": "HospitalBed",
+          "entity2": "InpatientRecord",
+          "fromEntityName": "HospitalBed",
+          "toEntityName": "InpatientRecord",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "AssignedAdmission",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "InpatientRecord",
+          "entity2": "SurgicalProcedure",
+          "fromEntityName": "InpatientRecord",
+          "toEntityName": "SurgicalProcedure",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "UndergoesSurgery",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -5873,37 +7619,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 139,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "MegaWarehouse Korporativ Arxitekturasi",
-    "story": "Trans-Okean Porti bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **MegaWarehouse** (hubCode {PK}), **ContainerVessel** (imoNumber {PK}), **CustomsDeclaration** (gtdNumber {PK}) va **FreightForwarder** (forwarderInn {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'MegaWarehouse', 'ContainerVessel', 'CustomsDeclaration' va 'FreightForwarder' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Nodirbek Vohidov",
+    "clientRole": "Navoiy Erkin Iqtisodiy Zonasi Boshqaruvchisi",
+    "clientAvatar": "🏗️",
+    "title": "Navoiy EIZ — Sanoat Zonasi, Korxona, Loyiha va Soliq Imtiyozi (Navoi FEZ Investment)",
+    "titleEn": "Navoi Free Industrial Zone — Zone, Enterprise, Investment Project & Tax Exemption",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nErkin Iqtisodiy Zonada investitsiyalarni rag'batlantirish tizimi 4 ta entitiyga tayanadi:\n1. **IndustrialZone** — EIZ hududiy sektori.\n2. **ManufacturingEnterprise** — zonada rezident bo'lgan ishlab chiqaruvchi korxona.\n3. **InvestmentProject** — korxona tomonidan amalga oshirilayotgan investitsiya loyihasi.\n4. **TaxIncentive** — loyiha doirasida berilgan bojxona yoki soliq imtiyozi sertifikati.\nSanoat zonasi korxonalarni qabul qiladi (`1..1` ⟷ `1..*`). Har bir korxona loyihalarni yo'lga qo'yadi (`1..1` ⟷ `1..*`). Har bir loyihaga soliq imtiyozlari beriladi (`1..1` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `IndustrialZone`: {PK} `zoneCode`, `zoneName`, `totalHectares`.\n2. `ManufacturingEnterprise`: {PK} `residentInn`, `companyName`, `countryOrigin`.\n3. `InvestmentProject`: {PK} `projectCode`, `investedUsd`, `jobsCreated`.\n4. `TaxIncentive`: {PK} `certId`, `exemptionCategory`, `validUntilYear`.\n5. Munosabatlarni ketma-ketlikda bog'lang:\n   - `IndustrialZone` ⟷ `ManufacturingEnterprise`: `1..1` va `1..*`\n   - `ManufacturingEnterprise` ⟷ `InvestmentProject`: `1..1` va `1..*`\n   - `InvestmentProject` ⟷ `TaxIncentive`: `1..1` va `0..*`",
+    "storyEn": "Navoi Free Industrial Zone — Zone, Enterprise, Investment Project & Tax Exemption — Conceptual ER business case study.",
+    "instruction": "Erkin iqtisodiy zona investitsiya zanjiri korxona modelini barpo eting.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "MegaWarehouse",
+          "name": "IndustrialZone",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "hubCode",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "zoneCode",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "hubCode",
+              "name": "zoneCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "portName",
+              "name": "zoneName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "berthCount",
+              "name": "totalHectares",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5911,27 +7661,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "ContainerVessel",
+          "name": "ManufacturingEnterprise",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "imoNumber",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "residentInn",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "imoNumber",
+              "name": "residentInn",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "vesselName",
+              "name": "companyName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "teuCap",
+              "name": "countryOrigin",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5939,27 +7690,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "CustomsDeclaration",
+          "name": "InvestmentProject",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "gtdNumber",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "projectCode",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "gtdNumber",
+              "name": "projectCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "dutySum",
+              "name": "investedUsd",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "passed",
+              "name": "jobsCreated",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5967,27 +7719,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "FreightForwarder",
+          "name": "TaxIncentive",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "forwarderInn",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "certId",
+          "x": 450,
+          "y": 320,
           "attributes": [
             {
-              "name": "forwarderInn",
+              "name": "certId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "title",
+              "name": "exemptionCategory",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "license",
+              "name": "validUntilYear",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5998,39 +7751,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "MegaWarehouse",
-          "entity2": "ContainerVessel",
-          "fromEntityName": "MegaWarehouse",
-          "toEntityName": "ContainerVessel",
+          "name": "HostsCompany",
+          "entity1": "IndustrialZone",
+          "entity2": "ManufacturingEnterprise",
+          "fromEntityName": "IndustrialZone",
+          "toEntityName": "ManufacturingEnterprise",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "ContainerVessel",
-          "entity2": "CustomsDeclaration",
-          "fromEntityName": "ContainerVessel",
-          "toEntityName": "CustomsDeclaration",
+          "name": "LaunchesProject",
+          "entity1": "ManufacturingEnterprise",
+          "entity2": "InvestmentProject",
+          "fromEntityName": "ManufacturingEnterprise",
+          "toEntityName": "InvestmentProject",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "CustomsDeclaration",
-          "entity2": "FreightForwarder",
-          "fromEntityName": "CustomsDeclaration",
-          "toEntityName": "FreightForwarder",
+          "name": "GrantedIncentive",
+          "entity1": "InvestmentProject",
+          "entity2": "TaxIncentive",
+          "fromEntityName": "InvestmentProject",
+          "toEntityName": "TaxIncentive",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -6038,73 +7797,73 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "MegaWarehouse",
-          "pk": "hubCode",
+          "name": "IndustrialZone",
+          "pk": "zoneCode",
           "attributes": [
             {
-              "name": "hubCode",
+              "name": "zoneCode",
               "isPK": true
             },
             {
-              "name": "portName",
+              "name": "zoneName",
               "isPK": false
             },
             {
-              "name": "berthCount",
+              "name": "totalHectares",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ContainerVessel",
-          "pk": "imoNumber",
+          "name": "ManufacturingEnterprise",
+          "pk": "residentInn",
           "attributes": [
             {
-              "name": "imoNumber",
+              "name": "residentInn",
               "isPK": true
             },
             {
-              "name": "vesselName",
+              "name": "companyName",
               "isPK": false
             },
             {
-              "name": "teuCap",
+              "name": "countryOrigin",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CustomsDeclaration",
-          "pk": "gtdNumber",
+          "name": "InvestmentProject",
+          "pk": "projectCode",
           "attributes": [
             {
-              "name": "gtdNumber",
+              "name": "projectCode",
               "isPK": true
             },
             {
-              "name": "dutySum",
+              "name": "investedUsd",
               "isPK": false
             },
             {
-              "name": "passed",
+              "name": "jobsCreated",
               "isPK": false
             }
           ]
         },
         {
-          "name": "FreightForwarder",
-          "pk": "forwarderInn",
+          "name": "TaxIncentive",
+          "pk": "certId",
           "attributes": [
             {
-              "name": "forwarderInn",
+              "name": "certId",
               "isPK": true
             },
             {
-              "name": "title",
+              "name": "exemptionCategory",
               "isPK": false
             },
             {
-              "name": "license",
+              "name": "validUntilYear",
               "isPK": false
             }
           ]
@@ -6112,25 +7871,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "MegaWarehouse",
-          "entity2": "ContainerVessel",
+          "entity1": "IndustrialZone",
+          "entity2": "ManufacturingEnterprise",
+          "fromEntityName": "IndustrialZone",
+          "toEntityName": "ManufacturingEnterprise",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "HostsCompany",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "ContainerVessel",
-          "entity2": "CustomsDeclaration",
+          "entity1": "ManufacturingEnterprise",
+          "entity2": "InvestmentProject",
+          "fromEntityName": "ManufacturingEnterprise",
+          "toEntityName": "InvestmentProject",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel2"
+          "name": "LaunchesProject",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "CustomsDeclaration",
-          "entity2": "FreightForwarder",
+          "entity1": "InvestmentProject",
+          "entity2": "TaxIncentive",
+          "fromEntityName": "InvestmentProject",
+          "toEntityName": "TaxIncentive",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "GrantedIncentive",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -6138,37 +7912,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 140,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "Faculty Korporativ Arxitekturasi",
-    "story": "Universitet Kampusi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Faculty** (facultyCode {PK}), **AcademicDept** (deptId {PK}), **StaffMember** (staffNo {PK}) va **StudentClass** (classCode {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'Faculty', 'AcademicDept', 'StaffMember' va 'StudentClass' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Bobur Ziyodov",
+    "clientRole": "WIUT Kampus va Talabalar Turar Joyi Komendanti",
+    "clientAvatar": "🏢",
+    "title": "WIUT Rezidensiya — Bino, Xona, Talaba va Xona Inventarizatsiyasi (Campus Housing Life)",
+    "titleEn": "WIUT Campus Housing — Residence Hall, Room, Resident Student & Inventory Audit",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nUniversitet yotoqxonasi axborot tizimida 4 ta korxona entitiysi o'zaro tutashgan:\n1. **ResidenceHall** — talabalar turar joyi binosi.\n2. **DormRoom** — binodagi turar joy xonasi.\n3. **ResidentStudent** — xonada yashovchi talaba.\n4. **RoomInventoryCheck** — xonadagi mebel va jihozlarning davriy inventarizatsiya tekshiruvi.\nBino xonalardan iborat (`1..1` ⟷ `1..*`). Xonada talabalar istiqomat qiladi (`1..1` ⟷ `0..*`). Xona bo'yicha davriy inventar aktlari tuziladi (`1..1` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `ResidenceHall`: {PK} `hallCode`, `hallName`, `totalRooms`.\n2. `DormRoom`: {PK} `roomNumber`, `floorNumber`, `maxBeds`.\n3. `ResidentStudent`: {PK} `studentId`, `studentName`, `checkInDate`.\n4. `RoomInventoryCheck`: {PK} `auditSlipCode`, `auditDate`, `passedStatus`.\n5. Munosabatlarni bog'lang:\n   - `ResidenceHall` ⟷ `DormRoom`: `1..1` va `1..*`\n   - `DormRoom` ⟷ `ResidentStudent`: `1..1` va `0..*`\n   - `DormRoom` ⟷ `RoomInventoryCheck`: `1..1` va `0..*`",
+    "storyEn": "WIUT Campus Housing — Residence Hall, Room, Resident Student & Inventory Audit — Conceptual ER business case study.",
+    "instruction": "Talabalar turar joyi binosi, xonasi, talaba va inventar nazorati modelini tuzing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Faculty",
+          "name": "ResidenceHall",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "facultyCode",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "hallCode",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "facultyCode",
+              "name": "hallCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "facultyName",
+              "name": "hallName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "building",
+              "name": "totalRooms",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6176,27 +7954,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "AcademicDept",
+          "name": "DormRoom",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "deptId",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "roomNumber",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "deptId",
+              "name": "roomNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "deptTitle",
+              "name": "floorNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "focusArea",
+              "name": "maxBeds",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6204,27 +7983,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "StaffMember",
+          "name": "ResidentStudent",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "staffNo",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "studentId",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "staffNo",
+              "name": "studentId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "staffName",
+              "name": "studentName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "salary",
+              "name": "checkInDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6232,27 +8012,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "StudentClass",
+          "name": "RoomInventoryCheck",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "classCode",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "auditSlipCode",
+          "x": 450,
+          "y": 320,
           "attributes": [
             {
-              "name": "classCode",
+              "name": "auditSlipCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "semester",
+              "name": "auditDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "roomCode",
+              "name": "passedStatus",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6263,39 +8044,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "Faculty",
-          "entity2": "AcademicDept",
-          "fromEntityName": "Faculty",
-          "toEntityName": "AcademicDept",
+          "name": "ComprisesRoom",
+          "entity1": "ResidenceHall",
+          "entity2": "DormRoom",
+          "fromEntityName": "ResidenceHall",
+          "toEntityName": "DormRoom",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "AcademicDept",
-          "entity2": "StaffMember",
-          "fromEntityName": "AcademicDept",
-          "toEntityName": "StaffMember",
+          "name": "AccommodatesStudent",
+          "entity1": "DormRoom",
+          "entity2": "ResidentStudent",
+          "fromEntityName": "DormRoom",
+          "toEntityName": "ResidentStudent",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "StaffMember",
-          "entity2": "StudentClass",
-          "fromEntityName": "StaffMember",
-          "toEntityName": "StudentClass",
+          "name": "AuditedBy",
+          "entity1": "DormRoom",
+          "entity2": "RoomInventoryCheck",
+          "fromEntityName": "DormRoom",
+          "toEntityName": "RoomInventoryCheck",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -6303,73 +8090,73 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Faculty",
-          "pk": "facultyCode",
+          "name": "ResidenceHall",
+          "pk": "hallCode",
           "attributes": [
             {
-              "name": "facultyCode",
+              "name": "hallCode",
               "isPK": true
             },
             {
-              "name": "facultyName",
+              "name": "hallName",
               "isPK": false
             },
             {
-              "name": "building",
+              "name": "totalRooms",
               "isPK": false
             }
           ]
         },
         {
-          "name": "AcademicDept",
-          "pk": "deptId",
+          "name": "DormRoom",
+          "pk": "roomNumber",
           "attributes": [
             {
-              "name": "deptId",
+              "name": "roomNumber",
               "isPK": true
             },
             {
-              "name": "deptTitle",
+              "name": "floorNumber",
               "isPK": false
             },
             {
-              "name": "focusArea",
+              "name": "maxBeds",
               "isPK": false
             }
           ]
         },
         {
-          "name": "StaffMember",
-          "pk": "staffNo",
+          "name": "ResidentStudent",
+          "pk": "studentId",
           "attributes": [
             {
-              "name": "staffNo",
+              "name": "studentId",
               "isPK": true
             },
             {
-              "name": "staffName",
+              "name": "studentName",
               "isPK": false
             },
             {
-              "name": "salary",
+              "name": "checkInDate",
               "isPK": false
             }
           ]
         },
         {
-          "name": "StudentClass",
-          "pk": "classCode",
+          "name": "RoomInventoryCheck",
+          "pk": "auditSlipCode",
           "attributes": [
             {
-              "name": "classCode",
+              "name": "auditSlipCode",
               "isPK": true
             },
             {
-              "name": "semester",
+              "name": "auditDate",
               "isPK": false
             },
             {
-              "name": "roomCode",
+              "name": "passedStatus",
               "isPK": false
             }
           ]
@@ -6377,25 +8164,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Faculty",
-          "entity2": "AcademicDept",
+          "entity1": "ResidenceHall",
+          "entity2": "DormRoom",
+          "fromEntityName": "ResidenceHall",
+          "toEntityName": "DormRoom",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "ComprisesRoom",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "AcademicDept",
-          "entity2": "StaffMember",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Rel2"
-        },
-        {
-          "entity1": "StaffMember",
-          "entity2": "StudentClass",
+          "entity1": "DormRoom",
+          "entity2": "ResidentStudent",
+          "fromEntityName": "DormRoom",
+          "toEntityName": "ResidentStudent",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "AccommodatesStudent",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "DormRoom",
+          "entity2": "RoomInventoryCheck",
+          "fromEntityName": "DormRoom",
+          "toEntityName": "RoomInventoryCheck",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AuditedBy",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -6403,78 +8205,26 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 141,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "PowerPlant Korporativ Arxitekturasi",
-    "story": "Milliy Elektr Tizimi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **PowerPlant** (plantCode {PK}), **Substation** (substationId {PK}), **TransmissionLine** (lineCode {PK}) va **LoadZone** (zoneId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'PowerPlant', 'Substation', 'TransmissionLine' va 'LoadZone' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Shuhrat Karimov",
+    "clientRole": "UzAuto Motors Asaka Zavodi Sifat Boshqarmasi Boshlig'i",
+    "clientAvatar": "🚘",
+    "title": "UzAuto Motors — Konveyer Liniyasi, Model, Avtomobil va Sifat Tekshiruvi (Auto Assembly Quality)",
+    "titleEn": "UzAuto Assembly — Assembly Line, Car Model, Manufactured Vehicle & Quality Audit",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nAsaka avtomobil zavodida ishlab chiqarish jarayoni 4 ta korxona entitiyida modellashtiriladi:\n1. **AssemblyLine** — avtomatlashtirilgan payvandlash va yig'ish konveyer liniyasi.\n2. **VehicleModel** — avtomobil modeli katalogi (masalan, Tracker, Onix).\n3. **ManufacturedCar** — konveyerdan chiqqan har bir tayyor avtomobil (VIN).\n4. **QualityInspection** — avtomobilni yakuniy qabul qilish bo'yicha sifat nazorati akti.\nKonveyer liniyasi avtomobillarni yig'adi (`1..1` ⟷ `1..*`). Model turi avtomobillarni tasniflaydi (`1..1` ⟷ `1..*`). Har bir avtomobil sifat tekshiruvidan o'tadi (`1..1` ⟷ `1..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `AssemblyLine`: {PK} `lineCode`, `lineName`, `capacityCarsPerDay`.\n2. `VehicleModel`: {PK} `modelCode`, `modelName`, `engineLitres`.\n3. `ManufacturedCar`: {PK} `vinCode`, `bodyColor`, `assemblyDate`.\n4. `QualityInspection`: {PK} `inspectionId`, `inspectorBadge`, `passedQC`.\n5. Multiplisitiyalarni bog'lang:\n   - `AssemblyLine` ⟷ `ManufacturedCar`: `1..1` va `1..*`\n   - `VehicleModel` ⟷ `ManufacturedCar`: `1..1` va `1..*`\n   - `ManufacturedCar` ⟷ `QualityInspection`: `1..1` va `1..*`",
+    "storyEn": "UzAuto Assembly — Assembly Line, Car Model, Manufactured Vehicle & Quality Audit — Conceptual ER business case study.",
+    "instruction": "UzAuto avtomobil ishlab chiqarish va sifat nazorati korxona modelini barpo eting.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "PowerPlant",
+          "name": "AssemblyLine",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "plantCode",
-          "x": 130,
-          "y": 90,
-          "attributes": [
-            {
-              "name": "plantCode",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "plantName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "megaWatts",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "Substation",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "substationId",
-          "x": 550,
-          "y": 90,
-          "attributes": [
-            {
-              "name": "substationId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "substationName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "voltageKv",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "TransmissionLine",
-          "isWeak": false,
-          "isAssociative": false,
+          "isSubclass": false,
           "pk": "lineCode",
-          "x": 130,
-          "y": 330,
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
               "name": "lineCode",
@@ -6483,13 +8233,13 @@ _scope.EER_CLIENTS_101_150 = [
               "isFK": false
             },
             {
-              "name": "distanceKm",
+              "name": "lineName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "ampCapacity",
+              "name": "capacityCarsPerDay",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6497,27 +8247,86 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "LoadZone",
+          "name": "VehicleModel",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "zoneId",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "modelCode",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "zoneId",
+              "name": "modelCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "region",
+              "name": "modelName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "peakDemand",
+              "name": "engineLitres",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "ManufacturedCar",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "vinCode",
+          "x": 275,
+          "y": 240,
+          "attributes": [
+            {
+              "name": "vinCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "bodyColor",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "assemblyDate",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "QualityInspection",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "inspectionId",
+          "x": 275,
+          "y": 390,
+          "attributes": [
+            {
+              "name": "inspectionId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "inspectorBadge",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "passedQC",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6528,39 +8337,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "PowerPlant",
-          "entity2": "Substation",
-          "fromEntityName": "PowerPlant",
-          "toEntityName": "Substation",
+          "name": "AssemblesCar",
+          "entity1": "AssemblyLine",
+          "entity2": "ManufacturedCar",
+          "fromEntityName": "AssemblyLine",
+          "toEntityName": "ManufacturedCar",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "Substation",
-          "entity2": "TransmissionLine",
-          "fromEntityName": "Substation",
-          "toEntityName": "TransmissionLine",
+          "name": "ClassifiesCar",
+          "entity1": "VehicleModel",
+          "entity2": "ManufacturedCar",
+          "fromEntityName": "VehicleModel",
+          "toEntityName": "ManufacturedCar",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "TransmissionLine",
-          "entity2": "LoadZone",
-          "fromEntityName": "TransmissionLine",
-          "toEntityName": "LoadZone",
+          "name": "UndergoesQC",
+          "entity1": "ManufacturedCar",
+          "entity2": "QualityInspection",
+          "fromEntityName": "ManufacturedCar",
+          "toEntityName": "QualityInspection",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -6568,43 +8383,7 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "PowerPlant",
-          "pk": "plantCode",
-          "attributes": [
-            {
-              "name": "plantCode",
-              "isPK": true
-            },
-            {
-              "name": "plantName",
-              "isPK": false
-            },
-            {
-              "name": "megaWatts",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "Substation",
-          "pk": "substationId",
-          "attributes": [
-            {
-              "name": "substationId",
-              "isPK": true
-            },
-            {
-              "name": "substationName",
-              "isPK": false
-            },
-            {
-              "name": "voltageKv",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "TransmissionLine",
+          "name": "AssemblyLine",
           "pk": "lineCode",
           "attributes": [
             {
@@ -6612,29 +8391,65 @@ _scope.EER_CLIENTS_101_150 = [
               "isPK": true
             },
             {
-              "name": "distanceKm",
+              "name": "lineName",
               "isPK": false
             },
             {
-              "name": "ampCapacity",
+              "name": "capacityCarsPerDay",
               "isPK": false
             }
           ]
         },
         {
-          "name": "LoadZone",
-          "pk": "zoneId",
+          "name": "VehicleModel",
+          "pk": "modelCode",
           "attributes": [
             {
-              "name": "zoneId",
+              "name": "modelCode",
               "isPK": true
             },
             {
-              "name": "region",
+              "name": "modelName",
               "isPK": false
             },
             {
-              "name": "peakDemand",
+              "name": "engineLitres",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ManufacturedCar",
+          "pk": "vinCode",
+          "attributes": [
+            {
+              "name": "vinCode",
+              "isPK": true
+            },
+            {
+              "name": "bodyColor",
+              "isPK": false
+            },
+            {
+              "name": "assemblyDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "QualityInspection",
+          "pk": "inspectionId",
+          "attributes": [
+            {
+              "name": "inspectionId",
+              "isPK": true
+            },
+            {
+              "name": "inspectorBadge",
+              "isPK": false
+            },
+            {
+              "name": "passedQC",
               "isPK": false
             }
           ]
@@ -6642,25 +8457,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "PowerPlant",
-          "entity2": "Substation",
+          "entity1": "AssemblyLine",
+          "entity2": "ManufacturedCar",
+          "fromEntityName": "AssemblyLine",
+          "toEntityName": "ManufacturedCar",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "AssemblesCar",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Substation",
-          "entity2": "TransmissionLine",
+          "entity1": "VehicleModel",
+          "entity2": "ManufacturedCar",
+          "fromEntityName": "VehicleModel",
+          "toEntityName": "ManufacturedCar",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel2"
+          "name": "ClassifiesCar",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "TransmissionLine",
-          "entity2": "LoadZone",
+          "entity1": "ManufacturedCar",
+          "entity2": "QualityInspection",
+          "fromEntityName": "ManufacturedCar",
+          "toEntityName": "QualityInspection",
           "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Rel3"
+          "mult2": "1..*",
+          "name": "UndergoesQC",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -6668,37 +8498,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 142,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "RailwayNetwork Korporativ Arxitekturasi",
-    "story": "Davlat Temir Yo'llari bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RailwayNetwork** (networkId {PK}), **TrainSchedule** (tripNo {PK}), **LocomotiveEngine** (locoNo {PK}) va **PassengerTicket** (ticketPnr {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'RailwayNetwork', 'TrainSchedule', 'LocomotiveEngine' va 'PassengerTicket' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Otabek Umarov",
+    "clientRole": "Korzinka Logistika Taqsimot Markazi Direktori",
+    "clientAvatar": "📦",
+    "title": "Korzinka Logistika — Markaziy Ombor, Yacheyka, Palleta va Do'kon Yuk Xati (Warehouse Distribution)",
+    "titleEn": "Korzinka Supply Chain — Distribution Center, Bay, Pallet & Dispatch Consignment",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKorzinka supermarketlari ta'minot zanjirida taqsimot ombori 4 ta entitiy orqali boshqariladi:\n1. **CentralWarehouse** — asosiy taqsimot logistika ombori.\n2. **WarehouseBay** — ombor ichidagi maxsus baland tokcha yacheykasi.\n3. **StockPallet** — yacheykada saqlanayotgan tovar palletasi.\n4. **RetailDispatchedOrder** — do'konga jo'natish uchun shakllantirilgan yuk partiyasi.\nOmbor yacheykalarga bo'linadi (`1..1` ⟷ `1..*`). Yacheykada palletalar saqlanadi (`1..1` ⟷ `0..*`). Yacheykadan do'konga buyurtmalar jo'natiladi (`1..1` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `CentralWarehouse`: {PK} `warehouseCode`, `locationZone`, `storageSqM`.\n2. `WarehouseBay`: {PK} `bayBarcode`, `aisleNumber`, `weightCapacityKg`.\n3. `StockPallet`: {PK} `palletSerial`, `productSku`, `itemCount`.\n4. `RetailDispatchedOrder`: {PK} `dispatchSlipNum`, `storeBranchId`, `dispatchDate`.\n5. Munosabatlarni bog'lang:\n   - `CentralWarehouse` ⟷ `WarehouseBay`: `1..1` va `1..*`\n   - `WarehouseBay` ⟷ `StockPallet`: `1..1` va `0..*`\n   - `WarehouseBay` ⟷ `RetailDispatchedOrder`: `1..1` va `0..*`",
+    "storyEn": "Korzinka Supply Chain — Distribution Center, Bay, Pallet & Dispatch Consignment — Conceptual ER business case study.",
+    "instruction": "Logistika taqsimot ombori, yacheyka, palleta va jo'natma yuk xati modelini yakunlang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "RailwayNetwork",
+          "name": "CentralWarehouse",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "networkId",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "warehouseCode",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "networkId",
+              "name": "warehouseCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "networkName",
+              "name": "locationZone",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "trackMm",
+              "name": "storageSqM",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6706,27 +8540,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "TrainSchedule",
+          "name": "WarehouseBay",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "tripNo",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "bayBarcode",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "tripNo",
+              "name": "bayBarcode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "depTime",
+              "name": "aisleNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "arrTime",
+              "name": "weightCapacityKg",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6734,27 +8569,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "LocomotiveEngine",
+          "name": "StockPallet",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "locoNo",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "palletSerial",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "locoNo",
+              "name": "palletSerial",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "model",
+              "name": "productSku",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "powerHp",
+              "name": "itemCount",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6762,27 +8598,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "PassengerTicket",
+          "name": "RetailDispatchedOrder",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "ticketPnr",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "dispatchSlipNum",
+          "x": 450,
+          "y": 320,
           "attributes": [
             {
-              "name": "ticketPnr",
+              "name": "dispatchSlipNum",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "passengerName",
+              "name": "storeBranchId",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "coachNo",
+              "name": "dispatchDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6793,39 +8630,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "RailwayNetwork",
-          "entity2": "TrainSchedule",
-          "fromEntityName": "RailwayNetwork",
-          "toEntityName": "TrainSchedule",
+          "name": "ComprisesBay",
+          "entity1": "CentralWarehouse",
+          "entity2": "WarehouseBay",
+          "fromEntityName": "CentralWarehouse",
+          "toEntityName": "WarehouseBay",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "TrainSchedule",
-          "entity2": "LocomotiveEngine",
-          "fromEntityName": "TrainSchedule",
-          "toEntityName": "LocomotiveEngine",
+          "name": "HoldsPallet",
+          "entity1": "WarehouseBay",
+          "entity2": "StockPallet",
+          "fromEntityName": "WarehouseBay",
+          "toEntityName": "StockPallet",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "LocomotiveEngine",
-          "entity2": "PassengerTicket",
-          "fromEntityName": "LocomotiveEngine",
-          "toEntityName": "PassengerTicket",
+          "name": "AllocatesToOrder",
+          "entity1": "WarehouseBay",
+          "entity2": "RetailDispatchedOrder",
+          "fromEntityName": "WarehouseBay",
+          "toEntityName": "RetailDispatchedOrder",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -6833,73 +8676,73 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "RailwayNetwork",
-          "pk": "networkId",
+          "name": "CentralWarehouse",
+          "pk": "warehouseCode",
           "attributes": [
             {
-              "name": "networkId",
+              "name": "warehouseCode",
               "isPK": true
             },
             {
-              "name": "networkName",
+              "name": "locationZone",
               "isPK": false
             },
             {
-              "name": "trackMm",
+              "name": "storageSqM",
               "isPK": false
             }
           ]
         },
         {
-          "name": "TrainSchedule",
-          "pk": "tripNo",
+          "name": "WarehouseBay",
+          "pk": "bayBarcode",
           "attributes": [
             {
-              "name": "tripNo",
+              "name": "bayBarcode",
               "isPK": true
             },
             {
-              "name": "depTime",
+              "name": "aisleNumber",
               "isPK": false
             },
             {
-              "name": "arrTime",
+              "name": "weightCapacityKg",
               "isPK": false
             }
           ]
         },
         {
-          "name": "LocomotiveEngine",
-          "pk": "locoNo",
+          "name": "StockPallet",
+          "pk": "palletSerial",
           "attributes": [
             {
-              "name": "locoNo",
+              "name": "palletSerial",
               "isPK": true
             },
             {
-              "name": "model",
+              "name": "productSku",
               "isPK": false
             },
             {
-              "name": "powerHp",
+              "name": "itemCount",
               "isPK": false
             }
           ]
         },
         {
-          "name": "PassengerTicket",
-          "pk": "ticketPnr",
+          "name": "RetailDispatchedOrder",
+          "pk": "dispatchSlipNum",
           "attributes": [
             {
-              "name": "ticketPnr",
+              "name": "dispatchSlipNum",
               "isPK": true
             },
             {
-              "name": "passengerName",
+              "name": "storeBranchId",
               "isPK": false
             },
             {
-              "name": "coachNo",
+              "name": "dispatchDate",
               "isPK": false
             }
           ]
@@ -6907,25 +8750,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "RailwayNetwork",
-          "entity2": "TrainSchedule",
+          "entity1": "CentralWarehouse",
+          "entity2": "WarehouseBay",
+          "fromEntityName": "CentralWarehouse",
+          "toEntityName": "WarehouseBay",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "ComprisesBay",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "TrainSchedule",
-          "entity2": "LocomotiveEngine",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Rel2"
-        },
-        {
-          "entity1": "LocomotiveEngine",
-          "entity2": "PassengerTicket",
+          "entity1": "WarehouseBay",
+          "entity2": "StockPallet",
+          "fromEntityName": "WarehouseBay",
+          "toEntityName": "StockPallet",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "HoldsPallet",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "WarehouseBay",
+          "entity2": "RetailDispatchedOrder",
+          "fromEntityName": "WarehouseBay",
+          "toEntityName": "RetailDispatchedOrder",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AllocatesToOrder",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -6933,37 +8791,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 143,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "GovPortalService Korporativ Arxitekturasi",
-    "story": "Elektron Hukumat Portali bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **GovPortalService** (serviceCode {PK}), **CitizenRequest** (appId {PK}), **MinistryDept** (deptInn {PK}) va **ProcessingOfficer** (officerId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'GovPortalService', 'CitizenRequest', 'MinistryDept' va 'ProcessingOfficer' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Shahzod Murodov",
+    "clientRole": "Uzum Market FinTech Boshlig'i",
+    "clientAvatar": "🛍️",
+    "title": "Uzum Market — Sotuvchi, Tovar Kartochkasi, Xaridor Buyurtmasi va Hisobvaraq (E-commerce Order Lifecycle)",
+    "titleEn": "Uzum Marketplace — Merchant, Listing, Customer Order & Settlement Invoice",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nUzum Market elektron maydonchasida to'liq hisob-kitob davri 4 ta asosiy entitiy orqali amalga oshadi:\n1. **UzumMerchant** — tovar sotuvchi ro'yxatdan o'tgan tadbirkor.\n2. **MarketplaceListing** — sotuvchining platformadagi tovar kartochkasi.\n3. **CustomerOrder** — xaridor tomonidan rasmiylashtirilgan savat buyurtmasi.\n4. **SettlementInvoice** — ushbu buyurtma bo'yicha sotuvchiga to'lanadigan rasmiy hisobvaraq-faktura.\nSotuvchi tovar kartochkalarini joylaydi (`1..1` ⟷ `1..*`). Tovar kartochkasi buyurtmalarda ishtirok etadi (`1..1` ⟷ `0..*`). Har bir buyurtma yakunida qat'iy yagona hisobvaraq-faktura shakllanadi (`1..1` ⟷ `1..1`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `UzumMerchant`: {PK} `sellerInn`, `storeBrandName`, `commissionTier`.\n2. `MarketplaceListing`: {PK} `skuCode`, `productTitle`, `sellingPrice`.\n3. `CustomerOrder`: {PK} `orderRefId`, `orderDate`, `totalOrderSum`.\n4. `SettlementInvoice`: {PK} `invoiceNumber`, `payoutSum`, `clearedDate`.\n5. Multiplisitiyalarni bog'lang:\n   - `UzumMerchant` ⟷ `MarketplaceListing`: `1..1` va `1..*`\n   - `MarketplaceListing` ⟷ `CustomerOrder`: `1..1` va `0..*`\n   - `CustomerOrder` ⟷ `SettlementInvoice`: `1..1` va `1..1`",
+    "storyEn": "Uzum Marketplace — Merchant, Listing, Customer Order & Settlement Invoice — Conceptual ER business case study.",
+    "instruction": "Uzum Market sotuvchi, tovar, buyurtma va to'lov fakturasi korxona modelini barpo qiling.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "GovPortalService",
+          "name": "UzumMerchant",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "serviceCode",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "sellerInn",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "serviceCode",
+              "name": "sellerInn",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "serviceTitle",
+              "name": "storeBrandName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "fee",
+              "name": "commissionTier",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6971,27 +8833,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "CitizenRequest",
+          "name": "MarketplaceListing",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "appId",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "skuCode",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "appId",
+              "name": "skuCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "applicantPinfl",
+              "name": "productTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "submittedAt",
+              "name": "sellingPrice",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6999,27 +8862,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "MinistryDept",
+          "name": "CustomerOrder",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "deptInn",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "orderRefId",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "deptInn",
+              "name": "orderRefId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "ministryTitle",
+              "name": "orderDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "zone",
+              "name": "totalOrderSum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7027,27 +8891,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "ProcessingOfficer",
+          "name": "SettlementInvoice",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "officerId",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "invoiceNumber",
+          "x": 450,
+          "y": 320,
           "attributes": [
             {
-              "name": "officerId",
+              "name": "invoiceNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "officerName",
+              "name": "payoutSum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "certKey",
+              "name": "clearedDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7058,39 +8923,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "GovPortalService",
-          "entity2": "CitizenRequest",
-          "fromEntityName": "GovPortalService",
-          "toEntityName": "CitizenRequest",
+          "name": "PublishesListing",
+          "entity1": "UzumMerchant",
+          "entity2": "MarketplaceListing",
+          "fromEntityName": "UzumMerchant",
+          "toEntityName": "MarketplaceListing",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "CitizenRequest",
-          "entity2": "MinistryDept",
-          "fromEntityName": "CitizenRequest",
-          "toEntityName": "MinistryDept",
+          "name": "OrderedIn",
+          "entity1": "MarketplaceListing",
+          "entity2": "CustomerOrder",
+          "fromEntityName": "MarketplaceListing",
+          "toEntityName": "CustomerOrder",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "MinistryDept",
-          "entity2": "ProcessingOfficer",
-          "fromEntityName": "MinistryDept",
-          "toEntityName": "ProcessingOfficer",
+          "name": "GeneratesInvoice",
+          "entity1": "CustomerOrder",
+          "entity2": "SettlementInvoice",
+          "fromEntityName": "CustomerOrder",
+          "toEntityName": "SettlementInvoice",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -7098,73 +8969,73 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "GovPortalService",
-          "pk": "serviceCode",
+          "name": "UzumMerchant",
+          "pk": "sellerInn",
           "attributes": [
             {
-              "name": "serviceCode",
+              "name": "sellerInn",
               "isPK": true
             },
             {
-              "name": "serviceTitle",
+              "name": "storeBrandName",
               "isPK": false
             },
             {
-              "name": "fee",
+              "name": "commissionTier",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CitizenRequest",
-          "pk": "appId",
+          "name": "MarketplaceListing",
+          "pk": "skuCode",
           "attributes": [
             {
-              "name": "appId",
+              "name": "skuCode",
               "isPK": true
             },
             {
-              "name": "applicantPinfl",
+              "name": "productTitle",
               "isPK": false
             },
             {
-              "name": "submittedAt",
+              "name": "sellingPrice",
               "isPK": false
             }
           ]
         },
         {
-          "name": "MinistryDept",
-          "pk": "deptInn",
+          "name": "CustomerOrder",
+          "pk": "orderRefId",
           "attributes": [
             {
-              "name": "deptInn",
+              "name": "orderRefId",
               "isPK": true
             },
             {
-              "name": "ministryTitle",
+              "name": "orderDate",
               "isPK": false
             },
             {
-              "name": "zone",
+              "name": "totalOrderSum",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ProcessingOfficer",
-          "pk": "officerId",
+          "name": "SettlementInvoice",
+          "pk": "invoiceNumber",
           "attributes": [
             {
-              "name": "officerId",
+              "name": "invoiceNumber",
               "isPK": true
             },
             {
-              "name": "officerName",
+              "name": "payoutSum",
               "isPK": false
             },
             {
-              "name": "certKey",
+              "name": "clearedDate",
               "isPK": false
             }
           ]
@@ -7172,25 +9043,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "GovPortalService",
-          "entity2": "CitizenRequest",
+          "entity1": "UzumMerchant",
+          "entity2": "MarketplaceListing",
+          "fromEntityName": "UzumMerchant",
+          "toEntityName": "MarketplaceListing",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "PublishesListing",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "CitizenRequest",
-          "entity2": "MinistryDept",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Rel2"
-        },
-        {
-          "entity1": "MinistryDept",
-          "entity2": "ProcessingOfficer",
+          "entity1": "MarketplaceListing",
+          "entity2": "CustomerOrder",
+          "fromEntityName": "MarketplaceListing",
+          "toEntityName": "CustomerOrder",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "OrderedIn",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CustomerOrder",
+          "entity2": "SettlementInvoice",
+          "fromEntityName": "CustomerOrder",
+          "toEntityName": "SettlementInvoice",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "GeneratesInvoice",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -7198,37 +9084,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 144,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "PharmaFactory Korporativ Arxitekturasi",
-    "story": "GMP Farmatsevtika Klasteri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **PharmaFactory** (facilityId {PK}), **ChemicalLab** (labCode {PK}), **DrugBatch** (batchNo {PK}) va **QualityAudit** (auditId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'PharmaFactory', 'ChemicalLab', 'DrugBatch' va 'QualityAudit' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Erkin Yoqubov",
+    "clientRole": "O'zbekiston Milliy Elektr Tarmoqlari Bosh Muhandisi",
+    "clientAvatar": "⚡",
+    "title": "Elektr Tarmoqlari — Nimstansiya, Fider, Transformator va Ta'mirlash Jurnali (National Power Grid)",
+    "titleEn": "National Power Grid — Substation, Feeder, Transformer & Grid Maintenance Log",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nYuqori kuchlanishli milliy elektr tarmoqlari boshqaruv tizimi 4 ta texnik entitiyga tayanadi:\n1. **PowerSubstation** — 110/35/10 kV nimstansiya.\n2. **TransmissionFeeder** — elektr uzatuvchi fider liniyasi.\n3. **IndustrialTransformer** — fiderga ulangan sanoat transformatori.\n4. **GridMaintenanceLog** — transformatorda o'tkazilgan texnik profilaktika jurnali yozuvi.\nNimstansiya fiderlarga ega (`1..1` ⟷ `1..*`). Fider transformatorlarni quvvatlaydi (`1..1` ⟷ `1..*`). Transformatorda ta'mirlash jurnali qayd etiladi (`1..1` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `PowerSubstation`: {PK} `substationId`, `substationName`, `voltageKv`.\n2. `TransmissionFeeder`: {PK} `feederLineId`, `lineLengthKm`, `maxLoadAmps`.\n3. `IndustrialTransformer`: {PK} `transSerial`, `oilTempCelsius`, `kvaCapacity`.\n4. `GridMaintenanceLog`: {PK} `logEntryId`, `serviceDate`, `techNotes`.\n5. Munosabatlarni ketma-ketlikda bog'lang:\n   - `PowerSubstation` ⟷ `TransmissionFeeder`: `1..1` va `1..*`\n   - `TransmissionFeeder` ⟷ `IndustrialTransformer`: `1..1` va `1..*`\n   - `IndustrialTransformer` ⟷ `GridMaintenanceLog`: `1..1` va `0..*`",
+    "storyEn": "National Power Grid — Substation, Feeder, Transformer & Grid Maintenance Log — Conceptual ER business case study.",
+    "instruction": "Elektr nimstansiyasi, fider, transformator va ta'mirlash jurnali modelini tuzing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "PharmaFactory",
+          "name": "PowerSubstation",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "facilityId",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "substationId",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "facilityId",
+              "name": "substationId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "facilityName",
+              "name": "substationName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "gmpCert",
+              "name": "voltageKv",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7236,27 +9126,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "ChemicalLab",
+          "name": "TransmissionFeeder",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "labCode",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "feederLineId",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "labCode",
+              "name": "feederLineId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "labSpec",
+              "name": "lineLengthKm",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "hplcCount",
+              "name": "maxLoadAmps",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7264,27 +9155,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "DrugBatch",
+          "name": "IndustrialTransformer",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "batchNo",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "transSerial",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "batchNo",
+              "name": "transSerial",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "manufDate",
+              "name": "oilTempCelsius",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "passed",
+              "name": "kvaCapacity",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7292,27 +9184,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "QualityAudit",
+          "name": "GridMaintenanceLog",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "auditId",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "logEntryId",
+          "x": 450,
+          "y": 320,
           "attributes": [
             {
-              "name": "auditId",
+              "name": "logEntryId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "auditorName",
+              "name": "serviceDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "purityPct",
+              "name": "techNotes",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7323,39 +9216,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "PharmaFactory",
-          "entity2": "ChemicalLab",
-          "fromEntityName": "PharmaFactory",
-          "toEntityName": "ChemicalLab",
+          "name": "DistributesFeeder",
+          "entity1": "PowerSubstation",
+          "entity2": "TransmissionFeeder",
+          "fromEntityName": "PowerSubstation",
+          "toEntityName": "TransmissionFeeder",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "ChemicalLab",
-          "entity2": "DrugBatch",
-          "fromEntityName": "ChemicalLab",
-          "toEntityName": "DrugBatch",
+          "name": "PowersTransformer",
+          "entity1": "TransmissionFeeder",
+          "entity2": "IndustrialTransformer",
+          "fromEntityName": "TransmissionFeeder",
+          "toEntityName": "IndustrialTransformer",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "DrugBatch",
-          "entity2": "QualityAudit",
-          "fromEntityName": "DrugBatch",
-          "toEntityName": "QualityAudit",
+          "name": "LoggedService",
+          "entity1": "IndustrialTransformer",
+          "entity2": "GridMaintenanceLog",
+          "fromEntityName": "IndustrialTransformer",
+          "toEntityName": "GridMaintenanceLog",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -7363,73 +9262,73 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "PharmaFactory",
-          "pk": "facilityId",
+          "name": "PowerSubstation",
+          "pk": "substationId",
           "attributes": [
             {
-              "name": "facilityId",
+              "name": "substationId",
               "isPK": true
             },
             {
-              "name": "facilityName",
+              "name": "substationName",
               "isPK": false
             },
             {
-              "name": "gmpCert",
+              "name": "voltageKv",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ChemicalLab",
-          "pk": "labCode",
+          "name": "TransmissionFeeder",
+          "pk": "feederLineId",
           "attributes": [
             {
-              "name": "labCode",
+              "name": "feederLineId",
               "isPK": true
             },
             {
-              "name": "labSpec",
+              "name": "lineLengthKm",
               "isPK": false
             },
             {
-              "name": "hplcCount",
+              "name": "maxLoadAmps",
               "isPK": false
             }
           ]
         },
         {
-          "name": "DrugBatch",
-          "pk": "batchNo",
+          "name": "IndustrialTransformer",
+          "pk": "transSerial",
           "attributes": [
             {
-              "name": "batchNo",
+              "name": "transSerial",
               "isPK": true
             },
             {
-              "name": "manufDate",
+              "name": "oilTempCelsius",
               "isPK": false
             },
             {
-              "name": "passed",
+              "name": "kvaCapacity",
               "isPK": false
             }
           ]
         },
         {
-          "name": "QualityAudit",
-          "pk": "auditId",
+          "name": "GridMaintenanceLog",
+          "pk": "logEntryId",
           "attributes": [
             {
-              "name": "auditId",
+              "name": "logEntryId",
               "isPK": true
             },
             {
-              "name": "auditorName",
+              "name": "serviceDate",
               "isPK": false
             },
             {
-              "name": "purityPct",
+              "name": "techNotes",
               "isPK": false
             }
           ]
@@ -7437,25 +9336,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "PharmaFactory",
-          "entity2": "ChemicalLab",
+          "entity1": "PowerSubstation",
+          "entity2": "TransmissionFeeder",
+          "fromEntityName": "PowerSubstation",
+          "toEntityName": "TransmissionFeeder",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "DistributesFeeder",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "ChemicalLab",
-          "entity2": "DrugBatch",
+          "entity1": "TransmissionFeeder",
+          "entity2": "IndustrialTransformer",
+          "fromEntityName": "TransmissionFeeder",
+          "toEntityName": "IndustrialTransformer",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel2"
+          "name": "PowersTransformer",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "DrugBatch",
-          "entity2": "QualityAudit",
+          "entity1": "IndustrialTransformer",
+          "entity2": "GridMaintenanceLog",
+          "fromEntityName": "IndustrialTransformer",
+          "toEntityName": "GridMaintenanceLog",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "LoggedService",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -7463,37 +9377,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 145,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "CarManufacturer Korporativ Arxitekturasi",
-    "story": "Avtomobil Yig'uv Klasteri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **CarManufacturer** (oemCode {PK}), **AssemblyLine** (lineId {PK}), **DealershipShowroom** (dealerId {PK}) va **VehicleOrder** (contractNo {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'CarManufacturer', 'AssemblyLine', 'DealershipShowroom' va 'VehicleOrder' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Dr. Alisher Rasulov",
+    "clientRole": "103 Tez Tibbiy Yordam Call-Markazi Rahbari",
+    "clientAvatar": "🚑",
+    "title": "103 Tez Yordam — Stansiya, Tez Yordam Brigadasi, Chaqiruv va Kasalxonaga Topshirish (Emergency 103)",
+    "titleEn": "Emergency 103 Dispatch — Substation, Crew, Emergency Call & Hospital Handoff",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nToshkent shahar 103 shoshilinch tez yordam dispetcherlik tizimi 4 ta entitiy orqali boshqariladi:\n1. **DispatchStation** — tuman tez yordam kichik stansiyasi.\n2. **AmbulanceCrew** — navbatchilikdagi tez yordam brigadasi (mashina va shifokor).\n3. **EmergencyCall** — 103 raqamiga tushgan shoshilinch chaqiruv.\n4. **HospitalHandoff** — bemorni shifoxona qabul bo'limiga topshirish hujjati.\nStansiya brigadalarni safarbar qiladi (`1..1` ⟷ `1..*`). Brigada chaqiruvlarga chiqadi (`1..1` ⟷ `0..*`). Chaqiruv yakunida bemor shifoxonaga yotqizilsa, bitta topshirish hujjati tuziladi (`1..1` ⟷ `0..1`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `DispatchStation`: {PK} `stationNumber`, `districtArea`, `phoneDispatcher`.\n2. `AmbulanceCrew`: {PK} `crewBadgeCode`, `vehiclePlate`, `leadDoctorName`.\n3. `EmergencyCall`: {PK} `callTicketId`, `patientAddress`, `callerPhone`, `callTimestamp`.\n4. `HospitalHandoff`: {PK} `handoffId`, `receivingHospital`, `prelimDiagnosis`.\n5. Munosabatlarni bog'lang:\n   - `DispatchStation` ⟷ `AmbulanceCrew`: `1..1` va `1..*`\n   - `AmbulanceCrew` ⟷ `EmergencyCall`: `1..1` va `0..*`\n   - `EmergencyCall` ⟷ `HospitalHandoff`: `1..1` va `0..1`",
+    "storyEn": "Emergency 103 Dispatch — Substation, Crew, Emergency Call & Hospital Handoff — Conceptual ER business case study.",
+    "instruction": "103 tez tibbiy yordam dispetcherlik, brigada va shifoxonaga topshirish zanjirini tuzing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "CarManufacturer",
+          "name": "DispatchStation",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "oemCode",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "stationNumber",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "oemCode",
+              "name": "stationNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "corpName",
+              "name": "districtArea",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "isoCert",
+              "name": "phoneDispatcher",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7501,27 +9419,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "AssemblyLine",
+          "name": "AmbulanceCrew",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "lineId",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "crewBadgeCode",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "lineId",
+              "name": "crewBadgeCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "lineModel",
+              "name": "vehiclePlate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "dailyCap",
+              "name": "leadDoctorName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7529,27 +9448,34 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "DealershipShowroom",
+          "name": "EmergencyCall",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "dealerId",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "callTicketId",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "dealerId",
+              "name": "callTicketId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "showroomCity",
+              "name": "patientAddress",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "quota",
+              "name": "callerPhone",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "callTimestamp",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7557,27 +9483,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "VehicleOrder",
+          "name": "HospitalHandoff",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "contractNo",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "handoffId",
+          "x": 450,
+          "y": 320,
           "attributes": [
             {
-              "name": "contractNo",
+              "name": "handoffId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "customerPin",
+              "name": "receivingHospital",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "vin",
+              "name": "prelimDiagnosis",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7588,39 +9515,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "CarManufacturer",
-          "entity2": "AssemblyLine",
-          "fromEntityName": "CarManufacturer",
-          "toEntityName": "AssemblyLine",
+          "name": "StationsCrew",
+          "entity1": "DispatchStation",
+          "entity2": "AmbulanceCrew",
+          "fromEntityName": "DispatchStation",
+          "toEntityName": "AmbulanceCrew",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "AssemblyLine",
-          "entity2": "DealershipShowroom",
-          "fromEntityName": "AssemblyLine",
-          "toEntityName": "DealershipShowroom",
+          "name": "AttendsCall",
+          "entity1": "AmbulanceCrew",
+          "entity2": "EmergencyCall",
+          "fromEntityName": "AmbulanceCrew",
+          "toEntityName": "EmergencyCall",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "DealershipShowroom",
-          "entity2": "VehicleOrder",
-          "fromEntityName": "DealershipShowroom",
-          "toEntityName": "VehicleOrder",
+          "name": "ResultsInHandoff",
+          "entity1": "EmergencyCall",
+          "entity2": "HospitalHandoff",
+          "fromEntityName": "EmergencyCall",
+          "toEntityName": "HospitalHandoff",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -7628,73 +9561,77 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "CarManufacturer",
-          "pk": "oemCode",
+          "name": "DispatchStation",
+          "pk": "stationNumber",
           "attributes": [
             {
-              "name": "oemCode",
+              "name": "stationNumber",
               "isPK": true
             },
             {
-              "name": "corpName",
+              "name": "districtArea",
               "isPK": false
             },
             {
-              "name": "isoCert",
+              "name": "phoneDispatcher",
               "isPK": false
             }
           ]
         },
         {
-          "name": "AssemblyLine",
-          "pk": "lineId",
+          "name": "AmbulanceCrew",
+          "pk": "crewBadgeCode",
           "attributes": [
             {
-              "name": "lineId",
+              "name": "crewBadgeCode",
               "isPK": true
             },
             {
-              "name": "lineModel",
+              "name": "vehiclePlate",
               "isPK": false
             },
             {
-              "name": "dailyCap",
+              "name": "leadDoctorName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "DealershipShowroom",
-          "pk": "dealerId",
+          "name": "EmergencyCall",
+          "pk": "callTicketId",
           "attributes": [
             {
-              "name": "dealerId",
+              "name": "callTicketId",
               "isPK": true
             },
             {
-              "name": "showroomCity",
+              "name": "patientAddress",
               "isPK": false
             },
             {
-              "name": "quota",
+              "name": "callerPhone",
+              "isPK": false
+            },
+            {
+              "name": "callTimestamp",
               "isPK": false
             }
           ]
         },
         {
-          "name": "VehicleOrder",
-          "pk": "contractNo",
+          "name": "HospitalHandoff",
+          "pk": "handoffId",
           "attributes": [
             {
-              "name": "contractNo",
+              "name": "handoffId",
               "isPK": true
             },
             {
-              "name": "customerPin",
+              "name": "receivingHospital",
               "isPK": false
             },
             {
-              "name": "vin",
+              "name": "prelimDiagnosis",
               "isPK": false
             }
           ]
@@ -7702,25 +9639,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "CarManufacturer",
-          "entity2": "AssemblyLine",
+          "entity1": "DispatchStation",
+          "entity2": "AmbulanceCrew",
+          "fromEntityName": "DispatchStation",
+          "toEntityName": "AmbulanceCrew",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "StationsCrew",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "AssemblyLine",
-          "entity2": "DealershipShowroom",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Rel2"
-        },
-        {
-          "entity1": "DealershipShowroom",
-          "entity2": "VehicleOrder",
+          "entity1": "AmbulanceCrew",
+          "entity2": "EmergencyCall",
+          "fromEntityName": "AmbulanceCrew",
+          "toEntityName": "EmergencyCall",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "AttendsCall",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "EmergencyCall",
+          "entity2": "HospitalHandoff",
+          "fromEntityName": "EmergencyCall",
+          "toEntityName": "HospitalHandoff",
+          "mult1": "1..1",
+          "mult2": "0..1",
+          "name": "ResultsInHandoff",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -7728,37 +9680,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 146,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "SOCNetwork Korporativ Arxitekturasi",
-    "story": "SOC Kiberxavfsizlik bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **SOCNetwork** (perimeterId {PK}), **SecurityThreat** (cveCode {PK}), **IncidentTicket** (incidentId {PK}) va **MitigationAction** (actionId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'SOCNetwork', 'SecurityThreat', 'IncidentTicket' va 'MitigationAction' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Akmal Qodirov",
+    "clientRole": "Tashkent City Biznes Markazi Ekspluatatsiya Direktori",
+    "clientAvatar": "🏢",
+    "title": "Tashkent City — Biznes Minorasi, Qavat, Ijara Shartnomasi va Servis So'rovi (Commercial Property Management)",
+    "titleEn": "Tashkent City — Tower, Floor, Lease Contract & Facility Service Request",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nTashkent City biznes markazida tijorat ko'chmas mulkini boshqarish 4 ta korxona entitiyida ifodalanadi:\n1. **BusinessTower** — ko'p qavatli osmono'par bino.\n2. **OfficeFloor** — binodagi ma'lum bir ofis qavati.\n3. **TenantLeaseContract** — ijarachi kompaniya bilan tuzilgan ijara shartnomasi.\n4. **FacilityServiceRequest** — qavatdagi konditsioner yoki elektr bo'yicha servis arizasi.\nMinora qavatlardan iborat (`1..1` ⟷ `1..*`). Qavat bo'yicha ijara shartnomalari rasmiylashtiriladi (`1..1` ⟷ `0..*`). Qavat bo'yicha ekspluatatsiya servis arizalari kelib tushadi (`1..1` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `BusinessTower`: {PK} `towerCode`, `towerName`, `totalHeightMeters`.\n2. `OfficeFloor`: {PK} `floorNumber`, `rentableSqM`, `ceilingHeightM`.\n3. `TenantLeaseContract`: {PK} `contractId`, `tenantName`, `monthlyRateUsd`.\n4. `FacilityServiceRequest`: {PK} `requestId`, `issueCategory`, `reportedDate`.\n5. Munosabatlarni bog'lang:\n   - `BusinessTower` ⟷ `OfficeFloor`: `1..1` va `1..*`\n   - `OfficeFloor` ⟷ `TenantLeaseContract`: `1..1` va `0..*`\n   - `OfficeFloor` ⟷ `FacilityServiceRequest`: `1..1` va `0..*`",
+    "storyEn": "Tashkent City — Tower, Floor, Lease Contract & Facility Service Request — Conceptual ER business case study.",
+    "instruction": "Biznes markazi minorasi, qavat, ijara va bino ekspluatatsiyasi servis modelini tuzing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "SOCNetwork",
+          "name": "BusinessTower",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "perimeterId",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "towerCode",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "perimeterId",
+              "name": "towerCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "segmentName",
+              "name": "towerName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "firewallIp",
+              "name": "totalHeightMeters",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7766,27 +9722,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "SecurityThreat",
+          "name": "OfficeFloor",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "cveCode",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "floorNumber",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "cveCode",
+              "name": "floorNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "cvssScore",
+              "name": "rentableSqM",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "category",
+              "name": "ceilingHeightM",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7794,27 +9751,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "IncidentTicket",
+          "name": "TenantLeaseContract",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "incidentId",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "contractId",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "incidentId",
+              "name": "contractId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "detectedAt",
+              "name": "tenantName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "state",
+              "name": "monthlyRateUsd",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7822,27 +9780,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "MitigationAction",
+          "name": "FacilityServiceRequest",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "actionId",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "requestId",
+          "x": 450,
+          "y": 320,
           "attributes": [
             {
-              "name": "actionId",
+              "name": "requestId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "analystBadge",
+              "name": "issueCategory",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "patchedAt",
+              "name": "reportedDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7853,39 +9812,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "SOCNetwork",
-          "entity2": "SecurityThreat",
-          "fromEntityName": "SOCNetwork",
-          "toEntityName": "SecurityThreat",
+          "name": "ComprisesFloor",
+          "entity1": "BusinessTower",
+          "entity2": "OfficeFloor",
+          "fromEntityName": "BusinessTower",
+          "toEntityName": "OfficeFloor",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "SecurityThreat",
-          "entity2": "IncidentTicket",
-          "fromEntityName": "SecurityThreat",
-          "toEntityName": "IncidentTicket",
+          "name": "LeasedUnderContract",
+          "entity1": "OfficeFloor",
+          "entity2": "TenantLeaseContract",
+          "fromEntityName": "OfficeFloor",
+          "toEntityName": "TenantLeaseContract",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "IncidentTicket",
-          "entity2": "MitigationAction",
-          "fromEntityName": "IncidentTicket",
-          "toEntityName": "MitigationAction",
+          "name": "RequiresService",
+          "entity1": "OfficeFloor",
+          "entity2": "FacilityServiceRequest",
+          "fromEntityName": "OfficeFloor",
+          "toEntityName": "FacilityServiceRequest",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -7893,73 +9858,73 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "SOCNetwork",
-          "pk": "perimeterId",
+          "name": "BusinessTower",
+          "pk": "towerCode",
           "attributes": [
             {
-              "name": "perimeterId",
+              "name": "towerCode",
               "isPK": true
             },
             {
-              "name": "segmentName",
+              "name": "towerName",
               "isPK": false
             },
             {
-              "name": "firewallIp",
+              "name": "totalHeightMeters",
               "isPK": false
             }
           ]
         },
         {
-          "name": "SecurityThreat",
-          "pk": "cveCode",
+          "name": "OfficeFloor",
+          "pk": "floorNumber",
           "attributes": [
             {
-              "name": "cveCode",
+              "name": "floorNumber",
               "isPK": true
             },
             {
-              "name": "cvssScore",
+              "name": "rentableSqM",
               "isPK": false
             },
             {
-              "name": "category",
+              "name": "ceilingHeightM",
               "isPK": false
             }
           ]
         },
         {
-          "name": "IncidentTicket",
-          "pk": "incidentId",
+          "name": "TenantLeaseContract",
+          "pk": "contractId",
           "attributes": [
             {
-              "name": "incidentId",
+              "name": "contractId",
               "isPK": true
             },
             {
-              "name": "detectedAt",
+              "name": "tenantName",
               "isPK": false
             },
             {
-              "name": "state",
+              "name": "monthlyRateUsd",
               "isPK": false
             }
           ]
         },
         {
-          "name": "MitigationAction",
-          "pk": "actionId",
+          "name": "FacilityServiceRequest",
+          "pk": "requestId",
           "attributes": [
             {
-              "name": "actionId",
+              "name": "requestId",
               "isPK": true
             },
             {
-              "name": "analystBadge",
+              "name": "issueCategory",
               "isPK": false
             },
             {
-              "name": "patchedAt",
+              "name": "reportedDate",
               "isPK": false
             }
           ]
@@ -7967,25 +9932,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "SOCNetwork",
-          "entity2": "SecurityThreat",
+          "entity1": "BusinessTower",
+          "entity2": "OfficeFloor",
+          "fromEntityName": "BusinessTower",
+          "toEntityName": "OfficeFloor",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "ComprisesFloor",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "SecurityThreat",
-          "entity2": "IncidentTicket",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Rel2"
-        },
-        {
-          "entity1": "IncidentTicket",
-          "entity2": "MitigationAction",
+          "entity1": "OfficeFloor",
+          "entity2": "TenantLeaseContract",
+          "fromEntityName": "OfficeFloor",
+          "toEntityName": "TenantLeaseContract",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "LeasedUnderContract",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "OfficeFloor",
+          "entity2": "FacilityServiceRequest",
+          "fromEntityName": "OfficeFloor",
+          "toEntityName": "FacilityServiceRequest",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "RequiresService",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -7993,37 +9973,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 147,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "RetailStore Korporativ Arxitekturasi",
-    "story": "Chakana Savdo Zanjiri bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RetailStore** (storeId {PK}), **CentralDepot** (depotBarcode {PK}), **SupplierVendor** (vendorInn {PK}) va **ProductInventory** (inventorySku {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'RetailStore', 'CentralDepot', 'SupplierVendor' va 'ProductInventory' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Dr. Lola Karimova",
+    "clientRole": "O'zbekiston Farmatsevtika Agentligi Litsenziyalash Eksperti",
+    "clientAvatar": "💊",
+    "title": "Farmatsevtika Agentligi — Ishlab Chiqaruvchi, Dori, Bio-tahlil va Litsenziya (Drug Registration Architecture)",
+    "titleEn": "National Pharma Agency — Manufacturer, Drug, Laboratory Bio-Analysis & Marketing License",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nDavlat farmatsevtika agentligida yangi dorilarni litsenziyalash 4 ta korxona entitiyida olib boriladi:\n1. **PharmaManufacturer** — farmatsevtik zavod (masalan, Jurabek Laboratories).\n2. **MedicineDrug** — ishlab chiqarilgan dori vositasi.\n3. **LabBioAnalysis** — davlat laboratoriyasida o'tkazilgan bioekvivalentlik sinov bayonnomasi.\n4. **NationalMarketingLicense** — dorini O'zbekiston hududida sotish uchun berilgan davlat guvohnomasi.\nZavod dorilarni ishlab chiqaradi (`1..1` ⟷ `1..*`). Dori vositasi laboratoriya sinovlaridan o'tadi (`1..1` ⟷ `1..*`). Sinovlar ijobiy bo'lsa dori uchun davlat litsenziyasi beriladi (`1..1` ⟷ `0..1`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `PharmaManufacturer`: {PK} `pharmaInn`, `brandTitle`, `gmpCertified`.\n2. `MedicineDrug`: {PK} `drugTradeCode`, `genericFormula`, `dosageMg`.\n3. `LabBioAnalysis`: {PK} `labReportId`, `purityPercent`, `testPassed`.\n4. `NationalMarketingLicense`: {PK} `licenseRegNumber`, `issueDate`, `expiryYear`.\n5. Munosabatlarni bog'lang:\n   - `PharmaManufacturer` ⟷ `MedicineDrug`: `1..1` va `1..*`\n   - `MedicineDrug` ⟷ `LabBioAnalysis`: `1..1` va `1..*`\n   - `MedicineDrug` ⟷ `NationalMarketingLicense`: `1..1` va `0..1`",
+    "storyEn": "National Pharma Agency — Manufacturer, Drug, Laboratory Bio-Analysis & Marketing License — Conceptual ER business case study.",
+    "instruction": "Dori vositalarini davlat laboratoriya sinovidan o'tkazish va litsenziyalash modelini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "RetailStore",
+          "name": "PharmaManufacturer",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "storeId",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "pharmaInn",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "storeId",
+              "name": "pharmaInn",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "storeName",
+              "name": "brandTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "cityAddress",
+              "name": "gmpCertified",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8031,27 +10015,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "CentralDepot",
+          "name": "MedicineDrug",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "depotBarcode",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "drugTradeCode",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "depotBarcode",
+              "name": "drugTradeCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "volumeTons",
+              "name": "genericFormula",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "slots",
+              "name": "dosageMg",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8059,27 +10044,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "SupplierVendor",
+          "name": "LabBioAnalysis",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "vendorInn",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "labReportId",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "vendorInn",
+              "name": "labReportId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "vendorName",
+              "name": "purityPercent",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "slaScore",
+              "name": "testPassed",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8087,27 +10073,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "ProductInventory",
+          "name": "NationalMarketingLicense",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "inventorySku",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "licenseRegNumber",
+          "x": 450,
+          "y": 320,
           "attributes": [
             {
-              "name": "inventorySku",
+              "name": "licenseRegNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "quantityOnHand",
+              "name": "issueDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "reorderLevel",
+              "name": "expiryYear",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8118,39 +10105,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "RetailStore",
-          "entity2": "CentralDepot",
-          "fromEntityName": "RetailStore",
-          "toEntityName": "CentralDepot",
+          "name": "ManufacturesDrug",
+          "entity1": "PharmaManufacturer",
+          "entity2": "MedicineDrug",
+          "fromEntityName": "PharmaManufacturer",
+          "toEntityName": "MedicineDrug",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "CentralDepot",
-          "entity2": "SupplierVendor",
-          "fromEntityName": "CentralDepot",
-          "toEntityName": "SupplierVendor",
+          "name": "SubjectToTest",
+          "entity1": "MedicineDrug",
+          "entity2": "LabBioAnalysis",
+          "fromEntityName": "MedicineDrug",
+          "toEntityName": "LabBioAnalysis",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "SupplierVendor",
-          "entity2": "ProductInventory",
-          "fromEntityName": "SupplierVendor",
-          "toEntityName": "ProductInventory",
+          "name": "ApprovedForSale",
+          "entity1": "MedicineDrug",
+          "entity2": "NationalMarketingLicense",
+          "fromEntityName": "MedicineDrug",
+          "toEntityName": "NationalMarketingLicense",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -8158,73 +10151,73 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "RetailStore",
-          "pk": "storeId",
+          "name": "PharmaManufacturer",
+          "pk": "pharmaInn",
           "attributes": [
             {
-              "name": "storeId",
+              "name": "pharmaInn",
               "isPK": true
             },
             {
-              "name": "storeName",
+              "name": "brandTitle",
               "isPK": false
             },
             {
-              "name": "cityAddress",
+              "name": "gmpCertified",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CentralDepot",
-          "pk": "depotBarcode",
+          "name": "MedicineDrug",
+          "pk": "drugTradeCode",
           "attributes": [
             {
-              "name": "depotBarcode",
+              "name": "drugTradeCode",
               "isPK": true
             },
             {
-              "name": "volumeTons",
+              "name": "genericFormula",
               "isPK": false
             },
             {
-              "name": "slots",
+              "name": "dosageMg",
               "isPK": false
             }
           ]
         },
         {
-          "name": "SupplierVendor",
-          "pk": "vendorInn",
+          "name": "LabBioAnalysis",
+          "pk": "labReportId",
           "attributes": [
             {
-              "name": "vendorInn",
+              "name": "labReportId",
               "isPK": true
             },
             {
-              "name": "vendorName",
+              "name": "purityPercent",
               "isPK": false
             },
             {
-              "name": "slaScore",
+              "name": "testPassed",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ProductInventory",
-          "pk": "inventorySku",
+          "name": "NationalMarketingLicense",
+          "pk": "licenseRegNumber",
           "attributes": [
             {
-              "name": "inventorySku",
+              "name": "licenseRegNumber",
               "isPK": true
             },
             {
-              "name": "quantityOnHand",
+              "name": "issueDate",
               "isPK": false
             },
             {
-              "name": "reorderLevel",
+              "name": "expiryYear",
               "isPK": false
             }
           ]
@@ -8232,25 +10225,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "RetailStore",
-          "entity2": "CentralDepot",
+          "entity1": "PharmaManufacturer",
+          "entity2": "MedicineDrug",
+          "fromEntityName": "PharmaManufacturer",
+          "toEntityName": "MedicineDrug",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "ManufacturesDrug",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "CentralDepot",
-          "entity2": "SupplierVendor",
+          "entity1": "MedicineDrug",
+          "entity2": "LabBioAnalysis",
+          "fromEntityName": "MedicineDrug",
+          "toEntityName": "LabBioAnalysis",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel2"
+          "name": "SubjectToTest",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "SupplierVendor",
-          "entity2": "ProductInventory",
+          "entity1": "MedicineDrug",
+          "entity2": "NationalMarketingLicense",
+          "fromEntityName": "MedicineDrug",
+          "toEntityName": "NationalMarketingLicense",
           "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Rel3"
+          "mult2": "0..1",
+          "name": "ApprovedForSale",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -8258,37 +10266,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 148,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "RefineryPlant Korporativ Arxitekturasi",
-    "story": "Neft-Gaz Majmuasi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **RefineryPlant** (refineryCode {PK}), **StorageTanker** (tankId {PK}), **PipelineSegment** (segmentCode {PK}) va **CrudeOilShipment** (consignmentNo {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'RefineryPlant', 'StorageTanker', 'PipelineSegment' va 'CrudeOilShipment' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Bobur Mahmudov",
+    "clientRole": "O'zbekiston Temir Yo'llari Afrosiyob Bosh Dispecheri",
+    "clientAvatar": "🚅",
+    "title": "Afrosiyob Poyezdi — Poyezd Tarkibi, Vagon, Marshrut Reysi va Yo'lovchi Chiptasi (High-Speed Rail)",
+    "titleEn": "High-Speed Rail — Train Set, Carriage, Scheduled Trip & Passenger Ticket",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nAfrosiyob tezyurar temir yo'l yo'lovchi qatnovi 4 ta asosiy korxona entitiysida shakllantiriladi:\n1. **TrainSet** — Afrosiyob tezyurar poyezd sostavi (masalan, Talgo-250).\n2. **RailwayCarriage** — poyezd sostavidagi vagon (VIP, Biznes, Ekonom).\n3. **ScheduledTrip** — jadval bo'yicha belgilangan aniq qatnov (Toshkent — Samarqand — Buxoro).\n4. **PassengerTicket** — qatnov uchun sotilgan elektron poyezd chiptasi.\nPoyezd sostavi vagonlardan tashkil topadi (`1..1` ⟷ `1..*`). Poyezd sostavi reyslarni amalga oshiradi (`1..1` ⟷ `1..*`). Reys bo'yicha yo'lovchilarga chiptalar sotiladi (`1..1` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `TrainSet`: {PK} `trainSetCode`, `modelType`, `maxSpeedKmH`.\n2. `RailwayCarriage`: {PK} `carriageNumber`, `coachClass`, `seatCapacity`.\n3. `ScheduledTrip`: {PK} `tripCode`, `departureDate`, `originStation`, `destStation`.\n4. `PassengerTicket`: {PK} `ticketCode`, `seatAllocated`, `farePaidSum`.\n5. Munosabatlarni bog'lang:\n   - `TrainSet` ⟷ `RailwayCarriage`: `1..1` va `1..*`\n   - `TrainSet` ⟷ `ScheduledTrip`: `1..1` va `1..*`\n   - `ScheduledTrip` ⟷ `PassengerTicket`: `1..1` va `0..*`",
+    "storyEn": "High-Speed Rail — Train Set, Carriage, Scheduled Trip & Passenger Ticket — Conceptual ER business case study.",
+    "instruction": "Afrosiyob poyezd sostavi, vagon, reys va yo'lovchi chiptasi modelini barpo qiling.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "RefineryPlant",
+          "name": "TrainSet",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "refineryCode",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "trainSetCode",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "refineryCode",
+              "name": "trainSetCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "refineryName",
+              "name": "modelType",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "capacityBarrels",
+              "name": "maxSpeedKmH",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8296,27 +10308,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "StorageTanker",
+          "name": "RailwayCarriage",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "tankId",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "carriageNumber",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "tankId",
+              "name": "carriageNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "grossVolumeM3",
+              "name": "coachClass",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "grade",
+              "name": "seatCapacity",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8324,27 +10337,34 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "PipelineSegment",
+          "name": "ScheduledTrip",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "segmentCode",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "tripCode",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "segmentCode",
+              "name": "tripCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "diameterMm",
+              "name": "departureDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "pressureBar",
+              "name": "originStation",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "destStation",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8352,27 +10372,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "CrudeOilShipment",
+          "name": "PassengerTicket",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "consignmentNo",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "ticketCode",
+          "x": 450,
+          "y": 320,
           "attributes": [
             {
-              "name": "consignmentNo",
+              "name": "ticketCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "gravitySpec",
+              "name": "seatAllocated",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "dispatchTime",
+              "name": "farePaidSum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8383,39 +10404,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "RefineryPlant",
-          "entity2": "StorageTanker",
-          "fromEntityName": "RefineryPlant",
-          "toEntityName": "StorageTanker",
+          "name": "ComprisesCarriage",
+          "entity1": "TrainSet",
+          "entity2": "RailwayCarriage",
+          "fromEntityName": "TrainSet",
+          "toEntityName": "RailwayCarriage",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "StorageTanker",
-          "entity2": "PipelineSegment",
-          "fromEntityName": "StorageTanker",
-          "toEntityName": "PipelineSegment",
+          "name": "AssignedToTrip",
+          "entity1": "TrainSet",
+          "entity2": "ScheduledTrip",
+          "fromEntityName": "TrainSet",
+          "toEntityName": "ScheduledTrip",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "PipelineSegment",
-          "entity2": "CrudeOilShipment",
-          "fromEntityName": "PipelineSegment",
-          "toEntityName": "CrudeOilShipment",
+          "name": "IssuesTicket",
+          "entity1": "ScheduledTrip",
+          "entity2": "PassengerTicket",
+          "fromEntityName": "ScheduledTrip",
+          "toEntityName": "PassengerTicket",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -8423,73 +10450,77 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "RefineryPlant",
-          "pk": "refineryCode",
+          "name": "TrainSet",
+          "pk": "trainSetCode",
           "attributes": [
             {
-              "name": "refineryCode",
+              "name": "trainSetCode",
               "isPK": true
             },
             {
-              "name": "refineryName",
+              "name": "modelType",
               "isPK": false
             },
             {
-              "name": "capacityBarrels",
+              "name": "maxSpeedKmH",
               "isPK": false
             }
           ]
         },
         {
-          "name": "StorageTanker",
-          "pk": "tankId",
+          "name": "RailwayCarriage",
+          "pk": "carriageNumber",
           "attributes": [
             {
-              "name": "tankId",
+              "name": "carriageNumber",
               "isPK": true
             },
             {
-              "name": "grossVolumeM3",
+              "name": "coachClass",
               "isPK": false
             },
             {
-              "name": "grade",
+              "name": "seatCapacity",
               "isPK": false
             }
           ]
         },
         {
-          "name": "PipelineSegment",
-          "pk": "segmentCode",
+          "name": "ScheduledTrip",
+          "pk": "tripCode",
           "attributes": [
             {
-              "name": "segmentCode",
+              "name": "tripCode",
               "isPK": true
             },
             {
-              "name": "diameterMm",
+              "name": "departureDate",
               "isPK": false
             },
             {
-              "name": "pressureBar",
+              "name": "originStation",
+              "isPK": false
+            },
+            {
+              "name": "destStation",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CrudeOilShipment",
-          "pk": "consignmentNo",
+          "name": "PassengerTicket",
+          "pk": "ticketCode",
           "attributes": [
             {
-              "name": "consignmentNo",
+              "name": "ticketCode",
               "isPK": true
             },
             {
-              "name": "gravitySpec",
+              "name": "seatAllocated",
               "isPK": false
             },
             {
-              "name": "dispatchTime",
+              "name": "farePaidSum",
               "isPK": false
             }
           ]
@@ -8497,25 +10528,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "RefineryPlant",
-          "entity2": "StorageTanker",
+          "entity1": "TrainSet",
+          "entity2": "RailwayCarriage",
+          "fromEntityName": "TrainSet",
+          "toEntityName": "RailwayCarriage",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "ComprisesCarriage",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "StorageTanker",
-          "entity2": "PipelineSegment",
+          "entity1": "TrainSet",
+          "entity2": "ScheduledTrip",
+          "fromEntityName": "TrainSet",
+          "toEntityName": "ScheduledTrip",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel2"
+          "name": "AssignedToTrip",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "PipelineSegment",
-          "entity2": "CrudeOilShipment",
+          "entity1": "ScheduledTrip",
+          "entity2": "PassengerTicket",
+          "fromEntityName": "ScheduledTrip",
+          "toEntityName": "PassengerTicket",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "IssuesTicket",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -8523,37 +10569,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 149,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "TelecomCore Korporativ Arxitekturasi",
-    "story": "5G Telekomunikasiya bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **TelecomCore** (coreSwitchId {PK}), **FiveGBaseStation** (gNodeBId {PK}), **BillingSubscription** (subscriberMsisdn {PK}) va **DataTrafficSession** (cdrSessionId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'TelecomCore', 'FiveGBaseStation', 'BillingSubscription' va 'DataTrafficSession' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Nurbek Alimov",
+    "clientRole": "Mobiuz Uyali Aloqa Tarmoq Operatsiyalari Markazi Muhandisi",
+    "clientAvatar": "📡",
+    "title": "Mobiuz Aloqa — Baza Stansiyasi, Qabul Qiluvchi, Abonent va Qo'ng'iroq Tranziti (Cellular Network CDR)",
+    "titleEn": "Cellular Network — Base Station Tower, Transceiver, Subscriber & Call Detail Record",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nGSM/LTE uyali aloqa operatorida qo'ng'iroqlar va internet trafigi hisobi 4 ta entitiyda yuritiladi:\n1. **CellularTowerBTS** — baza stansiyasi minorasi.\n2. **FrequencyTransceiver** — minoradagi chastota uzatuvchi-qabul qiluvchi sektor antennasi.\n3. **MobileSubscriber** — SIM-karta egasi bo'lgan abonent.\n4. **CallDataRecord** — har bir qo'ng'iroq yoki sessiya bo'yicha hosil bo'ladigan tranzit CDR yozuvi.\nMinora sektor antennalariga ega (`1..1` ⟷ `1..*`). Antenna orqali qo'ng'iroq CDR yozuvlari qayd qilinadi (`1..1` ⟷ `0..*`). Abonent tomonidan ham CDR yozuvlari amalga oshiriladi (`1..1` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `CellularTowerBTS`: {PK} `cellTowerId`, `siteName`, `gpsCoordinates`.\n2. `FrequencyTransceiver`: {PK} `transceiverId`, `azimuthDegrees`, `frequencyBand`.\n3. `MobileSubscriber`: {PK} `msisdnPhone`, `imsiNumber`, `accountPlan`.\n4. `CallDataRecord`: {PK} `cdrSeqId`, `callDurationSec`, `chargedSum`.\n5. Munosabatlarni bog'lang:\n   - `CellularTowerBTS` ⟷ `FrequencyTransceiver`: `1..1` va `1..*`\n   - `FrequencyTransceiver` ⟷ `CallDataRecord`: `1..1` va `0..*`\n   - `MobileSubscriber` ⟷ `CallDataRecord`: `1..1` va `0..*`",
+    "storyEn": "Cellular Network — Base Station Tower, Transceiver, Subscriber & Call Detail Record — Conceptual ER business case study.",
+    "instruction": "Uyali aloqa minorasi, antenna, abonent va qo'ng'iroq CDR modeli arxitekturasini tuzing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "TelecomCore",
+          "name": "CellularTowerBTS",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "coreSwitchId",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "cellTowerId",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "coreSwitchId",
+              "name": "cellTowerId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "routerModel",
+              "name": "siteName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "capacityTbps",
+              "name": "gpsCoordinates",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8561,27 +10611,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "FiveGBaseStation",
+          "name": "FrequencyTransceiver",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "gNodeBId",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "transceiverId",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "gNodeBId",
+              "name": "transceiverId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "freqGhz",
+              "name": "azimuthDegrees",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "mimoSectors",
+              "name": "frequencyBand",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8589,27 +10640,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "BillingSubscription",
+          "name": "MobileSubscriber",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "subscriberMsisdn",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "msisdnPhone",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "subscriberMsisdn",
+              "name": "msisdnPhone",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "planName",
+              "name": "imsiNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "balanceGb",
+              "name": "accountPlan",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8617,27 +10669,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "DataTrafficSession",
+          "name": "CallDataRecord",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "cdrSessionId",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "cdrSeqId",
+          "x": 450,
+          "y": 320,
           "attributes": [
             {
-              "name": "cdrSessionId",
+              "name": "cdrSeqId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "connectedAt",
+              "name": "callDurationSec",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "megabytes",
+              "name": "chargedSum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8648,39 +10701,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "TelecomCore",
-          "entity2": "FiveGBaseStation",
-          "fromEntityName": "TelecomCore",
-          "toEntityName": "FiveGBaseStation",
+          "name": "HousesAntenna",
+          "entity1": "CellularTowerBTS",
+          "entity2": "FrequencyTransceiver",
+          "fromEntityName": "CellularTowerBTS",
+          "toEntityName": "FrequencyTransceiver",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "FiveGBaseStation",
-          "entity2": "BillingSubscription",
-          "fromEntityName": "FiveGBaseStation",
-          "toEntityName": "BillingSubscription",
+          "name": "RelaysCall",
+          "entity1": "FrequencyTransceiver",
+          "entity2": "CallDataRecord",
+          "fromEntityName": "FrequencyTransceiver",
+          "toEntityName": "CallDataRecord",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "BillingSubscription",
-          "entity2": "DataTrafficSession",
-          "fromEntityName": "BillingSubscription",
-          "toEntityName": "DataTrafficSession",
+          "name": "InitiatesCall",
+          "entity1": "MobileSubscriber",
+          "entity2": "CallDataRecord",
+          "fromEntityName": "MobileSubscriber",
+          "toEntityName": "CallDataRecord",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -8688,73 +10747,73 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "TelecomCore",
-          "pk": "coreSwitchId",
+          "name": "CellularTowerBTS",
+          "pk": "cellTowerId",
           "attributes": [
             {
-              "name": "coreSwitchId",
+              "name": "cellTowerId",
               "isPK": true
             },
             {
-              "name": "routerModel",
+              "name": "siteName",
               "isPK": false
             },
             {
-              "name": "capacityTbps",
+              "name": "gpsCoordinates",
               "isPK": false
             }
           ]
         },
         {
-          "name": "FiveGBaseStation",
-          "pk": "gNodeBId",
+          "name": "FrequencyTransceiver",
+          "pk": "transceiverId",
           "attributes": [
             {
-              "name": "gNodeBId",
+              "name": "transceiverId",
               "isPK": true
             },
             {
-              "name": "freqGhz",
+              "name": "azimuthDegrees",
               "isPK": false
             },
             {
-              "name": "mimoSectors",
+              "name": "frequencyBand",
               "isPK": false
             }
           ]
         },
         {
-          "name": "BillingSubscription",
-          "pk": "subscriberMsisdn",
+          "name": "MobileSubscriber",
+          "pk": "msisdnPhone",
           "attributes": [
             {
-              "name": "subscriberMsisdn",
+              "name": "msisdnPhone",
               "isPK": true
             },
             {
-              "name": "planName",
+              "name": "imsiNumber",
               "isPK": false
             },
             {
-              "name": "balanceGb",
+              "name": "accountPlan",
               "isPK": false
             }
           ]
         },
         {
-          "name": "DataTrafficSession",
-          "pk": "cdrSessionId",
+          "name": "CallDataRecord",
+          "pk": "cdrSeqId",
           "attributes": [
             {
-              "name": "cdrSessionId",
+              "name": "cdrSeqId",
               "isPK": true
             },
             {
-              "name": "connectedAt",
+              "name": "callDurationSec",
               "isPK": false
             },
             {
-              "name": "megabytes",
+              "name": "chargedSum",
               "isPK": false
             }
           ]
@@ -8762,25 +10821,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "TelecomCore",
-          "entity2": "FiveGBaseStation",
+          "entity1": "CellularTowerBTS",
+          "entity2": "FrequencyTransceiver",
+          "fromEntityName": "CellularTowerBTS",
+          "toEntityName": "FrequencyTransceiver",
           "mult1": "1..1",
           "mult2": "1..*",
-          "name": "Rel1"
+          "name": "HousesAntenna",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "FiveGBaseStation",
-          "entity2": "BillingSubscription",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Rel2"
-        },
-        {
-          "entity1": "BillingSubscription",
-          "entity2": "DataTrafficSession",
+          "entity1": "FrequencyTransceiver",
+          "entity2": "CallDataRecord",
+          "fromEntityName": "FrequencyTransceiver",
+          "toEntityName": "CallDataRecord",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "RelaysCall",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "MobileSubscriber",
+          "entity2": "CallDataRecord",
+          "fromEntityName": "MobileSubscriber",
+          "toEntityName": "CallDataRecord",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "InitiatesCall",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -8788,37 +10862,41 @@ _scope.EER_CLIENTS_101_150 = [
   {
     "id": 150,
     "sector": 10,
-    "difficulty": "10-Qavat • Bosh Me'mor (Enterprise)",
-    "clientName": "Bosh Direktor",
-    "clientRole": "Bosh Korporativ Me'mor",
-    "clientAvatar": "mentor",
-    "title": "Spaceport Korporativ Arxitekturasi",
-    "story": "Kosmik Missiyalar Boshqaruvi bo'yicha korxona miqyosidagi integratsiyalashgan axborot tizimi qurilmoqda. Tizimda to'rtta asosiy bo'g'in: **Spaceport** (complexId {PK}), **SatelliteOrbiter** (noradId {PK}), **GroundStation** (stationCode {PK}) va **MissionTelemetry** (telemetryId {PK}) o'zaro uzluksiz texnologik zanjirda faoliyat yuritadi. Har bir ob'yekt o'zining birlamchi kalitiga ega bo'lib, ular o'rtasidagi munosabatlar va multiplisitiyalar tashkilot reglamentiga mos ravishda polotnoda aks ettiriladi.",
-    "instruction": "'Spaceport', 'SatelliteOrbiter', 'GroundStation' va 'MissionTelemetry' entitiylarini polotnoda joylashtiring, {PK} kalitlarini belgilang va ular orasidagi barcha munosabatlarni to'g'ri bog'lang.",
+    "difficulty": "Ekspert",
+    "clientName": "Sherzod Inoyatov",
+    "clientRole": "O'zbekiston Davlat Soliq Qo'mitasi Bosh Dasturchisi",
+    "clientAvatar": "📑",
+    "title": "Soliq Qo'mitasi — Korxona, Onlayn KKM, Elektron Faktura va QQS Auditi (E-Invoicing & VAT Audit)",
+    "titleEn": "Tax Committee — Enterprise, Smart Till, E-Invoice & VAT Audit Record",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nSoliq.uz milliy elektron soliq tizimida korxonalarning hisob-faktura va fiskal auditi 4 ta entitiy orqali yuritiladi:\n1. **TaxpayerCompany** — soliq to'lovchi yuridik korxona (INN).\n2. **FiscalCashRegister** — korxonaga ro'yxatdan o'tgan onlayn onlayn-KKM yoki virtual kassa terminali.\n3. **ElectronicInvoice** — elektron hisobvaraq-faktura (EHF).\n4. **VATAuditRecord** — hisobvaraq-faktura bo'yicha hisoblangan qo'shilgan qiymat solig'i (QQS) soliq tekshiruv yozuvi.\nKorxona bir nechta onlayn kassa apparatiga ega bo'lishi mumkin (`1..1` ⟷ `0..*`). Korxona elektron fakturalar chiqaradi (`1..1` ⟷ `0..*`). Har bir hisobvaraq-faktura bo'yicha qat'iy yagona QQS audit yozuvi yuritiladi (`1..1` ⟷ `1..1`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `TaxpayerCompany`: {PK} `companyInn`, `legalName`, `taxRegime`.\n2. `FiscalCashRegister`: {PK} `fiscalModuleId`, `deviceModel`, `registeredAt`.\n3. `ElectronicInvoice`: {PK} `invoiceSerialCode`, `contractNumber`, `totalWithVat`.\n4. `VATAuditRecord`: {PK} `auditRefNumber`, `vatAmountDue`, `auditStatus`.\n5. Munosabatlarni bog'lang:\n   - `TaxpayerCompany` ⟷ `FiscalCashRegister`: `1..1` va `0..*`\n   - `TaxpayerCompany` ⟷ `ElectronicInvoice`: `1..1` va `0..*`\n   - `ElectronicInvoice` ⟷ `VATAuditRecord`: `1..1` va `1..1`",
+    "storyEn": "Tax Committee — Enterprise, Smart Till, E-Invoice & VAT Audit Record — Conceptual ER business case study.",
+    "instruction": "Soliq qo'mitasi korxona, onlayn-kassa, elektron faktura va QQS tekshiruvi korxona modelini barpo qiling.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Spaceport",
+          "name": "TaxpayerCompany",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "complexId",
-          "x": 130,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "companyInn",
+          "x": 100,
+          "y": 100,
           "attributes": [
             {
-              "name": "complexId",
+              "name": "companyInn",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "cosmodromeName",
+              "name": "legalName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "padCount",
+              "name": "taxRegime",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8826,27 +10904,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "SatelliteOrbiter",
+          "name": "FiscalCashRegister",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "noradId",
-          "x": 550,
-          "y": 90,
+          "isSubclass": false,
+          "pk": "fiscalModuleId",
+          "x": 450,
+          "y": 100,
           "attributes": [
             {
-              "name": "noradId",
+              "name": "fiscalModuleId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "satelliteName",
+              "name": "deviceModel",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "altitudeKm",
+              "name": "registeredAt",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8854,27 +10933,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "GroundStation",
+          "name": "ElectronicInvoice",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "stationCode",
-          "x": 130,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "invoiceSerialCode",
+          "x": 100,
+          "y": 320,
           "attributes": [
             {
-              "name": "stationCode",
+              "name": "invoiceSerialCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "dishDiameterMeters",
+              "name": "contractNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "freqGhz",
+              "name": "totalWithVat",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8882,27 +10962,28 @@ _scope.EER_CLIENTS_101_150 = [
           ]
         },
         {
-          "name": "MissionTelemetry",
+          "name": "VATAuditRecord",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "telemetryId",
-          "x": 550,
-          "y": 330,
+          "isSubclass": false,
+          "pk": "auditRefNumber",
+          "x": 450,
+          "y": 320,
           "attributes": [
             {
-              "name": "telemetryId",
+              "name": "auditRefNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "volts",
+              "name": "vatAmountDue",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "tempKelvin",
+              "name": "auditStatus",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -8913,39 +10994,45 @@ _scope.EER_CLIENTS_101_150 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Rel1",
-          "entity1": "Spaceport",
-          "entity2": "SatelliteOrbiter",
-          "fromEntityName": "Spaceport",
-          "toEntityName": "SatelliteOrbiter",
+          "name": "OperatesCashTill",
+          "entity1": "TaxpayerCompany",
+          "entity2": "FiscalCashRegister",
+          "fromEntityName": "TaxpayerCompany",
+          "toEntityName": "FiscalCashRegister",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Rel2",
-          "entity1": "SatelliteOrbiter",
-          "entity2": "GroundStation",
-          "fromEntityName": "SatelliteOrbiter",
-          "toEntityName": "GroundStation",
+          "name": "IssuesEInvoice",
+          "entity1": "TaxpayerCompany",
+          "entity2": "ElectronicInvoice",
+          "fromEntityName": "TaxpayerCompany",
+          "toEntityName": "ElectronicInvoice",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_3",
-          "name": "Rel3",
-          "entity1": "GroundStation",
-          "entity2": "MissionTelemetry",
-          "fromEntityName": "GroundStation",
-          "toEntityName": "MissionTelemetry",
+          "name": "AuditedForVAT",
+          "entity1": "ElectronicInvoice",
+          "entity2": "VATAuditRecord",
+          "fromEntityName": "ElectronicInvoice",
+          "toEntityName": "VATAuditRecord",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -8953,73 +11040,73 @@ _scope.EER_CLIENTS_101_150 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Spaceport",
-          "pk": "complexId",
+          "name": "TaxpayerCompany",
+          "pk": "companyInn",
           "attributes": [
             {
-              "name": "complexId",
+              "name": "companyInn",
               "isPK": true
             },
             {
-              "name": "cosmodromeName",
+              "name": "legalName",
               "isPK": false
             },
             {
-              "name": "padCount",
+              "name": "taxRegime",
               "isPK": false
             }
           ]
         },
         {
-          "name": "SatelliteOrbiter",
-          "pk": "noradId",
+          "name": "FiscalCashRegister",
+          "pk": "fiscalModuleId",
           "attributes": [
             {
-              "name": "noradId",
+              "name": "fiscalModuleId",
               "isPK": true
             },
             {
-              "name": "satelliteName",
+              "name": "deviceModel",
               "isPK": false
             },
             {
-              "name": "altitudeKm",
+              "name": "registeredAt",
               "isPK": false
             }
           ]
         },
         {
-          "name": "GroundStation",
-          "pk": "stationCode",
+          "name": "ElectronicInvoice",
+          "pk": "invoiceSerialCode",
           "attributes": [
             {
-              "name": "stationCode",
+              "name": "invoiceSerialCode",
               "isPK": true
             },
             {
-              "name": "dishDiameterMeters",
+              "name": "contractNumber",
               "isPK": false
             },
             {
-              "name": "freqGhz",
+              "name": "totalWithVat",
               "isPK": false
             }
           ]
         },
         {
-          "name": "MissionTelemetry",
-          "pk": "telemetryId",
+          "name": "VATAuditRecord",
+          "pk": "auditRefNumber",
           "attributes": [
             {
-              "name": "telemetryId",
+              "name": "auditRefNumber",
               "isPK": true
             },
             {
-              "name": "volts",
+              "name": "vatAmountDue",
               "isPK": false
             },
             {
-              "name": "tempKelvin",
+              "name": "auditStatus",
               "isPK": false
             }
           ]
@@ -9027,25 +11114,40 @@ _scope.EER_CLIENTS_101_150 = [
       ],
       "relationships": [
         {
-          "entity1": "Spaceport",
-          "entity2": "SatelliteOrbiter",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Rel1"
-        },
-        {
-          "entity1": "SatelliteOrbiter",
-          "entity2": "GroundStation",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Rel2"
-        },
-        {
-          "entity1": "GroundStation",
-          "entity2": "MissionTelemetry",
+          "entity1": "TaxpayerCompany",
+          "entity2": "FiscalCashRegister",
+          "fromEntityName": "TaxpayerCompany",
+          "toEntityName": "FiscalCashRegister",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "Rel3"
+          "name": "OperatesCashTill",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "TaxpayerCompany",
+          "entity2": "ElectronicInvoice",
+          "fromEntityName": "TaxpayerCompany",
+          "toEntityName": "ElectronicInvoice",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "IssuesEInvoice",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "ElectronicInvoice",
+          "entity2": "VATAuditRecord",
+          "fromEntityName": "ElectronicInvoice",
+          "toEntityName": "VATAuditRecord",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "name": "AuditedForVAT",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }

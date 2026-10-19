@@ -350,7 +350,7 @@
 
           // Align user orientation with expected orientation
           let isReversed = false;
-          if (uFrom === e2Norm) {
+          if (e1Norm !== e2Norm && uFrom === e2Norm) {
             uM1 = foundRel.mult2;
             uM2 = foundRel.mult1;
             isReversed = true;
@@ -385,7 +385,7 @@
           }
 
           // Check if reversed (student placed values on the wrong ends)
-          if (normUserM1 === normExpM2 && normUserM2 === normExpM1 && normExpM1 !== normExpM2) {
+          if (e1Norm !== e2Norm && normUserM1 === normExpM2 && normUserM2 === normExpM1 && normExpM1 !== normExpM2) {
             const proof = isEn 
               ? `Orientation Proof: In ER diagrams, the multiplicity placed next to '${expR.entity1}' describes how many '${expR.entity1}' records can associate with ONE '${expR.entity2}'. Reversing these values inverts the business dependency and leads to misplacing Foreign Keys in relational tables.`
               : `Yo'nalish Isboti: ER diagrammalarda '${expR.entity1}' yonidagi multiplisitiya bitta '${expR.entity2}' ushbu '${expR.entity1}' dan nechta bo'lishini ko'rsatadi. Tomonlarni teskari qo'yish munosabat mantig'ini buzadi va relyatsion modelda Tashqi Kalit (Foreign Key) ning teskari jadvalga tushib qolishiga olib keladi!`;
@@ -408,8 +408,16 @@
           }
 
           // Check specific end mismatch
-          const m1Matches = normUserM1 === normExpM1;
-          const m2Matches = normUserM2 === normExpM2;
+          let m1Matches = normUserM1 === normExpM1;
+          let m2Matches = normUserM2 === normExpM2;
+
+          // For recursive self-loop relationships, orientation is symmetrical
+          if (e1Norm === e2Norm && (!m1Matches || !m2Matches)) {
+            if (normUserM1 === normExpM2 && normUserM2 === normExpM1) {
+              m1Matches = true;
+              m2Matches = true;
+            }
+          }
 
           if (!m1Matches || !m2Matches) {
             let specificReason = "";

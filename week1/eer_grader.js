@@ -102,15 +102,21 @@
           let uM2 = foundRel.mult2;
 
           // If reversed direction, swap user multiplicities
-          if (uFrom === e2Norm) {
+          if (e1Norm !== e2Norm && uFrom === e2Norm) {
             uM1 = foundRel.mult2;
             uM2 = foundRel.mult1;
           }
 
           // Normalize multiplicity (allow slight format differences like 1:1, 1..1, 1..*)
           const normM = m => (m || '').replace(/:/g, '..').replace(/n/gi, '*').replace(/m/gi, '*');
-          const m1Matches = normM(uM1) === normM(expR.mult1);
-          const m2Matches = normM(uM2) === normM(expR.mult2);
+          let m1Matches = normM(uM1) === normM(expR.mult1);
+          let m2Matches = normM(uM2) === normM(expR.mult2);
+          if (e1Norm === e2Norm && (!m1Matches || !m2Matches)) {
+            if (normM(uM1) === normM(expR.mult2) && normM(uM2) === normM(expR.mult1)) {
+              m1Matches = true;
+              m2Matches = true;
+            }
+          }
 
           if (!m1Matches || !m2Matches) {
             const hasUnset = !uM1 || uM1 === '+' || uM1 === '?' || !uM2 || uM2 === '+' || uM2 === '?';

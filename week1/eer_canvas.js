@@ -1326,11 +1326,28 @@ class EERCanvasEngine {
       const isDirectLine = rel.isDirect || !diamondEl;
 
       if (isDirectLine && fromEnt && toEnt) {
-        // Direct Entity-to-Entity relationship line (No diamond)
-        const fCenterX = fromEnt.x + (fromEnt.width || 200) / 2;
-        const fCenterY = fromEnt.y + (fromEnt.height || 120) / 2;
-        const tCenterX = toEnt.x + (toEnt.width || 200) / 2;
-        const tCenterY = toEnt.y + (toEnt.height || 120) / 2;
+        if (fromEnt === toEnt) {
+          // Recursive / Unary Self-Loop
+          const onDblClickRel = (e) => {
+            e?.stopPropagation();
+            this.relationships = this.relationships.filter(r => r !== rel);
+            this.renderLinks();
+            this.showToast(`🗑️ '${fromEnt.name}' rekursiv aloqasi o'chirildi!`);
+            if (window.playSfx) window.playSfx('click');
+          };
+
+          const multLabel = `${rel.mult1 || '1..1'} ↔ ${rel.mult2 || '1..*'}`;
+          this.drawSelfLoopArc(fromEnt, rel, onDblClickRel, {
+            onDelete: onDblClickRel,
+            onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult1', e),
+            multText: multLabel
+          });
+        } else {
+          // Direct Entity-to-Entity relationship line (No diamond)
+          const fCenterX = fromEnt.x + (fromEnt.width || 200) / 2;
+          const fCenterY = fromEnt.y + (fromEnt.height || 120) / 2;
+          const tCenterX = toEnt.x + (toEnt.width || 200) / 2;
+          const tCenterY = toEnt.y + (toEnt.height || 120) / 2;
 
         const borderF = this.getNodeBorderPoint(fromEnt, tCenterX, tCenterY, false);
         const borderT = this.getNodeBorderPoint(toEnt, fCenterX, fCenterY, false);
@@ -1415,6 +1432,7 @@ class EERCanvasEngine {
         // 2. Multiplicity for toEnt (positioned cleanly ABOVE/OUTSIDE the connector line)
         const mPos2 = this.computeMultiplicityPos(borderT, 38, 18);
         this.createMultiplicityPill(mPos2.x, mPos2.y, rel, 'mult2', toEnt.name);
+        }
       } else {
         // Fallback for explicit diamond nodes placed on canvas
         const rCenterX = rel.x + 45;
@@ -1955,6 +1973,109 @@ class EERCanvasEngine {
     group.appendChild(hitbox);
     group.appendChild(line);
     this.svg.appendChild(group);
+  }
+
+  drawSelfLoopArc(fromEnt, rel, onDelete, lineActions) {
+    const width = fromEnt.width || 200;
+    const height = fromEnt.height || 120;
+    const startX = Math.round(fromEnt.x + width * 0.70);
+    const startY = Math.round(fromEnt.y);
+    const endX = Math.round(fromEnt.x + width);
+    const endY = Math.round(fromEnt.y + height * 0.35);
+
+    const cp1x = startX;
+    const cp1y = startY - 55;
+    const cp2x = endX + 55;
+    const cp2y = endY;
+
+    const pathD = `M ${startX} ${startY} C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${endX} ${endY}`;
+    const midX = Math.round(0.125 * startX + 0.375 * cp1x + 0.375 * cp2x + 0.125 * endX);
+    const midY = Math.round(0.125 * startY + 0.375 * cp1y + 0.375 * cp2y + 0.125 * endY);
+
+    const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
+    // Invisible thick hitbox (32px wide)
+    const hitbox = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    hitbox.setAttribute('d', pathD);
+    hitbox.setAttribute('fill', 'none');
+    hitbox.setAttribute('stroke', '#000000');
+    hitbox.setAttribute('stroke-opacity', '0.001');
+    hitbox.setAttribute('stroke-width', '32');
+    hitbox.style.cursor = 'pointer';
+    hitbox.style.pointerEvents = 'stroke';
+
+    // Visible arc
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', pathD);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', '#c8a96e');
+    path.setAttribute('stroke-width', '2.5');
+    path.setAttribute('stroke-linecap', 'round');
+    path.style.cursor = 'pointer';
+    path.style.pointerEvents = 'stroke';
+
+    const stopBubbling = (e) => {
+      e.stopPropagation();
+      this.isPanning = false;
+      this.isDraggingNode = false;
+      this.draggedNode = null;
+    };
+    hitbox.addEventListener('mousedown', stopBubbling);
+    hitbox.addEventListener('touchstart', stopBubbling, { passive: false });
+
+    if (onDelete || lineActions) {
+      const actions = lineActions || { onDelete };
+      const handleClick = (e) => {
+        e.stopPropagation();
+        this.showLineActionToolbar(midX, midY, actions);
+      };
+      hitbox.addEventListener('click', handleClick);
+      path.addEventListener('click', handleClick);
+
+      if (onDelete) {
+        hitbox.addEventListener('dblclick', (e) => {
+          e.stopPropagation();
+          this.removeLineDeleteButton();
+          onDelete(e);
+        });
+        path.addEventListener('dblclick', (e) => {
+          e.stopPropagation();
+          this.removeLineDeleteButton();
+          onDelete(e);
+        });
+      }
+    }
+
+    group.appendChild(hitbox);
+    group.appendChild(path);
+    this.svg.appendChild(group);
+
+    // Multiplicity 1 (start at top border)
+    this.createMultiplicityPill(startX - 15, startY - 26, rel, 'mult1', rel.role1 ? `${fromEnt.name} (${rel.role1})` : fromEnt.name);
+
+    // Multiplicity 2 (end at right border)
+    this.createMultiplicityPill(endX + 32, endY, rel, 'mult2', rel.role2 ? `${fromEnt.name} (${rel.role2})` : fromEnt.name);
+
+    // Optional Role / Name Badge near apex
+    if (rel.name) {
+      const badge = document.createElement('div');
+      badge.className = 'rel-line-badge';
+      badge.textContent = rel.name;
+      badge.style.position = 'absolute';
+      badge.style.left = `${midX + 15}px`;
+      badge.style.top = `${midY - 15}px`;
+      badge.style.transform = 'translate(-50%, -50%)';
+      badge.style.fontSize = '11px';
+      badge.style.fontWeight = 'bold';
+      badge.style.color = '#ffd166';
+      badge.style.background = 'rgba(20, 16, 24, 0.85)';
+      badge.style.border = '1px solid #c8a96e';
+      badge.style.borderRadius = '4px';
+      badge.style.padding = '2px 6px';
+      badge.style.pointerEvents = 'none';
+      badge.style.zIndex = '40';
+      this.nodesLayer.appendChild(badge);
+    }
   }
 
   createMultiplicityPill(x, y, rel, multKey, entityName) {

@@ -6018,29 +6018,42 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 46,
     "sector": 4,
-    "difficulty": "4-Qavat • Assotsiativ",
-    "clientName": "Professor Atlas",
-    "clientRole": "Ma'lumotlar Bazasi Me'mori",
-    "clientAvatar": "mentor",
-    "title": "Shifokor va Bemor Qabuli (Appointment Assotsiativ Entitiy)",
-    "titleEn": "Doctor & Patient Consultation (Appointment Associative Entity)",
-    "story": "Doctor va Patient o'rtasida ko'pdan-ko'pga munosabat mavjud. Ushbu munosabat mustaqil 'Appointment' assotsiativ entitiysi orqali parchalanadi. Doctor Appointment va Patient Appointment.",
-    "storyEn": "There is a many-to-many relationship between Doctor and Patient, resolved via the 'Appointment' associative entity. Doctor Appointment and Patient Appointment.",
-    "instruction": "'Doctor' ni 'Appointment' ga va 'Patient' ni 'Appointment' ga bog'lang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
-    "instructionEn": "Connect 'Doctor' to 'Appointment' and 'Patient' to 'Appointment'. Determine and configure the correct multiplicity constraints based on the domain rules.",
+    "difficulty": "O'rta",
+    "clientName": "Dr. Alisher Qosimov",
+    "clientRole": "Medion Bosh Shifokori",
+    "clientAvatar": "👨‍⚕️",
+    "title": "Medion Klinika — Shifokor va Bemor Qabuli (Appointment)",
+    "titleEn": "Medion Clinic — Doctor and Patient Appointment Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nMedion xususiy klinikasida bitta shifokor (**Doctor**) kun davomida ko'plab bemorlarni qabul qiladi. Bemor (**Patient**) esa bir necha xil mutaxassis shifokorlar (terapevt, kardiolog, okulist) ko'rigiga yozilishi mumkin (*:* ko'pdan-ko'pga munosabat).\nBiroq, qabul sanasi (`appDate`), ko'rik to'lovi (`consultationFee`) va qo'yilgan yakuniy tashxis (`diagnosis`) na faqat shifokorga, na faqat bemorga tegishli! Agar bu atributlarni shifokorga qo'shsak, har bir yangi bemor uchun shifokor yozuvi takrorlanadi; agar bemorga qo'shsak, har bir yangi tashrif uchun bemor yozuvi takrorlanadi.\nShuning uchun bu ko'pdan-ko'pga aloqa mustaqil **Appointment** assotsiativ entitiysiga ajratiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `Doctor` entitiysini yarating: {PK} `doctorId`, `doctorName`, `specialty`.\n2. `Patient` entitiysini yarating: {PK} `patientId`, `fullName`, `birthDate`.\n3. Markaziy `Appointment` assotsiativ entitiysini yarating: {PK} `appId`, `appDate`, `consultationFee`, `diagnosis`.\n4. `Doctor` va `Appointment` o'rtasida aloqa bog'lang: bitta shifokor ko'plab qabullarga ega bo'lishi mumkin (`1..1` ⟷ `0..*`).\n5. `Patient` va `Appointment` o'rtasida aloqa bog'lang: bitta bemor ko'plab qabullarga ega bo'lishi mumkin (`1..1` ⟷ `0..*`).",
+    "storyEn": "Medion Clinic — Doctor and Patient Appointment Association Class — Conceptual ER business case study.",
+    "instruction": "'Doctor', 'Patient' va 'Appointment' entitiylarini chizing. Atributlarni kiriting va ikkita 1:* aloqa orqali assotsiativ bog'lanishni yakunlang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Doctor",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "doctorId",
-          "x": 140,
-          "y": 100,
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
               "name": "doctorId",
               "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "doctorName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "specialty",
+              "isPK": false,
               "isPPK": false,
               "isFK": false
             }
@@ -6050,13 +6063,26 @@ _scope.QUESTIONS_1_50 = [
           "name": "Patient",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "patientId",
           "x": 540,
-          "y": 100,
+          "y": 120,
           "attributes": [
             {
               "name": "patientId",
               "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "birthDate",
+              "isPK": false,
               "isPPK": false,
               "isFK": false
             }
@@ -6065,9 +6091,10 @@ _scope.QUESTIONS_1_50 = [
         {
           "name": "Appointment",
           "isWeak": false,
-          "isAssociative": false,
+          "isAssociative": true,
+          "isSubclass": false,
           "pk": "appId",
-          "x": 340,
+          "x": 330,
           "y": 320,
           "attributes": [
             {
@@ -6075,6 +6102,24 @@ _scope.QUESTIONS_1_50 = [
               "isPK": true,
               "isPPK": false,
               "isFK": false
+            },
+            {
+              "name": "appDate",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "consultationFee",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "diagnosis",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -6082,7 +6127,7 @@ _scope.QUESTIONS_1_50 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Aloqa",
+          "name": "Conducts",
           "entity1": "Doctor",
           "entity2": "Appointment",
           "fromEntityName": "Doctor",
@@ -6090,11 +6135,13 @@ _scope.QUESTIONS_1_50 = [
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Aloqa",
+          "name": "Attends",
           "entity1": "Patient",
           "entity2": "Appointment",
           "fromEntityName": "Patient",
@@ -6102,7 +6149,9 @@ _scope.QUESTIONS_1_50 = [
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -6111,15 +6160,61 @@ _scope.QUESTIONS_1_50 = [
       "entities": [
         {
           "name": "Doctor",
-          "pk": "doctorId"
+          "pk": "doctorId",
+          "attributes": [
+            {
+              "name": "doctorId",
+              "isPK": true
+            },
+            {
+              "name": "doctorName",
+              "isPK": false
+            },
+            {
+              "name": "specialty",
+              "isPK": false
+            }
+          ]
         },
         {
           "name": "Patient",
-          "pk": "patientId"
+          "pk": "patientId",
+          "attributes": [
+            {
+              "name": "patientId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "birthDate",
+              "isPK": false
+            }
+          ]
         },
         {
           "name": "Appointment",
-          "pk": "appId"
+          "pk": "appId",
+          "attributes": [
+            {
+              "name": "appId",
+              "isPK": true
+            },
+            {
+              "name": "appDate",
+              "isPK": false
+            },
+            {
+              "name": "consultationFee",
+              "isPK": false
+            },
+            {
+              "name": "diagnosis",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
@@ -6130,8 +6225,10 @@ _scope.QUESTIONS_1_50 = [
           "toEntityName": "Appointment",
           "mult1": "1..1",
           "mult2": "0..*",
+          "name": "Conducts",
           "isIdentifying": false,
-          "isDirect": true
+          "role1": "",
+          "role2": ""
         },
         {
           "entity1": "Patient",
@@ -6140,8 +6237,10 @@ _scope.QUESTIONS_1_50 = [
           "toEntityName": "Appointment",
           "mult1": "1..1",
           "mult2": "0..*",
+          "name": "Attends",
           "isIdentifying": false,
-          "isDirect": true
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -6149,45 +6248,71 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 47,
     "sector": 4,
-    "difficulty": "4-Qavat • Assotsiativ",
-    "clientName": "Professor Atlas",
-    "clientRole": "Ma'lumotlar Bazasi Me'mori",
-    "clientAvatar": "mentor",
-    "title": "Talaba va Fan Kurslari (Enrollment Assotsiativ Entitiy)",
-    "titleEn": "Student & Course Registration (Enrollment Associative Entity)",
-    "story": "Student va Course o'rtasida ko'pdan-ko'pga o'qish munosabati mavjud. Bu munosabat 'Enrollment' assotsiativ entitiysi orqali bog'lanadi. Student Enrollment va Course Enrollment.",
-    "storyEn": "There is a many-to-many relationship between Student and Course, resolved via 'Enrollment'. Student Enrollment and Course Enrollment.",
-    "instruction": "'Student' ni 'Enrollment' ga va 'Course' ni 'Enrollment' ga bog'lang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
-    "instructionEn": "Connect 'Student' to 'Enrollment' and 'Course' to 'Enrollment'. Determine and configure the correct multiplicity constraints based on the domain rules.",
+    "difficulty": "O'rta",
+    "clientName": "Malika Rasulova",
+    "clientRole": "WIUT Akademik Registratori",
+    "clientAvatar": "👩‍💼",
+    "title": "WIUT Universiteti — Talaba va Modul Ro'yxati (Enrollment)",
+    "titleEn": "WIUT University — Student Course Enrollment Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nToshkentdagi Xalqaro Vestminster Universitetida talaba (**Student**) har semestrda 4 tagacha fanni (Module) o'qiydi. Har bir modulda (**CourseModule**) esa yuzlab talabalar tahsil oladi.\nSemestr davomidagi imtihon bahosi (`finalGrade`), semestr kodi (`semester`) va darsga qatnashish foizi (`attendancePct`) aynan talabaning ma'lum bir modulni o'qish jarayoniga tegishlidir.\nUshbu mantiq **Enrollment** assotsiativ entitiysi orqali ifodalanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `Student` entitiysini yarating: {PK} `studentId`, `studentName`, `cohortGroup`.\n2. `CourseModule` entitiysini yarating: {PK} `moduleCode`, `moduleTitle`, `credits`.\n3. `Enrollment` assotsiativ entitiysini qo'shing: {PK} `enrollmentId`, `semester`, `finalGrade`, `attendancePct`.\n4. Aloqalarni bog'lang: har bir modul va talaba ko'plab ro'yxatdan o'tishlarga (`1..1` ⟷ `0..*`) ega bo'ladi.",
+    "storyEn": "WIUT University — Student Course Enrollment Association Class — Conceptual ER business case study.",
+    "instruction": "'Student', 'CourseModule' va 'Enrollment' entitiylarini chizib, multiplisitiyalarni to'g'ri tanlang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Student",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "studentId",
-          "x": 140,
-          "y": 100,
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
               "name": "studentId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
+            },
+            {
+              "name": "studentName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "cohortGroup",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
-          "name": "Course",
+          "name": "CourseModule",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "courseCode",
+          "isSubclass": false,
+          "pk": "moduleCode",
           "x": 540,
-          "y": 100,
+          "y": 120,
           "attributes": [
             {
-              "name": "courseCode",
+              "name": "moduleCode",
               "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "moduleTitle",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "credits",
+              "isPK": false,
               "isPPK": false,
               "isFK": false
             }
@@ -6196,9 +6321,10 @@ _scope.QUESTIONS_1_50 = [
         {
           "name": "Enrollment",
           "isWeak": false,
-          "isAssociative": false,
+          "isAssociative": true,
+          "isSubclass": false,
           "pk": "enrollmentId",
-          "x": 340,
+          "x": 330,
           "y": 320,
           "attributes": [
             {
@@ -6206,6 +6332,24 @@ _scope.QUESTIONS_1_50 = [
               "isPK": true,
               "isPPK": false,
               "isFK": false
+            },
+            {
+              "name": "semester",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "finalGrade",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "attendancePct",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -6213,7 +6357,7 @@ _scope.QUESTIONS_1_50 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Aloqa",
+          "name": "EnrollsIn",
           "entity1": "Student",
           "entity2": "Enrollment",
           "fromEntityName": "Student",
@@ -6221,19 +6365,23 @@ _scope.QUESTIONS_1_50 = [
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Aloqa",
-          "entity1": "Course",
+          "name": "Includes",
+          "entity1": "CourseModule",
           "entity2": "Enrollment",
-          "fromEntityName": "Course",
+          "fromEntityName": "CourseModule",
           "toEntityName": "Enrollment",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -6242,15 +6390,61 @@ _scope.QUESTIONS_1_50 = [
       "entities": [
         {
           "name": "Student",
-          "pk": "studentId"
+          "pk": "studentId",
+          "attributes": [
+            {
+              "name": "studentId",
+              "isPK": true
+            },
+            {
+              "name": "studentName",
+              "isPK": false
+            },
+            {
+              "name": "cohortGroup",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Course",
-          "pk": "courseCode"
+          "name": "CourseModule",
+          "pk": "moduleCode",
+          "attributes": [
+            {
+              "name": "moduleCode",
+              "isPK": true
+            },
+            {
+              "name": "moduleTitle",
+              "isPK": false
+            },
+            {
+              "name": "credits",
+              "isPK": false
+            }
+          ]
         },
         {
           "name": "Enrollment",
-          "pk": "enrollmentId"
+          "pk": "enrollmentId",
+          "attributes": [
+            {
+              "name": "enrollmentId",
+              "isPK": true
+            },
+            {
+              "name": "semester",
+              "isPK": false
+            },
+            {
+              "name": "finalGrade",
+              "isPK": false
+            },
+            {
+              "name": "attendancePct",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
@@ -6261,18 +6455,22 @@ _scope.QUESTIONS_1_50 = [
           "toEntityName": "Enrollment",
           "mult1": "1..1",
           "mult2": "0..*",
+          "name": "EnrollsIn",
           "isIdentifying": false,
-          "isDirect": true
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Course",
+          "entity1": "CourseModule",
           "entity2": "Enrollment",
-          "fromEntityName": "Course",
+          "fromEntityName": "CourseModule",
           "toEntityName": "Enrollment",
           "mult1": "1..1",
           "mult2": "0..*",
+          "name": "Includes",
           "isIdentifying": false,
-          "isDirect": true
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -6280,45 +6478,71 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 48,
     "sector": 4,
-    "difficulty": "4-Qavat • Assotsiativ",
-    "clientName": "Professor Atlas",
-    "clientRole": "Ma'lumotlar Bazasi Me'mori",
-    "clientAvatar": "mentor",
-    "title": "Dasturchi va Loyihalar (Assignment Assotsiativ Entitiy)",
-    "titleEn": "Developer & Project Allocation (Assignment Associative Entity)",
-    "story": "Developer va Project o'rtasidagi munosabat 'ProjectAssignment' entitiysi orqali yechiladi. Developer ProjectAssignment va Project ProjectAssignment.",
-    "storyEn": "The many-to-many relationship between Developer and Project is resolved via 'ProjectAssignment'. Developer ProjectAssignment and Project ProjectAssignment.",
-    "instruction": "'Developer' ni 'ProjectAssignment' ga va 'Project' ni 'ProjectAssignment' ga bog'lang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
-    "instructionEn": "Connect 'Developer' to 'ProjectAssignment' and 'Project' to 'ProjectAssignment'. Determine and configure the correct multiplicity constraints based on the domain rules.",
+    "difficulty": "O'rta",
+    "clientName": "Bobur Mirzayev",
+    "clientRole": "EPAM Delivery Manager",
+    "clientAvatar": "👨‍💻",
+    "title": "EPAM IT Kompaniyasi — Muhandis va Loyiha Taqsiri (ProjectAssignment)",
+    "titleEn": "EPAM Systems — Engineer Project Assignment Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nGlobal IT autsorsing kompaniyasida dasturchi (**SoftwareEngineer**) bir vaqtning o'zida ikkita loyihada yarim stavkadan ishlashi mumkin. Loyiha (**ClientProject**) esa o'nlab muhandislardan tashkil topadi.\nMuhandisning o'sha loyihadagi roli (`roleTitle`), haftalik ajratilgan soatlari (`weeklyHours`) va soatlik hisob tarifi (`billingRate`) loyihaviy biriktirish hisoblanadi.\nBuni modellashtirish uchun **ProjectAssignment** assotsiativ entitiysi kerak.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `SoftwareEngineer`: {PK} `engineerId`, `fullName`, `techStack`.\n2. `ClientProject`: {PK} `projectId`, `projectName`, `budget`.\n3. `ProjectAssignment`: {PK} `assignmentId`, `roleTitle`, `weeklyHours`, `billingRate`.\n4. Ikkala tomondan `ProjectAssignment` ga 1:* munosabatlarini o'rnating (`1..1` ⟷ `0..*`).",
+    "storyEn": "EPAM Systems — Engineer Project Assignment Association Class — Conceptual ER business case study.",
+    "instruction": "Dasturchi va loyihani 'ProjectAssignment' orqali bog'lab, atributlar va chegaralarni belgilang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Developer",
+          "name": "SoftwareEngineer",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "devId",
-          "x": 140,
-          "y": 100,
+          "isSubclass": false,
+          "pk": "engineerId",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "devId",
+              "name": "engineerId",
               "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "techStack",
+              "isPK": false,
               "isPPK": false,
               "isFK": false
             }
           ]
         },
         {
-          "name": "Project",
+          "name": "ClientProject",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "projectKey",
+          "isSubclass": false,
+          "pk": "projectId",
           "x": 540,
-          "y": 100,
+          "y": 120,
           "attributes": [
             {
-              "name": "projectKey",
+              "name": "projectId",
               "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "projectName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "budget",
+              "isPK": false,
               "isPPK": false,
               "isFK": false
             }
@@ -6327,9 +6551,10 @@ _scope.QUESTIONS_1_50 = [
         {
           "name": "ProjectAssignment",
           "isWeak": false,
-          "isAssociative": false,
+          "isAssociative": true,
+          "isSubclass": false,
           "pk": "assignmentId",
-          "x": 340,
+          "x": 330,
           "y": 320,
           "attributes": [
             {
@@ -6337,6 +6562,24 @@ _scope.QUESTIONS_1_50 = [
               "isPK": true,
               "isPPK": false,
               "isFK": false
+            },
+            {
+              "name": "roleTitle",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "weeklyHours",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "billingRate",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -6344,27 +6587,31 @@ _scope.QUESTIONS_1_50 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Aloqa",
-          "entity1": "Developer",
+          "name": "Assigned",
+          "entity1": "SoftwareEngineer",
           "entity2": "ProjectAssignment",
-          "fromEntityName": "Developer",
+          "fromEntityName": "SoftwareEngineer",
           "toEntityName": "ProjectAssignment",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Aloqa",
-          "entity1": "Project",
+          "name": "ComposedOf",
+          "entity1": "ClientProject",
           "entity2": "ProjectAssignment",
-          "fromEntityName": "Project",
+          "fromEntityName": "ClientProject",
           "toEntityName": "ProjectAssignment",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -6372,38 +6619,88 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Developer",
-          "pk": "devId"
+          "name": "SoftwareEngineer",
+          "pk": "engineerId",
+          "attributes": [
+            {
+              "name": "engineerId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "techStack",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Project",
-          "pk": "projectKey"
+          "name": "ClientProject",
+          "pk": "projectId",
+          "attributes": [
+            {
+              "name": "projectId",
+              "isPK": true
+            },
+            {
+              "name": "projectName",
+              "isPK": false
+            },
+            {
+              "name": "budget",
+              "isPK": false
+            }
+          ]
         },
         {
           "name": "ProjectAssignment",
-          "pk": "assignmentId"
+          "pk": "assignmentId",
+          "attributes": [
+            {
+              "name": "assignmentId",
+              "isPK": true
+            },
+            {
+              "name": "roleTitle",
+              "isPK": false
+            },
+            {
+              "name": "weeklyHours",
+              "isPK": false
+            },
+            {
+              "name": "billingRate",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Developer",
+          "entity1": "SoftwareEngineer",
           "entity2": "ProjectAssignment",
-          "fromEntityName": "Developer",
+          "fromEntityName": "SoftwareEngineer",
           "toEntityName": "ProjectAssignment",
           "mult1": "1..1",
           "mult2": "0..*",
+          "name": "Assigned",
           "isIdentifying": false,
-          "isDirect": true
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Project",
+          "entity1": "ClientProject",
           "entity2": "ProjectAssignment",
-          "fromEntityName": "Project",
+          "fromEntityName": "ClientProject",
           "toEntityName": "ProjectAssignment",
           "mult1": "1..1",
           "mult2": "0..*",
+          "name": "ComposedOf",
           "isIdentifying": false,
-          "isDirect": true
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -6411,45 +6708,71 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 49,
     "sector": 4,
-    "difficulty": "4-Qavat • Assotsiativ",
-    "clientName": "Professor Atlas",
-    "clientRole": "Ma'lumotlar Bazasi Me'mori",
-    "clientAvatar": "mentor",
-    "title": "Yetkazib Beruvchi va Detallar (SupplyContract Assotsiativ Entitiy)",
-    "titleEn": "Supplier & Parts Supply (SupplyContract Associative Entity)",
-    "story": "Supplier va Part o'rtasidagi ta'minot munosabati 'SupplyContract' orqali yechiladi. Supplier SupplyContract va Part SupplyContract.",
-    "storyEn": "The many-to-many supply relationship between Supplier and Part is resolved via 'SupplyContract'. Supplier SupplyContract and Part SupplyContract.",
-    "instruction": "'Supplier' ni 'SupplyContract' ga va 'Part' ni 'SupplyContract' ga bog'lang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
-    "instructionEn": "Connect 'Supplier' to 'SupplyContract' and 'Part' to 'SupplyContract'. Determine and configure the correct multiplicity constraints based on the domain rules.",
+    "difficulty": "O'rta",
+    "clientName": "Nodir Xoliqov",
+    "clientRole": "Uzum Market Logistika Rahbari",
+    "clientAvatar": "📦",
+    "title": "Uzum Market — Ta'minotchi va Mahsulot Shartnomasi (SupplyContract)",
+    "titleEn": "Uzum Market — Supplier Product Contract Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nElektron tijoratda optom ta'minotchi (**WholesaleSupplier**) yuzlab tovarlarni yetkazadi. Muayyan tovar (**WarehouseProduct**) esa turli ta'minotchilardan turli shartlarda xarid qilinishi mumkin.\nKelishilgan ulgurji narx (`agreedUnitPrice`), yetkazib berish muddati (`leadTimeDays`) va minimal partiya (`minOrderQty`) shartnomada belgilanadi.\nBu ma'lumotlar **SupplyContract** assotsiativ entitiysida saqlanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `WholesaleSupplier`: {PK} `supplierId`, `companyName`, `innTaxNumber`.\n2. `WarehouseProduct`: {PK} `skuCode`, `productName`, `category`.\n3. `SupplyContract`: {PK} `contractNo`, `agreedUnitPrice`, `leadTimeDays`, `minOrderQty`.\n4. Ikkala tomonni `SupplyContract` ga `1..1` ⟷ `0..*` ko'rinishida bog'lang.",
+    "storyEn": "Uzum Market — Supplier Product Contract Association Class — Conceptual ER business case study.",
+    "instruction": "Ta'minotchi va tovar o'rtasidagi shartnomani assotsiativ entitiy bilan loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Supplier",
+          "name": "WholesaleSupplier",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "supplierId",
-          "x": 140,
-          "y": 100,
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
               "name": "supplierId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
+            },
+            {
+              "name": "companyName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "innTaxNumber",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
-          "name": "Part",
+          "name": "WarehouseProduct",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "partNumber",
+          "isSubclass": false,
+          "pk": "skuCode",
           "x": 540,
-          "y": 100,
+          "y": 120,
           "attributes": [
             {
-              "name": "partNumber",
+              "name": "skuCode",
               "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "productName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "category",
+              "isPK": false,
               "isPPK": false,
               "isFK": false
             }
@@ -6458,14 +6781,33 @@ _scope.QUESTIONS_1_50 = [
         {
           "name": "SupplyContract",
           "isWeak": false,
-          "isAssociative": false,
-          "pk": "contractId",
-          "x": 340,
+          "isAssociative": true,
+          "isSubclass": false,
+          "pk": "contractNo",
+          "x": 330,
           "y": 320,
           "attributes": [
             {
-              "name": "contractId",
+              "name": "contractNo",
               "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "agreedUnitPrice",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "leadTimeDays",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "minOrderQty",
+              "isPK": false,
               "isPPK": false,
               "isFK": false
             }
@@ -6475,27 +6817,31 @@ _scope.QUESTIONS_1_50 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Aloqa",
-          "entity1": "Supplier",
+          "name": "Supplies",
+          "entity1": "WholesaleSupplier",
           "entity2": "SupplyContract",
-          "fromEntityName": "Supplier",
+          "fromEntityName": "WholesaleSupplier",
           "toEntityName": "SupplyContract",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Aloqa",
-          "entity1": "Part",
+          "name": "SuppliedUnder",
+          "entity1": "WarehouseProduct",
           "entity2": "SupplyContract",
-          "fromEntityName": "Part",
+          "fromEntityName": "WarehouseProduct",
           "toEntityName": "SupplyContract",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -6503,38 +6849,88 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Supplier",
-          "pk": "supplierId"
+          "name": "WholesaleSupplier",
+          "pk": "supplierId",
+          "attributes": [
+            {
+              "name": "supplierId",
+              "isPK": true
+            },
+            {
+              "name": "companyName",
+              "isPK": false
+            },
+            {
+              "name": "innTaxNumber",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Part",
-          "pk": "partNumber"
+          "name": "WarehouseProduct",
+          "pk": "skuCode",
+          "attributes": [
+            {
+              "name": "skuCode",
+              "isPK": true
+            },
+            {
+              "name": "productName",
+              "isPK": false
+            },
+            {
+              "name": "category",
+              "isPK": false
+            }
+          ]
         },
         {
           "name": "SupplyContract",
-          "pk": "contractId"
+          "pk": "contractNo",
+          "attributes": [
+            {
+              "name": "contractNo",
+              "isPK": true
+            },
+            {
+              "name": "agreedUnitPrice",
+              "isPK": false
+            },
+            {
+              "name": "leadTimeDays",
+              "isPK": false
+            },
+            {
+              "name": "minOrderQty",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Supplier",
+          "entity1": "WholesaleSupplier",
           "entity2": "SupplyContract",
-          "fromEntityName": "Supplier",
+          "fromEntityName": "WholesaleSupplier",
           "toEntityName": "SupplyContract",
           "mult1": "1..1",
           "mult2": "0..*",
+          "name": "Supplies",
           "isIdentifying": false,
-          "isDirect": true
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Part",
+          "entity1": "WarehouseProduct",
           "entity2": "SupplyContract",
-          "fromEntityName": "Part",
+          "fromEntityName": "WarehouseProduct",
           "toEntityName": "SupplyContract",
           "mult1": "1..1",
           "mult2": "0..*",
+          "name": "SuppliedUnder",
           "isIdentifying": false,
-          "isDirect": true
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -6542,45 +6938,71 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 50,
     "sector": 4,
-    "difficulty": "4-Qavat • Assotsiativ",
-    "clientName": "Professor Atlas",
-    "clientRole": "Ma'lumotlar Bazasi Me'mori",
-    "clientAvatar": "mentor",
-    "title": "Xaridor va Mahsulot Sharhlari (ProductReview Assotsiativ Entitiy)",
-    "titleEn": "Customer & Product Reviews (ProductReview Associative Entity)",
-    "story": "Customer va Product o'rtasidagi sharh munosabati 'ProductReview' assotsiativ entitiysi orqali amalga oshiriladi. Customer ProductReview va Product ProductReview.",
-    "storyEn": "The customer reviews relationship between Customer and Product is resolved via 'ProductReview'. Customer ProductReview and Product ProductReview.",
-    "instruction": "'Customer' ni 'ProductReview' ga va 'Product' ni 'ProductReview' ga bog'lang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
-    "instructionEn": "Connect 'Customer' to 'ProductReview' and 'Product' to 'ProductReview'. Determine and configure the correct multiplicity constraints based on the domain rules.",
+    "difficulty": "O'rta",
+    "clientName": "Shahnoza Karimova",
+    "clientRole": "Korzinka Sodiqlik Dasturi Tahlilchisi",
+    "clientAvatar": "🛍️",
+    "title": "Korzinka Supermarket — Xaridor va Mahsulot Sharhi (ProductReview)",
+    "titleEn": "Korzinka Supermarket — Customer Product Review Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKorzinka Plus ilovasida sodiq mijoz (**RetailCustomer**) ko'plab mahsulotlarga ta'rif qoldiradi. Mahsulot (**StoreProduct**) esa turli xaridorlar tomonidan baholanadi.\nSharhdagi yulduzcha baho (`starRating`), mijoz fikri matni (`reviewComment`) va qoldirilgan sana (`reviewDate`) aynan shu xaridorning shu mahsulotga bergan bahosidir.\nBu munosabat **ProductReview** assotsiativ entitiysi orqali ajratiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `RetailCustomer`: {PK} `customerId`, `phone`, `loyaltyCardNo`.\n2. `StoreProduct`: {PK} `barcode`, `productName`, `retailPrice`.\n3. `ProductReview`: {PK} `reviewId`, `starRating`, `reviewComment`, `reviewDate`.\n4. Multiplisitiyalarni `1..1` (har bir sharh aniq 1 mijoz va 1 tovar uchun) va `0..*` (mijoz/tovarda 0 yoki ko'plab sharhlar) qilib belgilang.",
+    "storyEn": "Korzinka Supermarket — Customer Product Review Association Class — Conceptual ER business case study.",
+    "instruction": "'RetailCustomer', 'StoreProduct' va 'ProductReview' entitiy modelini hosil qiling.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Customer",
+          "name": "RetailCustomer",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "customerId",
-          "x": 140,
-          "y": 100,
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
               "name": "customerId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "loyaltyCardNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
-          "name": "Product",
+          "name": "StoreProduct",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "productId",
+          "isSubclass": false,
+          "pk": "barcode",
           "x": 540,
-          "y": 100,
+          "y": 120,
           "attributes": [
             {
-              "name": "productId",
+              "name": "barcode",
               "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "productName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "retailPrice",
+              "isPK": false,
               "isPPK": false,
               "isFK": false
             }
@@ -6589,14 +7011,33 @@ _scope.QUESTIONS_1_50 = [
         {
           "name": "ProductReview",
           "isWeak": false,
-          "isAssociative": false,
+          "isAssociative": true,
+          "isSubclass": false,
           "pk": "reviewId",
-          "x": 340,
+          "x": 330,
           "y": 320,
           "attributes": [
             {
               "name": "reviewId",
               "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "starRating",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "reviewComment",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "reviewDate",
+              "isPK": false,
               "isPPK": false,
               "isFK": false
             }
@@ -6606,27 +7047,31 @@ _scope.QUESTIONS_1_50 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "Aloqa",
-          "entity1": "Customer",
+          "name": "Writes",
+          "entity1": "RetailCustomer",
           "entity2": "ProductReview",
-          "fromEntityName": "Customer",
+          "fromEntityName": "RetailCustomer",
           "toEntityName": "ProductReview",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "Aloqa",
-          "entity1": "Product",
+          "name": "EvaluatedBy",
+          "entity1": "StoreProduct",
           "entity2": "ProductReview",
-          "fromEntityName": "Product",
+          "fromEntityName": "StoreProduct",
           "toEntityName": "ProductReview",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -6634,38 +7079,88 @@ _scope.QUESTIONS_1_50 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Customer",
-          "pk": "customerId"
+          "name": "RetailCustomer",
+          "pk": "customerId",
+          "attributes": [
+            {
+              "name": "customerId",
+              "isPK": true
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            },
+            {
+              "name": "loyaltyCardNo",
+              "isPK": false
+            }
+          ]
         },
         {
-          "name": "Product",
-          "pk": "productId"
+          "name": "StoreProduct",
+          "pk": "barcode",
+          "attributes": [
+            {
+              "name": "barcode",
+              "isPK": true
+            },
+            {
+              "name": "productName",
+              "isPK": false
+            },
+            {
+              "name": "retailPrice",
+              "isPK": false
+            }
+          ]
         },
         {
           "name": "ProductReview",
-          "pk": "reviewId"
+          "pk": "reviewId",
+          "attributes": [
+            {
+              "name": "reviewId",
+              "isPK": true
+            },
+            {
+              "name": "starRating",
+              "isPK": false
+            },
+            {
+              "name": "reviewComment",
+              "isPK": false
+            },
+            {
+              "name": "reviewDate",
+              "isPK": false
+            }
+          ]
         }
       ],
       "relationships": [
         {
-          "entity1": "Customer",
+          "entity1": "RetailCustomer",
           "entity2": "ProductReview",
-          "fromEntityName": "Customer",
+          "fromEntityName": "RetailCustomer",
           "toEntityName": "ProductReview",
           "mult1": "1..1",
           "mult2": "0..*",
+          "name": "Writes",
           "isIdentifying": false,
-          "isDirect": true
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Product",
+          "entity1": "StoreProduct",
           "entity2": "ProductReview",
-          "fromEntityName": "Product",
+          "fromEntityName": "StoreProduct",
           "toEntityName": "ProductReview",
           "mult1": "1..1",
           "mult2": "0..*",
+          "name": "EvaluatedBy",
           "isIdentifying": false,
-          "isDirect": true
+          "role1": "",
+          "role2": ""
         }
       ]
     }

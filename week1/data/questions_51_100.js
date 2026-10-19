@@ -3,31 +3,35 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 51,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*)",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Tourist va TourPackage Hamkorligi",
-    "story": "Xalqaro Turizm jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Sayyoh yil davomida bir nechta sayohat paketlarini xarid qilishi mumkin, har bir sayohat paketiga esa ko'plab sayyohlar bron qiladi. Tizimda asosiy ishtirokchilar sifatida **Tourist** (passportNumber {PK}) va **TourPackage** (packageCode {PK}) qatnashadi. Ikki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **TourBooking** (bookingRef {PK}, `travelDate`, `adultCount`, `specialMealRequest`) polotnoda aks ettiriladi.",
-    "instruction": "'Tourist' va 'TourPackage' o'rtasida assotsiativ 'TourBooking' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
+    "difficulty": "O'rta",
+    "clientName": "Rustam Ahmedov",
+    "clientRole": "Uzbekistan Airways Chipta Nazorati",
+    "clientAvatar": "✈️",
+    "title": "Uzbekistan Airways — Yo'lovchi va Parvoz Broni (FlightBooking)",
+    "titleEn": "Uzbekistan Airways — Passenger Flight Booking Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nAviakompaniyada yo'lovchi (**FlightPassenger**) turli reyslarda uchishi mumkin. Muntazam parvoz reysi (**ScheduledFlight**) esa yuzlab yo'lovchilarni tashiydi.\nO'rindiq raqami (`seatNumber`), xizmat klassi (`cabinClass`) va to'langan chipta narxi (`ticketPrice`) **FlightBooking** assotsiativ entitiyida jamlanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `FlightPassenger`: {PK} `passportNo`, `passengerName`, `citizenship`.\n2. `ScheduledFlight`: {PK} `flightNumber`, `departureTime`, `destinationIata`.\n3. `FlightBooking`: {PK} `bookingRef`, `seatNumber`, `cabinClass`, `ticketPrice`.\n4. Ikkala master entitiyni `FlightBooking` ga `1..1` ⟷ `0..*` qilib ulang.",
+    "storyEn": "Uzbekistan Airways — Passenger Flight Booking Association Class — Conceptual ER business case study.",
+    "instruction": "Aviachipta band qilish (FlightBooking) assotsiativ modelini tuzing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Tourist",
+          "name": "FlightPassenger",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "passportNumber",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "passportNo",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "passportNumber",
+              "name": "passportNo",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "touristName",
+              "name": "passengerName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -37,43 +41,32 @@ _scope.QUESTIONS_51_100 = [
               "isPK": false,
               "isPPK": false,
               "isFK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
             }
           ]
         },
         {
-          "name": "TourPackage",
+          "name": "ScheduledFlight",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "packageCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "flightNumber",
+          "x": 540,
+          "y": 120,
           "attributes": [
             {
-              "name": "packageCode",
+              "name": "flightNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "destinationCity",
+              "name": "departureTime",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "durationDays",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "basePrice",
+              "name": "destinationIata",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -81,12 +74,13 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "TourBooking",
+          "name": "FlightBooking",
           "isWeak": false,
           "isAssociative": true,
+          "isSubclass": false,
           "pk": "bookingRef",
-          "x": 390,
-          "y": 160,
+          "x": 330,
+          "y": 320,
           "attributes": [
             {
               "name": "bookingRef",
@@ -95,19 +89,19 @@ _scope.QUESTIONS_51_100 = [
               "isFK": false
             },
             {
-              "name": "travelDate",
+              "name": "seatNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "adultCount",
+              "name": "cabinClass",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "specialMealRequest",
+              "name": "ticketPrice",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -118,27 +112,31 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "InvolvedIn",
-          "entity1": "Tourist",
-          "entity2": "TourBooking",
-          "fromEntityName": "Tourist",
-          "toEntityName": "TourBooking",
+          "name": "Books",
+          "entity1": "FlightPassenger",
+          "entity2": "FlightBooking",
+          "fromEntityName": "FlightPassenger",
+          "toEntityName": "FlightBooking",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "SubjectOf",
-          "entity1": "TourPackage",
-          "entity2": "TourBooking",
-          "fromEntityName": "TourPackage",
-          "toEntityName": "TourBooking",
+          "name": "Carries",
+          "entity1": "ScheduledFlight",
+          "entity2": "FlightBooking",
+          "fromEntityName": "ScheduledFlight",
+          "toEntityName": "FlightBooking",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -146,68 +144,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Tourist",
-          "pk": "passportNumber",
+          "name": "FlightPassenger",
+          "pk": "passportNo",
           "attributes": [
             {
-              "name": "passportNumber",
+              "name": "passportNo",
               "isPK": true
             },
             {
-              "name": "touristName",
+              "name": "passengerName",
               "isPK": false
             },
             {
               "name": "citizenship",
               "isPK": false
-            },
-            {
-              "name": "phone",
-              "isPK": false
             }
           ]
         },
         {
-          "name": "TourPackage",
-          "pk": "packageCode",
+          "name": "ScheduledFlight",
+          "pk": "flightNumber",
           "attributes": [
             {
-              "name": "packageCode",
+              "name": "flightNumber",
               "isPK": true
             },
             {
-              "name": "destinationCity",
+              "name": "departureTime",
               "isPK": false
             },
             {
-              "name": "durationDays",
-              "isPK": false
-            },
-            {
-              "name": "basePrice",
+              "name": "destinationIata",
               "isPK": false
             }
           ]
         },
         {
-          "name": "TourBooking",
+          "name": "FlightBooking",
           "pk": "bookingRef",
-          "isAssociative": true,
           "attributes": [
             {
               "name": "bookingRef",
               "isPK": true
             },
             {
-              "name": "travelDate",
+              "name": "seatNumber",
               "isPK": false
             },
             {
-              "name": "adultCount",
+              "name": "cabinClass",
               "isPK": false
             },
             {
-              "name": "specialMealRequest",
+              "name": "ticketPrice",
               "isPK": false
             }
           ]
@@ -215,18 +204,28 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Tourist",
-          "entity2": "TourBooking",
+          "entity1": "FlightPassenger",
+          "entity2": "FlightBooking",
+          "fromEntityName": "FlightPassenger",
+          "toEntityName": "FlightBooking",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "name": "Books",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "TourPackage",
-          "entity2": "TourBooking",
+          "entity1": "ScheduledFlight",
+          "entity2": "FlightBooking",
+          "fromEntityName": "ScheduledFlight",
+          "toEntityName": "FlightBooking",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "name": "Carries",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -234,43 +233,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 52,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*)",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Musician va Track Hamkorligi",
-    "story": "Ovoz Yozish Studiyasi jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Musiqachi ko'plab audio treklarni yozishda qatnashadi, bitta musiqiy trekda esa bir nechta artistlar hamkorlik qiladi. Tizimda asosiy ishtirokchilar sifatida **Musician** (artistId {PK}) va **Track** (isrcCode {PK}) qatnashadi. Ikki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **TrackContribution** (contribId {PK}, `roleType`, `royaltySplitRatio`, `recordingStudio`) polotnoda aks ettiriladi.",
-    "instruction": "'Musician' va 'Track' o'rtasida assotsiativ 'TrackContribution' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
+    "difficulty": "O'rta",
+    "clientName": "Kamola Saidova",
+    "clientRole": "Asaxiy Books Kutubxona Mudiri",
+    "clientAvatar": "📚",
+    "title": "Asaxiy Books — Kitobxon va Kitob Arendasi (BookRental)",
+    "titleEn": "Asaxiy Books — Reader Book Rental Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nElektron va qog'oz kitoblar ijarasida kitobxon (**OnlineReader**) ko'plab kitoblarni oladi. Kitob (**LibraryBook**) esa navbatma-navbat turli kitobxonlarga ijaraga beriladi.\nIjara boshlangan sana (`rentalStartDate`), qaytarish muddati (`dueDate`) va ijara to'lovi (`rentalFee`) **BookRental** entitiysi orqali boshqariladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `OnlineReader`: {PK} `readerId`, `fullName`, `email`.\n2. `LibraryBook`: {PK} `isbnCode`, `bookTitle`, `authorName`.\n3. `BookRental`: {PK} `rentalId`, `rentalStartDate`, `dueDate`, `rentalFee`.\n4. Multiplisitiyalarni to'g'ri o'rnating: bitta ijara aniq bitta kitob va bitta kitobxonga tegishli (`1..1`).",
+    "storyEn": "Asaxiy Books — Reader Book Rental Association Class — Conceptual ER business case study.",
+    "instruction": "'OnlineReader', 'LibraryBook' va 'BookRental' assotsiativ modelini quring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Musician",
+          "name": "OnlineReader",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "artistId",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "readerId",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "artistId",
+              "name": "readerId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "stageName",
+              "name": "fullName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "instrument",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "genre",
+              "name": "email",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -278,33 +275,28 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "Track",
+          "name": "LibraryBook",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "isrcCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "isbnCode",
+          "x": 540,
+          "y": 120,
           "attributes": [
             {
-              "name": "isrcCode",
+              "name": "isbnCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "trackTitle",
+              "name": "bookTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "durationSeconds",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "bpmTempo",
+              "name": "authorName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -312,33 +304,34 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "TrackContribution",
+          "name": "BookRental",
           "isWeak": false,
           "isAssociative": true,
-          "pk": "contribId",
-          "x": 390,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "rentalId",
+          "x": 330,
+          "y": 320,
           "attributes": [
             {
-              "name": "contribId",
+              "name": "rentalId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "roleType",
+              "name": "rentalStartDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "royaltySplitRatio",
+              "name": "dueDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "recordingStudio",
+              "name": "rentalFee",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -349,27 +342,31 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "InvolvedIn",
-          "entity1": "Musician",
-          "entity2": "TrackContribution",
-          "fromEntityName": "Musician",
-          "toEntityName": "TrackContribution",
+          "name": "Borrows",
+          "entity1": "OnlineReader",
+          "entity2": "BookRental",
+          "fromEntityName": "OnlineReader",
+          "toEntityName": "BookRental",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "SubjectOf",
-          "entity1": "Track",
-          "entity2": "TrackContribution",
-          "fromEntityName": "Track",
-          "toEntityName": "TrackContribution",
+          "name": "RentedVia",
+          "entity1": "LibraryBook",
+          "entity2": "BookRental",
+          "fromEntityName": "LibraryBook",
+          "toEntityName": "BookRental",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -377,68 +374,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Musician",
-          "pk": "artistId",
+          "name": "OnlineReader",
+          "pk": "readerId",
           "attributes": [
             {
-              "name": "artistId",
+              "name": "readerId",
               "isPK": true
             },
             {
-              "name": "stageName",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "instrument",
-              "isPK": false
-            },
-            {
-              "name": "genre",
+              "name": "email",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Track",
-          "pk": "isrcCode",
+          "name": "LibraryBook",
+          "pk": "isbnCode",
           "attributes": [
             {
-              "name": "isrcCode",
+              "name": "isbnCode",
               "isPK": true
             },
             {
-              "name": "trackTitle",
+              "name": "bookTitle",
               "isPK": false
             },
             {
-              "name": "durationSeconds",
-              "isPK": false
-            },
-            {
-              "name": "bpmTempo",
+              "name": "authorName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "TrackContribution",
-          "pk": "contribId",
-          "isAssociative": true,
+          "name": "BookRental",
+          "pk": "rentalId",
           "attributes": [
             {
-              "name": "contribId",
+              "name": "rentalId",
               "isPK": true
             },
             {
-              "name": "roleType",
+              "name": "rentalStartDate",
               "isPK": false
             },
             {
-              "name": "royaltySplitRatio",
+              "name": "dueDate",
               "isPK": false
             },
             {
-              "name": "recordingStudio",
+              "name": "rentalFee",
               "isPK": false
             }
           ]
@@ -446,18 +434,28 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Musician",
-          "entity2": "TrackContribution",
+          "entity1": "OnlineReader",
+          "entity2": "BookRental",
+          "fromEntityName": "OnlineReader",
+          "toEntityName": "BookRental",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "name": "Borrows",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Track",
-          "entity2": "TrackContribution",
+          "entity1": "LibraryBook",
+          "entity2": "BookRental",
+          "fromEntityName": "LibraryBook",
+          "toEntityName": "BookRental",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "name": "RentedVia",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -465,43 +463,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 53,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*)",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Actor va Film Hamkorligi",
-    "story": "Kinematografiya Kasting jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Aktyor bir nechta filmlarda rol ijro etishi mumkin, filmda esa ko'plab aktyorlar jamoasi suratga tushadi. Tizimda asosiy ishtirokchilar sifatida **Actor** (actorCardId {PK}) va **Film** (filmCode {PK}) qatnashadi. Ikki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **CastingContract** (contractNo {PK}, `characterName`, `compensationSum`, `isLeadRole`) polotnoda aks ettiriladi.",
-    "instruction": "'Actor' va 'Film' o'rtasida assotsiativ 'CastingContract' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
+    "difficulty": "O'rta",
+    "clientName": "Javohir Zokirov",
+    "clientRole": "IT Park Sertifikatsiya Rahbari",
+    "clientAvatar": "🎓",
+    "title": "IT Park Academy — Talaba va Sertifikat Imtihoni (ExamAttempt)",
+    "titleEn": "IT Park Academy — Student Certification Exam Attempt Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nProfessional IT sertifikatlash tizimida talaba (**CandidateStudent**) bir necha sertifikat imtihonlarini topshiradi. Imtihon (**CertificationExam**) har kuni o'nlab nomzodlar tomonidan topshiriladi.\nTopshirish sanasi (`attemptDate`), to'plangan ball foizi (`scorePercentage`) va muvaffaqiyat holati (`passedStatus`) **ExamAttempt** assotsiativ entitiysiga tegishlidir.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `CandidateStudent`: {PK} `candidateId`, `candidateName`, `pinfl`.\n2. `CertificationExam`: {PK} `examCode`, `examTitle`, `passingScore`.\n3. `ExamAttempt`: {PK} `attemptId`, `attemptDate`, `scorePercentage`, `passedStatus`.\n4. Multiplisitiyalarni `1..1` va `0..*` qilib bog'lang.",
+    "storyEn": "IT Park Academy — Student Certification Exam Attempt Association Class — Conceptual ER business case study.",
+    "instruction": "Nomzod va imtihon orasidagi 'ExamAttempt' assotsiativ sinfini shakllantiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Actor",
+          "name": "CandidateStudent",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "actorCardId",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "candidateId",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "actorCardId",
+              "name": "candidateId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "realName",
+              "name": "candidateName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "agentContact",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "actingUnionId",
+              "name": "pinfl",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -509,33 +505,28 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "Film",
+          "name": "CertificationExam",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "filmCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "examCode",
+          "x": 540,
+          "y": 120,
           "attributes": [
             {
-              "name": "filmCode",
+              "name": "examCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "filmTitle",
+              "name": "examTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "producerName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "shootingStartYear",
+              "name": "passingScore",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -543,33 +534,34 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "CastingContract",
+          "name": "ExamAttempt",
           "isWeak": false,
           "isAssociative": true,
-          "pk": "contractNo",
-          "x": 390,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "attemptId",
+          "x": 330,
+          "y": 320,
           "attributes": [
             {
-              "name": "contractNo",
+              "name": "attemptId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "characterName",
+              "name": "attemptDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "compensationSum",
+              "name": "scorePercentage",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "isLeadRole",
+              "name": "passedStatus",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -580,27 +572,31 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "InvolvedIn",
-          "entity1": "Actor",
-          "entity2": "CastingContract",
-          "fromEntityName": "Actor",
-          "toEntityName": "CastingContract",
+          "name": "Takes",
+          "entity1": "CandidateStudent",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CandidateStudent",
+          "toEntityName": "ExamAttempt",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "SubjectOf",
-          "entity1": "Film",
-          "entity2": "CastingContract",
-          "fromEntityName": "Film",
-          "toEntityName": "CastingContract",
+          "name": "Evaluates",
+          "entity1": "CertificationExam",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CertificationExam",
+          "toEntityName": "ExamAttempt",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -608,68 +604,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Actor",
-          "pk": "actorCardId",
+          "name": "CandidateStudent",
+          "pk": "candidateId",
           "attributes": [
             {
-              "name": "actorCardId",
+              "name": "candidateId",
               "isPK": true
             },
             {
-              "name": "realName",
+              "name": "candidateName",
               "isPK": false
             },
             {
-              "name": "agentContact",
-              "isPK": false
-            },
-            {
-              "name": "actingUnionId",
+              "name": "pinfl",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Film",
-          "pk": "filmCode",
+          "name": "CertificationExam",
+          "pk": "examCode",
           "attributes": [
             {
-              "name": "filmCode",
+              "name": "examCode",
               "isPK": true
             },
             {
-              "name": "filmTitle",
+              "name": "examTitle",
               "isPK": false
             },
             {
-              "name": "producerName",
-              "isPK": false
-            },
-            {
-              "name": "shootingStartYear",
+              "name": "passingScore",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CastingContract",
-          "pk": "contractNo",
-          "isAssociative": true,
+          "name": "ExamAttempt",
+          "pk": "attemptId",
           "attributes": [
             {
-              "name": "contractNo",
+              "name": "attemptId",
               "isPK": true
             },
             {
-              "name": "characterName",
+              "name": "attemptDate",
               "isPK": false
             },
             {
-              "name": "compensationSum",
+              "name": "scorePercentage",
               "isPK": false
             },
             {
-              "name": "isLeadRole",
+              "name": "passedStatus",
               "isPK": false
             }
           ]
@@ -677,18 +664,28 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Actor",
-          "entity2": "CastingContract",
+          "entity1": "CandidateStudent",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CandidateStudent",
+          "toEntityName": "ExamAttempt",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "name": "Takes",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Film",
-          "entity2": "CastingContract",
+          "entity1": "CertificationExam",
+          "entity2": "ExamAttempt",
+          "fromEntityName": "CertificationExam",
+          "toEntityName": "ExamAttempt",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "name": "Evaluates",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -696,43 +693,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 54,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*)",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Truck va Route Hamkorligi",
-    "story": "Magistral Marshrutlar jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Yuk furasiga turli qatnov yo'nalishlari beriladi, bitta tranzit yo'nalishida esa bir nechta furalar qatnaydi. Tizimda asosiy ishtirokchilar sifatida **Truck** (truckPlate {PK}) va **Route** (routeId {PK}) qatnashadi. Ikki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **DeliveryTrip** (tripTicketNo {PK}, `dispatchTime`, `fuelLitersUsed`, `driverStaffId`) polotnoda aks ettiriladi.",
-    "instruction": "'Truck' va 'Route' o'rtasida assotsiativ 'DeliveryTrip' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
+    "difficulty": "O'rta",
+    "clientName": "Dilnoza Hakimova",
+    "clientRole": "Klinik Farmatsevt",
+    "clientAvatar": "💊",
+    "title": "Elektron Retsept Tizimi — Shifokor va Dori Vositalari (PrescriptionItem)",
+    "titleEn": "Electronic Prescription — Doctor and Medication Prescription Item Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nShifoxona tizimida shifokor (**TreatingDoctor**) turli dori vositalarini yozib beradi. Dori vositasi (**MedicationDrug**) esa turli shifokorlar tomonidan tavsiya qilinadi.\nTavsiya qilingan doza (`dosageMg`), qabul qilish chastotasi (`frequencyPerDay`) va kurs davomiyligi (`durationDays`) **PrescriptionItem** assotsiativ entitiyida ifodalanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `TreatingDoctor`: {PK} `doctorId`, `doctorName`, `licenseNo`.\n2. `MedicationDrug`: {PK} `drugId`, `commercialName`, `activeSubstance`.\n3. `PrescriptionItem`: {PK} `prescriptionId`, `dosageMg`, `frequencyPerDay`, `durationDays`.\n4. Munosabatlarni to'g'ri o'rnating (`1..1` ⟷ `0..*`).",
+    "storyEn": "Electronic Prescription — Doctor and Medication Prescription Item Association Class — Conceptual ER business case study.",
+    "instruction": "Shifokor va dori vositasini 'PrescriptionItem' orqali assotsiativ bog'lang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Truck",
+          "name": "TreatingDoctor",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "truckPlate",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "doctorId",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "truckPlate",
+              "name": "doctorId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "model",
+              "name": "doctorName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "maxPayloadTons",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "odometerKm",
+              "name": "licenseNo",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -740,33 +735,28 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "Route",
+          "name": "MedicationDrug",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "routeId",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "drugId",
+          "x": 540,
+          "y": 120,
           "attributes": [
             {
-              "name": "routeId",
+              "name": "drugId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "originHub",
+              "name": "commercialName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "destHub",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "distanceKm",
+              "name": "activeSubstance",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -774,33 +764,34 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "DeliveryTrip",
+          "name": "PrescriptionItem",
           "isWeak": false,
           "isAssociative": true,
-          "pk": "tripTicketNo",
-          "x": 390,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "prescriptionId",
+          "x": 330,
+          "y": 320,
           "attributes": [
             {
-              "name": "tripTicketNo",
+              "name": "prescriptionId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "dispatchTime",
+              "name": "dosageMg",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "fuelLitersUsed",
+              "name": "frequencyPerDay",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "driverStaffId",
+              "name": "durationDays",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -811,27 +802,31 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "InvolvedIn",
-          "entity1": "Truck",
-          "entity2": "DeliveryTrip",
-          "fromEntityName": "Truck",
-          "toEntityName": "DeliveryTrip",
+          "name": "Prescribes",
+          "entity1": "TreatingDoctor",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "TreatingDoctor",
+          "toEntityName": "PrescriptionItem",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "SubjectOf",
-          "entity1": "Route",
-          "entity2": "DeliveryTrip",
-          "fromEntityName": "Route",
-          "toEntityName": "DeliveryTrip",
+          "name": "PrescribedIn",
+          "entity1": "MedicationDrug",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "MedicationDrug",
+          "toEntityName": "PrescriptionItem",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -839,68 +834,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Truck",
-          "pk": "truckPlate",
+          "name": "TreatingDoctor",
+          "pk": "doctorId",
           "attributes": [
             {
-              "name": "truckPlate",
+              "name": "doctorId",
               "isPK": true
             },
             {
-              "name": "model",
+              "name": "doctorName",
               "isPK": false
             },
             {
-              "name": "maxPayloadTons",
-              "isPK": false
-            },
-            {
-              "name": "odometerKm",
+              "name": "licenseNo",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Route",
-          "pk": "routeId",
+          "name": "MedicationDrug",
+          "pk": "drugId",
           "attributes": [
             {
-              "name": "routeId",
+              "name": "drugId",
               "isPK": true
             },
             {
-              "name": "originHub",
+              "name": "commercialName",
               "isPK": false
             },
             {
-              "name": "destHub",
-              "isPK": false
-            },
-            {
-              "name": "distanceKm",
+              "name": "activeSubstance",
               "isPK": false
             }
           ]
         },
         {
-          "name": "DeliveryTrip",
-          "pk": "tripTicketNo",
-          "isAssociative": true,
+          "name": "PrescriptionItem",
+          "pk": "prescriptionId",
           "attributes": [
             {
-              "name": "tripTicketNo",
+              "name": "prescriptionId",
               "isPK": true
             },
             {
-              "name": "dispatchTime",
+              "name": "dosageMg",
               "isPK": false
             },
             {
-              "name": "fuelLitersUsed",
+              "name": "frequencyPerDay",
               "isPK": false
             },
             {
-              "name": "driverStaffId",
+              "name": "durationDays",
               "isPK": false
             }
           ]
@@ -908,18 +894,28 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Truck",
-          "entity2": "DeliveryTrip",
+          "entity1": "TreatingDoctor",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "TreatingDoctor",
+          "toEntityName": "PrescriptionItem",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "name": "Prescribes",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Route",
-          "entity2": "DeliveryTrip",
+          "entity1": "MedicationDrug",
+          "entity2": "PrescriptionItem",
+          "fromEntityName": "MedicationDrug",
+          "toEntityName": "PrescriptionItem",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "name": "PrescribedIn",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -927,43 +923,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 55,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*)",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Product va RawMaterial Hamkorligi",
-    "story": "Zavod Texnologik Xaritasi jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Tayyor mahsulot bir nechta xomashyolardan yig'iladi, bir xomashyo esa turli xil mahsulotlar ishlab chiqarishda ishlatiladi. Tizimda asosiy ishtirokchilar sifatida **Product** (productNo {PK}) va **RawMaterial** (materialCode {PK}) qatnashadi. Ikki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **BillOfMaterial** (bomItemId {PK}, `requiredQuantity`, `wastageTolerancePercent`, `assemblySequenceNo`) polotnoda aks ettiriladi.",
-    "instruction": "'Product' va 'RawMaterial' o'rtasida assotsiativ 'BillOfMaterial' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
+    "difficulty": "O'rta",
+    "clientName": "Otabek Yusupov",
+    "clientRole": "Hilton Mehmonxonasi Menejeri",
+    "clientAvatar": "🏨",
+    "title": "Hilton Mehmonxonasi — Korporativ Mijoz va Konferens Zal (HallBooking)",
+    "titleEn": "Hilton Hotel — Corporate Client and Conference Hall Booking Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nXalqaro mehmonxonada korporativ mijoz (**CorporateClient**) biznes tadbirlar uchun zallarni bron qiladi. Konferens zal (**ConferenceHall**) turli kompaniyalarga arendaga beriladi.\nBron qilingan sana (`eventDate`), qatnashuvchilar soni (`attendeesCount`) va katering xizmati summasi (`cateringCost`) **HallBooking** assotsiativ entitiyida saqlanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `CorporateClient`: {PK} `companyId`, `companyName`, `contactPhone`.\n2. `ConferenceHall`: {PK} `hallCode`, `hallName`, `capacity`.\n3. `HallBooking`: {PK} `bookingId`, `eventDate`, `attendeesCount`, `cateringCost`.\n4. Multiplisitiyalarni `1..1` va `0..*` ko'rinishida tanlang.",
+    "storyEn": "Hilton Hotel — Corporate Client and Conference Hall Booking Association Class — Conceptual ER business case study.",
+    "instruction": "'CorporateClient', 'ConferenceHall' va 'HallBooking' entitiylarini loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Product",
+          "name": "CorporateClient",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "productNo",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "companyId",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "productNo",
+              "name": "companyId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "name",
+              "name": "companyName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "retailPrice",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "manufacturingTimeHours",
+              "name": "contactPhone",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -971,33 +965,28 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "RawMaterial",
+          "name": "ConferenceHall",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "materialCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "hallCode",
+          "x": 540,
+          "y": 120,
           "attributes": [
             {
-              "name": "materialCode",
+              "name": "hallCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "materialName",
+              "name": "hallName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "unitOfMeasure",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "costPerUnit",
+              "name": "capacity",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1005,33 +994,34 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "BillOfMaterial",
+          "name": "HallBooking",
           "isWeak": false,
           "isAssociative": true,
-          "pk": "bomItemId",
-          "x": 390,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "bookingId",
+          "x": 330,
+          "y": 320,
           "attributes": [
             {
-              "name": "bomItemId",
+              "name": "bookingId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "requiredQuantity",
+              "name": "eventDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "wastageTolerancePercent",
+              "name": "attendeesCount",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "assemblySequenceNo",
+              "name": "cateringCost",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1042,27 +1032,31 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "InvolvedIn",
-          "entity1": "Product",
-          "entity2": "BillOfMaterial",
-          "fromEntityName": "Product",
-          "toEntityName": "BillOfMaterial",
+          "name": "Reserves",
+          "entity1": "CorporateClient",
+          "entity2": "HallBooking",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "HallBooking",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "SubjectOf",
-          "entity1": "RawMaterial",
-          "entity2": "BillOfMaterial",
-          "fromEntityName": "RawMaterial",
-          "toEntityName": "BillOfMaterial",
+          "name": "ReservedBy",
+          "entity1": "ConferenceHall",
+          "entity2": "HallBooking",
+          "fromEntityName": "ConferenceHall",
+          "toEntityName": "HallBooking",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -1070,68 +1064,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Product",
-          "pk": "productNo",
+          "name": "CorporateClient",
+          "pk": "companyId",
           "attributes": [
             {
-              "name": "productNo",
+              "name": "companyId",
               "isPK": true
             },
             {
-              "name": "name",
+              "name": "companyName",
               "isPK": false
             },
             {
-              "name": "retailPrice",
-              "isPK": false
-            },
-            {
-              "name": "manufacturingTimeHours",
+              "name": "contactPhone",
               "isPK": false
             }
           ]
         },
         {
-          "name": "RawMaterial",
-          "pk": "materialCode",
+          "name": "ConferenceHall",
+          "pk": "hallCode",
           "attributes": [
             {
-              "name": "materialCode",
+              "name": "hallCode",
               "isPK": true
             },
             {
-              "name": "materialName",
+              "name": "hallName",
               "isPK": false
             },
             {
-              "name": "unitOfMeasure",
-              "isPK": false
-            },
-            {
-              "name": "costPerUnit",
+              "name": "capacity",
               "isPK": false
             }
           ]
         },
         {
-          "name": "BillOfMaterial",
-          "pk": "bomItemId",
-          "isAssociative": true,
+          "name": "HallBooking",
+          "pk": "bookingId",
           "attributes": [
             {
-              "name": "bomItemId",
+              "name": "bookingId",
               "isPK": true
             },
             {
-              "name": "requiredQuantity",
+              "name": "eventDate",
               "isPK": false
             },
             {
-              "name": "wastageTolerancePercent",
+              "name": "attendeesCount",
               "isPK": false
             },
             {
-              "name": "assemblySequenceNo",
+              "name": "cateringCost",
               "isPK": false
             }
           ]
@@ -1139,18 +1124,28 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Product",
-          "entity2": "BillOfMaterial",
+          "entity1": "CorporateClient",
+          "entity2": "HallBooking",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "HallBooking",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "name": "Reserves",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "RawMaterial",
-          "entity2": "BillOfMaterial",
+          "entity1": "ConferenceHall",
+          "entity2": "HallBooking",
+          "fromEntityName": "ConferenceHall",
+          "toEntityName": "HallBooking",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "name": "ReservedBy",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -1158,43 +1153,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 56,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*)",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Delegate va WorkshopSession Hamkorligi",
-    "story": "Xalqaro Kongress jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Kongress delegati bir nechta mahorat darslariga qatnashishi mumkin, har bir seminarga esa ko'plab delegatlar ro'yxatdan o'tadi. Tizimda asosiy ishtirokchilar sifatida **Delegate** (badgeId {PK}) va **WorkshopSession** (sessionCode {PK}) qatnashadi. Ikki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **SessionRegistration** (regTicketId {PK}, `registeredAt`, `attendedAttendance`, `feedbackScore`) polotnoda aks ettiriladi.",
-    "instruction": "'Delegate' va 'WorkshopSession' o'rtasida assotsiativ 'SessionRegistration' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
+    "difficulty": "O'rta",
+    "clientName": "Gulzoda Norova",
+    "clientRole": "Apex Insurance Sug'urta Anderrayteri",
+    "clientAvatar": "🛡️",
+    "title": "Apex Sug'urta — Mijoz va Sug'urta Dasturi (UnderwrittenPolicy)",
+    "titleEn": "Apex Insurance — Client and Insurance Program Policy Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nSug'urta bozorida fuqaro (**InsuredPerson**) bir necha xil dasturlar (avto, salomatlik, uy) bo'yicha sug'urtalanadi. Sug'urta dasturi (**InsurancePlan**) minglab fuqarolarga xizmat qiladi.\nYillik sug'urta mukofoti (`premiumSum`), tovon to'lash chegarasi (`coverageLimit`) va boshlanish sanasi (`startDate`) **UnderwrittenPolicy** assotsiativ entitiyida ifodalanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `InsuredPerson`: {PK} `personPinfl`, `fullName`, `city`.\n2. `InsurancePlan`: {PK} `planCode`, `planName`, `baseRate`.\n3. `UnderwrittenPolicy`: {PK} `policyNumber`, `premiumSum`, `coverageLimit`, `startDate`.\n4. Har bir polis aniq bitta mijoz va bitta dasturga birikkanligini (`1..1` ⟷ `0..*`) tasdiqlang.",
+    "storyEn": "Apex Insurance — Client and Insurance Program Policy Association Class — Conceptual ER business case study.",
+    "instruction": "Sug'urta polisi assotsiativ modelini aniq chegaralar bilan polotnoda quring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Delegate",
+          "name": "InsuredPerson",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "badgeId",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "personPinfl",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "badgeId",
+              "name": "personPinfl",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "delegateName",
+              "name": "fullName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "organization",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "jobPosition",
+              "name": "city",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1202,33 +1195,28 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "WorkshopSession",
+          "name": "InsurancePlan",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "sessionCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "planCode",
+          "x": 540,
+          "y": 120,
           "attributes": [
             {
-              "name": "sessionCode",
+              "name": "planCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "sessionTopic",
+              "name": "planName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "roomHall",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "speakerName",
+              "name": "baseRate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1236,33 +1224,34 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "SessionRegistration",
+          "name": "UnderwrittenPolicy",
           "isWeak": false,
           "isAssociative": true,
-          "pk": "regTicketId",
-          "x": 390,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "policyNumber",
+          "x": 330,
+          "y": 320,
           "attributes": [
             {
-              "name": "regTicketId",
+              "name": "policyNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "registeredAt",
+              "name": "premiumSum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "attendedAttendance",
+              "name": "coverageLimit",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "feedbackScore",
+              "name": "startDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1273,27 +1262,31 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "InvolvedIn",
-          "entity1": "Delegate",
-          "entity2": "SessionRegistration",
-          "fromEntityName": "Delegate",
-          "toEntityName": "SessionRegistration",
+          "name": "Subscribes",
+          "entity1": "InsuredPerson",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsuredPerson",
+          "toEntityName": "UnderwrittenPolicy",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "SubjectOf",
-          "entity1": "WorkshopSession",
-          "entity2": "SessionRegistration",
-          "fromEntityName": "WorkshopSession",
-          "toEntityName": "SessionRegistration",
+          "name": "AppliedTo",
+          "entity1": "InsurancePlan",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsurancePlan",
+          "toEntityName": "UnderwrittenPolicy",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -1301,68 +1294,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Delegate",
-          "pk": "badgeId",
+          "name": "InsuredPerson",
+          "pk": "personPinfl",
           "attributes": [
             {
-              "name": "badgeId",
+              "name": "personPinfl",
               "isPK": true
             },
             {
-              "name": "delegateName",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "organization",
-              "isPK": false
-            },
-            {
-              "name": "jobPosition",
+              "name": "city",
               "isPK": false
             }
           ]
         },
         {
-          "name": "WorkshopSession",
-          "pk": "sessionCode",
+          "name": "InsurancePlan",
+          "pk": "planCode",
           "attributes": [
             {
-              "name": "sessionCode",
+              "name": "planCode",
               "isPK": true
             },
             {
-              "name": "sessionTopic",
+              "name": "planName",
               "isPK": false
             },
             {
-              "name": "roomHall",
-              "isPK": false
-            },
-            {
-              "name": "speakerName",
+              "name": "baseRate",
               "isPK": false
             }
           ]
         },
         {
-          "name": "SessionRegistration",
-          "pk": "regTicketId",
-          "isAssociative": true,
+          "name": "UnderwrittenPolicy",
+          "pk": "policyNumber",
           "attributes": [
             {
-              "name": "regTicketId",
+              "name": "policyNumber",
               "isPK": true
             },
             {
-              "name": "registeredAt",
+              "name": "premiumSum",
               "isPK": false
             },
             {
-              "name": "attendedAttendance",
+              "name": "coverageLimit",
               "isPK": false
             },
             {
-              "name": "feedbackScore",
+              "name": "startDate",
               "isPK": false
             }
           ]
@@ -1370,18 +1354,28 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Delegate",
-          "entity2": "SessionRegistration",
+          "entity1": "InsuredPerson",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsuredPerson",
+          "toEntityName": "UnderwrittenPolicy",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "name": "Subscribes",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "WorkshopSession",
-          "entity2": "SessionRegistration",
+          "entity1": "InsurancePlan",
+          "entity2": "UnderwrittenPolicy",
+          "fromEntityName": "InsurancePlan",
+          "toEntityName": "UnderwrittenPolicy",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "name": "AppliedTo",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -1389,43 +1383,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 57,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*)",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Exporter va CustomsPost Hamkorligi",
-    "story": "Bojxona Deklaratsiyasi jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Eksportchi korxona o'z yuklarini turli bojxona postlari orqali o'tkazishi mumkin, postda esa minglab eksportchilar deklaratsiya topshiradi. Tizimda asosiy ishtirokchilar sifatida **Exporter** (exporterInn {PK}) va **CustomsPost** (postCode {PK}) qatnashadi. Ikki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **CustomsDeclaration** (gtdNumber {PK}, `cargoInvoiceSum`, `customsDutyPaid`, `clearanceDate`) polotnoda aks ettiriladi.",
-    "instruction": "'Exporter' va 'CustomsPost' o'rtasida assotsiativ 'CustomsDeclaration' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
+    "difficulty": "O'rta",
+    "clientName": "Sherzod Temirov",
+    "clientRole": "Avtosalon Lizing Menejeri",
+    "clientAvatar": "🚘",
+    "title": "Avtosalon — Xaridor va Avtomobil Lizing Shartnomasi (CarLeaseContract)",
+    "titleEn": "Car Dealership — Buyer and Vehicle Lease Contract Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nAvtosalonda tadbirkor (**CarBuyer**) bir necha avtomobillarni lizingga olishi mumkin. Lizingdagi avtomobil modeli (**VehicleStock**) esa bir necha shartnomalarda aylanadi.\nBoshlang'ich to'lov miqdori (`downPayment`), oylik to'lov (`monthlyInstallment`) va lizing muddati oylar soni (`termMonths`) **CarLeaseContract** assotsiativ entitiyida saqlanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `CarBuyer`: {PK} `buyerInn`, `buyerTitle`, `creditRating`.\n2. `VehicleStock`: {PK} `vinNumber`, `carModel`, `stickerPrice`.\n3. `CarLeaseContract`: {PK} `leaseContractNo`, `downPayment`, `monthlyInstallment`, `termMonths`.\n4. Ikkala tomonni `1..1` ⟷ `0..*` bilan bog'lang.",
+    "storyEn": "Car Dealership — Buyer and Vehicle Lease Contract Association Class — Conceptual ER business case study.",
+    "instruction": "Lizing shartnomasi (CarLeaseContract) assotsiativ diagrammasini tuzing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Exporter",
+          "name": "CarBuyer",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "exporterInn",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "buyerInn",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "exporterInn",
+              "name": "buyerInn",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "companyName",
+              "name": "buyerTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "legalAddress",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "licenseDate",
+              "name": "creditRating",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1433,33 +1425,28 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "CustomsPost",
+          "name": "VehicleStock",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "postCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "vinNumber",
+          "x": 540,
+          "y": 120,
           "attributes": [
             {
-              "name": "postCode",
+              "name": "vinNumber",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "postName",
+              "name": "carModel",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "borderRegion",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "terminalCapacityTons",
+              "name": "stickerPrice",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1467,33 +1454,34 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "CustomsDeclaration",
+          "name": "CarLeaseContract",
           "isWeak": false,
           "isAssociative": true,
-          "pk": "gtdNumber",
-          "x": 390,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "leaseContractNo",
+          "x": 330,
+          "y": 320,
           "attributes": [
             {
-              "name": "gtdNumber",
+              "name": "leaseContractNo",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "cargoInvoiceSum",
+              "name": "downPayment",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "customsDutyPaid",
+              "name": "monthlyInstallment",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "clearanceDate",
+              "name": "termMonths",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1504,27 +1492,31 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "InvolvedIn",
-          "entity1": "Exporter",
-          "entity2": "CustomsDeclaration",
-          "fromEntityName": "Exporter",
-          "toEntityName": "CustomsDeclaration",
+          "name": "SignsLease",
+          "entity1": "CarBuyer",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "CarLeaseContract",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "SubjectOf",
-          "entity1": "CustomsPost",
-          "entity2": "CustomsDeclaration",
-          "fromEntityName": "CustomsPost",
-          "toEntityName": "CustomsDeclaration",
+          "name": "LeasedAs",
+          "entity1": "VehicleStock",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "VehicleStock",
+          "toEntityName": "CarLeaseContract",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -1532,68 +1524,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Exporter",
-          "pk": "exporterInn",
+          "name": "CarBuyer",
+          "pk": "buyerInn",
           "attributes": [
             {
-              "name": "exporterInn",
+              "name": "buyerInn",
               "isPK": true
             },
             {
-              "name": "companyName",
+              "name": "buyerTitle",
               "isPK": false
             },
             {
-              "name": "legalAddress",
-              "isPK": false
-            },
-            {
-              "name": "licenseDate",
+              "name": "creditRating",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CustomsPost",
-          "pk": "postCode",
+          "name": "VehicleStock",
+          "pk": "vinNumber",
           "attributes": [
             {
-              "name": "postCode",
+              "name": "vinNumber",
               "isPK": true
             },
             {
-              "name": "postName",
+              "name": "carModel",
               "isPK": false
             },
             {
-              "name": "borderRegion",
-              "isPK": false
-            },
-            {
-              "name": "terminalCapacityTons",
+              "name": "stickerPrice",
               "isPK": false
             }
           ]
         },
         {
-          "name": "CustomsDeclaration",
-          "pk": "gtdNumber",
-          "isAssociative": true,
+          "name": "CarLeaseContract",
+          "pk": "leaseContractNo",
           "attributes": [
             {
-              "name": "gtdNumber",
+              "name": "leaseContractNo",
               "isPK": true
             },
             {
-              "name": "cargoInvoiceSum",
+              "name": "downPayment",
               "isPK": false
             },
             {
-              "name": "customsDutyPaid",
+              "name": "monthlyInstallment",
               "isPK": false
             },
             {
-              "name": "clearanceDate",
+              "name": "termMonths",
               "isPK": false
             }
           ]
@@ -1601,18 +1584,28 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Exporter",
-          "entity2": "CustomsDeclaration",
+          "entity1": "CarBuyer",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "CarLeaseContract",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "name": "SignsLease",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "CustomsPost",
-          "entity2": "CustomsDeclaration",
+          "entity1": "VehicleStock",
+          "entity2": "CarLeaseContract",
+          "fromEntityName": "VehicleStock",
+          "toEntityName": "CarLeaseContract",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "name": "LeasedAs",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -1620,43 +1613,35 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 58,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*)",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Article va ContentTag Hamkorligi",
-    "story": "Raqamli OAV Portal jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Yangilik maqolasiga bir nechta tematik teglar biriktiriladi, bitta teg esa yuzlab turli maqolalarda uchraydi. Tizimda asosiy ishtirokchilar sifatida **Article** (articleSlug {PK}) va **ContentTag** (tagId {PK}) qatnashadi. Ikki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **ArticleTagMap** (mappingId {PK}, `attachedOrder`, `autoSuggestedByAi`, `relevanceScore`) polotnoda aks ettiriladi.",
-    "instruction": "'Article' va 'ContentTag' o'rtasida assotsiativ 'ArticleTagMap' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
+    "difficulty": "O'rta",
+    "clientName": "Sevara Shokirova",
+    "clientRole": "Magic Cinema Bosh Administratori",
+    "clientAvatar": "🎬",
+    "title": "Kinoteatr — Tomoshabin va Kino Seansi Chiptasi (CinemaTicket)",
+    "titleEn": "Magic Cinema — Viewer and Movie Session Ticket Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nZamonaviy kinoteatrda tomoshabin (**MovieViewer**) ko'plab seanslarga tushadi. Kino seansi (**CinemaSession**) esa zal to'la tomoshabinlarni qamrab oladi.\nQator raqami (`rowNumber`), o'rindiq joyi (`seatNumber`) va chipta narxi (`ticketPrice`) **CinemaTicket** assotsiativ entitiyida ifodalanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `MovieViewer`: {PK} `viewerPhone`, `viewerName`.\n2. `CinemaSession`: {PK} `sessionId`, `movieTitle`, `startTime`.\n3. `CinemaTicket`: {PK} `ticketCode`, `rowNumber`, `seatNumber`, `ticketPrice`.\n4. Multiplisitiyalarni `1..1` ⟷ `0..*` ko'rinishida tanlang.",
+    "storyEn": "Magic Cinema — Viewer and Movie Session Ticket Association Class — Conceptual ER business case study.",
+    "instruction": "Kino chiptasi assotsiativ modelini polotnoda ifodalang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Article",
+          "name": "MovieViewer",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "articleSlug",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "viewerPhone",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "articleSlug",
+              "name": "viewerPhone",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "headline",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "authorName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "publishDateTime",
+              "name": "viewerName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1664,33 +1649,28 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "ContentTag",
+          "name": "CinemaSession",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "tagId",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "sessionId",
+          "x": 540,
+          "y": 120,
           "attributes": [
             {
-              "name": "tagId",
+              "name": "sessionId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "tagName",
+              "name": "movieTitle",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "categoryTheme",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "popularityIndex",
+              "name": "startTime",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1698,33 +1678,34 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "ArticleTagMap",
+          "name": "CinemaTicket",
           "isWeak": false,
           "isAssociative": true,
-          "pk": "mappingId",
-          "x": 390,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "ticketCode",
+          "x": 330,
+          "y": 320,
           "attributes": [
             {
-              "name": "mappingId",
+              "name": "ticketCode",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "attachedOrder",
+              "name": "rowNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "autoSuggestedByAi",
+              "name": "seatNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "relevanceScore",
+              "name": "ticketPrice",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1735,27 +1716,31 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "InvolvedIn",
-          "entity1": "Article",
-          "entity2": "ArticleTagMap",
-          "fromEntityName": "Article",
-          "toEntityName": "ArticleTagMap",
+          "name": "Purchases",
+          "entity1": "MovieViewer",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "MovieViewer",
+          "toEntityName": "CinemaTicket",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "SubjectOf",
-          "entity1": "ContentTag",
-          "entity2": "ArticleTagMap",
-          "fromEntityName": "ContentTag",
-          "toEntityName": "ArticleTagMap",
+          "name": "Admits",
+          "entity1": "CinemaSession",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "CinemaSession",
+          "toEntityName": "CinemaTicket",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -1763,68 +1748,55 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Article",
-          "pk": "articleSlug",
+          "name": "MovieViewer",
+          "pk": "viewerPhone",
           "attributes": [
             {
-              "name": "articleSlug",
+              "name": "viewerPhone",
               "isPK": true
             },
             {
-              "name": "headline",
-              "isPK": false
-            },
-            {
-              "name": "authorName",
-              "isPK": false
-            },
-            {
-              "name": "publishDateTime",
+              "name": "viewerName",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ContentTag",
-          "pk": "tagId",
+          "name": "CinemaSession",
+          "pk": "sessionId",
           "attributes": [
             {
-              "name": "tagId",
+              "name": "sessionId",
               "isPK": true
             },
             {
-              "name": "tagName",
+              "name": "movieTitle",
               "isPK": false
             },
             {
-              "name": "categoryTheme",
-              "isPK": false
-            },
-            {
-              "name": "popularityIndex",
+              "name": "startTime",
               "isPK": false
             }
           ]
         },
         {
-          "name": "ArticleTagMap",
-          "pk": "mappingId",
-          "isAssociative": true,
+          "name": "CinemaTicket",
+          "pk": "ticketCode",
           "attributes": [
             {
-              "name": "mappingId",
+              "name": "ticketCode",
               "isPK": true
             },
             {
-              "name": "attachedOrder",
+              "name": "rowNumber",
               "isPK": false
             },
             {
-              "name": "autoSuggestedByAi",
+              "name": "seatNumber",
               "isPK": false
             },
             {
-              "name": "relevanceScore",
+              "name": "ticketPrice",
               "isPK": false
             }
           ]
@@ -1832,18 +1804,28 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Article",
-          "entity2": "ArticleTagMap",
+          "entity1": "MovieViewer",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "MovieViewer",
+          "toEntityName": "CinemaTicket",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "name": "Purchases",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "ContentTag",
-          "entity2": "ArticleTagMap",
+          "entity1": "CinemaSession",
+          "entity2": "CinemaTicket",
+          "fromEntityName": "CinemaSession",
+          "toEntityName": "CinemaTicket",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "name": "Admits",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -1851,43 +1833,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 59,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*)",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Instructor va Classroom Hamkorligi",
-    "story": "O'quv Markazi Jadvali jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: O'qituvchi haftaning turli kunlarida turli auditoriyalarda dars beradi, bitta auditoriyada esa turli o'qituvchilar navbat bilan mashg'ulot o'tkazadi. Tizimda asosiy ishtirokchilar sifatida **Instructor** (tutorId {PK}) va **Classroom** (roomCode {PK}) qatnashadi. Ikki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **LessonSchedule** (scheduleEntryId {PK}, `dayOfWeek`, `lessonPeriod`, `studyGroupId`) polotnoda aks ettiriladi.",
-    "instruction": "'Instructor' va 'Classroom' o'rtasida assotsiativ 'LessonSchedule' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
+    "difficulty": "O'rta",
+    "clientName": "Farrux Zohidov",
+    "clientRole": "Murad Buildings Texnika Nazoratchisi",
+    "clientAvatar": "🏗️",
+    "title": "Qurilish Pudrati — Bosh Pudratchi va Og'ir Texnika Arendasi (MachineRental)",
+    "titleEn": "Construction — Contractor and Heavy Machinery Rental Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKatta qurilish maydonlarida qurilish pudratchisi (**ConstructionFirm**) bir nechta og'ir texnikalarni (ekskavator, kran, buldozer) ijaraga oladi. Og'ir texnika (**HeavyMachinery**) turli ob'ektlarda navbati bilan ishlaydi.\nKundalik ijara narxi (`dailyRentalRate`), ishlangan soatlar hisobi (`operatingHours`) va operator xizmati qo'shilganligi (`operatorIncluded`) **MachineRental** assotsiativ entitiyida qayd etiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `ConstructionFirm`: {PK} `firmInn`, `firmName`, `licenseGrade`.\n2. `HeavyMachinery`: {PK} `machineVin`, `machineType`, `tonnage`.\n3. `MachineRental`: {PK} `rentalSlipId`, `dailyRentalRate`, `operatingHours`, `operatorIncluded`.\n4. Ikkala master entitiyni `MachineRental` ga `1..1` ⟷ `0..*` bilan bog'lang.",
+    "storyEn": "Construction — Contractor and Heavy Machinery Rental Association Class — Conceptual ER business case study.",
+    "instruction": "Qurilish texnikasi ijarasi assotsiativ entitiy modelini barpo qiling.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Instructor",
+          "name": "ConstructionFirm",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "tutorId",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "firmInn",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "tutorId",
+              "name": "firmInn",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "tutorName",
+              "name": "firmName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "subjectExpertise",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "contactPhone",
+              "name": "licenseGrade",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1895,33 +1875,28 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "Classroom",
+          "name": "HeavyMachinery",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "roomCode",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "machineVin",
+          "x": 540,
+          "y": 120,
           "attributes": [
             {
-              "name": "roomCode",
+              "name": "machineVin",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "buildingWing",
+              "name": "machineType",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "projectorModel",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "seatingCap",
+              "name": "tonnage",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1929,33 +1904,34 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "LessonSchedule",
+          "name": "MachineRental",
           "isWeak": false,
           "isAssociative": true,
-          "pk": "scheduleEntryId",
-          "x": 390,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "rentalSlipId",
+          "x": 330,
+          "y": 320,
           "attributes": [
             {
-              "name": "scheduleEntryId",
+              "name": "rentalSlipId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "dayOfWeek",
+              "name": "dailyRentalRate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "lessonPeriod",
+              "name": "operatingHours",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "studyGroupId",
+              "name": "operatorIncluded",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -1966,27 +1942,31 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "InvolvedIn",
-          "entity1": "Instructor",
-          "entity2": "LessonSchedule",
-          "fromEntityName": "Instructor",
-          "toEntityName": "LessonSchedule",
+          "name": "Rents",
+          "entity1": "ConstructionFirm",
+          "entity2": "MachineRental",
+          "fromEntityName": "ConstructionFirm",
+          "toEntityName": "MachineRental",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "SubjectOf",
-          "entity1": "Classroom",
-          "entity2": "LessonSchedule",
-          "fromEntityName": "Classroom",
-          "toEntityName": "LessonSchedule",
+          "name": "EngagedBy",
+          "entity1": "HeavyMachinery",
+          "entity2": "MachineRental",
+          "fromEntityName": "HeavyMachinery",
+          "toEntityName": "MachineRental",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -1994,68 +1974,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Instructor",
-          "pk": "tutorId",
+          "name": "ConstructionFirm",
+          "pk": "firmInn",
           "attributes": [
             {
-              "name": "tutorId",
+              "name": "firmInn",
               "isPK": true
             },
             {
-              "name": "tutorName",
+              "name": "firmName",
               "isPK": false
             },
             {
-              "name": "subjectExpertise",
-              "isPK": false
-            },
-            {
-              "name": "contactPhone",
+              "name": "licenseGrade",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Classroom",
-          "pk": "roomCode",
+          "name": "HeavyMachinery",
+          "pk": "machineVin",
           "attributes": [
             {
-              "name": "roomCode",
+              "name": "machineVin",
               "isPK": true
             },
             {
-              "name": "buildingWing",
+              "name": "machineType",
               "isPK": false
             },
             {
-              "name": "projectorModel",
-              "isPK": false
-            },
-            {
-              "name": "seatingCap",
+              "name": "tonnage",
               "isPK": false
             }
           ]
         },
         {
-          "name": "LessonSchedule",
-          "pk": "scheduleEntryId",
-          "isAssociative": true,
+          "name": "MachineRental",
+          "pk": "rentalSlipId",
           "attributes": [
             {
-              "name": "scheduleEntryId",
+              "name": "rentalSlipId",
               "isPK": true
             },
             {
-              "name": "dayOfWeek",
+              "name": "dailyRentalRate",
               "isPK": false
             },
             {
-              "name": "lessonPeriod",
+              "name": "operatingHours",
               "isPK": false
             },
             {
-              "name": "studyGroupId",
+              "name": "operatorIncluded",
               "isPK": false
             }
           ]
@@ -2063,18 +2034,28 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Instructor",
-          "entity2": "LessonSchedule",
+          "entity1": "ConstructionFirm",
+          "entity2": "MachineRental",
+          "fromEntityName": "ConstructionFirm",
+          "toEntityName": "MachineRental",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "name": "Rents",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Classroom",
-          "entity2": "LessonSchedule",
+          "entity1": "HeavyMachinery",
+          "entity2": "MachineRental",
+          "fromEntityName": "HeavyMachinery",
+          "toEntityName": "MachineRental",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "name": "EngagedBy",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -2082,43 +2063,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 60,
     "sector": 4,
-    "difficulty": "4-Qavat • Yuqori (*..*)",
-    "clientName": "Yetakchi Tahlilchi",
-    "clientRole": "Bosh Baza Arxitektori",
-    "clientAvatar": "mentor",
-    "title": "Retailer va Supplier Hamkorligi",
-    "story": "B2B Ta'minot Shartnomalari jarayonida ikki tomonlama ko'pga-ko'p munosabatlarni hisobga olish talab etiladi: Chakana savdo tarmog'i yuzlab yetkazib beruvchilar bilan shartnoma tuzadi, yirik yetkazib beruvchi ham turli do'konlar tarmog'iga mahsulot beradi. Tizimda asosiy ishtirokchilar sifatida **Retailer** (storeChainId {PK}) va **Supplier** (supplierInn {PK}) qatnashadi. Ikki tomon o'rtasida vujudga keladigan jarayon xususiyatlarini saqlash uchun assotsiativ entitiy **SupplyContract** (contractDocNo {PK}, `monthlyOrderMinimum`, `paymentTermDays`, `penaltyRatePercent`) polotnoda aks ettiriladi.",
-    "instruction": "'Retailer' va 'Supplier' o'rtasida assotsiativ 'SupplyContract' entitiysini joylashtiring, {PK} kalitlarini belgilang va bog'lanishlarni o'rnating.",
+    "difficulty": "O'rta",
+    "clientName": "Azizbek Rahmonov",
+    "clientRole": "Express24 Kuryerlik Koordinatori",
+    "clientAvatar": "🛵",
+    "title": "Express24 — Kuryer va Restoran Filiali Smenasi (CourierShift)",
+    "titleEn": "Express24 — Courier and Restaurant Branch Shift Association Class",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nTezkor yetkazib berish xizmatida motokuryer (**DeliveryCourier**) bir necha restoran filiallarida smenada turishi mumkin. Restoran filiali (**RestaurantBranch**) esa kuniga o'nlab kuryerlar navbatchiligidan foydalanadi.\nSmena sanasi (`shiftDate`), yetkazilgan buyurtmalar soni (`ordersDelivered`) va to'langan kafolatlangan gonorar (`guaranteedPay`) **CourierShift** assotsiativ entitiyida ifodalanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `DeliveryCourier`: {PK} `courierId`, `courierName`, `vehicleType`.\n2. `RestaurantBranch`: {PK} `branchId`, `brandName`, `district`.\n3. `CourierShift`: {PK} `shiftId`, `shiftDate`, `ordersDelivered`, `guaranteedPay`.\n4. Multiplisitiyalarni `1..1` ⟷ `0..*` tarzida bog'lang.",
+    "storyEn": "Express24 — Courier and Restaurant Branch Shift Association Class — Conceptual ER business case study.",
+    "instruction": "Kuryer va restoran filiali o'rtasidagi smena assotsiativ modelini yakunlang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Retailer",
+          "name": "DeliveryCourier",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "storeChainId",
-          "x": 90,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "courierId",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "storeChainId",
+              "name": "courierId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "chainName",
+              "name": "courierName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "outletCount",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "cityHq",
+              "name": "vehicleType",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2126,33 +2105,28 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "Supplier",
+          "name": "RestaurantBranch",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "supplierInn",
-          "x": 690,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "branchId",
+          "x": 540,
+          "y": 120,
           "attributes": [
             {
-              "name": "supplierInn",
+              "name": "branchId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "vendorName",
+              "name": "brandName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "warehouseLocation",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "reliabilityScore",
+              "name": "district",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2160,33 +2134,34 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "SupplyContract",
+          "name": "CourierShift",
           "isWeak": false,
           "isAssociative": true,
-          "pk": "contractDocNo",
-          "x": 390,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "shiftId",
+          "x": 330,
+          "y": 320,
           "attributes": [
             {
-              "name": "contractDocNo",
+              "name": "shiftId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "monthlyOrderMinimum",
+              "name": "shiftDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "paymentTermDays",
+              "name": "ordersDelivered",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "penaltyRatePercent",
+              "name": "guaranteedPay",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -2197,27 +2172,31 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "InvolvedIn",
-          "entity1": "Retailer",
-          "entity2": "SupplyContract",
-          "fromEntityName": "Retailer",
-          "toEntityName": "SupplyContract",
+          "name": "ServesShift",
+          "entity1": "DeliveryCourier",
+          "entity2": "CourierShift",
+          "fromEntityName": "DeliveryCourier",
+          "toEntityName": "CourierShift",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         },
         {
           "id": "rel_2",
-          "name": "SubjectOf",
-          "entity1": "Supplier",
-          "entity2": "SupplyContract",
-          "fromEntityName": "Supplier",
-          "toEntityName": "SupplyContract",
+          "name": "HostsShift",
+          "entity1": "RestaurantBranch",
+          "entity2": "CourierShift",
+          "fromEntityName": "RestaurantBranch",
+          "toEntityName": "CourierShift",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -2225,68 +2204,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Retailer",
-          "pk": "storeChainId",
+          "name": "DeliveryCourier",
+          "pk": "courierId",
           "attributes": [
             {
-              "name": "storeChainId",
+              "name": "courierId",
               "isPK": true
             },
             {
-              "name": "chainName",
+              "name": "courierName",
               "isPK": false
             },
             {
-              "name": "outletCount",
-              "isPK": false
-            },
-            {
-              "name": "cityHq",
+              "name": "vehicleType",
               "isPK": false
             }
           ]
         },
         {
-          "name": "Supplier",
-          "pk": "supplierInn",
+          "name": "RestaurantBranch",
+          "pk": "branchId",
           "attributes": [
             {
-              "name": "supplierInn",
+              "name": "branchId",
               "isPK": true
             },
             {
-              "name": "vendorName",
+              "name": "brandName",
               "isPK": false
             },
             {
-              "name": "warehouseLocation",
-              "isPK": false
-            },
-            {
-              "name": "reliabilityScore",
+              "name": "district",
               "isPK": false
             }
           ]
         },
         {
-          "name": "SupplyContract",
-          "pk": "contractDocNo",
-          "isAssociative": true,
+          "name": "CourierShift",
+          "pk": "shiftId",
           "attributes": [
             {
-              "name": "contractDocNo",
+              "name": "shiftId",
               "isPK": true
             },
             {
-              "name": "monthlyOrderMinimum",
+              "name": "shiftDate",
               "isPK": false
             },
             {
-              "name": "paymentTermDays",
+              "name": "ordersDelivered",
               "isPK": false
             },
             {
-              "name": "penaltyRatePercent",
+              "name": "guaranteedPay",
               "isPK": false
             }
           ]
@@ -2294,18 +2264,28 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "Retailer",
-          "entity2": "SupplyContract",
+          "entity1": "DeliveryCourier",
+          "entity2": "CourierShift",
+          "fromEntityName": "DeliveryCourier",
+          "toEntityName": "CourierShift",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "InvolvedIn"
+          "name": "ServesShift",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         },
         {
-          "entity1": "Supplier",
-          "entity2": "SupplyContract",
+          "entity1": "RestaurantBranch",
+          "entity2": "CourierShift",
+          "fromEntityName": "RestaurantBranch",
+          "toEntityName": "CourierShift",
           "mult1": "1..1",
           "mult2": "0..*",
-          "name": "SubjectOf"
+          "name": "HostsShift",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -2313,2366 +2293,25 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 61,
     "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "Hotel va Room (Zaif Bog'liqlik)",
-    "story": "Mehmonxona Xonalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Xona mustaqil holda mavjud bo'la olmaydi; uning xona raqami faqat bitta mehmonxona binosi ichida ma'noga ega bo'lib, qisman kalit (discriminator) hisoblanadi. Tizimda kuchli ega (Owner) entitiy sifatida **Hotel** (hotelId {PK}, `hotelName`, `starRating`, `city`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **Room** bo'lib, uning qisman kaliti (discriminator / PPK) `roomNo` va boshqa atributlari: `bedCount`, `floorNo`, `dailyPrice`. Ular o'rtasida identifikatsiyalovchi **HasRoom** aloqasi o'rnatiladi.",
-    "instruction": "'Hotel' kuchli entitiysini va unga qaram zaif 'Room' entitiysini chizing, 'roomNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Hotel",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "hotelId",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "hotelId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "hotelName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "starRating",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "city",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "Room",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "roomNo",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "roomNo",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "bedCount",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "floorNo",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "dailyPrice",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "HasRoom",
-          "entity1": "Hotel",
-          "entity2": "Room",
-          "fromEntityName": "Hotel",
-          "toEntityName": "Room",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Hotel",
-          "pk": "hotelId",
-          "attributes": [
-            {
-              "name": "hotelId",
-              "isPK": true
-            },
-            {
-              "name": "hotelName",
-              "isPK": false
-            },
-            {
-              "name": "starRating",
-              "isPK": false
-            },
-            {
-              "name": "city",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "Room",
-          "pk": "roomNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "roomNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "bedCount",
-              "isPK": false
-            },
-            {
-              "name": "floorNo",
-              "isPK": false
-            },
-            {
-              "name": "dailyPrice",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Hotel",
-          "entity2": "Room",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "HasRoom",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 62,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "Building va BuildingFloor (Zaif Bog'liqlik)",
-    "story": "Bino Qavatlari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Qavat faqat o'z binosi doirasida mavjud; qavat raqami bino identifikatorisiz global miqyosda takrorlanuvchi bo'ladi. Tizimda kuchli ega (Owner) entitiy sifatida **Building** (buildingId {PK}, `buildingName`, `streetAddress`, `totalFloors`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **BuildingFloor** bo'lib, uning qisman kaliti (discriminator / PPK) `floorNo` va boshqa atributlari: `emergencyExitCount`, `usableAreaSqm`. Ular o'rtasida identifikatsiyalovchi **ContainsFloor** aloqasi o'rnatiladi.",
-    "instruction": "'Building' kuchli entitiysini va unga qaram zaif 'BuildingFloor' entitiysini chizing, 'floorNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Building",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "buildingId",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "buildingId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "buildingName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "streetAddress",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "totalFloors",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "BuildingFloor",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "floorNo",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "floorNo",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "emergencyExitCount",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "usableAreaSqm",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "ContainsFloor",
-          "entity1": "Building",
-          "entity2": "BuildingFloor",
-          "fromEntityName": "Building",
-          "toEntityName": "BuildingFloor",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Building",
-          "pk": "buildingId",
-          "attributes": [
-            {
-              "name": "buildingId",
-              "isPK": true
-            },
-            {
-              "name": "buildingName",
-              "isPK": false
-            },
-            {
-              "name": "streetAddress",
-              "isPK": false
-            },
-            {
-              "name": "totalFloors",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BuildingFloor",
-          "pk": "floorNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "floorNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "emergencyExitCount",
-              "isPK": false
-            },
-            {
-              "name": "usableAreaSqm",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Building",
-          "entity2": "BuildingFloor",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "ContainsFloor",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 63,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "Employee va Dependent (Zaif Bog'liqlik)",
-    "story": "Xodim Qaramog'idagilar faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Qaramog'idagi oila a'zosi xodimsiz korxona sug'urta tizimida mavjud bo'la olmaydi; xodim ishdan bo'shasa uning qarindoshlari ham reyestrdan o'chiriladi. Tizimda kuchli ega (Owner) entitiy sifatida **Employee** (empId {PK}, `empName`, `department`, `salary`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **Dependent** bo'lib, uning qisman kaliti (discriminator / PPK) `depName` va boshqa atributlari: `relationshipType`, `birthDate`, `gender`. Ular o'rtasida identifikatsiyalovchi **HasDependent** aloqasi o'rnatiladi.",
-    "instruction": "'Employee' kuchli entitiysini va unga qaram zaif 'Dependent' entitiysini chizing, 'depName' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Alisher Vohidov",
+    "clientRole": "O'zmilliybank Kadrlar Boshqarmasi",
+    "clientAvatar": "🏦",
+    "title": "O'zmilliybank — Xodim va Rahbar Boshqaruv Ierarxiyasi (Manages)",
+    "titleEn": "National Bank — Employee Manager Supervision Hierarchy",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nO'zbekiston Milliy Banki korporativ ierarxiyasida barcha ishchilar — oddiy kassirdan tortib boshqaruv raisigacha — bitta **Employee** entitiysiga tegishli.\nHar bir xodimning ko'pi bilan bitta bevosita rahbari (Manager) bo'lishi mumkin (`0..1` — Boshqaruv Raisining o'zida bevosita rahbar yo'q, boshqalarda esa 1 ta).\nBitta rahbar esa o'ziga bo'ysunuvchi 0 yoki undan ko'p xodimlarni boshqarishi mumkin (`0..*` — oddiy xodim qo'lida hech kim yo'q, rahbarda esa bir nechta xodim).\nBu munosabat bitta entitiyning o'z-o'ziga bog'lanuvchi Rekursiv (Unitar) aloqasi orqali modellashtiriladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `Employee` entitiysini joylashtiring: {PK} `empId`, `fullName`, `jobPosition`, `salary`.\n2. `Employee` dan chiquvchi va uning o'ziga qaytuvchi `Manages` rekursiv aloqasini o'rnating.\n3. Rahbar tomoniga `0..1` (Supervisor roli) va bo'ysunuvchi tomoniga `0..*` (Subordinate roli) multiplisitiyalarini qo'ying.",
+    "storyEn": "National Bank — Employee Manager Supervision Hierarchy — Conceptual ER business case study.",
+    "instruction": "'Employee' entitiysiga o'z-o'ziga bog'lanuvchi 'Manages' rekursiv aloqasini chizing va 0..1 hamda 0..* chegaralarini o'rnating.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Employee",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "empId",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "empId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "empName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "department",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "salary",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "Dependent",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "depName",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "depName",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "relationshipType",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "birthDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "gender",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "HasDependent",
-          "entity1": "Employee",
-          "entity2": "Dependent",
-          "fromEntityName": "Employee",
-          "toEntityName": "Dependent",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "Employee",
-          "pk": "empId",
-          "attributes": [
-            {
-              "name": "empId",
-              "isPK": true
-            },
-            {
-              "name": "empName",
-              "isPK": false
-            },
-            {
-              "name": "department",
-              "isPK": false
-            },
-            {
-              "name": "salary",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "Dependent",
-          "pk": "depName",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "depName",
-              "isPartialKey": true
-            },
-            {
-              "name": "relationshipType",
-              "isPK": false
-            },
-            {
-              "name": "birthDate",
-              "isPK": false
-            },
-            {
-              "name": "gender",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "Employee",
-          "entity2": "Dependent",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "HasDependent",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 64,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "BookTitle va BookCopy (Zaif Bog'liqlik)",
-    "story": "Kutubxona Nusxalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Fizik kitob nusxasi ma'lum bir kitob asariga bog'liq; nusxa raqami (1, 2, 3.) faqat o'sha ISBN ichida ma'noga ega. Tizimda kuchli ega (Owner) entitiy sifatida **BookTitle** (isbn {PK}, `title`, `author`, `editionYear`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **BookCopy** bo'lib, uning qisman kaliti (discriminator / PPK) `copyNo` va boshqa atributlari: `conditionStatus`, `shelfBay`, `isAvailable`. Ular o'rtasida identifikatsiyalovchi **HasCopy** aloqasi o'rnatiladi.",
-    "instruction": "'BookTitle' kuchli entitiysini va unga qaram zaif 'BookCopy' entitiysini chizing, 'copyNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "BookTitle",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "isbn",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "isbn",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "title",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "author",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "editionYear",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "BookCopy",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "copyNo",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "copyNo",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "conditionStatus",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "shelfBay",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "isAvailable",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "HasCopy",
-          "entity1": "BookTitle",
-          "entity2": "BookCopy",
-          "fromEntityName": "BookTitle",
-          "toEntityName": "BookCopy",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "BookTitle",
-          "pk": "isbn",
-          "attributes": [
-            {
-              "name": "isbn",
-              "isPK": true
-            },
-            {
-              "name": "title",
-              "isPK": false
-            },
-            {
-              "name": "author",
-              "isPK": false
-            },
-            {
-              "name": "editionYear",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BookCopy",
-          "pk": "copyNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "copyNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "conditionStatus",
-              "isPK": false
-            },
-            {
-              "name": "shelfBay",
-              "isPK": false
-            },
-            {
-              "name": "isAvailable",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "BookTitle",
-          "entity2": "BookCopy",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "HasCopy",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 65,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "BankAccount va AccountTransaction (Zaif Bog'liqlik)",
-    "story": "Bank Hisob Tranzaksiyalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Hisob tranzaksiyasi hisobsiz mavjud bo'lmaydi; har bir tranzaksiya tartib raqami o'sha hisob doirasida 1 dan boshlab hisoblanadi. Tizimda kuchli ega (Owner) entitiy sifatida **BankAccount** (accountNo {PK}, `holderName`, `currency`, `balance`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **AccountTransaction** bo'lib, uning qisman kaliti (discriminator / PPK) `txSeqNo` va boshqa atributlari: `txAmount`, `txTimestamp`, `terminalCode`. Ular o'rtasida identifikatsiyalovchi **LogsTx** aloqasi o'rnatiladi.",
-    "instruction": "'BankAccount' kuchli entitiysini va unga qaram zaif 'AccountTransaction' entitiysini chizing, 'txSeqNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "BankAccount",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "accountNo",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "accountNo",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "holderName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "currency",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "balance",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "AccountTransaction",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "txSeqNo",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "txSeqNo",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "txAmount",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "txTimestamp",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "terminalCode",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "LogsTx",
-          "entity1": "BankAccount",
-          "entity2": "AccountTransaction",
-          "fromEntityName": "BankAccount",
-          "toEntityName": "AccountTransaction",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "BankAccount",
-          "pk": "accountNo",
-          "attributes": [
-            {
-              "name": "accountNo",
-              "isPK": true
-            },
-            {
-              "name": "holderName",
-              "isPK": false
-            },
-            {
-              "name": "currency",
-              "isPK": false
-            },
-            {
-              "name": "balance",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "AccountTransaction",
-          "pk": "txSeqNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "txSeqNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "txAmount",
-              "isPK": false
-            },
-            {
-              "name": "txTimestamp",
-              "isPK": false
-            },
-            {
-              "name": "terminalCode",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "BankAccount",
-          "entity2": "AccountTransaction",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "LogsTx",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 66,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "FlightSchedule va BoardingPass (Zaif Bog'liqlik)",
-    "story": "Aviaparvoz Chiptalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Bortga chiqish taloni parvoz reysisiz mavjud emas; joy raqami faqat ushbu samolyot reysi ichida noyobdir. Tizimda kuchli ega (Owner) entitiy sifatida **FlightSchedule** (flightNo {PK}, `originIata`, `destIata`, `depTime`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **BoardingPass** bo'lib, uning qisman kaliti (discriminator / PPK) `seatNo` va boshqa atributlari: `passengerName`, `gateNumber`, `boardingGroup`. Ular o'rtasida identifikatsiyalovchi **IssuesPass** aloqasi o'rnatiladi.",
-    "instruction": "'FlightSchedule' kuchli entitiysini va unga qaram zaif 'BoardingPass' entitiysini chizing, 'seatNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "FlightSchedule",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "flightNo",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "flightNo",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "originIata",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "destIata",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "depTime",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "BoardingPass",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "seatNo",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "seatNo",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "passengerName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "gateNumber",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "boardingGroup",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "IssuesPass",
-          "entity1": "FlightSchedule",
-          "entity2": "BoardingPass",
-          "fromEntityName": "FlightSchedule",
-          "toEntityName": "BoardingPass",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "FlightSchedule",
-          "pk": "flightNo",
-          "attributes": [
-            {
-              "name": "flightNo",
-              "isPK": true
-            },
-            {
-              "name": "originIata",
-              "isPK": false
-            },
-            {
-              "name": "destIata",
-              "isPK": false
-            },
-            {
-              "name": "depTime",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BoardingPass",
-          "pk": "seatNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "seatNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "passengerName",
-              "isPK": false
-            },
-            {
-              "name": "gateNumber",
-              "isPK": false
-            },
-            {
-              "name": "boardingGroup",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "FlightSchedule",
-          "entity2": "BoardingPass",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "IssuesPass",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 67,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "ApartmentComplex va FlatUnit (Zaif Bog'liqlik)",
-    "story": "Turar-Joy Kvartiralari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Xonadon faqat o'z turar-joy majmuasi ichida mavjud; kvartira raqami majmuasiz shahar bo'yicha noyob bo'lolmaydi. Tizimda kuchli ega (Owner) entitiy sifatida **ApartmentComplex** (complexId {PK}, `complexName`, `street`, `blockLetter`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **FlatUnit** bo'lib, uning qisman kaliti (discriminator / PPK) `flatNo` va boshqa atributlari: `roomsCount`, `areaSqm`, `floorLevel`. Ular o'rtasida identifikatsiyalovchi **ComprisesFlat** aloqasi o'rnatiladi.",
-    "instruction": "'ApartmentComplex' kuchli entitiysini va unga qaram zaif 'FlatUnit' entitiysini chizing, 'flatNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "ApartmentComplex",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "complexId",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "complexId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "complexName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "street",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "blockLetter",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "FlatUnit",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "flatNo",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "flatNo",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "roomsCount",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "areaSqm",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "floorLevel",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "ComprisesFlat",
-          "entity1": "ApartmentComplex",
-          "entity2": "FlatUnit",
-          "fromEntityName": "ApartmentComplex",
-          "toEntityName": "FlatUnit",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "ApartmentComplex",
-          "pk": "complexId",
-          "attributes": [
-            {
-              "name": "complexId",
-              "isPK": true
-            },
-            {
-              "name": "complexName",
-              "isPK": false
-            },
-            {
-              "name": "street",
-              "isPK": false
-            },
-            {
-              "name": "blockLetter",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "FlatUnit",
-          "pk": "flatNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "flatNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "roomsCount",
-              "isPK": false
-            },
-            {
-              "name": "areaSqm",
-              "isPK": false
-            },
-            {
-              "name": "floorLevel",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "ApartmentComplex",
-          "entity2": "FlatUnit",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "ComprisesFlat",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 68,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "DrugFormula va BatchLot (Zaif Bog'liqlik)",
-    "story": "Dori Ishlab Chiqarish Partiyalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Ishlab chiqarilgan dori partiyasi uning kimyoviy formulasiga bog'liq; partiya raqami faqat shu preparat doirasida qisman kalit sanaladi. Tizimda kuchli ega (Owner) entitiy sifatida **DrugFormula** (formulaCode {PK}, `chemicalName`, `patentExpDate`, `dosageMg`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **BatchLot** bo'lib, uning qisman kaliti (discriminator / PPK) `lotNumber` va boshqa atributlari: `prodDate`, `expiryDate`, `labTechStaffId`. Ular o'rtasida identifikatsiyalovchi **ProducedInLot** aloqasi o'rnatiladi.",
-    "instruction": "'DrugFormula' kuchli entitiysini va unga qaram zaif 'BatchLot' entitiysini chizing, 'lotNumber' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "DrugFormula",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "formulaCode",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "formulaCode",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "chemicalName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "patentExpDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "dosageMg",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "BatchLot",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "lotNumber",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "lotNumber",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "prodDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "labTechStaffId",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "ProducedInLot",
-          "entity1": "DrugFormula",
-          "entity2": "BatchLot",
-          "fromEntityName": "DrugFormula",
-          "toEntityName": "BatchLot",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "DrugFormula",
-          "pk": "formulaCode",
-          "attributes": [
-            {
-              "name": "formulaCode",
-              "isPK": true
-            },
-            {
-              "name": "chemicalName",
-              "isPK": false
-            },
-            {
-              "name": "patentExpDate",
-              "isPK": false
-            },
-            {
-              "name": "dosageMg",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "BatchLot",
-          "pk": "lotNumber",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "lotNumber",
-              "isPartialKey": true
-            },
-            {
-              "name": "prodDate",
-              "isPK": false
-            },
-            {
-              "name": "expiryDate",
-              "isPK": false
-            },
-            {
-              "name": "labTechStaffId",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "DrugFormula",
-          "entity2": "BatchLot",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "ProducedInLot",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 69,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "OnlineCourse va CourseLesson (Zaif Bog'liqlik)",
-    "story": "Onlayn Kurs Modullari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Video darslik mustaqil mavjud bo'lmaydi; darsning ketma-ketlik raqami faqat o'sha o'quv kursi ichida tartiblangan. Tizimda kuchli ega (Owner) entitiy sifatida **OnlineCourse** (courseId {PK}, `courseTitle`, `authorName`, `priceUsd`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **CourseLesson** bo'lib, uning qisman kaliti (discriminator / PPK) `lessonSeqNo` va boshqa atributlari: `videoDurationMin`, `lessonTitle`, `isFreePreview`. Ular o'rtasida identifikatsiyalovchi **ContainsLesson** aloqasi o'rnatiladi.",
-    "instruction": "'OnlineCourse' kuchli entitiysini va unga qaram zaif 'CourseLesson' entitiysini chizing, 'lessonSeqNo' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "OnlineCourse",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "courseId",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "courseId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "courseTitle",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "authorName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "priceUsd",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "CourseLesson",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "lessonSeqNo",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "lessonSeqNo",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "videoDurationMin",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "lessonTitle",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "isFreePreview",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "ContainsLesson",
-          "entity1": "OnlineCourse",
-          "entity2": "CourseLesson",
-          "fromEntityName": "OnlineCourse",
-          "toEntityName": "CourseLesson",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "OnlineCourse",
-          "pk": "courseId",
-          "attributes": [
-            {
-              "name": "courseId",
-              "isPK": true
-            },
-            {
-              "name": "courseTitle",
-              "isPK": false
-            },
-            {
-              "name": "authorName",
-              "isPK": false
-            },
-            {
-              "name": "priceUsd",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "CourseLesson",
-          "pk": "lessonSeqNo",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "lessonSeqNo",
-              "isPartialKey": true
-            },
-            {
-              "name": "videoDurationMin",
-              "isPK": false
-            },
-            {
-              "name": "lessonTitle",
-              "isPK": false
-            },
-            {
-              "name": "isFreePreview",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "OnlineCourse",
-          "entity2": "CourseLesson",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "ContainsLesson",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 70,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "TrainRoute va CarriageUnit (Zaif Bog'liqlik)",
-    "story": "Poyezd Tarkibi Vagonlari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Vagon poyezd tarkibisiz marshrutda qatnamaydi; vagon raqami poyezd lokomotivi kodi bilan birga to'liq identifikatsiyalanadi. Tizimda kuchli ega (Owner) entitiy sifatida **TrainRoute** (trainNo {PK}, `routeTitle`, `departureStation`, `arrivalStation`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **CarriageUnit** bo'lib, uning qisman kaliti (discriminator / PPK) `coachNumber` va boshqa atributlari: `classType`, `berthCapacity`, `manufactureYear`. Ular o'rtasida identifikatsiyalovchi **IncludesCarriage** aloqasi o'rnatiladi.",
-    "instruction": "'TrainRoute' kuchli entitiysini va unga qaram zaif 'CarriageUnit' entitiysini chizing, 'coachNumber' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "TrainRoute",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "trainNo",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "trainNo",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "routeTitle",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "departureStation",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "arrivalStation",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "CarriageUnit",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "coachNumber",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "coachNumber",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "classType",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "berthCapacity",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "manufactureYear",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "IncludesCarriage",
-          "entity1": "TrainRoute",
-          "entity2": "CarriageUnit",
-          "fromEntityName": "TrainRoute",
-          "toEntityName": "CarriageUnit",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "TrainRoute",
-          "pk": "trainNo",
-          "attributes": [
-            {
-              "name": "trainNo",
-              "isPK": true
-            },
-            {
-              "name": "routeTitle",
-              "isPK": false
-            },
-            {
-              "name": "departureStation",
-              "isPK": false
-            },
-            {
-              "name": "arrivalStation",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "CarriageUnit",
-          "pk": "coachNumber",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "coachNumber",
-              "isPartialKey": true
-            },
-            {
-              "name": "classType",
-              "isPK": false
-            },
-            {
-              "name": "berthCapacity",
-              "isPK": false
-            },
-            {
-              "name": "manufactureYear",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "TrainRoute",
-          "entity2": "CarriageUnit",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "IncludesCarriage",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 71,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "LabSample va TestResultItem (Zaif Bog'liqlik)",
-    "story": "Klinik Tahlil Parametrlari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Tahlil natijasi olingan qon/namuna probirkasisiz mavjud emas; parametr kodi probirka shtrix-kodi bilan birikadi. Tizimda kuchli ega (Owner) entitiy sifatida **LabSample** (sampleBarcode {PK}, `patientId`, `collectionTime`, `sampleType`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **TestResultItem** bo'lib, uning qisman kaliti (discriminator / PPK) `testMetricCode` va boshqa atributlari: `measuredValue`, `normalRange`, `unitMeasure`. Ular o'rtasida identifikatsiyalovchi **YieldsResult** aloqasi o'rnatiladi.",
-    "instruction": "'LabSample' kuchli entitiysini va unga qaram zaif 'TestResultItem' entitiysini chizing, 'testMetricCode' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "LabSample",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "sampleBarcode",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "sampleBarcode",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "patientId",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "collectionTime",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "sampleType",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "TestResultItem",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "testMetricCode",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "testMetricCode",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "measuredValue",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "normalRange",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "unitMeasure",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "YieldsResult",
-          "entity1": "LabSample",
-          "entity2": "TestResultItem",
-          "fromEntityName": "LabSample",
-          "toEntityName": "TestResultItem",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "LabSample",
-          "pk": "sampleBarcode",
-          "attributes": [
-            {
-              "name": "sampleBarcode",
-              "isPK": true
-            },
-            {
-              "name": "patientId",
-              "isPK": false
-            },
-            {
-              "name": "collectionTime",
-              "isPK": false
-            },
-            {
-              "name": "sampleType",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "TestResultItem",
-          "pk": "testMetricCode",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "testMetricCode",
-              "isPartialKey": true
-            },
-            {
-              "name": "measuredValue",
-              "isPK": false
-            },
-            {
-              "name": "normalRange",
-              "isPK": false
-            },
-            {
-              "name": "unitMeasure",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "LabSample",
-          "entity2": "TestResultItem",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "YieldsResult",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 72,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "IndustrialMachine va ComponentSlot (Zaif Bog'liqlik)",
-    "story": "Sanoat Stanogi Detal Uyasi faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Uskuna uyasi stanok konstruksiyasidan ajralmas; uya kodi faqat o'sha stanok pasporti ichida ma'noga ega. Tizimda kuchli ega (Owner) entitiy sifatida **IndustrialMachine** (machineId {PK}, `modelName`, `installDate`, `powerKw`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **ComponentSlot** bo'lib, uning qisman kaliti (discriminator / PPK) `slotCode` va boshqa atributlari: `installedPartSerial`, `serviceLifeHours`, `lastReplaced`. Ular o'rtasida identifikatsiyalovchi **FittedWith** aloqasi o'rnatiladi.",
-    "instruction": "'IndustrialMachine' kuchli entitiysini va unga qaram zaif 'ComponentSlot' entitiysini chizing, 'slotCode' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "IndustrialMachine",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "machineId",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "machineId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "modelName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "installDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "powerKw",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "ComponentSlot",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "slotCode",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "slotCode",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "installedPartSerial",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "serviceLifeHours",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "lastReplaced",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "FittedWith",
-          "entity1": "IndustrialMachine",
-          "entity2": "ComponentSlot",
-          "fromEntityName": "IndustrialMachine",
-          "toEntityName": "ComponentSlot",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "IndustrialMachine",
-          "pk": "machineId",
-          "attributes": [
-            {
-              "name": "machineId",
-              "isPK": true
-            },
-            {
-              "name": "modelName",
-              "isPK": false
-            },
-            {
-              "name": "installDate",
-              "isPK": false
-            },
-            {
-              "name": "powerKw",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "ComponentSlot",
-          "pk": "slotCode",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "slotCode",
-              "isPartialKey": true
-            },
-            {
-              "name": "installedPartSerial",
-              "isPK": false
-            },
-            {
-              "name": "serviceLifeHours",
-              "isPK": false
-            },
-            {
-              "name": "lastReplaced",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "IndustrialMachine",
-          "entity2": "ComponentSlot",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "FittedWith",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 73,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "AuditoriumHall va HallSeat (Zaif Bog'liqlik)",
-    "story": "Teatr Zoli Joylari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: O'rindiq teatr zolisiz mavjud bo'lmaydi; o'rindiq raqami faqat ma'lum bir zal ichida takrorlanmas hisoblanadi. Tizimda kuchli ega (Owner) entitiy sifatida **AuditoriumHall** (hallId {PK}, `hallName`, `soundAcousticGrade`, `screenType`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **HallSeat** bo'lib, uning qisman kaliti (discriminator / PPK) `seatNumber` va boshqa atributlari: `rowLetter`, `seatTier`, `isVipZone`. Ular o'rtasida identifikatsiyalovchi **HasSeat** aloqasi o'rnatiladi.",
-    "instruction": "'AuditoriumHall' kuchli entitiysini va unga qaram zaif 'HallSeat' entitiysini chizing, 'seatNumber' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "AuditoriumHall",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "hallId",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "hallId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "hallName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "soundAcousticGrade",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "screenType",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "HallSeat",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "seatNumber",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "seatNumber",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "rowLetter",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "seatTier",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "isVipZone",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "HasSeat",
-          "entity1": "AuditoriumHall",
-          "entity2": "HallSeat",
-          "fromEntityName": "AuditoriumHall",
-          "toEntityName": "HallSeat",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "AuditoriumHall",
-          "pk": "hallId",
-          "attributes": [
-            {
-              "name": "hallId",
-              "isPK": true
-            },
-            {
-              "name": "hallName",
-              "isPK": false
-            },
-            {
-              "name": "soundAcousticGrade",
-              "isPK": false
-            },
-            {
-              "name": "screenType",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "HallSeat",
-          "pk": "seatNumber",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "seatNumber",
-              "isPartialKey": true
-            },
-            {
-              "name": "rowLetter",
-              "isPK": false
-            },
-            {
-              "name": "seatTier",
-              "isPK": false
-            },
-            {
-              "name": "isVipZone",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "AuditoriumHall",
-          "entity2": "HallSeat",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "HasSeat",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 74,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "SmartphoneModel va HardwareConfig (Zaif Bog'liqlik)",
-    "story": "Smartfon Xotira Variantlari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Modifikatsiya smartfon modelisiz ma'nosiz; konfiguratsiya kodi faqat o'sha smartfon modeli doirasida amal qiladi. Tizimda kuchli ega (Owner) entitiy sifatida **SmartphoneModel** (modelCode {PK}, `marketingName`, `releaseYear`, `baseSocCpu`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **HardwareConfig** bo'lib, uning qisman kaliti (discriminator / PPK) `configCode` va boshqa atributlari: `storageGb`, `ramGb`, `colorVariant`. Ular o'rtasida identifikatsiyalovchi **ConfiguredAs** aloqasi o'rnatiladi.",
-    "instruction": "'SmartphoneModel' kuchli entitiysini va unga qaram zaif 'HardwareConfig' entitiysini chizing, 'configCode' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "SmartphoneModel",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "modelCode",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "modelCode",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "marketingName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "releaseYear",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "baseSocCpu",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "HardwareConfig",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "configCode",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "configCode",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "storageGb",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "ramGb",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "colorVariant",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "ConfiguredAs",
-          "entity1": "SmartphoneModel",
-          "entity2": "HardwareConfig",
-          "fromEntityName": "SmartphoneModel",
-          "toEntityName": "HardwareConfig",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "SmartphoneModel",
-          "pk": "modelCode",
-          "attributes": [
-            {
-              "name": "modelCode",
-              "isPK": true
-            },
-            {
-              "name": "marketingName",
-              "isPK": false
-            },
-            {
-              "name": "releaseYear",
-              "isPK": false
-            },
-            {
-              "name": "baseSocCpu",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "HardwareConfig",
-          "pk": "configCode",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "configCode",
-              "isPartialKey": true
-            },
-            {
-              "name": "storageGb",
-              "isPK": false
-            },
-            {
-              "name": "ramGb",
-              "isPK": false
-            },
-            {
-              "name": "colorVariant",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "SmartphoneModel",
-          "entity2": "HardwareConfig",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "ConfiguredAs",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 75,
-    "sector": 5,
-    "difficulty": "5-Qavat • Yuqori (Zaif Entitiy)",
-    "clientName": "Loyiha Nazoratchisi",
-    "clientRole": "Tizim Muhandisi",
-    "clientAvatar": "mentor",
-    "title": "ResearchPaper va SupplementaryFile (Zaif Bog'liqlik)",
-    "story": "Ilmiy Maqola Qo'shimchalari faoliyatida ob'yektlarning mavjudlik bog'liqligi (existence dependency) asosida ishlovchi zaif entitiylar mavjud: Ilova fayli maqolasiz mavjud bo'lolmaydi; ilova raqami (1-ilova, 2-ilova.) maqolaning DOI raqamiga bog'liq. Tizimda kuchli ega (Owner) entitiy sifatida **ResearchPaper** (doiCode {PK}, `paperTitle`, `primaryAuthor`, `submissionDate`) ro'yxatga olinadi. Unga to'liq qaram zaif entitiy esa **SupplementaryFile** bo'lib, uning qisman kaliti (discriminator / PPK) `fileIndex` va boshqa atributlari: `fileChecksum`, `mimeType`, `dataSizeBytes`. Ular o'rtasida identifikatsiyalovchi **AccompaniedBy** aloqasi o'rnatiladi.",
-    "instruction": "'ResearchPaper' kuchli entitiysini va unga qaram zaif 'SupplementaryFile' entitiysini chizing, 'fileIndex' ni qisman kalit (PPK) deb belgilang va identifikatsiyalovchi aloqa bilan bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "ResearchPaper",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "doiCode",
-          "x": 130,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "doiCode",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "paperTitle",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "primaryAuthor",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "submissionDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        },
-        {
-          "name": "SupplementaryFile",
-          "isWeak": true,
-          "isAssociative": false,
-          "pk": "fileIndex",
-          "x": 550,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "fileIndex",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "fileChecksum",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "mimeType",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "dataSizeBytes",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "AccompaniedBy",
-          "entity1": "ResearchPaper",
-          "entity2": "SupplementaryFile",
-          "fromEntityName": "ResearchPaper",
-          "toEntityName": "SupplementaryFile",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": true,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "ResearchPaper",
-          "pk": "doiCode",
-          "attributes": [
-            {
-              "name": "doiCode",
-              "isPK": true
-            },
-            {
-              "name": "paperTitle",
-              "isPK": false
-            },
-            {
-              "name": "primaryAuthor",
-              "isPK": false
-            },
-            {
-              "name": "submissionDate",
-              "isPK": false
-            }
-          ]
-        },
-        {
-          "name": "SupplementaryFile",
-          "pk": "fileIndex",
-          "isWeak": true,
-          "attributes": [
-            {
-              "name": "fileIndex",
-              "isPartialKey": true
-            },
-            {
-              "name": "fileChecksum",
-              "isPK": false
-            },
-            {
-              "name": "mimeType",
-              "isPK": false
-            },
-            {
-              "name": "dataSizeBytes",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "ResearchPaper",
-          "entity2": "SupplementaryFile",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "AccompaniedBy",
-          "isIdentifying": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 76,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "Employee Rekursiv Ierarxiyasi",
-    "story": "Korporativ Rahbariyat tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Xodim o'zidan quyi xodimlarga bevosita rahbarlik qilishi mumkin, har bir xodim esa bitta rahbarga hisobot beradi. Tizimda yagona markaziy entitiy — **Employee** (empId {PK}, `fullName`, `jobPosition`, `salary`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **Manages** rekursiv munosabatiga ega bo'lib, nusxalar `supervisor` va `supervisee` rollarini bajaradi.",
-    "instruction": "'Employee' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'Manages' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Employee",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "empId",
-          "x": 340,
+          "x": 300,
           "y": 160,
           "attributes": [
             {
@@ -4713,7 +2352,9 @@ _scope.QUESTIONS_51_100 = [
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "supervisor",
+          "role2": "subordinate"
         }
       ],
       "subclasses": null
@@ -4747,33 +2388,40 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Employee",
           "entity2": "Employee",
+          "fromEntityName": "Employee",
+          "toEntityName": "Employee",
           "mult1": "0..1",
           "mult2": "0..*",
           "name": "Manages",
+          "isIdentifying": false,
           "role1": "supervisor",
-          "role2": "supervisee"
+          "role2": "subordinate"
         }
       ]
     }
   },
   {
-    "id": 77,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "ProductCategory Rekursiv Ierarxiyasi",
-    "story": "Marketpleys Katalogi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Tovar kategoriyasi boshqa bosh kategoriyaning ichki bo'limi bo'lishi mumkin va daraxtsimon ierarxiyani hosil qiladi. Tizimda yagona markaziy entitiy — **ProductCategory** (categoryId {PK}, `categoryName`, `displayOrder`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **SubCategoryOf** rekursiv munosabatiga ega bo'lib, nusxalar `parentCat` va `subCat` rollarini bajaradi.",
-    "instruction": "'ProductCategory' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'SubCategoryOf' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
+    "id": 62,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Nodirbek Alimov",
+    "clientRole": "Uzum Market Katalog Boshqaruvchisi",
+    "clientAvatar": "🛍️",
+    "title": "Uzum Market — Mahsulot Toifalari Daraxti (SubCategoryOf)",
+    "titleEn": "Uzum Market — Product Category Tree Hierarchy",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nElektron savdo platformasida barcha toifalar yagona **ProductCategory** entitiyida saqlanadi. Masalan: 'Elektronika' -> 'Smartfonlar' -> 'Aksessuarlar' -> 'G'iloflar'.\nHar bir quyi toifaning ko'pi bilan bitta ota toifasi (Parent Category) bo'ladi (`0..1` — eng yuqori darajadagi bosh toifalarning ota toifasi yo'q, qolganlarida aniq 1 ta).\nBitta ota toifa esa o'z ichiga 0 yoki undan ko'p quyi toifalarni qamrab oladi (`0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `ProductCategory` entitiysini yarating: {PK} `categoryId`, `categoryName`, `slugUrl`.\n2. O'ziga qaytuvchi `SubCategoryOf` rekursiv aloqasini bog'lang.\n3. Ota toifa tomoniga `0..1` va quyi toifalar tomoniga `0..*` multiplisitiyasini qo'ying.",
+    "storyEn": "Uzum Market — Product Category Tree Hierarchy — Conceptual ER business case study.",
+    "instruction": "'ProductCategory' entitiysiga rekursiv ierarxik daraxt aloqasini o'rnating.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "ProductCategory",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "categoryId",
-          "x": 340,
+          "x": 300,
           "y": 160,
           "attributes": [
             {
@@ -4789,7 +2437,7 @@ _scope.QUESTIONS_51_100 = [
               "isFK": false
             },
             {
-              "name": "displayOrder",
+              "name": "slugUrl",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -4808,7 +2456,9 @@ _scope.QUESTIONS_51_100 = [
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "parentCat",
+          "role2": "subCat"
         }
       ],
       "subclasses": null
@@ -4828,7 +2478,7 @@ _scope.QUESTIONS_51_100 = [
               "isPK": false
             },
             {
-              "name": "displayOrder",
+              "name": "slugUrl",
               "isPK": false
             }
           ]
@@ -4838,9 +2488,12 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "ProductCategory",
           "entity2": "ProductCategory",
+          "fromEntityName": "ProductCategory",
+          "toEntityName": "ProductCategory",
           "mult1": "0..1",
           "mult2": "0..*",
           "name": "SubCategoryOf",
+          "isIdentifying": false,
           "role1": "parentCat",
           "role2": "subCat"
         }
@@ -4848,23 +2501,27 @@ _scope.QUESTIONS_51_100 = [
     }
   },
   {
-    "id": 78,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "PartComponent Rekursiv Ierarxiyasi",
-    "story": "Dvigatel Butlovchi Qismlari tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Bitta yirik mexanik detal o'zidan kichikroq detallar yig'indisidan tashkil topadi. Tizimda yagona markaziy entitiy — **PartComponent** (partNumber {PK}, `partName`, `unitCost`, `weightKg`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **AssembledFrom** rekursiv munosabatiga ega bo'lib, nusxalar `parentAssembly` va `subComponent` rollarini bajaradi.",
-    "instruction": "'PartComponent' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'AssembledFrom' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
+    "id": 63,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Olimjon Jo'rayev",
+    "clientRole": "UzAuto Motors Konstruktori",
+    "clientAvatar": "🚗",
+    "title": "UzAuto Motors — Detallar va Jamlama Spetsifikatsiyasi (AssembledFrom)",
+    "titleEn": "UzAuto Motors — Part Component Bill of Materials (BOM)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nAvtomobil ishlab chiqarishda ehtiyot qismlar va agregatlar yagona **PartComponent** (BOM - Bill of Materials) tizimida ro'yxatga olinadi. Masalan, 'Dvigatel' agregati o'z navbatida 'Porshen', 'Val' kabi detallardan yig'iladi, porshen esa o'z navbatida mayda halqalardan tashkil topadi.\nBitta murakkab detal ko'plab quyi qismlardan yig'ilishi mumkin (`1..*`), va bitta standart detal (masalan, bolt) turli xil yirik agregatlar tarkibiga kirishi mumkin (`0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `PartComponent`: {PK} `partNumber`, `partName`, `unitCost`, `weightKg`.\n2. Rekursiv aloqa: `AssembledFrom` bog'lanishini chizing.\n3. Multiplisitiyalarni: Agregat tomoniga `0..*` va butlovchi qismlar tomoniga `1..*` qilib belgilang.",
+    "storyEn": "UzAuto Motors — Part Component Bill of Materials (BOM) — Conceptual ER business case study.",
+    "instruction": "'PartComponent' ning BOM rekursiv aloqasini to'g'ri chegaralar bilan loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "PartComponent",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "partNumber",
-          "x": 340,
+          "x": 300,
           "y": 160,
           "attributes": [
             {
@@ -4905,7 +2562,9 @@ _scope.QUESTIONS_51_100 = [
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "parentAssembly",
+          "role2": "subPart"
         }
       ],
       "subclasses": null
@@ -4939,33 +2598,40 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "PartComponent",
           "entity2": "PartComponent",
-          "mult1": "0..1",
-          "mult2": "0..*",
+          "fromEntityName": "PartComponent",
+          "toEntityName": "PartComponent",
+          "mult1": "0..*",
+          "mult2": "1..*",
           "name": "AssembledFrom",
+          "isIdentifying": false,
           "role1": "parentAssembly",
-          "role2": "subComponent"
+          "role2": "subPart"
         }
       ]
     }
   },
   {
-    "id": 79,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "AcademicCourse Rekursiv Ierarxiyasi",
-    "story": "Oliy Ta'lim Dasturi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Yuqori bosqichdagi fanni o'rganish uchun talabadan quyi bosqichdagi ma'lum fanni muvaffaqiyatli topshirgan bo'lish talab etiladi. Tizimda yagona markaziy entitiy — **AcademicCourse** (courseCode {PK}, `courseTitle`, `creditUnits`, `level`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **RequiresPrereq** rekursiv munosabatiga ega bo'lib, nusxalar `advancedCourse` va `prerequisiteCourse` rollarini bajaradi.",
-    "instruction": "'AcademicCourse' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'RequiresPrereq' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
+    "id": 64,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Zilola Ergasheva",
+    "clientRole": "WIUT O'quv Rejalar Bo'limi",
+    "clientAvatar": "📑",
+    "title": "WIUT Universiteti — Fanlar va Prerekvizitlar Zanjiri (RequiresPrereq)",
+    "titleEn": "WIUT University — Academic Course Prerequisite Chain",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nUniversitet o'quv dasturida ilg'or fanlarni o'qish uchun oldin boshlang'ich fanlarni o'zlashtirish shart (Prerequisite). Masalan, 'Advanced Databases' fanini o'qish uchun oldin 'Database Systems' fanini o'tash talab qilinadi. Barcha fanlar yagona **AcademicCourse** entitiyida jamlangan.\nBitta fanning bir nechta prerekvizitlari bo'lishi mumkin (`0..*` — 1-kurs boshlang'ich fanlarida prerekvizit umuman bo'lmasligi mumkin, 3-kurs fanida esa 2 ta).\nShuningdek, bitta tayanch fan kelgusida bir nechta yuqori kurs fanlari uchun prerekvizit bo'lib xizmat qilishi mumkin (`0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `AcademicCourse`: {PK} `courseCode`, `courseTitle`, `credits`.\n2. Rekursiv `RequiresPrereq` aloqasini o'rnating.\n3. Ikkala tomoniga ham `0..*` multiplisitiyasini tanlang.",
+    "storyEn": "WIUT University — Academic Course Prerequisite Chain — Conceptual ER business case study.",
+    "instruction": "'AcademicCourse' fanlari o'rtasidagi rekursiv prerekvizit munosabatini ifodalang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "AcademicCourse",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "courseCode",
-          "x": 340,
+          "x": 300,
           "y": 160,
           "attributes": [
             {
@@ -4981,13 +2647,7 @@ _scope.QUESTIONS_51_100 = [
               "isFK": false
             },
             {
-              "name": "creditUnits",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "level",
+              "name": "credits",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5006,7 +2666,9 @@ _scope.QUESTIONS_51_100 = [
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "advancedCourse",
+          "role2": "prerequisite"
         }
       ],
       "subclasses": null
@@ -5026,11 +2688,7 @@ _scope.QUESTIONS_51_100 = [
               "isPK": false
             },
             {
-              "name": "creditUnits",
-              "isPK": false
-            },
-            {
-              "name": "level",
+              "name": "credits",
               "isPK": false
             }
           ]
@@ -5040,33 +2698,40 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "AcademicCourse",
           "entity2": "AcademicCourse",
-          "mult1": "0..1",
+          "fromEntityName": "AcademicCourse",
+          "toEntityName": "AcademicCourse",
+          "mult1": "0..*",
           "mult2": "0..*",
           "name": "RequiresPrereq",
+          "isIdentifying": false,
           "role1": "advancedCourse",
-          "role2": "prerequisiteCourse"
+          "role2": "prerequisite"
         }
       ]
     }
   },
   {
-    "id": 80,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "Citizen Rekursiv Ierarxiyasi",
-    "story": "FHDYo Qonuniy Nikohi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Qonunchilikka ko'ra bir fuqaro faqat bitta boshqa fuqaro bilan qonuniy nikohda turishi mumkin. Tizimda yagona markaziy entitiy — **Citizen** (pinfl {PK}, `fullName`, `gender`, `birthDate`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **MarriedTo** rekursiv munosabatiga ega bo'lib, nusxalar `spouseA` va `spouseB` rollarini bajaradi.",
-    "instruction": "'Citizen' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'MarriedTo' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
+    "id": 65,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Xurshid Yo'ldoshev",
+    "clientRole": "FHDYo (ZAGS) Axborot Tizimi Boshlig'i",
+    "clientAvatar": "💍",
+    "title": "FHDYo — Fuqarolar va Nikoh Munosabati (MarriedTo)",
+    "titleEn": "Civil Registry — Citizen Marriage 1:1 Recursive Association",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nFuqarolik holati dalolatnomalarini yozish (FHDYo) reyestrida har bir shaxs **Citizen** entitiyida ro'yxatga olinadi. O'zbekiston qonunchiligiga ko'ra, bitta fuqaro bir vaqtning o'zida ko'pi bilan bitta turmush o'rtog'iga ega bo'lishi mumkin.\nHali oila qurmagan fuqarolar uchun bu aloqa mavjud emas (`0..1`), oila qurganlar uchun esa bu aniq bitta boshqa fuqaroga ulanadi (`0..1`).\nBu klassik 1:1 ixtiyoriy (`0..1` ⟷ `0..1`) rekursiv munosabatdir.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `Citizen`: {PK} `pinfl`, `fullName`, `birthDate`, `gender`.\n2. O'ziga qaytuvchi `MarriedTo` rekursiv aloqasini chizing.\n3. Har ikkala uchiga ham `0..1` (ixtiyoriy bitta) multiplisitiyasini qo'ying.",
+    "storyEn": "Civil Registry — Citizen Marriage 1:1 Recursive Association — Conceptual ER business case study.",
+    "instruction": "'Citizen' entitiysiga 1:1 ixtiyoriy 'MarriedTo' rekursiv aloqasini o'rnating.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Citizen",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
           "pk": "pinfl",
-          "x": 340,
+          "x": 300,
           "y": 160,
           "attributes": [
             {
@@ -5082,13 +2747,13 @@ _scope.QUESTIONS_51_100 = [
               "isFK": false
             },
             {
-              "name": "gender",
+              "name": "birthDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "birthDate",
+              "name": "gender",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5107,7 +2772,9 @@ _scope.QUESTIONS_51_100 = [
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "spouse1",
+          "role2": "spouse2"
         }
       ],
       "subclasses": null
@@ -5127,11 +2794,11 @@ _scope.QUESTIONS_51_100 = [
               "isPK": false
             },
             {
-              "name": "gender",
+              "name": "birthDate",
               "isPK": false
             },
             {
-              "name": "birthDate",
+              "name": "gender",
               "isPK": false
             }
           ]
@@ -5141,55 +2808,56 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "Citizen",
           "entity2": "Citizen",
+          "fromEntityName": "Citizen",
+          "toEntityName": "Citizen",
           "mult1": "0..1",
-          "mult2": "0..*",
+          "mult2": "0..1",
           "name": "MarriedTo",
-          "role1": "spouseA",
-          "role2": "spouseB"
+          "isIdentifying": false,
+          "role1": "spouse1",
+          "role2": "spouse2"
         }
       ]
     }
   },
   {
-    "id": 81,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "FlightLeg Rekursiv Ierarxiyasi",
-    "story": "Tranzit Aviaqatnovlar tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Bitta oraliq parvoz reysi yo'lovchilarni keyingi davom etuvchi tutash reysga o'tkazishi mumkin. Tizimda yagona markaziy entitiy — **FlightLeg** (legId {PK}, `routeCode`, `depAirport`, `arrAirport`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **ConnectsTo** rekursiv munosabatiga ega bo'lib, nusxalar `inboundLeg` va `outboundConnectingLeg` rollarini bajaradi.",
-    "instruction": "'FlightLeg' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'ConnectsTo' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
+    "id": 66,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Sardor Ahmedov",
+    "clientRole": "Payme Growth Menejeri",
+    "clientAvatar": "📱",
+    "title": "Payme / Click — Foydalanuvchi Referral Taklif Tizimi (ReferredBy)",
+    "titleEn": "Payme — User Account Referral Chain Recursive Association",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nTo'lov ilovasida marketing dasturi doirasida barcha a'zolar **UserAccount** entitiyida yuritiladi. Har bir yangi ro'yxatdan o'tuvchi faqat 1 ta mavjud foydalanuvchining promo-kodi orqali taklif qilinishi mumkin (`0..1` — mustaqil ro'yxatdan o'tganlarda taklifchi yo'q).\nMavjud faol a'zo esa o'z kodi orqali 0 yoki undan ko'p yangi do'stlarini taklif etishi mumkin (`0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `UserAccount`: {PK} `accountId`, `phoneNumber`, `referralCode`.\n2. Rekursiv `ReferredBy` aloqasini o'rnating.\n3. Taklif qiluvchi tomoniga `0..1`, yangi chaqirilganlar tomoniga `0..*` qo'ying.",
+    "storyEn": "Payme — User Account Referral Chain Recursive Association — Conceptual ER business case study.",
+    "instruction": "'UserAccount' entitiysiga referral rekursiv aloqasini o'rnating.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "FlightLeg",
+          "name": "UserAccount",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "legId",
-          "x": 340,
+          "isSubclass": false,
+          "pk": "accountId",
+          "x": 300,
           "y": 160,
           "attributes": [
             {
-              "name": "legId",
+              "name": "accountId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "routeCode",
+              "name": "phoneNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "depAirport",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "arrAirport",
+              "name": "referralCode",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -5200,15 +2868,17 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "ConnectsTo",
-          "entity1": "FlightLeg",
-          "entity2": "FlightLeg",
-          "fromEntityName": "FlightLeg",
-          "toEntityName": "FlightLeg",
+          "name": "ReferredBy",
+          "entity1": "UserAccount",
+          "entity2": "UserAccount",
+          "fromEntityName": "UserAccount",
+          "toEntityName": "UserAccount",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "referrer",
+          "role2": "referee"
         }
       ],
       "subclasses": null
@@ -5216,23 +2886,19 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "FlightLeg",
-          "pk": "legId",
+          "name": "UserAccount",
+          "pk": "accountId",
           "attributes": [
             {
-              "name": "legId",
+              "name": "accountId",
               "isPK": true
             },
             {
-              "name": "routeCode",
+              "name": "phoneNumber",
               "isPK": false
             },
             {
-              "name": "depAirport",
-              "isPK": false
-            },
-            {
-              "name": "arrAirport",
+              "name": "referralCode",
               "isPK": false
             }
           ]
@@ -5240,645 +2906,46 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "FlightLeg",
-          "entity2": "FlightLeg",
+          "entity1": "UserAccount",
+          "entity2": "UserAccount",
+          "fromEntityName": "UserAccount",
+          "toEntityName": "UserAccount",
           "mult1": "0..1",
           "mult2": "0..*",
-          "name": "ConnectsTo",
-          "role1": "inboundLeg",
-          "role2": "outboundConnectingLeg"
-        }
-      ]
-    }
-  },
-  {
-    "id": 82,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "SoftwarePackage Rekursiv Ierarxiyasi",
-    "story": "Dasturiy Paketlar Kutubxonasi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Dasturiy kutubxona o'z ishlashi uchun boshqa bir qancha kutubxonalarga tayanadi. Tizimda yagona markaziy entitiy — **SoftwarePackage** (packageId {PK}, `packageName`, `semanticVersion`, `licenseType`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **DependsOn** rekursiv munosabatiga ega bo'lib, nusxalar `dependentModule` va `requiredDependency` rollarini bajaradi.",
-    "instruction": "'SoftwarePackage' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'DependsOn' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "SoftwarePackage",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "packageId",
-          "x": 340,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "packageId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "packageName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "semanticVersion",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "licenseType",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "DependsOn",
-          "entity1": "SoftwarePackage",
-          "entity2": "SoftwarePackage",
-          "fromEntityName": "SoftwarePackage",
-          "toEntityName": "SoftwarePackage",
-          "mult1": "",
-          "mult2": "",
+          "name": "ReferredBy",
           "isIdentifying": false,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "SoftwarePackage",
-          "pk": "packageId",
-          "attributes": [
-            {
-              "name": "packageId",
-              "isPK": true
-            },
-            {
-              "name": "packageName",
-              "isPK": false
-            },
-            {
-              "name": "semanticVersion",
-              "isPK": false
-            },
-            {
-              "name": "licenseType",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "SoftwarePackage",
-          "entity2": "SoftwarePackage",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "name": "DependsOn",
-          "role1": "dependentModule",
-          "role2": "requiredDependency"
+          "role1": "referrer",
+          "role2": "referee"
         }
       ]
     }
   },
   {
-    "id": 83,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "ChessMaster Rekursiv Ierarxiyasi",
-    "story": "Shaxmat Musobaqasi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Shaxmatchi musobaqa doirasida boshqa bir shaxmatchiga qarshi oq yoki qora donalarda dona suradi. Tizimda yagona markaziy entitiy — **ChessMaster** (fideId {PK}, `masterName`, `eloRating`, `federationCountry`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **PlaysMatch** rekursiv munosabatiga ega bo'lib, nusxalar `whitePlayer` va `blackPlayer` rollarini bajaradi.",
-    "instruction": "'ChessMaster' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'PlaysMatch' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "ChessMaster",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "fideId",
-          "x": 340,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "fideId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "masterName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "eloRating",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "federationCountry",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "PlaysMatch",
-          "entity1": "ChessMaster",
-          "entity2": "ChessMaster",
-          "fromEntityName": "ChessMaster",
-          "toEntityName": "ChessMaster",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": false,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "ChessMaster",
-          "pk": "fideId",
-          "attributes": [
-            {
-              "name": "fideId",
-              "isPK": true
-            },
-            {
-              "name": "masterName",
-              "isPK": false
-            },
-            {
-              "name": "eloRating",
-              "isPK": false
-            },
-            {
-              "name": "federationCountry",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "ChessMaster",
-          "entity2": "ChessMaster",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "name": "PlaysMatch",
-          "role1": "whitePlayer",
-          "role2": "blackPlayer"
-        }
-      ]
-    }
-  },
-  {
-    "id": 84,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "HistoricalFigure Rekursiv Ierarxiyasi",
-    "story": "Tarixiy Shajara tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Tarixiy shaxs o'zidan keyingi avlod vakilining bevosita ajdodi bo'lib nasl zanjirini bog'laydi. Tizimda yagona markaziy entitiy — **HistoricalFigure** (personId {PK}, `fullName`, `birthCentury`, `dynastyTitle`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **AncestorOf** rekursiv munosabatiga ega bo'lib, nusxalar `parentAncestor` va `childDescendant` rollarini bajaradi.",
-    "instruction": "'HistoricalFigure' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'AncestorOf' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "HistoricalFigure",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "personId",
-          "x": 340,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "personId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "fullName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "birthCentury",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "dynastyTitle",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "AncestorOf",
-          "entity1": "HistoricalFigure",
-          "entity2": "HistoricalFigure",
-          "fromEntityName": "HistoricalFigure",
-          "toEntityName": "HistoricalFigure",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": false,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "HistoricalFigure",
-          "pk": "personId",
-          "attributes": [
-            {
-              "name": "personId",
-              "isPK": true
-            },
-            {
-              "name": "fullName",
-              "isPK": false
-            },
-            {
-              "name": "birthCentury",
-              "isPK": false
-            },
-            {
-              "name": "dynastyTitle",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "HistoricalFigure",
-          "entity2": "HistoricalFigure",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "name": "AncestorOf",
-          "role1": "parentAncestor",
-          "role2": "childDescendant"
-        }
-      ]
-    }
-  },
-  {
-    "id": 85,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "LegalPrecedent Rekursiv Ierarxiyasi",
-    "story": "Sud Pretsedenti tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Ko'rilayotgan sud ishi o'tmishda yakunlangan boshqa bir sud pretsedenti qaroriga tayanadi. Tizimda yagona markaziy entitiy — **LegalPrecedent** (caseNo {PK}, `verdictYear`, `jurisdictionCourt`, `lawArticle`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **CitesPrecedent** rekursiv munosabatiga ega bo'lib, nusxalar `currentRulingCase` va `citedPrecedentCase` rollarini bajaradi.",
-    "instruction": "'LegalPrecedent' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'CitesPrecedent' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "LegalPrecedent",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "caseNo",
-          "x": 340,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "caseNo",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "verdictYear",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "jurisdictionCourt",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "lawArticle",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "CitesPrecedent",
-          "entity1": "LegalPrecedent",
-          "entity2": "LegalPrecedent",
-          "fromEntityName": "LegalPrecedent",
-          "toEntityName": "LegalPrecedent",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": false,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "LegalPrecedent",
-          "pk": "caseNo",
-          "attributes": [
-            {
-              "name": "caseNo",
-              "isPK": true
-            },
-            {
-              "name": "verdictYear",
-              "isPK": false
-            },
-            {
-              "name": "jurisdictionCourt",
-              "isPK": false
-            },
-            {
-              "name": "lawArticle",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "LegalPrecedent",
-          "entity2": "LegalPrecedent",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "name": "CitesPrecedent",
-          "role1": "currentRulingCase",
-          "role2": "citedPrecedentCase"
-        }
-      ]
-    }
-  },
-  {
-    "id": 86,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "NetworkUser Rekursiv Ierarxiyasi",
-    "story": "Ijtimoiy Tarmoq Tarmog'i tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Tarmoq foydalanuvchisi boshqa foydalanuvchining sahifasiga obuna bo'lib uning yangiliklarini kuzatadi. Tizimda yagona markaziy entitiy — **NetworkUser** (userHandle {PK}, `displayName`, `joinDate`, `isVerified`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **FollowsUser** rekursiv munosabatiga ega bo'lib, nusxalar `followerUser` va `followedUser` rollarini bajaradi.",
-    "instruction": "'NetworkUser' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'FollowsUser' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "NetworkUser",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "userHandle",
-          "x": 340,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "userHandle",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "displayName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "joinDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "isVerified",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "FollowsUser",
-          "entity1": "NetworkUser",
-          "entity2": "NetworkUser",
-          "fromEntityName": "NetworkUser",
-          "toEntityName": "NetworkUser",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": false,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "NetworkUser",
-          "pk": "userHandle",
-          "attributes": [
-            {
-              "name": "userHandle",
-              "isPK": true
-            },
-            {
-              "name": "displayName",
-              "isPK": false
-            },
-            {
-              "name": "joinDate",
-              "isPK": false
-            },
-            {
-              "name": "isVerified",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "NetworkUser",
-          "entity2": "NetworkUser",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "name": "FollowsUser",
-          "role1": "followerUser",
-          "role2": "followedUser"
-        }
-      ]
-    }
-  },
-  {
-    "id": 87,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "CorporateEnterprise Rekursiv Ierarxiyasi",
-    "story": "Xalqaro Xoldinglar tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Kompaniya boshqa bir yirikroq korporativ xoldingning sho''ba korxonasi sifatida unga bo'ysunadi. Tizimda yagona markaziy entitiy — **CorporateEnterprise** (holdingId {PK}, `corporateName`, `hqCountry`, `capitalUsd`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **SubsidiaryOf** rekursiv munosabatiga ega bo'lib, nusxalar `parentHolding` va `daughterCompany` rollarini bajaradi.",
-    "instruction": "'CorporateEnterprise' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'SubsidiaryOf' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "CorporateEnterprise",
-          "isWeak": false,
-          "isAssociative": false,
-          "pk": "holdingId",
-          "x": 340,
-          "y": 160,
-          "attributes": [
-            {
-              "name": "holdingId",
-              "isPK": true,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "corporateName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "hqCountry",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "capitalUsd",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "SubsidiaryOf",
-          "entity1": "CorporateEnterprise",
-          "entity2": "CorporateEnterprise",
-          "fromEntityName": "CorporateEnterprise",
-          "toEntityName": "CorporateEnterprise",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": false,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "CorporateEnterprise",
-          "pk": "holdingId",
-          "attributes": [
-            {
-              "name": "holdingId",
-              "isPK": true
-            },
-            {
-              "name": "corporateName",
-              "isPK": false
-            },
-            {
-              "name": "hqCountry",
-              "isPK": false
-            },
-            {
-              "name": "capitalUsd",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "CorporateEnterprise",
-          "entity2": "CorporateEnterprise",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "name": "SubsidiaryOf",
-          "role1": "parentHolding",
-          "role2": "daughterCompany"
-        }
-      ]
-    }
-  },
-  {
-    "id": 88,
-    "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "MetroStation Rekursiv Ierarxiyasi",
-    "story": "Metropoliten Liniyasi tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Metro bekati temir yo'l yo'nalishi bo'ylab keyingi qo'shni bekat bilan bevosita tutashgan. Tizimda yagona markaziy entitiy — **MetroStation** (stationCode {PK}, `stationName`, `lineColor`, `zoneNo`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **AdjacentTo** rekursiv munosabatiga ega bo'lib, nusxalar `precedingStop` va `succeedingStop` rollarini bajaradi.",
-    "instruction": "'MetroStation' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'AdjacentTo' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
+    "id": 67,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Shavkat Qodirov",
+    "clientRole": "Toshkent Metropoliteni Dispetcheri",
+    "clientAvatar": "🚇",
+    "title": "Toshkent Metropoliteni — Bekatlar Oraliq Zanjiri (NextTrackTo)",
+    "titleEn": "Tashkent Metro — Station Adjacent Track Network",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nMetro poyezdlari harakati tarmog'ida barcha bekatlar yagona **MetroStation** entitiyida ro'yxatga olinadi. Har bir bekat o'z yo'nalishi bo'yicha ko'pi bilan 2 ta qo'shni bekatga (oldingi va keyingi) ulanadi.\nOxirgi boshlang'ich/yakuniy bekatlarda esa faqat 1 ta qo'shni bekat mavjud.\nShu sababli har ikkala tomon chegarasi `0..2` bo'lgan simmetrik rekursiv aloqa hosil bo'ladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `MetroStation`: {PK} `stationId`, `stationName`, `lineColor`.\n2. `NextTrackTo` rekursiv aloqasini chizing.\n3. Har ikki tomonga chegaralarni `0..2` (kamida 0 ta, ko'pi bilan 2 ta) qilib belgilang.",
+    "storyEn": "Tashkent Metro — Station Adjacent Track Network — Conceptual ER business case study.",
+    "instruction": "'MetroStation' bekatlarining qo'shni rels aloqasini rekursiv loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "MetroStation",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "stationCode",
-          "x": 340,
+          "isSubclass": false,
+          "pk": "stationId",
+          "x": 300,
           "y": 160,
           "attributes": [
             {
-              "name": "stationCode",
+              "name": "stationId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
@@ -5894,12 +2961,6 @@ _scope.QUESTIONS_51_100 = [
               "isPK": false,
               "isPPK": false,
               "isFK": false
-            },
-            {
-              "name": "zoneNo",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
             }
           ]
         }
@@ -5907,7 +2968,7 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "AdjacentTo",
+          "name": "NextTrackTo",
           "entity1": "MetroStation",
           "entity2": "MetroStation",
           "fromEntityName": "MetroStation",
@@ -5915,7 +2976,9 @@ _scope.QUESTIONS_51_100 = [
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "currentStation",
+          "role2": "adjacentStation"
         }
       ],
       "subclasses": null
@@ -5924,10 +2987,10 @@ _scope.QUESTIONS_51_100 = [
       "entities": [
         {
           "name": "MetroStation",
-          "pk": "stationCode",
+          "pk": "stationId",
           "attributes": [
             {
-              "name": "stationCode",
+              "name": "stationId",
               "isPK": true
             },
             {
@@ -5937,10 +3000,6 @@ _scope.QUESTIONS_51_100 = [
             {
               "name": "lineColor",
               "isPK": false
-            },
-            {
-              "name": "zoneNo",
-              "isPK": false
             }
           ]
         }
@@ -5949,11 +3008,3434 @@ _scope.QUESTIONS_51_100 = [
         {
           "entity1": "MetroStation",
           "entity2": "MetroStation",
+          "fromEntityName": "MetroStation",
+          "toEntityName": "MetroStation",
+          "mult1": "0..2",
+          "mult2": "0..2",
+          "name": "NextTrackTo",
+          "isIdentifying": false,
+          "role1": "currentStation",
+          "role2": "adjacentStation"
+        }
+      ]
+    }
+  },
+  {
+    "id": 68,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Temur Rustamov",
+    "clientRole": "Linux Server Tizim Arxitektori",
+    "clientAvatar": "🐧",
+    "title": "Linux Fayl Tizimi — Papkalar Ierarxiyasi (ContainsSubfolder)",
+    "titleEn": "Linux File System — Directory Parent-Child Hierarchy",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nOperatsion tizim fayl tuzilmasida barcha kataloglar **FolderDirectory** entitiysiga tegishli. Masalan: `/var/log/nginx`.\nRoot (`/`) katalogidan tashqari har bir papkaning aniq bitta ota papkasi (Parent Folder) bo'ladi (`0..1`).\nBitta ota papka esa o'z ichida 0 yoki undan ko'p quyi papkalarni (Subfolders) saqlaydi (`0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `FolderDirectory`: {PK} `folderId`, `folderPath`, `permissions`.\n2. Rekursiv `ContainsSubfolder` chizig'ini torting.\n3. Ota papka tomoniga `0..1`, ichki papkalar tomoniga `0..*` qo'ying.",
+    "storyEn": "Linux File System — Directory Parent-Child Hierarchy — Conceptual ER business case study.",
+    "instruction": "'FolderDirectory' ning daraxtsimon rekursiv bog'lanishini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "FolderDirectory",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "folderId",
+          "x": 300,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "folderId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "folderPath",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "permissions",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ContainsSubfolder",
+          "entity1": "FolderDirectory",
+          "entity2": "FolderDirectory",
+          "fromEntityName": "FolderDirectory",
+          "toEntityName": "FolderDirectory",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentFolder",
+          "role2": "subFolder"
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "FolderDirectory",
+          "pk": "folderId",
+          "attributes": [
+            {
+              "name": "folderId",
+              "isPK": true
+            },
+            {
+              "name": "folderPath",
+              "isPK": false
+            },
+            {
+              "name": "permissions",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "FolderDirectory",
+          "entity2": "FolderDirectory",
+          "fromEntityName": "FolderDirectory",
+          "toEntityName": "FolderDirectory",
           "mult1": "0..1",
           "mult2": "0..*",
-          "name": "AdjacentTo",
-          "role1": "precedingStop",
-          "role2": "succeedingStop"
+          "name": "ContainsSubfolder",
+          "isIdentifying": false,
+          "role1": "parentFolder",
+          "role2": "subFolder"
+        }
+      ]
+    }
+  },
+  {
+    "id": 69,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Mansur Jo'rayev",
+    "clientRole": "Jira Scrum Master",
+    "clientAvatar": "📊",
+    "title": "Jira / Gantt Jadvali — Loyiha Vazifalari Ketma-ketligi (PrecedesTask)",
+    "titleEn": "Jira Project Management — Task Dependency Predecessor Association",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nIT loyihalarni boshqarishda barcha ishlar **ProjectTask** entitiysida saqlanadi. Gantt diagrammasiga binoan, ma'lum bir vazifani boshlashdan oldin boshqa bir nechta vazifalar tugatilgan bo'lishi shart (Predecessors).\nBitta vazifa bir nechta boshqa vazifalarga yo'l ochib berishi mumkin (`0..*`), va o'z navbatida boshqa bir necha vazifalarning tugashiga bog'liq bo'lishi mumkin (`0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `ProjectTask`: {PK} `taskId`, `taskTitle`, `estimatedHours`.\n2. Rekursiv `PrecedesTask` aloqasini o'rnating.\n3. Ikkala tomoniga ham ko'plik chegara: `0..*` o'rnating.",
+    "storyEn": "Jira Project Management — Task Dependency Predecessor Association — Conceptual ER business case study.",
+    "instruction": "'ProjectTask' entitiysiga vazifalar bog'liqligi (PrecedesTask) rekursiv aloqasini qo'ying.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "ProjectTask",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "taskId",
+          "x": 300,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "taskId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "taskTitle",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "estimatedHours",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "PrecedesTask",
+          "entity1": "ProjectTask",
+          "entity2": "ProjectTask",
+          "fromEntityName": "ProjectTask",
+          "toEntityName": "ProjectTask",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "predecessor",
+          "role2": "successor"
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "ProjectTask",
+          "pk": "taskId",
+          "attributes": [
+            {
+              "name": "taskId",
+              "isPK": true
+            },
+            {
+              "name": "taskTitle",
+              "isPK": false
+            },
+            {
+              "name": "estimatedHours",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "ProjectTask",
+          "entity2": "ProjectTask",
+          "fromEntityName": "ProjectTask",
+          "toEntityName": "ProjectTask",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "name": "PrecedesTask",
+          "isIdentifying": false,
+          "role1": "predecessor",
+          "role2": "successor"
+        }
+      ]
+    }
+  },
+  {
+    "id": 70,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Eldor Shomurodov",
+    "clientRole": "O'zbekiston Futbol Assotsiatsiyasi Tahlilchisi",
+    "clientAvatar": "⚽",
+    "title": "O'zbekiston Superligasi — Futbol Klublari Uchrashuvi (PlaysMatchAgainst)",
+    "titleEn": "Uzbekistan Super League — Football Club Fixture Schedule",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nFutbol chempionatidagi barcha jamoalar yagona **FootballClub** entitiyida qayd etiladi. Mavsum davomida bitta klub mezbon yoki mehmon sifatida boshqa klublar bilan o'yin o'tkazadi.\nBitta klub mavsumda ko'plab raqib klublar bilan kuch sinashadi (`0..*` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `FootballClub`: {PK} `clubId`, `clubName`, `homeStadium`.\n2. Rekursiv `PlaysMatchAgainst` aloqasini o'rnating.\n3. Ikkala tomoniga `0..*` (Home va Away) multiplisitiyasini tanlang.",
+    "storyEn": "Uzbekistan Super League — Football Club Fixture Schedule — Conceptual ER business case study.",
+    "instruction": "'FootballClub' entitiysiga musobaqa jadvali rekursiv aloqasini bog'lang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "FootballClub",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "clubId",
+          "x": 300,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "clubId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "clubName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "homeStadium",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "PlaysMatchAgainst",
+          "entity1": "FootballClub",
+          "entity2": "FootballClub",
+          "fromEntityName": "FootballClub",
+          "toEntityName": "FootballClub",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "homeTeam",
+          "role2": "awayTeam"
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "FootballClub",
+          "pk": "clubId",
+          "attributes": [
+            {
+              "name": "clubId",
+              "isPK": true
+            },
+            {
+              "name": "clubName",
+              "isPK": false
+            },
+            {
+              "name": "homeStadium",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "FootballClub",
+          "entity2": "FootballClub",
+          "fromEntityName": "FootballClub",
+          "toEntityName": "FootballClub",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "name": "PlaysMatchAgainst",
+          "isIdentifying": false,
+          "role1": "homeTeam",
+          "role2": "awayTeam"
+        }
+      ]
+    }
+  },
+  {
+    "id": 71,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Bekzod Umarov",
+    "clientRole": "Korzinka Logistika Boshlig'i",
+    "clientAvatar": "🏭",
+    "title": "Korzinka Logistika — Taqsimot Xablari Ichki Tranziti (TransfersCargoTo)",
+    "titleEn": "Korzinka Logistics — Distribution Hub Internal Cargo Transfer",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nYirik taqsimot tizimida barcha omborxona majmualari **DistributionHub** entitiyida yuritiladi. Mahsulot zaxirasi yetishmaganda bitta mintaqaviy xab boshqa markaziy xabdan tovar yukini qabul qiladi yoki jo'natadi.\nBitta xab bir nechta boshqa xablarga tovar tranzit qilishi va boshqa xablardan qabul qilishi mumkin (`0..*` ⟷ `0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `DistributionHub`: {PK} `hubCode`, `cityLocation`, `capacityTons`.\n2. Rekursiv `TransfersCargoTo` aloqasini torting.\n3. Jo'natuvchi va qabul qiluvchi tomonlarga `0..*` multiplisitiyasini bering.",
+    "storyEn": "Korzinka Logistics — Distribution Hub Internal Cargo Transfer — Conceptual ER business case study.",
+    "instruction": "'DistributionHub' ichki tranzit rekursiv aloqasini loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "DistributionHub",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "hubCode",
+          "x": 300,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "hubCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "cityLocation",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "capacityTons",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "TransfersCargoTo",
+          "entity1": "DistributionHub",
+          "entity2": "DistributionHub",
+          "fromEntityName": "DistributionHub",
+          "toEntityName": "DistributionHub",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "sourceHub",
+          "role2": "targetHub"
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "DistributionHub",
+          "pk": "hubCode",
+          "attributes": [
+            {
+              "name": "hubCode",
+              "isPK": true
+            },
+            {
+              "name": "cityLocation",
+              "isPK": false
+            },
+            {
+              "name": "capacityTons",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "DistributionHub",
+          "entity2": "DistributionHub",
+          "fromEntityName": "DistributionHub",
+          "toEntityName": "DistributionHub",
+          "mult1": "0..*",
+          "mult2": "0..*",
+          "name": "TransfersCargoTo",
+          "isIdentifying": false,
+          "role1": "sourceHub",
+          "role2": "targetHub"
+        }
+      ]
+    }
+  },
+  {
+    "id": 72,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Anvar Qosimov",
+    "clientRole": "Cisco Tarmoq Muhandisi",
+    "clientAvatar": "🌐",
+    "title": "Data Markaz — Tarmoq Kommutatorlari Magistrali (UplinkTo)",
+    "titleEn": "Data Center — Network Switch Uplink Hierarchy",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nMa'lumotlar markazi kommutatsiya ierarxiyasida barcha apparatlar **NetworkSwitch** entitiyiga kiradi.\nHar bir chekka (Access) kommutator magistral tezlik uchun aniq bitta yuqori darajadagi Core kommutatoriga ulanadi (`0..1` — eng yuqori Core switchlarida uplink yo'q).\nBitta Core switch esa o'ziga bir nechta quyi switchlarni qabul qiladi (`0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `NetworkSwitch`: {PK} `switchMac`, `ipAddress`, `rackPosition`.\n2. Rekursiv `UplinkTo` aloqasini chizing.\n3. Master Core tomoniga `0..1` va quyi switchlar tomoniga `0..*` qo'ying.",
+    "storyEn": "Data Center — Network Switch Uplink Hierarchy — Conceptual ER business case study.",
+    "instruction": "'NetworkSwitch' entitiysiga kommutatsiya ierarxiyasini rekursiv bog'lang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "NetworkSwitch",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "switchMac",
+          "x": 300,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "switchMac",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "ipAddress",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "rackPosition",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "UplinkTo",
+          "entity1": "NetworkSwitch",
+          "entity2": "NetworkSwitch",
+          "fromEntityName": "NetworkSwitch",
+          "toEntityName": "NetworkSwitch",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "coreSwitch",
+          "role2": "accessSwitch"
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "NetworkSwitch",
+          "pk": "switchMac",
+          "attributes": [
+            {
+              "name": "switchMac",
+              "isPK": true
+            },
+            {
+              "name": "ipAddress",
+              "isPK": false
+            },
+            {
+              "name": "rackPosition",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "NetworkSwitch",
+          "entity2": "NetworkSwitch",
+          "fromEntityName": "NetworkSwitch",
+          "toEntityName": "NetworkSwitch",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "UplinkTo",
+          "isIdentifying": false,
+          "role1": "coreSwitch",
+          "role2": "accessSwitch"
+        }
+      ]
+    }
+  },
+  {
+    "id": 73,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Jamshid Karimov",
+    "clientRole": "Humo To'lov Tizimi Xavfsizlik Ofitseri",
+    "clientAvatar": "💳",
+    "title": "To'lov Tranzaksiyalari — Qaytish va Bekor Qilish Zanjiri (ReversesTx)",
+    "titleEn": "Payment Processing — Transaction Refund Reversal Pair",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nTo'lov protsessingida barcha to'lovlar **FinancialTransaction** entitiysida saqlanadi. Agar xaridor xaridni bekor qilsa (Refund / Chargeback), yangi teskari tranzaksiya ochiladi va u asl tranzaksiyaga bog'lanadi.\nHar bir bekor qilish tranzaksiyasi aniq bitta asl to'lovga bog'langan (`0..1`), va bitta asl to'lov faqat 1 martagina to'liq qaytarilishi mumkin (`0..1`).\nBu klassik 1:1 ixtiyoriy (`0..1` ⟷ `0..1`) rekursiv munosabatdir.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `FinancialTransaction`: {PK} `txId`, `amountSum`, `txTimestamp`.\n2. Rekursiv `ReversesTx` aloqasini o'rnating.\n3. Ikkala tomoniga `0..1` multiplisitiyasini bering.",
+    "storyEn": "Payment Processing — Transaction Refund Reversal Pair — Conceptual ER business case study.",
+    "instruction": "'FinancialTransaction' ga 1:1 ixtiyoriy 'ReversesTx' aloqasini o'rnating.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "FinancialTransaction",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "txId",
+          "x": 300,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "txId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "amountSum",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "txTimestamp",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ReversesTx",
+          "entity1": "FinancialTransaction",
+          "entity2": "FinancialTransaction",
+          "fromEntityName": "FinancialTransaction",
+          "toEntityName": "FinancialTransaction",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "originalTx",
+          "role2": "reversalTx"
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "FinancialTransaction",
+          "pk": "txId",
+          "attributes": [
+            {
+              "name": "txId",
+              "isPK": true
+            },
+            {
+              "name": "amountSum",
+              "isPK": false
+            },
+            {
+              "name": "txTimestamp",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "FinancialTransaction",
+          "entity2": "FinancialTransaction",
+          "fromEntityName": "FinancialTransaction",
+          "toEntityName": "FinancialTransaction",
+          "mult1": "0..1",
+          "mult2": "0..1",
+          "name": "ReversesTx",
+          "isIdentifying": false,
+          "role1": "originalTx",
+          "role2": "reversalTx"
+        }
+      ]
+    }
+  },
+  {
+    "id": 74,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Muyassar Karimova",
+    "clientRole": "Tarixiy Nasabnoma Tadqiqotchisi",
+    "clientAvatar": "🌳",
+    "title": "Shajara Daraxti — Ota-ona va Farzand Nasli (BiologicalParentOf)",
+    "titleEn": "Genealogy Tree — Biological Parent Child Lineage",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nGenealogik tahlilda barcha shaxslar **FamilyPerson** entitiysida jamlanadi. Har bir insonning biologik jihatdan ko'pi bilan 2 ta ota-onasi (Ota va Ona) bo'ladi (`0..2` — shajarada eng qadimgi ajdodlarning ota-onasi kiritilmagan bo'lishi mumkin).\nBitta ota-ona esa hayot davomida 0 yoki undan ko'p farzandlarga ega bo'lishi mumkin (`0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `FamilyPerson`: {PK} `personId`, `fullName`, `birthYear`.\n2. Rekursiv `BiologicalParentOf` aloqasini o'rnating.\n3. Ota-ona tomoniga `0..2`, farzandlar tomoniga `0..*` qo'ying.",
+    "storyEn": "Genealogy Tree — Biological Parent Child Lineage — Conceptual ER business case study.",
+    "instruction": "'FamilyPerson' shajara rekursiv aloqasini to'g'ri chegaralar bilan loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "FamilyPerson",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "personId",
+          "x": 300,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "personId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "birthYear",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "BiologicalParentOf",
+          "entity1": "FamilyPerson",
+          "entity2": "FamilyPerson",
+          "fromEntityName": "FamilyPerson",
+          "toEntityName": "FamilyPerson",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parent",
+          "role2": "child"
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "FamilyPerson",
+          "pk": "personId",
+          "attributes": [
+            {
+              "name": "personId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "birthYear",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "FamilyPerson",
+          "entity2": "FamilyPerson",
+          "fromEntityName": "FamilyPerson",
+          "toEntityName": "FamilyPerson",
+          "mult1": "0..2",
+          "mult2": "0..*",
+          "name": "BiologicalParentOf",
+          "isIdentifying": false,
+          "role1": "parent",
+          "role2": "child"
+        }
+      ]
+    }
+  },
+  {
+    "id": 75,
+    "sector": 5,
+    "difficulty": "O'rta",
+    "clientName": "Bobur Ziyodullayev",
+    "clientRole": "Davlat Aktivlarini Boshqarish Agentligi",
+    "clientAvatar": "🏛️",
+    "title": "Xolding Ekotizimi — Bosh Kompaniya va Sho'ba Korxonalar (OwnsSubsidiary)",
+    "titleEn": "Corporate Conglomerate — Holding Parent and Subsidiary Ownership",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nYirik korporativ xoldingda barcha yuridik shaxslar **CorporateHolding** entitiysida yuritiladi.\nHar bir sho'ba korxonaning nazorat paketi ko'pi bilan 1 ta bosh xolding kompaniyasiga tegishli bo'ladi (`0..1` — eng yuqori holdingning bosh kompaniyasi yo'q).\nBitta xolding kompaniyasi esa o'z tasarrufiga 0 yoki undan ortiq sho'ba korxonalarni birlashtirishi mumkin (`0..*`).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `CorporateHolding`: {PK} `holdingInn`, `legalName`, `charterCapital`.\n2. Rekursiv `OwnsSubsidiary` aloqasini o'rnating.\n3. Bosh xolding tomoniga `0..1` va sho'ba korxonalar tomoniga `0..*` qo'ying.",
+    "storyEn": "Corporate Conglomerate — Holding Parent and Subsidiary Ownership — Conceptual ER business case study.",
+    "instruction": "'CorporateHolding' korporativ xolding rekursiv tuzilmasini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "CorporateHolding",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "holdingInn",
+          "x": 300,
+          "y": 160,
+          "attributes": [
+            {
+              "name": "holdingInn",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "legalName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "charterCapital",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "OwnsSubsidiary",
+          "entity1": "CorporateHolding",
+          "entity2": "CorporateHolding",
+          "fromEntityName": "CorporateHolding",
+          "toEntityName": "CorporateHolding",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "parentHolding",
+          "role2": "subsidiary"
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "CorporateHolding",
+          "pk": "holdingInn",
+          "attributes": [
+            {
+              "name": "holdingInn",
+              "isPK": true
+            },
+            {
+              "name": "legalName",
+              "isPK": false
+            },
+            {
+              "name": "charterCapital",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "CorporateHolding",
+          "entity2": "CorporateHolding",
+          "fromEntityName": "CorporateHolding",
+          "toEntityName": "CorporateHolding",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "name": "OwnsSubsidiary",
+          "isIdentifying": false,
+          "role1": "parentHolding",
+          "role2": "subsidiary"
+        }
+      ]
+    }
+  },
+  {
+    "id": 76,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Prof. Jonatan Klark",
+    "clientRole": "WIUT Akademik Dekani",
+    "clientAvatar": "👨‍🏫",
+    "title": "WIUT — Talaba, Fan Moduli va O'qituvchi 3 Tomonlama Darsi (TakesClass)",
+    "titleEn": "WIUT — Student, Course and Lecturer Ternary Association",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nUniversitet dars jadvalida talaba (**Student**), fan moduli (**CourseModule**) va o'qituvchi (**Lecturer**) uchtasi birgalikda yagona dars mashg'ulotini hosil qiladi.\nBuni ikkita alohida binar aloqa (Student-Course va Course-Lecturer) orqali to'liq ifodalab bo'lmaydi, chunki talaba bitta fandan qaysi aniq domlada o'qiyotganini bilish uchun uch tomonlama birikuv shart.\nModelda uchta mustaqil entitiy o'zaro markaziy dars rombi orqali bog'lanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `Student`: {PK} `studentId`, `studentName`, `groupNo`.\n2. `CourseModule`: {PK} `moduleCode`, `title`, `credits`.\n3. `Lecturer`: {PK} `lecturerId`, `lecturerName`, `roomNo`.\n4. Har bir talaba modulni o'qituvchidan o'rganishi bo'yicha uch tomonlama munosabatlarni bog'lang (`1..1` ⟷ `0..*`).",
+    "storyEn": "WIUT — Student, Course and Lecturer Ternary Association — Conceptual ER business case study.",
+    "instruction": "'Student', 'CourseModule' va 'Lecturer' o'rtasida uch tomonlama munosabat modelini barpo eting.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Student",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "studentId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "studentId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "studentName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "groupNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "CourseModule",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "moduleCode",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "moduleCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "title",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "credits",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "Lecturer",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "lecturerId",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "lecturerId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "lecturerName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "roomNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Enrolls",
+          "entity1": "Student",
+          "entity2": "CourseModule",
+          "fromEntityName": "Student",
+          "toEntityName": "CourseModule",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "TaughtBy",
+          "entity1": "CourseModule",
+          "entity2": "Lecturer",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Lecturer",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Student",
+          "pk": "studentId",
+          "attributes": [
+            {
+              "name": "studentId",
+              "isPK": true
+            },
+            {
+              "name": "studentName",
+              "isPK": false
+            },
+            {
+              "name": "groupNo",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CourseModule",
+          "pk": "moduleCode",
+          "attributes": [
+            {
+              "name": "moduleCode",
+              "isPK": true
+            },
+            {
+              "name": "title",
+              "isPK": false
+            },
+            {
+              "name": "credits",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Lecturer",
+          "pk": "lecturerId",
+          "attributes": [
+            {
+              "name": "lecturerId",
+              "isPK": true
+            },
+            {
+              "name": "lecturerName",
+              "isPK": false
+            },
+            {
+              "name": "roomNo",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Student",
+          "entity2": "CourseModule",
+          "fromEntityName": "Student",
+          "toEntityName": "CourseModule",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Enrolls",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CourseModule",
+          "entity2": "Lecturer",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Lecturer",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "TaughtBy",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 77,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Dr. Feruz Boboyev",
+    "clientRole": "Respublika Klinikasi Bosh Farmakologi",
+    "clientAvatar": "👨‍⚕️",
+    "title": "Klinika — Bemor, Shifokor va Tayinlangan Dori (TreatsWithDrug)",
+    "titleEn": "Clinic — Patient, Doctor and Prescribed Drug Ternary Relationship",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKasalxonada davolash jarayonida bemor (**Patient**), davolovchi shifokor (**Doctor**) va dori vositasi (**Medication**) uch tomonlama bitta davolash retsizmini tashkil etadi.\nQaysi shifokor aynan qaysi bemorga qaysi dorini buyurganini aniq qayd etish uchun uchta entitiy o'zaro bog'lanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `Patient`: {PK} `patientId`, `fullName`, `diagnosis`.\n2. `Doctor`: {PK} `doctorId`, `doctorName`, `specialty`.\n3. `Medication`: {PK} `drugCode`, `drugName`, `dosage`.\n4. Munosabatlarni o'rnatib, to'g'ri multiplisitiyalarni joylashtiring.",
+    "storyEn": "Clinic — Patient, Doctor and Prescribed Drug Ternary Relationship — Conceptual ER business case study.",
+    "instruction": "Bemor, shifokor va dori vositasi o'rtasidagi munosabatlar modelini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Patient",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "patientId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "patientId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "diagnosis",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "Doctor",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "doctorId",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "doctorId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "doctorName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "specialty",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "Medication",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "drugCode",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "drugCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "drugName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "dosage",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Treats",
+          "entity1": "Doctor",
+          "entity2": "Patient",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Patient",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Prescribes",
+          "entity1": "Doctor",
+          "entity2": "Medication",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Medication",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "Patient",
+          "pk": "patientId",
+          "attributes": [
+            {
+              "name": "patientId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            },
+            {
+              "name": "diagnosis",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Doctor",
+          "pk": "doctorId",
+          "attributes": [
+            {
+              "name": "doctorId",
+              "isPK": true
+            },
+            {
+              "name": "doctorName",
+              "isPK": false
+            },
+            {
+              "name": "specialty",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "Medication",
+          "pk": "drugCode",
+          "attributes": [
+            {
+              "name": "drugCode",
+              "isPK": true
+            },
+            {
+              "name": "drugName",
+              "isPK": false
+            },
+            {
+              "name": "dosage",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Doctor",
+          "entity2": "Patient",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Patient",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Treats",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "Doctor",
+          "entity2": "Medication",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Medication",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Prescribes",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 78,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Shuhrat Bekmurodov",
+    "clientRole": "UzAuto Ta'minot Boshqarmasi",
+    "clientAvatar": "🔩",
+    "title": "UzAuto Motors — Ta'minotchi, Ehtiyot Qism va Avtomobil Modeli (SuppliesComponent)",
+    "titleEn": "UzAuto Motors — Supplier, Part and Vehicle Model Ternary Supply",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nAvtomobil yig'uvida ta'minotchi kompaniya (**AutoSupplier**), ehtiyot qism (**SparePart**) va chiqarilayotgan avtomobil modeli (**VehicleModel**) uchlik munosabatda bo'ladi.\nBitta ta'minotchi aynan ma'lum bir mashina modeli (masalan, Tracker) uchun muayyan detallarni (masalan, bamper) yetkazib berishini aniq belgilash zarur.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `AutoSupplier`: {PK} `supplierId`, `companyName`, `country`.\n2. `SparePart`: {PK} `partCode`, `partName`, `cost`.\n3. `VehicleModel`: {PK} `modelCode`, `modelName`, `seriesYear`.\n4. Uch tomonlama munosabatlarni bog'lang.",
+    "storyEn": "UzAuto Motors — Supplier, Part and Vehicle Model Ternary Supply — Conceptual ER business case study.",
+    "instruction": "Ta'minotchi, ehtiyot qism va avtomobil modeli bog'lanishlarini loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "AutoSupplier",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "supplierId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "supplierId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "companyName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "country",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "SparePart",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "partCode",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "partCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "partName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "cost",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "VehicleModel",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "modelCode",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "modelCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "modelName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "seriesYear",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Produces",
+          "entity1": "AutoSupplier",
+          "entity2": "SparePart",
+          "fromEntityName": "AutoSupplier",
+          "toEntityName": "SparePart",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "FittedTo",
+          "entity1": "SparePart",
+          "entity2": "VehicleModel",
+          "fromEntityName": "SparePart",
+          "toEntityName": "VehicleModel",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "AutoSupplier",
+          "pk": "supplierId",
+          "attributes": [
+            {
+              "name": "supplierId",
+              "isPK": true
+            },
+            {
+              "name": "companyName",
+              "isPK": false
+            },
+            {
+              "name": "country",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SparePart",
+          "pk": "partCode",
+          "attributes": [
+            {
+              "name": "partCode",
+              "isPK": true
+            },
+            {
+              "name": "partName",
+              "isPK": false
+            },
+            {
+              "name": "cost",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "VehicleModel",
+          "pk": "modelCode",
+          "attributes": [
+            {
+              "name": "modelCode",
+              "isPK": true
+            },
+            {
+              "name": "modelName",
+              "isPK": false
+            },
+            {
+              "name": "seriesYear",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "AutoSupplier",
+          "entity2": "SparePart",
+          "fromEntityName": "AutoSupplier",
+          "toEntityName": "SparePart",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Produces",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SparePart",
+          "entity2": "VehicleModel",
+          "fromEntityName": "SparePart",
+          "toEntityName": "VehicleModel",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "FittedTo",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 79,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Ravshan Ikromov",
+    "clientRole": "AutoMotors Dilari",
+    "clientAvatar": "🚙",
+    "title": "Avtosalon — Savdo Agenti, Xaridor va Avtomobil Savdosi (ExecutesCarSale)",
+    "titleEn": "Auto Dealership — Sales Agent, Buyer and Car Sale Ternary Relationship",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKatta avtosalonda savdo agenti (**SalesAgent**), xaridor (**CarBuyer**) va salondagi avtomobil (**ShowroomCar**) o'rtasida sotuv bitimi amalga oshiriladi.\nKim kimga qaysi mashinani sotganligi to'liq uchala ob'ektning birikuvidan hosil bo'ladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `SalesAgent`: {PK} `agentId`, `agentName`, `salesTier`.\n2. `CarBuyer`: {PK} `buyerId`, `buyerName`, `phone`.\n3. `ShowroomCar`: {PK} `vinCode`, `model`, `price`.\n4. O'zaro bog'lanish chiziqlarini va multiplisitiyalarni to'g'ri o'rnating.",
+    "storyEn": "Auto Dealership — Sales Agent, Buyer and Car Sale Ternary Relationship — Conceptual ER business case study.",
+    "instruction": "Agent, xaridor va mashina o'rtasidagi sotuv munosabatini shakllantiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "SalesAgent",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "agentId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "agentId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "agentName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "salesTier",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "CarBuyer",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "buyerId",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "buyerId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "buyerName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "ShowroomCar",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "vinCode",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "vinCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "model",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "price",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Serves",
+          "entity1": "SalesAgent",
+          "entity2": "CarBuyer",
+          "fromEntityName": "SalesAgent",
+          "toEntityName": "CarBuyer",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Purchases",
+          "entity1": "CarBuyer",
+          "entity2": "ShowroomCar",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "ShowroomCar",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "SalesAgent",
+          "pk": "agentId",
+          "attributes": [
+            {
+              "name": "agentId",
+              "isPK": true
+            },
+            {
+              "name": "agentName",
+              "isPK": false
+            },
+            {
+              "name": "salesTier",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CarBuyer",
+          "pk": "buyerId",
+          "attributes": [
+            {
+              "name": "buyerId",
+              "isPK": true
+            },
+            {
+              "name": "buyerName",
+              "isPK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ShowroomCar",
+          "pk": "vinCode",
+          "attributes": [
+            {
+              "name": "vinCode",
+              "isPK": true
+            },
+            {
+              "name": "model",
+              "isPK": false
+            },
+            {
+              "name": "price",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "SalesAgent",
+          "entity2": "CarBuyer",
+          "fromEntityName": "SalesAgent",
+          "toEntityName": "CarBuyer",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Serves",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CarBuyer",
+          "entity2": "ShowroomCar",
+          "fromEntityName": "CarBuyer",
+          "toEntityName": "ShowroomCar",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Purchases",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 80,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Murod Shodiyev",
+    "clientRole": "Golden House Bosh Muhandisi",
+    "clientAvatar": "🏗️",
+    "title": "Qurilish — Pudratchi, Obyekt va Og'ir Texnika Birikuvi (DeploysMachinery)",
+    "titleEn": "Construction — Contractor, Building Site and Heavy Machinery Ternary",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKatta developerlik loyihasida qurilish pudratchisi (**BuildingContractor**), qurilish maydoni (**BuildingSite**) va og'ir texnika (**HeavyEquipment**) uch tomonlama reja asosida ishlatiladi.\nQaysi pudratchi qaysi ob'ektda qaysi kran yoki ekskavatorni ishlatayotganini boshqarish uchun uchta entitiy birlashtiriladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `BuildingContractor`: {PK} `contractorId`, `companyName`.\n2. `BuildingSite`: {PK} `siteCode`, `siteAddress`.\n3. `HeavyEquipment`: {PK} `machineId`, `machineType`.\n4. Multiplisitiyalarni aniqlab, aloqalarni bog'lang.",
+    "storyEn": "Construction — Contractor, Building Site and Heavy Machinery Ternary — Conceptual ER business case study.",
+    "instruction": "Pudratchi, maydon va og'ir texnika munosabatlarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "BuildingContractor",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "contractorId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "contractorId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "companyName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "BuildingSite",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "siteCode",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "siteCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "siteAddress",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "HeavyEquipment",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "machineId",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "machineId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "machineType",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "WorksOn",
+          "entity1": "BuildingContractor",
+          "entity2": "BuildingSite",
+          "fromEntityName": "BuildingContractor",
+          "toEntityName": "BuildingSite",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Deploys",
+          "entity1": "BuildingSite",
+          "entity2": "HeavyEquipment",
+          "fromEntityName": "BuildingSite",
+          "toEntityName": "HeavyEquipment",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "BuildingContractor",
+          "pk": "contractorId",
+          "attributes": [
+            {
+              "name": "contractorId",
+              "isPK": true
+            },
+            {
+              "name": "companyName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "BuildingSite",
+          "pk": "siteCode",
+          "attributes": [
+            {
+              "name": "siteCode",
+              "isPK": true
+            },
+            {
+              "name": "siteAddress",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "HeavyEquipment",
+          "pk": "machineId",
+          "attributes": [
+            {
+              "name": "machineId",
+              "isPK": true
+            },
+            {
+              "name": "machineType",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "BuildingContractor",
+          "entity2": "BuildingSite",
+          "fromEntityName": "BuildingContractor",
+          "toEntityName": "BuildingSite",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "WorksOn",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "BuildingSite",
+          "entity2": "HeavyEquipment",
+          "fromEntityName": "BuildingSite",
+          "toEntityName": "HeavyEquipment",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "Deploys",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 81,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Nargiza Mirsaidova",
+    "clientRole": "Xalqaro Forum Bosh Koordinatori",
+    "clientAvatar": "🎤",
+    "title": "Ilmiy Forum — Ma'ruzachi, Sho'ba Mavzusi va Zal (PresentsAtSession)",
+    "titleEn": "Symposium — Speaker, Topic and Conference Hall Ternary",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nToshkentdagi xalqaro ilmiy simpoziumda ma'ruzachi olim (**KeynoteSpeaker**), ilmiy mavzu (**SymposiumTopic**) va konferentsiya zali (**SessionHall**) uch tomonlama taqsimlanadi.\nQaysi olim qaysi mavzu bo'yicha qaysi zalda taqdimot qilishini modellashtirish talab etiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `KeynoteSpeaker`: {PK} `speakerId`, `speakerName`, `academicRank`.\n2. `SymposiumTopic`: {PK} `topicCode`, `topicTitle`, `field`.\n3. `SessionHall`: {PK} `hallId`, `hallName`, `capacity`.\n4. Aloqalarni bog'lab, to'g'ri multiplisitiyalarni joylashtiring.",
+    "storyEn": "Symposium — Speaker, Topic and Conference Hall Ternary — Conceptual ER business case study.",
+    "instruction": "Ma'ruzachi, mavzu va zal o'rtasidagi bog'lanishlarni ifodalang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "KeynoteSpeaker",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "speakerId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "speakerId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "speakerName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "academicRank",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "SymposiumTopic",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "topicCode",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "topicCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "topicTitle",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "field",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "SessionHall",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "hallId",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "hallId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "hallName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "capacity",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Covers",
+          "entity1": "KeynoteSpeaker",
+          "entity2": "SymposiumTopic",
+          "fromEntityName": "KeynoteSpeaker",
+          "toEntityName": "SymposiumTopic",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "HostedIn",
+          "entity1": "SymposiumTopic",
+          "entity2": "SessionHall",
+          "fromEntityName": "SymposiumTopic",
+          "toEntityName": "SessionHall",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "KeynoteSpeaker",
+          "pk": "speakerId",
+          "attributes": [
+            {
+              "name": "speakerId",
+              "isPK": true
+            },
+            {
+              "name": "speakerName",
+              "isPK": false
+            },
+            {
+              "name": "academicRank",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SymposiumTopic",
+          "pk": "topicCode",
+          "attributes": [
+            {
+              "name": "topicCode",
+              "isPK": true
+            },
+            {
+              "name": "topicTitle",
+              "isPK": false
+            },
+            {
+              "name": "field",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SessionHall",
+          "pk": "hallId",
+          "attributes": [
+            {
+              "name": "hallId",
+              "isPK": true
+            },
+            {
+              "name": "hallName",
+              "isPK": false
+            },
+            {
+              "name": "capacity",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "KeynoteSpeaker",
+          "entity2": "SymposiumTopic",
+          "fromEntityName": "KeynoteSpeaker",
+          "toEntityName": "SymposiumTopic",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Covers",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SymposiumTopic",
+          "entity2": "SessionHall",
+          "fromEntityName": "SymposiumTopic",
+          "toEntityName": "SessionHall",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "HostedIn",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 82,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Akmal Tohirov",
+    "clientRole": "Sug'urta Brokeri",
+    "clientAvatar": "🛡️",
+    "title": "Sug'urta — Broker, Korporativ Mijoz va Sug'urta Kompaniyasi (BrokersDeal)",
+    "titleEn": "Insurance — Broker, Corporate Client and Underwriter Carrier Ternary",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nSug'urta bozorida litsenziyali broker (**InsuranceBroker**) yirik korxona (**CorporateClient**) uchun eng maqbul sug'urta kompaniyasidan (**UnderwritingFirm**) polislarni kelishtirib beradi.\nUch tomonlama shartnoma mantiqini aks ettiruvchi model talab etiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `InsuranceBroker`: {PK} `brokerId`, `brokerName`.\n2. `CorporateClient`: {PK} `clientInn`, `companyName`.\n3. `UnderwritingFirm`: {PK} `firmId`, `firmName`.\n4. Munosabatlarni o'rnating va tekshiring.",
+    "storyEn": "Insurance — Broker, Corporate Client and Underwriter Carrier Ternary — Conceptual ER business case study.",
+    "instruction": "Broker, mijoz va sug'urtachi o'rtasidagi uchlik modelni tuzing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "InsuranceBroker",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "brokerId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "brokerId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "brokerName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "CorporateClient",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "clientInn",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "clientInn",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "companyName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "UnderwritingFirm",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "firmId",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "firmId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "firmName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Represents",
+          "entity1": "InsuranceBroker",
+          "entity2": "CorporateClient",
+          "fromEntityName": "InsuranceBroker",
+          "toEntityName": "CorporateClient",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "InsuredBy",
+          "entity1": "CorporateClient",
+          "entity2": "UnderwritingFirm",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "UnderwritingFirm",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "InsuranceBroker",
+          "pk": "brokerId",
+          "attributes": [
+            {
+              "name": "brokerId",
+              "isPK": true
+            },
+            {
+              "name": "brokerName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CorporateClient",
+          "pk": "clientInn",
+          "attributes": [
+            {
+              "name": "clientInn",
+              "isPK": true
+            },
+            {
+              "name": "companyName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "UnderwritingFirm",
+          "pk": "firmId",
+          "attributes": [
+            {
+              "name": "firmId",
+              "isPK": true
+            },
+            {
+              "name": "firmName",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "InsuranceBroker",
+          "entity2": "CorporateClient",
+          "fromEntityName": "InsuranceBroker",
+          "toEntityName": "CorporateClient",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Represents",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CorporateClient",
+          "entity2": "UnderwritingFirm",
+          "fromEntityName": "CorporateClient",
+          "toEntityName": "UnderwritingFirm",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "InsuredBy",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 83,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Qahramon Sodiqov",
+    "clientRole": "Toshkent Bojxona Posti Boshlig'i",
+    "clientAvatar": "🚢",
+    "title": "Bojxona — Yuk Tashuvchi, Terminal va Ekspeditsiya Firmasi (ClearsCargo)",
+    "titleEn": "Customs Hub — Cargo Carrier, Terminal and Forwarder Ternary",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nXalqaro multimodal tashuvlarda yuk tashuvchi transport (**CargoCarrier**), bojxona terminali (**CustomsTerminal**) va logistika ekspeditori (**FreightForwarder**) o'rtasida yuk deklaratsiyasi rasmiylashtiriladi.\nUchta ob'ekt yagona bojxona jarayonida ishtirok etadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `CargoCarrier`: {PK} `carrierId`, `carrierName`.\n2. `CustomsTerminal`: {PK} `terminalCode`, `location`.\n3. `FreightForwarder`: {PK} `forwarderInn`, `title`.\n4. Barcha zarur munosabatlarni bog'lang.",
+    "storyEn": "Customs Hub — Cargo Carrier, Terminal and Forwarder Ternary — Conceptual ER business case study.",
+    "instruction": "Yuk tashuvchi, bojxona terminali va ekspeditor uchligini ifodalang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "CargoCarrier",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "carrierId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "carrierId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "carrierName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "CustomsTerminal",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "terminalCode",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "terminalCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "location",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "FreightForwarder",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "forwarderInn",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "forwarderInn",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "title",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ArrivesAt",
+          "entity1": "CargoCarrier",
+          "entity2": "CustomsTerminal",
+          "fromEntityName": "CargoCarrier",
+          "toEntityName": "CustomsTerminal",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ClearedBy",
+          "entity1": "CustomsTerminal",
+          "entity2": "FreightForwarder",
+          "fromEntityName": "CustomsTerminal",
+          "toEntityName": "FreightForwarder",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "CargoCarrier",
+          "pk": "carrierId",
+          "attributes": [
+            {
+              "name": "carrierId",
+              "isPK": true
+            },
+            {
+              "name": "carrierName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CustomsTerminal",
+          "pk": "terminalCode",
+          "attributes": [
+            {
+              "name": "terminalCode",
+              "isPK": true
+            },
+            {
+              "name": "location",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "FreightForwarder",
+          "pk": "forwarderInn",
+          "attributes": [
+            {
+              "name": "forwarderInn",
+              "isPK": true
+            },
+            {
+              "name": "title",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "CargoCarrier",
+          "entity2": "CustomsTerminal",
+          "fromEntityName": "CargoCarrier",
+          "toEntityName": "CustomsTerminal",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ArrivesAt",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "CustomsTerminal",
+          "entity2": "FreightForwarder",
+          "fromEntityName": "CustomsTerminal",
+          "toEntityName": "FreightForwarder",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "ClearedBy",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 84,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Rustam Sa'diyev",
+    "clientRole": "O'zbekfilm Rejissyori",
+    "clientAvatar": "🎭",
+    "title": "Kinostudiya — Aktyor, Film Ishlab Chiqarish va Obraz Roli (CastInRole)",
+    "titleEn": "Film Studio — Actor, Movie Production and Character Role Ternary",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKinofilm suratga olishda aktyor (**FilmActor**), film loyihasi (**MovieProduction**) va ssenariydagi obraz (**CharacterRole**) o'rtasida kasting tanlovi o'tkaziladi.\nQaysi aktyor qaysi kinoda qaysi qahramon rolini ijro etayotganini aniqlash uchun uch tomonlama aloqa zarur.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `FilmActor`: {PK} `actorId`, `actorName`.\n2. `MovieProduction`: {PK} `movieId`, `movieTitle`.\n3. `CharacterRole`: {PK} `roleCode`, `roleName`.\n4. Aloqalarni to'g'ri multiplisitiyalar bilan yakunlang.",
+    "storyEn": "Film Studio — Actor, Movie Production and Character Role Ternary — Conceptual ER business case study.",
+    "instruction": "Aktyor, film va qahramon roli munosabatlarini polotnoda quring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "FilmActor",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "actorId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "actorId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "actorName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "MovieProduction",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "movieId",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "movieId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "movieTitle",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "CharacterRole",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "roleCode",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "roleCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "roleName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "ActsIn",
+          "entity1": "FilmActor",
+          "entity2": "MovieProduction",
+          "fromEntityName": "FilmActor",
+          "toEntityName": "MovieProduction",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "Features",
+          "entity1": "MovieProduction",
+          "entity2": "CharacterRole",
+          "fromEntityName": "MovieProduction",
+          "toEntityName": "CharacterRole",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "FilmActor",
+          "pk": "actorId",
+          "attributes": [
+            {
+              "name": "actorId",
+              "isPK": true
+            },
+            {
+              "name": "actorName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "MovieProduction",
+          "pk": "movieId",
+          "attributes": [
+            {
+              "name": "movieId",
+              "isPK": true
+            },
+            {
+              "name": "movieTitle",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CharacterRole",
+          "pk": "roleCode",
+          "attributes": [
+            {
+              "name": "roleCode",
+              "isPK": true
+            },
+            {
+              "name": "roleName",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "FilmActor",
+          "entity2": "MovieProduction",
+          "fromEntityName": "FilmActor",
+          "toEntityName": "MovieProduction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "ActsIn",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "MovieProduction",
+          "entity2": "CharacterRole",
+          "fromEntityName": "MovieProduction",
+          "toEntityName": "CharacterRole",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Features",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 85,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Prof. Anora Yoqubova",
+    "clientRole": "Fanlar Akademiyasi Laboratoriya Mudiri",
+    "clientAvatar": "🔬",
+    "title": "Ilmiy Tadqiqot — Olim, Grant Loyihasi va Laboratoriya (ConductsExperiment)",
+    "titleEn": "Scientific Research — Scientist, Grant Project and Laboratory Ternary",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nIlmiy tadqiqotlar markazida tadqiqotchi olim (**ResearchScientist**), davlat granti loyihasi (**GrantProject**) va ixtisoslashgan laboratoriya (**LabFacility**) uch tomonlama integratsiyalashadi.\nTajribalar o'tkazilishi aynan shu uchlikning birikuviga asoslanadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `ResearchScientist`: {PK} `scientistId`, `fullName`.\n2. `GrantProject`: {PK} `grantNo`, `projectTitle`.\n3. `LabFacility`: {PK} `labCode`, `labName`.\n4. Multiplisitiyalarni `1..1` va `0..*` ko'rinishida tanlang.",
+    "storyEn": "Scientific Research — Scientist, Grant Project and Laboratory Ternary — Conceptual ER business case study.",
+    "instruction": "Olim, grant va laboratoriya o'rtasidagi tadqiqot modelini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "ResearchScientist",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "scientistId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "scientistId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "GrantProject",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "grantNo",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "grantNo",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "projectTitle",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "LabFacility",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "labCode",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "labCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "labName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Conducts",
+          "entity1": "ResearchScientist",
+          "entity2": "GrantProject",
+          "fromEntityName": "ResearchScientist",
+          "toEntityName": "GrantProject",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "UsesFacility",
+          "entity1": "GrantProject",
+          "entity2": "LabFacility",
+          "fromEntityName": "GrantProject",
+          "toEntityName": "LabFacility",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "ResearchScientist",
+          "pk": "scientistId",
+          "attributes": [
+            {
+              "name": "scientistId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "GrantProject",
+          "pk": "grantNo",
+          "attributes": [
+            {
+              "name": "grantNo",
+              "isPK": true
+            },
+            {
+              "name": "projectTitle",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "LabFacility",
+          "pk": "labCode",
+          "attributes": [
+            {
+              "name": "labCode",
+              "isPK": true
+            },
+            {
+              "name": "labName",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "ResearchScientist",
+          "entity2": "GrantProject",
+          "fromEntityName": "ResearchScientist",
+          "toEntityName": "GrantProject",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Conducts",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "GrantProject",
+          "entity2": "LabFacility",
+          "fromEntityName": "GrantProject",
+          "toEntityName": "LabFacility",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "UsesFacility",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 86,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Dilshod Fayziyev",
+    "clientRole": "Nestle Savdo Koordinatori",
+    "clientAvatar": "🍫",
+    "title": "Chakana Savdo — Merchendayzer, Brend Mahsuloti va Supermarket (MerchandisesProduct)",
+    "titleEn": "Retail Merchandising — Merchandiser, Brand Product and Store Ternary",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKatta chakana savdoda merchendayzer mutaxassis (**BrandMerchandiser**), brend mahsuloti (**PromotedProduct**) va savdo tarmog'i filiali (**SupermarketStore**) o'rtasida polka joylashuvi kelishiladi.\nUchala bo'g'in o'rtasidagi harakatni modellashtirish talab etiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `BrandMerchandiser`: {PK} `merchandiserId`, `fullName`.\n2. `PromotedProduct`: {PK} `sku`, `productName`.\n3. `SupermarketStore`: {PK} `storeId`, `storeAddress`.\n4. O'zaro munosabatlarni bog'lang.",
+    "storyEn": "Retail Merchandising — Merchandiser, Brand Product and Store Ternary — Conceptual ER business case study.",
+    "instruction": "Merchendayzer, mahsulot va supermarket o'rtasidagi munosabatlarni o'rnating.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "BrandMerchandiser",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "merchandiserId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "merchandiserId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "PromotedProduct",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "sku",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "sku",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "productName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "SupermarketStore",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "storeId",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "storeId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "storeAddress",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Supervises",
+          "entity1": "BrandMerchandiser",
+          "entity2": "PromotedProduct",
+          "fromEntityName": "BrandMerchandiser",
+          "toEntityName": "PromotedProduct",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "PlacedIn",
+          "entity1": "PromotedProduct",
+          "entity2": "SupermarketStore",
+          "fromEntityName": "PromotedProduct",
+          "toEntityName": "SupermarketStore",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "BrandMerchandiser",
+          "pk": "merchandiserId",
+          "attributes": [
+            {
+              "name": "merchandiserId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PromotedProduct",
+          "pk": "sku",
+          "attributes": [
+            {
+              "name": "sku",
+              "isPK": true
+            },
+            {
+              "name": "productName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SupermarketStore",
+          "pk": "storeId",
+          "attributes": [
+            {
+              "name": "storeId",
+              "isPK": true
+            },
+            {
+              "name": "storeAddress",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "BrandMerchandiser",
+          "entity2": "PromotedProduct",
+          "fromEntityName": "BrandMerchandiser",
+          "toEntityName": "PromotedProduct",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Supervises",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "PromotedProduct",
+          "entity2": "SupermarketStore",
+          "fromEntityName": "PromotedProduct",
+          "toEntityName": "SupermarketStore",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "PlacedIn",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 87,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Olim Olimov",
+    "clientRole": "Olimpiya Qo'mitasi Bosh Kotibi",
+    "clientAvatar": "🥇",
+    "title": "Sport — Sportchi, Sport Yo'nalishi va Chempionat Musobaqasi (EntersContest)",
+    "titleEn": "Sports — Athlete, Discipline and Championship Event Ternary",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nOsiyo O'yinlarida sportchi (**SportAthlete**), sport yo'nalishi (**SportDiscipline**) va musobaqa bahsi (**ChampionshipEvent**) o'rtasida ro'yxatdan o'tish amalga oshiriladi.\nQaysi sportchi aynan qaysi yo'nalishda qaysi chempionat musobaqasida ishtirok etishini belgilash zarur.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `SportAthlete`: {PK} `athleteId`, `athleteName`.\n2. `SportDiscipline`: {PK} `disciplineCode`, `title`.\n3. `ChampionshipEvent`: {PK} `eventId`, `eventName`.\n4. Munosabatlarni to'g'ri multiplisitiyalar bilan yakunlang.",
+    "storyEn": "Sports — Athlete, Discipline and Championship Event Ternary — Conceptual ER business case study.",
+    "instruction": "Sportchi, sport turi va musobaqa uchligini modellashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "SportAthlete",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "athleteId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "athleteId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "athleteName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "SportDiscipline",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "disciplineCode",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "disciplineCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "title",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "ChampionshipEvent",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "eventId",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "eventId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "eventName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Specializes",
+          "entity1": "SportAthlete",
+          "entity2": "SportDiscipline",
+          "fromEntityName": "SportAthlete",
+          "toEntityName": "SportDiscipline",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ContestedAt",
+          "entity1": "SportDiscipline",
+          "entity2": "ChampionshipEvent",
+          "fromEntityName": "SportDiscipline",
+          "toEntityName": "ChampionshipEvent",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "SportAthlete",
+          "pk": "athleteId",
+          "attributes": [
+            {
+              "name": "athleteId",
+              "isPK": true
+            },
+            {
+              "name": "athleteName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SportDiscipline",
+          "pk": "disciplineCode",
+          "attributes": [
+            {
+              "name": "disciplineCode",
+              "isPK": true
+            },
+            {
+              "name": "title",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ChampionshipEvent",
+          "pk": "eventId",
+          "attributes": [
+            {
+              "name": "eventId",
+              "isPK": true
+            },
+            {
+              "name": "eventName",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "SportAthlete",
+          "entity2": "SportDiscipline",
+          "fromEntityName": "SportAthlete",
+          "toEntityName": "SportDiscipline",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "Specializes",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SportDiscipline",
+          "entity2": "ChampionshipEvent",
+          "fromEntityName": "SportDiscipline",
+          "toEntityName": "ChampionshipEvent",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "ContestedAt",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 88,
+    "sector": 6,
+    "difficulty": "Qiyin",
+    "clientName": "Zuhra Aliyeva",
+    "clientRole": "Davlat Test Markazi (DTM) Menejeri",
+    "clientAvatar": "📝",
+    "title": "DTM Imtihoni — Abituriyent, Fan Bloki va Nazoratchi Proktor (ProctorsExam)",
+    "titleEn": "DTM Examination — Examinee, Subject Block and Proctor Ternary",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKatta imtihon majmuasida abituriyent (**ExamineeStudent**), test fanlari bloki (**SubjectBlock**) va imtihon nazoratchisi (**ExamProctor**) uchtaligi bitta test seansida birlashadi.\nNazorat va xolislikni ta'minlash uchun uchala tomon ro'yxatga olinadi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `ExamineeStudent`: {PK} `examineeId`, `fullName`.\n2. `SubjectBlock`: {PK} `blockCode`, `subjects`.\n3. `ExamProctor`: {PK} `proctorId`, `proctorName`.\n4. Uch tomonlama munosabatlarni polotnoda quring.",
+    "storyEn": "DTM Examination — Examinee, Subject Block and Proctor Ternary — Conceptual ER business case study.",
+    "instruction": "Abituriyent, fan bloki va nazoratchi o'rtasidagi bog'lanishlarni ifodalang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "ExamineeStudent",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "examineeId",
+          "x": 120,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "examineeId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "SubjectBlock",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "blockCode",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "blockCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "subjects",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "ExamProctor",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "proctorId",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "proctorId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "proctorName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "AssignedBlock",
+          "entity1": "ExamineeStudent",
+          "entity2": "SubjectBlock",
+          "fromEntityName": "ExamineeStudent",
+          "toEntityName": "SubjectBlock",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "SupervisedBy",
+          "entity1": "SubjectBlock",
+          "entity2": "ExamProctor",
+          "fromEntityName": "SubjectBlock",
+          "toEntityName": "ExamProctor",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "ExamineeStudent",
+          "pk": "examineeId",
+          "attributes": [
+            {
+              "name": "examineeId",
+              "isPK": true
+            },
+            {
+              "name": "fullName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SubjectBlock",
+          "pk": "blockCode",
+          "attributes": [
+            {
+              "name": "blockCode",
+              "isPK": true
+            },
+            {
+              "name": "subjects",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ExamProctor",
+          "pk": "proctorId",
+          "attributes": [
+            {
+              "name": "proctorId",
+              "isPK": true
+            },
+            {
+              "name": "proctorName",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "ExamineeStudent",
+          "entity2": "SubjectBlock",
+          "fromEntityName": "ExamineeStudent",
+          "toEntityName": "SubjectBlock",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AssignedBlock",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SubjectBlock",
+          "entity2": "ExamProctor",
+          "fromEntityName": "SubjectBlock",
+          "toEntityName": "ExamProctor",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "SupervisedBy",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -5961,43 +6443,81 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 89,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "PathogenStrain Rekursiv Ierarxiyasi",
-    "story": "Virusologik Mutatsiya tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Yangi ajratilgan virus shtammi o'zidan oldingi ajdod virus shtammining mutatsiyasidan vujudga keladi. Tizimda yagona markaziy entitiy — **PathogenStrain** (strainId {PK}, `genomeSeqHash`, `isolationDate`, `virulenceRate`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **MutatedFrom** rekursiv munosabatiga ega bo'lib, nusxalar `ancestralStrain` va `mutantLineage` rollarini bajaradi.",
-    "instruction": "'PathogenStrain' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'MutatedFrom' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
+    "difficulty": "Qiyin",
+    "clientName": "Nodira Karimova",
+    "clientRole": "Microsoft O'zbekiston Hamkori",
+    "clientAvatar": "💻",
+    "title": "Dasturiy Ta'minot — Korporativ Mijoz, Dastur Moduli va Diler (LicensesSoftware)",
+    "titleEn": "Software Enterprise — Client, Software Module and Reseller Ternary",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKorporativ dasturlar litsenziyalash bozorida xaridor korxona (**EnterpriseBuyer**), dasturiy modul (**SoftwareModule**) va sertifikatlangan diler (**LicenseReseller**) o'rtasida bitim tuziladi.\nQaysi diler qaysi korxonaga qaysi litsenziyani sotganini yuritish talab etiladi.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `EnterpriseBuyer`: {PK} `companyInn`, `companyName`.\n2. `SoftwareModule`: {PK} `moduleSku`, `moduleTitle`.\n3. `LicenseReseller`: {PK} `resellerId`, `resellerName`.\n4. Munosabatlarni to'g'ri multiplisitiyalar bilan yakunlang.",
+    "storyEn": "Software Enterprise — Client, Software Module and Reseller Ternary — Conceptual ER business case study.",
+    "instruction": "Korxona, dasturiy modul va diler munosabatlarini shakllantiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "PathogenStrain",
+          "name": "EnterpriseBuyer",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "strainId",
-          "x": 340,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "companyInn",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "strainId",
+              "name": "companyInn",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "genomeSeqHash",
+              "name": "companyName",
               "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "SoftwareModule",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "moduleSku",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "moduleSku",
+              "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "isolationDate",
+              "name": "moduleTitle",
               "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "LicenseReseller",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "resellerId",
+          "x": 330,
+          "y": 320,
+          "attributes": [
+            {
+              "name": "resellerId",
+              "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "virulenceRate",
+              "name": "resellerName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6008,15 +6528,31 @@ _scope.QUESTIONS_51_100 = [
       "relationships": [
         {
           "id": "rel_1",
-          "name": "MutatedFrom",
-          "entity1": "PathogenStrain",
-          "entity2": "PathogenStrain",
-          "fromEntityName": "PathogenStrain",
-          "toEntityName": "PathogenStrain",
+          "name": "Purchases",
+          "entity1": "EnterpriseBuyer",
+          "entity2": "SoftwareModule",
+          "fromEntityName": "EnterpriseBuyer",
+          "toEntityName": "SoftwareModule",
           "mult1": "",
           "mult2": "",
           "isIdentifying": false,
-          "isDirect": true
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "ProvidedBy",
+          "entity1": "SoftwareModule",
+          "entity2": "LicenseReseller",
+          "fromEntityName": "SoftwareModule",
+          "toEntityName": "LicenseReseller",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
         }
       ],
       "subclasses": null
@@ -6024,23 +6560,43 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "PathogenStrain",
-          "pk": "strainId",
+          "name": "EnterpriseBuyer",
+          "pk": "companyInn",
           "attributes": [
             {
-              "name": "strainId",
+              "name": "companyInn",
               "isPK": true
             },
             {
-              "name": "genomeSeqHash",
+              "name": "companyName",
               "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SoftwareModule",
+          "pk": "moduleSku",
+          "attributes": [
+            {
+              "name": "moduleSku",
+              "isPK": true
             },
             {
-              "name": "isolationDate",
+              "name": "moduleTitle",
               "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "LicenseReseller",
+          "pk": "resellerId",
+          "attributes": [
+            {
+              "name": "resellerId",
+              "isPK": true
             },
             {
-              "name": "virulenceRate",
+              "name": "resellerName",
               "isPK": false
             }
           ]
@@ -6048,13 +6604,28 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [
         {
-          "entity1": "PathogenStrain",
-          "entity2": "PathogenStrain",
-          "mult1": "0..1",
+          "entity1": "EnterpriseBuyer",
+          "entity2": "SoftwareModule",
+          "fromEntityName": "EnterpriseBuyer",
+          "toEntityName": "SoftwareModule",
+          "mult1": "1..1",
           "mult2": "0..*",
-          "name": "MutatedFrom",
-          "role1": "ancestralStrain",
-          "role2": "mutantLineage"
+          "name": "Purchases",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "SoftwareModule",
+          "entity2": "LicenseReseller",
+          "fromEntityName": "SoftwareModule",
+          "toEntityName": "LicenseReseller",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "ProvidedBy",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
         }
       ]
     }
@@ -6062,123 +6633,72 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 90,
     "sector": 6,
-    "difficulty": "6-Qavat • Ekspert (Rekursiv)",
-    "clientName": "Bosh Tahlilchi",
-    "clientRole": "Yetakchi Me'mor",
-    "clientAvatar": "mentor",
-    "title": "WebDocument Rekursiv Ierarxiyasi",
-    "story": "Internet Veb Sahifalari tizimida bir xil turdagi ob'yektlarning o'zaro ichki ierarxiyasi mavjud: Internet veb sahifasida boshqa bir veb sahifaga o'tuvchi gipermatnli havola joylashtiriladi. Tizimda yagona markaziy entitiy — **WebDocument** (pageUrl {PK}, `pageTitle`, `pageRankScore`, `lastCrawled`) mavjud. Ushbu entitiy o'z-o'ziga bog'lanuvchi **HyperlinksTo** rekursiv munosabatiga ega bo'lib, nusxalar `referringPage` va `targetLinkedPage` rollarini bajaradi.",
-    "instruction": "'WebDocument' entitiysini yarating va uning o'ziga-o'zi bog'lanuvchi rekursiv 'HyperlinksTo' aloqasini to'g'ri multiplisitiya bilan o'rnating.",
+    "difficulty": "Qiyin",
+    "clientName": "Kapitan Rustam Saidov",
+    "clientRole": "Uzbekistan Airways Bosh Uchuvchisi",
+    "clientAvatar": "✈️",
+    "title": "Aviatsiya — Komandir Uchuvchi, Aviayo'nalish va Samolyot Borti (CommandsFlightRoute)",
+    "titleEn": "Aviation Fleet — Captain Pilot, Flight Route and Aircraft Ternary",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nXalqaro parvozlarda komandir uchuvchi (**FlightCaptain**), aviareys marshruti (**FlightRoute**) va avialayner samolyoti (**AircraftFleet**) uch tomonlama reys topshirig'ida birlashadi.\nQaysi kapitan qaysi samolyotda qaysi xalqaro reysni boshqarganini aniqlash zarur.\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `FlightCaptain`: {PK} `captainLicense`, `fullName`.\n2. `FlightRoute`: {PK} `routeCode`, `originDest`.\n3. `AircraftFleet`: {PK} `tailNo`, `model`.\n4. Multiplisitiyalarni to'g'ri o'rnatib, aloqalarni bog'lang.",
+    "storyEn": "Aviation Fleet — Captain Pilot, Flight Route and Aircraft Ternary — Conceptual ER business case study.",
+    "instruction": "Uchuvchi, reys yo'nalishi va samolyot o'rtasidagi munosabatni yakunlang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "WebDocument",
+          "name": "FlightCaptain",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "pageUrl",
-          "x": 340,
-          "y": 160,
+          "isSubclass": false,
+          "pk": "captainLicense",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "pageUrl",
+              "name": "captainLicense",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "pageTitle",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "pageRankScore",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "lastCrawled",
+              "name": "fullName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             }
           ]
-        }
-      ],
-      "relationships": [
+        },
         {
-          "id": "rel_1",
-          "name": "HyperlinksTo",
-          "entity1": "WebDocument",
-          "entity2": "WebDocument",
-          "fromEntityName": "WebDocument",
-          "toEntityName": "WebDocument",
-          "mult1": "",
-          "mult2": "",
-          "isIdentifying": false,
-          "isDirect": true
-        }
-      ],
-      "subclasses": null
-    },
-    "expectedDiagram": {
-      "entities": [
-        {
-          "name": "WebDocument",
-          "pk": "pageUrl",
-          "attributes": [
-            {
-              "name": "pageUrl",
-              "isPK": true
-            },
-            {
-              "name": "pageTitle",
-              "isPK": false
-            },
-            {
-              "name": "pageRankScore",
-              "isPK": false
-            },
-            {
-              "name": "lastCrawled",
-              "isPK": false
-            }
-          ]
-        }
-      ],
-      "relationships": [
-        {
-          "entity1": "WebDocument",
-          "entity2": "WebDocument",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "name": "HyperlinksTo",
-          "role1": "referringPage",
-          "role2": "targetLinkedPage"
-        }
-      ]
-    }
-  },
-  {
-    "id": 91,
-    "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Temur Karimov",
-    "clientRole": "Aviapark Texnik Direktori",
-    "clientAvatar": "mentor",
-    "title": "Aircraft Disjoint Ixtisoslashuvi",
-    "story": "Fuqaro Aviatsiyasi sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **Aircraft** (tailNo {PK}, `model`, `manufacturer`, `capacity`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'Aircraft' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
-    "starterDiagram": {
-      "entities": [
-        {
-          "name": "Aircraft",
+          "name": "FlightRoute",
           "isWeak": false,
           "isAssociative": false,
+          "isSubclass": false,
+          "pk": "routeCode",
+          "x": 540,
+          "y": 120,
+          "attributes": [
+            {
+              "name": "routeCode",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "originDest",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            }
+          ]
+        },
+        {
+          "name": "AircraftFleet",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
           "pk": "tailNo",
-          "x": 340,
-          "y": 70,
+          "x": 330,
+          "y": 320,
           "attributes": [
             {
               "name": "tailNo",
@@ -6191,15 +6711,153 @@ _scope.QUESTIONS_51_100 = [
               "isPK": false,
               "isPPK": false,
               "isFK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "AssignedRoute",
+          "entity1": "FlightCaptain",
+          "entity2": "FlightRoute",
+          "fromEntityName": "FlightCaptain",
+          "toEntityName": "FlightRoute",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "id": "rel_2",
+          "name": "OperatedWith",
+          "entity1": "FlightRoute",
+          "entity2": "AircraftFleet",
+          "fromEntityName": "FlightRoute",
+          "toEntityName": "AircraftFleet",
+          "mult1": "",
+          "mult2": "",
+          "isIdentifying": false,
+          "isDirect": true,
+          "role1": "",
+          "role2": ""
+        }
+      ],
+      "subclasses": null
+    },
+    "expectedDiagram": {
+      "entities": [
+        {
+          "name": "FlightCaptain",
+          "pk": "captainLicense",
+          "attributes": [
+            {
+              "name": "captainLicense",
+              "isPK": true
             },
             {
-              "name": "manufacturer",
+              "name": "fullName",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "FlightRoute",
+          "pk": "routeCode",
+          "attributes": [
+            {
+              "name": "routeCode",
+              "isPK": true
+            },
+            {
+              "name": "originDest",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "AircraftFleet",
+          "pk": "tailNo",
+          "attributes": [
+            {
+              "name": "tailNo",
+              "isPK": true
+            },
+            {
+              "name": "model",
+              "isPK": false
+            }
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "FlightCaptain",
+          "entity2": "FlightRoute",
+          "fromEntityName": "FlightCaptain",
+          "toEntityName": "FlightRoute",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "name": "AssignedRoute",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        },
+        {
+          "entity1": "FlightRoute",
+          "entity2": "AircraftFleet",
+          "fromEntityName": "FlightRoute",
+          "toEntityName": "AircraftFleet",
+          "mult1": "0..*",
+          "mult2": "1..1",
+          "name": "OperatedWith",
+          "isIdentifying": false,
+          "role1": "",
+          "role2": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": 91,
+    "sector": 7,
+    "difficulty": "O'rta",
+    "clientName": "Bobur Ziyodov",
+    "clientRole": "Artel Xodimlar Boshqarmasi Boshlig'i",
+    "clientAvatar": "👔",
+    "title": "Artel Zavodi — Xodimlar va To'lov Usuli (Hourly vs Salaried)",
+    "titleEn": "Artel Manufacturing — Employee Disjoint Subclasses (Hourly vs Salaried)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nArtel maishiy texnika ishlab chiqarish zavodida barcha ishchilar umumiy **Employee** superklassida qayd etiladi. Ishchining to'lov tizimiga ko'ra korxonada qat'iy ikkita kesishmaydigan (Disjoint 'Or') toifa mavjud:\n1. Soatbay ishlovchi ishchilar (**HourlyEmployee**) — faqat ularga soatlik tarif stavkasi (`hourlyRate`) va ortiqcha ishlagan vaqt bonusi (`overtimeBonus`) hisoblanadi.\n2. Oylik maosh oluvchi menejerlar (**SalariedEmployee**) — ularga qat'iy oylik maosh (`annualSalary`) va yillik korporativ bonus (`bonusPct`) belgilanadi.\nZavodda har bir xodim MAJBURIY ravishda yo soatbay, yo oylikbay toifasiga kirishi shart, bir vaqtning o'zida ikkalasi bo'la olmaydi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `Employee` superklassini yarating: {PK} `empId`, `fullName`, `hireDate`.\n2. Ixtisoslashgan subklasslarni yarating:\n   - `HourlyEmployee`: `hourlyRate`, `overtimeBonus`.\n   - `SalariedEmployee`: `annualSalary`, `bonusPct`.\n3. Disjoint ierarxiya cheklovini {Mandatory, Or} deb belgilang.",
+    "storyEn": "Artel Manufacturing — Employee Disjoint Subclasses (Hourly vs Salaried) — Conceptual ER business case study.",
+    "instruction": "'Employee' superklassini va uning kesishmaydigan 'HourlyEmployee' hamda 'SalariedEmployee' subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
+    "starterDiagram": {
+      "entities": [
+        {
+          "name": "Employee",
+          "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "empId",
+          "x": 300,
+          "y": 100,
+          "attributes": [
+            {
+              "name": "empId",
+              "isPK": true,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "fullName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "capacity",
+              "name": "hireDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6207,34 +6865,36 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "AircraftTypeA",
+          "name": "HourlyEmployee",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "AircraftTypeB",
+          "name": "SalariedEmployee",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Aircraft",
+        "superclass": "Employee",
         "subs": [
           {
-            "name": "AircraftTypeA",
+            "name": "HourlyEmployee",
             "attributes": []
           },
           {
-            "name": "AircraftTypeB",
+            "name": "SalariedEmployee",
             "attributes": []
           }
         ],
@@ -6244,23 +6904,55 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Aircraft",
-          "pk": "tailNo",
+          "name": "Employee",
+          "pk": "empId",
           "attributes": [
             {
-              "name": "tailNo",
+              "name": "empId",
               "isPK": true
             },
             {
-              "name": "model",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "manufacturer",
+              "name": "hireDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "HourlyEmployee",
+          "pk": "empId",
+          "attributes": [
+            {
+              "name": "empId",
+              "isPK": true
+            },
+            {
+              "name": "hourlyRate",
               "isPK": false
             },
             {
-              "name": "capacity",
+              "name": "overtimeBonus",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SalariedEmployee",
+          "pk": "empId",
+          "attributes": [
+            {
+              "name": "empId",
+              "isPK": true
+            },
+            {
+              "name": "annualSalary",
+              "isPK": false
+            },
+            {
+              "name": "bonusPct",
               "isPK": false
             }
           ]
@@ -6268,15 +6960,21 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Aircraft",
+        "superclass": "Employee",
         "subs": [
           {
-            "name": "AircraftTypeA",
-            "attributes": []
+            "name": "HourlyEmployee",
+            "attributes": [
+              "hourlyRate",
+              "overtimeBonus"
+            ]
           },
           {
-            "name": "AircraftTypeB",
-            "attributes": []
+            "name": "SalariedEmployee",
+            "attributes": [
+              "annualSalary",
+              "bonusPct"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -6286,49 +6984,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 92,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Dr. Aziza Rahimova",
-    "clientRole": "Bosh Shifokor Muovini",
-    "clientAvatar": "mentor",
-    "title": "Patient Disjoint Ixtisoslashuvi",
-    "story": "Tibbiyot & Kardiologiya sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **Patient** (patientId {PK}, `fullName`, `dob`, `bloodType`, `phone`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'Patient' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Sardor Umarov",
+    "clientRole": "Click Bosh Arxitektori",
+    "clientAvatar": "💳",
+    "title": "To'lov Protsessing — Naqd va Plastik Karta To'lovlari (Cash vs Card)",
+    "titleEn": "Payment Processing — Transaction Disjoint Subclasses (Cash vs Card)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nKassalarda har bir to'lov umumiy **PaymentTransaction** superklassida yuritiladi (`txId`, `amountSum`, `txTimestamp`).\nTo'lov amalga oshirilganda mijoz to'lov vositasini tanlaydi:\n1. **CashPayment** — faqat naqd to'lovda qabul qilingan summa (`tenderedAmount`) va qaytarilgan qaytim (`changeGiven`) yoziladi.\n2. **CardPayment** — faqat karta to'lovida karta so'nggi 4 raqami (`cardLast4`), avtorizatsiya kodi (`authCode`) va terminal kodi (`terminalId`) yoziladi.\nHar bir to'lov qat'iy ravishda yo naqd, yo karta orqali o'tadi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `PaymentTransaction` superklassini chizing: {PK} `txId`, `amountSum`, `txTimestamp`.\n2. Kesishmaydigan subklasslarni qo'shing:\n   - `CashPayment`: `tenderedAmount`, `changeGiven`.\n   - `CardPayment`: `cardLast4`, `authCode`, `terminalId`.\n3. {Mandatory, Or} shartini qo'llang.",
+    "storyEn": "Payment Processing — Transaction Disjoint Subclasses (Cash vs Card) — Conceptual ER business case study.",
+    "instruction": "To'lovlar uchun Disjoint {Mandatory, Or} ixtisoslashuv modelini shakllantiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Patient",
+          "name": "PaymentTransaction",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "patientId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "txId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "patientId",
+              "name": "txId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "fullName",
+              "name": "amountSum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "dob",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "bloodType",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "phone",
+              "name": "txTimestamp",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6336,34 +7026,36 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "PatientTypeA",
+          "name": "CashPayment",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "PatientTypeB",
+          "name": "CardPayment",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Patient",
+        "superclass": "PaymentTransaction",
         "subs": [
           {
-            "name": "PatientTypeA",
+            "name": "CashPayment",
             "attributes": []
           },
           {
-            "name": "PatientTypeB",
+            "name": "CardPayment",
             "attributes": []
           }
         ],
@@ -6373,27 +7065,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Patient",
-          "pk": "patientId",
+          "name": "PaymentTransaction",
+          "pk": "txId",
           "attributes": [
             {
-              "name": "patientId",
+              "name": "txId",
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "amountSum",
               "isPK": false
             },
             {
-              "name": "dob",
+              "name": "txTimestamp",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CashPayment",
+          "pk": "txId",
+          "attributes": [
+            {
+              "name": "txId",
+              "isPK": true
+            },
+            {
+              "name": "tenderedAmount",
               "isPK": false
             },
             {
-              "name": "bloodType",
+              "name": "changeGiven",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CardPayment",
+          "pk": "txId",
+          "attributes": [
+            {
+              "name": "txId",
+              "isPK": true
+            },
+            {
+              "name": "cardLast4",
               "isPK": false
             },
             {
-              "name": "phone",
+              "name": "authCode",
+              "isPK": false
+            },
+            {
+              "name": "terminalId",
               "isPK": false
             }
           ]
@@ -6401,15 +7125,22 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Patient",
+        "superclass": "PaymentTransaction",
         "subs": [
           {
-            "name": "PatientTypeA",
-            "attributes": []
+            "name": "CashPayment",
+            "attributes": [
+              "tenderedAmount",
+              "changeGiven"
+            ]
           },
           {
-            "name": "PatientTypeB",
-            "attributes": []
+            "name": "CardPayment",
+            "attributes": [
+              "cardLast4",
+              "authCode",
+              "terminalId"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -6419,49 +7150,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 93,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Bobur Mansurov",
-    "clientRole": "Bosh Registrator",
-    "clientAvatar": "mentor",
-    "title": "Student Disjoint Ixtisoslashuvi",
-    "story": "Oliy Ta'lim sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **Student** (studentId {PK}, `firstName`, `lastName`, `email`, `gpa`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'Student' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Murod Aliyev",
+    "clientRole": "Yandex Go Logistika Parki",
+    "clientAvatar": "🚚",
+    "title": "Transport Parki — Yengil Mashina va Og'ir Yuk Mashinasi (Car vs Truck)",
+    "titleEn": "Fleet Management — Vehicle Disjoint Subclasses (Car vs Truck)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nYirik avtokorxonada barcha mashinalar **FleetVehicle** superklassi ostida jamlanadi (`vin`, `modelName`, `manufactureYear`).\nTransport vositalari texnik maqsadiga ko'ra ikki guruhga ajratiladi:\n1. **PassengerCar** — yengil mashinalar bo'lib, yo'lovchi o'rindiqlari soni (`seatingCapacity`) va yukxona hajmi litrda (`trunkVolumeLiters`) belgilanadi.\n2. **FreightTruck** — yuk mashinalari bo'lib, ruxsat etilgan yuk ko'tarish tonnaji (`cargoTonnage`) va o'qlar soni (`axleCount`) ko'rsatiladi.\nAvtomobil yo yengil, yo yuk mashinasi bo'lishi shart ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `FleetVehicle` superklassini joylashtiring: {PK} `vin`, `modelName`, `manufactureYear`.\n2. Subklasslar: `PassengerCar` va `FreightTruck`.\n3. Disjoint {Mandatory, Or} cheklovini tanlang.",
+    "storyEn": "Fleet Management — Vehicle Disjoint Subclasses (Car vs Truck) — Conceptual ER business case study.",
+    "instruction": "'FleetVehicle' superklassi va 'PassengerCar' hamda 'FreightTruck' subklasslarini bog'lang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Student",
+          "name": "FleetVehicle",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "studentId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "vin",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "studentId",
+              "name": "vin",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "firstName",
+              "name": "modelName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "lastName",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "email",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "gpa",
+              "name": "manufactureYear",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6469,34 +7192,36 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "StudentTypeA",
+          "name": "PassengerCar",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "StudentTypeB",
+          "name": "FreightTruck",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Student",
+        "superclass": "FleetVehicle",
         "subs": [
           {
-            "name": "StudentTypeA",
+            "name": "PassengerCar",
             "attributes": []
           },
           {
-            "name": "StudentTypeB",
+            "name": "FreightTruck",
             "attributes": []
           }
         ],
@@ -6506,27 +7231,55 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Student",
-          "pk": "studentId",
+          "name": "FleetVehicle",
+          "pk": "vin",
           "attributes": [
             {
-              "name": "studentId",
+              "name": "vin",
               "isPK": true
             },
             {
-              "name": "firstName",
+              "name": "modelName",
               "isPK": false
             },
             {
-              "name": "lastName",
+              "name": "manufactureYear",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PassengerCar",
+          "pk": "vin",
+          "attributes": [
+            {
+              "name": "vin",
+              "isPK": true
+            },
+            {
+              "name": "seatingCapacity",
               "isPK": false
             },
             {
-              "name": "email",
+              "name": "trunkVolumeLiters",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "FreightTruck",
+          "pk": "vin",
+          "attributes": [
+            {
+              "name": "vin",
+              "isPK": true
+            },
+            {
+              "name": "cargoTonnage",
               "isPK": false
             },
             {
-              "name": "gpa",
+              "name": "axleCount",
               "isPK": false
             }
           ]
@@ -6534,15 +7287,21 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Student",
+        "superclass": "FleetVehicle",
         "subs": [
           {
-            "name": "StudentTypeA",
-            "attributes": []
+            "name": "PassengerCar",
+            "attributes": [
+              "seatingCapacity",
+              "trunkVolumeLiters"
+            ]
           },
           {
-            "name": "StudentTypeB",
-            "attributes": []
+            "name": "FreightTruck",
+            "attributes": [
+              "cargoTonnage",
+              "axleCount"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -6552,49 +7311,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 94,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Gulnora Karimova",
-    "clientRole": "Bosh Bibliograf",
-    "clientAvatar": "mentor",
-    "title": "Book Disjoint Ixtisoslashuvi",
-    "story": "Kutubxona & Fond sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **Book** (isbn {PK}, `title`, `author`, `publishYear`, `genre`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'Book' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Nodira Karimova",
+    "clientRole": "Kapitalbank Depozit Bo'limi Boshlig'i",
+    "clientAvatar": "💰",
+    "title": "Bank Hisoblari — Hisob-kitob va Muddatli Depozit (Checking vs Savings)",
+    "titleEn": "Banking Accounts — Disjoint Subclasses (Checking vs Savings Deposit)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nTijorat bankida barcha mijoz hisoblari **BankAccount** superklassiga tegishli (`accountNo`, `balanceSum`, `openDate`).\nHisob turlari bo'yicha qat'iy ikkita ajralgan toifa mavjud:\n1. **CheckingAccount** (Joriy hisob) — unga ruxsat etilgan overdraft limiti (`overdraftLimit`) va bog'langan debit karta raqami (`linkedCardNo`) biriktiriladi.\n2. **SavingsDeposit** (Jamg'arma omonat) — unga yillik foiz stavkasi (`interestRatePct`) va omonat muddati oylar soni (`maturityMonths`) belgilanadi.\nBitta hisob raqami bir vaqtda ham joriy, ham muddatli bo'la olmaydi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `BankAccount` superklassini chizing: {PK} `accountNo`, `balanceSum`, `openDate`.\n2. Subklasslar: `CheckingAccount` va `SavingsDeposit`.\n3. {Mandatory, Or} ixtisoslashuv shartini o'rnating.",
+    "storyEn": "Banking Accounts — Disjoint Subclasses (Checking vs Savings Deposit) — Conceptual ER business case study.",
+    "instruction": "Bank hisoblari uchun Disjoint {Mandatory, Or} modelini loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Book",
+          "name": "BankAccount",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "isbn",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "accountNo",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "isbn",
+              "name": "accountNo",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "title",
+              "name": "balanceSum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "author",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "publishYear",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "genre",
+              "name": "openDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6602,34 +7353,36 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "BookTypeA",
+          "name": "CheckingAccount",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "BookTypeB",
+          "name": "SavingsDeposit",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Book",
+        "superclass": "BankAccount",
         "subs": [
           {
-            "name": "BookTypeA",
+            "name": "CheckingAccount",
             "attributes": []
           },
           {
-            "name": "BookTypeB",
+            "name": "SavingsDeposit",
             "attributes": []
           }
         ],
@@ -6639,27 +7392,55 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Book",
-          "pk": "isbn",
+          "name": "BankAccount",
+          "pk": "accountNo",
           "attributes": [
             {
-              "name": "isbn",
+              "name": "accountNo",
               "isPK": true
             },
             {
-              "name": "title",
+              "name": "balanceSum",
               "isPK": false
             },
             {
-              "name": "author",
+              "name": "openDate",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CheckingAccount",
+          "pk": "accountNo",
+          "attributes": [
+            {
+              "name": "accountNo",
+              "isPK": true
+            },
+            {
+              "name": "overdraftLimit",
               "isPK": false
             },
             {
-              "name": "publishYear",
+              "name": "linkedCardNo",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "SavingsDeposit",
+          "pk": "accountNo",
+          "attributes": [
+            {
+              "name": "accountNo",
+              "isPK": true
+            },
+            {
+              "name": "interestRatePct",
               "isPK": false
             },
             {
-              "name": "genre",
+              "name": "maturityMonths",
               "isPK": false
             }
           ]
@@ -6667,15 +7448,21 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Book",
+        "superclass": "BankAccount",
         "subs": [
           {
-            "name": "BookTypeA",
-            "attributes": []
+            "name": "CheckingAccount",
+            "attributes": [
+              "overdraftLimit",
+              "linkedCardNo"
+            ]
           },
           {
-            "name": "BookTypeB",
-            "attributes": []
+            "name": "SavingsDeposit",
+            "attributes": [
+              "interestRatePct",
+              "maturityMonths"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -6685,49 +7472,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 95,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Rustam Aliyev",
-    "clientRole": "Savdo Direktori",
-    "clientAvatar": "mentor",
-    "title": "Vehicle Disjoint Ixtisoslashuvi",
-    "story": "Avtosalon & Dilerlik sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **Vehicle** (vin {PK}, `make`, `model`, `prodYear`, `price`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'Vehicle' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Dr. Ziyoda Shoazimova",
+    "clientRole": "Respublika Shifoxonasi Qabul Bo'limi",
+    "clientAvatar": "🏥",
+    "title": "Shifoxona — Statsionar va Ambulator Bemorlar (InPatient vs OutPatient)",
+    "titleEn": "Hospital Registry — Patient Disjoint Subclasses (InPatient vs OutPatient)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nShifoxonada barcha bemorlar **HospitalPatient** superklassida yuritiladi (`patientId`, `fullName`, `bloodGroup`).\nDavolanish rejimiga ko'ra bemor qat'iy ikki toifadan biriga mansub bo'ladi:\n1. **InPatient** (Yotib davolanuvchi) — kasalxonaga yotqizilgan sana (`admitDate`), palata raqami (`wardNumber`) va koyka ID si (`bedId`).\n2. **OutPatient** (Qatnab davolanuvchi) — poliklinikaga kelgan sana (`clinicVisitDate`) va keyingi ko'rik sanasi (`nextAppointmentDate`).\nBemor ayni paytda yo yotib davolanadi, yo qatnab davolanadi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `HospitalPatient` superklassini yarating: {PK} `patientId`, `fullName`, `bloodGroup`.\n2. Subklasslar: `InPatient` va `OutPatient`.\n3. Disjoint {Mandatory, Or} munosabatini o'rnating.",
+    "storyEn": "Hospital Registry — Patient Disjoint Subclasses (InPatient vs OutPatient) — Conceptual ER business case study.",
+    "instruction": "'HospitalPatient' superklassi ostida 'InPatient' va 'OutPatient' subklasslarini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Vehicle",
+          "name": "HospitalPatient",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "vin",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "patientId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "vin",
+              "name": "patientId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "make",
+              "name": "fullName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "model",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "prodYear",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "price",
+              "name": "bloodGroup",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6735,34 +7514,36 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "VehicleTypeA",
+          "name": "InPatient",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "VehicleTypeB",
+          "name": "OutPatient",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Vehicle",
+        "superclass": "HospitalPatient",
         "subs": [
           {
-            "name": "VehicleTypeA",
+            "name": "InPatient",
             "attributes": []
           },
           {
-            "name": "VehicleTypeB",
+            "name": "OutPatient",
             "attributes": []
           }
         ],
@@ -6772,27 +7553,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Vehicle",
-          "pk": "vin",
+          "name": "HospitalPatient",
+          "pk": "patientId",
           "attributes": [
             {
-              "name": "vin",
+              "name": "patientId",
               "isPK": true
             },
             {
-              "name": "make",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "model",
+              "name": "bloodGroup",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "InPatient",
+          "pk": "patientId",
+          "attributes": [
+            {
+              "name": "patientId",
+              "isPK": true
+            },
+            {
+              "name": "admitDate",
               "isPK": false
             },
             {
-              "name": "prodYear",
+              "name": "wardNumber",
               "isPK": false
             },
             {
-              "name": "price",
+              "name": "bedId",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "OutPatient",
+          "pk": "patientId",
+          "attributes": [
+            {
+              "name": "patientId",
+              "isPK": true
+            },
+            {
+              "name": "clinicVisitDate",
+              "isPK": false
+            },
+            {
+              "name": "nextAppointmentDate",
               "isPK": false
             }
           ]
@@ -6800,15 +7613,22 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Vehicle",
+        "superclass": "HospitalPatient",
         "subs": [
           {
-            "name": "VehicleTypeA",
-            "attributes": []
+            "name": "InPatient",
+            "attributes": [
+              "admitDate",
+              "wardNumber",
+              "bedId"
+            ]
           },
           {
-            "name": "VehicleTypeB",
-            "attributes": []
+            "name": "OutPatient",
+            "attributes": [
+              "clinicVisitDate",
+              "nextAppointmentDate"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -6818,49 +7638,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 96,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Jamshid Qodirov",
-    "clientRole": "Bosh Buxgalter",
-    "clientAvatar": "mentor",
-    "title": "BankAccount Disjoint Ixtisoslashuvi",
-    "story": "Bank & Depozitlar sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **BankAccount** (accountNo {PK}, `balance`, `currency`, `openDate`, `branchCode`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'BankAccount' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Shahzod Qobilov",
+    "clientRole": "WIUT Talabalar Ishlari Registratori",
+    "clientAvatar": "🎓",
+    "title": "Universitet — Bakalavr va Magistratura Talabalari (Undergraduate vs Postgraduate)",
+    "titleEn": "University — Student Disjoint Subclasses (Undergrad vs Postgrad)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nUniversitet axborot tizimida barcha talabalar **UniversityStudent** superklassi ostida ro'yxatga olinadi (`studentId`, `fullName`, `enrolledYear`).\nO'qish bosqichiga binoan talabalar kesishmaydigan ikki guruhga bo'linadi:\n1. **UndergraduateStudent** — maktab/kollej attestat raqami (`highSchoolDocNo`) va asosiy mutaxassislik kodi (`majorProgram`).\n2. **PostgraduateStudent** — bakalavrlik diplomi raqami (`bachelorDegreeNo`), dissertatsiya mavzusi (`thesisTopic`) va ilmiy rahbar ismi (`supervisorName`).\nTalaba bir vaqtda yo bakalavrda, yo magistraturada o'qiydi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `UniversityStudent` superklassi: {PK} `studentId`, `fullName`, `enrolledYear`.\n2. Subklasslar: `UndergraduateStudent` va `PostgraduateStudent`.\n3. Disjoint {Mandatory, Or} ixtisoslashuvini shakllantiring.",
+    "storyEn": "University — Student Disjoint Subclasses (Undergrad vs Postgrad) — Conceptual ER business case study.",
+    "instruction": "Talabalar uchun Disjoint {Mandatory, Or} modelini loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "BankAccount",
+          "name": "UniversityStudent",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "accountNo",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "studentId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "accountNo",
+              "name": "studentId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "balance",
+              "name": "fullName",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "currency",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "openDate",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "branchCode",
+              "name": "enrolledYear",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -6868,34 +7680,36 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "BankAccountTypeA",
+          "name": "UndergraduateStudent",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "BankAccountTypeB",
+          "name": "PostgraduateStudent",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "BankAccount",
+        "superclass": "UniversityStudent",
         "subs": [
           {
-            "name": "BankAccountTypeA",
+            "name": "UndergraduateStudent",
             "attributes": []
           },
           {
-            "name": "BankAccountTypeB",
+            "name": "PostgraduateStudent",
             "attributes": []
           }
         ],
@@ -6905,27 +7719,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "BankAccount",
-          "pk": "accountNo",
+          "name": "UniversityStudent",
+          "pk": "studentId",
           "attributes": [
             {
-              "name": "accountNo",
+              "name": "studentId",
               "isPK": true
             },
             {
-              "name": "balance",
+              "name": "fullName",
               "isPK": false
             },
             {
-              "name": "currency",
+              "name": "enrolledYear",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "UndergraduateStudent",
+          "pk": "studentId",
+          "attributes": [
+            {
+              "name": "studentId",
+              "isPK": true
+            },
+            {
+              "name": "highSchoolDocNo",
               "isPK": false
             },
             {
-              "name": "openDate",
+              "name": "majorProgram",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PostgraduateStudent",
+          "pk": "studentId",
+          "attributes": [
+            {
+              "name": "studentId",
+              "isPK": true
+            },
+            {
+              "name": "bachelorDegreeNo",
               "isPK": false
             },
             {
-              "name": "branchCode",
+              "name": "thesisTopic",
+              "isPK": false
+            },
+            {
+              "name": "supervisorName",
               "isPK": false
             }
           ]
@@ -6933,15 +7779,22 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "BankAccount",
+        "superclass": "UniversityStudent",
         "subs": [
           {
-            "name": "BankAccountTypeA",
-            "attributes": []
+            "name": "UndergraduateStudent",
+            "attributes": [
+              "highSchoolDocNo",
+              "majorProgram"
+            ]
           },
           {
-            "name": "BankAccountTypeB",
-            "attributes": []
+            "name": "PostgraduateStudent",
+            "attributes": [
+              "bachelorDegreeNo",
+              "thesisTopic",
+              "supervisorName"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -6951,49 +7804,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 97,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Malika Yusupova",
-    "clientRole": "Boshqaruvchi",
-    "clientAvatar": "mentor",
-    "title": "HotelRoom Disjoint Ixtisoslashuvi",
-    "story": "Mehmonxona & Turizm sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **HotelRoom** (roomNo {PK}, `roomType`, `pricePerNight`, `floorNo`, `capacity`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'HotelRoom' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Lobar Hasanova",
+    "clientRole": "Kadastr Agentligi Ko'chmas Mulk Reestri",
+    "clientAvatar": "🏙️",
+    "title": "Ko'chmas Mulk — Turar-joy va Tijoriy Bino (Residential vs Commercial)",
+    "titleEn": "Real Estate — Property Disjoint Subclasses (Residential vs Commercial)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nDavlat kadastr reyestrida barcha mulklar **RealEstateProperty** superklassida qayd etiladi (`cadastreNo`, `address`, `totalAreaSqm`).\nKo'chmas mulkdan foydalanish maqsadiga ko'ra ikki kesishmaydigan toifa mavjud:\n1. **ResidentialFlat** (Aholi yashash xonadoni) — xonalar soni (`roomCount`), qavat raqami (`floorNumber`) va balkon maydoni (`balconyArea`).\n2. **CommercialOffice** (Tijoriy ofis) — ish o'rinlari sig'imi (`workstationsCapacity`), majlislar zali soni (`meetingRoomsCount`) va QQS soliq to'lovchi kodi (`vatRegCode`).\nBitta kadastr ob'ekti yo turar-joy, yo noturar tijoriy ob'ekt bo'ladi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `RealEstateProperty` superklassini yarating: {PK} `cadastreNo`, `address`, `totalAreaSqm`.\n2. Subklasslar: `ResidentialFlat` va `CommercialOffice`.\n3. Disjoint {Mandatory, Or} cheklovini belgilang.",
+    "storyEn": "Real Estate — Property Disjoint Subclasses (Residential vs Commercial) — Conceptual ER business case study.",
+    "instruction": "Ko'chmas mulk bo'yicha Disjoint {Mandatory, Or} ierarxiyasini polotnoda quring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "HotelRoom",
+          "name": "RealEstateProperty",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "roomNo",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "cadastreNo",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "roomNo",
+              "name": "cadastreNo",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "roomType",
+              "name": "address",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "pricePerNight",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "floorNo",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "capacity",
+              "name": "totalAreaSqm",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7001,34 +7846,36 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "HotelRoomTypeA",
+          "name": "ResidentialFlat",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "HotelRoomTypeB",
+          "name": "CommercialOffice",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "HotelRoom",
+        "superclass": "RealEstateProperty",
         "subs": [
           {
-            "name": "HotelRoomTypeA",
+            "name": "ResidentialFlat",
             "attributes": []
           },
           {
-            "name": "HotelRoomTypeB",
+            "name": "CommercialOffice",
             "attributes": []
           }
         ],
@@ -7038,27 +7885,63 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "HotelRoom",
-          "pk": "roomNo",
+          "name": "RealEstateProperty",
+          "pk": "cadastreNo",
           "attributes": [
             {
-              "name": "roomNo",
+              "name": "cadastreNo",
               "isPK": true
             },
             {
-              "name": "roomType",
+              "name": "address",
               "isPK": false
             },
             {
-              "name": "pricePerNight",
+              "name": "totalAreaSqm",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "ResidentialFlat",
+          "pk": "cadastreNo",
+          "attributes": [
+            {
+              "name": "cadastreNo",
+              "isPK": true
+            },
+            {
+              "name": "roomCount",
               "isPK": false
             },
             {
-              "name": "floorNo",
+              "name": "floorNumber",
               "isPK": false
             },
             {
-              "name": "capacity",
+              "name": "balconyArea",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CommercialOffice",
+          "pk": "cadastreNo",
+          "attributes": [
+            {
+              "name": "cadastreNo",
+              "isPK": true
+            },
+            {
+              "name": "workstationsCapacity",
+              "isPK": false
+            },
+            {
+              "name": "meetingRoomsCount",
+              "isPK": false
+            },
+            {
+              "name": "vatRegCode",
               "isPK": false
             }
           ]
@@ -7066,15 +7949,23 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "HotelRoom",
+        "superclass": "RealEstateProperty",
         "subs": [
           {
-            "name": "HotelRoomTypeA",
-            "attributes": []
+            "name": "ResidentialFlat",
+            "attributes": [
+              "roomCount",
+              "floorNumber",
+              "balconyArea"
+            ]
           },
           {
-            "name": "HotelRoomTypeB",
-            "attributes": []
+            "name": "CommercialOffice",
+            "attributes": [
+              "workstationsCapacity",
+              "meetingRoomsCount",
+              "vatRegCode"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -7084,49 +7975,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 98,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Otabek Sodiqov",
-    "clientRole": "Bosh Oshpaz",
-    "clientAvatar": "mentor",
-    "title": "MenuItem Disjoint Ixtisoslashuvi",
-    "story": "Restoran & Taomnoma sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **MenuItem** (itemId {PK}, `name`, `category`, `price`, `calories`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'MenuItem' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Eldor Samatov",
+    "clientRole": "Hyatt Regency Bosh Menejeri",
+    "clientAvatar": "🛎️",
+    "title": "Mehmonxona Xonalari — Standart va Prezident Lyuks (Standard vs Presidential)",
+    "titleEn": "Hotel Rooms — Room Disjoint Subclasses (Standard vs Suite)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nMehmonxona bron qilish tizimida barcha xonalar **HotelRoom** superklassida ro'yxatdan o'tadi (`roomNo`, `floorNumber`, `cleaningStatus`).\nXonalar toifasi bo'yicha aniq ikkita toifa mavjud:\n1. **StandardRoom** — alohida bitta kishilik karavotlar soni (`singleBedsCount`) va balkon mavjudligi (`hasBalcony`).\n2. **PresidentialSuite** — mehmonxona zallari soni (`livingRoomsCount`), jakuzi o'rnatilganligi (`jacuzziInstalled`) va shaxsiy xizmatkor ta'minlanganligi (`butlerService`).\nHar bir xona aniq bitta toifaga kiradi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `HotelRoom` superklassini yarating: {PK} `roomNo`, `floorNumber`, `cleaningStatus`.\n2. Subklasslar: `StandardRoom` va `PresidentialSuite`.\n3. Disjoint {Mandatory, Or} cheklovini tasdiqlang.",
+    "storyEn": "Hotel Rooms — Room Disjoint Subclasses (Standard vs Suite) — Conceptual ER business case study.",
+    "instruction": "Mehmonxona xonalarining Disjoint {Mandatory, Or} modelini shakllantiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "MenuItem",
+          "name": "HotelRoom",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "itemId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "roomNo",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "itemId",
+              "name": "roomNo",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "name",
+              "name": "floorNumber",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "category",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "price",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "calories",
+              "name": "cleaningStatus",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7134,34 +8017,36 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "MenuItemTypeA",
+          "name": "StandardRoom",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "MenuItemTypeB",
+          "name": "PresidentialSuite",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "MenuItem",
+        "superclass": "HotelRoom",
         "subs": [
           {
-            "name": "MenuItemTypeA",
+            "name": "StandardRoom",
             "attributes": []
           },
           {
-            "name": "MenuItemTypeB",
+            "name": "PresidentialSuite",
             "attributes": []
           }
         ],
@@ -7171,27 +8056,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "MenuItem",
-          "pk": "itemId",
+          "name": "HotelRoom",
+          "pk": "roomNo",
           "attributes": [
             {
-              "name": "itemId",
+              "name": "roomNo",
               "isPK": true
             },
             {
-              "name": "name",
+              "name": "floorNumber",
               "isPK": false
             },
             {
-              "name": "category",
+              "name": "cleaningStatus",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "StandardRoom",
+          "pk": "roomNo",
+          "attributes": [
+            {
+              "name": "roomNo",
+              "isPK": true
+            },
+            {
+              "name": "singleBedsCount",
               "isPK": false
             },
             {
-              "name": "price",
+              "name": "hasBalcony",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "PresidentialSuite",
+          "pk": "roomNo",
+          "attributes": [
+            {
+              "name": "roomNo",
+              "isPK": true
+            },
+            {
+              "name": "livingRoomsCount",
               "isPK": false
             },
             {
-              "name": "calories",
+              "name": "jacuzziInstalled",
+              "isPK": false
+            },
+            {
+              "name": "butlerService",
               "isPK": false
             }
           ]
@@ -7199,15 +8116,22 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "MenuItem",
+        "superclass": "HotelRoom",
         "subs": [
           {
-            "name": "MenuItemTypeA",
-            "attributes": []
+            "name": "StandardRoom",
+            "attributes": [
+              "singleBedsCount",
+              "hasBalcony"
+            ]
           },
           {
-            "name": "MenuItemTypeB",
-            "attributes": []
+            "name": "PresidentialSuite",
+            "attributes": [
+              "livingRoomsCount",
+              "jacuzziInstalled",
+              "butlerService"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -7217,49 +8141,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 99,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Farhod Ergashev",
-    "clientRole": "Texnik Direktor (CTO)",
-    "clientAvatar": "mentor",
-    "title": "Developer Disjoint Ixtisoslashuvi",
-    "story": "IT & Dasturiy Ta'minot sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **Developer** (devId {PK}, `fullName`, `role`, `techStack`, `salary`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'Developer' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Jahongir G'aniyev",
+    "clientRole": "Davlat Soliq Qo'mitasi Bosh Tahlilchisi",
+    "clientAvatar": "⚖️",
+    "title": "Mijozlar Reyestri — Jismoniy Shaxs va Yuridik Korxona (Individual vs Corporate)",
+    "titleEn": "Tax Registry — Client Disjoint Subclasses (Individual vs Corporate)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nElektron xizmatlar reyestrida har bir kontragent **TradeClient** superklassida yuritiladi (`clientId`, `contactPhone`, `emailAddress`).\nMijozning huquqiy maqomiga ko'ra qat'iy ikkita kesishmaydigan guruh mavjud:\n1. **IndividualCitizen** (Jismoniy shaxs) — fuqaroning 14 xonali JShShIR kodi (`pinflCode`) va pasport seriya raqami (`passportSeries`).\n2. **CorporateLegalEntity** (Yuridik shaxs) — tashkilotning 9 xonali STIR/INN raqami (`innNumber`), bank MFO/BIK kodi (`bankingBik`) va rahbarining F.I.Sh. (`directorFullName`).\nHar bir mijoz yo jismoniy fuqaro, yo yuridik korxona bo'lishi shart ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `TradeClient` superklassini yarating: {PK} `clientId`, `contactPhone`, `emailAddress`.\n2. Subklasslar: `IndividualCitizen` va `CorporateLegalEntity`.\n3. Disjoint {Mandatory, Or} shartini qo'ying.",
+    "storyEn": "Tax Registry — Client Disjoint Subclasses (Individual vs Corporate) — Conceptual ER business case study.",
+    "instruction": "Mijozlar uchun Disjoint {Mandatory, Or} modelini loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Developer",
+          "name": "TradeClient",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "devId",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "clientId",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "devId",
+              "name": "clientId",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "fullName",
+              "name": "contactPhone",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "role",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "techStack",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "salary",
+              "name": "emailAddress",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7267,34 +8183,36 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "DeveloperTypeA",
+          "name": "IndividualCitizen",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "DeveloperTypeB",
+          "name": "CorporateLegalEntity",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Developer",
+        "superclass": "TradeClient",
         "subs": [
           {
-            "name": "DeveloperTypeA",
+            "name": "IndividualCitizen",
             "attributes": []
           },
           {
-            "name": "DeveloperTypeB",
+            "name": "CorporateLegalEntity",
             "attributes": []
           }
         ],
@@ -7304,27 +8222,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Developer",
-          "pk": "devId",
+          "name": "TradeClient",
+          "pk": "clientId",
           "attributes": [
             {
-              "name": "devId",
+              "name": "clientId",
               "isPK": true
             },
             {
-              "name": "fullName",
+              "name": "contactPhone",
               "isPK": false
             },
             {
-              "name": "role",
+              "name": "emailAddress",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "IndividualCitizen",
+          "pk": "clientId",
+          "attributes": [
+            {
+              "name": "clientId",
+              "isPK": true
+            },
+            {
+              "name": "pinflCode",
               "isPK": false
             },
             {
-              "name": "techStack",
+              "name": "passportSeries",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CorporateLegalEntity",
+          "pk": "clientId",
+          "attributes": [
+            {
+              "name": "clientId",
+              "isPK": true
+            },
+            {
+              "name": "innNumber",
               "isPK": false
             },
             {
-              "name": "salary",
+              "name": "bankingBik",
+              "isPK": false
+            },
+            {
+              "name": "directorFullName",
               "isPK": false
             }
           ]
@@ -7332,15 +8282,22 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Developer",
+        "superclass": "TradeClient",
         "subs": [
           {
-            "name": "DeveloperTypeA",
-            "attributes": []
+            "name": "IndividualCitizen",
+            "attributes": [
+              "pinflCode",
+              "passportSeries"
+            ]
           },
           {
-            "name": "DeveloperTypeB",
-            "attributes": []
+            "name": "CorporateLegalEntity",
+            "attributes": [
+              "innNumber",
+              "bankingBik",
+              "directorFullName"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
@@ -7350,49 +8307,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 100,
     "sector": 7,
-    "difficulty": "7-Qavat • Ekspert (Disjoint ISA)",
-    "clientName": "Shahnoza Karimova",
-    "clientRole": "Katalog Menejeri",
-    "clientAvatar": "mentor",
-    "title": "Product Disjoint Ixtisoslashuvi",
-    "story": "E-Commerce sohasida xizmat turlarini mutlaqo alohida, kesishmaydigan toifalarga ajratish zarurati paydo bo'ldi. Har bir ob'yekt umumiy xususiyatlarga ega bo'lishi bilan birga, faqat o'ziga xos parametrlarni ham saqlashi kerak. Umumiy superklass sifatida **Product** (sku {PK}, `title`, `price`, `stockQty`, `weightKg`) xizmat qiladi. Biznes talabiga ko'ra har bir obyekt majburiy ravishda yo birinchi toifaga, yo ikkinchi toifaga kiradi, lekin bir vaqtda ikkalasi bo'la olmaydi.",
-    "instruction": "'Product' superklassini yarating va uning ixtisoslashgan subklasslarini ISA ierarxiyasi orqali bog'lang.",
+    "difficulty": "O'rta",
+    "clientName": "Umid Vohidov",
+    "clientRole": "Uzum Market Buyurtmalar Nazorati",
+    "clientAvatar": "📦",
+    "title": "Uzum Buyurtmalari — Filialdan Olib Ketish va Kuryer Yetkazishi (Pickup vs Delivery)",
+    "titleEn": "Uzum Orders — Order Fulfillment Disjoint Subclasses (Pickup vs Delivery)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:**\nElektron tijoratda barcha buyurtmalar **CustomerOrder** superklassida yuritiladi (`orderNo`, `orderDate`, `totalSum`).\nFulfillment usuliga ko'ra buyurtma ikki xil kesishmaydigan rejimda yopiladi:\n1. **BranchPickupOrder** (Topshirish punktidan olish) — punkt kodi (`pickupPointCode`) va saqlash katagi raqami (`shelfBoxNo`).\n2. **CourierDeliveryOrder** (Eshikkacha kuryerlik yetkazishi) — kuryer ID si (`courierId`), yetkazish ko'chasi (`deliveryStreet`) va domofon kodi (`intercomCode`).\nBitta buyurtma yo punktga, yo kuryer orqali xonadonga yuboriladi ({Mandatory, Or}).\n\n📋 **Bajarilishi Kerak Bo'lgan Qadamlar:**\n1. `CustomerOrder` superklassi: {PK} `orderNo`, `orderDate`, `totalSum`.\n2. Subklasslar: `BranchPickupOrder` va `CourierDeliveryOrder`.\n3. Disjoint {Mandatory, Or} munosabatini barpo eting.",
+    "storyEn": "Uzum Orders — Order Fulfillment Disjoint Subclasses (Pickup vs Delivery) — Conceptual ER business case study.",
+    "instruction": "Buyurtmalar uchun Disjoint {Mandatory, Or} modelini chizing.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Product",
+          "name": "CustomerOrder",
           "isWeak": false,
           "isAssociative": false,
-          "pk": "sku",
-          "x": 340,
-          "y": 70,
+          "isSubclass": false,
+          "pk": "orderNo",
+          "x": 300,
+          "y": 100,
           "attributes": [
             {
-              "name": "sku",
+              "name": "orderNo",
               "isPK": true,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "title",
+              "name": "orderDate",
               "isPK": false,
               "isPPK": false,
               "isFK": false
             },
             {
-              "name": "price",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "stockQty",
-              "isPK": false,
-              "isPPK": false,
-              "isFK": false
-            },
-            {
-              "name": "weightKg",
+              "name": "totalSum",
               "isPK": false,
               "isPPK": false,
               "isFK": false
@@ -7400,34 +8349,36 @@ _scope.QUESTIONS_51_100 = [
           ]
         },
         {
-          "name": "ProductTypeA",
+          "name": "BranchPickupOrder",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 150,
+          "x": 140,
           "y": 300,
           "attributes": []
         },
         {
-          "name": "ProductTypeB",
+          "name": "CourierDeliveryOrder",
           "isWeak": false,
+          "isAssociative": false,
           "isSubclass": true,
           "pk": "",
-          "x": 530,
+          "x": 480,
           "y": 300,
           "attributes": []
         }
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Product",
+        "superclass": "CustomerOrder",
         "subs": [
           {
-            "name": "ProductTypeA",
+            "name": "BranchPickupOrder",
             "attributes": []
           },
           {
-            "name": "ProductTypeB",
+            "name": "CourierDeliveryOrder",
             "attributes": []
           }
         ],
@@ -7437,27 +8388,59 @@ _scope.QUESTIONS_51_100 = [
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Product",
-          "pk": "sku",
+          "name": "CustomerOrder",
+          "pk": "orderNo",
           "attributes": [
             {
-              "name": "sku",
+              "name": "orderNo",
               "isPK": true
             },
             {
-              "name": "title",
+              "name": "orderDate",
               "isPK": false
             },
             {
-              "name": "price",
+              "name": "totalSum",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "BranchPickupOrder",
+          "pk": "orderNo",
+          "attributes": [
+            {
+              "name": "orderNo",
+              "isPK": true
+            },
+            {
+              "name": "pickupPointCode",
               "isPK": false
             },
             {
-              "name": "stockQty",
+              "name": "shelfBoxNo",
+              "isPK": false
+            }
+          ]
+        },
+        {
+          "name": "CourierDeliveryOrder",
+          "pk": "orderNo",
+          "attributes": [
+            {
+              "name": "orderNo",
+              "isPK": true
+            },
+            {
+              "name": "courierId",
               "isPK": false
             },
             {
-              "name": "weightKg",
+              "name": "deliveryStreet",
+              "isPK": false
+            },
+            {
+              "name": "intercomCode",
               "isPK": false
             }
           ]
@@ -7465,15 +8448,22 @@ _scope.QUESTIONS_51_100 = [
       ],
       "relationships": [],
       "subclasses": {
-        "superclass": "Product",
+        "superclass": "CustomerOrder",
         "subs": [
           {
-            "name": "ProductTypeA",
-            "attributes": []
+            "name": "BranchPickupOrder",
+            "attributes": [
+              "pickupPointCode",
+              "shelfBoxNo"
+            ]
           },
           {
-            "name": "ProductTypeB",
-            "attributes": []
+            "name": "CourierDeliveryOrder",
+            "attributes": [
+              "courierId",
+              "deliveryStreet",
+              "intercomCode"
+            ]
           }
         ],
         "constraint": "{Mandatory, Or}"
