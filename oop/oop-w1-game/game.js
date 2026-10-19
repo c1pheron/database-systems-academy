@@ -956,11 +956,14 @@ class Main {
       const savedConsH = localStorage.getItem(STORAGE_CONS_H);
       if (savedConsH && consoleSection) {
         const h = parseInt(savedConsH, 10);
-        if (!isNaN(h) && h >= 50 && h <= 900) {
-          consoleSection.style.setProperty("height", h + "px", "important");
-          consoleSection.style.setProperty("flex", "0 0 " + h + "px", "important");
-          document.documentElement.style.setProperty("--console-height", h + "px");
-          paneRight.style.setProperty("--console-height", h + "px");
+        if (!isNaN(h) && h >= 44 && h <= 900) {
+          const paneRightH = paneRight ? paneRight.getBoundingClientRect().height : window.innerHeight;
+          const maxStartH = Math.max(120, Math.round(paneRightH * 0.35) || 140);
+          const effectiveH = Math.min(h, maxStartH);
+          consoleSection.style.setProperty("height", effectiveH + "px", "important");
+          consoleSection.style.setProperty("flex", "0 0 " + effectiveH + "px", "important");
+          document.documentElement.style.setProperty("--console-height", effectiveH + "px");
+          paneRight.style.setProperty("--console-height", effectiveH + "px");
         }
       }
     } catch (e) {}
@@ -1067,8 +1070,8 @@ class Main {
         const targetConsoleTop = curY - offsetY;
         let newHeight = Math.round(paneRightRect.bottom - targetConsoleTop);
 
-        const minH = 50;
-        const maxH = Math.max(minH, Math.round(paneRightRect.height - 160));
+        const minH = 44;
+        const maxH = Math.max(minH, Math.round(paneRightRect.height - 120));
 
         if (newHeight < minH) newHeight = minH;
         if (newHeight > maxH) newHeight = maxH;

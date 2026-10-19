@@ -160,16 +160,33 @@
           this._hasScrollHandler = true;
         }
       }
+      if (this.gutterEl && this.codeArea) {
+        if (!this._hasGutterWheelHandler) {
+          this.gutterEl.addEventListener("wheel", (e) => {
+            this.codeArea.scrollTop += e.deltaY;
+            this.codeArea.scrollLeft += e.deltaX;
+            this.syncScroll();
+          }, { passive: true });
+          this._hasGutterWheelHandler = true;
+        }
+      }
     },
 
     syncScroll() {
       if (!this.codeArea) return;
+      const top = this.codeArea.scrollTop || 0;
+      const left = this.codeArea.scrollLeft || 0;
+
       if (this.backdropEl) {
-        this.backdropEl.scrollTop = this.codeArea.scrollTop;
-        this.backdropEl.scrollLeft = this.codeArea.scrollLeft;
+        this.backdropEl.scrollTop = top;
+        this.backdropEl.scrollLeft = left;
       }
       if (this.gutterEl) {
-        this.gutterEl.scrollTop = this.codeArea.scrollTop;
+        this.gutterEl.scrollTop = 0;
+        const inner = this.gutterEl.querySelector("#gutterLinesWrapper") || this.gutterEl.firstElementChild;
+        if (inner) {
+          inner.style.transform = `translateY(-${top}px)`;
+        }
       }
     },
 
@@ -225,7 +242,9 @@
         }
 
         .editor-gutter {
-          width: 42px;
+          width: 44px;
+          height: 100%;
+          max-height: 100%;
           background: #090717;
           border-right: 1px solid rgba(168, 85, 247, 0.2);
           padding: 16px 8px 16px 0;
@@ -238,6 +257,12 @@
           overflow: hidden;
           box-sizing: border-box;
           flex-shrink: 0;
+        }
+
+        .gutter-lines-wrapper {
+          display: block;
+          width: 100%;
+          will-change: transform;
         }
 
         .gutter-line {
@@ -735,16 +760,17 @@
 
     updateGutter(lineCount, errorLines) {
       if (!this.gutterEl) return;
-      let gutterHtml = "";
+      let linesHtml = "";
       for (let i = 1; i <= lineCount; i++) {
-        const hasErr = errorLines.has(i);
-        gutterHtml += `
+        const hasErr = errorLines && errorLines.has(i);
+        linesHtml += `
           <div class="gutter-line ${hasErr ? "has-error" : ""}" title="${hasErr ? "Ushbu qatorda xatolik aniqlandi" : ""}">
             ${hasErr ? '<span class="gutter-err-dot"></span>' : ""}${i}
           </div>
         `;
       }
-      this.gutterEl.innerHTML = gutterHtml;
+      this.gutterEl.innerHTML = `<div id="gutterLinesWrapper" class="gutter-lines-wrapper" style="will-change:transform; transition:none;">${linesHtml}</div>`;
+      this.syncScroll();
     },
 
     updateErrorBadge(errorCount) {
