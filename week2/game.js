@@ -165,8 +165,26 @@
   // ==========================================================================
   // 3. STATE PERSISTENCE (Multi-Key Mirroring)
   // ==========================================================================
+  const W2_PROGRESS_VERSION = 'v2026_w2_strict_reset_v1';
+
   function loadSavedState() {
     try {
+      if (localStorage.getItem('DS_W2_PROGRESS_VERSION_TAG') !== W2_PROGRESS_VERSION) {
+        // Stale progress detected (from old auto-passing tests) -> Reset W2 cleanly to 0!
+        const staleKeys = ['DS_W2_PROGRESS', 'WIUT_DS_W2_PROGRESS', 'ACADEMY_DS_W2_PROGRESS', 'DS_W2_SOLVED_IDS', 'WIUT_DS_W2_SOLVED'];
+        staleKeys.forEach(k => localStorage.removeItem(k));
+        for (let i = 1; i <= 150; i++) {
+          localStorage.removeItem(`DS_W2_DIAGRAM_${i}`);
+        }
+        localStorage.setItem('DS_W2_PROGRESS_VERSION_TAG', W2_PROGRESS_VERSION);
+        STATE.solvedIds = new Set();
+        STATE.score = 0;
+        STATE.salary = 3000;
+        STATE.currentQId = 1;
+        saveState();
+        return;
+      }
+
       const keys = ['DS_W2_PROGRESS', 'WIUT_DS_W2_PROGRESS', 'ACADEMY_DS_W2_PROGRESS', 'DS_W2_SOLVED_IDS', 'WIUT_DS_W2_SOLVED'];
       for (const k of keys) {
         const saved = localStorage.getItem(k);
@@ -667,6 +685,14 @@
       btnAddRecursive.addEventListener('click', () => {
         window.playSfx('click');
         if (eerCanvas) eerCanvas.addRecursiveEntityOrLoop();
+      });
+    }
+
+    const btnAddISA = document.getElementById('eerBtnAddISA');
+    if (btnAddISA) {
+      btnAddISA.addEventListener('click', () => {
+        window.playSfx('click');
+        if (eerCanvas) eerCanvas.addISASpecialization();
       });
     }
 

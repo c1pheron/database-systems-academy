@@ -260,12 +260,41 @@
             message: isEn 
               ? `'${expName}' cannot exist without its owner entity and lacks a full independent key.`
               : `'${expName}' o'z ota entitiysisiz mustaqil mavjud bo'la olmaydi (kompozit kalitga ega zaif entitiy).`,
+            proof: isEn
+              ? `Weak entities possess existence dependency and cannot be uniquely identified by their own attributes alone. They must be styled as a double-bordered rectangle with {W} enabled.`
+              : `Zaif entitiy mavjudlik bo'yicha ota entitiyaga to'liq bog'liq (Existence Dependent) bo'lib, o'zining mustaqil birlamchi kalitiga ega emas. Shuning uchun uning kartochkasida {W} (Zaif Entitiy / ikki qavat hoshiya) rejimini yoqish shart!`,
             userVal: isEn ? 'Strong Entity (Single line)' : "Mustaqil entitiy (oddiy to'rtburchak)",
             expectedVal: isEn ? 'Weak Entity (Double line)' : "Zaif entitiy (qo'shaloq to'rtburchak)",
             fix: isEn 
               ? `Toggle the 'Weak Entity' switch on '${expName}' card.`
               : `'${expName}' kartochkasidagi 'Zaif Entitiy' (qo'shaloq hoshiya) tugmasini yoqing.`
           });
+        }
+
+        // Check Partial Primary Key {PPK} for Weak Entity attributes
+        if (expEnt && expEnt.attributes) {
+          const expPPKAttrs = expEnt.attributes.filter(a => a.isPPK).map(a => a.name);
+          for (const expPPK of expPPKAttrs) {
+            const userAttr = (found.attributes || []).find(a => this.norm(a.name) === this.norm(expPPK));
+            if (!userAttr || !userAttr.isPPK) {
+              errors.push({
+                category: 'ppk_missing',
+                target: `${isEn ? 'Partial Key {PPK}' : 'Qisman Kalit {PPK}'}: ${expName}.${expPPK}`,
+                title: isEn ? `Partial Primary Key {PPK} not set on '${expPPK}'` : `'${expName}' kartasida '${expPPK}' qisman kalit {PPK} sifatida belgilanmagan`,
+                message: isEn 
+                  ? `In weak entities, discriminators must be designated as {PPK} (Partial Primary Key).`
+                  : `Zaif entitiylarda alohida qatorlarni farqlovchi atribut {PPK} (Partial Primary Key / qisman kalit) sifatida belgilanishi shart.`,
+                proof: isEn 
+                  ? `A weak entity's partial key (discriminator) combined with the owner entity's primary key forms the full composite primary key in relational tables. Without {PPK}, relational transformation cannot build the composite primary key.`
+                  : `Zaif entitiyaning qisman kaliti (diskriminatori) ota entitiyaning birlamchi kaliti bilan birgalikda to'liq kompozit kalit hosil qiladi. Diagrammada {PPK} belgilanmasa, relyatsion sxemaga o'tkazishda jadvallar xato shakllanadi!`,
+                userVal: isEn ? "Regular attribute / PK" : "Oddiy atribut yoki noto'g'ri PK",
+                expectedVal: `${expPPK} {PPK}`,
+                fix: isEn 
+                  ? `Click on '${expPPK}' in '${expName}' and select {PPK}.`
+                  : `'${expName}' kartasidagi '${expPPK}' atributi yonidagi {PPK} tugmasini bosing.`
+              });
+            }
+          }
         }
 
         passedItems.push({
@@ -333,12 +362,31 @@
         }
 
         // Connection exists!
-        // In Week 2 EER mode, multiplicity is NOT used. We only verify connection existence and specialization.
+        // In Week 2 EER mode, multiplicity is NOT used. We only verify connection existence, identifying mode, and specialization.
         if (isWeek2) {
-          passedItems.push({
-            name: `${isEn ? 'Relationship Line' : "Aloqa Chizig'i"}: ${relLabel}`,
-            detail: isEn ? "Connected" : "Bog'langan"
-          });
+          if (expR.isIdentifying && !foundRel.isIdentifying) {
+            errors.push({
+              category: 'rel_not_identifying',
+              target: `${isEn ? 'Identifying Relationship' : 'Identifikatsion Aloqa'}: ${relLabel}`,
+              title: isEn ? `Identifying relationship required between '${expR.entity1}' and '${expR.entity2}'` : `'${expR.entity1}' va '${expR.entity2}' o'rtasida identifikatsion aloqa talab etiladi`,
+              message: isEn 
+                ? `Weak entities depend on their parent entity via an identifying relationship (double diamond or double line).`
+                : `Zaif entitiy o'z ota entitiysiga identifikatsion (identifying) aloqa orqali bog'lanishi shart (qo'sh chiziqli yoki ikki qavat rombli munosabat).`,
+              proof: isEn 
+                ? `A weak entity has existence dependency and cannot be uniquely identified without the primary key of its parent entity. Thus, the relationship that connects them must be identifying.`
+                : `Zaif entitiy o'zining mustaqil PK ga ega emasligi tufayli mavjudlik bo'yicha ota entitiyaga to'liq qaram (Existence Dependent) hisoblanadi. Shuning uchun ularni bog'lovchi munosabat oddiy emas, Identifikatsion (Identifying Relationship) bo'lishi shart!`,
+              userVal: isEn ? "Non-identifying (single line)" : "Oddiy aloqa (bir chiziqli)",
+              expectedVal: isEn ? "Identifying (double line / identifying diamond)" : "Identifikatsion aloqa (qo'sh chiziqli)",
+              fix: isEn 
+                ? `Click the relationship line or diamond and toggle 'Identifying' on.`
+                : `Aloqa chizig'ini yoki rombini tanlab, 'Identifikatsion' (Identifying) rejimini yoqing.`
+            });
+          } else {
+            passedItems.push({
+              name: `${isEn ? 'Relationship Line' : "Aloqa Chizig'i"}: ${relLabel}`,
+              detail: isEn ? (expR.isIdentifying ? "Identifying Connected" : "Connected") : (expR.isIdentifying ? "Identifikatsion bog'langan" : "Bog'langan")
+            });
+          }
           continue;
         }
 
@@ -558,65 +606,112 @@
       const expSubs = (expSub.subs || expSub.subclasses || []).map(s => this.norm(typeof s === 'string' ? s : s.name));
       const expSubNames = (expSub.subs || expSub.subclasses || []).map(s => typeof s === 'string' ? s : s.name);
 
-      let subFound = false;
-
-      // Check via explicit subclass hierarchy model
-      if (uSubclasses && Array.isArray(uSubclasses)) {
-        const matchingGroup = uSubclasses.find(s => this.norm(s.superclass) === expSuper);
-        if (matchingGroup) {
-          subFound = true;
-          // Check constraint if required
-          if (expSub.constraint) {
-            const expConstraintNorm = this.norm(expSub.constraint);
-            const userConstraintNorm = this.norm(matchingGroup.constraint);
-            if (userConstraintNorm !== expConstraintNorm) {
-              errors.push({
-                category: 'subclass_constraint',
-                target: `${isEn ? 'EER Constraint' : 'Subklass Cheklovi'}: ${expSub.superclass}`,
-                title: isEn ? `Specialization constraint mismatch` : `Ixtisoslashuv (Specialization) cheklovi noto'g'ri`,
-                message: isEn 
-                  ? `Expected constraint '${expSub.constraint}', but found '${matchingGroup.constraint || "none"}'.`
-                  : `Kutilgan cheklov: '${expSub.constraint}' (Sizda: '${matchingGroup.constraint || "belgilanmagan"}').`,
-                userVal: matchingGroup.constraint || "none",
-                expectedVal: expSub.constraint,
-                fix: isEn 
-                  ? `Configure the subclass group constraint to '${expSub.constraint}' (Disjoint vs Overlapping).`
-                  : `Subklass bog'lamida cheklovni '${expSub.constraint}' (Disjoint 'Or' yoki Overlapping 'And') holatiga o'tkazing.`
-              });
-            }
-          }
-        }
-      } else if (uSubclasses && typeof uSubclasses === 'object' && this.norm(uSubclasses.superclass) === expSuper) {
-        subFound = true;
+      // Normalize user subclasses into array of specialization groups
+      let userGroups = [];
+      if (Array.isArray(uSubclasses)) {
+        userGroups = uSubclasses;
+      } else if (uSubclasses && typeof uSubclasses === 'object') {
+        userGroups = [uSubclasses];
       }
 
-      // Fallback: check if user added them as child entities on canvas
-      if (!subFound) {
-        const allSubsExistAsEntities = expSubs.every(es => uEntities.some(ue => this.norm(ue.name) === es));
-        if (allSubsExistAsEntities) {
-          subFound = true;
-        }
-      }
+      const matchingGroup = userGroups.find(g => this.norm(g.superclass) === expSuper);
 
-      if (!subFound && expSubs.length > 0) {
+      if (!matchingGroup) {
+        const proofText = this.generateSpecializationProof(expSub.superclass, expSub.constraint, '', expSubNames, isEn);
         errors.push({
           category: 'subclasses_missing',
           target: `${isEn ? 'EER Specialization' : 'EER Ixtisoslashuv'}: ${expSub.superclass}`,
-          title: isEn ? `Subclasses missing under '${expSub.superclass}'` : `'${expSub.superclass}' ostida subklasslar yetishmayapti`,
+          title: isEn ? `Missing ISA Specialization under '${expSub.superclass}'` : `'${expSub.superclass}' superklassi ostida ISA ierarxiyasi yetishmayapti`,
           message: isEn 
-            ? `Specialization requires sub-entities (${expSubNames.join(', ')}) under superclass '${expSub.superclass}'.`
-            : `'${expSub.superclass}' superklassi ostida ${expSubNames.join(', ')} subklasslari loyihalashtirilishi lozim.`,
-          userVal: isEn ? 'Not created' : "Yaratilmagan",
-          expectedVal: `${expSub.superclass} ➔ [${expSubNames.join(', ')}]`,
+            ? `Entities (${expSubNames.join(', ')}) must be grouped under superclass '${expSub.superclass}' using an ISA node (circle 'd' or 'o') with constraint '${expSub.constraint}'.`
+            : `'${expSub.superclass}' superklassi ostidagi [${expSubNames.join(', ')}] subklasslari uchun ISA doirasi (d/o) va '${expSub.constraint}' cheklovi o'rnatilmagan!`,
+          proof: proofText,
+          userVal: isEn ? 'Not created (plain tables)' : "Meros (ISA) bog'lanmagan",
+          expectedVal: `${expSub.superclass} ➔ ISA ${expSub.constraint} ➔ [${expSubNames.join(', ')}]`,
           fix: isEn 
-            ? `Open the Subclass Tool or create entity nodes for ${expSubNames.join(', ')}.`
-            : `Subklasslar vositasi orqali ${expSubNames.join(', ')} subklasslarini hosil qiling.`
+            ? `Click '🎓 Meros (ISA)' in the toolbar or select the ISA tool to create the specialization hierarchy with '${expSub.constraint}'.`
+            : `Asboblar panelidagi '🎓 Meros (ISA)' tugmasini bosing yoki shakllar palitrasidagi Meros (ISA) doirasidan foydalanib, '${expSub.superclass}' ni subklasslar bilan '${expSub.constraint}' qoidasi asosida bog'lang.`
+        });
+        return;
+      }
+
+      // Check constraint
+      if (expSub.constraint) {
+        const expConstraintNorm = this.norm(expSub.constraint);
+        const userConstraintNorm = this.norm(matchingGroup.constraint || '');
+        if (userConstraintNorm !== expConstraintNorm) {
+          const proofText = this.generateSpecializationProof(expSub.superclass, expSub.constraint, matchingGroup.constraint, expSubNames, isEn);
+          errors.push({
+            category: 'subclass_constraint',
+            target: `${isEn ? 'EER Constraint' : 'Subklass Cheklovi'}: ${expSub.superclass}`,
+            title: isEn ? `Specialization constraint mismatch` : `Ixtisoslashuv (Specialization) cheklovi noto'g'ri`,
+            message: isEn 
+              ? `Expected constraint '${expSub.constraint}', but found '${matchingGroup.constraint || "none"}'.`
+              : `Kutilgan cheklov: '${expSub.constraint}' (Sizda: '${matchingGroup.constraint || "belgilanmagan"}').`,
+            proof: proofText,
+            userVal: matchingGroup.constraint || (isEn ? "none" : "belgilanmagan"),
+            expectedVal: expSub.constraint,
+            fix: isEn 
+              ? `Change the ISA specialization constraint to '${expSub.constraint}'.`
+              : `ISA doirasini bosing va cheklov turini '${expSub.constraint}' holatiga o'tkazing.`
+          });
+        }
+      }
+
+      // Check that all required subclasses are linked
+      const userSubs = (matchingGroup.subs || matchingGroup.subclasses || []).map(s => this.norm(typeof s === 'string' ? s : s.name));
+      const missingSubs = expSubs.filter(es => !userSubs.includes(es));
+      if (missingSubs.length > 0) {
+        const missingNames = expSubNames.filter((name, idx) => !userSubs.includes(expSubs[idx]));
+        errors.push({
+          category: 'subclass_missing_items',
+          target: `${isEn ? 'EER Subclasses' : 'Subklasslar'}: ${expSub.superclass}`,
+          title: isEn ? `Missing subclass branches` : `Yetishmayotgan subklass shoxobchalari`,
+          message: isEn 
+            ? `The specialization hierarchy under '${expSub.superclass}' must include all sub-entities: ${missingNames.join(', ')} are missing.`
+            : `'${expSub.superclass}' ierarxiyasida quyidagi subklasslar bog'lanmagan: ${missingNames.join(', ')}.`,
+          userVal: (matchingGroup.subclasses || []).join(', ') || (isEn ? "None" : "Birorta ham yo'q"),
+          expectedVal: expSubNames.join(', '),
+          fix: isEn 
+            ? `Open the ISA popover and check ${missingNames.join(', ')} as subclasses.`
+            : `ISA doirasini bosing va subklasslar ro'yxatidan ${missingNames.join(', ')} ni tanlang.`
         });
       } else {
         passedItems.push({
-          name: isEn ? "EER Specialization" : "EER Subklasslar",
-          detail: `${expSub.superclass} (${expSubNames.join(', ')})`
+          name: isEn ? "EER Specialization" : "EER Ixtisoslashuv",
+          detail: `${expSub.superclass} (${expSub.constraint}) ➔ [${expSubNames.join(', ')}]`
         });
+      }
+    },
+
+    // Pedagogical fact-based proof generator for EER Specialization
+    generateSpecializationProof(superclass, expConstraint, userConstraint, subclasses, isEn) {
+      const subNames = subclasses.join(', ');
+      const normExp = (expConstraint || '').toLowerCase().replace(/[\s_{}]/g, '');
+      const isDisjoint = normExp.includes('or') || normExp.includes('disjoint');
+      const isMandatory = normExp.includes('mandatory') || normExp.includes('total');
+
+      if (isEn) {
+        if (isDisjoint && isMandatory) {
+          return `Pedagogical Proof: '{Mandatory, Or}' specifies Disjoint and Total specialization. 1) Disjoint (Or / 'd'): An instance of '${superclass}' can belong to AT MOST ONE subclass (${subNames}). For example, an employee cannot simultaneously be an Hourly and Salaried worker. 2) Mandatory (Total / double line): Every '${superclass}' MUST belong to at least one subclass; generic, unspecialized instances are strictly prohibited in this business architecture. In relational mapping, this guarantees mutually exclusive row partitions or clean single-table mapping with a Type Discriminator.`;
+        } else if (isDisjoint && !isMandatory) {
+          return `Pedagogical Proof: '{Optional, Or}' specifies Disjoint and Partial specialization. 1) Disjoint (Or / 'd'): An instance can belong to at most one subclass. 2) Optional (Partial / single line): An instance of '${superclass}' does NOT have to belong to any subclass (e.g. A Person can be neither Student nor Staff). In relational mapping, subclasses are mapped to separate tables holding only specific attributes, leaving the superclass table intact.`;
+        } else if (!isDisjoint && isMandatory) {
+          return `Pedagogical Proof: '{Mandatory, And}' specifies Overlapping and Total specialization. 1) Overlapping (And / 'o'): An instance of '${superclass}' can belong to MULTIPLE subclasses at the same time (e.g. a Part can be both Manufactured and Purchased). 2) Mandatory (Total / double line): Every '${superclass}' must specialize into at least one subclass. In relational tables, each subclass requires its own independent table linked to '${superclass}' PK.`;
+        } else {
+          return `Pedagogical Proof: '{Optional, And}' specifies Overlapping and Partial specialization. An instance may belong to zero, one, or multiple subclasses simultaneously.`;
+        }
+      }
+
+      // Uzbek domain proofs
+      if (isDisjoint && isMandatory) {
+        return `Biznes Arxitekturasi Isboti: '{Mandatory, Or}' qoidasi Ayri (Disjoint) va To'liq (Total) ixtisoslashuvni bildiradi: 1) Disjoint (Or / 'd'): '${superclass}' ob'ekti bir vaqtning o'zida bir nechta subklassga (${subNames}) TEGISHLI BO'LA OLMAYDI. Masalan, xodim bir vaqtda ham soatbay, ham oylik bo'la olmaydi. 2) Mandatory (Total / qo'sh chiziq): Har bir '${superclass}' albatta subklasslardan biriga kirishi SHART, ixtisoslashmagan umumiy nusxa bo'lishi mumkin emas. Relyatsion modelga o'tkazishda (Relational Mapping) bu qoida Primary Key va Type Discriminator orqali mutlaq aniqlikni ta'minlaydi.`;
+      } else if (isDisjoint && !isMandatory) {
+        return `Biznes Arxitekturasi Isboti: '{Optional, Or}' qoidasi Ayri (Disjoint) va Qisman (Partial) ixtisoslashuvni bildiradi: 1) Disjoint (Or / 'd'): Ob'ekt subklasslardan (${subNames}) ko'pi bilan bittasiga tegishli bo'lishi mumkin. 2) Optional (Partial / bir chiziq): '${superclass}' ning barcha nusxalari ham subklass bo'lishi shart emas (umumiy holatda qolishi mumkin, masalan, Person har doim ham Student yoki Staff bo'lishi majburiy emas).`;
+      } else if (!isDisjoint && isMandatory) {
+        return `Biznes Arxitekturasi Isboti: '{Mandatory, And}' qoidasi Kesishuvchi (Overlapping) va To'liq (Total) ixtisoslashuvni bildiradi: 1) Overlapping (And / 'o'): '${superclass}' ning bitta ob'ekti bir vaqtning o'zida BIR NECHTA subklass a'zosi bo'la oladi (masalan, ehtiyot qism bir vaqtda ham korxonada ishlab chiqarilishi, ham bozordan sotib olinishi mumkin). 2) Mandatory (Total / qo'sh chiziq): Har bir ob'ekt kamida bitta subklassga kirishi shart.`;
+      } else {
+        return `Biznes Arxitekturasi Isboti: '{Optional, And}' qoidasi Kesishuvchi (Overlapping) va Qisman (Partial) ixtisoslashuvni bildiradi: Ob'ekt nol, bir yoki bir nechta subklasslarga bir vaqtda tegishli bo'lishi mumkin.`;
       }
     },
 

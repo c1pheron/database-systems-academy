@@ -1,4 +1,5 @@
-window.QUESTIONS_51_100 = [
+var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
+_scope.QUESTIONS_51_100 = [
   {
     "id": 51,
     "sector": 4,
@@ -41,36 +42,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Books",
-          "entity1": "FlightPassenger",
-          "entity2": "FlightBooking",
-          "fromEntityName": "FlightPassenger",
-          "toEntityName": "FlightBooking",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "Carries",
-          "entity1": "ScheduledFlight",
-          "entity2": "FlightBooking",
-          "fromEntityName": "ScheduledFlight",
-          "toEntityName": "FlightBooking",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -159,36 +131,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Borrows",
-          "entity1": "OnlineReader",
-          "entity2": "BookRental",
-          "fromEntityName": "OnlineReader",
-          "toEntityName": "BookRental",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "RentedVia",
-          "entity1": "LibraryBook",
-          "entity2": "BookRental",
-          "fromEntityName": "LibraryBook",
-          "toEntityName": "BookRental",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -277,36 +220,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Takes",
-          "entity1": "CandidateStudent",
-          "entity2": "ExamAttempt",
-          "fromEntityName": "CandidateStudent",
-          "toEntityName": "ExamAttempt",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "Evaluates",
-          "entity1": "CertificationExam",
-          "entity2": "ExamAttempt",
-          "fromEntityName": "CertificationExam",
-          "toEntityName": "ExamAttempt",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -395,36 +309,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Prescribes",
-          "entity1": "TreatingDoctor",
-          "entity2": "PrescriptionItem",
-          "fromEntityName": "TreatingDoctor",
-          "toEntityName": "PrescriptionItem",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "PrescribedIn",
-          "entity1": "MedicationDrug",
-          "entity2": "PrescriptionItem",
-          "fromEntityName": "MedicationDrug",
-          "toEntityName": "PrescriptionItem",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -513,36 +398,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Reserves",
-          "entity1": "CorporateClient",
-          "entity2": "HallBooking",
-          "fromEntityName": "CorporateClient",
-          "toEntityName": "HallBooking",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "ReservedBy",
-          "entity1": "ConferenceHall",
-          "entity2": "HallBooking",
-          "fromEntityName": "ConferenceHall",
-          "toEntityName": "HallBooking",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -631,36 +487,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Subscribes",
-          "entity1": "InsuredPerson",
-          "entity2": "UnderwrittenPolicy",
-          "fromEntityName": "InsuredPerson",
-          "toEntityName": "UnderwrittenPolicy",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "AppliedTo",
-          "entity1": "InsurancePlan",
-          "entity2": "UnderwrittenPolicy",
-          "fromEntityName": "InsurancePlan",
-          "toEntityName": "UnderwrittenPolicy",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -749,36 +576,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "SignsLease",
-          "entity1": "CarBuyer",
-          "entity2": "CarLeaseContract",
-          "fromEntityName": "CarBuyer",
-          "toEntityName": "CarLeaseContract",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "LeasedAs",
-          "entity1": "VehicleStock",
-          "entity2": "CarLeaseContract",
-          "fromEntityName": "VehicleStock",
-          "toEntityName": "CarLeaseContract",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -867,36 +665,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Purchases",
-          "entity1": "MovieViewer",
-          "entity2": "CinemaTicket",
-          "fromEntityName": "MovieViewer",
-          "toEntityName": "CinemaTicket",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "Admits",
-          "entity1": "CinemaSession",
-          "entity2": "CinemaTicket",
-          "fromEntityName": "CinemaSession",
-          "toEntityName": "CinemaTicket",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -985,36 +754,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Rents",
-          "entity1": "ConstructionFirm",
-          "entity2": "MachineRental",
-          "fromEntityName": "ConstructionFirm",
-          "toEntityName": "MachineRental",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "EngagedBy",
-          "entity1": "HeavyMachinery",
-          "entity2": "MachineRental",
-          "fromEntityName": "HeavyMachinery",
-          "toEntityName": "MachineRental",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1103,36 +843,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "ServesShift",
-          "entity1": "DeliveryCourier",
-          "entity2": "CourierShift",
-          "fromEntityName": "DeliveryCourier",
-          "toEntityName": "CourierShift",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "HostsShift",
-          "entity1": "RestaurantBranch",
-          "entity2": "CourierShift",
-          "fromEntityName": "RestaurantBranch",
-          "toEntityName": "CourierShift",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1207,22 +918,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Manages",
-          "entity1": "Employee",
-          "entity2": "Employee",
-          "fromEntityName": "Employee",
-          "toEntityName": "Employee",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "supervisor",
-          "role2": "subordinate"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1280,22 +976,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "SubCategoryOf",
-          "entity1": "ProductCategory",
-          "entity2": "ProductCategory",
-          "fromEntityName": "ProductCategory",
-          "toEntityName": "ProductCategory",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "parentCat",
-          "role2": "subCat"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1353,22 +1034,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "AssembledFrom",
-          "entity1": "PartComponent",
-          "entity2": "PartComponent",
-          "fromEntityName": "PartComponent",
-          "toEntityName": "PartComponent",
-          "mult1": "0..*",
-          "mult2": "1..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "parentAssembly",
-          "role2": "subPart"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1426,22 +1092,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "RequiresPrereq",
-          "entity1": "AcademicCourse",
-          "entity2": "AcademicCourse",
-          "fromEntityName": "AcademicCourse",
-          "toEntityName": "AcademicCourse",
-          "mult1": "0..*",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "advancedCourse",
-          "role2": "prerequisite"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1499,22 +1150,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "MarriedTo",
-          "entity1": "Citizen",
-          "entity2": "Citizen",
-          "fromEntityName": "Citizen",
-          "toEntityName": "Citizen",
-          "mult1": "0..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "spouse1",
-          "role2": "spouse2"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1572,22 +1208,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "ReferredBy",
-          "entity1": "UserAccount",
-          "entity2": "UserAccount",
-          "fromEntityName": "UserAccount",
-          "toEntityName": "UserAccount",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "referrer",
-          "role2": "referee"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1645,22 +1266,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "NextTrackTo",
-          "entity1": "MetroStation",
-          "entity2": "MetroStation",
-          "fromEntityName": "MetroStation",
-          "toEntityName": "MetroStation",
-          "mult1": "0..2",
-          "mult2": "0..2",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "currentStation",
-          "role2": "adjacentStation"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1718,22 +1324,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "ContainsSubfolder",
-          "entity1": "FolderDirectory",
-          "entity2": "FolderDirectory",
-          "fromEntityName": "FolderDirectory",
-          "toEntityName": "FolderDirectory",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "parentFolder",
-          "role2": "subFolder"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1791,22 +1382,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "PrecedesTask",
-          "entity1": "ProjectTask",
-          "entity2": "ProjectTask",
-          "fromEntityName": "ProjectTask",
-          "toEntityName": "ProjectTask",
-          "mult1": "0..*",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "predecessor",
-          "role2": "successor"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1864,22 +1440,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "PlaysMatchAgainst",
-          "entity1": "FootballClub",
-          "entity2": "FootballClub",
-          "fromEntityName": "FootballClub",
-          "toEntityName": "FootballClub",
-          "mult1": "0..*",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "homeTeam",
-          "role2": "awayTeam"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -1937,22 +1498,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "TransfersCargoTo",
-          "entity1": "DistributionHub",
-          "entity2": "DistributionHub",
-          "fromEntityName": "DistributionHub",
-          "toEntityName": "DistributionHub",
-          "mult1": "0..*",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "sourceHub",
-          "role2": "targetHub"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2010,22 +1556,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "UplinkTo",
-          "entity1": "NetworkSwitch",
-          "entity2": "NetworkSwitch",
-          "fromEntityName": "NetworkSwitch",
-          "toEntityName": "NetworkSwitch",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "coreSwitch",
-          "role2": "accessSwitch"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2083,22 +1614,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "ReversesTx",
-          "entity1": "FinancialTransaction",
-          "entity2": "FinancialTransaction",
-          "fromEntityName": "FinancialTransaction",
-          "toEntityName": "FinancialTransaction",
-          "mult1": "0..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "originalTx",
-          "role2": "reversalTx"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2156,22 +1672,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "BiologicalParentOf",
-          "entity1": "FamilyPerson",
-          "entity2": "FamilyPerson",
-          "fromEntityName": "FamilyPerson",
-          "toEntityName": "FamilyPerson",
-          "mult1": "0..2",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "parent",
-          "role2": "child"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2229,22 +1730,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "OwnsSubsidiary",
-          "entity1": "CorporateHolding",
-          "entity2": "CorporateHolding",
-          "fromEntityName": "CorporateHolding",
-          "toEntityName": "CorporateHolding",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "parentHolding",
-          "role2": "subsidiary"
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2321,36 +1807,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Enrolls",
-          "entity1": "Student",
-          "entity2": "CourseModule",
-          "fromEntityName": "Student",
-          "toEntityName": "CourseModule",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "TaughtBy",
-          "entity1": "CourseModule",
-          "entity2": "Lecturer",
-          "fromEntityName": "CourseModule",
-          "toEntityName": "Lecturer",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2448,36 +1905,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Treats",
-          "entity1": "Doctor",
-          "entity2": "Patient",
-          "fromEntityName": "Doctor",
-          "toEntityName": "Patient",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "Prescribes",
-          "entity1": "Doctor",
-          "entity2": "Medication",
-          "fromEntityName": "Doctor",
-          "toEntityName": "Medication",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2575,36 +2003,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Produces",
-          "entity1": "AutoSupplier",
-          "entity2": "SparePart",
-          "fromEntityName": "AutoSupplier",
-          "toEntityName": "SparePart",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "FittedTo",
-          "entity1": "SparePart",
-          "entity2": "VehicleModel",
-          "fromEntityName": "SparePart",
-          "toEntityName": "VehicleModel",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2702,36 +2101,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Serves",
-          "entity1": "SalesAgent",
-          "entity2": "CarBuyer",
-          "fromEntityName": "SalesAgent",
-          "toEntityName": "CarBuyer",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "Purchases",
-          "entity1": "CarBuyer",
-          "entity2": "ShowroomCar",
-          "fromEntityName": "CarBuyer",
-          "toEntityName": "ShowroomCar",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2829,36 +2199,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "WorksOn",
-          "entity1": "BuildingContractor",
-          "entity2": "BuildingSite",
-          "fromEntityName": "BuildingContractor",
-          "toEntityName": "BuildingSite",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "Deploys",
-          "entity1": "BuildingSite",
-          "entity2": "HeavyEquipment",
-          "fromEntityName": "BuildingSite",
-          "toEntityName": "HeavyEquipment",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -2956,36 +2297,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Covers",
-          "entity1": "KeynoteSpeaker",
-          "entity2": "SymposiumTopic",
-          "fromEntityName": "KeynoteSpeaker",
-          "toEntityName": "SymposiumTopic",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "HostedIn",
-          "entity1": "SymposiumTopic",
-          "entity2": "SessionHall",
-          "fromEntityName": "SymposiumTopic",
-          "toEntityName": "SessionHall",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3083,36 +2395,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Represents",
-          "entity1": "InsuranceBroker",
-          "entity2": "CorporateClient",
-          "fromEntityName": "InsuranceBroker",
-          "toEntityName": "CorporateClient",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "InsuredBy",
-          "entity1": "CorporateClient",
-          "entity2": "UnderwritingFirm",
-          "fromEntityName": "CorporateClient",
-          "toEntityName": "UnderwritingFirm",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3210,36 +2493,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "ArrivesAt",
-          "entity1": "CargoCarrier",
-          "entity2": "CustomsTerminal",
-          "fromEntityName": "CargoCarrier",
-          "toEntityName": "CustomsTerminal",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "ClearedBy",
-          "entity1": "CustomsTerminal",
-          "entity2": "FreightForwarder",
-          "fromEntityName": "CustomsTerminal",
-          "toEntityName": "FreightForwarder",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3337,36 +2591,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "ActsIn",
-          "entity1": "FilmActor",
-          "entity2": "MovieProduction",
-          "fromEntityName": "FilmActor",
-          "toEntityName": "MovieProduction",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "Features",
-          "entity1": "MovieProduction",
-          "entity2": "CharacterRole",
-          "fromEntityName": "MovieProduction",
-          "toEntityName": "CharacterRole",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3464,36 +2689,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Conducts",
-          "entity1": "ResearchScientist",
-          "entity2": "GrantProject",
-          "fromEntityName": "ResearchScientist",
-          "toEntityName": "GrantProject",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "UsesFacility",
-          "entity1": "GrantProject",
-          "entity2": "LabFacility",
-          "fromEntityName": "GrantProject",
-          "toEntityName": "LabFacility",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3591,36 +2787,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Supervises",
-          "entity1": "BrandMerchandiser",
-          "entity2": "PromotedProduct",
-          "fromEntityName": "BrandMerchandiser",
-          "toEntityName": "PromotedProduct",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "PlacedIn",
-          "entity1": "PromotedProduct",
-          "entity2": "SupermarketStore",
-          "fromEntityName": "PromotedProduct",
-          "toEntityName": "SupermarketStore",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3718,36 +2885,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Specializes",
-          "entity1": "SportAthlete",
-          "entity2": "SportDiscipline",
-          "fromEntityName": "SportAthlete",
-          "toEntityName": "SportDiscipline",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "ContestedAt",
-          "entity1": "SportDiscipline",
-          "entity2": "ChampionshipEvent",
-          "fromEntityName": "SportDiscipline",
-          "toEntityName": "ChampionshipEvent",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3845,36 +2983,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "AssignedBlock",
-          "entity1": "ExamineeStudent",
-          "entity2": "SubjectBlock",
-          "fromEntityName": "ExamineeStudent",
-          "toEntityName": "SubjectBlock",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "SupervisedBy",
-          "entity1": "SubjectBlock",
-          "entity2": "ExamProctor",
-          "fromEntityName": "SubjectBlock",
-          "toEntityName": "ExamProctor",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -3972,36 +3081,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "Purchases",
-          "entity1": "EnterpriseBuyer",
-          "entity2": "SoftwareModule",
-          "fromEntityName": "EnterpriseBuyer",
-          "toEntityName": "SoftwareModule",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "ProvidedBy",
-          "entity1": "SoftwareModule",
-          "entity2": "LicenseReseller",
-          "fromEntityName": "SoftwareModule",
-          "toEntityName": "LicenseReseller",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -4099,36 +3179,7 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "relationships": [
-        {
-          "id": "rel_1",
-          "name": "AssignedRoute",
-          "entity1": "FlightCaptain",
-          "entity2": "FlightRoute",
-          "fromEntityName": "FlightCaptain",
-          "toEntityName": "FlightRoute",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_2",
-          "name": "OperatedWith",
-          "entity1": "FlightRoute",
-          "entity2": "AircraftFleet",
-          "fromEntityName": "FlightRoute",
-          "toEntityName": "AircraftFleet",
-          "mult1": "0..*",
-          "mult2": "1..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -4227,37 +3278,8 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "subclasses": [],
-      "relationships": [
-        {
-          "id": "rel_91_1",
-          "name": "Ixtisoslashuv",
-          "entity1": "Employee",
-          "entity2": "HourlyEmp",
-          "fromEntityName": "Employee",
-          "toEntityName": "HourlyEmp",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_91_2",
-          "name": "Ixtisoslashuv",
-          "entity1": "Employee",
-          "entity2": "SalariedEmp",
-          "fromEntityName": "Employee",
-          "toEntityName": "SalariedEmp",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "subclasses": null,
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -4329,37 +3351,8 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "subclasses": [],
-      "relationships": [
-        {
-          "id": "rel_92_1",
-          "name": "Ixtisoslashuv",
-          "entity1": "Vehicle",
-          "entity2": "Car",
-          "fromEntityName": "Vehicle",
-          "toEntityName": "Car",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_92_2",
-          "name": "Ixtisoslashuv",
-          "entity1": "Vehicle",
-          "entity2": "Truck",
-          "fromEntityName": "Vehicle",
-          "toEntityName": "Truck",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "subclasses": null,
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -4431,37 +3424,8 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "subclasses": [],
-      "relationships": [
-        {
-          "id": "rel_93_1",
-          "name": "Ixtisoslashuv",
-          "entity1": "Person",
-          "entity2": "Staff",
-          "fromEntityName": "Person",
-          "toEntityName": "Staff",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_93_2",
-          "name": "Ixtisoslashuv",
-          "entity1": "Person",
-          "entity2": "Student",
-          "fromEntityName": "Person",
-          "toEntityName": "Student",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "subclasses": null,
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -4533,37 +3497,8 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "subclasses": [],
-      "relationships": [
-        {
-          "id": "rel_94_1",
-          "name": "Ixtisoslashuv",
-          "entity1": "Account",
-          "entity2": "SavingsAcc",
-          "fromEntityName": "Account",
-          "toEntityName": "SavingsAcc",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_94_2",
-          "name": "Ixtisoslashuv",
-          "entity1": "Account",
-          "entity2": "CurrentAcc",
-          "fromEntityName": "Account",
-          "toEntityName": "CurrentAcc",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "subclasses": null,
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -4635,37 +3570,8 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "subclasses": [],
-      "relationships": [
-        {
-          "id": "rel_95_1",
-          "name": "Ixtisoslashuv",
-          "entity1": "LibraryItem",
-          "entity2": "Book",
-          "fromEntityName": "LibraryItem",
-          "toEntityName": "Book",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_95_2",
-          "name": "Ixtisoslashuv",
-          "entity1": "LibraryItem",
-          "entity2": "Journal",
-          "fromEntityName": "LibraryItem",
-          "toEntityName": "Journal",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "subclasses": null,
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -4737,37 +3643,8 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "subclasses": [],
-      "relationships": [
-        {
-          "id": "rel_96_1",
-          "name": "Ixtisoslashuv",
-          "entity1": "Property",
-          "entity2": "Residential",
-          "fromEntityName": "Property",
-          "toEntityName": "Residential",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_96_2",
-          "name": "Ixtisoslashuv",
-          "entity1": "Property",
-          "entity2": "Commercial",
-          "fromEntityName": "Property",
-          "toEntityName": "Commercial",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "subclasses": null,
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -4839,37 +3716,8 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "subclasses": [],
-      "relationships": [
-        {
-          "id": "rel_97_1",
-          "name": "Ixtisoslashuv",
-          "entity1": "Customer",
-          "entity2": "Individual",
-          "fromEntityName": "Customer",
-          "toEntityName": "Individual",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_97_2",
-          "name": "Ixtisoslashuv",
-          "entity1": "Customer",
-          "entity2": "Corporate",
-          "fromEntityName": "Customer",
-          "toEntityName": "Corporate",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "subclasses": null,
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -4941,37 +3789,8 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "subclasses": [],
-      "relationships": [
-        {
-          "id": "rel_98_1",
-          "name": "Ixtisoslashuv",
-          "entity1": "User",
-          "entity2": "Admin",
-          "fromEntityName": "User",
-          "toEntityName": "Admin",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_98_2",
-          "name": "Ixtisoslashuv",
-          "entity1": "User",
-          "entity2": "Guest",
-          "fromEntityName": "User",
-          "toEntityName": "Guest",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "subclasses": null,
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -5043,37 +3862,8 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "subclasses": [],
-      "relationships": [
-        {
-          "id": "rel_99_1",
-          "name": "Ixtisoslashuv",
-          "entity1": "InsurancePlan",
-          "entity2": "BasicPlan",
-          "fromEntityName": "InsurancePlan",
-          "toEntityName": "BasicPlan",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_99_2",
-          "name": "Ixtisoslashuv",
-          "entity1": "InsurancePlan",
-          "entity2": "PremiumPlan",
-          "fromEntityName": "InsurancePlan",
-          "toEntityName": "PremiumPlan",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "subclasses": null,
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -5145,37 +3935,8 @@ window.QUESTIONS_51_100 = [
           ]
         }
       ],
-      "subclasses": [],
-      "relationships": [
-        {
-          "id": "rel_100_1",
-          "name": "Ixtisoslashuv",
-          "entity1": "Patient",
-          "entity2": "InPatient",
-          "fromEntityName": "Patient",
-          "toEntityName": "InPatient",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        },
-        {
-          "id": "rel_100_2",
-          "name": "Ixtisoslashuv",
-          "entity1": "Patient",
-          "entity2": "OutPatient",
-          "fromEntityName": "Patient",
-          "toEntityName": "OutPatient",
-          "mult1": "1..1",
-          "mult2": "0..1",
-          "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
-        }
-      ]
+      "subclasses": null,
+      "relationships": []
     },
     "expectedDiagram": {
       "entities": [
@@ -5200,3 +3961,7 @@ window.QUESTIONS_51_100 = [
     "isWeek2": true
   }
 ];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = _scope.QUESTIONS_51_100;
+}

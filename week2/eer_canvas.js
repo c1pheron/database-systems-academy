@@ -18,6 +18,7 @@ class EERCanvasEngine {
     this.entities = [];
     this.relationships = [];
     this.subclasses = [];
+    this.isaNodes = [];
 
     // Zoom & Pan
     this.zoom = 1;
@@ -1232,6 +1233,336 @@ class EERCanvasEngine {
     return rel;
   }
 
+  // ==========================================================================
+  // EER SPECIALIZATION & GENERALIZATION ENGINE (ISA NODES)
+  // ==========================================================================
+  addISASpecialization(data = {}) {
+    const id = 'isa_' + Math.random().toString(36).substr(2, 9);
+    const centerX = data.x !== undefined ? data.x : Math.round((-this.panX + (this.container?.clientWidth || 600) / 2) / this.zoom);
+    const centerY = data.y !== undefined ? data.y : Math.round((-this.panY + (this.container?.clientHeight || 400) / 2) / this.zoom);
+
+    // Superclass: given or first entity
+    const superName = data.superclass || (this.entities[0] ? this.entities[0].name : '');
+    // Subclasses: given or remaining entities
+    let remainingSubs = data.subclasses || data.subs;
+    if (!remainingSubs) {
+      remainingSubs = this.entities.filter(e => this.norm(e.name) !== this.norm(superName)).map(e => e.name);
+    }
+
+    const isaNode = {
+      id: id,
+      domId: id,
+      superclass: superName,
+      constraint: data.constraint || '{Mandatory, Or}',
+      subclasses: remainingSubs,
+      x: centerX - 30,
+      y: centerY - 30,
+      width: 60,
+      height: 60
+    };
+
+    if (!this.isaNodes) this.isaNodes = [];
+    this.isaNodes.push(isaNode);
+    this.createISADOM(isaNode);
+    this.renderLinks();
+    this.triggerChange();
+    this.showToast("🎓 Meros (ISA) tuguni qo'shildi! Sozlash uchun ustiga bosing.");
+    return isaNode;
+  }
+
+  createISADOM(isaNode) {
+    if (document.getElementById(isaNode.domId)) return;
+    const el = document.createElement('div');
+    el.id = isaNode.domId;
+    el.className = 'eer-isa-node';
+    el.style.left = (isaNode.x || 300) + 'px';
+    el.style.top = (isaNode.y || 160) + 'px';
+    el.style.position = 'absolute';
+    el.style.width = '60px';
+    el.style.height = '60px';
+    el.style.borderRadius = '50%';
+    el.style.background = 'radial-gradient(circle at 35% 35%, #1e293b, #0f172a)';
+    el.style.border = '2px solid #38bdf8';
+    el.style.boxShadow = '0 0 14px rgba(56, 189, 248, 0.45), inset 0 0 8px rgba(56, 189, 248, 0.2)';
+    el.style.display = 'flex';
+    el.style.flexDirection = 'column';
+    el.style.alignItems = 'center';
+    el.style.justifyContent = 'center';
+    el.style.cursor = 'move';
+    el.style.userSelect = 'none';
+    el.style.zIndex = '15';
+
+    const isOr = (isaNode.constraint || '').toLowerCase().includes('or');
+    const symbol = isOr ? '(d)' : '(o)';
+
+    el.innerHTML = `
+      <div class="isa-symbol" style="font-size:18px; font-weight:800; color:#38bdf8; font-family:var(--font-mono, monospace); line-height:1; pointer-events:none;">
+        ${symbol}
+      </div>
+      <div class="isa-badge" style="position:absolute; bottom:-20px; left:50%; transform:translateX(-50%); background:#0284c7; color:#fff; font-size:9.5px; font-weight:700; padding:1px 6px; border-radius:10px; white-space:nowrap; border:1px solid #38bdf8; pointer-events:none;">
+        ${isaNode.constraint || '{Mandatory, Or}'}
+      </div>
+      <button class="btn-node-act del" data-action="del-isa" style="position:absolute; top:-4px; right:-4px; width:16px; height:16px; font-size:10px; border-radius:50%; background:#ef4444; color:#fff; border:none; cursor:pointer;" title="ISA tugunini o'chirish">✕</button>
+    `;
+
+    // Click / drag events
+    const onStart = (e) => {
+      if (e.target.closest('button')) return;
+      if (e.touches && e.touches.length > 1) return;
+      e.stopPropagation();
+      if (e.cancelable && e.type === 'touchstart') e.preventDefault();
+      const point = e.touches ? e.touches[0] : e;
+      this.onNodePointerDown(point, isaNode, 'isa');
+    };
+    el.addEventListener('mousedown', onStart);
+    el.addEventListener('touchstart', onStart, { passive: false });
+
+    // Click to open popover
+    el.addEventListener('click', (e) => {
+      if (e.target.closest('button')) return;
+      e.stopPropagation();
+      this.openISAConfigPopover(isaNode, el);
+    });
+
+    // Delete button
+    const btnDel = el.querySelector('[data-action="del-isa"]');
+    if (btnDel) {
+      btnDel.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.removeISANode(isaNode);
+      });
+    }
+
+    this.nodesLayer.appendChild(el);
+  }
+
+  removeISANode(isaNode) {
+    this.isaNodes = (this.isaNodes || []).filter(n => n.id !== isaNode.id);
+    const el = document.getElementById(isaNode.domId);
+    if (el) el.remove();
+    this.renderLinks();
+    this.triggerChange();
+    this.showToast("Meros (ISA) tuguni o'chirildi.");
+  }
+
+  openISAConfigPopover(isaNode, el) {
+    document.querySelectorAll('.eer-isa-popover-overlay').forEach(p => p.remove());
+
+    const isEn = window.I18N && window.I18N.getLang() === 'en';
+    const overlay = document.createElement('div');
+    overlay.className = 'eer-isa-popover-overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.inset = '0';
+    overlay.style.background = 'rgba(0,0,0,0.65)';
+    overlay.style.zIndex = '99999';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.backdropFilter = 'blur(4px)';
+
+    const superOptions = this.entities.map(e => `
+      <option value="${this.escapeHTML(e.name)}" ${this.norm(e.name) === this.norm(isaNode.superclass) ? 'selected' : ''}>
+        ${this.escapeHTML(e.name)}
+      </option>
+    `).join('');
+
+    const constraints = [
+      { val: '{Mandatory, Or}', label: isEn ? '{Mandatory, Or} — Disjoint & Total (Chen: d)' : '{Mandatory, Or} — Ayri va Majburiy (Total / d)' },
+      { val: '{Optional, Or}', label: isEn ? '{Optional, Or} — Disjoint & Partial (Chen: d)' : '{Optional, Or} — Ayri va Ixtiyoriy (Partial / d)' },
+      { val: '{Mandatory, And}', label: isEn ? '{Mandatory, And} — Overlapping & Total (Chen: o)' : '{Mandatory, And} — Kesishuvchi va Majburiy (Total / o)' },
+      { val: '{Optional, And}', label: isEn ? '{Optional, And} — Overlapping & Partial (Chen: o)' : '{Optional, And} — Kesishuvchi va Ixtiyoriy (Partial / o)' }
+    ];
+
+    const constraintOptions = constraints.map(c => `
+      <option value="${c.val}" ${this.norm(c.val) === this.norm(isaNode.constraint) ? 'selected' : ''}>
+        ${c.label}
+      </option>
+    `).join('');
+
+    const curSubs = (isaNode.subclasses || []).map(s => this.norm(s));
+    const subCheckboxes = this.entities.map(e => {
+      const isChecked = curSubs.includes(this.norm(e.name));
+      return `
+        <label style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:4px; cursor:pointer;">
+          <input type="checkbox" class="isa-sub-checkbox" value="${this.escapeHTML(e.name)}" ${isChecked ? 'checked' : ''} style="accent-color:#38bdf8;">
+          <span style="color:#e2e8f0; font-size:13px; font-weight:600;">${this.escapeHTML(e.name)}</span>
+        </label>
+      `;
+    }).join('');
+
+    overlay.innerHTML = `
+      <div style="background:#0f172a; border:2px solid #38bdf8; border-radius:12px; width:90%; max-width:440px; padding:20px; box-shadow:0 20px 40px rgba(0,0,0,0.8); color:#f8fafc; font-family:var(--font-sans, sans-serif);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; border-bottom:1px solid rgba(56,189,248,0.3); padding-bottom:8px;">
+          <div style="font-size:15px; font-weight:700; color:#38bdf8; display:flex; align-items:center; gap:8px;">
+            <span>🎓</span> <span>${isEn ? "EER Specialization (ISA) Settings" : "EER Ixtisoslashuv (ISA) Sozlamalari"}</span>
+          </div>
+          <button id="btnIsaClose" style="background:transparent; border:none; color:#94a3b8; font-size:18px; cursor:pointer;">✕</button>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <label style="display:block; font-size:12px; color:#94a3b8; font-weight:600; margin-bottom:4px;">
+            ${isEn ? "1. Superclass (Parent Entity):" : "1. Superklass (Ota Entitiy):"}
+          </label>
+          <select id="isaSuperSelect" style="width:100%; background:#1e293b; color:#fff; border:1px solid #38bdf8; border-radius:6px; padding:8px; font-size:13px; font-weight:600;">
+            ${superOptions}
+          </select>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <label style="display:block; font-size:12px; color:#94a3b8; font-weight:600; margin-bottom:4px;">
+            ${isEn ? "2. Specialization Constraint:" : "2. Ixtisoslashuv Cheklovi (Constraint):"}
+          </label>
+          <select id="isaConstraintSelect" style="width:100%; background:#1e293b; color:#fff; border:1px solid #38bdf8; border-radius:6px; padding:8px; font-size:13px; font-weight:600;">
+            ${constraintOptions}
+          </select>
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <label style="display:block; font-size:12px; color:#94a3b8; font-weight:600; margin-bottom:6px;">
+            ${isEn ? "3. Select Subclasses (Child Entities):" : "3. Subklasslarni tanlang (Bolalar):"}
+          </label>
+          <div style="display:flex; flex-direction:column; gap:6px; max-height:140px; overflow-y:auto;">
+            ${subCheckboxes}
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; gap:10px;">
+          <button id="btnIsaDelete" style="background:#ef4444; color:#fff; border:none; padding:8px 14px; border-radius:6px; font-weight:600; font-size:12px; cursor:pointer;">
+            🗑️ ${isEn ? "Delete ISA" : "O'chirish"}
+          </button>
+          <button id="btnIsaSave" style="background:#0284c7; color:#fff; border:none; padding:8px 20px; border-radius:6px; font-weight:700; font-size:13px; cursor:pointer;">
+            💾 ${isEn ? "Save & Apply" : "Qo'llash"}
+          </button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    overlay.querySelector('#btnIsaClose').onclick = () => overlay.remove();
+    overlay.onclick = (e) => { if (e.target === overlay) overlay.remove(); };
+
+    overlay.querySelector('#btnIsaDelete').onclick = () => {
+      this.removeISANode(isaNode);
+      overlay.remove();
+    };
+
+    overlay.querySelector('#btnIsaSave').onclick = () => {
+      const superSel = overlay.querySelector('#isaSuperSelect').value;
+      const constrSel = overlay.querySelector('#isaConstraintSelect').value;
+      const checkedSubs = Array.from(overlay.querySelectorAll('.isa-sub-checkbox:checked')).map(cb => cb.value);
+
+      isaNode.superclass = superSel;
+      isaNode.constraint = constrSel;
+      isaNode.subclasses = checkedSubs;
+
+      const isOr = (constrSel || '').toLowerCase().includes('or');
+      const symbol = isOr ? '(d)' : '(o)';
+      const symEl = el.querySelector('.isa-symbol');
+      if (symEl) symEl.textContent = symbol;
+      const badgeEl = el.querySelector('.isa-badge');
+      if (badgeEl) badgeEl.textContent = constrSel;
+
+      this.renderLinks();
+      this.triggerChange();
+      this.showToast(isEn ? "ISA Specialization updated!" : "ISA Meros ierarxiyasi yangilandi!");
+      overlay.remove();
+    };
+  }
+
+  renderISANodesAndLines() {
+    if (!this.isaNodes || this.isaNodes.length === 0) return;
+
+    this.isaNodes.forEach(isa => {
+      let el = document.getElementById(isa.domId);
+      if (!el) {
+        this.createISADOM(isa);
+        el = document.getElementById(isa.domId);
+      }
+      if (!el) return;
+
+      const isaCX = (isa.x || 300) + 30;
+      const isaCY = (isa.y || 160) + 30;
+
+      // 1. Line from Superclass to ISA circle
+      const superEnt = this.entities.find(e => this.norm(e.name) === this.norm(isa.superclass));
+      if (superEnt) {
+        const sCX = (superEnt.x || 100) + (superEnt.width || 170) / 2;
+        const sCY = (superEnt.y || 100) + (superEnt.height || 100) / 2;
+        const borderS = this.getNodeBorderPoint(superEnt, isaCX, isaCY, false);
+        const borderISA = this.getCircleBorderPoint(isaCX, isaCY, 30, borderS.x, borderS.y);
+
+        const isMandatory = (isa.constraint || '').toLowerCase().includes('mandatory');
+        if (isMandatory) {
+          // Double line for Total / Mandatory
+          const dx = borderISA.x - borderS.x;
+          const dy = borderISA.y - borderS.y;
+          const len = Math.hypot(dx, dy) || 1;
+          const offX = (-dy / len) * 3;
+          const offY = (dx / len) * 3;
+
+          this.drawISALine(borderS.x + offX, borderS.y + offY, borderISA.x + offX, borderISA.y + offY, '#38bdf8', 2);
+          this.drawISALine(borderS.x - offX, borderS.y - offY, borderISA.x - offX, borderISA.y - offY, '#38bdf8', 2);
+        } else {
+          // Single line for Partial / Optional
+          this.drawISALine(borderS.x, borderS.y, borderISA.x, borderISA.y, '#38bdf8', 2.5);
+        }
+      }
+
+      // 2. Lines from ISA circle to each Subclass
+      const subList = isa.subclasses || isa.subs || [];
+      subList.forEach(subName => {
+        const subEnt = this.entities.find(e => this.norm(e.name) === this.norm(subName));
+        if (subEnt) {
+          const subCX = (subEnt.x || 100) + (subEnt.width || 170) / 2;
+          const subCY = (subEnt.y || 100) + (subEnt.height || 100) / 2;
+          const borderSub = this.getNodeBorderPoint(subEnt, isaCX, isaCY, false);
+          const borderISA = this.getCircleBorderPoint(isaCX, isaCY, 30, borderSub.x, borderSub.y);
+
+          // Line to subclass
+          this.drawISALine(borderISA.x, borderISA.y, borderSub.x, borderSub.y, '#38bdf8', 2);
+
+          // Subclass subset symbol '⊂'
+          const midX = (borderISA.x + borderSub.x) / 2;
+          const midY = (borderISA.y + borderSub.y) / 2;
+          const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          text.setAttribute('x', midX);
+          text.setAttribute('y', midY);
+          text.setAttribute('fill', '#38bdf8');
+          text.setAttribute('font-size', '15');
+          text.setAttribute('font-weight', 'bold');
+          text.setAttribute('text-anchor', 'middle');
+          text.setAttribute('dominant-baseline', 'central');
+          text.textContent = '⊂';
+          this.svg.appendChild(text);
+        }
+      });
+    });
+  }
+
+  getCircleBorderPoint(cx, cy, r, targetX, targetY) {
+    const dx = targetX - cx;
+    const dy = targetY - cy;
+    const dist = Math.hypot(dx, dy) || 1;
+    return {
+      x: cx + (dx / dist) * r,
+      y: cy + (dy / dist) * r
+    };
+  }
+
+  drawISALine(x1, y1, x2, y2, stroke = '#38bdf8', width = 2) {
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1);
+    line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2);
+    line.setAttribute('y2', y2);
+    line.setAttribute('stroke', stroke);
+    line.setAttribute('stroke-width', width);
+    line.setAttribute('stroke-linecap', 'round');
+    this.svg.appendChild(line);
+    return line;
+  }
+
   createRelationshipDOM(rel) {
     const el = document.createElement('div');
     el.id = rel.domId;
@@ -1627,6 +1958,9 @@ class EERCanvasEngine {
       this.drawLine(start.x, start.y, fl.endX, fl.endY, onFreeDblClick, false, onStartFreeLineDrag);
       this.renderFreeLineHandle(fl, onFreeDblClick);
     });
+
+    // Render ISA Specialization Nodes & Connecting Lines
+    this.renderISANodesAndLines();
   }
 
   renderFreeLineHandle(fl, onDelete) {
@@ -2390,7 +2724,7 @@ class EERCanvasEngine {
     } else if (type === 'partition-box') {
       this.addEntity({ name: 'Qism / Modul', x: centerX, y: centerY, attributes: [{ name: 'bolim_a', isPK: false }, { name: 'bolim_b', isPK: false }] });
     } else if (type === 'isa-circle') {
-      this.addEntity({ name: 'Subklass (d)', x: centerX, y: centerY, attributes: [{ name: 'id', isPK: true }, { name: 'xususiyat', isPK: false }] });
+      this.addISASpecialization({ x: centerX, y: centerY });
     } else if (type === 'attr-plain') {
       if (this.selectedNode && this.selectedType === 'entity') {
         this.selectedNode.attributes.push({ name: 'yangi_atribut', isPK: false });
@@ -2610,7 +2944,23 @@ class EERCanvasEngine {
     });
 
     if (diagram.subclasses) {
-      this.subclasses = JSON.parse(JSON.stringify(diagram.subclasses));
+      const raw = JSON.parse(JSON.stringify(diagram.subclasses));
+      this.subclasses = Array.isArray(raw) ? raw : [raw];
+      this.isaNodes = this.subclasses.map((s, idx) => ({
+        id: 'isa_' + (s.id || idx),
+        domId: 'isa_' + (s.id || idx),
+        superclass: s.superclass || '',
+        constraint: s.constraint || '{Mandatory, Or}',
+        subclasses: s.subclasses || s.subs || [],
+        x: s.x !== undefined ? s.x : 320,
+        y: s.y !== undefined ? s.y : 160,
+        width: 60,
+        height: 60
+      }));
+      this.isaNodes.forEach(node => this.createISADOM(node));
+    } else {
+      this.subclasses = [];
+      this.isaNodes = [];
     }
 
     this.renderLinks();
@@ -2652,6 +3002,7 @@ class EERCanvasEngine {
     this.entities = [];
     this.relationships = [];
     this.subclasses = [];
+    this.isaNodes = [];
     this.freeLines = [];
     this.standaloneLines = [];
     this.nodesLayer.innerHTML = '';
@@ -2719,7 +3070,11 @@ class EERCanvasEngine {
         mult2: r.mult2,
         isIdentifying: r.isIdentifying
       })),
-      subclasses: this.subclasses.length > 0 ? this.subclasses[0] : null
+      subclasses: (this.isaNodes && this.isaNodes.length > 0) ? {
+        superclass: this.isaNodes[0].superclass,
+        constraint: this.isaNodes[0].constraint,
+        subclasses: [...(this.isaNodes[0].subclasses || [])]
+      } : (this.subclasses && this.subclasses.length > 0 ? this.subclasses[0] : null)
     };
   }
 }
