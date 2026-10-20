@@ -165,7 +165,7 @@
   // ==========================================================================
   // 3. STATE PERSISTENCE (Multi-Key Mirroring)
   // ==========================================================================
-  const W2_PROGRESS_VERSION = 'v2026_w2_strict_reset_v1';
+  const W2_PROGRESS_VERSION = 'v2026_w2_strict_reset_v3';
 
   function loadSavedState() {
     try {

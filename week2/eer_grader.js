@@ -73,7 +73,7 @@
         }
       }
 
-      // 2. CHECK RELATIONSHIPS (Week 2 EER: verify line existence without requiring multiplicity)
+      // 2. CHECK RELATIONSHIPS (Week 2 EER: verify line existence AND enforce '+' multiplicity)
       const expRels = expected.relationships || [];
       for (const expR of expRels) {
         const e1Norm = norm(expR.entity1);
@@ -94,9 +94,42 @@
               : `⚠️ <strong>'${expR.entity1}'</strong> va <strong>'${expR.entity2}'</strong> o'rtasida aloqa chizig'i topilmadi. Shakllar panelidagi 'Aloqa Chizig'i' yoki magnit nuqtalar orqali ularni bog'lang.`
           };
         }
+
+        // Multiplicity check in Week 2: Must be '+'
+        const m1 = (foundRel.mult1 || '').trim();
+        const m2 = (foundRel.mult2 || '').trim();
+        if (m1 !== '+' || m2 !== '+') {
+          return {
+            passed: false,
+            feedback: isEn
+              ? `⚠️ <strong>Multiplicity '+' required:</strong> In Week 2 EER diagrams, relationship multiplicity between <strong>'${expR.entity1}'</strong> and <strong>'${expR.entity2}'</strong> must be converted to <strong>'+'</strong> on both sides!`
+              : `⚠️ <strong>Multiplicity '+' ga o'zgartirilishi shart:</strong> 2-Hafta EER diagrammasida <strong>'${expR.entity1}'</strong> va <strong>'${expR.entity2}'</strong> o'rtasidagi aloqa multiplisitiyalari har ikkala tomonda <strong>'+'</strong> holatiga o'tkazilishi shart!`
+          };
+        }
       }
 
-      // 3. CHECK SUBCLASSES / EER SPECIALISATION (if expected)
+      // 3. CHECK FOREIGN KEYS {FK} (Week 2 Relational Schema)
+      for (const expE of expEntities) {
+        const fks = expE.foreignKeys || expE.fk || [];
+        if (fks.length > 0) {
+          const found = uEntities.find(ue => norm(ue.name) === norm(expE.name));
+          if (found) {
+            for (const fk of fks) {
+              const matching = (found.attributes || []).find(a => norm(a.name) === norm(fk));
+              if (!matching || !matching.isFK) {
+                return {
+                  passed: false,
+                  feedback: isEn
+                    ? `⚠️ <strong>Foreign Key {FK} required:</strong> Attribute <strong>'${fk}'</strong> in <strong>'${expE.name}'</strong> must be designated as Foreign Key <strong>{FK}</strong>!`
+                    : `⚠️ <strong>Tashqi Kalit {FK} talab etiladi:</strong> <strong>'${expE.name}'</strong> entitiyidagi <strong>'${fk}'</strong> atributi Tashqi Kalit <strong>{FK}</strong> deb belgilanishi shart!`
+                };
+              }
+            }
+          }
+        }
+      }
+
+      // 4. CHECK SUBCLASSES / EER SPECIALISATION (if expected)
       if (expected.subclasses) {
         const expSuper = norm(expected.subclasses.superclass);
         const expSubs = (expected.subclasses.subs || []).map(s => norm(typeof s === 'string' ? s : s.name));

@@ -11,13 +11,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Uzum Market — Seller & Product Catalog (Relational Schema)",
     "story": "Uzum Market marketplace platformasida har bir rasmiy do'kon sotuvchisi (Seller) ko'plab mahsulotlarni (Product) sotuvga qo'yadi. Har bir mahsulot esa aniq bitta ro'yxatdan o'tgan sotuvchiga tegishli. Sotuvchida esa kamida bitta yoki undan ko'p tovar bo'lishi shart. Tizimda 'Seller' (sellerId {PK}) va 'Product' (productId {PK}) kuchli entitiylarini shakllantiring va ular o'rtasidagi munosabatni o'rnating.",
     "storyEn": "On the Uzum Market marketplace platform, each registered seller (Seller) offers multiple products (Product) for sale. Each product belongs to exactly one registered seller. A seller must maintain at least one or more listed items in their inventory. Model 'Seller' (sellerId {PK}) and 'Product' (productId {PK}) as strong entities with a binary relationship.",
-    "instruction": "'Seller' va 'Product' entitiylarini binar aloqa chizig'i bilan bog'lang",
-    "instructionEn": "Connect 'Seller' and 'Product' with a binary relationship line,",
+    "instruction": "'Seller' va 'Product' entitiylarini binar aloqa chizig'i bilan bog'lang hamda multiplisitiya chegaralarini aniqlab o'rnating.",
+    "instructionEn": "Connect 'Seller' and 'Product' with a binary relationship line, analyzing business requirements to determine and configure the correct multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Seller",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "sellerId",
           "x": 140,
           "y": 160,
@@ -25,21 +26,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "sellerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "shopName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "rating",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Product",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "productId",
           "x": 520,
           "y": 160,
@@ -47,20 +54,45 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "productId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "title",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "price",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "sellerId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Seller",
+          "entity2": "Product",
+          "fromEntityName": "Seller",
+          "toEntityName": "Product",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -72,7 +104,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Product",
           "pk": "productId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "sellerId"
+          ]
         }
       ],
       "relationships": [
@@ -81,13 +116,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Product",
           "fromEntityName": "Seller",
           "toEntityName": "Product",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -104,13 +136,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Payme Payment System — User & Linked Bank Cards (Relational Schema)",
     "story": "Payme to'lov ilovasida har bir ro'yxatdan o'tgan foydalanuvchi (User) o'z hisobiga bir nechta Humo yoki Uzcard bank kartalarini (BankCard) ulashi mumkin. Yangi ro'yxatdan o'tgan mijozda hali karta bo'lmasligi mumkin. Har bir ulangan bank kartasi esa aniq bitta egaga tegishli. 'User' (userId {PK}) va 'BankCard' (cardId {PK}) entitiylarini o'zaro bog'lang.",
     "storyEn": "In the Payme fintech payment application, each registered user (User) can link several Humo or Uzcard bank cards (BankCard) to their wallet. A newly registered user may not have added any card yet. Each linked card belongs to exactly one user. Model 'User' (userId {PK}) and 'BankCard' (cardId {PK}) entities.",
-    "instruction": "'User' va 'BankCard' entitiylarini bog'lang",
-    "instructionEn": "Connect 'User' and 'BankCard',",
+    "instruction": "'User' va 'BankCard' entitiylarini bog'lang hamda multiplisitiya chegaralarini tahlil qilib o'rnating.",
+    "instructionEn": "Connect 'User' and 'BankCard', analyzing business requirements to determine and configure the correct multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
           "name": "User",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "userId",
           "x": 140,
           "y": 160,
@@ -118,21 +151,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "userId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "BankCard",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cardId",
           "x": 520,
           "y": 160,
@@ -140,20 +179,45 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cardId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "panMasked",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "expiryDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "userId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "User",
+          "entity2": "BankCard",
+          "fromEntityName": "User",
+          "toEntityName": "BankCard",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -165,7 +229,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "BankCard",
           "pk": "cardId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "userId"
+          ]
         }
       ],
       "relationships": [
@@ -174,13 +241,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "BankCard",
           "fromEntityName": "User",
           "toEntityName": "BankCard",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -198,12 +262,13 @@ _scope.EER_CLIENTS_1_50 = [
     "story": "Korzinka supermarketlar tarmog'ida har bir filialda (Branch) smenada xizmat ko'rsatuvchi bir nechta kassirlar (Cashier) shtati faoliyat yuritadi. Har bir kassir esa rasmiy mehnat shartnomasiga binoan faqat bitta doimiy filialga biriktirilgan. 'Branch' (branchId {PK}) va 'Cashier' (cashierId {PK}) o'rtasidagi munosabatni loyihalashtiring.",
     "storyEn": "In the Korzinka retail chain, each supermarket branch (Branch) employs multiple cashiers (Cashier) per work shift. In accordance with employment contracts, each cashier is assigned to exactly one permanent store branch. Model the relationship between 'Branch' (branchId {PK}) and 'Cashier' (cashierId {PK}).",
     "instruction": "'Branch' va 'Cashier' o'rtasida aloqa chizing hamda talablarga muvofiq multiplisitiya chegaralarini o'rnating.",
-    "instructionEn": "Connect 'Branch' and 'Cashier',",
+    "instructionEn": "Connect 'Branch' and 'Cashier', analyzing domain constraints to determine the proper min.max multiplicities. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Branch",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "branchId",
           "x": 140,
           "y": 160,
@@ -211,21 +276,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "branchId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "branchName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "city",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Cashier",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cashierId",
           "x": 520,
           "y": 160,
@@ -233,20 +304,45 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cashierId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "shiftCode",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "branchId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Branch",
+          "entity2": "Cashier",
+          "fromEntityName": "Branch",
+          "toEntityName": "Cashier",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -258,7 +354,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Cashier",
           "pk": "cashierId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "branchId"
+          ]
         }
       ],
       "relationships": [
@@ -267,13 +366,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Cashier",
           "fromEntityName": "Branch",
           "toEntityName": "Cashier",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -291,12 +387,13 @@ _scope.EER_CLIENTS_1_50 = [
     "story": "Yandex Go Comfort+ tarifida har bir litsenziyali haydovchiga (Driver) uning smenasi uchun aniq bitta tekshirilgan xizmat avtomobili (Vehicle) biriktiriladi. Har bir avtomobil ham ayni paytda faqat 1 ta mas'ul haydovchi ixtiyorida bo'ladi. 'Driver' (driverId {PK}) va 'Vehicle' (vinCode {PK}) entitiylarini aloqa bilan bog'lang.",
     "storyEn": "Under the Yandex Go Comfort+ service tier, each licensed driver (Driver) is assigned exactly one inspected service car (Vehicle) for their duty shift. Each car is operated by only one driver at a time. Connect 'Driver' (driverId {PK}) and 'Vehicle' (vinCode {PK}) with a binary relationship.",
     "instruction": "'Driver' va 'Vehicle' entitiylarini bog'lang hamda multiplisitiya chegaralarini o'rnating.",
-    "instructionEn": "Connect 'Driver' and 'Vehicle' with a binary relationship,",
+    "instructionEn": "Connect 'Driver' and 'Vehicle' with a binary relationship, analyzing domain constraints to determine the proper min.max multiplicities. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Driver",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "driverId",
           "x": 140,
           "y": 160,
@@ -304,21 +401,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "driverId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "licenseNo",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "rating",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Vehicle",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "vinCode",
           "x": 520,
           "y": 160,
@@ -326,20 +429,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "vinCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "plateNo",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "carModel",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Driver",
+          "entity2": "Vehicle",
+          "fromEntityName": "Driver",
+          "toEntityName": "Vehicle",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -360,13 +482,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Vehicle",
           "fromEntityName": "Driver",
           "toEntityName": "Vehicle",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -383,13 +502,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "WIUT University — Faculty & Academic Departments (Relational Schema)",
     "story": "Toshkent IT Universiteti da har bir fakultet (Faculty) o'z tarkibida kamida bitta yoki bir nechta ixtisoslashgan kafedralarni (Department) birlashtiradi. Har bir kafedra esa faqat bitta fakultet tasarrufiga kiradi. 'Faculty' (facultyCode {PK}) va 'Department' (deptId {PK}) entitiylarini bog'lang.",
     "storyEn": "At Toshkent IT Universiteti, each academic faculty (Faculty) encompasses one or more specialized teaching departments (Department). Each department belongs to exactly one faculty. Connect 'Faculty' (facultyCode {PK}) and 'Department' (deptId {PK}).",
-    "instruction": "'Faculty' va 'Department' entitiylarini bog'lang",
-    "instructionEn": "Connect 'Faculty' and 'Department',",
+    "instruction": "'Faculty' va 'Department' entitiylarini bog'lang hamda multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Faculty' and 'Department', analyzing business requirements to determine and configure the correct multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Faculty",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "facultyCode",
           "x": 140,
           "y": 160,
@@ -397,21 +517,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "facultyCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "facultyName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "deanEmail",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Department",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "deptId",
           "x": 520,
           "y": 160,
@@ -419,20 +545,45 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "deptId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "deptTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "officeRoom",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "facultyCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Faculty",
+          "entity2": "Department",
+          "fromEntityName": "Faculty",
+          "toEntityName": "Department",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -444,7 +595,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Department",
           "pk": "deptId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "facultyCode"
+          ]
         }
       ],
       "relationships": [
@@ -453,13 +607,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Department",
           "fromEntityName": "Faculty",
           "toEntityName": "Department",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -476,13 +627,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Medion Medical Center — Department & Head Doctor (1:1) (Relational Schema)",
     "story": "Ko'p tarmoqli Medion klinikasida har bir tibbiy bo'limni (HospitalDept) boshqarish uchun aniq 1 ta bo'lim bosh shifokori (HeadDoctor) tayinlangan. Bosh shifokor ham o'z lavozimida faqat bitta bo'lim boshqaruviga javobgar. 'HospitalDept' (deptCode {PK}) va 'HeadDoctor' (doctorId {PK}) o'rtasida aloqa o'rnating.",
     "storyEn": "In a multi-specialty clinic, each clinical department (HospitalDept) is directed by exactly one appointed head doctor (HeadDoctor). The head doctor is in charge of only one department at a time. Establish a relationship between 'HospitalDept' (deptCode {PK}) and 'HeadDoctor' (doctorId {PK}).",
-    "instruction": "'HospitalDept' va 'HeadDoctor' entitiylarini binar aloqa bilan bog'lang.",
-    "instructionEn": "Connect 'HospitalDept' and 'HeadDoctor' with a binary relationship.",
+    "instruction": "'HospitalDept' va 'HeadDoctor' entitiylarini binar aloqa bilan bog'lang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'HospitalDept' and 'HeadDoctor' with a binary relationship. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "HospitalDept",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "deptCode",
           "x": 140,
           "y": 160,
@@ -490,21 +642,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "deptCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "deptName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "floorLevel",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "HeadDoctor",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "doctorId",
           "x": 520,
           "y": 160,
@@ -512,20 +670,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "doctorId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "doctorName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "specialty",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "HospitalDept",
+          "entity2": "HeadDoctor",
+          "fromEntityName": "HospitalDept",
+          "toEntityName": "HeadDoctor",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -546,13 +723,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "HeadDoctor",
           "fromEntityName": "HospitalDept",
           "toEntityName": "HeadDoctor",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -569,13 +743,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Uzbekistan Airways — Carrier Airline & Aircraft Fleet (Relational Schema)",
     "story": "Milliy aviakompaniya (Airline) tasarrufida xalqaro va mahalliy reyslarni amalga oshiruvchi o'nlab yo'lovchi samolyotlari (Aircraft) mavjud. Har bir havo kemasi esa xalqaro reestrga ko'ra qat'iy bitta tashuvchi aviakompaniyaga tegishli. 'Airline' (iataCode {PK}) va 'Aircraft' (tailNo {PK}) entitiylarini binar aloqa bilan ulang.",
     "storyEn": "The national carrier airline (Airline) operates dozens of passenger airliners (Aircraft) for scheduled flights. Under civil aviation regulations, each aircraft is registered to exactly one operating airline. Model the binary relationship between 'Airline' (iataCode {PK}) and 'Aircraft' (tailNo {PK}).",
-    "instruction": "'Airline' va 'Aircraft' ni bog'lang",
-    "instructionEn": "Connect 'Airline' and 'Aircraft',",
+    "instruction": "'Airline' va 'Aircraft' ni bog'lang hamda multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Airline' and 'Aircraft', analyzing business requirements to determine and configure the correct multiplicity constraints.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Airline",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "iataCode",
           "x": 140,
           "y": 160,
@@ -583,21 +758,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "iataCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "airlineName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "country",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Aircraft",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "tailNo",
           "x": 520,
           "y": 160,
@@ -605,20 +786,45 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "tailNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "model",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "capacity",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "iataCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Airline",
+          "entity2": "Aircraft",
+          "fromEntityName": "Airline",
+          "toEntityName": "Aircraft",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -630,7 +836,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Aircraft",
           "pk": "tailNo",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "iataCode"
+          ]
         }
       ],
       "relationships": [
@@ -639,13 +848,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Aircraft",
           "fromEntityName": "Airline",
           "toEntityName": "Aircraft",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -663,12 +869,13 @@ _scope.EER_CLIENTS_1_50 = [
     "story": "Besh yulduzli Hyatt mehmonxonasida (Hotel) mehmonlar istiqomat qilishi uchun yuzlab xonalar (Room) mavjud. Har bir xona esa faqat bitta aniq mehmonxona majmuasiga qarashlidir. 'Hotel' (hotelId {PK}) va 'Room' (roomNo {PK}) entitiylarini bog'lang.",
     "storyEn": "A luxury hotel complex (Hotel) contains hundreds of guest rooms (Room) available for customer lodging. Each room belongs to exactly one physical hotel property. Connect 'Hotel' (hotelId {PK}) and 'Room' (roomNo {PK}).",
     "instruction": "'Hotel' va 'Room' entitiylarini bog'lang hamda talablarga muvofiq multiplisitiya chegaralarini o'rnating.",
-    "instructionEn": "Connect 'Hotel' and 'Room',",
+    "instructionEn": "Connect 'Hotel' and 'Room', analyzing domain constraints to determine the proper min.max multiplicities. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Hotel",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "hotelId",
           "x": 140,
           "y": 160,
@@ -676,21 +883,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "hotelId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "hotelName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "starsRating",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Room",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "roomNo",
           "x": 520,
           "y": 160,
@@ -698,20 +911,45 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "roomNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "roomType",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "nightlyRate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "hotelId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Hotel",
+          "entity2": "Room",
+          "fromEntityName": "Hotel",
+          "toEntityName": "Room",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -723,7 +961,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Room",
           "pk": "roomNo",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "hotelId"
+          ]
         }
       ],
       "relationships": [
@@ -732,13 +973,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Room",
           "fromEntityName": "Hotel",
           "toEntityName": "Room",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -755,13 +993,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "IT Technopark — Startup Incubator & Managing Lead (1:1) (Relational Schema)",
     "story": "IT Park tuzilmasida har bir startap akseleratsiya markaziga (Incubator) operatsion jarayonni yuritish uchun aniq 1 ta mas'ul boshqaruvchi (Manager) biriktirilgan. Har bir menejer ham faqat bitta markaz faoliyatini boshqaradi. 'Incubator' (incId {PK}) va 'Manager' (managerId {PK}) entitiylarini munosabat bilan bog'lang.",
     "storyEn": "Within the IT Park ecosystem, each startup incubation center (Incubator) is assigned exactly one managing director (Manager) for operational oversight. Each manager is responsible for leading only one incubation center. Establish a relationship between 'Incubator' (incId {PK}) and 'Manager' (managerId {PK}).",
-    "instruction": "'Incubator' va 'Manager' entitiyalarini binar aloqa bilan ulang.",
-    "instructionEn": "Connect 'Incubator' and 'Manager' with a binary relationship.",
+    "instruction": "'Incubator' va 'Manager' entitiyalarini binar aloqa bilan ulang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Incubator' and 'Manager' with a binary relationship. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Incubator",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "incId",
           "x": 140,
           "y": 160,
@@ -769,21 +1008,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "incId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "centerTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "cityLocation",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Manager",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "managerId",
           "x": 520,
           "y": 160,
@@ -791,20 +1036,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "managerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "managerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "email",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Incubator",
+          "entity2": "Manager",
+          "fromEntityName": "Incubator",
+          "toEntityName": "Manager",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -825,13 +1089,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Manager",
           "fromEntityName": "Incubator",
           "toEntityName": "Manager",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -848,13 +1109,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Alisher Navoiy National Library — Book & Author (Relational Schema)",
     "story": "Davlat kutubxonasi fondida har bir yozuvchi-muallif (Author) qalamiga mansub ko'plab kitoblar (Book) saqlanadi. Ushbu klassik katalog doirasida har bir kitob bitta bosh muallif tomonidan yozilgan deb hisoblanadi. 'Author' (authorId {PK}) va 'Book' (isbn {PK}) entitiylarini bog'lang.",
     "storyEn": "In the state bibliographic repository, each literary author (Author) is credited with writing multiple books (Book). Under this standard catalog scheme, each book is attributed to one primary author. Connect 'Author' (authorId {PK}) and 'Book' (isbn {PK}).",
-    "instruction": "'Author' va 'Book' ni bog'lang",
-    "instructionEn": "Connect 'Author' and 'Book',",
+    "instruction": "'Author' va 'Book' ni bog'lang hamda multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Author' and 'Book', analyzing domain constraints to determine the proper min.max multiplicities. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Author",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "authorId",
           "x": 140,
           "y": 160,
@@ -862,21 +1124,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "authorId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "authorName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "country",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Book",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "isbn",
           "x": 520,
           "y": 160,
@@ -884,20 +1152,45 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "isbn",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "title",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "publishedYear",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "authorId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Author",
+          "entity2": "Book",
+          "fromEntityName": "Author",
+          "toEntityName": "Book",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -909,7 +1202,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Book",
           "pk": "isbn",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "authorId"
+          ]
         }
       ],
       "relationships": [
@@ -918,13 +1214,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Book",
           "fromEntityName": "Author",
           "toEntityName": "Book",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -942,12 +1235,13 @@ _scope.EER_CLIENTS_1_50 = [
     "story": "Raqamli bankda ro'yxatdan o'tgan mijoz (Customer) foiz jamg'arish maqsadida bir nechta depozit hisoblarini (DepositAccount) ochishi mumkin. Har bir depozit hisobi esa qat'iy bitta jismoniy shaxs nomiga ochiladi. 'Customer' (cifCode {PK}) va 'DepositAccount' (accountNo {PK}) o'rtasidagi munosabatni o'rnating.",
     "storyEn": "In a digital retail bank, a registered customer (Customer) may open zero or multiple deposit accounts (DepositAccount). Each deposit account is strictly opened under one primary customer. Model the relationship between 'Customer' (cifCode {PK}) and 'DepositAccount' (accountNo {PK}).",
     "instruction": "'Customer' va 'DepositAccount' ni bog'lang hamda talablarga muvofiq multiplisitiya chegaralarini o'rnating.",
-    "instructionEn": "Connect 'Customer' and 'DepositAccount',",
+    "instructionEn": "Connect 'Customer' and 'DepositAccount', analyzing domain constraints to determine the proper min.max multiplicities. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Customer",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cifCode",
           "x": 140,
           "y": 160,
@@ -955,21 +1249,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cifCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "customerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "DepositAccount",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "accountNo",
           "x": 520,
           "y": 160,
@@ -977,20 +1277,45 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "accountNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "interestRate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "balance",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "cifCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Customer",
+          "entity2": "DepositAccount",
+          "fromEntityName": "Customer",
+          "toEntityName": "DepositAccount",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1002,7 +1327,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "DepositAccount",
           "pk": "accountNo",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "cifCode"
+          ]
         }
       ],
       "relationships": [
@@ -1011,13 +1339,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "DepositAccount",
           "fromEntityName": "Customer",
           "toEntityName": "DepositAccount",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -1035,12 +1360,13 @@ _scope.EER_CLIENTS_1_50 = [
     "story": "Poytaxt yo'lovchi transportida har bir belgilangan marshrut (BusRoute) bo'ylab bir nechta shahar avtobuslari (CityBus) harakatlanadi. Har bir avtobus esa navbatchilik rejasiga ko'ra ayni paytda bitta marshrutga biriktirilgan. 'BusRoute' (routeNo {PK}) va 'CityBus' (busId {PK}) entitiylarini bog'lang.",
     "storyEn": "In urban public transit, each designated bus route (BusRoute) is serviced by several scheduled city buses (CityBus). Under daily schedules, each bus is assigned to one specific route. Connect 'BusRoute' (routeNo {PK}) and 'CityBus' (busId {PK}).",
     "instruction": "'BusRoute' va 'CityBus' ni bog'lang hamda talablarga muvofiq multiplisitiya chegaralarini o'rnating.",
-    "instructionEn": "Connect 'BusRoute' and 'CityBus',",
+    "instructionEn": "Connect 'BusRoute' and 'CityBus', analyzing domain constraints to determine the proper min.max multiplicities. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "BusRoute",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "routeNo",
           "x": 140,
           "y": 160,
@@ -1048,21 +1374,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "routeNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "startPoint",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "endPoint",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "CityBus",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "busId",
           "x": 520,
           "y": 160,
@@ -1070,20 +1402,45 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "busId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "plateNumber",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "capacity",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "routeNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "BusRoute",
+          "entity2": "CityBus",
+          "fromEntityName": "BusRoute",
+          "toEntityName": "CityBus",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1095,7 +1452,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "CityBus",
           "pk": "busId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "routeNo"
+          ]
         }
       ],
       "relationships": [
@@ -1104,13 +1464,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "CityBus",
           "fromEntityName": "BusRoute",
           "toEntityName": "CityBus",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -1128,12 +1485,13 @@ _scope.EER_CLIENTS_1_50 = [
     "story": "Rasmiy dilerlik markazida (Dealership) sotuvga chiqarilgan ko'plab yangi avtomobillar (Automobile) mavjud. Har bir avtomobil qaysi dilerlik markazi avtosalonida turgani bilan qat'iy bog'langan. 'Dealership' (dealerCode {PK}) va 'Automobile' (vinNumber {PK}) o'rtasidagi aloqani o'rnating.",
     "storyEn": "An authorized auto dealership (Dealership) holds an on-site inventory of multiple newly manufactured automobiles (Automobile) for sale. Each vehicle is physically located at and tracked by one dealership. Connect 'Dealership' (dealerCode {PK}) and 'Automobile' (vinNumber {PK}).",
     "instruction": "'Dealership' va 'Automobile' ni bog'lang hamda talablarga muvofiq multiplisitiya chegaralarini o'rnating.",
-    "instructionEn": "Connect 'Dealership' and 'Automobile',",
+    "instructionEn": "Connect 'Dealership' and 'Automobile', analyzing domain constraints to determine the proper min.max multiplicities. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Dealership",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "dealerCode",
           "x": 140,
           "y": 160,
@@ -1141,21 +1499,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "dealerCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "dealerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "cityAddress",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Automobile",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "vinNumber",
           "x": 520,
           "y": 160,
@@ -1163,20 +1527,45 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "vinNumber",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "model",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "price",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "dealerCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Dealership",
+          "entity2": "Automobile",
+          "fromEntityName": "Dealership",
+          "toEntityName": "Automobile",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1188,7 +1577,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Automobile",
           "pk": "vinNumber",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "dealerCode"
+          ]
         }
       ],
       "relationships": [
@@ -1197,13 +1589,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Automobile",
           "fromEntityName": "Dealership",
           "toEntityName": "Automobile",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -1220,13 +1609,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Secondary School — Classroom Grade & Homeroom Teacher (1:1) (Relational Schema)",
     "story": "Umumta'lim maktabida har bir sinfga (SchoolClass, masalan 10-A) o'quvchilar tarbiyasi uchun aniq 1 ta sinf rahbari bo'lgan ustoz (ClassTeacher) biriktiriladi. Har bir o'qituvchi ham faqat bitta sinfga rahbarlik qiladi. 'SchoolClass' (classCode {PK}) va 'ClassTeacher' (teacherId {PK}) entitiylarini aloqa bilan bog'lang.",
     "storyEn": "In school administration, each student classroom group (SchoolClass, e.g. Grade 10-A) is assigned exactly one dedicated homeroom teacher (ClassTeacher). Each teacher serves as homeroom lead for only one class. Connect 'SchoolClass' (classCode {PK}) and 'ClassTeacher' (teacherId {PK}) with a relationship.",
-    "instruction": "'SchoolClass' va 'ClassTeacher' o'rtasida binar aloqa chizing. Entitiylarni o'zaro bog'lang.",
-    "instructionEn": "Connect 'SchoolClass' and 'ClassTeacher' with a binary link.",
+    "instruction": "'SchoolClass' va 'ClassTeacher' o'rtasida binar aloqa chizing. Entitiylarni o'zaro bog'lang va multiplisitiya chegaralarini belgilang.",
+    "instructionEn": "Connect 'SchoolClass' and 'ClassTeacher' with a binary link. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "SchoolClass",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "classCode",
           "x": 140,
           "y": 160,
@@ -1234,21 +1624,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "classCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "gradeNumber",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "academicYear",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "ClassTeacher",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "teacherId",
           "x": 520,
           "y": 160,
@@ -1256,20 +1652,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "teacherId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "teacherName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "subject",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "SchoolClass",
+          "entity2": "ClassTeacher",
+          "fromEntityName": "SchoolClass",
+          "toEntityName": "ClassTeacher",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1290,13 +1705,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "ClassTeacher",
           "fromEntityName": "SchoolClass",
           "toEntityName": "ClassTeacher",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -1314,12 +1726,13 @@ _scope.EER_CLIENTS_1_50 = [
     "story": "Farmatsevtika tarmog'ida bitta yirik ta'minot ombori (CentralWarehouse) o'z tasarrufidagi ko'plab dorixona filiallarini (PharmacyStore) dori vositalari bilan ta'minlaydi. Har bir dorixona esa dori partiyalarini aniq 1 ta markaziy ombordan qabul qiladi. 'CentralWarehouse' (warehouseCode {PK}) va 'PharmacyStore' (pharmacyId {PK}) o'rtasida aloqa chizing.",
     "storyEn": "In a healthcare supply network, one central logistics warehouse (CentralWarehouse) replenishes inventory for dozens of local retail pharmacies (PharmacyStore). Each pharmacy receives stock from one central depot. Model the relationship between 'CentralWarehouse' (warehouseCode {PK}) and 'PharmacyStore' (pharmacyId {PK}).",
     "instruction": "'CentralWarehouse' va 'PharmacyStore' ni bog'lang hamda talablarga muvofiq multiplisitiya chegaralarini o'rnating.",
-    "instructionEn": "Connect 'CentralWarehouse' and 'PharmacyStore',",
+    "instructionEn": "Connect 'CentralWarehouse' and 'PharmacyStore', analyzing domain constraints to determine the proper min.max multiplicities. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "CentralWarehouse",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "warehouseCode",
           "x": 140,
           "y": 160,
@@ -1327,21 +1740,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "warehouseCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "cityName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "totalArea",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "PharmacyStore",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "pharmacyId",
           "x": 520,
           "y": 160,
@@ -1349,20 +1768,45 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "pharmacyId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "storeTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "address",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "warehouseCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "CentralWarehouse",
+          "entity2": "PharmacyStore",
+          "fromEntityName": "CentralWarehouse",
+          "toEntityName": "PharmacyStore",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1374,7 +1818,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "PharmacyStore",
           "pk": "pharmacyId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "warehouseCode"
+          ]
         }
       ],
       "relationships": [
@@ -1383,13 +1830,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "PharmacyStore",
           "fromEntityName": "CentralWarehouse",
           "toEntityName": "PharmacyStore",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -1406,13 +1850,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Uzum Market Order Pipeline (3 Entities) (Relational Schema)",
     "story": "Uzum Market platformasida mijoz (Customer) bir nechta buyurtmalar (Order) berishi mumkin. Har bir buyurtma esa aniq bitta to'lov kvitansiyasiga (Payment) ega bo'ladi. 'Customer', 'Order' va 'Payment' entitiylarini zanjirsimon bog'lang: Customer <-> Order va Order <-> Payment.",
     "storyEn": "On the Uzum Market platform, a customer (Customer) can place multiple orders (Order) over time. Each order is settled via exactly one recorded payment transaction (Payment). Connect 'Customer', 'Order', and 'Payment' sequentially: Customer <-> Order and Order <-> Payment.",
-    "instruction": "'Customer' -> 'Order' va 'Order' -> 'Payment' aloqalarini chizing. Entitiylarni o'zaro bog'lang.",
-    "instructionEn": "Draw 'Customer' -> 'Order' and 'Order' -> 'Payment' relationships.",
+    "instruction": "'Customer' -> 'Order' va 'Order' -> 'Payment' aloqalarini chizing. Entitiylarni o'zaro bog'lang va multiplisitiya chegaralarini belgilang.",
+    "instructionEn": "Draw 'Customer' -> 'Order' and 'Order' -> 'Payment' relationships. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Customer",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "customerId",
           "x": 100,
           "y": 160,
@@ -1420,21 +1865,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "customerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "name",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Order",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "orderNo",
           "x": 440,
           "y": 160,
@@ -1442,21 +1893,33 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "orderNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "orderDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "totalSum",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "customerId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Payment",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "paymentId",
           "x": 780,
           "y": 160,
@@ -1464,20 +1927,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "paymentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "payType",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "status",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Customer",
+          "entity2": "Order",
+          "fromEntityName": "Customer",
+          "toEntityName": "Order",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Order",
+          "entity2": "Payment",
+          "fromEntityName": "Order",
+          "toEntityName": "Payment",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1489,7 +1983,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Order",
           "pk": "orderNo",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "customerId"
+          ]
         },
         {
           "name": "Payment",
@@ -1503,26 +2000,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Order",
           "fromEntityName": "Customer",
           "toEntityName": "Order",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "Order",
           "entity2": "Payment",
           "fromEntityName": "Order",
           "toEntityName": "Payment",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -1539,13 +2030,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Payme / Click Transactions Ecosystem (3 Entities) (Relational Schema)",
     "story": "Foydalanuvchi (User) o'z ilovasiga kamida bitta yoki bir nechta bank kartasini (BankCard) ulaydi. Har bir karta orqali esa ko'plab to'lov tranzaksiyalari (Transaction) bajariladi. 'User' -> 'BankCard' va 'BankCard' -> 'Transaction' aloqalarini o'rnating.",
     "storyEn": "A user (User) maintains at least one or several linked bank cards (BankCard) in their wallet. Through each card, multiple digital payment transactions (Transaction) are processed. Connect 'User' -> 'BankCard' and 'BankCard' -> 'Transaction'.",
-    "instruction": "'User' ni 'BankCard' ga, 'BankCard' ni 'Transaction' ga ulang.",
-    "instructionEn": "Connect 'User' to 'BankCard', and 'BankCard' to 'Transaction'.",
+    "instruction": "'User' ni 'BankCard' ga, 'BankCard' ni 'Transaction' ga ulang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'User' to 'BankCard', and 'BankCard' to 'Transaction'. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "User",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "userId",
           "x": 100,
           "y": 160,
@@ -1553,21 +2045,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "userId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "userName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "BankCard",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cardId",
           "x": 440,
           "y": 160,
@@ -1575,21 +2073,33 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cardId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "panMasked",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "bankName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "userId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Transaction",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "txId",
           "x": 780,
           "y": 160,
@@ -1597,20 +2107,57 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "txId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "amount",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "timestamp",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "cardId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "User",
+          "entity2": "BankCard",
+          "fromEntityName": "User",
+          "toEntityName": "BankCard",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "BankCard",
+          "entity2": "Transaction",
+          "fromEntityName": "BankCard",
+          "toEntityName": "Transaction",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1622,12 +2169,18 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "BankCard",
           "pk": "cardId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "userId"
+          ]
         },
         {
           "name": "Transaction",
           "pk": "txId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "cardId"
+          ]
         }
       ],
       "relationships": [
@@ -1636,26 +2189,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "BankCard",
           "fromEntityName": "User",
           "toEntityName": "BankCard",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "BankCard",
           "entity2": "Transaction",
           "fromEntityName": "BankCard",
           "toEntityName": "Transaction",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -1672,13 +2219,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Yandex Go Ride Dispatch System (3 Entities — Fan-In) (Relational Schema)",
     "story": "Yandex Go tizimida markaziy ob'yekt — bu Safar (RideTrip). Yo'lovchi (Passenger) bir nechta safarlar buyurtma qilishi mumkin. Haydovchi (Driver) ham ko'plab safarlarni qabul qiladi. Har bir safarda esa 1 ta yo'lovchi va 1 ta haydovchi qatnashadi. 'Passenger' va 'Driver' entitiyalarining har ikkalasini 'RideTrip' ga ulang.",
     "storyEn": "In ride-hailing operations, the RideTrip entity is the central hub. A passenger (Passenger) requests multiple trips over time. A driver (Driver) accepts and completes many trips. Each trip involves exactly 1 passenger and 1 driver. Connect both 'Passenger' and 'Driver' into 'RideTrip'.",
-    "instruction": "'Passenger' -> 'RideTrip' va 'Driver' -> 'RideTrip' aloqalarini chizing. Entitiylarni o'zaro bog'lang.",
-    "instructionEn": "Draw 'Passenger' -> 'RideTrip' and 'Driver' -> 'RideTrip' relationships.",
+    "instruction": "'Passenger' -> 'RideTrip' va 'Driver' -> 'RideTrip' aloqalarini chizing. Entitiylarni o'zaro bog'lang va multiplisitiya chegaralarini belgilang.",
+    "instructionEn": "Draw 'Passenger' -> 'RideTrip' and 'Driver' -> 'RideTrip' relationships. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Passenger",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "passengerId",
           "x": 140,
           "y": 100,
@@ -1686,21 +2234,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "passengerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "rating",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Driver",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "driverId",
           "x": 540,
           "y": 100,
@@ -1708,21 +2262,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "driverId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "licenseNo",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "carModel",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "RideTrip",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "tripId",
           "x": 340,
           "y": 320,
@@ -1730,20 +2290,63 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "tripId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fareAmount",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "tripDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "passengerId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "driverId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Passenger",
+          "entity2": "RideTrip",
+          "fromEntityName": "Passenger",
+          "toEntityName": "RideTrip",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Driver",
+          "entity2": "RideTrip",
+          "fromEntityName": "Driver",
+          "toEntityName": "RideTrip",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1760,7 +2363,11 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "RideTrip",
           "pk": "tripId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "passengerId",
+            "driverId"
+          ]
         }
       ],
       "relationships": [
@@ -1769,26 +2376,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "RideTrip",
           "fromEntityName": "Passenger",
           "toEntityName": "RideTrip",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "Driver",
           "entity2": "RideTrip",
           "fromEntityName": "Driver",
           "toEntityName": "RideTrip",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -1805,13 +2406,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "WIUT Module & Coursework Architecture (3 Entities) (Relational Schema)",
     "story": "Westminster universitetida har bir kafedra (Department) bir nechta fan-modullarni (Module) o'qitadi. Har bir modulda esa talabalar baholanadigan kamida 1 ta yoki bir nechta Coursework (Coursework, masalan CW1 va CW2) mavjud. 'Department' -> 'Module' -> 'Coursework' ierarxiyasini loyihalashtiring.",
     "storyEn": "At IT Akademiya university, each department (Department) delivers one or more academic modules (Module). Each module requires students to complete one or more coursework assignments (Coursework, e.g. CW1 and CW2). Design the hierarchical chain: 'Department' -> 'Module' -> 'Coursework'.",
-    "instruction": "'Department' -> 'Module' va 'Module' -> 'Coursework' zanjirini bog'lang.",
-    "instructionEn": "Connect 'Department' -> 'Module' and 'Module' -> 'Coursework'.",
+    "instruction": "'Department' -> 'Module' va 'Module' -> 'Coursework' zanjirini bog'lang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Department' -> 'Module' and 'Module' -> 'Coursework'. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Department",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "deptCode",
           "x": 100,
           "y": 160,
@@ -1819,17 +2421,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "deptCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "deptName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Module",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "moduleCode",
           "x": 440,
           "y": 160,
@@ -1837,21 +2443,33 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "moduleCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "moduleTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "credits",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "deptCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Coursework",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cwId",
           "x": 780,
           "y": 160,
@@ -1859,20 +2477,57 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cwId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "weightPercent",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "dueDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "moduleCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Department",
+          "entity2": "Module",
+          "fromEntityName": "Department",
+          "toEntityName": "Module",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Module",
+          "entity2": "Coursework",
+          "fromEntityName": "Module",
+          "toEntityName": "Coursework",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -1884,12 +2539,18 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Module",
           "pk": "moduleCode",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "deptCode"
+          ]
         },
         {
           "name": "Coursework",
           "pk": "cwId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "moduleCode"
+          ]
         }
       ],
       "relationships": [
@@ -1898,26 +2559,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Module",
           "fromEntityName": "Department",
           "toEntityName": "Module",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "Module",
           "entity2": "Coursework",
           "fromEntityName": "Module",
           "toEntityName": "Coursework",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -1934,13 +2589,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Enterprise Department & Unit Manager (3 Entities) (Relational Schema)",
     "story": "Kompaniyada (Company) bir nechta departamentlar (Department) faoliyat yuritadi. Har bir departamentni esa aniq 1 ta tayinlangan boshqaruvchi menejer (Manager) boshqaradi. 'Company' -> 'Department' va 'Department' -> 'Manager' aloqalarini o'rnating.",
     "storyEn": "A corporation (Company) is structured into several operating departments (Department). Each department is overseen by exactly one appointed unit manager (Manager). Establish 'Company' -> 'Department' and 'Department' -> 'Manager'.",
-    "instruction": "'Company' ni 'Department' ga, 'Department' ni 'Manager' ga ulang.",
-    "instructionEn": "Connect 'Company' to 'Department', and 'Department' to 'Manager'.",
+    "instruction": "'Company' ni 'Department' ga, 'Department' ni 'Manager' ga ulang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Company' to 'Department', and 'Department' to 'Manager'. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Company",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "companyRegNo",
           "x": 100,
           "y": 160,
@@ -1948,17 +2604,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "companyRegNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "companyName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Department",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "deptId",
           "x": 440,
           "y": 160,
@@ -1966,21 +2626,33 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "deptId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "deptTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "floor",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "companyRegNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Manager",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "managerId",
           "x": 780,
           "y": 160,
@@ -1988,20 +2660,51 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "managerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "managerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "email",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Company",
+          "entity2": "Department",
+          "fromEntityName": "Company",
+          "toEntityName": "Department",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Department",
+          "entity2": "Manager",
+          "fromEntityName": "Department",
+          "toEntityName": "Manager",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2013,7 +2716,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Department",
           "pk": "deptId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "companyRegNo"
+          ]
         },
         {
           "name": "Manager",
@@ -2027,26 +2733,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Department",
           "fromEntityName": "Company",
           "toEntityName": "Department",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "Department",
           "entity2": "Manager",
           "fromEntityName": "Department",
           "toEntityName": "Manager",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -2063,13 +2763,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Hospital Inpatient Admissions & Medical Record (3 Entities) (Relational Schema)",
     "story": "Har bir bemorga (Patient) shifoxonada 1 ta elektron tibbiy karta (MedicalCard) ochiladi. Shifokor (Doctor) esa bir nechta bemorlarning tibbiy kartalarini nazorat qiladi. 'Patient' -> 'MedicalCard' va 'Doctor' -> 'MedicalCard' aloqalarini chizing.",
     "storyEn": "Each admitted patient (Patient) is issued exactly one official electronic medical record (MedicalCard). An attending doctor (Doctor) oversees multiple patient medical records. Connect 'Patient' -> 'MedicalCard' and 'Doctor' -> 'MedicalCard'.",
-    "instruction": "'Patient' ni 'MedicalCard' ga, 'Doctor' ni 'MedicalCard' ga ulang.",
-    "instructionEn": "Connect 'Patient' to 'MedicalCard', and 'Doctor' to 'MedicalCard'.",
+    "instruction": "'Patient' ni 'MedicalCard' ga, 'Doctor' ni 'MedicalCard' ga ulang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Patient' to 'MedicalCard', and 'Doctor' to 'MedicalCard'. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Doctor",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "doctorId",
           "x": 140,
           "y": 100,
@@ -2077,21 +2778,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "doctorId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "doctorName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "specialty",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Patient",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "patientId",
           "x": 540,
           "y": 100,
@@ -2099,21 +2806,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "patientId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "dob",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "MedicalCard",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cardNo",
           "x": 340,
           "y": 320,
@@ -2121,20 +2834,57 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cardNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "diagnosis",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "openedDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "doctorId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Patient",
+          "entity2": "MedicalCard",
+          "fromEntityName": "Patient",
+          "toEntityName": "MedicalCard",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Doctor",
+          "entity2": "MedicalCard",
+          "fromEntityName": "Doctor",
+          "toEntityName": "MedicalCard",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2151,7 +2901,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "MedicalCard",
           "pk": "cardNo",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "doctorId"
+          ]
         }
       ],
       "relationships": [
@@ -2160,26 +2913,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "MedicalCard",
           "fromEntityName": "Patient",
           "toEntityName": "MedicalCard",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "Doctor",
           "entity2": "MedicalCard",
           "fromEntityName": "Doctor",
           "toEntityName": "MedicalCard",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -2196,13 +2943,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Car Rental Fleet Operations (Rent-a-Car — 3 Entities) (Relational Schema)",
     "story": "Avtomobil ijarasi xizmatida har bir filialda (Branch) bir nechta avtomobillar (RentalCar) mavjud. Har bir avtomobil esa bir nechta ijara shartnomalari (RentalContract) bo'yicha mijozlarga beriladi. 'Branch' -> 'RentalCar' va 'RentalCar' -> 'RentalContract' zanjirini bog'lang.",
     "storyEn": "In auto rental operations, each city branch (Branch) manages a fleet of multiple rental cars (RentalCar). Each car may be leased out under several rental contracts (RentalContract) over its lifecycle. Connect 'Branch' -> 'RentalCar' and 'RentalCar' -> 'RentalContract'.",
-    "instruction": "'Branch' ni 'RentalCar' ga, 'RentalCar' ni 'RentalContract' ga ulang.",
-    "instructionEn": "Connect 'Branch' to 'RentalCar', and 'RentalCar' to 'RentalContract'.",
+    "instruction": "'Branch' ni 'RentalCar' ga, 'RentalCar' ni 'RentalContract' ga ulang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Branch' to 'RentalCar', and 'RentalCar' to 'RentalContract'. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Branch",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "branchId",
           "x": 100,
           "y": 160,
@@ -2210,21 +2958,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "branchId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "city",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "address",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "RentalCar",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "carId",
           "x": 440,
           "y": 160,
@@ -2232,21 +2986,33 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "carId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "model",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "dailyPrice",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "branchId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "RentalContract",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "contractNo",
           "x": 780,
           "y": 160,
@@ -2254,20 +3020,57 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "contractNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "startDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "totalCost",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "carId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Branch",
+          "entity2": "RentalCar",
+          "fromEntityName": "Branch",
+          "toEntityName": "RentalCar",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "RentalCar",
+          "entity2": "RentalContract",
+          "fromEntityName": "RentalCar",
+          "toEntityName": "RentalContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2279,12 +3082,18 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "RentalCar",
           "pk": "carId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "branchId"
+          ]
         },
         {
           "name": "RentalContract",
           "pk": "contractNo",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "carId"
+          ]
         }
       ],
       "relationships": [
@@ -2293,26 +3102,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "RentalCar",
           "fromEntityName": "Branch",
           "toEntityName": "RentalCar",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "RentalCar",
           "entity2": "RentalContract",
           "fromEntityName": "RentalCar",
           "toEntityName": "RentalContract",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -2329,13 +3132,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Flight Booking Portal (3 Entities) (Relational Schema)",
     "story": "Aviatsiya portalida har bir reysga (Flight) ko'plab chipta bronlari (Booking) rasmiylashtiriladi. Yo'lovchi (Passenger) esa kamida bitta yoki bir nechta reysga bron ochadi. Har bir bron 1 ta yo'lovchi va 1 ta reysga tegishli. 'Flight' -> 'Booking' va 'Passenger' -> 'Booking' aloqalarini chizing.",
     "storyEn": "For every scheduled flight (Flight), hundreds of ticket reservations (Booking) are created. A frequent passenger (Passenger) opens one or multiple flight bookings. Each booking references 1 passenger and 1 flight. Connect 'Flight' -> 'Booking' and 'Passenger' -> 'Booking'.",
-    "instruction": "'Flight' va 'Passenger' entitiyalarini 'Booking' ga ulang: Flight va Passenger.",
-    "instructionEn": "Connect both 'Flight' and 'Passenger' to 'Booking': Flight and Passenger.",
+    "instruction": "'Flight' va 'Passenger' entitiyalarini 'Booking' ga ulang: Flight va Passenger. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect both 'Flight' and 'Passenger' to 'Booking': Flight and Passenger. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Flight",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "flightNo",
           "x": 140,
           "y": 100,
@@ -2343,21 +3147,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "flightNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "origin",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "destination",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Passenger",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "passportNo",
           "x": 540,
           "y": 100,
@@ -2365,21 +3175,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "passportNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "nationality",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Booking",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "bookingRef",
           "x": 340,
           "y": 320,
@@ -2387,20 +3203,63 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "bookingRef",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "seatNo",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "pricePaid",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "flightNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "passportNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Flight",
+          "entity2": "Booking",
+          "fromEntityName": "Flight",
+          "toEntityName": "Booking",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Passenger",
+          "entity2": "Booking",
+          "fromEntityName": "Passenger",
+          "toEntityName": "Booking",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2417,7 +3276,11 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Booking",
           "pk": "bookingRef",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "flightNo",
+            "passportNo"
+          ]
         }
       ],
       "relationships": [
@@ -2426,26 +3289,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Booking",
           "fromEntityName": "Flight",
           "toEntityName": "Booking",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "Passenger",
           "entity2": "Booking",
           "fromEntityName": "Passenger",
           "toEntityName": "Booking",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -2462,13 +3319,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Hotel Room Reservations (3 Entities) (Relational Schema)",
     "story": "Mehmonxonada mehmon (Guest) bir nechta xona rezervatsiyalarini (Reservation) amalga oshirishi mumkin. Har bir xona (Room) esa turli vaqtlarda ko'plab rezervatsiyalarga xizmat ko'rsatadi. 'Guest' -> 'Reservation' va 'Room' -> 'Reservation' aloqalarini o'rnating.",
     "storyEn": "A registered guest (Guest) can make multiple room reservations (Reservation) across various stays. Each guest room (Room) serves numerous bookings throughout the year. Connect 'Guest' -> 'Reservation' and 'Room' -> 'Reservation'.",
-    "instruction": "'Guest' ni 'Reservation' ga, 'Room' ni 'Reservation' ga ulang.",
-    "instructionEn": "Connect 'Guest' to 'Reservation', and 'Room' to 'Reservation'.",
+    "instruction": "'Guest' ni 'Reservation' ga, 'Room' ni 'Reservation' ga ulang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Guest' to 'Reservation', and 'Room' to 'Reservation'. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Guest",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "guestId",
           "x": 140,
           "y": 100,
@@ -2476,21 +3334,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "guestId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "passport",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Room",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "roomNo",
           "x": 540,
           "y": 100,
@@ -2498,21 +3362,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "roomNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "roomType",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "floor",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Reservation",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "resNo",
           "x": 340,
           "y": 320,
@@ -2520,20 +3390,63 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "resNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "checkIn",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "checkOut",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "guestId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "roomNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Guest",
+          "entity2": "Reservation",
+          "fromEntityName": "Guest",
+          "toEntityName": "Reservation",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Room",
+          "entity2": "Reservation",
+          "fromEntityName": "Room",
+          "toEntityName": "Reservation",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2550,7 +3463,11 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Reservation",
           "pk": "resNo",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "guestId",
+            "roomNo"
+          ]
         }
       ],
       "relationships": [
@@ -2559,26 +3476,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Reservation",
           "fromEntityName": "Guest",
           "toEntityName": "Reservation",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "Room",
           "entity2": "Reservation",
           "fromEntityName": "Room",
           "toEntityName": "Reservation",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -2595,13 +3506,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "IT Product Project — Sprints & Tasks (3 Entities) (Relational Schema)",
     "story": "IT dasturiy loyihasida (Project) bir nechta rivojlantirish sprintlari (Sprint) rejalashtiriladi. Har bir sprint tarkibida esa jamoa bajaradigan ko'plab vazifalar (IssueTask) mavjud. 'Project' -> 'Sprint' va 'Sprint' -> 'IssueTask' aloqalarini chizing.",
     "storyEn": "In software engineering, a project (Project) is organized into multiple development cycles (Sprint). Each sprint contains a backlog of work tasks (IssueTask) executed by developers. Connect 'Project' -> 'Sprint' and 'Sprint' -> 'IssueTask'.",
-    "instruction": "'Project' ni 'Sprint' ga, 'Sprint' ni 'IssueTask' ga ulang.",
-    "instructionEn": "Connect 'Project' to 'Sprint', and 'Sprint' to 'IssueTask'.",
+    "instruction": "'Project' ni 'Sprint' ga, 'Sprint' ni 'IssueTask' ga ulang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Project' to 'Sprint', and 'Sprint' to 'IssueTask'. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Project",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "projectKey",
           "x": 100,
           "y": 160,
@@ -2609,17 +3521,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "projectKey",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "projectName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Sprint",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "sprintId",
           "x": 440,
           "y": 160,
@@ -2627,21 +3543,33 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "sprintId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "sprintGoal",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "endDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "projectKey",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "IssueTask",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "taskId",
           "x": 780,
           "y": 160,
@@ -2649,20 +3577,57 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "taskId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "taskTitle",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "storyPoints",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "sprintId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Project",
+          "entity2": "Sprint",
+          "fromEntityName": "Project",
+          "toEntityName": "Sprint",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Sprint",
+          "entity2": "IssueTask",
+          "fromEntityName": "Sprint",
+          "toEntityName": "IssueTask",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2674,12 +3639,18 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Sprint",
           "pk": "sprintId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "projectKey"
+          ]
         },
         {
           "name": "IssueTask",
           "pk": "taskId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "sprintId"
+          ]
         }
       ],
       "relationships": [
@@ -2688,26 +3659,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Sprint",
           "fromEntityName": "Project",
           "toEntityName": "Sprint",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "Sprint",
           "entity2": "IssueTask",
           "fromEntityName": "Sprint",
           "toEntityName": "IssueTask",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -2724,13 +3689,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Bank Loan Portfolio Management (4 Entities!) (Relational Schema)",
     "story": "Bank filialida (BankBranch) kredit mutaxassislari (LoanOfficer) ishlaydi. Har bir mutaxassis bir nechta kredit hisoblarini (LoanAccount) nazorat qiladi. Qarz oluvchi mijoz (Borrower) esa kamida bitta kreditga ega bo'ladi. 'BankBranch' -> 'LoanOfficer', 'LoanOfficer' -> 'LoanAccount' va 'Borrower' -> 'LoanAccount' to'rtta entitiyli modelni quring.",
     "storyEn": "At a commercial bank branch (BankBranch), several loan officers (LoanOfficer) evaluate credits. Each loan officer supervises multiple loan accounts (LoanAccount). A corporate or retail borrower (Borrower) holds at least one active loan account. Build the 4-entity model: 'BankBranch' -> 'LoanOfficer', 'LoanOfficer' -> 'LoanAccount', 'Borrower' -> 'LoanAccount'.",
-    "instruction": "BankBranch -> LoanOfficer, LoanOfficer -> LoanAccount, Borrower -> LoanAccount aloqalarini chizing. Entitiylarni o'zaro bog'lang.",
-    "instructionEn": "Connect BankBranch -> LoanOfficer, LoanOfficer -> LoanAccount, Borrower -> LoanAccount.",
+    "instruction": "BankBranch -> LoanOfficer, LoanOfficer -> LoanAccount, Borrower -> LoanAccount aloqalarini chizing. Entitiylarni o'zaro bog'lang va multiplisitiya chegaralarini belgilang.",
+    "instructionEn": "Connect BankBranch -> LoanOfficer, LoanOfficer -> LoanAccount, Borrower -> LoanAccount. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "BankBranch",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "branchNo",
           "x": 120,
           "y": 100,
@@ -2738,17 +3704,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "branchNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "city",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "LoanOfficer",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "officerId",
           "x": 480,
           "y": 100,
@@ -2756,17 +3726,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "officerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "officerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "branchNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "LoanAccount",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "loanId",
           "x": 480,
           "y": 320,
@@ -2774,21 +3754,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "loanId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "amount",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "interestRate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "officerId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "cifCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Borrower",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cifCode",
           "x": 120,
           "y": 320,
@@ -2796,16 +3794,57 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cifCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "borrowerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "BankBranch",
+          "entity2": "LoanOfficer",
+          "fromEntityName": "BankBranch",
+          "toEntityName": "LoanOfficer",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "LoanOfficer",
+          "entity2": "LoanAccount",
+          "fromEntityName": "LoanOfficer",
+          "toEntityName": "LoanAccount",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_3",
+          "name": "Aloqa",
+          "entity1": "Borrower",
+          "entity2": "LoanAccount",
+          "fromEntityName": "Borrower",
+          "toEntityName": "LoanAccount",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2817,12 +3856,19 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "LoanOfficer",
           "pk": "officerId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "branchNo"
+          ]
         },
         {
           "name": "LoanAccount",
           "pk": "loanId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "officerId",
+            "cifCode"
+          ]
         },
         {
           "name": "Borrower",
@@ -2836,39 +3882,30 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "LoanOfficer",
           "fromEntityName": "BankBranch",
           "toEntityName": "LoanOfficer",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "LoanOfficer",
           "entity2": "LoanAccount",
           "fromEntityName": "LoanOfficer",
           "toEntityName": "LoanAccount",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "Borrower",
           "entity2": "LoanAccount",
           "fromEntityName": "Borrower",
           "toEntityName": "LoanAccount",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -2885,13 +3922,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Supermarket POS Checkout & Receipt (4 Entities!) (Relational Schema)",
     "story": "Supermarket tarmog'ida do'konda (Store) kassirlar (Cashier) ishlaydi. Kassir xarid cheklari (Receipt) chiqaradi. Xaridor (Customer) chekka ixtiyoriy ravishda bog'lanadi, chunki kartasiz mijozlar ham xarid qilishi mumkin. 'Store' -> 'Cashier', 'Cashier' -> 'Receipt' va 'Customer' -> 'Receipt' aloqalarini yarating.",
     "storyEn": "In retail POS operations, a store (Store) employs cashiers (Cashier) across checkout lanes. A cashier generates numerous receipts (Receipt). A loyalty customer (Customer) is optionally linked to a receipt, as anonymous unregistered purchases are also permitted. Connect Store -> Cashier, Cashier -> Receipt, Customer -> Receipt.",
-    "instruction": "Store -> Cashier, Cashier -> Receipt, Customer -> Receipt aloqalarini ulang.",
-    "instructionEn": "Connect Store -> Cashier, Cashier -> Receipt, Customer -> Receipt.",
+    "instruction": "Store -> Cashier, Cashier -> Receipt, Customer -> Receipt aloqalarini ulang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect Store -> Cashier, Cashier -> Receipt, Customer -> Receipt. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Store",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "storeId",
           "x": 120,
           "y": 100,
@@ -2899,17 +3937,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "storeId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "storeName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Cashier",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "cashierId",
           "x": 480,
           "y": 100,
@@ -2917,17 +3959,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "cashierId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "cashierName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "storeId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Receipt",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "receiptNo",
           "x": 480,
           "y": 320,
@@ -2935,21 +3987,39 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "receiptNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "totalSum",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "payDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "cashierId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "loyaltyId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Customer",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "loyaltyId",
           "x": 120,
           "y": 320,
@@ -2957,16 +4027,57 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "loyaltyId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Store",
+          "entity2": "Cashier",
+          "fromEntityName": "Store",
+          "toEntityName": "Cashier",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "Cashier",
+          "entity2": "Receipt",
+          "fromEntityName": "Cashier",
+          "toEntityName": "Receipt",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_3",
+          "name": "Aloqa",
+          "entity1": "Customer",
+          "entity2": "Receipt",
+          "fromEntityName": "Customer",
+          "toEntityName": "Receipt",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -2978,12 +4089,19 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Cashier",
           "pk": "cashierId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "storeId"
+          ]
         },
         {
           "name": "Receipt",
           "pk": "receiptNo",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "cashierId",
+            "loyaltyId"
+          ]
         },
         {
           "name": "Customer",
@@ -2997,39 +4115,30 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Cashier",
           "fromEntityName": "Store",
           "toEntityName": "Cashier",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "Cashier",
           "entity2": "Receipt",
           "fromEntityName": "Cashier",
           "toEntityName": "Receipt",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "Customer",
           "entity2": "Receipt",
           "fromEntityName": "Customer",
           "toEntityName": "Receipt",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -3046,13 +4155,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Real Estate Listings (3 Entities — Optional Broker 0..1) (Relational Schema)",
     "story": "Mulk egasi (Owner) kamida 1 ta ko'chmas mulkka (Property) ega. Mulkni sotish esa ixtiyoriy ravishda 1 ta rieltor agentga (EstateAgent) topshirilishi mumkin. Agent bir nechta ob'yektlarni sotuvga chiqaradi. 'Owner' -> 'Property' va 'EstateAgent' -> 'Property' aloqalarini bog'lang.",
     "storyEn": "A property owner (Owner) owns at least one real estate parcel (Property). Selling a property can optionally be assigned to one licensed estate broker (EstateAgent). An agent manages multiple property listings. Connect Owner -> Property and EstateAgent -> Property.",
-    "instruction": "Owner -> Property va EstateAgent -> Property aloqalarini chizing. Entitiylarni o'zaro bog'lang.",
-    "instructionEn": "Connect Owner -> Property and EstateAgent -> Property.",
+    "instruction": "Owner -> Property va EstateAgent -> Property aloqalarini chizing. Entitiylarni o'zaro bog'lang va multiplisitiya chegaralarini belgilang.",
+    "instructionEn": "Connect Owner -> Property and EstateAgent -> Property. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Owner",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "ownerId",
           "x": 140,
           "y": 100,
@@ -3060,21 +4170,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "ownerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "ownerName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "EstateAgent",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "agentId",
           "x": 540,
           "y": 100,
@@ -3082,21 +4198,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "agentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "agentName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "commission",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Property",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "propertyNo",
           "x": 340,
           "y": 320,
@@ -3104,20 +4226,63 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "propertyNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "address",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "price",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "ownerId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "agentId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Owner",
+          "entity2": "Property",
+          "fromEntityName": "Owner",
+          "toEntityName": "Property",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "EstateAgent",
+          "entity2": "Property",
+          "fromEntityName": "EstateAgent",
+          "toEntityName": "Property",
+          "mult1": "0..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3134,7 +4299,11 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Property",
           "pk": "propertyNo",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "ownerId",
+            "agentId"
+          ]
         }
       ],
       "relationships": [
@@ -3143,26 +4312,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Property",
           "fromEntityName": "Owner",
           "toEntityName": "Property",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "EstateAgent",
           "entity2": "Property",
           "fromEntityName": "EstateAgent",
           "toEntityName": "Property",
-          "mult1": "0..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -3179,13 +4342,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "University Library Book Loans (3 Entities) (Relational Schema)",
     "story": "Talaba (Student) kutubxonadan kitob olishi (BookLoan) mumkin. Har bir aniq kitob nusxasi (BookCopy) ham vaqti-vaqti bilan ijaraga beriladi. Har bir ijara kvitansiyasi 1 ta talaba va 1 ta kitob nusxasiga tegishli. 'Student' -> 'BookLoan' va 'BookCopy' -> 'BookLoan' aloqalarini chizing.",
     "storyEn": "A student (Student) may borrow books from the campus library under book loans (BookLoan). Each physical book copy (BookCopy, with unique barcode) is loaned out over time. Each loan record binds 1 student and 1 physical copy. Connect Student -> BookLoan and BookCopy -> BookLoan.",
-    "instruction": "Student -> BookLoan va BookCopy -> BookLoan bog'lanishlarini o'rnating. Entitiylarni o'zaro bog'lang.",
-    "instructionEn": "Connect Student -> BookLoan and BookCopy -> BookLoan.",
+    "instruction": "Student -> BookLoan va BookCopy -> BookLoan bog'lanishlarini o'rnating. Entitiylarni o'zaro bog'lang va multiplisitiya chegaralarini belgilang.",
+    "instructionEn": "Connect Student -> BookLoan and BookCopy -> BookLoan. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Student",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "studentId",
           "x": 140,
           "y": 100,
@@ -3193,21 +4357,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "studentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "studentName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "faculty",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "BookCopy",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "barcode",
           "x": 540,
           "y": 100,
@@ -3215,21 +4385,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "barcode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "editionYear",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "shelfLocation",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "BookLoan",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "loanId",
           "x": 340,
           "y": 320,
@@ -3237,20 +4413,63 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "loanId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "issueDate",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "returnDue",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "studentId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "barcode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Student",
+          "entity2": "BookLoan",
+          "fromEntityName": "Student",
+          "toEntityName": "BookLoan",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "BookCopy",
+          "entity2": "BookLoan",
+          "fromEntityName": "BookCopy",
+          "toEntityName": "BookLoan",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3267,7 +4486,11 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "BookLoan",
           "pk": "loanId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "studentId",
+            "barcode"
+          ]
         }
       ],
       "relationships": [
@@ -3276,26 +4499,20 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "BookLoan",
           "fromEntityName": "Student",
           "toEntityName": "BookLoan",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "BookCopy",
           "entity2": "BookLoan",
           "fromEntityName": "BookCopy",
           "toEntityName": "BookLoan",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -3312,13 +4529,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Freight Logistics & Delivery Network (4 Entities!) (Relational Schema)",
     "story": "Markaziy logistika omboriga (Warehouse) bir nechta yuk mashinalari (CargoTruck) biriktiriladi. Har bir yuk mashinasiga aniq 1 ta shtatdagi haydovchi (Driver) javobgar. Yuk mashinasi esa bir nechta marshrut reyslarini (DeliveryRoute) bajaradi. 'Warehouse' -> 'CargoTruck', 'CargoTruck' -> 'Driver' va 'CargoTruck' -> 'DeliveryRoute' to'rtta entitiyli tizimni quring.",
     "storyEn": "At a central logistics terminal (Warehouse), a fleet of cargo trucks (CargoTruck) is stationed. Each truck is operated by exactly one assigned professional driver (Driver). Each truck operates multiple scheduled delivery routes (DeliveryRoute). Build the 4-entity freight architecture: Warehouse -> CargoTruck, CargoTruck -> Driver, CargoTruck -> DeliveryRoute.",
-    "instruction": "Warehouse -> CargoTruck, CargoTruck -> Driver, CargoTruck -> DeliveryRoute aloqalarini chizing. Entitiylarni o'zaro bog'lang.",
-    "instructionEn": "Connect Warehouse -> CargoTruck, CargoTruck -> Driver, CargoTruck -> DeliveryRoute.",
+    "instruction": "Warehouse -> CargoTruck, CargoTruck -> Driver, CargoTruck -> DeliveryRoute aloqalarini chizing. Entitiylarni o'zaro bog'lang va multiplisitiya chegaralarini belgilang.",
+    "instructionEn": "Connect Warehouse -> CargoTruck, CargoTruck -> Driver, CargoTruck -> DeliveryRoute. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Warehouse",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "whCode",
           "x": 120,
           "y": 100,
@@ -3326,21 +4544,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "whCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "whName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "city",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "CargoTruck",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "truckId",
           "x": 480,
           "y": 100,
@@ -3348,21 +4572,33 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "truckId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "plateNumber",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "capacityTons",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "whCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Driver",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "licenseNo",
           "x": 120,
           "y": 320,
@@ -3370,21 +4606,27 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "licenseNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "driverName",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "phone",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "DeliveryRoute",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "routeId",
           "x": 480,
           "y": 320,
@@ -3392,20 +4634,69 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "routeId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "routeDestination",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "departTime",
-              "isPK": false
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "truckId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Aloqa",
+          "entity1": "Warehouse",
+          "entity2": "CargoTruck",
+          "fromEntityName": "Warehouse",
+          "toEntityName": "CargoTruck",
+          "mult1": "1..1",
+          "mult2": "1..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Aloqa",
+          "entity1": "CargoTruck",
+          "entity2": "Driver",
+          "fromEntityName": "CargoTruck",
+          "toEntityName": "Driver",
+          "mult1": "1..1",
+          "mult2": "1..1",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_3",
+          "name": "Aloqa",
+          "entity1": "CargoTruck",
+          "entity2": "DeliveryRoute",
+          "fromEntityName": "CargoTruck",
+          "toEntityName": "DeliveryRoute",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3417,7 +4708,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "CargoTruck",
           "pk": "truckId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "whCode"
+          ]
         },
         {
           "name": "Driver",
@@ -3427,7 +4721,10 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "DeliveryRoute",
           "pk": "routeId",
-          "isWeak": false
+          "isWeak": false,
+          "foreignKeys": [
+            "truckId"
+          ]
         }
       ],
       "relationships": [
@@ -3436,39 +4733,30 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "CargoTruck",
           "fromEntityName": "Warehouse",
           "toEntityName": "CargoTruck",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "CargoTruck",
           "entity2": "Driver",
           "fromEntityName": "CargoTruck",
           "toEntityName": "Driver",
-          "mult1": "1..1",
-          "mult2": "1..1",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         },
         {
           "entity1": "CargoTruck",
           "entity2": "DeliveryRoute",
           "fromEntityName": "CargoTruck",
           "toEntityName": "DeliveryRoute",
-          "mult1": "1..1",
-          "mult2": "0..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -3485,13 +4773,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Hotel & Guest Rooms (Weak Entity) (Relational Schema)",
     "story": "'HotelRoom' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Hotel' (hotelId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'roomNo' {PPK} hisoblanadi. 'Hotel' va 'HotelRoom' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'HotelRoom' is a weak entity that cannot exist independently without its parent entity 'Hotel' (hotelId {PK}). Its key is the partial key 'roomNo' {PPK}. Model the identifying relationship between 'Hotel' and 'HotelRoom'.",
-    "instruction": "'Hotel' va zaif 'HotelRoom' entitiylarini identifikatsion aloqa bilan bog'lang. 'HotelRoom' entitiyida 'Zaif {W}' rejimini yoqing va 'roomNo' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'Hotel' and weak 'HotelRoom' via an identifying relationship. Toggle 'Weak {W}' on 'HotelRoom' and designate 'roomNo' as {PPK}.",
+    "instruction": "'Hotel' va zaif 'HotelRoom' entitiylarini identifikatsion aloqa bilan bog'lang. 'HotelRoom' entitiyida 'Zaif {W}' rejimini yoqing va 'roomNo' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Hotel' and weak 'HotelRoom' via an identifying relationship. Toggle 'Weak {W}' on 'HotelRoom' and designate 'roomNo' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Hotel",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "hotelId",
           "x": 140,
           "y": 160,
@@ -3499,18 +4788,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "hotelId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "hotelName",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "HotelRoom",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "roomNo",
           "x": 520,
           "y": 160,
@@ -3518,17 +4810,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "roomNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "roomType",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "price",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "hotelId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -3544,11 +4845,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3560,7 +4860,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "HotelRoom",
           "pk": "roomNo",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "hotelId"
+          ],
+          "ppk": [
+            "roomNo"
+          ]
         }
       ],
       "relationships": [
@@ -3569,13 +4875,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "HotelRoom",
           "fromEntityName": "Hotel",
           "toEntityName": "HotelRoom",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -3592,13 +4895,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Order & Line Items (OrderItem) (Relational Schema)",
     "story": "'OrderItem' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Order' (orderNo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'itemSeq' {PPK} hisoblanadi. 'Order' va 'OrderItem' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'OrderItem' is a weak entity that cannot exist independently without its parent entity 'Order' (orderNo {PK}). Its key is the partial key 'itemSeq' {PPK}. Model the identifying relationship between 'Order' and 'OrderItem'.",
-    "instruction": "'Order' va zaif 'OrderItem' entitiylarini identifikatsion aloqa bilan bog'lang. 'OrderItem' entitiyida 'Zaif {W}' rejimini yoqing va 'itemSeq' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'Order' and weak 'OrderItem' via an identifying relationship. Toggle 'Weak {W}' on 'OrderItem' and designate 'itemSeq' as {PPK}.",
+    "instruction": "'Order' va zaif 'OrderItem' entitiylarini identifikatsion aloqa bilan bog'lang. 'OrderItem' entitiyida 'Zaif {W}' rejimini yoqing va 'itemSeq' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Order' and weak 'OrderItem' via an identifying relationship. Toggle 'Weak {W}' on 'OrderItem' and designate 'itemSeq' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Order",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "orderNo",
           "x": 140,
           "y": 160,
@@ -3606,18 +4910,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "orderNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "orderDate",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "OrderItem",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "itemSeq",
           "x": 520,
           "y": 160,
@@ -3625,17 +4932,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "itemSeq",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "qty",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "unitPrice",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "orderNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -3651,11 +4967,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3667,7 +4982,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "OrderItem",
           "pk": "itemSeq",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "orderNo"
+          ],
+          "ppk": [
+            "itemSeq"
+          ]
         }
       ],
       "relationships": [
@@ -3676,13 +4997,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "OrderItem",
           "fromEntityName": "Order",
           "toEntityName": "OrderItem",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -3699,13 +5017,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Building & Floors (Weak Composition) (Relational Schema)",
     "story": "'Floor' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Building' (buildingCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'floorNo' {PPK} hisoblanadi. 'Building' va 'Floor' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'Floor' is a weak entity that cannot exist independently without its parent entity 'Building' (buildingCode {PK}). Its key is the partial key 'floorNo' {PPK}. Model the identifying relationship between 'Building' and 'Floor'.",
-    "instruction": "'Building' va zaif 'Floor' entitiylarini identifikatsion aloqa bilan bog'lang. 'Floor' entitiyida 'Zaif {W}' rejimini yoqing va 'floorNo' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'Building' and weak 'Floor' via an identifying relationship. Toggle 'Weak {W}' on 'Floor' and designate 'floorNo' as {PPK}.",
+    "instruction": "'Building' va zaif 'Floor' entitiylarini identifikatsion aloqa bilan bog'lang. 'Floor' entitiyida 'Zaif {W}' rejimini yoqing va 'floorNo' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Building' and weak 'Floor' via an identifying relationship. Toggle 'Weak {W}' on 'Floor' and designate 'floorNo' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Building",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "buildingCode",
           "x": 140,
           "y": 160,
@@ -3713,18 +5032,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "buildingCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "address",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Floor",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "floorNo",
           "x": 520,
           "y": 160,
@@ -3732,12 +5054,20 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "floorNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "areaSqM",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "buildingCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -3753,11 +5083,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3769,7 +5098,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Floor",
           "pk": "floorNo",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "buildingCode"
+          ],
+          "ppk": [
+            "floorNo"
+          ]
         }
       ],
       "relationships": [
@@ -3778,13 +5113,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Floor",
           "fromEntityName": "Building",
           "toEntityName": "Floor",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -3801,13 +5133,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Employee & Family Dependents (Relational Schema)",
     "story": "'Dependent' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Employee' (empId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'depName' {PPK} hisoblanadi. 'Employee' va 'Dependent' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'Dependent' is a weak entity that cannot exist independently without its parent entity 'Employee' (empId {PK}). Its key is the partial key 'depName' {PPK}. Model the identifying relationship between 'Employee' and 'Dependent'.",
-    "instruction": "'Employee' va zaif 'Dependent' entitiylarini identifikatsion aloqa bilan bog'lang. 'Dependent' entitiyida 'Zaif {W}' rejimini yoqing va 'depName' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'Employee' and weak 'Dependent' via an identifying relationship. Toggle 'Weak {W}' on 'Dependent' and designate 'depName' as {PPK}.",
+    "instruction": "'Employee' va zaif 'Dependent' entitiylarini identifikatsion aloqa bilan bog'lang. 'Dependent' entitiyida 'Zaif {W}' rejimini yoqing va 'depName' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Employee' and weak 'Dependent' via an identifying relationship. Toggle 'Weak {W}' on 'Dependent' and designate 'depName' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Employee",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "empId",
           "x": 140,
           "y": 160,
@@ -3815,18 +5148,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "empId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "fullName",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Dependent",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "depName",
           "x": 520,
           "y": 160,
@@ -3834,17 +5170,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "depName",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "relationship",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "birthDate",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "empId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -3860,11 +5205,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3876,7 +5220,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "Dependent",
           "pk": "depName",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "empId"
+          ],
+          "ppk": [
+            "depName"
+          ]
         }
       ],
       "relationships": [
@@ -3885,13 +5235,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Dependent",
           "fromEntityName": "Employee",
           "toEntityName": "Dependent",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -3908,13 +5255,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Bank Account & Monthly Statements (Relational Schema)",
     "story": "'AccountStatement' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'BankAccount' (accountNo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'statementSeq' {PPK} hisoblanadi. 'BankAccount' va 'AccountStatement' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'AccountStatement' is a weak entity that cannot exist independently without its parent entity 'BankAccount' (accountNo {PK}). Its key is the partial key 'statementSeq' {PPK}. Model the identifying relationship between 'BankAccount' and 'AccountStatement'.",
-    "instruction": "'BankAccount' va zaif 'AccountStatement' entitiylarini identifikatsion aloqa bilan bog'lang. 'AccountStatement' entitiyida 'Zaif {W}' rejimini yoqing va 'statementSeq' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'BankAccount' and weak 'AccountStatement' via an identifying relationship. Toggle 'Weak {W}' on 'AccountStatement' and designate 'statementSeq' as {PPK}.",
+    "instruction": "'BankAccount' va zaif 'AccountStatement' entitiylarini identifikatsion aloqa bilan bog'lang. 'AccountStatement' entitiyida 'Zaif {W}' rejimini yoqing va 'statementSeq' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'BankAccount' and weak 'AccountStatement' via an identifying relationship. Toggle 'Weak {W}' on 'AccountStatement' and designate 'statementSeq' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "BankAccount",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "accountNo",
           "x": 140,
           "y": 160,
@@ -3922,18 +5270,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "accountNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "currency",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "AccountStatement",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "statementSeq",
           "x": 520,
           "y": 160,
@@ -3941,17 +5292,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "statementSeq",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "statementMonth",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "totalInflow",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "accountNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -3967,11 +5327,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -3983,7 +5342,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "AccountStatement",
           "pk": "statementSeq",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "accountNo"
+          ],
+          "ppk": [
+            "statementSeq"
+          ]
         }
       ],
       "relationships": [
@@ -3992,13 +5357,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "AccountStatement",
           "fromEntityName": "BankAccount",
           "toEntityName": "AccountStatement",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -4015,13 +5377,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Flight & Flight Legs (FlightLeg) (Relational Schema)",
     "story": "'FlightLeg' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Flight' (flightNo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'legNumber' {PPK} hisoblanadi. 'Flight' va 'FlightLeg' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'FlightLeg' is a weak entity that cannot exist independently without its parent entity 'Flight' (flightNo {PK}). Its key is the partial key 'legNumber' {PPK}. Model the identifying relationship between 'Flight' and 'FlightLeg'.",
-    "instruction": "'Flight' va zaif 'FlightLeg' entitiylarini identifikatsion aloqa bilan bog'lang. 'FlightLeg' entitiyida 'Zaif {W}' rejimini yoqing va 'legNumber' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'Flight' and weak 'FlightLeg' via an identifying relationship. Toggle 'Weak {W}' on 'FlightLeg' and designate 'legNumber' as {PPK}.",
+    "instruction": "'Flight' va zaif 'FlightLeg' entitiylarini identifikatsion aloqa bilan bog'lang. 'FlightLeg' entitiyida 'Zaif {W}' rejimini yoqing va 'legNumber' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Flight' and weak 'FlightLeg' via an identifying relationship. Toggle 'Weak {W}' on 'FlightLeg' and designate 'legNumber' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Flight",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "flightNo",
           "x": 140,
           "y": 160,
@@ -4029,18 +5392,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "flightNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "airlineCode",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "FlightLeg",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "legNumber",
           "x": 520,
           "y": 160,
@@ -4048,17 +5414,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "legNumber",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "originAir",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "destAir",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "flightNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -4074,11 +5449,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4090,7 +5464,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "FlightLeg",
           "pk": "legNumber",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "flightNo"
+          ],
+          "ppk": [
+            "legNumber"
+          ]
         }
       ],
       "relationships": [
@@ -4099,13 +5479,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "FlightLeg",
           "fromEntityName": "Flight",
           "toEntityName": "FlightLeg",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -4122,13 +5499,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Hospital Ward & Patient Beds (Relational Schema)",
     "story": "'WardBed' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'HospitalWard' (wardCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'bedNumber' {PPK} hisoblanadi. 'HospitalWard' va 'WardBed' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'WardBed' is a weak entity that cannot exist independently without its parent entity 'HospitalWard' (wardCode {PK}). Its key is the partial key 'bedNumber' {PPK}. Model the identifying relationship between 'HospitalWard' and 'WardBed'.",
-    "instruction": "'HospitalWard' va zaif 'WardBed' entitiylarini identifikatsion aloqa bilan bog'lang. 'WardBed' entitiyida 'Zaif {W}' rejimini yoqing va 'bedNumber' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'HospitalWard' and weak 'WardBed' via an identifying relationship. Toggle 'Weak {W}' on 'WardBed' and designate 'bedNumber' as {PPK}.",
+    "instruction": "'HospitalWard' va zaif 'WardBed' entitiylarini identifikatsion aloqa bilan bog'lang. 'WardBed' entitiyida 'Zaif {W}' rejimini yoqing va 'bedNumber' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'HospitalWard' and weak 'WardBed' via an identifying relationship. Toggle 'Weak {W}' on 'WardBed' and designate 'bedNumber' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "HospitalWard",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "wardCode",
           "x": 140,
           "y": 160,
@@ -4136,18 +5514,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "wardCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "floorLevel",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "WardBed",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "bedNumber",
           "x": 520,
           "y": 160,
@@ -4155,17 +5536,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "bedNumber",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "isOccupied",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "bedType",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "wardCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -4181,11 +5571,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4197,7 +5586,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "WardBed",
           "pk": "bedNumber",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "wardCode"
+          ],
+          "ppk": [
+            "bedNumber"
+          ]
         }
       ],
       "relationships": [
@@ -4206,13 +5601,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "WardBed",
           "fromEntityName": "HospitalWard",
           "toEntityName": "WardBed",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -4229,13 +5621,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Book & Chapters Structure (BookChapter) (Relational Schema)",
     "story": "'BookChapter' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'PublishingBook' (bookIsbn {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'chapterNo' {PPK} hisoblanadi. 'PublishingBook' va 'BookChapter' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'BookChapter' is a weak entity that cannot exist independently without its parent entity 'PublishingBook' (bookIsbn {PK}). Its key is the partial key 'chapterNo' {PPK}. Model the identifying relationship between 'PublishingBook' and 'BookChapter'.",
-    "instruction": "'PublishingBook' va zaif 'BookChapter' entitiylarini identifikatsion aloqa bilan bog'lang. 'BookChapter' entitiyida 'Zaif {W}' rejimini yoqing va 'chapterNo' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'PublishingBook' and weak 'BookChapter' via an identifying relationship. Toggle 'Weak {W}' on 'BookChapter' and designate 'chapterNo' as {PPK}.",
+    "instruction": "'PublishingBook' va zaif 'BookChapter' entitiylarini identifikatsion aloqa bilan bog'lang. 'BookChapter' entitiyida 'Zaif {W}' rejimini yoqing va 'chapterNo' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'PublishingBook' and weak 'BookChapter' via an identifying relationship. Toggle 'Weak {W}' on 'BookChapter' and designate 'chapterNo' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "PublishingBook",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "bookIsbn",
           "x": 140,
           "y": 160,
@@ -4243,18 +5636,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "bookIsbn",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "bookTitle",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "BookChapter",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "chapterNo",
           "x": 520,
           "y": 160,
@@ -4262,17 +5658,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "chapterNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "chapterTitle",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "pageCount",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "bookIsbn",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -4288,11 +5693,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4304,7 +5708,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "BookChapter",
           "pk": "chapterNo",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "bookIsbn"
+          ],
+          "ppk": [
+            "chapterNo"
+          ]
         }
       ],
       "relationships": [
@@ -4313,13 +5723,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "BookChapter",
           "fromEntityName": "PublishingBook",
           "toEntityName": "BookChapter",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -4336,13 +5743,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Cargo Ship & Container Slots (Relational Schema)",
     "story": "'CargoContainer' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'CargoShip' (shipImo {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'containerSlot' {PPK} hisoblanadi. 'CargoShip' va 'CargoContainer' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'CargoContainer' is a weak entity that cannot exist independently without its parent entity 'CargoShip' (shipImo {PK}). Its key is the partial key 'containerSlot' {PPK}. Model the identifying relationship between 'CargoShip' and 'CargoContainer'.",
-    "instruction": "'CargoShip' va zaif 'CargoContainer' entitiylarini identifikatsion aloqa bilan bog'lang. 'CargoContainer' entitiyida 'Zaif {W}' rejimini yoqing va 'containerSlot' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'CargoShip' and weak 'CargoContainer' via an identifying relationship. Toggle 'Weak {W}' on 'CargoContainer' and designate 'containerSlot' as {PPK}.",
+    "instruction": "'CargoShip' va zaif 'CargoContainer' entitiylarini identifikatsion aloqa bilan bog'lang. 'CargoContainer' entitiyida 'Zaif {W}' rejimini yoqing va 'containerSlot' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'CargoShip' and weak 'CargoContainer' via an identifying relationship. Toggle 'Weak {W}' on 'CargoContainer' and designate 'containerSlot' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "CargoShip",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "shipImo",
           "x": 140,
           "y": 160,
@@ -4350,18 +5758,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "shipImo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "shipName",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "CargoContainer",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "containerSlot",
           "x": 520,
           "y": 160,
@@ -4369,17 +5780,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "containerSlot",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "cargoType",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "weightTons",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "shipImo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -4395,11 +5815,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4411,7 +5830,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "CargoContainer",
           "pk": "containerSlot",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "shipImo"
+          ],
+          "ppk": [
+            "containerSlot"
+          ]
         }
       ],
       "relationships": [
@@ -4420,13 +5845,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "CargoContainer",
           "fromEntityName": "CargoShip",
           "toEntityName": "CargoContainer",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -4443,13 +5865,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "University Course & Class Sections (Relational Schema)",
     "story": "'CourseSection' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'UniversityCourse' (courseCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'sectionCode' {PPK} hisoblanadi. 'UniversityCourse' va 'CourseSection' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'CourseSection' is a weak entity that cannot exist independently without its parent entity 'UniversityCourse' (courseCode {PK}). Its key is the partial key 'sectionCode' {PPK}. Model the identifying relationship between 'UniversityCourse' and 'CourseSection'.",
-    "instruction": "'UniversityCourse' va zaif 'CourseSection' entitiylarini identifikatsion aloqa bilan bog'lang. 'CourseSection' entitiyida 'Zaif {W}' rejimini yoqing va 'sectionCode' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'UniversityCourse' and weak 'CourseSection' via an identifying relationship. Toggle 'Weak {W}' on 'CourseSection' and designate 'sectionCode' as {PPK}.",
+    "instruction": "'UniversityCourse' va zaif 'CourseSection' entitiylarini identifikatsion aloqa bilan bog'lang. 'CourseSection' entitiyida 'Zaif {W}' rejimini yoqing va 'sectionCode' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'UniversityCourse' and weak 'CourseSection' via an identifying relationship. Toggle 'Weak {W}' on 'CourseSection' and designate 'sectionCode' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "UniversityCourse",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "courseCode",
           "x": 140,
           "y": 160,
@@ -4457,18 +5880,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "courseCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "courseName",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "CourseSection",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "sectionCode",
           "x": 520,
           "y": 160,
@@ -4476,17 +5902,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "sectionCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "semester",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "maxStudents",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "courseCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -4502,11 +5937,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4518,7 +5952,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "CourseSection",
           "pk": "sectionCode",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "courseCode"
+          ],
+          "ppk": [
+            "sectionCode"
+          ]
         }
       ],
       "relationships": [
@@ -4527,13 +5967,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "CourseSection",
           "fromEntityName": "UniversityCourse",
           "toEntityName": "CourseSection",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -4550,13 +5987,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Prescription & Dosage Schedule (Relational Schema)",
     "story": "'DoseSchedule' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Prescription' (rxId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'doseIndex' {PPK} hisoblanadi. 'Prescription' va 'DoseSchedule' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'DoseSchedule' is a weak entity that cannot exist independently without its parent entity 'Prescription' (rxId {PK}). Its key is the partial key 'doseIndex' {PPK}. Model the identifying relationship between 'Prescription' and 'DoseSchedule'.",
-    "instruction": "'Prescription' va zaif 'DoseSchedule' entitiylarini identifikatsion aloqa bilan bog'lang. 'DoseSchedule' entitiyida 'Zaif {W}' rejimini yoqing va 'doseIndex' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'Prescription' and weak 'DoseSchedule' via an identifying relationship. Toggle 'Weak {W}' on 'DoseSchedule' and designate 'doseIndex' as {PPK}.",
+    "instruction": "'Prescription' va zaif 'DoseSchedule' entitiylarini identifikatsion aloqa bilan bog'lang. 'DoseSchedule' entitiyida 'Zaif {W}' rejimini yoqing va 'doseIndex' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Prescription' and weak 'DoseSchedule' via an identifying relationship. Toggle 'Weak {W}' on 'DoseSchedule' and designate 'doseIndex' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Prescription",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "rxId",
           "x": 140,
           "y": 160,
@@ -4564,18 +6002,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "rxId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "prescribedDate",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "DoseSchedule",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "doseIndex",
           "x": 520,
           "y": 160,
@@ -4583,17 +6024,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "doseIndex",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "timeOfDay",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "doseAmount",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "rxId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -4609,11 +6059,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4625,7 +6074,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "DoseSchedule",
           "pk": "doseIndex",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "rxId"
+          ],
+          "ppk": [
+            "doseIndex"
+          ]
         }
       ],
       "relationships": [
@@ -4634,13 +6089,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "DoseSchedule",
           "fromEntityName": "Prescription",
           "toEntityName": "DoseSchedule",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -4657,13 +6109,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Warehouse Aisle & Storage Bins (Relational Schema)",
     "story": "'StorageBin' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'WarehouseAisle' (aisleCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'binNumber' {PPK} hisoblanadi. 'WarehouseAisle' va 'StorageBin' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'StorageBin' is a weak entity that cannot exist independently without its parent entity 'WarehouseAisle' (aisleCode {PK}). Its key is the partial key 'binNumber' {PPK}. Model the identifying relationship between 'WarehouseAisle' and 'StorageBin'.",
-    "instruction": "'WarehouseAisle' va zaif 'StorageBin' entitiylarini identifikatsion aloqa bilan bog'lang. 'StorageBin' entitiyida 'Zaif {W}' rejimini yoqing va 'binNumber' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'WarehouseAisle' and weak 'StorageBin' via an identifying relationship. Toggle 'Weak {W}' on 'StorageBin' and designate 'binNumber' as {PPK}.",
+    "instruction": "'WarehouseAisle' va zaif 'StorageBin' entitiylarini identifikatsion aloqa bilan bog'lang. 'StorageBin' entitiyida 'Zaif {W}' rejimini yoqing va 'binNumber' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'WarehouseAisle' and weak 'StorageBin' via an identifying relationship. Toggle 'Weak {W}' on 'StorageBin' and designate 'binNumber' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "WarehouseAisle",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "aisleCode",
           "x": 140,
           "y": 160,
@@ -4671,18 +6124,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "aisleCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "zoneCategory",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "StorageBin",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "binNumber",
           "x": 520,
           "y": 160,
@@ -4690,17 +6146,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "binNumber",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "shelfTier",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "capacityKg",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "aisleCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -4716,11 +6181,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4732,7 +6196,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "StorageBin",
           "pk": "binNumber",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "aisleCode"
+          ],
+          "ppk": [
+            "binNumber"
+          ]
         }
       ],
       "relationships": [
@@ -4741,13 +6211,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "StorageBin",
           "fromEntityName": "WarehouseAisle",
           "toEntityName": "StorageBin",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -4764,13 +6231,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Software Project & Milestone Stages (Relational Schema)",
     "story": "'ProjectMilestone' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'SoftwareProject' (projectKey {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'milestoneSeq' {PPK} hisoblanadi. 'SoftwareProject' va 'ProjectMilestone' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'ProjectMilestone' is a weak entity that cannot exist independently without its parent entity 'SoftwareProject' (projectKey {PK}). Its key is the partial key 'milestoneSeq' {PPK}. Model the identifying relationship between 'SoftwareProject' and 'ProjectMilestone'.",
-    "instruction": "'SoftwareProject' va zaif 'ProjectMilestone' entitiylarini identifikatsion aloqa bilan bog'lang. 'ProjectMilestone' entitiyida 'Zaif {W}' rejimini yoqing va 'milestoneSeq' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'SoftwareProject' and weak 'ProjectMilestone' via an identifying relationship. Toggle 'Weak {W}' on 'ProjectMilestone' and designate 'milestoneSeq' as {PPK}.",
+    "instruction": "'SoftwareProject' va zaif 'ProjectMilestone' entitiylarini identifikatsion aloqa bilan bog'lang. 'ProjectMilestone' entitiyida 'Zaif {W}' rejimini yoqing va 'milestoneSeq' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'SoftwareProject' and weak 'ProjectMilestone' via an identifying relationship. Toggle 'Weak {W}' on 'ProjectMilestone' and designate 'milestoneSeq' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "SoftwareProject",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "projectKey",
           "x": 140,
           "y": 160,
@@ -4778,18 +6246,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "projectKey",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "projectName",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "ProjectMilestone",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "milestoneSeq",
           "x": 520,
           "y": 160,
@@ -4797,17 +6268,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "milestoneSeq",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "milestoneTitle",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "dueDate",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "projectKey",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -4823,11 +6303,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4839,7 +6318,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "ProjectMilestone",
           "pk": "milestoneSeq",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "projectKey"
+          ],
+          "ppk": [
+            "milestoneSeq"
+          ]
         }
       ],
       "relationships": [
@@ -4848,13 +6333,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "ProjectMilestone",
           "fromEntityName": "SoftwareProject",
           "toEntityName": "ProjectMilestone",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -4871,13 +6353,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Academic Conference & Sessions (Relational Schema)",
     "story": "'ConferenceSession' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'Conference' (confCode {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'sessionNo' {PPK} hisoblanadi. 'Conference' va 'ConferenceSession' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'ConferenceSession' is a weak entity that cannot exist independently without its parent entity 'Conference' (confCode {PK}). Its key is the partial key 'sessionNo' {PPK}. Model the identifying relationship between 'Conference' and 'ConferenceSession'.",
-    "instruction": "'Conference' va zaif 'ConferenceSession' entitiylarini identifikatsion aloqa bilan bog'lang. 'ConferenceSession' entitiyida 'Zaif {W}' rejimini yoqing va 'sessionNo' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'Conference' and weak 'ConferenceSession' via an identifying relationship. Toggle 'Weak {W}' on 'ConferenceSession' and designate 'sessionNo' as {PPK}.",
+    "instruction": "'Conference' va zaif 'ConferenceSession' entitiylarini identifikatsion aloqa bilan bog'lang. 'ConferenceSession' entitiyida 'Zaif {W}' rejimini yoqing va 'sessionNo' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'Conference' and weak 'ConferenceSession' via an identifying relationship. Toggle 'Weak {W}' on 'ConferenceSession' and designate 'sessionNo' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Conference",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "confCode",
           "x": 140,
           "y": 160,
@@ -4885,18 +6368,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "confCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "confTitle",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "ConferenceSession",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "sessionNo",
           "x": 520,
           "y": 160,
@@ -4904,17 +6390,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "sessionNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "topicName",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "startTime",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "confCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -4930,11 +6425,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -4946,7 +6440,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "ConferenceSession",
           "pk": "sessionNo",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "confCode"
+          ],
+          "ppk": [
+            "sessionNo"
+          ]
         }
       ],
       "relationships": [
@@ -4955,13 +6455,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "ConferenceSession",
           "fromEntityName": "Conference",
           "toEntityName": "ConferenceSession",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -4978,13 +6475,14 @@ _scope.EER_CLIENTS_1_50 = [
     "titleEn": "Cell Tower & Antenna Sectors (Relational Schema)",
     "story": "'AntennaSector' mustaqil holda yashay olmaydigan zaif entitiydir (Weak Entity). U o'z ota entitiysi 'CellTower' (towerId {PK}) ga qat'iy bog'langan va uning birlamchi kaliti qisman kalit 'sectorCode' {PPK} hisoblanadi. 'CellTower' va 'AntennaSector' o'rtasida identifikatsion aloqani o'rnating.",
     "storyEn": "'AntennaSector' is a weak entity that cannot exist independently without its parent entity 'CellTower' (towerId {PK}). Its key is the partial key 'sectorCode' {PPK}. Model the identifying relationship between 'CellTower' and 'AntennaSector'.",
-    "instruction": "'CellTower' va zaif 'AntennaSector' entitiylarini identifikatsion aloqa bilan bog'lang. 'AntennaSector' entitiyida 'Zaif {W}' rejimini yoqing va 'sectorCode' kalitini {PPK} belgilang.",
-    "instructionEn": "Connect 'CellTower' and weak 'AntennaSector' via an identifying relationship. Toggle 'Weak {W}' on 'AntennaSector' and designate 'sectorCode' as {PPK}.",
+    "instruction": "'CellTower' va zaif 'AntennaSector' entitiylarini identifikatsion aloqa bilan bog'lang. 'AntennaSector' entitiyida 'Zaif {W}' rejimini yoqing va 'sectorCode' kalitini {PPK} belgilang. Tegishli multiplisitiya chegaralarini tahlil qiling va o'rnating.",
+    "instructionEn": "Connect 'CellTower' and weak 'AntennaSector' via an identifying relationship. Toggle 'Weak {W}' on 'AntennaSector' and designate 'sectorCode' as {PPK}. Determine and configure the correct multiplicity constraints based on the domain rules.",
     "starterDiagram": {
       "entities": [
         {
           "name": "CellTower",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "towerId",
           "x": 140,
           "y": 160,
@@ -4992,18 +6490,21 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "towerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "locationGps",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "AntennaSector",
           "isWeak": false,
+          "isAssociative": false,
           "pk": "sectorCode",
           "x": 520,
           "y": 160,
@@ -5011,17 +6512,26 @@ _scope.EER_CLIENTS_1_50 = [
             {
               "name": "sectorCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "azimuthAngle",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
             },
             {
               "name": "frequencyMhz",
               "isPK": false,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "towerId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
@@ -5037,11 +6547,10 @@ _scope.EER_CLIENTS_1_50 = [
           "mult1": "1..1",
           "mult2": "1..*",
           "isIdentifying": false,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
-      ]
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
@@ -5053,7 +6562,13 @@ _scope.EER_CLIENTS_1_50 = [
         {
           "name": "AntennaSector",
           "pk": "sectorCode",
-          "isWeak": true
+          "isWeak": true,
+          "foreignKeys": [
+            "towerId"
+          ],
+          "ppk": [
+            "sectorCode"
+          ]
         }
       ],
       "relationships": [
@@ -5062,13 +6577,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "AntennaSector",
           "fromEntityName": "CellTower",
           "toEntityName": "AntennaSector",
-          "mult1": "1..1",
-          "mult2": "1..*",
-          "name": "Aloqa",
+          "mult1": "+",
+          "mult2": "+",
           "isIdentifying": true,
-          "isDirect": true,
-          "role1": "",
-          "role2": ""
+          "isDirect": true
         }
       ]
     },
@@ -5077,76 +6589,172 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 46,
     "sector": 4,
-    "difficulty": "4-Qavat • Assotsiativ",
-    "clientName": "Professor Atlas",
-    "clientRole": "Ma'lumotlar Bazasi Me'mori",
-    "clientAvatar": "mentor",
-    "title": "Shifokor va Bemor Qabuli (Appointment Assotsiativ Entitiy) (Relatsion Sxema)",
-    "titleEn": "Doctor & Patient Consultation (Appointment Associative Entity) (Relational Schema)",
-    "story": "Doctor va Patient o'rtasida ko'pdan-ko'pga munosabat mavjud. Ushbu munosabat mustaqil 'Appointment' assotsiativ entitiysi orqali parchalanadi. Doctor Appointment va Patient Appointment.",
-    "storyEn": "There is a many-to-many relationship between Doctor and Patient, resolved via the 'Appointment' associative entity. Doctor Appointment and Patient Appointment.",
-    "instruction": "'Doctor' ni 'Appointment' ga va 'Patient' ni 'Appointment' ga bog'lang.",
-    "instructionEn": "Connect 'Doctor' to 'Appointment' and 'Patient' to 'Appointment'.",
+    "difficulty": "O'rta",
+    "clientName": "Dr. Alisher Qosimov",
+    "clientRole": "Medion Bosh Shifokori",
+    "clientAvatar": "👨‍⚕️",
+    "title": "Medion Klinika — Shifokor va Bemor Qabuli (Appointment) (Relatsion Sxema)",
+    "titleEn": "Medion Clinic — Doctor and Patient Appointment Association Class (Relational Schema)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:** Medion xususiy klinikasida bitta shifokor (**Doctor**) kun davomida ko'plab bemorlarni qabul qiladi. Bemor (**Patient**) esa bir necha xil mutaxassis shifokorlar (terapevt, kardiolog, okulist) ko'rigiga yozilishi mumkin (ko'pdan-ko'pga munosabat). Biroq, qabul sanasi (`appDate`), ko'rik to'lovi (`consultationFee`) va qo'yilgan yakuniy tashxis (`diagnosis`) na faqat shifokorga, na faqat bemorga tegishli! Agar bu atributlarni shifokorga qo'shsak, har bir yangi bemor uchun shifokor yozuvi takrorlanadi; agar bemorga qo'shsak, har bir yangi tashrif uchun bemor yozuvi takrorlanadi. Shuning uchun bu ko'pdan-ko'pga aloqa mustaqil **Appointment** assotsiativ entitiysiga ajratiladi. 📋 **Bajarilishi Kerak Bo'lgan Qadamlar:** 1. `Doctor` entitiysini yarating: {PK} `doctorId`, `doctorName`, `specialty`. 2. `Patient` entitiysini yarating: {PK} `patientId`, `fullName`, `birthDate`. 3. Markaziy `Appointment` assotsiativ entitiysini yarating: {PK} `appId`, `appDate`, `consultationFee`, `diagnosis`. 4. `Doctor` va `Appointment` o'rtasida aloqa bog'lang: bitta shifokor ko'plab qabullarga ega bo'lishi mumkin (qat'iy bittalik va ixtiyoriy ko'plik munosabati). 5. `Patient` va `Appointment` o'rtasida aloqa bog'lang: bitta bemor ko'plab qabullarga ega bo'lishi mumkin (qat'iy bittalik va ixtiyoriy ko'plik munosabati).",
+    "storyEn": "Medion Clinic — Doctor and Patient Appointment Association Class — Conceptual ER business case study.",
+    "instruction": "'Doctor', 'Patient' va 'Appointment' entitiylarini chizing. Atributlarni kiriting va ikkita birga-ko'p aloqa orqali assotsiativ bog'lanishni yakunlang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Doctor",
           "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
           "pk": "doctorId",
-          "x": 140,
-          "y": 100,
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
               "name": "doctorId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "doctorName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "specialty",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Patient",
           "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
           "pk": "patientId",
           "x": 540,
-          "y": 100,
+          "y": 120,
           "attributes": [
             {
               "name": "patientId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "birthDate",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Appointment",
           "isWeak": false,
+          "isAssociative": true,
+          "isSubclass": false,
           "pk": "appId",
-          "x": 340,
+          "x": 330,
           "y": 320,
           "attributes": [
             {
               "name": "appId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "appDate",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "consultationFee",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "diagnosis",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "doctorId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "patientId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Conducts",
+          "entity1": "Doctor",
+          "entity2": "Appointment",
+          "fromEntityName": "Doctor",
+          "toEntityName": "Appointment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Attends",
+          "entity1": "Patient",
+          "entity2": "Appointment",
+          "fromEntityName": "Patient",
+          "toEntityName": "Appointment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
           "name": "Doctor",
-          "pk": "doctorId"
+          "pk": "doctorId",
+          "isWeak": false
         },
         {
           "name": "Patient",
-          "pk": "patientId"
+          "pk": "patientId",
+          "isWeak": false
         },
         {
           "name": "Appointment",
-          "pk": "appId"
+          "pk": "appId",
+          "isWeak": false,
+          "foreignKeys": [
+            "doctorId",
+            "patientId"
+          ]
         }
       ],
       "relationships": [
@@ -5155,11 +6763,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Appointment",
           "fromEntityName": "Doctor",
           "toEntityName": "Appointment",
-          "mult1": "1..1",
-          "mult2": "0..*",
+          "mult1": "+",
+          "mult2": "+",
           "name": "Conducts",
           "isIdentifying": false,
-          "isDirect": true,
           "role1": "",
           "role2": ""
         },
@@ -5168,11 +6775,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Appointment",
           "fromEntityName": "Patient",
           "toEntityName": "Appointment",
-          "mult1": "1..1",
-          "mult2": "0..*",
+          "mult1": "+",
+          "mult2": "+",
           "name": "Attends",
           "isIdentifying": false,
-          "isDirect": true,
           "role1": "",
           "role2": ""
         }
@@ -5183,76 +6789,172 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 47,
     "sector": 4,
-    "difficulty": "4-Qavat • Assotsiativ",
-    "clientName": "Professor Atlas",
-    "clientRole": "Ma'lumotlar Bazasi Me'mori",
-    "clientAvatar": "mentor",
-    "title": "Talaba va Fan Kurslari (Enrollment Assotsiativ Entitiy) (Relatsion Sxema)",
-    "titleEn": "Student & Course Registration (Enrollment Associative Entity) (Relational Schema)",
-    "story": "Student va Course o'rtasida ko'pdan-ko'pga o'qish munosabati mavjud. Bu munosabat 'Enrollment' assotsiativ entitiysi orqali bog'lanadi. Student Enrollment va Course Enrollment.",
-    "storyEn": "There is a many-to-many relationship between Student and Course, resolved via 'Enrollment'. Student Enrollment and Course Enrollment.",
-    "instruction": "'Student' ni 'Enrollment' ga va 'Course' ni 'Enrollment' ga bog'lang.",
-    "instructionEn": "Connect 'Student' to 'Enrollment' and 'Course' to 'Enrollment'.",
+    "difficulty": "O'rta",
+    "clientName": "Malika Rasulova",
+    "clientRole": "WIUT Akademik Registratori",
+    "clientAvatar": "👩‍💼",
+    "title": "WIUT Universiteti — Talaba va Modul Ro'yxati (Enrollment) (Relatsion Sxema)",
+    "titleEn": "WIUT University — Student Course Enrollment Association Class (Relational Schema)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:** Toshkentdagi Xalqaro Vestminster Universitetida talaba (**Student**) har semestrda 4 tagacha fanni (Module) o'qiydi. Har bir modulda (**CourseModule**) esa yuzlab talabalar tahsil oladi. Semestr davomidagi imtihon bahosi (`finalGrade`), semestr kodi (`semester`) va darsga qatnashish foizi (`attendancePct`) aynan talabaning ma'lum bir modulni o'qish jarayoniga tegishlidir. Ushbu mantiq **Enrollment** assotsiativ entitiysi orqali ifodalanadi. 📋 **Bajarilishi Kerak Bo'lgan Qadamlar:** 1. `Student` entitiysini yarating: {PK} `studentId`, `studentName`, `cohortGroup`. 2. `CourseModule` entitiysini yarating: {PK} `moduleCode`, `moduleTitle`, `credits`. 3. `Enrollment` assotsiativ entitiysini qo'shing: {PK} `enrollmentId`, `semester`, `finalGrade`, `attendancePct`. 4. Aloqalarni bog'lang: har bir modul va talaba ko'plab ro'yxatdan o'tishlarga (qat'iy bittalik va ixtiyoriy ko'plik munosabati) ega bo'ladi.",
+    "storyEn": "WIUT University — Student Course Enrollment Association Class — Conceptual ER business case study.",
+    "instruction": "'Student', 'CourseModule' va 'Enrollment' entitiylarini chizib, multiplisitiyalarni to'g'ri tanlang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
           "name": "Student",
           "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
           "pk": "studentId",
-          "x": 140,
-          "y": 100,
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
               "name": "studentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "studentName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "cohortGroup",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
-          "name": "Course",
+          "name": "CourseModule",
           "isWeak": false,
-          "pk": "courseCode",
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "moduleCode",
           "x": 540,
-          "y": 100,
+          "y": 120,
           "attributes": [
             {
-              "name": "courseCode",
+              "name": "moduleCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "moduleTitle",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "credits",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "Enrollment",
           "isWeak": false,
+          "isAssociative": true,
+          "isSubclass": false,
           "pk": "enrollmentId",
-          "x": 340,
+          "x": 330,
           "y": 320,
           "attributes": [
             {
               "name": "enrollmentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "semester",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "finalGrade",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "attendancePct",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "studentId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "moduleCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "EnrollsIn",
+          "entity1": "Student",
+          "entity2": "Enrollment",
+          "fromEntityName": "Student",
+          "toEntityName": "Enrollment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "Includes",
+          "entity1": "CourseModule",
+          "entity2": "Enrollment",
+          "fromEntityName": "CourseModule",
+          "toEntityName": "Enrollment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
           "name": "Student",
-          "pk": "studentId"
+          "pk": "studentId",
+          "isWeak": false
         },
         {
-          "name": "Course",
-          "pk": "courseCode"
+          "name": "CourseModule",
+          "pk": "moduleCode",
+          "isWeak": false
         },
         {
           "name": "Enrollment",
-          "pk": "enrollmentId"
+          "pk": "enrollmentId",
+          "isWeak": false,
+          "foreignKeys": [
+            "studentId",
+            "moduleCode"
+          ]
         }
       ],
       "relationships": [
@@ -5261,11 +6963,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Enrollment",
           "fromEntityName": "Student",
           "toEntityName": "Enrollment",
-          "mult1": "1..1",
-          "mult2": "0..*",
+          "mult1": "+",
+          "mult2": "+",
           "name": "EnrollsIn",
           "isIdentifying": false,
-          "isDirect": true,
           "role1": "",
           "role2": ""
         },
@@ -5274,11 +6975,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "Enrollment",
           "fromEntityName": "CourseModule",
           "toEntityName": "Enrollment",
-          "mult1": "1..1",
-          "mult2": "0..*",
+          "mult1": "+",
+          "mult2": "+",
           "name": "Includes",
           "isIdentifying": false,
-          "isDirect": true,
           "role1": "",
           "role2": ""
         }
@@ -5289,76 +6989,172 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 48,
     "sector": 4,
-    "difficulty": "4-Qavat • Assotsiativ",
-    "clientName": "Professor Atlas",
-    "clientRole": "Ma'lumotlar Bazasi Me'mori",
-    "clientAvatar": "mentor",
-    "title": "Dasturchi va Loyihalar (Assignment Assotsiativ Entitiy) (Relatsion Sxema)",
-    "titleEn": "Developer & Project Allocation (Assignment Associative Entity) (Relational Schema)",
-    "story": "Developer va Project o'rtasidagi munosabat 'ProjectAssignment' entitiysi orqali yechiladi. Developer ProjectAssignment va Project ProjectAssignment.",
-    "storyEn": "The many-to-many relationship between Developer and Project is resolved via 'ProjectAssignment'. Developer ProjectAssignment and Project ProjectAssignment.",
-    "instruction": "'Developer' ni 'ProjectAssignment' ga va 'Project' ni 'ProjectAssignment' ga bog'lang.",
-    "instructionEn": "Connect 'Developer' to 'ProjectAssignment' and 'Project' to 'ProjectAssignment'.",
+    "difficulty": "O'rta",
+    "clientName": "Bobur Mirzayev",
+    "clientRole": "EPAM Delivery Manager",
+    "clientAvatar": "👨‍💻",
+    "title": "EPAM IT Kompaniyasi — Muhandis va Loyiha Taqsiri (ProjectAssignment) (Relatsion Sxema)",
+    "titleEn": "EPAM Systems — Engineer Project Assignment Association Class (Relational Schema)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:** Global IT autsorsing kompaniyasida dasturchi (**SoftwareEngineer**) bir vaqtning o'zida ikkita loyihada yarim stavkadan ishlashi mumkin. Loyiha (**ClientProject**) esa o'nlab muhandislardan tashkil topadi. Muhandisning o'sha loyihadagi roli (`roleTitle`), haftalik ajratilgan soatlari (`weeklyHours`) va soatlik hisob tarifi (`billingRate`) loyihaviy biriktirish hisoblanadi. Buni modellashtirish uchun **ProjectAssignment** assotsiativ entitiysi kerak. 📋 **Bajarilishi Kerak Bo'lgan Qadamlar:** 1. `SoftwareEngineer`: {PK} `engineerId`, `fullName`, `techStack`. 2. `ClientProject`: {PK} `projectId`, `projectName`, `budget`. 3. `ProjectAssignment`: {PK} `assignmentId`, `roleTitle`, `weeklyHours`, `billingRate`. 4. Ikkala tomondan `ProjectAssignment` ga birga-ko'p munosabatlarini o'rnating (qat'iy bittalik va ixtiyoriy ko'plik munosabati).",
+    "storyEn": "EPAM Systems — Engineer Project Assignment Association Class — Conceptual ER business case study.",
+    "instruction": "Dasturchi va loyihani 'ProjectAssignment' orqali bog'lab, atributlar va chegaralarni belgilang.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Developer",
+          "name": "SoftwareEngineer",
           "isWeak": false,
-          "pk": "devId",
-          "x": 140,
-          "y": 100,
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "engineerId",
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
-              "name": "devId",
+              "name": "engineerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "fullName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "techStack",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
-          "name": "Project",
+          "name": "ClientProject",
           "isWeak": false,
-          "pk": "projectKey",
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "projectId",
           "x": 540,
-          "y": 100,
+          "y": 120,
           "attributes": [
             {
-              "name": "projectKey",
+              "name": "projectId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "projectName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "budget",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "ProjectAssignment",
           "isWeak": false,
+          "isAssociative": true,
+          "isSubclass": false,
           "pk": "assignmentId",
-          "x": 340,
+          "x": 330,
           "y": 320,
           "attributes": [
             {
               "name": "assignmentId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "roleTitle",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "weeklyHours",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "billingRate",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "engineerId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "projectId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Assigned",
+          "entity1": "SoftwareEngineer",
+          "entity2": "ProjectAssignment",
+          "fromEntityName": "SoftwareEngineer",
+          "toEntityName": "ProjectAssignment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "ComposedOf",
+          "entity1": "ClientProject",
+          "entity2": "ProjectAssignment",
+          "fromEntityName": "ClientProject",
+          "toEntityName": "ProjectAssignment",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Developer",
-          "pk": "devId"
+          "name": "SoftwareEngineer",
+          "pk": "engineerId",
+          "isWeak": false
         },
         {
-          "name": "Project",
-          "pk": "projectKey"
+          "name": "ClientProject",
+          "pk": "projectId",
+          "isWeak": false
         },
         {
           "name": "ProjectAssignment",
-          "pk": "assignmentId"
+          "pk": "assignmentId",
+          "isWeak": false,
+          "foreignKeys": [
+            "engineerId",
+            "projectId"
+          ]
         }
       ],
       "relationships": [
@@ -5367,11 +7163,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "ProjectAssignment",
           "fromEntityName": "SoftwareEngineer",
           "toEntityName": "ProjectAssignment",
-          "mult1": "1..1",
-          "mult2": "0..*",
+          "mult1": "+",
+          "mult2": "+",
           "name": "Assigned",
           "isIdentifying": false,
-          "isDirect": true,
           "role1": "",
           "role2": ""
         },
@@ -5380,11 +7175,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "ProjectAssignment",
           "fromEntityName": "ClientProject",
           "toEntityName": "ProjectAssignment",
-          "mult1": "1..1",
-          "mult2": "0..*",
+          "mult1": "+",
+          "mult2": "+",
           "name": "ComposedOf",
           "isIdentifying": false,
-          "isDirect": true,
           "role1": "",
           "role2": ""
         }
@@ -5395,76 +7189,172 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 49,
     "sector": 4,
-    "difficulty": "4-Qavat • Assotsiativ",
-    "clientName": "Professor Atlas",
-    "clientRole": "Ma'lumotlar Bazasi Me'mori",
-    "clientAvatar": "mentor",
-    "title": "Yetkazib Beruvchi va Detallar (SupplyContract Assotsiativ Entitiy) (Relatsion Sxema)",
-    "titleEn": "Supplier & Parts Supply (SupplyContract Associative Entity) (Relational Schema)",
-    "story": "Supplier va Part o'rtasidagi ta'minot munosabati 'SupplyContract' orqali yechiladi. Supplier SupplyContract va Part SupplyContract.",
-    "storyEn": "The many-to-many supply relationship between Supplier and Part is resolved via 'SupplyContract'. Supplier SupplyContract and Part SupplyContract.",
-    "instruction": "'Supplier' ni 'SupplyContract' ga va 'Part' ni 'SupplyContract' ga bog'lang.",
-    "instructionEn": "Connect 'Supplier' to 'SupplyContract' and 'Part' to 'SupplyContract'.",
+    "difficulty": "O'rta",
+    "clientName": "Nodir Xoliqov",
+    "clientRole": "Uzum Market Logistika Rahbari",
+    "clientAvatar": "📦",
+    "title": "Uzum Market — Ta'minotchi va Mahsulot Shartnomasi (SupplyContract) (Relatsion Sxema)",
+    "titleEn": "Uzum Market — Supplier Product Contract Association Class (Relational Schema)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:** Elektron tijoratda optom ta'minotchi (**WholesaleSupplier**) yuzlab tovarlarni yetkazadi. Muayyan tovar (**WarehouseProduct**) esa turli ta'minotchilardan turli shartlarda xarid qilinishi mumkin. Kelishilgan ulgurji narx (`agreedUnitPrice`), yetkazib berish muddati (`leadTimeDays`) va minimal partiya (`minOrderQty`) shartnomada belgilanadi. Bu ma'lumotlar **SupplyContract** assotsiativ entitiysida saqlanadi. 📋 **Bajarilishi Kerak Bo'lgan Qadamlar:** 1. `WholesaleSupplier`: {PK} `supplierId`, `companyName`, `innTaxNumber`. 2. `WarehouseProduct`: {PK} `skuCode`, `productName`, `category`. 3. `SupplyContract`: {PK} `contractNo`, `agreedUnitPrice`, `leadTimeDays`, `minOrderQty`. 4. Ikkala tomonni `SupplyContract` ga qat'iy bittalik va ixtiyoriy ko'plik munosabati ko'rinishida bog'lang.",
+    "storyEn": "Uzum Market — Supplier Product Contract Association Class — Conceptual ER business case study.",
+    "instruction": "Ta'minotchi va tovar o'rtasidagi shartnomani assotsiativ entitiy bilan loyihalashtiring.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Supplier",
+          "name": "WholesaleSupplier",
           "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
           "pk": "supplierId",
-          "x": 140,
-          "y": 100,
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
               "name": "supplierId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "companyName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "innTaxNumber",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
-          "name": "Part",
+          "name": "WarehouseProduct",
           "isWeak": false,
-          "pk": "partNumber",
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "skuCode",
           "x": 540,
-          "y": 100,
+          "y": 120,
           "attributes": [
             {
-              "name": "partNumber",
+              "name": "skuCode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "productName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "category",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "SupplyContract",
           "isWeak": false,
-          "pk": "contractId",
-          "x": 340,
+          "isAssociative": true,
+          "isSubclass": false,
+          "pk": "contractNo",
+          "x": 330,
           "y": 320,
           "attributes": [
             {
-              "name": "contractId",
+              "name": "contractNo",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "agreedUnitPrice",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "leadTimeDays",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "minOrderQty",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "supplierId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "skuCode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Supplies",
+          "entity1": "WholesaleSupplier",
+          "entity2": "SupplyContract",
+          "fromEntityName": "WholesaleSupplier",
+          "toEntityName": "SupplyContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "SuppliedUnder",
+          "entity1": "WarehouseProduct",
+          "entity2": "SupplyContract",
+          "fromEntityName": "WarehouseProduct",
+          "toEntityName": "SupplyContract",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Supplier",
-          "pk": "supplierId"
+          "name": "WholesaleSupplier",
+          "pk": "supplierId",
+          "isWeak": false
         },
         {
-          "name": "Part",
-          "pk": "partNumber"
+          "name": "WarehouseProduct",
+          "pk": "skuCode",
+          "isWeak": false
         },
         {
           "name": "SupplyContract",
-          "pk": "contractId"
+          "pk": "contractNo",
+          "isWeak": false,
+          "foreignKeys": [
+            "supplierId",
+            "skuCode"
+          ]
         }
       ],
       "relationships": [
@@ -5473,11 +7363,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "SupplyContract",
           "fromEntityName": "WholesaleSupplier",
           "toEntityName": "SupplyContract",
-          "mult1": "1..1",
-          "mult2": "0..*",
+          "mult1": "+",
+          "mult2": "+",
           "name": "Supplies",
           "isIdentifying": false,
-          "isDirect": true,
           "role1": "",
           "role2": ""
         },
@@ -5486,11 +7375,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "SupplyContract",
           "fromEntityName": "WarehouseProduct",
           "toEntityName": "SupplyContract",
-          "mult1": "1..1",
-          "mult2": "0..*",
+          "mult1": "+",
+          "mult2": "+",
           "name": "SuppliedUnder",
           "isIdentifying": false,
-          "isDirect": true,
           "role1": "",
           "role2": ""
         }
@@ -5501,76 +7389,172 @@ _scope.EER_CLIENTS_1_50 = [
   {
     "id": 50,
     "sector": 4,
-    "difficulty": "4-Qavat • Assotsiativ",
-    "clientName": "Professor Atlas",
-    "clientRole": "Ma'lumotlar Bazasi Me'mori",
-    "clientAvatar": "mentor",
-    "title": "Xaridor va Mahsulot Sharhlari (ProductReview Assotsiativ Entitiy) (Relatsion Sxema)",
-    "titleEn": "Customer & Product Reviews (ProductReview Associative Entity) (Relational Schema)",
-    "story": "Customer va Product o'rtasidagi sharh munosabati 'ProductReview' assotsiativ entitiysi orqali amalga oshiriladi. Customer ProductReview va Product ProductReview.",
-    "storyEn": "The customer reviews relationship between Customer and Product is resolved via 'ProductReview'. Customer ProductReview and Product ProductReview.",
-    "instruction": "'Customer' ni 'ProductReview' ga va 'Product' ni 'ProductReview' ga bog'lang.",
-    "instructionEn": "Connect 'Customer' to 'ProductReview' and 'Product' to 'ProductReview'.",
+    "difficulty": "O'rta",
+    "clientName": "Shahnoza Karimova",
+    "clientRole": "Korzinka Sodiqlik Dasturi Tahlilchisi",
+    "clientAvatar": "🛍️",
+    "title": "Korzinka Supermarket — Xaridor va Mahsulot Sharhi (ProductReview) (Relatsion Sxema)",
+    "titleEn": "Korzinka Supermarket — Customer Product Review Association Class (Relational Schema)",
+    "story": "📖 **Hayotiy Voqealik & Biznes Kontekst:** Korzinka Plus ilovasida sodiq mijoz (**RetailCustomer**) ko'plab mahsulotlarga ta'rif qoldiradi. Mahsulot (**StoreProduct**) esa turli xaridorlar tomonidan baholanadi. Sharhdagi yulduzcha baho (`starRating`), mijoz fikri matni (`reviewComment`) va qoldirilgan sana (`reviewDate`) aynan shu xaridorning shu mahsulotga bergan bahosidir. Bu munosabat **ProductReview** assotsiativ entitiysi orqali ajratiladi. 📋 **Bajarilishi Kerak Bo'lgan Qadamlar:** 1. `RetailCustomer`: {PK} `customerId`, `phone`, `loyaltyCardNo`. 2. `StoreProduct`: {PK} `barcode`, `productName`, `retailPrice`. 3. `ProductReview`: {PK} `reviewId`, `starRating`, `reviewComment`, `reviewDate`. 4. Multiplisitiyalarni qat'iy bittalik (har bir sharh aniq 1 mijoz va 1 tovar uchun) va ixtiyoriy ko'plik (mijoz/tovarda 0 yoki ko'plab sharhlar) qilib belgilang.",
+    "storyEn": "Korzinka Supermarket — Customer Product Review Association Class — Conceptual ER business case study.",
+    "instruction": "'RetailCustomer', 'StoreProduct' va 'ProductReview' entitiy modelini hosil qiling.",
+    "instructionEn": "Complete the diagram model by configuring entities, relationships, attributes and constraints as specified.",
     "starterDiagram": {
       "entities": [
         {
-          "name": "Customer",
+          "name": "RetailCustomer",
           "isWeak": false,
+          "isAssociative": false,
+          "isSubclass": false,
           "pk": "customerId",
-          "x": 140,
-          "y": 100,
+          "x": 120,
+          "y": 120,
           "attributes": [
             {
               "name": "customerId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "phone",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "loyaltyCardNo",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
-          "name": "Product",
+          "name": "StoreProduct",
           "isWeak": false,
-          "pk": "productId",
+          "isAssociative": false,
+          "isSubclass": false,
+          "pk": "barcode",
           "x": 540,
-          "y": 100,
+          "y": 120,
           "attributes": [
             {
-              "name": "productId",
+              "name": "barcode",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "productName",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "retailPrice",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         },
         {
           "name": "ProductReview",
           "isWeak": false,
+          "isAssociative": true,
+          "isSubclass": false,
           "pk": "reviewId",
-          "x": 340,
+          "x": 330,
           "y": 320,
           "attributes": [
             {
               "name": "reviewId",
               "isPK": true,
-              "isPPK": false
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "starRating",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "reviewComment",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "reviewDate",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "customerId",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
+            },
+            {
+              "name": "barcode",
+              "isPK": false,
+              "isPPK": false,
+              "isFK": false
             }
           ]
         }
       ],
-      "relationships": []
+      "relationships": [
+        {
+          "id": "rel_1",
+          "name": "Writes",
+          "entity1": "RetailCustomer",
+          "entity2": "ProductReview",
+          "fromEntityName": "RetailCustomer",
+          "toEntityName": "ProductReview",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        },
+        {
+          "id": "rel_2",
+          "name": "EvaluatedBy",
+          "entity1": "StoreProduct",
+          "entity2": "ProductReview",
+          "fromEntityName": "StoreProduct",
+          "toEntityName": "ProductReview",
+          "mult1": "1..1",
+          "mult2": "0..*",
+          "isIdentifying": false,
+          "isDirect": true
+        }
+      ],
+      "subclasses": null
     },
     "expectedDiagram": {
       "entities": [
         {
-          "name": "Customer",
-          "pk": "customerId"
+          "name": "RetailCustomer",
+          "pk": "customerId",
+          "isWeak": false
         },
         {
-          "name": "Product",
-          "pk": "productId"
+          "name": "StoreProduct",
+          "pk": "barcode",
+          "isWeak": false
         },
         {
           "name": "ProductReview",
-          "pk": "reviewId"
+          "pk": "reviewId",
+          "isWeak": false,
+          "foreignKeys": [
+            "customerId",
+            "barcode"
+          ]
         }
       ],
       "relationships": [
@@ -5579,11 +7563,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "ProductReview",
           "fromEntityName": "RetailCustomer",
           "toEntityName": "ProductReview",
-          "mult1": "1..1",
-          "mult2": "0..*",
+          "mult1": "+",
+          "mult2": "+",
           "name": "Writes",
           "isIdentifying": false,
-          "isDirect": true,
           "role1": "",
           "role2": ""
         },
@@ -5592,11 +7575,10 @@ _scope.EER_CLIENTS_1_50 = [
           "entity2": "ProductReview",
           "fromEntityName": "StoreProduct",
           "toEntityName": "ProductReview",
-          "mult1": "1..1",
-          "mult2": "0..*",
+          "mult1": "+",
+          "mult2": "+",
           "name": "EvaluatedBy",
           "isIdentifying": false,
-          "isDirect": true,
           "role1": "",
           "role2": ""
         }
@@ -5605,7 +7587,3 @@ _scope.EER_CLIENTS_1_50 = [
     "isWeek2": true
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = _scope.EER_CLIENTS_1_50;
-}

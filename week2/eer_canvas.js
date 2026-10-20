@@ -1699,7 +1699,7 @@ class EERCanvasEngine {
             if (window.playSfx) window.playSfx('click');
           };
 
-          const multLabel = `${rel.mult1 || '1..1'} ↔ ${rel.mult2 || '1..*'}`;
+          const multLabel = `${rel.mult1 || '+'} ↔ ${rel.mult2 || '+'}`;
           this.drawSelfLoopArc(fromEnt, rel, onDblClickRel, {
             onDelete: onDblClickRel,
             onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult1', e),
@@ -1723,7 +1723,7 @@ class EERCanvasEngine {
           if (window.playSfx) window.playSfx('click');
         };
 
-        const multLabel = `${rel.mult1 || '1..1'} ↔ ${rel.mult2 || '1..*'}`;
+        const multLabel = `${rel.mult1 || '+'} ↔ ${rel.mult2 || '+'}`;
         this.drawLine(borderF.x, borderF.y, borderT.x, borderT.y, onDblClickRel, false, null, {
           onDelete: onDblClickRel,
           onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult1', e),
@@ -1819,7 +1819,7 @@ class EERCanvasEngine {
           this.drawLine(borderF.x, borderF.y, borderR1.x, borderR1.y, onDblClickFrom, false, null, {
             onDelete: onDblClickFrom,
             onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult1', e),
-            multText: rel.mult1 || '1..1'
+            multText: rel.mult1 || '+'
           });
           const mPos1 = this.computeMultiplicityPos(borderF, 38, 18);
           this.createMultiplicityPill(mPos1.x, mPos1.y, rel, 'mult1', fromEnt.name);
@@ -1843,7 +1843,7 @@ class EERCanvasEngine {
           this.drawLine(borderR2.x, borderR2.y, borderT.x, borderT.y, onDblClickTo, false, null, {
             onDelete: onDblClickTo,
             onMultiplicity: (e) => this.openMultiplicitySelector(rel, 'mult2', e),
-            multText: rel.mult2 || '1..*'
+            multText: rel.mult2 || '+'
           });
           const mPos2 = this.computeMultiplicityPos(borderT, 38, 18);
           this.createMultiplicityPill(mPos2.x, mPos2.y, rel, 'mult2', toEnt.name);
@@ -2447,11 +2447,12 @@ class EERCanvasEngine {
   createMultiplicityPill(x, y, rel, multKey, entityName) {
     const isEn = typeof window !== 'undefined' && window.I18N && window.I18N.getLang() === 'en';
     const val = (rel[multKey] || '').trim();
-    const hasVal = val !== '' && val !== '?' && val !== '+';
+    const isPlus = val === '+';
+    const hasVal = val !== '' && val !== '?' && !isPlus;
 
     const pill = document.createElement('div');
-    pill.className = hasVal ? 'mult-pill' : 'mult-pill add-pill';
-    pill.textContent = hasVal ? val : '+';
+    pill.className = isPlus ? 'mult-pill plus-pill' : (hasVal ? 'mult-pill' : 'mult-pill add-pill');
+    pill.textContent = isPlus ? '+' : (hasVal ? val : '+');
     pill.style.position = 'absolute';
     pill.style.left = x + 'px';
     pill.style.top = y + 'px';
@@ -2555,16 +2556,21 @@ class EERCanvasEngine {
         </div>
         <div class="mult-pop-body">
           <div class="mult-options-grid">
+            <button class="btn-mult-opt ${current === '+' ? 'active' : ''}" data-val="+" style="grid-column: span 2; background:rgba(56,189,248,0.2); border:1.5px solid #38bdf8; color:#38bdf8; font-weight:800; padding:8px 10px; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <span style="font-size:16px;">+</span> ${isEn ? "EER Link (+) — Multiplicity-free standard" : "EER Aloqa (+) — Multiplicitysiz standart"}
+            </button>
             <button class="btn-mult-opt ${current === '1..1' ? 'active' : ''}" data-val="1..1"><span>1..1</span> ${isEn ? "Exactly one" : "Majburiy bitta"}</button>
             <button class="btn-mult-opt ${current === '0..1' ? 'active' : ''}" data-val="0..1"><span>0..1</span> ${isEn ? "Zero or one" : "Ixtiyoriy bitta"}</button>
             <button class="btn-mult-opt ${current === '1..*' ? 'active' : ''}" data-val="1..*"><span>1..*</span> ${isEn ? "One or more" : "Kamida bitta"}</button>
             <button class="btn-mult-opt ${current === '0..*' ? 'active' : ''}" data-val="0..*"><span>0..*</span> ${isEn ? "Zero or more" : "Ixtiyoriy ko'p"}</button>
           </div>
-          <div style="padding-top:10px; margin-top:8px; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center;">
-            <button type="button" id="btnDeleteActiveMult" style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); color:#f87171; font-size:11px; font-weight:700; padding:5px 12px; border-radius:6px; cursor:pointer; display:flex; align-items:center; gap:4px;">
-              🗑️ ${isEn ? "Remove Multiplicity" : "Multiplicityni O'chirish"}
+          <div style="padding-top:10px; margin-top:8px; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center; gap:8px;">
+            <button type="button" id="btnSetPlusBoth" style="background:#0284c7; border:1px solid #38bdf8; color:#fff; font-size:11px; font-weight:700; padding:6px 12px; border-radius:6px; cursor:pointer; display:flex; align-items:center; gap:4px;">
+              ⚡ ${isEn ? "Set '+' on Both Ends" : "Ikkala tomonni '+' qilish"}
             </button>
-            <small style="color:#94a3b8; font-size:10px;">${isEn ? "Or hold pill 0.5s" : "Yoki ustiga 0.5s bosib turing"}</small>
+            <button type="button" id="btnDeleteActiveMult" style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); color:#f87171; font-size:11px; font-weight:700; padding:5px 12px; border-radius:6px; cursor:pointer; display:flex; align-items:center; gap:4px;">
+              🗑️ ${isEn ? "Remove" : "O'chirish"}
+            </button>
           </div>
         </div>
       `;
@@ -2583,6 +2589,17 @@ class EERCanvasEngine {
         ev.stopPropagation();
         activeKey = 'mult2';
         renderPopContent();
+      });
+
+      popover.querySelector('#btnSetPlusBoth')?.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        rel.mult1 = '+';
+        rel.mult2 = '+';
+        popover.style.display = 'none';
+        this.renderLinks();
+        this.triggerChange();
+        this.showToast(isEn ? "✅ Both sides converted to '+'!" : "✅ Har ikki tomon multiplicitysi '+' ga o'zgartirildi!");
+        if (window.playSfx) window.playSfx('click');
       });
 
       popover.querySelector('#btnDeleteActiveMult')?.addEventListener('click', (ev) => {

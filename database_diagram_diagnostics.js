@@ -147,10 +147,15 @@
       // 1. CHECK REQUIRED ENTITIES & PRIMARY KEYS
       this.checkEntities(uEntities, expected.entities || [], errors, passedItems, isEn);
 
-      // 2. CHECK RELATIONSHIPS & MULTIPLICITIES (Multiplicity skipped in Week 2 EER mode)
+      // 2. CHECK RELATIONSHIPS & MULTIPLICITIES (Requires '+' in Week 2 mode)
       this.checkRelationships(uEntities, uRels, expected.relationships || [], errors, passedItems, isEn, isWeek2);
 
-      // 3. CHECK SUBCLASSES & EER SPECIALISATION (if present in expectedDiagram)
+      // 3. CHECK FOREIGN KEYS {FK} (Week 2 EER / Relational Schema)
+      if (isWeek2) {
+        this.checkForeignKeys(uEntities, uRels, expected.relationships || [], expected.entities || [], errors, passedItems, isEn);
+      }
+
+      // 4. CHECK SUBCLASSES & EER SPECIALISATION (if present in expectedDiagram)
       if (expected.subclasses) {
         this.checkSubclasses(uEntities, uSubclasses, expected.subclasses, errors, passedItems, isEn);
       }
@@ -223,25 +228,42 @@
         }
 
         // Entity exists! Check its Primary Key {PK}
+        // Strict Primary Key {PK} check:
         if (expPk) {
-          const hasPkAttr = (found.attributes || []).some(a => a.isPK && this.norm(a.name) === this.norm(expPk));
-          const hasAnyPk = (found.attributes || []).some(a => a.isPK);
-          const hasPkByName = (found.attributes || []).some(a => this.norm(a.name) === this.norm(expPk));
-          const cardHasPk = found.pk && this.norm(found.pk) === this.norm(expPk);
-
-          if (!hasPkAttr && !cardHasPk && !hasAnyPk) {
+          const matchingPkAttr = (found.attributes || []).find(a => this.norm(a.name) === this.norm(expPk));
+          if (!matchingPkAttr) {
             errors.push({
-              category: 'pk_missing',
-              target: `${isEn ? 'Primary Key' : 'Birlamchi Kalit {PK}'}: ${expName}`,
-              title: isEn ? `Primary Key {PK} not marked on '${expName}'` : `'${expName}' entitiysida Birlamchi Kalit {PK} belgilanmagan`,
+              category: 'pk_missing_attribute',
+              target: `${isEn ? 'Primary Key Attribute' : 'Birlamchi Kalit Atributi'}: ${expName}.${expPk}`,
+              title: isEn ? `Primary Key attribute '${expPk}' missing in '${expName}'` : `'${expName}' kartasida '${expPk}' Birlamchi Kalit atributi topilmadi!`,
               message: isEn 
-                ? `In the relational model, every strong entity must have a designated {PK} primary key attribute ('${expPk}').`
-                : `Relyatsion modelda har bir mustaqil entitiy o'zining yagona identifikatori — {PK} birlamchi kalitiga ('${expPk}') ega bo'lishi shart.`,
-              userVal: isEn ? 'No {PK} set' : "{PK} belgilanmagan",
+                ? `Entity '${expName}' must contain primary key attribute '${expPk}'.`
+                : `'${expName}' entitiyida unikal identifikator bo'lgan '${expPk}' atributi mavjud bo'lishi shart.`,
+              proof: isEn 
+                ? `Entity Integrity Rule: Every relational table requires a unique identifier attribute. '${expPk}' is designated as the Primary Key for '${expName}'.`
+                : `Relyatsion Model Qoidasi (Entity Integrity): Har bir jadvalda yagona identifikator bo'lgan atribut bo'lishi shart. '${expName}' uchun '${expPk}' Birlamchi Kalit hisoblanadi.`,
+              userVal: isEn ? 'Attribute missing' : "Atribut mavjud emas",
               expectedVal: `${expPk} {PK}`,
               fix: isEn 
-                ? `Add attribute '${expPk}' and click the {PK} badge beside it on '${expName}'.`
-                : `'${expName}' kartochkasida '${expPk}' atributi yonidagi {PK} tugmasini bosing.`
+                ? `Add attribute '${expPk}' to '${expName}' and mark it {PK}.`
+                : `'${expName}' kartasiga '➕ Atribut' orqali '${expPk}' ni qo'shing va uni {PK} deb belgilang.`
+            });
+          } else if (!matchingPkAttr.isPK) {
+            errors.push({
+              category: 'pk_not_marked',
+              target: `${isEn ? 'Primary Key' : 'Birlamchi Kalit {PK}'}: ${expName}.${expPk}`,
+              title: isEn ? `'${expPk}' is not marked as {PK} on '${expName}'` : `'${expName}' kartasida '${expPk}' Birlamchi Kalit {PK} deb belgilanmagan!`,
+              message: isEn 
+                ? `Attribute '${expPk}' exists in '${expName}', but its badge is not set to {PK}.`
+                : `'${expName}' kartasida '${expPk}' atributi bor, lekin uning yonidagi nishon {PK} qilib belgilanmagan (Hozirda: ${matchingPkAttr.isFK ? '{FK}' : (matchingPkAttr.isPPK ? '{PPK}' : 'Oddiy')}).`,
+              proof: isEn 
+                ? `Primary Key constraint: '${expPk}' must be designated as the Primary Key {PK} to serve as the unique row identifier and support relational integrity.`
+                : `Relyatsion Butunlik Isboti: '${expPk}' jadvaldagi barcha qatorlarni unikal tarzda ajratib turuvchi Birlamchi Kalit {PK} bo'lishi shart. Busiz relyatsion sxema yaroqsiz hisoblanadi! '${expPk}' yonidagi tugmani bosib, uni {PK} holatiga o'tkazing.`,
+              userVal: matchingPkAttr.isFK ? "{FK}" : (matchingPkAttr.isPPK ? "{PPK}" : (isEn ? "Plain attribute" : "Oddiy atribut")),
+              expectedVal: `${expPk} {PK}`,
+              fix: isEn 
+                ? `Click the badge next to '${expPk}' on '${expName}' to toggle it to {PK}.`
+                : `'${expName}' kartasida '${expPk}' atributi yonidagi tugmani bosib, uni {PK} holatiga keltiring.`
             });
           } else {
             passedItems.push({
@@ -272,8 +294,11 @@
         }
 
         // Check Partial Primary Key {PPK} for Weak Entity attributes
-        if (expEnt && expEnt.attributes) {
-          const expPPKAttrs = expEnt.attributes.filter(a => a.isPPK).map(a => a.name);
+        const expPPKAttrs = [
+          ...((expEnt && expEnt.ppk) ? (Array.isArray(expEnt.ppk) ? expEnt.ppk : [expEnt.ppk]) : []),
+          ...((expEnt && expEnt.attributes) ? expEnt.attributes.filter(a => a.isPPK).map(a => a.name) : [])
+        ];
+        if (expPPKAttrs.length > 0) {
           for (const expPPK of expPPKAttrs) {
             const userAttr = (found.attributes || []).find(a => this.norm(a.name) === this.norm(expPPK));
             if (!userAttr || !userAttr.isPPK) {
@@ -362,7 +387,7 @@
         }
 
         // Connection exists!
-        // In Week 2 EER mode, multiplicity is NOT used. We only verify connection existence, identifying mode, and specialization.
+        // In Week 2 EER mode: verify identifying mode AND strictly enforce that multiplicity is converted to '+'!
         if (isWeek2) {
           if (expR.isIdentifying && !foundRel.isIdentifying) {
             errors.push({
@@ -381,10 +406,32 @@
                 ? `Click the relationship line or diamond and toggle 'Identifying' on.`
                 : `Aloqa chizig'ini yoki rombini tanlab, 'Identifikatsion' (Identifying) rejimini yoqing.`
             });
+          }
+
+          // Check Multiplicity in Week 2: Must be converted to '+' on both ends!
+          const m1 = (foundRel.mult1 || '').trim();
+          const m2 = (foundRel.mult2 || '').trim();
+          if (m1 !== '+' || m2 !== '+') {
+            errors.push({
+              category: 'eer_mult_must_be_plus',
+              target: `${isEn ? 'EER Multiplicity' : 'EER Multiplisitiya'}: ${relLabel}`,
+              title: isEn ? `Multiplicity must be converted to '+'` : `Multiplicity '+' ga o'zgartirilishi shart!`,
+              message: isEn
+                ? `In Week 2 EER diagrams, traditional ER multiplicity bounds (${m1 || 'empty'} ⟷ ${m2 || 'empty'}) must not remain. You must convert both ends to '+' before submitting for verification.`
+                : `2-Hafta EER diagrammasida an'anaviy ER multiplisitiyalari (${m1 || "bo'sh"} ⟷ ${m2 || "bo'sh"}) qolmasligi shart! Relyatsion modelga o'tkazishdan oldin aloqa chizig'idagi har ikkala tomon multiplisitiyasini '+' belgisiga o'zgartiring.`,
+              proof: isEn
+                ? `Pedagogical & Architectural Proof: In EER diagrams and relational schema mapping, lower/upper cardinality bounds (min..max) are superseded by the standard multiplicity-free '+' connector. Leaving ER multiplicities creates semantic conflict when mapping to relational foreign keys. Both ends of the relationship must be converted to '+'.`
+                : `Pedagogik va Me'moriy Isbot: EER va relyatsion sxemaga o'tkazishda min..max chegaralari o'rniga yagona '+' belgisi qo'yiladi. Eski ER multiplisitiyalarini qoldirish relyatsion jadvallarga xaritalashda chalkashlik tug'diradi. Shu sababli relyatsion modelga o'tishdan oldin bog'lanishlar umumiy EER aloqasi ('+') ga keltirilishi shart!`,
+              userVal: `${m1 || (isEn ? 'empty' : "bo'sh")} ⟷ ${m2 || (isEn ? 'empty' : "bo'sh")}`,
+              expectedVal: `+ ⟷ +`,
+              fix: isEn
+                ? `Click the multiplicity badge on the relationship line and click '⚡ Set '+' on Both Ends' or select '+' for each side.`
+                : `Chiziqdagi multiplisitiya nishonini bosing va '⚡ Ikkala tomonni '+' qilish' tugmasini bosing yoki har ikki tomonni '+' ga o'tkazing.`
+            });
           } else {
             passedItems.push({
-              name: `${isEn ? 'Relationship Line' : "Aloqa Chizig'i"}: ${relLabel}`,
-              detail: isEn ? (expR.isIdentifying ? "Identifying Connected" : "Connected") : (expR.isIdentifying ? "Identifikatsion bog'langan" : "Bog'langan")
+              name: `${isEn ? 'EER Link (+)' : "EER Bog'lanish (+)"}: ${relLabel}`,
+              detail: '+ ⟷ +'
             });
           }
           continue;
@@ -600,7 +647,108 @@
       return proofs.join(' ');
     },
 
-    // 3. SUBCLASSES & EER SPECIALISATION AUDIT (Week 2)
+    // 3. FOREIGN KEYS AUDIT (Week 2 Relational Schema)
+    checkForeignKeys(uEntities, uRels, expRels, expEntities, errors, passedItems, isEn) {
+      for (const expE of expEntities) {
+        const expName = typeof expE === 'string' ? expE : expE.name;
+        let expectedFks = (expE && (expE.foreignKeys || expE.fk))
+          ? (Array.isArray(expE.foreignKeys || expE.fk) ? (expE.foreignKeys || expE.fk) : [expE.foreignKeys || expE.fk])
+          : [];
+
+        // If no explicit FKs specified on expE, infer from 1:N relationships where this entity is child
+        if (expectedFks.length === 0) {
+          expRels.forEach(r => {
+            const e1 = expEntities.find(e => this.norm(typeof e === 'string' ? e : e.name) === this.norm(r.entity1));
+            const e2 = expEntities.find(e => this.norm(typeof e === 'string' ? e : e.name) === this.norm(r.entity2));
+            if (!e1 || !e2) return;
+
+            // Recursive self-reference (Sector 5)
+            if (this.norm(r.entity1) === this.norm(r.entity2) && this.norm(r.entity1) === this.norm(expName)) {
+              const recFk = r.role1 ? (r.role1 + 'Id') : (r.role2 ? (r.role2 + 'Id') : 'supervisorId');
+              if (!expectedFks.includes(recFk)) expectedFks.push(recFk);
+              return;
+            }
+
+            const m1 = r.mult1 || '';
+            const m2 = r.mult2 || '';
+            const isE1One = (m1 === '1..1' || m1 === '0..1');
+            const isE2Many = (m2 === '1..*' || m2 === '0..*');
+            const isE2One = (m2 === '1..1' || m2 === '0..1');
+            const isE1Many = (m1 === '1..*' || m1 === '0..*');
+
+            if (isE1One && isE2Many && this.norm(r.entity2) === this.norm(expName)) {
+              // e1 is parent, expE is child
+              const parentPk = (typeof e1 === 'object' && e1.pk) ? e1.pk : (e1.name.charAt(0).toLowerCase() + e1.name.slice(1) + 'Id');
+              if (!expectedFks.includes(parentPk)) expectedFks.push(parentPk);
+            } else if (isE2One && isE1Many && this.norm(r.entity1) === this.norm(expName)) {
+              // e2 is parent, expE is child
+              const parentPk = (typeof e2 === 'object' && e2.pk) ? e2.pk : (e2.name.charAt(0).toLowerCase() + e2.name.slice(1) + 'Id');
+              if (!expectedFks.includes(parentPk)) expectedFks.push(parentPk);
+            } else if (r.isIdentifying && (typeof expE === 'object' && expE.isWeak)) {
+              // Weak entity gets owner PK as FK
+              const owner = (this.norm(r.entity1) === this.norm(expName)) ? e2 : e1;
+              if (owner) {
+                const ownerPk = (typeof owner === 'object' && owner.pk) ? owner.pk : (owner.name.charAt(0).toLowerCase() + owner.name.slice(1) + 'Id');
+                if (!expectedFks.includes(ownerPk)) expectedFks.push(ownerPk);
+              }
+            }
+          });
+        }
+
+        if (expectedFks.length === 0) continue;
+
+        const found = uEntities.find(ue => this.norm(ue.name) === this.norm(expName));
+        if (!found) continue; // entity missing is handled by checkEntities
+
+        for (const expFk of expectedFks) {
+          const matchingAttr = (found.attributes || []).find(a => this.norm(a.name) === this.norm(expFk));
+
+          if (!matchingAttr) {
+            errors.push({
+              category: 'fk_missing_attribute',
+              target: `${isEn ? 'Foreign Key Attribute' : 'Tashqi Kalit Atributi'}: ${expName}.${expFk}`,
+              title: isEn ? `Foreign Key attribute '${expFk}' missing in '${expName}'` : `'${expName}' kartasida '${expFk}' Tashqi Kalit atributi topilmadi!`,
+              message: isEn
+                ? `Entity '${expName}' must contain foreign key attribute '${expFk}' to reference its parent entity.`
+                : `'${expName}' entitiyida ota entitiyaga murojaat qiluvchi '${expFk}' Tashqi Kalit atributi mavjud bo'lishi shart!`,
+              proof: isEn
+                ? `Referential Integrity Rule: In a relational model, parent-child relationships are enforced by placing the Primary Key of the parent entity as a Foreign Key {FK} into the child entity table. Without this attribute, relational joins and foreign key constraints cannot be established.`
+                : `Referensial Butunlik Qoidasi (Referential Integrity): Relyatsion modelda ota va bola jadvallar o'rtasidagi bog'liqlik ota jadvalning Primary Key sini bola jadvalga Foreign Key {FK} sifatida joylashtirish orqali amalga oshiriladi. '${expFk}' atributi bo'lmasa, ma'lumotlar bazasida bog'lanish va qatorlar tegishliligi butunlay yo'qoladi!`,
+              userVal: isEn ? 'Attribute missing' : "Atribut mavjud emas",
+              expectedVal: `${expFk} {FK}`,
+              fix: isEn
+                ? `Add attribute '${expFk}' to '${expName}' and click its badge to set {FK}.`
+                : `'${expName}' kartasidagi '➕ Atribut' tugmasi orqali '${expFk}' ni qo'shing va uning yonidagi nishonni bosib {FK} holatiga o'tkazing.`
+            });
+          } else if (!matchingAttr.isFK) {
+            const curBadge = matchingAttr.isPK ? "{PK}" : (matchingAttr.isPPK ? "{PPK}" : (isEn ? "Plain attribute" : "Oddiy atribut"));
+            errors.push({
+              category: 'fk_not_marked',
+              target: `${isEn ? 'Foreign Key {FK}' : 'Tashqi Kalit {FK}'}: ${expName}.${expFk}`,
+              title: isEn ? `'${expFk}' is not marked as {FK} on '${expName}'` : `'${expName}' kartasida '${expFk}' Tashqi Kalit {FK} deb belgilanmagan!`,
+              message: isEn
+                ? `Attribute '${expFk}' exists in '${expName}', but its badge is not set to {FK} (Current: ${curBadge}).`
+                : `'${expName}' kartasida '${expFk}' atributi bor, ammo u {FK} (Tashqi Kalit) deb belgilanmagan (Hozirda: ${curBadge}).`,
+              proof: isEn
+                ? `Referential Integrity Constraint: Attribute '${expFk}' links '${expName}' to its parent table. It must be explicitly tagged as Foreign Key {FK} so the relational DBMS creates the FOREIGN KEY constraint and prevents orphaned records.`
+                : `Referensial Butunlik Isboti: '${expFk}' atributi '${expName}' jadvalini ota jadval bilan bog'lovchi kalit hisoblanadi. Uning yonidagi nishon {FK} (Foreign Key) deb belgilanmas ekan, ma'lumotlar bazasi uni oddiy ustun deb hisoblaydi va referensial butunlik cheklovini o'rnatmaydi. '${expFk}' yonidagi tugmani bosib, uni {FK} holatiga o'tkazing!`,
+              userVal: curBadge,
+              expectedVal: `${expFk} {FK}`,
+              fix: isEn
+                ? `Click the badge next to '${expFk}' on '${expName}' to toggle it to {FK}.`
+                : `'${expName}' kartasida '${expFk}' atributi yonidagi tugmani bosib, uni {FK} holatiga keltiring.`
+            });
+          } else {
+            passedItems.push({
+              name: `${expName} {FK}`,
+              detail: expFk
+            });
+          }
+        }
+      }
+    },
+
+    // 4. SUBCLASSES & EER SPECIALISATION AUDIT (Week 2)
     checkSubclasses(uEntities, uSubclasses, expSub, errors, passedItems, isEn) {
       const expSuper = this.norm(expSub.superclass);
       const expSubs = (expSub.subs || expSub.subclasses || []).map(s => this.norm(typeof s === 'string' ? s : s.name));

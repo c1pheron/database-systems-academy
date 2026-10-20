@@ -2074,6 +2074,24 @@ input, textarea, select, [contenteditable="true"] {
   box-shadow: 0 0 16px rgba(212, 175, 55, 0.9) !important;
 }
 
+.mult-pill.plus-pill {
+  background: #0284c7 !important;
+  border: 1.5px solid #38bdf8 !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  padding: 1px 7px !important;
+  line-height: 1.1 !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6) !important;
+}
+
+.mult-pill.plus-pill:hover, .mult-pill.plus-pill:active {
+  background: #38bdf8 !important;
+  color: #0f172a !important;
+  transform: translate(-50%, -50%) scale(1.25) !important;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.95) !important;
+}
+
 /* INTERACTIVE LINE ACTION TOOLBAR (MULTIPLICITY + DELETE) */
 .line-action-toolbar {
   position: absolute;
