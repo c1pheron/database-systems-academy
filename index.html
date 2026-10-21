@@ -465,6 +465,8 @@
       }
     }
   </style>
+  <!-- 3-Module Leaderboard Engine Styles -->
+  <link rel="stylesheet" href="oop/shared/leaderboard-engine.css">
 </head>
 <body>
 
@@ -623,6 +625,67 @@
       </article>
 
     </div>
+
+    
+    <!-- ================================================================= -->
+    <!-- 🏆 3-MODUL AKADEMIK JONLI REYTING (LEADERBOARD) -->
+    <!-- ================================================================= -->
+    <section class="portal-leaderboard-card" id="portalLeaderboardSection" style="margin-top: 48px; background: rgba(22, 27, 34, 0.95); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 28px 24px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 16px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #0284c7, #7c3aed); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+            🏆
+          </div>
+          <div>
+            <h2 style="font-size: 19px; font-weight: 800; color: #fff; margin: 0;" data-i18n="portal_lb_title">Jonli Akademik Reyting (3 ta Modul)</h2>
+            <div style="font-size: 12px; color: var(--text-muted);" data-i18n="portal_lb_subtitle">Haqiqiy talabalar natijalari va o'zaro peshqadamlik jadvali</div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.3); padding: 5px 12px; border-radius: 20px;">
+          <span class="pulsing-green-dot" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e;"></span>
+          <span id="portalOnlineCount" style="font-size: 11px; font-weight: 700; color: #4ade80; font-family: 'JetBrains Mono', monospace;">2 talaba onlayn</span>
+        </div>
+      </div>
+
+      <!-- 4 Module Tabs -->
+      <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 22px;" id="portalLbTabs">
+        <button class="portal-lb-tab active" data-mod="all" style="padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid rgba(168, 85, 247, 0.3); background: linear-gradient(135deg, #7c3aed, #a855f7); color: #fff;">🌟 Jami Reyting</button>
+        <button class="portal-lb-tab" data-mod="oop" style="padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid rgba(192, 132, 252, 0.25); background: rgba(16, 20, 26, 0.8); color: #94a3b8;">☕ OOP Java</button>
+        <button class="portal-lb-tab" data-mod="ds" style="padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid rgba(56, 189, 248, 0.25); background: rgba(16, 20, 26, 0.8); color: #94a3b8;">🏛️ Database Systems</button>
+        <button class="portal-lb-tab" data-mod="os" style="padding: 7px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; border: 1px solid rgba(245, 158, 11, 0.25); background: rgba(16, 20, 26, 0.8); color: #94a3b8;">🐧 Operating Systems</button>
+      </div>
+
+      <!-- User Standing Highlight -->
+      <div class="lb-user-banner" id="portalLbUserBanner" style="margin-bottom: 20px;"></div>
+
+      <!-- Podium Top 3 -->
+      <div class="lb-podium" id="portalLbPodium" style="margin-bottom: 24px;"></div>
+
+      <!-- Leaderboard Table -->
+      <div class="lb-table-wrap">
+        <table class="lb-table">
+          <thead>
+            <tr>
+              <th style="width: 70px;">O'rin</th>
+              <th>Talaba</th>
+              <th class="text-right" style="width: 140px;">Bajarilgan</th>
+              <th class="text-right" style="width: 130px;">Ball (XP)</th>
+              <th class="text-center" style="width: 100px;">Holat</th>
+            </tr>
+          </thead>
+          <tbody id="portalLbTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Bottom Action Bar (Sync with Telegram Bot) -->
+      <div style="margin-top: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px;">
+        <button class="btn-portal-sync" id="btnSyncWithBot" type="button" style="background: linear-gradient(135deg, #0284c7, #7c3aed); border: none; color: #fff; padding: 10px 18px; border-radius: 8px; font-weight: 700; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);">
+          <span>⚡</span> <span>Bot Bilan Sinxronlash (@seventyoneplus_bot)</span>
+        </button>
+        <span style="font-size: 12px; color: var(--text-muted);">Har bir to'g'ri yechilgan masala = 50 XP</span>
+      </div>
+    </section>
+
 
     <!-- Master Author & Academic Badge Footer -->
     <footer style="margin-top: 40px; padding: 24px 20px; border-top: 1px solid rgba(255, 255, 255, 0.08); background: rgba(22, 27, 34, 0.6); border-radius: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
@@ -803,11 +866,14 @@
       }
 
       syncProgress();
+      if (window.LeaderboardEngine) window.LeaderboardEngine.renderPortalLeaderboard();
       window.addEventListener("focus", syncProgress);
       window.addEventListener("pageshow", syncProgress);
       window.addEventListener("storage", syncProgress);
     })();
   </script>
 
+  <!-- 3-Module Leaderboard Engine Script -->
+  <script src="oop/shared/leaderboard-engine.js"></script>
 </body>
 </html>
