@@ -397,7 +397,9 @@
       // 6. Check Specific OOP Keywords
       if (requirements.keywords) {
         for (const kw of requirements.keywords) {
-          const kwRegex = new RegExp(`\\b${kw.replace("@", "\\@")}\\b`);
+          const kwRegex = kw.startsWith("@")
+            ? new RegExp(`${kw.replace("@", "\\@")}\\b`)
+            : new RegExp(`\\b${kw}\\b`);
           const lineNum = findLineNumber(kwRegex);
 
           if (lineNum) {
